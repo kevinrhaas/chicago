@@ -2034,6 +2034,38 @@
         ]
       },
       "source": "/tmp/smoke_m1213.txt"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12-13",
+      "parts": [
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 196,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 462,
+      "takenAt": "2026-09-24T08:15:44.645Z",
+      "ref": "steward/t1526-c3-handed-reruled",
+      "commit": "d17d1defba58",
+      "devCommit": "37098b25d420",
+      "treeHash": "sha256:272989a621c71a4b",
+      "treeDirty": false,
+      "changelogHash": "sha256:8698621fe0e9c552",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.3,
+          4.4,
+          4.1
+        ]
+      },
+      "source": "/tmp/smoke_m1213_rb.txt"
     }
   ]
 }
