@@ -64,6 +64,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 | `R0_ineligible/carried_by_the_cards_own_row` | 1097 |
 | `R0_ineligible/carried_under_a_crosswalk_merged_name` | 161 |
 | `R0_ineligible/earlier_than_the_window` | 149 |
+| `R0_ineligible/forename_printed_surname_lost` | 1 |
 | `R0_ineligible/later_only_and_not_backprojectable` | 9849 |
 | `R0_ineligible/ledger_a_sale_is_never_a_residence` | 413 |
 | `R0_ineligible/ledger_earlier_evidence_adds_no_1835_fact` | 19 |
@@ -77,7 +78,8 @@ The research spend was, correctly, conservative. This page does not overturn one
 | `R0_ineligible/not_a_town_finding` | 9 |
 | `R0_ineligible/outside_chicago` | 108 |
 | `R0_ineligible/researched_not_resident` | 9 |
-| `R0_ineligible/surname_only_and_unmatched` | 254 |
+| `R0_ineligible/single_name_parent_of_a_named_child` | 3 |
+| `R0_ineligible/surname_only_and_unmatched` | 250 |
 | `R0_ineligible/undated_reading` | 257 |
 | `R1_in_window_uncertain/card_presence_is_uncertain` | 804 |
 | `R2_in_window_single_source/in_window_read_and_withheld` | 181 |
