@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1093, title: 'The town stops carrying a lawyer it had to invent', kind: 'change', ts: '2026-09-24T16:41:42.527Z', date: 'Sep 24, 2026, 11:41 AM CT',
+    items: [
+      'A December 1835 census counts twenty-two lawyers. Scaled down to the smaller town of the previous July, that is fifteen \u2014 and the town could name only thirteen of them, so two law offices were invented to stand for the rest. Both said on their own cards that they stood only until a record took their place.',
+      'One did. A reading admitted earlier this week found L. G. Curtiss printed an attorney in the Chicago Democrat of 1 July 1835, the scene date itself. That makes fourteen the town can name, and leaves room for one invented office, not two.',
+      'So R. Parmelee\u2019s law office on South Water Street is retired. Which of the two goes was decided by the order they were dealt in and not by hand, and the office is re-derived away rather than deleted. Reuben Parmelee himself stays: he keeps his trade and waits for a workplace.',
+      'The town had been carrying sixteen lawyers against a target of fifteen, and could not put it right: the ledger held the target up at what had already been built, and the builder read the held number back. It now reads the real one for the class it owns, and refuses to retire any house another part of the town has adopted by name.',
+    ] },
   { v: 1092, title: 'Thirty-one people were printed the same trade twice on their own card', kind: 'fix', ts: '2026-09-24T14:47:27.964Z', date: 'Sep 24, 2026, 9:47 AM CT',
     items: [
       'Open a resident’s card here and under the 1835 trade there is a list of every other printing this project has found against that name — what a later directory said they did, which volume said it, and which year. It is the part of a card that shows a life going on past the one day this town is frozen on.',

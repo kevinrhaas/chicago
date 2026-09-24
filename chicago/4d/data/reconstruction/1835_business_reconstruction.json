@@ -7,7 +7,7 @@
   "proprietors": "ADOPTED from data/residents/reconstructed_trades/, never minted. tools/reconstruct_residents_1835.py is the one writer of a person.",
   "style_guide": "docs/RESEARCH/business-naming-1835.md",
   "liberty": "docs/LIBERTIES.md § L254",
-  "records": 32,
+  "records": 31,
   "groups": {
     "lodging_river_and_transport": {
       "ticket": "T-1187",
@@ -79,9 +79,9 @@
     "professions_and_services": {
       "ticket": "T-1418",
       "title": "the professions and the services",
-      "records": 18,
+      "records": 17,
       "by_class": {
-        "lawyer": 2,
+        "lawyer": 1,
         "other": 15,
         "physician": 1
       },
@@ -91,7 +91,7 @@
         "Kinzie Street": 3,
         "Lake Street": 4,
         "North Water Street": 2,
-        "South Water Street": 3
+        "South Water Street": 2
       },
       "by_roof": {},
       "ids": [
@@ -105,7 +105,6 @@
         "rcb_mcguire_physician",
         "rcb_metcalf_land_office",
         "rcb_murphy_land_office",
-        "rcb_parmelee_lawyer",
         "rcb_quinn_millinery",
         "rcb_robillard_lawyer",
         "rcb_sawyer_dress_making_shop",
@@ -125,7 +124,6 @@
         "rc_mcguire_john",
         "rc_metcalf_hiram",
         "rc_murphy_hugh",
-        "rc_parmelee_reuben",
         "rc_quinn_honora",
         "rc_robillard_baptiste",
         "rc_sawyer_almira",
@@ -657,7 +655,7 @@
             "name": "Reuben Parmelee",
             "division": "south",
             "head_slot": "trade_households:persons/male/20_29/south/family/trade:attorney:001",
-            "firm": "rcb_parmelee_lawyer"
+            "firm": null
           },
           {
             "person_id": "rc_dickinson_george",
