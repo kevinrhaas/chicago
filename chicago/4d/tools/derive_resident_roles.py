@@ -889,7 +889,62 @@ def fold_duplicates(rows: list[dict]) -> tuple[list[dict], int]:
             row["note"] += (" SYNONYM-FOLDED (T-1254): the same source prints this role "
                             "as " + also + " as well, and one source asserting one role "
                             "over one bound is one row.")
-    return list(kept.values()), folded
+    rows, subsumed = fold_unadjudicated(list(kept.values()))
+    return rows, folded + subsumed
+
+
+def fold_unadjudicated(rows: list[dict]) -> tuple[list[dict], int]:
+    """The pointer's row yields to the record that asserts the same printing (T-1539).
+
+    `_key` identifies a row by its controlled ROLE, and falls back to the printing only
+    where the wording has not been adjudicated into the vocabulary. So the pointer's row
+    and the crosswalk's row for one printing key DIFFERENTLY the moment the crosswalk has
+    ruled on the wording — `justice_of_the_peace` against `justice of the peace` — and the
+    primary fold cannot see that they are one assertion. It folded 73 of the 1839
+    pointer's 90 printings, where neither side had adjudicated the wording, and left the
+    other 17 standing twice on the card: one source, one wording, one year, two rows.
+
+    That is not a second opinion, it is the same printing read by two routes, and
+    `roles_for` already states which one is kept — "where a record asserts the same thing,
+    the record's row is the one that is kept". This is that sentence, executed. A row is
+    dropped only when it names NO role and NO claim (which is the pointer's row and only
+    the pointer's row — every crosswalk row carries the entry it was read from) and a row
+    naming BOTH asserts the same printing over the same bound from the same source.
+
+    THE GRADE MOVES DOWN, NEVER UP, and the survivor says so. The pointer's row is graded
+    `attested` off the card's `later_occupation` block, which is a grade on whether the
+    volume PRINTED the line; the crosswalk's row is graded `inferred`, which is a grade on
+    whether this printing belongs to THIS card — the identity match. The second is the
+    weaker claim and the one a role row on a person is actually making, so the survivor
+    keeps it.
+    """
+    adjudicated = {}
+    for row in rows:
+        if row.get("role") and row.get("claim"):
+            k = (tuple(row.get("sources") or ()), row.get("as_printed") or "",
+                 row.get("from") or "", row.get("to") or "")
+            adjudicated.setdefault(k, row)
+    kept, subsumed = [], 0
+    for row in rows:
+        if row.get("role") or row.get("claim"):
+            kept.append(row)
+            continue
+        k = (tuple(row.get("sources") or ()), row.get("as_printed") or "",
+             row.get("from") or "", row.get("to") or "")
+        survivor = adjudicated.get(k)
+        if survivor is None:
+            kept.append(row)
+            continue
+        subsumed += 1
+        survivor["note"] += (
+            " POINTER-FOLDED (T-1539): the card's own `later_occupation` pointer offers "
+            "this same printing, from this same source and over this same bound, as a row "
+            "that names neither the entry it was read from nor the place the entry printed. "
+            "This row is that row's record, so the two are one assertion and this is the "
+            "one kept. The pointer's row is graded `attested` on the PRINTING existing; "
+            "this row is graded on whether the printing belongs to this card, which is the "
+            "weaker claim and the one a role on a person makes.")
+    return kept, subsumed
 
 
 _PREMISES: dict[str, str] | None = None
@@ -934,14 +989,21 @@ def roles_for(person: dict, gazetteer: dict[str, dict] | None = None) -> list[di
                             "norris_1844_directory")
     rows += prose_roles(pid, person)
     # THE POINTER GOES LAST, AND THAT IS THE WHOLE OF ITS DEMOTION (T-1515). It offers
-    # the same assertion as the volume's own crosswalk row for 73 of the 90 1839
-    # printings it carries — one source, one wording, one year — so `fold_duplicates`
-    # keeps ONE of the two, and whichever is listed first is the one that survives. The
-    # crosswalk row is the better-founded of the pair: it names the entry it was read
-    # from in `claim` and the street the entry printed in `place`, and the pointer row
-    # names neither. So the pointer is offered AFTER the records, and it stands alone
-    # only where no record asserts what it says — which is what makes it a convenience
-    # rather than an origin. Removing it removes no row that a crosswalk also carries.
+    # the same assertion as the volume's own crosswalk row — one source, one wording, one
+    # year — so `fold_duplicates` keeps ONE of the two, and the crosswalk's is the one
+    # kept: it names the entry it was read from in `claim` and the street the entry
+    # printed in `place`, and the pointer row names neither. So the pointer is offered
+    # AFTER the records, and it stands alone only where no record asserts what it says —
+    # which is what makes it a convenience rather than an origin. Removing it removes no
+    # row that a crosswalk also carries.
+    #
+    # THAT LAST SENTENCE WAS FALSE FOR 31 ROWS UNTIL T-1539. The primary fold keys a row
+    # by its controlled ROLE and falls back to the printing only where the wording is
+    # unadjudicated, so it folded the pair only while NEITHER side had ruled on the
+    # wording — 73 of the 1839 pointer's 90 printings — and the moment a crosswalk ruled
+    # `justice of the peace` into `justice_of_the_peace` the two keyed apart and both
+    # stood on the card. `fold_unadjudicated` is the other half, and it is why the
+    # sentence above is now a rule rather than an intention.
     later = later_role(occ)
     if later:
         rows.append(later)
@@ -1563,6 +1625,47 @@ def self_test() -> int:
             holds("…and no printed street NUMBER crosses into place",
                   any(c.isdigit() for c in row39["place"]), False)
 
+        # T-1539: THE SAME CLAIM, OVER AN ENTRY WHOSE WORDING THE CROSSWALK HAS RULED ON.
+        # The four assertions above sample the FIRST 1839 entry carrying a printed trade,
+        # and its wording happens to be unadjudicated — `role` is null on both the record's
+        # row and the pointer's, so they key alike and the primary fold has always caught
+        # them. The pair that keyed APART is the one where the crosswalk ruled the printing
+        # into the closed vocabulary, and on 31 cards both rows stood. So sample that case
+        # by name: an entry whose printing folds to a controlled role.
+        ruled = next((m for m in ((x1839.get("residents") or {}).get("matches") or [])
+                      for e in (m.get("entries_1839") or [])
+                      if (e.get("occupation_1839") or "").strip()
+                      and _fold((e.get("occupation_1839") or "").strip())[0]), None)
+        holds("the 1839 crosswalk rules at least one printing into the vocabulary",
+              bool(ruled), True)
+        if ruled:
+            pid_r = ruled["person_id"]
+            entry_r = next(e for e in ruled["entries_1839"]
+                           if (e.get("occupation_1839") or "").strip()
+                           and _fold((e.get("occupation_1839") or "").strip())[0])
+            printed_r = entry_r["occupation_1839"].strip()
+
+            def rows_1839(occ):
+                return [r for r in roles_for({"id": pid_r, "occupation": occ}, {})
+                        if r["from"] == "1839"
+                        and r["sources"] == ["fergus_chicago_directory_1839"]]
+
+            empty_r = {"value": ABSENT, "confidence": "reconstructed", "note": "held"}
+            pointed_r = dict(empty_r, later_occupation={
+                "value": printed_r, "describes_date": 1839,
+                "confidence": "attested", "sources": ["fergus_chicago_directory_1839"]})
+            holds("an adjudicated printing stands once with no pointer",
+                  len(rows_1839(empty_r)), 1)
+            holds("…and once WITH the pointer offering the same printing",
+                  len(rows_1839(pointed_r)), len(rows_1839(empty_r)))
+            kept_r = rows_1839(pointed_r)[0]
+            holds("…and the row kept is the record's, which names its entry",
+                  kept_r["claim"], entry_r["claim"])
+            holds("…carrying the controlled role the pointer's row left null",
+                  bool(kept_r["role"]), True)
+            holds("…and the fold is stated on the card",
+                  "POINTER-FOLDED" in kept_r["note"], True)
+
         holds("a card with no role evidence gains no roles[]",
               "roles" in (out.get("hh_none.json") or {"persons": [{}]})["persons"][0], False)
 
@@ -1574,7 +1677,7 @@ def self_test() -> int:
 
     for line in failures:
         print(f"FAIL {line}", file=sys.stderr)
-    print(f"self-test: {72 - len(failures)}/72 assertions hold")
+    print(f"self-test: {78 - len(failures)}/78 assertions hold")
     return 1 if failures else 0
 
 
