@@ -143,16 +143,41 @@ HOUSEHOLD_TYPES = (
 PERSON_TICKET_RULES = (
     ("fort division", lambda a: a["division"] == "fort", "T-1176"),
     ("the transient cohort", lambda a: a["household_type"] == "transient", "T-1178"),
-    # T-1500 repointed this off its split parent on 2026-09-21 (T-1420), the same
-    # sweep and the same reason as T-1347's two lines below. T-1175 — fill the beds —
-    # split into T-1370 (the lodging model), T-1371 (seat the boarders) and T-1372,
-    # and every piece of that tree that fills a bed has since closed; its one live
-    # descendant, T-1407, is the crews and the harbour-works gang and nothing else.
-    # So the 278 persons these 59 buckets still order were ordered by nobody, which
-    # is the hole `every_work_order_names_a_live_ticket` refuses. T-1500 carries the
-    # remainder to the queue as a row the owner can rank. Who fills WHICH bed is a
-    # modelling decision and is not taken here.
-    ("a bed rather than a household", lambda a: a["household_type"] == "lodging", "T-1500"),
+    # THE BED BUCKETS, cut three ways by T-1500 on 2026-09-24.
+    #
+    # T-1420's sweep (2026-09-21) found these cells ordered by T-1175, which had split,
+    # and every piece of that tree that fills a bed had closed. It repointed them at
+    # T-1500 as ONE placeholder owner and said so: "Who fills WHICH bed is a modelling
+    # decision and is not taken here." T-1500 is that decision, and the answer is that
+    # the remainder is not one job. It is three, and the boarders stage
+    # (`tools/seat_lodgers_1835.py`) had already drawn the lines, in the three refusals
+    # it wrote against itself — so the cut below is quoted from the town's own work
+    # rather than picked, which is why it is a rule on the axes and not a table of cells.
+    #
+    # The stage's own summary of what it left: "the rest wait on the 37 unbuilt boarding
+    # houses, the crews and the works gang (T-1372), the trades this stage does not deal,
+    # and the children who are keepers' families rather than boarders."
+    #
+    #   refusal 2, NO TRADE IS DEALT      -> T-1532, the working lodgers
+    #   refusal 3, NO CHILDREN            -> T-1533, the minted keepers' own families
+    #   the 37 unbuilt boarding houses    -> T-1534, the boarders proper, bed-bound
+    #
+    # On the book as T-1500 read it, the 278 still owed divide 61 / 86 / 131 across the
+    # three, over 30 / 12 / 24 of the 66 cells. The order of the rules matters once: a
+    # 10-19-year-old AT A TRADE is an apprentice boarding where they work, so the trade
+    # rule takes those six cells before the under-twenty rule sees them. There is no
+    # `under_10` trade cell — children carry no trade — so nothing else turns on it.
+    #
+    # T-1407 (the crews and the harbour-works gang) stays the one live descendant of
+    # T-1175 and is NOT given cells here: a crew sleeps aboard rather than in a division's
+    # house, and the book has no axis that separates them. T-1534 carries that refusal.
+    ("a working lodger, a bed rather than a household",
+     lambda a: a["household_type"] == "lodging" and a["trade"] == "trade", "T-1532"),
+    ("a child of the house, a bed rather than a household",
+     lambda a: a["household_type"] == "lodging" and a["age_band"] in ("under_10", "10_19"),
+     "T-1533"),
+    ("a boarder, a bed rather than a household",
+     lambda a: a["household_type"] == "lodging", "T-1534"),
     # T-1347 repointed this off its split parent. T-1173 was the epic; it split into
     # T-1346 (read the 1839 trade table) and T-1347 (draw the heads), and a bucket whose
     # owning ticket is a SPLIT parent names nobody who can act on it (T-1237).
@@ -178,12 +203,14 @@ ROSTER_TICKETS = {
 HOUSEHOLD_BUCKETS = (
     ("family_dwelling", "ordinary_dwellings", "T-1171"),
     ("store_residence", "stores_mixed_use", "T-1171"),
-    # Swept with the person rule above (T-1420 -> T-1500). Both of these rows are
-    # discharged — every boarding house and inn the model wants is standing — so the
-    # gate does not reach them; they move only so that one household type does not
-    # answer to two different tickets depending on which family you read.
-    ("boarding_house", "larger_boarding_houses", "T-1500"),
-    ("inn_tavern", "inns_taverns", "T-1500"),
+    # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 on 2026-09-24). Both
+    # of these rows are discharged — every boarding house and inn the model wants is
+    # standing — so the gate does not reach them; they move only so that one household
+    # type does not answer to two different tickets depending on which family you read.
+    # Of T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD:
+    # the other two fill beds inside a house somebody else's ticket keeps.
+    ("boarding_house", "larger_boarding_houses", "T-1534"),
+    ("inn_tavern", "inns_taverns", "T-1534"),
     # T-1188 split (T-1410, T-1411); the institutional HOUSEHOLDS are the people who
     # lived at a church, a parsonage or a school. T-1410's three establishments — post
     # office, land office, county rooms — house nobody. T-1411 split in turn (T-1421,

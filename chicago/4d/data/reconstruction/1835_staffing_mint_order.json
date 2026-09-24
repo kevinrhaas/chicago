@@ -182,14 +182,14 @@
     ]
   },
   "what_the_book_can_pay": {
-    "what_it_is": "The order book's `.../trade` person buckets with slots left. Every one of them is a `lodging/trade` bucket and every one is owned by T-1500, the lodgers stage — so a mint that spends them spends another stage's quota, which is itself part of the question above. T-1500 because T-1175, which held these buckets when this sentence was written, split and left them ordered by nobody; T-1420 swept the book onto live owners on 2026-09-21 and the stage is the same stage.",
+    "what_it_is": "The order book's `.../trade` person buckets with slots left. Every one of them is a `lodging/trade` bucket and every one is owned by T-1532, the working lodgers — so a mint that spends them spends another stage's quota, which is itself part of the question above. T-1532 because T-1175, which held these buckets when this sentence was written, split and left them ordered by nobody; T-1420 swept the book onto the live placeholder T-1500 on 2026-09-21, and T-1500 cut the bed buckets three ways on 2026-09-24, the `lodging/trade` third of them to T-1532. The stage is the same stage throughout.",
     "slots_outstanding": 61,
     "by_sex": {
       "female": 25,
       "male": 36
     },
     "owning_tickets": [
-      "T-1500"
+      "T-1532"
     ],
     "buckets": [
       {
@@ -199,7 +199,7 @@
         "division": "north",
         "household_type": "lodging",
         "outstanding": 3,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/female/10_19/south/lodging/trade",
@@ -208,7 +208,7 @@
         "division": "south",
         "household_type": "lodging",
         "outstanding": 9,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/female/10_19/west/lodging/trade",
@@ -217,7 +217,7 @@
         "division": "west",
         "household_type": "lodging",
         "outstanding": 4,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/female/20_29/north/lodging/trade",
@@ -226,7 +226,7 @@
         "division": "north",
         "household_type": "lodging",
         "outstanding": 2,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/female/20_29/south/lodging/trade",
@@ -235,7 +235,7 @@
         "division": "south",
         "household_type": "lodging",
         "outstanding": 2,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/female/40_49/north/lodging/trade",
@@ -244,7 +244,7 @@
         "division": "north",
         "household_type": "lodging",
         "outstanding": 1,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/female/40_49/west/lodging/trade",
@@ -253,7 +253,7 @@
         "division": "west",
         "household_type": "lodging",
         "outstanding": 1,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/female/50_plus/north/lodging/trade",
@@ -262,7 +262,7 @@
         "division": "north",
         "household_type": "lodging",
         "outstanding": 1,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/female/50_plus/south/lodging/trade",
@@ -271,7 +271,7 @@
         "division": "south",
         "household_type": "lodging",
         "outstanding": 1,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/female/50_plus/west/lodging/trade",
@@ -280,7 +280,7 @@
         "division": "west",
         "household_type": "lodging",
         "outstanding": 1,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/10_19/north/lodging/trade",
@@ -289,7 +289,7 @@
         "division": "north",
         "household_type": "lodging",
         "outstanding": 4,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/10_19/south/lodging/trade",
@@ -298,7 +298,7 @@
         "division": "south",
         "household_type": "lodging",
         "outstanding": 10,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/10_19/west/lodging/trade",
@@ -307,7 +307,7 @@
         "division": "west",
         "household_type": "lodging",
         "outstanding": 5,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/20_29/south/lodging/trade",
@@ -316,7 +316,7 @@
         "division": "south",
         "household_type": "lodging",
         "outstanding": 2,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/30_39/north/lodging/trade",
@@ -325,7 +325,7 @@
         "division": "north",
         "household_type": "lodging",
         "outstanding": 3,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/30_39/south/lodging/trade",
@@ -334,7 +334,7 @@
         "division": "south",
         "household_type": "lodging",
         "outstanding": 3,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/30_39/west/lodging/trade",
@@ -343,7 +343,7 @@
         "division": "west",
         "household_type": "lodging",
         "outstanding": 3,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/40_49/north/lodging/trade",
@@ -352,7 +352,7 @@
         "division": "north",
         "household_type": "lodging",
         "outstanding": 1,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/40_49/south/lodging/trade",
@@ -361,7 +361,7 @@
         "division": "south",
         "household_type": "lodging",
         "outstanding": 2,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/50_plus/north/lodging/trade",
@@ -370,7 +370,7 @@
         "division": "north",
         "household_type": "lodging",
         "outstanding": 1,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/50_plus/south/lodging/trade",
@@ -379,7 +379,7 @@
         "division": "south",
         "household_type": "lodging",
         "outstanding": 1,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       },
       {
         "bucket": "persons/male/50_plus/west/lodging/trade",
@@ -388,7 +388,7 @@
         "division": "west",
         "household_type": "lodging",
         "outstanding": 1,
-        "owning_ticket": "T-1500"
+        "owning_ticket": "T-1532"
       }
     ]
   },
