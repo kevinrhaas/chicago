@@ -9,8 +9,9 @@
     "B1": "DERIVED — the committed dataset resolves the string on its own (D1 bare town, D2 a committed 1835 street via `streets_named()`, D3 a committed structure name or aka, D4 the bare town standing as one of the string's comma segments). Carried as `derived`, never hand-authored, re-derived by `--check`.",
     "B2": "OUTSIDE — a place beyond the platted town and the military reservation that does NOT contain them: another settlement, county, state, territory or nation, or a named natural feature lying outside. A reading that names only such places is not a Chicago appearance.",
     "B3": "INSIDE, RULED — a place within the town the derivation cannot spell: the fort or one of its parts under a short name; a town institution, landmark or business premises the corpus names in prose; a street or corner named without the word 'street', or named ambiguously between two committed streets that are BOTH in the town.",
-    "B4": "UNDECIDED — the string does not decide the question, and this project will not guess it. Three kinds land here: a container that HOLDS the town (a county, a state, a nation, an army), which places a man neither in the town nor out of it; a place the scene does not commit and cannot locate ('Main Street'); and a survey adjacent to the town that this project commits none of (Kinzie's Addition, Wabansia — T-0789, T-0790).",
-    "B5": "A LIVE IDENTITY QUESTION DOES NOT MAKE A PLACE UNDECIDED. Which house 'Eagle Tavern' names is T-0391's question; that it stood in the town is not in doubt, and the location is ruled while the identity stays open. `tickets` names the ticket that owns the rest."
+    "B4": "UNDECIDED — the string does not decide the question, and this project will not guess it. Two kinds land here: a container that HOLDS the town (a county, a state, a nation, an army), which places a man neither in the town nor out of it; and a place the scene does not commit and cannot locate ('Main Street'). A THIRD KIND — a survey adjacent to the town that this project commits none of — WAS WITHDRAWN ON 2026-09-21 by the owner's ruling on T-1087, because the project commits both surveys it named: Kinzie's Addition (T-1060) and Wabansia (T-1070, T-1086). The stated reason expired, and a rule kept alive past its reason is a rule nobody can check, so the kind went rather than being re-worded — fresh wording would have suggested a second reason was found, and there was none. Those two surveys are ruled `inside` on B6. The two kinds above stand, because their reasons have not expired.",
+    "B5": "A LIVE IDENTITY QUESTION DOES NOT MAKE A PLACE UNDECIDED. Which house 'Eagle Tavern' names is T-0391's question; that it stood in the town is not in doubt, and the location is ruled while the identity stays open. `tickets` names the ticket that owns the rest.",
+    "B6": "INSIDE, RULED — a survey adjacent to the platted town whose ground THIS PROJECT COMMITS. Written 2026-09-21 by the owner's ruling on T-1087, taking over B4's withdrawn third kind: once a survey's streets and its tract outline are seated on the committed datum, that ground is this town's, and a man the corpus prints in it is a Chicago appearance. It is not B3, which speaks of places INSIDE the plat that the derivation cannot spell; a B6 place lies outside the plat and inside the town. A survey this project has NOT committed is not a B6 place and is not undecided either — it is B2, outside, like any other adjacent ground the scene does not hold."
   },
   "places": [
     {
@@ -364,13 +365,10 @@
     },
     {
       "place": "Kinzie's Addition",
-      "resolution": "undecided",
-      "basis": "B4",
+      "resolution": "inside",
+      "basis": "B6",
       "what": "the survey north of the river, subdivided 1833, immediately adjacent to the town",
-      "note": "part of the settlement and none of the committed town — and that second half is no longer true. This note used to read 'T-0789 is the open ticket to draw it, and until it lands there is nothing here to resolve against'; T-1060 committed the Addition's streets and T-0789 is closed. Ruled undecided rather than outside for the reason that has NOT expired: a man in Kinzie's Addition was in Chicago by every contemporary reading and refusing him would be the error this vocabulary exists to prevent. The ruling is the owner's to move, and it costs nothing to move — the two people who name this place, John H. Kinzie and Mr Rezigue, are both already `inside` on `Chicago`, so no person's bucket changes either way. T-1087 carries the question with the counts.",
-      "tickets": [
-        "T-1087"
-      ]
+      "note": "THE OWNER'S RULING, 2026-09-21 — INSIDE. T-1060 committed the Addition's streets and T-0789 closed, so B4's stated reason — a survey this project commits none of — had expired here as well, and the kind was withdrawn with it (see B4). The reading that had kept this entry alive since T-1048 is now the ruling rather than an argument against it: a man in Kinzie's Addition was in Chicago by every contemporary reading, and refusing him would be the error this vocabulary exists to prevent. IT MOVES NOBODY — the two people who name this place, John H. Kinzie and Mr Rezigue, are both already `inside` on `Chicago`, so the person buckets carry none of this entry's change."
     },
     {
       "place": "La Salle Street",
@@ -719,13 +717,10 @@
     },
     {
       "place": "Wabansia",
-      "resolution": "undecided",
-      "basis": "B4",
+      "resolution": "inside",
+      "basis": "B6",
       "what": "the addition surveyed 1831 north of Kinzie Street, adjacent to the town",
-      "note": "the same case as Kinzie's Addition, and its stated reason has EXPIRED. This note used to read 'Undecided until the survey is drawn'; the survey is drawn — T-1070 seated Wabansia's seven streets and its block grid on the committed `kinzie` line, and T-1086 seated its river-front water lots and closed its tract outline, 78.63 acres of it, off the same datum. So the ground this vocabulary said it could not resolve against is committed, and the ruling is left standing anyway: `inside` or `outside` is a B-rule, the B-rules are the owner's, and moving a place off B4 changes what counts as a Chicago appearance. What the change would cost is now MEASURED rather than feared — ONE person in the whole register names Wabansia, `person_uncertain_doctor_kimberly` from the Democrat of 16 July 1834, and Wabansia is the only place the register has for him, so he is the entire re-scoring. T-1087 carries the question to the owner with the counts.",
-      "tickets": [
-        "T-1087"
-      ]
+      "note": "THE OWNER'S RULING, 2026-09-21 — INSIDE. B4 held this survey undecided because the project committed none of it. It commits it now: T-1070 seated Wabansia's seven streets and its block grid on the committed `kinzie` line, and T-1086 seated its river-front water lots and closed its tract outline, 78.63 acres, off the same datum. The stated reason expired, so the rule went with it — B4's third kind is withdrawn and the committed adjacent surveys are ruled inside on B6. THE RE-SCORING IS ONE PERSON, counted before the ruling rather than after: one reader in the whole register names Wabansia, `person_uncertain_doctor_kimberly` from the Democrat of 16 July 1834 — a dwelling of four rooms, a kitchen, a barn and a garden, his name cut at the column's right edge — and Wabansia is the only place the register holds for him, so he is the entire move. `persons_by_bucket` goes from {inside 1119, outside 141, undecided 25} to {inside 1120, outside 141, undecided 24}."
     },
     {
       "place": "Water Street",
@@ -1048,19 +1043,19 @@
     "distinct_places": 128,
     "readings": 1395,
     "strings": {
-      "inside": 48,
+      "inside": 50,
       "outside": 71,
-      "undecided": 9
+      "undecided": 7
     },
     "readings_by_bucket": {
-      "inside": 1215,
+      "inside": 1218,
       "outside": 147,
-      "undecided": 33
+      "undecided": 30
     },
     "persons_by_bucket": {
-      "inside": 1119,
+      "inside": 1120,
       "outside": 141,
-      "undecided": 25
+      "undecided": 24
     },
     "persons_without_a_place": 1383,
     "strings_by_basis": {
