@@ -8,7 +8,7 @@
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
 | Persons | 2,536 | 1,283 | 1,721 |
-| Households | 643 | 1,256 | 124 |
+| Households | 643 | 82 | 563 |
 | Businesses (enumerated classes) | 108 | 130 | 7 |
 | Roofs | 668 | 414 | 267 |
 
@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 0. The person leg is PART artifact: 374 before, 227 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 364. The person leg is PART artifact: 374 before, 227 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -31,19 +31,17 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,263 standing plus 505 still owed is 2,768, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 232 above the model's 2,536 point, and that surplus is the 587 people drawn into 51 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,263 standing plus 505 still owed is 2,768, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 232 above the model's 2,536 point, and that surplus is the 463 people drawn into 48 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
-*The model wants 643 households and the layer now holds 1,391 records. Are those the same thing?*
+*The model wants 643 households and the layer holds 1,391 records. Are those the same thing?*
 
-814 of the 820 records T-1386 ruled present hold exactly ONE person, and 424 of them are a single name off a post-office letter list. A letter-list name evidences a PERSON in the town; whether it evidences a HOUSEHOLD in the model's sense — the model's own average is 3.9 people to a house — is a modelling question, and the persons re-cut does not depend on the answer. The household quota therefore reads 0 owed today. That is arithmetic the ruling forces, not a finding that the town has all the houses it needs.
-
-**Declined:** T-1463 says a run that finds a new modelling decision required is to stop and say so rather than invent it. This is that. Filed for the owner.
+Of the 1,256 records the layer holds present, 82 carry a reading about a dwelling and 1,174 do not. The quota is taken against the 82, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
 
 ## Where the re-cut was refused
 
-51 buckets would have had their order cut below the people already drawn against them. The owner's ruling of 2026-09-20 refuses that by name rather than clamping it: each is held at what was drawn, and the surplus is retired or re-familied by T-1196, T-1197 and T-1179.
+48 buckets would have had their order cut below the people already drawn against them. The owner's ruling of 2026-09-20 refuses that by name rather than clamping it: each is held at what was drawn, and the surplus is retired or re-familied by T-1196, T-1197 and T-1179.
 
 | bucket | ticket | cause | quota it was drawn against | the re-cut would order | drawn |
 |---|---|---|---:|---:|---:|
@@ -94,9 +92,6 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 | `persons/male/under_10/north/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 51 | 30 | 51 |
 | `persons/male/under_10/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 120 | 71 | 120 |
 | `persons/male/under_10/west/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 46 | 28 | 43 |
-| `households/family_dwelling/north` | T-1171 | the_re_cut_reached_work_already_drawn | 41 | 0 | 26 |
-| `households/family_dwelling/south` | T-1171 | the_re_cut_reached_work_already_drawn | 77 | 0 | 65 |
-| `households/family_dwelling/west` | T-1171 | the_re_cut_reached_work_already_drawn | 39 | 0 | 33 |
 | `businesses/lawyer` | T-1418 | a_documented_reading_shrank_the_order | 2 | 1 | 2 |
 
 ## The trade cut, re-cut on its remainder
@@ -361,26 +356,28 @@ The households the model wants, by kind and division.
 - `households_target`: 643
 - `households_target_basis`: the midpoint of the model's 469-816, rounded half up
 - `households_target_range`: 469, 816
-- `known_present`: 1,256
+- `known_present`: 82
+- `known_present_records`: 1,256
+- `known_present_awaiting_a_household`: 1,174
 - `known_uncertain_in_the_index_ruled_in_by_T-1386`: 820
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
-| `households/boarding_house/north` | 11 | 12 | 0 | 0 | T-1534 |
-| `households/boarding_house/south` | 40 | 46 | 0 | 0 | T-1534 |
-| `households/boarding_house/west` | 9 | 10 | 0 | 0 | T-1534 |
-| `households/family_dwelling/north` | 121 | 129 | 26 | 26 | T-1171 |
-| `households/family_dwelling/south` | 253 | 289 | 65 | 65 | T-1171 |
-| `households/family_dwelling/west` | 108 | 113 | 33 | 33 | T-1171 |
-| `households/inn_tavern/north` | 3 | 3 | 0 | 0 | T-1534 |
-| `households/inn_tavern/south` | 7 | 8 | 0 | 0 | T-1534 |
-| `households/inn_tavern/west` | 4 | 4 | 0 | 0 | T-1534 |
-| `households/institutional/north` | 4 | 4 | 0 | 0 | T-1189 |
-| `households/institutional/south` | 7 | 8 | 0 | 0 | T-1189 |
-| `households/institutional/west` | 1 | 1 | 0 | 0 | T-1189 |
-| `households/store_residence/north` | 6 | 7 | 0 | 0 | T-1171 |
-| `households/store_residence/south` | 60 | 68 | 0 | 0 | T-1171 |
-| `households/store_residence/west` | 9 | 9 | 0 | 0 | T-1171 |
+| `households/boarding_house/north` | 11 | 1 | 10 | 0 | T-1534 |
+| `households/boarding_house/south` | 40 | 7 | 33 | 0 | T-1534 |
+| `households/boarding_house/west` | 9 | 1 | 8 | 0 | T-1534 |
+| `households/family_dwelling/north` | 121 | 11 | 110 | 26 | T-1171 |
+| `households/family_dwelling/south` | 253 | 41 | 212 | 65 | T-1171 |
+| `households/family_dwelling/west` | 108 | 7 | 101 | 33 | T-1171 |
+| `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-1534 |
+| `households/inn_tavern/south` | 7 | 1 | 6 | 0 | T-1534 |
+| `households/inn_tavern/west` | 4 | 0 | 4 | 0 | T-1534 |
+| `households/institutional/north` | 4 | 0 | 4 | 0 | T-1531 |
+| `households/institutional/south` | 7 | 1 | 6 | 0 | T-1531 |
+| `households/institutional/west` | 1 | 0 | 1 | 0 | T-1531 |
+| `households/store_residence/north` | 6 | 1 | 5 | 0 | T-1171 |
+| `households/store_residence/south` | 60 | 9 | 51 | 0 | T-1171 |
+| `households/store_residence/west` | 9 | 0 | 9 | 0 | T-1171 |
 | `households/garrison/fort` | — | 2 | — | 0 | T-1176 |
 
 ## Businesses

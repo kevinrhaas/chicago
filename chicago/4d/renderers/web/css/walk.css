@@ -650,6 +650,11 @@ body.is-touch .gate-touch { display: block; }
    letter-list group, where having no building is the definition rather than a
    finding — see residents.js § letterListGroupHtml. */
 .res-orphan { border-color: var(--con); color: var(--con); }
+/* T-1476: which UNIT the row is. A house the sources evidence reads in the ordinary
+   chip colour; a record that is a person still awaiting a household is dimmed, because
+   it is not a finding against the record — it is the town's remaining work, and 1,175
+   of them shouting in the conjectural colour would drown the seventeen above that are. */
+.res-awaiting { color: var(--ink-dim); border-color: var(--edge); }
 /* The letter-list cohort (T-0379), which is most of the town's people and none of
    its evidence. One closed group, marked in the conjectural colour the same way a
    single thin claim is, so the split is visible before it is opened. */
