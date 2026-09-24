@@ -284,12 +284,6 @@
     "residents/household:persons[].occupation.withdrawn_from_scene_date.ticket": {
       "records": 6
     },
-    "residents/household:persons[].occupation.withdrawn_from_scene_date.value": {
-      "records": 6
-    },
-    "residents/household:persons[].occupation.withdrawn_from_scene_date.verdict": {
-      "records": 6
-    },
     "residents/household:persons[].reconstruction.company": {
       "records": 124
     },

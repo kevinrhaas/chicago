@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1081, title: 'Six cards say which trade came off their 1835 line, and why', kind: 'fix', ts: '2026-09-24T07:12:16.073Z', date: 'Sep 24, 2026, 2:12 AM CT',
+    items: [
+      'This town is set on one day \u2014 1 July 1835 \u2014 and a card only calls something a man\u2019s trade if a source says it was his trade around then. A printing from another year is evidence about that other year, and it is kept as a dated row on his timeline rather than being quietly carried onto the scene.',
+      'Six men were printed as tradesmen in the Chicago Democrat of 26 November 1833 \u2014 a blacksmith, a grocer, two dry-goods merchants, a soap and candle manufacturer \u2014 and nothing inside the 1835 window prints those trades again. So the trades came off their 1835 line, correctly, twenty months being too far to carry a shop.',
+      'The trouble was what the cards then read. The occupation row said \u201cnot recorded\u201d, and which trade had come off, and the reason it came off, were in the record and on no screen. A visitor could not tell a man this project holds nothing for from a man whose soap and candle works it holds, dated, twenty months early. Cards with a trade printed AFTER 1835 had said so for months; the same sentence from the other side of the year had never been written.',
+      'It is written now. Those six cards name the trade, the month it was printed in, the confidence it was held at and the verdict that took it off \u2014 and the line stands beside the 1835 row, never in place of it. The summary each card opens with says it too, so the two kinds of \u201cnot recorded\u201d differ before the card is even opened.',
+      'Nothing about 1835 moved. The occupation still reads not recorded, no grade changed, no card gained or lost a row on its timeline, and the date printed here is read off that timeline rather than kept a second time where it could drift.',
+    ] },
   { v: 1080, title: 'Seventeen people in this town were one person twice', kind: 'fix', ts: '2026-09-24T06:41:20.031Z', date: 'Sep 24, 2026, 1:41 AM CT',
     items: [
       'How many people this project thinks it has just fell by seventeen, and one card says so: L. C. Chamberlain’s. It read that the post office held a letter for that name on one day of July 1834. It reads across two now \u2014 because the man on the earlier of the two printings turns out to be him.',
