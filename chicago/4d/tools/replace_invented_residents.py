@@ -202,6 +202,9 @@ GAZETTEER = DATA / "research" / "newspapers" / "gazetteer.json"
 STRUCTURES = DATA / "structures"
 EXCLUSIONS = DATA / "exclusions.json"
 ADOPTIONS = DATA / "research" / "newspapers" / "street_face_adoptions.json"
+# T-1502: the key paths the name pool may read, per record kind. See town_surnames().
+NAME_POOL_KEYS = DATA / "reconstruction" / "name_pool_keys.json"
+NAME_WORD = re.compile(r"\b[A-Z][a-z]{2,}\b")
 
 SCENE_DATE = "1835-07-01"
 PREFIX = "hh_inf_"
@@ -298,29 +301,91 @@ def paper_for(claim_ids) -> list[str]:
 # what the town already names
 # ---------------------------------------------------------------------------
 
-def town_surnames() -> set[str]:
+def name_pool_sources() -> dict[str, list[pathlib.Path]]:
+    """The files the name pool reads, by record kind."""
+    return {
+        "structures": sorted(STRUCTURES.glob("*.json")),
+        # NOT the reconstructed households. Their names are this layer's own
+        # inventions and guard nothing, and once this pass has written a documented
+        # name into one of them, reading it back would refuse that man on the next
+        # run as "already named in the town" — a guard that poisons itself and makes
+        # --check pass against any tree at all.
+        "households": sorted(p for p in HOUSEHOLDS.glob("*.json")
+                             if not p.name.startswith(PREFIX)),
+        "exclusions": [EXCLUSIONS] if EXCLUSIONS.exists() else [],
+    }
+
+
+def string_leaves(node, path: str = ""):
+    """Yield (key path, string) for every string value; a list step is '[]'."""
+    if isinstance(node, dict):
+        for key, value in node.items():
+            yield from string_leaves(value, f"{path}.{key}" if path else key)
+    elif isinstance(node, list):
+        for value in node:
+            yield from string_leaves(value, path + "[]")
+    elif isinstance(node, str):
+        yield path, node
+
+
+def harvest_names(declared: dict | None = None, sources: dict | None = None):
+    """(pool, undeclared) — the name pool, and the words no declaration covers.
+
+    `pool` maps each lower-cased word to the (file, key path) places it was read
+    from, so a refusal can say where its word came from. `undeclared` lists
+    (kind, key path, file, word) for every capitalised word under a path that
+    data/reconstruction/name_pool_keys.json neither reads nor ignores; those words
+    stay OUT of the pool, and `--check` fails on them.
+    """
+    if declared is None:
+        declared = load(NAME_POOL_KEYS)
+    sources = name_pool_sources() if sources is None else sources
+    pool: dict[str, list[tuple[str, str]]] = {}
+    undeclared: list[tuple[str, str, str, str]] = []
+    for kind, paths in sources.items():
+        read = set(declared.get("read", {}).get(kind, []))
+        ignored = set(declared.get("ignored", {}).get(kind, {}))
+        for path in paths:
+            rel = path.relative_to(DATA).as_posix()
+            doc = json.loads(path.read_text(encoding="utf-8"))
+            for key_path, text in string_leaves(doc):
+                found = NAME_WORD.findall(text)
+                if not found or key_path in ignored:
+                    continue
+                if key_path not in read:
+                    undeclared.append((kind, key_path, rel, found[0]))
+                    continue
+                for word in found:
+                    pool.setdefault(word.lower(), []).append((rel, key_path))
+    return pool, undeclared
+
+
+def town_surnames() -> dict[str, list[tuple[str, str]]]:
     """Every capitalised word the committed dataset already uses as a name.
 
     Read from the structure records, the household records and the exclusions —
     prose included, because the reason to refuse a candidate is that this project
     has ALREADY said something about that name, and most of what it has said
     lives in a research note rather than in a `name` field.
+
+    READ BY DECLARED KEY, NOT BY RAW TEXT (T-1502). Until 2026-09-24 this was every
+    capitalised word in the raw text of those files, which also read whatever any
+    other pass wrote into them for its own reasons: T-1489 wrote a house's
+    business_name into 33 household cards and the tailor Thomas S. Eels silently
+    left this deal. A word now enters the pool only under a key path that
+    data/reconstruction/name_pool_keys.json declares `read`; a new path carrying a
+    capitalised word fails `--check` and names itself. The declaration was seeded
+    from the tree it replaced, so the pool it gives is the raw-text pool exactly.
+    Returns word -> the (file, key path) places that say it.
     """
-    known: set[str] = set()
-    # NOT the reconstructed households. Their names are this layer's own
-    # inventions and guard nothing, and once this pass has written a documented
-    # name into one of them, reading it back would refuse that man on the next
-    # run as "already named in the town" — a guard that poisons itself and makes
-    # --check pass against any tree at all.
-    files = (list(STRUCTURES.glob("*.json"))
-             + [p for p in HOUSEHOLDS.glob("*.json") if not p.name.startswith(PREFIX)])
-    if EXCLUSIONS.exists():
-        files.append(EXCLUSIONS)
-    for path in files:
-        text = path.read_text(encoding="utf-8")
-        for word in re.findall(r"\b[A-Z][a-z]{2,}\b", text):
-            known.add(word.lower())
-    return known
+    return harvest_names()[0]
+
+
+def named_where(places: list[tuple[str, str]]) -> str:
+    """Where the town says a name: the first file and key, and how many more."""
+    first_file, first_key = sorted(places)[0]
+    more = len(places) - 1
+    return f"{first_file} {first_key}" + (f", and {more} more" if more else "")
 
 
 def invented_roofs(docs: dict) -> dict:
@@ -507,7 +572,8 @@ def deal(docs: dict):
                 reason = (f"spoken for by a placeable business "
                           f"({spoken_for[sur]})")
             elif sur in known:
-                reason = f"already named in the town ({sur})"
+                reason = (f"already named in the town ({sur}: "
+                          f"{named_where(known[sur])})")
             elif sur in taken:
                 reason = "surname already dealt"
             if reason:
@@ -757,6 +823,171 @@ def report(pairs, refusals) -> None:
     for trade, cid, name, reason in refusals:
         print(f"  {trade:14s} {name[:34]:36s} {reason}")
 
+    report_name_pool(refusals)
+
+
+def refused_as_named(refusals, pool=None) -> list[tuple[str, str, str, list]]:
+    """(trade, name, surname, places) for every `already named in the town` refusal."""
+    pool = town_surnames() if pool is None else pool
+    out = []
+    for trade, _cid, name, reason in refusals:
+        if reason.startswith("already named in the town ("):
+            sur = reason[len("already named in the town ("):].split(":", 1)[0]
+            out.append((trade, name, sur, pool.get(sur, [])))
+    return out
+
+
+def report_name_pool(refusals) -> None:
+    """T-1502: which declared key paths the refusal-5 candidates rest on.
+
+    A refusal that rests on ONE key path alone is the one a re-ruling of that path
+    would release. Reported, never acted on: whether a path should be read is a
+    decision about the guard, and the declaration records it.
+    """
+    named = refused_as_named(refusals)
+    print(f"\nALREADY NAMED IN THE TOWN — {len(named)} refusal(s), by the key paths "
+          f"that say the surname (T-1502)")
+    alone: dict[str, list[str]] = {}
+    for trade, name, sur, places in named:
+        keys = sorted({key for _f, key in places})
+        print(f"  {trade:14s} {name[:26]:28s} {sur:14s} {len(places):4d} place(s) "
+              f"under {len(keys)} key path(s)")
+        if len(keys) == 1:
+            alone.setdefault(keys[0], []).append(f"{name} ({trade})")
+    if alone:
+        print("  resting on ONE key path alone — a re-ruling of that path would "
+              "release them:")
+        for key, who in sorted(alone.items()):
+            print(f"    {key}: {', '.join(who)}")
+    else:
+        print("  none rests on one key path alone")
+
+
+def undeclared_findings(undeclared) -> list[str]:
+    """One finding per undeclared (kind, key path), naming a file and a word."""
+    by_key: dict[tuple[str, str], list[tuple[str, str]]] = {}
+    for kind, key, rel, word in undeclared:
+        by_key.setdefault((kind, key), []).append((rel, word))
+    out = []
+    for (kind, key), seen in sorted(by_key.items()):
+        rel, word = sorted(seen)[0]
+        files = len({f for f, _w in seen})
+        out.append(
+            f"the name pool meets an undeclared key: {kind} {key} carries {word!r} "
+            f"({rel}, {files} file(s)). Declare it in "
+            f"data/reconstruction/name_pool_keys.json — `read` if it is something "
+            f"the project SAYS about a name, `ignored` with a reason if it is a "
+            f"label, pointer or copy (T-1502)")
+    return out
+
+
+def explain_lost_seats(drift: list[str], refusals) -> list[str]:
+    """Append to a lost seat's drift line the refusal that took its man (T-1502).
+
+    The settlement names the person each roof was dealt; when the deal stops
+    seating him, the refusal that stopped it is already in `refusals`, and for
+    refusal 5 it now says which file and key the colliding word came from.
+    """
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    import inferred_household_ownership as ownership  # noqa: PLC0415
+    spec = ownership.settlement()["passes"]["tools/replace_invented_residents.py"]
+    seats = {row["household"]: row
+             for row in spec["still_owns"]["data/residents/households"]["seats"]}
+    out = []
+    for item in drift:
+        hid = item.split(" ", 1)[0]
+        if hid in seats and item.endswith("the deal no longer seats it"):
+            name = seats[hid]["person_name"]
+            why = [reason for _t, _c, n, reason in refusals if n == name]
+            item += (f" — {name} is refused: {why[0]}" if why
+                     else f" — {name} is not among the candidates at all")
+        out.append(item)
+    return out
+
+
+def self_test() -> int:
+    """Break each T-1502 assertion in turn and require it to fire."""
+    import copy
+    import tempfile
+
+    bad = 0
+
+    def expect(label, ok):
+        nonlocal bad
+        print(f"   {'ok  ' if ok else 'FAIL'} {label}")
+        bad += 0 if ok else 1
+
+    declared = load(NAME_POOL_KEYS)
+    pool, undeclared = harvest_names(declared)
+    raw: set[str] = set()
+    for paths in name_pool_sources().values():
+        for path in paths:
+            raw.update(w.lower() for w in NAME_WORD.findall(path.read_text(encoding="utf-8")))
+    expect("the declaration covers the committed tree (no undeclared key)", not undeclared)
+    expect("the declared pool is the raw-text pool it replaced",
+           set(pool) == raw)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        card = pathlib.Path(tmp) / "hh_fixture.json"
+        card.write_text(json.dumps({"persons": [{
+            "name": "John Doe", "note": "Seen with Ashbel Steele.",
+            "employment": {"business_id": "biz_x", "business_name": "Eels & Co."}}]}),
+            encoding="utf-8")
+        rel = pathlib.Path(tmp)
+        fixture = {"households": [card]}
+        global DATA
+        saved = DATA
+        DATA = rel
+        try:
+            keys = {"read": {"households": ["persons[].name", "persons[].note"]},
+                    "ignored": {"households": {}}}
+            fpool, fund = harvest_names(keys, fixture)
+            expect("an undeclared key carrying a proper name is reported, not read",
+                   any(k == "persons[].employment.business_name" and w == "Eels"
+                       for _kind, k, _f, w in fund) and "eels" not in fpool)
+            expect("…and --check names its kind, key, file and word",
+                   any("households persons[].employment.business_name carries 'Eels'" in f
+                       and "hh_fixture.json" in f for f in undeclared_findings(fund)))
+            ign = copy.deepcopy(keys)
+            ign["ignored"]["households"]["persons[].employment.business_name"] = "a copy"
+            ipool, iund = harvest_names(ign, fixture)
+            expect("an ignored key's words stay out of the pool and raise nothing",
+                   "eels" not in ipool and not iund)
+            rd = copy.deepcopy(keys)
+            rd["read"]["households"].append("persons[].employment.business_name")
+            rpool, _ = harvest_names(rd, fixture)
+            expect("a read key's words enter the pool with their file and key",
+                   rpool.get("eels") == [("hh_fixture.json",
+                                          "persons[].employment.business_name")])
+            expect("a refusal names the file and key its word came from",
+                   named_where(rpool["steele"]) == "hh_fixture.json persons[].note")
+        finally:
+            DATA = saved
+
+    spec_rows = None
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+        import inferred_household_ownership as ownership  # noqa: PLC0415
+        spec_rows = ownership.settlement()["passes"][
+            "tools/replace_invented_residents.py"]["still_owns"][
+            "data/residents/households"]["seats"]
+    except Exception as exc:  # noqa: BLE001
+        expect(f"the settlement is readable ({exc})", False)
+    if spec_rows:
+        row = spec_rows[0]
+        line = f"{row['household']} is in the settlement and the deal no longer seats it"
+        fake = [("x", "id", row["person_name"],
+                 "already named in the town (x: residents/households/hh_a.json persons[].note)")]
+        got = explain_lost_seats([line], fake)[0]
+        expect("a lost seat's drift line names the refusal that took its man",
+               "hh_a.json persons[].note" in got and row["person_name"] in got)
+        got = explain_lost_seats([line], [])[0]
+        expect("…and says so when he is not among the candidates at all",
+               "not among the candidates" in got)
+
+    print(f"   self-test: {'0 failure(s)' if not bad else f'{bad} failure(s)'}")
+    return 1 if bad else 0
+
 
 def pipeline_input() -> dict:
     """The households as the two passes BEFORE this one derive them.
@@ -789,7 +1020,11 @@ def main() -> int:
                     help="re-derive and report any drift without writing")
     ap.add_argument("--report", action="store_true",
                     help="print the deal and every refusal")
+    ap.add_argument("--self-test", action="store_true",
+                    help="prove the name-pool assertions fire when broken (T-1502)")
     args = ap.parse_args()
+    if args.self_test:
+        return self_test()
 
     files, pairs, refusals = build(preload=pipeline_input())
     if args.report:
@@ -821,6 +1056,9 @@ def main() -> int:
 
         seated = {doc["id"]: person for (_p, doc, person), _c, _g, _t, _s in pairs}
         drift = ownership.check_replace_pass(seated)
+        drift = explain_lost_seats(drift, refusals)
+        _pool, undeclared = harvest_names()
+        drift += undeclared_findings(undeclared)
         for item in drift:
             print(f"   DRIFT: {item}")
         if drift:

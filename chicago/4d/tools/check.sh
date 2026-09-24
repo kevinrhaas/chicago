@@ -2994,8 +2994,14 @@ step "one new household renames only the people it collides with" \
 # research_note and the head's grade, sources and note are no longer this pass's —
 # but the head's id and name are, and they are the register's own finding. The
 # withdrawal is asserted, not skipped: a man who quietly becomes placed again fails.
+# T-1502: the deal's name pool reads a capitalised word only under a key path
+# data/reconstruction/name_pool_keys.json declares, so a pass that writes a proper
+# name into a card under a NEW key goes red here, naming the key, instead of
+# silently retiring a documented man; and a lost seat says which refusal took him.
 step "the register's four documented men still head the roofs the deal gives them" \
   python3 tools/replace_invented_residents.py --check
+selftest "…and the name pool's declared keys, and a refusal naming its source, still fire when broken" \
+  python3 tools/replace_invented_residents.py --self-test
 
 # And the pass that ADDS one (T-0376). The register's `new_resident` people are
 # the ones this reconstruction does not hold at all; where it can also read a
