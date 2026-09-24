@@ -3,6 +3,100 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 114,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 482,
+      "takenAt": "2026-09-24T08:04:18.552Z",
+      "ref": "steward/t1087-place-vocabulary-b4",
+      "commit": "48c13de5f8e0",
+      "devCommit": "37098b25d420",
+      "treeHash": "sha256:4762179bf3f951d5",
+      "treeDirty": false,
+      "changelogHash": "sha256:4e8a3e48c8aa9c6d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          4.2,
+          3.6
+        ]
+      },
+      "source": "/tmp/smoke_d13.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 92,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 487,
+      "takenAt": "2026-09-24T08:04:18.461Z",
+      "ref": "steward/t1087-place-vocabulary-b4",
+      "commit": "48c13de5f8e0",
+      "devCommit": "37098b25d420",
+      "treeHash": "sha256:4762179bf3f951d5",
+      "treeDirty": false,
+      "changelogHash": "sha256:4e8a3e48c8aa9c6d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          4.2,
+          3.6
+        ]
+      },
+      "source": "/tmp/smoke_d12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12-13",
+      "parts": [
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 196,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 487,
+      "takenAt": "2026-09-24T08:04:18.367Z",
+      "ref": "steward/t1087-place-vocabulary-b4",
+      "commit": "48c13de5f8e0",
+      "devCommit": "37098b25d420",
+      "treeHash": "sha256:4762179bf3f951d5",
+      "treeDirty": false,
+      "changelogHash": "sha256:4e8a3e48c8aa9c6d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          4.2,
+          3.6
+        ]
+      },
+      "source": "/tmp/smoke_m1213.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "3,12",
       "parts": [
         3,
@@ -1425,101 +1519,6 @@
         ]
       },
       "source": "/tmp/smoke_m12.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 85,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 187,
-      "takenAt": "2026-09-20T21:26:03.183Z",
-      "ref": "steward/t-1465-roof-covering-substrates",
-      "commit": "a86c268a5a6d",
-      "devCommit": "278888e2897e",
-      "treeHash": "sha256:d76acaab081a95fb",
-      "treeDirty": false,
-      "changelogHash": "sha256:0fb3d9d7a66455a7",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.9,
-          4.1,
-          2.9
-        ]
-      },
-      "source": "/tmp/smoke_d1.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 12,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
-      ],
-      "wallSeconds": null,
-      "takenAt": "2026-09-20T21:25:56.640Z",
-      "ref": "steward/t-1478-north-west-record-lots",
-      "commit": "c0e60816dbca",
-      "devCommit": "278888e2897e",
-      "treeHash": "sha256:78543a1fefb7977f",
-      "treeDirty": false,
-      "changelogHash": "sha256:01cb3db722b03bc5",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.7,
-          4.2,
-          3
-        ]
-      },
-      "source": "/tmp/smoke_d3.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 85,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 181,
-      "takenAt": "2026-09-20T21:25:56.572Z",
-      "ref": "steward/t-1478-north-west-record-lots",
-      "commit": "c0e60816dbca",
-      "devCommit": "278888e2897e",
-      "treeHash": "sha256:78543a1fefb7977f",
-      "treeDirty": false,
-      "changelogHash": "sha256:01cb3db722b03bc5",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.7,
-          4.2,
-          3
-        ]
-      },
-      "source": "/tmp/smoke_d1.log"
     },
     {
       "viewport": "mobile",
