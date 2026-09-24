@@ -544,12 +544,12 @@
       "id": "side_blk_west_lake_canal_lot0_n",
       "path_local_enu_m": [
         [
-          -112.67,
-          -120.97
+          -104.2,
+          -121.03
         ],
         [
-          -101.12,
-          -121.06
+          -92.29,
+          -121.13
         ]
       ],
       "belongs_to": [
@@ -573,12 +573,12 @@
       "id": "rear_blk_west_lake_canal_lot0",
       "path_local_enu_m": [
         [
-          -101.12,
-          -121.06
+          -92.29,
+          -121.13
         ],
         [
-          -100.03,
-          -144.74
+          -91.92,
+          -144.81
         ]
       ],
       "belongs_to": [
@@ -596,18 +596,18 @@
           ]
         }
       ],
-      "note": "THE REAR LOT LINE of blk_west_lake_canal_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds pierce_blacksmith_shop — and the yard behind those buildings is 12.19 m deep by 23.71 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_west_lake_canal_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds pierce_blacksmith_shop — and the yard behind those buildings is 12.19 m deep by 23.68 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_west_lake_canal_lot0_s",
       "path_local_enu_m": [
         [
-          -112.86,
-          -144.64
+          -104.39,
+          -144.71
         ],
         [
-          -100.03,
-          -144.74
+          -91.92,
+          -144.81
         ]
       ],
       "belongs_to": [
@@ -5057,8 +5057,8 @@
       "id": "rear_blk_west_lake_canal_lot0_gate",
       "on": "alley",
       "at_local_enu_m": [
-        -100.58,
-        -132.9
+        -92.11,
+        -132.97
       ],
       "width_m": 3.048,
       "confidence": "reconstructed",
