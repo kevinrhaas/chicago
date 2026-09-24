@@ -26,7 +26,8 @@
     "ancillary_families_offered": 0,
     "open_lots_across_the_three_blocks": 2,
     "clause_evidence_records": 4,
-    "clause_evidence_breaching_their_own_clause": 3
+    "clause_evidence_breaching_their_own_clause": 1,
+    "clause_evidence_fronting_no_street": 2
   },
   "roofs": [
     {
@@ -386,7 +387,7 @@
   },
   "clause_witness": {
     "clause": "ancillary_behind_its_own_roof",
-    "scored_term": "class:principal in `avoids`, against the traffic class of the street each record stands nearest",
+    "scored_term": "class:principal in `avoids`, against the traffic class of the street each record FRONTS — a record that fronts none has no class and the term cannot speak for it (T-1511); `the_policy_refuses_it` is the clause's whole answer, both terms",
     "rows": [
       {
         "id": "western_hotel_stable",
@@ -395,7 +396,9 @@
         "street": "canal",
         "street_class": "ordinary",
         "setback_m": 0.59,
-        "breaches_its_own_clause": false
+        "fronts_no_street": false,
+        "breaches_its_own_clause": false,
+        "the_policy_refuses_it": false
       },
       {
         "id": "wolf_point_tavern_stable",
@@ -404,28 +407,35 @@
         "street": "lake",
         "street_class": "principal",
         "setback_m": 36.7,
-        "breaches_its_own_clause": true
+        "fronts_no_street": false,
+        "breaches_its_own_clause": true,
+        "the_policy_refuses_it": true
       },
       {
         "id": "fort_dearborn_big_barn",
         "standing_with_a_street": true,
         "family": "A2",
-        "street": "lake",
-        "street_class": "principal",
+        "street": null,
+        "street_class": null,
         "setback_m": 270.75,
-        "breaches_its_own_clause": true
+        "fronts_no_street": true,
+        "breaches_its_own_clause": false,
+        "the_policy_refuses_it": true
       },
       {
         "id": "fort_dearborn_wash_house",
         "standing_with_a_street": true,
         "family": "A5",
-        "street": "lake",
-        "street_class": "principal",
+        "street": null,
+        "street_class": null,
         "setback_m": 420.22,
-        "breaches_its_own_clause": true
+        "fronts_no_street": true,
+        "breaches_its_own_clause": false,
+        "the_policy_refuses_it": true
       }
     ],
-    "reading": "3 of the 4 documented buildings this clause cites as its evidence stand nearest a principal street, which is the position the clause says it avoids and the one term the policy scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a principal street; `recon_1835_blk_randolph_market_a1_07` is an A1 standing 29.28 m from one. The test that refamilies the second refamilies the first. That is a question about the clause, and this tool does not answer it."
+    "clause_evidence_fronting_no_street": 2,
+    "reading": "1 of the 4 documented buildings this clause cites as its evidence FRONTS a principal street, which is the position the clause says it avoids and the one term the policy scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a principal street; `recon_1835_blk_randolph_market_a1_07` is an A1 standing 29.28 m from one. The test that refamilies the second refamilies the first. That is a question about the clause, and this tool does not answer it. 2 more front no street at all, out on the reservation beyond the census's frontage reach (T-1511): the scored term has no class to read for them, and the clause's own answer is printed beside it — it refuses 2 of them on the `yard` setback it seats by, which is measured off a block alley this ground does not have."
   },
   "remedies": [
     {
@@ -443,7 +453,7 @@
     {
       "id": "leave_them_where_they_are",
       "what": "Let the six stand as the A-family yard buildings they are and record the refusal against the adjudication.",
-      "what_it_changes": "It re-opens T-1445's scoring for this clause, because the reason these six were refused refuses 3 of the clause's own 4 evidence records too. That is the owner's call and not this tool's: a scored term that its own evidence breaches is either the wrong term or the wrong evidence.",
+      "what_it_changes": "It re-opens T-1445's scoring for this clause, because the reason these six were refused refuses 1 of the clause's own 4 evidence records too. That is the owner's call and not this tool's: a scored term that its own evidence breaches is either the wrong term or the wrong evidence.",
       "costs": "0 roofs move; the adjudication's block verdicts are withdrawn and the clause is re-read."
     }
   ]

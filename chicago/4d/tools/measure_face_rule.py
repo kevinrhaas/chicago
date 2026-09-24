@@ -159,7 +159,15 @@ def family_of(record_id: str) -> str | None:
 
 
 def reading() -> dict:
-    """Every building placed against the street it stands nearest, with its family."""
+    """Every building placed against the street it FRONTS, with its family.
+
+    T-1511: a building beyond the census's frontage reach fronts no street, so it has no
+    traffic class — `street` and `class` are both None here. The face rule is a rule
+    about which street a non-dwelling takes the face of, and a building with no street
+    takes no face: it is carried in the reading, printed in the residual, and asserted on
+    by neither clause. It is not counted as a zero on the three classes, which would make
+    the reservation's roofs an argument that no I building stands on a principal street.
+    """
     traffic = street_traffic()
     documented = documented_families()
     rows = []
@@ -236,6 +244,17 @@ def failures(result: dict | None = None) -> list[str]:
     return out
 
 
+def _street(row: dict) -> str:
+    """The street a row fronts — `(none)` where it fronts none at all (T-1511)."""
+    return row["street"] or "(none)"
+
+
+def _setback(row: dict) -> str:
+    if row["street"] is None or row["setback_m"] is None:
+        return "      —"
+    return f"{row['setback_m']:>7.2f}"
+
+
 def _table(result: dict) -> str:
     rows = result["rows"]
     lines = ["\n   where a non-dwelling stands, by the class of the street it is nearest",
@@ -257,15 +276,15 @@ def _table(result: dict) -> str:
     for row in sorted(rows, key=lambda r: r["id"]):
         if not row["block_parcel"]:
             continue
-        lines.append(f"   {row['family']:<4} {row['id']:<44} {row['street']:<13}"
-                     f"{str(row['class']):<11}{row['setback_m']:>7.2f} m"
+        lines.append(f"   {row['family']:<4} {row['id']:<44} {_street(row):<13}"
+                     f"{str(row['class']):<11}{_setback(row)} m"
                      f"{'  on the line' if row['on_line'] else '  set back'}")
     lines.append("\n   the residual this module reports and does not assert on:")
     for row in sorted(rows, key=lambda r: r["id"]):
         if row["layer"] == "research" or row["block_parcel"]:
             continue
-        lines.append(f"   {row['family']:<4} {row['id']:<44} {row['street']:<13}"
-                     f"{str(row['class']):<11}{row['setback_m']:>7.2f} m")
+        lines.append(f"   {row['family']:<4} {row['id']:<44} {_street(row):<13}"
+                     f"{str(row['class']):<11}{_setback(row)} m")
     return "\n".join(lines) + "\n"
 
 
