@@ -14,11 +14,11 @@
     "persons_gaining_rows": 0,
     "rows_proposed": 0,
     "rows_by_kind": {},
-    "refusals": 159,
+    "refusals": 161,
     "refusals_by_kind": {
       "agency_held": 2,
       "church": 16,
-      "civic_seat": 44,
+      "civic_seat": 46,
       "land_purchased": 90,
       "school": 7
     },
@@ -680,6 +680,14 @@
       "kind": "civic_seat",
       "person_id": "davis_george",
       "household_id": "hh_davis_george",
+      "office": "county_clerk",
+      "body": "cook_county",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "davis_george",
+      "household_id": "hh_davis_george",
       "office": null,
       "body": "city_of_chicago",
       "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
@@ -763,6 +771,14 @@
       "office": "justice_of_the_peace",
       "body": "cook_county",
       "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "jones_william",
+      "household_id": "hh_jones_william",
+      "office": "justice_of_the_peace",
+      "body": "cook_county",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
     },
     {
       "kind": "civic_seat",

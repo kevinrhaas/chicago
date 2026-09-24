@@ -557,6 +557,71 @@ def surname_only(read: str, normalised: str) -> bool:
     return len(normalised.split()) == 1
 
 
+# T-1505: rule 9's predicate is one token and nothing more, so it cannot tell a clipped
+# surname from the whole of what a clerk wrote for a person. Two shapes are told apart
+# here, each from the RECORD'S OWN FIELDS and never from a guess about a name's language.
+PARENT_ROLES = {"mother", "father"}
+GENERAL_STATEMENTS = {
+    "R0_ineligible/single_name_parent_of_a_named_child": (
+        "The reading gives one name, and the register writes this person as the mother "
+        "or father of a child it names on the same dated entry. One name in that place is "
+        "the whole of what the clerk wrote for a parent, not a surname clipped from a "
+        "person, and the filiation says which person it is. It is refused all the same: "
+        "a single name as the parent at a baptism is not a resident this roster may mint "
+        "under the name read. The row's note names the child."),
+}
+CHILD_ROLES = {"child", "subject"}
+_SOURCE_RECORDS: dict[str, list] = {}
+
+
+def role_of(record: dict) -> str | None:
+    return ((record.get("locator") or {}).get("role")
+            or (record.get("cells") or {}).get("role"))
+
+
+def source_records(source_file: str) -> list:
+    """The records of a unit's source file, read once."""
+    if source_file not in _SOURCE_RECORDS:
+        path = Path(source_file)
+        path = path if path.is_absolute() else ROOT / path
+        try:
+            doc = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            doc = {}
+        _SOURCE_RECORDS[source_file] = (doc.get("records") or []) if isinstance(doc, dict) else []
+    return _SOURCE_RECORDS[source_file]
+
+
+def named_child_of(unit: dict) -> str | None:
+    """The named child a single-name PARENT is written beside, on the same dated entry.
+
+    The kinship is the register's own: this record's role is mother or father, and a
+    record of the same entry (same `locator.entry` and `year_series`, same date) has the
+    role child or subject and a name of its own. Returns that name, or None.
+    """
+    record = unit["record"]
+    if role_of(record) not in PARENT_ROLES:
+        return None
+    loc = record.get("locator") or {}
+    key = (loc.get("entry"), loc.get("year_series"), record.get("describes_date"))
+    if key[0] is None:
+        return None
+    for other in source_records(unit["source_file"]):
+        oloc = other.get("locator") or {}
+        if ((oloc.get("entry"), oloc.get("year_series"), other.get("describes_date")) == key
+                and role_of(other) in CHILD_ROLES
+                and str(other.get("as_read") or "").strip()):
+            return str(other["as_read"]).strip()
+    return None
+
+
+def forename_with_surname_lost(unit: dict) -> bool:
+    """The record says the forename was printed and the surname is lost on the page."""
+    record = unit["record"]
+    surname = str(record.get("surname") or "")
+    return bool(record.get("forename_printed")) and not re.search(r"[A-Za-z]", surname)
+
+
 # ---------------------------------------------------------------- the classification
 
 def community_of(text: str) -> tuple[str | None, str | None]:
@@ -745,7 +810,9 @@ def classify(unit: dict, read: str, normalised: str, led: dict, layer: dict,
                     "The 1 April 1834 return of uncalled-for letters names this person "
                     "and nothing follows them to the scene date."))
 
-    # 9. A surname where a person is wanted: the census refusals.
+    # 9. A surname where a person is wanted: the census refusals. A single token that is
+    #    NOT a clipped surname — a parent named beside a named child, a printed forename
+    #    whose surname the page lost — is refused under a sentence true of it (T-1505).
     ruled = (rulings_1830 or {}).get(str(unit["source_record_id"]))
     if domain == "census_1830" and ruled and ruled["outcome"] == "refused_surname_only":
         return out("R4_surname_only_census",
@@ -765,6 +832,25 @@ def classify(unit: dict, read: str, normalised: str, led: dict, layer: dict,
                         "household(s) in this town already carry; it may shape a family "
                         "and never a new head."),
                        existing_household_id=matches[0])
+        child = named_child_of(unit)
+        if child:
+            role = role_of(unit["record"])
+            return out("R0_ineligible",
+                       ("single_name_parent_of_a_named_child",
+                        f"The reading gives one name, and the register writes this person "
+                        f"as the {role} of {child}, named on the same dated entry. One name "
+                        "in that place is the whole of what the clerk wrote for a parent, "
+                        "not a surname clipped from a person, and the filiation says which "
+                        "person it is. It is refused all the same: a single name as the "
+                        "parent at a baptism is not a resident this roster may mint "
+                        "under the name read."))
+        if forename_with_surname_lost(unit):
+            return out("R0_ineligible",
+                       ("forename_printed_surname_lost",
+                        "The reading gives a forename, and the record says the surname is "
+                        "lost on the page and invents none. A forename alone cannot be "
+                        "matched to a household or minted into one, so it names nobody "
+                        "to re-admit."))
         return out("R0_ineligible",
                    ("surname_only_and_unmatched",
                     "The reading gives a surname and no person, and no household of this "
@@ -1030,6 +1116,11 @@ def build_document(root: Path = ROOT) -> dict:
     for row in rows:
         key = f"{row['class']}/{row['rule']}"
         statements.setdefault(key, row["why"])
+    # A rule whose reason names something particular to each row states itself in
+    # general terms, so the first row's particulars never stand as the rule (T-1505).
+    for key, text in GENERAL_STATEMENTS.items():
+        if key in statements:
+            statements[key] = text
     for row in rows:
         key = f"{row['class']}/{row['rule']}"
         why = row.pop("why")
@@ -1476,6 +1567,59 @@ def self_test() -> int:
     expect("NOT_A_COMMUNITY is struck before a name-borne term is read",
            community_written_onto_the_name(
                "John Doe", "john doe", "john doe, indian agent") == (None, None))
+
+    # 8. T-1505: rule 9 says what is true of each row it refuses, in both directions.
+    by_rule = defaultdict(list)
+    for r in every_row(doc):
+        by_rule[r.get("rule")].append(r)
+    parents = {r["row_id"].split("/")[-1] for r in by_rule["single_name_parent_of_a_named_child"]}
+    expect(f"the three single-name parents of a named child are told apart (got {sorted(parents)})",
+           parents == {"st_marys_bapt_1833_08_3_mother#0", "st_marys_bapt_1833_06_3_mother#0",
+                       "st_marys_bapt_1835_03_2_father#0"})
+    notes = {r["row_id"].split("/")[-1]: r.get("note") or ""
+             for r in by_rule["single_name_parent_of_a_named_child"]}
+    expect(f"each parent's note names the child it is written beside (got {notes})",
+           "mother of Marie Josette," in notes.get("st_marys_bapt_1833_08_3_mother#0", "")
+           and "mother of John David," in notes.get("st_marys_bapt_1833_06_3_mother#0", "")
+           and "father of Geneviève Medera," in notes.get("st_marys_bapt_1835_03_2_father#0", ""))
+    expect("the rule's own statement names no one row's child",
+           "Marie Josette" not in doc["rule_statements"].get(
+               "R0_ineligible/single_name_parent_of_a_named_child", "Marie Josette"))
+    lost = {r["row_id"].split("/")[-1] for r in by_rule["forename_printed_surname_lost"]}
+    expect(f"the forename whose surname the page lost is told apart (got {sorted(lost)})",
+           lost == {"st_cyr_death_08_1#0"})
+    expect("a surname standing alone keeps the surname refusal (the witness Bourrasso)",
+           any(r["row_id"].endswith("st_marys_bapt_1835_03_4_witness#0")
+               for r in by_rule["surname_only_and_unmatched"]))
+    moved = (by_rule["single_name_parent_of_a_named_child"]
+             + by_rule["forename_printed_surname_lost"])
+    expect("no row changes class: every one stays R0_ineligible",
+           moved and all(r["class"] == "R0_ineligible" for r in moved))
+    expect("the surname refusal keeps its sentence word for word, and no row a note",
+           not any(r.get("note") for r in by_rule["surname_only_and_unmatched"])
+           and {doc["rule_statements"]["R0_ineligible/surname_only_and_unmatched"]} == {
+               "The reading gives a surname and no person, and no household of this "
+               "town carries it; a surname alone names nobody to re-admit."})
+    # ...and the predicates refuse what they must not reach: a parent whose entry
+    # names no child, a child's own single name, and a forename flag with a surname.
+    with tempfile.TemporaryDirectory() as tmp:
+        src = Path(tmp) / "records.json"
+        src.write_text(json.dumps({"records": [
+            {"id": "p", "as_read": "Solo", "describes_date": "1833-01-01",
+             "locator": {"entry": 1, "year_series": 1833, "role": "mother"}},
+            {"id": "c", "as_read": "", "describes_date": "1833-01-01",
+             "locator": {"entry": 1, "year_series": 1833, "role": "child"}},
+            {"id": "q", "as_read": "Other", "describes_date": "1833-01-02",
+             "locator": {"entry": 1, "year_series": 1833, "role": "child"}},
+        ]}), encoding="utf-8")
+        recs = json.loads(src.read_text(encoding="utf-8"))["records"]
+        expect("a parent whose entry names no child is not given the kinship refusal",
+               named_child_of({"record": recs[0], "source_file": str(src)}) is None)
+        expect("a child's own single name is not a parent's",
+               named_child_of({"record": recs[2], "source_file": str(src)}) is None)
+    expect("a printed-forename flag with a surname read is not a lost surname",
+           not forename_with_surname_lost({"record": {"forename_printed": True,
+                                                      "surname": "Clark"}}))
 
     for line in failures:
         print(f"SELF-TEST FAILED: {line}")

@@ -369,7 +369,7 @@ THE NINE QUESTIONS ASKED OF EVERY ONE OF THE 2265 PEOPLE, TOGETHER. 6 of the nin
 | arrival | household | 2265 | 100.0% | 127 | 1445 | 693 | 0 | 0 |
 | origin | household | 2265 | 100.0% | 24 | 84 | 2157 | 0 | 0 |
 | reason for coming | household | 2265 | 100.0% | 33 | 28 | 2204 | 0 | 0 |
-| a role, or a stated reason for having none | person | 2265 | 100.0% | 253 | 74 | 1938 | 0 | 0 |
+| a role, or a stated reason for having none | person | 2265 | 100.0% | 155 | 172 | 1938 | 0 | 0 |
 | presence on the scene date | household | 2265 | 100.0% | 59 | 1520 | 686 | 0 | 0 |
 | division | household | 857 | 37.8% | 0 | 0 | 0 | 857 | 1408 |
 | household relationship | person | 2265 | 100.0% | 0 | 0 | 0 | 2265 | 0 |
@@ -2008,38 +2008,38 @@ Every household carries an arrival block and 95.3% of them (1327) hold a `not_la
 
 ## Roles — plural and dated
 
-327 of 2265 persons carry at least one role and 173 carry two or more. 160 of the 687 roles in the layer reach 1 July 1835; the other 527 are printed against the name in a later volume and say so.
+327 of 2265 persons carry at least one role and 195 carry two or more. 160 of the 765 roles in the layer reach 1 July 1835; the other 605 are printed against the name in a later volume and say so.
 
 ### Persons by number of roles
 
 | roles on the card | persons | share |
 |---:|---:|---:|
 | 0 | 1938 | 85.6% |
-| 1 | 154 | 6.8% |
-| 2 or more | 67 | 3.0% |
-| 3 or more | 67 | 3.0% |
-| 4 or more | 18 | 0.8% |
-| 5 or more | 8 | 0.4% |
-| 6 or more | 8 | 0.4% |
-| 7 or more | 3 | 0.1% |
-| 8 or more | 1 | 0.0% |
+| 1 | 132 | 5.8% |
+| 2 or more | 73 | 3.2% |
+| 3 or more | 58 | 2.6% |
+| 4 or more | 37 | 1.6% |
+| 5 or more | 10 | 0.4% |
+| 6 or more | 9 | 0.4% |
+| 7 or more | 4 | 0.2% |
+| 8 or more | 3 | 0.1% |
 | 9 or more | 1 | 0.0% |
 
 ### Roles by kind
 
 | kind | roles |
 |---|---:|
-| trade | 556 |
-| profession | 80 |
-| office | 50 |
+| trade | 628 |
+| profession | 84 |
+| office | 52 |
 | employment | 1 |
 
 ### Occupations reaching the scene date, by tier
 
 | tier | persons |
 |---|---:|
-| attested | 119 |
-| inferred | 18 |
+| attested | 118 |
+| inferred | 19 |
 | reconstructed | 203 |
 
 ### The trades themselves
@@ -2112,7 +2112,7 @@ Every household carries an arrival block and 95.3% of them (1327) hold a `not_la
 | tailor | 1 |
 | watchmaker | 1 |
 
-*Offices held: Alexander Loyd, Asahel Pierce, Ashbel Steele, Col. Jean Baptiste Beaubien, Daniel Elston, Edmund D Taylor, Erastus Bowen, George Davis, George W. Snow, George Washington Dole, Gholson Kercheval, Isaac Dewey Harmon, James Walker, James Whitlock, Jeremiah Price, Jeremiah Smith, John Harris Kinzie, John M. Nelson, John Miller, John Murphy, John S. C. Hogan, John Scott, Josiah Stillman, Levi F. Arnold, Mark Beaubien, O I Thompson, Richard Jones Hamilton, Russel E. Heacock, Silas W Sherman, Stephen Forbes, Stephen M. Salisbury, Thomas Galaher, Thomas Jefferson Vance Owen, W B Ogden, William H Brown, William H. Stow.*
+*Offices held: Alexander Loyd, Asahel Pierce, Ashbel Steele, Col. Jean Baptiste Beaubien, Daniel Elston, Edmund D Taylor, Erastus Bowen, George Davis, George W. Snow, George Washington Dole, Gholson Kercheval, Isaac Dewey Harmon, James Walker, James Whitlock, Jeremiah Price, Jeremiah Smith, John Harris Kinzie, John M. Nelson, John Miller, John Murphy, John S. C. Hogan, John Scott, Josiah Stillman, Levi F. Arnold, Mark Beaubien, O I Thompson, Richard Jones Hamilton, Russel E. Heacock, Silas W Sherman, Stephen Forbes, Stephen M. Salisbury, Thomas Galaher, Thomas Jefferson Vance Owen, W B Ogden, William H Brown, William H. Stow, William Jones.*
 
 *Houses of entertainment kept: Alanson Sweet, Chester Ingersoll, Edward H. Haddock, Harriet Murphy, Ira Couch, J. Shrigley, James Couch, John Davis, John Murphy, Mark Beaubien, Mrs Rufus Brown, Rufus Brown, William H. Stow, William Walters.*
 

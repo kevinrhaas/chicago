@@ -2238,8 +2238,8 @@
        "person",
        2265,
        "100.0%",
-       253,
-       74,
+       155,
+       172,
        1938,
        0,
        0
@@ -11639,7 +11639,7 @@
   {
    "id": "roles",
    "title": "Roles — plural and dated",
-   "lead": "327 of 2265 persons carry at least one role and 173 carry two or more. 160 of the 687 roles in the layer reach 1 July 1835; the other 527 are printed against the name in a later volume and say so.",
+   "lead": "327 of 2265 persons carry at least one role and 195 carry two or more. 160 of the 765 roles in the layer reach 1 July 1835; the other 605 are printed against the name in a later volume and say so.",
    "tables": [
     {
      "title": "Persons by number of roles",
@@ -11657,43 +11657,43 @@
       ],
       [
        "1",
-       154,
-       "6.8%"
+       132,
+       "5.8%"
       ],
       [
        "2 or more",
-       67,
-       "3.0%"
+       73,
+       "3.2%"
       ],
       [
        "3 or more",
-       67,
-       "3.0%"
+       58,
+       "2.6%"
       ],
       [
        "4 or more",
-       18,
-       "0.8%"
+       37,
+       "1.6%"
       ],
       [
        "5 or more",
-       8,
+       10,
        "0.4%"
       ],
       [
        "6 or more",
-       8,
+       9,
        "0.4%"
       ],
       [
        "7 or more",
-       3,
-       "0.1%"
+       4,
+       "0.2%"
       ],
       [
        "8 or more",
-       1,
-       "0.0%"
+       3,
+       "0.1%"
       ],
       [
        "9 or more",
@@ -11713,15 +11713,15 @@
      "rows": [
       [
        "trade",
-       556
+       628
       ],
       [
        "profession",
-       80
+       84
       ],
       [
        "office",
-       50
+       52
       ],
       [
        "employment",
@@ -11740,11 +11740,11 @@
      "rows": [
       [
        "attested",
-       119
+       118
       ],
       [
        "inferred",
-       18
+       19
       ],
       [
        "reconstructed",
@@ -12026,7 +12026,7 @@
     }
    ],
    "notes": [
-    "Offices held: Alexander Loyd, Asahel Pierce, Ashbel Steele, Col. Jean Baptiste Beaubien, Daniel Elston, Edmund D Taylor, Erastus Bowen, George Davis, George W. Snow, George Washington Dole, Gholson Kercheval, Isaac Dewey Harmon, James Walker, James Whitlock, Jeremiah Price, Jeremiah Smith, John Harris Kinzie, John M. Nelson, John Miller, John Murphy, John S. C. Hogan, John Scott, Josiah Stillman, Levi F. Arnold, Mark Beaubien, O I Thompson, Richard Jones Hamilton, Russel E. Heacock, Silas W Sherman, Stephen Forbes, Stephen M. Salisbury, Thomas Galaher, Thomas Jefferson Vance Owen, W B Ogden, William H Brown, William H. Stow.",
+    "Offices held: Alexander Loyd, Asahel Pierce, Ashbel Steele, Col. Jean Baptiste Beaubien, Daniel Elston, Edmund D Taylor, Erastus Bowen, George Davis, George W. Snow, George Washington Dole, Gholson Kercheval, Isaac Dewey Harmon, James Walker, James Whitlock, Jeremiah Price, Jeremiah Smith, John Harris Kinzie, John M. Nelson, John Miller, John Murphy, John S. C. Hogan, John Scott, Josiah Stillman, Levi F. Arnold, Mark Beaubien, O I Thompson, Richard Jones Hamilton, Russel E. Heacock, Silas W Sherman, Stephen Forbes, Stephen M. Salisbury, Thomas Galaher, Thomas Jefferson Vance Owen, W B Ogden, William H Brown, William H. Stow, William Jones.",
     "Houses of entertainment kept: Alanson Sweet, Chester Ingersoll, Edward H. Haddock, Harriet Murphy, Ira Couch, J. Shrigley, James Couch, John Davis, John Murphy, Mark Beaubien, Mrs Rufus Brown, Rufus Brown, William H. Stow, William Walters."
    ]
   },
