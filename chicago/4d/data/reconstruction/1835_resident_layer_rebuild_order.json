@@ -225,6 +225,24 @@
       "why": "A reader of the layer that was in nobody's mental model of the set until #1502's third attempt went red on it."
     },
     {
+      "key": "stage_institutional_households",
+      "build": [
+        "python3",
+        "tools/reconstruct_institutional_households.py",
+        "--build"
+      ],
+      "check": "python3 tools/reconstruct_institutional_households.py --check",
+      "writes": [
+        "data/residents/institutional"
+      ],
+      "reads": [
+        "data/reconstruction/1835_town_model.json",
+        "data/reconstruction/1835_institutional_lodging.json",
+        "data/reconstruction/1835_reconstruction_order_book.json"
+      ],
+      "why": "Programme stage, in the programme's own stage order — after `transients` and before `converge`. It DERIVES from the layer rather than writing into it from a source, so it belongs in the order and not in `not_in_the_order`: the town model sets the household quota, the adjudication decides which of the nine institutional roofs holds one, and the book carries the fills."
+    },
+    {
       "key": "resident_audit",
       "build": [
         "python3",
@@ -334,6 +352,24 @@
         "writer": "stage_garrison",
         "path": "data/residents",
         "why": "Same edge."
+      },
+      {
+        "reader": "resident_index",
+        "writer": "stage_institutional_households",
+        "path": "data/residents",
+        "why": "The manifest counts the cards the stages write, and this stage writes two into data/residents/institutional. Second pass carries it, exactly as the other stages' edges do."
+      },
+      {
+        "reader": "scene_sidecars",
+        "writer": "stage_institutional_households",
+        "path": "data/residents",
+        "why": "The sidecars are compiled from the cards, and these two are cards. Second pass carries it."
+      },
+      {
+        "reader": "town_census",
+        "writer": "stage_institutional_households",
+        "path": "data/residents",
+        "why": "The census counts the layer, and this stage adds two people to it. Second pass carries it."
       }
     ]
   },
@@ -341,52 +377,52 @@
     "_doc": "THE TRIPWIRE, not a classification. `--check` recomputes the set of tools that (a) `tools/check.sh` gates, (b) name `data/residents` in their source, and (c) carry BOTH a write mode and a `--check` — i.e. every gated re-derivation that stands next to the layer. Each name must appear either in `steps` above or in `names` below, so that a tool which JOINS that set is red until a run decides which it is.\n\nWhat this file does NOT claim: that the names below have each been read and found to belong outside the rebuild order. They have not. This run declared the thirteen steps it could demonstrate and enumerated the rest so the set cannot grow silently; most of these write INTO the layer from a source rather than deriving anything FROM it, which is the opposite direction and is why the order does not run them, but that is a reading of the set and not of each tool. Classifying them one at a time is recorded as a finding on T-1398.",
     "classified": false,
     "names": [
-   "apply_census_1840_bridges",
-   "back_project_addresses",
-   "build_staffing_model_1835",
-   "build_trade_table_1839",
-   "compile_businesses",
-   "compile_register",
-   "consolidate_resident_evidence",
-   "crosswalk_census_1840_heads",
-   "employment_coverage_1835",
-   "exhaust_tax_1833",
-   "export_resident_research_package",
-   "location_reconciliation",
-   "mint_civic_residents",
-   "old_settlers",
-   "person_associations",
-   "read_census_1830",
-   "read_fergus_obits",
-   "read_land_sales",
-   "read_st_cyr_register",
-   "read_st_marys_baptisms",
-   "read_voter_lists",
-   "readmit_borderline_roster",
-   "rebuild_closing_set",
-   "reconstruct_businesses_1835",
-   "reconstruct_free_black",
-   "reconstruct_modelled_families",
-   "reconstruct_trade_households",
-   "reconstruct_transients_1835",
-   "reconstruct_underdocumented",
-   "report_convergence_coverage",
-   "report_letter_list_collisions",
-   "report_research_closing_audit",
-   "rule_presence_1835",
-   "seat_known_1835",
-  "seat_lodgers_1835",
-   "seat_reconstructed_trades_1835",
-   "seat_wabansia_streets",
-   "spend_ladder_rungs",
-   "spend_stated_families",
-   "spend_trade_premises",
-   "staff_businesses_1835",
-   "staff_the_houses_1835",
-   "staffing_mint_order_1835",
-   "survey_stated_kin",
-   "trade_census_1835",
-   "trade_census_spend_1835"
-  ]
+      "apply_census_1840_bridges",
+      "back_project_addresses",
+      "build_staffing_model_1835",
+      "build_trade_table_1839",
+      "compile_businesses",
+      "compile_register",
+      "consolidate_resident_evidence",
+      "crosswalk_census_1840_heads",
+      "employment_coverage_1835",
+      "exhaust_tax_1833",
+      "export_resident_research_package",
+      "location_reconciliation",
+      "mint_civic_residents",
+      "old_settlers",
+      "person_associations",
+      "read_census_1830",
+      "read_fergus_obits",
+      "read_land_sales",
+      "read_st_cyr_register",
+      "read_st_marys_baptisms",
+      "read_voter_lists",
+      "readmit_borderline_roster",
+      "rebuild_closing_set",
+      "reconstruct_businesses_1835",
+      "reconstruct_free_black",
+      "reconstruct_modelled_families",
+      "reconstruct_trade_households",
+      "reconstruct_transients_1835",
+      "reconstruct_underdocumented",
+      "report_convergence_coverage",
+      "report_letter_list_collisions",
+      "report_research_closing_audit",
+      "rule_presence_1835",
+      "seat_known_1835",
+      "seat_lodgers_1835",
+      "seat_reconstructed_trades_1835",
+      "seat_wabansia_streets",
+      "spend_ladder_rungs",
+      "spend_stated_families",
+      "spend_trade_premises",
+      "staff_businesses_1835",
+      "staff_the_houses_1835",
+      "staffing_mint_order_1835",
+      "survey_stated_kin",
+      "trade_census_1835",
+      "trade_census_spend_1835"
+    ]
   }
 }

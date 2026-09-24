@@ -1226,6 +1226,20 @@ def institutional_lodging() -> dict:
     return doc
 
 
+def _apportioned_on(htype: str) -> str:
+    """What a household bucket's order was apportioned on, in words.
+
+    Written out rather than inlined in the f-string it feeds: a conditional
+    spanning several lines inside an f-string expression is Python 3.12 syntax
+    (PEP 701) and this repository runs 3.11, where it does not parse at all.
+    The wording is unchanged.
+    """
+    if htype == "institutional":
+        return ("institutional roofs whose own record puts a household under them "
+                "(1835_institutional_lodging, T-1531)")
+    return f"inventory's own {htype} roof count"
+
+
 def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
     hh_fig = figure(model, "households_and_families", "households_on_1_july_1835")
     total, basis = point_of(hh_fig)
@@ -1295,9 +1309,7 @@ def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
             "owning_ticket": owners[htype],
             "basis": (
                 f"the model's {total:,} households apportioned on the "
-                f"{'institutional roofs whose own record puts a household under them '
-                   '(1835_institutional_lodging, T-1531)' if htype == 'institutional' else
-                   'inventory' + chr(39) + 's own ' + htype + ' roof count'} in the "
+                f"{_apportioned_on(htype)} in the "
                 f"{division} division"),
         })
     buckets.append({

@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'Two people move into the light and the old school house', kind: 'change', ts: '',
+  { v: 1094, title: 'Two people move into the light and the old school house', kind: 'change', ts: '2026-09-24T17:33:11.440Z', date: 'Sep 24, 2026, 12:33 PM CT',
     items: [
       'The town has nine public buildings with a roof on it: four places of worship or meeting, two schools, a jail, a council house and the lighthouse at the river mouth. Until today the model was quietly ordering TWELVE households into them \u2014 more than one per building \u2014 because it shares the town\u2019s families out across the roofs by counting roofs, and nobody had ever asked whether a church is somewhere you sleep.',
       'So each of the nine was asked, out of what this project already holds about it. Seven answered no, and each says why on the record: a congregation is not a household, the one minister whose lodging is written down slept in the loft of a store, and being locked in a jail is not living there.',
