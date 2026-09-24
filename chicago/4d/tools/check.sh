@@ -2809,6 +2809,24 @@ step "every trade household re-derives, and every bucket the book ordered is fil
 selftest "...and a seniority rule, an over-ceiling trade and a borrowed name are refused" \
   python3 tools/reconstruct_trade_households.py --self-test
 
+# T-1531, stage `institutional_households`. The household quota apportions the town's
+# houses across the roof groups by ROOF COUNT, which is right for a group whose roofs are
+# houses and wrong for the one group whose roofs are a church, a jail, a council house and
+# a light tower: the nine standing `institutional_public` roofs drew TWELVE households.
+# `data/reconstruction/1835_institutional_lodging.json` asks each of the nine the question
+# nobody had asked — does this project's own record of it put a household under it? — and
+# two answer yes: the Watkins house, whose function is domestic, and the light, whose
+# keepership is recorded at $350 a year WITH QUARTERS. `build_order_book_1835.py` weights
+# the institutional cells on that file, so the book orders two, and this stage mints two.
+# What the gate holds: that both cards re-derive from their seeds, that the order never
+# exceeds what the adjudication admits, that both cells are discharged, and that no
+# occupation outside the controlled vocabulary reaches a person.
+step "the institutional households re-derive, and the book orders no more than the nine roofs admit" \
+  python3 tools/reconstruct_institutional_households.py --check
+
+selftest "...and an admitted roof with no card rule, a drifted tally and an invented age are refused" \
+  python3 tools/reconstruct_institutional_households.py --self-test
+
 # T-1353, stage `transients` of the same programme, and the only stage of it that writes
 # people who are NOT residents. T-1352 bounded the summer crowd of 1 July 1835 at 192 to
 # 900 and adopted no point; this stage spends 384 ("twice the 1843 rate"), reserves 77 for
