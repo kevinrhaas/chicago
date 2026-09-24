@@ -72,7 +72,7 @@ HOUSEHOLDS = ROOT / "data" / "residents" / "households"
 SIDECARS_1835 = ROOT / "data" / "sidecars" / "1835"
 TOWN_CENSUS = ROOT / "data" / "town_census.json"
 AUDIT_CSV = REPO / "chicago" / "reference" / "resident-research" / "final" / "audit" / "resident_audit_master.csv"
-PUBLISHED_RESIDENTS = REPO / "site" / "chicago" / "4d" / "data" / "residents"
+PUBLISHED_RESIDENTS = REPO / "site" / "4d" / "data" / "residents"
 
 AS_OF = "2026-09-18"
 
@@ -625,7 +625,7 @@ def self_test() -> int:
     global PUBLISHED_RESIDENTS
     kept_path = PUBLISHED_RESIDENTS
     try:
-        PUBLISHED_RESIDENTS = REPO / "site" / "chicago" / "4d" / "data" / "no_such_mirror"
+        PUBLISHED_RESIDENTS = REPO / "site" / "4d" / "data" / "no_such_mirror"
         if measure()["published_residents"]["files"] is not None:
             failures.append("measure() counts a mirror that is not on disk — an absent "
                             "directory came back as a number")

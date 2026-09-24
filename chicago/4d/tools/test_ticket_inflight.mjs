@@ -394,7 +394,7 @@ const PULLS = [
 {
   console.log('\n  the query the fixtures cannot reach');
   const src = readFileSync(path.join(REPO, 'tools', 'ticket.mjs'), 'utf8');
-  const q = /repos\/kevinrhaas\/custom\/pulls\?state=(\w+)/.exec(src)?.[1] ?? null;
+  const q = /repos\/\$\{REPO\}\/pulls\?state=(\w+)/.exec(src)?.[1] ?? null;
   check('23. the PR fetch asks for open pull requests as well as closed ones',
     q === 'all', `the query asks state=${q} (read from the source, not from a run)`);
 }

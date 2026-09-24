@@ -23,7 +23,7 @@ import { fileURLToPath } from 'node:url';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');                 // chicago/4d
 const SRC = path.join(ROOT, 'data', 'residents');
-const SITE = path.resolve(ROOT, '..', '..', 'site', 'chicago', '4d', 'data', 'residents');
+const SITE = path.resolve(ROOT, '..', '..', 'site', '4d', 'data', 'residents');
 
 const walk = (dir, base = '') => {
   if (!existsSync(dir)) return [];

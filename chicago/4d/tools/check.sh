@@ -2281,7 +2281,7 @@ step "publish.sh produces a mirror that matches its source" \
 # a <base href> into walk/. Their self-test holds the one thing that can go wrong with
 # that shape: a <base> that is not the first child of <head>, or a planned year with
 # no door.
-step "front doors: /4d/ and /4d/<year>/ carry a <base> into walk/" \
+selftest "front doors: /4d/ and /4d/<year>/ carry a <base> into walk/" \
   node tools/write_entry_pages.mjs --self-test
 
 # …and the one layer in it publish.sh transforms rather than copies. The residents
