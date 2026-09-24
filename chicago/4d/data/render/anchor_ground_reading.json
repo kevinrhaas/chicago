@@ -5,7 +5,7 @@
   "epoch": "e1834_harbor_cut",
   "box_local_enu_m": {
     "e": [
-      -320,
+      -705,
       1700
     ],
     "n": [
@@ -96,15 +96,15 @@
     },
     {
       "id": "green_tree",
-      "local_e": -159.7,
-      "local_n": -108.4,
+      "local_e": -44.11,
+      "local_n": -121.52,
       "aerial": false,
       "inside": true,
-      "ground_m": 1.102,
+      "ground_m": 1.035,
       "dry": true,
       "stands_on": null,
       "deck_m": null,
-      "margin_m": 115,
+      "margin_m": 45,
       "inside_a_roof": null
     },
     {
