@@ -91,6 +91,22 @@ SEATED_BY_T1430 = {
 # assertions below hold the committed paths to it rather than trusting the seating.
 BEARING_FROM = "clinton"
 
+# T-1490, 2026-09-24 — THE ONE SEATED LINE THAT IS NO LONGER ON A BORROWED REACH.
+# `jefferson` still carries `clinton`'s BEARING, because one intersection still fixes a
+# point and not a direction and the bearing was not refitted. What it no longer carries is
+# Clinton's REACH: two more surviving intersections stand on Jefferson north of Fulton, so
+# the line is drawn over its own control instead, from Clinton's south end to the northern
+# of the two. The assertions below hold it to exactly that — the same bearing, the south
+# end unmoved, the north end on the control, and each further node reproduced by the
+# committed line rather than fitted to. (Name, local east, local north, OpenStreetMap node,
+# read 2026-09-24 by the node rule in data/traces/street_control.json and transformed to
+# EPSG:26916 against data/datum.json.) The corporate boundary's west leg walks the result;
+# see tools/measure_corporation_limits.py.
+CARRIED_ONTO_OWN_CONTROL = {
+    "jefferson": [("Kinzie", -410.158, 263.614, "708314133"),
+                  ("Hubbard", -410.159, 381.887, "12233681439")],
+}
+
 BANK_REACH = 9
 
 # T-0768 — THE REACH PAST THE TURN. T-0445 stopped at BANK_REACH because a bank-offset line
@@ -518,9 +534,22 @@ def self_test(quiet=False):
               abs(slope_of(line) - bearing) <= 1e-9)
         ns = sorted(p[1] for p in line["path_local_enu_m"])
         want = sorted(p[1] for p in st[BEARING_FROM]["path_local_enu_m"])
-        check(f"…over `{BEARING_FROM}`'s own reach ({ns[0]:.1f} to {ns[-1]:.1f}), because a "
-              f"borrowed line may not claim more ground than the line it is borrowed from",
-              ns == want)
+        carried = CARRIED_ONTO_OWN_CONTROL.get(sid)
+        if carried is None:
+            check(f"…over `{BEARING_FROM}`'s own reach ({ns[0]:.1f} to {ns[-1]:.1f}), "
+                  f"because a borrowed line may not claim more ground than the line it is "
+                  f"borrowed from", ns == want)
+        else:
+            check(f"…south end still on `{BEARING_FROM}`'s reach and north end on this "
+                  f"line's own control ({ns[0]:.1f} to {ns[-1]:.1f}), which is the one "
+                  f"thing T-1490 changed about it",
+                  ns[0] == want[0] and abs(ns[-1] - carried[-1][2]) <= 0.01)
+            for name, ce, cn, node in carried:
+                off = abs(east_at(line, cn) - ce)
+                check(f"…and the carried line REPRODUCES the surviving {name} "
+                      f"intersection rather than being refitted to it: {off:.3f} m off "
+                      f"OpenStreetMap node {node}, inside the 20 m trace tolerance",
+                      off <= 20.0)
         check(f"…graded `inferred` for that inheritance, never better than a line whose "
               f"direction it did not read",
               line["geometry_confidence"] == "inferred")

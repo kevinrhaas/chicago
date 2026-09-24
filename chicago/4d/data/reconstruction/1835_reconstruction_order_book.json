@@ -1198,8 +1198,8 @@
     "businesses_known": 130,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 414,
-    "roofs_to_build": 267,
+    "roofs_standing": 417,
+    "roofs_to_build": 264,
     "persons_standing": 2263,
     "persons_still_owed": 484,
     "persons_when_the_book_is_filled": 2747,
@@ -4264,11 +4264,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 414,
+        "standing_records": 417,
         "standing_with_an_occupant": 124,
-        "standing_without_an_occupant": 290,
-        "to_build_total": 267,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 290 of the 414 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_without_an_occupant": 293,
+        "to_build_total": 264,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 293 of the 417 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -4467,8 +4467,8 @@
             "division": "west"
           },
           "target": 6,
-          "standing": 1,
-          "to_build": 5,
+          "standing": 2,
+          "to_build": 4,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1209",
@@ -4476,7 +4476,7 @@
             "T-1414",
             "T-1444"
           ],
-          "basis": "the inventory's district/group matrix sets 6; the 668-roof programme leaves 5 of them to build"
+          "basis": "the inventory's district/group matrix sets 6; the 668-roof programme leaves 4 of them to build"
         },
         {
           "key": "structures/larger_boarding_houses/north",
@@ -4515,8 +4515,8 @@
             "division": "west"
           },
           "target": 75,
-          "standing": 48,
-          "to_build": 27,
+          "standing": 50,
+          "to_build": 25,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1208",
@@ -4524,7 +4524,7 @@
             "T-1414",
             "T-1444"
           ],
-          "basis": "the inventory's district/group matrix sets 75; the 668-roof programme leaves 27 of them to build"
+          "basis": "the inventory's district/group matrix sets 75; the 668-roof programme leaves 25 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/north",
@@ -4786,8 +4786,8 @@
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
         "roofs_on_committed_ground": 12,
-        "roofs_gated_on_coverage": 255,
-        "statement": "12 of the 267 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 255 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_gated_on_coverage": 252,
+        "statement": "12 of the 264 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 252 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5131,7 +5131,7 @@
           "axes": {
             "division": "west"
           },
-          "roofs_gated": 5,
+          "roofs_gated": 2,
           "waiting_on": "unified terrain, hydrology, collision, flora and map coverage west to local E -700 m; the recipe's placements are already written and reviewed",
           "owning_tickets": [
             "T-1414",
@@ -5259,7 +5259,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "290 of 414 standing records carry no occupants block."
+      "measured_now": "293 of 417 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
