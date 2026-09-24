@@ -3,6 +3,70 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "3,12",
+      "parts": [
+        3,
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 175,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 566,
+      "takenAt": "2026-09-24T02:51:19.314Z",
+      "ref": "claude/quirky-brown-j5lbfr",
+      "commit": "dcee2f0affea",
+      "devCommit": "e2564620a6d9",
+      "treeHash": "sha256:7c660182de4b1d87",
+      "treeDirty": false,
+      "changelogHash": "sha256:075233f9ca412933",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          3.9,
+          2.6,
+          1.9
+        ]
+      },
+      "source": "/tmp/claude-0/-home-user/60a9e2db-ca6a-59f3-9a0d-fc3324022ccb/scratchpad/smoke_d.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3,12",
+      "parts": [
+        3,
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 175,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 295,
+      "takenAt": "2026-09-24T02:51:19.181Z",
+      "ref": "claude/quirky-brown-j5lbfr",
+      "commit": "dcee2f0affea",
+      "devCommit": "e2564620a6d9",
+      "treeHash": "sha256:7c660182de4b1d87",
+      "treeDirty": false,
+      "changelogHash": "sha256:075233f9ca412933",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          3.9,
+          2.6,
+          1.9
+        ]
+      },
+      "source": "/tmp/claude-0/-home-user/60a9e2db-ca6a-59f3-9a0d-fc3324022ccb/scratchpad/smoke_m.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "3",
       "parts": [
         3
@@ -1459,40 +1523,6 @@
     },
     {
       "viewport": "mobile",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 77,
-      "failed": 2,
-      "failures": [
-        "mobile 390x780: the People directory lists the town, and its count is the file's and the manifest's — {\"rows\":80,\"api\":3228,\"file\":3228,\"stated\":3228,\"manifest\":2269,\"readmitted\":182,\"trades\":308,\"transients\":307,\"residents\":2921,\"countText\":\"3,228 people in 1,982 households\\n        · 736 known only from the letter lists\\n        · 359 with a known address\"}",
-        "mobile 390x780: the Trade row offers the documented trades AND the town's commonest — 13 pill(s): [attorney, tavern_keeper, merchant, schoolteacher, carpenter, physician, blacksmith, hotel_keeper, soldier, domestic, boarding_house_keeper, laundress, clerk]"
-      ],
-      "wallSeconds": 152,
-      "takenAt": "2026-09-20T20:07:00.709Z",
-      "ref": "steward/t-1462-business-staff-join",
-      "commit": "6f0303395e54",
-      "devCommit": "4bf53682df33",
-      "treeHash": "sha256:f2f03fa8a469fd5a",
-      "treeDirty": true,
-      "changelogHash": "sha256:e170c73427696054",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          1.6,
-          2.6,
-          2.3
-        ]
-      },
-      "source": "/tmp/smoke-mobile-12.log"
-    },
-    {
-      "viewport": "mobile",
       "stage": "1,6",
       "parts": [
         1,
@@ -1716,38 +1746,6 @@
         ]
       },
       "source": "/tmp/smoke_d_11_12.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3,12",
-      "parts": [
-        3,
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 148,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 148,
-      "takenAt": "2026-09-18T00:19:19.595Z",
-      "ref": "steward/t-1291-identity-ruling",
-      "commit": "24f52b84b9c7",
-      "devCommit": "400ab9afd1c6",
-      "treeHash": "sha256:fcff5505a6bdad0f",
-      "treeDirty": false,
-      "changelogHash": "sha256:0754051363880dd9",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4,
-          4.3,
-          3.5
-        ]
-      },
-      "source": "/tmp/s2_m_3_12.log"
     },
     {
       "viewport": "mobile",
