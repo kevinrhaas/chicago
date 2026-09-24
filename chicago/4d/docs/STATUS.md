@@ -1,5 +1,34 @@
 # STATUS
 
+## Rule 9 says what is true of each row it refuses — T-1505, 2026-09-24
+
+**What a visitor sees:** nothing. No row changes class; every class count in
+`data/reconstruction/1835_borderline_roster.json` is what it was.
+
+**The fault.** `tools/export_borderline_roster.py` refused 254 single-token readings under one
+sentence: *"The reading gives a surname and no person, and no household of this town carries
+it."* Its predicate is one token and nothing more, so it could not tell a clipped surname
+from the whole of what a clerk wrote for a parent. The refusal was right for all 254. The
+sentence was false for four of them.
+
+**The fix: two refusals, told apart by the record's own fields,** never by a guess about
+a name's language:
+
+- **`single_name_parent_of_a_named_child` (3 rows).** The record's role is mother or father,
+  and the same dated entry has a child or subject with a name. The rows are Matanacqua
+  (mother of Marie Josette), Lieu[?] (mother of John David) and Miranda (father of
+  Geneviève Medera). The rule states itself generally, and each row's `note` names its child.
+- **`forename_printed_surname_lost` (1 row).** The record says the forename was printed and
+  the surname is lost: `John . . .`, St Cyr's death entry 8.
+- **`surname_only_and_unmatched` (254 → 250).** These keep their sentence word for word.
+  - **Bourrasso stays here.** The ticket's table lists this witness among the five, but also
+    calls it a surname standing alone, and its own record says Léon Bourassa and his son
+    are not merged to it. The existing sentence is true of it, so it keeps that sentence.
+
+Matanacqua is credited with no community: no source gives her one, and this ticket gives
+none. `--self-test` covers both directions: the rows that must be told apart, and the
+parent with no named child, the child's own name and the forename flag with a surname that
+must not be.
 ## The deal's name pool reads declared keys — T-1502, 2026-09-24
 
 **What a visitor sees:** nothing. No seat moves and no refusal changes: `--report` is

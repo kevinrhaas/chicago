@@ -26,7 +26,7 @@
  * working tree nobody can explain, which is not a thing to build a gate on.
  */
 import { mkdtempSync, mkdirSync, cpSync, rmSync, readFileSync, writeFileSync,
-  existsSync } from 'node:fs';
+  existsSync, lstatSync, realpathSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -55,8 +55,27 @@ for (const f of ['ticket.mjs', 'check_published.mjs', 'publish.sh']) {
 // The ticket FILES, never a clone's .git: since 2026-09-23 tickets/ is a clone of
 // kevinrhaas/chicago-tickets, and a sandbox carrying its .git would be a tickets repo
 // of its own (REPO MODE) — this test is about the embedded mode's mirror contract.
+//
+// DEREFERENCED, and then PROVED to be the sandbox's own files. A worktree may carry
+// tickets/ as a SYMLINK to the real clone, and cpSync copies a symlink as a symlink
+// unless told otherwise — the filter above never runs inside it. On 2026-09-24 that is
+// exactly what happened: the sandbox's `ticket.mjs done … --pr 9999` wrote through the
+// link into the real clone and PUSHED to kevinrhaas/chicago-tickets main (T-1502's pr
+// became 9999). So the copy dereferences, and the test refuses to go on unless the
+// sandbox's tickets/ is a real directory inside the sandbox with no .git anywhere in it.
 cpSync(path.join(REPO, 'tickets'), path.join(APP, 'tickets'),
-  { recursive: true, filter: (src) => path.basename(src) !== '.git' });
+  { recursive: true, dereference: true, filter: (src) => path.basename(src) !== '.git' });
+{
+  const own = path.join(APP, 'tickets');
+  const real = realpathSync(own);
+  const inside = real === own || real.startsWith(realpathSync(tmp) + path.sep);
+  if (lstatSync(own).isSymbolicLink() || !inside || existsSync(path.join(own, '.git'))) {
+    console.error(`ticket mirror — REFUSED: the sandbox's tickets/ resolves to ${real}, ` +
+      'not to a plain copy inside the sandbox; running on would write to the real tickets repo');
+    rmSync(tmp, { recursive: true, force: true });
+    process.exit(1);
+  }
+}
 
 const SRC = path.join(APP, 'tickets', 'tickets.json');
 const MIRROR = path.join(SITE, 'tickets.json');
