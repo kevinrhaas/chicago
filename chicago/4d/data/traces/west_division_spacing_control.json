@@ -17,11 +17,11 @@
   {
    "id": "west_water",
    "name_1835": "West Water Street",
-   "mean_east_local_m": -10.31,
+   "mean_east_local_m": -9.47,
    "measured_over_the_band": {
-    "from_northing_m": -375.33,
+    "from_northing_m": -375.35,
     "to_northing_m": 1.34,
-    "samples_reached": 307,
+    "samples_reached": 294,
     "of_samples": 401,
     "why": "the northing range of the committed West Division plat blocks — the blocks this line bounds. A trace extended beyond it does not move this figure (T-1549)."
    },
@@ -46,7 +46,7 @@
    "name_1835": "Canal Street",
    "mean_east_local_m": -157.72,
    "measured_over_the_band": {
-    "from_northing_m": -375.33,
+    "from_northing_m": -375.35,
     "to_northing_m": 1.34,
     "samples_reached": 401,
     "of_samples": 401,
@@ -75,7 +75,7 @@
    "name_1835": "Clinton Street",
    "mean_east_local_m": -281.6,
    "measured_over_the_band": {
-    "from_northing_m": -375.33,
+    "from_northing_m": -375.35,
     "to_northing_m": 1.34,
     "samples_reached": 401,
     "of_samples": 401,
@@ -102,7 +102,7 @@
    "name_1835": "Jefferson Street",
    "mean_east_local_m": -396.25,
    "measured_over_the_band": {
-    "from_northing_m": -375.33,
+    "from_northing_m": -375.35,
     "to_northing_m": 1.34,
     "samples_reached": 401,
     "of_samples": 401,
@@ -125,7 +125,7 @@
    "name_1835": "Des Plaines Street",
    "mean_east_local_m": -520.07,
    "measured_over_the_band": {
-    "from_northing_m": -375.33,
+    "from_northing_m": -375.35,
     "to_northing_m": 1.34,
     "samples_reached": 401,
     "of_samples": 401,
@@ -180,11 +180,11 @@
   {
    "east": "west_water",
    "west": "canal",
-   "committed_m": 147.41,
-   "committed_ft": 483.6,
+   "committed_m": 148.25,
+   "committed_ft": 486.4,
    "the_plat_asks_ft": 458.0,
-   "short_by_ft": -25.6,
-   "short_by_m": -7.81,
+   "short_by_ft": -28.4,
+   "short_by_m": -8.65,
    "the_datum_residual_m": 17.5,
    "inside_the_datum_residual": true,
    "blocks_cut_between_these_lines": [
@@ -247,14 +247,14 @@
   "from": "west_water",
   "to": "des_plaines",
   "intervals": 4,
-  "committed_m": 509.76,
-  "committed_ft": 1672.4,
+  "committed_m": 510.6,
+  "committed_ft": 1675.2,
   "the_plat_asks_m": 558.39,
   "the_plat_asks_ft": 1832.0,
-  "short_by_m": 48.63,
-  "short_by_ft": 159.6,
-  "as_a_share_of_the_plat": 0.0871,
-  "times_the_datum_residual": 2.78,
+  "short_by_m": 47.79,
+  "short_by_ft": 156.8,
+  "as_a_share_of_the_plat": 0.0856,
+  "times_the_datum_residual": 2.73,
   "so": "the whole division is narrower than the plat draws it, by more than the datum's own uncertainty, so the difference is not the georeferencing alone even where a single interval's share of it is.",
   "the_grid_proper": {
    "from": "canal",
@@ -270,10 +270,10 @@
  },
  "is_the_committed_grid_the_plat_module_rescaled": {
   "all_intervals": {
-   "the_widest_ft": 483.6,
+   "the_widest_ft": 486.4,
    "the_narrowest_ft": 376.1,
-   "spread_ft": 107.5,
-   "spread_m": 32.77,
+   "spread_ft": 110.3,
+   "spread_m": 33.62,
    "spread_exceeds_the_residual": true
   },
   "the_grid_proper": {
@@ -300,8 +300,8 @@
    "lines": [
     {
      "id": "west_water",
-     "committed_east_local_m": -10.31,
-     "the_plat_wants_east_local_m": -10.31,
+     "committed_east_local_m": -9.47,
+     "the_plat_wants_east_local_m": -9.47,
      "moves_m": 0.0,
      "moves_ft": 0.0,
      "direction": "held"
@@ -309,38 +309,38 @@
     {
      "id": "canal",
      "committed_east_local_m": -157.72,
-     "the_plat_wants_east_local_m": -149.91,
-     "moves_m": 7.81,
-     "moves_ft": 25.6,
+     "the_plat_wants_east_local_m": -149.07,
+     "moves_m": 8.65,
+     "moves_ft": 28.4,
      "direction": "east"
     },
     {
      "id": "clinton",
      "committed_east_local_m": -281.6,
-     "the_plat_wants_east_local_m": -289.51,
-     "moves_m": -7.91,
-     "moves_ft": -25.9,
+     "the_plat_wants_east_local_m": -288.67,
+     "moves_m": -7.07,
+     "moves_ft": -23.2,
      "direction": "west"
     },
     {
      "id": "jefferson",
      "committed_east_local_m": -396.25,
-     "the_plat_wants_east_local_m": -429.11,
-     "moves_m": -32.86,
-     "moves_ft": -107.8,
+     "the_plat_wants_east_local_m": -428.27,
+     "moves_m": -32.02,
+     "moves_ft": -105.0,
      "direction": "west"
     },
     {
      "id": "des_plaines",
      "committed_east_local_m": -520.07,
-     "the_plat_wants_east_local_m": -568.7,
-     "moves_m": -48.63,
-     "moves_ft": -159.6,
+     "the_plat_wants_east_local_m": -567.86,
+     "moves_m": -47.79,
+     "moves_ft": -156.8,
      "direction": "west"
     }
    ],
-   "total_absolute_movement_m": 97.21,
-   "the_largest_single_move_m": 48.63
+   "total_absolute_movement_m": 95.53,
+   "the_largest_single_move_m": 47.79
   },
   {
    "anchor": "canal",
@@ -348,10 +348,10 @@
    "lines": [
     {
      "id": "west_water",
-     "committed_east_local_m": -10.31,
+     "committed_east_local_m": -9.47,
      "the_plat_wants_east_local_m": -18.12,
-     "moves_m": -7.81,
-     "moves_ft": -25.6,
+     "moves_m": -8.65,
+     "moves_ft": -28.4,
      "direction": "west"
     },
     {
@@ -387,7 +387,7 @@
      "direction": "west"
     }
    ],
-   "total_absolute_movement_m": 120.64,
+   "total_absolute_movement_m": 121.48,
    "the_largest_single_move_m": 56.45
   }
  ],

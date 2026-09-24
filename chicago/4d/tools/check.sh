@@ -42,6 +42,13 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
 # cloned at tickets/. Fetched first because the publish below builds tickets.json from
 # them and `ticket.mjs check` gates them; a missing clone fails that check loudly rather
 # than letting an empty queue read as a clean one.
+# T-1548. Before anything else: are this clone's merge drivers registered? They live
+# in .git/config, so they cannot be committed and a fresh clone starts without them.
+# Unregistered they cost a hand-resolved changelog conflict per branch — four of them
+# in one session on 2026-09-24 — and nothing anywhere says so. This says so.
+step "the merge drivers this clone needs are registered (T-1548)" \
+  bash tools/check-merge-drivers.sh
+
 step "the tickets are here (kevinrhaas/chicago-tickets, cloned at tickets/)" \
   bash tools/tickets.sh
 check_flush   # the publish below reads the clone; never race it under CHECK_JOBS>1
@@ -2236,6 +2243,15 @@ step "changelog contract" \
 # drift, a stale BOARD, a block with no stated question — all merge-refusing.
 step "ticket queue" \
   node tools/ticket.mjs check
+
+# T-1548. `done` refuses to close a ticket a committed file still records as live work
+# — the shape that turned dev red three times running (T-1507 as #7, T-1540 as #25,
+# T-1299 as #26), each found hours later by a different run from a red gate. The
+# scanner is a gate, so it is proved by breaking it, on fixtures rather than on the
+# data, and it asserts BOTH directions: the two shapes are caught, and the three ways
+# a ticket id appears innocently are not.
+selftest "…and the tripwire scanner behind `done` still fires, and still ignores prose" \
+  node tools/ticket.mjs tripwire-self-test
 
 # The link between the two: the shipped derivative against the master it was
 # compressed from. `--stale` gates data -> master and check_published.mjs gates
