@@ -523,7 +523,7 @@
     "nearest": 0,
     "seeded_draw": 123,
     "why_division_is_inert": "No business record carries a division. The order book says why in its own words — 'EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY ... assigning premises to a division is T-1182's audit and T-1198's seating' — and this tool reads the field rather than deriving one, because deriving one is that audit done without a licence for it. Business records stating a division today: 0.",
-    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 30 of 196 business records name a structure this project holds, and 44 of 2136 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
+    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 30 of 196 business records name a structure this project holds, and 46 of 2138 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
   },
   "by_trade": {
     "attorney": {

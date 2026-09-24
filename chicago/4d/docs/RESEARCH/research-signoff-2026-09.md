@@ -32,26 +32,25 @@ Reproduce: `python3 tools/report_research_signoff.py --check`.
 | Disposition | Units |
 | --- | ---: |
 | aggregate_only | 211 |
-| asserted | 1,292 |
+| asserted | 1,348 |
 | later_only | 12,580 |
 | outside_chicago | 109 |
 | refused | 8,722 |
-| unresolved | 779 |
+| unresolved | 723 |
 
-Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,292 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
+Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,348 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
 
 An `unresolved` unit is research read and not yet spent, and it is only legitimate while the ticket it defers to is still going to happen. Read the owners column carefully — it is the most informative table in this report:
 
 | Owner | Units | State | Live |
 | --- | ---: | ---: | ---: |
-| T-1198 | 279 | split_live | yes |
+| T-1198 | 272 | split_live | yes |
 | T-1335 | 169 | open | yes |
-| T-1514 | 49 | open | yes |
 | T-1189 | 12 | split_live | yes |
 | T-1315 | 3 | open | yes |
-| T-1299 | 1 | claimed | yes |
+| T-1543 | 1 | open | yes |
 
-Not one of those owners asks for another READING. The heaviest are T-1198 (279), T-1335 (169), T-1514 (49), T-1189 (12), T-1315 (3) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
+Not one of those owners asks for another READING. The heaviest are T-1198 (272), T-1335 (169), T-1189 (12), T-1315 (3), T-1543 (1) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
 
 **266** further unresolved unit(s) name no ticket at all, because no ticket can settle them: they are names the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, and what is open is whether the person was in the town on 1 July 1835. Each states the document that would reopen it (T-1423):
 
@@ -83,8 +82,8 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | --- | ---: |
 | Persons in the layer | 2,265 |
 | Carrying at least one dated role | 327 |
-| Carrying two or more | 195 |
-| Role rows in total | 765 |
+| Carrying two or more | 183 |
+| Role rows in total | 734 |
 | Persons whose roles reach 1835-07-01 | 138 |
 | Persons whose every role is dated away from it | 189 |
 | Persons carrying no dated role at all | 1,938 |
@@ -94,16 +93,16 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | `employment` | 1 |
 | `office` | 52 |
 | `profession` | 84 |
-| `trade` | 628 |
+| `trade` | 597 |
 
 | Dating | Rows |
 | --- | ---: |
-| dated away from it | 605 |
+| dated away from it | 574 |
 | reaches 1 July 1835 | 160 |
 
 | Confidence | Rows |
 | --- | ---: |
-| `attested` | 158 |
+| `attested` | 127 |
 | `inferred` | 607 |
 
 Of the rows that reach the scene date, every one names a source that describes it (C5) — 127 by `source_describes_date`, 33 by `stated_date`.
@@ -114,12 +113,11 @@ Of the rows that reach the scene date, every one names a source that describes i
 | --- | ---: | ---: | ---: | ---: | ---: |
 | soap_and_candle_maker | `trade` | 1833-11 | 1833-11 | no | `attested` |
 | brickmaker | `trade` | 1839 | 1839 | no | `inferred` |
-| brickmaker | `trade` | 1839 | 1839 | no | `attested` |
 | school inspector | `office` | 1839 | 1839 | no | `inferred` |
 | brickmaker | `trade` | 1843 | 1843 | no | `inferred` |
 | brickmaker | `trade` | 1844 | 1844 | no | `inferred` |
 
-Read it as written: Elston carries 6 dated roles and **0** of them reaches 1 July 1835. The soap and candle manufactory is real and attested, and the corpus last prints it at the issue of 2 July 1834, so T-0991 withdrew it from the 1835 field and left it standing in `roles[]` with the bound its evidence permits; the brickmaking and the school inspectorship are printed against his name in the later Fergus directories and are carried as the years those volumes print. The plural field is therefore doing exactly the work it was built for — holding a career the scene date cannot see, without letting any of it claim the scene date.
+Read it as written: Elston carries 5 dated roles and **0** of them reaches 1 July 1835. The soap and candle manufactory is real and attested, and the corpus last prints it at the issue of 2 July 1834, so T-0991 withdrew it from the 1835 field and left it standing in `roles[]` with the bound its evidence permits; the brickmaking and the school inspectorship are printed against his name in the later Fergus directories and are carried as the years those volumes print. The plural field is therefore doing exactly the work it was built for — holding a career the scene date cannot see, without letting any of it claim the scene date.
 
 Reproduce: `python3 tools/derive_resident_roles.py --check`.
 

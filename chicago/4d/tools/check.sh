@@ -945,6 +945,28 @@ step "the West Division re-cut of blocks 28 and 45 is still refused by the commi
 selftest "…and both halves of that refusal, the seating it would strand and the unanswered first question still fire" \
   python3 tools/measure_west_grid_migration.py --self-test
 
+# T-1540. The precondition BEHIND that refusal, which for three days pointed a reader at
+# a ticket already done: Clinton to Canal stands at 367.9 ft against the plat's 458 ft,
+# T-0444 reported it and T-0445 closed without moving a centreline. The owner ruled on
+# 2026-09-21 that the successor must own the whole question rather than the one number —
+# so this pair gates the WHOLE question. What is worth naming: the gap is on every
+# interval of the West Division grid, not on Clinton to Canal alone, and the assertion
+# that carries the finding is a COUNT rather than a metric — three intervals are short
+# and a centreline moved reaches two, so no single street move closes it, and that
+# holds whatever the datum residual is. The residual is gated both ways on purpose: at
+# least one interval must be short by more than 17.5 m (or the whole gap is inside the
+# georeferencing and there is nothing to repair) and at least one must sit inside it (or
+# the measurement is not discriminating and any interval could be called a defect). And
+# the sharpest one is the quotation: the sheet reading must still say `documented` "does
+# not grade any position", because that sentence is the only reason the plat cannot be a
+# position control — the day it changes, "the plat wins" becomes a move this project
+# could actually make, and the ruling in this file has to be rewritten rather than reused.
+step "the West Division's north-south lines are still seated on the survey, not on the plat's module" \
+  python3 tools/measure_west_division_spacing.py --check
+
+selftest "…and the gap on every interval, the datum test cutting both ways, the count no residual touches and both anchors' price still fire" \
+  python3 tools/measure_west_division_spacing.py --self-test
+
 # The band the two halves of that plat leave between them (T-0419). Since the owner ruled
 # on 2026-08-29 that a corridor is derived from the street CONTROL, south_water's corridor
 # stands 8.58 m north of block faces still offset from the DRAWN line, and 6,132 m2 of

@@ -1934,6 +1934,22 @@
       ]
     },
     {
+      "why": "T-1540's measurement of which control seats the West Division's five north-south lines, what the plat's 458 ft module would cost if it were imposed on them, and what is seated on the spacing they have today. It runs AFTER tools/generate_plat_lots.py, and beside tools/measure_west_grid_migration.py, because it reads that grid's blocks and their `bounded_by` lines to derive which streets the division is actually cut against — run before it, it would measure a stale grid. IT MOVES NOTHING: no centreline is edited, no block re-emitted, no record re-seated, and every figure it writes is read back out of committed files, which is why it may own its output outright. `resolves` therefore names that one file: two runs re-deriving it produce the same bytes, so a conflict there is settled by rebuilding rather than by choosing a side.",
+      "command": [
+        "python3",
+        "tools/measure_west_division_spacing.py",
+        "--write"
+      ],
+      "resolves": [
+        "chicago/4d/data/traces/west_division_spacing_control.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/measure_west_division_spacing.py",
+        "--check"
+      ]
+    },
+    {
       "why": "SCENE FURNITURE DEALT FROM THE TOWN — signs, fences, plantings, infill. It reads a settled town and writes geometry nothing else reads back. PLACED BY LAYER, NOT BY A DERIVED DEPENDENCY (T-1302 batch 2, 2026-09-18). A dependency graph was built for this — write-sets MEASURED by running all 142 tools on a clean tree, reads taken from their source — and it was rejected by its own validation: against the 54 steps already here, an order people reached by hitting real failures, the graph contradicted 127 of 349 edges (36%; 32% at the finest granularity tried). These tools overwhelmingly read and write the same shared directories, so the graph saturates and cannot tell a real dependency from co-location. Only 6 of the 89 could be placed with evidence. A clean-tree `--run` goes green in ANY order because every one of them reproduces, so greenness is not evidence here either. This position is reasoned from what the tool reads and writes; it is not measured, and the honest test is the first time a change upstream of one of these fails to propagate. WRITES, BUT DOES NOT CLAIM, ITS OUTPUTS. `resolves` is not documentation: it declares that the manifest OWNS a file, so the lap settles a conflict there by REBUILDING rather than merging. Listing what these 89 tools touch took the owned set from 72 files to 1,899 — including 1,261 household cards — and a conflict in any of them would then be rebuilt over whatever a branch had actually written. Being run by the manifest and owning your outputs are separate decisions; this is the first, and the second is not taken here. rederive.mjs's own self-test caught it, on the assertion that `hh_taylor_c.json` is a file nobody derives.",
       "command": [
         "python3",

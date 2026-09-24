@@ -818,8 +818,8 @@ def west_module_for(entry: dict, record: dict, figure: dict | None, west: dict) 
         "so": ("the lot lines below divide the block the committed lines give, in the "
                "arrangement and the count the sheet reads, and are NOT the printed "
                "figure seated at its printed size. What is short is this project's West "
-               "Division street spacing and not the module — T-0445 is the ticket that "
-               "would move those centrelines, and T-0444 and "
+               "Division street spacing and not the module — T-1540 is the ticket that "
+               "owns those centrelines, and T-0444 and "
                "tools/measure_west_division_module.py report the same gap."),
     }
     return taken
@@ -876,8 +876,13 @@ def module_for(entry: dict, bounded_by: dict, west: dict, spacing_ft: float) -> 
             "ft each way. What does not close is this project's West Division street "
             f"spacing: Clinton to Canal is committed at {spacing_ft:.1f} ft against "
             f"the plat's own {west['street_module_ft']:.0f} ft. Seating the printed module "
-            "would mean moving those lines, which is T-0445's ticket and not this one's, "
-            "and the same short spacing is what T-0444 reported."),
+            "would mean moving those lines, which is T-1540's ticket and not this one's, "
+            "and the same short spacing is what T-0444 reported. T-0444 REPORTED the gap "
+            "and T-0445 SEATED three missing lines without closing it, so both are done "
+            "and neither moved this spacing; T-1540 is the successor the owner ruled must "
+            "own the whole question, and tools/measure_west_division_spacing.py is its "
+            "measurement — the gap is on every interval of this grid, not on this one, "
+            "and no single centreline moved can close three of them."),
         "so": ("this block keeps the South Division subdivision it was already built on, "
                "and says here that it is not the module the West Division plat prints"),
     }
@@ -2250,20 +2255,23 @@ def assemble(blocks, omitted, module, alley_m, frontage_m, reach_m, lines,
                     f"{west['street_module_ft'] - spacing_ft:.1f} ft short, the same "
                     "finding tools/measure_west_division_module.py reports and the owner "
                     "reported on 2026-08-31. Seating the printed module means moving those "
-                    "centrelines, which is T-0445 and is deliberately not done here: this "
+                    "centrelines, which is T-1540 and is deliberately not done here: this "
                     "generator writes what the committed lines give and records what the "
                     "sheet asks for beside it."),
                 "what_would_change_if_the_lines_moved": (
                     "these two blocks would be subdivided the other way about — columns "
                     "and a north-south alley instead of faces and an east-west one — so "
-                    "this is a refusal that will be worth revisiting the day T-0445 "
-                    "settles the spacing, and not before."),
+                    "this is a refusal that will be worth revisiting the day T-1540 "
+                    "settles the spacing, and not before. It is T-1540 and no longer "
+                    "T-0445 because T-0445 closed without moving a centreline of this "
+                    "grid, and a refusal that points a reader forward at finished work "
+                    "reads as a plan when it is a dead end."),
                 "and_since_t_1455_the_division_has_its_own_grid": (
                     "`west_division` above cuts the other twenty of the sheet's "
                     "twenty-two West Division blocks, on the West Division's own tier "
                     "lines and in the West Division's own arrangement. It does NOT seat "
                     "the printed module at its printed size either — that is still "
-                    "T-0445's — it cuts the printed arrangement and the counted rows into "
+                    "T-1540's — it cuts the printed arrangement and the counted rows into "
                     "the block the committed lines give and publishes the shortfall on "
                     "each block as `closure_against_the_committed_lines`. The two blocks "
                     "listed here are the ones both grids can reach; they stay on this "

@@ -22,6 +22,31 @@
     "sole leather"
   ],
   "firm_styles": [],
+  "notice": {
+    "reads": "[boot, shoe and leather store, Lake street, proprietor not recovered]",
+    "trade": "boot and shoe manufacturing and leather dealing",
+    "goods": [
+      "Baltimore tanned leather",
+      "New-York leather",
+      "Philadelphia tanned leather",
+      "bindings",
+      "bridle, band and upper leather",
+      "hides and skins",
+      "ladies' and gentlemen's boots and shoes",
+      "linings",
+      "morocco",
+      "sole leather"
+    ],
+    "names_a_keeper": false,
+    "from": "1835-06-24",
+    "to": "1835-06-24",
+    "tier": "attested",
+    "basis": "The advertisement is anonymous: the paper printed the trade and the goods and no proprietor, so no person of this record can carry the reading it was compiled from. What is attested here is what the notice itself set in type — “boot and shoe manufacturing and leather dealing” — and nothing beyond it: no keeper is claimed, and the premises and dates of this record stay on their own blocks at the tier the placement policy left them. Bounded by the printing window (printed 1835-06-24), which dates the notice and not the house.",
+    "source_id": "chicago_newspapers_1833_1835",
+    "claim_ids": [
+      "chicago_democrat_1835_06_24#c009"
+    ]
+  },
   "proprietors": [],
   "partners": [],
   "staff": [],

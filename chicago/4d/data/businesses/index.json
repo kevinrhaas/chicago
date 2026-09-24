@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 272,
+    "records": 271,
     "compiled_from_register": 196,
-    "authored": 76,
-    "present_at_scene_date": 255,
+    "authored": 75,
+    "present_at_scene_date": 254,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -14,7 +14,7 @@
       "civic": 4,
       "druggist": 4,
       "iron_foundry": 2,
-      "lawyer": 20,
+      "lawyer": 19,
       "not_stated": 5,
       "other": 120,
       "physician": 9,
@@ -30,22 +30,22 @@
     "by_location_kind": {
       "anchored": 27,
       "premises": 52,
-      "street_only": 90,
+      "street_only": 89,
       "unplaceable": 108
     },
-    "named_people": 406,
-    "named_people_linked_to_a_town_card": 352,
+    "named_people": 405,
+    "named_people_linked_to_a_town_card": 351,
     "works_at_households": 50,
     "works_at_households_resolving_to_a_business": 36,
     "by_grade": {
       "attested": 166,
       "inferred": 72,
-      "reconstructed": 34
+      "reconstructed": 33
     },
     "by_where_kind": {
       "anchored": 27,
       "premises": 51,
-      "street_only": 90,
+      "street_only": 89,
       "unplaceable": 104
     },
     "by_street": {
@@ -59,7 +59,7 @@
       "Monroe Street": 1,
       "North Water Street": 5,
       "Randolph Street": 2,
-      "South Water Street": 43
+      "South Water Street": 42
     },
     "by_proprietor_community": {
       "british": 11,
@@ -71,7 +71,7 @@
       "other": 11,
       "southern": 9,
       "unknown": 100,
-      "yankee": 73
+      "yankee": 72
     }
   },
   "_vocabulary_doc": "THE CLOSED VOCABULARY, and it is the resident layer's — data/residents/community_rules.json, one list for people and for the houses they kept. The rows with a zero count are the point and are shipped anyway: a term nobody carries is a measurement of this layer, not a gap in this file. The Businesses view offers a pill only where the count is above zero.",
@@ -115,7 +115,7 @@
       {
         "value": "yankee",
         "label": "New England",
-        "count": 73
+        "count": 72
       },
       {
         "value": "new_york",
@@ -15223,54 +15223,6 @@
       "dates_tier": "reconstructed",
       "proprietor_community": "unknown",
       "proprietor_community_tier": null,
-      "review_required": false,
-      "liberties": []
-    },
-    {
-      "id": "rcb_parmelee_lawyer",
-      "file": "rcb_parmelee_lawyer.json",
-      "name": "R. Parmelee, attorney and counsellor at law, and solicitor in chancery",
-      "register_id": null,
-      "provenance": "reconstructed",
-      "type": [
-        "lawyer"
-      ],
-      "present_at_scene_date": true,
-      "grade": "reconstructed",
-      "trade": "attorney and counsellor at law",
-      "occupation": "attorney",
-      "goods": [
-        "attorney and counsellor at law, and solicitor in chancery"
-      ],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "Reuben Parmelee",
-          "person_id": "rc_parmelee_reuben",
-          "role": "proprietor",
-          "tier": "reconstructed",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        }
-      ],
-      "where": {
-        "kind": "street_only",
-        "structure_id": null,
-        "anchor": null,
-        "street_id": "south_water",
-        "street": "South Water Street",
-        "tier": "reconstructed",
-        "from": null,
-        "to": null,
-        "limit_reason": "No source places this house, because no source names it: it exists because the December 1835 State census counts more of its class than the register holds. The street is the reconstruction's own deal and stops there."
-      },
-      "locations": 1,
-      "opened": null,
-      "closed": null,
-      "dates_tier": "reconstructed",
-      "proprietor_community": "yankee",
-      "proprietor_community_tier": "reconstructed",
       "review_required": false,
       "liberties": []
     },
