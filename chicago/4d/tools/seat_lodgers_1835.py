@@ -154,6 +154,11 @@ RECONSTRUCTED = "reconstructed"
 PREFIX = "rc_"
 SOURCE_PASS = "reconstructed_lodging_household"
 
+# The lodging model's two classes, which are also two of the order book's household
+# types. The names are the same string in both files and that is what lets this stage
+# file a household fill without a crosswalk (T-1537).
+LODGING_CLASSES = ("boarding_house", "inn_tavern")
+
 BAND_EDGES = {"under_10": (0, 9), "10_19": (10, 19), "20_29": (20, 29),
               "30_39": (30, 39), "40_49": (40, 49), "50_plus": (50, None)}
 #: The bands a LODGER may be drawn into, WRITTEN OUT rather than read off `BAND_EDGES`.
@@ -461,6 +466,35 @@ def book_lodging_room() -> dict:
                 continue
             out[(axes["division"], axes["sex"], axes["age_band"], axes["trade"])] = (
                 bucket["key"], int(bucket.get("to_reconstruct") or 0))
+    return out
+
+
+def book_lodging_house_room() -> dict:
+    """(class, division) -> (bucket key, how many lodging HOUSEHOLDS the book orders there).
+
+    THE OTHER UNIT (T-1537). `book_lodging_room()` above reads the book's `lodging` PERSON
+    cells — the beds. These are the `households/boarding_house/*` and
+    `households/inn_tavern/*` cells, and they count HOUSES. T-1476 established on
+    2026-09-24 that a household record and a household in the town model are two units;
+    these six cells are the second unit for the two classes this stage keeps, and the
+    class axis is the lodging model's own `class`, which is what every house row here
+    already carries.
+
+    `to_reconstruct` is read and `filled` ignored, for exactly the reason the person
+    reader gives: this stage's cards live outside `data/residents/index.json`, so a build
+    does not move the order, and taking this stage's own counter off the room would make
+    the second build measure itself against a smaller quota than the first.
+    """
+    book = load(BOOK)
+    out = {}
+    for family in book.get("bucket_families", []):
+        if family.get("key") != "households":
+            continue
+        for bucket in family.get("buckets", []):
+            axes = bucket["axes"]
+            key = (axes.get("household_type"), axes.get("division"))
+            if key[0] in LODGING_CLASSES:
+                out[key] = (bucket["key"], int(bucket.get("to_reconstruct") or 0))
     return out
 
 
@@ -1309,6 +1343,7 @@ def fill() -> tuple:
     room_as_dealt = dict(room)
     live_room = book_lodging_room()
     fills = Counter()
+    household_fills: Counter = Counter()
     cards: dict[str, dict] = {}
     refusals = list(seat_refusals)
 
@@ -1403,6 +1438,12 @@ def fill() -> tuple:
         house["occupancy"] += len(persons)
         card = house_card(house, persons, seated_by_house.get(house["id"], []))
         cards[card["id"]] = card
+        # THE HOUSE IS A FILL TOO (T-1537). This card IS one of the book's
+        # `households/<class>/<division>` records, and until now this stage counted only
+        # the people in it. Counting a card here and nowhere else keeps the two counters
+        # on the same event: a card written is a house filled, and a card the loop skips
+        # for want of anybody to put in it fills nothing.
+        household_fills[(house["class"], house["division"])] += 1
 
     # THE KEEPERS' OWN CHILDREN, LAST (T-1533) — after every bed is dealt, so a child is
     # ordered out of the room the boarders left rather than out from under one.
@@ -1458,6 +1499,7 @@ def fill() -> tuple:
                           for cid, card in cards.items()), key=lambda r: r["id"]),
         "fills": dict(sorted(fills.items())),
         "child_fills": child_fills,
+        "household_fills": household_fills_block(household_fills),
         "keeper_families": {
             "ticket": CHILD_TICKET,
             "statement": "The keepers this stage MINTED, and the household the 1840 size "
@@ -1516,6 +1558,76 @@ def fill() -> tuple:
     return cards, ledger
 
 
+def household_fills_block(household_fills) -> dict:
+    """The lodging HOUSES this stage built, as the book's own household cells (T-1537).
+
+    WHY THIS EXISTS, AND IT IS A DEFECT THIS STAGE CARRIED FROM THE START. This stage
+    writes two things into the town: PEOPLE, into the book's `lodging` person cells, and
+    the HOUSEHOLD RECORD that holds each house's beds — `data/residents/lodgers/hh_*.json`
+    is one household per lodging place and always has been, and its own `note` calls it
+    "a container, not a family". Only the people were ever counted. The book's
+    `households/boarding_house/*` and `households/inn_tavern/*` cells therefore read
+    `filled: 0` while fifteen of the houses they order stood in the town, so the book
+    ordered all sixty-four of them a second time, and the progress bars on the walkthrough's
+    "Reconstructing the town" panel — whose whole claim is that "a bar that has not moved
+    is a band that has not run" — read nought for a band that had run.
+
+    It went unseen because the two rows were DISCHARGED for months: every boarding house
+    and inn the model wanted was standing, the cells ordered nobody, and a counter of
+    nought against an order of nought is invisible. T-1476's ruling of 2026-09-21 — that a
+    household record and a house in the town model are two units — took the household
+    order from 124 to 563 and the rows spoke again, with this stage's fifteen houses
+    missing from them.
+
+    IT IS A COUNTER AND NOT A DRAW. Not one card, person, name, age or seat moves: the
+    cards these count are the cards already committed, byte for byte, and `--check`
+    asserts that. What changes is that the book stops ordering a house that stands.
+    """
+    return {
+        "statement": "One fill per lodging household record this stage writes, keyed on "
+                     "the order book's own household cell. A card written is a house "
+                     "filled.",
+        "unit": "houses, not people — the book's `households/<class>/<division>` cells. "
+                "The people in them are counted separately by `fills`, against the "
+                "`lodging` PERSON cells, and the two must never be added together.",
+        "carried_from": "T-1537, which is the reconciliation T-1534's acceptance asked "
+                        "for before either half of its order was minted.",
+        "not_a_draw": "No card, person, name, age band or seat is derived from this. It "
+                      "counts cards this stage already wrote; --check re-derives every "
+                      "one of them and refuses a differing byte.",
+        "by_cell": {f"households/{klass}/{division}": n
+                    for (klass, division), n in sorted(household_fills.items())},
+        "houses_filled": sum(household_fills.values()),
+    }
+
+
+def refuse_a_household_fill_outside_the_order(household_fills: dict, live: dict) -> None:
+    """A lodging house counted into a cell the book does not order is refused (T-1537).
+
+    The same floor `refuse_a_recut_under_the_draw` puts under the person fills, over the
+    house counter — and it has one job the person half does not. A lodging place whose
+    division nothing states mints nobody, but it may still be SEATED from the layer, and a
+    seated house gets a card. So a card can exist for a house in a division the book has
+    no household cell for — the `fort` district is the live example, which is a district in
+    the roof reconciliation and not one of the town's three civil divisions. That card is a
+    real household and this counter may not quietly drop it: the stage says so by name
+    instead, because a house counted into no cell and a house counted into the wrong one
+    fail the same way, as an order that no longer matches the town.
+    """
+    for (klass, division), drew in sorted(household_fills.items()):
+        key = f"households/{klass}/{division}"
+        if (klass, division) not in live:
+            raise SystemExit(
+                "  FAIL %s built %d lodging household(s) as %s and the book carries no "
+                "such cell" % (TICKET, drew, key))
+        ordered = live[(klass, division)][1]
+        if drew > ordered:
+            raise SystemExit(
+                "  FAIL %s built %d lodging household(s) in %s and the book orders only "
+                "%d there: a re-cut has taken the order out from under houses that "
+                "stand" % (TICKET, drew, key, ordered))
+
+
 def keeper_table(houses: list) -> list:
     """Every lodging place, its keeper, and who owes the rest of their household.
 
@@ -1560,6 +1672,72 @@ def keeper_table(houses: list) -> list:
     return rows
 
 
+def the_two_counts_reconciled(ledger: dict) -> dict:
+    """HOUSES AGAINST BEDS, which is the reconciliation T-1534's acceptance asked for
+    before either half of its order could be minted, and T-1537 is the ticket that made it.
+
+    It is re-derived here rather than quoted, because both halves move: a roof raised by
+    T-1209 adds a place, and a place holds a household and its beds at once. The question
+    it answers is the one that decides whether anything may be minted at all — is there a
+    lodging roof standing with room in it — and on the day it was written the answer was no,
+    twice over: every ordinary night bed is slept in, and every built lodging place holds a
+    household. So what T-1538 still owes is owed by the carpentry and not by this stage.
+    """
+    houses = ledger["houses"]
+    built = len(houses)
+    with_a_household = ledger["household_fills"]["houses_filled"]
+    model = lodging_model()
+    scheduled = sum(int(c.get("scheduled_roofs") or 0) for c in model["classes"]
+                    if c["class"] in LODGING_CLASSES)
+    beds = sum(h["beds_ordinary"] for h in houses)
+    slept_in = sum(h["occupancy_after"] for h in houses)
+    ordered = {key: n for key, n in book_lodging_house_room().values()}
+    _placed = {h["id"] for h in houses
+               if h["minted_lodgers"] or h["seated"] or h["minted_keeper"]}
+    _short = [h["id"] for h in houses
+              if h["id"] not in _placed and h["occupancy_after"] < h["beds_ordinary"]]
+    return {
+        "lodging_roofs_the_model_schedules": scheduled,
+        "lodging_places_built": built,
+        "lodging_places_unbuilt": scheduled - built,
+        "built_places_holding_a_household": with_a_household,
+        "built_places_holding_no_household": built - with_a_household,
+        "ordinary_night_beds": beds,
+        "ordinary_night_beds_slept_in": slept_in,
+        "households_the_book_orders_in_these_two_classes": sum(ordered.values()),
+        "houses_this_stage_has_filled": with_a_household,
+        "houses_still_ordered_after_this_stage_s_counter":
+            sum(ordered.values()) - with_a_household,
+        # A BUILT PLACE WITHOUT A LODGING HOUSEHOLD IS NOT NECESSARILY OWED ONE, which is
+        # why this is counted by BED and not by subtracting 15 from 16. A lodging
+        # household record is the container for the people this stage seats; a house whose
+        # own keeper's family already fills its ordinary-night figure has nobody to put in
+        # a container and is owed none. The Green Tree Tavern is the live case: eight
+        # ordinary beds, and Chester Ingersoll's household of eight in them.
+        "built_places_with_no_household_and_why": [
+            {"place": h["id"], "name": h["name"],
+             "beds_ordinary": h["beds_ordinary"], "occupancy": h["occupancy_after"],
+             "owed_a_lodging_household":
+                 h["occupancy_after"] < h["beds_ordinary"],
+             "why": ("Its own keeper's household fills its ordinary-night figure, so this "
+                     "stage seats nobody here and there is no container to write."
+                     if h["occupancy_after"] >= h["beds_ordinary"] else
+                     "It has room and holds no lodging household: this stage owes it one.")}
+            for h in houses if f"hh_lodging_{h['id']}" not in
+            {f"hh_lodging_{x['id']}" for x in houses if x["id"] in _placed}],
+        "may_anything_more_be_minted_here": (
+            "No, and neither unit is the reason on its own. A person needs a bed and a "
+            f"household needs a roof. Every one of the {beds} ordinary night beds in the "
+            f"{built} built lodging places is slept in, and every built place that has "
+            "room for anybody holds a lodging household — the one that holds none is full "
+            "of its own keeper's family. So the "
+            f"{scheduled - built} unbuilt roofs are the whole of the remainder: T-1209 "
+            "raises them and T-1538 seats them."
+            if slept_in >= beds and not _short else
+            "Yes — see the two counts above for which unit has the room."),
+    }
+
+
 # ------------------------------------------------------------- the measurement --
 
 def measurement(cards: dict, ledger: dict) -> dict:
@@ -1594,6 +1772,9 @@ def measurement(cards: dict, ledger: dict) -> dict:
         "nobody_is_seated_twice": len(ids) == len(set(ids)) and len(
             {s["person"] for s in ledger["seats"]}) == len(ledger["seats"]),
         "buckets_filled": len(ledger["fills"]),
+        "house_cells_filled": len(ledger["household_fills"]["by_cell"]),
+        "lodging_households_built": ledger["household_fills"]["houses_filled"],
+        "the_two_counts_reconciled": the_two_counts_reconciled(ledger),
         "child_buckets_filled": len(ledger.get("child_fills") or {}),
         "every_child_is_kin_of_a_named_keeper": all(
             p.get("kin_of", {}).get("person")
@@ -1640,6 +1821,13 @@ def write_fills(ledger: dict) -> None:
     kept += [{"bucket": key, "ticket": CHILD_TICKET, "stage": STAGE, "records": n,
               "by": "tools/seat_lodgers_1835.py --build"}
              for key, n in sorted((ledger.get("child_fills") or {}).items())]
+    # AND THE HOUSES, against this stage's OWN ticket (T-1537): the lodging household
+    # record is what THIS stage writes, one per lodging place, and the children above are
+    # a later piece's people inside it. `records` means records of the bucket's own unit,
+    # so a house row and a person row are never added together.
+    kept += [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
+              "by": "tools/seat_lodgers_1835.py --build"}
+             for key, n in sorted((ledger["household_fills"]["by_cell"]).items())]
     book["fills"] = kept
     BOOK.write_text(json.dumps(book, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     ob.cmd_build()
@@ -1689,6 +1877,10 @@ def refuse(cards: dict, ledger: dict) -> None:
     both = Counter({k: int(v) for k, v in (ledger.get("fills") or {}).items()})
     both.update({k: int(v) for k, v in (ledger.get("child_fills") or {}).items()})
     refuse_a_recut_under_the_draw(dict(both), live)
+    refuse_a_household_fill_outside_the_order(
+        {tuple(k.split("/")[1:]): int(v) for k, v in
+         ((ledger.get("household_fills") or {}).get("by_cell") or {}).items()},
+        book_lodging_house_room())
     for house in ledger["houses"]:
         # THE CEILING HOLDS EVERYBODY UNDER THE ROOF, lodgers and the keeper's children
         # alike. A child takes no ORDINARY-NIGHT bed — that figure prices the lodgers —
@@ -1760,7 +1952,12 @@ def check() -> int:
         print("  FAIL %s has drifted from its derivation" % LEDGER.relative_to(ROOT))
         return 1
     book = load(BOOK)
-    for ticket, want_fills in ((TICKET, ledger["fills"]),
+    # BOTH OF THIS TICKET'S UNITS (T-1537): the book's rows for TICKET are its person
+    # fills AND its lodging-house fills, so an unfiled house row is a red `--check`. The
+    # absence of exactly this equality is why fifteen of them went unfiled for months.
+    for ticket, want_fills in ((TICKET, dict(ledger["fills"]) | {
+                                   k: int(v) for k, v in
+                                   (ledger["household_fills"]["by_cell"] or {}).items()}),
                                (CHILD_TICKET, ledger.get("child_fills") or {})):
         ours = {f["bucket"]: int(f["records"]) for f in book.get("fills", [])
                 if f.get("ticket") == ticket}
@@ -1863,6 +2060,51 @@ def self_test() -> int:
         case("an invented name a real person bears is refused", False)
     except SystemExit:
         case("an invented name a real person bears is refused", True)
+
+    # 3b. A lodging house counted into a cell the book does not order is refused, and so
+    #     is one counted past what the cell orders (T-1537). Both cases are MADE: the live
+    #     ledger has every house inside its cell, which is the state the gate defends.
+    broken = json.loads(json.dumps(ledger))
+    broken["household_fills"]["by_cell"] = {"households/boarding_house/fort": 1}
+    try:
+        refuse(cards, broken)
+        case("a lodging house counted into a cell the book has not got is refused", False)
+    except SystemExit:
+        case("a lodging house counted into a cell the book has not got is refused", True)
+
+    a_cell = sorted((ledger["household_fills"]["by_cell"] or {}))
+    broken = json.loads(json.dumps(ledger))
+    room = book_lodging_house_room()
+    if a_cell:
+        klass, division = a_cell[0].split("/")[1:]
+        broken["household_fills"]["by_cell"] = {
+            a_cell[0]: room[(klass, division)][1] + 1}
+    try:
+        refuse(cards, broken)
+        case("a lodging house counted past what its cell orders is refused", not a_cell)
+    except SystemExit:
+        case("a lodging house counted past what its cell orders is refused", True)
+
+    # 3c. And the counter is the CARDS, not a second derivation of them: one fill per
+    #     lodging household record this stage writes, and nothing else.
+    case("every lodging household record is counted once, and only those",
+         ledger["household_fills"]["houses_filled"] == len(cards)
+         and sum((ledger["household_fills"]["by_cell"] or {}).values()) == len(cards))
+
+    # 3d. THE REGRESSION GUARD FOR THE DEFECT ITSELF. The fifteen house rows were unfiled
+    #     for months and nothing was red, because nothing compared the book's rows for this
+    #     ticket against BOTH halves of its ledger. This asserts the committed book carries
+    #     a row for every house cell, at the count this stage derives — the assertion whose
+    #     absence was the bug.
+    # The committed path, not the module global: case 11 below rebinds `BOOK` to a
+    # throwaway copy, and this case is about what is on disk.
+    _book_rows = {f["bucket"]: int(f["records"]) for f in
+                  load(RECON / "1835_reconstruction_order_book.json").get("fills", [])
+                  if f.get("ticket") == TICKET}
+    case("the committed book carries a fill row for every lodging house cell",
+         all(_book_rows.get(key) == n for key, n
+             in (ledger["household_fills"]["by_cell"] or {}).items())
+         and bool(ledger["household_fills"]["by_cell"]))
 
     # 4. A house whose division nothing states mints nobody, and says so. Since T-1535
     #    resolved both houses that used to stand here live, the case is MADE rather than

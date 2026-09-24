@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1089, title: 'Fifteen lodging houses stop being ordered twice', kind: 'fix', ts: '2026-09-24T12:19:50.492Z', date: 'Sep 24, 2026, 7:19 AM CT',
+    items: [
+      'Open \u201cReconstructing the town\u201d and six rows count the boarding houses and inns this reconstruction still owes a household. All six read nought done, and the panel\u2019s own promise is that a bar which has not moved is a band which has not run.',
+      'That band had run. Fifteen lodging households stand in this town \u2014 Rufus Brown\u2019s boarding house, the Exchange Coffee House, the Mansion House, the Tremont, the Western, Wolf Point, the Sauganash, the New York House and seven reconstructed houses besides \u2014 with sixty-seven people asleep in them. The work that built them counted the people and never counted the houses, so the order book asked for all sixty-four a second time.',
+      'It went unseen because the six rows were quiet for months: every inn and boarding house the model wanted was standing, so they ordered nobody, and nought done against nought owed looks right. Last week\u2019s ruling that a household record and a house are two different things woke them up, fifteen houses short.',
+      'The houses are counted now, and nothing else moved: not one card, name, age or bed changed by a byte. What the town still owes falls from 439 households to 424, and the six bars show the fifteen.',
+      'It also settles what is left. Every one of the town\u2019s 144 lodging beds is slept in and every lodging house with room in it holds a household, so the remaining 49 are waiting on carpentry \u2014 36 roofs the model schedules and nobody has built.',
+    ] },
   { v: 1088, title: 'Nineteen fort buildings were voting on what Lake Street was for', kind: 'change', ts: '2026-09-24T12:05:33.301Z', date: 'Sep 24, 2026, 7:05 AM CT',
     items: [
       'This project measures every building against the street it stands nearest — which street, and how far back off it. That reading decides whether a shop stands on its frontage the way the record says shops did, and what share of the buildings on the town’s best streets were places of trade rather than places to live.',

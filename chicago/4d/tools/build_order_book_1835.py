@@ -188,8 +188,12 @@ PERSON_TICKET_RULES = (
     # not the parent: a bucket whose owning ticket is a SPLIT parent names nobody who can
     # act on it (T-1237), and this gate is what says so. T-1538 is the beds — "fill the
     # 131 adult beds… as T-1209 raises the 36 unbuilt lodging roofs" — so the person cells
-    # are its. The HOUSEHOLD rows below go to T-1537, which is the reconciliation of the
-    # 64 lodging households the book orders a second time.
+    # are its. The HOUSEHOLD rows below are T-1538's too, and T-1537 was the wrong owner
+    # for them for the reason this gate exists: T-1537 is a RECONCILIATION, and it closes
+    # the moment it lands. What it reconciles is the COUNTER — the fifteen lodging
+    # households the boarders stage had already built and filed no fill for — and once
+    # those fifteen are counted, 49 are still ordered and every one of them waits on a
+    # roof. A row that still owes work may not name a ticket that is finished.
     ("a boarder, a bed rather than a household",
      lambda a: a["household_type"] == "lodging", "T-1538"),
     # T-1347 repointed this off its split parent. T-1173 was the epic; it split into
@@ -231,8 +235,18 @@ HOUSEHOLD_BUCKETS = (
     # gate does reach them, and T-1534 — the roofs-and-beds piece — is the right owner for
     # them for the same reason it owns the boarders: a house has to stand before it holds
     # anybody.
-    ("boarding_house", "larger_boarding_houses", "T-1537"),
-    ("inn_tavern", "inns_taverns", "T-1537"),
+    #
+    # AND T-1537 SETTLED WHAT THE 64 ACTUALLY WERE. T-1534's acceptance asked for these
+    # two counts to be reconciled before either half of its order was minted, and the
+    # answer was that the boarders stage had built FIFTEEN of these households into
+    # `data/residents/lodgers/` and filed a fill for not one of them — so the book ordered
+    # all 64 a second time and the progress bars on "Reconstructing the town" read nought
+    # for a band that had run. The stage files them now; these rows carry the 49 that are
+    # left, and all 49 wait on a roof. So the owner is T-1538, not T-1537: every one of
+    # the town's 144 ordinary night beds is slept in and all 16 built lodging places hold a
+    # household, and T-1537 is a counter that closes when it lands.
+    ("boarding_house", "larger_boarding_houses", "T-1538"),
+    ("inn_tavern", "inns_taverns", "T-1538"),
     # T-1188 split (T-1410, T-1411); the institutional HOUSEHOLDS are the people who
     # lived at a church, a parsonage or a school. T-1410's three establishments — post
     # office, land office, county rooms — house nobody. T-1411 split in turn (T-1421,
