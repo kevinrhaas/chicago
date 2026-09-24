@@ -5113,6 +5113,26 @@ step "the 1835 staffing mint order re-derives, and spends no bucket it cannot re
 selftest "…and each of its seven assertions still fires when broken" \
   python3 tools/staffing_mint_order_1835.py --self-test
 
+# T-1448, piece 1 of T-1434 and stage `staffing_hands` of the resident reconstruction
+# programme. THE ORDER ABOVE, SPENT. The owner ruled on 2026-09-20 that the book should
+# be re-cut rather than the houses left short; T-1459 ran the re-cut and T-1503 freed the
+# band it needed, and the arithmetic settled at 36 hands payable of the 130 the shops
+# want. This stage mints those 36 — a clerk, a joiner, a shop boy, a tavern hand — each
+# on the house the order names, in the role the staffing model wants, out of the bucket
+# that could pay for him.
+#
+# WHY A GATE. Every person here is an invention bounded by two derived files that both
+# move, and the cards are adopted by name the moment another layer reads them. `--check`
+# re-derives all 36 cards and the ledger byte for byte and asserts the order book's fills
+# are the ones this stage minted; the deal itself is COMMITTED in `quota_basis`, which is
+# what puts T-1448 on `build_order_book_1835.REMAINDER_STABLE_STAGES` and what the eighth
+# assertion below demonstrates.
+step "the 1835 staffing hands re-derive, card for card, from the purse they were dealt" \
+  python3 tools/mint_staffing_hands_1835.py --check
+
+selftest "…and each of its eight assertions still fires when broken" \
+  python3 tools/mint_staffing_hands_1835.py --self-test
+
 # T-1371, piece 2 of T-1175 and stage `lodgers` of the resident reconstruction programme.
 # THE BEDS THE MODEL ABOVE COUNTED, SLEPT IN. T-1370 gave fifteen built lodging places an
 # ordinary-night capacity of 135 between them and seated nobody; thirty people stood on

@@ -952,6 +952,11 @@ def person_buckets(model: dict, composition: dict, inventory: dict, known: dict,
 REMAINDER_STABLE_STAGES = {
     "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in "
               "data/reconstruction/1835_lodgers_seated.json (T-1503)",
+    "T-1448": "tools/mint_staffing_hands_1835.py — deals against the committed "
+              "`quota_basis.deal` in data/reconstruction/1835_staffing_hands.json, the "
+              "purse `staffing_mint_order_1835.py` priced once. Demonstrated the way "
+              "T-1503 demonstrated the lodging stage: `--self-test` re-cuts a throwaway "
+              "copy of this book and asserts that not one card moves.",
 }
 
 

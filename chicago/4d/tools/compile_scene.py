@@ -834,6 +834,15 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     trades = load(trades_path) if trades_path.exists() else {}
     trade_rows_minted = trades.get("minted", [])
 
+    # T-1448, stage `staffing_hands`. The same container shape as the lodgers above, one
+    # per house and division rather than one per lodging place: the hands a business
+    # record is short of, where the order book had a `lodging/trade` slot to count them
+    # in. They live outside the mints' directory for the reason every other stage here
+    # does, and each carries the house it worked at and whether it slept there.
+    staffing_path = DATA / "reconstruction" / "1835_staffing_hands.json"
+    staffing = load(staffing_path) if staffing_path.exists() else {}
+    staffing_rows_minted = staffing.get("minted", [])
+
     # T-1353. The summer crowd, and the one set of rows in this file that is NOT the town's
     # own population. They live outside the mints' directory for the reason the two above
     # do and for one more: a card in data/residents/households/ is a card the manifest, the
@@ -895,7 +904,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     stage_order = [s.get("key") for s in programme_stages if s.get("key")]
 
     def row_for(hh, person, rel, ruling=None, minted=None, trade=None, transient=None,
-                lodging=None, underdocumented=None):
+                lodging=None, underdocumented=None, staffing_hand=None):
         occ = person.get("occupation") or {}
         occ_value = occ.get("value")
         arrival = hh.get("arrival") or {}
@@ -986,6 +995,21 @@ def compile_people(scene_id: str, outdir: Path) -> int:
                 "stands_on": th.get("stands_on"),
                 "household_size_owed": owed.get("size_drawn"),
                 "kin_seated_by": owed.get("seated_by"),
+                "replaced_by": (person.get("replaceable_by") or {}).get("match"),
+            }
+        elif staffing_hand is not None:
+            sh = hh.get("staffing_hands") or {}
+            slept = person.get("slept") or {}
+            row["staffing_hand"] = {
+                "ticket": sh.get("ticket"),
+                "business": sh.get("business"),
+                "business_name": sh.get("business_name"),
+                "reads_as": sh.get("reads_as"),
+                "role": staffing_hand.get("role"),
+                "bucket": staffing_hand.get("bucket"),
+                "slept": slept.get("value"),
+                "slept_note": (slept.get("basis") or {}).get("note"),
+                "stands_on": sh.get("stands_on"),
                 "replaced_by": (person.get("replaceable_by") or {}).get("match"),
             }
         elif underdocumented is not None:
@@ -1104,6 +1128,20 @@ def compile_people(scene_id: str, outdir: Path) -> int:
         for person in hh.get("persons", []) or []:
             rows.append(row_for(hh, person, minted["file"], lodging=minted))
     seal("lodgers")
+
+    staffing_households = 0
+    minted_by_person = {row["person"]: row for row in staffing_rows_minted}
+    for hid in sorted({row["household"] for row in staffing_rows_minted}):
+        path = DATA / "residents" / f"staffing_hands/{hid}.json"
+        if not path.exists():
+            continue
+        hh = load(path)
+        staffing_households += 1
+        households += 1
+        for person in hh.get("persons", []) or []:
+            rows.append(row_for(hh, person, f"staffing_hands/{hid}.json",
+                                staffing_hand=minted_by_person.get(person.get("id"), {})))
+    seal("staffing_hands")
 
     underdocumented_households = 0
     for minted in underdocumented_rows_minted:
@@ -1258,6 +1296,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "reconstructed_trade_heads": len(trade_heads),
             "reconstructed_trade_households": trade_households,
             "reconstructed_lodging_households": lodging_households,
+            "reconstructed_staffing_households": staffing_households,
             "lodging_seats": sum(1 for r in rows if r.get("lodging_seat")),
             "reconstructed_trade_by_trade": {
                 t: sum(1 for r in trade_heads if r["reconstructed_trade"]["trade"] == t)

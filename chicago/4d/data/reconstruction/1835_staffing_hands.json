@@ -1,0 +1,811 @@
+{
+ "$schema_note": "DERIVED. Written by tools/mint_staffing_hands_1835.py --build; tools/check.sh re-derives it. Do not hand-edit.",
+ "id": "chicago_1835_staffing_hands",
+ "ticket": "T-1448",
+ "parent_ticket": "T-1434",
+ "stage": "staffing_hands",
+ "target_date": "1835-07-01",
+ "generated_by": "tools/mint_staffing_hands_1835.py --build",
+ "not_a_reading": "NOTHING HERE IS A READING. Every person in this ledger is invented within the bounds two derived files set: the staffing model's typical band for the house's class, and the order book's outstanding slots. No page of any source was read to write it, and no source_id is claimed for anybody in it.",
+ "inputs": {
+  "the_order": "data/reconstruction/1835_staffing_mint_order.json",
+  "the_book": "data/reconstruction/1835_reconstruction_order_book.json",
+  "the_names": "data/reconstruction/1835_invented_name_pools.json",
+  "the_houses": "data/businesses/"
+ },
+ "what_it_does_not_do": {
+  "it_does_not_re_deal_the_order": "`pay_the_demand` in tools/staffing_mint_order_1835.py decided who is paid and out of which bucket. This stage reads `paid_from` and spends exactly that.",
+  "it_writes_to_no_committed_card": "Nothing in households/, readmitted/, reconstructed_trades/ or lodgers/ is touched, and no business record is written to — `staff[]` is T-1449's close.",
+  "it_draws_no_family": "A hand's kin are `family/none` in the book and belong to T-1171 and T-1174.",
+  "it_seats_nobody": "T-1199 seats a reconstructed household on the lot grid. The `slept` block says whether, never where."
+ },
+ "quota_basis": {
+  "$note": "DERIVED, and the purse this stage dealt against. T-1503's rule: the order is itself priced off the book's outstanding slots, so reading it live would re-draw every card here the next time the book is re-cut. The purse is recorded once and carried, and every divergence is stated below rather than absorbed.",
+  "owning_ticket": "T-1448",
+  "read_from": "`paid_from` in data/reconstruction/1835_staffing_mint_order.json on the build that first recorded it; carried unchanged after that",
+  "deal": [
+   {
+    "business_id": "biz_a_chicago_stove_and_hollow_ware_dealer_august_1835",
+    "role": "clerk",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/north/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_a_filer_co",
+    "role": "joiner",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/north/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_a_filer_co",
+    "role": "joiner",
+    "role_row": 1,
+    "bucket": "persons/male/10_19/north/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_a_leather_stock_chicago_june_1835",
+    "role": "clerk",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/north/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_a_new_auction_and_commission_room_south_water_street",
+    "role": "clerk",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_a_o_t_breed",
+    "role": "clerk",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_a_wholesale_wine_and_liquor_store_dearborn_street",
+    "role": "clerk",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_an_iron_and_hardware_stock_chicago_june_1835",
+    "role": "clerk",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_b_jones_grocery_and_provision_store",
+    "role": "clerk",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_b_jones_storage_and_forwarding",
+    "role": "clerk",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_b_jones_storage_and_forwarding",
+    "role": "labourer",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "hands": 2
+   },
+   {
+    "business_id": "biz_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered",
+    "role": "shoemaker",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_briggs_humphrey",
+    "role": "joiner",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_briggs_humphrey",
+    "role": "joiner",
+    "role_row": 1,
+    "bucket": "persons/male/10_19/west/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_c_i_harmon",
+    "role": "clerk",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/west/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_carpenter_chicago_merchant",
+    "role": "clerk",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/west/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_chase_ballard",
+    "role": "clerk",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/west/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_chicago_democrat_printing_office",
+    "role": "printer",
+    "role_row": 0,
+    "bucket": "persons/male/10_19/west/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_chicago_soap_and_candle_manufactory",
+    "role": "labourer",
+    "role_row": 0,
+    "bucket": "persons/male/20_29/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_clark_filer_co",
+    "role": "joiner",
+    "role_row": 0,
+    "bucket": "persons/male/20_29/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_d_carver_co",
+    "role": "labourer",
+    "role_row": 0,
+    "bucket": "persons/male/30_39/north/lodging/trade",
+    "hands": 2
+   },
+   {
+    "business_id": "biz_daniel_elston_co",
+    "role": "labourer",
+    "role_row": 0,
+    "bucket": "persons/male/30_39/north/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_dart_co_castings",
+    "role": "founder",
+    "role_row": 0,
+    "bucket": "persons/male/30_39/south/lodging/trade",
+    "hands": 2
+   },
+   {
+    "business_id": "biz_david_carver",
+    "role": "labourer",
+    "role_row": 0,
+    "bucket": "persons/male/30_39/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_e_p_deacon",
+    "role": "labourer",
+    "role_row": 0,
+    "bucket": "persons/male/30_39/west/lodging/trade",
+    "hands": 2
+   },
+   {
+    "business_id": "biz_e_wentworth",
+    "role": "tavern_keeper",
+    "role_row": 0,
+    "bucket": "persons/male/30_39/west/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_e_wentworth_s_public_house_on_flag_creek",
+    "role": "labourer",
+    "role_row": 0,
+    "bucket": "persons/male/40_49/north/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_e_wentworth_s_public_house_on_flag_creek",
+    "role": "tavern_keeper",
+    "role_row": 0,
+    "bucket": "persons/male/40_49/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_e_wentworth_s_tavern_flag_creek",
+    "role": "labourer",
+    "role_row": 0,
+    "bucket": "persons/male/40_49/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_e_wentworth_s_tavern_flag_creek",
+    "role": "tavern_keeper",
+    "role_row": 0,
+    "bucket": "persons/male/50_plus/north/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
+    "role": "tavern_keeper",
+    "role_row": 0,
+    "bucket": "persons/male/50_plus/south/lodging/trade",
+    "hands": 1
+   },
+   {
+    "business_id": "biz_eagle_tavern",
+    "role": "tavern_keeper",
+    "role_row": 0,
+    "bucket": "persons/male/50_plus/west/lodging/trade",
+    "hands": 1
+   }
+  ],
+  "hands": 36,
+  "the_order_has_moved": {
+   "no_longer_paid_for": [],
+   "paid_for_since": [],
+   "count_changed": [],
+   "reads_as": "A divergence here is a decision for a run to make, never a re-derivation: re-minting against a purse that has moved retires people other layers may already name. The cards stand on `deal` until a ticket says otherwise."
+  }
+ },
+ "fills": {
+  "persons/male/10_19/north/lodging/trade": 4,
+  "persons/male/10_19/south/lodging/trade": 10,
+  "persons/male/10_19/west/lodging/trade": 5,
+  "persons/male/20_29/south/lodging/trade": 2,
+  "persons/male/30_39/north/lodging/trade": 3,
+  "persons/male/30_39/south/lodging/trade": 3,
+  "persons/male/30_39/west/lodging/trade": 3,
+  "persons/male/40_49/north/lodging/trade": 1,
+  "persons/male/40_49/south/lodging/trade": 2,
+  "persons/male/50_plus/north/lodging/trade": 1,
+  "persons/male/50_plus/south/lodging/trade": 1,
+  "persons/male/50_plus/west/lodging/trade": 1
+ },
+ "minted": [
+  {
+   "person": "rc_hubbard_lemuel",
+   "name": "Lemuel Hubbard",
+   "household": "hh_staff_a_chicago_stove_and_hollow_ware_dealer_august_1835_north",
+   "file": "staffing_hands/hh_staff_a_chicago_stove_and_hollow_ware_dealer_august_1835_north.json",
+   "business": "biz_a_chicago_stove_and_hollow_ware_dealer_august_1835",
+   "business_name": "a Chicago stove and hollow ware dealer, August 1835",
+   "role": "clerk",
+   "occupation": "clerk",
+   "bucket": "persons/male/10_19/north/lodging/trade",
+   "division": "north",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_a_chicago_stove_and_hollow_ware_dealer_august_1835:north:clerk:0:001"
+  },
+  {
+   "person": "rc_vieau_charles",
+   "name": "Charles Vieau",
+   "household": "hh_staff_a_filer_co_north",
+   "file": "staffing_hands/hh_staff_a_filer_co_north.json",
+   "business": "biz_a_filer_co",
+   "business_name": "A. Filer & Co.",
+   "role": "joiner",
+   "occupation": "joiner",
+   "bucket": "persons/male/10_19/north/lodging/trade",
+   "division": "north",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_a_filer_co:north:joiner:0:001"
+  },
+  {
+   "person": "rc_cobb_harvey",
+   "name": "Harvey Cobb",
+   "household": "hh_staff_a_filer_co_north",
+   "file": "staffing_hands/hh_staff_a_filer_co_north.json",
+   "business": "biz_a_filer_co",
+   "business_name": "A. Filer & Co.",
+   "role": "joiner",
+   "occupation": "joiner",
+   "bucket": "persons/male/10_19/north/lodging/trade",
+   "division": "north",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_a_filer_co:north:joiner:1:001"
+  },
+  {
+   "person": "rc_newell_george",
+   "name": "George Newell",
+   "household": "hh_staff_a_leather_stock_chicago_june_1835_north",
+   "file": "staffing_hands/hh_staff_a_leather_stock_chicago_june_1835_north.json",
+   "business": "biz_a_leather_stock_chicago_june_1835",
+   "business_name": "a leather stock, Chicago, June 1835",
+   "role": "clerk",
+   "occupation": "clerk",
+   "bucket": "persons/male/10_19/north/lodging/trade",
+   "division": "north",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_a_leather_stock_chicago_june_1835:north:clerk:0:001"
+  },
+  {
+   "person": "rc_bertrand_joseph",
+   "name": "Joseph Bertrand",
+   "household": "hh_staff_a_new_auction_and_commission_room_south_water_street_south",
+   "file": "staffing_hands/hh_staff_a_new_auction_and_commission_room_south_water_street_south.json",
+   "business": "biz_a_new_auction_and_commission_room_south_water_street",
+   "business_name": "a new auction and commission room, South Water Street",
+   "role": "clerk",
+   "occupation": "clerk",
+   "bucket": "persons/male/10_19/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_a_new_auction_and_commission_room_south_water_street:south:clerk:0:001"
+  },
+  {
+   "person": "rc_bardwell_seth",
+   "name": "Seth Bardwell",
+   "household": "hh_staff_a_o_t_breed_south",
+   "file": "staffing_hands/hh_staff_a_o_t_breed_south.json",
+   "business": "biz_a_o_t_breed",
+   "business_name": "A. O. T. Breed",
+   "role": "clerk",
+   "occupation": "clerk",
+   "bucket": "persons/male/10_19/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_a_o_t_breed:south:clerk:0:001"
+  },
+  {
+   "person": "rc_parmelee_luther",
+   "name": "Luther Parmelee",
+   "household": "hh_staff_a_wholesale_wine_and_liquor_store_dearborn_street_south",
+   "file": "staffing_hands/hh_staff_a_wholesale_wine_and_liquor_store_dearborn_street_south.json",
+   "business": "biz_a_wholesale_wine_and_liquor_store_dearborn_street",
+   "business_name": "a wholesale wine and liquor store, Dearborn Street",
+   "role": "clerk",
+   "occupation": "clerk",
+   "bucket": "persons/male/10_19/south/lodging/trade",
+   "division": "south",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_a_wholesale_wine_and_liquor_store_dearborn_street:south:clerk:0:001"
+  },
+  {
+   "person": "rc_sawyer_chauncey",
+   "name": "Chauncey Sawyer",
+   "household": "hh_staff_an_iron_and_hardware_stock_chicago_june_1835_south",
+   "file": "staffing_hands/hh_staff_an_iron_and_hardware_stock_chicago_june_1835_south.json",
+   "business": "biz_an_iron_and_hardware_stock_chicago_june_1835",
+   "business_name": "an iron and hardware stock, Chicago, June 1835",
+   "role": "clerk",
+   "occupation": "clerk",
+   "bucket": "persons/male/10_19/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_an_iron_and_hardware_stock_chicago_june_1835:south:clerk:0:001"
+  },
+  {
+   "person": "rc_gallagher_john",
+   "name": "John Gallagher",
+   "household": "hh_staff_b_jones_grocery_and_provision_store_south",
+   "file": "staffing_hands/hh_staff_b_jones_grocery_and_provision_store_south.json",
+   "business": "biz_b_jones_grocery_and_provision_store",
+   "business_name": "B. Jones, grocery and provision store",
+   "role": "clerk",
+   "occupation": "clerk",
+   "bucket": "persons/male/10_19/south/lodging/trade",
+   "division": "south",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_b_jones_grocery_and_provision_store:south:clerk:0:001"
+  },
+  {
+   "person": "rc_whitcomb_abner",
+   "name": "Abner Whitcomb",
+   "household": "hh_staff_b_jones_storage_and_forwarding_south",
+   "file": "staffing_hands/hh_staff_b_jones_storage_and_forwarding_south.json",
+   "business": "biz_b_jones_storage_and_forwarding",
+   "business_name": "B. Jones, storage and forwarding",
+   "role": "clerk",
+   "occupation": "clerk",
+   "bucket": "persons/male/10_19/south/lodging/trade",
+   "division": "south",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_b_jones_storage_and_forwarding:south:clerk:0:001"
+  },
+  {
+   "person": "rc_pratt_jared",
+   "name": "Jared Pratt",
+   "household": "hh_staff_b_jones_storage_and_forwarding_south",
+   "file": "staffing_hands/hh_staff_b_jones_storage_and_forwarding_south.json",
+   "business": "biz_b_jones_storage_and_forwarding",
+   "business_name": "B. Jones, storage and forwarding",
+   "role": "labourer",
+   "occupation": "labourer",
+   "bucket": "persons/male/10_19/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_b_jones_storage_and_forwarding:south:labourer:0:001"
+  },
+  {
+   "person": "rc_hayes_edward",
+   "name": "Edward Hayes",
+   "household": "hh_staff_b_jones_storage_and_forwarding_south",
+   "file": "staffing_hands/hh_staff_b_jones_storage_and_forwarding_south.json",
+   "business": "biz_b_jones_storage_and_forwarding",
+   "business_name": "B. Jones, storage and forwarding",
+   "role": "labourer",
+   "occupation": "labourer",
+   "bucket": "persons/male/10_19/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_b_jones_storage_and_forwarding:south:labourer:0:002"
+  },
+  {
+   "person": "rc_wilcox_hiram",
+   "name": "Hiram Wilcox",
+   "household": "hh_staff_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered_south",
+   "file": "staffing_hands/hh_staff_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered_south.json",
+   "business": "biz_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered",
+   "business_name": "[boot, shoe and leather store, Lake street, proprietor not recovered]",
+   "role": "shoemaker",
+   "occupation": "shoemaker",
+   "bucket": "persons/male/10_19/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered:south:shoemaker:0:001"
+  },
+  {
+   "person": "rc_lyman_erastus",
+   "name": "Erastus Lyman",
+   "household": "hh_staff_briggs_humphrey_south",
+   "file": "staffing_hands/hh_staff_briggs_humphrey_south.json",
+   "business": "biz_briggs_humphrey",
+   "business_name": "Briggs & Humphrey",
+   "role": "joiner",
+   "occupation": "joiner",
+   "bucket": "persons/male/10_19/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_briggs_humphrey:south:joiner:0:001"
+  },
+  {
+   "person": "rc_crandall_warren",
+   "name": "Warren Crandall",
+   "household": "hh_staff_briggs_humphrey_west",
+   "file": "staffing_hands/hh_staff_briggs_humphrey_west.json",
+   "business": "biz_briggs_humphrey",
+   "business_name": "Briggs & Humphrey",
+   "role": "joiner",
+   "occupation": "joiner",
+   "bucket": "persons/male/10_19/west/lodging/trade",
+   "division": "west",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_briggs_humphrey:west:joiner:1:001"
+  },
+  {
+   "person": "rc_wilcox_benjamin",
+   "name": "Benjamin Wilcox",
+   "household": "hh_staff_c_i_harmon_west",
+   "file": "staffing_hands/hh_staff_c_i_harmon_west.json",
+   "business": "biz_c_i_harmon",
+   "business_name": "C. & I. Harmon",
+   "role": "clerk",
+   "occupation": "clerk",
+   "bucket": "persons/male/10_19/west/lodging/trade",
+   "division": "west",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_c_i_harmon:west:clerk:0:001"
+  },
+  {
+   "person": "rc_tobin_terence",
+   "name": "Terence Tobin",
+   "household": "hh_staff_carpenter_chicago_merchant_west",
+   "file": "staffing_hands/hh_staff_carpenter_chicago_merchant_west.json",
+   "business": "biz_carpenter_chicago_merchant",
+   "business_name": "Carpenter, Chicago merchant",
+   "role": "clerk",
+   "occupation": "clerk",
+   "bucket": "persons/male/10_19/west/lodging/trade",
+   "division": "west",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_carpenter_chicago_merchant:west:clerk:0:001"
+  },
+  {
+   "person": "rc_ingalls_orrin",
+   "name": "Orrin Ingalls",
+   "household": "hh_staff_chase_ballard_west",
+   "file": "staffing_hands/hh_staff_chase_ballard_west.json",
+   "business": "biz_chase_ballard",
+   "business_name": "Chase & Ballard",
+   "role": "clerk",
+   "occupation": "clerk",
+   "bucket": "persons/male/10_19/west/lodging/trade",
+   "division": "west",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_chase_ballard:west:clerk:0:001"
+  },
+  {
+   "person": "rc_hastings_alvah",
+   "name": "Alvah Hastings",
+   "household": "hh_staff_chicago_democrat_printing_office_west",
+   "file": "staffing_hands/hh_staff_chicago_democrat_printing_office_west.json",
+   "business": "biz_chicago_democrat_printing_office",
+   "business_name": "Chicago Democrat printing office",
+   "role": "printer",
+   "occupation": "printer",
+   "bucket": "persons/male/10_19/west/lodging/trade",
+   "division": "west",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_chicago_democrat_printing_office:west:printer:0:001"
+  },
+  {
+   "person": "rc_goodrich_harvey",
+   "name": "Harvey Goodrich",
+   "household": "hh_staff_chicago_soap_and_candle_manufactory_south",
+   "file": "staffing_hands/hh_staff_chicago_soap_and_candle_manufactory_south.json",
+   "business": "biz_chicago_soap_and_candle_manufactory",
+   "business_name": "Chicago Soap and Candle Manufactory",
+   "role": "labourer",
+   "occupation": "labourer",
+   "bucket": "persons/male/20_29/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_chicago_soap_and_candle_manufactory:south:labourer:0:001"
+  },
+  {
+   "person": "rc_nolan_edward",
+   "name": "Edward Nolan",
+   "household": "hh_staff_clark_filer_co_south",
+   "file": "staffing_hands/hh_staff_clark_filer_co_south.json",
+   "business": "biz_clark_filer_co",
+   "business_name": "Clark, Filer & Co.",
+   "role": "joiner",
+   "occupation": "joiner",
+   "bucket": "persons/male/20_29/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_clark_filer_co:south:joiner:0:001"
+  },
+  {
+   "person": "rc_hubbard_eli",
+   "name": "Eli Hubbard",
+   "household": "hh_staff_d_carver_co_north",
+   "file": "staffing_hands/hh_staff_d_carver_co_north.json",
+   "business": "biz_d_carver_co",
+   "business_name": "D. Carver & Co.",
+   "role": "labourer",
+   "occupation": "labourer",
+   "bucket": "persons/male/30_39/north/lodging/trade",
+   "division": "north",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_d_carver_co:north:labourer:0:001"
+  },
+  {
+   "person": "rc_corrigan_michael",
+   "name": "Michael Corrigan",
+   "household": "hh_staff_d_carver_co_north",
+   "file": "staffing_hands/hh_staff_d_carver_co_north.json",
+   "business": "biz_d_carver_co",
+   "business_name": "D. Carver & Co.",
+   "role": "labourer",
+   "occupation": "labourer",
+   "bucket": "persons/male/30_39/north/lodging/trade",
+   "division": "north",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_d_carver_co:north:labourer:0:002"
+  },
+  {
+   "person": "rc_mccarthy_bryan",
+   "name": "Bryan McCarthy",
+   "household": "hh_staff_daniel_elston_co_north",
+   "file": "staffing_hands/hh_staff_daniel_elston_co_north.json",
+   "business": "biz_daniel_elston_co",
+   "business_name": "Daniel Elston & [Co.]",
+   "role": "labourer",
+   "occupation": "labourer",
+   "bucket": "persons/male/30_39/north/lodging/trade",
+   "division": "north",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_daniel_elston_co:north:labourer:0:001"
+  },
+  {
+   "person": "rc_nichols_william",
+   "name": "William Nichols",
+   "household": "hh_staff_dart_co_castings_south",
+   "file": "staffing_hands/hh_staff_dart_co_castings_south.json",
+   "business": "biz_dart_co_castings",
+   "business_name": "Dart & Co., castings",
+   "role": "founder",
+   "occupation": "founder",
+   "bucket": "persons/male/30_39/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_dart_co_castings:south:founder:0:001"
+  },
+  {
+   "person": "rc_wilcox_rufus",
+   "name": "Rufus Wilcox",
+   "household": "hh_staff_dart_co_castings_south",
+   "file": "staffing_hands/hh_staff_dart_co_castings_south.json",
+   "business": "biz_dart_co_castings",
+   "business_name": "Dart & Co., castings",
+   "role": "founder",
+   "occupation": "founder",
+   "bucket": "persons/male/30_39/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_dart_co_castings:south:founder:0:002"
+  },
+  {
+   "person": "rc_chapin_rufus",
+   "name": "Rufus Chapin",
+   "household": "hh_staff_david_carver_south",
+   "file": "staffing_hands/hh_staff_david_carver_south.json",
+   "business": "biz_david_carver",
+   "business_name": "David Carver",
+   "role": "labourer",
+   "occupation": "labourer",
+   "bucket": "persons/male/30_39/south/lodging/trade",
+   "division": "south",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_david_carver:south:labourer:0:001"
+  },
+  {
+   "person": "rc_sullivan_bryan",
+   "name": "Bryan Sullivan",
+   "household": "hh_staff_e_p_deacon_west",
+   "file": "staffing_hands/hh_staff_e_p_deacon_west.json",
+   "business": "biz_e_p_deacon",
+   "business_name": "E. P. Deacon",
+   "role": "labourer",
+   "occupation": "labourer",
+   "bucket": "persons/male/30_39/west/lodging/trade",
+   "division": "west",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_e_p_deacon:west:labourer:0:001"
+  },
+  {
+   "person": "rc_nolan_daniel",
+   "name": "Daniel Nolan",
+   "household": "hh_staff_e_p_deacon_west",
+   "file": "staffing_hands/hh_staff_e_p_deacon_west.json",
+   "business": "biz_e_p_deacon",
+   "business_name": "E. P. Deacon",
+   "role": "labourer",
+   "occupation": "labourer",
+   "bucket": "persons/male/30_39/west/lodging/trade",
+   "division": "west",
+   "slept": "boarded out",
+   "slot": "staffing_hands:biz_e_p_deacon:west:labourer:0:002"
+  },
+  {
+   "person": "rc_bardwell_luther",
+   "name": "Luther Bardwell",
+   "household": "hh_staff_e_wentworth_west",
+   "file": "staffing_hands/hh_staff_e_wentworth_west.json",
+   "business": "biz_e_wentworth",
+   "business_name": "E. Wentworth",
+   "role": "tavern_keeper",
+   "occupation": "tavern_keeper",
+   "bucket": "persons/male/30_39/west/lodging/trade",
+   "division": "west",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_e_wentworth:west:tavern_keeper:0:001"
+  },
+  {
+   "person": "rc_chapin_elisha",
+   "name": "Elisha Chapin",
+   "household": "hh_staff_e_wentworth_s_public_house_on_flag_creek_north",
+   "file": "staffing_hands/hh_staff_e_wentworth_s_public_house_on_flag_creek_north.json",
+   "business": "biz_e_wentworth_s_public_house_on_flag_creek",
+   "business_name": "E. Wentworth's public house on Flag Creek",
+   "role": "labourer",
+   "occupation": "labourer",
+   "bucket": "persons/male/40_49/north/lodging/trade",
+   "division": "north",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_e_wentworth_s_public_house_on_flag_creek:north:labourer:0:001"
+  },
+  {
+   "person": "rc_keegan_michael",
+   "name": "Michael Keegan",
+   "household": "hh_staff_e_wentworth_s_public_house_on_flag_creek_south",
+   "file": "staffing_hands/hh_staff_e_wentworth_s_public_house_on_flag_creek_south.json",
+   "business": "biz_e_wentworth_s_public_house_on_flag_creek",
+   "business_name": "E. Wentworth's public house on Flag Creek",
+   "role": "tavern_keeper",
+   "occupation": "tavern_keeper",
+   "bucket": "persons/male/40_49/south/lodging/trade",
+   "division": "south",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_e_wentworth_s_public_house_on_flag_creek:south:tavern_keeper:0:001"
+  },
+  {
+   "person": "rc_corrigan_cornelius",
+   "name": "Cornelius Corrigan",
+   "household": "hh_staff_e_wentworth_s_tavern_flag_creek_south",
+   "file": "staffing_hands/hh_staff_e_wentworth_s_tavern_flag_creek_south.json",
+   "business": "biz_e_wentworth_s_tavern_flag_creek",
+   "business_name": "E. Wentworth's tavern, Flag Creek",
+   "role": "labourer",
+   "occupation": "labourer",
+   "bucket": "persons/male/40_49/south/lodging/trade",
+   "division": "south",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_e_wentworth_s_tavern_flag_creek:south:labourer:0:001"
+  },
+  {
+   "person": "rc_lyman_harvey",
+   "name": "Harvey Lyman",
+   "household": "hh_staff_e_wentworth_s_tavern_flag_creek_north",
+   "file": "staffing_hands/hh_staff_e_wentworth_s_tavern_flag_creek_north.json",
+   "business": "biz_e_wentworth_s_tavern_flag_creek",
+   "business_name": "E. Wentworth's tavern, Flag Creek",
+   "role": "tavern_keeper",
+   "occupation": "tavern_keeper",
+   "bucket": "persons/male/50_plus/north/lodging/trade",
+   "division": "north",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_e_wentworth_s_tavern_flag_creek:north:tavern_keeper:0:001"
+  },
+  {
+   "person": "rc_stebbins_alanson",
+   "name": "Alanson Stebbins",
+   "household": "hh_staff_e_wentworth_s_tavern_on_flag_creek_south",
+   "file": "staffing_hands/hh_staff_e_wentworth_s_tavern_on_flag_creek_south.json",
+   "business": "biz_e_wentworth_s_tavern_on_flag_creek",
+   "business_name": "E. Wentworth's tavern on Flag Creek",
+   "role": "tavern_keeper",
+   "occupation": "tavern_keeper",
+   "bucket": "persons/male/50_plus/south/lodging/trade",
+   "division": "south",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_e_wentworth_s_tavern_on_flag_creek:south:tavern_keeper:0:001"
+  },
+  {
+   "person": "rc_hale_henry",
+   "name": "Henry Hale",
+   "household": "hh_staff_eagle_tavern_west",
+   "file": "staffing_hands/hh_staff_eagle_tavern_west.json",
+   "business": "biz_eagle_tavern",
+   "business_name": "Eagle Tavern",
+   "role": "tavern_keeper",
+   "occupation": "tavern_keeper",
+   "bucket": "persons/male/50_plus/west/lodging/trade",
+   "division": "west",
+   "slept": "on the premises",
+   "slot": "staffing_hands:biz_eagle_tavern:west:tavern_keeper:0:001"
+  }
+ ],
+ "measurement": {
+  "hands_the_shops_want": 130,
+  "houses_short": 88,
+  "the_book_could_pay_for": 36,
+  "hands_minted": 36,
+  "hands_unpaid": 94,
+  "houses_staffed_here": 27,
+  "containers_written": 30,
+  "by_role": {
+   "clerk": 11,
+   "founder": 2,
+   "joiner": 5,
+   "labourer": 11,
+   "printer": 1,
+   "shoemaker": 1,
+   "tavern_keeper": 5
+  },
+  "by_division": {
+   "north": 9,
+   "south": 18,
+   "west": 9
+  },
+  "where_they_slept": {
+   "boarded out": 22,
+   "on the premises": 14
+  },
+  "buckets_filled": 12,
+  "every_hand_names_its_house": true,
+  "nobody_is_minted_twice": true,
+  "the_ninety_four": "THE SHOPS ARE STILL SHORT, AND BY MOST OF WHAT THEY WANT. 94 of the 130 hands have no slot in the book to be counted in: 25 of the slots left are women's and every hand wanted is a man or a role the model calls predominantly male, and the rest is a plain shortfall on the count. T-1459 made the sex refusal on the evidence and did not withdraw it, so those houses stand short and the business card says so — which was always the third of the order's three answers."
+ }
+}

@@ -199,17 +199,35 @@ def demand(businesses: list, model: dict, seating: dict) -> list:
 def outstanding_trade_slots(book: dict) -> list:
     """The book's `.../trade` person buckets with slots left — `to_reconstruct` less
     `filled`. A bucket whose stage has already drawn it out is not a slot: the book's
-    `no_bucket_overfilled` invariant is what makes that a fact and not a convention."""
+    `no_bucket_overfilled` invariant is what makes that a fact and not a convention.
+
+    THIS TICKET'S OWN FILLS ARE ADDED BACK, and without that the order is not a fixed
+    point. `mint_staffing_hands_1835.py` (T-1448) spends this purse and writes its fills
+    into the book; re-deriving the order afterwards would then see its own spending as
+    somebody else's and offer a smaller purse, so `--check` would fail the moment the
+    mint ran and the mint's own `--check` would fail with it. The same add-back, for the
+    same reason, is `reconstruct_trade_households.buckets()`: "a draw that read its own
+    previous answer as a spent quota would draw fewer people on the second build than on
+    the first". Only THIS ticket's fills come back — every other stage's spending is a
+    slot genuinely gone.
+    """
     family = next((f for f in book.get("bucket_families") or []
                    if f.get("key") == "persons"), None)
     if family is None:
         raise Fault("the order book carries no `persons` bucket family")
+    ours: dict[str, int] = {}
+    for entry in book.get("fills") or []:
+        if entry.get("ticket") == TICKET:
+            key = entry.get("bucket")
+            ours[key] = ours.get(key, 0) + int(entry.get("records") or 0)
     slots = []
     for bucket in family.get("buckets") or []:
         axes = bucket.get("axes") or {}
         if axes.get("trade") != "trade":
             continue
-        left = int(bucket.get("to_reconstruct") or 0) - int(bucket.get("filled") or 0)
+        left = (int(bucket.get("to_reconstruct") or 0)
+                - int(bucket.get("filled") or 0)
+                + ours.get(bucket.get("key"), 0))
         if left <= 0:
             continue
         slots.append({
@@ -539,8 +557,15 @@ def cmd_self_test() -> int:
         **doc, "the_demand": {**doc["the_demand"], "hands_wanted": 0}}))
 
     # 7. The order book with no outstanding trade slot pays for nobody.
+    #    `fills` IS CLEARED AS WELL AS `filled`, and the two are not the same statement.
+    #    `outstanding_trade_slots` adds THIS ticket's own fills back — without that the
+    #    order would see its own spending as somebody else's and stop being a fixed
+    #    point — so a book drawn out by everybody but this stage still has this stage's
+    #    purse in it. The assertion wanted is "nothing outstanding pays for nobody", and
+    #    that means drawn out by every stage including this one.
     empty = dict(data)
     book = json.loads(json.dumps(data["book"]))
+    book["fills"] = []
     for family in book["bucket_families"]:
         if family["key"] != "persons":
             continue

@@ -1,0 +1,167 @@
+{
+ "id": "hh_staff_briggs_humphrey_south",
+ "name": "The hands of Briggs & Humphrey",
+ "division": "south",
+ "head": null,
+ "source_pass": "reconstructed_staffing_hand",
+ "staffing_hands": {
+  "ticket": "T-1448",
+  "parent_ticket": "T-1434",
+  "stage": "staffing_hands",
+  "business": "biz_briggs_humphrey",
+  "business_name": "Briggs & Humphrey",
+  "establishment_class": "wood_trades_shop",
+  "reads_as": "a joiner's or carriage maker's shop",
+  "premises": {
+   "structure_id": null,
+   "street_id": "south_water",
+   "kind": "street_only"
+  },
+  "hands_minted": 1,
+  "stands_on": "The staffing model gives this house's class a typical number of hands at each role, the layer holds fewer, and the order book had an outstanding `lodging/trade` slot to count the difference in. `1835_staffing_mint_order.json` carries the arithmetic and re-derives under its own gate.",
+  "withdrawn_if": "a source naming this house's hands, a staffing model that no longer wants them, or a re-cut order book with no slot to pay for them; the retirement runs through --build, never by hand",
+  "note": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the hands of one house were not kin. This record holds the working places of one house in one division and claims no relation between the people in them beyond the work."
+ },
+ "household_owed": {
+  "size_drawn": null,
+  "seated_by": "T-1171 and T-1174 (a hand's own kin, if the model owes him any), T-1179 (converge)",
+  "note": "NOT DRAWN HERE. A hand's kin are `family/none` in the order book and that quota belongs to T-1171 and T-1174; drawing them here would order the same people twice."
+ },
+ "arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "NOT DRAWN HERE, AND THE REASON IS A CIRCLE. The arrival model's own distribution is computed over the compiled scene and the scene carries these cards; an arrival written here would move the table that drew it. The programme's arrival stage owns this block.",
+  "seated_by": "T-1169 (the arrival fill), T-1179 (converge)"
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "NOT SEATED, AND NOT FOR WANT OF ASKING. Each person here carries a `slept` block saying whether he lived at his work or boarded out, drawn against the staffing model's own share for his role — but that names no roof. 23 of the 27 houses in this order carry a street and no structure, so there is no premises id to write, and T-1199 is the stage that seats a reconstructed household on the lot grid. The division above is the order book bucket's.",
+  "seated_by": "T-1199 (the placement policy)"
+ },
+ "works_at": {
+  "value": "biz_briggs_humphrey",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "model",
+   "id": "1835_staffing_mint_order",
+   "note": "THE ONE THING ON THIS CARD THAT IS NOT A DRAW. These people exist because this house is short of hands; the house is the reason for the person, so the workplace is the order rather than a draw made over it."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source naming who worked at this house"
+  }
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "ordered_by_the_reconstruction_order_book",
+   "note": "Ordered, not argued: the book counts these people as missing FROM the town of 1 July 1835, so presence is the order rather than a draw made over it."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a re-cut order book that no longer orders these buckets"
+  }
+ },
+ "touches_removal": false,
+ "review_required": false,
+ "persons": [
+  {
+   "id": "rc_lyman_erastus",
+   "name": "Erastus Lyman",
+   "relationship": "journeyman",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_reconstruction_order_book",
+     "note": "The bucket that ordered this person is 10_19; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+    },
+    "seed": "staffing_hands:biz_briggs_humphrey:south:joiner:0:001:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+   },
+   "name_basis": {
+    "value": "Erastus Lyman",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Both parts are drawn from the yankee pool, weighted for joiner where the pools speak to that trade and from the general stock where they do not."
+    },
+    "seed": "staffing_hands:biz_briggs_humphrey:south:joiner:0:001:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a real hand of this house"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn hand from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_staffing_mint_order",
+    "note": "The staffing model wants a joiner at Briggs & Humphrey that no card in the layer holds, and the order book's bucket persons/male/10_19/south/lodging/trade had a slot to pay for one. Both halves had to be true: 94 of the 130 hands the shops want have no slot and are not minted."
+   },
+   "seed": "staffing_hands:biz_briggs_humphrey:south:joiner:0:001:forename",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a person who worked at this house, who would take this place instead"
+   },
+   "reconstruction": {
+    "stage": "staffing_hands",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "yankee",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_staffing_hand",
+   "occupation": {
+    "value": "joiner",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_business_staffing_model",
+     "note": "The house's class is wood_trades_shop and the model staffs that class with this role at its typical band. The term is the model's, from the 1839 directory's classes, and is in the residents vocabulary."
+    },
+    "seed": "staffing_hands:biz_briggs_humphrey:south:joiner:0:001:role",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming this house's hands and their trades"
+    }
+   },
+   "slept": {
+    "value": "boarded out",
+    "on_premises": false,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_business_staffing_model",
+     "note": "`lives_on_premises` for joiner in a joiner's or carriage maker's shop is 0.2 — drawn against the model's share of 0.2 for this role, and the draw says out."
+    },
+    "seed": "staffing_hands:biz_briggs_humphrey:south:joiner:0:001:sleeps_on_premises",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source stating where a hand of this house slept"
+    },
+    "note": "WHETHER, NOT WHERE. This says the hand slept at his work or away from it and names no roof: the house is not seated on a structure and T-1199 is the stage that seats one. Either way he is counted as lodging, because the only slot the book had left for a working man is a `lodging/trade` slot."
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because a house this project holds a record for is short of a hand its class is staffed with, and the order book had a slot to count him in. The whole of what is claimed is that: a man of this band worked this trade at this house. He is reproducible from the seeds printed above and a real name retires him. No figure is drawn (L1)."
+  }
+ ]
+}

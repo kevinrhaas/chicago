@@ -654,6 +654,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "mint_staffing_hands_1835.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-24",
+      "finding": "Reproduces: `--build` on a tree the gate called clean rewrote its 30 cards and its ledger and changed no committed byte. It also re-derives data/reconstruction/1835_reconstruction_order_book.json through `build_order_book_1835.cmd_build()`, the way every stage that carries fills into the book does, and that re-derivation is a fixed point here.",
+      "placed": "not yet — measured to reproduce. It reads data/reconstruction/1835_staffing_mint_order.json (staffing_mint_order_1835.py) and data/reconstruction/1835_invented_name_pools.json, and it writes data/residents/staffing_hands/ plus fills into the order book, so its slot sits after the staffing order and beside the other stages that carry fills — reconstruct_trade_households.py and seat_lodgers_1835.py. The manifest's order is its own measured pass, on which three reconstruction stages once oscillated, so this cannot be appended blind."
+    },
     "model_town_1835.py": {
       "placement": "manifest",
       "write_mode": null,
