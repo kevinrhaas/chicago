@@ -1128,6 +1128,15 @@
       ]
     },
     {
+      "ticket": "T-1533",
+      "records": 10,
+      "buckets": [
+        "persons/female/under_10/north/lodging/none",
+        "persons/male/under_10/north/lodging/none",
+        "persons/male/under_10/west/lodging/none"
+      ]
+    },
+    {
       "ticket": "T-1418",
       "records": 3,
       "buckets": [
@@ -1186,8 +1195,8 @@
     "roofs_standing": 414,
     "roofs_to_build": 267,
     "persons_standing": 2263,
-    "persons_still_owed": 494,
-    "persons_when_the_book_is_filled": 2757,
+    "persons_still_owed": 484,
+    "persons_when_the_book_is_filled": 2747,
     "persons_target_range": [
       2353,
       3265
@@ -1211,14 +1220,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2263,
-      "persons_still_owed": 494,
-      "converges_to": 2757,
+      "persons_still_owed": 484,
+      "converges_to": 2747,
       "model_point": 2536,
       "model_range": [
         2353,
         3265
       ],
-      "measured": "2,263 standing plus 494 still owed is 2,757, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 221 above the model's 2,536 point, and that surplus is the 463 people drawn into 48 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,263 standing plus 484 still owed is 2,747, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 211 above the model's 2,536 point, and that surplus is the 463 people drawn into 48 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -1318,7 +1327,7 @@
           "known_inferred": 3,
           "to_reconstruct": 3,
           "filled": 3,
-          "owning_ticket": "T-1533",
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -1372,7 +1381,7 @@
           "known_inferred": 10,
           "to_reconstruct": 4,
           "filled": 4,
-          "owning_ticket": "T-1533",
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -1426,7 +1435,7 @@
           "known_inferred": 3,
           "to_reconstruct": 1,
           "filled": 1,
-          "owning_ticket": "T-1533",
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -1498,7 +1507,7 @@
           "known_inferred": 4,
           "to_reconstruct": 6,
           "filled": 3,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -1570,7 +1579,7 @@
           "known_inferred": 10,
           "to_reconstruct": 19,
           "filled": 7,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -1642,7 +1651,7 @@
           "known_inferred": 3,
           "to_reconstruct": 9,
           "filled": 1,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -1714,7 +1723,7 @@
           "known_inferred": 2,
           "to_reconstruct": 3,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -1786,7 +1795,7 @@
           "known_inferred": 4,
           "to_reconstruct": 10,
           "filled": 4,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -1858,7 +1867,7 @@
           "known_inferred": 1,
           "to_reconstruct": 4,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -1930,7 +1939,7 @@
           "known_inferred": 1,
           "to_reconstruct": 1,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2002,7 +2011,7 @@
           "known_inferred": 1,
           "to_reconstruct": 4,
           "filled": 1,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2074,7 +2083,7 @@
           "known_inferred": 1,
           "to_reconstruct": 1,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2146,7 +2155,7 @@
           "known_inferred": 0,
           "to_reconstruct": 1,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2218,7 +2227,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2289,7 +2298,7 @@
           "known_inferred": 0,
           "to_reconstruct": 1,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2323,8 +2332,8 @@
           "known_attested": 3,
           "known_inferred": 7,
           "to_reconstruct": 9,
-          "filled": 0,
-          "owning_ticket": "T-1533",
+          "filled": 4,
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -2359,7 +2368,7 @@
           "known_inferred": 16,
           "to_reconstruct": 22,
           "filled": 0,
-          "owning_ticket": "T-1533",
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -2394,7 +2403,7 @@
           "known_inferred": 5,
           "to_reconstruct": 9,
           "filled": 0,
-          "owning_ticket": "T-1533",
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -2448,7 +2457,7 @@
           "known_inferred": 4,
           "to_reconstruct": 3,
           "filled": 3,
-          "owning_ticket": "T-1533",
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -2502,7 +2511,7 @@
           "known_inferred": 12,
           "to_reconstruct": 4,
           "filled": 4,
-          "owning_ticket": "T-1533",
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -2556,7 +2565,7 @@
           "known_inferred": 3,
           "to_reconstruct": 1,
           "filled": 1,
-          "owning_ticket": "T-1533",
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -2627,7 +2636,7 @@
           "known_inferred": 7,
           "to_reconstruct": 13,
           "filled": 6,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2698,7 +2707,7 @@
           "known_inferred": 17,
           "to_reconstruct": 34,
           "filled": 10,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2769,7 +2778,7 @@
           "known_inferred": 6,
           "to_reconstruct": 13,
           "filled": 2,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2840,7 +2849,7 @@
           "known_inferred": 3,
           "to_reconstruct": 7,
           "filled": 3,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2911,7 +2920,7 @@
           "known_inferred": 10,
           "to_reconstruct": 18,
           "filled": 6,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -2982,7 +2991,7 @@
           "known_inferred": 3,
           "to_reconstruct": 6,
           "filled": 1,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3053,7 +3062,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3124,7 +3133,7 @@
           "known_inferred": 3,
           "to_reconstruct": 4,
           "filled": 1,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3195,7 +3204,7 @@
           "known_inferred": 1,
           "to_reconstruct": 3,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3266,7 +3275,7 @@
           "known_inferred": 0,
           "to_reconstruct": 1,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3337,7 +3346,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3408,7 +3417,7 @@
           "known_inferred": 0,
           "to_reconstruct": 1,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
         {
@@ -3442,8 +3451,8 @@
           "known_attested": 4,
           "known_inferred": 7,
           "to_reconstruct": 11,
-          "filled": 0,
-          "owning_ticket": "T-1533",
+          "filled": 5,
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -3478,7 +3487,7 @@
           "known_inferred": 18,
           "to_reconstruct": 25,
           "filled": 0,
-          "owning_ticket": "T-1533",
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -3512,8 +3521,8 @@
           "known_attested": 3,
           "known_inferred": 6,
           "to_reconstruct": 10,
-          "filled": 0,
-          "owning_ticket": "T-1533",
+          "filled": 1,
+          "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
         {
@@ -3579,7 +3588,7 @@
           "known": 1,
           "to_reconstruct": 10,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1537",
           "basis": "the model's 643 households apportioned on the inventory's own boarding_house roof count in the north division"
         },
         {
@@ -3592,7 +3601,7 @@
           "known": 7,
           "to_reconstruct": 33,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1537",
           "basis": "the model's 643 households apportioned on the inventory's own boarding_house roof count in the south division"
         },
         {
@@ -3605,7 +3614,7 @@
           "known": 1,
           "to_reconstruct": 8,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1537",
           "basis": "the model's 643 households apportioned on the inventory's own boarding_house roof count in the west division"
         },
         {
@@ -3657,7 +3666,7 @@
           "known": 0,
           "to_reconstruct": 3,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1537",
           "basis": "the model's 643 households apportioned on the inventory's own inn_tavern roof count in the north division"
         },
         {
@@ -3670,7 +3679,7 @@
           "known": 1,
           "to_reconstruct": 6,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1537",
           "basis": "the model's 643 households apportioned on the inventory's own inn_tavern roof count in the south division"
         },
         {
@@ -3683,7 +3692,7 @@
           "known": 0,
           "to_reconstruct": 4,
           "filled": 0,
-          "owning_ticket": "T-1534",
+          "owning_ticket": "T-1537",
           "basis": "the model's 643 households apportioned on the inventory's own inn_tavern roof count in the west division"
         },
         {
@@ -5752,6 +5761,27 @@
     {
       "bucket": "persons/male/40_49/south/lodging/none",
       "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/north/lodging/none",
+      "ticket": "T-1533",
+      "stage": "lodgers",
+      "records": 4,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/north/lodging/none",
+      "ticket": "T-1533",
+      "stage": "lodgers",
+      "records": 5,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/west/lodging/none",
+      "ticket": "T-1533",
       "stage": "lodgers",
       "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"

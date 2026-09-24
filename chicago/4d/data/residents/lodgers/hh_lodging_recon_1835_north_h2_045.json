@@ -23,15 +23,17 @@
    "ulrich_nicholas",
    "rc_shea_mary"
   ],
-  "minted_here": 4,
+  "minted_here": 6,
   "stands_on": "The lodging model (T-1370) gives this house an ordinary-night capacity apportioned out of a figure the town model already owns, and the residents layer holds fewer people in it than that. The order book's `lodging` buckets are the quota these people are drawn against.",
   "withdrawn_if": "a re-cut lodging model that gives this house a smaller ordinary-night figure, or sources naming the people who actually lodged here; the retirement runs through --build, never by hand",
-  "note": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof."
+  "note": "BEDS, AND ONE FAMILY. 4 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 2 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper."
  },
  "household_owed": {
-  "size_drawn": null,
-  "seated_by": "T-1171 and T-1174 (the keeper's own kin), T-1179 (converge)",
-  "note": "NOT DRAWN HERE. Where this house has a keeper, the family they are owed is `family/none` in the order book and that quota belongs to T-1171 and T-1174; drawing it here would order the same people twice. The ledger's `keepers` table states the shortfall instead."
+  "size_drawn": 4,
+  "seated_by": "T-1533 (the keeper's children, drawn here), T-1179 (converge)",
+  "children_drawn": 2,
+  "children_the_model_wants": 3,
+  "note": "DRAWN HERE, AND ONLY THE CHILDREN. The 1840 size histogram draws this keeper a household of 4: the keeper, and 3 child(ren) of whom 2 could be ordered out of the book's `under_10/north/lodging/none` cells. No spouse is drawn — the ledger's `keeper_families` row says why — so this is a FLOOR on the household and not a finished count."
  },
  "arrival": {
   "value": null,
@@ -341,6 +343,150 @@
     "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
    },
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_gilbert_amanda",
+   "name": "Amanda Gilbert",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-9",
+    "low": 0,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_reconstruction_order_book",
+     "note": "The bucket that ordered this person is under_10; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+    },
+    "seed": "lodgers:recon_1835_north_h2_045:child:001:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+   },
+   "kin_of": {
+    "person": "rc_gilbert_benjamin",
+    "name": "Benjamin Gilbert",
+    "household": "hh_lodging_recon_1835_north_h2_045",
+    "relation": "child of the keeper of this house",
+    "note": "THE JOIN IS THE KEEPER, NOT THE BUCKET. This child is written as the kin of a named person on a named house and is never a free-standing person in a lodging cell: a child took no bed at a tavern on their own account, which is the whole reason the boarders stage would not draw them."
+   },
+   "name_basis": {
+    "value": "Amanda Gilbert",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The surname is the keeper's own, which is the kinship claim. The forename is drawn from the yankee pool — the keeper's own community, carried rather than re-drawn — and it steps past every forename already borne in this family."
+    },
+    "seed": "lodgers:recon_1835_north_h2_045:child:001:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a child of this keeper"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this child. The name exists so a reader can tell one drawn child from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_town_model",
+    "note": "The 1840 size histogram drew this keeper's household at 4 people. The keeper is one of them and the other 3 are their children; this is child 1 of that 3. The book's bucket persons/female/under_10/north/lodging/none is the cell it is ordered out of — the town model's lodging share for people under ten in the north division, which the boarders stage left whole."
+   },
+   "seed": "lodgers:recon_1835_north_h2_045:child:001:age_band",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming the household of this house's keeper, which would retire every child drawn here"
+   },
+   "reconstruction": {
+    "stage": "lodgers",
+    "ticket": "T-1533",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "yankee",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_keeper_child",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 4 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_gilbert_henry",
+   "name": "Henry Gilbert",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-9",
+    "low": 0,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_reconstruction_order_book",
+     "note": "The bucket that ordered this person is under_10; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+    },
+    "seed": "lodgers:recon_1835_north_h2_045:child:002:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+   },
+   "kin_of": {
+    "person": "rc_gilbert_benjamin",
+    "name": "Benjamin Gilbert",
+    "household": "hh_lodging_recon_1835_north_h2_045",
+    "relation": "child of the keeper of this house",
+    "note": "THE JOIN IS THE KEEPER, NOT THE BUCKET. This child is written as the kin of a named person on a named house and is never a free-standing person in a lodging cell: a child took no bed at a tavern on their own account, which is the whole reason the boarders stage would not draw them."
+   },
+   "name_basis": {
+    "value": "Henry Gilbert",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The surname is the keeper's own, which is the kinship claim. The forename is drawn from the yankee pool — the keeper's own community, carried rather than re-drawn — and it steps past every forename already borne in this family."
+    },
+    "seed": "lodgers:recon_1835_north_h2_045:child:002:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a child of this keeper"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this child. The name exists so a reader can tell one drawn child from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_town_model",
+    "note": "The 1840 size histogram drew this keeper's household at 4 people. The keeper is one of them and the other 3 are their children; this is child 2 of that 3. The book's bucket persons/male/under_10/north/lodging/none is the cell it is ordered out of — the town model's lodging share for people under ten in the north division, which the boarders stage left whole."
+   },
+   "seed": "lodgers:recon_1835_north_h2_045:child:002:age_band",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming the household of this house's keeper, which would retire every child drawn here"
+   },
+   "reconstruction": {
+    "stage": "lodgers",
+    "ticket": "T-1533",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "yankee",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_keeper_child",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 4 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,
