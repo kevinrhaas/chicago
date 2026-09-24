@@ -64,12 +64,17 @@ THE SIX OUTCOMES, and `--self-test` refuses a seventh.
      research block proposed no candidate at all. Neither names a trade the 1835 field
      lacks, and this pass refuses them here rather than handing them to a fourth ticket.
      `refused`.
-  6. THE READING CONTRADICTS A TRADE THE CARD CARRIES (1). Pearsons is the one finding
-     that does not corroborate: the reminiscence gives a HOUSE PAINTER, and the card
-     carries `speculator` at `attested` on a note that calls it "this project's reading".
-     Correcting that is a re-adjudication of the 1835 trade field, which
-     tools/derive_resident_roles.py owns and this pass may not hand-edit. It is the one
-     unit that stays `unresolved`, and it names the open ticket that owns the correction.
+  6. THE CONTRADICTING READING IS CARRIED AS AN UNDATED ROLE THE SCENE VIEW REFUSES (1).
+     Pearsons is the one finding that does not corroborate: the reminiscence gives a HOUSE
+     PAINTER, and the card carried `speculator` at `attested` on a note that called it
+     "this project's reading". That was a DEFERRAL when this pass was written -- no field
+     held the painter, and correcting the 1835 trade field is tools/derive_resident_roles.py's
+     to do -- and T-1507 has since done it: the trade field stands at `speculator`/`inferred`
+     over the land register, and the painter is an undated `roles[]` row citing the
+     reminiscence, off data/research/residents/prose_role_readings.json. So the reading has a
+     field and the unit is terminal: `refused`, like the three carries above it, with the role
+     row shown and `covers_scene_date` false. ALL 37 ARE NOW TERMINAL and no rule here names
+     a ticket (T-1526).
 
 WHAT THIS PASS MAY NOT DO.
 
@@ -79,8 +84,8 @@ WHAT THIS PASS MAY NOT DO.
   * IT NEVER NAMES A CARRIER IT CANNOT SHOW. A carrier must resolve on disk, be graded
     `attested`, `inferred` or `documented` (or a `workplaces[]` row at that tier) and cite
     at least one source. `--self-test` mutates each of the three and requires a fault.
-  * A REFUSAL MAY NOT NAME A CARRIER AND A CARRY MAY NOT BE EMPTY. The two outcomes that
-    refuse for want of a field (5 and 6) carry no carrier at all, because a refusal that
+  * A REFUSAL MAY NOT NAME A CARRIER AND A CARRY MAY NOT BE EMPTY. The one outcome that
+    refuses for want of a field (5) carries no carrier at all, because a refusal that
     points at a field is a carry wearing a refusal.
 """
 from __future__ import annotations
@@ -105,16 +110,28 @@ BOUNDED = "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window"
 PROFILE = "the_reading_is_carried_as_a_dated_profile_fact_on_the_card"
 LATER = "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date"
 UNREACHED = "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks"
-HANDED = "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated"
+# THE SIXTH OUTCOME WAS `HANDED` AND IS NOT ANY MORE (T-1526). It deferred the one
+# contradicted reading to T-1507, and T-1507 has landed: the reading it was handed off for
+# now stands on the card as an undated `roles[]` row, written from
+# data/research/residents/prose_role_readings.json by the pass that owns that field. So the
+# unit is no longer waiting on a field -- it has one -- and the honest outcome is a carry
+# the scene view refuses, not a hand-off. This is a RE-ADJUDICATION on evidence that moved,
+# and NOT C3 weakened to clear a red: the self-test below gained a clause rather than losing
+# one, and the outcome it names has to SHOW the role row and show that it stands outside the
+# 1 July 1835 view.
+CONTRADICTING = "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses"
 
-OUTCOMES = (CARRIED, BOUNDED, PROFILE, LATER, UNREACHED, HANDED)
-CARRYING = (CARRIED, BOUNDED, PROFILE)
-REFUSING = (UNREACHED, HANDED)
+OUTCOMES = (CARRIED, BOUNDED, PROFILE, LATER, UNREACHED, CONTRADICTING)
+CARRYING = (CARRIED, BOUNDED, PROFILE, CONTRADICTING)
+REFUSING = (UNREACHED,)
 
-# The ticket the one contradicted reading is handed to. It is named here rather than in
-# the register so that the register stays derived, and the ledger's own ownership
-# invariant is what proves it is live work rather than a spent parent.
-HANDED_TICKET = "T-1507"
+# NO RULE HERE NAMES A TICKET, AND THE INDIRECTION THAT DID IS GONE (T-1526). `HANDED_TICKET
+# = "T-1507"` stood here so that the register could stay derived while the ledger's own
+# ownership invariant proved the hand-off was live work rather than a spent parent. That
+# invariant did its job exactly as designed -- T-1507 merged, went `done`, and every step
+# reading this table went red -- and the answer owed to it is the re-adjudication above, not
+# a fresh pointer. All thirty-seven units are terminal now, so `--self-test` rule 8 holds
+# every rule in this file to naming no ticket at all.
 
 RULES = {
     CARRIED: {
@@ -182,19 +199,24 @@ RULES = {
             "1833 engagement to a fourth ticket that owns 1835 trades -- is the deferral this "
             "pass exists to end."),
     },
-    HANDED: {
-        "disposition": "unresolved",
-        "ticket": HANDED_TICKET,
+    CONTRADICTING: {
+        "disposition": "refused",
         "statement": (
-            "The completed pass returned `corroborated_enrichment` and it does NOT corroborate: "
-            "the reminiscence gives Hiram Pearsons a HOUSE PAINTER'S trade, and the card carries "
-            "`speculator` at `attested` on a note that calls it this project's own reading of a "
-            "man who arrived before the land craze. One of the two has a source and the other "
-            "has an inference wearing a grade, which is the fault the finding was raised "
-            "against. Correcting it is a re-adjudication of the 1835 trade field -- the field "
-            "tools/derive_resident_roles.py derives from the role readings -- and a register may "
-            "not hand-edit a derived field. It is the one unit of the thirty-seven that stays "
-            "unresolved, and the ticket it names owns the correction."),
+            "The completed pass returned `corroborated_enrichment` and it did NOT corroborate: "
+            "the reminiscence gives Hiram Pearsons a HOUSE PAINTER'S trade, and the card carried "
+            "`speculator` at `attested` on a note that called it this project's own reading. "
+            "That was a deferral when T-1469 read it, because no field held the painter and a "
+            "register may not hand-edit a field tools/derive_resident_roles.py derives. IT IS "
+            "NOT A DEFERRAL NOW. T-1507 re-adjudicated both halves: the 1835 trade field stands "
+            "at `speculator`/`inferred` over the land register, its note saying in its own words "
+            "that no source this project holds prints a trade for this man in or about 1835; and "
+            "the painter reading is carried in `persons[].roles[]` as an undated row citing the "
+            "reminiscence, written from data/research/residents/prose_role_readings.json by the "
+            "pass that owns that field. The reading has reached a structured field; it is not "
+            "waiting on one. It stands OUTSIDE the 1 July 1835 view, and the reason is the "
+            "evidence ladder ratified 2026-09-03 rather than a bound -- the volume names no year "
+            "the row could read -- so the finding names no field the card lacks and no ticket is "
+            "handed anything."),
     },
 }
 
@@ -242,9 +264,9 @@ ADJUDICATION: dict[tuple[str, str], dict] = {
         "carrier": [("occupation", "hotel_keeper"), ("works_at", "tremont_house_1")],
     },
     ("02", "pearsons_hiram"): {
-        "outcome": HANDED,
-        "reading": "a house painter's trade, against the `speculator` the card carries as attested",
-        "carrier": [],
+        "outcome": CONTRADICTING,
+        "reading": "a house painter's trade, against the `speculator` the card carries for 1835",
+        "carrier": [("roles", "house painter")],
     },
     ("02", "sen_elijah_wentworth"): {
         "outcome": PROFILE,
@@ -600,11 +622,11 @@ def note_for(key: tuple[str, str], row: dict, carriers: list[dict]) -> str:
     if row["outcome"] == LATER:
         return head + (f" Nothing on the card carries it for the scene date, and the reading "
                        f"describes {row['describes']}, which is after 1 July 1835.")
-    if row["outcome"] == UNREACHED:
-        return head + (" No field on the card carries the engagement and none is asked for: it is "
-                       "a dated pre-scene public work, not a trade the 1835 field lacks.")
-    return head + (" No field carries it, because the card carries the OPPOSITE reading at a grade "
-                   f"the finding disputes; {HANDED_TICKET} owns the re-adjudication.")
+    # UNREACHED IS THE ONLY OUTCOME LEFT THAT NAMES NO CARRIER (T-1526). It was two; the
+    # sixth became a carry when T-1507 gave its reading a field, and `--self-test` rule 2
+    # is what holds every other outcome to showing one, so there is no tail below this.
+    return head + (" No field on the card carries the engagement and none is asked for: it is "
+                   "a dated pre-scene public work, not a trade the 1835 field lacks.")
 
 
 note_for.cache = {}
@@ -757,6 +779,21 @@ def self_test() -> int:
             failures.append(f"{key} is bounded outside the window and shows no withdrawal or later printing")
         if row["outcome"] == PROFILE and not any(c["field"] == "profile_facts" for c in entry["carries"]):
             failures.append(f"{key} is carried as a profile fact and names no profile fact")
+        # T-1526. The outcome that replaced the hand-off has to show the thing that made it
+        # one: a `roles[]` row carrying the contradicting reading, standing OUTSIDE the
+        # 1 July 1835 view. Without both halves this outcome would be a way to call a
+        # contradiction answered while the card still said the opposite in the scene field.
+        if row["outcome"] == CONTRADICTING:
+            roles = [c for c in entry["carries"] if c["field"] == "roles"]
+            if not roles:
+                failures.append(f"{key} carries a contradicting reading and names no role row")
+            elif any(c["reaches_scene_date"] for c in roles):
+                failures.append(f"{key} carries a contradicting reading on a role row that "
+                                f"stands IN the 1 July 1835 view, which would put both readings "
+                                f"in the scene at once")
+            if any(c["field"] == "occupation" for c in entry["carries"]):
+                failures.append(f"{key} carries a contradicting reading and names the 1835 trade "
+                                f"field, which is the field it contradicts")
 
     # 10. A BOUNDED row shows a withdrawal, and a withdrawal is a verdict rather than a
     #     citation -- so the row itself still has to name at least one carrier that cites a
