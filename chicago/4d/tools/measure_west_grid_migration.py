@@ -52,8 +52,12 @@ refusal text pointed a reader forward at work that had already been done. The ow
 on 2026-09-21 that a successor must own the whole question rather than the one number, and
 T-1540 is that successor: `tools/measure_west_division_spacing.py` measures the gap on
 EVERY interval of the West Division grid, not on this one, and finds that no single
-centreline moved can close three of them. This module now asserts T-1540 is still OPEN, so
-the day it lands this precondition goes RED rather than stale.
+centreline moved can close three of them, and that the plat gives a module and no
+positions to take. T-1540 LANDED on 2026-09-24 (PR #25) and this precondition went red
+rather than stale, which is what it was wired to do. The spacing question is answered, so
+the pointer moves on to T-1479 — the ticket that re-cuts blocks 28 and 45 and was blocked
+on exactly this — which the tickets repo unblocked when T-1540 landed. The guard re-arms
+on it: the day T-1479 lands while this precondition still stands, this goes red again.
 
     tools/measure_west_grid_migration.py              -> print the derivation
     tools/measure_west_grid_migration.py --check      -> re-derive, byte for byte
@@ -90,7 +94,7 @@ SEATED_IN = (
 # the whole question, and it is the one that has to still be unfinished for this
 # precondition to hold.
 NAMED_BY_THE_REFUSAL = ("T-0444", "T-0445")
-OWNS_THE_MOVE = "T-1540"
+OWNS_THE_MOVE = "T-1479"
 
 
 def load(path: pathlib.Path):
@@ -281,11 +285,14 @@ def derive() -> dict:
                 "the first two tickets the refusal pointed forward to are CLOSED and the "
                 "spacing is still short, so for a while the move was unowned and the "
                 "prose in tools/generate_plat_lots.py sent a reader at work already done. "
-                f"{OWNS_THE_MOVE} is the successor the owner ruled on 2026-09-21 must own "
-                "the whole question — tools/measure_west_division_spacing.py is its "
+                "T-1540 was the successor the owner ruled on 2026-09-21 must own the "
+                "whole question — tools/measure_west_division_spacing.py is its "
                 "measurement, and it finds the shortfall on every interval of the grid "
-                "rather than on this one. This block asserts that ticket is still "
-                "unfinished, so the day it lands this precondition goes red."),
+                "rather than on this one, against a plat that gives a module and no "
+                "positions. It landed on 2026-09-24 and this block went red rather than "
+                f"stale, which is what it is for. The pointer now names {OWNS_THE_MOVE}, "
+                "the re-cut that was blocked on that answer and is open again, and the "
+                "guard re-arms: the day it lands while this precondition stands, red."),
         },
         "the_first_question": {
             "asked_by_the_ticket": (

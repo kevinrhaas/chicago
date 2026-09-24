@@ -210,9 +210,9 @@
    "T-0445": "done"
   },
   "owns_the_move_now": {
-   "T-1540": "claimed"
+   "T-1479": "open"
   },
-  "and_the_finding": "the first two tickets the refusal pointed forward to are CLOSED and the spacing is still short, so for a while the move was unowned and the prose in tools/generate_plat_lots.py sent a reader at work already done. T-1540 is the successor the owner ruled on 2026-09-21 must own the whole question — tools/measure_west_division_spacing.py is its measurement, and it finds the shortfall on every interval of the grid rather than on this one. This block asserts that ticket is still unfinished, so the day it lands this precondition goes red."
+  "and_the_finding": "the first two tickets the refusal pointed forward to are CLOSED and the spacing is still short, so for a while the move was unowned and the prose in tools/generate_plat_lots.py sent a reader at work already done. T-1540 was the successor the owner ruled on 2026-09-21 must own the whole question — tools/measure_west_division_spacing.py is its measurement, and it finds the shortfall on every interval of the grid rather than on this one, against a plat that gives a module and no positions. It landed on 2026-09-24 and this block went red rather than stale, which is what it is for. The pointer now names T-1479, the re-cut that was blocked on that answer and is open again, and the guard re-arms: the day it lands while this precondition stands, red."
  },
  "the_first_question": {
   "asked_by_the_ticket": "what is a structure seated on a withdrawn lot seated on?",
