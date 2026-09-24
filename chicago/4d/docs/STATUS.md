@@ -1,5 +1,36 @@
 # STATUS
 
+## The deal's name pool reads declared keys — T-1502, 2026-09-24
+
+**What a visitor sees:** nothing. No seat moves and no refusal changes: `--report` is
+identical to `dev`'s apart from the refusal text, which now names its source.
+
+**The hole.** `replace_invented_residents.py` refuses a documented man a reconstructed
+roof when his surname is "already named in the town". That pool was every capitalised word
+in the raw text of the structure records, the non-`hh_inf_` household cards and the
+exclusions. So any pass that wrote a proper name into one of those files took a man out of
+the deal without saying so. T-1489 did it by accident: the tailor Thomas S. Eels left the
+deal, and the only sign was one unexplained DRIFT line.
+
+**The fix takes two of the ticket's three routes.** The third, reading only `name` fields,
+would drop the prose the guard reads on purpose.
+
+- **A declared list of keys.** The pool now reads a word only under a key path declared in
+  `data/reconstruction/name_pool_keys.json`. It was seeded from the committed tree: 275
+  paths (structures 132, households 129, exclusions 14), all `read`. Walking the JSON gives
+  the raw-text pool exactly, 3,127 words.
+- **A new key goes red.** A string under a path the file doesn't declare that carries a
+  capitalised word fails `--check`, naming the record kind, key path, file and word. The
+  writer then declares the path `read` or `ignored` at its own PR.
+- **Every refusal names its cause.** An `already named in the town` refusal now names the
+  file and key the word came from. When a settled seat is lost, its DRIFT line names the
+  refusal that took the man.
+- **Not re-ruled.** `--report` lists the paths each of the four refusals rests on; none
+  rests on one path alone. `persons[].workplaces[].business_name` has the same shape as the
+  path that retired Eels, and it is still read.
+
+A `--self-test` with 9 assertions is registered in check.sh.
+
 ## Ruled readings for the American's four contradictions — T-0305, 2026-09-24
 
 **What a visitor sees:** Edward Burton's tailoring shop was `unplaceable`. Its card now puts it on
