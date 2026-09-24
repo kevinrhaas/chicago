@@ -6,11 +6,13 @@ describing the tree it is about. T-1254, of T-1145 (acceptance 3 and 9).
 
 ## What was offered, and what was made of it
 
-Four research records hold structured role evidence about people the residents
-layer carries: the newspaper gazetteer compiled from the 1833-1835 Chicago press,
-the Fergus 1839 city register's office tables, and the Fergus 1843 and Norris 1844
-directory crosswalks. Every row each of them offers about a resident is listed
-below under the disposition it received.
+Five research records hold role evidence about people the residents layer carries:
+the newspaper gazetteer compiled from the 1833-1835 Chicago press, the Fergus 1839
+city register's office tables, the Fergus 1843 and Norris 1844 directory crosswalks,
+and — since T-1507 — the adjudicated readings of retrospective PROSE, which is the
+one of the five that is not a structured record and the reason a trade named only in
+a reminiscence used to be carried by nothing at all. Every row each of them offers
+about a resident is listed below under the disposition it received.
 
 - **asserted** — the printing IS a word in the residents vocabulary.
 - **folded** — a synonym ruled onto a controlled word (`boot and shoe maker` ->
@@ -33,7 +35,8 @@ carry is a controlled word, and it may not fill the 1835 view without one.
 | `fergus_1843_directory` | 125 | 19 | 11 | 12 | 83 |
 | `newspaper_gazetteer` | 213 | 88 | 81 | 44 | 0 |
 | `norris_1844_directory` | 100 | 22 | 14 | 8 | 56 |
-| **total** | **456** | **129** | **111** | **77** | **139** |
+| `retrospective_prose` | 1 | 0 | 1 | 0 | 0 |
+| **total** | **457** | **129** | **112** | **77** | **139** |
 
 `9` further row(s) were SYNONYM-FOLDED INTO EACH OTHER: one
 source printing two wordings for one controlled role over one bound asserts that
@@ -219,7 +222,7 @@ least one source in common, with corroborators beside it.
 | `paine_seth` | 2 | 0 | dry goods merchant |
 | `parsons_edward` | 3 | 0 | (Clark, Haines & Co.); Parsons & Holden; of Clark, Haines, & Co |
 | `peacock_elijah` | 4 | 0 | judge of election; watchmaker; watchmaker and jeweler, 195 Lake; watchmaker and jeweller |
-| `pearsons_hiram` | 2 | 1 | speculator |
+| `pearsons_hiram` | 3 | 1 | house painter; speculator |
 | `peck_philip` | 7 | 1 | capitalist; merchant; price reporter for the Chicago Democrat; storekeeper |
 | `perry_a_8` | 3 | 0 | barber; barber, ex-justice of peace; barber, ex-justice of the peace, Reservation |
 | `pierce_asahel` | 4 | 1 | alderman; blacksmith; blacksmith, 20 Market; blacksmith. S. Water st. b Lake and Randolph sts |
