@@ -84,8 +84,8 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | --- | ---: |
 | Persons in the layer | 2,265 |
 | Carrying at least one dated role | 327 |
-| Carrying two or more | 173 |
-| Role rows in total | 688 |
+| Carrying two or more | 195 |
+| Role rows in total | 765 |
 | Persons whose roles reach 1835-07-01 | 138 |
 | Persons whose every role is dated away from it | 189 |
 | Persons carrying no dated role at all | 1,938 |
@@ -93,19 +93,19 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | Role kind | Rows |
 | --- | ---: |
 | `employment` | 1 |
-| `office` | 50 |
-| `profession` | 80 |
-| `trade` | 557 |
+| `office` | 52 |
+| `profession` | 84 |
+| `trade` | 628 |
 
 | Dating | Rows |
 | --- | ---: |
-| dated away from it | 528 |
+| dated away from it | 605 |
 | reaches 1 July 1835 | 160 |
 
 | Confidence | Rows |
 | --- | ---: |
-| `attested` | 257 |
-| `inferred` | 431 |
+| `attested` | 158 |
+| `inferred` | 607 |
 
 Of the rows that reach the scene date, every one names a source that describes it (C5) — 127 by `source_describes_date`, 33 by `stated_date`.
 
@@ -114,12 +114,13 @@ Of the rows that reach the scene date, every one names a source that describes i
 | Role | Kind | From | To | Reaches 1835-07-01 | Confidence |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | soap_and_candle_maker | `trade` | 1833-11 | 1833-11 | no | `attested` |
+| brickmaker | `trade` | 1839 | 1839 | no | `inferred` |
 | brickmaker | `trade` | 1839 | 1839 | no | `attested` |
 | school inspector | `office` | 1839 | 1839 | no | `inferred` |
 | brickmaker | `trade` | 1843 | 1843 | no | `inferred` |
 | brickmaker | `trade` | 1844 | 1844 | no | `inferred` |
 
-Read it as written: Elston carries 5 dated roles and **0** of them reaches 1 July 1835. The soap and candle manufactory is real and attested, and the corpus last prints it at the issue of 2 July 1834, so T-0991 withdrew it from the 1835 field and left it standing in `roles[]` with the bound its evidence permits; the brickmaking and the school inspectorship are printed against his name in the later Fergus directories and are carried as the years those volumes print. The plural field is therefore doing exactly the work it was built for — holding a career the scene date cannot see, without letting any of it claim the scene date.
+Read it as written: Elston carries 6 dated roles and **0** of them reaches 1 July 1835. The soap and candle manufactory is real and attested, and the corpus last prints it at the issue of 2 July 1834, so T-0991 withdrew it from the 1835 field and left it standing in `roles[]` with the bound its evidence permits; the brickmaking and the school inspectorship are printed against his name in the later Fergus directories and are carried as the years those volumes print. The plural field is therefore doing exactly the work it was built for — holding a career the scene date cannot see, without letting any of it claim the scene date.
 
 Reproduce: `python3 tools/derive_resident_roles.py --check`.
 
@@ -204,7 +205,7 @@ Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. 
 
 | Kind of involvement | Rows |
 | --- | ---: |
-| Offices held, naming the body they were held under | 42 |
+| Offices held, naming the body they were held under | 44 |
 | Persons carrying church evidence | 32 |
 | Agency holdings reaching a card | 3 |
 | Agency holdings refused | 1 |
@@ -215,7 +216,7 @@ Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. 
 | Body an office was held under | Rows |
 | --- | ---: |
 | `city_of_chicago` | 15 |
-| `cook_county` | 10 |
+| `cook_county` | 12 |
 | `town_of_chicago` | 5 |
 | `united_states_post_office` | 4 |
 | `united_states_indian_department` | 3 |
@@ -225,7 +226,7 @@ Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. 
 
 | Roles naming a printed place | Rows |
 | --- | ---: |
-| dated away from it | 165 |
+| dated away from it | 274 |
 
 Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/compile_agencies.py --check`.
 

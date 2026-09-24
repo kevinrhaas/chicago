@@ -264,7 +264,7 @@
      "claim": "f1839_r0031",
      "place": "not_stated",
      "employer_or_body": "city_of_chicago",
-     "note": "AN OFFICE FROM THE FERGUS 1839 CITY REGISTER, carried here by its own crosswalk (T-1254, by tools/derive_resident_roles.py). The register is a retrospective table set in 1876, and its carry rule is explicit: a later office is corroboration of CONTINUED RESIDENCE and never an 1835 fact. It therefore does not stand in the 1835 view.",
+     "note": "AN OFFICE FROM THE FERGUS 1839 CITY REGISTER, carried here by its own crosswalk (T-1254, by tools/derive_resident_roles.py). The register is a retrospective table set in 1876, and its carry rule is explicit: a later office is corroboration of CONTINUED RESIDENCE and never an 1835 fact. It therefore does not stand in the 1835 view. SYNONYM-FOLDED (T-1254): the same source prints this role as fire warden as well, and one source asserting one role over one bound is one row.",
      "premises": "no_fixed_premises"
     }
    ],
