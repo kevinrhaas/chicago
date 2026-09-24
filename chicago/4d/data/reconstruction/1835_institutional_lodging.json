@@ -1,0 +1,121 @@
+{
+  "$schema_note": "Hand-authored. An adjudication of the committed structure records, roof by roof; not a derivation and not a reading of a new source.",
+  "id": "1835_institutional_lodging",
+  "ticket": "T-1531",
+  "target_date": "1835-07-01",
+  "not_a_reading": "An adjudication of records this project has already read. Every row below is settled out of the committed structure record's own function, occupants and research_note blocks and the research memos those blocks cite; nothing here reads a source the domain has not read, so it must not be counted as research spend.",
+  "what_this_is": "WHICH OF THE TOWN'S INSTITUTIONAL ROOFS ANYBODY SLEPT UNDER. The 665-roof programme's `institutional_public` group holds nine standing roofs — four places of worship or meeting, two schools and three civic buildings — and the household quota apportions the town's 643 households across the roof groups by ROOF COUNT. That arithmetic treats a church like a dwelling: on the matrix's nine institutional roofs it ordered twelve households, which is more than one per roof, for a group in which most roofs are a church, a jail, a council house or a light tower. This file is the question the apportionment never asked, asked once, of each roof: did a household live here?",
+  "why_it_is_a_file_and_not_a_number": "Because the answer is nine separate judgements about nine separate records, and a bare capacity count would hide all nine. `tools/build_order_book_1835.py` reads `lodging_capable_by_division` below for the institutional weight, so the book orders what these rows admit and nothing more; `tools/reconstruct_institutional_households.py` mints against the same rows. Neither may go past them.",
+  "the_rule_applied": "A roof holds a household where THIS PROJECT'S OWN COMMITTED RECORD of it says somebody lived there, or says the building is a dwelling. A congregation is not a household, a use is not a residence, and confinement is not residence. Where the record is silent about a dwelling, the answer is no — and a no here is not a claim that the building stood empty at night, only that nothing this project holds puts a household under it.",
+  "adjudication": [
+    {
+      "structure": "watkins_school_house",
+      "division": "north",
+      "family": "I2",
+      "holds_a_household": true,
+      "tier": "inferred",
+      "why": "THE RECORD'S OWN FUNCTION IS DOMESTIC. `function` reads `dwelling_former_school_use_unattested` and its note draws the distinction in as many words: 'Andreas describes a HOUSE that a school was held in, not a school-house, and the distinction is preserved here: the building's own function is domestic and the teaching is an occupancy.' A dwelling holds a household. WHO that household was on the scene date is the part nothing settles — the same record's `occupants` note says 'No source reached names a householder, a tenant or a teacher in this building in 1835' — so the household is reconstructed and the roof is not.",
+      "sources": ["andreas_1884_v1"],
+      "reads": ["data/structures/watkins_school_house.json"]
+    },
+    {
+      "structure": "chicago_lighthouse_1832",
+      "division": "south",
+      "family": "I3",
+      "holds_a_household": true,
+      "tier": "inferred",
+      "why": "THE QUARTERS ARE PART OF THE APPOINTMENT. `docs/RESEARCH/chicago_lighthouse_1832.md` § 4 records the keepership as paid 'at $350 a year WITH QUARTERS', and the same section records that no keeper's dwelling is modelled — 'a small house beside the tower is plausible and unattested'. So the quarters this project can account for are at the light itself, and a light that was kept nightly was kept by somebody who slept beside it. WHO kept it on 1 July 1835 is expressly unsettled there: Lasby was the first keeper, Wentworth names William M. Stevens only from October 1836, and 'no source reached covers the gap'.",
+      "sources": ["andreas_1884_v1", "lighthousefriends_chicago"],
+      "reads": ["data/structures/chicago_lighthouse_1832.json", "docs/RESEARCH/chicago_lighthouse_1832.md"]
+    },
+    {
+      "structure": "first_presbyterian_church",
+      "division": "south",
+      "family": "I1",
+      "holds_a_household": false,
+      "tier": "documented",
+      "why": "THE ONE LODGING THE SOURCES ATTACH TO THIS CONGREGATION IS SOMEWHERE ELSE. The record's `occupants` note has Rev. Jeremiah Porter arriving in May 1833 and lodging 'in the unfinished loft of Peck's store'. A congregation is not a household, and the minister's bed is in another building.",
+      "sources": ["andreas_1884_v1"],
+      "reads": ["data/structures/first_presbyterian_church.json"]
+    },
+    {
+      "structure": "st_marys_church",
+      "division": "south",
+      "family": "I1",
+      "holds_a_household": false,
+      "tier": "documented",
+      "why": "THE BEST-SPECIFIED SMALL BUILDING IN THE TOWN, AND IT IS A CHURCH THROUGHOUT. The page behind this record gives two dimensions, a cost, a builder, a lumber price, an exterior and interior finish and a seating description, and describes no residence and no room set apart as one. It names Fr. St. Cyr pastor across the whole scene window and says nothing about where he slept. Naming this his dwelling would be a reconstruction bounded by nothing, in the one record that could least afford it.",
+      "sources": ["chicagology_prefire216"],
+      "reads": ["data/structures/st_marys_church.json"]
+    },
+    {
+      "structure": "temple_building",
+      "division": "south",
+      "family": "I1",
+      "holds_a_household": false,
+      "tier": "documented",
+      "why": "TWO USES, NEITHER OF THEM A BED. The record carries the First Baptist Church Society and Grenville T. Sproat's English and Classical School for Boys in the upper storey — a meeting room and a day school. Nothing states a dwelling, and the building's owner is housed elsewhere in the layer.",
+      "sources": ["baptisthistoryhomepage", "andreas_1884_v1"],
+      "reads": ["data/structures/temple_building.json"]
+    },
+    {
+      "structure": "log_jail",
+      "division": "south",
+      "family": "I3",
+      "holds_a_household": false,
+      "tier": "documented",
+      "why": "CONFINEMENT IS NOT RESIDENCE. The record attests a jail of logs at the north-west corner of the court-house square and nothing else about it; no gaoler's quarters are attested, and the same record records that the county conducted its business in rented rooms. A prisoner is not a household and this project does not hold that anybody was in it on the scene date.",
+      "sources": ["andreas_1884_v1"],
+      "reads": ["data/structures/log_jail.json"]
+    },
+    {
+      "structure": "council_house",
+      "division": "north",
+      "family": "I3",
+      "holds_a_household": false,
+      "tier": "documented",
+      "why": "A ROOM THE TOWN MET IN. Andreas puts 'Billy Caldwell's log council-house' among the places services were held, beside Ingersoll's tavern and Watkins's school-house; that is a use, and the man whose it was is housed elsewhere in the layer. The record's own note says the sources describe nothing of what happened inside it.",
+      "sources": ["andreas_1884_v1", "chicagology_lastwardance"],
+      "reads": ["data/structures/council_house.json"]
+    },
+    {
+      "structure": "north_side_school_1833",
+      "division": "north",
+      "family": "I2",
+      "holds_a_household": false,
+      "tier": "documented",
+      "why": "A PURPOSE-BUILT SCHOOLHOUSE, AND THE 1835 USE IS THE TEACHING. Andreas has John Watkins teaching what had become a public school on the North Side on the river bank just east of Clark Street; the attestation is of a school in session, not of anybody living in it. Its own record carries no `occupants` block at all.",
+      "sources": ["andreas_1884_v1"],
+      "reads": ["data/structures/north_side_school_1833.json"]
+    },
+    {
+      "structure": "walker_meeting_house",
+      "division": "west",
+      "family": "I1",
+      "holds_a_household": false,
+      "tier": "documented",
+      "why": "THE LEAST SETTLED RECORD IN ITS PARCEL. Two near-primary witnesses give it a double use — worship and school — and disagree about which bank of the river it stood on; its own research_note says to treat the position as a placeholder. Nothing states a dwelling, and a household seated on a building whose river bank is unresolved would be seated on a guess twice over.",
+      "sources": ["chicagology_prefire273", "kinzie_waubun_1856"],
+      "reads": ["data/structures/walker_meeting_house.json"]
+    }
+  ],
+  "lodging_capable_by_division": {
+    "south": 1,
+    "west": 0,
+    "north": 1,
+    "fort": 0
+  },
+  "what_the_book_ordered_before_this_file": {
+    "south": 7,
+    "west": 1,
+    "north": 4,
+    "total": 12,
+    "note": "The apportionment's own figures on 2026-09-24, weighted on the nine roofs of the `institutional_public` matrix row. Kept here so the re-cut can be read as a re-cut rather than as the number always having been two."
+  },
+  "what_it_is_not": [
+    "NOT a claim that these nine buildings stood empty at night. It is a statement of what this project can account for, and a roof whose record is silent about a dwelling is silent, not proven vacant.",
+    "NOT a re-cut of the `institutional_public` ROOF row. Nine roofs stand and nine are ordered; what changes is only how many HOUSEHOLDS the quota hangs on them.",
+    "NOT a ruling about the fort. `fort_principal` is the garrison's group and is read rather than modelled (rule 4)."
+  ],
+  "what_would_move_it": "A source placing a household under any of the seven refused roofs — a sexton's or a gaoler's return, a directory entry at a church address, a school trustee's note that the master lodged in the house — would move that row to `true`, raise the division's capable count, and the book would order the household on the next build. The two admitted rows move the other way on a source naming who actually lived there: the reconstruction retires and a reading takes its place."
+}

@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1096, title: 'Two people move into the light and the old school house', kind: 'change', ts: '2026-09-24T22:10:43.845Z', date: 'Sep 24, 2026, 5:10 PM CT',
+    items: [
+      'The town has nine public buildings with a roof on it: four places of worship or meeting, two schools, a jail, a council house and the lighthouse at the river mouth. Until today the model was quietly ordering TWELVE households into them \u2014 more than one per building \u2014 because it shares the town\u2019s families out across the roofs by counting roofs, and nobody had ever asked whether a church is somewhere you sleep.',
+      'So each of the nine was asked, out of what this project already holds about it. Seven answered no, and each says why on the record: a congregation is not a household, the one minister whose lodging is written down slept in the loft of a store, and being locked in a jail is not living there.',
+      'Two answered yes. The house on Michigan Street that John Watkins taught school in is recorded as a HOUSE a school was held in, not a school-house \u2014 so somebody kept it, and no source says who. And the keeper of the Chicago light was paid $350 a year "with quarters", with no keeper\u2019s cottage anywhere in the record, which puts his bed at the light. Who kept it that summer is a gap nobody has filled: the first keeper is named, the next is named from late 1836, and the year between is blank.',
+      'Two people are therefore invented and labelled as invented, one in each building, and you can open both cards. No ages are written, because nothing asked for one. The keeper is given his post and no family \u2014 a forty-foot tower is not a house. The other is given no trade at all, because \u201cschoolmaster\u201d is a guess and this project does not write guesses.',
+      'The building list is unchanged: nine public roofs stood and nine still stand. What changed is that the town stopped owing ten families it could never honestly have named.',
+    ] },
   { v: 1095, title: 'The 90-foot gap between Canal and Clinton was partly a measuring habit', kind: 'fix', ts: '2026-09-24T20:57:51.089Z', date: 'Sep 24, 2026, 3:57 PM CT',
     items: [
       'Last week this project reported that the 1830 plat wants 458 feet between the West Division\u2019s north-south streets and that the town had 368 between Canal and Clinton \u2014 a 90-foot defect. Measured again, that interval is 406 feet and the shortfall is 52. The streets did not move. The way their positions were read did.',

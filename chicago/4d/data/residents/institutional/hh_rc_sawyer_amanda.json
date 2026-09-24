@@ -1,0 +1,154 @@
+{
+ "id": "hh_rc_sawyer_amanda",
+ "name": "The household of the Michigan Street house Watkins taught in",
+ "division": "north",
+ "head": "rc_sawyer_amanda",
+ "source_pass": "reconstructed_institutional_household",
+ "institutional_household": {
+  "ticket": "T-1531",
+  "stage": "institutional_households",
+  "place": "watkins_school_house",
+  "place_name": "Watkins school house",
+  "family": "I2",
+  "bucket": "households/institutional/north",
+  "adjudication_tier": "inferred",
+  "stands_on": "THE RECORD'S OWN FUNCTION IS DOMESTIC. `function` reads `dwelling_former_school_use_unattested` and its note draws the distinction in as many words: 'Andreas describes a HOUSE that a school was held in, not a school-house, and the distinction is preserved here: the building's own function is domestic and the teaching is an occupancy.' A dwelling holds a household. WHO that household was on the scene date is the part nothing settles — the same record's `occupants` note says 'No source reached names a householder, a tenant or a teacher in this building in 1835' — so the household is reconstructed and the roof is not.",
+  "withdrawn_if": "a re-reading of this building's record that no longer puts a household under it, or a source naming who actually lived here; the retirement runs through --build, never by hand",
+  "the_seven_refused": [
+   "council_house",
+   "first_presbyterian_church",
+   "log_jail",
+   "north_side_school_1833",
+   "st_marys_church",
+   "temple_building",
+   "walker_meeting_house"
+  ]
+ },
+ "household_owed": {
+  "size_drawn": 2,
+  "kin_seated": 1,
+  "seed": "institutional_households:watkins_school_house:household_size",
+  "seated_by": "T-1171 (the modelled families), T-1174 (women and children), T-1179 (converge)",
+  "note": "THE FAMILY THIS HEAD IS OWED, AND NOT SEATED HERE. The 1840 size histogram drew this house at 2 people. Its kin are `family/none` in the order book and that quota belongs to T-1171 and T-1174; seating them here would order the same people twice."
+ },
+ "arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "NOT DRAWN HERE, AND THE REASON IS A CIRCLE. The arrival model's own distribution is computed over the compiled scene and the scene carries these cards; an arrival written here would move the table that drew it. The programme's arrival stage owns this block.",
+  "seated_by": "T-1169 (the arrival fill), T-1179 (converge)"
+ },
+ "lives_at": {
+  "value": "watkins_school_house",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "1835_institutional_lodging",
+   "note": "THE ROOF IS THE CLAIM, and it is the only part of this card that is not an invention. THE RECORD'S OWN FUNCTION IS DOMESTIC. `function` reads `dwelling_former_school_use_unattested` and its note draws the distinction in as many words: 'Andreas describes a HOUSE that a school was held in, not a school-house, and the distinction is preserved here: the building's own function is domestic and the teaching is an occupancy.' A dwelling holds a household. WHO that household was on the scene date is the part nothing settles — the same record's `occupants` note says 'No source reached names a householder, a tenant or a teacher in this building in 1835' — so the household is reconstructed and the roof is not."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source naming who lived at this building on the scene date"
+  },
+  "note": "SEATED ON A BUILDING THAT STANDS. Unlike the trade and family reconstructions, this household is not waiting on T-1199 for a lot: the roof it is under is a committed, placed record and is the reason the household was ordered at all."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not attested and not drawn. Nothing states what the people in this house did."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "ordered_by_the_reconstruction_order_book",
+   "note": "Ordered, not argued: the book counts this household as missing FROM the town of 1 July 1835, so presence is the order rather than a draw made over it."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a re-cut order book that no longer orders this bucket"
+  }
+ },
+ "persons": [
+  {
+   "id": "rc_sawyer_amanda",
+   "name": "Amanda Sawyer",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sex": "female",
+   "sex_basis": {
+    "value": "female",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_town_model",
+     "note": "DRAWN, because nothing about this house says anything about who kept it. The town model's own sex ratio is the distribution and the seed below is the draw; it is a coin this project weighted, not a reading."
+    },
+    "seed": "institutional_households:watkins_school_house:sex_ratio",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming the person who lived here on the scene date"
+    }
+   },
+   "age_band": null,
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "basis": {
+     "kind": "rule",
+     "id": "1835_institutional_lodging",
+     "note": "NO TRADE IS WRITTEN. The building's record says in as many words that no source reached names a householder, a tenant or a teacher in it in 1835, and the household buckets carry no trade axis to deal one from. A schoolmaster is the obvious guess and the obvious guess is exactly what this project does not write: the teaching that is attested here is Watkins's, in 1833, and he is a card of this layer already."
+    },
+    "seed": null,
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming this establishment's holder in 1835"
+    }
+   },
+   "name_basis": {
+    "value": "Amanda Sawyer",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Both parts are drawn from the New England and New York pool, which is seeded from the attested residents of this town. No weighting is applied: the adjudication says who lived under this roof and nothing whatever about where they came from."
+    },
+    "seed": "institutional_households:watkins_school_house:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a real person living at this building in 1835"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn head from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "rule",
+    "id": "1835_institutional_lodging",
+    "note": "The adjudication of the town's nine standing institutional roofs admits watkins_school_house as holding a household, and the order book's bucket households/institutional/north is the one household it orders there."
+   },
+   "seed": "institutional_households:watkins_school_house:forename",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a resident of this building on the scene date, who would stand in this slot instead"
+   },
+   "reconstruction": {
+    "stage": "institutional_households",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "yankee",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_institutional_head",
+   "sources": [],
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because Watkins school house is one of two institutional roofs in this town whose own committed record puts a household under it, and because the reconstruction order book counts that household missing. The whole of what is claimed is that somebody lived here. No figure is drawn (L1)."
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "WRITTEN BY tools/reconstruct_institutional_households.py (T-1531), the `institutional_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+}

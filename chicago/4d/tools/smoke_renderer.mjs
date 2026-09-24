@@ -11951,7 +11951,7 @@ for (const [label, viewport, touch] of [
       // figures the rest of this file and model_town_1835.py read cannot disagree with
       // the loop that produced them.
       && people.counts.sourceKeys
-         === 'lodgers,manifest,readmitted,reconstructed_trades,transients,underdocumented'
+         === 'institutional,lodgers,manifest,readmitted,reconstructed_trades,transients,underdocumented'
       && people.counts.sourceTotal === people.counts.stated
       && people.counts.bySource.manifest === people.counts.manifest
       && people.counts.bySource.readmitted === people.counts.readmitted

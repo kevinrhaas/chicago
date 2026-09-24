@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 364. The person leg is PART artifact: 374 before, 227 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 371. The person leg is PART artifact: 374 before, 227 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -181,6 +181,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1184 | 2 | 1 |
 | T-1185 | 2 | 2 |
 | T-1418 | 2 | 2 |
+| T-1531 | 2 | 2 |
 
 
 ## The rules this book adds
@@ -363,20 +364,19 @@ The households the model wants, by kind and division.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
-| `households/boarding_house/north` | 11 | 1 | 10 | 5 | T-1538 |
-| `households/boarding_house/south` | 40 | 7 | 33 | 1 | T-1538 |
+| `households/boarding_house/north` | 12 | 1 | 11 | 5 | T-1538 |
+| `households/boarding_house/south` | 41 | 7 | 34 | 1 | T-1538 |
 | `households/boarding_house/west` | 9 | 1 | 8 | 1 | T-1538 |
-| `households/family_dwelling/north` | 121 | 11 | 110 | 26 | T-1171 |
-| `households/family_dwelling/south` | 253 | 41 | 212 | 65 | T-1171 |
-| `households/family_dwelling/west` | 108 | 7 | 101 | 33 | T-1171 |
+| `households/family_dwelling/north` | 123 | 12 | 111 | 26 | T-1171 |
+| `households/family_dwelling/south` | 257 | 41 | 216 | 65 | T-1171 |
+| `households/family_dwelling/west` | 109 | 7 | 102 | 33 | T-1171 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-1538 |
 | `households/inn_tavern/south` | 7 | 1 | 6 | 6 | T-1538 |
 | `households/inn_tavern/west` | 4 | 0 | 4 | 1 | T-1538 |
-| `households/institutional/north` | 4 | 0 | 4 | 0 | T-1531 |
-| `households/institutional/south` | 7 | 1 | 6 | 0 | T-1531 |
-| `households/institutional/west` | 1 | 0 | 1 | 0 | T-1531 |
-| `households/store_residence/north` | 6 | 1 | 5 | 0 | T-1171 |
-| `households/store_residence/south` | 60 | 9 | 51 | 0 | T-1171 |
+| `households/institutional/north` | 1 | 0 | 1 | 1 | T-1531 |
+| `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
+| `households/store_residence/north` | 6 | 0 | 6 | 0 | T-1171 |
+| `households/store_residence/south` | 61 | 10 | 51 | 0 | T-1171 |
 | `households/store_residence/west` | 9 | 0 | 9 | 0 | T-1171 |
 | `households/garrison/fort` | — | 2 | — | 0 | T-1176 |
 
