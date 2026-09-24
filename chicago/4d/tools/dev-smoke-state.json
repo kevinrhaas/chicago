@@ -2,6 +2,37 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 93,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 165,
+      "takenAt": "2026-09-24T01:49:30.301Z",
+      "ref": "claude/quirky-brown-j5lbfr",
+      "commit": "4b735801bfd8",
+      "devCommit": "4b735801bfd8",
+      "treeHash": "sha256:0ff61ba7eb390461",
+      "treeDirty": true,
+      "changelogHash": "sha256:d1517e9f61ae526e",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          3,
+          3.1,
+          1.7
+        ]
+      },
+      "source": "/tmp/claude-0/-home-user/60a9e2db-ca6a-59f3-9a0d-fc3324022ccb/scratchpad/p3-after.log"
+    },
+    {
       "viewport": "mobile",
       "stage": "11-12",
       "parts": [
@@ -1461,74 +1492,6 @@
       "source": "/tmp/smoke-mobile-12.log"
     },
     {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 77,
-      "failed": 2,
-      "failures": [
-        "desktop 1280x800: the People directory lists the town, and its count is the file's and the manifest's — {\"rows\":80,\"api\":3228,\"file\":3228,\"stated\":3228,\"manifest\":2269,\"readmitted\":182,\"trades\":308,\"transients\":307,\"residents\":2921,\"countText\":\"3,228 people in 1,982 households\\n        · 736 known only from the letter lists\\n        · 359 with a known address\"}",
-        "desktop 1280x800: the Trade row offers the documented trades AND the town's commonest — 13 pill(s): [attorney, tavern_keeper, merchant, schoolteacher, carpenter, physician, blacksmith, hotel_keeper, soldier, domestic, boarding_house_keeper, laundress, clerk]"
-      ],
-      "wallSeconds": 316,
-      "takenAt": "2026-09-20T20:07:00.515Z",
-      "ref": "steward/t-1462-business-staff-join",
-      "commit": "6f0303395e54",
-      "devCommit": "4bf53682df33",
-      "treeHash": "sha256:f2f03fa8a469fd5a",
-      "treeDirty": true,
-      "changelogHash": "sha256:e170c73427696054",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          1.6,
-          2.6,
-          2.3
-        ]
-      },
-      "source": "/tmp/smoke-desktop-12b.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 77,
-      "failed": 2,
-      "failures": [
-        "desktop 1280x800: the People directory lists the town, and its count is the file's and the manifest's — {\"rows\":80,\"api\":3228,\"file\":3228,\"stated\":3228,\"manifest\":2269,\"readmitted\":182,\"trades\":308,\"transients\":307,\"residents\":2921,\"countText\":\"3,228 people in 1,982 households\\n        · 736 known only from the letter lists\\n        · 359 with a known address\"}",
-        "desktop 1280x800: the Trade row offers the documented trades AND the town's commonest — 13 pill(s): [attorney, tavern_keeper, merchant, schoolteacher, carpenter, physician, blacksmith, hotel_keeper, soldier, domestic, boarding_house_keeper, laundress, clerk]"
-      ],
-      "wallSeconds": 184,
-      "takenAt": "2026-09-20T18:59:15.234Z",
-      "ref": "steward/t-1455-west-division-lots",
-      "commit": "d67dc1bacdab",
-      "devCommit": "6ce5a13448d9",
-      "treeHash": "sha256:e7897268046f789d",
-      "treeDirty": true,
-      "changelogHash": "sha256:72bdbf84c9c29ab5",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          0.3,
-          0.8,
-          1.1
-        ]
-      },
-      "source": "/tmp/smoke_dev_d12.log"
-    },
-    {
       "viewport": "mobile",
       "stage": "1,6",
       "parts": [
@@ -1753,37 +1716,6 @@
         ]
       },
       "source": "/tmp/smoke_d_11_12.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 90,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 100,
-      "takenAt": "2026-09-18T01:35:46.792Z",
-      "ref": "steward/t-1158-attribute-tiers",
-      "commit": "48aeea64f201",
-      "devCommit": "2e0d534c5d0a",
-      "treeHash": "sha256:95a486fdd16283c8",
-      "treeDirty": false,
-      "changelogHash": "sha256:36b270af5b3aad94",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          2.5,
-          3.5,
-          2.4
-        ]
-      },
-      "source": "/tmp/smoke_d3.txt"
     },
     {
       "viewport": "mobile",
