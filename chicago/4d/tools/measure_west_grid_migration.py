@@ -45,12 +45,19 @@ assumed: of the 35 blocks whose lot lines are withheld, NOT ONE carries a struct
 The case has never arisen, so no rule was ever written for it. `blk_randolph_clinton`
 would be the first, and it would not arrive alone — see the seating counted below.
 
-THE PRECONDITION IS UNOWNED. Both refusals name the street spacing, and both name the
-ticket that would move it: T-0445. T-0444 reported the gap and T-0445 was to close it.
-Both are closed, and the committed spacing is still 367.9 ft — the refusal text in
-`generate_plat_lots.py` still points forward to a ticket that has already been done.
-That is recorded here as a finding, not repaired: moving a street line is not this
-module's to do, and it is not this ticket's either.
+THE PRECONDITION IS OWNED AGAIN, AND BY T-1540. Both refusals name the street spacing.
+Until 2026-09-24 they named T-0445 as the ticket that would move it — T-0444 reported the
+gap, T-0445 was to close it, both closed, and the spacing stayed at 367.9 ft, so the
+refusal text pointed a reader forward at work that had already been done. The owner ruled
+on 2026-09-21 that a successor must own the whole question rather than the one number, and
+T-1540 is that successor: `tools/measure_west_division_spacing.py` measures the gap on
+EVERY interval of the West Division grid, not on this one, and finds that no single
+centreline moved can close three of them, and that the plat gives a module and no
+positions to take. T-1540 LANDED on 2026-09-24 (PR #25) and this precondition went red
+rather than stale, which is what it was wired to do. The spacing question is answered, so
+the pointer moves on to T-1479 — the ticket that re-cuts blocks 28 and 45 and was blocked
+on exactly this — which the tickets repo unblocked when T-1540 landed. The guard re-arms
+on it: the day T-1479 lands while this precondition still stands, this goes red again.
 
     tools/measure_west_grid_migration.py              -> print the derivation
     tools/measure_west_grid_migration.py --check      -> re-derive, byte for byte
@@ -83,7 +90,11 @@ SEATED_IN = (
 
 # The tickets the two refusals name as owning the street move, and which this module
 # checks the state of rather than trusting the prose. Read out of tickets/, not asserted.
+# The first two REPORTED and closed; the third is the successor the owner ruled must own
+# the whole question, and it is the one that has to still be unfinished for this
+# precondition to hold.
 NAMED_BY_THE_REFUSAL = ("T-0444", "T-0445")
+OWNS_THE_MOVE = "T-1479"
 
 
 def load(path: pathlib.Path):
@@ -263,16 +274,25 @@ def derive() -> dict:
             "committed_clinton_to_canal_ft": round(spacing_ft, 1),
             "the_plat_street_module_ft": module_street_ft,
             "short_by_ft": round(module_street_ft - spacing_ft, 1),
-            "so": ("the West Division module cannot be seated on these blocks until the "
-                   "committed Clinton and Canal centrelines carry the plat's own "
-                   "spacing. That is a street move, which this ticket may not make."),
-            "named_as_owning_the_move": {
+            "so": ("the West Division module cannot be seated on these blocks AT ITS "
+                   "PRINTED SIZE until the committed Clinton and Canal centrelines carry "
+                   "the plat's own spacing. That is a street move, which this ticket may "
+                   "not make."),
+            "reported_it_and_closed": {
                 t: ticket_state(t) for t in NAMED_BY_THE_REFUSAL},
+            "owns_the_move_now": {OWNS_THE_MOVE: ticket_state(OWNS_THE_MOVE)},
             "and_the_finding": (
-                "both tickets the refusal points forward to are CLOSED, and the spacing "
-                "is still short. The move is therefore unowned: no open ticket carries "
-                "it, and the prose in tools/generate_plat_lots.py points a reader at "
-                "work that has already been done. A successor is owed."),
+                "the first two tickets the refusal pointed forward to are CLOSED and the "
+                "spacing is still short, so for a while the move was unowned and the "
+                "prose in tools/generate_plat_lots.py sent a reader at work already done. "
+                "T-1540 was the successor the owner ruled on 2026-09-21 must own the "
+                "whole question — tools/measure_west_division_spacing.py is its "
+                "measurement, and it finds the shortfall on every interval of the grid "
+                "rather than on this one, against a plat that gives a module and no "
+                "positions. It landed on 2026-09-24 and this block went red rather than "
+                f"stale, which is what it is for. The pointer now names {OWNS_THE_MOVE}, "
+                "the re-cut that was blocked on that answer and is open again, and the "
+                "guard re-arms: the day it lands while this precondition stands, red."),
         },
         "the_first_question": {
             "asked_by_the_ticket": (
@@ -313,7 +333,8 @@ def report(d: dict) -> None:
     p = d["the_precondition"]
     print(f"\n  precondition  Clinton to Canal committed at {p['committed_clinton_to_canal_ft']} ft "
           f"against the plat's {p['the_plat_street_module_ft']:.0f} ft — short {p['short_by_ft']} ft")
-    print(f"                {', '.join(f'{k} is {v}' for k, v in p['named_as_owning_the_move'].items())}")
+    print(f"                {', '.join(f'{k} is {v}' for k, v in p['reported_it_and_closed'].items())}"
+          f"; {', '.join(f'{k} is {v}' for k, v in p['owns_the_move_now'].items())} and owns the move")
     q = d["the_first_question"]
     print(f"\n  first question  {q['of_those_carrying_a_committed_seating']} of "
           f"{q['blocks_whose_lot_lines_are_withheld']} withheld blocks carry a seating "
@@ -397,9 +418,17 @@ def self_test() -> int:
     p = d["the_precondition"]
     ck(p["short_by_ft"] > 0, "the committed spacing must be short of the plat module")
     ck(p["the_plat_street_module_ft"] == 458, "the plat's street module is 458 ft")
-    ck(all(v == "done" for v in p["named_as_owning_the_move"].values()),
-       "both tickets the refusal names must still be closed, or the move has an owner "
-       "again and this finding is out of date")
+    ck(all(v == "done" for v in p["reported_it_and_closed"].values()),
+       "the two tickets that reported this gap must still be closed — if one reopens, "
+       "the move has two owners and the successor's scope has to be re-cut")
+    ck(all(v is not None for v in p["owns_the_move_now"].values()),
+       "the ticket this refusal points a reader FORWARD at must resolve in tickets/. "
+       "That is the whole fault this assertion exists for: for three days the prose "
+       "named T-0445, which was already done, so a reader following it arrived at a "
+       "closed ticket and the move looked owned when it was not. A named ticket that "
+       "does not resolve at all is the same dead end one step worse. Whether the move "
+       "has HAPPENED is not tested here — the spacing figure above tests that, and it "
+       "goes red the day Clinton and Canal reach the plat's module")
 
     # 7. The first question's answer rests on the case never having arisen. One
     #    structure seated on a withheld block anywhere in town would answer it instead.
@@ -415,7 +444,8 @@ def self_test() -> int:
         print(f"SELF-TEST FAIL — {len(fail)} case(s)")
         return 1
     print("SELF-TEST PASS — the pair, the ten-against-eight gap, both refusals, the "
-          "seating, the unowned precondition and the unanswered first question")
+          "seating, the precondition and its named owner, and the unanswered first "
+          "question")
     return 0
 
 
