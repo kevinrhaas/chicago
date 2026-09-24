@@ -458,24 +458,17 @@ RULES = {
             "spent as."),
     },
     # ---- hand-offs ---------------------------------------------------------------
-    "the_compiled_record_names_this_claim_and_tiers_no_field_to_it": {
-        "disposition": "unresolved",
-        "ticket": "T-1514",
-        "statement": (
-            "A compiled business record DOES name this claim -- and only at its root, in "
-            "`claim_ids`, beside a root `sources` list that carries no tier. The ledger "
-            "reaches the business layer on a block that carries a tier AND cites a source "
-            "(T-1508), and on these records there is no such block: `proprietors` and "
-            "`partners` are empty because the advertisement is anonymous, and `locations` "
-            "and `dates` are `inferred` from the placement policy and cite nothing. So the "
-            "reading compiled a whole record and no field of that record is attested from "
-            "it. This is a fault in the LAYER and not in the reading, and it is not closed "
-            "by calling the root a tier: that would be minting a confidence the generator "
-            "never derived. T-1514 owns putting the tier on in "
-            "tools/compile_businesses.py, where the layer re-derives; the day it does, the "
-            "ledger asserts these units with no ruling at all and these rows go red, which "
-            "is what a hand-off closing is supposed to look like."),
-    },
+    # T-1514 CLOSED THIS RULE OUT OF EXISTENCE, 2026-09-24, and that is what a hand-off
+    # closing looks like. `the_compiled_record_names_this_claim_and_tiers_no_field_to_it`
+    # stood here and ruled 49 newspaper readings `unresolved`: a compiled business record
+    # named the claim at its ROOT, where no tier stands, so the reading compiled a whole
+    # record and asserted no field of it. The rule said the day the generator put a tier
+    # on, "the ledger asserts these units with no ruling at all and these rows go red".
+    # tools/compile_businesses.py now derives the anonymous notice's own `notice` block --
+    # attested, citing the source, naming the claims -- so the ledger reaches those
+    # readings by itself and there is nothing left for a ruling to close. A reading a
+    # record still reaches and no block of it asserts is now a fault in the LAYER, and
+    # `rule_business` refuses it rather than ruling it.
     "the_letter_list_name_belongs_to_the_borderline_roster": {
         "disposition": "unresolved",
         # T-1159 CLOSES WITH THE ROSTER IT BUILDS, so a hand-off cannot name it: this
@@ -731,13 +724,13 @@ RULES = {
 # (T-1310, T-1440..T-1442), the one-occupation field became dated plural roles with a
 # `covers_scene_date` flag and a written withdrawal (T-0837, T-0991), and the candidate-fact
 # table is committed (T-1232). tools/spend_trade_premises.py reads all 37 against those
-# fields and gives each one of SIX outcomes, 36 of them terminal. Its rules are folded in
+# fields and gives each one of SIX outcomes, all of them terminal since T-1526. Its rules are folded in
 # here rather than restated, for the same reason `wrote_by_spend` imports the arrival pass's
 # table: the pass that read the card is the pass that says what the card answered with, and
 # a rule renamed there cannot drift out of the register that vouches for it.
 from spend_trade_premises import (BOUNDED as TRADE_BOUNDED,  # noqa: E402
                                   CARRIED as TRADE_CARRIED,
-                                  HANDED as TRADE_HANDED,
+                                  CONTRADICTING as TRADE_CONTRADICTING,
                                   LATER as TRADE_LATER,
                                   PROFILE as TRADE_PROFILE,
                                   RULES as TRADE_RULES,
@@ -1279,10 +1272,17 @@ def rule_business(unit: dict, reach: dict[str, list[str]],
 
     records = reach.get(unit["record_key"]) or []
     if records:
-        return ("the_compiled_record_names_this_claim_and_tiers_no_field_to_it",
-                f"{where}: the layer holds {', '.join(records)}, compiled from this very "
-                f"reading of “{named}” — and it names this claim only at the record root, "
-                f"where no tier stands. It reads: “{line}”")
+        # NOT A RULING ANY MORE (T-1514). The layer holds a record compiled from this very
+        # reading, and since T-1514 every compiled record carries a tiered, source-bearing
+        # block naming the claims it was compiled from -- a proprietor row where the notice
+        # printed a name, the `notice` block where it printed none. So the ledger asserts
+        # this unit on its own and it should never have reached this register. If it did,
+        # the block is missing or untiered on that record, and papering over a hole in the
+        # layer with a written ruling is exactly what this file must not do.
+        raise SystemExit(
+            f"{unit['record_key']}: {', '.join(records)} is compiled from this reading and "
+            f"no tiered, source-bearing block of it names the claim -- put the tier on in "
+            f"tools/compile_businesses.py (T-1514) rather than ruling the reading here")
     if printed and printed > SCENE_DATE:
         return ("the_issue_is_printed_after_the_scene_date",
                 f"{where}: the issue is dated {printed}, after the scene date, and the "
@@ -1628,16 +1628,16 @@ def self_test() -> int:
     except SystemExit:
         pass
 
-    # T-1509: the four answers a business reading can get, each held over a fixture, and
-    # the reach index held over the layer as it stands. The reach fixture is synthetic on
-    # purpose -- the real claim ids move as the corpora are read, and a self-test pinned
-    # to one of them goes red on work that is nothing to do with it.
+    # T-1509 gave a business reading four answers and T-1514 took the first of them away:
+    # a reading the layer compiled a record FROM is asserted by that record's own tiered
+    # block now, so it never reaches this register and a ruling for it would be a hole in
+    # the layer written down as prose. Three answers, each held over a fixture, and the
+    # refusal held over the fourth. The reach fixture is synthetic on purpose -- the real
+    # claim ids move as the corpora are read, and a self-test pinned to one of them goes
+    # red on work that is nothing to do with it.
     trade = {"source_file": "x/chicago_democrat_1835_01_21.json", "record_key": "c900",
              "record": {"id": "c900", "kind": "business", "normalized": "Iron and hardware.",
                         "business": {"name": "an iron and hardware stock"}}}
-    held("a business the layer compiled a record from", trade,
-         "the_compiled_record_names_this_claim_and_tiers_no_field_to_it",
-         fn=lambda u: rule_business(u, {"c900": ["biz_fixture"]}, "1835-06-13"))
     held("a business notice printed after the scene date", trade,
          "the_issue_is_printed_after_the_scene_date",
          fn=lambda u: rule_business(u, {}, "1835-08-05"))
@@ -1648,24 +1648,33 @@ def self_test() -> int:
     held("a business reading the layer holds no record for", trade,
          "a_trade_reading_the_business_layer_holds_no_record_for",
          fn=lambda u: rule_business(u, {}, "1835-06-13"))
-    # THE RECORD OUTRANKS THE DATE, and that order is the ruling, not an accident of the
-    # branch order: a post-scene printing the layer compiled a record from is the
-    # record's question and not this register's (T-1508).
-    if rule_business(trade, {"c900": ["biz_fixture"]}, "1835-08-05")[0] != \
-            "the_compiled_record_names_this_claim_and_tiers_no_field_to_it":
-        failures.append("a compiled record lost to the scene-date fallback")
+    # AND THE REFUSAL, which is what the retired rule became. A record that reaches the
+    # reading and asserts no field of it is T-1514's fault come back, and it is not ruled
+    # here on any date: the refusal outranks the scene-date fallback exactly as the ruling
+    # it replaced outranked it (T-1508).
+    for label, printed in (("an in-window printing", "1835-06-13"),
+                           ("a post-scene printing", "1835-08-05")):
+        try:
+            got = rule_business(trade, {"c900": ["biz_fixture"]}, printed)
+            failures.append(f"a record compiled from the reading asserted none of it and "
+                            f"{label} was ruled anyway: {got[0]!r}")
+        except SystemExit:
+            print(f"  fires: {label} whose compiled record tiers nothing to the claim")
 
-    # ...and the reach index reads the layer that is committed, not one in a fixture.
+    # ...and the reach index reads the layer that is committed, not one in a fixture: every
+    # business unit that survives to this register must be one NO record reaches, or
+    # `rule_business` would have refused it above.
     reach = business_claim_reach(ROOT)
     if not reach:
         failures.append("the business layer reaches no claim at all")
     else:
-        unreached = [unit for unit in mine(ROOT)
-                     if unit["record"].get("kind") == "business"
-                     and not reach.get(unit["record_key"])]
-        ruled = {rule_business(unit, reach, None)[0] for unit in unreached}
-        if "the_compiled_record_names_this_claim_and_tiers_no_field_to_it" in ruled:
-            failures.append("a unit no record reaches was handed to T-1514 anyway")
+        reached = [unit for unit in mine(ROOT)
+                   if unit["record"].get("kind") == "business" and reach.get(unit["record_key"])]
+        if reached:
+            failures.append(f"{len(reached)} business unit(s) a compiled record reaches are "
+                            f"still unasserted: {reached[0]['record_key']!r}")
+        else:
+            print("  holds: no business reading the layer compiled a record from is left over")
 
     book = {"source_file": "x/hubbard_autobiography_1911.json",
             "record": {"id": "b1", "kind": "landscape", "normalized": "The prairie.",
@@ -1710,7 +1719,7 @@ def self_test() -> int:
             ("a trade carried as a profile fact", "06", "mitchell_henry", TRADE_PROFILE),
             ("a trade printed for a later year", "14", "sabine_wm", TRADE_LATER),
             ("a pre-scene engagement", "04", "handy_major", TRADE_UNREACHED),
-            ("a reading the card contradicts", "02", "pearsons_hiram", TRADE_HANDED),
+            ("a reading the card contradicts", "02", "pearsons_hiram", TRADE_CONTRADICTING),
             ("a county office", "04", "steele_ashbel", "the_enrichment_names_a_civic_church_or_school_post_no_field_carries"),
             ("a landholding", "05", "wright_john_s", "the_enrichment_names_a_landholding_no_field_carries"),
             ("a later volume", "15", "doolittle_ehjah", "the_later_volume_enriches_a_biography_and_names_no_1835_field")):

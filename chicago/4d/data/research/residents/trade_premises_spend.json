@@ -12,7 +12,7 @@
    "the_reading_is_carried_as_a_dated_profile_fact_on_the_card": 4,
    "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date": 3,
    "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks": 2,
-   "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated": 1
+   "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses": 1
   }
  },
  "rows": [
@@ -163,12 +163,23 @@
    "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/pearsons_hiram",
    "pass": "02",
    "person": "pearsons_hiram",
-   "outcome": "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated",
-   "rule": "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated",
-   "reading": "a house painter's trade, against the `speculator` the card carries as attested",
+   "outcome": "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses",
+   "rule": "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses",
+   "reading": "a house painter's trade, against the `speculator` the card carries for 1835",
    "describes": null,
-   "carries": [],
-   "note": "The pass on pearsons_hiram returned: “A contemporary reminiscence describes Pearsons as a house painter who entered real estate. This corrects the household's unsupported treatment of speculator as attested: house painter is sourced; investor or speculator is interpretive.” Sources as recorded: ingale_early_chicago_reminiscence. T-1469 reads that as a house painter's trade, against the `speculator` the card carries as attested. No field carries it, because the card carries the OPPOSITE reading at a grade the finding disputes; T-1507 owns the re-adjudication."
+   "carries": [
+    {
+     "field": "roles",
+     "at": "data/residents/households/hh_pearsons_hiram.json#persons[pearsons_hiram].roles[3]",
+     "value": "house painter",
+     "grade": "inferred",
+     "sources": [
+      "ingale_early_chicago_reminiscence"
+     ],
+     "reaches_scene_date": false
+    }
+   ],
+   "note": "The pass on pearsons_hiram returned: “A contemporary reminiscence describes Pearsons as a house painter who entered real estate. This corrects the household's unsupported treatment of speculator as attested: house painter is sourced; investor or speculator is interpretive.” Sources as recorded: ingale_early_chicago_reminiscence. T-1469 reads that as a house painter's trade, against the `speculator` the card carries for 1835. The card carries it at data/residents/households/hh_pearsons_hiram.json#persons[pearsons_hiram].roles[3] = “house painter” (inferred, outside the 1 July 1835 view)."
   },
   {
    "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/sen_elijah_wentworth",

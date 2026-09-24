@@ -194,12 +194,12 @@ turned out not to be in the register at all: `### L-rc-sex-rate` and
 | `readmissions` | persons | 179 | 179 | **L246** |
 | `trade_households` | persons | 308 | 308 | **L248** |
 | `women_and_children` | persons | 556 | 124 | **L247** |
-| `lodgers` | persons | 56 | 13 | **L252** |
+| `lodgers` | persons | 77 | 15 | **L252** |
 | `garrison` | persons | 125 | 11 | **L251** |
 | `underdocumented` | persons | 102 | 94 | **L250**, **L255** |
 | `transients` | persons | 307 | 83 | **L249** |
 | `converge` | nothing | — | — | — |
-| **the programme** | | **1,958** | **900** | |
+| **the programme** | | **1,968** | **900** | |
 
 A stage that mints nobody carries no count for a liberty to agree with, and says why in
 `owes_no_person_scope`. The two attribute stages write onto people other passes read:

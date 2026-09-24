@@ -1688,8 +1688,26 @@ function gradeChips(grades) {
  * reaches no building sidecar, so before this section it appeared nowhere a
  * visitor could go.
  */
+const DWELLING_CLAUSE_LABEL = {
+  a_stated_dwelling: 'a house — a source says where they lived',
+  a_stated_premises: 'a house — a source says where they worked',
+  more_than_one_named_person: 'a house — more than one person is named in it',
+  a_stated_kinship: 'a house — a source states the family in it',
+  a_stated_division: 'a house — a source places it in this division',
+  the_programme_built_it_as_a_house: 'a house the reconstruction built',
+};
+const AWAITING_A_HOUSEHOLD =
+  'a person awaiting a household — nothing here says they kept a house';
+
 function householdSummary(entry, { orphanChip = true } = {}) {
   const reaches = Boolean(entry.lives_at || entry.works_at);
+  // T-1476, the owner's ruling of 21 September 2026. A name on a letter list is
+  // evidence that a man was at Chicago and not that he kept a house, so a record
+  // and a household are two units — and the chip says which this row is, and why,
+  // before anybody opens it.
+  const unit = entry.dwelling_evidence
+    ? (DWELLING_CLAUSE_LABEL[entry.dwelling_evidence] || 'a house')
+    : AWAITING_A_HOUSEHOLD;
   const label = entry.id.replace(/^hh_/, '').replace(/_/g, ' ');
   return `<details class="lib res-hh" data-file="${escapeHtml(entry.file)}"
       data-id="${escapeHtml(entry.id)}" data-loaded="0"
@@ -1703,7 +1721,9 @@ function householdSummary(entry, { orphanChip = true } = {}) {
         entry.census_1840_linked
           ? `<span class="res-chip res-research">${entry.census_1840_linked} bridged to an 1840 census household</span>` : ''}${
         reaches || !orphanChip
-          ? '' : '<span class="res-chip res-orphan">on no building card</span>'}</span></summary>
+          ? '' : '<span class="res-chip res-orphan">on no building card</span>'}<span
+        class="res-chip ${entry.dwelling_evidence ? 'res-house' : 'res-awaiting'}">${
+        escapeHtml(unit)}</span></span></summary>
     <div class="lib-body res-hh-body"><p class="legend-note">Loading…</p></div>
   </details>`;
 }
@@ -2103,6 +2123,19 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
           + `admits should be held, so they are listed together, below the households the `
           + `rest of the corpus documents, and which of these people are a name and `
           + `nothing else can be seen without opening anything. ` : '')
+      + (counts.houses
+        // T-1476. The owner ruled on 21 September 2026 that a name on a post-office
+        // letter list evidences a PERSON and not a HOUSE, and this is where a visitor
+        // meets that: the layer's record count and the town's house count are two
+        // different units, so the sentence gives both and every row below says which
+        // it is. Nothing was retired to reach it — the difference is a backlog of
+        // people still to be seated, not a correction.
+        ? `${counts.houses} of these ${entries.length} records carry a reading about a `
+          + `dwelling — a street, a premises, a stated family, a division — and the `
+          + `other ${counts.awaiting_a_household} are people awaiting a household: a `
+          + `name on a list is evidence that somebody was at Chicago and not that they `
+          + `kept a house. Every row below says which it is, and why. None of them was `
+          + `retired or downgraded to say so. ` : '')
       + (counts.census_1840_linked
         // T-0491. Three people carry an identity bridge to a named head of household
         // in the 1840 census, and the bridge is an argument rather than a fact: it is

@@ -16,6 +16,24 @@
   "firm_styles": [
     "Kinzie & Hall"
   ],
+  "notice": {
+    "reads": "Kinzie & Hall",
+    "trade": "dry goods, hardware and groceries",
+    "goods": [
+      "Dry Goods",
+      "Groceries",
+      "Hardware"
+    ],
+    "names_a_keeper": false,
+    "from": "1834-06-25",
+    "to": "1834-06-25",
+    "tier": "attested",
+    "basis": "The advertisement is anonymous: the paper printed the trade and the goods and no proprietor, so no person of this record can carry the reading it was compiled from. What is attested here is what the notice itself set in type — “dry goods, hardware and groceries” — and nothing beyond it: no keeper is claimed, and the premises and dates of this record stay on their own blocks at the tier the placement policy left them. Bounded by the printing window (printed 1834-06-25), which dates the notice and not the house.",
+    "source_id": "chicago_newspapers_1833_1835",
+    "claim_ids": [
+      "chicago_democrat_1834_06_25#c004"
+    ]
+  },
   "proprietors": [],
   "partners": [],
   "staff": [],

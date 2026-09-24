@@ -600,6 +600,63 @@ def locations_for(entry, gaz, anchors=None):
     return out
 
 
+def notice_for(entry, gaz, claims, proprietors, partners):
+    """THE READING, WHERE NO PERSON OF THE RECORD CAN CARRY IT (T-1514).
+
+    `person_entry` is what puts a record's `claim_ids` on a tiered, source-bearing block:
+    a proprietor row says `attested`, names `chicago_newspapers_1833_1835` and lists the
+    claims the notice was read out of. An ANONYMOUS advertisement — "a Chicago stove and
+    hollow ware dealer, August 1835", "an iron and hardware stock, Chicago, June 1835" —
+    has no such row, because the paper printed no name. So the reading compiled a whole
+    record and every tiered block OF that record was about something else: `locations`
+    and `dates` are `inferred` from the placement policy and cite nothing, and the claims
+    stood at the record ROOT, beside a root `sources` list that carries no tier. A reading
+    cannot be asserted against a root (`research_spend_ledger.business_target_index`
+    reaches a block that carries a tier AND cites a source), so 49 readings compiled 37
+    records and asserted no field of any of them.
+
+    THE TIER IS THE NOTICE'S OWN AND NOT AN UPGRADE. What this block claims is what the
+    advertisement printed and nothing else: the trade it advertised and the goods it
+    listed, `attested` because the paper set them in type. It claims no keeper — that is
+    the silence the block exists to state — and it claims no premises and no dates, which
+    stay `inferred` on their own blocks where the placement policy left them.
+
+    Null where the record's people already carry the claims: 155 of the 196 name somebody,
+    and a second block restating the same claim ids would be a second voice for one
+    reading. Null too where the register compiled the record from no claim at all, since
+    there is then nothing for a block to name.
+    """
+    if proprietors or partners or not claims:
+        return None
+    evidence = entry.get("evidence") or {}
+    first, last = evidence.get("first_issue"), evidence.get("last_issue")
+    goods = list(gaz.get("goods") or [])
+    window = ("printed %s" % first if first and (not last or last == first)
+              else "printed %s to %s" % (first, last) if first
+              else "printed on a day the register does not bound")
+    return {
+        "reads": entry["name"],
+        "trade": entry.get("trade"),
+        "goods": goods,
+        "names_a_keeper": False,
+        "from": first,
+        "to": last,
+        "tier": "attested",
+        "basis": ("The advertisement is anonymous: the paper printed the trade%s and no "
+                  "proprietor, so no person of this record can carry the reading it was "
+                  "compiled from. What is attested here is what the notice itself set in "
+                  "type — %s — and nothing beyond it: no keeper is claimed, and the "
+                  "premises and dates of this record stay on their own blocks at the tier "
+                  "the placement policy left them. Bounded by the printing window (%s), "
+                  "which dates the notice and not the house."
+                  % (" and the goods" if goods else "",
+                     "“%s”" % entry.get("trade") if entry.get("trade") else "the notice's own words",
+                     window)),
+        "source_id": "chicago_newspapers_1833_1835",
+        "claim_ids": list(claims),
+    }
+
+
 def dates_for(entry):
     announced = [o for o in entry.get("opening_announced") or [] if o.get("iso")]
     evidence = entry.get("evidence") or {}
@@ -663,6 +720,11 @@ def compile_record(entry, gaz, register_persons, town_ids, communities, anchors=
         "occupation": entry.get("occupation"),
         "goods": list(gaz.get("goods") or []),
         "firm_styles": list(entry.get("firm_styles") or []),
+        # THE ANONYMOUS NOTICE'S OWN BLOCK (T-1514). Null on the 155 records whose people
+        # carry the claims; on the rest it is the only tiered, source-bearing block the
+        # reading has, and without it a record compiled from a printing asserted none of
+        # it. `notice_for` says what it may and may not claim.
+        "notice": notice_for(entry, gaz, claims, proprietors, partners),
         "proprietors": proprietors,
         "partners": partners,
         # THE PAPERS NAME OWNERS AND ALMOST NEVER A CLERK. Empty here is a true reading
@@ -1393,6 +1455,39 @@ def semantic_problems(records, town_ids=None):
                                    "nothing states is an estimate" % rid)
                     if not (f.get("note") or "").strip():
                         bad.append("%s: the documented floor argues no basis" % rid)
+        # THE READING HAS A TIERED PLACE TO STAND, OR THE RECORD ASSERTS NOTHING (T-1514).
+        # Three rules and they are one rule read three ways: a compiled record's claims
+        # must be carried by a block that carries a tier, exactly one kind of block may
+        # carry them, and that block may not claim more than the notice printed.
+        notice = record.get("notice")
+        if record["provenance"] == "compiled_from_register":
+            people = record["proprietors"] + record["partners"]
+            if record["claim_ids"] and not people and not notice:
+                bad.append("%s: names nobody and carries no notice block, so its claims stand "
+                           "at the record root where no tier does" % rid)
+            if notice and people:
+                bad.append("%s: carries a notice block and names %d person(s); the people "
+                           "carry the reading and one reading gets one voice"
+                           % (rid, len(people)))
+        if notice is not None:
+            if not isinstance(notice, dict):
+                bad.append("%s: the notice is not a derived block" % rid)
+            else:
+                if notice.get("tier") != "attested":
+                    bad.append("%s: the notice is %r; the paper set the trade in type"
+                               % (rid, notice.get("tier")))
+                if not notice.get("source_id") or not (notice.get("claim_ids") or []):
+                    bad.append("%s: the notice is attested and cites nothing" % rid)
+                if not (notice.get("basis") or "").strip():
+                    bad.append("%s: the notice states no basis" % rid)
+                if notice.get("names_a_keeper"):
+                    bad.append("%s: the notice claims a keeper; a named keeper is a "
+                               "proprietor row and not a notice" % rid)
+                missing = [c for c in record["claim_ids"] if c not in (notice.get("claim_ids") or [])]
+                if missing:
+                    bad.append("%s: the notice leaves %d of the record's claim(s) untiered: %s"
+                               % (rid, len(missing), ", ".join(missing[:3])))
+
         if record.get("reconstruction") and record["provenance"] != "reconstructed":
             bad.append("%s: carries a reconstruction block and is provenance %r"
                        % (rid, record["provenance"]))
@@ -1564,6 +1659,47 @@ def self_test():
     expect("a person id the town does not hold",
            mutate(lambda d: d["proprietors"][0].update(person_id="nobody_at_all")),
            "the resident layer does not hold", ids)
+
+    # T-1514: the anonymous notice's own block, held from both sides.
+    def anonymous(doc, **over):
+        doc["proprietors"] = []
+        doc["proprietor_community"] = {"value": "unknown", "tier": None, "rule": "no_person_linked",
+                                       "basis": "this record names nobody", "from": []}
+        doc["notice"] = {"reads": "A fixture", "trade": "dry goods", "goods": [],
+                         "names_a_keeper": False, "from": "1835-01-01", "to": "1835-06-01",
+                         "tier": "attested", "basis": "the paper printed the trade and no name",
+                         "source_id": "chicago_newspapers_1833_1835", "claim_ids": ["c001"]}
+        doc["notice"].update(over)
+
+    anon_clean = mutate(lambda d: anonymous(d))
+    if semantic_problems(anon_clean, ids):
+        failures.append("an anonymous record with its notice block is refused: %r"
+                        % semantic_problems(anon_clean, ids))
+
+    expect("an anonymous record with no notice block",
+           mutate(lambda d: (anonymous(d), d.update(notice=None))[0]),
+           "no tier does", ids)
+
+    expect("a notice beside the people who already carry the reading",
+           mutate(lambda d: anonymous(d) or d.update(
+               proprietors=json.loads(json.dumps(base))["proprietors"],
+               proprietor_community=json.loads(json.dumps(base))["proprietor_community"])),
+           "one reading gets one voice", ids)
+
+    expect("a notice graded above the printing",
+           mutate(lambda d: anonymous(d, tier="inferred")), "set the trade in type", ids)
+
+    expect("a notice citing nothing",
+           mutate(lambda d: anonymous(d, claim_ids=[])), "cites nothing", ids)
+
+    expect("a notice with no basis", mutate(lambda d: anonymous(d, basis="  ")),
+           "states no basis", ids)
+
+    expect("a notice claiming a keeper",
+           mutate(lambda d: anonymous(d, names_a_keeper=True)), "claims a keeper", ids)
+
+    expect("a notice that leaves a claim of the record untiered",
+           mutate(lambda d: anonymous(d, claim_ids=["c002"])), "untiered", ids)
 
     expect("two primary locations",
            mutate(lambda d: d["locations"].append(dict(d["locations"][0]))),
