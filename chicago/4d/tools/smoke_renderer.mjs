@@ -6180,11 +6180,19 @@ for (const [label, viewport, touch] of [
       // plus the evidence-only household above.
       const carrying = index.households
         .filter((h) => ((h.grades || {}).reconstructed || 0) > 0);
+      // FETCHED TOGETHER, NOT ONE BY ONE (T-1501). This loop used to await each card in
+      // turn, and on a page busy drawing the whole town every one of those awaits waits
+      // for a free turn of the main thread — 221 households, two awaits apiece, and the
+      // part stopped fitting its 600 s ceiling (measured 2026-09-21 and 2026-09-24:
+      // stalled here for minutes after reaching the block in under one). Issued at once,
+      // the browser queues the requests itself and the block costs a few turns, not
+      // hundreds. The records read and every assertion below are unchanged.
+      const cards = await Promise.all(carrying.map(async (r) =>
+        (await fetch(new URL(`residents/${r.file}`, api.dataBase))).json()));
       const faults = [];
       let found = 0;
       let undeclared = 0;
-      for (const r of carrying) {
-        const card = await (await fetch(new URL(`residents/${r.file}`, api.dataBase))).json();
+      for (const card of cards) {
         for (const p of card.persons || []) {
           if (p.grade !== 'reconstructed') {
             // The K18 trip, kept: an invented name on a record that does not own
