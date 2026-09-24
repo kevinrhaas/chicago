@@ -108,7 +108,7 @@
      "sources": [
       "fergus_chicago_directory_1839"
      ],
-     "note": "A TRADE RECORDED FOR 1839, BESIDE A TRADE READ FOR 1835. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. The 1835 field above no longer reads `none_recorded`: T-1299 admitted the press roles whose bound contains the scene date into it, and that field is a GENERATED VIEW of `roles[]` rather than a second assertion. The pointer stays anyway, and this is the second clause of rule 2. `roles[]` derives the card's 1839 row FROM this pointer and from nowhere else, so taking it off would not tidy the card, it would delete the 1839 printing off the timeline. It is still not a claim about the scene date: a directory of 1839 is evidence about 1839 (T-0693, second clause by T-1299)."
+     "note": "A TRADE RECORDED FOR 1839, BESIDE A TRADE READ FOR 1835. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. The 1835 field above no longer reads `none_recorded`: T-1299 admitted the press roles whose bound contains the scene date into it, and that field is a GENERATED VIEW of `roles[]` rather than a second assertion. The pointer stays anyway, and this is the second clause of rule 2. IT IS NO LONGER WHAT PUTS THE 1839 ROW ON THE CARD: T-1515 reads the 1839 directory off its own crosswalk whatever the 1835 field holds, so the printing reaches `roles[]` with or without this pointer, and what the pointer adds is the wording as the CARD received it rather than the row itself. When this note said the opposite it was describing the fault T-1299 filed, not a rule. It is still not a claim about the scene date: a directory of 1839 is evidence about 1839 (T-0693, second clause by T-1299, demoted to a convenience by T-1515)."
     },
     "note": "A TRADE READ FOR 1835-07-01 OUT OF THIS CARD'S OWN ROLES. `hardware_merchant` is the strongest claiming role in `roles[]` whose bound contains the scene date, and the grade above is that row's: `inferred` where the evidence is a trade printed against this name in the 1833-1835 press, because the paper printed the trade and the resident programme's identity rule tied the printing to this card. The field used to read `none_recorded` while the row beneath it said the evidence reached the day — the four tools that derive this field disagreed, and T-1299 is where they were made to agree (written by tools/derive_resident_roles.py).",
     "derived_from": "roles",
@@ -303,6 +303,26 @@
      "employer_or_body": "not_stated",
      "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839.",
      "premises": null
+    },
+    {
+     "role": "justice_of_the_peace",
+     "kind": "office",
+     "as_printed": "justice of the peace",
+     "from": "1839",
+     "to": "1839",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "claim": "f1839_e0814",
+     "place": "Dearborn st",
+     "employer_or_body": "cook_county",
+     "note": "A TRADE PRINTED IN THE 1839 DIRECTORY, 4 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on. An address NUMBER in the 1839 directory is 1876's and not 1839's, on the compiler's own statement on printed page 3, so `place` carries the street NAME the entry names and the number is dropped — the crosswalk's own `address_rule`, applied here rather than tripped over downstream.",
+     "premises": "no_fixed_premises"
     },
     {
      "role": null,

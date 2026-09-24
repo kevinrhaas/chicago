@@ -394,6 +394,27 @@ def main():
         # `crosswalk_norris_1844` are read — as dated roles straight from the
         # crosswalk, with the pointer a convenience rather than the sole origin
         # of a role row — is the larger change, and it is T-1515.
+        #
+        # T-1515 HAS LANDED, AND THIS CLAUSE STAYS — with its reason, because the
+        # ticket asked for one or the other. `derive_resident_roles.py` now reads
+        # this file's own `residents.matches` and carries every printed trade as an
+        # 1839 role whatever the 1835 field holds, so the ROLE ROW no longer depends
+        # on the pointer at all. That makes the clause inert for six of the seven
+        # people it keeps: take the pointer off Elijah Kent Hubbard, Henry G.
+        # Hubbard, James H. Mulford, Silas W. Sherman, Tuthill King or William H.
+        # Taylor now and their cards do not change, because the crosswalk row folds
+        # with the pointer row and the crosswalk row is the one kept.
+        #
+        # THE SEVENTH IS WILLIAM JONES AND HE IS WHY IT IS NOT DEAD. Fergus prints
+        # him `justice of the peace`, which the fold table rules onto a controlled
+        # word; the crosswalk row therefore carries `role: justice_of_the_peace` and
+        # the pointer row carries `role: null` with the same wording, the same
+        # volume and the same year, and `derive_resident_roles._key` reads those as
+        # two assertions rather than one. Dropping this clause would take a row off
+        # his card, and T-1515's own acceptance forbids that. Whether a row with the
+        # controlled word and a row without it are the same assertion is a question
+        # about that `_key`, not about this predicate, and it is filed as its own
+        # ticket rather than answered in passing here.
         if (trade_recorded.absent(m["occupation_1835"])
                 or m["occupation_1835_promoted"]) and any(
                 x["occupation_1839"] for x in m["entries_1839"]):

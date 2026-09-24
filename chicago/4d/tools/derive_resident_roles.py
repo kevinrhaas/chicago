@@ -245,7 +245,18 @@ def scene_role(occ: dict, person_id: str, person: dict | None = None) -> dict | 
 
 
 def later_role(occ: dict) -> dict | None:
-    """T-0693's `later_occupation` pointer, as the dated role it has always been."""
+    """T-0693's `later_occupation` pointer, as the dated role it has always been.
+
+    A CONVENIENCE SINCE T-1515, NOT AN ORIGIN. All three volumes the pointer can name —
+    Fergus 1839, Fergus 1843, Norris 1844 — are now read off their own crosswalks by
+    `directory_roles`, whatever the card's 1835 field holds. So a printing no longer
+    depends on the pointer to reach `roles[]`, and `spend_directories` declining to write
+    one can no longer withdraw a printing from the card, which is exactly what happened
+    to six people in T-1299. What the pointer still does is carry the wording as the CARD
+    received it, for a reader who is looking at the card and not at the research tree.
+    `roles_for` offers it after the records for that reason: where a record asserts the
+    same thing, the record's row is the one that is kept.
+    """
     later = occ.get("later_occupation")
     if not isinstance(later, dict):
         return None
@@ -501,6 +512,7 @@ RESEARCH = DATA / "research"
 GAZETTEER = RESEARCH / "newspapers" / "gazetteer.json"
 DIRECTORIES = RESEARCH / "directories"
 REGISTER_1839 = DIRECTORIES / "fergus_1839_register_crosswalk_1835.json"
+FERGUS_1839 = DIRECTORIES / "fergus_1839_crosswalk_1835.json"
 FERGUS_1843 = DIRECTORIES / "fergus_1843_crosswalk_1835.json"
 NORRIS_1844 = DIRECTORIES / "norris_1844_crosswalk_1835.json"
 
@@ -645,12 +657,35 @@ def register_1839_roles(person_id: str, person: dict) -> list[dict]:
 
 def directory_roles(person_id: str, path: Path, year: str, entries_key: str,
                     occupation_key: str, place_keys: tuple[str, ...],
-                    offered_by: str) -> list[dict]:
-    """A trade printed in a directory YEARS after the scene, as the later role it is."""
+                    offered_by: str, pool: tuple[str, ...] = (),
+                    place_caveat: str = "") -> list[dict]:
+    """A trade printed in a directory YEARS after the scene, as the later role it is.
+
+    THE FOURTH VOLUME JOINED ITS THREE SIBLINGS HERE (T-1515). Fergus 1843 and Norris
+    1844 have been read straight off their crosswalks since this function was written.
+    Fergus 1839 was not: it reached the card only through `occupation_later`, the pointer
+    `spend_directories` writes and writes ONLY where the 1835 field still has a gap to
+    fill. So one directory's evidence was conditional on the 1835 field being empty and
+    three others' was not, for no reason anybody had stated, and T-1299 measured what
+    that cost — filling ten cards' 1835 field out of their own `roles[]` closed the gap
+    `crosswalk_fergus_1839`'s carry test was watching, no pointer was written, and six
+    cards lost a printing that had never stopped existing. A printing is evidence about
+    the year it was printed. What the card says about 1835 has no bearing on whether it
+    was printed, so it no longer decides whether it is carried.
+
+    `pool` walks into the document before `matches`, because the 1839 directory crosswalk
+    files four pools of names and the residents pool is the one that names cards; the
+    1839 register and the two later directories put their matches at the root.
+
+    `place_caveat` is the one sentence a volume needs said about its own address column
+    where the column does not mean what it appears to mean.
+    """
     doc = _load(path)
     if not doc:
         return []
     source = doc.get("source_id")
+    for key in pool:
+        doc = (doc if isinstance(doc, dict) else {}).get(key) or {}
     rows = []
     for match in doc.get("matches") or []:
         if match.get("person_id") != person_id:
@@ -661,6 +696,11 @@ def directory_roles(person_id: str, path: Path, year: str, entries_key: str,
                 continue
             role, kind, body, disposition = _fold(printed)
             place = next((entry.get(k) for k in place_keys if entry.get(k)), None)
+            # A place column may be a list of street names rather than one printed
+            # string: the 1839 crosswalk splits its address into the streets it names,
+            # because only the street NAME crosses out of that volume.
+            if isinstance(place, list):
+                place = ", ".join(str(x) for x in place if x) or None
             rows.append({
                 "role": role,
                 "kind": kind or "trade",
@@ -684,11 +724,27 @@ def directory_roles(person_id: str, path: Path, year: str, entries_key: str,
                     "back-projecting a later volume onto the scene is the defect T-1145 "
                     "exists to refuse. `place` is the address or place of business the "
                     "record states in its own column; a firm named only inside the printed "
-                    "line stays in `as_printed` for the business band to rule on."),
+                    "line stays in `as_printed` for the business band to rule on."
+                    + (" " + place_caveat if place_caveat else "")),
                 "_disposition": disposition,
                 "_offered_by": offered_by,
             })
     return rows
+
+
+FERGUS_1839_CAVEAT = (
+    "An address NUMBER in the 1839 directory is 1876's and not 1839's, on the compiler's "
+    "own statement on printed page 3, so `place` carries the street NAME the entry names "
+    "and the number is dropped — the crosswalk's own `address_rule`, applied here rather "
+    "than tripped over downstream.")
+
+
+def fergus_1839_roles(person_id: str) -> list[dict]:
+    """The 1839 directory's trades, on the same footing as 1843's and 1844's (T-1515)."""
+    return directory_roles(person_id, FERGUS_1839, "1839", "entries_1839",
+                           "occupation_1839", ("streets_1839",),
+                           "fergus_1839_directory", pool=("residents",),
+                           place_caveat=FERGUS_1839_CAVEAT)
 
 
 def corroborator_ruling(sources: list[str], person: dict | None) -> str:
@@ -783,14 +839,27 @@ def roles_for(person: dict, gazetteer: dict[str, dict] | None = None) -> list[di
     if not isinstance(occ, dict):
         return []
     pid = person.get("id")
-    rows = [r for r in (scene_role(occ, pid, person), later_role(occ)) if r]
+    rows = [r for r in (scene_role(occ, pid, person),) if r]
     rows += gazetteer_roles(person, gazetteer if gazetteer is not None else {})
     rows += register_1839_roles(pid, person)
+    rows += fergus_1839_roles(pid)
     rows += directory_roles(pid, FERGUS_1843, "1843", "entries_1843", "occupation_1843",
                             ("address_1843",), "fergus_1843_directory")
     rows += directory_roles(pid, NORRIS_1844, "1844", "entries_1844", "occupation_1844",
                             ("place_of_business_1844", "address_1844"),
                             "norris_1844_directory")
+    # THE POINTER GOES LAST, AND THAT IS THE WHOLE OF ITS DEMOTION (T-1515). It offers
+    # the same assertion as the volume's own crosswalk row for 73 of the 90 1839
+    # printings it carries — one source, one wording, one year — so `fold_duplicates`
+    # keeps ONE of the two, and whichever is listed first is the one that survives. The
+    # crosswalk row is the better-founded of the pair: it names the entry it was read
+    # from in `claim` and the street the entry printed in `place`, and the pointer row
+    # names neither. So the pointer is offered AFTER the records, and it stands alone
+    # only where no record asserts what it says — which is what makes it a convenience
+    # rather than an origin. Removing it removes no row that a crosswalk also carries.
+    later = later_role(occ)
+    if later:
+        rows.append(later)
     rows, _ = fold_duplicates(rows)
     rows.sort(key=lambda r: (r["from"] or "9999", r["to"] or "9999",
                              r["role"] or r["as_printed"] or "",
@@ -992,6 +1061,7 @@ def offered() -> tuple[dict[str, dict[str, int]], int, list[tuple[str, list[dict
             pid = person.get("id")
             external = (gazetteer_roles(person, gazetteer)
                         + register_1839_roles(pid, person)
+                        + fergus_1839_roles(pid)
                         + directory_roles(pid, FERGUS_1843, "1843", "entries_1843",
                                           "occupation_1843", ("address_1843",),
                                           "fergus_1843_directory")
@@ -1028,11 +1098,17 @@ def migration_table() -> str:
     w("")
     w("## What was offered, and what was made of it")
     w("")
-    w("Four research records hold structured role evidence about people the residents")
+    w("Five research records hold structured role evidence about people the residents")
     w("layer carries: the newspaper gazetteer compiled from the 1833-1835 Chicago press,")
-    w("the Fergus 1839 city register's office tables, and the Fergus 1843 and Norris 1844")
-    w("directory crosswalks. Every row each of them offers about a resident is listed")
-    w("below under the disposition it received.")
+    w("the Fergus 1839 city register's office tables, and the Fergus 1839, Fergus 1843 and")
+    w("Norris 1844 directory crosswalks. Every row each of them offers about a resident is")
+    w("listed below under the disposition it received.")
+    w("")
+    w("The 1839 DIRECTORY is the fifth and joined the table in T-1515. Until then its")
+    w("printings reached a card only through `occupation_later`, a pointer written only")
+    w("where the 1835 field had a gap to fill, so the volume's evidence was conditional on")
+    w("the 1835 field being empty and its three siblings' was not. It is read off its own")
+    w("crosswalk now, whatever the 1835 field holds, and the pointer is a convenience.")
     w("")
     w("- **asserted** — the printing IS a word in the residents vocabulary.")
     w("- **folded** — a synonym ruled onto a controlled word (`boot and shoe maker` ->")
@@ -1331,6 +1407,50 @@ def self_test() -> int:
         holds("…and nothing is said where every source is listed",
               corroborator_ruling(["a"], {"sources": ["a"]}), "")
 
+        # T-1515: THE 1839 DIRECTORY IS READ WHATEVER THE 1835 FIELD HOLDS, AND THE
+        # POINTER IS A CONVENIENCE. Held over the COMMITTED crosswalk and not a fixture,
+        # because the claim being tested is about that volume being on the same footing
+        # as its two siblings, and a fixture would only test the plumbing.
+        x1839 = _load(FERGUS_1839) or {}
+        sample = next((m for m in ((x1839.get("residents") or {}).get("matches") or [])
+                       if any((e.get("occupation_1839") or "").strip()
+                              for e in m.get("entries_1839") or [])), None)
+        holds("the 1839 crosswalk names a resident with a printed trade", bool(sample), True)
+        if sample:
+            pid_39 = sample["person_id"]
+            entry = next(e for e in sample["entries_1839"]
+                         if (e.get("occupation_1839") or "").strip())
+
+            def from_1839(occ):
+                """The rows the 1839 DIRECTORY ITSELF put on the card, by its entry id."""
+                return [r for r in roles_for({"id": pid_39, "occupation": occ}, {})
+                        if r["from"] == "1839" and r["claim"] == entry["claim"]]
+
+            empty = {"value": ABSENT, "confidence": "reconstructed", "note": "held"}
+            filled = {"value": "cooper", "confidence": "attested",
+                      "sources": ["chicago_democrat_1833_1835"], "note": "held"}
+            pointed = dict(empty, later_occupation={
+                "value": entry["occupation_1839"], "describes_date": 1839,
+                "confidence": "attested", "sources": ["fergus_chicago_directory_1839"]})
+            holds("the 1839 printing is carried with the 1835 field FILLED",
+                  len(from_1839(filled)), 1)
+            holds("…and with it empty and no pointer written at all",
+                  len(from_1839(empty)), 1)
+            holds("…and the pointer being written adds no second row",
+                  len(from_1839(pointed)), 1)
+            holds("…so removing the pointer removes no row",
+                  len(from_1839(pointed)) - len(from_1839(empty)), 0)
+            row39 = from_1839(empty)[0]
+            holds("…the row is dated by the year it was printed",
+                  (row39["from"], row39["to"], row39["dated_by"]),
+                  ("1839", "1839", "printing_year"))
+            holds("…it is never a claim about the scene date",
+                  (row39["covers_scene_date"], row39["fills_scene_view"]), (False, False))
+            holds("…and it cites the volume", row39["sources"],
+                  ["fergus_chicago_directory_1839"])
+            holds("…and no printed street NUMBER crosses into place",
+                  any(c.isdigit() for c in row39["place"]), False)
+
         holds("a card with no role evidence gains no roles[]",
               "roles" in (out.get("hh_none.json") or {"persons": [{}]})["persons"][0], False)
 
@@ -1341,7 +1461,7 @@ def self_test() -> int:
 
     for line in failures:
         print(f"FAIL {line}", file=sys.stderr)
-    print(f"self-test: {56 - len(failures)}/56 assertions hold")
+    print(f"self-test: {65 - len(failures)}/65 assertions hold")
     return 1 if failures else 0
 
 

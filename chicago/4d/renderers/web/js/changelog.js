@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1078, title: 'Seventy-seven people get back a trade a directory printed', kind: 'fix', ts: '2026-09-24T04:17:21.779Z', date: 'Sep 23, 2026, 11:17 PM CT',
+    items: [
+      'A person\u2019s card carries a timeline of the trades anybody ever printed against their name, each one dated to the year it was printed. Three of the four printed sources behind that timeline were read the same way. The fourth, the 1839 city directory, was not.',
+      'The 1839 directory reached a card through a side door: a pointer that was written only when the 1835 trade was blank. So the directory counted as evidence about 1839 only if the project knew nothing about 1835 \u2014 which is backwards. What a man was printed as in 1839 does not depend on what is known about him four years earlier.',
+      'It also had a cost. Filling ten cards\u2019 1835 trade from their own evidence closed the gap the side door watched, and six people quietly lost an 1839 printing that had never stopped existing.',
+      'The 1839 directory is now read straight from its own index, exactly as the 1843 and 1844 directories are. Seventy-seven people gain a dated 1839 trade, and every row now names the directory entry it was read from and the street that entry printed. The street name crosses; the house number does not, because the compiler said in 1876 that the numbers were his own.',
+      'Nothing about 1835 moved. No grade changed, no card lost a row, and an 1839 printing is still evidence about 1839.',
+    ] },
   { v: 1077, title: 'A tailor who had no street now stands on Franklin Street', kind: 'change', ts: '2026-09-24T02:08:42.016Z', date: 'Sep 23, 2026, 9:08 PM CT',
     items: [
       'The Chicago American is the second newspaper this town is built from, and four times it prints an address two ways. A tailor\u2019s card reads Franklin Street twice and Lake Street once. Two Water Street merchants are set on North Water in June and South Water on 4 July. The cross street at a saddler\u2019s corner cannot be read in any of the three printings. Only the page images could settle these, and the images are held outside this project.',
