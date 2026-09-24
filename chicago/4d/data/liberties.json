@@ -15880,14 +15880,14 @@
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-19",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, six are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards and fifteen are **L262**'s services, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total"
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, seven are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards and fifteen are **L262**'s services, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total"
         },
         {
           "label": "Decision",
@@ -15970,19 +15970,20 @@
       "title": "Six boarding houses become houses of trade because the buildings were already standing and nothing in the business layer could see them",
       "section": "per_subject",
       "subjects": [
-        "new_york_house"
+        "new_york_house",
+        "recon_1835_west_035"
       ],
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-19",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade, of which SIX are this entry's. The other twenty-seven are **L254**'s apothecaries, **L255**'s Black-owned firms, **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber yards and **L262**'s services; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-two are its own."
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade, of which SEVEN are this entry's. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other twenty-seven are **L254**'s apothecaries, **L255**'s Black-owned firms, **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber yards and **L262**'s services; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-two are its own."
         },
         {
           "label": "Decision",
@@ -16002,14 +16003,14 @@
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-19",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade. TWO are this entry's, the mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, six **L257**'s boarding houses, two **L259**'s professions, four **L260**'s liveries and lumber yards and fifteen **L262**'s services. The selector reads the whole layer, so the count is restated here rather than narrowed, and the register keeps saying how many reconstructed houses of trade the town carries in total"
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade. TWO are this entry's, the mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, six **L257**'s boarding houses, two **L259**'s professions, four **L260**'s liveries and lumber yards and fifteen **L262**'s services. The selector reads the whole layer, so the count is restated here rather than narrowed, and the register keeps saying how many reconstructed houses of trade the town carries in total"
         },
         {
           "label": "Decision",
@@ -16033,14 +16034,14 @@
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade, of which TWO are this entry's: one law office and one physician's room. The other thirty-one are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L260**'s liveries and lumber yards and **L262**'s services — the other half of this entry's own group, and the half no census line reaches; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed."
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade, of which TWO are this entry's: one law office and one physician's room. The other thirty-one are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L260**'s liveries and lumber yards and **L262**'s services — the other half of this entry's own group, and the half no census line reaches; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed."
         },
         {
           "label": "Decision",
@@ -16082,14 +16083,14 @@
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade, of which FOUR are this entry's. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and **L262**'s services, which take this entry's own fourth form into four more trades; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-two are its own."
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade, of which FOUR are this entry's. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and **L262**'s services, which take this entry's own fourth form into four more trades; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-two are its own."
         },
         {
           "label": "Decision",
@@ -16151,14 +16152,14 @@
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade, of which FIFTEEN are this entry's: nine millineries, four land offices, one dress making shop and one barber's shop. The other eighteen are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and **L260**'s liveries and lumber yards; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-three are its own."
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade, of which FIFTEEN are this entry's: nine millineries, four land offices, one dress making shop and one barber's shop. The other eighteen are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and **L260**'s liveries and lumber yards; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-three are its own."
         },
         {
           "label": "Decision",

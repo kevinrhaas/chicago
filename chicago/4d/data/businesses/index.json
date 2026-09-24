@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 271,
+    "records": 272,
     "compiled_from_register": 196,
-    "authored": 75,
-    "present_at_scene_date": 254,
+    "authored": 76,
+    "present_at_scene_date": 255,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -16,7 +16,7 @@
       "iron_foundry": 2,
       "lawyer": 19,
       "not_stated": 5,
-      "other": 120,
+      "other": 121,
       "physician": 9,
       "printing_office": 3,
       "school": 7,
@@ -29,22 +29,22 @@
     },
     "by_location_kind": {
       "anchored": 27,
-      "premises": 52,
+      "premises": 53,
       "street_only": 89,
       "unplaceable": 108
     },
-    "named_people": 405,
-    "named_people_linked_to_a_town_card": 351,
+    "named_people": 406,
+    "named_people_linked_to_a_town_card": 352,
     "works_at_households": 50,
     "works_at_households_resolving_to_a_business": 36,
     "by_grade": {
       "attested": 166,
       "inferred": 72,
-      "reconstructed": 33
+      "reconstructed": 34
     },
     "by_where_kind": {
       "anchored": 27,
-      "premises": 51,
+      "premises": 52,
       "street_only": 89,
       "unplaceable": 104
     },
@@ -70,7 +70,7 @@
       "new_york": 50,
       "other": 11,
       "southern": 9,
-      "unknown": 100,
+      "unknown": 101,
       "yankee": 72
     }
   },
@@ -150,7 +150,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 100
+        "count": 101
       }
     ]
   },
@@ -15209,6 +15209,52 @@
       "where": {
         "kind": "premises",
         "structure_id": "recon_1835_north_h2_030",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "unknown",
+      "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "rcb_pelletier_boarding_house",
+      "file": "rcb_pelletier_boarding_house.json",
+      "name": "Victoire Pelletier's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Victoire Pelletier",
+          "person_id": "rc_pelletier_victoire",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_west_035",
         "anchor": null,
         "street_id": null,
         "street": null,
