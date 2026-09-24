@@ -157,8 +157,8 @@ asserts only what the card holds. See **docs/LIBERTIES.md § L257**.
 
 ## Worked: the two law offices and the physician's room of 1835
 
-A learned trade signs by **form 6**, and the professions group takes it unchanged. The two
-law offices take the attorney's own two printings — the initial and surname of *J. Curtiss,
+A learned trade signs by **form 6**, and the professions group takes it unchanged. The law
+office takes one of the attorney's own two printings — the initial and surname of *J. Curtiss,
 Attorney and Counsellor at Law*, or the forename in full of *Ebenezer S. More, attorney at
 law* — with one of the three trade lines the register actually prints after it: *attorney at
 law*, *attorney and counsellor at law*, or the fullest and commonest of the three, *attorney
@@ -170,8 +170,13 @@ prints the same with a line after it.
 | | reconstructed house | adopted keeper | face |
 |---|---|---|---|
 | north | *B. Robillard, attorney and counsellor at law, and solicitor in chancery* | `rc_robillard_baptiste` | North Water Street |
-| south | *R. Parmelee, attorney and counsellor at law, and solicitor in chancery* | `rc_parmelee_reuben` | South Water Street |
 | south | *Dr. J. McGuire, physician* | `rc_mcguire_john` | South Water Street |
+
+A second law office, *R. Parmelee, attorney and counsellor at law, and solicitor in chancery*
+on South Water Street, stood here until **T-1506**: the town read L. G. Curtiss an attorney in
+the *Chicago Democrat* of the scene date, the lawyer order fell from two to one, and the
+surplus house was retired. The form and the goods line are unchanged by that — it is the
+COUNT that moved, not the style — and **docs/LIBERTIES.md § L259** carries the retirement.
 
 **One attested line is deliberately withheld.** Austin's own *botanic physician* names a
 medical school. The register knows Austin's because Austin advertised it; nothing whatever
@@ -179,7 +184,7 @@ knows it of a man nobody wrote down, and dealing it on a seed would invent a tra
 physician's goods table therefore carries the single line *physician* — the one the register
 prints under Dr. J. H. Barnard — and the form, not the line, is what the seed varies.
 
-**Why there are three and not fifteen.** The census lines behind this group count MEN and not
+**Why there are two and not fifteen.** The census lines behind this group count MEN and not
 premises, and the count was returned months after the scene. Both corrections are in the
 order book rather than here: see **docs/LIBERTIES.md § L259**.
 
