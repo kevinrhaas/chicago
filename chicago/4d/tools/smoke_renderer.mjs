@@ -11950,8 +11950,15 @@ for (const [label, viewport, touch] of [
       // The four named counts are then held against their own source entries, so the
       // figures the rest of this file and model_town_1835.py read cannot disagree with
       // the loop that produced them.
+      //
+      // T-1448 is the seventh path, and it is added here DELIBERATELY rather than by
+      // widening the test: `staffing_hands` mints the hands a business record is short
+      // of, in data/residents/staffing_hands/, with its own `seal()` beside its loop in
+      // compile_scene.py. That is exactly the shape this key set is written to make
+      // visible, and it did — this assertion is what said the stage had arrived.
       && people.counts.sourceKeys
-         === 'lodgers,manifest,readmitted,reconstructed_trades,transients,underdocumented'
+         === 'lodgers,manifest,readmitted,reconstructed_trades,staffing_hands,'
+           + 'transients,underdocumented'
       && people.counts.sourceTotal === people.counts.stated
       && people.counts.bySource.manifest === people.counts.manifest
       && people.counts.bySource.readmitted === people.counts.readmitted

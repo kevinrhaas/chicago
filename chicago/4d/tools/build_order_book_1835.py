@@ -231,8 +231,15 @@ HOUSEHOLD_BUCKETS = (
     # gate does reach them, and T-1534 — the roofs-and-beds piece — is the right owner for
     # them for the same reason it owns the boarders: a house has to stand before it holds
     # anybody.
-    ("boarding_house", "larger_boarding_houses", "T-1537"),
-    ("inn_tavern", "inns_taverns", "T-1537"),
+    #
+    # T-1537 CLOSED ON 2026-09-24 and these two rows still carry 64 households, so they
+    # are swept onto T-1538 — the surviving half of the same split, whose own title names
+    # "the 49 lodging households still owed" beside the 131 beds. T-1538 is `blocked-tech`
+    # on T-1209 raising the 36 unbuilt roofs, which this gate reads as LIVE and correctly:
+    # a blocked ticket is on the board, carries a `blocked_on` and unblocks, where a done
+    # one names nobody. A house still has to stand before it holds anybody.
+    ("boarding_house", "larger_boarding_houses", "T-1538"),
+    ("inn_tavern", "inns_taverns", "T-1538"),
     # T-1188 split (T-1410, T-1411); the institutional HOUSEHOLDS are the people who
     # lived at a church, a parsonage or a school. T-1410's three establishments — post
     # office, land office, county rooms — house nobody. T-1411 split in turn (T-1421,

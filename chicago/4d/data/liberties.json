@@ -16258,12 +16258,20 @@
       "section": "per_subject",
       "subjects": [],
       "covers": [],
+      "scope": {
+        "enumeration": "residents.persons[staffing_hands]",
+        "count": 36
+      },
       "recorded": "2026-09-24",
       "revised": null,
       "fields": [
         {
           "label": "Decision",
           "text": "`tools/mint_staffing_hands_1835.py` (T-1448, of T-1434) writes 36 people into `data/residents/staffing_hands/`, in 30 containers over 27 businesses. Nobody in the directory is named by any source. Each exists because a business record this project holds is short of a hand its establishment class is staffed with AND the reconstruction order book had an outstanding slot to count that hand in. **What bounded the invention.** Two committed derived files, and a hand is minted only where BOTH speak: - `1835_business_staffing_model.json` says what a house of that class wants — the role, the sex rule, the age band and the share who lived in — at its TYPICAL band. The shortfall is the model's figure less the hands the layer already holds in that house. - `1835_reconstruction_order_book.json` says whether the town has a person to spare. `1835_staffing_mint_order.json` is the arithmetic between the two, it re-derives under its own gate, and its `pay_the_demand` decides who is paid in a stated deterministic order. This stage spends exactly that and re-deals nothing. Everything on a card that is not those two things is drawn on a printed seed: the name from `1835_invented_name_pools.json`, weighted for the trade where the pools speak to it; the age band is the ordering bucket's and not a draw at all. No year, no figure (L1), no arrival, no kin, no source_id. **THE LIBERTY PROPER — the household type is the order's choice, not a reading.** Every slot the book has left at a trade is a `lodging/trade` bucket: \"a working lodger, a bed rather than a household\". So each of these 36 is written as lodging. Some of them the staffing model does put under their master's roof — a tavern hand at 1.0, a clerk at 0.5 — and for the rest the claim is only that the man boarded rather than kept his own house. That is not read from anything. A hand who kept his own house would be a `family/trade` person, and those cells are drawn out, which is part of why **94 of the 130 hands the shops want are not minted at all**. Each person carries a `slept` block saying *whether* he lived at his work, drawn against the model's own `lives_on_premises` share on a printed seed. It names no roof, and says so: 23 of the 27 houses here carry a street and no structure, so there was no premises id to write. T-1199 seats a reconstructed household on the lot grid. **What would retire it.** A source naming a hand of one of these houses retires that person. A `family/trade` remainder the book can pay from retires the lodging reading for the rest. A staffing model that no longer wants the hand, or a re-cut book with no slot to pay for him, retires him through `--build` — never by hand. **What is NOT claimed.** That these houses are now staffed: they are not, and the ledger's `measurement` says the shops are still short by 94. That anybody here worked with anybody else: a container holds one house's hands in one division and claims no relation between them beyond the work."
+        },
+        {
+          "label": "Scope",
+          "text": "`residents.persons[staffing_hands]` — 36 people in 30 container cards over 27 businesses, re-derivable from `tools/mint_staffing_hands_1835.py --check`. Every one is a hand the staffing model wants at a house the order names and the order book had an outstanding `lodging/trade` slot to pay for; 94 more that the shops want are not here and cannot be, which the ledger's `measurement` states rather than rounds away."
         },
         {
           "label": "Recorded",

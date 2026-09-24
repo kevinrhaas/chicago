@@ -14033,4 +14033,6 @@ pay for him, retires him through `--build` — never by hand.
 else: a container holds one house's hands in one division and claims no relation between
 them beyond the work.
 
+**Scope:** `residents.persons[staffing_hands]` — 36 people in 30 container cards over 27 businesses, re-derivable from `tools/mint_staffing_hands_1835.py --check`. Every one is a hand the staffing model wants at a house the order names and the order book had an outstanding `lodging/trade` slot to pay for; 94 more that the shops want are not here and cannot be, which the ledger's `measurement` states rather than rounds away.
+
 **Recorded:** 2026-09-24.

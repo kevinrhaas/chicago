@@ -317,6 +317,26 @@
    ]
   },
   {
+   "key": "staffing_hands",
+   "ticket": "T-1448 (of T-1434; T-1448's own first run derived the order and refused to spend it)",
+   "title": "The hands the shops are short of, where the book can pay for one",
+   "writes": "reconstructed persons at a named business, in data/residents/staffing_hands/",
+   "draws_from": [
+    "occupations",
+    "lodging"
+   ],
+   "note": "Counted after the trade households, against the order book's outstanding `lodging/trade` slots. The staffing model says what a house of that class wants at its TYPICAL band and the book says whether the town has a person to spare; a hand is minted only where both speak, which is why 36 of the 130 the shops want stand here and 94 do not. The owner ruled on 2026-09-20 that the book should be re-cut rather than the houses left short, T-1459 ran the re-cut and T-1503 freed the band it needed. It writes one container household per (business, division) — not a family: the hands of one house were not kin, and the record claims no relation between them beyond the work.",
+   "implemented": true,
+   "built_by": "tools/mint_staffing_hands_1835.py",
+   "community": "the weighting the name pools carry for the role's trade; the general documented stock where they carry none",
+   "method": "`tools/staffing_mint_order_1835.py` prices the demand against the book and its `pay_the_demand` decides who is paid out of which bucket, in a stated deterministic order. This stage spends exactly that and re-deals nothing; the deal is COMMITTED in the ledger's `quota_basis`, which is what puts T-1448 on `build_order_book_1835.REMAINDER_STABLE_STAGES` and what stops a later re-cut re-drawing a card another layer may name by then. Every hand carries its house, its role, the bucket that ordered it and a `slept` block drawn against the staffing model's own `lives_on_premises` share — whether he lived at his work, never which roof. The household TYPE is the order's choice and is liberty L267: the only slots the book has left at a trade are `lodging/trade`.",
+   "does_not": "seat anybody (T-1199), draw a hand's kin (T-1171, T-1174), or write to a business record's `staff[]` (T-1449)",
+   "mints": "persons",
+   "liberties": [
+    "L267"
+   ]
+  },
+  {
    "key": "garrison",
    "ticket": "T-1176 (T-1348 ruled the officers; T-1349 returned the companies)",
    "title": "The Fort Dearborn garrison of 1 July 1835",

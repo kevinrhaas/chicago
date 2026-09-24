@@ -1140,6 +1140,16 @@ def _check_lodgers() -> int:
     return seat_lodgers_1835.check()
 
 
+def _build_staffing_hands() -> int:
+    import mint_staffing_hands_1835
+    return mint_staffing_hands_1835.cmd_build()
+
+
+def _check_staffing_hands() -> int:
+    import mint_staffing_hands_1835
+    return mint_staffing_hands_1835.cmd_check()
+
+
 def _build_transients() -> int:
     import reconstruct_transients_1835
     return reconstruct_transients_1835.build()
@@ -1204,6 +1214,7 @@ STAGE_BUILDERS = {"attribute_fill_sex_age": _build_attribute_fill_sex_age,
                   "women_and_children": _build_women_and_children,
                   "garrison": _build_garrison,
                   "lodgers": _build_lodgers,
+                  "staffing_hands": _build_staffing_hands,
                   "transients": _build_transients,
                   UNDERDOCUMENTED_STAGE: _build_underdocumented}
 STAGE_CHECKERS = {"attribute_fill_sex_age": _check_attribute_fill_sex_age,
@@ -1213,6 +1224,7 @@ STAGE_CHECKERS = {"attribute_fill_sex_age": _check_attribute_fill_sex_age,
                   "women_and_children": _check_women_and_children,
                   "garrison": _check_garrison,
                   "lodgers": _check_lodgers,
+                  "staffing_hands": _check_staffing_hands,
                   "transients": _check_transients,
                   UNDERDOCUMENTED_STAGE: _check_underdocumented}
 
