@@ -645,6 +645,7 @@
   "data/reconstruction/1835_modelled_families.json",
   "data/reconstruction/1835_trade_households.json",
   "data/reconstruction/1835_invented_name_pools.json",
+  "data/reconstruction/1835_existing_roof_reconciliation.json",
   "data/residents/"
  ],
  "the_mix": {
@@ -671,6 +672,7 @@
    "standing": "named",
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
+   "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 5,
    "beds_crowded": 12,
    "occupied_before": 2,
@@ -691,6 +693,7 @@
    "standing": "named",
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
+   "district_in_the_roof_reconciliation": "south",
    "beds_ordinary": 11,
    "beds_crowded": 35,
    "occupied_before": 4,
@@ -711,6 +714,7 @@
    "standing": "named",
    "division": "west",
    "division_from": "the division of the household the residents layer attaches to this house",
+   "district_in_the_roof_reconciliation": "west",
    "beds_ordinary": 8,
    "beds_crowded": 35,
    "occupied_before": 8,
@@ -731,6 +735,7 @@
    "standing": "named",
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
+   "district_in_the_roof_reconciliation": "south",
    "beds_ordinary": 5,
    "beds_crowded": 35,
    "occupied_before": 1,
@@ -749,8 +754,9 @@
    "function": "tavern_inn",
    "class": "inn_tavern",
    "standing": "named",
-   "division": null,
-   "division_from": null,
+   "division": "south",
+   "division_from": "the district data/reconstruction/1835_existing_roof_reconciliation.json already settles this documented roof into (T-1535)",
+   "district_in_the_roof_reconciliation": "south",
    "beds_ordinary": 8,
    "beds_crowded": 35,
    "occupied_before": 0,
@@ -760,10 +766,10 @@
     "rc_gilbert_samuel"
    ],
    "minted_keeper": null,
-   "minted_lodgers": 0,
-   "occupancy_after": 1,
+   "minted_lodgers": 7,
+   "occupancy_after": 8,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false
+   "at_its_ordinary_night_figure": true
   },
   {
    "id": "recon_1835_north_h1_007",
@@ -773,6 +779,7 @@
    "standing": "reconstructed",
    "division": "north",
    "division_from": "the reconstruction programme's own district for this roof",
+   "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 7,
    "beds_crowded": 17,
    "occupied_before": 0,
@@ -797,6 +804,7 @@
    "standing": "reconstructed",
    "division": "north",
    "division_from": "the reconstruction programme's own district for this roof",
+   "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 10,
    "beds_crowded": 23,
    "occupied_before": 0,
@@ -824,6 +832,7 @@
    "standing": "reconstructed",
    "division": "north",
    "division_from": "the reconstruction programme's own district for this roof",
+   "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 12,
    "beds_crowded": 27,
    "occupied_before": 0,
@@ -853,6 +862,7 @@
    "standing": "reconstructed",
    "division": "north",
    "division_from": "the reconstruction programme's own district for this roof",
+   "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 10,
    "beds_crowded": 24,
    "occupied_before": 0,
@@ -880,6 +890,7 @@
    "standing": "reconstructed",
    "division": "north",
    "division_from": "the reconstruction programme's own district for this roof",
+   "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 11,
    "beds_crowded": 27,
    "occupied_before": 0,
@@ -908,6 +919,7 @@
    "standing": "reconstructed",
    "division": "west",
    "division_from": "the reconstruction programme's own district for this roof",
+   "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 8,
    "beds_crowded": 17,
    "occupied_before": 0,
@@ -931,8 +943,9 @@
    "function": "tavern_inn",
    "class": "inn_tavern",
    "standing": "named",
-   "division": null,
-   "division_from": null,
+   "division": "south",
+   "division_from": "the district data/reconstruction/1835_existing_roof_reconciliation.json already settles this documented roof into (T-1535)",
+   "district_in_the_roof_reconciliation": "south",
    "beds_ordinary": 7,
    "beds_crowded": 35,
    "occupied_before": 0,
@@ -944,10 +957,10 @@
     "rc_stebbins_abigail"
    ],
    "minted_keeper": null,
-   "minted_lodgers": 0,
-   "occupancy_after": 3,
+   "minted_lodgers": 4,
+   "occupancy_after": 7,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false
+   "at_its_ordinary_night_figure": true
   },
   {
    "id": "steamboat_hotel",
@@ -957,6 +970,7 @@
    "standing": "named",
    "division": "north",
    "division_from": "the division of the household the residents layer attaches to this house",
+   "district_in_the_roof_reconciliation": "north",
    "beds_ordinary": 11,
    "beds_crowded": 35,
    "occupied_before": 8,
@@ -977,6 +991,7 @@
    "standing": "named",
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
+   "district_in_the_roof_reconciliation": "south",
    "beds_ordinary": 12,
    "beds_crowded": 35,
    "occupied_before": 2,
@@ -1003,6 +1018,7 @@
    "standing": "named",
    "division": "south",
    "division_from": "the division of the household the residents layer attaches to this house",
+   "district_in_the_roof_reconciliation": "west",
    "beds_ordinary": 15,
    "beds_crowded": 35,
    "occupied_before": 4,
@@ -1028,6 +1044,7 @@
    "standing": "named",
    "division": "west",
    "division_from": "the division of the household the residents layer attaches to this house",
+   "district_in_the_roof_reconciliation": "west",
    "beds_ordinary": 4,
    "beds_crowded": 35,
    "occupied_before": 1,
@@ -2097,6 +2114,12 @@
    "persons": 4
   },
   {
+   "id": "hh_lodging_new_york_house",
+   "file": "lodgers/hh_lodging_new_york_house.json",
+   "place": "new_york_house",
+   "persons": 7
+  },
+  {
    "id": "hh_lodging_recon_1835_north_h1_007",
    "file": "lodgers/hh_lodging_recon_1835_north_h1_007.json",
    "place": "recon_1835_north_h1_007",
@@ -2133,6 +2156,12 @@
    "persons": 4
   },
   {
+   "id": "hh_lodging_sauganash_hotel",
+   "file": "lodgers/hh_lodging_sauganash_hotel.json",
+   "place": "sauganash_hotel",
+   "persons": 4
+  },
+  {
    "id": "hh_lodging_steamboat_hotel",
    "file": "lodgers/hh_lodging_steamboat_hotel.json",
    "place": "steamboat_hotel",
@@ -2163,21 +2192,23 @@
   "persons/female/10_19/west/lodging/none": 1,
   "persons/female/20_29/north/lodging/none": 3,
   "persons/female/20_29/north/lodging/trade": 1,
-  "persons/female/20_29/south/lodging/none": 5,
+  "persons/female/20_29/south/lodging/none": 7,
   "persons/female/20_29/west/lodging/none": 1,
   "persons/female/30_39/north/lodging/trade": 2,
-  "persons/female/30_39/south/lodging/none": 2,
+  "persons/female/30_39/south/lodging/none": 4,
+  "persons/female/40_49/south/lodging/none": 1,
   "persons/male/10_19/north/lodging/none": 3,
   "persons/male/10_19/south/lodging/none": 4,
   "persons/male/10_19/west/lodging/none": 1,
   "persons/male/20_29/north/lodging/none": 6,
   "persons/male/20_29/north/lodging/trade": 2,
-  "persons/male/20_29/south/lodging/none": 7,
+  "persons/male/20_29/south/lodging/none": 10,
   "persons/male/20_29/west/lodging/none": 2,
   "persons/male/20_29/west/lodging/trade": 1,
   "persons/male/30_39/north/lodging/none": 3,
-  "persons/male/30_39/south/lodging/none": 4,
-  "persons/male/30_39/west/lodging/none": 1
+  "persons/male/30_39/south/lodging/none": 6,
+  "persons/male/30_39/west/lodging/none": 1,
+  "persons/male/40_49/south/lodging/none": 1
  },
  "keepers": [
   {
@@ -2305,18 +2336,6 @@
    "household": "hh_rc_fisk_maria",
    "refusal": "a keeper is not another house's boarder",
    "note": "This head's own trade is keeping a lodging house. Which house they kept is a placement question and the division they carry is the order book's, which this stage may not move; T-1199 seats them."
-  },
-  {
-   "place": "new_york_house",
-   "refusal": "no division, no mint",
-   "beds_left_empty": 7,
-   "note": "The residents layer attaches no household to this house and the reconstruction programme did not raise it, so nothing this project holds says which division it stood in — data/structures/*.json carries no division field at all. A person drawn into a lodging house has to be ordered out of the book's bucket for a division, so this stage mints nobody here. Somebody the layer already counts may still be seated here, and the seats above are."
-  },
-  {
-   "place": "sauganash_hotel",
-   "refusal": "no division, no mint",
-   "beds_left_empty": 4,
-   "note": "The residents layer attaches no household to this house and the reconstruction programme did not raise it, so nothing this project holds says which division it stood in — data/structures/*.json carries no division field at all. A person drawn into a lodging house has to be ordered out of the book's bucket for a division, so this stage mints nobody here. Somebody the layer already counts may still be seated here, and the seats above are."
   }
  ],
  "not_this_piece": {
@@ -2332,14 +2351,14 @@
   "crowded_beds": 462,
   "occupied_before_this_stage": 30,
   "seated_from_the_layer": 47,
-  "minted_here": 56,
+  "minted_here": 67,
   "minted_keepers": 6,
-  "occupied_after_this_stage": 133,
-  "ordinary_night_beds_still_empty": 11,
-  "houses_at_their_ordinary_night_figure": 14,
+  "occupied_after_this_stage": 144,
+  "ordinary_night_beds_still_empty": 0,
+  "houses_at_their_ordinary_night_figure": 16,
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
-  "buckets_filled": 20,
-  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 56 of them; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children who are keepers' families rather than boarders."
+  "buckets_filled": 22,
+  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 67 of them; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children who are keepers' families rather than boarders."
  }
 }

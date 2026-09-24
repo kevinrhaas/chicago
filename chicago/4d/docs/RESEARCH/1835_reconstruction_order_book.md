@@ -12,7 +12,7 @@
 | Businesses (enumerated classes) | 108 | 130 | 7 |
 | Roofs | 668 | 414 | 267 |
 
-**2,263 people stand in the layer today** and **505** are still owed after the counters, so the town this book converges to is **2,768** — inside the model's 2,353-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
+**2,263 people stand in the layer today** and **494** are still owed after the counters, so the town this book converges to is **2,757** — inside the model's 2,353-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
 ## What the re-cut found
 
@@ -31,7 +31,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,263 standing plus 505 still owed is 2,768, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 232 above the model's 2,536 point, and that surplus is the 463 people drawn into 48 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,263 standing plus 494 still owed is 2,757, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 221 above the model's 2,536 point, and that surplus is the 463 people drawn into 48 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
@@ -177,7 +177,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1174 | 680 | 27 |
 | T-1347 | 308 | 24 |
 | T-1171 | 296 | 19 |
-| T-1371 | 56 | 20 |
+| T-1371 | 67 | 22 |
 | T-1418 | 3 | 2 |
 | T-1184 | 2 | 1 |
 | T-1185 | 2 | 2 |
@@ -236,7 +236,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/20_29/south/family/trade` | 43 | 22 | 35 | 35 | T-1347 |
 | `persons/female/20_29/south/family/none` | 81 | 42 | 66 | 66 | T-1174 |
 | `persons/female/20_29/south/lodging/trade` | 10 | 8 | 2 | 0 | T-1532 |
-| `persons/female/20_29/south/lodging/none` | 34 | 15 | 19 | 5 | T-1534 |
+| `persons/female/20_29/south/lodging/none` | 34 | 15 | 19 | 7 | T-1534 |
 | `persons/female/20_29/west/family/trade` | 16 | 8 | 13 | 13 | T-1347 |
 | `persons/female/20_29/west/family/none` | 30 | 15 | 25 | 25 | T-1174 |
 | `persons/female/20_29/west/lodging/trade` | 3 | 3 | 0 | 0 | T-1532 |
@@ -248,7 +248,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/30_39/south/family/trade` | 20 | 10 | 16 | 16 | T-1347 |
 | `persons/female/30_39/south/family/none` | 38 | 20 | 31 | 31 | T-1174 |
 | `persons/female/30_39/south/lodging/trade` | 4 | 4 | 0 | 0 | T-1532 |
-| `persons/female/30_39/south/lodging/none` | 16 | 6 | 10 | 2 | T-1534 |
+| `persons/female/30_39/south/lodging/none` | 16 | 6 | 10 | 4 | T-1534 |
 | `persons/female/30_39/west/family/trade` | 7 | 4 | 6 | 6 | T-1347 |
 | `persons/female/30_39/west/family/none` | 14 | 7 | 12 | 12 | T-1174 |
 | `persons/female/30_39/west/lodging/trade` | 2 | 2 | 0 | 0 | T-1532 |
@@ -260,7 +260,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/40_49/south/family/trade` | 7 | 4 | 6 | 6 | T-1347 |
 | `persons/female/40_49/south/family/none` | 14 | 7 | 11 | 11 | T-1174 |
 | `persons/female/40_49/south/lodging/trade` | 2 | 2 | 0 | 0 | T-1532 |
-| `persons/female/40_49/south/lodging/none` | 6 | 2 | 4 | 0 | T-1534 |
+| `persons/female/40_49/south/lodging/none` | 6 | 2 | 4 | 1 | T-1534 |
 | `persons/female/40_49/west/family/trade` | 3 | 2 | 3 | 3 | T-1347 |
 | `persons/female/40_49/west/family/none` | 5 | 2 | 4 | 4 | T-1174 |
 | `persons/female/40_49/west/lodging/trade` | 1 | 0 | 1 | 0 | T-1532 |
@@ -299,7 +299,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/20_29/south/family/trade` | 73 | 38 | 60 | 60 | T-1347 |
 | `persons/male/20_29/south/family/none` | 139 | 72 | 67 | 0 | T-1171 |
 | `persons/male/20_29/south/lodging/trade` | 16 | 14 | 2 | 0 | T-1532 |
-| `persons/male/20_29/south/lodging/none` | 59 | 25 | 34 | 7 | T-1534 |
+| `persons/male/20_29/south/lodging/none` | 59 | 25 | 34 | 10 | T-1534 |
 | `persons/male/20_29/west/family/trade` | 27 | 13 | 23 | 23 | T-1347 |
 | `persons/male/20_29/west/family/none` | 51 | 24 | 27 | 0 | T-1171 |
 | `persons/male/20_29/west/lodging/trade` | 6 | 5 | 1 | 1 | T-1532 |
@@ -311,7 +311,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/30_39/south/family/trade` | 43 | 22 | 35 | 35 | T-1347 |
 | `persons/male/30_39/south/family/none` | 81 | 42 | 39 | 0 | T-1171 |
 | `persons/male/30_39/south/lodging/trade` | 11 | 8 | 3 | 0 | T-1532 |
-| `persons/male/30_39/south/lodging/none` | 33 | 15 | 18 | 4 | T-1534 |
+| `persons/male/30_39/south/lodging/none` | 33 | 15 | 18 | 6 | T-1534 |
 | `persons/male/30_39/west/family/trade` | 16 | 8 | 13 | 13 | T-1347 |
 | `persons/male/30_39/west/family/none` | 30 | 15 | 15 | 0 | T-1171 |
 | `persons/male/30_39/west/lodging/trade` | 5 | 2 | 3 | 0 | T-1532 |
@@ -323,7 +323,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/40_49/south/family/trade` | 12 | 6 | 10 | 10 | T-1347 |
 | `persons/male/40_49/south/family/none` | 24 | 13 | 11 | 0 | T-1171 |
 | `persons/male/40_49/south/lodging/trade` | 4 | 2 | 2 | 0 | T-1532 |
-| `persons/male/40_49/south/lodging/none` | 9 | 5 | 4 | 0 | T-1534 |
+| `persons/male/40_49/south/lodging/none` | 9 | 5 | 4 | 1 | T-1534 |
 | `persons/male/40_49/west/family/trade` | 4 | 2 | 3 | 3 | T-1347 |
 | `persons/male/40_49/west/family/none` | 9 | 4 | 5 | 0 | T-1171 |
 | `persons/male/40_49/west/lodging/trade` | 1 | 1 | 0 | 0 | T-1532 |
