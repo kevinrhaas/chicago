@@ -18,6 +18,26 @@
   "firm_styles": [
     "C. & I. Harmon"
   ],
+  "notice": {
+    "reads": "C. & I. Harmon",
+    "trade": "dry goods, crockery, hardware and groceries",
+    "goods": [
+      "Crockery",
+      "Dry Goods",
+      "Dry Groceries",
+      "Hardware",
+      "Wet Groceries"
+    ],
+    "names_a_keeper": false,
+    "from": "1833-11-26",
+    "to": "1833-11-26",
+    "tier": "attested",
+    "basis": "The advertisement is anonymous: the paper printed the trade and the goods and no proprietor, so no person of this record can carry the reading it was compiled from. What is attested here is what the notice itself set in type — “dry goods, crockery, hardware and groceries” — and nothing beyond it: no keeper is claimed, and the premises and dates of this record stay on their own blocks at the tier the placement policy left them. Bounded by the printing window (printed 1833-11-26), which dates the notice and not the house.",
+    "source_id": "chicago_newspapers_1833_1835",
+    "claim_ids": [
+      "chicago_democrat_1833_11_26#c022"
+    ]
+  },
   "proprietors": [],
   "partners": [],
   "staff": [

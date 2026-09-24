@@ -18,6 +18,28 @@
     "shoes"
   ],
   "firm_styles": [],
+  "notice": {
+    "reads": "[unnamed] New Store, La Salle street",
+    "trade": "dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
+    "goods": [
+      "boots",
+      "crockery",
+      "dry goods",
+      "groceries",
+      "hardware",
+      "hats",
+      "shoes"
+    ],
+    "names_a_keeper": false,
+    "from": "1835-08-12",
+    "to": "1835-08-12",
+    "tier": "attested",
+    "basis": "The advertisement is anonymous: the paper printed the trade and the goods and no proprietor, so no person of this record can carry the reading it was compiled from. What is attested here is what the notice itself set in type — “dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail” — and nothing beyond it: no keeper is claimed, and the premises and dates of this record stay on their own blocks at the tier the placement policy left them. Bounded by the printing window (printed 1835-08-12), which dates the notice and not the house.",
+    "source_id": "chicago_newspapers_1833_1835",
+    "claim_ids": [
+      "chicago_democrat_1835_08_12#c011"
+    ]
+  },
   "proprietors": [],
   "partners": [],
   "staff": [],

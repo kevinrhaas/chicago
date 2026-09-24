@@ -13,6 +13,23 @@
     "Window Glass"
   ],
   "firm_styles": [],
+  "notice": {
+    "reads": "Carpenter, Chicago merchant",
+    "trade": "general merchandise on consignment",
+    "goods": [
+      "Crown Glass",
+      "Window Glass"
+    ],
+    "names_a_keeper": false,
+    "from": "1835-06-20",
+    "to": "1835-06-20",
+    "tier": "attested",
+    "basis": "The advertisement is anonymous: the paper printed the trade and the goods and no proprietor, so no person of this record can carry the reading it was compiled from. What is attested here is what the notice itself set in type — “general merchandise on consignment” — and nothing beyond it: no keeper is claimed, and the premises and dates of this record stay on their own blocks at the tier the placement policy left them. Bounded by the printing window (printed 1835-06-20), which dates the notice and not the house.",
+    "source_id": "chicago_newspapers_1833_1835",
+    "claim_ids": [
+      "chicago_american_1835_06_20#c004"
+    ]
+  },
   "proprietors": [],
   "partners": [],
   "staff": [
