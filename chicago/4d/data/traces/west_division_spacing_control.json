@@ -17,7 +17,7 @@
   {
    "id": "west_water",
    "name_1835": "West Water Street",
-   "mean_east_local_m": -13.15,
+   "mean_east_local_m": -11.24,
    "geometry_confidence": "inferred",
    "sources": [
     "wright_1834",
@@ -145,13 +145,13 @@
   {
    "east": "west_water",
    "west": "canal",
-   "committed_m": 156.97,
-   "committed_ft": 515.0,
+   "committed_m": 158.88,
+   "committed_ft": 521.3,
    "the_plat_asks_ft": 458.0,
-   "short_by_ft": -57.0,
-   "short_by_m": -17.37,
+   "short_by_ft": -63.3,
+   "short_by_m": -19.28,
    "the_datum_residual_m": 17.5,
-   "inside_the_datum_residual": true,
+   "inside_the_datum_residual": false,
    "blocks_cut_between_these_lines": [
     "blk_west_lake_canal",
     "blk_west_randolph_canal"
@@ -212,14 +212,14 @@
   "from": "west_water",
   "to": "des_plaines",
   "intervals": 4,
-  "committed_m": 507.57,
-  "committed_ft": 1665.3,
+  "committed_m": 509.48,
+  "committed_ft": 1671.5,
   "the_plat_asks_m": 558.39,
   "the_plat_asks_ft": 1832.0,
-  "short_by_m": 50.82,
-  "short_by_ft": 166.7,
-  "as_a_share_of_the_plat": 0.091,
-  "times_the_datum_residual": 2.9,
+  "short_by_m": 48.91,
+  "short_by_ft": 160.5,
+  "as_a_share_of_the_plat": 0.0876,
+  "times_the_datum_residual": 2.8,
   "so": "the whole division is narrower than the plat draws it, by more than the datum's own uncertainty, so the difference is not the georeferencing alone even where a single interval's share of it is.",
   "the_grid_proper": {
    "from": "canal",
@@ -235,10 +235,10 @@
  },
  "is_the_committed_grid_the_plat_module_rescaled": {
   "all_intervals": {
-   "the_widest_ft": 515.0,
+   "the_widest_ft": 521.3,
    "the_narrowest_ft": 367.9,
-   "spread_ft": 147.1,
-   "spread_m": 44.84,
+   "spread_ft": 153.4,
+   "spread_m": 46.76,
    "spread_exceeds_the_residual": true
   },
   "the_grid_proper": {
@@ -265,8 +265,8 @@
    "lines": [
     {
      "id": "west_water",
-     "committed_east_local_m": -13.15,
-     "the_plat_wants_east_local_m": -13.15,
+     "committed_east_local_m": -11.24,
+     "the_plat_wants_east_local_m": -11.24,
      "moves_m": 0.0,
      "moves_ft": 0.0,
      "direction": "held"
@@ -274,38 +274,38 @@
     {
      "id": "canal",
      "committed_east_local_m": -170.12,
-     "the_plat_wants_east_local_m": -152.75,
-     "moves_m": 17.37,
-     "moves_ft": 57.0,
+     "the_plat_wants_east_local_m": -150.84,
+     "moves_m": 19.28,
+     "moves_ft": 63.3,
      "direction": "east"
     },
     {
      "id": "clinton",
      "committed_east_local_m": -282.25,
-     "the_plat_wants_east_local_m": -292.35,
-     "moves_m": -10.1,
-     "moves_ft": -33.1,
+     "the_plat_wants_east_local_m": -290.44,
+     "moves_m": -8.19,
+     "moves_ft": -26.9,
      "direction": "west"
     },
     {
      "id": "jefferson",
      "committed_east_local_m": -396.89,
-     "the_plat_wants_east_local_m": -431.95,
-     "moves_m": -35.06,
-     "moves_ft": -115.0,
+     "the_plat_wants_east_local_m": -430.04,
+     "moves_m": -33.15,
+     "moves_ft": -108.7,
      "direction": "west"
     },
     {
      "id": "des_plaines",
      "committed_east_local_m": -520.72,
-     "the_plat_wants_east_local_m": -571.54,
-     "moves_m": -50.82,
-     "moves_ft": -166.7,
+     "the_plat_wants_east_local_m": -569.63,
+     "moves_m": -48.91,
+     "moves_ft": -160.5,
      "direction": "west"
     }
    ],
-   "total_absolute_movement_m": 113.35,
-   "the_largest_single_move_m": 50.82
+   "total_absolute_movement_m": 109.53,
+   "the_largest_single_move_m": 48.91
   },
   {
    "anchor": "canal",
@@ -313,10 +313,10 @@
    "lines": [
     {
      "id": "west_water",
-     "committed_east_local_m": -13.15,
+     "committed_east_local_m": -11.24,
      "the_plat_wants_east_local_m": -30.52,
-     "moves_m": -17.37,
-     "moves_ft": -57.0,
+     "moves_m": -19.28,
+     "moves_ft": -63.3,
      "direction": "west"
     },
     {
@@ -352,7 +352,7 @@
      "direction": "west"
     }
    ],
-   "total_absolute_movement_m": 165.46,
+   "total_absolute_movement_m": 167.37,
    "the_largest_single_move_m": 68.2
   }
  ],
