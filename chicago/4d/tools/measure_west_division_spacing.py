@@ -91,7 +91,68 @@ def load(path: pathlib.Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+# THE BAND THIS SPACING IS MEASURED OVER, AND WHY IT IS NOT THE WHOLE TRACE (T-1549).
+#
+# `mean_east` used to be the unweighted mean of a line's traced vertices, over whatever
+# extent that line happened to be traced to. The five lines are traced to five different
+# extents, and for a two-point line that mean IS the midpoint of its endpoints — so the
+# measured POSITION OF A STREET moved whenever somebody extended or truncated the trace,
+# which is not a fact about the town.
+#
+# MEASURED, TWICE, IN ONE DAY, by two branches that moved no street:
+#   T-1490 carried `jefferson` north from +80 to +381.887 on its own control, deliberately
+#          NOT refitting the bearing. Averaging the longer line across the 9.1 m westward
+#          jog T-1490 itself measured pulled its mean 3.62 m west, and took the last
+#          short-interval-inside-the-residual out of the band with it — tripping the
+#          discrimination assertion below, which was right to fire.
+#   T-0141 cut `west_water` 22.53 m shorter under T-0768's rule, and its mean moved the
+#          other way, -13.15 -> -11.24.
+#
+# So a line's position is now read over a STATED band and the band is a fact about the
+# town, not about tracing: the northing range of the committed West Division plat blocks
+# — the blocks these very streets bound. A trace extended BEYOND that band does not move
+# the measurement at all, which is the property the old mean lacked. The easting is
+# interpolated where the line crosses each sampled northing, so vertex DENSITY stops
+# mattering too; a line that does not reach part of the band is averaged over the part it
+# does reach, and how much of the band it reached is reported beside it.
+BAND_SAMPLES = 400
+
+
+def west_division_band(lots: dict) -> tuple[float, float]:
+    """The northing range of the committed West Division plat blocks."""
+    ns = [p[1] for b in lots["blocks"] if b.get("grid") == "west_division"
+          for p in b["boundary_local_enu_m"]]
+    return (min(ns), max(ns))
+
+
+def _east_where_it_crosses(path: list, northing: float) -> float | None:
+    for i in range(len(path) - 1):
+        e1, n1 = float(path[i][0]), float(path[i][1])
+        e2, n2 = float(path[i + 1][0]), float(path[i + 1][1])
+        if n1 == n2:
+            continue
+        if (n1 - northing) * (n2 - northing) <= 0:
+            t = (northing - n1) / (n2 - n1)
+            return e1 + t * (e2 - e1)
+    return None
+
+
+def mean_east_over(street: dict, band: tuple[float, float]) -> tuple[float | None, int]:
+    """A line's easting averaged across the band, and how many samples it reached."""
+    lo, hi = band
+    hits = []
+    for i in range(BAND_SAMPLES + 1):
+        n = lo + (hi - lo) * i / BAND_SAMPLES
+        e = _east_where_it_crosses(street["path_local_enu_m"], n)
+        if e is not None:
+            hits.append(e)
+    if not hits:
+        return (None, 0)
+    return (sum(hits) / len(hits), len(hits))
+
+
 def mean_east(street: dict) -> float:
+    """Kept for the sort order only — see mean_east_over for the measured position."""
     pts = [(float(e), float(n)) for e, n in street["path_local_enu_m"]]
     return sum(p[0] for p in pts) / len(pts)
 
@@ -156,16 +217,29 @@ def derive() -> dict:
     west_grid = [b for b in lots["blocks"] if b.get("grid") == "west_division"]
     named_in_the_grid = {b["bounded_by"][side] for b in west_grid for side in ("west", "east")}
     by_id = {s["id"]: s for s in streets["streets"]}
+    band = west_division_band(lots)                      # T-1549
     lines = sorted((by_id[i] for i in named_in_the_grid if i in by_id),
-                   key=mean_east, reverse=True)
+                   key=lambda st: (mean_east_over(st, band)[0] if mean_east_over(st, band)[0]
+                                   is not None else mean_east(st)), reverse=True)
 
     line_rows = []
     for street in lines:
         sources = list(street.get("sources") or [])
+        east_in_band, reached = mean_east_over(street, band)
         line_rows.append({
             "id": street["id"],
             "name_1835": street.get("name_1835"),
-            "mean_east_local_m": round(mean_east(street), 2),
+            "mean_east_local_m": round(east_in_band if east_in_band is not None
+                                       else mean_east(street), 2),
+            "measured_over_the_band": {
+                "from_northing_m": round(band[0], 2),
+                "to_northing_m": round(band[1], 2),
+                "samples_reached": reached,
+                "of_samples": BAND_SAMPLES + 1,
+                "why": ("the northing range of the committed West Division plat blocks — "
+                        "the blocks this line bounds. A trace extended beyond it does not "
+                        "move this figure (T-1549)."),
+            },
             "geometry_confidence": street.get("geometry_confidence"),
             "sources": sources,
             "what_places_this_line": {s: PLACES_A_LINE[s] for s in sources
@@ -505,6 +579,39 @@ def self_test() -> int:
     def ck(cond, msg):
         if not cond:
             fail.append(msg)
+
+    # 0. THE PROPERTY T-1549 ADDED, ASSERTED DIRECTLY: a line's measured position does
+    #    not move when its trace is extended BEYOND the band. This is the fault that cost
+    #    two branches a red gate — T-1490 carrying jefferson north, T-0141 cutting
+    #    west_water short — and an assertion is the only thing that stops it returning.
+    #    The fixture extends a real line well past the band, along its own bearing and
+    #    with a westward jog, and the position must not budge.
+    _lots = load(LOTS)
+    _band = west_division_band(_lots)
+    _streets = load(STREETS)
+    _by_id = {x["id"]: x for x in _streets["streets"]}
+    for _lid in ("jefferson", "clinton", "des_plaines"):
+        _st = _by_id.get(_lid)
+        if not _st:
+            continue
+        _before, _ = mean_east_over(_st, _band)
+        _stretched = {"path_local_enu_m": [list(q) for q in _st["path_local_enu_m"]]}
+        _e, _n = _stretched["path_local_enu_m"][-1][:2]
+        _stretched["path_local_enu_m"].append([_e - 9.1, max(_band) + 380.0])
+        _after, _ = mean_east_over(_stretched, _band)
+        ck(_before is not None and _after is not None
+           and abs(_before - _after) < 1e-9,
+           f"{_lid}: extending the trace {max(_band) + 380.0 - _n:.0f} m beyond the band "
+           f"moved its measured position {abs((_after or 0) - (_before or 0)):.3f} m — the "
+           "band measurement is supposed to be blind to trace extent (T-1549)")
+        # and truncating it back INSIDE the band must move it, or the measure is inert
+        _cut = {"path_local_enu_m": [q for q in _st["path_local_enu_m"]
+                                     if q[1] <= (min(_band) + max(_band)) / 2.0]}
+        if len(_cut["path_local_enu_m"]) >= 2:
+            _cut_pos, _ = mean_east_over(_cut, _band)
+            ck(_cut_pos is None or abs(_cut_pos - _before) > 1e-9,
+               f"{_lid}: cutting the trace to half the band changed nothing — the "
+               "measurement is not reading the band at all")
 
     # 1. The lines are the grid's own, derived off `bounded_by`, and every one of them
     #    resolves in the committed street file. A sixth seated tomorrow arrives on its own.
