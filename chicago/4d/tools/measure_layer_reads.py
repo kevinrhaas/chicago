@@ -995,6 +995,21 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].occupation.later_occupation.note": ("shown", "escapeHtml(later.note || '')"),
     "persons[].occupation.later_occupation.sources": (
         "shown", "(later.sources || []).map((id) => citationsById.get(id))"),
+    # T-0991's WITHDRAWAL, WHICH IS THE SAME POINTER FROM THE OTHER SIDE. A trade
+    # printed AFTER the scene gets the block above; a trade printed BEFORE it — six
+    # cards, all off the Chicago Democrat of 26 November 1833 — gets this one, written
+    # by `tools/derive_resident_roles.py` when the 1835 field gave the trade up. All
+    # three figures were banked unread until `withdrawnOccupationHtml` rendered them,
+    # which is what the owner's ruling of 2026-09-21 asked for in saying the trades are
+    # not lost: the card names the trade, the grade it was held at and the verdict that
+    # took it off. `ticket` stays banked — it is this project's bookkeeping and not a
+    # figure a visitor reads. THE DATE IS NOT DECLARED HERE because the block does not
+    # carry one: the preserved `roles[]` row does, and the renderer prints that row's
+    # bound so the two cannot drift.
+    "persons[].occupation.withdrawn_from_scene_date.value": (
+        "shown", "escapeHtml(words(withdrawn.value))"),
+    "persons[].occupation.withdrawn_from_scene_date.verdict": (
+        "shown", "words(withdrawn.verdict || 'unadjudicated')"),
     # The three that were reaching the card as `[object Object]` until the commit
     # this map arrived in. See the module docstring: they are graded claim blocks
     # like the household's own, and they go through `claimRow` now.
