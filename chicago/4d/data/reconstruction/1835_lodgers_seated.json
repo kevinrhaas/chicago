@@ -681,6 +681,7 @@
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 3,
+   "minted_children": 0,
    "occupancy_after": 5,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -702,6 +703,7 @@
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 7,
+   "minted_children": 0,
    "occupancy_after": 11,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -723,6 +725,7 @@
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 0,
+   "minted_children": 0,
    "occupancy_after": 8,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -744,6 +747,7 @@
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 4,
+   "minted_children": 0,
    "occupancy_after": 5,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -767,6 +771,7 @@
    ],
    "minted_keeper": null,
    "minted_lodgers": 7,
+   "minted_children": 0,
    "occupancy_after": 8,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -792,6 +797,7 @@
    ],
    "minted_keeper": "rc_bardwell_esther",
    "minted_lodgers": 3,
+   "minted_children": 1,
    "occupancy_after": 7,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -820,6 +826,7 @@
    ],
    "minted_keeper": "rc_barnes_ezra",
    "minted_lodgers": 3,
+   "minted_children": 3,
    "occupancy_after": 10,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -850,6 +857,7 @@
    ],
    "minted_keeper": "rc_cavanagh_johanna",
    "minted_lodgers": 3,
+   "minted_children": 1,
    "occupancy_after": 12,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -878,6 +886,7 @@
    ],
    "minted_keeper": "rc_newell_lydia",
    "minted_lodgers": 3,
+   "minted_children": 2,
    "occupancy_after": 10,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -907,6 +916,7 @@
    ],
    "minted_keeper": "rc_gilbert_benjamin",
    "minted_lodgers": 3,
+   "minted_children": 2,
    "occupancy_after": 11,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -933,6 +943,7 @@
    ],
    "minted_keeper": "rc_fitzgerald_martin",
    "minted_lodgers": 3,
+   "minted_children": 1,
    "occupancy_after": 8,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -958,6 +969,7 @@
    ],
    "minted_keeper": null,
    "minted_lodgers": 4,
+   "minted_children": 0,
    "occupancy_after": 7,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -979,6 +991,7 @@
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 3,
+   "minted_children": 0,
    "occupancy_after": 11,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -1006,6 +1019,7 @@
    ],
    "minted_keeper": null,
    "minted_lodgers": 5,
+   "minted_children": 0,
    "occupancy_after": 12,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -1032,6 +1046,7 @@
    ],
    "minted_keeper": null,
    "minted_lodgers": 7,
+   "minted_children": 0,
    "occupancy_after": 15,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -1053,6 +1068,7 @@
    "seated": [],
    "minted_keeper": null,
    "minted_lodgers": 3,
+   "minted_children": 0,
    "occupancy_after": 4,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -2123,37 +2139,37 @@
    "id": "hh_lodging_recon_1835_north_h1_007",
    "file": "lodgers/hh_lodging_recon_1835_north_h1_007.json",
    "place": "recon_1835_north_h1_007",
-   "persons": 4
+   "persons": 5
   },
   {
    "id": "hh_lodging_recon_1835_north_h2_022",
    "file": "lodgers/hh_lodging_recon_1835_north_h2_022.json",
    "place": "recon_1835_north_h2_022",
-   "persons": 4
+   "persons": 7
   },
   {
    "id": "hh_lodging_recon_1835_north_h2_028",
    "file": "lodgers/hh_lodging_recon_1835_north_h2_028.json",
    "place": "recon_1835_north_h2_028",
-   "persons": 4
+   "persons": 5
   },
   {
    "id": "hh_lodging_recon_1835_north_h2_030",
    "file": "lodgers/hh_lodging_recon_1835_north_h2_030.json",
    "place": "recon_1835_north_h2_030",
-   "persons": 4
+   "persons": 6
   },
   {
    "id": "hh_lodging_recon_1835_north_h2_045",
    "file": "lodgers/hh_lodging_recon_1835_north_h2_045.json",
    "place": "recon_1835_north_h2_045",
-   "persons": 4
+   "persons": 6
   },
   {
    "id": "hh_lodging_recon_1835_west_006",
    "file": "lodgers/hh_lodging_recon_1835_west_006.json",
    "place": "recon_1835_west_006",
-   "persons": 4
+   "persons": 5
   },
   {
    "id": "hh_lodging_sauganash_hotel",
@@ -2210,6 +2226,139 @@
   "persons/male/30_39/west/lodging/none": 1,
   "persons/male/40_49/south/lodging/none": 1
  },
+ "child_fills": {
+  "persons/female/under_10/north/lodging/none": 4,
+  "persons/male/under_10/north/lodging/none": 5,
+  "persons/male/under_10/west/lodging/none": 1
+ },
+ "keeper_families": {
+  "ticket": "T-1533",
+  "statement": "The keepers this stage MINTED, and the household the 1840 size histogram draws each of them. A documented keeper is not here: their family is T-1171's draw or T-1179's convergence and was settled before this stage ran.",
+  "read_from": "data/reconstruction/1835_town_model.json, table households_and_families/size_histogram_1840, through tools/reconstruct_modelled_families.py — the same reader T-1171 sizes every other reconstructed household with",
+  "the_rule": "The keeper is one of the drawn size and the rest are their children. No spouse is drawn: the sibling stage's spouse rule is written for a male head and half of these keepers are women, so the household stands at one parent and their children — a FLOOR, never a claim that a keeper kept no spouse.",
+  "a_child_takes_no_bed": "The children are counted apart from the lodging model's `beds_ordinary`, which prices the house's LODGERS. So `ordinary_night_beds_still_empty` does not move and T-1534 still finds the 11 beds it counts. The crowded ceiling holds everybody and `refuse()` asserts it over the whole roof.",
+  "houses": [
+   {
+    "place": "recon_1835_north_h1_007",
+    "keeper": "rc_bardwell_esther",
+    "keeper_name": "Esther Bardwell",
+    "household_size_drawn": 4,
+    "seed": "lodgers:recon_1835_north_h1_007:household_size",
+    "children_the_model_wants": 3,
+    "children_drawn": 1,
+    "children": [
+     "rc_bardwell_nancy"
+    ],
+    "refused": [
+     {
+      "child": 1,
+      "refusal": "the band the model drew is not this stage's to fill",
+      "band": "10_19",
+      "note": "The household model drew this child into adolescence. The book's six `10_19/*/lodging/none` cells are discharged — the boarders stage filled 16 of 16 — so there is no order left to draw them against, and re-banding a child downward to reach a cell that is open would be dealing to the quota rather than from the model."
+     },
+     {
+      "child": 3,
+      "refusal": "the band the model drew is not this stage's to fill",
+      "band": "10_19",
+      "note": "The household model drew this child into adolescence. The book's six `10_19/*/lodging/none` cells are discharged — the boarders stage filled 16 of 16 — so there is no order left to draw them against, and re-banding a child downward to reach a cell that is open would be dealing to the quota rather than from the model."
+     }
+    ],
+    "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/north/lodging/none."
+   },
+   {
+    "place": "recon_1835_north_h2_022",
+    "keeper": "rc_barnes_ezra",
+    "keeper_name": "Ezra Barnes",
+    "household_size_drawn": 4,
+    "seed": "lodgers:recon_1835_north_h2_022:household_size",
+    "children_the_model_wants": 3,
+    "children_drawn": 3,
+    "children": [
+     "rc_barnes_george",
+     "rc_barnes_luther",
+     "rc_barnes_samuel"
+    ],
+    "refused": [],
+    "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/north/lodging/none."
+   },
+   {
+    "place": "recon_1835_north_h2_028",
+    "keeper": "rc_cavanagh_johanna",
+    "keeper_name": "Johanna Cavanagh",
+    "household_size_drawn": 3,
+    "seed": "lodgers:recon_1835_north_h2_028:household_size",
+    "children_the_model_wants": 2,
+    "children_drawn": 1,
+    "children": [
+     "rc_cavanagh_alice"
+    ],
+    "refused": [
+     {
+      "child": 2,
+      "refusal": "the name pool holds no forename left for this family",
+      "band": "under_10",
+      "community": "irish",
+      "surname": "Cavanagh",
+      "note": "A child takes the keeper's surname, which confines them to one surname's worth of the pool — and the pool for this community is short enough that every forename in it is already borne beside this surname, by a person the sources name or by somebody this programme has already drawn. The child is not drawn. Inventing a forename to get past it would put a name in this town that no pool sourced, and seating a second person of the same name would break the one invariant the pools exist for."
+     }
+    ],
+    "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/north/lodging/none."
+   },
+   {
+    "place": "recon_1835_north_h2_030",
+    "keeper": "rc_newell_lydia",
+    "keeper_name": "Lydia Newell",
+    "household_size_drawn": 3,
+    "seed": "lodgers:recon_1835_north_h2_030:household_size",
+    "children_the_model_wants": 2,
+    "children_drawn": 2,
+    "children": [
+     "rc_newell_martha",
+     "rc_newell_james"
+    ],
+    "refused": [],
+    "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/north/lodging/none."
+   },
+   {
+    "place": "recon_1835_north_h2_045",
+    "keeper": "rc_gilbert_benjamin",
+    "keeper_name": "Benjamin Gilbert",
+    "household_size_drawn": 4,
+    "seed": "lodgers:recon_1835_north_h2_045:household_size",
+    "children_the_model_wants": 3,
+    "children_drawn": 2,
+    "children": [
+     "rc_gilbert_amanda",
+     "rc_gilbert_henry"
+    ],
+    "refused": [
+     {
+      "child": 3,
+      "refusal": "the name pool holds no forename left for this family",
+      "band": "under_10",
+      "community": "yankee",
+      "surname": "Gilbert",
+      "note": "A child takes the keeper's surname, which confines them to one surname's worth of the pool — and the pool for this community is short enough that every forename in it is already borne beside this surname, by a person the sources name or by somebody this programme has already drawn. The child is not drawn. Inventing a forename to get past it would put a name in this town that no pool sourced, and seating a second person of the same name would break the one invariant the pools exist for."
+     }
+    ],
+    "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/north/lodging/none."
+   },
+   {
+    "place": "recon_1835_west_006",
+    "keeper": "rc_fitzgerald_martin",
+    "keeper_name": "Martin Fitzgerald",
+    "household_size_drawn": 2,
+    "seed": "lodgers:recon_1835_west_006:household_size",
+    "children_the_model_wants": 1,
+    "children_drawn": 1,
+    "children": [
+     "rc_fitzgerald_terence"
+    ],
+    "refused": [],
+    "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/west/lodging/none."
+   }
+  ]
+ },
  "keepers": [
   {
    "place": "brown_boarding_house",
@@ -2250,43 +2399,43 @@
    "place": "recon_1835_north_h1_007",
    "name": "Reconstructed H1 small boarding house #007",
    "keeper": "rc_bardwell_esther",
-   "persons_on_the_keeper_s_card": 1,
-   "owed_by": "Minted by this stage as a solitary keeper. The family a keeper is owed is `family/none` in the order book and belongs to T-1171 and T-1174."
+   "persons_on_the_keeper_s_card": 2,
+   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 1 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
    "place": "recon_1835_north_h2_022",
    "name": "Reconstructed H2 medium boarding house #022",
    "keeper": "rc_barnes_ezra",
-   "persons_on_the_keeper_s_card": 1,
-   "owed_by": "Minted by this stage as a solitary keeper. The family a keeper is owed is `family/none` in the order book and belongs to T-1171 and T-1174."
+   "persons_on_the_keeper_s_card": 4,
+   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 3 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
    "place": "recon_1835_north_h2_028",
    "name": "Reconstructed H2 medium boarding house #028",
    "keeper": "rc_cavanagh_johanna",
-   "persons_on_the_keeper_s_card": 1,
-   "owed_by": "Minted by this stage as a solitary keeper. The family a keeper is owed is `family/none` in the order book and belongs to T-1171 and T-1174."
+   "persons_on_the_keeper_s_card": 2,
+   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 1 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
    "place": "recon_1835_north_h2_030",
    "name": "Reconstructed H2 medium boarding house #030",
    "keeper": "rc_newell_lydia",
-   "persons_on_the_keeper_s_card": 1,
-   "owed_by": "Minted by this stage as a solitary keeper. The family a keeper is owed is `family/none` in the order book and belongs to T-1171 and T-1174."
+   "persons_on_the_keeper_s_card": 3,
+   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 2 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
    "place": "recon_1835_north_h2_045",
    "name": "Reconstructed H2 medium boarding house #045",
    "keeper": "rc_gilbert_benjamin",
-   "persons_on_the_keeper_s_card": 1,
-   "owed_by": "Minted by this stage as a solitary keeper. The family a keeper is owed is `family/none` in the order book and belongs to T-1171 and T-1174."
+   "persons_on_the_keeper_s_card": 3,
+   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 2 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
    "place": "recon_1835_west_006",
    "name": "Reconstructed H1 small boarding house #005",
    "keeper": "rc_fitzgerald_martin",
-   "persons_on_the_keeper_s_card": 1,
-   "owed_by": "Minted by this stage as a solitary keeper. The family a keeper is owed is `family/none` in the order book and belongs to T-1171 and T-1174."
+   "persons_on_the_keeper_s_card": 2,
+   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 1 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
    "place": "sauganash_hotel",
@@ -2343,7 +2492,7 @@
   "the_unbuilt_boarding_houses": "The lodging model schedules 42 boarding houses and 5 of them stand. The other 37 are 333 ordinary beds with no roof over them, and a bed cannot be slept in before it is built: T-1196 re-derives the roof programme and T-1187 raises the houses.",
   "the_staff": "T-1183 models how a business was staffed. The bar-keeper, the hostler, the cook and the chambermaid under every keeper here are that ticket's, as T-1370 already said.",
   "the_trade_of_a_lodger": "The book's `lodging/trade` buckets are left open. Dealing a trade is T-1173's machinery.",
-  "the_children": "The book orders 156 people under ten into lodging households. They are keepers' families, not boarders."
+  "the_children": "PART OF IT NOW IS. The book orders people under ten into lodging households and they are keepers' families rather than boarders, which is why refusal 3 would not deal them a bed. T-1533 draws the ones this stage can reach: the children of the keepers this stage itself minted, on the houses it minted them onto, out of the `under_10/*/lodging/none` cells for those houses' divisions. The rest are not reachable from here and are not moved: a child of a DOCUMENTED keeper is T-1171's draw or T-1179's convergence, and the south division's cells order children into the 37 boarding houses the lodging model schedules and nobody has built (T-1187 raises them), where there is no keeper to be kin to. `keeper_families` counts both halves."
  },
  "measurement": {
   "built_lodging_places": 16,
@@ -2353,12 +2502,18 @@
   "seated_from_the_layer": 47,
   "minted_here": 67,
   "minted_keepers": 6,
+  "keeper_children_minted": 10,
+  "keeper_children_the_model_wanted": 14,
+  "keeper_children_refused": 4,
+  "people_on_the_cards": 77,
   "occupied_after_this_stage": 144,
   "ordinary_night_beds_still_empty": 0,
   "houses_at_their_ordinary_night_figure": 16,
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
   "buckets_filled": 22,
-  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 67 of them; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children who are keepers' families rather than boarders."
+  "child_buckets_filled": 3,
+  "every_child_is_kin_of_a_named_keeper": true,
+  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 67 of them into beds and 10 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children of houses this stage does not keep."
  }
 }

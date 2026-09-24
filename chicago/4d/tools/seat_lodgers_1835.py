@@ -141,6 +141,12 @@ LEDGER = RECON / "1835_lodgers_seated.json"
 
 STAGE = "lodgers"
 TICKET = "T-1371"
+#: The keepers' own children (T-1533). A SECOND TICKET IN ONE TOOL, and the reason is
+#: `--check`: this stage re-derives `data/residents/lodgers/` byte for byte, so a
+#: separate tool could not write one person onto a card here without the gate reading it
+#: as drift. The children are therefore drawn by this tool and counted against their own
+#: ticket in the order book, so the book still says which piece of work filled which cell.
+CHILD_TICKET = "T-1533"
 PARENT = "T-1175"
 PROGRAMME_ID = "chicago_1835_resident_reconstruction"
 SCENE_DATE = "1835-07-01"
@@ -148,10 +154,18 @@ RECONSTRUCTED = "reconstructed"
 PREFIX = "rc_"
 SOURCE_PASS = "reconstructed_lodging_household"
 
-BAND_EDGES = {"10_19": (10, 19), "20_29": (20, 29), "30_39": (30, 39),
-              "40_49": (40, 49), "50_plus": (50, None)}
-#: The bands a LODGER may be drawn into. `under_10` is refused — refusal 3 above.
-ADULT_BANDS = tuple(BAND_EDGES)
+BAND_EDGES = {"under_10": (0, 9), "10_19": (10, 19), "20_29": (20, 29),
+              "30_39": (30, 39), "40_49": (40, 49), "50_plus": (50, None)}
+#: The bands a LODGER may be drawn into, WRITTEN OUT rather than read off `BAND_EDGES`.
+#: `under_10` is refused a bed — refusal 3 above — and T-1533 added it to the edges so a
+#: keeper's child can carry a band; deriving this tuple from the keys would have let that
+#: one line deal infants into the boarding houses as boarders.
+ADULT_BANDS = ("10_19", "20_29", "30_39", "40_49", "50_plus")
+
+#: The band a keeper's child is drawn into by this stage. The `10_19` lodging cells are
+#: discharged — the boarders stage filled 16 of 16 — so a child the household model draws
+#: into adolescence is refused here and the refusal is written, never re-banded downward.
+CHILD_BAND = "under_10"
 
 #: The mix, as the parent ticket states it. The first two groups are NAMED HOUSES and not
 #: a class test, because the ticket names them: the Steamboat Hotel's record says `hotel`
@@ -615,6 +629,7 @@ def house_rows(model: dict, lives: dict, keeps: dict) -> list:
             "seated": [],
             "minted_keeper": None,
             "minted_lodgers": 0,
+            "minted_children": 0,
         })
     return sorted(rows, key=lambda r: r["id"])
 
@@ -860,6 +875,309 @@ def person_card(slot_id: str, sex: str, band: str, bucket_key: str, place: dict,
     return person
 
 
+# ------------------------------------------------- the keepers' own children --
+#
+# T-1533. Refusal 3 below leaves the book's `under_10/*/lodging/none` cells to "the stage
+# that completes a keeper's family", and refusal 4 named T-1171 and T-1174 as that stage.
+# Neither reaches a keeper THIS stage minted: T-1171 draws families onto the cards in
+# `data/residents/households/` and these six keepers are not there, they are invented here
+# and live in `data/residents/lodgers/`. So the cells were ordered from nobody.
+#
+# WHAT IS DRAWN, AND WHAT IS NOT. A keeper's household is drawn at the 1840 size histogram
+# — the same table, read through the same module, so two tools cannot size one town two
+# ways. The keeper is one of that size and the rest are THEIR CHILDREN. A spouse is not
+# drawn, and the reason is not thrift: the sibling stage's spouse rule is written for a
+# male head ("a wife older than her husband's decade is the shape the schedule least
+# supports"), and three of these six keepers are women. Drawing a husband for Esther
+# Bardwell would need a rule this project has not made, and inventing one inside a
+# children's ticket is how a model acquires a shape nobody argued for. So the household is
+# drawn as ONE PARENT AND THEIR CHILDREN — a FLOOR on the house, never a claim that there
+# was no spouse — and the shortfall is stated in the ledger with the cell it would come
+# out of.
+#
+# A CHILD TAKES NO BED. The lodging model's `beds_ordinary` prices the house's LODGERS,
+# and the keeper was minted against it; their children are kin under the same roof and are
+# counted apart, so `ordinary_night_beds_still_empty` does not move and T-1534 still finds
+# the 11 empty beds its own ticket counts. The crowded ceiling is the one figure that
+# holds everybody, and `refuse()` asserts it over the roof's whole household.
+
+def household_model():
+    """The 1840 household-size histogram and age bands, read through T-1171's own module.
+
+    IMPORTED RATHER THAN RE-READ. `size_histogram_1840` is the table that decides how big
+    every reconstructed household in this town is, and a second reader of it here is a
+    second place for the kin range, the tail rule and the column names to drift. The
+    import is the acceptance condition stated plainly: the count a keeper's card gains is
+    the household model's own figure.
+    """
+    import reconstruct_modelled_families as mf
+    return mf
+
+
+def child_name(slot_id: str, sex: str, surname: str, community: dict,
+               taken_names: set, taken_ids: set, family_names: set) -> tuple:
+    """(person id, full name), or (None, None) where the pool has nothing left.
+
+    The surname is the keeper's — that is the kinship claim — so a child is confined to
+    ONE surname's worth of the pool, which the boarders were not: the Irish pool prints
+    eight female forenames and five of them are already borne beside Cavanagh. That is a
+    real floor and the caller REFUSES the child on it rather than seating two Ellen
+    Cavanaghs under one roof. Inventing a forename to get past it would put a name in this
+    town that no pool sourced, which is the one thing the pools exist to prevent.
+    """
+    givens = community["given_male" if sex == "male" else "given_female"]
+    start = draw(f"{slot_id}:forename") % len(givens)
+    for offset in range(len(givens)):
+        given = givens[(start + offset) % len(givens)]
+        full = f"{given} {surname}"
+        pid = f"{PREFIX}{surname.lower().replace(' ', '_')}_{given.lower().replace(' ', '_')}"
+        if (given.lower() in family_names or full.lower() in taken_names
+                or pid in taken_ids):
+            continue
+        return pid, full
+    return None, None
+
+
+def child_card(slot_id: str, sex: str, bucket_key: str, place: dict, keeper: dict,
+               surname: str, community: dict, size: int, index: int, wanted: int,
+               cap: int, taken_names: set, taken_ids: set, family_names: set) -> dict:
+    pid, full = child_name(slot_id, sex, surname, community, taken_names, taken_ids,
+                           family_names)
+    if pid is None:
+        return None
+    taken_names.add(full.lower())
+    taken_ids.add(pid)
+    family_names.add(full.split(" ", 1)[0].lower())
+    return {
+        "id": pid,
+        "name": full,
+        "relationship": "son" if sex == "male" else "daughter",
+        "grade": RECONSTRUCTED,
+        "sex": sex,
+        "age_band": band_block(CHILD_BAND, f"{slot_id}:age_band"),
+        "kin_of": {
+            "person": keeper["id"],
+            "name": keeper["name"],
+            "household": f"hh_lodging_{place['id']}",
+            "relation": "child of the keeper of this house",
+            "note": "THE JOIN IS THE KEEPER, NOT THE BUCKET. This child is written as the "
+                    "kin of a named person on a named house and is never a free-standing "
+                    "person in a lodging cell: a child took no bed at a tavern on their "
+                    "own account, which is the whole reason the boarders stage would not "
+                    "draw them.",
+        },
+        "name_basis": {
+            "value": full,
+            "confidence": RECONSTRUCTED,
+            "tier": RECONSTRUCTED,
+            "basis": {
+                "kind": "model",
+                "id": "1835_invented_name_pools",
+                "note": f"The surname is the keeper's own, which is the kinship claim. "
+                        f"The forename is drawn from the {community['id']} pool — the "
+                        f"keeper's own community, carried rather than re-drawn — and it "
+                        f"steps past every forename already borne in this family.",
+            },
+            "seed": f"{slot_id}:forename",
+            "replaceable_by": {
+                "kind": "person",
+                "match": "a source naming a child of this keeper",
+            },
+            "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this "
+                    "child. The name exists so a reader can tell one drawn child from "
+                    "another, and it is checked against every real name in the layer.",
+        },
+        "basis": {
+            "kind": "model",
+            "id": "1835_town_model",
+            "note": f"The 1840 size histogram drew this keeper's household at {size} "
+                    f"people. The keeper is one of them and the other {wanted} are their "
+                    f"children; this is child {index} of that {wanted}. The book's bucket "
+                    f"{bucket_key} is the cell it is ordered out of — the town model's "
+                    f"lodging share for people under ten in the {place['division']} "
+                    f"division, which the boarders stage left whole.",
+        },
+        "seed": f"{slot_id}:age_band",
+        "replaceable_by": {
+            "kind": "person",
+            "match": "a source naming the household of this house's keeper, which would "
+                     "retire every child drawn here",
+        },
+        "reconstruction": {
+            "stage": STAGE,
+            "ticket": CHILD_TICKET,
+            "programme": PROGRAMME_ID,
+            "community": community["id"],
+            "review_required": False,
+        },
+        "resident_subtype": "reconstructed_keeper_child",
+        "occupation": {
+            "value": "none_recorded",
+            "confidence": RECONSTRUCTED,
+            "note": "A child under ten carries no trade. The book's `lodging/trade` cells "
+                    "do not reach this band at all.",
+        },
+        "note": (
+            f"RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child "
+            f"exists because the household model draws the keeper of this house a "
+            f"household of {size} and the card held only the keeper, and the whole of "
+            f"what is claimed is that: a child of this sex, under ten, lived with their "
+            f"parent in the house that parent kept. The eldest is capped at {cap} years, "
+            f"because no child of this house is older than the keeper's own age band "
+            f"allows and nobody is born after {SCENE_DATE}. They are reproducible from "
+            f"the seeds printed above and a real name retires them. No figure is drawn "
+            f"(L1)."),
+    }
+
+
+def keeper_children(cards: dict, houses: list, room: dict, pool: dict,
+                    taken_names: set, taken_ids: set) -> tuple:
+    """(child fills, the per-house family rows). Mutates `cards` and `room`.
+
+    Runs AFTER every bed is dealt, so the room a child is ordered out of is what the
+    boarders left — one quota ledger, spent once, in one tool.
+    """
+    mf = household_model()
+    sizes = mf.size_rows()
+    ages = mf.age_rows()
+    child_bands = [(r, r[2]) for r in ages if r[1] < 20]
+    male_children = sum(r[2] for r in ages if r[0] == "male" and r[1] < 20)
+    all_children = sum(r[2] for r in ages if r[1] < 20)
+    boy_rate = male_children / float(all_children)
+    by_id = {c["id"]: c for c in pool["communities"]}
+
+    fills = Counter()
+    families = []
+    for house in sorted(houses, key=lambda h: h["id"]):
+        if not house["minted_keeper"]:
+            continue
+        card = cards[f"hh_lodging_{house['id']}"]
+        keeper = next(p for p in card["persons"] if p["relationship"] == "head")
+        surname = mf.surname_of(keeper["name"])
+        community = by_id[keeper["reconstruction"]["community"]]
+        head_low = int(keeper["age_band"]["low"])
+        family_names = {surname.lower(), keeper["name"].split(" ", 1)[0].lower()}
+
+        size = pick(f"{STAGE}:{house['id']}:household_size", [(s, n) for s, n in sizes])
+        wanted = max(0, size - 1)
+        # Nobody is born after the scene date and no child is older than the keeper's own
+        # age band allows a parent to be — the sibling stage's cap, unchanged.
+        cap = min(19, max(0, head_low - 20))
+        drawn, refused = [], []
+        for index in range(1, wanted + 1):
+            slot_id = f"{STAGE}:{house['id']}:child:{index:03d}"
+            allowed = [(r, w) for r, w in child_bands if r[1] <= cap]
+            if not allowed:
+                allowed = [(r, w) for r, w in child_bands if r[1] == 0]
+            row = pick(f"{slot_id}:age_bands_1840", allowed)
+            if row[1] >= 10:
+                refused.append({
+                    "child": index,
+                    "refusal": "the band the model drew is not this stage's to fill",
+                    "band": "10_19",
+                    "note": "The household model drew this child into adolescence. The "
+                            "book's six `10_19/*/lodging/none` cells are discharged — the "
+                            "boarders stage filled 16 of 16 — so there is no order left "
+                            "to draw them against, and re-banding a child downward to "
+                            "reach a cell that is open would be dealing to the quota "
+                            "rather than from the model.",
+                })
+                continue
+            sex = "male" if unit(f"{slot_id}:sex_ratio") < boy_rate else "female"
+            at = (house["division"], sex, CHILD_BAND, "none")
+            key, left = room[at]
+            if left <= 0:
+                refused.append({
+                    "child": index,
+                    "refusal": "the cell is spent",
+                    "band": CHILD_BAND,
+                    "bucket": key,
+                    "note": "The book orders no more people of this sex under ten into "
+                            "lodging households in this division. The child the model "
+                            "drew is not drawn, and is not moved to another cell to be "
+                            "drawn somewhere the book has room.",
+                })
+                continue
+            child = child_card(slot_id, sex, key, house, keeper, surname, community,
+                               size, index, wanted, cap, taken_names, taken_ids,
+                               family_names)
+            if child is None:
+                refused.append({
+                    "child": index,
+                    "refusal": "the name pool holds no forename left for this family",
+                    "band": CHILD_BAND,
+                    "community": community["id"],
+                    "surname": surname,
+                    "note": "A child takes the keeper's surname, which confines them to "
+                            "one surname's worth of the pool — and the pool for this "
+                            "community is short enough that every forename in it is "
+                            "already borne beside this surname, by a person the sources "
+                            "name or by somebody this programme has already drawn. The "
+                            "child is not drawn. Inventing a forename to get past it "
+                            "would put a name in this town that no pool sourced, and "
+                            "seating a second person of the same name would break the "
+                            "one invariant the pools exist for.",
+                })
+                continue
+            card["persons"].append(child)
+            drawn.append(child["id"])
+            fills[key] += 1
+            room[at] = (key, left - 1)
+
+        house["minted_children"] = len(drawn)
+        if drawn:
+            # THE CARD STOPS SAYING IT HOLDS NO KIN, because it now does. Both sentences
+            # were true of a card that held only beds and neither is true of this one; a
+            # note left standing beside the thing it denies is worse than no note.
+            card["lodging_household"]["minted_here"] = len(card["persons"])
+            card["lodging_household"]["note"] = (
+                f"BEDS, AND ONE FAMILY. {len(card['persons']) - len(drawn)} of the people "
+                f"here took a bed and are not kin to each other or to anybody else under "
+                f"this roof — `data/residents/` cannot carry a person outside a "
+                f"household, so one record holds them all. The exception is the keeper "
+                f"and the {len(drawn)} child(ren) on their card, who are a family and say "
+                f"so: every one of them carries `kin_of` naming the keeper.")
+        card["household_owed"] = {
+            "size_drawn": size,
+            "seated_by": (f"{CHILD_TICKET} (the keeper's children, drawn here), "
+                          f"T-1179 (converge)"),
+            "children_drawn": len(drawn),
+            "children_the_model_wants": wanted,
+            "note": (f"DRAWN HERE, AND ONLY THE CHILDREN. The 1840 size histogram draws "
+                     f"this keeper a household of {size}: the keeper, and {wanted} "
+                     f"child(ren) of whom {len(drawn)} could be ordered out of the book's "
+                     f"`under_10/{house['division']}/lodging/none` cells. No spouse is "
+                     f"drawn — the ledger's `keeper_families` row says why — so this is a "
+                     f"FLOOR on the household and not a finished count."),
+        }
+        families.append({
+            "place": house["id"],
+            "keeper": keeper["id"],
+            "keeper_name": keeper["name"],
+            "household_size_drawn": size,
+            "seed": f"{STAGE}:{house['id']}:household_size",
+            "children_the_model_wants": wanted,
+            "children_drawn": len(drawn),
+            "children": drawn,
+            "refused": refused,
+            "spouse_not_drawn": (
+                "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule "
+                "is written for a male head — a wife is drawn from the 1840 female adult "
+                "columns and never above her husband's decade — and three of this stage's "
+                "six keepers are women. A rule for the other direction is not one this "
+                "project has made, and making one inside a children's ticket would give "
+                "the town a shape nobody argued for. So the household stands at one "
+                "parent and their children, which is a FLOOR on the house and not a "
+                "claim that this keeper kept no spouse. The cell a spouse would come out "
+                f"of is persons/<sex>/<band>/{house['division']}/lodging/none."
+                if size >= 2 else
+                "The model drew this household at one person, so there is no spouse and "
+                "no child to draw: a solitary keeper is a shape the 1840 histogram holds "
+                f"{dict(sizes).get(1, 0):,} households of, and this house is one."),
+        })
+    return dict(sorted(fills.items())), families
+
+
 def house_card(place: dict, persons: list, seated: list) -> dict:
     keeper = next((p for p in persons if p["relationship"] == "head"), None)
     return {
@@ -1086,6 +1404,11 @@ def fill() -> tuple:
         card = house_card(house, persons, seated_by_house.get(house["id"], []))
         cards[card["id"]] = card
 
+    # THE KEEPERS' OWN CHILDREN, LAST (T-1533) — after every bed is dealt, so a child is
+    # ordered out of the room the boarders left rather than out from under one.
+    child_fills, families = keeper_children(cards, houses, room, pool,
+                                            taken_names, taken_ids)
+
     ledger = {
         "$schema_note": "DERIVED. Written by tools/seat_lodgers_1835.py --build; "
                         "re-derived by --check in tools/check.sh. Do not hand-edit.",
@@ -1134,6 +1457,30 @@ def fill() -> tuple:
                            "persons": len(card["persons"])}
                           for cid, card in cards.items()), key=lambda r: r["id"]),
         "fills": dict(sorted(fills.items())),
+        "child_fills": child_fills,
+        "keeper_families": {
+            "ticket": CHILD_TICKET,
+            "statement": "The keepers this stage MINTED, and the household the 1840 size "
+                         "histogram draws each of them. A documented keeper is not here: "
+                         "their family is T-1171's draw or T-1179's convergence and was "
+                         "settled before this stage ran.",
+            "read_from": "data/reconstruction/1835_town_model.json, table "
+                         "households_and_families/size_histogram_1840, through "
+                         "tools/reconstruct_modelled_families.py — the same reader T-1171 "
+                         "sizes every other reconstructed household with",
+            "the_rule": "The keeper is one of the drawn size and the rest are their "
+                        "children. No spouse is drawn: the sibling stage's spouse rule is "
+                        "written for a male head and half of these keepers are women, so "
+                        "the household stands at one parent and their children — a FLOOR, "
+                        "never a claim that a keeper kept no spouse.",
+            "a_child_takes_no_bed": "The children are counted apart from the lodging "
+                                    "model's `beds_ordinary`, which prices the house's "
+                                    "LODGERS. So `ordinary_night_beds_still_empty` does "
+                                    "not move and T-1534 still finds the 11 beds it "
+                                    "counts. The crowded ceiling holds everybody and "
+                                    "`refuse()` asserts it over the whole roof.",
+            "houses": families,
+        },
         "keepers": keeper_table(houses),
         "refusals": sorted(refusals, key=lambda r: (str(r.get("place") or ""),
                                                     str(r.get("person") or ""))),
@@ -1152,8 +1499,18 @@ def fill() -> tuple:
                          "are that ticket's, as T-1370 already said.",
             "the_trade_of_a_lodger": "The book's `lodging/trade` buckets are left open. "
                                      "Dealing a trade is T-1173's machinery.",
-            "the_children": "The book orders 156 people under ten into lodging "
-                            "households. They are keepers' families, not boarders.",
+            "the_children": (
+                "PART OF IT NOW IS. The book orders people under ten into lodging "
+                "households and they are keepers' families rather than boarders, which is "
+                "why refusal 3 would not deal them a bed. "
+                f"{CHILD_TICKET} draws the ones this stage can reach: the children of the "
+                "keepers this stage itself minted, on the houses it minted them onto, out "
+                "of the `under_10/*/lodging/none` cells for those houses' divisions. The "
+                "rest are not reachable from here and are not moved: a child of a "
+                "DOCUMENTED keeper is T-1171's draw or T-1179's convergence, and the "
+                "south division's cells order children into the 37 boarding houses the "
+                "lodging model schedules and nobody has built (T-1187 raises them), where "
+                "there is no keeper to be kin to. `keeper_families` counts both halves."),
         },
     }
     return cards, ledger
@@ -1177,9 +1534,21 @@ def keeper_table(houses: list) -> list:
                         "refusals are in data/reconstruction/1835_modelled_families.json "
                         "— so the card stands at one person. T-1179 converges it.")
         elif house["minted_keeper"]:
-            who, count, owed = house["minted_keeper"], 1, (
-                "Minted by this stage as a solitary keeper. The family a keeper is owed "
-                "is `family/none` in the order book and belongs to T-1171 and T-1174.")
+            children = int(house.get("minted_children") or 0)
+            who, count = house["minted_keeper"], 1 + children
+            owed = (
+                f"Minted by this stage as the keeper. {CHILD_TICKET} drew this keeper's "
+                f"own children here — {children} of them — out of the book's `under_10` "
+                f"lodging cells, at the size the 1840 histogram gives the household. What "
+                f"is still owed is a SPOUSE, which no rule this project has made can draw "
+                f"for a keeper who is a woman; the ledger's `keeper_families` row states "
+                f"it, and the staffing under a keeper is T-1183's."
+                if children else
+                f"Minted by this stage as the keeper. {CHILD_TICKET} sized this keeper's "
+                f"household at the 1840 histogram and it holds no child this stage could "
+                f"draw — the ledger's `keeper_families` row says which of the two reasons "
+                f"it was: a household the model drew at one, or a child whose cell was "
+                f"spent.")
         else:
             who, count, owed = None, 0, (
                 "NOBODY KEEPS THIS HOUSE IN THIS DATASET. It is a documented building and "
@@ -1201,14 +1570,21 @@ def measurement(cards: dict, ledger: dict) -> dict:
     before = sum(h["occupied_before"] for h in houses)
     after = sum(h["occupancy_after"] for h in houses)
     ids = [p["id"] for card in cards.values() for p in card["persons"]]
+    children = sum(int(h.get("minted_children") or 0) for h in houses)
+    families = (ledger.get("keeper_families") or {}).get("houses") or []
     return {
         "built_lodging_places": len(houses),
         "ordinary_night_beds": beds,
         "crowded_beds": crowded,
         "occupied_before_this_stage": before,
         "seated_from_the_layer": len(ledger["seats"]),
-        "minted_here": minted,
+        "minted_here": minted - children,
         "minted_keepers": sum(1 for h in houses if h["minted_keeper"]),
+        "keeper_children_minted": children,
+        "keeper_children_the_model_wanted":
+            sum(int(r["children_the_model_wants"]) for r in families),
+        "keeper_children_refused": sum(len(r["refused"]) for r in families),
+        "people_on_the_cards": minted,
         "occupied_after_this_stage": after,
         "ordinary_night_beds_still_empty": beds - after,
         "houses_at_their_ordinary_night_figure":
@@ -1218,11 +1594,18 @@ def measurement(cards: dict, ledger: dict) -> dict:
         "nobody_is_seated_twice": len(ids) == len(set(ids)) and len(
             {s["person"] for s in ledger["seats"]}) == len(ledger["seats"]),
         "buckets_filled": len(ledger["fills"]),
+        "child_buckets_filled": len(ledger.get("child_fills") or {}),
+        "every_child_is_kin_of_a_named_keeper": all(
+            p.get("kin_of", {}).get("person")
+            and p["kin_of"]["person"] == card["head"]
+            for card in cards.values() for p in card["persons"]
+            if p["relationship"] in ("son", "daughter")),
         "people_ordered_into_lodging_still_owed": (
             "The book orders 544 people into lodging households. This piece spends "
-            f"{minted} of them; the rest wait on the 37 unbuilt boarding houses, the "
-            "crews and the works gang (T-1372), the trades this stage does not deal, and "
-            "the children who are keepers' families rather than boarders."),
+            f"{minted - children} of them into beds and {children} more as the keepers' "
+            "own children; the rest wait on the 37 unbuilt boarding houses, the crews and "
+            "the works gang (T-1372), the trades this stage does not deal, and the "
+            "children of houses this stage does not keep."),
     }
 
 
@@ -1247,10 +1630,16 @@ def write_fills(ledger: dict) -> None:
     `--build` refuses an overfilled bucket, so the quota is enforced twice."""
     import build_order_book_1835 as ob
     book = load(BOOK)
-    kept = [f for f in book.get("fills", []) if f.get("ticket") != TICKET]
+    ours = (TICKET, CHILD_TICKET)
+    kept = [f for f in book.get("fills", []) if f.get("ticket") not in ours]
     kept += [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
               "by": "tools/seat_lodgers_1835.py --build"}
              for key, n in sorted(ledger["fills"].items())]
+    # The children are counted against their OWN ticket, so the book still says which
+    # piece of work filled which cell even though one tool wrote both.
+    kept += [{"bucket": key, "ticket": CHILD_TICKET, "stage": STAGE, "records": n,
+              "by": "tools/seat_lodgers_1835.py --build"}
+             for key, n in sorted((ledger.get("child_fills") or {}).items())]
     book["fills"] = kept
     BOOK.write_text(json.dumps(book, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     ob.cmd_build()
@@ -1296,14 +1685,24 @@ def refuse_a_recut_under_the_draw(fills: dict, live: dict) -> None:
 
 def refuse(cards: dict, ledger: dict) -> None:
     """The assertions that are the point of the stage. Each is a case in --self-test."""
-    refuse_a_recut_under_the_draw(
-        {k: int(v) for k, v in (ledger.get("fills") or {}).items()},
-        {key: n for key, n in book_lodging_room().values()})
+    live = {key: n for key, n in book_lodging_room().values()}
+    both = Counter({k: int(v) for k, v in (ledger.get("fills") or {}).items()})
+    both.update({k: int(v) for k, v in (ledger.get("child_fills") or {}).items()})
+    refuse_a_recut_under_the_draw(dict(both), live)
     for house in ledger["houses"]:
-        if house["occupancy_after"] > house["beds_crowded"]:
+        # THE CEILING HOLDS EVERYBODY UNDER THE ROOF, lodgers and the keeper's children
+        # alike. A child takes no ORDINARY-NIGHT bed — that figure prices the lodgers —
+        # but they slept in the house, and the crowded figure is what the 1840 enumerator
+        # would have counted walking through it.
+        under_the_roof = house["occupancy_after"] + int(house.get("minted_children") or 0)
+        if under_the_roof > house["beds_crowded"]:
             raise SystemExit(
                 "  FAIL %s sleeps %d people and the lodging model's full capacity is %d"
-                % (house["id"], house["occupancy_after"], house["beds_crowded"]))
+                % (house["id"], under_the_roof, house["beds_crowded"]))
+        if house.get("minted_children") and not house["minted_keeper"]:
+            raise SystemExit(
+                "  FAIL %s was drawn children and this stage keeps no keeper there to be "
+                "kin to" % house["id"])
         if house["minted_lodgers"] and house["division"] not in DIVISIONS:
             raise SystemExit("  FAIL %s was minted lodgers with no division to order them "
                              "out of" % house["id"])
@@ -1321,6 +1720,20 @@ def refuse(cards: dict, ledger: dict) -> None:
             if person["name"].lower() in real:
                 raise SystemExit("  FAIL the invented name '%s' is borne by a person the "
                                  "sources name" % person["name"])
+            if person["relationship"] not in ("son", "daughter"):
+                continue
+            # A CHILD IS KIN OF A NAMED KEEPER OR IT IS NOT WRITTEN (T-1533's acceptance).
+            # A person under ten standing free in a lodging cell is exactly the thing
+            # refusal 3 would not draw, and it is one missing field away at every build.
+            kin = person.get("kin_of") or {}
+            if kin.get("person") != card["head"] or not kin.get("name"):
+                raise SystemExit(
+                    "  FAIL %s is under ten in %s and is not written as the kin of its "
+                    "keeper" % (person["id"], card["id"]))
+            if person["age_band"]["high"] is None or person["age_band"]["high"] >= 10:
+                raise SystemExit(
+                    "  FAIL %s is drawn as a keeper's child and is not under ten"
+                    % person["id"])
 
 
 def check() -> int:
@@ -1347,11 +1760,14 @@ def check() -> int:
         print("  FAIL %s has drifted from its derivation" % LEDGER.relative_to(ROOT))
         return 1
     book = load(BOOK)
-    ours = {f["bucket"]: int(f["records"]) for f in book.get("fills", [])
-            if f.get("ticket") == TICKET}
-    if ours != dict(ledger["fills"]):
-        print("  FAIL the order book's fills for %s are not this stage's ledger" % TICKET)
-        return 1
+    for ticket, want_fills in ((TICKET, ledger["fills"]),
+                               (CHILD_TICKET, ledger.get("child_fills") or {})):
+        ours = {f["bucket"]: int(f["records"]) for f in book.get("fills", [])
+                if f.get("ticket") == ticket}
+        if ours != dict(want_fills):
+            print("  FAIL the order book's fills for %s are not this stage's ledger"
+                  % ticket)
+            return 1
     m = ledger["measurement"]
     if m["houses_over_their_crowded_ceiling"]:
         print("  FAIL a house sleeps more than the 1840 enumerator ever saw")
@@ -1359,10 +1775,15 @@ def check() -> int:
     if not m["nobody_is_seated_twice"]:
         print("  FAIL somebody is seated twice")
         return 1
+    if not m["every_child_is_kin_of_a_named_keeper"]:
+        print("  FAIL a person under ten stands free in a lodging cell")
+        return 1
     print("  ok    %d lodging place(s); %d bed(s) filled, %d still empty and every one of "
-          "them said" % (m["built_lodging_places"],
-                         m["occupied_after_this_stage"] - m["occupied_before_this_stage"],
-                         m["ordinary_night_beds_still_empty"]))
+          "them said; %d child(ren) on %d keeper's card(s)"
+          % (m["built_lodging_places"],
+             m["occupied_after_this_stage"] - m["occupied_before_this_stage"],
+             m["ordinary_night_beds_still_empty"], m["keeper_children_minted"],
+             m["minted_keepers"]))
     return 0
 
 
@@ -1490,8 +1911,10 @@ def self_test() -> int:
          all(s["place"] in PROFESSIONAL_HOUSES for s in ledger["seats"]
              if s["group"] == "professional"))
 
-    # 7. No lodger is minted under ten.
-    bands = {p["age_band"]["value"] for card in cards.values() for p in card["persons"]}
+    # 7. No lodger is minted under ten. A keeper's CHILD is under ten by construction and
+    #    is not a lodger — the test is on the people who took a bed.
+    bands = {p["age_band"]["value"] for card in cards.values() for p in card["persons"]
+             if p["relationship"] not in ("son", "daughter")}
     case("no lodger is drawn under ten",
          all(band in {band_block(b, "x")["value"] for b in ADULT_BANDS} for band in bands))
 
@@ -1506,6 +1929,49 @@ def self_test() -> int:
          and all(row["keeper"] is None or row["owed_by"] is not None
                  or row["persons_on_the_keeper_s_card"] > 1
                  for row in ledger["keepers"]))
+
+    # 9b. T-1533: every child is kin of a named keeper, and the gate fires when one is not.
+    kids = [(cid, p) for cid, card in cards.items() for p in card["persons"]
+            if p["relationship"] in ("son", "daughter")]
+    case("every child drawn is the kin of a named keeper on a named house",
+         bool(kids) and all(p["kin_of"]["person"] == cards[cid]["head"]
+                            and p["kin_of"]["name"] for cid, p in kids))
+    broken_cards = json.loads(json.dumps(cards))
+    a_card = next(c for c in broken_cards.values()
+                  if any(p["relationship"] in ("son", "daughter") for p in c["persons"]))
+    for p in a_card["persons"]:
+        if p["relationship"] in ("son", "daughter"):
+            p.pop("kin_of")
+            break
+    try:
+        refuse(broken_cards, ledger)
+        case("a child standing free in a lodging cell is refused", False)
+    except SystemExit:
+        case("a child standing free in a lodging cell is refused", True)
+
+    # 9c. The children come out of the book's `under_10` lodging cells and no other, and
+    #     they are counted against their own ticket rather than the boarders'.
+    case("every child is ordered out of an `under_10` lodging cell",
+         bool(ledger["child_fills"])
+         and all("/under_10/" in key and key.endswith("/lodging/none")
+                 for key in ledger["child_fills"])
+         and sum(ledger["child_fills"].values())
+         == ledger["measurement"]["keeper_children_minted"])
+
+    # 9d. A child takes no ordinary-night bed: the beds the boarders left stand where they
+    #     stood, which is the figure T-1534's own ticket counts.
+    case("drawing the children moves no bed",
+         ledger["measurement"]["ordinary_night_beds_still_empty"]
+         == ledger["measurement"]["ordinary_night_beds"]
+         - ledger["measurement"]["occupied_after_this_stage"])
+
+    # 9e. Every house the model wanted children for says what became of each one.
+    rows = ledger["keeper_families"]["houses"]
+    case("every child the model wanted is either drawn or refused in writing",
+         bool(rows) and all(r["children_the_model_wants"]
+                            == r["children_drawn"] + len(r["refused"]) for r in rows)
+         and all(r["refused"] == [] or all(x.get("note") for x in r["refused"])
+                 for r in rows))
 
     # 10. The draw reproduces.
     again, _ = fill()
