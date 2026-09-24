@@ -7,7 +7,7 @@ export const CHANGELOG = [ // newest first
       'What it costs was counted before the ruling rather than after. One person moves. A doctor advertised a house of four rooms, a kitchen, a barn and a garden in Wabansia in July 1834, his name cut off at the right edge of the column, and Wabansia is the only place either paper gives him \u2014 so he is the whole of it, and he goes from uncounted to counted. The two men who name Kinzie\u2019s Addition, one of them John H. Kinzie, were already counted on the word Chicago, so that half moves nobody.',
       'Nothing else shifted: fifty place names read inside, seventy-one outside, seven still undecided. Those seven are the ones whose reasons have not expired \u2014 Cook County, the United States and the army, which hold the town rather than sit inside it, a north branch that runs from the forks out past the town line, and a Main Street this scene cannot locate at all.',
     ] },
-  { v: null, title: 'The research sign-off reads GO again', kind: 'fix', ts: '', date: '',
+  { v: 1082, title: 'The research sign-off reads GO again', kind: 'fix', ts: '2026-09-24T07:59:46.534Z', date: 'Sep 24, 2026, 2:59 AM CT',
     items: [
       'Nothing you can see changed in the town. This is a gate fix, and it is here because every other change was stuck behind it.',
       'This project keeps a ledger of every piece of research it has read, and each entry has to say what became of it. One entry was allowed to say \u201cnot yet \u2014 another piece of work owns this\u201d, and the ledger holds that such an entry may only point at work that is still going to happen.',
