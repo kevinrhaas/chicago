@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1079, title: 'The town stops carrying a lawyer it had to invent', kind: 'change', ts: '2026-09-24T05:35:48.009Z', date: 'Sep 24, 2026, 12:35 AM CT',
+    items: [
+      'A December 1835 census counts twenty-two lawyers. Scaled down to the smaller town of the previous July, that is fifteen \u2014 and the town could name only thirteen of them, so two law offices were invented to stand for the rest. Both said on their own cards that they stood only until a record took their place.',
+      'One did. A reading admitted earlier this week found L. G. Curtiss printed an attorney in the Chicago Democrat of 1 July 1835, the scene date itself. That makes fourteen the town can name, and leaves room for one invented office, not two.',
+      'So R. Parmelee\u2019s law office on South Water Street is retired. Which of the two goes was decided by the order they were dealt in and not by hand, and the office is re-derived away rather than deleted. Reuben Parmelee himself stays: he keeps his trade and waits for a workplace.',
+      'The town had been carrying sixteen lawyers against a target of fifteen, and could not put it right: the ledger held the target up at what had already been built, and the builder read the held number back. It now reads the real one for the class it owns, and refuses to retire any house another part of the town has adopted by name.',
+    ] },
   { v: 1078, title: 'A speculator\u2019s card stops claiming a trade no source printed', kind: 'fix', ts: '2026-09-24T04:12:32.033Z', date: 'Sep 23, 2026, 11:12 PM CT',
     items: [
       'Hiram Pearsons bought land on a scale almost nobody in this town matched: the federal land offices\u2019 own registers enter him 51 times between October 1833 and June 1836 \u2014 26 country tracts and six lots inside the platted town \u2014 one of them five days before the summer day this scene is set. His card called him a speculator and marked it attested, the grade this project keeps for something a source actually says.',
