@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1077, title: 'A tailor who had no street now stands on Franklin Street', kind: 'change', ts: '2026-09-24T02:08:42.016Z', date: 'Sep 23, 2026, 9:08 PM CT',
+    items: [
+      'The Chicago American is the second newspaper this town is built from, and four times it prints an address two ways. A tailor\u2019s card reads Franklin Street twice and Lake Street once. Two Water Street merchants are set on North Water in June and South Water on 4 July. The cross street at a saddler\u2019s corner cannot be read in any of the three printings. Only the page images could settle these, and the images are held outside this project.',
+      'The owner ruled on them: build from the best reading the transcription gives, marked as inferred, and replace it if the images ever arrive. One rule picks the reading every time: the printing nearest the scene date, 1 July 1835, and not after it.',
+      'So Edward Burton\u2019s tailoring shop, which had no place on the map, now stands on Franklin Street. It is placed by street only, because the paper names no house. The two Water Street merchants stay on North Water. The saddlery stays at Lake and Canal, the corner an 1833 card gives it.',
+      'Each of the four cards now says which printings agree with it and which do not. It also names the exact page and column whose image would replace it. A check refuses any ruling that picks a street no printing carries.',
+    ] },
   { v: 1076, title: '4D Chicago has its own address: chicago.polecat.live/4d', kind: 'change', ts: '2026-09-23T22:55:33.097Z', date: 'Sep 23, 2026, 5:55 PM CT',
     items: [
       'The walkthrough now lives at chicago.polecat.live/4d/. The old custom.polecat.live/chicago/ addresses still work: they forward here, keeping any year or other setting in the link.',

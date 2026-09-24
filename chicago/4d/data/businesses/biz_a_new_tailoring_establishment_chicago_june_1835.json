@@ -148,16 +148,30 @@
   },
   "locations": [
     {
-      "kind": "unplaceable",
+      "kind": "street_only",
       "structure_id": null,
-      "street_id": null,
+      "street_id": "franklin",
       "face": null,
       "primary": true,
       "from": "1835-06-27",
       "to": null,
       "tier": "inferred",
-      "basis": "The register resolved no place for this house at the scene date.",
-      "limit_reason": "No street the model holds. The paper gives no anchor."
+      "basis": "Franklin Street is the reading taken, at the inferred tier (T-0305, owner's ruling 2026-09-23). Edward Burton's card, copy-dated 27 June 1835, is set four times: Franklin on 27 June and 25 July, unresolved on 1 August, Lake on 15 August. The printing nearest the scene date, and on or before it, reads Franklin, and so does the next; the one Lake setting comes six weeks after the scene date. Whether it records a move or a misset line the transcription cannot say, so it is kept as the reading it is.",
+      "limit_reason": "The paper names Franklin Street and no house on it, and prints Lake Street once, after the scene date. Street only, at inferred: the page images would settle which, and no source names the house itself.",
+      "contested": {
+        "ticket": "T-0305",
+        "reads": "Franklin",
+        "for": [
+          "chicago_american_1835_06_27#c009",
+          "chicago_american_1835_07_25#c002"
+        ],
+        "against": [
+          "chicago_american_1835_08_15#c002"
+        ],
+        "unresolved": [
+          "chicago_american_1835_08_01#c005"
+        ]
+      }
     }
   ],
   "dates": {
@@ -207,5 +221,5 @@
     "backdating_required": false
   },
   "review_required": false,
-  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+  "replaceable_by": "The page images of the Chicago American, 27 June 1835 p3 c5 (reading Franklin) and 15 August 1835 p3 c6 (reading Lake), or any directory or deed that places Edward Burton's tailoring shop."
 }

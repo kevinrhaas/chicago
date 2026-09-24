@@ -117,8 +117,8 @@ once as its own predecessor — and the move to Jones & King's appeared nowhere 
 
 | kind | rows | what it means |
 |---|---:|---|
-| `unplaceable` | 83 | no anchor the town holds, or a prose anchor never resolved to an id |
-| `street_only` | 61 | the paper names a street and no house on it |
+| `unplaceable` | 82 | no anchor the town holds, or a prose anchor never resolved to an id |
+| `street_only` | 62 | the paper names a street and no house on it |
 | `premises` | 30 | matched onto a committed structure — a roof of its own |
 | `anchored` | 26 | placed against a landmark the town holds; no roof of its own (T-1401) |
 

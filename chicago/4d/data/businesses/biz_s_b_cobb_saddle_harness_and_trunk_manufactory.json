@@ -42,8 +42,21 @@
       "from": "1835-06-08",
       "to": null,
       "tier": "attested",
-      "basis": "The register matches this business onto the committed structure goss_cobb_saddlery on its occupants. goss_cobb_saddlery already stands and its occupants carries cobb — 'S. B. Cobb; saddle; harness and trunk manufacturer'. The papers add trade, goods and dates to a record that exists.",
-      "limit_reason": null
+      "basis": "The register matches this business onto the committed structure goss_cobb_saddlery on its occupants. goss_cobb_saddlery already stands and its occupants carries cobb — 'S. B. Cobb; saddle; harness and trunk manufacturer'. The papers add trade, goods and dates to a record that exists. The corner of Lake and Canal is the reading taken for 1835, at the inferred tier (T-0305, owner's ruling 2026-09-23). All three of S. B. Cobb's 1835 cards print Lake Street and lose the cross street ('Lake an[d] [Amor.', 'corner [o]f [...] [st]re[et]s', 'Lake [an]d the [Balle'); none of them reads another street either. The Democrat of 26 November 1833, read off the page image, sets Goss & Cobb's shop at 'the corner of Lake and Canal streets', and the shop stands there. So the building does not move: what is inferred is that the corner the 1835 cards could not print is the one the 1833 card did.",
+      "limit_reason": null,
+      "contested": {
+        "ticket": "T-0305",
+        "reads": "Lake and Canal",
+        "for": [
+          "chicago_democrat_1833_11_26"
+        ],
+        "against": [],
+        "unresolved": [
+          "chicago_american_1835_06_08#c007",
+          "chicago_american_1835_06_13#c016",
+          "chicago_american_1835_07_11#c008"
+        ]
+      }
     }
   ],
   "dates": {
@@ -92,5 +105,5 @@
     "backdating_required": false
   },
   "review_required": false,
-  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+  "replaceable_by": "The page images of the Chicago American, 8 June 1835 p3 c5 ('Lake and [Amor.]') and 11 July 1835 p3 c6 ('Lake and the [Balle]'), which would read the cross street the transcription lost."
 }
