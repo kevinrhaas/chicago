@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'A doctor in Wabansia is counted as a Chicago man', kind: 'change', ts: '',
+  { v: 1083, title: 'A doctor in Wabansia is counted as a Chicago man', kind: 'change', ts: '2026-09-24T08:16:24.521Z', date: 'Sep 24, 2026, 3:16 AM CT',
     items: [
       'This town is built partly out of what two newspapers printed, and every place name they print has to be settled as in the town or out of it \u2014 because that is what decides whether the person printed there counts as somebody who was here. A handful of names were settled as neither, and said so plainly rather than guessing.',
       'Two of them were Wabansia and Kinzie\u2019s Addition, surveys laid out on the edge of the platted town. The rule that held them out gave one reason: this project committed neither survey\u2019s ground, so there was nothing to decide against. It commits both now. Kinzie\u2019s Addition has its streets, and Wabansia has its seven streets, its block grid and its river-front water lots, with a tract outline of 78.63 acres, every line of it measured off the same datum as the rest of the town.',
