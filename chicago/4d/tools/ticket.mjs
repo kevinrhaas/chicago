@@ -41,6 +41,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, renameSync, mkdirSync, realpathSync } from 'node:fs';
 import { execFileSync, spawnSync } from 'node:child_process';
 import path from 'node:path';
+import zlib from 'node:zlib';   // T-1548 reads the .json.gz ledgers when scanning for tripwires
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const ROOT = path.resolve(HERE, '..');
@@ -522,6 +523,154 @@ const RUN_HOURS = 3;
  * answered, and never here — this function stays offline, pure, and unable to stop a
  * run that has no network.
  */
+
+// ---------------------------------------------------------------------------
+// TRIPWIRES: committed files that record a ticket TOGETHER WITH its state (T-1548)
+// ---------------------------------------------------------------------------
+//
+// Several tools embed the state of a ticket they point FORWARD at, deliberately, so
+// that the day it lands the pointer goes red rather than quietly stale.
+// data/research/spend_rulings.json says it in its own _doc: "a hand-off is not a
+// spend: it names the open ticket whose field owns the finding, and that ticket
+// closing turns this file red, which is the point."
+//
+// They work. What was missing is that nobody is told at the moment it matters.
+// MEASURED — three times in the week to 2026-09-24, each turning `dev` red for
+// whoever came next:
+//
+//   T-1507 closed as #7   -> spend_trade_premises.HANDED_TICKET still named it
+//   T-1540 closed as #25  -> measure_west_grid_migration.OWNS_THE_MOVE still named it
+//   T-1299 closed as #26  -> spend_rulings' dated-role handoff still named it
+//
+// Every one was found hours later by a different run, from a red gate, and cost a
+// whole PR to re-point. The information needed to prevent it is present at
+// `done` time and is simply not looked at.
+//
+// So it is looked at here. This is NOT a heuristic over prose: a ticket id merely
+// MENTIONED in a note is ignored, and so is the `TICKET = "T-NNNN"` provenance
+// constant every tool carries. The only thing reported is a committed file that
+// records this ticket id ALONGSIDE A STATE which closing it would falsify — either
+// as `{"T-NNNN": "open"}`, the shape the derived traces write, or as the `ticket`
+// of a ruling whose disposition asserts the work is still live.
+const LIVE_DISPOSITIONS = ['unresolved'];
+const TICKET_KEYS = ['ticket', 'owning_ticket', 'unresolved_ticket'];
+
+function _scanJsonForTicket(value, id, out, where) {
+  if (Array.isArray(value)) {
+    value.forEach((v, i) => _scanJsonForTicket(v, id, out, `${where}[${i}]`));
+    return;
+  }
+  if (!value || typeof value !== 'object') return;
+  for (const [k, v] of Object.entries(value)) {
+    // shape (a) — a ticket id used as a KEY, with its state as the value
+    if (k === id && typeof v === 'string' && STATES.includes(v)) {
+      out.push({ where: `${where}/${k}`, records: v, shape: 'state' });
+    }
+    // shape (b) — a ruling that names this ticket as the live owner of a finding
+    if (TICKET_KEYS.includes(k) && v === id) {
+      const disp = value.disposition;
+      if (typeof disp === 'string' && LIVE_DISPOSITIONS.includes(disp)) {
+        out.push({ where, records: `disposition: ${disp}`, shape: 'handoff' });
+      }
+    }
+    _scanJsonForTicket(v, id, out, `${where}/${k}`);
+  }
+}
+
+function tripwiresNaming(id) {
+  const hits = [];
+  const roots = ['data', 'docs'];
+  const files = [];
+  for (const r of roots) {
+    const base = path.join(ROOT, r);
+    if (!existsSync(base)) continue;
+    const walk = (d) => {
+      for (const e of readdirSync(d, { withFileTypes: true })) {
+        const full = path.join(d, e.name);
+        if (e.isDirectory()) { walk(full); continue; }
+        if (e.name.endsWith('.json') || e.name.endsWith('.json.gz')) files.push(full);
+      }
+    };
+    try { walk(base); } catch { /* unreadable tree is not this check's business */ }
+  }
+  for (const f of files) {
+    let text;
+    try {
+      text = f.endsWith('.gz')
+        ? zlib.gunzipSync(readFileSync(f)).toString('utf8')
+        : readFileSync(f, 'utf8');
+    } catch { continue; }
+    if (!text.includes(id)) continue;            // cheap reject before parsing
+    let parsed;
+    try { parsed = JSON.parse(text); } catch { continue; }
+    const out = [];
+    _scanJsonForTicket(parsed, id, out, '');
+    for (const o of out) hits.push({ file: path.relative(ROOT, f), ...o });
+  }
+  return hits;
+}
+
+function tripwireSelfTest() {
+  // The scanner is a gate, so it is proved by breaking it. Fixtures only — nothing
+  // here reads the repository, so the assertions cannot drift with the data.
+  let fired = 0;
+  const check = (name, cond) => {
+    if (!cond) { console.error(`  self-test | FAIL  ${name}`); process.exitCode = 1; }
+    else { console.error(`  self-test | ok    ${name}`); fired += 1; }
+  };
+  const scan = (doc, id) => { const out = []; _scanJsonForTicket(doc, id, out, ''); return out; };
+
+  // (a) the derived-trace shape: a ticket id as a KEY, its state as the value
+  check('a trace recording {T-0001: open} is caught',
+    scan({ precondition: { owns_it_now: { 'T-0001': 'open' } } }, 'T-0001').length === 1);
+
+  // and the same file once the state agrees with where the ticket is going is NOT a
+  // tripwire — that is the file already re-pointed, which must not block the close
+  check('the same trace recording `done` does not fire when closing to done',
+    scan({ a: { 'T-0001': 'done' } }, 'T-0001')
+      .filter((h) => h.records !== 'done').length === 0);
+
+  // (b) the handoff shape: a ruling naming this ticket while asserting live work
+  check('a ruling with disposition unresolved naming the ticket is caught',
+    scan({ rules: { r: { disposition: 'unresolved', ticket: 'T-0002' } } }, 'T-0002')
+      .some((h) => h.shape === 'handoff'));
+  check('the same ruling settled (disposition refused) is not caught',
+    scan({ rules: { r: { disposition: 'refused', ticket: 'T-0002' } } }, 'T-0002')
+      .some((h) => h.shape === 'handoff') === false);
+
+  // THE TWO FALSE POSITIVES THIS MUST NEVER HAVE, because either one would make the
+  // check noise and noise gets bypassed.
+  check('a ticket merely NAMED in prose is ignored',
+    scan({ note: 'carried here from T-0003, by tools/x.py' }, 'T-0003').length === 0);
+  check('the TICKET = provenance constant shape is ignored',
+    scan({ ticket: 'T-0004' }, 'T-0004').length === 0);   // no liveness disposition beside it
+
+  // and a state word that is not a real state is not a state
+  check('a value that is not a ticket state is ignored',
+    scan({ a: { 'T-0005': 'sometime' } }, 'T-0005').length === 0);
+
+  console.error(`  self-test | ${fired} assertion(s) fired`);
+  return process.exitCode ? 1 : 0;
+}
+
+function refuseIfATripwireNamesIt(t, becoming) {
+  const hits = tripwiresNaming(t.id);
+  const live = hits.filter((h) => h.shape === 'handoff' || h.records !== becoming);
+  if (!live.length) return;
+  console.error(`\nA COMMITTED FILE STILL RECORDS ${t.id} AS LIVE WORK.`);
+  console.error(`Closing it makes that file stale, and the gate goes red for whoever`);
+  console.error(`merges next — this has happened three times (T-1507, T-1540, T-1299).\n`);
+  for (const h of live) {
+    console.error(`  ${h.file}`);
+    console.error(`      ${h.where || '(root)'} records ${h.records}`);
+  }
+  console.error(`\nRe-point each of them at live work IN THIS PR, re-derive with the tool`);
+  console.error(`that owns the file, and run this again. If the pointer is genuinely`);
+  console.error(`finished with, say so:`);
+  console.error(`      node tools/ticket.mjs done ${t.id} --pr N --anyway --why "<reason>"\n`);
+  process.exit(1);
+}
+
 const HELD_STATES = ['claimed', 'review'];
 function inflightState(state, ageHours, locked = false) {
   if (['done', 'withdrawn', 'split'].includes(state)) return 'cold';
@@ -1918,6 +2067,10 @@ switch (cmd) {
     if (inRepoMode()) {
       const pr = flag('pr');
       if (!pr || pr === true) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
+      // T-1548. Checked HERE, while the PR is still open and the run is still present:
+      // `review` is what settle turns into `done` on merge, and a tripwire this ticket
+      // trips is fixable in this PR and nowhere cheaper.
+      if (!flag('anyway')) refuseIfATripwireNamesIt(t, 'review');
       t.state = 'review'; t.pr = String(pr).replace(/^#/, '');
       writeTicket(t); generateBoard(loadAll());
       commitMessage = `${t.id}: review — PR #${t.pr}`;
@@ -1926,6 +2079,7 @@ switch (cmd) {
     }
     t.state = 'done'; t.closed = today(); t.closed_at = nowIso(); t.pr = flag('pr');
     if (!t.pr) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
+    if (!flag('anyway')) refuseIfATripwireNamesIt(t, 'done');   // T-1548
     writeTicket(t); queueRemove(t.id); generateBoard(loadAll());
     // THE CLAIM IS KEPT, AND COLLECTED BY AGE (T-1351). This used to give the marker
     // back here. The reasoning left behind by T-1145 — which moved `split` off the
@@ -2594,6 +2748,9 @@ switch (cmd) {
     })), null, 2));
     break;
   }
+  case 'tripwire-self-test': {          // T-1548
+    process.exit(tripwireSelfTest());
+  }
   case 'check': {
     // No QUEUE.md means no tickets were read at all — the tickets clone is missing, and
     // a gate that checks nothing must not read as a gate that passed.
@@ -2782,7 +2939,7 @@ switch (cmd) {
     break;
   }
   default:
-    console.log('usage: ticket.mjs new|claim|done|block|unblock|withdraw|restamp|split|list|ask|settle|sync|inflight|landed|claims|prune|reconcile|board|check');
+    console.log('usage: ticket.mjs new|claim|done|block|unblock|withdraw|restamp|split|list|ask|settle|sync|inflight|landed|claims|prune|reconcile|board|check|tripwire-self-test');
     process.exit(cmd ? 1 : 0);
 }
 
