@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1079, title: 'Seventy-seven people get back a trade a directory printed', kind: 'fix', ts: '2026-09-24T05:42:35.607Z', date: 'Sep 24, 2026, 12:42 AM CT',
+    items: [
+      'A person\u2019s card carries a timeline of the trades anybody ever printed against their name, each one dated to the year it was printed. Three of the four printed sources behind that timeline were read the same way. The fourth, the 1839 city directory, was not.',
+      'The 1839 directory reached a card through a side door: a pointer that was written only when the 1835 trade was blank. So the directory counted as evidence about 1839 only if the project knew nothing about 1835 \u2014 which is backwards. What a man was printed as in 1839 does not depend on what is known about him four years earlier.',
+      'It also had a cost. Filling ten cards\u2019 1835 trade from their own evidence closed the gap the side door watched, and six people quietly lost an 1839 printing that had never stopped existing.',
+      'The 1839 directory is now read straight from its own index, exactly as the 1843 and 1844 directories are. Seventy-seven people gain a dated 1839 trade, and every row now names the directory entry it was read from and the street that entry printed. The street name crosses; the house number does not, because the compiler said in 1876 that the numbers were his own.',
+      'Nothing about 1835 moved. No grade changed, no card lost a row, and an 1839 printing is still evidence about 1839.',
+    ] },
   { v: 1078, title: 'A speculator\u2019s card stops claiming a trade no source printed', kind: 'fix', ts: '2026-09-24T04:12:32.033Z', date: 'Sep 23, 2026, 11:12 PM CT',
     items: [
       'Hiram Pearsons bought land on a scale almost nobody in this town matched: the federal land offices\u2019 own registers enter him 51 times between October 1833 and June 1836 \u2014 26 country tracts and six lots inside the platted town \u2014 one of them five days before the summer day this scene is set. His card called him a speculator and marked it attested, the grade this project keeps for something a source actually says.',

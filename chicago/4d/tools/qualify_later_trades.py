@@ -77,11 +77,14 @@ NOTE_PROMOTED = (
     "block does not already say. The 1835 field above no longer reads `none_recorded`: "
     "T-1299 admitted the press roles whose bound contains the scene date into it, and "
     "that field is a GENERATED VIEW of `roles[]` rather than a second assertion. The "
-    "pointer stays anyway, and this is the second clause of rule 2. `roles[]` derives "
-    "the card's {year} row FROM this pointer and from nowhere else, so taking it off "
-    "would not tidy the card, it would delete the {year} printing off the timeline. It "
-    "is still not a claim about the scene date: a directory of {year} is evidence about "
-    "{year} ({ticket}, second clause by T-1299)."
+    "pointer stays anyway, and this is the second clause of rule 2. IT IS NO LONGER "
+    "WHAT PUTS THE {year} ROW ON THE CARD: T-1515 reads the {year} directory off its "
+    "own crosswalk whatever the 1835 field holds, so the printing reaches `roles[]` "
+    "with or without this pointer, and what the pointer adds is the wording as the "
+    "CARD received it rather than the row itself. When this note said the opposite it "
+    "was describing the fault T-1299 filed, not a rule. It is still not a claim about "
+    "the scene date: a directory of {year} is evidence about {year} ({ticket}, second "
+    "clause by T-1299, demoted to a convenience by T-1515)."
 )
 
 NOTE = (
