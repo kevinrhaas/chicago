@@ -1,5 +1,5 @@
 {
- "_doc": "Manifest for data/residents/. Person grade is the top-level resident-evidence classification: attested = confidently corroborated real named circa-1835 Chicago resident; inferred = real named person reasonably believed to belong to the circa-1835 population; reconstructed = a person no source names, written ONLY by tools/reconstruct_residents_1835.py under the programme at data/reconstruction/1835_resident_reconstruction_programme.json, and carrying the stage that re-derives them. It was intentionally zero between the 2026-09-02 synthesis and T-1167, which reopened it under that programme. resident_subtype projected_resident is the weakest evidence-based inferred subset. Per-attribute confidence is independent. later_census is explicitly 1840 evidence and is never silently back-projected to 1835.",
+ "_doc": "Manifest for data/residents/. Person grade is the top-level resident-evidence classification: attested = confidently corroborated real named circa-1835 Chicago resident; inferred = real named person reasonably believed to belong to the circa-1835 population; reconstructed = a person no source names, written ONLY by tools/reconstruct_residents_1835.py under the programme at data/reconstruction/1835_resident_reconstruction_programme.json, and carrying the stage that re-derives them. It was intentionally zero between the 2026-09-02 synthesis and T-1167, which reopened it under that programme. resident_subtype projected_resident is the weakest evidence-based inferred subset. Per-attribute confidence is independent. later_census is explicitly 1840 evidence and is never silently back-projected to 1835. A row's `dwelling_evidence` is the one field that is a READING and not a copy: it names the clause under which T-1476's ruling of 2026-09-21 counts the record as a HOUSE, and is absent on a record that is a person awaiting a household — the record count and the house count are two units and the town model's 643 counts houses. Derived by tools/rebuild_resident_index.py; never hand-written.",
  "version": 1,
  "scene_date": "1835-07-01",
  "dossier": "docs/RESEARCH/residents_1835.md",
@@ -419,7 +419,9 @@
   "census_1840_linked": 3,
   "reconstructed_removed_in_2026_09_02_synthesis": 108,
   "civic_mint": 392,
-  "merged_away": 66
+  "merged_away": 66,
+  "houses": 218,
+  "awaiting_a_household": 1175
  },
  "households": [
   {
@@ -1457,7 +1459,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_barber_beta_l",
@@ -1705,7 +1708,8 @@
    "lives_at": null,
    "works_at": "bates_auction_room",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_baxley_j_m",
@@ -1859,7 +1863,8 @@
    "lives_at": "jb_beaubien_homestead",
    "works_at": "jb_beaubien_homestead",
    "present_on_scene_date": "present",
-   "review_required": true
+   "review_required": true,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_beaubien_john_s",
@@ -1889,7 +1894,8 @@
    "lives_at": "madore_beaubien_house",
    "works_at": "madore_beaubien_house",
    "present_on_scene_date": "present",
-   "review_required": true
+   "review_required": true,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_beaubien_mark",
@@ -1904,7 +1910,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "more_than_one_named_person"
   },
   {
    "id": "hh_bebee_orson",
@@ -2509,7 +2516,8 @@
    "lives_at": null,
    "works_at": "brickyard_north_side",
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_bloget_josiah_i",
@@ -2789,7 +2797,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_bourque_william",
@@ -2819,7 +2828,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_bowen_air",
@@ -3277,7 +3287,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_brown_rufus",
@@ -3292,7 +3303,8 @@
    "lives_at": "brown_boarding_house",
    "works_at": "brown_boarding_house",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_brown_william_h",
@@ -3733,7 +3745,8 @@
    "lives_at": null,
    "works_at": "cobweb_castle",
    "present_on_scene_date": "present",
-   "review_required": true
+   "review_required": true,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_calhoun_alvin",
@@ -3763,7 +3776,8 @@
    "lives_at": null,
    "works_at": "chicago_democrat_office",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_calhoun_samuel",
@@ -3915,7 +3929,8 @@
    "lives_at": null,
    "works_at": "carpenter_south_water_store",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_carroll_patrick",
@@ -3930,7 +3945,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_carter_j",
@@ -3960,7 +3976,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_cary_junis_a_or_j_r",
@@ -4006,7 +4023,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_cass_lewis",
@@ -4053,7 +4071,8 @@
    "lives_at": null,
    "works_at": "temple_lake_st_building",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_catran_o_p",
@@ -4398,7 +4417,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_chevallier_john_b",
@@ -4537,7 +4557,8 @@
    "lives_at": null,
    "works_at": "thomas_church_store",
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_churchill_alfred",
@@ -4826,7 +4847,8 @@
    "lives_at": null,
    "works_at": "clybourn_slaughterhouse",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_cobb_l_b",
@@ -4872,7 +4894,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_cole_parker_m",
@@ -5182,7 +5205,8 @@
    "lives_at": "tremont_house_1",
    "works_at": "tremont_house_1",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_courtney_henry",
@@ -5716,7 +5740,8 @@
    "lives_at": "steamboat_hotel",
    "works_at": "steamboat_hotel",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_davis_t_o",
@@ -5731,7 +5756,8 @@
    "lives_at": null,
    "works_at": "chicago_american_office",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_davison_john_s",
@@ -5885,7 +5911,8 @@
    "lives_at": null,
    "works_at": "chicago_democrat_office",
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_demotte_lenac",
@@ -6103,7 +6130,8 @@
    "lives_at": null,
    "works_at": "newberry_dole_warehouse",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_dolly_joseph",
@@ -6609,7 +6637,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "more_than_one_named_person"
   },
   {
    "id": "hh_eldridge_john_w",
@@ -6720,7 +6749,8 @@
    "lives_at": null,
    "works_at": "elston_soap_candle_manufactory",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_enor_jacob",
@@ -7556,7 +7586,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_freeman_ford",
@@ -7618,7 +7649,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_funk_absolom",
@@ -7693,7 +7725,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_galusha_ezra",
@@ -8100,7 +8133,8 @@
    "lives_at": null,
    "works_at": "goss_cobb_saddlery",
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_gould_a_b",
@@ -8237,7 +8271,8 @@
    "lives_at": "fort_dearborn_commandants_quarters",
    "works_at": "fort_dearborn_palisade",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_gridley_harriet",
@@ -8346,7 +8381,8 @@
    "lives_at": "mansion_house",
    "works_at": "mansion_house",
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_haddock_h",
@@ -8468,7 +8504,8 @@
    "lives_at": "cobweb_castle",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_handy_henry_s",
@@ -8498,7 +8535,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_hanford_comstock",
@@ -8575,7 +8613,8 @@
    "lives_at": null,
    "works_at": "harmon_loomis_store",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_harmon_d",
@@ -8605,7 +8644,8 @@
    "lives_at": "harmon_log_cabin",
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_harmon_m_d",
@@ -8858,7 +8898,8 @@
    "lives_at": "heacock_house_monroe",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_heere_anthony",
@@ -9109,7 +9150,8 @@
    "lives_at": null,
    "works_at": "hogan_store",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_hogan_mary",
@@ -9124,7 +9166,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_hogue_william",
@@ -9558,7 +9601,8 @@
    "lives_at": null,
    "works_at": "old_bank_building",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_hubbard_henry_g",
@@ -9971,7 +10015,8 @@
    "lives_at": "green_tree_tavern",
    "works_at": "green_tree_tavern",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_intmore_george",
@@ -10366,7 +10411,8 @@
    "lives_at": null,
    "works_at": "h_jones_store",
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_jones_d_e",
@@ -10658,7 +10704,8 @@
    "lives_at": null,
    "works_at": "cobweb_castle",
    "present_on_scene_date": "uncertain",
-   "review_required": true
+   "review_required": true,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_keyes_edward",
@@ -10768,7 +10815,8 @@
    "lives_at": null,
    "works_at": "chicago_democrat_office",
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_kimberly_ira",
@@ -10999,7 +11047,8 @@
    "lives_at": "james_kinzie_house",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_kinzie_john_h",
@@ -11013,7 +11062,8 @@
    "lives_at": null,
    "works_at": "jh_kinzie_forwarding_store",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_kinzie_robert_a",
@@ -11028,7 +11078,8 @@
    "lives_at": null,
    "works_at": "robert_kinzie_store",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_kirby_hannah_a",
@@ -12417,7 +12468,8 @@
    "lives_at": null,
    "works_at": "mason_blacksmith_shop",
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_mason_sabrina_a",
@@ -12524,7 +12576,8 @@
    "lives_at": "fort_dearborn_officers_quarters",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_may_stephen",
@@ -12633,7 +12686,8 @@
    "lives_at": null,
    "works_at": "blacksmith_shop_state_st",
    "present_on_scene_date": "uncertain",
-   "review_required": true
+   "review_required": true,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_mclintock_thomas",
@@ -12711,7 +12765,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_meleney_patrick",
@@ -12913,7 +12968,8 @@
    "works_at": "miller_tannery",
    "present_on_scene_date": "present",
    "review_required": false,
-   "census_1840_linked": 1
+   "census_1840_linked": 1,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_miller_samuel",
@@ -12928,7 +12984,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_mills_joel_c",
@@ -13456,7 +13513,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_mulford_james_h",
@@ -13504,7 +13562,8 @@
    "works_at": "exchange_coffee_house",
    "present_on_scene_date": "present",
    "review_required": false,
-   "census_1840_linked": 1
+   "census_1840_linked": 1,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_murphy_n",
@@ -13519,7 +13578,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_murray_alonzo",
@@ -13875,7 +13935,8 @@
    "lives_at": null,
    "works_at": "dearborn_street_drawbridge",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_norton_wm_h",
@@ -14126,7 +14187,8 @@
    "lives_at": null,
    "works_at": "cobweb_castle",
    "present_on_scene_date": "present",
-   "review_required": true
+   "review_required": true,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_paddock_jane",
@@ -14502,7 +14564,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_pease_h",
@@ -14533,7 +14596,8 @@
    "lives_at": "peck_store",
    "works_at": "peck_store",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_pennington_sack_f",
@@ -14707,7 +14771,8 @@
    "lives_at": null,
    "works_at": "pierce_blacksmith_shop",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_pinedale_john_w",
@@ -14880,7 +14945,8 @@
    "lives_at": "peck_store",
    "works_at": "first_presbyterian_church",
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_porthier_joseph",
@@ -14894,7 +14960,8 @@
    "lives_at": null,
    "works_at": "blacksmith_shop_state_st",
    "present_on_scene_date": "absent",
-   "review_required": true
+   "review_required": true,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_powell_geo_n",
@@ -15050,7 +15117,8 @@
    "lives_at": null,
    "works_at": "pruyne_kimball_drugstore",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_pugsley_john_k",
@@ -15158,7 +15226,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_bacon_phebe",
@@ -15172,7 +15241,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_bardwell_phebe",
@@ -15186,7 +15256,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_barnes_almira",
@@ -15200,7 +15271,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_barnes_betsey",
@@ -15214,7 +15286,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_barnes_clarissa",
@@ -15228,7 +15301,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_barnes_emily",
@@ -15242,7 +15316,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_barnes_esther",
@@ -15256,7 +15331,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_barnes_nancy",
@@ -15270,7 +15346,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_barnes_susan",
@@ -15284,7 +15361,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_burke_mary",
@@ -15298,7 +15376,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_carroll_ellen",
@@ -15312,7 +15391,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_carroll_johanna",
@@ -15326,7 +15406,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_carroll_margaret",
@@ -15340,7 +15421,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_cavanagh_edward",
@@ -15354,7 +15436,8 @@
    "lives_at": "fort_dearborn_barracks",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_chapin_clarissa",
@@ -15368,7 +15451,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_chapin_harriet",
@@ -15382,7 +15466,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_chevalier_angelique",
@@ -15396,7 +15481,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_cobb_clarissa",
@@ -15410,7 +15496,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_cobb_martha",
@@ -15424,7 +15511,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_cobb_polly",
@@ -15438,7 +15526,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_connor_margaret",
@@ -15452,7 +15541,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_corrigan_johanna",
@@ -15466,7 +15556,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_crandall_almira",
@@ -15480,7 +15571,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_crandall_clarissa",
@@ -15494,7 +15586,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_crandall_polly",
@@ -15508,7 +15601,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_dickinson_almira",
@@ -15522,7 +15616,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_dickinson_harriet",
@@ -15536,7 +15631,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_dolan_alice",
@@ -15550,7 +15646,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_dolan_johanna",
@@ -15564,7 +15661,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_doyle_ellen",
@@ -15578,7 +15676,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_duffy_margaret",
@@ -15592,7 +15691,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_duffy_martin",
@@ -15606,7 +15706,8 @@
    "lives_at": "fort_dearborn_barracks",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_dufresne_therese",
@@ -15620,7 +15721,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_eastman_emily",
@@ -15634,7 +15736,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_eastman_esther",
@@ -15648,7 +15751,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_eastman_james",
@@ -15662,7 +15766,8 @@
    "lives_at": "fort_dearborn_barracks",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_fairbanks_amanda",
@@ -15676,7 +15781,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_fairbanks_lydia",
@@ -15690,7 +15796,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_fairbanks_polly",
@@ -15704,7 +15811,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_fisk_almira",
@@ -15718,7 +15826,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_fisk_anna",
@@ -15732,7 +15841,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_fisk_eliza",
@@ -15746,7 +15856,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_fisk_esther",
@@ -15760,7 +15871,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_fitzgerald_alice",
@@ -15774,7 +15886,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_fitzgerald_honora",
@@ -15788,7 +15901,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_flynn_margaret",
@@ -15802,7 +15916,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_flynn_mary",
@@ -15816,7 +15931,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_gagnier_therese",
@@ -15830,7 +15946,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_gallagher_ellen",
@@ -15844,7 +15961,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_garrison_company_1",
@@ -15858,7 +15976,8 @@
    "lives_at": "fort_dearborn_barracks",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_garrison_company_2",
@@ -15872,7 +15991,8 @@
    "lives_at": "fort_dearborn_barracks",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_gilbert_abigail",
@@ -15886,7 +16006,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_gilbert_clarissa",
@@ -15900,7 +16021,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_gilbert_hannah",
@@ -15914,7 +16036,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_gilbert_mary",
@@ -15928,7 +16051,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_gilbert_ruth",
@@ -15942,7 +16066,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_hale_almira",
@@ -15956,7 +16081,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_hale_clarissa",
@@ -15970,7 +16096,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_hastings_almira",
@@ -15984,7 +16111,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_hayes_bridget",
@@ -15998,7 +16126,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_hayes_margaret",
@@ -16012,7 +16141,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_ingalls_abigail",
@@ -16026,7 +16156,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_ingalls_mary",
@@ -16040,7 +16171,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_kelly_honora",
@@ -16054,7 +16186,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_laframboise_angelique",
@@ -16068,7 +16201,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_laframboise_archange",
@@ -16082,7 +16216,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_lecuyer_archange",
@@ -16096,7 +16231,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_lecuyer_madeleine",
@@ -16110,7 +16246,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_leland_almira",
@@ -16124,7 +16261,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_lyman_clarissa",
@@ -16138,7 +16276,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_lyman_ruth",
@@ -16152,7 +16291,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_lynch_bridget",
@@ -16166,7 +16306,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_mahoney_catherine",
@@ -16180,7 +16321,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_mahoney_honora",
@@ -16194,7 +16336,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_mccarthy_johanna",
@@ -16208,7 +16351,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_mcguire_mary",
@@ -16222,7 +16366,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_metcalf_david",
@@ -16236,7 +16381,8 @@
    "lives_at": "fort_dearborn_sutlers_store",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_murphy_bridget",
@@ -16250,7 +16396,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_murphy_margaret",
@@ -16264,7 +16411,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_nash_martha",
@@ -16278,7 +16426,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_nash_nancy",
@@ -16292,7 +16441,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_newell_hannah",
@@ -16306,7 +16456,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_newell_polly",
@@ -16320,7 +16471,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_newell_ruth",
@@ -16334,7 +16486,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_nichols_martha",
@@ -16348,7 +16501,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_nichols_rhoda",
@@ -16362,7 +16516,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_nolan_bridget",
@@ -16376,7 +16531,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_nolan_honora",
@@ -16390,7 +16546,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_nolan_johanna",
@@ -16404,7 +16561,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_parmelee_maria",
@@ -16418,7 +16576,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_pelletier_josette",
@@ -16432,7 +16591,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_pothier_victoire",
@@ -16446,7 +16606,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_pratt_lydia",
@@ -16460,7 +16621,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_quinn_ellen",
@@ -16474,7 +16636,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_reilly_catherine",
@@ -16488,7 +16651,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_rice_lydia",
@@ -16502,7 +16666,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_ryan_bridget",
@@ -16516,7 +16681,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_ryan_ellen",
@@ -16530,7 +16696,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_ryan_mary",
@@ -16544,7 +16711,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_sawyer_ruth",
@@ -16558,7 +16726,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_sawyer_sophronia",
@@ -16572,7 +16741,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_shea_bridget",
@@ -16586,7 +16756,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_shea_margaret",
@@ -16600,7 +16771,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_shea_martin",
@@ -16614,7 +16786,8 @@
    "lives_at": "fort_dearborn_barracks",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_sheldon_erastus",
@@ -16628,7 +16801,8 @@
    "lives_at": "fort_dearborn_barracks",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_sheldon_lucy",
@@ -16642,7 +16816,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_stebbins_clarissa",
@@ -16656,7 +16831,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_stebbins_maria",
@@ -16670,7 +16846,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_stiles_almira",
@@ -16684,7 +16861,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_stiles_esther",
@@ -16698,7 +16876,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_sullivan_margaret",
@@ -16712,7 +16891,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_sullivan_thomas",
@@ -16726,7 +16906,8 @@
    "lives_at": "fort_dearborn_barracks",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_thayer_amanda",
@@ -16740,7 +16921,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_thayer_anna",
@@ -16754,7 +16936,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_thayer_hannah",
@@ -16768,7 +16951,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_thayer_maria",
@@ -16782,7 +16966,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_thayer_sarah",
@@ -16796,7 +16981,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_tobin_ellen",
@@ -16810,7 +16996,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_tobin_patrick",
@@ -16824,7 +17011,8 @@
    "lives_at": "fort_dearborn_barracks",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_vieau_josette",
@@ -16838,7 +17026,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_walsh_johanna",
@@ -16852,7 +17041,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_walsh_owen",
@@ -16866,7 +17056,8 @@
    "lives_at": "fort_dearborn_barracks",
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_whitcomb_lydia",
@@ -16880,7 +17071,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_whitcomb_sarah",
@@ -16894,7 +17086,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_wilcox_esther",
@@ -16908,7 +17101,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_wilcox_harriet",
@@ -16922,7 +17116,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_wilcox_maria",
@@ -16936,7 +17131,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_wilcox_martha",
@@ -16950,7 +17146,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_wilcox_polly",
@@ -16964,7 +17161,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_wilcox_sophronia",
@@ -16978,7 +17176,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_woodruff_eliza",
@@ -16992,7 +17191,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_woodruff_emily",
@@ -17006,7 +17206,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_woodruff_lucy",
@@ -17020,7 +17221,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_rc_woodruff_ruth",
@@ -17034,7 +17236,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
    "id": "hh_reed_s_w",
@@ -17458,7 +17661,8 @@
    "lives_at": "robinson_caldwell_cabins",
    "works_at": "robinson_caldwell_cabins",
    "present_on_scene_date": "present",
-   "review_required": true
+   "review_required": true,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_robinson_d_o",
@@ -18840,7 +19044,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_snow_watson_m",
@@ -19027,7 +19232,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_springs_g",
@@ -19056,7 +19262,8 @@
    "lives_at": null,
    "works_at": "temple_building",
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_squar_geo",
@@ -19102,7 +19309,8 @@
    "lives_at": "st_marys_church",
    "works_at": "st_marys_church",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_stafford_b_p",
@@ -19260,7 +19468,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_stephen_parrish",
@@ -19539,7 +19748,8 @@
    "lives_at": "western_hotel",
    "works_at": "western_hotel",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_stowell_ralph",
@@ -19712,7 +19922,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_division"
   },
   {
    "id": "hh_sweet_richard_m",
@@ -19756,7 +19967,8 @@
    "lives_at": null,
    "works_at": "south_branch_raft_bridge",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_taylor_augustine",
@@ -19771,7 +19983,8 @@
    "lives_at": null,
    "works_at": "st_marys_church",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_taylor_c",
@@ -19879,7 +20092,8 @@
    "lives_at": null,
    "works_at": "temple_building",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_tensenring_peter",
@@ -19942,7 +20156,8 @@
    "lives_at": null,
    "works_at": "frederick_thomas_shop",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_thompson_john",
@@ -20751,7 +20966,8 @@
    "lives_at": "wolf_point_tavern",
    "works_at": "wolf_point_tavern",
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_dwelling"
   },
   {
    "id": "hh_walton_henry",
@@ -20892,7 +21108,8 @@
    "lives_at": null,
    "works_at": "north_side_school_1833",
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_premises"
   },
   {
    "id": "hh_wattles_john_w",
@@ -21094,7 +21311,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_wesencraft_charlotte",
@@ -21109,7 +21327,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_wessencraft_charles",
@@ -21794,7 +22013,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "more_than_one_named_person"
   },
   {
    "id": "hh_wright_robert_c",

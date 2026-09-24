@@ -33,6 +33,30 @@ minted them belongs in this name.** Those are fields:
   provenance about the *tooling*, not a finding about the *person*, so it is
   not part of the public `vocabulary` block in `index.json`.
 
+## A RECORD AND A HOUSEHOLD ARE NOT THE SAME UNIT (T-1476)
+
+The owner ruled on 2026-09-21: **a name on a post-office letter list is evidence
+that a man was at Chicago; it is not evidence that he kept a house.** This
+directory has no container for a person except a household, so a lone name
+becomes a one-person household the moment it is minted — and for a year the
+layer's record count was set against the town model's house count as though the
+two measured the same thing. They do not.
+
+So every manifest row carries `dwelling_evidence`: the name of the clause under
+which the record stands as a **house**, absent on a record that is a **person
+awaiting a household**. The clause table, its order and its two deliberate
+refusals (a bare trade word; a later directory's street) are
+`DWELLING_CLAUSES` in `tools/rebuild_resident_index.py`, which derives the field
+— it is never hand-written — and `counts.houses` / `counts.awaiting_a_household`
+tally it. `data/reconstruction/1835_reconstruction_order_book.json` takes the
+household quota against the houses.
+
+**Nothing is retired, re-graded or downgraded by this.** Every record stays as
+it is, with its evidence and its grade; what changes is which question it
+answers. It answers *was this man here*, and it does not answer *how many houses
+stood in this town*. A record answers both the moment something seats him, and
+the next rebuild picks that up with nobody editing a row.
+
 ## On the `hh_doc_` / `hh_placed_` / `hh_ll_` prefixes
 
 Three tools independently derive households from the 1835 register
