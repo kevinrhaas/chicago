@@ -203,6 +203,17 @@ exec ${JSON.stringify(realGit)} "$@"
   check('tickets.json carries each ticket\'s path and PR url',
     b1501?.path === 'T-1500-1749/T-1501-first.md' && /\/kevinrhaas\/chicago\/pull\/41$/.test(b1501?.pr_url || ''), JSON.stringify(b1501));
 
+  console.log('5b. sync: a hand edit pushes under its own message, and a dirty clone still pulls');
+  const hand = path.join(A, 'tickets', 'T-1500-1749', 'T-1503-third.md');
+  writeFileSync(hand, readFileSync(hand, 'utf8') + '\nA finding added by hand.\n');
+  r = tool(A, 'sync', '-m', 'T-1503: a finding');
+  check('sync -m names the commit, and does not try to pull over the edit',
+    r.status === 0 && !/could not pull/.test(r.stderr)
+    && git(root, '--git-dir', bare, 'log', '-1', '--format=%s', 'main').stdout.trim() === 'T-1503: a finding', r.stdout + r.stderr);
+  tool(A, 'ask', 'T-1503', '--question', 'Keep it?', '--option', 'a=yes', '--option', 'b=no');
+  const chk2 = tool(A, 'check');
+  check('check counts an asked decision as waiting on the owner', /\b[1-9]\d* waiting on the owner/.test(chk2.stdout), chk2.stdout);
+
   console.log('6. no tickets is a failure, not a pass');
   const empty = path.join(root, 'empty', 'chicago', '4d');
   mkdirSync(path.join(empty, 'tools'), { recursive: true });
