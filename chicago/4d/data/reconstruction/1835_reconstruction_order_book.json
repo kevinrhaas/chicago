@@ -572,16 +572,6 @@
       "already_drawn": 43,
       "held_at": 43,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
-    },
-    {
-      "bucket": "businesses/lawyer",
-      "owning_ticket": "T-1418",
-      "cause": "a_documented_reading_shrank_the_order",
-      "quota_it_was_drawn_against": 2,
-      "the_re_cut_would_have_ordered": 1,
-      "already_drawn": 2,
-      "held_at": 2,
-      "why": "the town read a practitioner it can name and this bucket's order fell under the records already drawn against it. The town over-supplies this class by the difference, and the surplus is retired by the ticket that owns the bucket rather than by this one. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     }
   ],
   "trade_re_cut": {
@@ -1143,14 +1133,6 @@
       ]
     },
     {
-      "ticket": "T-1418",
-      "records": 3,
-      "buckets": [
-        "businesses/lawyer",
-        "businesses/physician"
-      ]
-    },
-    {
       "ticket": "T-1184",
       "records": 2,
       "buckets": [
@@ -1163,6 +1145,14 @@
       "buckets": [
         "businesses/brewery",
         "businesses/silversmith_jeweller"
+      ]
+    },
+    {
+      "ticket": "T-1418",
+      "records": 2,
+      "buckets": [
+        "businesses/lawyer",
+        "businesses/physician"
       ]
     }
   ],
@@ -1196,7 +1186,7 @@
     "households_to_reconstruct": 563,
     "businesses_target": 108,
     "businesses_known": 130,
-    "businesses_to_reconstruct": 7,
+    "businesses_to_reconstruct": 6,
     "roofs_target": 668,
     "roofs_standing": 417,
     "roofs_to_build": 264,
@@ -1233,7 +1223,7 @@
         2353,
         3265
       ],
-      "measured": "2,263 standing plus 484 still owed is 2,747, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 211 above the model's 2,536 point, and that surplus is the 463 people drawn into 48 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,263 standing plus 484 still owed is 2,747, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 211 above the model's 2,536 point, and that surplus is the 462 people drawn into 47 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -3974,17 +3964,16 @@
           },
           "target": 15,
           "known": 14,
-          "to_reconstruct": 2,
+          "to_reconstruct": 1,
           "records_opening_after_scene_date": 0,
-          "filled": 2,
+          "filled": 1,
           "owning_ticket": "T-1418",
           "documented_zero": false,
           "staff_implied": null,
           "staff_owning_ticket": "T-1183",
           "compared_by_the_crosswalk": true,
           "crosswalk_note": null,
-          "basis": "the December 1835 State census prints 22 — a line that counts MEN and not premises (T-1007). The town holds 14 of them at the scene date against 18 register records, and the scene date's population brackets the class between 15 and 21. The book orders to the low end, 15",
-          "recut_refused": true
+          "basis": "the December 1835 State census prints 22 — a line that counts MEN and not premises (T-1007). The town holds 14 of them at the scene date against 18 register records, and the scene date's population brackets the class between 15 and 21. The book orders to the low end, 15"
         },
         {
           "key": "businesses/lottery_office",
@@ -5597,20 +5586,6 @@
       "by": "tools/reconstruct_businesses_1835.py --build"
     },
     {
-      "bucket": "businesses/lawyer",
-      "ticket": "T-1418",
-      "stage": "professions_and_services",
-      "records": 2,
-      "by": "tools/reconstruct_businesses_1835.py --build"
-    },
-    {
-      "bucket": "businesses/physician",
-      "ticket": "T-1418",
-      "stage": "professions_and_services",
-      "records": 1,
-      "by": "tools/reconstruct_businesses_1835.py --build"
-    },
-    {
       "bucket": "businesses/druggist",
       "ticket": "T-1184",
       "stage": "stores_and_provisions",
@@ -6022,6 +5997,20 @@
       "stage": "lodgers",
       "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "businesses/lawyer",
+      "ticket": "T-1418",
+      "stage": "professions_and_services",
+      "records": 1,
+      "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
+      "bucket": "businesses/physician",
+      "ticket": "T-1418",
+      "stage": "professions_and_services",
+      "records": 1,
+      "by": "tools/reconstruct_businesses_1835.py --build"
     }
   ]
 }

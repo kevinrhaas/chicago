@@ -9,7 +9,7 @@
 |---|---:|---:|---:|
 | Persons | 2,536 | 1,283 | 1,721 |
 | Households | 643 | 82 | 563 |
-| Businesses (enumerated classes) | 108 | 130 | 7 |
+| Businesses (enumerated classes) | 108 | 130 | 6 |
 | Roofs | 668 | 417 | 264 |
 
 **2,263 people stand in the layer today** and **484** are still owed after the counters, so the town this book converges to is **2,747** — inside the model's 2,353-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
@@ -31,7 +31,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,263 standing plus 484 still owed is 2,747, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 211 above the model's 2,536 point, and that surplus is the 463 people drawn into 48 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,263 standing plus 484 still owed is 2,747, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 211 above the model's 2,536 point, and that surplus is the 462 people drawn into 47 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
@@ -41,7 +41,7 @@ Of the 1,256 records the layer holds present, 82 carry a reading about a dwellin
 
 ## Where the re-cut was refused
 
-48 buckets would have had their order cut below the people already drawn against them. The owner's ruling of 2026-09-20 refuses that by name rather than clamping it: each is held at what was drawn, and the surplus is retired or re-familied by T-1196, T-1197 and T-1179.
+47 buckets would have had their order cut below the people already drawn against them. The owner's ruling of 2026-09-20 refuses that by name rather than clamping it: each is held at what was drawn, and the surplus is retired or re-familied by T-1196, T-1197 and T-1179.
 
 | bucket | ticket | cause | quota it was drawn against | the re-cut would order | drawn |
 |---|---|---|---:|---:|---:|
@@ -92,7 +92,6 @@ Of the 1,256 records the layer holds present, 82 carry a reading about a dwellin
 | `persons/male/under_10/north/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 51 | 30 | 51 |
 | `persons/male/under_10/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 120 | 71 | 120 |
 | `persons/male/under_10/west/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 46 | 28 | 43 |
-| `businesses/lawyer` | T-1418 | a_documented_reading_shrank_the_order | 2 | 1 | 2 |
 
 ## The trade cut, re-cut on its remainder
 
@@ -179,9 +178,9 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1171 | 296 | 19 |
 | T-1371 | 82 | 28 |
 | T-1533 | 10 | 3 |
-| T-1418 | 3 | 2 |
 | T-1184 | 2 | 1 |
 | T-1185 | 2 | 2 |
+| T-1418 | 2 | 2 |
 
 
 ## The rules this book adds
@@ -400,7 +399,7 @@ The December 1835 State census set against the register the town already holds.
 | `businesses/church` | 5 | 4 | 0 | 0 | T-1215 |
 | `businesses/druggist` | 4 | 2 | 2 | 2 | T-1184 |
 | `businesses/iron_foundry` | 1 | 2 | 0 | 0 | T-1185 |
-| `businesses/lawyer` | 15 | 14 | 2 | 2 | T-1418 |
+| `businesses/lawyer` | 15 | 14 | 1 | 1 | T-1418 |
 | `businesses/lottery_office` | 0 | 0 | 0 | 0 | T-1182 |
 | `businesses/lyceum_and_reading_room` | 0 | 0 | 0 | 0 | T-1182 |
 | `businesses/physician` | 9 | 8 | 1 | 1 | T-1418 |
