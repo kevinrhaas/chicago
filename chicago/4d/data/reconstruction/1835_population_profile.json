@@ -29,7 +29,7 @@
   "households_naming_a_reason": 1513,
   "households_naming_a_lives_at": 31,
   "axes_answered_by_every_person": 6,
-  "persons_answering_every_axis": 850
+  "persons_answering_every_axis": 848
  },
  "vocabulary": {
   "age_bands": [
@@ -2161,7 +2161,7 @@
   {
    "id": "completeness",
    "title": "Per-attribute completeness",
-   "lead": "THE NINE QUESTIONS ASKED OF EVERY ONE OF THE 2385 PEOPLE, TOGETHER. 6 of the nine axes leave nobody unanswered. Sex leaves 6 and age band 7 — the collective rows, \"the rest of the Beaubien household, unnamed\" and their kind, which name nobody and so can carry neither, and one row that names one woman and still earns no band; every one of them is named below. Division leaves 1528, the people of the 1306 households no source puts on a side of the river, and that is the layer's largest remaining hole: T-1198 seats the households the evidence places and T-1199 the reconstructed ones, and until they run this column cannot read zero without inventing ground. 850 people are answered on all nine. Two axes answer in a bare string that carries no confidence anywhere on the card — they are counted under \"stated, no tier written\" and not under a tier, because a value with no tier is not a value at a tier.",
+   "lead": "THE NINE QUESTIONS ASKED OF EVERY ONE OF THE 2385 PEOPLE, TOGETHER. 6 of the nine axes leave nobody unanswered. Sex leaves 6 and age band 9 — the collective rows, \"the rest of the Beaubien household, unnamed\" and their kind, which name nobody and so can carry neither, and one row that names one woman and still earns no band; every one of them is named below. Division leaves 1528, the people of the 1306 households no source puts on a side of the river, and that is the layer's largest remaining hole: T-1198 seats the households the evidence places and T-1199 the reconstructed ones, and until they run this column cannot read zero without inventing ground. 848 people are answered on all nine. Two axes answer in a bare string that carries no confidence anywhere on the card — they are counted under \"stated, no tier written\" and not under a tier, because a value with no tier is not a value at a tier.",
    "tables": [
     {
      "title": "Every person, every attribute",
@@ -2192,13 +2192,13 @@
       [
        "age band",
        "person",
-       2378,
-       "99.7%",
+       2376,
+       "99.6%",
        7,
        54,
-       2317,
+       2315,
        0,
-       7
+       9
       ],
       [
        "arrival",
@@ -2338,11 +2338,25 @@
        "A COLLECTIVE DESCRIPTION NAMES NOBODY, so there is no sex to draw."
       ],
       [
+       "hamilton_ellen",
+       "Ellen Hamilton",
+       "hh_hamilton_richard_j",
+       "age band",
+       "the card carries no age band."
+      ],
+      [
        "harmon_daughter_burley",
        "The Harmon daughter later known as Mrs A. G. Burley",
        "hh_harmon_elijah_d",
        "age band",
-       "NO BAND IS DRAWN, AND THE REASON IS THIS CARD'S OWN."
+       "the card carries no age band."
+      ],
+      [
+       "harmon_welthyan",
+       "Welthyan Loomis Harmon",
+       "hh_harmon_elijah_d",
+       "age band",
+       "the card carries no age band."
       ],
       [
        "heacock_household_unnamed",
@@ -2611,14 +2625,14 @@
       ],
       [
        "reconstructed",
-       2317,
+       2315,
        "97.1%",
        "DRAWN from the 1840 Chicago schedule's sex × age bands, conditioned on what the person is recorded doing, seeded by their own id — a band, never a year"
       ],
       [
        "unknown",
-       7,
-       "0.3%",
+       9,
+       "0.4%",
        "a collective description: a row that stands for more than one person has no band of its own"
       ]
      ],
@@ -2645,7 +2659,7 @@
       ],
       [
        "5-9",
-       38,
+       37,
        "1.6%"
       ],
       [
@@ -2670,8 +2684,8 @@
       ],
       [
        "30-39",
-       469,
-       "19.7%"
+       468,
+       "19.6%"
       ],
       [
        "40-49",

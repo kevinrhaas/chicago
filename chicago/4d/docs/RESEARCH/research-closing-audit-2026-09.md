@@ -33,10 +33,10 @@ Reproduce: `python3 tools/measure_research_spend.py --ledger-build` then `python
 
 | Measure | Count |
 | --- | ---: |
-| Persons | 2,265 |
-| Households | 1,393 |
-| Persons graded `attested` | 410 |
-| Persons graded `inferred` | 875 |
+| Persons | 2,385 |
+| Households | 1,513 |
+| Persons graded `attested` | 412 |
+| Persons graded `inferred` | 993 |
 | Persons graded `reconstructed` | 980 |
 | Letter-list-only names | 736 |
 | Projected residents | 721 |
@@ -48,7 +48,7 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 
 | Measure | Count |
 | --- | ---: |
-| Household records | 1,393 |
+| Household records | 1,513 |
 | With a `lives_at` | 31 |
 | With a `works_at` | 50 |
 | Letter-list-only | 736 |
@@ -57,8 +57,8 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 | Presence on 1 July 1835 | Households |
 | --- | ---: |
 | absent | 2 |
-| present | 571 |
-| uncertain | 820 |
+| present | 575 |
+| uncertain | 936 |
 
 | Division | Households |
 | --- | ---: |
@@ -66,7 +66,7 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 | north | 37 |
 | outside_town | 1 |
 | south | 117 |
-| unplaced | 1,186 |
+| unplaced | 1,306 |
 | west | 39 |
 
 ## 4. Layer: businesses
@@ -121,7 +121,7 @@ An unresolved unit is research that has been read and not yet spent. The ledger'
 | T-1299 | 1 | claimed | yes |
 | T-1315 | 3 | open | yes |
 | T-1335 | 169 | open | yes |
-| T-1507 | 1 | review | yes |
+| T-1507 | 1 | done | **NO** |
 | T-1514 | 49 | open | yes |
 
 The rest defer to no ticket, and that is the second legitimate shape rather than a gap (T-1423): a name the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, whose open question is whether the person was in the town on 1 July 1835. No ticket can answer that — only a document can — so each states the document instead. The pointer that used to stand here was renamed four times as the ticket it named kept closing, and no source came any nearer.
@@ -141,11 +141,11 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 1. **No unit-level ledger entry reaches the structures layer.** 807 asserted units land on residents and households, 485 on businesses and 0 on structures. Closing it means a seat on the ground (T-1198) for a claim to be asserted ONTO.
 2. **28 of the 179 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
 3. **62 firms are unplaceable and 61 reach a street and no further.** Those 123 are the location limits the research preserved rather than guessed past; T-1198 seats what can be seated and the rest stay limits.
-4. **1,362 of 1,393 households have no `lives_at`.** Most are letter-list-only names (736) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
+4. **1,482 of 1,513 households have no `lives_at`.** Most are letter-list-only names (736) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
 5. **1,065 structure attributes are `reconstructed` against 16 attested and 164 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
 
 ## 8. Closing
 
-Unclassified registered research units: **0**. Dead asserted targets: **0**. Unresolved units deferred to work that is not live: **0**.
+Unclassified registered research units: **0**. Dead asserted targets: **0**. Unresolved units deferred to work that is not live: **1**.
 
 The closed ledger is therefore complete in its own terms, and section 7 names the five places where the research stopped and the ticket that carries each one. This audit makes no GO/NO-GO judgement about reconstruction: that is T-1157's signature, and this is the evidence under it.

@@ -26,13 +26,13 @@
   },
   "counts": {
     "cards": 1513,
-    "blocks": 19559,
-    "tiers_written_on_the_card": 8721,
+    "blocks": 19556,
+    "tiers_written_on_the_card": 8718,
     "by_tier": {
       "attested": 588,
       "inferred": 3560,
-      "reconstructed": 8905,
-      "unknown": 6506
+      "reconstructed": 8903,
+      "unknown": 6505
     },
     "by_attribute": {
       "arrival": {
@@ -98,8 +98,8 @@
       "persons[].age_band": {
         "attested": 7,
         "inferred": 54,
-        "reconstructed": 2317,
-        "unknown": 7
+        "reconstructed": 2315,
+        "unknown": 6
       },
       "persons[].age_on_scene_date": {
         "attested": 7,
@@ -5893,17 +5893,17 @@
         "kind": "person",
         "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
       },
-      "values": 2314,
+      "values": 2312,
       "by_value": {
         "20-29": 819,
-        "30-39": 446,
+        "30-39": 445,
         "10-19": 238,
         "0-9": 222,
         "0-4": 190,
         "40-49": 141,
         "15-19": 114,
         "50-59": 42,
-        "5-9": 38,
+        "5-9": 37,
         "10-14": 26,
         "60-69": 17,
         "50+": 13,
