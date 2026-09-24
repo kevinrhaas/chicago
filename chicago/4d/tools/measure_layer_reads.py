@@ -537,6 +537,16 @@ RESIDENTS_MANIFEST_READS: dict[str, tuple[str, str]] = {
     # everywhere; T-1314 put people back under the grade and `gradeChips` has always
     # drawn all three from one expression.
     "households[].grades.reconstructed": ("shown", "(grades || {})[g]"),
+    # T-1476, the owner's ruling of 2026-09-21: a record and a household are not the
+    # same unit. The count sentence gives both totals before anything is opened, and
+    # the row's own chip names the clause that made it a house — or says, in as many
+    # words, that it is a person still awaiting one. The clause is on the manifest
+    # row rather than derived in the browser for the same reason `letter_list_only`
+    # is: it is a RULING, and a renderer that re-derived it could disagree with the
+    # order book that takes the town's house quota against the same field.
+    "counts.houses": ("shown", "counts.houses"),
+    "counts.awaiting_a_household": ("shown", "counts.awaiting_a_household"),
+    "households[].dwelling_evidence": ("shown", "entry.dwelling_evidence"),
     # The finding the section was built to carry: a household with neither
     # residence nor workplace attested reaches no building sidecar, so these two
     # copies are what puts "on no building card" on the row.
