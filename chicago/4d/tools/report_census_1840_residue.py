@@ -178,7 +178,7 @@ def folded_state(spec: dict) -> list[tuple[str, str, str]]:
     """Each folded ticket as the tree holds it: id, state, what it is blocked on."""
     out = []
     for tid in spec["folded_tickets"]:
-        matches = sorted(TICKETS.glob(f"{tid}-*.md"))
+        matches = sorted(TICKETS.rglob(f"{tid}-*.md"))
         if not matches:
             raise Unresolved(f"{tid} has no ticket file")
         head = matches[0].read_text(encoding="utf-8").split("---")[1]

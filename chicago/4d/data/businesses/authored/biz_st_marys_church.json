@@ -1,0 +1,80 @@
+{
+  "id": "biz_st_marys_church",
+  "register_id": null,
+  "name": "St. Mary's, the Catholic congregation of Chicago",
+  "provenance": "authored",
+  "type": [
+    "church"
+  ],
+  "trade": "a Catholic congregation and its church",
+  "occupation": null,
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Rev. John Mary Irenaeus St Cyr",
+      "person_id": "st_cyr_john_mary",
+      "register_person_id": null,
+      "role": "priest",
+      "from": "1833-05",
+      "to": null,
+      "tier": "attested",
+      "basis": "The resident card st_cyr_john_mary carries `priest` at attested confidence on andreas_1884_v1: first priest of St Mary's, the first Catholic society organised in Chicago, formed in May 1833 — the first of the town's three churches of that year. He is 31 on the scene date. THE OFFICE RUNS ACROSS THE WINDOW AND THE DAY IS STILL NOT STATED: st_marys_church's `occupants` field grades the same man `inferred` rather than documented, and says exactly why — chicagology_prefire216 has him selecting the lot in 1833 and being succeeded by Father O'Meara only after 1837, 'and does not state who was in charge on any particular day in 1835'. This row is the office and takes the card's grade for it; the roof record is the day and keeps its own. A SECOND, NEARER WITNESS PUTS HIM IN THE TOWN rather than in the office: St Mary's own baptismal register has him at the font as godfather on 6 August 1834, read scan_verified off the deposited page image, with the identity merged into this card under the written rule in data/research/church/st_marys_baptisms_crosswalk.json. That is a bound on presence and never a promotion, and it is recorded here for the same reason it is recorded there.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": [
+        "Jean Marie Irénée Saint Cyr"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "st_marys_church",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1833-10",
+      "to": null,
+      "tier": "attested",
+      "basis": "The first Catholic church building in Chicago, in use from October 1833 and standing on the scene date — the committed structure record st_marys_church carries the fabric, the cost, the builder, the seating and the explicit statement that it had no tower, on chicagology_prefire216 and andreas_1884_v1. WHAT THE `from` DELIBERATELY EXCLUDES: the first mass, on 5 May 1833, was said elsewhere, 'in a little log cabin, twelve feet square, belonging to Mark Beaubien', which is a different building and is not this location. The structure's own note keeps the position honest too — both statements on the page put the church south of Lake and west of State, and the wording is 'NEAR the southwest corner', so the lot is not fixed; that limit lives on the roof and is not restated as a limit of this establishment, which is in the building either way."
+    }
+  ],
+  "dates": {
+    "opened": "1833-05",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "The society, not the building: the first Catholic society organised in Chicago, formed in May 1833, per st_cyr_john_mary's card on andreas_1884_v1. The month is what the source gives and the day is not; the church building follows in October and is on the location's `from`."
+  },
+  "evidence": {
+    "first_issue": null,
+    "last_issue": null,
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "A congregation is not a house of trade and has no keeper to read a community off. St Mary's baptismal register would carry the congregation's own communities and is read in data/research/church/, but a congregation's people are not this record's proprietors and are not folded onto this field.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "andreas_1884_v1",
+    "chicagology_prefire216",
+    "st_marys_baptismal_register_1833_1835"
+  ],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "An entry in St Mary's own register between 1 January and 31 December 1835 signed by the officiating priest would name who was in charge in the scene year and could promote the roof record's `inferred` occupancy to the grade this row already carries for the office. A trustees' or building-committee paper naming a sexton, a clerk or a schoolmaster attached to the church would give this establishment staff it presently has none of."
+}

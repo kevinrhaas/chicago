@@ -13,20 +13,60 @@
   "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints this person at the Democrat of 5 August 1835, column 18, so they are in the town's paper by 1834-01-28 and at no stated time before it; nothing reached says when they came. Last printed 1835-08-05.",
   "precision": "not_later_than"
  },
+ "arrival_year": {
+  "value": 1833,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1834-01-28 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1834."
+  },
+  "seed": "hh_collins_j_h:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
  "party_size_on_arrival": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
  },
  "origin": {
-  "value": null,
+  "value": "Ireland",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_collins_j_h:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "A professional practice in a new county seat",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THIS HOUSEHOLD'S OWN RECORDED TRADE, WHICH IS NOT ITS MOTIVE. The head is recorded as attorney, and this names the documented draw that trade answered in this town in this decade. It does not claim to know why these people came. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_recorded_trade",
+   "note": "arrival_fill.trade_reasons.a_practice_in_a_new_county_seat — the head's recorded trade is evidence about this household, and the draw it answered is the reason the record will carry until a source states one."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -45,6 +85,15 @@
    "chicago_democrat_1833_1835"
   ],
   "note": "Printed on or after the scene date — last at the Democrat of 20 May 1835, column 14 — so the corpus itself puts this person in the town's paper at 1835-08-05."
+ },
+ "modelled_family": {
+  "stage": "modelled_families",
+  "ticket": "T-1171",
+  "household_type": "family_with_children",
+  "size_drawn": 7,
+  "kin_seated": 7,
+  "seed": "hh_collins_j_h:household_size",
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
  },
  "persons": [
   {
@@ -65,9 +114,60 @@
      "attorney"
     ]
    },
+   "workplaces": [
+    {
+     "business_id": "biz_collins_caton",
+     "business_name": "Collins & Caton",
+     "role": "partner",
+     "printed_as": "J. H. Collins",
+     "from": "1834-01-28",
+     "to": "1835-05-20",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card collins_j_h (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1834_01_28#c007",
+      "chicago_democrat_1834_02_04#c009",
+      "chicago_democrat_1834_02_11#c005",
+      "chicago_democrat_1834_03_04#c009",
+      "chicago_democrat_1834_04_01#c011",
+      "chicago_democrat_1834_06_04#c003",
+      "chicago_democrat_1834_06_18#c017",
+      "chicago_democrat_1834_07_02#c016",
+      "chicago_democrat_1834_08_13#c021",
+      "chicago_democrat_1835_05_20#c014"
+     ],
+     "business_present_at_scene_date": true
+    }
+   ],
    "sources": [
     "chicago_democrat_1833_1835",
     "fergus_chicago_directory_1839"
+   ],
+   "dated_bounds": [
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_11_19#c001",
+     "claim_kind": "event",
+     "as_printed": "J. H. Collins",
+     "role": "committee member",
+     "locator": "chicago_democrat_1834_11_19 page 3 column 2",
+     "describes_date": "1834-11-19",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-19",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_j_h_collins, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-11-19 names 'J. H. Collins' in the claim read as chicago_democrat_1834_11_19#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
    ],
    "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'H. COLLINS' and 'J. H. COLLINS' and 'J. H. Collins' and 'J: He COLLINS.' and 'JAMES 1. COLLINS' and 'JAMES H. COLLINS,' and 'James H. Corzine' and 'James H. Courts' and 'Jauzs H. Cortiss' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 5 August 1835, column 18; the Democrat of 28 January 1834, column 7; the Democrat of 4 February 1834, column 9; the Democrat of 11 February 1834, column 5; the Democrat of 4 March 1834, column 9; the Democrat of 19 November 1834, column 1, and 4 further mention(s). The corpus associates the name with Dearborn Street, South Water Street, Chicago; that is where the paper does business with this person and not a statement about where they slept, and the storefront tickets are the ones that may stand a shop there. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `attorney` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “James H. Collins.” (f1839_v0074, printed page 41, ward 1, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Collins' folds to the same string as the 1837 entry's, and the given name of both begins J. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. FERGUS 1839'S FORT DEARBORN ADDITION LOT SALE — JUNE 1839 EVIDENCE, NEVER AN 1835 FACT. This person bid at the sale of the Fort Dearborn Addition, 10-24 June 1839, printed in Fergus' Chicago Directory for 1839 at pages 47-49. The bidder is printed as “J. H. Collins”. 7 lot rows, $1,755 in all: block 5 lot 6 at $211 (f1839_lot0069, printed page 48); block 5 lot 7 at $211 (f1839_lot0070, printed page 48); block 5 lot 8 at $210 (f1839_lot0071, printed page 48); block 5 lot 9 at $209 (f1839_lot0072, printed page 48); block 5 lot 10 at $208 (f1839_lot0073, printed page 48); block 10 lot 7 at $353 (f1839_lot0180, printed page 49); block 10 lot 8 at $353 (f1839_lot0181, printed page 49). The sale table's own shorthand, recorded and not flattened: 5 of those rows print the bidder as a ditto mark under the name above rather than the name itself; 7 carry the block number forward from the last row that printed one. What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds. No trade, no address in the town of 1835, no household and no house. The block and lot are the only location on the page, they are ground platted in 1839 out of the garrison's reservation, and they place nobody in the town of 1835. Identity by the crosswalk's own rule: Surname 'Collins' folds to the same string as the bidder's, and the given name of both begins J. (data/research/directories/fergus_1839_lots_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a lot sale four years after the scene date is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
@@ -109,12 +209,56 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "chicago_democrat_1833_1835"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "attorney (Butterfield & C)",
+     "from": "1843",
+     "to": "1843",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "claim": "f1843_e0673",
+     "place": "res 15 Lake",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1843 DIRECTORY, 8 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "of Butterfield & C",
+     "from": "1844",
+     "to": "1844",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "claim": "n1844_e0387",
+     "place": "res Lake st. near Wabash st",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1844 DIRECTORY, 9 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
     }
    ],
    "merge_ruling": [
@@ -129,7 +273,426 @@
      "for_merge": "C against R at the head of a surname is a one-letter distance the exact test cannot see, and the initial J agrees with John.",
      "against_merge": "THE COLLINS CARD IS A NAMED MAN WITH A TRADE AND THE ROLLINS CARD IS A DIFFERENT ENTRY IN THE SAME PAPER. J. H. Collins is James H. Collins, attorney: Fergus 1843 gives 'Collins, James H., attorney (Butterfield & C), res 15 Lake', Norris 1844 the same man at Lake near Wabash, the Democrat prints him from 28 January 1834 to 5 August 1835, and T-0509 corroborated the identity through the Papers of Abraham Lincoln. 'Rollins, John, Jr.' is the Democrat of 17 September 1834 (#c002) — a different issue, a junior, and no trade. The town holds rollins_charles beside rollins_john, so Rollins is a populated surname here; Collins is set 204 times in the corpus and Rollins five. Nothing folds a documented attorney onto another man's son on one letter. D7."
     }
-   ]
+   ],
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "sex_share_of_the_roll",
+     "note": "Drawn at 93.2% male, the rate measured on the documented roll's own people whose sex the evidence settles (pooled across every roll: this one settles too few names to measure on its own). data/reconstruction/1835_sex_age_model.json holds the measurement."
+    },
+    "seed": "collins_j_h:sex_ratio",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
+    },
+    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'collins_j_h:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
+   },
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "collins_j_h:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('collins_j_h:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
+  },
+  {
+   "id": "rc_collins_j_h_wife",
+   "name": "Amanda Collins",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30'. Never above the head's own band: the spacing rule of the household model, which the 1840 adult sex ratio argues for and no source states."
+    },
+    "seed": "hh_collins_j_h:wife_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Amanda Collins",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_collins_j_h:wife_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of J. H. Collins's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people from the 1840 city's size histogram, at the head's own band and not at the mean. A house of 7 with a head of 20 and over is a married house, and this is its wife."
+   },
+   "seed": "hh_collins_j_h:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_collins_j_h_child_1",
+   "name": "Sophronia Collins",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_collins_j_h:child_1_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Sophronia Collins",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_collins_j_h:child_1_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of J. H. Collins's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_collins_j_h:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_collins_j_h_child_2",
+   "name": "Hiram Collins",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_collins_j_h:child_2_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Hiram Collins",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_collins_j_h:child_2_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of J. H. Collins's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_collins_j_h:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_collins_j_h_child_3",
+   "name": "Alanson Collins",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_collins_j_h:child_3_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Alanson Collins",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_collins_j_h:child_3_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of J. H. Collins's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_collins_j_h:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_collins_j_h_child_4",
+   "name": "Clarissa Collins",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_collins_j_h:child_4_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Clarissa Collins",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_collins_j_h:child_4_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of J. H. Collins's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_collins_j_h:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_collins_j_h_child_5",
+   "name": "Anna Collins",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_collins_j_h:child_5_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Anna Collins",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_collins_j_h:child_5_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of J. H. Collins's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_collins_j_h:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,

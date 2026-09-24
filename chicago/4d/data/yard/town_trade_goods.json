@@ -9,15 +9,15 @@
   "counts": {
     "frontages": 27,
     "objects": 155,
-    "wagons": 67,
+    "wagons": 68,
     "wagons_by_kind": {
-      "farm_box": 26,
-      "covered": 25,
-      "cart": 16
+      "farm_box": 25,
+      "covered": 26,
+      "cart": 17
     },
-    "wagons_at_street_verges": 61,
+    "wagons_at_street_verges": 62,
     "wagons_in_yards": 3,
-    "wagon_stands_refused": 43,
+    "wagon_stands_refused": 41,
     "benches": 1,
     "sheds": 1,
     "marked_objects": 155,
@@ -3736,10 +3736,10 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        572.03,
-        179.14
+        582.14,
+        179.08
       ],
-      "bearing_deg": 6.4,
+      "bearing_deg": 186.4,
       "drawn_up": "along the road",
       "slew_deg": 6.0,
       "slew_envelope_deg": 6.0,
@@ -3796,10 +3796,10 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -279.41,
-        -49.97
+        -290.36,
+        -50.23
       ],
-      "bearing_deg": 88.6,
+      "bearing_deg": 268.6,
       "drawn_up": "square to the road",
       "slew_deg": 0.0,
       "slew_envelope_deg": 12.0,
@@ -3828,7 +3828,7 @@
       "note": "A farm box wagon standing at the verge of Dearborn Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 1.5 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
-      "id": "town_wagon_fulton_1",
+      "id": "town_wagon_fulton_3",
       "kind": "cart",
       "stands_on": "fulton",
       "belongs_to": null,
@@ -3836,56 +3836,36 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -249.98,
-        16.57
+        -174.91,
+        6.96
       ],
-      "bearing_deg": 94.8,
-      "drawn_up": "along the road",
-      "slew_deg": 4.5,
-      "slew_envelope_deg": 6.0,
+      "bearing_deg": 189.3,
+      "drawn_up": "square to the road",
+      "slew_deg": 9.0,
+      "slew_envelope_deg": 12.0,
       "slew_steps": 9,
       "clear_of_track_m": 1.05,
-      "note": "A two-wheeled cart standing at the verge of Fulton Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 4.5 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+      "note": "A two-wheeled cart standing at the verge of Fulton Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up square to the road and facing the way traffic on this side of it goes — and then slewed 9.0 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 12 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
-      "id": "town_wagon_fulton_2",
+      "id": "town_wagon_jefferson_2",
       "kind": "cart",
-      "stands_on": "fulton",
+      "stands_on": "jefferson",
       "belongs_to": null,
       "tilt": false,
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -110.02,
-        7.34
+        -390.78,
+        -189.93
       ],
-      "bearing_deg": 267.3,
+      "bearing_deg": 177.1,
       "drawn_up": "along the road",
-      "slew_deg": -3.0,
+      "slew_deg": -1.5,
       "slew_envelope_deg": 6.0,
       "slew_steps": 9,
       "clear_of_track_m": 1.05,
-      "note": "A two-wheeled cart standing at the verge of Fulton Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 3.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
-      "id": "town_wagon_kinzie_8",
-      "kind": "farm_box",
-      "stands_on": "kinzie",
-      "belongs_to": null,
-      "tilt": false,
-      "yoke": false,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        354.93,
-        252.21
-      ],
-      "bearing_deg": 267.5,
-      "drawn_up": "along the road",
-      "slew_deg": -3.0,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A farm box wagon standing at the verge of Kinzie Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 3.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+      "note": "A two-wheeled cart standing at the verge of Jefferson Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'none'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 1.5 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
       "id": "town_wagon_kinzie_11",
@@ -3916,8 +3896,8 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -296.06,
-        -114.68
+        -498.09,
+        -113.04
       ],
       "bearing_deg": 266.0,
       "drawn_up": "along the road",
@@ -3936,8 +3916,8 @@
       "yoke": true,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -248.06,
-        -114.73
+        -450.08,
+        -113.09
       ],
       "bearing_deg": 270.5,
       "drawn_up": "along the road",
@@ -3948,7 +3928,7 @@
       "note": "A covered emigrant wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 0.0 degrees not at all, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground and its ox-yoke laid by on the grass. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
-      "id": "town_wagon_lake_3",
+      "id": "town_wagon_lake_5",
       "kind": "farm_box",
       "stands_on": "lake",
       "belongs_to": null,
@@ -3956,10 +3936,10 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -200.06,
-        -115.45
+        -305.97,
+        -99.83
       ],
-      "bearing_deg": 266.0,
+      "bearing_deg": 86.0,
       "drawn_up": "along the road",
       "slew_deg": -4.5,
       "slew_envelope_deg": 6.0,
@@ -3968,7 +3948,7 @@
       "note": "A farm box wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 4.5 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
-      "id": "town_wagon_lake_4",
+      "id": "town_wagon_lake_6",
       "kind": "covered",
       "stands_on": "lake",
       "belongs_to": null,
@@ -3976,108 +3956,8 @@
       "yoke": true,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -151.95,
-        -100.96
-      ],
-      "bearing_deg": 84.5,
-      "drawn_up": "along the road",
-      "slew_deg": -6.0,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A covered emigrant wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 6.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground and its ox-yoke laid by on the grass. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
-      "id": "town_wagon_lake_10",
-      "kind": "covered",
-      "stands_on": "lake",
-      "belongs_to": null,
-      "tilt": true,
-      "yoke": true,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        135.93,
-        -118.16
-      ],
-      "bearing_deg": 275.0,
-      "drawn_up": "along the road",
-      "slew_deg": 4.5,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A covered emigrant wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 4.5 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground and its ox-yoke laid by on the grass. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
-      "id": "town_wagon_lake_11",
-      "kind": "farm_box",
-      "stands_on": "lake",
-      "belongs_to": null,
-      "tilt": false,
-      "yoke": false,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        183.93,
-        -118.22
-      ],
-      "bearing_deg": 270.5,
-      "drawn_up": "along the road",
-      "slew_deg": 0.0,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A farm box wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 0.0 degrees not at all, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
-      "id": "town_wagon_lake_13",
-      "kind": "farm_box",
-      "stands_on": "lake",
-      "belongs_to": null,
-      "tilt": false,
-      "yoke": false,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        280.04,
-        -104.9
-      ],
-      "bearing_deg": 90.5,
-      "drawn_up": "along the road",
-      "slew_deg": 0.0,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A farm box wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 0.0 degrees not at all, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
-      "id": "town_wagon_lake_15",
-      "kind": "farm_box",
-      "stands_on": "lake",
-      "belongs_to": null,
-      "tilt": false,
-      "yoke": false,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        376.04,
-        -105.35
-      ],
-      "bearing_deg": 95.0,
-      "drawn_up": "along the road",
-      "slew_deg": 4.5,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A farm box wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 4.5 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
-      "id": "town_wagon_lake_16",
-      "kind": "covered",
-      "stands_on": "lake",
-      "belongs_to": null,
-      "tilt": true,
-      "yoke": true,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        423.92,
-        -120.29
+        -258.09,
+        -114.76
       ],
       "bearing_deg": 269.0,
       "drawn_up": "along the road",
@@ -4088,6 +3968,66 @@
       "note": "A covered emigrant wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 1.5 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground and its ox-yoke laid by on the grass. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
+      "id": "town_wagon_lake_7",
+      "kind": "farm_box",
+      "stands_on": "lake",
+      "belongs_to": null,
+      "tilt": false,
+      "yoke": false,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        -209.98,
+        -100.83
+      ],
+      "bearing_deg": 92.0,
+      "drawn_up": "along the road",
+      "slew_deg": 1.5,
+      "slew_envelope_deg": 6.0,
+      "slew_steps": 9,
+      "clear_of_track_m": 1.05,
+      "note": "A farm box wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 1.5 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_lake_14",
+      "kind": "covered",
+      "stands_on": "lake",
+      "belongs_to": null,
+      "tilt": true,
+      "yoke": true,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        125.89,
+        -117.97
+      ],
+      "bearing_deg": 273.5,
+      "drawn_up": "along the road",
+      "slew_deg": 3.0,
+      "slew_envelope_deg": 6.0,
+      "slew_steps": 9,
+      "clear_of_track_m": 1.05,
+      "note": "A covered emigrant wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 3.0 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground and its ox-yoke laid by on the grass. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_lake_15",
+      "kind": "farm_box",
+      "stands_on": "lake",
+      "belongs_to": null,
+      "tilt": false,
+      "yoke": false,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        173.89,
+        -118.47
+      ],
+      "bearing_deg": 275.0,
+      "drawn_up": "along the road",
+      "slew_deg": 4.5,
+      "slew_envelope_deg": 6.0,
+      "slew_steps": 9,
+      "clear_of_track_m": 1.05,
+      "note": "A farm box wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 4.5 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+    },
+    {
       "id": "town_wagon_lake_17",
       "kind": "farm_box",
       "stands_on": "lake",
@@ -4096,8 +4036,8 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        472.03,
-        -106.24
+        270.01,
+        -104.6
       ],
       "bearing_deg": 87.5,
       "drawn_up": "along the road",
@@ -4116,8 +4056,8 @@
       "yoke": true,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        520.03,
-        -106.41
+        318.01,
+        -104.77
       ],
       "bearing_deg": 96.5,
       "drawn_up": "along the road",
@@ -4136,8 +4076,8 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        567.91,
-        -121.46
+        365.89,
+        -119.81
       ],
       "bearing_deg": 269.0,
       "drawn_up": "along the road",
@@ -4156,8 +4096,8 @@
       "yoke": true,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        615.91,
-        -121.96
+        413.89,
+        -120.32
       ],
       "bearing_deg": 273.5,
       "drawn_up": "along the road",
@@ -4176,8 +4116,8 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        664.03,
-        -107.59
+        462.0,
+        -105.94
       ],
       "bearing_deg": 84.5,
       "drawn_up": "along the road",
@@ -4188,6 +4128,26 @@
       "note": "A farm box wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 6.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
+      "id": "town_wagon_lake_22",
+      "kind": "covered",
+      "stands_on": "lake",
+      "belongs_to": null,
+      "tilt": true,
+      "yoke": true,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        510.0,
+        -106.78
+      ],
+      "bearing_deg": 90.5,
+      "drawn_up": "along the road",
+      "slew_deg": 0.0,
+      "slew_envelope_deg": 6.0,
+      "slew_steps": 9,
+      "clear_of_track_m": 1.05,
+      "note": "A covered emigrant wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 0.0 degrees not at all, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground and its ox-yoke laid by on the grass. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+    },
+    {
       "id": "town_wagon_lake_23",
       "kind": "farm_box",
       "stands_on": "lake",
@@ -4196,8 +4156,8 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        760.02,
-        -108.48
+        558.0,
+        -106.83
       ],
       "bearing_deg": 95.0,
       "drawn_up": "along the road",
@@ -4216,8 +4176,8 @@
       "yoke": true,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        807.9,
-        -123.74
+        605.88,
+        -122.1
       ],
       "bearing_deg": 264.5,
       "drawn_up": "along the road",
@@ -4226,6 +4186,66 @@
       "slew_steps": 9,
       "clear_of_track_m": 1.05,
       "note": "A covered emigrant wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 6.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground and its ox-yoke laid by on the grass. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_lake_25",
+      "kind": "farm_box",
+      "stands_on": "lake",
+      "belongs_to": null,
+      "tilt": false,
+      "yoke": false,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        654.0,
+        -107.61
+      ],
+      "bearing_deg": 86.0,
+      "drawn_up": "along the road",
+      "slew_deg": -4.5,
+      "slew_envelope_deg": 6.0,
+      "slew_steps": 9,
+      "clear_of_track_m": 1.05,
+      "note": "A farm box wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 4.5 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_lake_27",
+      "kind": "farm_box",
+      "stands_on": "lake",
+      "belongs_to": null,
+      "tilt": false,
+      "yoke": false,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        749.99,
+        -108.62
+      ],
+      "bearing_deg": 92.0,
+      "drawn_up": "along the road",
+      "slew_deg": 1.5,
+      "slew_envelope_deg": 6.0,
+      "slew_steps": 9,
+      "clear_of_track_m": 1.05,
+      "note": "A farm box wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 1.5 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_lake_28",
+      "kind": "covered",
+      "stands_on": "lake",
+      "belongs_to": null,
+      "tilt": true,
+      "yoke": true,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        797.87,
+        -123.33
+      ],
+      "bearing_deg": 272.0,
+      "drawn_up": "along the road",
+      "slew_deg": 1.5,
+      "slew_envelope_deg": 6.0,
+      "slew_steps": 9,
+      "clear_of_track_m": 1.05,
+      "note": "A covered emigrant wagon standing at the verge of Lake Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 48 m along this street's committed centreline (its traffic class is 'principal'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 1.5 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground and its ox-yoke laid by on the grass. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
       "id": "town_wagon_lasalle_4",
@@ -4368,46 +4388,6 @@
       "note": "A two-wheeled cart standing at the verge of North Water Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 1.5 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
-      "id": "town_wagon_randolph_2",
-      "kind": "farm_box",
-      "stands_on": "randolph",
-      "belongs_to": null,
-      "tilt": false,
-      "yoke": false,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        -185.05,
-        -256.26
-      ],
-      "bearing_deg": 270.4,
-      "drawn_up": "along the road",
-      "slew_deg": 0.0,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A farm box wagon standing at the verge of Randolph Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 0.0 degrees not at all, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
-      "id": "town_wagon_randolph_7",
-      "kind": "farm_box",
-      "stands_on": "randolph",
-      "belongs_to": null,
-      "tilt": false,
-      "yoke": false,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        264.94,
-        -260.03
-      ],
-      "bearing_deg": 272.0,
-      "drawn_up": "along the road",
-      "slew_deg": 1.5,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A farm box wagon standing at the verge of Randolph Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 1.5 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
       "id": "town_wagon_randolph_8",
       "kind": "farm_box",
       "stands_on": "randolph",
@@ -4416,8 +4396,8 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        354.93,
-        -260.88
+        156.33,
+        -259.26
       ],
       "bearing_deg": 273.5,
       "drawn_up": "along the road",
@@ -4426,6 +4406,26 @@
       "slew_steps": 9,
       "clear_of_track_m": 1.05,
       "note": "A farm box wagon standing at the verge of Randolph Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 3.0 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_randolph_11",
+      "kind": "farm_box",
+      "stands_on": "randolph",
+      "belongs_to": null,
+      "tilt": false,
+      "yoke": false,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        426.41,
+        -250.19
+      ],
+      "bearing_deg": 84.5,
+      "drawn_up": "along the road",
+      "slew_deg": -6.0,
+      "slew_envelope_deg": 6.0,
+      "slew_steps": 9,
+      "clear_of_track_m": 1.05,
+      "note": "A farm box wagon standing at the verge of Randolph Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 6.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
       "id": "town_wagon_randolph_13",
@@ -4436,8 +4436,8 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        804.92,
-        -264.55
+        606.31,
+        -262.93
       ],
       "bearing_deg": 273.5,
       "drawn_up": "along the road",
@@ -4446,6 +4446,26 @@
       "slew_steps": 9,
       "clear_of_track_m": 1.05,
       "note": "A farm box wagon standing at the verge of Randolph Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 3.0 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_randolph_15",
+      "kind": "cart",
+      "stands_on": "randolph",
+      "belongs_to": null,
+      "tilt": false,
+      "yoke": false,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        786.3,
+        -265.07
+      ],
+      "bearing_deg": 168.5,
+      "drawn_up": "square to the road",
+      "slew_deg": -12.0,
+      "slew_envelope_deg": 12.0,
+      "slew_steps": 9,
+      "clear_of_track_m": 1.05,
+      "note": "A two-wheeled cart standing at the verge of Randolph Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up square to the road and facing the way traffic on this side of it goes — and then slewed 12.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 12 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
       "id": "town_wagon_south_water_10",
@@ -4768,7 +4788,7 @@
       "note": "A two-wheeled cart standing at the verge of State Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up square to the road and facing the way traffic on this side of it goes — and then slewed 3.0 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 12 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
-      "id": "town_wagon_washington_1",
+      "id": "town_wagon_washington_3",
       "kind": "cart",
       "stands_on": "washington",
       "belongs_to": null,
@@ -4776,36 +4796,16 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -249.96,
-        -380.71
+        -165.33,
+        -380.88
       ],
-      "bearing_deg": 84.5,
-      "drawn_up": "along the road",
-      "slew_deg": -6.0,
-      "slew_envelope_deg": 6.0,
+      "bearing_deg": 9.5,
+      "drawn_up": "square to the road",
+      "slew_deg": 9.0,
+      "slew_envelope_deg": 12.0,
       "slew_steps": 9,
       "clear_of_track_m": 1.05,
-      "note": "A two-wheeled cart standing at the verge of Washington Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 6.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
-      "id": "town_wagon_washington_4",
-      "kind": "cart",
-      "stands_on": "washington",
-      "belongs_to": null,
-      "tilt": false,
-      "yoke": false,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        170.02,
-        -384.12
-      ],
-      "bearing_deg": 84.5,
-      "drawn_up": "along the road",
-      "slew_deg": -6.0,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A two-wheeled cart standing at the verge of Washington Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 6.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+      "note": "A two-wheeled cart standing at the verge of Washington Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up square to the road and facing the way traffic on this side of it goes — and then slewed 9.0 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 12 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
       "id": "town_wagon_washington_5",
@@ -4816,8 +4816,8 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        310.02,
-        -385.61
+        114.66,
+        -384.03
       ],
       "bearing_deg": 90.5,
       "drawn_up": "along the road",
@@ -4828,7 +4828,7 @@
       "note": "A two-wheeled cart standing at the verge of Washington Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 0.0 degrees not at all, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
-      "id": "town_wagon_washington_8",
+      "id": "town_wagon_washington_6",
       "kind": "cart",
       "stands_on": "washington",
       "belongs_to": null,
@@ -4836,16 +4836,36 @@
       "yoke": false,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        730.01,
-        -388.67
+        254.66,
+        -384.35
       ],
-      "bearing_deg": 84.5,
-      "drawn_up": "along the road",
-      "slew_deg": -6.0,
-      "slew_envelope_deg": 6.0,
+      "bearing_deg": 357.5,
+      "drawn_up": "square to the road",
+      "slew_deg": -3.0,
+      "slew_envelope_deg": 12.0,
       "slew_steps": 9,
       "clear_of_track_m": 1.05,
-      "note": "A two-wheeled cart standing at the verge of Washington Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 6.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+      "note": "A two-wheeled cart standing at the verge of Washington Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up square to the road and facing the way traffic on this side of it goes — and then slewed 3.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 12 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
+    },
+    {
+      "id": "town_wagon_washington_9",
+      "kind": "cart",
+      "stands_on": "washington",
+      "belongs_to": null,
+      "tilt": false,
+      "yoke": false,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        674.65,
+        -387.7
+      ],
+      "bearing_deg": 351.5,
+      "drawn_up": "square to the road",
+      "slew_deg": -9.0,
+      "slew_envelope_deg": 12.0,
+      "slew_steps": 9,
+      "clear_of_track_m": 1.05,
+      "note": "A two-wheeled cart standing at the verge of Washington Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'light'), at the verge 1.05 m clear of the travelled track, drawn up square to the road and facing the way traffic on this side of it goes — and then slewed 9.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 12 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
       "id": "town_wagon_wells_4",
@@ -4964,12 +4984,12 @@
   "refused": [
     {
       "structure_id": "fort_dearborn_store_house",
-      "trade": "provision store",
+      "trade": "provision_store",
       "why": "it stands on federal ground inside the fort's palisade. The whole evidence on this record is the village corporation's Ordinance 9 of 7 November 1833, and the corporation's streets did not reach this door; there is no public frontage in front of it to stand a barrel on. The garrison's stores are a different claim and would need a different source."
     },
     {
       "structure_id": "fort_dearborn_sutlers_store",
-      "trade": "sutler's store",
+      "trade": "sutlers_store",
       "why": "it stands on federal ground inside the fort's palisade. The whole evidence on this record is the village corporation's Ordinance 9 of 7 November 1833, and the corporation's streets did not reach this door; there is no public frontage in front of it to stand a barrel on. The garrison's stores are a different claim and would need a different source."
     },
     {
@@ -4981,6 +5001,26 @@
       "structure_id": "new_york_house",
       "trade": "tavern_inn",
       "why": "7 object(s) fell inside exchange_coffee_house's committed footprint, which stands over this frontage's own strip; they are dropped rather than nudged, because a nudged coordinate is a placed one."
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_clark_c2_01",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or GOODS for an anonymous slot — names goods in as many words, and this record keeps it."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_clark_c2_06",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or GOODS for an anonymous slot — names goods in as many words, and this record keeps it."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or GOODS for an anonymous slot — names goods in as many words, and this record keeps it."
+    },
+    {
+      "structure_id": "recon_1835_west_020",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or GOODS for an anonymous slot — names goods in as many words, and this record keeps it."
     }
   ],
   "wagons_refused": [
@@ -5019,19 +5059,19 @@
       "why": "on the left verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon. · on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon."
     },
     {
-      "stand": "lake 9",
+      "stand": "lake 3",
       "street": "Lake Street",
-      "why": "on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon."
+      "why": "on the right verge, it reaches into the Jefferson Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
     },
     {
-      "stand": "lake 14",
+      "stand": "lake 8",
       "street": "Lake Street",
-      "why": "on the left verge, it reaches into the Wells Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
+      "why": "on the right verge, it reaches into the Canal Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway. · on the left verge, it reaches into the Canal Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
     },
     {
-      "stand": "lake 22",
+      "stand": "lake 26",
       "street": "Lake Street",
-      "why": "on the right verge, it stands on the plank walk blk_south_water_dearborn_south_crossing_over_lake (T-0119). A footway is a floor and a wagon parked across it is the town's own Ordinance 9 complaint, drawn. · on the left verge, it stands on the plank walk blk_south_water_dearborn_south_crossing_over_lake (T-0119). A footway is a floor and a wagon parked across it is the town's own Ordinance 9 complaint, drawn."
+      "why": "on the right verge, it reaches into the Dearborn Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway. · on the left verge, it reaches into the Dearborn Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
     },
     {
       "stand": "lasalle 2",
@@ -5059,29 +5099,19 @@
       "why": "on the left verge, it reaches into the North Water Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
     },
     {
-      "stand": "randolph 1",
+      "stand": "randolph 7",
       "street": "Randolph Street",
-      "why": "on the left verge, it reaches into the Clinton Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
+      "why": "on the left verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon. · on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon."
     },
     {
-      "stand": "randolph 5",
+      "stand": "randolph 9",
       "street": "Randolph Street",
-      "why": "on the left verge, it reaches into the Market Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway. · on the right verge, it reaches into the Market Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
+      "why": "on the right verge, it stands on the plank walk blk_randolph_franklin_north_walk_1 (T-0119). A footway is a floor and a wagon parked across it is the town's own Ordinance 9 complaint, drawn."
     },
     {
-      "stand": "randolph 6",
+      "stand": "randolph 14",
       "street": "Randolph Street",
-      "why": "on the right verge, it stands on the plank walk blk_randolph_market_north_walk_1 (T-0119). A footway is a floor and a wagon parked across it is the town's own Ordinance 9 complaint, drawn. · on the left verge, it stands on the plank walk blk_lake_market_south_walk_1 (T-0119). A footway is a floor and a wagon parked across it is the town's own Ordinance 9 complaint, drawn."
-    },
-    {
-      "stand": "randolph 11",
-      "street": "Randolph Street",
-      "why": "on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon."
-    },
-    {
-      "stand": "randolph 12",
-      "street": "Randolph Street",
-      "why": "on the right verge, it stands on the plank walk blk_lake_dearborn_south_crossing_over_randolph (T-0119). A footway is a floor and a wagon parked across it is the town's own Ordinance 9 complaint, drawn."
+      "why": "on the left verge, it reaches into the Dearborn Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
     },
     {
       "stand": "south_water 1",
@@ -5195,7 +5225,7 @@
     },
     {
       "stand": "*",
-      "why": "892 offered stand(s) fell more than 16 m from every committed footprint in the town and are not enumerated one by one. Past that the street is running out into the prairie: a wagon parked in the grass two blocks beyond the last house would be this record inventing a reason for it to be there, and the reason is the whole of what an invented object has to have."
+      "why": "924 offered stand(s) fell more than 16 m from every committed footprint in the town and are not enumerated one by one. Past that the street is running out into the prairie: a wagon parked in the grass two blocks beyond the last house would be this record inventing a reason for it to be there, and the reason is the whole of what an invented object has to have."
     }
   ],
   "research_note": "WHAT WOULD MOVE ANY OF THIS OFF RECONSTRUCTION: the missing fourth page of the Democrat's first issue, which would carry more of the ordinances and may carry Ordinance 9's own text and its penalty; any later Chicago corporation order about obstructions, which would say what was being obstructed with; an insurance or tax description of a South Water Street lot; a traveller's account of walking the street; or the pre-fire photographs of surviving 1830s frontages actually opened at their holding institutions. WHAT THIS RECORD IS STILL SHORT OF, stated rather than left to be noticed: Ordinance 9's timber, stone and brick are not drawn at all; and nothing stands in a roadway though the ordinance is about roadways. WHAT IS NO LONGER SHORT, and it is worth being exact about what changed: this note used to end 'the wagons in this town still stand at two addresses out of hundreds', and T-0064 answered it on the owner's instruction rather than on a source. The town's wagons are spread now, and NOT ONE OF THEM IS BETTER EVIDENCED THAN IT WAS — the two the evidence reaches are still the wagon-yard's and the Green Tree's, everything else is `reconstructed` on a rule, and the rule is on this record under `town_wagon_rule` so it can be argued with. WHAT WOULD MOVE THE REST: a teamster's or a forwarding house's day-book naming what stood in the street; a Chicago corporation order about vehicles left standing, which would put a number on the thing Ordinance 9 only implies; or any dated view of a Chicago street before 1840. THE SHED IS THE FIRST ROOF THIS LAYER HAS EVER DRAWN, and it is worth saying what that does not mean: it is not a structure record, it has no archetype and it is not baked, because it is derived from a committed footprint the way a fence and a signboard are. If a second yard building is ever wanted the question to ask first is whether it belongs here or in data/structures/."

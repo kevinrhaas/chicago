@@ -6,8 +6,8 @@
   "census_1840": {
    "names_read": 873,
    "identities": 858,
-   "appearances_on_an_identity_the_town_already_carries": 46,
-   "unmatched": 827
+   "appearances_on_an_identity_the_town_already_carries": 47,
+   "unmatched": 826
   },
   "church": {
    "names_read": 520,
@@ -40,10 +40,10 @@
    "unmatched": 693
   },
   "residents": {
-   "names_read": 1279,
-   "identities": 1279,
+   "names_read": 1281,
+   "identities": 1281,
    "appearances_on_an_identity_the_town_already_carries": 0,
-   "unmatched": 1279
+   "unmatched": 1281
   },
   "books": {
    "names_read": 0,
@@ -85,7 +85,7 @@
   "census_1840|directories": 145,
   "census_1840|newspapers": 51,
   "census_1840|old_settlers": 13,
-  "census_1840|residents": 41,
+  "census_1840|residents": 42,
   "church|church": 480,
   "church|civic": 3,
   "church|directories": 44,
@@ -106,17 +106,17 @@
   "newspapers|residents": 1054,
   "old_settlers|old_settlers": 736,
   "old_settlers|residents": 49,
-  "residents|residents": 1279
+  "residents|residents": 1281
  },
  "town_rows_this_tool_could_not_parse": {
-  "persons_in_the_layer": 1282,
-  "persons_this_tool_placed_on_an_identity": 1279,
+  "persons_in_the_layer": 1285,
+  "persons_this_tool_placed_on_an_identity": 1281,
   "why": "a card whose name is a surname alone, a firm style, or an honorific with no forename cannot be split into (surname, forename) and is refused by R1 like any other source reading. They are named in the master's refusals."
  },
  "negative_searches_recorded": {
   "derived_refusals_by_rule": {
    "R1": 375,
-   "R5": 262,
+   "R5": 263,
    "R2": 970,
    "R3": 118,
    "R4": 86,
@@ -126,6 +126,6 @@
    "X2": 1,
    "X3": 1
   },
-  "declared_refusals": 2270
+  "declared_refusals": 2296
  }
 }

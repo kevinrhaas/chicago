@@ -21,14 +21,28 @@
   "note": "Two named Wrights arrive in 1832 and are grouped here as one household. Whether a mother or other children travelled with them is not stated."
  },
  "origin": {
-  "value": null,
-  "confidence": "reconstructed",
-  "note": "Not attested."
+  "value": "Massachusetts",
+  "confidence": "inferred",
+  "sources": [
+   "moses_kirkland_history_of_chicago_v1"
+  ],
+  "note": "A CAME-FROM AND NOT A BIRTHPLACE, WHICH IS THE CLAIM THIS FIELD ACTUALLY ASKS FOR. Moses and Kirkland, History of Chicago, Illinois, vol. 1 (1895), printed page 89 (claim bk_mose1_001): \"Among these in 1832 were Philo Carpenter, and John S. Wright from Massachusetts; T. W. Goodrich, Hamilton Barnes, Dr. Philip Maxwell from New York; Dr. E. S. Kimberly, George W. Snow, of Vermont, and Alanson Sweet.\" The sentence is about men who CAME THROUGH CHICAGO IN 1832 AND DECIDED TO REMAIN, so the state is attached to the coming and not to a birth — which is what separates it from the Calumet Club roll's birthplaces that most of this layer's cited origins rest on. THE DRAWN BLOCK IS RETIRED BY ITS OWN TERMS: it carried `replaceable_by` \"a source that says where this household came from\", and this is that source, so the draw's basis, seed and stage mark go with it. Graded `inferred` and never higher — an 1895 compilation, transcription_mediated, crediting Andreas and Hurlbut on the pages read here (the ceiling T-1322 set for the settlers table in the same volume). THE HOUSEHOLD TAKES THE SON'S STATED ORIGIN BECAUSE THE TWO CAME TOGETHER: this card's own arrival note says \"Both men, same year, stated twice\", John Wright and his son John S. Wright arriving in 1832 as one party, so where they came from is one answer and the compiler gives it for the one of them he names. The draw had said New York State."
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "A store for the traffic of a town filling up",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THIS HOUSEHOLD'S OWN RECORDED TRADE, WHICH IS NOT ITS MOTIVE. The head is recorded as merchant, and this names the documented draw that trade answered in this town in this decade. It does not claim to know why these people came. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_recorded_trade",
+   "note": "arrival_fill.trade_reasons.a_store_for_the_traffic — the head's recorded trade is evidence about this household, and the draw it answered is the reason the record will carry until a source states one."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -69,6 +83,28 @@
      "merchant"
     ]
    },
+   "workplaces": [
+    {
+     "business_id": "biz_john_wright",
+     "business_name": "John Wright",
+     "role": "proprietor",
+     "printed_as": "John Wright",
+     "from": "1833-11-26",
+     "to": "1834-07-02",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card wright_john (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1833_11_26#c009",
+      "chicago_democrat_1833_11_26#c023",
+      "chicago_democrat_1834_02_25#c009",
+      "chicago_democrat_1834_03_18#c012",
+      "chicago_democrat_1834_03_25#c011",
+      "chicago_democrat_1834_07_02#c020"
+     ],
+     "business_present_at_scene_date": true
+    }
+   ],
    "sources": [
     "andreas_1884_v1",
     "chicago_democrat_1833_11_26"
@@ -126,15 +162,37 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1",
       "chicago_democrat_1833_11_26"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "wright_john:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('wright_john:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   },
   {
    "id": "wright_john_s",
@@ -158,6 +216,31 @@
    "sources": [
     "andreas_1884_v1",
     "chicago_democrat_1833_1835"
+   ],
+   "dated_bounds": [
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_10_29#c006",
+     "claim_kind": "person",
+     "as_printed": "J. S. Wright",
+     "role": "committee member",
+     "locator": "chicago_democrat_1834_10_29 page 2 column 2",
+     "describes_date": "1834-10-29",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-10-29",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_j_s_wright, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-10-29 names 'J. S. Wright' in the claim read as chicago_democrat_1834_10_29#c006, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
    ],
    "note": "A MINOR IN 1833 AND A FOUNDING MEMBER OF THE FIRST PRESBYTERIAN CHURCH IN JUNE OF THAT YEAR - his name is in the list of nine village citizens alongside his father's. He would have been about twenty in 1835. THE RELATIONSHIP IS THIS RECORD'S READING: Andreas lists the two Wrights separately and never says they are father and son, and 'John Wright, came in 1832, a merchant' and 'John S. Wright, then a minor ... came in 1832' arriving in the same year with the same surname and joining the same church on the same day is a strong reading and not a statement.",
    "resident_research": {
@@ -247,14 +330,56 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "inferred",
      "sources": [
       "andreas_1884_v1"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "no_fixed_premises"
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "editor and proprietor Prairie Farmer",
+     "from": "1843",
+     "to": "1843",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "claim": "f1843_e2675",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1843 DIRECTORY, 8 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
     }
-   ]
+   ],
+   "age_band": {
+    "value": "40-49",
+    "low": 40,
+    "high": 49,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 40 under 50', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "wright_john_s:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('wright_john_s:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   }
  ],
  "touches_removal": false,

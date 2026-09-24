@@ -15,20 +15,60 @@
   "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 19 November 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
   "precision": "not_later_than"
  },
+ "arrival_year": {
+  "value": 1834,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1834-11-19 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1834."
+  },
+  "seed": "hh_loyd_alexander:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
  "party_size_on_arrival": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
  },
  "origin": {
-  "value": null,
+  "value": "The Mid-Atlantic states",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_loyd_alexander:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1834) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -81,6 +121,31 @@
     "fergus_chicago_directory_1843",
     "isa_public_domain_land_tract_sales"
    ],
+   "dated_bounds": [
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_11_19#c001",
+     "claim_kind": "event",
+     "as_printed": "A. Loyd",
+     "role": "committee member",
+     "locator": "chicago_democrat_1834_11_19 page 3 column 2",
+     "describes_date": "1834-11-19",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-19",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_a_loyd, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-11-19 names 'A. Loyd' in the claim read as chicago_democrat_1834_11_19#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
    "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from census_1840, directory_1843, newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 19 November 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1). THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Alex[r]. Loyd” (33SQ-GYYJ-P5, printed page 220, line 12). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the city register of 1839 — “Alexander Loyd” as mayor of chicago, 1840 (f1839_r0058, printed page 39). What a match may carry, and it depends on WHICH TABLE it landed in. A match on printed page 38, or on any row of the mayors' table, is 1839-or-later evidence: it says the man held that office in that year and was therefore in Chicago in that year, it is written with the row's own describes_date and never as an 1835 fact, and the person's grade does not move on it alone — a later appearance is corroboration of CONTINUED RESIDENCE, not of July 1835. A match on the sheriffs' rows of 1831, 1832, 1834 or 1836 is different in kind: the office is contemporary with the town, the 1834 row's term covers the scene date outright, and such a match carries reaches_scene. Even there the SOURCE is a retrospect — a table running to 1874, set in 1876 out of Old Settlers' recollections per the compiler's warning on printed page 3 — so it may be cited as a contemporary office and may not be graded `documented` without a second, nearer record. The ward on printed page 38 is a ward of the CITY of 1839 and places no house in the town of 1835. Identity by the crosswalk's own rule: Surname 'Loyd' folds to the same string as the register entry's, and the given name of both begins A. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “LOYD A”, 1836-06-21: 1 lot in the platted town — lot 8 of block 32 in the town the register codes CHIOT (L8BL32CHIOT, as printed), 0.00 acres stated in all, for $3000.00 (ls1335). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $3000.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: LOYD A matches Alexander Loyd: the forename names Alexander Loyd of the 1 person of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "census_evidence": [
     {
@@ -125,12 +190,56 @@
      "precision": "year",
      "dated_by": "printing_year",
      "covers_scene_date": false,
+     "fills_scene_view": false,
      "confidence": "attested",
      "sources": [
       "fergus_chicago_directory_1839"
      ],
      "claim": null,
-     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839.",
+     "premises": null
+    },
+    {
+     "role": null,
+     "kind": "office",
+     "as_printed": "mayor of chicago",
+     "from": "1840",
+     "to": "1840",
+     "precision": "year",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "claim": "f1839_r0058",
+     "place": "not_stated",
+     "employer_or_body": "city_of_chicago",
+     "note": "AN OFFICE FROM THE FERGUS 1839 CITY REGISTER, carried here by its own crosswalk (T-1254, by tools/derive_resident_roles.py). The register is a retrospective table set in 1876, and its carry rule is explicit: a later office is corroboration of CONTINUED RESIDENCE and never an 1835 fact. It therefore does not stand in the 1835 view.",
+     "premises": null
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "carpenter and builder, (L., Blakesley & Co.)",
+     "from": "1843",
+     "to": "1843",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "claim": "f1843_e1623",
+     "place": "res 52 Wells",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1843 DIRECTORY, 8 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
     }
    ],
    "merge_ruling": [
@@ -145,7 +254,31 @@
      "for_merge": "THIS IS THE STRONGEST MERGE ARGUMENT IN THE FORTY-THREE AND IT IS RECORDED IN FULL. Two consecutive directories print the same man's trade, firm and street under the two spellings: Fergus 1843 has 'Loyd, Alexander, carpenter and builder, (L., Blakesley & Co.), res 52 Wells [4th mayor…]' and Norris 1844 has 'Lloyd, Alexander, builder, of L. Blakesly & Co. res Wells b Lake and Randolph sts'. Same given name, same trade, same firm, same street. Moses & Kirkland's History sets both spellings inside one work and for one man — v1 indexes 'Loyd, Alexander, 102' and prints 'Alexander Lloyd' at four places, v2 prints 'Alexander Loyd, Mayor of the city' and 'with Alexander Lloyd for the building of…' — and the Democrat prints 'A. Lloyd' on 29 October 1834 and 'A. Loyd' on 19 November 1834, three weeks apart. The firm and the address are NON-NAME discriminators and they agree; the town is carrying its own fourth mayor as two residents.",
      "against_merge": "AND IT IS STILL REFUSED HERE, BECAUSE NO LANDED RULE REACHES IT AND THIS PASS MAY NOT WRITE ONE. C9 wants one publication caught setting both spellings for one man INSIDE THE WINDOW: the Democrat's two settings are two different issues, and Moses & Kirkland is an 1895 history describing 1840, so the catch is outside the window and its v2 index besides carries a 'Lloyd, Alexander C., 384' whose middle initial neither card has. C11 is the rule this evidence actually fits — two spellings discharging one documented office, tied by a non-name discriminator — but C11 as drafted requires THE SURNAME TO AGREE LETTER FOR LETTER and varies the forename, and it is the surname that varies here. That asymmetry is the same one C14 was written to fix for C12, and fixing it for C11 is a new MERGE rule. T-1027 is explicit that the one-letter pool may not be closed by widening the join, and a merge is a card DELETION that moves the town's count; drawing a rule to make one is the owner's call and not this pass's. So the argument is kept verbatim, as D7 requires, and the cards stay two."
     }
-   ]
+   ],
+   "age_band": {
+    "value": "15-19",
+    "low": 15,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 15 under 20', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "loyd_alexander:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('loyd_alexander:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   },
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "inferred",
+    "note": "A FORENAME THAT STANDS IN ONE SEX'S NAMING ONLY. 'Alexander' is read as male because 2 persons in this layer whose sex a source records bear it (fullerton_alexander, robinson_alexander). Nothing about this person is recorded; the name is the whole of the reasoning, and the table that licenses it — data/research/residents/forename_sex.json — refuses a name its own evidence splits, refuses Jean, Marion, Leslie and Francis by name, and refuses an initial outright."
+   }
   }
  ],
  "touches_removal": false,

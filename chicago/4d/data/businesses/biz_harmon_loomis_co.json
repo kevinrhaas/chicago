@@ -1,0 +1,165 @@
+{
+  "id": "biz_harmon_loomis_co",
+  "register_id": "business_harmon_loomis_co",
+  "name": "Harmon, Loomis & Co.",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "wholesale and retail dry goods, groceries, hardware and crockery",
+  "occupation": "dry_goods_merchant",
+  "goods": [
+    "Brandy",
+    "Champaigne",
+    "Claret",
+    "Confectionary",
+    "Crockery",
+    "Cutlery",
+    "Dry Goods",
+    "Glass",
+    "Glass Ware",
+    "Glassware",
+    "Groceries",
+    "Hard Ware",
+    "Hardware",
+    "Holland Gin",
+    "Hyson tea",
+    "Iron",
+    "Jamaica Rum",
+    "Lemon Syrup",
+    "Liquors",
+    "Loaf sugar",
+    "Maccaboy Snuff",
+    "Madeira",
+    "Molasses",
+    "Muscat",
+    "Nails",
+    "New-Orleans Molasses",
+    "Port",
+    "Raisins",
+    "Rum",
+    "Saleratus",
+    "Sherry",
+    "St. Croix Rum",
+    "Steel",
+    "Sugar",
+    "Tea",
+    "Tobacco",
+    "Wines",
+    "crockery",
+    "dry goods",
+    "glassware",
+    "groceries",
+    "hardware"
+  ],
+  "firm_styles": [
+    "Harmon, Loomis & Co.",
+    "Harmon, Loomis & Co"
+  ],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "Harmon",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "partner",
+      "from": "1834-07-02",
+      "to": "1835-07-25",
+      "tier": "attested",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c013",
+        "chicago_american_1835_06_20#c006",
+        "chicago_american_1835_07_25#c004",
+        "chicago_democrat_1834_07_02#c005",
+        "chicago_democrat_1834_09_03#c021",
+        "chicago_democrat_1834_11_05#c007",
+        "chicago_democrat_1835_05_27#c006"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Loomis",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "partner",
+      "from": "1834-07-02",
+      "to": "1835-07-25",
+      "tier": "attested",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c013",
+        "chicago_american_1835_06_20#c006",
+        "chicago_american_1835_07_25#c004",
+        "chicago_democrat_1834_07_02#c005",
+        "chicago_democrat_1834_09_03#c021",
+        "chicago_democrat_1834_11_05#c007",
+        "chicago_democrat_1835_05_27#c006"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1834-07-02",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names South Water Street and nothing narrower; the anchor '[…] So[u]th Water Street, Mme sete Sayth Water Street,' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-02",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-07-02, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-07-02",
+    "last_issue": "1835-07-25",
+    "copy_dates": [
+      "1834-05-20",
+      "1835-05-27",
+      "1835-06-08"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_08#c013",
+    "chicago_american_1835_06_20#c006",
+    "chicago_american_1835_07_25#c004",
+    "chicago_democrat_1834_07_02#c005",
+    "chicago_democrat_1834_09_03#c021",
+    "chicago_democrat_1834_11_05#c007",
+    "chicago_democrat_1835_05_27#c006"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

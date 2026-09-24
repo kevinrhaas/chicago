@@ -913,7 +913,7 @@ def main():
         summary=dict(blocks=len(blocks),
                      reserved=sorted(RESERVED),
                      cut_by_south_branch=sorted(BANK_PENDING),
-                     total_block_area_m2=round(sum(b["area_m2"] for b in blocks), 1)),
+                     total_block_area_m2=round(math.fsum(b["area_m2"] for b in blocks), 1)),
         blocks=blocks,
     )
 

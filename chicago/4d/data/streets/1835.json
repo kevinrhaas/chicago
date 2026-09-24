@@ -17,7 +17,52 @@
       "name_1835": "South Water Street",
       "name_2026": "Wacker Drive",
       "name_changed": true,
-      "path_local_enu_m": [[100, -101], [120, -57], [140, -35], [160, -18], [180, -5], [220, 6], [330, 7], [452, 8], [576, 9], [699, 7], [805, 4]],
+      "path_local_enu_m": [
+        [
+          100,
+          -101
+        ],
+        [
+          120,
+          -57
+        ],
+        [
+          140,
+          -35
+        ],
+        [
+          160,
+          -18
+        ],
+        [
+          180,
+          -5
+        ],
+        [
+          220,
+          6
+        ],
+        [
+          330,
+          7
+        ],
+        [
+          452,
+          8
+        ],
+        [
+          576,
+          9
+        ],
+        [
+          699,
+          7
+        ],
+        [
+          805,
+          4
+        ]
+      ],
       "corridor_width_m": 24.384,
       "track_width_m": 10.5,
       "surface": "graded_earth",
@@ -25,15 +70,25 @@
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["chicago_dpw_1891_streets", "wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "The curved west approach follows the dry south bank resolved by the committed heightfield; east of Franklin the line follows the modern Wacker control used by the structure placements but is shifted into the dry half of the platted riverfront corridor, AND SINCE 2026-08-28 THAT SHIFT IS A MEASUREMENT RATHER THAN A SENTENCE: 8.28 m south, measured perpendicular to this centreline from `control.south_water_franklin` in data/traces/street_control.json, the first control point ever committed on this street. That is 68 per cent of the 12.192 m half of the 80 ft platted module, so the line sits inside the corridor's dry half with 3.91 m to spare before its south edge if the corridor is centred on the modern junction. Nothing was re-derived and nothing moved — the standoff is the reconstruction decision this note already described, and it is now checkable. The corner of the two committed centrelines falls at local (208.49, +2.83) against the control's (208.46, +11.41): the whole 8.58 m disagreement is across this street and 0.03 m of it is across Franklin. The street stops at the United States Reservation, matching the 1833 order. AND THE WEST END IS NOT WHERE THE NOTE ABOVE IMPLIES, MEASURED 2026-08-29 BY T-0183: the drawn end at local (100, -101) stands 34 m SOUTH of the northernmost line the committed bank allows there, and 9.5 m from Lake Street's own committed centreline, so the last stretch of this street's platted corridor overlaps Lake's by 14.9 m. That is why the corner at Market cannot be closed without emitting blk_south_water_market as a bowtie, and why the block is a wedge the South Branch pinches out rather than a rectangle waiting on a trace — see `refused_control.market_south_water` in data/traces/street_control.json. Track width and ruts are visual interpretation, not measurements. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. The plat's line is the module; the curved west approach and the measured 8.28 m southward shift recorded above are how that platted corridor is SEATED on this ground, and they remain the reasoning for the placement rather than for the existence."
+      "sources": [
+        "chicago_dpw_1891_streets",
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "The curved west approach follows the dry south bank resolved by the committed heightfield; east of Franklin the line follows the modern Wacker control used by the structure placements but is shifted into the dry half of the platted riverfront corridor, AND SINCE 2026-08-28 THAT SHIFT IS A MEASUREMENT RATHER THAN A SENTENCE: 8.28 m south, measured perpendicular to this centreline from `control.south_water_franklin` in data/traces/street_control.json, the first control point ever committed on this street. That is 68 per cent of the 12.192 m half of the 80 ft platted module, so the line sits inside the corridor's dry half with 3.91 m to spare before its south edge if the corridor is centred on the modern junction. Nothing was re-derived and nothing moved — the standoff is the reconstruction decision this note already described, and it is now checkable. The corner of the two committed centrelines falls at local (208.49, +2.83) against the control's (208.46, +11.41): the whole 8.58 m disagreement is across this street and 0.03 m of it is across Franklin. The street stops at the United States Reservation, matching the 1833 order. AND THE WEST END IS NOT WHERE THE NOTE ABOVE IMPLIES, MEASURED 2026-08-29 BY T-0183: the drawn end at local (100, -101) stands 34 m SOUTH of the northernmost line the committed bank allows there, and 9.5 m from Lake Street's own committed centreline, so the last stretch of this street's platted corridor overlaps Lake's by 14.9 m. That is why the corner at Market cannot be closed without emitting blk_south_water_market as a bowtie, and why the block is a wedge the South Branch pinches out rather than a rectangle waiting on a trace — see `refused_control.market_south_water` in data/traces/street_control.json. Track width and ruts are visual interpretation, not measurements. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. The plat's line is the module; the curved west approach and the measured 8.28 m southward shift recorded above are how that platted corridor is SEATED on this ground, and they remain the reasoning for the placement rather than for the existence."
     },
     {
       "id": "lake",
       "name_1835": "Lake Street",
       "name_2026": "W Lake Street",
       "name_changed": false,
-      "path_local_enu_m": [[-320, -107.1], [89.2, -110.4], [900, -117]],
+      "path_local_enu_m": [
+        [-522.025, -105.461],
+        [-320, -107.1],
+        [89.2, -110.4],
+        [900, -117]
+      ],
       "track_width_m": 10.5,
       "surface": "graded_earth",
       "traffic": "principal",
@@ -41,14 +96,19 @@
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
       "sources": ["chicago_dpw_1891_streets", "hathaway_1834", "wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "The two verified Lake intersections fix the line. The official chronology calls Lake one of the two principal early turnpiked and graded streets, but separately dates its western extension to Desplaines to fall 1836; the 1835 visual treatment therefore stays earth and does not imply that every western block had already received the later work. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "note": "The two verified Lake intersections fix the line. The official chronology calls Lake one of the two principal early turnpiked and graded streets, but separately dates its western extension to Desplaines to fall 1836; the 1835 visual treatment therefore stays earth and does not imply that every western block had already received the later work. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. WEST TO DES PLAINES STREET (T-1443). The line is carried 202.03 m west of the clip at local east -320 to [-522.025, -105.461], where it meets des_plaines, the westernmost platted street of the West Division (T-1430). The clip was this reconstruction's own extent and never a claim that the street ended there; T-1416 built the modelled field out to local east -705 and T-1430 seated the street it now stops at, so the two reasons it stood are both gone. THE REACH IS CARRIED FROM THE OLD WEST END, NOT FITTED THROUGH IT: the bearing is -0.008115, read from the Thompson plat's own east-west grid, which `lake`, `randolph` and `washington` carry to six decimals. Every committed vertex east of -320 is left exactly where it stood — the old west end is KEPT as a vertex rather than replaced — so no platted lot line moves, no corridor is re-cut and the corridor-intrusion count is untouched. What the carry does add is a 0.0029 deg change of direction AT that retained vertex, and it is stated here rather than rounded away. The confidence is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 42 samples along the new reach against the committed heightfield, none off the modelled box, the lowest standing 1.05 m above the summer-1835 water surface."
     },
     {
       "id": "randolph",
       "name_1835": "Randolph Street",
       "name_2026": "W Randolph Street",
       "name_changed": false,
-      "path_local_enu_m": [[-320, -249.9], [-155.24, -251.19], [900, -259.8]],
+      "path_local_enu_m": [
+        [-518.603, -248.288],
+        [-320, -249.9],
+        [-155.24, -251.19],
+        [900, -259.8]
+      ],
       "track_width_m": 7.0,
       "surface": "worn_earth",
       "traffic": "ordinary",
@@ -56,14 +116,18 @@
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
       "sources": ["chicago_dpw_1891_streets", "wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "The fall-1836 turnpiking recorded for Randolph is deliberately not backdated. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "note": "The fall-1836 turnpiking recorded for Randolph is deliberately not backdated. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. WEST TO DES PLAINES STREET (T-1443). The line is carried 198.61 m west of the clip at local east -320 to [-518.603, -248.288], where it meets des_plaines, the westernmost platted street of the West Division (T-1430). The clip was this reconstruction's own extent and never a claim that the street ended there; T-1416 built the modelled field out to local east -705 and T-1430 seated the street it now stops at, so the two reasons it stood are both gone. THE REACH IS CARRIED FROM THE OLD WEST END, NOT FITTED THROUGH IT: the bearing is -0.008115, read from the Thompson plat's own east-west grid, which `lake`, `randolph` and `washington` carry to six decimals. Every committed vertex east of -320 is left exactly where it stood — the old west end is KEPT as a vertex rather than replaced — so no platted lot line moves, no corridor is re-cut and the corridor-intrusion count is untouched. What the carry does add is a 0.0164 deg change of direction AT that retained vertex, and it is stated here rather than rounded away. The confidence is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 41 samples along the new reach against the committed heightfield, none off the modelled box, the lowest standing 1.3 m above the summer-1835 water surface."
     },
     {
       "id": "washington",
       "name_1835": "Washington Street",
       "name_2026": "W Washington Street",
       "name_changed": false,
-      "path_local_enu_m": [[-320, -385.2], [900, -395.1]],
+      "path_local_enu_m": [
+        [-515.361, -383.615],
+        [-320, -385.2],
+        [900, -395.1]
+      ],
       "track_width_m": 5.8,
       "surface": "light_worn_earth",
       "traffic": "light",
@@ -71,21 +135,34 @@
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
       "sources": ["wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. WEST TO DES PLAINES STREET (T-1443). The line is carried 195.37 m west of the clip at local east -320 to [-515.361, -383.615], where it meets des_plaines, the westernmost platted street of the West Division (T-1430). The clip was this reconstruction's own extent and never a claim that the street ended there; T-1416 built the modelled field out to local east -705 and T-1430 seated the street it now stops at, so the two reasons it stood are both gone. THE REACH IS CARRIED FROM THE OLD WEST END, NOT FITTED THROUGH IT: the bearing is -0.008115, read from the Thompson plat's own east-west grid, which `lake`, `randolph` and `washington` carry to six decimals. Every committed vertex east of -320 is left exactly where it stood — the old west end is KEPT as a vertex rather than replaced — so no platted lot line moves, no corridor is re-cut and the corridor-intrusion count is untouched. What the carry does add is a 0.0 deg change of direction AT that retained vertex, and it is stated here rather than rounded away. The confidence is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 41 samples along the new reach against the committed heightfield, none off the modelled box, the lowest standing 1.305 m above the summer-1835 water surface."
     },
     {
       "id": "market",
       "name_1835": "Market Street",
       "name_2026": "N Wacker Drive",
       "name_changed": true,
-      "path_local_enu_m": [[84.18, -400], [85.9, -110.4]],
+      "path_local_enu_m": [
+        [
+          84.18,
+          -400
+        ],
+        [
+          85.9,
+          -110.4
+        ]
+      ],
       "track_width_m": 8.0,
       "surface": "worn_earth",
       "traffic": "principal",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["wright_1834", "osm_streets_2026", "thompson_plat_1830"],
+      "sources": [
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
       "note": "RE-FITTED OFF THE PLAT'S OWN MODULE FOR T-0827, 2026-09-12, and it is no longer fitted to N Wacker Drive. Until this reading the whole line was ONE modern junction and a bearing: its north vertex WAS `control.lake_market` — West Lake Street crossing North Upper Wacker Drive, read off OpenStreetMap — to the centimetre, and `refused_control.market_south_water` records the only other junction this project has looked for on this street and could not make. Wacker Drive was built in 1926 on ground made when the river was walled, so that one control stands on ground that did not exist in 1835. THE PITCH IS WHAT SETTLES IT, because Market's centre to Franklin's is one 400 ft module of the plat and three readings of it disagree with the committed lines in the same direction: the platted module is 121.92 m; the Wright 1834 sheet reads 120.21 m — five steps of the uniform ladder of block boundary lines its Lake Street traverse crosses east of the river, committed as pixels in data/traces/vectors/street_corridors_1834.json; the Thompson plat's North Division tier reads 124.81 m (T-0451). The two independently measured sheets BRACKET the module, 1.7 m under and 2.9 m over, which is what two hand-drawn sheets carrying 3-4.5 % paper stretch should do — and the committed pitch of 118.0-119.2 m lay outside that bracket at every northing of the run, the only pitch on this grid that did, where the other five South Division pitches read 121.8-123.6 m. So the line is stepped one module west of the committed `franklin`, which has a real crossing of two named surface roadways at `control.south_water_franklin` and reproduces from it to 0.03 m, and it takes Franklin's bearing with it. It moves 2.72 m west at the south end and 3.30 m west at Lake Street; the northing extent is untouched, because this ticket moves the line across and not along. MARKET IS THE ONE STREET ON THIS GRID NO SHEET FIXES DIRECTLY, and that is why the module had to do it: the street's west side is the river bank its whole length — which is why Wacker Drive stands there now — so the Wright traverse crosses 107 m of blank paper where this line runs, and the Thompson plat cuts block 21 off at the Wolf Point triangle before its west line, leaving its south tier with no measured Market face either. The derivation is tools/measure_market_line.py and its assertions are part of tools/check.sh. WHAT THE MOVE COSTS: the corridor stands 3.3 m nearer the river at its north end, and on e1834_harbor_cut the centreline is dry over its whole run either way (0.39-0.78 m at 5 m sampling) while the west kerb is already under water north of about N -140 on the line this replaces, and is 0.5 m deeper there now. A kerb over the modelled bank is a statement about the bank's own traced position, not about the street: the same 17.5 m of datum uncertainty bounds both. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
     },
     {
@@ -93,68 +170,144 @@
       "name_1835": "Franklin Street",
       "name_2026": "N Franklin Street",
       "name_changed": false,
-      "path_local_enu_m": [[206.1, -400], [208.5, 5]],
+      "path_local_enu_m": [
+        [
+          206.1,
+          -400
+        ],
+        [
+          208.5,
+          5
+        ]
+      ],
       "track_width_m": 7.0,
       "surface": "worn_earth",
       "traffic": "ordinary",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "The north end of this line is the one place on the reconstruction where a modern junction can be made on South Water Street, and 2026-08-28 it was: `control.south_water_franklin` in data/traces/street_control.json, the mean of Franklin's two crossings of Wacker Drive's carriageways. The committed line extended to that junction's northing gives easting 208.49 against the control's 208.46 \u2014 0.03 m. That is a reproduction, not an independent confirmation: `osm_streets_2026` is already one of this record's sources, so what it establishes is that the line can be re-derived from the source it names, which until now it could not be. Nothing moved. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "sources": [
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "The north end of this line is the one place on the reconstruction where a modern junction can be made on South Water Street, and 2026-08-28 it was: `control.south_water_franklin` in data/traces/street_control.json, the mean of Franklin's two crossings of Wacker Drive's carriageways. The committed line extended to that junction's northing gives easting 208.49 against the control's 208.46 — 0.03 m. That is a reproduction, not an independent confirmation: `osm_streets_2026` is already one of this record's sources, so what it establishes is that the line can be re-derived from the source it names, which until now it could not be. Nothing moved. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
     },
     {
       "id": "wells",
       "name_1835": "Wells Street",
       "name_2026": "N Wells Street",
       "name_changed": false,
-      "path_local_enu_m": [[328.1, -400], [330.5, 7]],
+      "path_local_enu_m": [
+        [
+          328.1,
+          -400
+        ],
+        [
+          330.5,
+          7
+        ]
+      ],
       "track_width_m": 7.0,
       "surface": "worn_earth",
       "traffic": "ordinary",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "sources": [
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
     },
     {
       "id": "lasalle",
       "name_1835": "La Salle Street",
       "name_2026": "N LaSalle Street",
       "name_changed": false,
-      "path_local_enu_m": [[450.1, -400], [452.5, 8]],
+      "path_local_enu_m": [
+        [
+          450.1,
+          -400
+        ],
+        [
+          452.5,
+          8
+        ]
+      ],
       "track_width_m": 7.0,
       "surface": "worn_earth",
       "traffic": "ordinary",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["chicago_dpw_1891_streets", "wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "Hubbard's petition says he had graded and thrown up the short South Water-to-Lake segment, but is dated 13 July 1835. On the scene date twelve days earlier this path therefore receives no special improved treatment. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "sources": [
+        "chicago_dpw_1891_streets",
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "Hubbard's petition says he had graded and thrown up the short South Water-to-Lake segment, but is dated 13 July 1835. On the scene date twelve days earlier this path therefore receives no special improved treatment. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
     },
     {
       "id": "clark",
       "name_1835": "Clark Street",
       "name_2026": "N Clark Street",
       "name_changed": false,
-      "path_local_enu_m": [[573.4, -400], [576, 9]],
+      "path_local_enu_m": [
+        [
+          573.4,
+          -400
+        ],
+        [
+          576,
+          9
+        ]
+      ],
       "track_width_m": 7.0,
       "surface": "worn_earth",
       "traffic": "ordinary",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["chicago_dpw_1891_streets", "wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "sources": [
+        "chicago_dpw_1891_streets",
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
     },
     {
       "id": "dearborn",
       "name_1835": "Dearborn Street",
       "name_2026": "N Dearborn Street",
       "name_changed": false,
-      "path_local_enu_m": [[696.4, -400], [699, 18]],
-      "drawn_track_local_enu_m": [[696.4, -400], [698.932, 7.0], [697.65, 20.7]],
+      "path_local_enu_m": [
+        [
+          696.4,
+          -400
+        ],
+        [
+          699,
+          18
+        ]
+      ],
+      "drawn_track_local_enu_m": [
+        [
+          696.4,
+          -400
+        ],
+        [
+          698.932,
+          7.0
+        ],
+        [
+          697.65,
+          20.7
+        ]
+      ],
       "drawn_track_note": "The platted line stops at [699, 18], on the crest of the drawbridge approach fill, 2.70 m short of the causeway. The worn wheel line does not: it leaves the platted line at the South Water corner and runs one straight 13.8 m chord onto the fill's own axis, ending on the deck. RECONSTRUCTED, and what bounds it is measured. The last point IS the deck end — the south edge midpoint of the dearborn_street_drawbridge footprint, local E 697.65 / N 20.70, which is also line[0] of the dearborn_south approach in terrain_spec.json, so nothing here invents where the boards begin. The first point is the platted line at N 7.0, which is where south_water crosses it, so the swing starts at the corner the traffic comes from rather than at a chosen station. Held on the platted line the track's east edge would stand 4.87 m off the fill's axis, 0.87 m outside the 4.0 m half-width the earthwork is level across, and the last stride onto the causeway would be taken on a side slope; swung onto the axis, every metre of the 7 m width ends on the level crest. What is invented is that the swing is one chord and takes 13.8 m. ONE chord because the ribbon's panels are drawn square to their own chord and are not mitred at the joints, so each turn opens a wedge of prairie on the outside of it (3.5 tan(turn/2) wide at the ribbon's edge, nothing at its centre) and one 5.7-degree joint is the fewest and smallest a swing can be cut into: a 0.61 m2 sector, 0.17 m at its widest, inside the 0.84 m the road texture's own edge already fades out across — and because the joint stands at the corner, South Water Street's own 10.5 m roadway is drawn over half of it, so 0.30 m2 is what a 2 cm plan probe finds uncovered by any street. An eight-chord easement was measured first and was seven times worse (2.18 m2), because eight joints turn eight times. The line is never more than 1.37 m off the platted line, a ninth of the 80 ft corridor. See docs/LIBERTIES.md L178 and ticket T-0111.",
       "track_width_m": 7.0,
       "surface": "worn_earth",
@@ -162,37 +315,100 @@
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "sources": [
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
     },
     {
       "id": "state",
       "name_1835": "State Street",
       "name_2026": "N State Street",
       "name_changed": false,
-      "path_local_enu_m": [[824.4, -400], [827.1, 20]],
+      "path_local_enu_m": [
+        [
+          824.4,
+          -400
+        ],
+        [
+          827.1,
+          20
+        ]
+      ],
       "track_width_m": 6.0,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "sources": [
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
     },
     {
       "id": "west_water",
       "name_1835": "West Water Street",
       "name_2026": "no street survives; the Chicago Riverwalk runs nearest",
       "name_changed": true,
-      "path_local_enu_m": [[-20.21, -404.02], [-15.68, -359.15], [-17.32, -322.26], [-13.08, -302.6], [-9.29, -253.85], [-9.58, -205.6], [1.1, -134.02], [-0.08, -117.1], [-7.92, -106.17], [-39.48, -86.63]],
+      "path_local_enu_m": [
+        [
+          -20.21,
+          -404.02
+        ],
+        [
+          -15.68,
+          -359.15
+        ],
+        [
+          -17.32,
+          -322.26
+        ],
+        [
+          -13.08,
+          -302.6
+        ],
+        [
+          -9.29,
+          -253.85
+        ],
+        [
+          -9.58,
+          -205.6
+        ],
+        [
+          1.1,
+          -134.02
+        ],
+        [
+          -0.08,
+          -117.1
+        ],
+        [
+          -7.92,
+          -106.17
+        ],
+        [
+          -39.48,
+          -86.63
+        ]
+      ],
       "track_width_m": 5.8,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "inferred",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["wright_1834", "thompson_plat_1830", "fergus_chicago_directory_1839", "osm_streets_2026"],
+      "sources": [
+        "wright_1834",
+        "thompson_plat_1830",
+        "fergus_chicago_directory_1839",
+        "osm_streets_2026"
+      ],
       "note": "T-0445. THE WEST DIVISION'S RIVERFRONT STREET, SEATED OFF THE COMMITTED WATERLINE AND NOTHING ELSE. The plat carries five north-south streets west of the river — West Water, Canal, Clinton, Jefferson, Des Plaines (the owner's reading of the sheet, T-0443) — and this file held only the middle two. West Water is the one of the three missing lines the modelled ground can carry, so it is seated here and the other two are refused in docs/RESEARCH/west_division_streets.md with the measurement that refuses them. METHOD: the centreline is the committed west bank of the South Branch (data/terrain/epochs/e1834_harbor_cut/river.geojson, traced from Wright 1834 and graded inferred there) offset one half-corridor — 12.192 m — to the west, so the street's EAST KERB stands on the 1834 waterline. That is the furthest east an 80 ft street on this bank can be, which is the same bound T-0444's swap test rested on; taking the bound as the placement is this line's one reconstruction and WHAT WOULD MOVE IT IS STATED: any wharf or landing strip between the kerb and the water pushes the whole line west by its width, and no source reached gives that width. Every vertex is 12.19-12.29 m from the bank, so the kerb reaches the waterline and does not cross it. THE GRADE IS INHERITED and is not better than its anchor: the bank is inferred, so this is. THE REACH WAS CARRIED PAST THE TURN BY T-0768, AND IT STOPS WHERE A COMMITTED FOOTPRINT STANDS IN IT. T-0445 ended the line at local north -104, where the traced bank turns west into the junction pool at Wolf Point, because an offset line past the turn runs through the attested Wolf Point cluster; it did not measure how far past the turn the line gets FIRST, and the answer is 39.55 m. The same bank offset is carried along the bank's Wolf Point segment until the riverward corridor reaches JAMES KINZIE'S HOUSE, whose footprint spans 6.77-16.99 m west of the bank and therefore stands ACROSS the roadway rather than beside it, and the line is cut there: 37.12 m of new centreline, of which 20.30 m lies north of West Lake Street's north kerb. That is the frontage Fergus 1839's 'W. Water st north of West Lake st' attests and this reconstruction carried none of — the old end stood 6.79 m SOUTH of Lake's own north kerb, so the attested reach had zero length. JOINING THE TWO REACHES MITRES THE VERTEX AT THE TURN, which is why the old end [-9.34, -104.20] now reads [-7.92, -106.17]: it was the perpendicular end of the last segment and it is now the mitre joint between two, still 12.192 m from the bank. WHAT IS NOT SEATED, and the measurement that refuses it, is in docs/RESEARCH/west_division_streets.md § 1: past the cut five more committed placements — James Kinzie's house, Robert Kinzie's store, the Wolf Point tavern and its stable, the Robinson-Caldwell cabins and the Walker meeting house — stand 3.76-23.50 m from the traced bank at their nearest corners, so the widest clear strip between the water and the cluster is 3.76 m against the 24.384 m an 80 ft street needs, and no line fits riverward of them. ATTESTATION, all of it already committed here: Fergus 1839 prints three West Water addresses (a hotel at the Randolph corner, a grocery and ship stores near Randolph, the Rat's-castle Hotel north of West Lake) — 1839 evidence recalled in 1876, which attests the street and is NOT backdated into its 1835 wear, which is why the traffic grade here is the light one Clinton carries and not Canal's; and south_branch_raft_bridge's committed position puts its west landing on West Water Street, with the war-dance procession coming south along it. NOTHING SURVIVES ON THE LINE and the negative is recorded rather than passed over: an Overpass query for every named highway in the box 41.8825/-87.6395 to 41.8862/-87.6368, run 2026-09-05, returned Wacker Drive and its lower decks on the EAST bank, the cross streets, and the Riverwalk — no through street on the west bank of the South Branch. The bridge record's parenthetical gloss 'West Water Street (now Canal Street)' cannot be right for this line: the committed `canal` is fitted to modern Canal Street's own surviving intersections and stands 131-159 m west of it over the reach they share, which is about one plat module, exactly as the plat draws the two as separate streets."
     },
     {
@@ -200,52 +416,154 @@
       "name_1835": "Canal Street",
       "name_2026": "N/S Canal Street",
       "name_changed": false,
-      "path_local_enu_m": [[-150.8, -400], [-159.67, -108.38], [-181.0, 262], [-189, 400]],
+      "path_local_enu_m": [
+        [
+          -150.8,
+          -400
+        ],
+        [
+          -159.67,
+          -108.38
+        ],
+        [
+          -181.0,
+          262
+        ],
+        [
+          -189,
+          400
+        ]
+      ],
       "track_width_m": 7.0,
       "surface": "worn_earth",
       "traffic": "ordinary",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["chicago_dpw_1891_streets", "hathaway_1834", "wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "The line uses the road-only Kinzie control already adopted by the North Branch bridge rather than the queued five-node bikeway-inclusive GCP. Its recorded turnpiking belongs to fall 1836 and is not backdated. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. The fall-1836 grading work on Canal is still not backdated into this scene, which is a claim about surface and belongs to `surface_confidence`. WHICH READING, AND WHERE IT IS WRITTEN DOWN (T-0421, 2026-09-13). The sentence this note opens with — that the line uses the road-only Kinzie control — pointed at no record, and the coordinate it means lived in prose in three places. It is committed now as `data/traces/street_control.json` \u00a7 control.kinzie_canal.road_only_reading (E 446891.71, N 4637657.80, the three road nodes of the five), and that entry names this record back. BOTH READINGS STAND, for stated reasons: the five-node mean stays the control point because it is georeferencing GCP HB and re-deriving it re-runs the Hathaway fit and re-bakes the North Branch bridge, and this line stays on the road-only reading because that is the one `node_rule` prescribes. WHAT THAT COSTS THIS STREET, now measured instead of asserted: `tools/plat_corridors.py` control_offsets() derives the platted corridor from the committed control, and against the five-node mean Canal's three control points spread 2.33 m (lake_canal +0.00, randolph_canal +0.09, kinzie_canal -2.24), which is `disagree` — no rigid translation satisfies all three, so Canal's corridor stays on this drawn line. Against `road_only_reading` the same three spread 0.09 m. The 2.33 m is the Kinzie Street Bikeway inside the control's average, not this street disagreeing with itself; the line reproduces its own control to 9 cm. NOTHING MOVES ON EITHER READING — 0.09 m is still wider than the 0.01 m the offsets are quoted to, so the verdict is `disagree` both ways and the corridor sits where it sat. `tools/measure_canal_control_spread.py` re-derives both numbers on every commit."
+      "sources": [
+        "chicago_dpw_1891_streets",
+        "hathaway_1834",
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "The line uses the road-only Kinzie control already adopted by the North Branch bridge rather than the queued five-node bikeway-inclusive GCP. Its recorded turnpiking belongs to fall 1836 and is not backdated. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. The fall-1836 grading work on Canal is still not backdated into this scene, which is a claim about surface and belongs to `surface_confidence`. WHICH READING, AND WHERE IT IS WRITTEN DOWN (T-0421, 2026-09-13). The sentence this note opens with — that the line uses the road-only Kinzie control — pointed at no record, and the coordinate it means lived in prose in three places. It is committed now as `data/traces/street_control.json` § control.kinzie_canal.road_only_reading (E 446891.71, N 4637657.80, the three road nodes of the five), and that entry names this record back. BOTH READINGS STAND, for stated reasons: the five-node mean stays the control point because it is georeferencing GCP HB and re-deriving it re-runs the Hathaway fit and re-bakes the North Branch bridge, and this line stays on the road-only reading because that is the one `node_rule` prescribes. WHAT THAT COSTS THIS STREET, now measured instead of asserted: `tools/plat_corridors.py` control_offsets() derives the platted corridor from the committed control, and against the five-node mean Canal's three control points spread 2.33 m (lake_canal +0.00, randolph_canal +0.09, kinzie_canal -2.24), which is `disagree` — no rigid translation satisfies all three, so Canal's corridor stays on this drawn line. Against `road_only_reading` the same three spread 0.09 m. The 2.33 m is the Kinzie Street Bikeway inside the control's average, not this street disagreeing with itself; the line reproduces its own control to 9 cm. NOTHING MOVES ON EITHER READING — 0.09 m is still wider than the 0.01 m the offsets are quoted to, so the verdict is `disagree` both ways and the corridor sits where it sat. `tools/measure_canal_control_spread.py` re-derives both numbers on every commit."
     },
     {
       "id": "clinton",
       "name_1835": "Clinton Street",
       "name_2026": "N/S Clinton Street",
       "name_changed": false,
-      "path_local_enu_m": [[-276.5, -400], [-288, 80]],
+      "path_local_enu_m": [
+        [
+          -276.5,
+          -400
+        ],
+        [
+          -288,
+          80
+        ]
+      ],
       "track_width_m": 5.8,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["hathaway_1834", "wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "sources": [
+        "hathaway_1834",
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+    },
+    {
+      "id": "jefferson",
+      "name_1835": "Jefferson Street",
+      "name_2026": "N/S Jefferson Street",
+      "name_changed": false,
+      "path_local_enu_m": [[-391.143, -400], [-402.643, 80]],
+      "corridor_width_m": 24.384,
+      "track_width_m": 0,
+      "opened": false,
+      "worn": false,
+      "alleys": false,
+      "status_1835": "platted, unopened, unworn",
+      "surface": "unworn_prairie",
+      "traffic": "none",
+      "geometry_confidence": "inferred",
+      "surface_confidence": "inferred",
+      "wear_confidence": "inferred",
+      "sources": ["thompson_plat_1830", "osm_streets_2026"],
+      "name_note": "LETTERED ON THE THOMPSON SHEET as ‘Jefferson’. The bare id was left free for this record on purpose: `jefferson_school_section`'s own name_note says so, and names this seating as the thing it was being kept for. `name_2026` IS committed here, where the School Section's is null, because this line's control is the modern street itself — OpenStreetMap node 262247424 is an intersection on it, and that node is what seats the line. `name_changed` is false: the word on the 1830 sheet and the word on the modern node are the same one.",
+      "note": "SEATED BY T-1430 (piece 1 of T-1417, of T-1193), AND THE REFUSAL IT ANSWERS IS ITS OWN LICENCE. T-0445 refused this street in writing — docs/RESEARCH/west_division_streets.md §2 — for one reason and one only: the modelled ground's west edge stood at local east -320.0 m and this line lay west of it over its whole length, so a street drawn here would have hung off the end of the terrain, and this project already refuses a platted BLOCK on exactly that test. That memo also said what would reverse the refusal, and that it was not more research: “When the box moves, both lines are seatable from control that is already in this file, with no new research.” T-1415 derived the west wall and T-1416 built the field out to local east -705.0 m, so the box has moved and this is the seating it licensed. Nothing new was read to place this line. WHERE THE LINE COMES FROM, the two halves stated apart because they are held differently. POSITION is surviving control already committed to this repository: `fulton`'s own note carries the four OpenStreetMap intersections T-0446 fitted that tier to, read 2026-09-04 and transformed to EPSG:26916 against data/datum.json. Jefferson's is node 262247424 at local east -401.04, north 13.11, and this path passes through it to 0.001 m. BEARING is read from no sheet and no control on this line: it is the committed `clinton` line's own, -0.02395833 m east per metre north, carried across because Clinton is the neighbouring north-south street of the same plat, fitted to the same modern control family, and because ONE intersection fixes a point and not a direction. `geometry_confidence` is `inferred` for that inheritance and not because the street is doubtful: the Thompson plat DRAWS it, which under the owner's ruling of 2026-09-04 (T-0713) is the sheet's own claim that it ran here. WHAT WOULD RAISE IT to `attested` is a second surviving intersection on this line, which would fit the bearing from control instead of inheriting it, the way Fulton's four do for its tier. THE REACH IS INHERITED TOO, and deliberately. The path spans local north -400.0 to +80.0, which is `clinton`'s own committed extent, because a line whose direction is borrowed from Clinton should not claim more ground than Clinton does. The plat rules this street further north and south; this reconstruction does not draw it further, and whatever extends Clinton extends this. THE GROUND IT STANDS ON, measured and not assumed. Sampled at 25 stations 20.0 m apart along the committed path, the heightfield reads 1.305 to 1.325 m above the 1835 water surface and not one station is at or below it (data/terrain/epochs/e1834_harbor_cut/heightfield.json, box local east -705.0..+1700.0). The whole line stands on dry modelled land, which is the test the refusal was written against and the only test it named. STATUS, argued rather than inherited. `track_width_m` is 0, `opened` and `worn` are false and the surface is `unworn_prairie` — the School Section grid's reading, carried here for the same reasons: nothing committed fronts this line, nothing reached attests traffic or wear on it, and the West Division beyond Canal Street was open ground in 1835 (Andreas: “The West Side was an open prairie, entirely free from timber”). What a visitor should see is a platted corridor over prairie, not a road. What would change that is a building seated on it or a source giving it traffic; the 35 placements `tools/generate_west_infill.py` still holds for want of ground are the nearest candidates, and they are T-1431's. AND ONE DISAGREEMENT THIS RECORD DOES NOT SETTLE: `jefferson_school_section`, the same street name south of Madison, runs due north-south at local east -379.98 on the School Section's own grid. Carried to Madison's northing this line would stand 8.3 m west of it. The two are different surveys and this file has always held them as different records; nothing here claims they met, and no line is bent to make them."
+    },
+    {
+      "id": "des_plaines",
+      "name_1835": "Des Plaines Street",
+      "name_2026": "N/S Des Plaines Street",
+      "name_changed": false,
+      "path_local_enu_m": [[-514.968, -400], [-526.468, 80]],
+      "corridor_width_m": 24.384,
+      "track_width_m": 0,
+      "opened": false,
+      "worn": false,
+      "alleys": false,
+      "status_1835": "platted, unopened, unworn",
+      "surface": "unworn_prairie",
+      "traffic": "none",
+      "geometry_confidence": "inferred",
+      "surface_confidence": "inferred",
+      "wear_confidence": "inferred",
+      "sources": ["thompson_plat_1830", "osm_streets_2026"],
+      "name_note": "LETTERED ON THE THOMPSON SHEET as ‘Des Plaines’. The bare id was left free for this record on purpose: `des_plaines_school_section`'s own name_note says so, and names this seating as the thing it was being kept for. `name_2026` IS committed here, where the School Section's is null, because this line's control is the modern street itself — OpenStreetMap node 258966841 is an intersection on it, and that node is what seats the line. `name_changed` is false: the word on the 1830 sheet and the word on the modern node are the same one.",
+      "note": "SEATED BY T-1430 (piece 1 of T-1417, of T-1193), AND THE REFUSAL IT ANSWERS IS ITS OWN LICENCE. T-0445 refused this street in writing — docs/RESEARCH/west_division_streets.md §2 — for one reason and one only: the modelled ground's west edge stood at local east -320.0 m and this line lay west of it over its whole length, so a street drawn here would have hung off the end of the terrain, and this project already refuses a platted BLOCK on exactly that test. That memo also said what would reverse the refusal, and that it was not more research: “When the box moves, both lines are seatable from control that is already in this file, with no new research.” T-1415 derived the west wall and T-1416 built the field out to local east -705.0 m, so the box has moved and this is the seating it licensed. Nothing new was read to place this line. WHERE THE LINE COMES FROM, the two halves stated apart because they are held differently. POSITION is surviving control already committed to this repository: `fulton`'s own note carries the four OpenStreetMap intersections T-0446 fitted that tier to, read 2026-09-04 and transformed to EPSG:26916 against data/datum.json. Des Plaines's is node 258966841 at local east -524.88, north 13.72, and this path passes through it to 0.001 m. BEARING is read from no sheet and no control on this line: it is the committed `clinton` line's own, -0.02395833 m east per metre north, carried across because Clinton is the neighbouring north-south street of the same plat, fitted to the same modern control family, and because ONE intersection fixes a point and not a direction. `geometry_confidence` is `inferred` for that inheritance and not because the street is doubtful: the Thompson plat DRAWS it, which under the owner's ruling of 2026-09-04 (T-0713) is the sheet's own claim that it ran here. WHAT WOULD RAISE IT to `attested` is a second surviving intersection on this line, which would fit the bearing from control instead of inheriting it, the way Fulton's four do for its tier. THE REACH IS INHERITED TOO, and deliberately. The path spans local north -400.0 to +80.0, which is `clinton`'s own committed extent, because a line whose direction is borrowed from Clinton should not claim more ground than Clinton does. The plat rules this street further north and south; this reconstruction does not draw it further, and whatever extends Clinton extends this. THE GROUND IT STANDS ON, measured and not assumed. Sampled at 25 stations 20.0 m apart along the committed path, the heightfield reads 1.290 to 1.325 m above the 1835 water surface and not one station is at or below it (data/terrain/epochs/e1834_harbor_cut/heightfield.json, box local east -705.0..+1700.0). The whole line stands on dry modelled land, which is the test the refusal was written against and the only test it named. STATUS, argued rather than inherited. `track_width_m` is 0, `opened` and `worn` are false and the surface is `unworn_prairie` — the School Section grid's reading, carried here for the same reasons: nothing committed fronts this line, nothing reached attests traffic or wear on it, and the West Division beyond Canal Street was open ground in 1835 (Andreas: “The West Side was an open prairie, entirely free from timber”). What a visitor should see is a platted corridor over prairie, not a road. What would change that is a building seated on it or a source giving it traffic; the 35 placements `tools/generate_west_infill.py` still holds for want of ground are the nearest candidates, and they are T-1431's. AND THE SAME DISAGREEMENT: `des_plaines_school_section` runs due north-south at local east -506.45 on the School Section's grid, 19.2 m east of where this line would reach Madison. Two surveys, two records, and no line bent to join them."
     },
     {
       "id": "kinzie",
       "name_1835": "Kinzie Street",
       "name_2026": "W/E Kinzie Street",
       "name_changed": false,
-      "path_local_enu_m": [[-320, 263.1], [-181, 262], [1100, 251.8]],
+      "path_local_enu_m": [
+        [
+          -320,
+          263.1
+        ],
+        [
+          -181,
+          262
+        ],
+        [
+          1100,
+          251.8
+        ]
+      ],
+      "corridor_width_m": 24.384,
       "track_width_m": 7.0,
       "surface": "worn_earth",
       "traffic": "ordinary",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["hathaway_1834", "wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. WHERE THIS RECORD STOPS, AND WHY IT IS NOT MADE LONGER (T-1085): the Thompson plat draws Kinzie Street to the town's west line, so this record ends at local east -320. Wright's 1834 survey rules and letters the same street on west across the whole of Wabansia, and that reach is carried as `kinzie_west` \u2014 a separate record, because west of the seam the geometry is Wright's and inferred where here it is Thompson's and attested, and nothing in this corpus wears the street out there. The two are collinear, they meet at -320 to the centimetre, and tools/carry_kinzie_west.py --check holds them to it. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn."
+      "sources": [
+        "hathaway_1834",
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. WHERE THIS RECORD STOPS, AND WHY IT IS NOT MADE LONGER (T-1085): the Thompson plat draws Kinzie Street to the town's west line, so this record ends at local east -320. Wright's 1834 survey rules and letters the same street on west across the whole of Wabansia, and that reach is carried as `kinzie_west` — a separate record, because west of the seam the geometry is Wright's and inferred where here it is Thompson's and attested, and nothing in this corpus wears the street out there. The two are collinear, they meet at -320 to the centimetre, and tools/carry_kinzie_west.py --check holds them to it. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. CORRIDOR (T-1191, 2026-09-19): 24.384 m, the 80 ft module. This record declared no corridor until now and inherited the layer's town-wide default, which happened to be the right number and said nothing about why. Thompson's 1830 plat letters the figure 80 at the head of every North Division corridor, on the Kinzie line, and names none of the streets at all (data/traces/thompson_north_division_streets.json § lettering, read at 5x); the same sheet's own fit returns an 80 ft corridor as 45.6 px = 24.4 m (docs/RESEARCH/north_division_streets.md § 3). The declaration is here because the corridor layer now READS it — until T-1191 no north-bank street had a platted corridor at all and a body standing in one of these streets could not be reported."
     },
     {
       "id": "carroll",
       "name_1835": "Carroll Street",
       "name_2026": "W Carroll Avenue",
       "name_changed": false,
-      "path_local_enu_m": [[-320, 137.85], [-104.96, 136.47]],
+      "path_local_enu_m": [
+        [-524.877, 139.16],
+        [-320, 137.85],
+        [-104.96, 136.47]
+      ],
       "track_width_m": 4.5,
       "surface": "light_worn_earth",
       "traffic": "light",
@@ -253,14 +571,18 @@
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
       "sources": ["thompson_plat_1830", "osm_streets_2026"],
-      "note": "T-0446. THE ONE WEST DIVISION TIER THAT DOES NOT SURVIVE INSIDE THE PLAT, so its line is INTERPOLATED between two that do and is graded for that and nothing better. The plat carries the West Division's tiers north to south as Kinzie, Carroll, Fulton, Lake, Randolph, Washington (the owner's reading of the sheet, carried in T-0443); `kinzie` and the new `fulton` are both held by surviving intersection control, and Carroll is the single tier between them. MODERN CARROLL AVENUE IS NO USE HERE and the negative is recorded rather than passed over: an Overpass query for every way named Carroll between lon -87.68 and -87.632 on 2026-09-04 returned eight, and not one of them meets Canal, Clinton, Jefferson or Des Plaines. The two fragments nearest the plat are outside it in opposite directions - one at local north +193 to +199 and east -55 to +561, which is the Kinzie's Addition alignment on the far side of the North Branch, and one at north +95 to +133 more than 1,180 m west of the datum, in ground the Thompson plat never covered. Inside the original town Carroll was taken by the Union Station approaches and the Kennedy Expressway. METHOD: the centreline is the midpoint of `kinzie` and `fulton` at every easting, which is 137.85 at the west end and 136.47 at the bank. THE BRACKET IS STATED BECAUSE IT IS THE HONEST WIDTH OF THIS READING: the two tiers are not evenly spaced on the surviving grid - at local east -250 Kinzie to Fulton measures 250.30 m against Fulton to Lake's 119.91 m - so stepping one Fulton-to-Lake module south from Kinzie puts Carroll at north 142.63 and one module north from Fulton puts it at 132.16. The midpoint, 137.40 at that easting, sits between them and is 5.24 m from either, which is this line's uncertainty and is larger than any other West Division street's. tools/measure_west_division_tiers.py --self-test holds the midpoint inside that bracket, so a later re-derivation of kinzie or fulton cannot leave this line behind. THE EAST END IS THE WATER, not a bend: the path stops 3 m short of the committed west bank of the North Branch, because no source gives Carroll a crossing and the tier does not continue on the far side under this name in 1835. Track width and wear are visual interpretation, and the narrowest in this file, because no committed structure fronts this tier at all."
+      "note": "T-0446. THE ONE WEST DIVISION TIER THAT DOES NOT SURVIVE INSIDE THE PLAT, so its line is INTERPOLATED between two that do and is graded for that and nothing better. The plat carries the West Division's tiers north to south as Kinzie, Carroll, Fulton, Lake, Randolph, Washington (the owner's reading of the sheet, carried in T-0443); `kinzie` and the new `fulton` are both held by surviving intersection control, and Carroll is the single tier between them. MODERN CARROLL AVENUE IS NO USE HERE and the negative is recorded rather than passed over: an Overpass query for every way named Carroll between lon -87.68 and -87.632 on 2026-09-04 returned eight, and not one of them meets Canal, Clinton, Jefferson or Des Plaines. The two fragments nearest the plat are outside it in opposite directions - one at local north +193 to +199 and east -55 to +561, which is the Kinzie's Addition alignment on the far side of the North Branch, and one at north +95 to +133 more than 1,180 m west of the datum, in ground the Thompson plat never covered. Inside the original town Carroll was taken by the Union Station approaches and the Kennedy Expressway. METHOD: the centreline is the midpoint of `kinzie` and `fulton` at every easting, which is 139.16 at the west end T-1443 carried it to, 137.85 at the old east -320 clip and 136.47 at the bank. THE BRACKET IS STATED BECAUSE IT IS THE HONEST WIDTH OF THIS READING: the two tiers are not evenly spaced on the surviving grid - at local east -250 Kinzie to Fulton measures 250.30 m against Fulton to Lake's 119.91 m - so stepping one Fulton-to-Lake module south from Kinzie puts Carroll at north 142.63 and one module north from Fulton puts it at 132.16. The midpoint, 137.40 at that easting, sits between them and is 5.24 m from either, which is this line's uncertainty and is larger than any other West Division street's. tools/measure_west_division_tiers.py --self-test holds the midpoint inside that bracket, so a later re-derivation of kinzie or fulton cannot leave this line behind. THE EAST END IS THE WATER, not a bend: the path stops 3 m short of the committed west bank of the North Branch, because no source gives Carroll a crossing and the tier does not continue on the far side under this name in 1835. Track width and wear are visual interpretation, and the narrowest in this file, because no committed structure fronts this tier at all. WEST TO DES PLAINES STREET (T-1443). The line is carried 204.88 m west of the clip at local east -320 to [-524.877, 139.16], where it meets fulton's own west end — an interpolation claims no more ground than the pair it lies between. The clip was this reconstruction's own extent and never a claim that the street ended there; T-1416 built the modelled field out to local east -705 and T-1430 seated the street it now stops at, so the two reasons it stood are both gone. THE REACH IS CARRIED FROM THE OLD WEST END, NOT FITTED THROUGH IT: the bearing is -0.006394, read from carroll's own westernmost committed segment, [-320, 137.85] to [-104.96, 136.47]. Every committed vertex east of -320 is left exactly where it stood — the old west end is KEPT as a vertex rather than replaced — so no platted lot line moves, no corridor is re-cut and the corridor-intrusion count is untouched. What the carry does add is a 0.0013 deg change of direction AT that retained vertex, and it is stated here rather than rounded away. The confidence is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 42 samples along the new reach against the committed heightfield, none off the modelled box, the lowest standing 1.215 m above the summer-1835 water surface. THE RULE IS UNCHANGED AND THE DATUM MOVES WITH IT: west of the clip the Kinzie term is `kinzie_west`, T-1085's separate record, because that is the line that exists there. At the west end the midpoint is 139.16 and the bracket is 132.624 (one Fulton-to-Lake module north of Fulton) to 145.696 (one module south of Kinzie), so the half-bracket — this line's uncertainty, and still the largest in the file — is 6.536 m. Carroll stops at Fulton's west end and no further: an interpolation may claim no more ground than the pair it lies between."
     },
     {
       "id": "fulton",
       "name_1835": "Fulton Street",
       "name_2026": "W Fulton Street",
       "name_changed": false,
-      "path_local_enu_m": [[-320, 12.59], [-98.33, 11.51]],
+      "path_local_enu_m": [
+        [-524.877, 13.588],
+        [-320, 12.59],
+        [-98.33, 11.51]
+      ],
       "track_width_m": 4.5,
       "surface": "light_worn_earth",
       "traffic": "light",
@@ -268,21 +590,130 @@
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
       "sources": ["thompson_plat_1830", "osm_streets_2026"],
-      "note": "T-0446. HELD BY FOUR SURVIVING INTERSECTIONS, the same modern control this file's other West Division lines are fitted to, so this is the better attested of the two tiers added with it. The plat carries the tier (the owner's reading of the sheet, T-0443) and West Fulton Street still crosses all four of the West Division's north-south streets on the ground. Control read from OpenStreetMap on 2026-09-04 and transformed to EPSG:26916 against data/datum.json: Canal node 258020617 at local east -162.00 north +12.17; Clinton node 258966840 at -282.18, +11.83; Jefferson node 262247424 at -401.04, +13.11; Des Plaines node 258966841 at -524.88, +13.72. A least-squares line through the four has slope -0.004909 and residuals of +0.35, -0.58, +0.12 and +0.11 m, RMS 0.35 m - a tighter fit than the two-point lines several of this file's streets carry. WHY THE LINE STILL STOPS AT EAST -320 like `kinzie`, `lake`, `randolph` and `washington`, when the control runs 200 m further west: the west clip is this reconstruction's own extent, not a statement that the street ended there, and moving it would move five streets rather than one. THE EAST END IS THE WATER: the path stops 3 m short of the committed west bank of the North Branch, because Kinzie Street's is the only West Division bridge this scene carries, and this line claims a street rather than a crossing. Track width and wear are visual interpretation, and the narrowest in this file, because no committed structure fronts this tier. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04), and upgraded WITH the sixteen platted streets rather than after them, because it is the best-held line in this file: the plat draws the tier and four surviving intersections fit it at RMS 0.35 m, the tightest fit here. That is why the ruling reaches it \u2014 the sheet attests the street, and the modern control says only how precisely the drawn line is seated. The 17.5 m RMS in `data/datum.json` `derivation.residual_m` is COORDINATE UNCERTAINTY on the georeference \u2014 how well the 1834 sheet warped onto modern ground \u2014 and not a grade on the claim; Fulton's own four-intersection fit is tighter than it. `surface_confidence` and `wear_confidence` stand where they were."
+      "note": "T-0446. HELD BY FOUR SURVIVING INTERSECTIONS, the same modern control this file's other West Division lines are fitted to, so this is the better attested of the two tiers added with it. The plat carries the tier (the owner's reading of the sheet, T-0443) and West Fulton Street still crosses all four of the West Division's north-south streets on the ground. Control read from OpenStreetMap on 2026-09-04 and transformed to EPSG:26916 against data/datum.json: Canal node 258020617 at local east -162.00 north +12.17; Clinton node 258966840 at -282.18, +11.83; Jefferson node 262247424 at -401.04, +13.11; Des Plaines node 258966841 at -524.88, +13.72. A least-squares line through the four has slope -0.004909 and residuals of +0.35, -0.58, +0.12 and +0.11 m, RMS 0.35 m - a tighter fit than the two-point lines several of this file's streets carry. WHY THE LINE ONCE STOPPED AT EAST -320 like `kinzie`, `lake`, `randolph` and `washington`, when the control runs 200 m further west: the west clip was this reconstruction's own extent, not a statement that the street ended there, and moving it would move five streets rather than one. T-1443 moved all five, which is the condition that sentence set, and the reach it set it for is recorded below. THE EAST END IS THE WATER: the path stops 3 m short of the committed west bank of the North Branch, because Kinzie Street's is the only West Division bridge this scene carries, and this line claims a street rather than a crossing. Track width and wear are visual interpretation, and the narrowest in this file, because no committed structure fronts this tier. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04), and upgraded WITH the sixteen platted streets rather than after them, because it is the best-held line in this file: the plat draws the tier and four surviving intersections fit it at RMS 0.35 m, the tightest fit here. That is why the ruling reaches it — the sheet attests the street, and the modern control says only how precisely the drawn line is seated. The 17.5 m RMS in `data/datum.json` `derivation.residual_m` is COORDINATE UNCERTAINTY on the georeference — how well the 1834 sheet warped onto modern ground — and not a grade on the claim; Fulton's own four-intersection fit is tighter than it. `surface_confidence` and `wear_confidence` stand where they were. WEST TO DES PLAINES STREET (T-1443). The line is carried 204.88 m west of the clip at local east -320 to [-524.877, 13.588], where it meets des_plaines, the westernmost platted street of the West Division (T-1430). The clip was this reconstruction's own extent and never a claim that the street ended there; T-1416 built the modelled field out to local east -705 and T-1430 seated the street it now stops at, so the two reasons it stood are both gone. THE REACH IS CARRIED FROM THE OLD WEST END, NOT FITTED THROUGH IT: the bearing is -0.004872, read from fulton's own westernmost committed segment, [-320, 12.59] to [-98.33, 11.51]. Every committed vertex east of -320 is left exactly where it stood — the old west end is KEPT as a vertex rather than replaced — so no platted lot line moves, no corridor is re-cut and the corridor-intrusion count is untouched. What the carry does add is a 0.0 deg change of direction AT that retained vertex, and it is stated here rather than rounded away. The confidence is unchanged, because carrying a line the length the sheet already drew it is not an upgrade. THE GROUND IS MEASURED: 42 samples along the new reach against the committed heightfield, none off the modelled box, the lowest standing 1.23 m above the summer-1835 water surface. AND IT IS CORROBORATED BY CONTROL THIS RECORD ALREADY CARRIED: of the four surviving intersections above, Jefferson and Des Plaines stand WEST of the old clip. The extension is derived from the committed bearing and reads neither of them, and it passes 0.125 m from the Jefferson node and 0.132 m from the Des Plaines node — inside the 0.35 m RMS of the four-point fit itself. The clip was standing in front of 200 m of street the record's own control already held."
     },
     {
       "id": "north_water",
       "name_1835": "North Water Street",
       "name_2026": "N Water Street",
       "name_changed": false,
-      "path_local_enu_m": [[-30, 45.2], [-25, 44.2], [-20, 40], [5, 2.2], [45, 14.2], [125, 74.8], [130, 84.3], [155, 121.8], [183, 157.5], [189, 157.5], [195, 157.5], [200, 156.9], [240, 134.3], [250, 134.3], [410, 118.1], [455, 108.2], [465, 112.2], [470, 113.2], [645, 106.5], [660, 107.8], [775, 110.2], [845, 110], [905, 164], [920, 190.3], [925, 197.8], [973.6, 252.9]],
+      "path_local_enu_m": [
+        [
+          -30,
+          45.2
+        ],
+        [
+          -25,
+          44.2
+        ],
+        [
+          -20,
+          40
+        ],
+        [
+          5,
+          2.2
+        ],
+        [
+          45,
+          14.2
+        ],
+        [
+          125,
+          74.8
+        ],
+        [
+          130,
+          84.3
+        ],
+        [
+          155,
+          121.8
+        ],
+        [
+          183,
+          157.5
+        ],
+        [
+          189,
+          157.5
+        ],
+        [
+          195,
+          157.5
+        ],
+        [
+          200,
+          156.9
+        ],
+        [
+          240,
+          134.3
+        ],
+        [
+          250,
+          134.3
+        ],
+        [
+          410,
+          118.1
+        ],
+        [
+          455,
+          108.2
+        ],
+        [
+          465,
+          112.2
+        ],
+        [
+          470,
+          113.2
+        ],
+        [
+          645,
+          106.5
+        ],
+        [
+          660,
+          107.8
+        ],
+        [
+          775,
+          110.2
+        ],
+        [
+          845,
+          110
+        ],
+        [
+          905,
+          164
+        ],
+        [
+          920,
+          190.3
+        ],
+        [
+          925,
+          197.8
+        ],
+        [
+          973.6,
+          252.9
+        ]
+      ],
       "track_width_m": 6.0,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "reconstructed",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["hathaway_1834", "wright_1834", "osm_streets_2026"],
+      "sources": [
+        "hathaway_1834",
+        "wright_1834",
+        "osm_streets_2026"
+      ],
       "note": "DERIVED FROM THE COMMITTED NORTH BANK by tools/derive_north_water.py, not drawn beside it. The line this replaced was a hand-drawn schematic that ran 477.4 m of its 843.3 m INSIDE the terrain's water mask, so the renderer drew no roadway at all across that reach and three of its six bends stood in the river (T-0226). The bank is a trace of Wright 1834 with a stated +/-20 m; this line was not a trace of anything and said so; the old line missed the bank by 1 to 86 m, up to 4.3x that uncertainty; and the North Division placement recipe had already ruled that proximity to North Water Street never overrides the water mask. So the street was the record that was wrong. North Water Street fronted the main stem, so its platted corridor is laid with its south line on the bank and the centreline half a platted street clear of it - 12.192 m, half the 80 ft thompson_module_1830. THAT HALF MODULE IS A DISTANCE, so the requirement at each 5 m station is the bank's OFFSET CURVE: the northern boundary of the traced bank dilated by a 12.192 m disc, which is the locus of points exactly half a street from the bank whatever bearing the bank runs at. It is fitted in the fewest straight runs that clear every station with 0.5 m of give, which is 2.5 % of the bank trace's own uncertainty. Until T-0307 the requirement was instead the bank's running maximum over +/-15 m of easting plus a NORTHWARD setback, and both halves of that assume an east-west bank; see WHAT THE WEST REACH COSTS, stated because the tool measures it (T-0307, which re-derived it). Coming round Wolf Point into the forks the bank falls 45 m of northing in 35 m of easting. Under the old rule a running maximum taken 15 m ahead of a bank that steep added most of that drop to the setback, and a northward offset bought only its cosine back, so the road stood up to 41.5 m from the water on the tool's own northward-ray reading - three and a half street widths where a half module is 12.2. The offset curve states the intended thing at any bearing and the verge came in. Measured as nearest water in any direction, which is the honest perpendicular distance and is also new in T-0307: west of the slough 5.50 m .. 25.50 m before, 5.50 m .. 20.00 m after; east of the slough 9.50 m .. 25.50 m before, 8.50 m .. 20.50 m after; the dry climb to Kinzie unmoved at 12.00 m .. 27.00 m. The line went from 19 authored bends to 24, which is the cost of following a bank instead of a lookahead. THE TWO TIGHT SPOTS ARE RULED ON, NOT TUNED - T-0372, and neither vertex moved. The 5.50 m is the street's own west terminus at [-30, 45.2] and the 8.50 m is the slough crossing's east abutment, and the ruling is that BOTH are places where this street meets water on purpose: it ends AT the fork, where the street ended, and it arrives AT a bridgehead, which T-0254 already required of it. The two alternatives were refused with numbers rather than by preference. Raising the requirement onto the water mask - nearest water in any direction, which would see the North Branch and the bay as well as the main stem - cannot be met at a crossing at all: to stand a half module off the water at the deck's east end this street would have to be 25.5 m north of the deck at E +196 and 15.0 m north at E +200, with the deck at N +157.5, which is a street that never reaches the bridge. Retreating the terminus east until the branch is a half module off costs 11.0 m of centreline and ends the street at E -20, where there is no feature to end at; it buys 6.7 m of clearance by making the terminus arbitrary instead of sourced. So the exemption is written down and BOUNDED, and the rest of the street is gated on the half module rather than the whole line being loosened to five metres - a flat 5 m rule would stop testing the 97 per cent of this street where the half module is the actual requirement. tools/derive_north_water.py --gate now enforces two tiers and refuses either: the OPEN REACH owes 11.5 m, the half module less the fit's own 0.5 m of give, and measures 12.00 m today over 571 probes; THE WEST TERMINUS (the last 10 m to the branch) and THE CROSSING'S APPROACHES (10 m either side of the deck) owe 5 m, and measure 5.50 m and 8.50 m over 16 probes - 32 m of the street's 1175.8 m. The open reach carries only 0.5 m of margin, which is deliberate: this gate is here to refuse drift toward the water, so a bank that moves under the street should turn it red and be re-derived rather than absorbed. --self-test proves all three tiers refuse a line walked toward the water, and that 13 committed probes at the two ends are under the open reach's floor - the exemptions are what hold this line up, not decoration. Geometry stays reconstructed - a bank is a proxy for a street, not evidence of one, and west of the slough there is not even a building on it. Track width and wear remain visual interpretation."
     },
     {
@@ -290,127 +721,280 @@
       "name_1835": "Wolcott Street",
       "name_2026": "N State Street",
       "name_changed": true,
-      "path_local_enu_m": [[827, 108], [833.31, 1029.71]],
+      "path_local_enu_m": [
+        [
+          827,
+          108
+        ],
+        [
+          833.31,
+          1029.71
+        ]
+      ],
+      "corridor_width_m": 24.384,
       "track_width_m": 5.8,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["chicago_dpw_1891_streets", "hathaway_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. Wolcott carries no `wright_1834` and none is added here: the plat and the two sheets already cited are what hold it."
+      "sources": [
+        "chicago_dpw_1891_streets",
+        "hathaway_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. Wolcott carries no `wright_1834` and none is added here: the plat and the two sheets already cited are what hold it. CORRIDOR (T-1191, 2026-09-19): 24.384 m, the 80 ft module. This record declared no corridor until now and inherited the layer's town-wide default, which happened to be the right number and said nothing about why. Thompson's 1830 plat letters the figure 80 at the head of every North Division corridor, on the Kinzie line, and names none of the streets at all (data/traces/thompson_north_division_streets.json § lettering, read at 5x); the same sheet's own fit returns an 80 ft corridor as 45.6 px = 24.4 m (docs/RESEARCH/north_division_streets.md § 3). The declaration is here because the corridor layer now READS it — until T-1191 no north-bank street had a platted corridor at all and a body standing in one of these streets could not be reported. Wolcott is the line the two north-bank tiers meet on and the two sheets do not agree about its width: Wright's Kinzie's Addition reading takes it at 68.8 ft raw, 67.2 ft scaled, against Thompson's lettered 80. The module stands — it is the figure a sheet WRITES and the wider of the two, so nothing is cleared out of this corridor on the narrower reading. data/traces/street_control.json § north_bank records the disagreement rather than averaging it away."
     },
     {
       "id": "market_north",
       "name_1835": "Market Street",
       "name_2026": null,
       "name_changed": true,
-      "path_local_enu_m": [[86.83, 46.35], [88.1, 259.85]],
+      "path_local_enu_m": [
+        [
+          86.83,
+          46.35
+        ],
+        [
+          88.1,
+          259.85
+        ]
+      ],
+      "corridor_width_m": 24.384,
       "track_width_m": 5.8,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["thompson_plat_1830", "wright_1834"],
-      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 7 and 6. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes MARKET in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `market` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -9.08 m from this line at the tier's own northing, and the corridor's centre north of the river stands -7.34 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. THE PARENT LINE MOVED UNDER THIS RECORD, AND THIS RECORD MOVED WITH IT (T-0827, 2026-09-12). Until then market was the one of the six graded no better than `inferred`, and the number was why: the plat's corridor stood 9.08 m west of the line, four times the worst of the other five, and the committed market->franklin pitch of 118.0-119.2 m was the one South Division pitch off the plat's 400 ft module. The suspect was named in this record as the parent rather than the North Division, and that is how it read: `market` was fitted to modern N Wacker Drive, which stands on made ground. T-0827 re-fitted it off the module — Franklin stepped one module west, bracketed by the Wright sheet's 120.21 m and this plat's own 124.81 m, with the committed pitch outside that bracket — and this line is the re-fitted parent extended north, still unbent and still on the parent's bearing. The plat's corridor now stands -5.19 m from it at the tier's own northing, which is still the worst of the six and is stated rather than smoothed: the other five read -0.26 to -2.29 m. That residual is COORDINATE UNCERTAINTY inside the datum's own 17.5 m, not a doubt about a street the sheet draws, so on T-0713's ruling this line now carries the plat's attestation with the other five. `name_2026` is null here for the same reason: N Wacker Drive north of the river is the east-west riverside drive and is not this line, and no modern name was established for it. THE SOUTH END is also the least settled of the six: it lands on `north_water`'s committed centreline at the reach T-0447 has open, where the plat does not give North Water Street the ground it runs on. If that ticket moves the street's west end, this line's south end moves with it. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there."
+      "sources": [
+        "thompson_plat_1830",
+        "wright_1834"
+      ],
+      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 7 and 6. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes MARKET in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `market` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -9.08 m from this line at the tier's own northing, and the corridor's centre north of the river stands -7.34 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. THE PARENT LINE MOVED UNDER THIS RECORD, AND THIS RECORD MOVED WITH IT (T-0827, 2026-09-12). Until then market was the one of the six graded no better than `inferred`, and the number was why: the plat's corridor stood 9.08 m west of the line, four times the worst of the other five, and the committed market->franklin pitch of 118.0-119.2 m was the one South Division pitch off the plat's 400 ft module. The suspect was named in this record as the parent rather than the North Division, and that is how it read: `market` was fitted to modern N Wacker Drive, which stands on made ground. T-0827 re-fitted it off the module — Franklin stepped one module west, bracketed by the Wright sheet's 120.21 m and this plat's own 124.81 m, with the committed pitch outside that bracket — and this line is the re-fitted parent extended north, still unbent and still on the parent's bearing. The plat's corridor now stands -5.19 m from it at the tier's own northing, which is still the worst of the six and is stated rather than smoothed: the other five read -0.26 to -2.29 m. That residual is COORDINATE UNCERTAINTY inside the datum's own 17.5 m, not a doubt about a street the sheet draws, so on T-0713's ruling this line now carries the plat's attestation with the other five. `name_2026` is null here for the same reason: N Wacker Drive north of the river is the east-west riverside drive and is not this line, and no modern name was established for it. THE SOUTH END is also the least settled of the six: it lands on `north_water`'s committed centreline at the reach T-0447 has open, where the plat does not give North Water Street the ground it runs on. If that ticket moves the street's west end, this line's south end moves with it. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there. CORRIDOR (T-1191, 2026-09-19): 24.384 m, the 80 ft module. This record declared no corridor until now and inherited the layer's town-wide default, which happened to be the right number and said nothing about why. Thompson's 1830 plat letters the figure 80 at the head of every North Division corridor, on the Kinzie line, and names none of the streets at all (data/traces/thompson_north_division_streets.json § lettering, read at 5x); the same sheet's own fit returns an 80 ft corridor as 45.6 px = 24.4 m (docs/RESEARCH/north_division_streets.md § 3). The declaration is here because the corridor layer now READS it — until T-1191 no north-bank street had a platted corridor at all and a body standing in one of these streets could not be reported."
     },
     {
       "id": "franklin_north",
       "name_1835": "Franklin Street",
       "name_2026": "N Franklin Street",
       "name_changed": false,
-      "path_local_enu_m": [[209.37, 151.61], [210, 258.88]],
+      "path_local_enu_m": [
+        [
+          209.37,
+          151.61
+        ],
+        [
+          210,
+          258.88
+        ]
+      ],
+      "corridor_width_m": 24.384,
       "track_width_m": 5.8,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["thompson_plat_1830", "osm_streets_2026"],
-      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 6 and 5. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes FRANKLIN in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `franklin` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -2.29 m from this line at the tier's own northing, and the corridor's centre north of the river stands -1.94 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. The south end is where `north_water` swings north around the slough mouth, so this line is the shortest of the six at 107 m. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there."
+      "sources": [
+        "thompson_plat_1830",
+        "osm_streets_2026"
+      ],
+      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 6 and 5. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes FRANKLIN in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `franklin` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -2.29 m from this line at the tier's own northing, and the corridor's centre north of the river stands -1.94 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. The south end is where `north_water` swings north around the slough mouth, so this line is the shortest of the six at 107 m. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there. CORRIDOR (T-1191, 2026-09-19): 24.384 m, the 80 ft module. This record declared no corridor until now and inherited the layer's town-wide default, which happened to be the right number and said nothing about why. Thompson's 1830 plat letters the figure 80 at the head of every North Division corridor, on the Kinzie line, and names none of the streets at all (data/traces/thompson_north_division_streets.json § lettering, read at 5x); the same sheet's own fit returns an 80 ft corridor as 45.6 px = 24.4 m (docs/RESEARCH/north_division_streets.md § 3). The declaration is here because the corridor layer now READS it — until T-1191 no north-bank street had a platted corridor at all and a body standing in one of these streets could not be reported."
     },
     {
       "id": "wells_north",
       "name_1835": "Wells Street",
       "name_2026": "N Wells Street",
       "name_changed": false,
-      "path_local_enu_m": [[331.2, 126.06], [331.98, 257.91]],
+      "path_local_enu_m": [
+        [
+          331.2,
+          126.06
+        ],
+        [
+          331.98,
+          257.91
+        ]
+      ],
+      "corridor_width_m": 24.384,
       "track_width_m": 5.8,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["thompson_plat_1830", "osm_streets_2026"],
-      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 5 and 4. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes WELLS in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `wells` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -2.01 m from this line at the tier's own northing, and the corridor's centre north of the river stands -1.00 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there."
+      "sources": [
+        "thompson_plat_1830",
+        "osm_streets_2026"
+      ],
+      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 5 and 4. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes WELLS in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `wells` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -2.01 m from this line at the tier's own northing, and the corridor's centre north of the river stands -1.00 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there. CORRIDOR (T-1191, 2026-09-19): 24.384 m, the 80 ft module. This record declared no corridor until now and inherited the layer's town-wide default, which happened to be the right number and said nothing about why. Thompson's 1830 plat letters the figure 80 at the head of every North Division corridor, on the Kinzie line, and names none of the streets at all (data/traces/thompson_north_division_streets.json § lettering, read at 5x); the same sheet's own fit returns an 80 ft corridor as 45.6 px = 24.4 m (docs/RESEARCH/north_division_streets.md § 3). The declaration is here because the corridor layer now READS it — until T-1191 no north-bank street had a platted corridor at all and a body standing in one of these streets could not be reported."
     },
     {
       "id": "lasalle_north",
       "name_1835": "La Salle Street",
       "name_2026": "N LaSalle Street",
       "name_changed": false,
-      "path_local_enu_m": [[453.09, 108.57], [453.96, 256.94]],
+      "path_local_enu_m": [
+        [
+          453.09,
+          108.57
+        ],
+        [
+          453.96,
+          256.94
+        ]
+      ],
+      "corridor_width_m": 24.384,
       "track_width_m": 5.8,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["thompson_plat_1830", "osm_streets_2026"],
-      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 4 and 3. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes LA SALLE in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `lasalle` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -0.26 m from this line at the tier's own northing, and the corridor's centre north of the river stands +1.50 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there."
+      "sources": [
+        "thompson_plat_1830",
+        "osm_streets_2026"
+      ],
+      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 4 and 3. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes LA SALLE in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `lasalle` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -0.26 m from this line at the tier's own northing, and the corridor's centre north of the river stands +1.50 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there. CORRIDOR (T-1191, 2026-09-19): 24.384 m, the 80 ft module. This record declared no corridor until now and inherited the layer's town-wide default, which happened to be the right number and said nothing about why. Thompson's 1830 plat letters the figure 80 at the head of every North Division corridor, on the Kinzie line, and names none of the streets at all (data/traces/thompson_north_division_streets.json § lettering, read at 5x); the same sheet's own fit returns an 80 ft corridor as 45.6 px = 24.4 m (docs/RESEARCH/north_division_streets.md § 3). The declaration is here because the corridor layer now READS it — until T-1191 no north-bank street had a platted corridor at all and a body standing in one of these streets could not be reported."
     },
     {
       "id": "clark_north",
       "name_1835": "Clark Street",
       "name_2026": "N Clark Street",
       "name_changed": false,
-      "path_local_enu_m": [[576.64, 109.11], [577.57, 255.96]],
+      "path_local_enu_m": [
+        [
+          576.64,
+          109.11
+        ],
+        [
+          577.57,
+          255.96
+        ]
+      ],
+      "corridor_width_m": 24.384,
       "track_width_m": 5.8,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["thompson_plat_1830", "osm_streets_2026"],
-      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 3 and 2. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes CLARKE in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `clark` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -1.97 m from this line at the tier's own northing, and the corridor's centre north of the river stands +0.00 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there."
+      "sources": [
+        "thompson_plat_1830",
+        "osm_streets_2026"
+      ],
+      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 3 and 2. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes CLARKE in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `clark` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -1.97 m from this line at the tier's own northing, and the corridor's centre north of the river stands +0.00 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there. CORRIDOR (T-1191, 2026-09-19): 24.384 m, the 80 ft module. This record declared no corridor until now and inherited the layer's town-wide default, which happened to be the right number and said nothing about why. Thompson's 1830 plat letters the figure 80 at the head of every North Division corridor, on the Kinzie line, and names none of the streets at all (data/traces/thompson_north_division_streets.json § lettering, read at 5x); the same sheet's own fit returns an 80 ft corridor as 45.6 px = 24.4 m (docs/RESEARCH/north_division_streets.md § 3). The declaration is here because the corridor layer now READS it — until T-1191 no north-bank street had a platted corridor at all and a body standing in one of these streets could not be reported."
     },
     {
       "id": "dearborn_north",
       "name_1835": "Dearborn Street",
       "name_2026": "N Dearborn Street",
       "name_changed": false,
-      "path_local_enu_m": [[699.56, 108.63], [700.47, 254.98]],
+      "path_local_enu_m": [
+        [
+          699.56,
+          108.63
+        ],
+        [
+          700.47,
+          254.98
+        ]
+      ],
+      "corridor_width_m": 24.384,
       "track_width_m": 5.8,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["thompson_plat_1830", "osm_streets_2026"],
-      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 2 and 1. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes DEARBORN in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `dearborn` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -0.49 m from this line at the tier's own northing, and the corridor's centre north of the river stands +1.50 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there."
+      "sources": [
+        "thompson_plat_1830",
+        "osm_streets_2026"
+      ],
+      "note": "READ OFF THE THOMPSON PLAT FOR T-0451, 2026-09-05, and seated on the committed line it continues. The sheet held at chicago/pre_fire_v1/maps/images/1830_thompson_plat.png draws ONE tier of blocks in the North Division, numbered 1 at the Due North line and 7 at the North Branch, with six 80 ft corridors between them; this record is the corridor between blocks 2 and 1. THE PLAT LETTERS NO NAME IN ANY OF THEM — each carries the figure 80 at its head on the Kinzie line and a vertical ST. between the lot rows, and nothing else. The name here is the sheet's own lettering on the SAME LINE south of the river, where it writes DEARBORN in the Randolph-Washington tier, carried north because the sheet draws one line and not two. That is a carry and not a North Division reading, and `wolcott` — the one North Division line this project already held — is the standing proof that a name on this side of the river could differ. THE LINE ITSELF is the committed `dearborn` centreline extended north from North Water Street to Kinzie Street, unbent: no vertex is invented and the bearing is the parent's. What the plat independently says about it is the check, not the source — measured by tools/measure_north_division_streets.py off data/traces/thompson_north_division_streets.json, the corridor's centre on the sheet stands -0.49 m from this line at the tier's own northing, and the corridor's centre north of the river stands +1.50 px from the same street's corridor south of it. The whole tier's block pitch is the South Division's own to 0.6 m in the mean. Every metre of the run stands on modelled ground the heightfield holds above water. The 5 m sampling of e1834_harbor_cut from North Water Street to Kinzie Street returns no wet and no off-grid station on this line. THE WEAR IS CARRIED, NOT MEASURED: 5.8 m of light worn earth is what `wolcott` and `michigan_north` — the two North Division lines already committed — carry, and nothing read here says how this corridor was worn. `surface_confidence` and `wear_confidence` say so. WHAT THE 17.5 m FIGURE IS: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY and it bounds how precisely this line is PLACED, not whether the street was there. CORRIDOR (T-1191, 2026-09-19): 24.384 m, the 80 ft module. This record declared no corridor until now and inherited the layer's town-wide default, which happened to be the right number and said nothing about why. Thompson's 1830 plat letters the figure 80 at the head of every North Division corridor, on the Kinzie line, and names none of the streets at all (data/traces/thompson_north_division_streets.json § lettering, read at 5x); the same sheet's own fit returns an 80 ft corridor as 45.6 px = 24.4 m (docs/RESEARCH/north_division_streets.md § 3). The declaration is here because the corridor layer now READS it — until T-1191 no north-bank street had a platted corridor at all and a body standing in one of these streets could not be reported."
     },
     {
       "id": "michigan_north",
       "name_1835": "Michigan Street",
       "name_2026": "E/W Hubbard Street",
       "name_changed": true,
-      "path_local_enu_m": [[450, 395], [1275.17, 388.22]],
+      "path_local_enu_m": [
+        [
+          450,
+          395
+        ],
+        [
+          1275.17,
+          388.22
+        ]
+      ],
+      "corridor_width_m": 24.384,
       "track_width_m": 5.8,
       "surface": "light_worn_earth",
       "traffic": "light",
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["hathaway_1834", "wright_1834", "osm_streets_2026", "thompson_plat_1830"],
-      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY \u2014 how well the 1834 sheet warped onto modern ground \u2014 and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. The plat draws the North Division tier; the line's seating follows the same 1834 control as its neighbours."
+      "sources": [
+        "hathaway_1834",
+        "wright_1834",
+        "osm_streets_2026",
+        "thompson_plat_1830"
+      ],
+      "note": "ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. The plat draws the North Division tier; the line's seating follows the same 1834 control as its neighbours. CORRIDOR (T-1191, 2026-09-19): 24.384 m, the 80 ft module. This record declared no corridor until now and inherited the layer's town-wide default, which happened to be the right number and said nothing about why. Thompson's 1830 plat letters the figure 80 at the head of every North Division corridor, on the Kinzie line, and names none of the streets at all (data/traces/thompson_north_division_streets.json § lettering, read at 5x); the same sheet's own fit returns an 80 ft corridor as 45.6 px = 24.4 m (docs/RESEARCH/north_division_streets.md § 3). The declaration is here because the corridor layer now READS it — until T-1191 no north-bank street had a platted corridor at all and a body standing in one of these streets could not be reported."
     },
     {
       "id": "fort_road",
       "name_1835": "The fort road",
       "name_2026": "N Michigan Avenue",
       "name_changed": true,
-      "path_local_enu_m": [[805, 4], [860, 10], [920, 18], [980, 27], [1030, 33], [1075, 38], [1115, 55], [1140, 78], [1146, 120], [1147, 160], [1148, 188]],
+      "path_local_enu_m": [
+        [
+          805,
+          4
+        ],
+        [
+          860,
+          10
+        ],
+        [
+          920,
+          18
+        ],
+        [
+          980,
+          27
+        ],
+        [
+          1030,
+          33
+        ],
+        [
+          1075,
+          38
+        ],
+        [
+          1115,
+          55
+        ],
+        [
+          1140,
+          78
+        ],
+        [
+          1146,
+          120
+        ],
+        [
+          1147,
+          160
+        ],
+        [
+          1148,
+          188
+        ]
+      ],
       "corridor_width_m": 12.0,
       "track_width_m": 5.5,
       "surface": "worn_earth",
@@ -418,38 +1002,42 @@
       "geometry_confidence": "reconstructed",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "sources": ["harrison_1830_river_mouth", "andreas_1884_v1", "kinzie_waubun_1856"],
+      "sources": [
+        "harrison_1830_river_mouth",
+        "andreas_1884_v1",
+        "kinzie_waubun_1856"
+      ],
       "note": "THE ROAD THE FORT PLAINLY HAD, DRAWN AT THE RECONSTRUCTED TIER, and which part is which is stated rather than implied. WHAT IS DOCUMENTED: the fort had large gates north and south - Juliette Kinzie inside it in 1831, Andreas independently, and a break in each of those two walls and in neither of the others on the 1830 Harrison plan - and the garrison garden's own record reads off that same plan that the plot lies 'west of the road'. So the plan draws a road on the reservation, and a road that is east of that garden and arrives at that gate has to run about here. WHAT IS NOT DOCUMENTED: nobody traced this line, nobody measured it, and no source names it. The 1835 name is DESCRIPTIVE, not a proper name; the 2026 name is the street that runs over this ground today, not a descent of name. THE WESTERN REACH IS THE INVENTION AND IT IS THE REASON THIS RECORD IS RECONSTRUCTED: South Water Street stops at the United States Reservation, matching the 1833 order, so the connection from the town to the fort gate was never a platted street - it is drawn because a garrisoned post that mustered, traded and drew its stores through the town had a way in, and a visitor who walks east out of South Water Street should find one instead of trackless prairie. The line is routed clear of the garden's east corner and of the Beaubien buildings, and it is clipped by the water mask like every other track, so it makes honest gaps rather than fords where the ground is wet. Recorded in docs/LIBERTIES.md; T-0044."
     },
     {
-        "id": "fort_bank_track",
-        "name_1835": "The bank track",
-        "name_2026": "N Michigan Avenue, at the bridge's south approach",
-        "name_changed": true,
-        "path_local_enu_m": [
-              [
-                    1156.63,
-                    253.92
-              ],
-              [
-                    1133.4,
-                    259.61
-              ]
+      "id": "fort_bank_track",
+      "name_1835": "The bank track",
+      "name_2026": "N Michigan Avenue, at the bridge's south approach",
+      "name_changed": true,
+      "path_local_enu_m": [
+        [
+          1156.63,
+          253.92
         ],
-        "corridor_width_m": 12.0,
-        "track_width_m": 3.6,
-        "surface": "light_worn_earth",
-        "traffic": "light",
-        "geometry_confidence": "reconstructed",
-        "surface_confidence": "inferred",
-        "wear_confidence": "reconstructed",
-        "sources": [
-              "harrison_1830_river_mouth",
-              "wentworth_1881_fort_dearborn",
-              "andreas_1884_v1",
-              "kinzie_waubun_1856"
-        ],
-        "note": "THE TRACK p4_0 DRAWS DESCENDING THE BANK FROM THE NORTH GATE, held back by L140 until the bank it descends had been graded (T-0004) and built now that it has (T-0099). WHICH PART IS WHICH. WHAT IS DOCUMENTED: the fort's north gate — 'large gates opened to the north and south' (Juliette Kinzie, inside it in 1831), 'one on the north and the other on the south side' (Andreas), a break in each of those two walls and in neither of the others on the 1830 Harrison plan — and that the plan names a ferry among the ground round the fort. WHAT IS NOT DOCUMENTED: this line. Nobody traced it, nobody measured it, and no source names it; the 1835 name is DESCRIPTIVE, and the 2026 name is the ground the modern bridge approach covers, not a descent of name. BOTH ENDS ARE DERIVED FROM COMMITTED RECORDS AND THE MIDDLE IS ONE STRAIGHT CHORD. It begins at [1156.63, 253.92]: the north gate's own centre — 26.5 m along a 53 m wall, the midpoint tools/measure_fort_gates.py reads the shipped leaves at — carried out along the wall's outward normal by 6.74 m, which is the standoff the fort road already keeps from the SOUTH gate. The apron's bare trodden earth carries the last stride to the pickets at both gates, and this record invents no second convention for the north one. It ends at [1133.40, 259.61]: the Z = 0 waterline of the committed heightfield, on the easting of the WEST END of the commandant's quarters — the one place on this bank any source puts anything, the 1855 Hesler key locating the ferry landing 'under the west chimney of the Commandant's quarters'. READ THE DATE: that key is 1855 and describes the post-military compound, so it is read here as an inference that a landing fixed by the shape of a bank stood where it stood twenty years earlier, and never as a measurement of 1835. WHY ONE OBLIQUE CHORD AND NOT A RAMP STRAIGHT DOWN. Straight north out of the gate the graded bank falls 3.60 m in under 10 m, about 1 in 2.7, which is a scramble rather than a way to a boat. Swung west onto the landing the same fall is spread over 23.91 m: 1 in 6.65 mean and 1 in 3.65 at its steepest metre, measured on the committed heightfield at [1140.0, 257.99]. That worst metre is GENTLER THAN GROUND THIS PROJECT ALREADY DRAWS ROADWAY ON — South Water Street reaches 1 in 3.0 at the river bank, Randolph and Washington 1 in 4.1 — so the obliquity is what makes the track walkable and is not a shape chosen for its own sake. One chord means no joint, so no wedge of prairie opens at a bend (L178). The width is the GATE'S: 3.60 m, the committed gate_width_m of the palisade this track leaves by, rather than a fourth invented figure on this reservation. The corridor is the fort road's 12.0 m for the same reason. Clipped by the water mask like every other track, so the ribbon stops at the water instead of painting a ford. Recorded in docs/LIBERTIES.md L199; T-0099."
+        [
+          1133.4,
+          259.61
+        ]
+      ],
+      "corridor_width_m": 12.0,
+      "track_width_m": 3.6,
+      "surface": "light_worn_earth",
+      "traffic": "light",
+      "geometry_confidence": "reconstructed",
+      "surface_confidence": "inferred",
+      "wear_confidence": "reconstructed",
+      "sources": [
+        "harrison_1830_river_mouth",
+        "wentworth_1881_fort_dearborn",
+        "andreas_1884_v1",
+        "kinzie_waubun_1856"
+      ],
+      "note": "THE TRACK p4_0 DRAWS DESCENDING THE BANK FROM THE NORTH GATE, held back by L140 until the bank it descends had been graded (T-0004) and built now that it has (T-0099). WHICH PART IS WHICH. WHAT IS DOCUMENTED: the fort's north gate — 'large gates opened to the north and south' (Juliette Kinzie, inside it in 1831), 'one on the north and the other on the south side' (Andreas), a break in each of those two walls and in neither of the others on the 1830 Harrison plan — and that the plan names a ferry among the ground round the fort. WHAT IS NOT DOCUMENTED: this line. Nobody traced it, nobody measured it, and no source names it; the 1835 name is DESCRIPTIVE, and the 2026 name is the ground the modern bridge approach covers, not a descent of name. BOTH ENDS ARE DERIVED FROM COMMITTED RECORDS AND THE MIDDLE IS ONE STRAIGHT CHORD. It begins at [1156.63, 253.92]: the north gate's own centre — 26.5 m along a 53 m wall, the midpoint tools/measure_fort_gates.py reads the shipped leaves at — carried out along the wall's outward normal by 6.74 m, which is the standoff the fort road already keeps from the SOUTH gate. The apron's bare trodden earth carries the last stride to the pickets at both gates, and this record invents no second convention for the north one. It ends at [1133.40, 259.61]: the Z = 0 waterline of the committed heightfield, on the easting of the WEST END of the commandant's quarters — the one place on this bank any source puts anything, the 1855 Hesler key locating the ferry landing 'under the west chimney of the Commandant's quarters'. READ THE DATE: that key is 1855 and describes the post-military compound, so it is read here as an inference that a landing fixed by the shape of a bank stood where it stood twenty years earlier, and never as a measurement of 1835. WHY ONE OBLIQUE CHORD AND NOT A RAMP STRAIGHT DOWN. Straight north out of the gate the graded bank falls 3.60 m in under 10 m, about 1 in 2.7, which is a scramble rather than a way to a boat. Swung west onto the landing the same fall is spread over 23.91 m: 1 in 6.65 mean and 1 in 3.65 at its steepest metre, measured on the committed heightfield at [1140.0, 257.99]. That worst metre is GENTLER THAN GROUND THIS PROJECT ALREADY DRAWS ROADWAY ON — South Water Street reaches 1 in 3.0 at the river bank, Randolph and Washington 1 in 4.1 — so the obliquity is what makes the track walkable and is not a shape chosen for its own sake. One chord means no joint, so no wedge of prairie opens at a bend (L178). The width is the GATE'S: 3.60 m, the committed gate_width_m of the palisade this track leaves by, rather than a fourth invented figure on this reservation. The corridor is the fort road's 12.0 m for the same reason. Clipped by the water mask like every other track, so the ribbon stops at the water instead of painting a ford. Recorded in docs/LIBERTIES.md L199; T-0099."
     },
     {
       "id": "madison",

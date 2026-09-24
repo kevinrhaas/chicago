@@ -485,6 +485,30 @@ def carry_run_north(pts, to_n):
     return ([tip] + list(pts)) if i == 0 else (list(pts) + [tip])
 
 
+def run_edge_per_row(pts, n_rows, sel_rows, pick):
+    """Where a traced run crosses each sampled row, as an easting per row.
+
+    `northern_branch` needs a run's crossing on BOTH sides of a channel, which
+    the lake rules — asking only for an east edge, and only ever from one run
+    per row — do inline above. `pick` settles the ambiguity when a row meets the
+    run more than once: `np.maximum` for an east edge, `np.minimum` for a west
+    one. Rows the run does not reach come back NaN, and the caller is silent on
+    them rather than guessing.
+    """
+    edge = np.full(n_rows.shape[0], np.nan)
+    for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
+        if y1 == y2:
+            continue
+        lo, hi = (y1, y2) if y1 < y2 else (y2, y1)
+        sel = (n_rows >= lo) & (n_rows <= hi) & sel_rows
+        if not sel.any():
+            continue
+        x = x1 + ((n_rows[sel] - y1) / (y2 - y1)) * (x2 - x1)
+        cur = edge[sel]
+        edge[sel] = np.where(np.isnan(cur), x, pick(cur, x))
+    return edge
+
+
 def smoothstep(t):
     t = np.clip(t, 0.0, 1.0)
     return t * t * (3.0 - 2.0 * t)
@@ -664,6 +688,29 @@ def build_field(spec, feats, origin):
         # blend the 49 m step at the row where the two surveys abut, which is
         # this shore's documented post-pier erosion and is left in the data.
         in_water |= (E > east_edge[:, None]) & np.isfinite(east_edge)[:, None]
+
+    # AND THE BRANCH DOES NOT END AT THE TOP OF WRIGHT'S SHEET. The same
+    # sentence one more time, said about a river instead of a lake, and it is
+    # here because T-1416 carried the west wall out to E -705 and brought the
+    # North Branch's whole traced reach inside the box with it. The polygon
+    # closes on the line Wright ruled across the top of his sheet, N +1079.21 —
+    # the edge of a survey, not the end of a river — and that edge now stands
+    # 40.79 m SOUTH of the box's own north wall, between two banks `trace_carries`
+    # already carries to the wall. Left alone it is a plug of dry West Division
+    # prairie damming the head of the channel forty metres from ground a visitor
+    # can walk to: the land half of the false-coast fault the two lake rules
+    # exist to prevent. Stated per ROW from the two carried BANKS, so it cannot
+    # drift away from the trace it extends, and silent below the polygon's own
+    # north edge so it cannot move a sample the field has already committed.
+    branch_rule = spec.get("northern_branch")
+    if branch_rule:
+        above = N[:, 0] > float(branch_rule["north_of_n_m"])
+        west_x = run_edge_per_row(shore_runs[branch_rule["west_run"]], N[:, 0],
+                                  above, np.minimum)
+        east_x = run_edge_per_row(shore_runs[branch_rule["east_run"]], N[:, 0],
+                                  above, np.maximum)
+        span = np.isfinite(west_x) & np.isfinite(east_x)
+        in_water |= (span[:, None] & (E >= west_x[:, None]) & (E <= east_x[:, None]))
 
     # AND THE RIVER DOES NOT END AT TWELFTH STREET EITHER -- and since T-1150 it
     # does not have to be RULED to not end there. This is where `southern_branch`
@@ -1013,6 +1060,12 @@ def build_field(spec, feats, origin):
     ev = spec.get("evidence_limit")
     if ev:
         conf = np.where(N < float(ev["south_of_n_m"]), CONF_CONJECTURAL, conf)
+        # The same statement about the other open wall. T-1415 derived the west
+        # line at Halsted Street, E -757.43, and T-1416's wall stands 52.43 m
+        # east of it, so this marks nothing today — which is the point of
+        # writing it now rather than after the next extension crosses it.
+        if "west_of_e_m" in ev:
+            conf = np.where(E < float(ev["west_of_e_m"]), CONF_CONJECTURAL, conf)
 
     meta = {
         "cols": cols, "rows": rows, "cell_m": cell,
@@ -1072,7 +1125,11 @@ def gradient_audit(h_m, water, geom, spec):
     # failure. The skirt, which is the same idea one step further out, has never
     # been audited either.
     ev = spec.get("evidence_limit")
-    frame = (geom["N"] < float(ev["south_of_n_m"])) if ev else np.zeros(h_m.shape, bool)
+    frame = np.zeros(h_m.shape, bool)
+    if ev:
+        frame |= geom["N"] < float(ev["south_of_n_m"])
+        if "west_of_e_m" in ev:
+            frame |= geom["E"] < float(ev["west_of_e_m"])
     ok = (~water) & (~relief_any) & (geom["d_land"] >= marsh_m) & (~frame)
 
     de = (h_m[:, k:] - h_m[:, :-k]) / FT

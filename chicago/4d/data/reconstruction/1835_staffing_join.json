@@ -1,0 +1,265 @@
+{
+  "$schema_note": "DERIVED — regenerate with tools/staff_businesses_1835.py --build; tools/check.sh re-derives it. Do not hand-edit.",
+  "id": "1835_staffing_join",
+  "ticket": "T-1432",
+  "parent_ticket": "T-1189",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/staff_businesses_1835.py --build",
+  "not_a_reading": "an adjudication over committed files — no page of any source is read here, and no person is written",
+  "writes_no_person": true,
+  "mints_nobody": true,
+  "what_it_writes": "persons[].workplaces in data/residents/households/*.json — one entry per (business, role) the business layer already names that person in, carried at the business row's own tier, basis, source and claim ids. Nothing is upgraded by being copied across.",
+  "inputs": [
+    "data/businesses/*.json",
+    "data/residents/households/*.json",
+    "data/reconstruction/1835_business_staffing_model.json"
+  ],
+  "counts": {
+    "business_records": 196,
+    "person_rows_in_the_business_layer": 320,
+    "rows_carrying_a_person_id": 145,
+    "distinct_persons_tied_to_a_workplace": 112,
+    "businesses_with_at_least_one_named_person": 157,
+    "businesses_with_none": 39,
+    "town_cards": 3217
+  },
+  "by_role": [
+    {
+      "role": "partner",
+      "entries": 55
+    },
+    {
+      "role": "proprietor",
+      "entries": 90
+    }
+  ],
+  "by_tier": {
+    "attested": 145
+  },
+  "unresolved_printed_names": {
+    "what_this_is": "A person row the register could not match to a town card. The printed name is the evidence and no card is invented for it; the row keeps its place in the business record and joins nobody.",
+    "rows": 52,
+    "businesses": 42,
+    "by_business": {
+      "biz_brewster_hogan_co": [
+        "Brewster",
+        "Hogan"
+      ],
+      "biz_briggs_humphrey": [
+        "Briggs",
+        "Humphrey"
+      ],
+      "biz_brown_painter": [
+        "Brown"
+      ],
+      "biz_chicago_bakery": [
+        "D. Graves"
+      ],
+      "biz_chicago_democrat_printing_office": [
+        "[unnamed: the apprentice wanted at this office]"
+      ],
+      "biz_chicago_st_joseph_packet_schooner_llewellyn": [
+        "Clark, master"
+      ],
+      "biz_cooley_and_hol_b_man": [
+        "Cooley",
+        "Hol[b]man"
+      ],
+      "biz_d_graves": [
+        "D. Graves"
+      ],
+      "biz_deacon_mccaleb": [
+        "E. P. Deacon",
+        "[uncertain: Wm. McKaleb]"
+      ],
+      "biz_e_p_deacon": [
+        "E. P. Deacon"
+      ],
+      "biz_e_wentworth": [
+        "E. Wentworth"
+      ],
+      "biz_e_wentworth_s_public_house_on_flag_creek": [
+        "E. Wentworth"
+      ],
+      "biz_e_wentworth_s_tavern_flag_creek": [
+        "E. Wentworth"
+      ],
+      "biz_e_wentworth_s_tavern_on_flag_creek": [
+        "H. E. Wentworth"
+      ],
+      "biz_everson_co": [
+        "Everson"
+      ],
+      "biz_goss_cobb": [
+        "Cobb",
+        "Goss"
+      ],
+      "biz_harmon_loomis_co": [
+        "Harmon",
+        "Loomis"
+      ],
+      "biz_hubbard_co": [
+        "Hubbard"
+      ],
+      "biz_j_bates_jr_auction_store": [
+        "J. Bates jr.",
+        "J. Bates, jr."
+      ],
+      "biz_j_c_goodhue_land_agent": [
+        "Goodhue, J. C."
+      ],
+      "biz_j_l_wilson_co": [
+        "J. L. Wilson"
+      ],
+      "biz_john_bates_jr": [
+        "J. Bates, Jr.",
+        "John Bates, Jr."
+      ],
+      "biz_jones_king": [
+        "Wm. Jones"
+      ],
+      "biz_kercheval_hamilton": [
+        "Rich'd J. Hamilton"
+      ],
+      "biz_magie_wilkinson": [
+        "Magie",
+        "Wilkinson"
+      ],
+      "biz_miss_bayne_s_boarding_and_day_school": [
+        "[uncertain: Miss Bayne]"
+      ],
+      "biz_montgomery_auction_and_commission_house": [
+        "Montgomery"
+      ],
+      "biz_mrs_herman": [
+        "[Mrs.] Herman"
+      ],
+      "biz_newberry_dole": [
+        "Oliver Newberry"
+      ],
+      "biz_north_western_fire_and_marine_insurance_company_of_oswego_chicago_agency": [
+        "Capt. Hiram Hugunin"
+      ],
+      "biz_pierce_french": [
+        "French"
+      ],
+      "biz_rockwell_cabinet_furniture_warehouse": [
+        "Rockwell"
+      ],
+      "biz_russell_clift": [
+        "Benj. H. Clift"
+      ],
+      "biz_s_abell_attorney_and_counsellor": [
+        "Abell"
+      ],
+      "biz_stuart_s_confectionary_and_perfumery": [
+        "Stuart"
+      ],
+      "biz_the_chicago_brewery": [
+        "Crawford"
+      ],
+      "biz_the_chicago_democrat": [
+        "Calhoun, J."
+      ],
+      "biz_the_new_blacksmith_shop_opposite_the_chicago_hotel": [
+        "Abbott",
+        "Pierce"
+      ],
+      "biz_uncertain_datid_gad_auction_and_commission_merchant_south_water_street": [
+        "[uncertain: DATID GAD]"
+      ],
+      "biz_uncertain_j_i_mulford_carriage_and_sleigh_maker": [
+        "[uncertain: J. I. Mulford]"
+      ],
+      "biz_uncertain_taylor_dearborn_street_boot_and_shoe_store": [
+        "[uncertain: …] Taylor"
+      ],
+      "biz_w_g_blanchard": [
+        "Wm. G. Blanchard"
+      ]
+    }
+  },
+  "businesses_with_no_named_person": [
+    "biz_a_leather_stock_chicago_june_1835",
+    "biz_a_o_t_breed",
+    "biz_an_iron_and_hardware_stock_chicago_june_1835",
+    "biz_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered",
+    "biz_briggs_humphrey",
+    "biz_chase_ballard",
+    "biz_chicago_st_joseph_packet_schooner_llewellyn",
+    "biz_clark_filer_co",
+    "biz_cromelien_brothers_co",
+    "biz_dart_co_castings",
+    "biz_deacon_mccaleb",
+    "biz_e_p_deacon",
+    "biz_everson_co",
+    "biz_fullerton_botsford",
+    "biz_harmon_loomis_co",
+    "biz_j_c_goodhue_land_agent",
+    "biz_j_l_wilson_co",
+    "biz_kinzie_hall",
+    "biz_m_cormick_moon",
+    "biz_noble_wesencraft",
+    "biz_north_western_fire_and_marine_insurance_company_of_oswego_chicago_agency",
+    "biz_riggs_humphrey",
+    "biz_rockwell_cabinet_furniture_warehouse",
+    "biz_stuart_s_confectionary_and_perfumery",
+    "biz_the_chicago_american_newspaper_and_job_printing_office",
+    "biz_the_chicago_and_st_joseph_packet_schooner_phillips",
+    "biz_the_livery_stable_at_the_point",
+    "biz_the_new_store_at_the_corner_of_water_and_clark_streets",
+    "biz_the_stove_and_tin_ware_store_in_water_street_near_the_bridge",
+    "biz_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
+    "biz_uncertain_datid_gad_auction_and_commission_merchant_south_water_street",
+    "biz_uncertain_j_i_mulford_carriage_and_sleigh_maker",
+    "biz_uncertain_the_dentist_lodging_near_lake_street_july_1834",
+    "biz_uncertain_the_physician_lodging_at_the_mansion_house_july_1834",
+    "biz_unidentified_dentist",
+    "biz_unnamed_hat_manufacturer_dealer",
+    "biz_unnamed_house_and_land_agent",
+    "biz_unnamed_new_store_la_salle_street",
+    "biz_whitehead_co"
+  ],
+  "questions_for_the_convergence": {
+    "what_this_is": "The first time a card's own name has stood beside every name the register printed for it. These are mechanical disagreements, not refutations: this tool carries rows across at the identity the business layer already asserted and re-matches nobody. T-1190 is the ticket that converges the layer by id and they are its.",
+    "cards": 2,
+    "rows": [
+      {
+        "person_id": "bradley_joseph",
+        "the_card_reads": "Joseph Bradley",
+        "the_register_printed": [
+          "J. C. Bradley"
+        ],
+        "houses": [
+          "biz_a_travelling_dentist_at_the_new_york_house"
+        ],
+        "what_disagrees": [
+          "every printing of this name carries a middle initial and the card carries none"
+        ]
+      },
+      {
+        "person_id": "kinzie_john_h",
+        "the_card_reads": "John Harris Kinzie",
+        "the_register_printed": [
+          "J. H. Kinzie",
+          "John H. Kinzie",
+          "John S. Kinzie"
+        ],
+        "houses": [
+          "biz_j_h_kinzie_merchant",
+          "biz_john_h_kinzie",
+          "biz_john_s_kinzie_forwarding_and_commission_merchant"
+        ],
+        "what_disagrees": [
+          "the printings disagree about the middle initial: H., S."
+        ]
+      }
+    ]
+  },
+  "what_this_does_not_do": {
+    "it_does_not_carry_the_reconstructed_seats_onto_the_cards": "T-1462 put 123 reconstructed hands on the business records — the seats T-1433 drew — and this join leaves every one of them off `workplaces`. `workplaces` is the list of houses a SOURCE puts a person in; the seats' person-side record is data/residents/reconstructed_seating.json, which re-derives under its own gate and states, for each one, which term of the order rule seated them where. Three fifths of those people stand outside `households/` in directories their own mints re-derive whole, so carrying the key back needs those mints to carry it, and writing it for the minority that do stand in `households/` would make one seat read as a workplace and the next as nothing at all.",
+    "the_shortfall_is_left_standing": "The staffing model implies 65–202–417 hands over 179 houses. This join writes none of them: it carries across only what a source already names.",
+    "T-1433": "Seats the reconstructed residents who have a trade and no workplace, and gives the no-fixed-premises trades their employer or a casual entry with its reason.",
+    "T-1434": "Mints the shortfall to the model's typical band, gives every working-age person a workplace or an explicit reason, and prints the filled count on the business card and in the order book."
+  }
+}

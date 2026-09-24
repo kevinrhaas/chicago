@@ -1,0 +1,102 @@
+{
+  "id": "biz_edward_w_casey",
+  "register_id": "business_edward_w_casey",
+  "name": "Edward W. Casey",
+  "provenance": "compiled_from_register",
+  "type": [
+    "lawyer"
+  ],
+  "trade": "attorney and counsellor at law",
+  "occupation": "attorney",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Edward W. Casey",
+      "person_id": "casey_edward_w",
+      "register_person_id": "person_edward_w_casey",
+      "role": "proprietor",
+      "from": "1834-06-04",
+      "to": "1835-05-27",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card casey_edward_w (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_06_04#c014",
+        "chicago_democrat_1834_07_02#c055",
+        "chicago_democrat_1834_09_03#c016",
+        "chicago_democrat_1834_10_15#c003",
+        "chicago_democrat_1834_11_12#c009",
+        "chicago_democrat_1834_12_03#c011",
+        "chicago_democrat_1835_05_27#c011"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-06-04",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The anchor 'the office of the Clerk of the Circuit Court' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-06-04",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-06-04, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-06-04",
+    "last_issue": "1835-05-27",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Edward W. Casey (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "casey_edward_w",
+        "name": "Edward W. Casey",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_06_04#c014",
+    "chicago_democrat_1834_07_02#c055",
+    "chicago_democrat_1834_09_03#c016",
+    "chicago_democrat_1834_10_15#c003",
+    "chicago_democrat_1834_11_12#c009",
+    "chicago_democrat_1834_12_03#c011",
+    "chicago_democrat_1835_05_27#c011"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

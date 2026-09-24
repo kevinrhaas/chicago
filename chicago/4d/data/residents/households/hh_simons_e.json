@@ -13,20 +13,60 @@
   "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of March 1835 and not by the issue it was read in (T-0425). The earliest issue this project reads the name in is 1835-05-20, 50 days later; that gap is an accident of which impression an extraction pass reached, and it is not evidence. Somebody was writing to this name at Chicago by 1835-03-31 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
   "precision": "not_later_than"
  },
+ "arrival_year": {
+  "value": 1835,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-03-31 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
+  },
+  "seed": "hh_simons_e:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
  "party_size_on_arrival": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
  },
  "origin": {
-  "value": null,
+  "value": "New England",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_simons_e:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -44,6 +84,20 @@
   "sources": [
    "chicago_democrat_1833_1835"
   ],
+  "last_dated_appearance": {
+   "as_read": "1835-05-20",
+   "precision": "day",
+   "reaches": "1835-05-20",
+   "includes_scene_date": false,
+   "days_before_scene_date": 42,
+   "leg": "sighting",
+   "person": "simons_e",
+   "record": "person_e_simons",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `press_evidence` as `1835-05-20`, which reaches 1835-05-20 — 42 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+  },
   "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1835-05-20 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
  "persons": [
@@ -72,6 +126,38 @@
     "derived_from": "roles",
     "roles_at_scene_date": []
    },
+   "workplaces": [
+    {
+     "business_id": "biz_marsh_simons",
+     "business_name": "Marsh & Simons",
+     "role": "partner",
+     "printed_as": "Edward Simons",
+     "from": "1834-08-13",
+     "to": "1834-08-13",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card simons_e (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1834_08_13#c008"
+     ],
+     "business_present_at_scene_date": false
+    },
+    {
+     "business_id": "biz_the_boston_market",
+     "business_name": "The Boston Market",
+     "role": "proprietor",
+     "printed_as": "Edward Simons",
+     "from": "1834-08-13",
+     "to": "1834-08-13",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card simons_e (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1834_08_13#c009"
+     ],
+     "business_present_at_scene_date": true
+    }
+   ],
    "sources": [
     "census_1840_chicago_familysearch_images",
     "chicago_democrat_1833_1835",
@@ -135,6 +221,26 @@
    ],
    "roles": [
     {
+     "role": "provision_dealer",
+     "kind": "trade",
+     "as_printed": "provision dealer",
+     "from": "1834-07-02",
+     "to": "1834-08-13",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_edward_simons",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1834-07-02 to 1834-08-13, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "own_premises"
+    },
+    {
      "role": null,
      "kind": "trade",
      "as_printed": "butcher, Archibald Clybourn",
@@ -143,14 +249,73 @@
      "precision": "year",
      "dated_by": "printing_year",
      "covers_scene_date": false,
+     "fills_scene_view": false,
      "confidence": "attested",
      "sources": [
       "fergus_chicago_directory_1839"
      ],
      "claim": null,
-     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839.",
+     "premises": null
+    },
+    {
+     "role": "butcher",
+     "kind": "trade",
+     "as_printed": "butcher",
+     "from": "1843",
+     "to": "1843",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "claim": "f1843_e2267",
+     "place": "res Jefferson",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1843 DIRECTORY, 8 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": "own_premises"
     }
-   ]
+   ],
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "sex_share_of_the_roll",
+     "note": "Drawn at 94.3% male, the rate measured on the letter_list roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
+    },
+    "seed": "simons_e:sex_ratio",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
+    },
+    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'simons_e:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
+   },
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 30 under 40', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "simons_e:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('simons_e:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   }
  ],
  "touches_removal": false,

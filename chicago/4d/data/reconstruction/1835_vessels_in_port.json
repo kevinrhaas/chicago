@@ -1,0 +1,387 @@
+{
+  "$schema_note": "AUTHORED, and it authors no coordinate and no man. One entry per hull the Marine Journal of the Chicago American enters at the Port of Chicago across the scene date. tools/model_transients_1835.py --check holds every entry to the extraction's own words, re-derives the cohort model's port figure and port table from this file, and refuses any vessel that authors a coordinate or claims a crew.",
+  "id": "vessels_in_port_1835",
+  "ticket": "T-1372",
+  "parent": "T-1175",
+  "target_date": "1835-07-01",
+  "authored_by": "T-1372, piece 3 of T-1175",
+  "read_from": "The Marine Journal of the Chicago American of 4 July 1835 (claim c008), which carries arrivals from 27 June to 3 July and clearances on 26 June and 1 July — the only column in this corpus that spans the scene date itself. The column of 20 June (claim c012) corroborates three of the four masters a fortnight earlier.",
+  "spent_by": "tools/model_transients_1835.py, which re-derives `vessels_lying_at_chicago_on_1_july_1835` and the port table of data/reconstruction/1835_transient_cohort.json from this file instead of from a list typed into the tool",
+  "why_this_file_exists": "T-1352 counted the hulls and printed them as four cells of a table inside a derived model; the names, masters, cargoes and last ports the column prints beside them had nowhere to live, and the reading itself sat in the generator as a Python constant whose comment promised a guard that was never written. This file is the reading, kept where a reading belongs: each hull a record with its own provenance, and the tool a consumer of it.",
+  "grades": "`confidence` grades THE HULL'S PRESENCE and nothing else. `documented` requires the shipping column to enter the vessel by name on a dated line; no entry here is graded higher on account of a master, a cargo or a berth.",
+  "the_dedup_rule": "A hull entered twice is one hull. The Philips is entered inbound on 27 June from Milwaukee and again on 29 June from Michigan, and the Llewelling on 28 June and again on 3 July; the vessel count counts vessels, so the entries are kept in full and the hull is counted once. This is the rule that makes six arrivals out of seven inbound lines.",
+  "the_counting_window": "A hull is in port on the scene date if the column enters it inbound on or before 1835-07-01 and does not enter it cleared before that day. A hull still lay at Chicago at nightfall if it was not also entered cleared ON that day. Arrivals after the scene date (the brig Neptune, 2 July; the Llewelling's second, 3 July) are recorded because the column carries them and are outside the window.",
+  "the_berth_this_file_refuses": "No committed source gives any of these hulls a berth. Chicago's landings were seven decks in July 1835 (data/wharves/river_landings.json) and the column names none of them; two of the six came in with lumber, which a merchant landing did not take, and the lumber yards are not in that layer at all. So every vessel here seats to the REACH and none to a deck, and `berth` is null on every entry with the reading it is owed named beside it. A berth guessed from a cargo would be a mooring invented whole.",
+  "the_crew_this_file_refuses": {
+    "complement": null,
+    "why": "No committed source in this corpus gives a crew complement for an 1830s lake schooner. T-1352 priced the port row `bounded: hulls only` for exactly this reason and T-1353 seated nobody aboard. Seating a crew would mean multiplying a hull by a number from general knowledge, which is the one thing this project's provenance rule refuses.",
+    "owed_to": "a committed source that gives an 1830s Great Lakes schooner its complement — an enrolment or registry return, a shipping article, or a marine list that prints hands as well as hulls",
+    "what_stands_ready_for_it": "data/residents/transients/hh_*.json already carry a plural `lodged_at[]` whose `kind: vessel` rung is gated and read by the People view, and the six sleeping-place classes T-1353 dealt contain no vessel class. Nothing has to be unpicked when the complement arrives: the hulls are here, the shape is there, and only the number is missing."
+  },
+  "the_gang_this_file_does_not_hold": "The harbour-works gang is the other half of T-1372 and is not a vessel. The federal improvement was at work through 1835 — the 1835 appropriation was $32,800 — and no committed source gives its strength in any month. docs/RESEARCH/north_pier.md names the Chief Engineer's annual report for 1835 as the document that would settle it. It is recorded here so that a reader of this file is not left thinking the port reading covers the works.",
+  "the_reach_they_lay_in": {
+    "id": "the_river_below_the_forks",
+    "name": "The Chicago River between the piers and the forks",
+    "kind": "reach",
+    "confidence": "inferred",
+    "why": "The column heads PORT OF CHICAGO and enters arrivals and clearances rather than roadstead anchorages, which is a river entry. The cut through the sand bar was open by the scene date — the schooner Illinois came through on 12 July 1834, the first vessel to enter the river, and the entrance the two crib lines hold is a documented 200 ft — and every deck in the committed landings layer stands on this reach. What is inferred is that these particular hulls lay inside rather than off the bar; the column does not say so in words.",
+    "sources": [
+      "chicago_american_1835_07_04"
+    ],
+    "resolves_from": [
+      "data/wharves/river_landings.json",
+      "data/structures/north_pier.json",
+      "data/structures/south_pier.json"
+    ],
+    "resolution_rule": "The water between the pier cribs' landward ends and the forks, taken from the committed channel the landings layer already sounds. No vertex is authored here and none may be: a hull placed off that water is a hull on the bank.",
+    "capacity": "not stated — this file counts hulls and never men"
+  },
+  "vessels": [
+    {
+      "id": "schr_jesse_smith",
+      "name": "Jesse Smith",
+      "display_name": "Jesse Smith",
+      "rig": "schooner",
+      "master": {
+        "surname": "Drurian",
+        "variants": [],
+        "note": "Entered the same both inbound on 27 June and outbound on 1 July, which is as firm as this column gets."
+      },
+      "confidence": "documented",
+      "sources": [
+        "chicago_american_1835_07_04"
+      ],
+      "claim_ids": [
+        "chicago_american_1835_07_04:c008"
+      ],
+      "corroborated_by": [],
+      "entries": [
+        {
+          "event": "arrived",
+          "date": "1835-06-27",
+          "port": "Green Bay",
+          "cargo": "lumber",
+          "verbatim": "Schr Jesse Smith, Drurian, from Green Bay, with lumber"
+        },
+        {
+          "event": "cleared",
+          "date": "1835-07-01",
+          "port": null,
+          "cargo": null,
+          "verbatim": "Schr Jesse Smith, Drurian, for"
+        }
+      ],
+      "berth": null,
+      "berth_owed_to": "a source that names a landing, a yard or a bank for a named hull",
+      "crew": null,
+      "note": "One of the two lumber cargoes in the week. This project builds a town of sawn boards, and the Jesse Smith and the Hiram are where two weeks of them came in.",
+      "register_business": {
+        "business_id": null,
+        "name_in_the_register": null,
+        "confidence": null,
+        "basis": "No house in data/businesses/ carries this hull. The register compiles a vessel as a business only where the papers advertised her as a trade of her own — the two Chicago and St. Joseph packets — and a hull entered at the port in a shipping column is not an advertisement. That is a silence in the register and not a gap here.",
+        "spelling_divergence": null,
+        "what_the_column_adds": null
+      }
+    },
+    {
+      "id": "schr_philips",
+      "name": "Philips",
+      "display_name": "Philips",
+      "rig": "schooner",
+      "master": {
+        "surname": "Howe",
+        "variants": [
+          "Lowe"
+        ],
+        "note": "Entered 'Howe' inbound and 'Lowe' outbound on consecutive lines of the same column; the extraction reads the two as one man and brackets the second, and this file follows it rather than minting a second master."
+      },
+      "confidence": "documented",
+      "sources": [
+        "chicago_american_1835_07_04",
+        "chicago_american_1835_06_20"
+      ],
+      "claim_ids": [
+        "chicago_american_1835_07_04:c008"
+      ],
+      "corroborated_by": [
+        "chicago_american_1835_06_20:c012"
+      ],
+      "entries": [
+        {
+          "event": "arrived",
+          "date": "1835-06-27",
+          "port": "Milwaukee",
+          "cargo": null,
+          "verbatim": "Schr Philips, Howe, from Milwaukee"
+        },
+        {
+          "event": "arrived",
+          "date": "1835-06-29",
+          "port": "Michigan",
+          "cargo": "passengers",
+          "verbatim": "Schr Philips, Howe, from Michigan"
+        },
+        {
+          "event": "cleared",
+          "date": "1835-07-01",
+          "port": "Milwaukee",
+          "cargo": null,
+          "verbatim": "Schr Philips, Lowe, for Milwaukee"
+        }
+      ],
+      "berth": null,
+      "berth_owed_to": "a source that names a landing, a yard or a bank for a named hull",
+      "crew": null,
+      "note": "The one hull the column enters inbound twice inside the window, and the reason the arrivals count is six rather than seven. It cleared for Milwaukee on the scene date itself, so it is in port on 1 July and gone by nightfall.",
+      "register_business": {
+        "business_id": "biz_the_chicago_and_st_joseph_packet_schooner_phillips",
+        "name_in_the_register": "The Chicago and St. Joseph packet, schooner Phillips",
+        "confidence": "inferred",
+        "basis": "THE WEAKER JOIN, because the register's record carries NO proprietor at all and there is no master to agree on. What carries it is the trade and the name: a Chicago and St. Joseph packet, schooner Phillips, first printed 6 August 1834, and a schooner Philips entered at this port three times in the week of the scene date — inbound from Milwaukee on 27 June, inbound from Michigan on 29 June, and cleared for Milwaukee on 1 July. The last ports are the St. Joseph route's own lake, which is consistent and is not a fourth witness.",
+        "spelling_divergence": "The register prints Phillips and the column prints Philips. Kept apart on the same rule as the Llewellyn's, and this one matters more: the register's record names nobody, so the name is the whole of the identity claim.",
+        "what_the_column_adds": "A MASTER FOR A HOUSE THAT HAS NONE. The compiled record's `proprietors` is empty — the register never printed a name against this packet — and the Marine Journal enters her master on three dated lines: Howe inbound twice, [L]owe outbound, read as one man by the extraction and carried on `master` above. Nothing is written onto the business record here, because the compiled records are derived and a hand edit to one is a red gate; T-1189, which staffs every business with real persons, is what owes this house its master."
+      }
+    },
+    {
+      "id": "schr_llewelling",
+      "name": "Llewelling",
+      "display_name": "Llewelling",
+      "rig": "schooner",
+      "master": {
+        "surname": "Clark",
+        "variants": [],
+        "note": "The same master the column of 20 June gives her, a fortnight earlier and in a different issue."
+      },
+      "confidence": "documented",
+      "sources": [
+        "chicago_american_1835_07_04",
+        "chicago_american_1835_06_20"
+      ],
+      "claim_ids": [
+        "chicago_american_1835_07_04:c008"
+      ],
+      "corroborated_by": [
+        "chicago_american_1835_06_20:c012"
+      ],
+      "entries": [
+        {
+          "event": "arrived",
+          "date": "1835-06-28",
+          "port": null,
+          "cargo": "passengers",
+          "verbatim": "Schr Llewelling, Clark"
+        },
+        {
+          "event": "arrived",
+          "date": "1835-07-03",
+          "port": null,
+          "cargo": null,
+          "verbatim": "Schr Llewelling, Clark, from North"
+        }
+      ],
+      "berth": null,
+      "berth_owed_to": "a source that names a landing, a yard or a bank for a named hull",
+      "crew": null,
+      "note": "In with passengers two days before the scene date and still entered at Chicago after it. Her last port is cut down the right edge of the column and is not completed here.",
+      "register_business": {
+        "business_id": "biz_chicago_st_joseph_packet_schooner_llewellyn",
+        "name_in_the_register": "Chicago & St. Joseph Packet (schooner Llewellyn)",
+        "confidence": "inferred",
+        "basis": "THE STRONGEST OF THE TWO JOINS, AND THE MASTER IS WHY. The register compiles one proprietor string onto this house and it is 'Clark, master', read off the Democrat of 27 May 1835; the Marine Journal enters 'Schr Llewelling, Clark' inbound on 28 June and again on 3 July, in the other paper. A packet advertised between Chicago and the mouth of the St. Joseph, a schooner of that name entered at this port five weeks later, and the same master on both — three agreements, none of which is a statement that the two records are one vessel.",
+        "spelling_divergence": "The register prints Llewellyn and the column prints Llewelling. Neither is corrected: the column's spelling is this file's `name` because this file is the column's reading, and the register's stands in `name_in_the_register`. Both runs are OCR-assisted transcriptions under ruling 2 of data/sources/chicago_american_1835.json, so neither spelling outranks the other and a scan read of either page would.",
+        "what_the_column_adds": "That the house was still trading, and under the same master, five weeks after its one printing — the register's own date window for this business opens and closes on 1835-05-27 and reaches the scene date only through the survival liberty. The column reaches it without one."
+      }
+    },
+    {
+      "id": "schr_hiram",
+      "name": "Hiram",
+      "display_name": "Hiram",
+      "rig": "schooner",
+      "master": {
+        "surname": "Rathbourn",
+        "variants": [
+          "Rathburn"
+        ],
+        "note": "Entered 'Rathbourn' on 20 June and again on 4 July; the column of 22 August has 'Rathburn'. The three are read as one man and the earliest spelling is carried."
+      },
+      "confidence": "documented",
+      "sources": [
+        "chicago_american_1835_07_04",
+        "chicago_american_1835_06_20"
+      ],
+      "claim_ids": [
+        "chicago_american_1835_07_04:c008"
+      ],
+      "corroborated_by": [
+        "chicago_american_1835_06_20:c012"
+      ],
+      "entries": [
+        {
+          "event": "arrived",
+          "date": "1835-06-28",
+          "port": "Michigan",
+          "cargo": "lumber",
+          "verbatim": "Schr Hiram, Rathbourn, from Michigan, with lumber"
+        }
+      ],
+      "berth": null,
+      "berth_owed_to": "a source that names a landing, a yard or a bank for a named hull",
+      "crew": null,
+      "note": "The second lumber cargo of the week, and one of the four hulls still lying at Chicago at nightfall on the scene date.",
+      "register_business": {
+        "business_id": null,
+        "name_in_the_register": null,
+        "confidence": null,
+        "basis": "No house in data/businesses/ carries this hull. The register compiles a vessel as a business only where the papers advertised her as a trade of her own — the two Chicago and St. Joseph packets — and a hull entered at the port in a shipping column is not an advertisement. That is a silence in the register and not a gap here.",
+        "spelling_divergence": null,
+        "what_the_column_adds": null
+      }
+    },
+    {
+      "id": "schr_whig",
+      "name": "Whig",
+      "display_name": "Whig",
+      "rig": "schooner",
+      "master": {
+        "surname": "Day",
+        "variants": [],
+        "note": null
+      },
+      "confidence": "documented",
+      "sources": [
+        "chicago_american_1835_07_04"
+      ],
+      "claim_ids": [
+        "chicago_american_1835_07_04:c008"
+      ],
+      "corroborated_by": [],
+      "entries": [
+        {
+          "event": "arrived",
+          "date": "1835-06-29",
+          "port": null,
+          "cargo": "merchandize",
+          "verbatim": "Schr Whig, Day"
+        }
+      ],
+      "berth": null,
+      "berth_owed_to": "a source that names a landing, a yard or a bank for a named hull",
+      "crew": null,
+      "note": "Entered in this column alone of the six weeks of shipping the corpus holds, so her master stands on one reading. The schooner is not the Chicago Whig, the newspaper T. O. Davis was establishing in the same year; the coincidence of names is recorded so that a later hand does not join them.",
+      "register_business": {
+        "business_id": null,
+        "name_in_the_register": null,
+        "confidence": null,
+        "basis": "No house in data/businesses/ carries this hull. The register compiles a vessel as a business only where the papers advertised her as a trade of her own — the two Chicago and St. Joseph packets — and a hull entered at the port in a shipping column is not an advertisement. That is a silence in the register and not a gap here.",
+        "spelling_divergence": null,
+        "what_the_column_adds": null
+      }
+    },
+    {
+      "id": "steamboat_unnamed_1835_06_29",
+      "name": null,
+      "display_name": "an unnamed steamboat",
+      "rig": "steamboat",
+      "master": null,
+      "confidence": "documented",
+      "sources": [
+        "chicago_american_1835_07_04"
+      ],
+      "claim_ids": [
+        "chicago_american_1835_07_04:c008"
+      ],
+      "corroborated_by": [],
+      "entries": [
+        {
+          "event": "arrived",
+          "date": "1835-06-29",
+          "port": null,
+          "cargo": "passengers",
+          "verbatim": "passengers, &c."
+        }
+      ],
+      "berth": null,
+      "berth_owed_to": "a source that names a landing, a yard or a bank for a named hull",
+      "crew": null,
+      "note": "The name is cut out of the transcription and is NOT supplied here. The Democrat of 1 July has Lewis Cass, Secretary of War, arriving on the 29th in the steamer Michigan, and this same column clears a Steamboat Michigan, Blake, on the 26th; the likeliest reading is one vessel returned, and this file neither merges the two entries nor claims they are distinct — the open question is carried in the cohort model where T-1352 left it.",
+      "register_business": {
+        "business_id": null,
+        "name_in_the_register": null,
+        "confidence": null,
+        "basis": "No house in data/businesses/ carries this hull. The register compiles a vessel as a business only where the papers advertised her as a trade of her own — the two Chicago and St. Joseph packets — and a hull entered at the port in a shipping column is not an advertisement. That is a silence in the register and not a gap here.",
+        "spelling_divergence": null,
+        "what_the_column_adds": null
+      }
+    }
+  ],
+  "entered_but_outside_the_window": [
+    {
+      "id": "brig_neptune",
+      "display_name": "Neptune",
+      "rig": "brig",
+      "master": {
+        "surname": "Wilkeson",
+        "variants": [],
+        "note": null
+      },
+      "why_outside": "arrived 1835-07-02, the day after the scene date",
+      "claim_ids": [
+        "chicago_american_1835_07_04:c008"
+      ],
+      "verbatim": "Brig Neptune, Wilkeson",
+      "register_business": {
+        "business_id": null,
+        "name_in_the_register": null,
+        "confidence": null,
+        "basis": "No house in data/businesses/ carries this hull. The register compiles a vessel as a business only where the papers advertised her as a trade of her own — the two Chicago and St. Joseph packets — and a hull entered at the port in a shipping column is not an advertisement. That is a silence in the register and not a gap here.",
+        "spelling_divergence": null,
+        "what_the_column_adds": null
+      }
+    },
+    {
+      "id": "schr_st_joseph",
+      "display_name": "St. Joseph",
+      "rig": "schooner",
+      "master": null,
+      "why_outside": "cleared 1835-06-26, before the scene date, and is not entered inbound in this column",
+      "claim_ids": [
+        "chicago_american_1835_07_04:c008"
+      ],
+      "verbatim": "Schr St. Joseph, for St. Joseph",
+      "register_business": {
+        "business_id": null,
+        "name_in_the_register": null,
+        "confidence": null,
+        "basis": "No house in data/businesses/ carries this hull. The register compiles a vessel as a business only where the papers advertised her as a trade of her own — the two Chicago and St. Joseph packets — and a hull entered at the port in a shipping column is not an advertisement. That is a silence in the register and not a gap here.",
+        "spelling_divergence": null,
+        "what_the_column_adds": null
+      }
+    },
+    {
+      "id": "steamboat_michigan",
+      "display_name": "Michigan",
+      "rig": "steamboat",
+      "master": {
+        "surname": "Blake",
+        "variants": [],
+        "note": null
+      },
+      "why_outside": "cleared 1835-06-26, before the scene date, and is not entered inbound in this column",
+      "claim_ids": [
+        "chicago_american_1835_07_04:c008"
+      ],
+      "verbatim": "Steamboat Michigan, Blake",
+      "register_business": {
+        "business_id": null,
+        "name_in_the_register": null,
+        "confidence": null,
+        "basis": "No house in data/businesses/ carries this hull. The register compiles a vessel as a business only where the papers advertised her as a trade of her own — the two Chicago and St. Joseph packets — and a hull entered at the port in a shipping column is not an advertisement. That is a silence in the register and not a gap here.",
+        "spelling_divergence": null,
+        "what_the_column_adds": null
+      }
+    }
+  ],
+  "the_register_houses_two_of_these_hulls": "T-1425. THE BUSINESS LAYER COULD NOT SEE A SINGLE ONE OF THESE HULLS, and two of them were already in it. `data/businesses/` compiles 196 houses out of the newspaper register, and two of those houses ARE vessels — the Chicago & St. Joseph packets *Llewellyn* and *Phillips* — advertised as carriers of freight and passengers and compiled with no premises, because a packet has none. Both are hulls the Marine Journal of 4 July 1835 enters at this port across the scene date. Nothing said so: the register knew of two packets and did not know they were lying in the river, and this file knew of six hulls and did not know two of them traded under a name the town printed. `register_business` on every vessel below is that join, made or refused by name. IT IS AN IDENTITY RULING AND IT IS GRADED `inferred`, never documented — no source says in words that the register's packet and the column's hull are one vessel, and the two papers do not even spell them alike. What carries it is the trade, the port, the window and, on the Llewellyn, the MASTER: the register's only proprietor string is 'Clark, master' and the column enters 'Schr Llewelling, Clark' twice, six weeks later, in a different paper. THE SPELLINGS ARE KEPT APART AND NOT RESOLVED, on data/sources/chicago_american_1835.json's own standing rule that where two witnesses disagree the disagreement is the finding: `name` stays the column's, `name_in_the_register` stays the register's, and `spelling_divergence` says what the difference is. WHAT THIS DOES NOT DO is write a master onto a business record. The compiled records are derived from the register and rewritten whole by tools/compile_businesses.py, so a proprietor added here by hand would be a red gate; the Phillips's master is recorded on the hull, where the reading is, and `what_the_column_adds` names what the business layer is still missing and the ticket that owes it.",
+  "the_contractor_this_file_cannot_name": "T-1425, and it is a REFUSAL rather than a reading. T-1409 asked for 'the pier-works contractor and his gang' beside the vessels, and this corpus holds neither. The federal harbour improvement was at work across the scene date — both piers are committed structures, the 1835 appropriation was $32,800, and `1835_transient_cohort.json` prices the gang 'bounded: no' for exactly this reason — but no committed source names a contractor, a foreman or a strength in any month of 1835. The nearest thing the tree holds is `data/sources/resident_research_cook_harbor_jackson.json`, a tier-3 retrospective which makes Samuel Jackson foreman of the harbour construction 'for some time' from June 1833 — two seasons early, unbounded at the far end, and not a claim about 1 July 1835. THE DOCUMENT THAT WOULD SETTLE IT is named and unfound: the Chief Engineer's annual report for 1835, or the House Document series (docs/RESEARCH/north_pier.md, dossier 01). Until one of them is read, the works employ nobody this project can count, and the business band orders no house for a man it cannot name. See `the_gang_this_file_does_not_hold` above, which this entry now gives the evidence for."
+}

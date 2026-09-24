@@ -139,6 +139,113 @@ replacement rule, are re-derived and never typed:
 `data/research/residents/attribute_tiers.json`, or `python3 tools/summarize_residents.py
 tiers`.
 
+## Substitution: what a new source retires, and how it is read before it is done (T-1441, 2026-09-20)
+
+`replaceable_by` states the promise. The owner asked for it in one sentence — *"so if we get
+new research we can replace the reconstructed person or business with an inferred or attested
+one later"* — and every reconstructed record above carries it. What the field cannot do on its
+own is ANSWER it. A reader holding a new directory line would have to open 32 reconstructed
+firms and 308 reconstructed trade heads, read 340 sentences of prose, and work out which of
+them the line retires; and the expensive parts of a retirement are not written in the record
+at all. `tools/substitute_reconstruction.py --dry-run` is the reading, and this is the rule
+it implements.
+
+**A candidate is a reading, never another reconstruction.** The tool takes a small JSON
+document naming a record the research has just won — its `kind`, `tier`, the trade or census
+class it belongs to, and the division if the source narrows one.
+`tools/fixtures/substitution_candidate.json` is the shipped example and the fixture the
+self-test runs over. A candidate at `tier: reconstructed` is REFUSED: a reconstruction cannot
+retire a reconstruction, or the layer would churn without ever being read out of a source. An
+`attested` candidate that cites no source is refused for the reason the ladder above gives.
+
+**Three predicates, all of which must hold.**
+
+  1. **The trade or class agrees.** A reconstructed record stands in for a count of its own
+     class, so a candidate of another class replaces nothing and is an addition instead.
+  2. **The place does not disagree.** Where both the candidate and the record name a
+     division they must be the same one; where the record narrows to no division, the match
+     stands and the plan says so. Silence is not disagreement — a `street_only` face is not
+     a division, and reading one off a street would be making T-1182's ruling in passing.
+  3. **The scene date agrees.** A house that arrived in the autumn did not stand in for one
+     on 1 July 1835 and retires nothing.
+
+**It never picks between matches, and that is a finding rather than a gap.** Where a class
+leaves two reconstructed millineries on the same face, neither is more this candidate's than
+the other on any authority — the same limit `docs/STREET-FACE-ADOPTION.md` states about order
+within a face. The tool prints every match and names the choice as the operator's. A tool
+that chose would be inventing the one fact the evidence does not carry.
+
+**The retirement has three parts a hand-read loses, and the plan prints all three.**
+
+  * **The id is redirected, not deleted.** The town is walked through links; a reader who
+    bookmarked a house may not find a hole where it stood.
+  * **The roof is carried.** A reconstructed firm seated on a committed structure did not
+    invent that structure — the building stood before the firm was dealt onto it. The new
+    record takes the roof; nothing is demolished.
+  * **The order-book row re-opens by being ANSWERED, not by being filled.** An attested
+    house of a class the December 1835 census counts raises that bucket's `known` by one,
+    which lowers `to_reconstruct` by one, while the retirement lowers `filled` by one. A
+    firm that fills no census row was bought by a trade head instead, and is withdrawn with
+    the head — the plan names the head rather than inventing a quota for it.
+
+**And it names the liberty whose count moves.** Every reconstructed firm is covered by an
+entry in `docs/LIBERTIES.md`, and each of those entries states in its own prose how many of
+the population are its own. `compile_liberties.py` re-derives the POPULATION and fails on
+drift; it has never re-derived the SHARE, because a firm carries the ticket that built it
+and a liberty carries no ticket, so the two cannot be joined out of the data. The tool holds
+that join and re-counts both ends — the records on disk against each entry's own sentence,
+required to agree and to sum to the scope — so a group rebuilt one house larger now fails a
+gate instead of leaving a word like FIFTEEN standing over sixteen firms.
+
+**THE TOOL WRITES NOTHING, AND THERE IS NO `--build` BESIDE THE DRY RUN.** Every reconstructed
+record says the same thing about its own retirement: *the retirement runs through `--build`,
+never by hand* — and the `--build` it means is its OWN generator's. Those tools re-derive a
+whole population from the order book, and a record that is no longer ordered simply stops
+being written; a second tool reaching in to delete one record would put the layer off the
+fixed point `check.sh` holds it to. What retires a reconstruction is the SOURCE, entered
+where sources are entered. This one reads the cost first.
+
+## The business record, and the limit as a field (T-1310, 2026-09-18)
+
+A business is the third thing in this dataset with an identity of its own — after a structure
+and a person — and until T-1310 it was the only one with nowhere to carry a tier. It has a
+record now: `data/businesses/<id>.json`, one file each, against `data/businesses.schema.json`.
+`docs/RESEARCH/business-layer.md` is the page; two rules on it belong here.
+
+**A printed name is attested. The link from it to a person is a separate claim.** The paper
+prints *A. Clybourn* and that is attested at the printing. Whether that name is the same man as
+the card `clybourn_archibald` in `data/residents/` is a second assertion with its own evidence
+— the register's match — and the record keeps them apart:
+
+```jsonc
+"proprietors": [{
+  "name": "A. Clybourn",                  // attested: the notice prints it
+  "person_id": "clybourn_archibald",      // the LINK, with its own basis below
+  "register_person_id": "person_a_clybourn",
+  "role": "proprietor", "tier": "attested",
+  "basis": "The register matches the printed name to the town card clybourn_archibald
+            (action: enrich) … Dated by the printing window, which bounds the reading
+            and does not date the partnership."
+}]
+```
+
+Where the register made no match, `person_id` is `null` and the basis says the town holds no
+card for them. **That null is a finding, not a gap to be filled by guessing** — the same
+reading `unknown` gets in the table above. 157 of 209 named people link today; the other 52
+are the queue for T-1189, and none of them will be resolved by matching a surname.
+
+**A limit on a location is a location, not a missing one.** 61 of the register's businesses
+give a street and no house; 62 give no anchor at all. Written as absence, those read as work
+nobody had done. They are `locations[]` entries whose `kind` names the limit — `street_only`,
+`unplaceable`, and `anchored` for a house placed against a landmark but holding no roof of its
+own — and whose `limit_reason` quotes why the evidence stops there. The schema requires the
+reason: a limit that does not say what it is is refused, exactly as an `inferred` attribute
+with no note is.
+
+This generalises the rule two sections up. `unknown` says *nothing is asserted about this
+attribute*; a limit kind says *something is asserted about this location and it stops here*.
+Both are claims about the evidence, both are counted, and neither may be written as a blank.
+
 ## Evidence tiers
 
 Not all sources are equal, and the dataset should not pretend otherwise.

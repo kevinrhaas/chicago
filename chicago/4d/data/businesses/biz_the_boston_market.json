@@ -1,0 +1,163 @@
+{
+  "id": "biz_the_boston_market",
+  "register_id": "business_the_boston_market",
+  "name": "The Boston Market",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "market, provisions",
+  "occupation": "provision_dealer",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Edward Simons",
+      "person_id": "simons_e",
+      "register_person_id": "person_edward_simons",
+      "role": "proprietor",
+      "from": "1834-08-13",
+      "to": "1834-08-13",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card simons_e (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_08_13#c009"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Jared Bardwell",
+      "person_id": "rc_bardwell_jared",
+      "role": "household_member",
+      "occupation": "labourer",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 0 of this role in a grocery and provision store at the typical band and 1 at the high end, on period_convention. A hand for barrels and the drayage. Analogue: as above. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#grocery_and_provision_store.labourer; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_bardwell_jared:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "grocery_and_provision_store",
+    "reads_as": "a grocery and provision store",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "clerk",
+        "occupation": "clerk",
+        "household_relationship": "clerk",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "directory_1839",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      },
+      {
+        "role": "household_member",
+        "occupation": "labourer",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "period_convention"
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 1,
+      "seats_taken": 1,
+      "seats_against_the_band": 0,
+      "short_by": 1,
+      "by_role": [
+        {
+          "occupation": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 1
+        },
+        {
+          "occupation": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band. This house carries 1, 0 of them in a role that still wanted one, so it stands 1 short — short rather than quietly filled, and short in the roles named below rather than in the total.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-08-13",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1834-08-13",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-08-13, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-08-13",
+    "last_issue": "1834-08-13",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Edward Simons (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "simons_e",
+        "name": "Edward Simons",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_08_13#c009"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

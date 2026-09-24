@@ -189,6 +189,22 @@
     ],
     "note": "NOT AN OPERATING INDIAN AGENCY BUILDING AT THE SCENE DATE, most likely, and that is the fact this record has least evidence for. Andreas has it 'left unoccupied by the death of Dr. Wolcott' in 1830, then in the autumn of 1832 describes 'the old Indian agency-house in which Colonel Hamilton then resided' — Colonel R. J. Hamilton, the county's clerk and commissioner of school lands, living in it as a private house while the agency's business ran down through the 1833 treaty. Nothing reached says who was in it in July 1835 or what it was being used for, so the value records a residence and this record carries no occupants block rather than guessing at one."
   },
+  "stands_on_lot": {
+    "claims_lot": false,
+    "grid": "north_division_tier",
+    "plat": "thompson_plat_1830",
+    "layer": "data/traces/vectors/north_division_tier_lots.json",
+    "block_id": "blk_kinzie_dearborn_north",
+    "lot_index": 7,
+    "lot_number": 1,
+    "lot_number_withheld": null,
+    "lot_lines_confidence": "inferred",
+    "lot_numbers_confidence": "inferred",
+    "confidence": "inferred",
+    "footprint_share": 1.0,
+    "derived_by": "tools/record_lot_seating.py",
+    "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on lot 1 of blk_kinzie_dearborn_north in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
+  },
   "research_note": "THE OLDEST BUILDING STANDING ON THE NORTH BANK IN THIS SCENE, if it was standing: begun under Charles Jouett's agency (1816-18), finished and lived in by Dr. Alexander Wolcott from about 1820, nicknamed Cobweb Castle during his bachelor years, and described once — in Wau-Bun, of 1831 — in the sentence that gives this record its shape. TWO SOURCES AGREE ON THE CORNER and neither gives a dimension. WHAT WRITING THIS RECORD ADDED TO THE PROJECT'S DOSSIER, all from Andreas vol. 1 read at full text rather than through the index: the footnote at p. 103 citing Wau-Bun for the corner; McKee's 'the agency-house being afterward clapboarded part way up'; Mrs. Callis's 'a log building of two large rooms, about twenty steps from the river bank, on the north side' for the Jouett-era house; and the 1830 recollection that 'the Government agency-house, known as \"Cobweb Castle,\" was left unoccupied by the death of Dr. Wolcott. In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' — which is the corroboration for Wau-Bun's ring of employees' log residences and for this project's blacksmith_shop_state_st record. THE RECORD IS FLAGGED review_required BECAUSE OF WHAT THIS BUILDING WAS: the United States Indian Agency at Chicago, the administrative seat of the process that ended in the removal of the Potawatomi in August 1835, six weeks after the scene date. AGENTS.md places that subject under a standing constraint: nothing here depicts, stages or narrates it, and any interpretive text hung on this building needs review before a scene carrying it is released. See docs/RESEARCH/cobweb_castle.md.",
   "review_required": true
 }

@@ -1,0 +1,159 @@
+{
+  "id": "biz_kercheval_hamilton",
+  "register_id": "business_kercheval_hamilton",
+  "name": "Kercheval & Hamilton",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "agents for lots in the School Section",
+  "occupation": "schoolteacher",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "[uncertain: G. H. Kercheval]",
+      "person_id": "kercheval_gholson",
+      "register_person_id": "person_uncertain_g_h_kercheval",
+      "role": "partner",
+      "from": "1834-07-09",
+      "to": "1834-07-09",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card kercheval_gholson (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_09#c029"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Rich'd J. Hamilton",
+      "person_id": null,
+      "register_person_id": "person_rich_d_j_hamilton",
+      "role": "partner",
+      "from": "1834-07-09",
+      "to": "1834-07-09",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_rich_d_j_hamilton with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_09#c029"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [
+    {
+      "name": "Harriet Dickinson",
+      "person_id": "rc_dickinson_harriet",
+      "role": "household_member",
+      "occupation": "schoolteacher",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 0 of this role in a school at the typical band and 1 at the high end, on period_convention. An assistant, at the larger schools only; the town's schools of 1835 are one room and one teacher. Analogue: the 1839 list's 13 schoolteachers. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#school.schoolteacher; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_dickinson_harriet:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "household_member",
+        "occupation": "schoolteacher",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "period_convention"
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 0,
+      "seats_taken": 1,
+      "seats_against_the_band": 0,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "schoolteacher",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts no hand about this kind of house at its typical band; this house carries 1.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-07-09",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-09",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-07-09, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-07-09",
+    "last_issue": "1834-07-09",
+    "copy_dates": [
+      "1834-06-04"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "british",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read british: [uncertain: G. H. Kercheval] (british). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "kercheval_gholson",
+        "name": "[uncertain: G. H. Kercheval]",
+        "role": "partner",
+        "community": "british",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_07_09#c029"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

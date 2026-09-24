@@ -650,10 +650,28 @@ PERSON_EVIDENCE_KINDS = (
 #: flags are not exclusive — 85 civic-mint people also carry the projected
 #: subtype — so this is a precedence, weakest evidence first, and the filter in
 #: `people.js` reads the underlying flags rather than this word.
-HOW_KNOWN = ("documented", "letter_list", "civic_mint", "projected")
+#: `transient` is the exception to the precedence below rather than a rung on it: the
+#: other four grade how well the town knew a RESIDENT, and a visitor of the season is not
+#: one. It is decided by the household the row came from (T-1353), not by a person flag,
+#: so it is passed in rather than read off the person.
+HOW_KNOWN = ("documented", "letter_list", "civic_mint", "projected", "transient")
+
+#: T-1400. A pill is read by a visitor, and three of the programme's stage keys are
+#: written for the tool that owns them rather than for a reader: `readmissions` is a
+#: pass, not a kind of person; `underdocumented` is a word about the sources, not about
+#: these ninety-odd men and women; `transients` is the cohort's name and "visitors" is
+#: what the town called them. The rest of the keys read as themselves and are spelled
+#: straight through, so this map stays the exception and never the vocabulary.
+STAGE_PILL_LABEL = {
+    "readmissions": "re-admitted",
+    "underdocumented": "under-documented",
+    "transients": "visitors",
+}
 
 
-def how_known(person: dict) -> str:
+def how_known(person: dict, transient: bool = False) -> str:
+    if transient:
+        return "transient"
     if person.get("letter_list_only"):
         return "letter_list"
     if person.get("civic_mint"):
@@ -787,7 +805,258 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     def value_of(block):
         return block.get("value") if isinstance(block, dict) else block
 
+    # T-1172. The re-admissions of the borderline roster are a RECONSTRUCTION and live
+    # outside the mints' directory on purpose (tools/readmit_borderline_roster.py says
+    # why), so the scene is where the two meet: a ruling re-prices the `present` of a
+    # card the research left `uncertain`, and a minted card joins the town as its own
+    # row. Nothing here reaches back into data/residents/households/ — the inferred
+    # value the ruling stands beside travels with the row so a reader sees both.
+    readmissions_path = DATA / "reconstruction" / "1835_readmissions.json"
+    readmissions = load(readmissions_path) if readmissions_path.exists() else {}
+    ruling_for = {r["household_id"]: r for r in readmissions.get("presence_rulings", [])}
+    minted_rows = readmissions.get("minted", [])
+
+    # T-1347. The trade households are the same shape one stage on: drawn heads the order
+    # book ordered, living outside the mints' directory for the reason the re-admissions
+    # do, and joining the town here as their own rows. Nothing here reaches back into
+    # data/residents/households/ either.
+    # T-1371, stage `lodgers`. Two overlays out of one ledger: the CARDS the stage minted
+    # (a container per lodging house, holding the people drawn into its beds) and the
+    # SEATS it gave people the layer already holds. A seat writes nothing into a research
+    # card — `data/residents/households/` is re-derived by the mint writers — so the seat
+    # is carried here, the same way T-1172's presence rulings are.
+    lodgers_path = DATA / "reconstruction" / "1835_lodgers_seated.json"
+    lodgers = load(lodgers_path) if lodgers_path.exists() else {}
+    lodger_rows_minted = lodgers.get("minted", [])
+    seat_for = {s["person"]: s for s in lodgers.get("seats", [])}
+
+    trades_path = DATA / "reconstruction" / "1835_trade_households.json"
+    trades = load(trades_path) if trades_path.exists() else {}
+    trade_rows_minted = trades.get("minted", [])
+
+    # T-1353. The summer crowd, and the one set of rows in this file that is NOT the town's
+    # own population. They live outside the mints' directory for the reason the two above
+    # do and for one more: a card in data/residents/households/ is a card the manifest, the
+    # town census and every resident count read, and a visitor of the season must not move
+    # any of them. The People view gets them so a visitor can see the crowd and filter it
+    # away again; `transient` on the row is what makes that askable.
+    # T-1376, from T-1177. The men of the company the 1832 Black Hawk roll heads INDIAN.
+    # The same shape again, and here for one more reason than the three above: these are
+    # the town's OWN people — the country was theirs — and the town carried twenty men of
+    # the other company on that page and none of these. Every row is review_required and
+    # touches_removal and the card says so in its own words.
+    underdocumented_path = DATA / "reconstruction" / "1835_native_and_metis.json"
+    underdocumented_doc = load(underdocumented_path) if underdocumented_path.exists() else {}
+    underdocumented_rows_minted = underdocumented_doc.get("minted", [])
+
+    transients_path = DATA / "reconstruction" / "1835_transient_persons.json"
+    transients_doc = load(transients_path) if transients_path.exists() else {}
+    transient_rows_minted = transients_doc.get("minted", [])
+
+    # T-1375, from T-1177. The community every person belongs to, derived by
+    # tools/derive_person_community.py off what the layer already says — a household's
+    # origin block, or a reconstructed person's own name-pool community — and graded no
+    # higher than the field it was read from. The row carries the tier and the rule that
+    # fired beside the value, because `yankee` inferred from "New England" and `metis`
+    # stated by a parentage sentence are not the same kind of claim and the card says so.
+    # The vocabulary is the rules file's, in the rules file's order, so the filter's pills
+    # read in a stated order rather than by count.
+    community_path = DATA / "residents" / "community.json"
+    community_rules_path = DATA / "residents" / "community_rules.json"
+    community = load(community_path).get("persons", {}) if community_path.exists() else {}
+    community_vocab = (load(community_rules_path).get("vocabulary", [])
+                       if community_rules_path.exists() else [])
+
+    # T-1400, from T-1394. THE STAGE THAT MINTED A PERSON, carried onto the row so the
+    # directory can be asked the one question the `grade` pill cannot answer. 1,943 of
+    # these 3,228 people are graded `reconstructed`, and until this row they were one
+    # undifferentiated word: a Fort Dearborn private drawn against the Act of 1821, a
+    # visitor of the season drawn against a bounded cohort, a wife counted by a
+    # household size and a boarding-house lodger drawn against a bed all read the same.
+    # They are not the same kind of invention and they are not replaced by the same kind
+    # of evidence — a muster roll retires the whole garrison file, and nothing in it
+    # touches a modelled family — so the reader is owed the distinction.
+    #
+    # `person.reconstruction.stage` is the value, already committed on every card by the
+    # tool that wrote it, so nothing here re-derives a stage from a record's shape. A
+    # person with no stage was READ rather than drawn, and every one of those 1,285 is
+    # graded `attested` or `inferred`: the partition is the layer's own.
+    #
+    # The vocabulary is the programme's, in the programme's order, with the programme's
+    # own title as the pill's tooltip — so an order the owner set in
+    # 1835_resident_reconstruction_programme.json is the order a visitor reads, and a
+    # stage cannot be renamed in one place and not the other. A stage found on a card
+    # that the programme does not declare is appended rather than dropped: a filter that
+    # silently hid a cohort would be the exact failure this row exists to prevent.
+    programme_path = DATA / "reconstruction" / "1835_resident_reconstruction_programme.json"
+    programme_stages = (load(programme_path).get("stages", [])
+                        if programme_path.exists() else [])
+    stage_title = {s.get("key"): s.get("title") for s in programme_stages if s.get("key")}
+    stage_order = [s.get("key") for s in programme_stages if s.get("key")]
+
+    def row_for(hh, person, rel, ruling=None, minted=None, trade=None, transient=None,
+                lodging=None, underdocumented=None):
+        occ = person.get("occupation") or {}
+        occ_value = occ.get("value")
+        arrival = hh.get("arrival") or {}
+        lives = hh.get("lives_at") or {}
+        works = hh.get("works_at") or {}
+        present = (hh.get("present_on_scene_date") or {}).get("value")
+        row = {
+            "id": person.get("id"),
+            "name": person.get("name"),
+            "household": hh.get("id"),
+            "household_name": hh.get("name"),
+            "file": rel,
+            "relationship": person.get("relationship"),
+            "grade": person.get("grade"),
+            "stage": (person.get("reconstruction") or {}).get("stage"),
+            "occupation": None if occ_value in (None, "", "none_recorded") else occ_value,
+            "letter_list_only": bool(person.get("letter_list_only")),
+            "civic_mint": bool(person.get("civic_mint")),
+            "resident_subtype": person.get("resident_subtype"),
+            "how_known": how_known(person, transient=transient is not None),
+            "division": hh.get("division"),
+            "arrival_year": arrival_year(arrival.get("value")),
+            "arrival_precision": arrival.get("precision"),
+            "present": present,
+            "community": (community.get(person.get("id")) or {}).get("value"),
+            "community_tier": (community.get(person.get("id")) or {}).get("tier"),
+            "community_rule": (community.get(person.get("id")) or {}).get("rule"),
+            "lives_at": lives.get("value"),
+            "works_at": works.get("value"),
+            **role_row_view(person),
+        }
+        seat = seat_for.get(person.get("id"))
+        if seat is not None and not row["lives_at"]:
+            # THE SEAT IS THE ONLY PLACE THIS PERSON IS GIVEN A ROOF, and it is written
+            # at `reconstructed` over a card that says nothing. A seat never overwrites a
+            # roof the sources give — the test above is the whole of that rule.
+            row["lives_at"] = seat["place"]
+            row["lodging_seat"] = {
+                "place": seat["place"],
+                "place_name": seat["place_name"],
+                "relationship": seat["relationship"],
+                "group": seat["group"],
+                "drawn_solitary_by": seat["drawn_solitary_by"],
+                "note": seat["basis"]["note"],
+                "replaced_by": seat["replaceable_by"]["match"],
+            }
+        if lodging is not None:
+            lh = hh.get("lodging_household") or {}
+            row["lodging_household"] = {
+                "ticket": lh.get("ticket"),
+                "place": lh.get("place"),
+                "place_name": lh.get("place_name"),
+                "beds_ordinary": lh.get("beds_ordinary"),
+                "beds_crowded": lh.get("beds_crowded"),
+                "stands_on": lh.get("stands_on"),
+                "replaced_by": (person.get("replaceable_by") or {}).get("match"),
+            }
+        if ruling is not None:
+            block = ruling["present_on_scene_date"]
+            row["present"] = block["value"]
+            row["readmission"] = {
+                "class": ruling["class"],
+                "kind": "presence_ruled",
+                "stood_at": ruling["the_inferred_value_this_stands_beside"],
+                "persistence": ruling["persistence"],
+                "years_before_the_scene": ruling["years_before_the_scene"],
+                "seed": ruling["seed"],
+                "note": block["basis"]["note"],
+                "replaced_by": block["replaceable_by"]["match"],
+            }
+        elif minted is not None:
+            rm = hh.get("readmission") or {}
+            row["readmission"] = {
+                "class": rm.get("class"),
+                "kind": "card_minted",
+                "name_as_read": rm.get("name_as_read"),
+                "stands_on": rm.get("stands_on"),
+                "note": ((hh.get("present_on_scene_date") or {}).get("basis") or {}).get("note"),
+                "replaced_by": (person.get("replaceable_by") or {}).get("match"),
+            }
+        elif trade is not None:
+            th = hh.get("trade_household") or {}
+            owed = hh.get("household_owed") or {}
+            row["reconstructed_trade"] = {
+                "ticket": th.get("ticket"),
+                "bucket": th.get("bucket"),
+                "trade": th.get("trade"),
+                "stands_on": th.get("stands_on"),
+                "household_size_owed": owed.get("size_drawn"),
+                "kin_seated_by": owed.get("seated_by"),
+                "replaced_by": (person.get("replaceable_by") or {}).get("match"),
+            }
+        elif underdocumented is not None:
+            ud = hh.get("underdocumented") or {}
+            row["underdocumented"] = {
+                "ticket": ud.get("ticket"),
+                "sub_stage": ud.get("sub_stage"),
+                "class": ud.get("class"),
+                "name_as_read": ud.get("name_as_read"),
+                "as_printed": ud.get("as_printed"),
+                "company_as_printed": ud.get("company_as_printed"),
+                "place_of_enrollment_as_printed": ud.get("place_of_enrollment_as_printed"),
+                "stands_on": ud.get("stands_on"),
+                "note": ((hh.get("present_on_scene_date") or {}).get("basis") or {}).get("note"),
+                "replaced_by": (person.get("replaceable_by") or {}).get("match"),
+            }
+            row["review_required"] = True
+            row["touches_removal"] = True
+        elif transient is not None:
+            tr = hh.get("transient") or {}
+            lodged = (hh.get("lodged_at") or [{}])[0]
+            row["transient"] = {
+                "ticket": tr.get("ticket"),
+                "household_kind": tr.get("household_kind"),
+                "cohort_row": tr.get("cohort_row"),
+                "sleeping_class": tr.get("sleeping_class"),
+                "sleeping_place": tr.get("sleeping_place"),
+                "point_adopted": tr.get("point_adopted"),
+                "point_reading": tr.get("point_reading"),
+                "lodged_at_kind": lodged.get("kind"),
+                "lodged_at_place": lodged.get("place_id"),
+                "lodged_at_resolves_to": lodged.get("resolves_to"),
+                "lodged_at_note": (lodged.get("basis") or {}).get("note"),
+                "stands_on": tr.get("stands_on"),
+                "replaced_by": (person.get("replaceable_by") or {}).get("match"),
+            }
+        return row
+
     rows: list[dict] = []
+
+    # T-1466. ONE COUNTER PER PATH INTO THIS DIRECTORY, taken where the rows are
+    # appended rather than assembled afterwards from whatever counts happen to exist.
+    #
+    # WHY IT IS DONE HERE AND NOT IN THE COUNTS BLOCK. `smoke_renderer.mjs` holds an
+    # identity over the People directory — stated == manifest + everything minted
+    # outside the manifest's directory — and that identity was written by hand and
+    # EXTENDED by hand, once per stage: T-1172 added the re-admissions, T-1347 the
+    # drawn trade heads, T-1353 the summer crowd. Two later loops were added below and
+    # nobody extended it again, so the assertion read
+    #
+    #     3228 != 2269 + 182 + 308 + 307        (short by 162; 134 by 2026-09-21)
+    #
+    # and had been RED on dev at both viewports for a day. The 134 were the lodging
+    # stage's 47 and the under-documented company's 87 — both minted outside
+    # data/residents/households/ for exactly the reason the other three are, and both
+    # perfectly correct. NOTHING WAS WRONG WITH THE LAYER: the identity was short.
+    #
+    # A hand-written sum of the paths a person remembered is the fault, so the sum
+    # stops being hand-written. Every loop below seals its own contribution into
+    # `by_source`, the smoke asserts the KEY SET as well as the total, and a SEVENTH
+    # loop added without a `seal()` beside it makes `stated` disagree with the sum —
+    # while a seventh loop added WITH one fails the key-set check until the assertion
+    # is told about it. Either way the next stage is stopped rather than absorbed.
+    by_source: dict[str, int] = {}
+    _mark = 0
+
+    def seal(name: str) -> None:
+        nonlocal _mark
+        by_source[name] = len(rows) - _mark
+        _mark = len(rows)
+
     households = 0
     for entry in index.get("households", []):
         rel = entry.get("file", "")
@@ -796,42 +1065,84 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             continue
         hh = load(path)
         households += 1
-        arrival = hh.get("arrival") or {}
-        lives = hh.get("lives_at") or {}
-        works = hh.get("works_at") or {}
         for person in hh.get("persons", []) or []:
-            occ = person.get("occupation") or {}
-            occ_value = occ.get("value")
-            returns = sorted(str(d) for d in (person.get("letter_list_returns") or []))
-            age = person.get("age_on_scene_date") or {}
-            born = person.get("birth_year") or {}
-            rows.append({
-                "id": person.get("id"),
-                "name": person.get("name"),
-                "household": hh.get("id"),
-                "household_name": hh.get("name"),
-                "file": rel,
-                "relationship": person.get("relationship"),
-                "grade": person.get("grade"),
-                "occupation": None if occ_value in (None, "", "none_recorded") else occ_value,
-                "letter_list_only": bool(person.get("letter_list_only")),
-                "civic_mint": bool(person.get("civic_mint")),
-                "resident_subtype": person.get("resident_subtype"),
-                "how_known": how_known(person),
-                "division": hh.get("division"),
-                "arrival_year": arrival_year(arrival.get("value")),
-                "arrival_precision": arrival.get("precision"),
-                "present": (hh.get("present_on_scene_date") or {}).get("value"),
-                "lives_at": lives.get("value"),
-                "works_at": works.get("value"),
-                **role_row_view(person),
-            })
+            rows.append(row_for(hh, person, rel, ruling=ruling_for.get(hh.get("id"))))
+    seal("manifest")
+
+    readmitted_households = 0
+    for minted in minted_rows:
+        path = DATA / "residents" / minted["file"]
+        if not path.exists():
+            continue
+        hh = load(path)
+        readmitted_households += 1
+        households += 1
+        for person in hh.get("persons", []) or []:
+            rows.append(row_for(hh, person, minted["file"], minted=minted))
+    seal("readmitted")
+
+    trade_households = 0
+    for minted in trade_rows_minted:
+        path = DATA / "residents" / minted["file"]
+        if not path.exists():
+            continue
+        hh = load(path)
+        trade_households += 1
+        households += 1
+        for person in hh.get("persons", []) or []:
+            rows.append(row_for(hh, person, minted["file"], trade=minted))
+    seal("reconstructed_trades")
+
+    lodging_households = 0
+    for minted in lodger_rows_minted:
+        path = DATA / "residents" / minted["file"]
+        if not path.exists():
+            continue
+        hh = load(path)
+        lodging_households += 1
+        households += 1
+        for person in hh.get("persons", []) or []:
+            rows.append(row_for(hh, person, minted["file"], lodging=minted))
+    seal("lodgers")
+
+    underdocumented_households = 0
+    for minted in underdocumented_rows_minted:
+        path = DATA / "residents" / minted["file"]
+        if not path.exists():
+            continue
+        hh = load(path)
+        underdocumented_households += 1
+        households += 1
+        for person in hh.get("persons", []) or []:
+            rows.append(row_for(hh, person, minted["file"], underdocumented=minted))
+    seal("underdocumented")
+
+    transient_households = 0
+    for minted in transient_rows_minted:
+        path = DATA / "residents" / minted["file"]
+        if not path.exists():
+            continue
+        hh = load(path)
+        transient_households += 1
+        for person in hh.get("persons", []) or []:
+            rows.append(row_for(hh, person, minted["file"], transient=minted))
+    seal("transients")
 
     rows.sort(key=lambda r: (surname_of(r["name"], r["id"]), fold(r["name"]), str(r["id"])))
 
+    # T-1353. EVERY TALLY BELOW COUNTS THE TOWN'S OWN PEOPLE, and the visitors are counted
+    # on rows of their own. The distinction is not decorative: `by_grade`, `by_presence`,
+    # `households` and `by_arrival_year` are read straight by tools/model_town_1835.py,
+    # which is the model the reconstruction order book is cut from, so folding 307 visitors
+    # into them would have the town order houses, trades and families for people who were
+    # going home on the next boat. The `people` count and the row list below carry
+    # everybody, because the directory lists everybody; `residents` and `transients`
+    # partition it.
+    resident_rows = [r for r in rows if not r.get("transient")]
+
     def tally(key):
         counts: dict = {}
-        for r in rows:
+        for r in resident_rows:
             v = r.get(key)
             if v is None:
                 continue
@@ -839,20 +1150,47 @@ def compile_people(scene_id: str, outdir: Path) -> int:
         return dict(sorted(counts.items(), key=lambda kv: str(kv[0])))
 
     occupations = tally("occupation")
-    by_grade = {g: sum(1 for r in rows if r["grade"] == g)
+    communities = tally("community")
+    by_grade = {g: sum(1 for r in resident_rows if r["grade"] == g)
                 for g in (vocab.get("grades") or ["attested", "inferred", "reconstructed"])}
-    divisions = {d: sum(1 for r in rows if r["division"] == d)
+    divisions = {d: sum(1 for r in resident_rows if r["division"] == d)
                  for d in (vocab.get("divisions") or sorted(tally("division")))}
-    presence = {p: sum(1 for r in rows if r["present"] == p)
+    presence = {p: sum(1 for r in resident_rows if r["present"] == p)
                 for p in (vocab.get("presence") or sorted(tally("present")))}
+    # `documented` is a statement about a RESIDENT's evidence, so the visitors are taken
+    # out of it rather than folded in: a summer crowd nobody named would otherwise have
+    # read as 307 more documented Chicagoans. They are counted on their own row.
     known = {
-        "documented": sum(1 for r in rows if not r["letter_list_only"] and not r["civic_mint"]
+        "documented": sum(1 for r in resident_rows if not r["letter_list_only"]
+                          and not r["civic_mint"]
                           and r["resident_subtype"] != "projected_resident"),
-        "letter_list": sum(1 for r in rows if r["letter_list_only"]),
-        "civic_mint": sum(1 for r in rows if r["civic_mint"]),
-        "projected": sum(1 for r in rows if r["resident_subtype"] == "projected_resident"),
+        "letter_list": sum(1 for r in resident_rows if r["letter_list_only"]),
+        "civic_mint": sum(1 for r in resident_rows if r["civic_mint"]),
+        "projected": sum(1 for r in resident_rows
+                         if r["resident_subtype"] == "projected_resident"),
+        "transient": len(rows) - len(resident_rows),
     }
-    with_address = sum(1 for r in rows if r["lives_at"] or r["works_at"])
+    with_address = sum(1 for r in resident_rows if r["lives_at"] or r["works_at"])
+    readmitted = [r for r in rows if r.get("readmission")]
+    trade_heads = [r for r in rows if r.get("reconstructed_trade")]
+    transients = [r for r in rows if r.get("transient")]
+    underdocumented = [r for r in rows if r.get("underdocumented")]
+
+    # T-1400. Counted over EVERY row rather than over the residents alone, because
+    # `transients` is one of these keys: a stage tally that took the visitors out would
+    # print 0 beside the pill that selects 307 of them. The resident/visitor partition
+    # is `residents` and `transients` above and stays there.
+    stage_counts = {}
+    for r in rows:
+        stage_counts[r["stage"]] = stage_counts.get(r["stage"], 0) + 1
+    def stage_label(key):
+        return STAGE_PILL_LABEL.get(key, key.replace("_", " "))
+    stage_vocab = [{"value": k, "label": stage_label(k), "title": stage_title.get(k) or "",
+                    "count": stage_counts.get(k, 0)}
+                   for k in stage_order if stage_counts.get(k)]
+    for k in sorted(x for x in stage_counts if x and x not in stage_order):
+        stage_vocab.append({"value": k, "label": stage_label(k), "title": "",
+                            "count": stage_counts[k]})
 
     emit(outdir / "people.json", {
         "scene": scene_id,
@@ -869,23 +1207,99 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "projected_residents": known["projected"],
             "documented": known["documented"],
             "by_grade": by_grade,
+            # T-1400. The stage of the reconstruction programme that minted each person,
+            # and the people no stage minted — which is every person a source names.
+            "by_stage": {k: stage_counts.get(k, 0) for k in stage_order},
+            "read_from_a_source": stage_counts.get(None, 0),
+            "reconstructed_by_a_stage": sum(v for k, v in stage_counts.items() if k),
+            # T-1466. THE SIX PATHS A PERSON REACHES THIS FILE BY, each counted where
+            # its rows are appended (see `seal` above). `by_stage` answers WHO DREW a
+            # person; this answers WHICH LOOP PUT THE ROW HERE, and only the second of
+            # those can be held against `people` as an identity — a stage may fill
+            # attributes on a card the manifest already carries, a loop never can.
+            # Sums to `people` by construction, which is the point: the smoke reads the
+            # key set as well as the total, so a seventh path is a red gate rather than
+            # a number that quietly drifts.
+            "by_source": by_source,
             "by_division": divisions,
             "by_presence": presence,
             "by_arrival_year": {str(k): v for k, v in sorted(tally("arrival_year").items())},
             "with_address": with_address,
-            "with_lives_at": sum(1 for r in rows if r["lives_at"]),
-            "with_works_at": sum(1 for r in rows if r["works_at"]),
-            "with_occupation": sum(1 for r in rows if r["occupation"]),
-            "with_roles": sum(1 for r in rows if r.get("roles")),
-            "roles": sum(r.get("roles", 0) for r in rows),
-            "with_a_role_at_scene_date": sum(1 for r in rows if r.get("roles_at_scene_date")),
+            "with_lives_at": sum(1 for r in resident_rows if r["lives_at"]),
+            "with_works_at": sum(1 for r in resident_rows if r["works_at"]),
+            "with_occupation": sum(1 for r in resident_rows if r["occupation"]),
+            "by_community": {v["value"]: communities.get(v["value"], 0)
+                             for v in community_vocab},
+            "community_known": sum(1 for r in resident_rows
+                                   if r["community"] not in (None, "unknown")),
+            "with_roles": sum(1 for r in resident_rows if r.get("roles")),
+            "roles": sum(r.get("roles", 0) for r in resident_rows),
+            "with_a_role_at_scene_date": sum(1 for r in resident_rows
+                                             if r.get("roles_at_scene_date")),
             "with_every_role_off_scene_date": sum(
-                1 for r in rows if r.get("roles") and not r.get("roles_at_scene_date")),
+                1 for r in resident_rows
+                if r.get("roles") and not r.get("roles_at_scene_date")),
+            "readmitted": len(readmitted),
+            "readmitted_households": readmitted_households,
+            # The persons the re-admission MINTED, which is exactly the number by which
+            # this file's people count exceeds data/residents/index.json's. The manifest
+            # is derived from the mints' directory and cannot see a reconstruction, so the
+            # two are meant to differ by this and by nothing else.
+            "readmitted_persons": sum(
+                1 for r in readmitted if r["readmission"]["kind"] == "card_minted"),
+            "readmitted_by_kind": {
+                kind: sum(1 for r in readmitted if r["readmission"]["kind"] == kind)
+                for kind in ("presence_ruled", "card_minted")},
+            "readmitted_by_class": {
+                cls: sum(1 for r in readmitted if r["readmission"]["class"] == cls)
+                for cls in sorted({r["readmission"]["class"] for r in readmitted})},
+            # T-1347. The heads the order book ordered at a trade, drawn as their own
+            # households. Like the re-admissions, they are invisible to the manifest.
+            "reconstructed_trade_heads": len(trade_heads),
+            "reconstructed_trade_households": trade_households,
+            "reconstructed_lodging_households": lodging_households,
+            "lodging_seats": sum(1 for r in rows if r.get("lodging_seat")),
+            "reconstructed_trade_by_trade": {
+                t: sum(1 for r in trade_heads if r["reconstructed_trade"]["trade"] == t)
+                for t in sorted({r["reconstructed_trade"]["trade"] for r in trade_heads})},
+            # T-1376. The men of the company the 1832 roll heads INDIAN, carded under the
+            # same licence that put twenty men of the other company on that page into the
+            # town. Counted WITH the residents and not apart: unlike the summer crowd,
+            # these are not visitors. Every one is held for the review AGENTS.md commits
+            # to, which is what `review_required` counts.
+            "underdocumented": len(underdocumented),
+            "underdocumented_households": underdocumented_households,
+            "underdocumented_review_required": sum(
+                1 for r in underdocumented if r.get("review_required")),
+            "underdocumented_by_sub_stage": {
+                k: sum(1 for r in underdocumented if r["underdocumented"]["sub_stage"] == k)
+                for k in sorted({r["underdocumented"]["sub_stage"] for r in underdocumented})},
+            # T-1353. The summer crowd, counted APART. Every other figure in this block
+            # counts the town's own people; these three count the visitors, and the
+            # difference is the whole distinction the Chicago American drew when it put
+            # the population at 2,500 to 3,000 and the strangers at "some hundreds more".
+            "transients": len(transients),
+            "transient_households": transient_households,
+            "residents": len(rows) - len(transients),
+            "transient_point_adopted": (transients_doc.get("the_point_adopted") or {})
+                                        .get("persons"),
+            "transient_reserved_not_minted": (transients_doc.get("totals") or {})
+                                              .get("reserved_not_minted"),
+            "transient_by_household_kind": {
+                k: sum(1 for r in transients if r["transient"]["household_kind"] == k)
+                for k in sorted({r["transient"]["household_kind"] for r in transients})},
+            "transient_by_sleeping_class": {
+                c: sum(1 for r in transients if r["transient"]["sleeping_class"] == c)
+                for c in sorted({r["transient"]["sleeping_class"] for r in transients})},
         },
         "vocabulary": {
             "occupations": [{"value": k, "count": v} for k, v in occupations.items()],
+            "communities": [{"value": v["value"], "label": v["label"],
+                             "count": communities.get(v["value"], 0)}
+                            for v in community_vocab],
             "divisions": list(vocab.get("divisions") or divisions.keys()),
             "grades": list(vocab.get("grades") or by_grade.keys()),
+            "stages": stage_vocab,
             "presence": list(vocab.get("presence") or presence.keys()),
             "relationships": list(vocab.get("relationships") or sorted(tally("relationship"))),
             "arrival_precision": list(vocab.get("arrival_precision") or sorted(tally("arrival_precision"))),
@@ -1395,6 +1809,150 @@ def compile_streets(scene_id: str, target_date: str,
     return doc.get("surface_standard", ""), out
 
 
+def compile_lodging_occupancy() -> dict[str, dict]:
+    """structure_id -> who is on this card tonight, and what the empty beds are.
+
+    T-1406, out of T-1385 and T-1372. T-1370 gave fifteen lodging places a bed count and
+    T-1371 slept 122 people in them, and the card in front of a visitor said
+    neither: it printed the beds under a flat sentence reading "Nobody is seated
+    in these beds yet. Who slept here is T-1371." That sentence outlived the
+    ticket it named by a day and then it was simply false — the Tremont's twelve
+    beds had twelve people in them and the card still said the house was empty.
+
+    THE LEDGER IS THE ONLY SOURCE OF THE NUMBERS. `1835_lodgers_seated.json` is
+    re-derived by `tools/seat_lodgers_1835.py --check` in `tools/check.sh`, so
+    every figure carried here is a committed quantity; this function adds no
+    arithmetic of its own beyond one subtraction the ledger's own refusals
+    already state the answer to.
+
+    AND THE FOUR WAYS INTO A BED ARE KEPT APART, because they are four different
+    strengths of claim about the same house. Somebody the residents layer already
+    housed here is evidence about this roof. Somebody SEATED here from elsewhere
+    in the layer is a real person the sources do not place — the seat is the
+    invention, not the person. A lodger DRAWN for an empty bed is a claim about a
+    ratio and about nobody. A minted keeper is a roof this project raised being
+    given somebody to keep it. A single occupancy figure would flatten all four
+    into a number a reader would take for a census.
+
+    AN EMPTY BED IS NAMED OR IT IS NOT PRINTED AS EMPTY. Two houses stand short —
+    the New York House and the Sauganash — and the ledger's own refusal says why
+    in both cases: no committed record gives their division, and a person drawn
+    into a lodging house has to be ordered out of the order book's bucket for
+    one. That refusal travels onto the card verbatim, because "8 beds empty" with
+    no reason beside it reads as a finding about 1835 rather than about us.
+    """
+    path = DATA / "reconstruction" / "1835_lodgers_seated.json"
+    if not path.exists():
+        return {}
+    ledger = load(path)
+    keeper_for = {k["place"]: k for k in ledger.get("keepers", [])}
+    refusal_for = {r["place"]: r for r in ledger.get("refusals", []) if r.get("place")}
+
+    out: dict[str, dict] = {}
+    for house in ledger.get("houses", []):
+        beds = house["beds_ordinary"]
+        people = house["occupancy_after"]
+        empty = max(0, beds - people)
+        how = []
+        if house["occupied_before"]:
+            how.append(f"{house['occupied_before']} the residents layer already "
+                       f"housed here")
+        if house["seated"]:
+            how.append(f"{len(house['seated'])} seated here from elsewhere in the "
+                       f"layer, where no source gives them a roof")
+        if house["minted_lodgers"]:
+            how.append(f"{house['minted_lodgers']} drawn against the order book's "
+                       f"lodging buckets for beds that were standing empty")
+        if house["minted_keeper"]:
+            how.append("a keeper drawn for a roof this programme raised")
+        statement = (f"{people} on this card against an ordinary night's {beds} beds"
+                     + (": " + ", ".join(how) + "." if how else "."))
+
+        keeper = keeper_for.get(house["id"]) or {}
+        out[house["id"]] = {
+            "people": people,
+            "beds_ordinary": beds,
+            "empty": empty,
+            "statement": statement,
+            # The ledger's refusal, verbatim where it made one. Never a sentence
+            # of this compiler's own: an unexplained empty bed is a question, and
+            # answering it here would be answering it with nothing.
+            "empty_note": (refusal_for.get(house["id"], {}).get("note", "")
+                           if empty else ""),
+            "keeper_persons": keeper.get("persons_on_the_keeper_s_card", 0),
+            "keeper_owed": keeper.get("owed_by") or "",
+        }
+    return out
+
+
+def compile_lodging() -> dict[str, dict]:
+    """structure_id -> how many people that lodging place could sleep.
+
+    T-1370. The beds are derived in `tools/build_lodging_model_1835.py`, which
+    apportions figures the town model already owns across the lodging places this
+    dataset actually holds; `tools/check.sh` re-derives that file, so what is
+    carried here is a committed quantity and not a number this compiler invents.
+
+    WHY THE CARD NEEDS IT. The town model states a bed bracket for the whole town
+    and says in as many words that it "gives no boarding house a capacity of its
+    own". A visitor standing in front of the Green Tree Tavern could read every
+    dimension of it and not the one fact the building is FOR. The grade travels
+    with the number, because a capacity apportioned from a reconstructed outline
+    is reconstructed however well attested the tavern is.
+
+    Missing file is empty, not fatal: a checkout that has not built the model yet
+    compiles a scene with no bed counts on it, which is a card with one section
+    fewer rather than a build that cannot run.
+    """
+    path = DATA / "reconstruction" / "1835_lodging_model.json"
+    if not path.exists():
+        return {}
+    model = load(path)
+    figures = model["the_figures_this_model_does_not_move"]
+    occupancy = compile_lodging_occupancy()
+    out: dict[str, dict] = {}
+    for place in model["places"]:
+        out[place["id"]] = {
+            "class": place["class"],
+            "beds_ordinary": place["beds_ordinary"],
+            "beds_crowded": place["beds_crowded"],
+            "ceiling": figures["ceiling"],
+            "clamped_at_1840_maximum": place["clamped_at_1840_maximum"],
+            "enclosed_floor_m2": place["enclosed_floor_m2"],
+            "confidence": place["capacity_grade"],
+            # `note`, not `basis`: this is a GRADED CLAIM and the tier gate holds
+            # every one of them to the same shape — an `inferred` value with no
+            # reasoning recorded is refused, and it refused this block the first
+            # time it was compiled under the model file's own word for it.
+            "note": place["basis"],
+            "replaceable_by": place["replaceable_by"],
+            # T-1406. Who is actually in them, from T-1371's ledger. `None` where
+            # the stage never reached this house, which the renderer prints as the
+            # silence it is rather than as an empty house.
+            "occupancy": occupancy.get(place["id"]),
+        }
+    # The rows the model carries WITHOUT beds, and the reason on each. A building
+    # that reaches the card saying nothing about its lodging reads as an oversight;
+    # one that says why it has no number is the honest version of the same silence.
+    for row in model["not_open_on_the_scene_date"] + model["lodging_outside_the_programme"]:
+        out[row["id"]] = {
+            "class": None,
+            "beds_ordinary": None,
+            "beds_crowded": None,
+            "ceiling": figures["ceiling"],
+            "clamped_at_1840_maximum": False,
+            "enclosed_floor_m2": None,
+            "confidence": "reconstructed",
+            "note": row["why_no_beds"],
+            "replaceable_by": "",
+            # No beds to fill, so no occupancy to state: `note` above already says
+            # why this row carries no number, and a second sentence about nobody
+            # sleeping in beds that do not exist would read as a finding.
+            "occupancy": None,
+        }
+    return out
+
+
 def compile_residents() -> dict[str, list[dict]]:
     """structure_id -> the households the residents layer attaches to it.
 
@@ -1466,9 +2024,106 @@ def compile_residents() -> dict[str, list[dict]]:
                 } for person in hh.get("persons", [])],
                 "research_note": hh.get("research_note", ""),
             })
+    overlay_lodgers(out)
     for households in out.values():
         households.sort(key=lambda h: h["household"])
     return out
+
+
+def overlay_lodgers(out: dict[str, list[dict]]) -> None:
+    """Put T-1371's boarders on the building card that holds their bed (T-1406).
+
+    THE HOUSEHOLDS THE MANIFEST CANNOT CARRY. `compile_residents` walks
+    `data/residents/index.json`, and that manifest is a summary of
+    `data/residents/households/` and nothing else, by `rebuild_resident_index.py`'s
+    own rule. The reconstruction programme therefore writes its people BESIDE that
+    directory — `readmitted/`, `reconstructed_trades/`, `lodgers/` — so the mint
+    writers can re-derive the research cards without the reconstruction being
+    rewritten under them. The consequence for the card was that 75 drawn lodgers
+    and 5 drawn keepers existed in the dataset, reached the People view, and were
+    invisible on the one surface where a visitor meets a resident: the house they
+    slept in. `compile_people` already overlays these rows for its own directory;
+    this is the same overlay for the building card.
+
+    TWO OVERLAYS OUT OF ONE LEDGER, and they are not the same claim.
+
+      * A CONTAINER CARD per house, holding the people this stage drew for its
+        empty beds. It is not a family and it says so on the card, in the record's
+        own words — `data/residents/` cannot hold a person outside a household and
+        the people who boarded in one house were not kin.
+      * A SEAT, for somebody the layer already holds whom no source gives a roof.
+        The seat writes nothing into the research card (that directory is
+        re-derived), so it is carried here exactly as T-1172's presence rulings
+        are. The person is real; the roof over them is the invention, and the
+        block says which is which rather than letting the reader assume.
+
+    A LODGER'S TRADE IS NOT PRINTED WHERE THE STAGE REFUSED TO DRAW ONE. The
+    drawn lodgers carry `occupation: none_recorded`, which is that refusal in the
+    vocabulary's own word — T-1371 wrote it down: "No lodger gets a trade; that is
+    a different table." Rendered as a trade it would read as "none recorded" in
+    the slot where every other person on the card shows work, i.e. as a fact about
+    an 1835 lodger instead of about this project's stages. It is dropped, and the
+    relationship carries the row.
+    """
+    path = DATA / "reconstruction" / "1835_lodgers_seated.json"
+    if not path.exists():
+        return
+    ledger = load(path)
+
+    def trade(value: str) -> str:
+        return "" if value in (None, "", "none_recorded") else value
+
+    for minted in ledger.get("minted", []):
+        card_path = DATA / "residents" / minted["file"]
+        if not card_path.exists():
+            continue
+        hh = load(card_path)
+        lodging = hh.get("lodging_household") or {}
+        out.setdefault(minted["place"], []).append({
+            "household": hh["id"],
+            "name": hh["name"],
+            "division": hh.get("division", ""),
+            "relation": "lodged here",
+            "why": ((hh.get("lives_at") or {}).get("basis") or {}).get("note", ""),
+            "sources": [],
+            "basis": lodging.get("note", ""),
+            "persons": [{
+                "name": person.get("name", ""),
+                "relationship": person.get("relationship", ""),
+                "grade": person.get("grade", "reconstructed"),
+                "occupation": trade((person.get("occupation") or {}).get("value", "")),
+                "note": person.get("note", ""),
+            } for person in hh.get("persons", [])],
+            "research_note": hh.get("research_note", ""),
+        })
+
+    grades: dict[str, dict[str, str]] = {}
+    for seat in ledger.get("seats", []):
+        card_path = DATA / "residents" / seat["file"]
+        if seat["file"] not in grades:
+            card = load(card_path) if card_path.exists() else {}
+            grades[seat["file"]] = {person.get("id"): person.get("grade", "reconstructed")
+                                    for person in card.get("persons", [])}
+        out.setdefault(seat["place"], []).append({
+            "household": seat["household"],
+            "name": seat["name"],
+            "division": "",
+            "relation": "lodged here",
+            "why": (seat.get("basis") or {}).get("note", ""),
+            "sources": [],
+            "basis": ("SEATED HERE, NOT RECORDED HERE. This person is one the residents "
+                      "layer already holds and no source says where they slept; the bed "
+                      "is the invention and the person is not. Their own card carries "
+                      "their evidence and is not touched by the seat."),
+            "persons": [{
+                "name": seat["name"],
+                "relationship": seat.get("relationship", ""),
+                "grade": grades[seat["file"]].get(seat["person"], "reconstructed"),
+                "occupation": trade(seat.get("trade", "")),
+                "note": "",
+            }],
+            "research_note": "",
+        })
 
 
 def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
@@ -1481,6 +2136,7 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     written, skipped = 0, []
     index = []
     residents = compile_residents()
+    lodging = compile_lodging()
     # id -> the phase that resolves into this scene, for the watch list below
     resolved: dict[str, dict] = {}
 
@@ -1538,6 +2194,25 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "confidence": st["lot_address"]["confidence"],
                 "sources": st["lot_address"]["sources"],
                 "note": st["lot_address"]["note"],
+            }
+
+        # T-1478. AND WHICH LOT IT TURNED OUT TO STAND ON, which is the row above's
+        # opposite number: `lot_address` is a lot a SOURCE printed, this is a lot the
+        # grid drew afterwards and found a committed footprint already on. It travels as
+        # an attribute for the same reason — a visitor asking "where is this, exactly?"
+        # is asking one question and should not have to know which of the two answers the
+        # building happens to have. `sources` is EMPTY and that is the honest value: no
+        # source names this lot, which is what the row's own note says at length and what
+        # its grade (the weaker of the lot lines and the numeral) already prices in.
+        if "stands_on_lot" in st:
+            seat = st["stands_on_lot"]
+            where = ("lot %d" % seat["lot_number"]) if seat["lot_number"] is not None \
+                else "an unnumbered lot"
+            attributes["stands_on_lot"] = {
+                "value": "%s, %s" % (where, seat["grid"].replace("_", " ")),
+                "confidence": seat["confidence"],
+                "sources": [],
+                "note": seat["note"],
             }
 
         # T-0609. WHO ENTERED THE GROUND UNDER THE ROOF is an attribute of the building
@@ -1692,6 +2367,12 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
             sidecar["drawn_by"] = phase["drawn_by"]["layer"]
         if st.get("reconstruction"):
             sidecar["reconstruction"] = st["reconstruction"]
+        # HOW MANY SLEPT HERE (T-1370). Written only on the fifteen lodging
+        # places the model gives beds to, like `reconstruction` above and unlike
+        # `residents`: 330 sidecars carrying `lodging: null` would be 330 files of
+        # diff saying nothing, in a mirror published byte-for-byte.
+        if st["id"] in lodging:
+            sidecar["lodging"] = lodging[st["id"]]
         emit(outdir / f"{st['id']}.json", sidecar)
         resolved[st["id"]] = phase
         index.append({"id": st["id"], "name": st["name"],

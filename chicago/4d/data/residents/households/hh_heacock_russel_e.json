@@ -7,9 +7,10 @@
   "value": "1827",
   "confidence": "attested",
   "sources": [
-   "andreas_1884_v1"
+   "andreas_1884_v1",
+   "moses_kirkland_history_of_chicago_v1"
   ],
-  "note": "'Russel E. Heacock, who had come in 1827' - the earliest arrival of any Anglo-American household in this parcel, four years before the town's incorporation and six before the treaty.",
+  "note": "'Russel E. Heacock, who had come in 1827' - the earliest arrival of any Anglo-American household in this parcel, four years before the town's incorporation and six before the treaty. CORROBORATED, AND THE OTHER HALF OF THE ROW IS REFUSED IN WRITING. Moses and Kirkland, History of Chicago vol. 1 (1895), printed pages 78-79, the table headed LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830 (data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json). It is an 1895 compilation crediting Hurlbut's Chicago Antiquities pp. 37-8 three lines above itself, every row transcription_mediated and none scan_verified, so NOTHING READ OFF IT IS GRADED ABOVE `inferred` HERE. Row bk_mose1_as_014 reads 'Heacock, Russel E', YEAR 1827, remarks 'Voted in 1830, died at Summit, 1849', and the spellings agree letter for letter — one l in Russel, the middle initial E. The year is the year this card already carries in Andreas's own clause. THE NATIVITY CELL IS NOT TAKEN: it is a printer's DITTO reading Ohio, and the books crosswalk merged this row ON THE YEAR ALONE because Andreas's account of the man does not make him an Ohioan and a ditto is the easiest cell in a printed table to set one row out of place. `origin` is therefore not edited here and keeps its drawn region and its replacement rule; a ditto this project distrusts is not evidence of a birthplace. WHAT DOES NOT FOLLOW: the table's own preamble bounds it BEFORE 1830 and its remarks are civic acts of 1825-1830. A man on it is not thereby at Chicago on 1835-07-01, and this edit moves no residence, no `present_on_scene_date` and no grade. The identity is the books crosswalk's landed merge (T-0961) and is not re-opened here.",
   "precision": "year"
  },
  "party_size_on_arrival": {
@@ -18,9 +19,21 @@
   "note": "Not attested for 1827. What IS attested is the household's size later: a wife and five sons by the spring of 1835."
  },
  "origin": {
-  "value": null,
+  "value": "The Southern states",
   "confidence": "reconstructed",
-  "note": "Not attested in anything this project holds."
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_heacock_russel_e:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
   "value": "Professional and business interests at the settlement",
@@ -58,6 +71,18 @@
    "relationship": "head",
    "grade": "attested",
    "ladder_rule": "G1b",
+   "associated_with": [
+    {
+     "kind": "land_purchased",
+     "place_or_structure_id": "school_section",
+     "resolves_to": "tract",
+     "from": "1833-10-22",
+     "to": null,
+     "tier": "inferred",
+     "source_id": "isa_public_domain_land_tract_sales",
+     "note": "GROUND HE BOUGHT, WHICH IS NOT GROUND HE STOOD ON — the rung is `tract` for that reason, and `land_purchased` is in neither the home kinds nor the work kinds because a holding is not a place a man was. The federal tract-sale register carries 8 row(s) — ls0230, ls0231, ls0232, ls0233, ls0234, ls0235, ls0236, ls0237 — to this purchaser, read as 'HEACOCK RUSSEL E', sorted onto school_section by tools/sort_land_sales_onto_tracts.py and covering about 23.46 acre(s) of it. THE TIER IS INFERRED AND THE TWO HALVES DIFFER: the purchase is documented — the register is a public record and states it — while the tie between that purchaser and THIS card is an identity ruling, upheld under T-1034 on 2026-09-11 by the rule 'HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.'. The weaker half sets the tier. `to` is null because the register records a sale and not a tenure."
+    }
+   ],
    "sex": "male",
    "occupation": {
     "value": "attorney",
@@ -68,13 +93,356 @@
     "note": "'Russel E. Heacock, who had come in 1827' - the first of the six lawyers Andreas counts, and a justice of the peace for Cook County who administered the oaths at the incorporation meeting of 5 August 1833. Under date of 5 August 1835 - five weeks after the scene date - Andreas finds him 'advertised as attorney, which is perhaps an indication that he did not seek re-election as a Justice'. He was licensed to keep a tavern at Heacock's Point on the South Branch in April 1831 and cultivated land there, and Judge Goodrich records that 'Heacock in those first years, 1827 to 1835, made more money as a carpenter than as a lawyer or justice'.",
     "derived_from": "roles",
     "roles_at_scene_date": [
-     "attorney"
+     "attorney",
+     "justice_of_the_peace",
+     "land_agent"
     ]
    },
+   "workplaces": [
+    {
+     "business_id": "biz_russell_e_heacock",
+     "business_name": "Russell E. Heacock",
+     "role": "proprietor",
+     "printed_as": "Russell E. Heacock",
+     "from": "1835-05-27",
+     "to": "1835-07-29",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card heacock_russel_e (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1835_05_27#c007",
+      "chicago_democrat_1835_07_08#c012",
+      "chicago_democrat_1835_07_29#c018"
+     ],
+     "business_present_at_scene_date": true
+    }
+   ],
    "sources": [
     "andreas_1884_v1",
     "chicago_democrat_1833_1835",
     "isa_public_domain_land_tract_sales"
+   ],
+   "dated_bounds": [
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R13E sec 34",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0869",
+     "as_read": "HEACOCK RUSSELL E",
+     "locator": "purchase 0003210, volume 687 page 189, section 34, T39N R13E",
+     "describes_date": "06/26/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-26",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSELL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSELL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0230",
+     "as_read": "HEACOCK RUSSEL E",
+     "locator": "purchase 0369955, volume 818 page 008, section 16, T39N R14E",
+     "describes_date": "10/25/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-25",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSEL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0231",
+     "as_read": "HEACOCK RUSSEL E",
+     "locator": "purchase 0369956, volume 818 page 008, section 16, T39N R14E",
+     "describes_date": "10/23/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-23",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSEL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0232",
+     "as_read": "HEACOCK RUSSEL E",
+     "locator": "purchase 0369957, volume 818 page 008, section 16, T39N R14E",
+     "describes_date": "10/22/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-22",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSEL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0233",
+     "as_read": "HEACOCK RUSSEL E",
+     "locator": "purchase 0369958, volume 818 page 008, section 16, T39N R14E",
+     "describes_date": "10/23/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-23",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSEL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0234",
+     "as_read": "HEACOCK RUSSEL E",
+     "locator": "purchase 0369959, volume 818 page 008, section 16, T39N R14E",
+     "describes_date": "10/22/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-22",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSEL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0235",
+     "as_read": "HEACOCK RUSSEL E",
+     "locator": "purchase 0369960, volume 818 page 008, section 16, T39N R14E",
+     "describes_date": "10/24/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-24",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSEL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0236",
+     "as_read": "HEACOCK RUSSEL E",
+     "locator": "purchase 0369961, volume 818 page 008, section 16, T39N R14E",
+     "describes_date": "10/24/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-24",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSEL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0237",
+     "as_read": "HEACOCK RUSSEL E",
+     "locator": "purchase 0369962, volume 818 page 008, section 16, T39N R14E",
+     "describes_date": "10/22/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-22",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSEL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 32",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0475",
+     "as_read": "HEACOCK RUSSEL E",
+     "locator": "purchase 0002075, volume 687 page 269, section 32, T39N R14E",
+     "describes_date": "11/04/1834",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-04",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSEL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 32",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0476",
+     "as_read": "HEACOCK RUSSEL E",
+     "locator": "purchase 0026363, volume 687 page 269, section 32, T39N R14E",
+     "describes_date": "11/04/1834",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-04",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSEL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "residence_in_cook",
+     "list": "T39N R14E sec 32",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0477",
+     "as_read": "HEACOCK RUSSELL E",
+     "locator": "purchase 0195128, volume 236 page 042, section 32, T39N R14E",
+     "describes_date": "11/04/1834",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-04",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSELL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "THE REGISTER STATES COOK, AND COOK COUNTY IS NOT THE TOWN. The Residence column reads COOK, so the document itself says a man of this name lived in Cook County on 1834-11-04. The crosswalk says what that is worth in its own words — it is “not evidence that he lived in the town”. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSELL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "residence_in_cook",
+     "list": "T39N R14E sec 32",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0478",
+     "as_read": "HEACOCK RUSSELL E",
+     "locator": "purchase 0195129, volume 236 page 042, section 32, T39N R14E",
+     "describes_date": "11/04/1834",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-04",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HEACOCK RUSSELL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full.",
+     "note": "THE REGISTER STATES COOK, AND COOK COUNTY IS NOT THE TOWN. The Residence column reads COOK, so the document itself says a man of this name lived in Cook County on 1834-11-04. The crosswalk says what that is worth in its own words — it is “not evidence that he lived in the town”. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HEACOCK RUSSELL E to this card on a name, upheld under T-1034, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_08_13#c005",
+     "claim_kind": "event",
+     "as_printed": "Russel E. Heacock,",
+     "role": "candidate for Sheriff",
+     "locator": "chicago_democrat_1834_08_13 page 2 column 5",
+     "describes_date": "1834-08-13",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-13",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_russel_e_heacock, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-08-13 names 'Russel E. Heacock,' in the claim read as chicago_democrat_1834_08_13#c005, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
+   "appearance_bounds": [
+    {
+     "bound_kind": "district_presence",
+     "corpus": "census_1830",
+     "source_title": "Fifth census of the United States, 1830 — the division headed 'Peoria & Putnam Counties & Territory attached'",
+     "record_id": "census1830_n582_015",
+     "as_read": "Russel E Heacock",
+     "role": "head_of_family",
+     "locator": "leaf n582 entry 15, peoria_putnam_1830_leaves_580_582.txt line 73",
+     "describes_date": "1830",
+     "date_confidence": "documented",
+     "precision": "year",
+     "reaches": "1830-12-31",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "census_1830_peoria_county_chicago_precinct"
+     ],
+     "identity_rule": "Surname and given name both agree between the 1830 reading 'Russel E Heacock' and the town person 'Russel E. Heacock' in household hh_heacock_russel_e. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own.",
+     "note": "A BOUND ON PRESENCE IN A DISTRICT, AND NOT AT CHICAGO. The division is headed 'Peoria & Putnam Counties & Territory attached' and the schedule never writes the word Chicago — the Fox River and Du Page settlements are inside it — so this row bounds presence in that district in the summer of 1830 and puts no body in the town, which is why `here_by` is null. The record's own note says it first: 'Presence in that district in the summer of 1830; not a Chicago residence, and never an 1835 one'. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the leaf is read scan_verified off the federal schedule, and what no source states is that the head of family on it is the person on this card. data/research/census_1830/resident_crosswalk.json joins them on a name agreement and says in terms that it grades nothing on its own. No grade moves here and the identity is neither reopened nor hardened."
+    }
    ],
    "note": "THE ONE VOTE AGAINST THE TOWN. He cast the single 'against incorporation' ballot on 5 August 1833 - Andreas prints the poll - 'he living at that time beyond the extreme southern border of the proposed town, although having his business and professional interests at the settlement. He moved into the town the following year.' Andreas calls it 'exceptional fidelity to conviction and independence of opinion'. He received one hundred dollars at the Indian treaty of 26 September 1833 and was among the original subscribers to the Chicago Democrat in November 1833. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 13 times, as “HEACOCK RUSSEL E”, “HEACOCK RUSSELL E”, 1833-10-22 to 1835-06-26: 3 federal land entries — E2NW sec 32 T39N R14E; E2SE sec 34 T39N R13E; W2NE sec 32 T39N R14E and 8 parcels of the school section — BL129 of the school section (sec 16 T39N R14E), as read; BL20 of the school section (sec 16 T39N R14E), as read; BL30 of the school section (sec 16 T39N R14E), as read; BL61 of the school section (sec 16 T39N R14E), as read; BL9 of the school section (sec 16 T39N R14E), as read; lot 2 of block 23 of the school section (sec 16 T39N R14E); lot 7 of block 117 of the school section (sec 16 T39N R14E); lot 7 of block 25 of the school section (sec 16 T39N R14E), 417.29 acres stated in all, for $1145.00 (ls0230, ls0231, ls0232, ls0233, ls0234, ls0235, ls0236, ls0237, ls0475, ls0476, ls0477, ls0478, ls0869). THE REGISTER'S OWN RESIDENCE COLUMN READS COOK, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. The register states this purchaser's residence as COOK, so the sale is contemporary evidence that a man of this name lived in Cook County on the date of sale. It is not evidence that he lived in the town. Identity by the crosswalk's own rule: HEACOCK RUSSEL E matches Russel E. Heacock: the forename names Russel E. Heacock of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
@@ -143,14 +511,96 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "attorney",
+     "kind": "profession",
+     "as_printed": "attorney",
+     "from": "1835-05-27",
+     "to": "1835-07-29",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": true,
+     "fills_scene_view": true,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_russell_e_heacock",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1835-05-27 to 1835-07-29, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls inside that run, so this role stands in the 1835 view (T-1299). SYNONYM-FOLDED (T-1254): the same source prints this role as attorney at law, counsellor at law as well, and one source asserting one role over one bound is one row.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "justice_of_the_peace",
+     "kind": "office",
+     "as_printed": "justice of the peace",
+     "from": "1835-05-27",
+     "to": "1835-07-29",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": true,
+     "fills_scene_view": true,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_russell_e_heacock",
+     "place": "not_stated",
+     "employer_or_body": "cook_county",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1835-05-27 to 1835-07-29, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls inside that run, so this role stands in the 1835 view (T-1299).",
+     "premises": "no_fixed_premises"
+    },
+    {
+     "role": "land_agent",
+     "kind": "trade",
+     "as_printed": "land agent",
+     "from": "1835-05-27",
+     "to": "1835-07-29",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": true,
+     "fills_scene_view": true,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_russell_e_heacock",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1835-05-27 to 1835-07-29, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls inside that run, so this role stands in the 1835 view (T-1299).",
+     "premises": "own_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "heacock_russel_e:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('heacock_russel_e:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   },
   {
    "id": "heacock_household_unnamed",
@@ -165,7 +615,19 @@
    "sources": [
     "andreas_1884_v1"
    ],
-   "note": "COUNTED INDIRECTLY AND NOT NAMED. Andreas: he removed in 1834 'that his children might be nearer school', into a house on the east bank of the South Branch a little south of Randolph Street; in the spring of 1835 he built a house on what he supposed was his lot and 'Here his fifth son and youngest child was born'; and in the cholera of 1849 'he fled with his family to a farm he owned at Summit, where he himself, his wife, and two sons were attacked, and died in quick succession'. So the household on 1 July 1835 contains a wife and at least five sons. THE SOURCE COUNTS THEM AND NAMES NONE, so they are one placeholder entry and not seven invented people. Do not count this entry as a person."
+   "note": "COUNTED INDIRECTLY AND NOT NAMED. Andreas: he removed in 1834 'that his children might be nearer school', into a house on the east bank of the South Branch a little south of Randolph Street; in the spring of 1835 he built a house on what he supposed was his lot and 'Here his fifth son and youngest child was born'; and in the cholera of 1849 'he fled with his family to a farm he owned at Summit, where he himself, his wife, and two sons were attacked, and died in quick succession'. So the household on 1 July 1835 contains a wife and at least five sons. THE SOURCE COUNTS THEM AND NAMES NONE, so they are one placeholder entry and not seven invented people. Do not count this entry as a person.",
+   "sex_basis": {
+    "value": null,
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "A COLLECTIVE DESCRIPTION NAMES NOBODY, so there is no sex to draw. This row stands for more than one person and a single band or a single sex would make a group into a person. The refusal is T-1303's and it is kept here word for word rather than overridden by a model that could not tell."
+   },
+   "age_band": {
+    "value": null,
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "A COLLECTIVE DESCRIPTION NAMES NOBODY, so there is no age band to draw. This row stands for more than one person and a single band or a single sex would make a group into a person. The refusal is T-1303's and it is kept here word for word rather than overridden by a model that could not tell."
+   }
   }
  ],
  "touches_removal": false,

@@ -79,7 +79,18 @@ OUT = ROOT / "data" / "liberties.json"
 # check that folds them onto their parent cries wolf nine times on an unmodified
 # file — which is worse than no check, because a gate that is always red gets
 # switched off (T-0186).
-HEADING = re.compile(r"^###\s+(L\d+[a-z]?)\s*[—-]\s*(.+?)\s*$", re.M)
+#
+# A SLUGGED ID IS AN ID (T-1399). `L-rc-sex-rate` and `L-rc-age-conditioning` were
+# written on 2026-09-17 and 2026-09-18 under the names the reconstruction
+# programme had promised them by, and `L\d+` did not match either one. Both fell
+# off exactly the cliff the paragraph below describes: 259 liberties compiled,
+# `--check` exited 0, and the two admissions covering 587 drawn sexes and 1,212
+# drawn age bands hung off the end of L241 as three `How to resolve` fields on a
+# liberty about the 1880s scene. They are cited by that name from two tools, the
+# sex-age model and five household cards, so the grammar is widened to the name
+# they already carry rather than the citations rewritten to suit the grammar.
+HEADING = re.compile(r"^###\s+(L\d+[a-z]?|L-[a-z0-9]+(?:-[a-z0-9]+)*)\s*[—-]\s*(.+?)\s*$",
+                     re.M)
 
 # A line that MEANT to be an entry heading, matched loosely so the strict grammar
 # above can be told apart from a near miss.
@@ -96,7 +107,7 @@ HEADING = re.compile(r"^###\s+(L\d+[a-z]?)\s*[—-]\s*(.+?)\s*$", re.M)
 # duplicate number. A ledger whose whole job is to say which parts we made up
 # cannot lose an entry quietly: an invention with no admission is the one fault
 # that outranks everything else here.
-NEAR_HEADING = re.compile(r"^\s{0,3}#{2,6}\s*L\s*\d+")
+NEAR_HEADING = re.compile(r"^\s{0,3}#{2,6}\s*L\s*[-\d]")
 SECTION = re.compile(r"^##\s+(.+?)\s*$", re.M)
 # "**How to resolve:**" — a bolded label ending in a colon. The colon is what
 # keeps ordinary emphasis ("**no** gallery", "**[DISPUTED]**") out of the match.
@@ -207,6 +218,29 @@ def _register_backdating_liberty_count() -> int:
                if b.get("present_at_scene_date") and b.get("backdating_liberty_required"))
 
 
+BUSINESSES_AUTHORED = ROOT / "data" / "businesses" / "authored"
+
+
+def _reconstructed_business_count() -> int:
+    """Houses of trade nobody named, written to fill a count the census leaves short.
+
+    Counted off the records themselves rather than off the business index, because the
+    index is derived from them and a liberty that counted a derivation would be checking
+    the compiler rather than the invention. `provenance` as well as the block, for the
+    reason the register counts above assert two fields: a reconstruction that ever lost
+    its `reconstruction` block would be a record with no writer, and this count must not
+    quietly narrow when that happens — tools/compile_businesses.py refuses it instead.
+    """
+    if not BUSINESSES_AUTHORED.is_dir():
+        return 0
+    n = 0
+    for path in sorted(BUSINESSES_AUTHORED.glob("*.json")):
+        doc = json.loads(path.read_text())
+        if doc.get("provenance") == "reconstructed" and doc.get("reconstruction"):
+            n += 1
+    return n
+
+
 RESIDENTS_HOUSEHOLDS = ROOT / "data" / "residents" / "households"
 
 
@@ -223,6 +257,24 @@ def _letter_list_person_count() -> int:
     for path in sorted(RESIDENTS_HOUSEHOLDS.glob("*.json")):
         doc = json.loads(path.read_text())
         n += sum(1 for p in doc.get("persons") or [] if p.get("letter_list_only"))
+    return n
+
+
+def _modelled_family_person_count() -> int:
+    """People the household model drew for a head the sources leave standing alone.
+
+    Counted off the household RECORDS and off the stage key each of them carries, for the
+    same reason the letter-list count is: a scope that read a number another tool derived
+    would be agreeing with a second opinion rather than measuring. T-1171's stage is the
+    first thing in this project to write a person, so the liberty that admits it has to be
+    able to restate its own size.
+    """
+    n = 0
+    for path in sorted(RESIDENTS_HOUSEHOLDS.glob("*.json")):
+        doc = json.loads(path.read_text())
+        n += sum(1 for p in doc.get("persons") or []
+                 if ((p.get("reconstruction") or {}) if isinstance(p.get("reconstruction"), dict)
+                     else {}).get("stage") == "modelled_families")
     return n
 
 
@@ -278,6 +330,7 @@ def _back_projected_residence_count() -> int:
 
 
 STRUCTURES_DIR = ROOT / "data" / "structures"
+RECON_DIR = ROOT / "data" / "reconstruction"
 
 
 def _land_owner_count() -> int:
@@ -291,11 +344,162 @@ def _land_owner_count() -> int:
                if "land_owner" in json.loads(path.read_text()))
 
 
+def _attr(value):
+    """A form attribute's value, whether it is bare or wrapped in a tier block."""
+    return value.get("value") if isinstance(value, dict) else value
+
+
+def _phase_forms():
+    """Every phase form in the structure layer, read once."""
+    for path in sorted(STRUCTURES_DIR.glob("*.json")):
+        doc = json.loads(path.read_text())
+        for record in (doc if isinstance(doc, list) else [doc]):
+            if not isinstance(record, dict) or "id" not in record:
+                continue
+            for phase in (record.get("phases") or []):
+                yield record, (phase.get("form") or {})
+
+
+def _brick_fabric_count() -> int:
+    """Structures the layer says are brick, which L264's course dimension reaches.
+
+    Counted off the records rather than off materials.md's prose, for the reason
+    every scope here is: the memo says "two records are attested brick" and the
+    layer carries three — `fort_dearborn_magazine` is the one the sentence forgot.
+    A liberty that restated the memo's number would be agreeing with a second
+    opinion instead of measuring the population it reaches.
+    """
+    return len({record["id"] for record, form in _phase_forms()
+                if _attr(form.get("construction")) == "brick"})
+
+
+def _log_and_fort_roof_count() -> int:
+    """Phases on a log dwelling or a fort structure — the roofs L266 shingles by an
+    argument rather than by materials.md §2.2's grading.
+
+    Counted off the records' own `archetype` rather than restated from the selector,
+    for the reason every scope here is counted: `roof_substrate()` deals by archetype,
+    so a record refamilied into or out of `log_dwelling` moves in and out of this
+    liberty's reach, and the entry should say how many it reaches today rather than
+    how many it reached when it was written.
+    """
+    return sum(1 for record, _ in _phase_forms()
+               if record.get("archetype") in ("log_dwelling", "fort_structure"))
+
+
+def _roof_covering_count() -> int:
+    """Phases stating a roof type, which is the population L263's exposure reaches.
+
+    R-W2a finding 2 counted the roof TYPES and found no covering behind any of
+    them. This counts the same population, because the exposure L263 commits is
+    drawn on every one of them the moment the substrate carries a tile.
+    """
+    return sum(1 for _, form in _phase_forms() if _attr(form.get("roof_type")))
+
+
+RESIDENTS_DIR = ROOT / "data" / "residents"
+PROGRAMME = ROOT / "data" / "reconstruction" / \
+    "1835_resident_reconstruction_programme.json"
+
+
+def programme_stages() -> list[dict]:
+    """The reconstruction programme's stages, in the order it runs them.
+
+    Read rather than restated, for the reason validate.py reads the same file for
+    the same list: adding a stage is a data change, and a stage this module had to
+    be taught about by hand would be a stage that could be forgotten. A missing or
+    unreadable programme yields no stages, which makes every stage assertion below
+    vacuous and the enumeration family empty — an entry claiming a stage scope then
+    fails on the enumeration nothing derives, which is the right answer.
+    """
+    try:
+        return list(json.loads(PROGRAMME.read_text()).get("stages") or [])
+    except (OSError, ValueError, TypeError):
+        return []
+
+
+def _stage_person_count(stage: str) -> int:
+    """People a reconstruction stage minted, counted off the cards it wrote.
+
+    Over the WHOLE of `data/residents/`, not `households/` alone: five stages write
+    into a directory of their own — `readmitted/`, `reconstructed_trades/`,
+    `lodgers/`, `transients/`, `underdocumented/` — and a counter anchored on the
+    household directory reads every one of them as zero. The three hand-written
+    stage counters this replaced (T-1171's, T-1174's and T-1176's) were anchored
+    there and were right only because their three stages happen to write into it.
+
+    Counted off the records and off the stage key each person carries, never off a
+    stage's own ledger: a scope that read the number the pass wrote about itself
+    would be agreeing with a second opinion rather than measuring its own size.
+    """
+    n = 0
+    for path in sorted(RESIDENTS_DIR.rglob("*.json")):
+        try:
+            doc = json.loads(path.read_text())
+        except ValueError:
+            continue
+        if not isinstance(doc, dict):
+            continue
+        for person in doc.get("persons") or []:
+            # `persons` is a list of records in the resident layer and a list of
+            # NAMES in a handful of research files that share the key; a card is
+            # the only thing that can carry a stage, so anything else is skipped
+            # rather than crashed on.
+            if not isinstance(person, dict):
+                continue
+            block = person.get("reconstruction")
+            if isinstance(block, dict) and block.get("stage") == stage:
+                n += 1
+    return n
+
+
+def stage_enumeration(key: str) -> str:
+    return f"residents.persons[{key}]"
+
+
+def _stage_scope_sources() -> dict:
+    """One enumeration per person-minting stage, derived from the programme.
+
+    The rows below this are hand-written because each counts a different predicate
+    over a different file. These all count the same predicate over the same layer,
+    so writing eleven of them out would be eleven chances to write the twelfth one
+    wrong — and a stage added to the programme with no enumeration would take its
+    liberty's `Scope:` with it into the "nothing derives that" branch, which reads
+    as the entry's fault rather than the register's.
+    """
+    rows = {}
+    for stage in programme_stages():
+        key = stage.get("key")
+        if not key or stage.get("mints") != "persons":
+            continue
+        built_by = stage.get("built_by")
+        rows[stage_enumeration(key)] = (
+            (lambda k=key: _stage_person_count(k)),
+            f"data/residents/**/*.json, themselves re-derived by {built_by} --check"
+            if built_by else
+            "data/residents/**/*.json, themselves re-derived by the stage's own "
+            "writer under tools/check.sh")
+    return rows
+
+
 # enumeration -> (how many it reaches now, where that number is derived from).
 #
 # A scope may only name an enumeration written down HERE. The alternative — an
 # entry free to spell its own predicate — is a check marking its own homework:
 # whatever the prose selected would be exactly what the prose counted, for ever.
+def _redealt_roof_count() -> int:
+    """Anonymous roofs whose family an adjudication moved and an executor carried out.
+
+    Counted off the RECIPE's own `redealt` record rather than off the adjudication
+    ledger, and that is the whole point of counting it here: the ledger is derived
+    over the town as it stands, so a verdict carried out vanishes from it the moment
+    it works. The recipe is where the execution is permanent.
+    """
+    recipe = json.loads(
+        (RECON_DIR / "1835_phase2_west_wolf_point_approaches.json").read_text())
+    return len(recipe.get("redealt", {}).get("roofs", []))
+
+
 SCOPE_SOURCES = {
     "register_1835.businesses[survival_liberty_required]": (
         _register_survival_liberty_count,
@@ -305,6 +509,10 @@ SCOPE_SOURCES = {
         _register_backdating_liberty_count,
         "data/research/newspapers/register_1835.json, itself re-derived by "
         "tools/compile_register.py --check"),
+    "businesses.records[reconstructed]": (
+        _reconstructed_business_count,
+        "data/businesses/authored/*.json, themselves re-derived by "
+        "tools/reconstruct_businesses_1835.py --check"),
     "residents.persons[letter_list_only]": (
         _letter_list_person_count,
         "data/residents/households/*.json, themselves re-derived by "
@@ -325,6 +533,20 @@ SCOPE_SOURCES = {
         _land_owner_count,
         "data/structures/*.json, themselves re-derived by "
         "tools/resolve_land_tracts.py --check"),
+    "structures.records[brick_fabric]": (
+        _brick_fabric_count,
+        "data/structures/*.json, the layer's own construction attribute"),
+    "structures.phases[roof_type_stated]": (
+        _roof_covering_count,
+        "data/structures/*.json, the layer's own roof_type attribute"),
+    "structures.phases[log_or_fort_archetype]": (
+        _log_and_fort_roof_count,
+        "data/structures/*.json, the layer's own archetype attribute"),
+    "phase2_west_wolf_point_approaches.placements[redealt]": (
+        _redealt_roof_count,
+        "data/reconstruction/1835_phase2_west_wolf_point_approaches.json, itself "
+        "re-derived by tools/execute_roof_redeal.py --check"),
+    **_stage_scope_sources(),
 }
 
 SECTION_KEY = {
@@ -541,6 +763,203 @@ def duplicate_ids(entries: list[dict]) -> list[str]:
     return problems
 
 
+MINTS = ("persons", "attribute_blocks", "nothing")
+DOSSIER = ROOT / "docs" / "RESEARCH" / "1835_resident_reconstruction.md"
+STAGE_TABLE_HEADING = "## The stages at close"
+STAGE_ROW = re.compile(r"^\|\s*`([a-z_]+)`\s*\|(.+)\|\s*$", re.M)
+
+
+def _stage_household_count(stage: str) -> int:
+    """Cards holding at least one person a stage minted.
+
+    Not an enumeration: no liberty declares a `Scope:` in households, because the
+    person is what a stage invents and the card is where it put them. It is here
+    because the dossier's closing table prints both, and a number in a document
+    nothing re-derives is a number that drifts.
+    """
+    n = 0
+    for path in sorted(RESIDENTS_DIR.rglob("*.json")):
+        try:
+            doc = json.loads(path.read_text())
+        except ValueError:
+            continue
+        if not isinstance(doc, dict):
+            continue
+        if any(isinstance(person, dict)
+               and isinstance(person.get("reconstruction"), dict)
+               and person["reconstruction"].get("stage") == stage
+               for person in doc.get("persons") or []):
+            n += 1
+    return n
+
+
+def check_stage_liberties(entries: list[dict], stages: list[dict] | None = None,
+                          counts=None) -> list[str]:
+    """Every reconstruction stage is admitted to by an entry, and the count agrees.
+
+    The programme (T-1167) is the only authority under which a person graded
+    `reconstructed` may be written, and each of its stages invents people. Until
+    T-1399 which entry admitted which stage was a matter of prose: the programme
+    carried a promise list naming six liberties `L-rc-persons`, `L-rc-families`,
+    `L-rc-readmission` and so on, four of which were never the id of anything —
+    the entries that kept those promises are L244, L242, L246, L250 and L255 —
+    and nothing noticed, because nothing read the list. A promise nothing checks
+    is a promise that ages.
+
+    So the binding is declared, in `stages[].liberties`, and held here in BOTH
+    directions. Forward: a stage that mints people names at least one entry, that
+    entry exists, and one of its entries carries the `Scope:` that counts the
+    stage. Backward: an entry may not claim a stage the programme has not declared
+    it on, which is what stops the register from acquiring a second opinion about
+    how many people a stage wrote. And `mints` is checked against the layer itself,
+    so a stage that starts writing people — or stops — is red rather than silently
+    exempt from both halves.
+    """
+    stages = programme_stages() if stages is None else stages
+    counts = _stage_person_count if counts is None else counts
+    problems: list[str] = []
+    if not stages:
+        return [f"the reconstruction programme declares no stages, so no liberty "
+                f"can be held to one — expected them in "
+                f"{PROGRAMME.relative_to(ROOT) if PROGRAMME.is_absolute() else PROGRAMME}"]
+
+    by_id = {e["id"]: e for e in entries}
+    declared_on: dict[str, str] = {}
+
+    for stage in stages:
+        key = stage.get("key") or "<unnamed>"
+        mints = stage.get("mints")
+        libs = stage.get("liberties")
+        if mints not in MINTS:
+            problems.append(f"stage {key}: `mints` is {mints!r}, not one of "
+                            f"{', '.join(MINTS)} — it says what this stage writes "
+                            f"that a liberty has to account for")
+            continue
+        if not isinstance(libs, list):
+            problems.append(f"stage {key}: no `liberties` list. A stage names the "
+                            f"entries in docs/LIBERTIES.md that admit its inventions, "
+                            f"or declares `mints: nothing` and says why")
+            continue
+        for lid in libs:
+            if lid not in by_id:
+                problems.append(f"stage {key}: names liberty {lid}, which is not an "
+                                f"entry in docs/LIBERTIES.md")
+
+        minted = counts(key)
+        if mints == "persons" and minted == 0:
+            problems.append(f"stage {key}: declares `mints: persons` and no card in "
+                            f"data/residents/ carries its stage key — either the "
+                            f"stage has not run or the key has been renamed under it")
+        if mints != "persons" and minted:
+            problems.append(f"stage {key}: declares `mints: {mints}` and {minted} "
+                            f"person(s) in data/residents/ carry its stage key. A "
+                            f"stage that has started writing people owes a counted "
+                            f"scope like the ones that always did")
+        if mints != "persons" and not (stage.get("owes_no_person_scope") or "").strip():
+            problems.append(f"stage {key}: mints no person and does not say why in "
+                            f"`owes_no_person_scope` — the exemption is the one "
+                            f"thing here nothing else can check")
+
+        enumeration = stage_enumeration(key)
+        declared_on[enumeration] = key
+        claimants = [lid for lid in libs
+                     if (by_id.get(lid, {}).get("scope") or {}).get("enumeration") == enumeration]
+        if mints == "persons":
+            if not libs:
+                problems.append(f"stage {key}: minted {minted} people and names no "
+                                f"liberty. Every invented person is admitted to by "
+                                f"an entry or by nothing at all")
+            elif not claimants:
+                named = ", ".join(libs)
+                problems.append(f"stage {key}: minted {minted} people and none of "
+                                f"{named} carries '**Scope:** `{enumeration}`'. The "
+                                f"entry says so in prose and the register cannot "
+                                f"count prose")
+        elif claimants:
+            problems.append(f"stage {key}: mints {mints} and {', '.join(claimants)} "
+                            f"claims a person scope for it")
+
+    for e in entries:
+        enumeration = (e.get("scope") or {}).get("enumeration")
+        if not enumeration or not enumeration.startswith("residents.persons["):
+            continue
+        key = declared_on.get(enumeration)
+        if key is None:
+            continue          # not a stage enumeration — letter_list_only, civic_mint
+        stage = next(s for s in stages if s.get("key") == key)
+        if e["id"] not in (stage.get("liberties") or []):
+            problems.append(
+                f"{e['id']}: claims `{enumeration}`, and stage {key} does not name "
+                f"it. The programme decides which entries admit a stage; an entry "
+                f"that appointed itself would be a second opinion about how many "
+                f"people the stage wrote")
+    return problems
+
+
+def check_stage_table(stages: list[dict] | None = None, text: str | None = None,
+                      counts=None, households=None) -> list[str]:
+    """The dossier's closing table prints the numbers this module derives.
+
+    The tables are the half of T-1399 a person reads, and a table nothing
+    re-derives is a table that is right on the day it is typed. They are checked
+    HERE rather than in a module of their own because the numbers are the ones
+    this module already derives for the scopes: a second derivation would be a
+    second answer, and the day they disagreed there would be no way to tell which
+    of them had drifted.
+    """
+    stages = programme_stages() if stages is None else stages
+    counts = _stage_person_count if counts is None else counts
+    households = _stage_household_count if households is None else households
+    if text is None:
+        try:
+            text = DOSSIER.read_text()
+        except OSError:
+            return [f"the dossier {DOSSIER.name} is missing, so the closing table "
+                    f"nothing else prints is missing with it"]
+    problems: list[str] = []
+    if STAGE_TABLE_HEADING not in text:
+        return [f"the dossier has no '{STAGE_TABLE_HEADING}' section — the closing "
+                f"table is where the programme states what each stage wrote"]
+    body = text[text.index(STAGE_TABLE_HEADING) + len(STAGE_TABLE_HEADING):]
+    # The stage table only. The tier tables below it are in subsections of their
+    # own and have a backticked first cell too, so a search over the whole section
+    # reads `attested` as a stage of the programme.
+    sub = body.find("\n### ")
+    if sub != -1:
+        body = body[:sub]
+    rows = {m.group(1): [c.strip() for c in m.group(2).split("|")]
+            for m in STAGE_ROW.finditer(body)}
+
+    for stage in stages:
+        key = stage.get("key")
+        row = rows.pop(key, None)
+        if row is None:
+            problems.append(f"the closing table has no row for stage {key}")
+            continue
+        if len(row) < 4:
+            problems.append(f"the closing table's {key} row has {len(row) + 1} "
+                            f"columns, not 5: stage, mints, persons, households, liberty")
+            continue
+        minted, seated = counts(key), households(key)
+        want_p = f"{minted:,}" if stage.get("mints") == "persons" else "—"
+        want_h = f"{seated:,}" if stage.get("mints") == "persons" else "—"
+        if row[1] != want_p or row[2] != want_h:
+            problems.append(
+                f"the closing table says stage {key} wrote {row[1]} people in "
+                f"{row[2]} cards; the layer holds {want_p} in {want_h}")
+        cited = set(re.findall(r"L(?:\d+[a-z]?|-[a-z0-9-]+)", row[3]))
+        named = set(stage.get("liberties") or [])
+        if cited != named:
+            problems.append(
+                f"the closing table credits stage {key} to "
+                f"{', '.join(sorted(cited)) or 'nothing'}; the programme names "
+                f"{', '.join(sorted(named)) or 'nothing'}")
+    for key in rows:
+        problems.append(f"the closing table has a row for '{key}', which is not a "
+                        f"stage of the reconstruction programme")
+    return problems
+
+
 def parse(markdown: str, known: dict[str, str],
           sources: dict | None = None) -> tuple[list[dict], list[str]]:
     problems: list[str] = []
@@ -646,6 +1065,8 @@ def build() -> tuple[dict, list[str]]:
         known[p.stem] = json.loads(p.read_text()).get("name", "")
     markdown = SOURCE.read_text()
     entries, problems = parse(markdown, known)
+    problems.extend(check_stage_liberties(entries))
+    problems.extend(check_stage_table())
     doc = {
         "_doc": "GENERATED from docs/LIBERTIES.md by tools/compile_liberties.py. "
                 "Do not hand-edit: tools/check.sh re-derives this file and fails on drift. "
@@ -878,6 +1299,111 @@ def self_test() -> bool:
           and "specimen.things[flagged]" in sco_blamed["L62"][0])
     check("a Scope field written as prose is reported, not parsed into a count",
           len(sco_blamed.get("L63") or []) == 1 and not scoped.get("L63"))
+
+    # --- the stage binding (T-1399) -----------------------------------------
+    #
+    # A synthetic programme and a synthetic register, for the reason the
+    # specimen document exists: the committed pair is repaired, and an assertion
+    # proved only on a repaired subject is an assertion proved on nothing. The
+    # live pair is asserted below, which is the half a synthetic one cannot show.
+    def stage(key, mints="persons", libs=(), why=None):
+        row = {"key": key, "mints": mints, "liberties": list(libs)}
+        if why:
+            row["owes_no_person_scope"] = why
+        return row
+
+    def entry(lid, key=None):
+        e = {"id": lid, "title": lid}
+        if key:
+            e["scope"] = {"enumeration": stage_enumeration(key), "count": 1}
+        return e
+
+    def blame(stages, entries, counts):
+        return check_stage_liberties(entries, stages, lambda k: counts.get(k, 0))
+
+    good = blame([stage("alpha", libs=["L90"])], [entry("L90", "alpha")], {"alpha": 1})
+    check("a stage whose named entry carries its scope is clean", not good)
+
+    check("a stage that mints people and names no liberty is refused",
+          any("names no liberty" in m
+              for m in blame([stage("alpha")], [], {"alpha": 1})))
+    check("a stage naming an entry that does not exist is refused",
+          any("not an entry" in m
+              for m in blame([stage("alpha", libs=["L90"])], [], {"alpha": 1})))
+    check("a stage whose entry admits it in prose and carries no Scope is refused",
+          any("cannot count prose" in m
+              for m in blame([stage("alpha", libs=["L90"])], [entry("L90")],
+                             {"alpha": 1})))
+    check("an entry claiming a stage the programme did not name it on is refused",
+          any("does not name it" in m
+              for m in blame([stage("alpha", libs=["L90"])],
+                             [entry("L90", "alpha"), entry("L91", "alpha")],
+                             {"alpha": 1})))
+    check("a stage that says it mints nothing and has written people is refused",
+          any("has started writing people" in m
+              for m in blame([stage("alpha", "nothing", why="it reports")], [],
+                             {"alpha": 1})))
+    check("a stage that says it mints people and has written none is refused",
+          any("has not run" in m
+              for m in blame([stage("alpha", libs=["L90"])], [entry("L90", "alpha")],
+                             {})))
+    check("a stage exempt from a count and silent about why is refused",
+          any("owes_no_person_scope" in m
+              for m in blame([stage("alpha", "nothing")], [], {})))
+    check("an unknown `mints` word is refused rather than read as an exemption",
+          any("not one of" in m
+              for m in blame([stage("alpha", "some")], [], {"alpha": 1})))
+    check("a programme with no stages refuses every binding at once",
+          len(blame([], [], {})) == 1)
+
+    # The dossier's tables, the same way.
+    TABLE = ("## The stages at close\n\n"
+             "| stage | mints | persons | cards | liberty |\n"
+             "| --- | --- | ---: | ---: | --- |\n"
+             "| `alpha` | persons | 1,200 | 40 | **L90** |\n"
+             "| `omega` | nothing | — | — | — |\n"
+             "\n### The layer by tier\n\n| `attested` | 1 |\n")
+    stages_t = [stage("alpha", libs=["L90"]), stage("omega", "nothing", why="reports")]
+    counts_t = {"alpha": 1200}
+    homes_t = {"alpha": 40}
+
+    def blame_table(text, counts=counts_t, homes=homes_t, stages=stages_t):
+        return check_stage_table(stages, text, lambda k: counts.get(k, 0),
+                                 lambda k: homes.get(k, 0))
+
+    check("a closing table that agrees with the layer is clean",
+          not blame_table(TABLE))
+    check("…and the tier tables under it are not read as stages",
+          not any("attested" in m for m in blame_table(TABLE)))
+    check("a table row whose count has drifted from the layer is refused",
+          any("the layer holds" in m
+              for m in blame_table(TABLE.replace("1,200", "1,100"))))
+    check("a thousands separator is required, so 1200 does not pass as 1,200",
+          any("the layer holds" in m
+              for m in blame_table(TABLE.replace("1,200", "1200"))))
+    check("a table crediting a stage to the wrong entry is refused",
+          any("the programme names" in m
+              for m in blame_table(TABLE.replace("**L90**", "**L91**"))))
+    check("a stage missing from the table is refused",
+          any("no row for stage omega" in m
+              for m in blame_table(TABLE.replace("| `omega` | nothing | — | — | — |",
+                                                 ""))))
+    check("a table row naming no stage of the programme is refused",
+          any("not a stage" in m
+              for m in blame_table(TABLE.replace("`omega`", "`psi`"))))
+    check("a dossier with no closing section at all is refused",
+          len(blame_table("# a dossier that stops early\n")) == 1)
+
+    # And the live pair.
+    live_stages = programme_stages()
+    minting = [s["key"] for s in live_stages if s.get("mints") == "persons"]
+    live_entries, _ = parse(SOURCE.read_text(), {})
+    bound = check_stage_liberties(live_entries)
+    check(f"the committed programme's {len(live_stages)} stages are each admitted "
+          f"to by an entry, and the {len(minting)} that mint people are counted "
+          f"({', '.join(minting)})", not bound)
+    check("…and the dossier's closing tables print the same numbers",
+          not check_stage_table())
 
     # And the document that ships. The fault this exists for is exactly a
     # section nobody meant to be in, so the specimen proving the assertion

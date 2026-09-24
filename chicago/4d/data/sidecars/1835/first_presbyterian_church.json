@@ -149,9 +149,9 @@
       "note": "Not a build instruction; a scale check and a comparison. $600 for 1,000 sq ft of single-storey frame is $0.60 per square foot, against St Mary's $400 for 875 sq ft ($0.46) and the Temple Building's $900 for two storeys. The Temple Building's invented footprint is derived from exactly this ratio, which is why the figure is carried here rather than left in prose."
     },
     "siding_exposure_m": {
-      "value": 0.152,
+      "value": 0.114,
       "confidence": "reconstructed",
-      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 6 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
     },
     "function": {
       "value": "church",

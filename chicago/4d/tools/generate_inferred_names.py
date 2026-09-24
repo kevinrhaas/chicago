@@ -46,6 +46,9 @@ import json
 import pathlib
 import sys
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from reconstructed_person import is_reconstructed  # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 HOUSEHOLDS = ROOT / "data" / "residents" / "households"
 POOLS = ROOT / "data" / "reconstruction" / "1835_invented_name_pools.json"
@@ -181,6 +184,12 @@ def build(preload: dict | None = None):
         doc = sources[path]
         for person in doc.get("persons", []):
             if person.get("grade") != "reconstructed":
+                continue
+            # T-1171: …and not one T-1167's programme wrote. This allocator is the RETIRED
+            # pass (T-0489); the programme that replaced it draws its own names from
+            # data/reconstruction/1835_invented_name_pools.json, seeded and re-derivable,
+            # and a name this one re-deals over that would overwrite a stage's own draw.
+            if is_reconstructed(person):
                 continue
             occ = (person.get("occupation") or {}).get("value") or ""
             cid, rule = community_for(pools, occ, person["id"])

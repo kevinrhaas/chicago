@@ -1,0 +1,36 @@
+{
+  "id": "limestone_rubble_lime_mortar",
+  "group": "masonry",
+  "span_m": 4.0,
+  "confidence": "reconstructed",
+  "mean_roughness": 0.93,
+  "kind": "stone",
+  "colors": [
+    [
+      143,
+      139,
+      126
+    ],
+    [
+      190,
+      183,
+      159
+    ]
+  ],
+  "note": "Irregular pale Great Lakes rubble masonry; use only where stone fabric is selected.",
+  "resolution_px": 1024,
+  "px_per_m": 256.0,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18351962,
+  "generation_method": "deterministic procedural synthesis"
+}

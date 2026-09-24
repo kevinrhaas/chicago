@@ -1,0 +1,186 @@
+{
+  "_doc": "Carry the West Division's five east-west tier lines off their E -320 clip to Des\nPlaines Street.\n\n    tools/carry_west_tiers_west.py            print the derivation\n    tools/carry_west_tiers_west.py --write    write data/streets/1835.json and the trace\n    tools/carry_west_tiers_west.py --check    the committed reaches re-derive\n    tools/carry_west_tiers_west.py --gate     the same, quiet, for tools/check.sh\n\nT-1443, piece 1 of 2 of T-1431, itself split out of T-1417. `carroll`, `fulton`, `lake`,\n`randolph` and `washington` all stopped dead at local east -320. `fulton`'s own note said\nwhat that clip was and said it in the record rather than in a memo:\n\n    WHY THE LINE STILL STOPS AT EAST -320 ... when the control runs 200 m further west:\n    the west clip is this reconstruction's own extent, not a statement that the street\n    ended there, and moving it would move five streets rather than one.\n\nTwo things have happened since. T-1416 built the modelled field out to local east -705,\nso the extent that did the clipping is no longer there; and T-1430 seated `jefferson` and\n`des_plaines`, so the West Division's westernmost platted street is committed and a tier\nhas something to stop AT rather than merely stopping. This file moves the five streets —\nall of them, in one place, which is the condition the note set.\n\nWHAT THE REACH IS, AND WHAT IT IS NOT. It is not new evidence. The Thompson plat draws\nthese tiers across the whole West Division; `lake`, `randolph` and `washington` are graded\n`attested` FROM that sheet (T-0713) and `fulton` is attested and fitted besides. So the\nplat already carried the street over this ground and the file did not. Each line is\ntherefore EXTENDED on its own westernmost segment's bearing — not re-fitted, not re-bent —\nand `--check` holds the old west vertex on the new line to the centimetre, so the 200 m\nthis adds cannot move a platted lot line, re-cut a corridor, or change the\ncorridor-intrusion count anywhere east of the clip. The confidences do not move either:\ncarrying a line the length the sheet already drew it is not an upgrade, and nothing here\nis graded better than it was.\n\nWHERE EACH LINE STOPS. At `des_plaines`, the westernmost street of the plat's West\nDivision, on the committed centreline T-1430 seated — not at the modelled field's west\nwall, which is a fact about this reconstruction's extent and would be the same mistake\none ticket later. The plat's own west boundary line is not committed to this repository,\nso the line stops on the last committed control rather than on an inferred boundary.\n\nWHAT CORROBORATES IT, and it is the reason this is a measurement and not a ruling.\n`fulton` carries four surviving OpenStreetMap intersections in its own note (T-0446),\nread on 2026-09-04 and fitted at RMS 0.35 m — and TWO OF THE FOUR, Jefferson and Des\nPlaines, stand WEST of the clip. The extension is derived from the committed bearing and\nknows nothing about them, and it passes within a few centimetres of both. The clip was\nhiding 200 m of street that the record's own control already held.\n\nCARROLL IS STILL THE ONE INTERPOLATION and is still graded for it. Its rule is unchanged —\nthe midpoint of Kinzie and Fulton at every easting — but west of the clip the Kinzie term\nis `kinzie_west`, the separate record T-1085 carried across Wabansia, because that is the\nline that exists there. Carroll stops at `fulton`'s west end and not one metre further:\nan interpolation may not claim more ground than the pair it is interpolated between, which\nis T-1430's own rule about borrowed lines turned through ninety degrees. Its bracket — the\ntwo single-module steps from either neighbour — is re-measured at the new west end here,\nand the midpoint has to sit inside it.\n\nTHE GROUND IS CHECKED, NOT ASSUMED. Every reach is sampled along its length against the\ncommitted heightfield, and the lowest sample is on the record. A street drawn over water\nor off the modelled box is what this gate exists to refuse.\n",
+  "ticket": "T-1443",
+  "streets": [
+    "carroll",
+    "fulton",
+    "lake",
+    "randolph",
+    "washington"
+  ],
+  "committed_in": "data/streets/1835.json",
+  "method": {
+    "extent": "each tier stops where it meets the committed `des_plaines` centreline (T-1430); carroll stops at fulton's west end",
+    "bearing": "each line's own westernmost committed segment — extended, never refit",
+    "bend": "none. The old west vertex lies on the new line to the centimetre, gated by --check, so nothing east of -320 moves.",
+    "ground": "sampled against data/terrain/epochs/e1834_harbor_cut/heightfield.bin, the field T-1416 built out to local east -705"
+  },
+  "reaches": {
+    "carroll": {
+      "old_west_end_local_enu_m": [
+        -320.0,
+        137.85
+      ],
+      "new_west_end_local_enu_m": [
+        -524.877,
+        139.16
+      ],
+      "stops_at": "fulton's own west end — an interpolation claims no more ground than the pair it lies between",
+      "carried_m": 204.88,
+      "bearing": -0.006394,
+      "bearing_from": "carroll's own westernmost committed segment, [-320, 137.85] to [-104.96, 136.47]",
+      "kink_at_clip_deg": 0.0013,
+      "ground": {
+        "samples": 42,
+        "off_modelled_box": 0,
+        "min_m_above_water": 1.215,
+        "max_m_above_water": 1.32
+      },
+      "bracket": {
+        "at_east_m": -524.877,
+        "kinzie_west_north_m": 264.732,
+        "fulton_north_m": 13.588,
+        "fulton_to_lake_module_m": 119.036,
+        "one_module_north_of_fulton_m": 132.624,
+        "one_module_south_of_kinzie_m": 145.696,
+        "midpoint_m": 139.16,
+        "half_bracket_m": 6.536,
+        "inside": true
+      }
+    },
+    "fulton": {
+      "old_west_end_local_enu_m": [
+        -320.0,
+        12.59
+      ],
+      "new_west_end_local_enu_m": [
+        -524.877,
+        13.588
+      ],
+      "stops_at": "des_plaines, the westernmost platted street of the West Division (T-1430)",
+      "carried_m": 204.88,
+      "bearing": -0.004872,
+      "bearing_from": "fulton's own westernmost committed segment, [-320, 12.59] to [-98.33, 11.51]",
+      "kink_at_clip_deg": 0.0,
+      "ground": {
+        "samples": 42,
+        "off_modelled_box": 0,
+        "min_m_above_water": 1.23,
+        "max_m_above_water": 1.32
+      },
+      "corroboration": {
+        "canal": {
+          "osm_node": 258020617,
+          "node_local_enu_m": [
+            -162.0,
+            12.17
+          ],
+          "west_of_old_clip": false,
+          "line_north_at_node_e": 11.82,
+          "line_north_of_node_m": -0.35
+        },
+        "clinton": {
+          "osm_node": 258966840,
+          "node_local_enu_m": [
+            -282.18,
+            11.83
+          ],
+          "west_of_old_clip": false,
+          "line_north_at_node_e": 12.406,
+          "line_north_of_node_m": 0.576
+        },
+        "jefferson": {
+          "osm_node": 262247424,
+          "node_local_enu_m": [
+            -401.04,
+            13.11
+          ],
+          "west_of_old_clip": true,
+          "line_north_at_node_e": 12.985,
+          "line_north_of_node_m": -0.125
+        },
+        "des_plaines": {
+          "osm_node": 258966841,
+          "node_local_enu_m": [
+            -524.88,
+            13.72
+          ],
+          "west_of_old_clip": true,
+          "line_north_at_node_e": 13.588,
+          "line_north_of_node_m": -0.132
+        },
+        "worst_west_residual_m": 0.132,
+        "fit_rms_m": 0.35,
+        "reading": "the carried line passes 0.132 m from the worse of the two surviving intersections west of the clip, against the 0.35 m RMS of the four-point fit the record already carries. The extension is derived from the committed bearing alone and reads neither node, so this is the control the clip was standing in front of."
+      }
+    },
+    "lake": {
+      "old_west_end_local_enu_m": [
+        -320.0,
+        -107.1
+      ],
+      "new_west_end_local_enu_m": [
+        -522.025,
+        -105.461
+      ],
+      "stops_at": "des_plaines, the westernmost platted street of the West Division (T-1430)",
+      "carried_m": 202.03,
+      "bearing": -0.008115,
+      "bearing_from": "the Thompson plat's own east-west grid, which `lake`, `randolph` and `washington` carry to six decimals",
+      "kink_at_clip_deg": 0.0029,
+      "ground": {
+        "samples": 42,
+        "off_modelled_box": 0,
+        "min_m_above_water": 1.05,
+        "max_m_above_water": 1.32
+      }
+    },
+    "randolph": {
+      "old_west_end_local_enu_m": [
+        -320.0,
+        -249.9
+      ],
+      "new_west_end_local_enu_m": [
+        -518.603,
+        -248.288
+      ],
+      "stops_at": "des_plaines, the westernmost platted street of the West Division (T-1430)",
+      "carried_m": 198.61,
+      "bearing": -0.008115,
+      "bearing_from": "the Thompson plat's own east-west grid, which `lake`, `randolph` and `washington` carry to six decimals",
+      "kink_at_clip_deg": 0.0164,
+      "ground": {
+        "samples": 41,
+        "off_modelled_box": 0,
+        "min_m_above_water": 1.3,
+        "max_m_above_water": 1.32
+      }
+    },
+    "washington": {
+      "old_west_end_local_enu_m": [
+        -320.0,
+        -385.2
+      ],
+      "new_west_end_local_enu_m": [
+        -515.361,
+        -383.615
+      ],
+      "stops_at": "des_plaines, the westernmost platted street of the West Division (T-1430)",
+      "carried_m": 195.37,
+      "bearing": -0.008115,
+      "bearing_from": "the Thompson plat's own east-west grid, which `lake`, `randolph` and `washington` carry to six decimals",
+      "kink_at_clip_deg": 0.0,
+      "ground": {
+        "samples": 41,
+        "off_modelled_box": 0,
+        "min_m_above_water": 1.305,
+        "max_m_above_water": 1.325
+      }
+    }
+  },
+  "what_this_does_not_carry": {
+    "the_plat_boundary": "the Thompson plat's own west boundary line is not committed to this repository, so the tiers stop on the last committed control and not on an inferred edge.",
+    "confidence": "no grade moves. The plat already drew these tiers across the West Division; this file stops truncating them.",
+    "wear_and_surface": "unchanged and not re-argued: the records' own surface, track width and traffic carry west with them, because the tiers are one street each and not two claims."
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "id": "biz_the_traveller_s_home",
+  "register_id": "business_the_traveller_s_home",
+  "name": "the Traveller's Home",
+  "provenance": "compiled_from_register",
+  "type": [
+    "tavern"
+  ],
+  "trade": "tavern",
+  "occupation": "tavern_keeper",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Almira Barnes",
+      "person_id": "rc_barnes_almira",
+      "role": "servant",
+      "occupation": "domestic",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a tavern or hotel at the typical band and 1 at the high end, on period_convention. The cook. A house that feeds travellers cooks every day of the week. Analogue: the 1839 list's five domestics against a town of 4,000 — a floor, not a count. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#tavern_or_hotel.domestic; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_barnes_almira:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    },
+    {
+      "name": "Honora Carroll",
+      "person_id": "rc_carroll_honora",
+      "role": "servant",
+      "occupation": "domestic",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a tavern or hotel at the typical band and 2 at the high end, on period_convention. Chambermaids, by the number of beds. Analogue: the lodging model's per-place capacities, which this row does not itself read. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#tavern_or_hotel.domestic; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_carroll_honora:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "tavern_or_hotel",
+    "reads_as": "a tavern or hotel",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "household_member",
+        "occupation": "tavern_keeper",
+        "household_relationship": "household_member",
+        "count_low": 1,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "period_convention",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      },
+      {
+        "role": "household_member",
+        "occupation": "labourer",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "period_convention",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      },
+      {
+        "role": "servant",
+        "occupation": "domestic",
+        "household_relationship": "servant",
+        "count_low": 1,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "period_convention"
+      },
+      {
+        "role": "servant",
+        "occupation": "domestic",
+        "household_relationship": "servant",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 2,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "period_convention"
+      },
+      {
+        "role": "servant",
+        "occupation": "domestic",
+        "household_relationship": "servant",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "period_convention",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 5,
+      "seats_taken": 2,
+      "seats_against_the_band": 2,
+      "short_by": 3,
+      "by_role": [
+        {
+          "occupation": "tavern_keeper",
+          "household_relationship": "household_member",
+          "count_low": 1,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 1
+        },
+        {
+          "occupation": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 1
+        },
+        {
+          "occupation": "domestic",
+          "household_relationship": "servant",
+          "count_low": 1,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        },
+        {
+          "occupation": "domestic",
+          "household_relationship": "servant",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "seats_drawn": 1,
+          "short_by": 0
+        },
+        {
+          "occupation": "domestic",
+          "household_relationship": "servant",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 1
+        }
+      ],
+      "statement": "The staffing model puts 5 hand(s) about this kind of house at its typical band and this house carries 2. It stands 3 short, and stands short rather than being quietly filled.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-01-28",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1834-01-28",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-01-28, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-01-28",
+    "last_issue": "1834-05-21",
+    "copy_dates": [
+      "1833-10-04"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_01_28#c009",
+    "chicago_democrat_1834_05_21#c002"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

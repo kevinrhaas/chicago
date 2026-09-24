@@ -1,0 +1,466 @@
+{
+ "$schema_note": "DERIVED. Rebuild with tools/reconstruct_free_black.py --build; tools/check.sh re-derives it and refuses a differing byte.",
+ "id": "chicago_1835_free_black",
+ "schema": 1,
+ "ticket": "T-1377",
+ "parent_ticket": "T-1177",
+ "stage": "underdocumented",
+ "sub_stage": "free_black",
+ "target_date": "1835-07-01",
+ "generated_by": "tools/reconstruct_free_black.py",
+ "not_a_reading": "NOBODY IN THIS FILE IS A PERSON A SOURCE NAMES. The corpus counts free Black people at Chicago twice and names none of them inside the window. What is written here is the COUNT, carried, with people drawn from a pool to carry it — every one of them retired by the first source that names a real free Black resident of this town.",
+ "the_bracket": {
+  "floor": {
+   "count_of_men": [
+    6,
+    7
+   ],
+   "written": 7,
+   "as_of": "1833-08",
+   "source": "andreas_1884_v1",
+   "reading": "Andreas, quoted in data/residents/households/hh_caton_john_dean.json: in August 1833 Caton 'defended six or seven free coloured men before the Court of County Commissioners and obtained certificates of freedom for them, his fee a dollar from each.'",
+   "why_the_upper_reading": "The phrase's two readings differ by one man. The ticket's ask is the low end of the bracket AT LEAST, and seven is the reading under which the cohort is at or above the floor whichever of the two the page means.",
+   "why_it_is_a_residence_and_not_a_passage": "A certificate of freedom was what the Illinois black law made the condition of a free Black person's residence in the state. Men before the county court for one are men settling, not passing.",
+   "rule": "THE FLOOR OF THE 1835 BRACKET, CARRIED FORWARD WHOLE. Caton's fee in August 1833 counts six or seven free coloured men at Chicago, each of them before the Court of County Commissioners for the certificate of freedom the Illinois black law made the condition of a lawful residence. The 1840 census counts fifty-three free coloured persons in the same town. No monotone path between those two readings passes below the 1833 count on 1 July 1835, so the count is carried and not drawn against a persistence rate — the subject here is a COUNT, and a count does not leave town."
+  },
+  "ceiling": {
+   "free_coloured_persons_1840": 53,
+   "persons_1840": 4834,
+   "slaves_1840": 0,
+   "share_1840": 0.01096,
+   "town_model_point_reading_1835": 2536,
+   "town_model_range_1835": [
+    2353,
+    3265
+   ],
+   "persons_at_the_same_share": 27,
+   "persons_at_the_same_share_over_the_range": [
+    25,
+    35
+   ],
+   "note": "NOT A READING OF 1835 AND NEVER USED AS ONE. The 1840 share is carried back across five years in which this town grew faster than at any other time in its history, so it bounds the scene from above and no more. This stage writes the floor; the head-room stays open."
+  },
+  "what_this_stage_wrote": "the floor",
+  "the_head_room_is_left_standing": "Between the floor written here and the ceiling above there is room for roughly twenty more people. It is not filled, because filling it would mean inventing them against a share carried back across five years of the fastest growth this town ever had. A later ticket with a reading in hand may take it."
+ },
+ "the_1840_households": {
+  "note": "SHAPES, NEVER PEOPLE — composition_1840.json's own rule, and this stage is held to it. What is read off these lines is how many adults and children stood under a free Black roof, not who they were.",
+  "entirely_free_coloured": [
+   {
+    "page": "33SQ-GYYJ-97P",
+    "line": 10,
+    "as_read": "Joseph L. Williams",
+    "free_coloured": 3,
+    "free_white": 0,
+    "cells": {
+     "fc_f_24_36": 1,
+     "fc_m_24_36": 1,
+     "fc_m_u10": 1
+    }
+   },
+   {
+    "page": "33SQ-GYYJ-97P",
+    "line": 11,
+    "as_read": "Sam[l] Anderson",
+    "free_coloured": 3,
+    "free_white": 0,
+    "cells": {
+     "fc_f_10_24": 1,
+     "fc_f_24_36": 1,
+     "fc_m_24_36": 1
+    }
+   },
+   {
+    "page": "33SQ-GYYJ-LV",
+    "line": 19,
+    "as_read": "Mrs. Nan[?]y H. Jackson",
+    "free_coloured": 2,
+    "free_white": 0,
+    "cells": {
+     "fc_f_24_36": 1,
+     "fc_f_u10": 1
+    }
+   },
+   {
+    "page": "33SQ-GYYJ-RY",
+    "line": 13,
+    "as_read": "[?]. [K]. Bul[l]",
+    "free_coloured": 1,
+    "free_white": 0,
+    "cells": {
+     "fc_m_55_100": 1
+    }
+   }
+  ],
+  "free_coloured_within_a_white_household": [
+   {
+    "page": "33SQ-GYYJ-97P",
+    "line": 3,
+    "as_read": "Ira Couch",
+    "free_coloured": 1,
+    "free_white": 16,
+    "cells": {
+     "fc_m_24_36": 1
+    }
+   },
+   {
+    "page": "33SQ-GYYJ-BP",
+    "line": 1,
+    "as_read": "E. C. Stowell",
+    "free_coloured": 1,
+    "free_white": 5,
+    "cells": {
+     "fc_m_u10": 1
+    }
+   },
+   {
+    "page": "33SQ-GYYJ-CK",
+    "line": 24,
+    "as_read": "T. M. Monta[?]on",
+    "free_coloured": 1,
+    "free_white": 1,
+    "cells": {
+     "fc_m_24_36": 1
+    }
+   },
+   {
+    "page": "33SQ-GYYJ-RK",
+    "line": 2,
+    "as_read": "W[m]. [?] Sh[e]n[e]r",
+    "free_coloured": 2,
+    "free_white": 6,
+    "cells": {
+     "fc_f_10_24": 1,
+     "fc_f_u10": 1
+    }
+   }
+  ],
+  "shapes_drawn_from": [
+   {
+    "page": "33SQ-GYYJ-RY",
+    "line": 13,
+    "as_read": "[?]. [K]. Bul[l]",
+    "adult_men": 1,
+    "adult_women": 0,
+    "children_under_10": 0,
+    "persons": 1
+   },
+   {
+    "page": "33SQ-GYYJ-97P",
+    "line": 10,
+    "as_read": "Joseph L. Williams",
+    "adult_men": 1,
+    "adult_women": 1,
+    "children_under_10": 1,
+    "persons": 3
+   },
+   {
+    "page": "33SQ-GYYJ-97P",
+    "line": 11,
+    "as_read": "Sam[l] Anderson",
+    "adult_men": 1,
+    "adult_women": 2,
+    "children_under_10": 0,
+    "persons": 3
+   }
+  ],
+  "shapes_set_aside_because_no_adult_man_stands_in_them": {
+   "shapes": [
+    {
+     "page": "33SQ-GYYJ-LV",
+     "line": 19,
+     "as_read": "Mrs. Nan[?]y H. Jackson",
+     "adult_men": 0,
+     "adult_women": 1,
+     "children_under_10": 1,
+     "persons": 2
+    }
+   ],
+   "why": "The floor this stage carries counts MEN — Caton's fee counts men before the Court of County Commissioners — so every household written here is headed by one. The 1840 reading shows a free Black household headed by a woman, and dealing that shape to a male head would invent the man the page does not show. The woman-headed household of this town is real and is NOT written here; it is left for a stage whose unit is a household rather than a count of men."
+  },
+  "the_sample_is_small_and_this_file_says_so": "3 household(s). It is also every reading of a free Black household this corpus holds.",
+  "the_recapitulation_leaf_is_excluded": {
+   "pages": [
+    "33SQ-GYYJ-PW"
+   ],
+   "why": "That leaf COUNTS the town instead of enumerating it. Fifteen of its lines carry free-coloured cells and not one of them is a household; a reader who took them for households would meet the same people twice and would read this town as holding five times the free Black households it does."
+  }
+ },
+ "the_naming_stock": {
+  "rows": [
+   {
+    "row_id": "census_1840:data/research/census_1840/pages/33S7-9YYJ-DD.json#records/~1records~17#0",
+    "name_as_read": "Eliza Askie",
+    "normalised": "eliza as ie",
+    "community_term": "coloured",
+    "ledger_disposition": "later_only"
+   },
+   {
+    "row_id": "census_1840:data/research/census_1840/pages/33S7-9YYJ-2T.json#records/~1records~111#0",
+    "name_as_read": "George White",
+    "normalised": "george white",
+    "community_term": "coloured",
+    "ledger_disposition": "later_only"
+   },
+   {
+    "row_id": "census_1840:data/research/census_1840/pages/33S7-9YYJ-9WF.json#records/~1records~128#0",
+    "name_as_read": "John Johnson",
+    "normalised": "john johnson",
+    "community_term": "coloured",
+    "ledger_disposition": "later_only"
+   },
+   {
+    "row_id": "census_1840:data/research/census_1840/pages/33SQ-GYYJ-97P.json#records/~1records~19#0",
+    "name_as_read": "Joseph L. Williams",
+    "normalised": "joseph l williams",
+    "community_term": "coloured",
+    "ledger_disposition": "later_only"
+   },
+   {
+    "row_id": "census_1840:data/research/census_1840/pages/33SQ-GYYJ-RY.json#records/~1records~112#0",
+    "name_as_read": "[?]. [K]. Bul[l]",
+    "normalised": "k bull",
+    "community_term": "coloured",
+    "ledger_disposition": "later_only"
+   },
+   {
+    "row_id": "census_1840:data/research/census_1840/pages/33SQ-GYYJ-97P.json#records/~1records~110#0",
+    "name_as_read": "Sam[l] Anderson",
+    "normalised": "sam l anderson",
+    "community_term": "coloured",
+    "ledger_disposition": "later_only"
+   },
+   {
+    "row_id": "census_1840:data/research/census_1840/pages/33SQ-GYYJ-CK.json#records/~1records~123#0",
+    "name_as_read": "T. M. Monta[?]on",
+    "normalised": "t m monta on",
+    "community_term": "coloured",
+    "ledger_disposition": "later_only"
+   }
+  ],
+  "surnames": [
+   "Anderson",
+   "Askie",
+   "Johnson",
+   "White",
+   "Williams"
+  ],
+  "given_names_printed": [
+   "Eliza",
+   "George",
+   "John",
+   "Joseph"
+  ],
+  "attested_readings_no_draw_may_reproduce": [
+   "[?] [k] bul[l]",
+   "eliza askie",
+   "george white",
+   "john johnson",
+   "joseph l williams",
+   "sam[l] anderson",
+   "t m monta[?]on"
+  ],
+  "withheld": [
+   {
+    "reading": "[?]. [K]. Bul[l]",
+    "reason": "the_surname_is_not_settled_on_the_page"
+   },
+   {
+    "reading": "Sam[l] Anderson",
+    "reason": "the_given_name_carries_an_unread_position"
+   },
+   {
+    "reading": "T. M. Monta[?]on",
+    "reason": "the_surname_is_not_settled_on_the_page"
+   }
+  ],
+  "refusals": {
+   "the_given_name_carries_an_unread_position": "The schedule's given name has a bracketed position in it — `Sam[l]` — so the forename is a supplied reading and not a printed one. The SURNAME on the same line is admitted, because that part of the reading is whole; the forename is not carried into a pool of given names.",
+   "the_surname_is_not_settled_on_the_page": "The roster's reading leaves an unread position inside the surname, so the normalised string is not a name — `T. M. Monta[?]on` normalises to `monta on`, two words neither of which is the surname. A pool that carried it would be offering a reading the page does not make.",
+   "the_reading_gives_an_initial_and_not_a_given_name": "The schedule prints an initial where the given name would be. An initial is not a name and cannot enter a pool of given names; the SURNAME on the same line is admitted, because that part of the reading is whole.",
+   "later_only_and_this_stage_mints_nobody_from_1840": "Every one of these readings is dated 1840, five years after the scene, and the borderline roster classes it `later_only` for that reason. This stage does not back-project a single one of them into a person. What it takes from the page is the NAMING STOCK — surnames, without the people who bore them — and the pool's own rule refuses any draw that puts a given name back beside its printed surname."
+  },
+  "note": "The roster classed these rows R6 on its own `community_term_in_the_reading` rule and dated every one of them `later_only`. Not one is minted into 1835. The SURNAMES enter the pool; the people do not."
+ },
+ "the_trades": {
+  "dealt": [
+   "barber",
+   "cook",
+   "waiter",
+   "drayman",
+   "labourer",
+   "whitewasher",
+   "sawyer"
+  ],
+  "the_womans_trade": "laundress",
+  "liberty": "A LIBERTY, DECLARED. No source in this corpus records an occupation for any Black person at Chicago before 1840 — not an advertisement, not a directory line, not a roll. The seven trades this stage deals are the service, carrying and labouring trades of a northern lake town, and dealing from them rather than from the merchant and professional classes is an assumption about the 1835 labour market. Nothing here says a free Black man at Chicago could not keep a store or read law; it says this project has no reading either way and has written down which way it guessed. docs/LIBERTIES.md carries it."
+ },
+ "counts": {
+  "households": 7,
+  "persons": 15,
+  "adult_men": 7,
+  "adult_women": 6,
+  "of_those_wives": 4,
+  "children": 2,
+  "firms": 2,
+  "surnames_available": 5
+ },
+ "minted": [
+  {
+   "household_id": "hh_fb_anderson_benjamin",
+   "person_id": "rc_fb_anderson_benjamin",
+   "name": "Benjamin Anderson",
+   "file": "underdocumented/hh_fb_anderson_benjamin.json",
+   "trade": "barber",
+   "community": "free_black",
+   "review_required": true,
+   "touches_removal": false,
+   "household_shape": {
+    "page": "33SQ-GYYJ-97P",
+    "line": 11,
+    "as_read": "Sam[l] Anderson",
+    "adult_men": 1,
+    "adult_women": 2,
+    "children_under_10": 0,
+    "persons": 3
+   },
+   "persons": 3,
+   "slot": "free_black:floor:001"
+  },
+  {
+   "household_id": "hh_fb_askie_john",
+   "person_id": "rc_fb_askie_john",
+   "name": "John Askie",
+   "file": "underdocumented/hh_fb_askie_john.json",
+   "trade": "cook",
+   "community": "free_black",
+   "review_required": true,
+   "touches_removal": false,
+   "household_shape": {
+    "page": "33SQ-GYYJ-RY",
+    "line": 13,
+    "as_read": "[?]. [K]. Bul[l]",
+    "adult_men": 1,
+    "adult_women": 0,
+    "children_under_10": 0,
+    "persons": 1
+   },
+   "persons": 1,
+   "slot": "free_black:floor:002"
+  },
+  {
+   "household_id": "hh_fb_johnson_david",
+   "person_id": "rc_fb_johnson_david",
+   "name": "David Johnson",
+   "file": "underdocumented/hh_fb_johnson_david.json",
+   "trade": "waiter",
+   "community": "free_black",
+   "review_required": true,
+   "touches_removal": false,
+   "household_shape": {
+    "page": "33SQ-GYYJ-RY",
+    "line": 13,
+    "as_read": "[?]. [K]. Bul[l]",
+    "adult_men": 1,
+    "adult_women": 0,
+    "children_under_10": 0,
+    "persons": 1
+   },
+   "persons": 1,
+   "slot": "free_black:floor:003"
+  },
+  {
+   "household_id": "hh_fb_white_charles",
+   "person_id": "rc_fb_white_charles",
+   "name": "Charles White",
+   "file": "underdocumented/hh_fb_white_charles.json",
+   "trade": "drayman",
+   "community": "free_black",
+   "review_required": true,
+   "touches_removal": false,
+   "household_shape": {
+    "page": "33SQ-GYYJ-RY",
+    "line": 13,
+    "as_read": "[?]. [K]. Bul[l]",
+    "adult_men": 1,
+    "adult_women": 0,
+    "children_under_10": 0,
+    "persons": 1
+   },
+   "persons": 1,
+   "slot": "free_black:floor:004"
+  },
+  {
+   "household_id": "hh_fb_williams_samuel",
+   "person_id": "rc_fb_williams_samuel",
+   "name": "Samuel Williams",
+   "file": "underdocumented/hh_fb_williams_samuel.json",
+   "trade": "labourer",
+   "community": "free_black",
+   "review_required": true,
+   "touches_removal": false,
+   "household_shape": {
+    "page": "33SQ-GYYJ-97P",
+    "line": 10,
+    "as_read": "Joseph L. Williams",
+    "adult_men": 1,
+    "adult_women": 1,
+    "children_under_10": 1,
+    "persons": 3
+   },
+   "persons": 3,
+   "slot": "free_black:floor:005"
+  },
+  {
+   "household_id": "hh_fb_anderson_henry",
+   "person_id": "rc_fb_anderson_henry",
+   "name": "Henry Anderson",
+   "file": "underdocumented/hh_fb_anderson_henry.json",
+   "trade": "whitewasher",
+   "community": "free_black",
+   "review_required": true,
+   "touches_removal": false,
+   "household_shape": {
+    "page": "33SQ-GYYJ-97P",
+    "line": 11,
+    "as_read": "Sam[l] Anderson",
+    "adult_men": 1,
+    "adult_women": 2,
+    "children_under_10": 0,
+    "persons": 3
+   },
+   "persons": 3,
+   "slot": "free_black:floor:006"
+  },
+  {
+   "household_id": "hh_fb_askie_george",
+   "person_id": "rc_fb_askie_george",
+   "name": "George Askie",
+   "file": "underdocumented/hh_fb_askie_george.json",
+   "trade": "sawyer",
+   "community": "free_black",
+   "review_required": true,
+   "touches_removal": false,
+   "household_shape": {
+    "page": "33SQ-GYYJ-97P",
+    "line": 10,
+    "as_read": "Joseph L. Williams",
+    "adult_men": 1,
+    "adult_women": 1,
+    "children_under_10": 1,
+    "persons": 3
+   },
+   "persons": 3,
+   "slot": "free_black:floor:007"
+  }
+ ],
+ "firms": [
+  "rcb_fb_barbers_shop",
+  "rcb_fb_washing_and_ironing"
+ ],
+ "what_this_stage_does_not_write": [
+  "THE FREE BLACK RESIDENTS WHO LIVED UNDER SOMEBODY ELSE'S ROOF. Three of the 1840 leaves enumerate a single free coloured person inside an otherwise white household — the live-in cook, driver or servant. That person belongs inside a card data/residents/households/ owns and the mint writers re-derive, so seating them is T-1179's at the convergence and not this stage's.",
+  "A NATION, A BIRTHPLACE OR A ROUTE. See `origin` on every card.",
+  "ANY PERSON THE 1840 CENSUS NAMES. The roster dates all seven readings `later_only` and this stage back-projects none of them."
+ ]
+}

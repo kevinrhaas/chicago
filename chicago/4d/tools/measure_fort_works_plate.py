@@ -104,6 +104,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -343,7 +344,7 @@ def read_plate() -> dict:
                 r, g, bl = px[x, y]
                 if lum[y][x] < sky[x] - 40:
                     vals.append(g - (r + bl) / 2.0)
-        return round(sum(vals) / len(vals), 2) if vals else None
+        return round(math.fsum(vals) / len(vals), 2) if vals else None
 
     beyond = (west_last + 1, min(west_last + 61, FORT_X1))
     beyond_rise = [round((crest_y - top[x]) / 1.0, 1)
@@ -359,7 +360,7 @@ def read_plate() -> dict:
         "wall_run_px": run_px,
         "west_crest_run": [crest_right[0], crest_right[-1]],
         "beyond_crest_x": list(beyond),
-        "beyond_crest_rise_px": round(sum(beyond_rise) / len(beyond_rise), 1)
+        "beyond_crest_rise_px": round(math.fsum(beyond_rise) / len(beyond_rise), 1)
                                 if beyond_rise else None,
         "beyond_crest_green": _green(*beyond),
         "fort_green": _green(east, west_last),

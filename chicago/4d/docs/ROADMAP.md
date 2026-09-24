@@ -1,5 +1,30 @@
 # ROADMAP
 
+T-1246 (2026-09-20): real boot phases and deterministic row/batch yields implemented. Mobile/light flora repaint gap 123.8/116.5 ms cold/warm; all 12 scene comparisons identical. See [boot measurement receipt and reproduction](performance/BOOT-PHASES.md). T-1247 retains the loading presentation changes.
+
+## Owner update programme, 2026-09-20
+
+Follow docs/unreal/BUILD-AND-RELEASE.md for the next manual Mac release. T-1472 automates that path; T-1473 fixes placement; T-1360 owns roads; T-1474 adds flora; T-1475 begins navigation and inspection. docs/unreal/PARITY.md retains all remaining web parity work under T-1356. Engine-only children stay held in the existing Unreal band until a qualified executor claims them.
+
+## Standalone Mac first — owner priority, 2026-09-20
+
+T-1464 is the bounded local Mac packaging slice under T-1356. The owner selected
+latest `dev`, a playable Mac app before streaming, and pushing isolated source
+changes back to GitHub. The adapter lives in [renderers/unreal](../renderers/unreal/README.md).
+This does not waive the separate bundle-update, scenery-parity or hosted-stream
+acceptance in T-1358/T-1360/T-1361. A qualified local Mac can execute this slice;
+a generic remote web worker cannot. The local acceptance includes the owner-reported
+garden fence: upright ground bearing, bounded world height, and a rebuilt package.
+
+## Unreal delivery — owner-ranked programme, 2026-09-18
+
+T-1356 and [the Unreal runbook](unreal/README.md) hold the programme. Follow the new
+QUEUE band after South Through Time and before Loop Improvements. Reuse T-0252 for
+shared layer exports. Keep local Unreal/GPU and deployment work blocked until both
+dependencies and executor capability are evidenced; the remote web worker is ineligible.
+Source bundles, engine imports, cooked target builds and deployed streams are distinct.
+
+
 The build order and the work parcels. `docs/PLAN.md` carries the full reasoning; this is the
 operational view — what to pick up next, and what it depends on.
 

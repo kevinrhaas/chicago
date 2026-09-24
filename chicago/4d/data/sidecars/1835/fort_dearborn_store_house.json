@@ -102,7 +102,7 @@
       "note": "A COUNT OF ZERO IS A CLAIM, NOT AN ABSENCE. A provision store is the one building in a fort you do not want a fire in, and nothing describes a stack on this one. The record says none and the model builds none."
     },
     "function": {
-      "value": "provision store",
+      "value": "provision_store",
       "confidence": "attested",
       "sources": [
         "andreas_1884_v1"

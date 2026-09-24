@@ -152,7 +152,27 @@
       "note": "THE PROPRIETORS ARE ANDREAS'S AND THE TENANTS ARE THE PAPER'S, and the two halves are attested independently. Andreas p. 635 names Lathrop Johnson and George Stevens as the men who opened the house in 1835 and conducted it until the fall of 1839, so both are proprietors at the scene date. THE TWO PROFESSIONAL TENANTS ARE DOCUMENTED IN THEIR OWN ADVERTISEMENTS, seventeen days before the scene date. First: 'DR. J. [B.] BARNARD, a[t] t[h]e New Yor[k] Ho[u]se, La[k]e [s]t[r]eet' — the Chicago American, 13 June 1835, page 3 column 3, claim chicago_american_1835_06_13#c009, a card tendering his professional services to the inhabitants of Chicago. Second: 'His office at the New York House, where he will remain until after the Land [S]ale' — J. C. Bradley, dentist, the same paper, 13 June 1835, page 3 column 2, claim chicago_american_1835_06_13#c008, repeated 1835-06-20 column 1, under the dateline 'Chicago, June 14, 1835'. BRADLEY IS A TRAVELLING PRACTITIONER AND HIS OWN COPY SAYS SO: he will remain until after the Land Sale. He is carried as an occupant on 1835-07-01 because the Land Sale ran into the summer and his notice was still running on 20 June, not because a dentist is claimed to have lived here. WHAT IS NOT CLAIMED. Nothing reached says how many rooms the house had, who else lodged in it, whether Johnson or Stevens slept under its roof, or where in the building either office was. No figure is drawn for any of them — the standing constraint in AGENTS.md holds and v1 ships no human figures. THE READING IS TRANSCRIPTION-MEDIATED AND SAYS SO. Under the owner's ruling of 2026-08-28 a claim read through this project's OCR-assisted transcriptions rather than off the page scan grades `attested` in this schema's vocabulary while carrying its own flag: reading = transcription_mediated, with the transcription's own uncertainty brackets preserved inside the quotation rather than tidied away. These two cards are among the most heavily damaged in the American's file — the transcription of Barnard's heading reads 'ar tie New Yous Horse, Lane atneet' — so the brackets are doing real work here and the page images would settle both. Where a scan is later read, the scan is the authority and this claim upgrades under it."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_rc_gilbert_samuel",
+      "name": "Samuel Gilbert",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at baker in the mechanic group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Samuel Gilbert",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "baker",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    }
+  ],
   "citations": [
     {
       "source_id": "andreas_1884_v1",
@@ -223,5 +243,25 @@
   ],
   "research_note": "THIS RECORD IS A RETRACTION, AND THAT IS THE FIRST THING TO KNOW ABOUT IT. The New York House stood on this project's EXCLUDE list from the first structures dossier (docs/research/04-structures-south.md § 13) on the strength of a secondary chronology dating it 1836. On 2026-08-11 that exclusion was FALSIFIED against Andreas p. 635 and data/exclusions.json's entry rewritten to say so in its own words — 'it stays here only until a structure record replaces it' — naming frame, north side of Lake near Wells, two storeys with eaves to the street, and the OPENING MONTH in 1835 as the open question. This is that record, and the opening month is answered from the other side: the Chicago American of 13 June 1835 carries two professional men advertising their offices AT the house. WHY IT MATTERS BEYOND ITS OWN ROOF. 'The New York House' is an ANCHOR in the American's advertising — the register compiled at data/research/newspapers/register_1835.json refuses two placeable businesses with the same sentence, 'The anchor \"the New York House\" names nothing the committed town holds'. Standing the house is what makes those two addresses resolvable, which is why T-0306 was split and this piece taken first. THE WEAK POINT IS THE SIDE OF WELLS, not the street and not the form. Andreas says 'near Wells' and Wells has two sides; the choice of the western block is a dataset argument, recorded as a liberty rather than dressed up as evidence, and it is the one reading a new source would most easily overturn. See docs/RESEARCH/new_york_house.md.",
   "research_doc": "docs/RESEARCH/new_york_house.md",
-  "review_required": false
+  "review_required": false,
+  "lodging": {
+    "class": "inn_tavern",
+    "beds_ordinary": 8,
+    "beds_crowded": 35,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": true,
+    "enclosed_floor_m2": 185.81,
+    "confidence": "reconstructed",
+    "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 186 m² of enclosed floor (93 m² × 2 storeys) is of the class's floor area.",
+    "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
+    "occupancy": {
+      "people": 1,
+      "beds_ordinary": 8,
+      "empty": 7,
+      "statement": "1 on this card against an ordinary night's 8 beds: 1 seated here from elsewhere in the layer, where no source gives them a roof.",
+      "empty_note": "The residents layer attaches no household to this house and the reconstruction programme did not raise it, so nothing this project holds says which division it stood in — data/structures/*.json carries no division field at all. A person drawn into a lodging house has to be ordered out of the book's bucket for a division, so this stage mints nobody here. Somebody the layer already counts may still be seated here, and the seats above are.",
+      "keeper_persons": 0,
+      "keeper_owed": "NOBODY KEEPS THIS HOUSE IN THIS DATASET. It is a documented building and no source this project holds names its keeper on 1 July 1835. A reconstructed proprietor is not written into a documented house: that is a research question, not a draw."
+    }
+  }
 }

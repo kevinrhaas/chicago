@@ -1,0 +1,96 @@
+{
+  "id": "biz_s_b_cobb_saddle_harness_and_trunk_manufactory",
+  "register_id": "business_s_b_cobb_saddle_harness_and_trunk_manufactory",
+  "name": "S. B. Cobb, saddle, harness and trunk manufactory",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "saddle, harness and trunk manufactory",
+  "occupation": "harness_maker",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "S. B. Cobb",
+      "person_id": "cobb_silas_b",
+      "register_person_id": "person_s_b_cobb",
+      "role": "proprietor",
+      "from": "1835-06-08",
+      "to": "1835-07-11",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card cobb_silas_b (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c007",
+        "chicago_american_1835_06_13#c016",
+        "chicago_american_1835_07_11#c008"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "goss_cobb_saddlery",
+      "street_id": "lake",
+      "face": null,
+      "primary": true,
+      "from": "1835-06-08",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure goss_cobb_saddlery on its occupants. goss_cobb_saddlery already stands and its occupants carries cobb — 'S. B. Cobb; saddle; harness and trunk manufacturer'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-08",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-08, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-08",
+    "last_issue": "1835-07-11",
+    "copy_dates": [
+      "1835-06-08"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_community_on_the_people_named",
+    "basis": "This record names 1 person/people the resident layer holds a card for and the layer knows no community for any of them. The silence is in the resident layer, not in the register.",
+    "from": [
+      {
+        "person_id": "cobb_silas_b",
+        "name": "S. B. Cobb",
+        "role": "proprietor",
+        "community": "unknown",
+        "tier": null
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_08#c007",
+    "chicago_american_1835_06_13#c016",
+    "chicago_american_1835_07_11#c008"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

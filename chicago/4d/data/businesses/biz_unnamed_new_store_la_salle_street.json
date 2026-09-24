@@ -1,0 +1,74 @@
+{
+  "id": "biz_unnamed_new_store_la_salle_street",
+  "register_id": "business_unnamed_new_store_la_salle_street",
+  "name": "[unnamed] New Store, La Salle street",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
+  "occupation": "dry_goods_merchant",
+  "goods": [
+    "boots",
+    "crockery",
+    "dry goods",
+    "groceries",
+    "hardware",
+    "hats",
+    "shoes"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "lasalle",
+      "face": null,
+      "primary": true,
+      "from": "1835-08-12",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names La Salle Street and nothing narrower; the anchor \"Hubbard & Co.'s brick store\" names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1835-08-12",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-08-12, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-08-12",
+    "last_issue": "1835-08-12",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1835_08_12#c011"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": true
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

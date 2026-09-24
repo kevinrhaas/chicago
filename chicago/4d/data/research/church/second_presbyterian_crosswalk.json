@@ -14,10 +14,10 @@
   ],
   "counts": {
     "roll_records": 941,
-    "residents_considered": 1280,
+    "residents_considered": 1283,
     "residents_matched_one_line": 80,
     "residents_ambiguous": 36,
-    "residents_surname_only_refused": 316
+    "residents_surname_only_refused": 318
   },
   "matched": [
     {
@@ -3829,6 +3829,15 @@
       "rule": "The surname 'Hamilton' stands on the Second Presbyterian roll and no line under it carries the initial 'R' of 'Richard Jones Hamilton'. A surname-only agreement is a refusal."
     },
     {
+      "name": "Ellen Hamilton",
+      "person_id": "hamilton_ellen",
+      "household_id": "hh_hamilton_richard_j",
+      "grade": "inferred",
+      "source_id": "second_presbyterian_chicago_1892",
+      "candidates_under_that_surname": 5,
+      "rule": "The surname 'Hamilton' stands on the Second Presbyterian roll and no line under it carries the initial 'E' of 'Ellen Hamilton'. A surname-only agreement is a refusal."
+    },
+    {
       "name": "Charles Loomis Harmon",
       "person_id": "harmon_charles_l",
       "household_id": "hh_harmon_brothers",
@@ -3854,6 +3863,15 @@
       "source_id": "second_presbyterian_chicago_1892",
       "candidates_under_that_surname": 1,
       "rule": "The surname 'Harmon' stands on the Second Presbyterian roll and no line under it carries the initial 'D' of 'D Harmon'. A surname-only agreement is a refusal."
+    },
+    {
+      "name": "Welthyan Loomis Harmon",
+      "person_id": "harmon_welthyan",
+      "household_id": "hh_harmon_elijah_d",
+      "grade": "inferred",
+      "source_id": "second_presbyterian_chicago_1892",
+      "candidates_under_that_surname": 1,
+      "rule": "The surname 'Harmon' stands on the Second Presbyterian roll and no line under it carries the initial 'W' of 'Welthyan Loomis Harmon'. A surname-only agreement is a refusal."
     },
     {
       "name": "M D Harmon",

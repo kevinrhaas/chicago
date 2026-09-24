@@ -1,0 +1,94 @@
+{
+  "id": "rcb_chevalier_silversmith_jeweller",
+  "register_id": null,
+  "name": "L. Chevalier, watches, jewelry, engravings and fancy goods",
+  "provenance": "reconstructed",
+  "type": [
+    "silversmith_jeweller"
+  ],
+  "trade": "watches, jewelry, engravings and fancy goods",
+  "occupation": "jeweller",
+  "goods": [
+    "watches, jewelry, engravings and fancy goods"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Louis Chevalier",
+      "person_id": "rc_chevalier_louis",
+      "register_person_id": null,
+      "role": "proprietor",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "ADOPTED, NOT MINTED. Louis Chevalier is the reconstructed trade head the resident band's `trade_households` stage drew at watchmaker in the west division (slot trade_households:persons/male/50_plus/west/family/trade:watchmaker:002), and that card says itself that the business band adopts these heads rather than minting its own. One quota, filled once: this house is the establishment that head keeps.",
+      "source_id": null,
+      "claim_ids": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "canal",
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "A FACE, NOT A PREMISES. The placement rule for a silversmith_jeweller kept by a west-division household deals this house onto Canal Street; the face is drawn on the seed printed in `reconstruction.seed` from the faces that rule allows, and no lot, roof or coordinate is claimed. T-1195 writes the placement policy with its evidence and T-1199 seats this house on the lot grid.",
+      "limit_reason": "No source places this house, because no source names it: it exists because the December 1835 State census counts more of its class than the register holds. The street is the reconstruction's own deal and stops there."
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "unbounded",
+    "tier": "reconstructed",
+    "basis": "NOTHING DATES THIS HOUSE. The census that orders it was taken in December 1835 and counts a standing trade, not an opening; the record claims that the house was trading on 1835-07-01 and nothing about either end."
+  },
+  "evidence": {},
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "french_canadian",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read french_canadian: Louis Chevalier (french_canadian). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "rc_chevalier_louis",
+        "name": "Louis Chevalier",
+        "role": "proprietor",
+        "community": "french_canadian",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A register, directory or deed naming a real house of this class in the west division in 1835 — that house takes this slot and this record is withdrawn.",
+  "reconstruction": {
+    "programme": "chicago_1835_business_reconstruction",
+    "group": "mechanics_shops",
+    "ticket": "T-1185",
+    "bucket": "businesses/silversmith_jeweller",
+    "slot": "mechanics_shops:businesses/silversmith_jeweller:001",
+    "seed": "mechanics_shops:businesses/silversmith_jeweller:001",
+    "basis": {
+      "kind": "model",
+      "id": "1835_reconstruction_order_book",
+      "note": "the December 1835 State census prints 2; the register holds 1 at the scene date. The book leaves 1 of this class to reconstruct and this is one of them. The style is dealt on the seed printed beside it from the period forms the register itself carries: the initial-and-surname signature is the commonest in the corpus, and the one attested house of this class signs by surname — 'J. H. Mulford'. The goods line is J. H. Mulford's own trade line in the register — the one attested house of the class, and the only goods line the corpus prints for it."
+    },
+    "withdrawn_if": "a source naming a real house of this class, or a re-cut of the order book that no longer orders this bucket; the retirement runs through --build, never by hand"
+  }
+}

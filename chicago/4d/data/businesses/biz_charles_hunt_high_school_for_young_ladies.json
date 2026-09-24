@@ -1,0 +1,117 @@
+{
+  "id": "biz_charles_hunt_high_school_for_young_ladies",
+  "register_id": "business_charles_hunt_high_school_for_young_ladies",
+  "name": "Charles Hunt, High School for Young Ladies",
+  "provenance": "compiled_from_register",
+  "type": [
+    "school"
+  ],
+  "trade": "school",
+  "occupation": "schoolteacher",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Hunt, C[harle]s",
+      "person_id": "hunt_charles_cotesworth_pinckney",
+      "register_person_id": "person_hunt_c_harle_s",
+      "role": "proprietor",
+      "from": "1835-08-12",
+      "to": "1835-08-12",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card hunt_charles_cotesworth_pinckney (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1835_08_12#c007"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "Charles Hunt, this record's proprietor, who 'proposes to establish [in] Chicago on a permanent foundation [a] HIGH SCHOOL for Young Ladies'.",
+    "hands": [
+      {
+        "role": "teacher",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "drawn": false,
+        "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+        "why_not_drawn": "No source reached names a second person teaching for Hunt, and the school had not yet opened at the scene date for one to teach in."
+      }
+    ],
+    "attendance": {
+      "value": null,
+      "kind": "none_printed",
+      "tier": null,
+      "on_date": null,
+      "basis": "NO FIGURE IS PRINTED, AND THE SUBSCRIPTION LIST THAT WOULD HAVE CARRIED ONE LAY IN A LAWYER'S OFFICE: 'Persons desirous of encouraging such an institution are requested to leave their names, previous to that time, at the office of Henry Moore, Esq.' Whoever wrote their name there is the nearest thing to a roll this school ever had, and no source reached prints it. THIS SCHOOL WAS NOT STANDING ON 1 JULY 1835: the register carries it `present_at_scene_date: false` under `opening_announced_after_scene_date`, and its first term is dated Monday 17 August 1835."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence."
+  },
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-08-12",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: chicago_democrat_1835_08_12#c007 announces this house opening on 1835-08-17, after the scene date — “The first te[rm] will co[m]mence Monday August 17”. The paper names the date in full. Hunt 'proposes to establish' the school and asks for names to be left beforehand, so nothing was teaching on 1 July 1835. No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1835-08-17",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "The paper announces the opening: chicago_democrat_1835_08_12#c007 (1835-08-17)."
+  },
+  "evidence": {
+    "first_issue": "1835-08-12",
+    "last_issue": "1835-08-12",
+    "copy_dates": []
+  },
+  "present_at_scene_date": false,
+  "exclusion": "opening_announced_after_scene_date",
+  "exclusion_note": "chicago_democrat_1835_08_12#c007 announces this house opening on 1835-08-17, after the scene date — “The first te[rm] will co[m]mence Monday August 17”. The paper names the date in full. Hunt 'proposes to establish' the school and asks for names to be left beforehand, so nothing was teaching on 1 July 1835.",
+  "proprietor_community": {
+    "value": "other",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read other: Hunt, C[harle]s (other). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "hunt_charles_cotesworth_pinckney",
+        "name": "Hunt, C[harle]s",
+        "role": "proprietor",
+        "community": "other",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1835_08_12#c007"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

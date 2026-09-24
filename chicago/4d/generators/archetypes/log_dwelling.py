@@ -72,6 +72,12 @@ from archetypes.log_dwelling_params import (  # noqa: E402
     addition_extent, addition_front_rects, core_extent, core_front_rects,
 )
 
+#: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
+#: `materials.roof_substrate` holds the argument for why it is this one and
+#: which half of it is graded by materials.md §2.2 and which half is L266.
+_ROOF = materials.roof_substrate("log_dwelling")
+
+
 # Materials are indices into the list passed to to_object(), in this order.
 M_LOG, M_CHINK, M_ROOF, M_FRAME, M_DARK, M_SIGN, M_PAINT = 0, 1, 2, 3, 4, 5, 6
 # The stack (T-0008). Appended LAST, after the conditional M_PAINT, so every
@@ -188,8 +194,14 @@ def build(params: LogDwellingParams, name: str):
                         roughness=materials.SUBSTRATES["hewn_log"].roughness),
         simple_material("chinking", CHINK_RGBA,
                         roughness=materials.SUBSTRATES["chinking"].roughness),
-        simple_material("roof", materials.roof_finish(params.roof_condition).rgba,
-                        roughness=0.9),
+        # A shingle field on a LOG cabin, and that is the half of the dealing rule
+        # §2.2 does not grade — it grades shingle for a FRAMED building. L266 is the
+        # liberty: the two coverings this project can argue split on what a roof is
+        # FOR, and a cabin is a dwelling and not a shed. `materials.roof_substrate`
+        # holds the argument; the 0.9 is unchanged.
+        simple_material(materials.roof_material_name(_ROOF),
+                        materials.roof_finish(params.roof_condition).rgba,
+                        roughness=_ROOF.roughness),
         simple_material("frame", frame_rgba, roughness=frame_rough),
         # ONE DARK (T-0126) — the sheet's `DARK` row, converging the three readings
         # materials.md §2.3 measured. This archetype's door, windows and gable vent

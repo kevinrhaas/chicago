@@ -1,0 +1,464 @@
+{
+ "id": "hh_rc_sullivan_thomas",
+ "name": "A married soldier's household of the first company — Thomas Sullivan, Margaret McGuire and their children",
+ "division": "fort",
+ "head": "rc_sullivan_thomas",
+ "source_pass": "reconstructed_garrison",
+ "arrival": {
+  "value": "1835-07-01",
+  "precision": "not_later_than",
+  "confidence": "reconstructed",
+  "note": "A BOUND THE HYPOTHESIS CARRIES, NOT A READING. No source names these people, so none dates their coming. What the record says is that the post was held on 1835-07-01 — that is the whole of what this stage claims — and a soldier at a held post arrived not later than the day. A company of the 5th Infantry moved on orders and the year below is DRAWN by the programme's arrival stage, not read off a return."
+ },
+ "arrival_year": {
+  "value": 1835,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
+  },
+  "seed": "hh_rc_sullivan_thomas:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not claimed. The establishment says how many men a company held on the scene date and nothing about how they travelled to the post."
+ },
+ "origin": {
+  "value": "The Mid-Atlantic states",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_rc_sullivan_thomas:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "reason_for_coming": {
+  "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "lives_at": {
+  "value": "fort_dearborn_barracks",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "no_married_quarters_are_drawn_so_the_barracks_carries_them",
+   "note": "SEATED AT THE BARRACKS, AND THE RECORD SAYS WHY THAT IS THE WEAKEST LINE ON THIS CARD. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31) but this project has no plan of married quarters at Chicago and the 1830 Harrison plan labels none. The barracks is where the dataset can put them without inventing a building; a hut outside the palisade, which is where married soldiers often were, would be a structure nobody drew."
+  },
+  "replaceable_by": {
+   "kind": "household",
+   "match": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters"
+  },
+  "note": "SEATED AT THE BARRACKS, AND THE RECORD SAYS WHY THAT IS THE WEAKEST LINE ON THIS CARD. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31) but this project has no plan of married quarters at Chicago and the 1830 Harrison plan labels none. The barracks is where the dataset can put them without inventing a building; a hut outside the palisade, which is where married soldiers often were, would be a structure nobody drew."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "THE POST IS THE WORKPLACE AND THE POST IS THE DWELLING. A separate `works_at` would assert a second building for the same duty; the fort's own structures carry the garrison on their occupants blocks."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "the_post_was_held_on_the_scene_date",
+   "note": "PRESENCE IS THE POST'S. The fort was held on the scene date; a held company had its washerwomen with it because its own regulations provided for them."
+  },
+  "replaceable_by": {
+   "kind": "household",
+   "match": "a post return or order showing the Chicago post unmanned on or about 1 July 1835"
+  },
+  "note": "PRESENCE IS THE POST'S. The fort was held on the scene date; a held company had its washerwomen with it because its own regulations provided for them."
+ },
+ "garrison": {
+  "stage": "garrison",
+  "ticket": "T-1349",
+  "household_type": "garrison",
+  "formation": "married_soldier",
+  "company": 1,
+  "regiment": "5th Infantry",
+  "size_drawn": 5,
+  "seated": 5,
+  "seed": "hh_rc_sullivan_thomas:household_size",
+  "note": "One of the four washerwomen a company was allowed, written into a married soldier's household of that company, with the children the household model draws. The size is drawn from the 1840 civilian histogram cut to a married soldier's quarters; nothing this project holds counts a garrison's families."
+ },
+ "persons": [
+  {
+   "id": "rc_sullivan_thomas",
+   "name": "Thomas Sullivan",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Banded on the 1840 Chicago schedule's column 'free white males 20 under 30'. Drawn uniform over art. 19's own recruiting window — above 18 and under 35 — and banded on the order book's cut. The regulation states who may be enlisted and nothing about the shape of the ages inside it, so a flat draw is the only one that adds no claim."
+    },
+    "seed": "garrison/company_1/private_4:enlistment_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll, a descriptive book or an enlistment paper of the Chicago post giving this soldier's age"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "soldier",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "rule",
+     "id": "garrison_fill.establishment",
+     "note": "A private of the first company — one of the forty-two the Act of 2 March 1821 § 2 gives an infantry company."
+    },
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll or post return of the Chicago post naming this person and what they did at it"
+    },
+    "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
+   },
+   "name_basis": {
+    "value": "Thomas Sullivan",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Drawn from the Irish pool. The Army recruited this town's own communities and the pools carry two of the three the parent ticket names; no German pool exists, and the ledger states that gap rather than filling it from another."
+    },
+    "seed": "garrison/company_1/private_4:given_name",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from a pool seeded from the attested residents of this town, and it steps past every name a real person in this layer bears. No source names this person. The Army kept muster rolls of exactly these men; this project has not read one."
+   },
+   "basis": {
+    "kind": "rule",
+    "id": "garrison_fill.establishment",
+    "note": "THE ESTABLISHMENT, FILLED. The Act of 2 March 1821 § 2 fixes an infantry company at three sergeants, four corporals, two musicians and forty-two privates under three officers; Andreas puts two companies of infantry at this post and the post was held on the scene date. This person is one of those hundred and two enlisted places."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a muster roll, post return or descriptive book of Fort Dearborn for 1835, which would retire every drawn soldier at once"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "garrison",
+    "ticket": "T-1349",
+    "community": "irish",
+    "company": 1,
+    "rank": "private",
+    "review_required": false
+   },
+   "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
+  },
+  {
+   "id": "rc_mcguire_margaret",
+   "name": "Margaret McGuire",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Banded on the 1840 Chicago schedule's column 'free white females 20 under 30'. Drawn on the 1840 Chicago schedule's own counts of free white women in each band. Nothing this project holds counts the women of a garrison, so the town's own pyramid is the nearest shape there is and the record says so."
+    },
+    "seed": "garrison/company_1/private_4/wife:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll, a descriptive book or an enlistment paper of the Chicago post giving this soldier's age"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "laundress",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "rule",
+     "id": "garrison_fill.establishment",
+     "note": "One of the washerwomen the Army allowed a company and paid out of the company fund. The 1835 General Regulations art. 30 has laundresses 'employed to wash soldier's clothing … paid according to a rate to be fixed by the council of administration', and arts. 27 and 31 settle their debts and quarter them alongside the men — so the allowance is in the regulations even though the NUMBER allowed is not printed in them. See the ledger's `laundresses` block."
+    },
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll or post return of the Chicago post naming this person and what they did at it"
+    },
+    "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
+   },
+   "name_basis": {
+    "value": "Margaret McGuire",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Drawn from the Irish pool. A woman of this company's married quarters, drawn from the same pool as the head."
+    },
+    "seed": "garrison/company_1/private_4/wife:given_name",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from a pool seeded from the attested residents of this town, and it steps past every name a real person in this layer bears. No source names this person. The Army kept muster rolls of exactly these men; this project has not read one."
+   },
+   "basis": {
+    "kind": "rule",
+    "id": "garrison_fill.laundresses",
+    "note": "THE LAUNDRESS ALLOWANCE, FILLED. The Regulations quarter, pay and settle the debts of the company's washerwomen without printing how many a company was allowed; four a company is the figure this project's own ticket states and it is carried as an instruction, not as a reading. She is written into a married soldier's household of the same company, because an unattached woman resident at a post is the stronger claim of the two and no source supports either."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a muster roll, post return or company book of the Chicago post naming its laundresses"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "garrison",
+    "ticket": "T-1349",
+    "community": "irish",
+    "company": 1,
+    "review_required": false
+   },
+   "note": "A LAUNDRESS OF THE FIRST COMPANY, married into the household this card is headed by — `relationship` says where she stands inside it, and no source is being quoted about anybody. Nobody named her. What is claimed is that a held post of two companies had washerwomen at it, because its own regulations quarter them, pay them and rule on their accounts."
+  },
+  {
+   "id": "rc_donnelly_michael",
+   "name": "Michael Donnelly",
+   "relationship": "child",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Banded on the 1840 Chicago schedule's column 'free white males 10 under 15'. Drawn on the 1840 Chicago schedule's own counts in the child bands."
+    },
+    "seed": "garrison/company_1/private_4/child_1:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll, a descriptive book or an enlistment paper of the Chicago post giving this soldier's age"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "A child. No trade is claimed and none is drawn."
+   },
+   "name_basis": {
+    "value": "Michael Donnelly",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Drawn from the Irish pool. A child of this household, drawn from its own pool."
+    },
+    "seed": "garrison/company_1/private_4/child_1:given_name",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from a pool seeded from the attested residents of this town, and it steps past every name a real person in this layer bears. No source names this person. The Army kept muster rolls of exactly these men; this project has not read one."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "household_size",
+    "note": "Drawn from the 1840 schedule's household-size histogram, cut to the 2-6 range a married soldier's quarters could hold. THE HISTOGRAM IS CIVILIAN. Nothing this project holds counts the families of a frontier garrison, so a civilian town's own distribution stands in for one, and docs/LIBERTIES.md carries that."
+   },
+   "seed": "hh_rc_sullivan_thomas:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a post return, chaplain's register or company book naming the children at the Chicago post"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "garrison",
+    "ticket": "T-1349",
+    "community": "irish",
+    "company": 1,
+    "review_required": false
+   },
+   "note": "A SOLDIER'S CHILD. Drawn, not counted: the Army's returns counted women and children at a post and this project has read none of them."
+  },
+  {
+   "id": "rc_sullivan_honora",
+   "name": "Honora Sullivan",
+   "relationship": "child",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Banded on the 1840 Chicago schedule's column 'free white females 10 under 15'. Drawn on the 1840 Chicago schedule's own counts in the child bands."
+    },
+    "seed": "garrison/company_1/private_4/child_2:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll, a descriptive book or an enlistment paper of the Chicago post giving this soldier's age"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "A child. No trade is claimed and none is drawn."
+   },
+   "name_basis": {
+    "value": "Honora Sullivan",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Drawn from the Irish pool. A child of this household, drawn from its own pool."
+    },
+    "seed": "garrison/company_1/private_4/child_2:given_name#1",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from a pool seeded from the attested residents of this town, and it steps past every name a real person in this layer bears. No source names this person. The Army kept muster rolls of exactly these men; this project has not read one."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "household_size",
+    "note": "Drawn from the 1840 schedule's household-size histogram, cut to the 2-6 range a married soldier's quarters could hold. THE HISTOGRAM IS CIVILIAN. Nothing this project holds counts the families of a frontier garrison, so a civilian town's own distribution stands in for one, and docs/LIBERTIES.md carries that."
+   },
+   "seed": "hh_rc_sullivan_thomas:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a post return, chaplain's register or company book naming the children at the Chicago post"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "garrison",
+    "ticket": "T-1349",
+    "community": "irish",
+    "company": 1,
+    "review_required": false
+   },
+   "note": "A SOLDIER'S CHILD. Drawn, not counted: the Army's returns counted women and children at a post and this project has read none of them."
+  },
+  {
+   "id": "rc_donnelly_honora",
+   "name": "Honora Donnelly",
+   "relationship": "child",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Banded on the 1840 Chicago schedule's column 'free white females 10 under 15'. Drawn on the 1840 Chicago schedule's own counts in the child bands."
+    },
+    "seed": "garrison/company_1/private_4/child_3:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll, a descriptive book or an enlistment paper of the Chicago post giving this soldier's age"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "A child. No trade is claimed and none is drawn."
+   },
+   "name_basis": {
+    "value": "Honora Donnelly",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Drawn from the Irish pool. A child of this household, drawn from its own pool."
+    },
+    "seed": "garrison/company_1/private_4/child_3:given_name",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from a pool seeded from the attested residents of this town, and it steps past every name a real person in this layer bears. No source names this person. The Army kept muster rolls of exactly these men; this project has not read one."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "household_size",
+    "note": "Drawn from the 1840 schedule's household-size histogram, cut to the 2-6 range a married soldier's quarters could hold. THE HISTOGRAM IS CIVILIAN. Nothing this project holds counts the families of a frontier garrison, so a civilian town's own distribution stands in for one, and docs/LIBERTIES.md carries that."
+   },
+   "seed": "hh_rc_sullivan_thomas:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a post return, chaplain's register or company book naming the children at the Chicago post"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "garrison",
+    "ticket": "T-1349",
+    "community": "irish",
+    "company": 1,
+    "review_required": false
+   },
+   "note": "A SOLDIER'S CHILD. Drawn, not counted: the Army's returns counted women and children at a post and this project has read none of them."
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "A MARRIED SOLDIER'S HOUSEHOLD AT FORT DEARBORN. NOBODY HERE IS NAMED BY ANY SOURCE. The Army's own regulations quarter, pay and settle the accounts of the washerwomen of a company without printing how many a company was allowed; four a company is the figure this project states, carried as an instruction and graded reconstructed like everything else on this card. The woman is written as the soldier's wife because an unattached woman living at a post is the stronger of the two claims and no source supports either. A post return or a chaplain's register for the Chicago post retires the card whole. No figure is drawn (docs/LIBERTIES.md L1)."
+}

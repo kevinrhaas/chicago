@@ -1,0 +1,101 @@
+{
+  "id": "biz_w_h_taylor",
+  "register_id": "business_w_h_taylor",
+  "name": "[W. H.] Taylor",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "boot, shoe and leather store",
+  "occupation": "shoemaker",
+  "goods": [
+    "boots",
+    "shoes",
+    "sole leather",
+    "upper leather"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "[W. H.] Taylor",
+      "person_id": "taylor_william_h",
+      "register_person_id": "person_w_h_taylor",
+      "role": "proprietor",
+      "from": "1834-11-05",
+      "to": "1834-11-05",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card taylor_william_h (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_11_05#c013"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": "dearborn",
+      "face": null,
+      "primary": true,
+      "from": "1834-11-05",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. The landmark is another documented business (business_newberry_dole), which places this one exactly as well as that one is placed.",
+      "limit_reason": "The register places this house against business_newberry_dole and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "business",
+        "id": "biz_newberry_dole",
+        "title": "Newberry & Dole",
+        "streets": []
+      }
+    }
+  ],
+  "dates": {
+    "opened": "1834-11-05",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-11-05, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-11-05",
+    "last_issue": "1834-11-05",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: [W. H.] Taylor (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "taylor_william_h",
+        "name": "[W. H.] Taylor",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_11_05#c013"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

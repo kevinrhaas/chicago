@@ -93,6 +93,18 @@ that the ruling made load-bearing:
      for one family name the documented pass keeps it and this one gives way.
   8. `surname already minted` — one surname, one household, across this pass.
 
+REFUSALS 7 AND 8 ARE MINT-TIME RULES, AND THE OWNER RULED IT SO (T-0660, option (c),
+2026-09-18). They decide whether this pass may MINT a household on a family name the
+town already spends; they do not UN-MINT a record that already stands. Where one of
+them lands on a candidate whose card is committed, this pass keeps the record and SAYS
+the collision on it — a `surname_collision` block naming the other holder — instead of
+dropping it. Nothing is retired, no id is redirected, the population does not move, and
+the research rows and directory matches those records carry are not stranded. A
+candidate the tree does NOT already hold is refused exactly as before, because that is
+a mint. `rank()` is unchanged: the ruling explicitly declined to pay for re-deriving the
+cohort, and refusal 8 stays a limit on how much one pass may assert on a family name
+rather than a claim that two records are one person.
+
 WHY THE POOL READS `enrich` BACK. Same as the documented pass: the register is compiled
 FROM the committed town, so the moment this pass mints somebody the compiler stops calling
 him `new_resident`. An `enrich` whose target is one of THIS pass's own person ids is read
@@ -110,8 +122,12 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
+from reconstructed_person import is_reconstructed  # noqa: E402
 from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one owner)
 from resident_mint_carry import carry_resident_mint  # noqa: E402  (T-1137)
+from carry_stage_blocks import carry  # noqa: E402  (T-1169; a mint owns its record, a reconstruction stage owns its blocks)
+from supersede_arrival import supersede  # noqa: E402  (T-1350; a ruled reading supersedes a derived bound and cannot be reverted)
+from refuse_reconstructed_grade import refuse_texts  # noqa: E402  (T-1144; reconstruction begins at T-1167, never in a mint)
 from identity_master_guard import (  # noqa: E402  (T-0843)
     IdentityGuard, blind_person_ids, refusal as guard_refusal,
 )
@@ -767,6 +783,12 @@ def town_family_names(docs: dict, index: dict, skip_prefix: str | None = PREFIX)
         if skip_prefix and minted_by(path, doc, "letter_list", skip_prefix):
             continue
         for person in doc.get("persons") or []:
+            # AN INVENTED NAME NEVER SPENDS A SURNAME. A reconstructed wife carries her
+            # head's family name by construction, so she can only ever re-assert a
+            # surname the town already holds — but a later stage drawing a name from the
+            # pools could otherwise make the town's own invention refuse a real mint.
+            if is_reconstructed(person):
+                continue
             fam = surname(person.get("name") or "")
             if fam:
                 known.add(fam)
@@ -785,6 +807,30 @@ def norm_place(s: str) -> str:
     return re.sub(r"[^a-z ]", "", (s or "").lower()).strip()
 
 
+def outside_holders(docs: dict) -> dict[str, list[str]]:
+    """Who holds each family name OUTSIDE this pass, named for the collision block.
+
+    `town_family_names()` answers whether a surname is spent; a record that has to SAY
+    a collision has to name the other holder, which is a different question and wants
+    the records rather than the set. Same skip rule as refusal 7's, so the two always
+    agree about whose surname it is.
+    """
+    out: dict[str, list[str]] = {}
+    for path, doc in sorted(docs.items()):
+        if minted_by(path, doc, "letter_list", PREFIX):
+            continue
+        for person in doc.get("persons") or []:
+            # …and never NAMES one either: a collision block that offered an invented
+            # wife as the holder of a family name would print this dataset's own
+            # reconstruction back to a reader as the evidence against a mint.
+            if is_reconstructed(person):
+                continue
+            fam = surname(person.get("name") or "")
+            if fam:
+                out.setdefault(fam, []).append(f"{person['name']} ({path.stem})")
+    return out
+
+
 def letter_list_pool(register: dict, own_pass: frozenset[str] = frozenset()) -> list[dict]:
     """Every letter-list-only name the town does not hold.
 
@@ -801,8 +847,22 @@ def letter_list_pool(register: dict, own_pass: frozenset[str] = frozenset()) -> 
                           or str(p.get("action_target") or "") in own_pass)))]
 
 
+def is_mint_time(reason: str) -> bool:
+    """Is this one of the two refusals T-0660's ruling made mint-time-only?
+
+    Refusals 7 and 8, and no others. The reason string is the pass's own wording, and
+    it is matched here rather than a flag being threaded out of `apply_refusals`
+    because that wording is what `--report`, the gate and the collision report all
+    already read — a second representation of the same fact is the thing that drifts.
+    Refusal 9 (T-0843's identity master) is NOT here: the ruling names 7 and 8.
+    """
+    return (reason.startswith("the town already names a")
+            or reason == "surname already minted")
+
+
 def apply_refusals(candidates: list[dict], gazetteer: dict, known: set[str],
-                   in_town: set[str], guard=None, blind=frozenset()):
+                   in_town: set[str], guard=None, blind=frozenset(),
+                   standing=frozenset(), holders=None):
     """The nine refusals, in order, over an already-ranked list of candidates.
 
     Held apart from `mint` because --scale-report prices a DIFFERENT cohort out of
@@ -815,8 +875,19 @@ def apply_refusals(candidates: list[dict], gazetteer: dict, known: set[str],
     module-level load because the caller owns the precedence: `blind` has to be the
     same households `known` skipped, and only the caller knows which cohort it is
     pricing. A caller that hands none gets the eight rules it always had.
+
+    `standing` names the cards this pass has already committed, and it is what makes
+    refusals 7 and 8 MINT-TIME rules under T-0660's ruling (c): a candidate already in
+    the tree is not dropped by them, it is accepted carrying a `surname_collision` that
+    names the other holder, and `holders` is where that name comes from. A caller that
+    hands neither gets the un-ruled behaviour, which is what `--scale-report` prices a
+    hypothetical cohort with — nothing there is standing.
     """
-    taken: set[str] = set()
+    taken: dict[str, str] = {}
+    # The cards this run has already dealt, by the name a card shows. A standing
+    # record can only be kept ONCE: where the paper printed one man in both orders,
+    # both printings resolve to the same card, and the second is a mint.
+    minted: set[str] = set()
     accepted, refusals = [], []
     for cand in candidates:
         gaz = gazetteer[cand["id"]]
@@ -846,10 +917,24 @@ def apply_refusals(candidates: list[dict], gazetteer: dict, known: set[str],
             reason = guard_refusal(hit)
         elif fam in taken:
             reason = "surname already minted"
+        # T-0660 (c). A mint-time refusal does not un-mint a standing record: it is
+        # SAID on the card instead. The surname is NOT claimed here — the holder keeps
+        # it — so nothing below this candidate sees a different refusal because of it.
+        shown = display(name)
+        if (reason is not None and is_mint_time(reason)
+                and shown in standing and shown not in minted):
+            cand["surname_collision"] = {
+                "refusal": reason,
+                "holds_the_surname": (holders or {}).get(fam) or (
+                    [taken[fam]] if fam in taken else []),
+            }
+            reason = None
         if reason:
             refusals.append((cand["id"], name, len(returns_of(gaz["mentions"])), reason))
             continue
-        taken.add(fam)
+        if not cand.get("surname_collision"):
+            taken[fam] = shown
+        minted.add(shown)
         accepted.append((cand, gaz))
     return accepted, refusals
 
@@ -906,8 +991,16 @@ def mint(docs: dict, index: dict):
     own_pass = frozenset(doc["head"] for doc in docs.values()
                          if doc.get("source_pass") == "letter_list")
 
+    # T-0660 (c). The cards this pass has already committed, by the name a card shows,
+    # which is the key `record()` and the collision report both resolve a candidate to.
+    standing = frozenset(
+        person["name"]
+        for path, doc in docs.items() if minted_by(path, doc, "letter_list", PREFIX)
+        for person in (doc.get("persons") or []))
+
     return apply_refusals(rank(letter_list_pool(register, own_pass), gazetteer),
-                          gazetteer, known, in_town, guard=guard, blind=blind)
+                          gazetteer, known, in_town, guard=guard, blind=blind,
+                          standing=standing, holders=outside_holders(docs))
 
 
 # ---------------------------------------------------------------------------
@@ -946,6 +1039,58 @@ def arrival_note(bound: str, earliest_printing: str, entry: dict | None) -> str:
     return (f"A BOUND FROM THE PAPER, NOT AN ARRIVAL. {why}, {bound}, and not to the "
             f"return behind it, which stands earlier by an unknown interval (T-0425). "
             f"{tail}")
+
+
+def collision_block(collision: dict, fam: str) -> dict:
+    """The collision SAID on the card, which is the whole of T-0660's ruling (c).
+
+    The owner was given three options on 2026-09-18 and took the third: refusals 7 and
+    8 are mint-time rules, nothing is retired, and the record says out loud that
+    another card holds its family name. The block is written by the pass rather than by
+    hand so that it cannot disagree with the refusal that produced it.
+    """
+    holders = collision["holds_the_surname"]
+    said = "; ".join(holders) if holders else "another card in the town"
+    seven = collision["refusal"].startswith("the town already names")
+    # Which rule landed decides which sentence is true about it. Refusal 7 is the
+    # PRECEDENCE rule between passes — a documented man outranks a name on a letter
+    # list — and refusal 8 is this pass's own one-surname-one-household limit. Neither
+    # says two records are one person, and saying so in the wrong words on the wrong
+    # card is how a note stops being read.
+    not_one_person = (
+        ("REFUSAL 7 IS NOT A CLAIM THAT TWO RECORDS ARE ONE PERSON — it is the "
+         "precedence rule between this pass and the ones above it, which give a man "
+         "the papers gave a trade the family name a letter list only spells. ")
+        if seven else
+        ("REFUSAL 8 IS NOT A CLAIM THAT TWO RECORDS ARE ONE PERSON — it is a limit on "
+         "how much one pass may assert on a family name. ")
+    )
+    return {
+        "refusal": collision["refusal"],
+        "holds_the_surname": holders,
+        "ruling": "T-0660, option (c), owner 2026-09-18",
+        "note": (
+            f"A COLLISION SAID, NOT ACTED ON. Run against the tree as it stands, this "
+            f"pass would not MINT this card: refusal "
+            f"{'7' if seven else '8'} "
+            f"— '{collision['refusal']}' — lands on it, because {said} already holds "
+            f"the family name {fam}. The owner ruled on 2026-09-18 (T-0660, option (c)) "
+            f"that refusals 7 and 8 are MINT-TIME rules: they decide whether a new "
+            f"household may be minted on a family name the town already spends, and "
+            f"they do not un-mint one that already stands. So this record is not "
+            f"retired, its id is not redirected at anybody, the town's population does "
+            f"not move, and the research row and directory matches it carries are not "
+            f"stranded on a retirement nothing draws. What has changed is that the "
+            f"collision is legible: a reader sees both cards and why both are here. "
+            f"{not_one_person}"
+            f"Two of the collisions this reading uncovered are two different men. The "
+            f"pass's "
+            f"`rank()` is unchanged and the cohort is not re-derived; that was option "
+            f"(b)'s cost and the ruling declined to pay it. The derivation behind this "
+            f"block, both readings side by side, is "
+            f"docs/RESEARCH/letter-list-surname-collisions.md."
+        ),
+    }
 
 
 def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str]) -> dict:
@@ -1101,6 +1246,8 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str]) -> dict:
             f"second member, and docs/LIBERTIES.md L214 carries the change of scale."
         ),
     })
+    if cand.get("surname_collision"):
+        doc["surname_collision"] = collision_block(cand["surname_collision"], fam)
     return doc
 
 
@@ -1130,7 +1277,14 @@ def build(preload: dict | None = None):
         if doc["id"] in seen:
             raise SystemExit(f"two candidates mint the same household id {doc['id']}")
         seen.add(doc["id"])
-        files[HOUSEHOLDS / f"{doc['id']}.json"] = dumps(doc, 1)
+        # T-1169. The record is this pass's; the blocks a reconstruction stage
+        # marked are that stage's, and are carried through rather than derived
+        # away. See tools/carry_stage_blocks.py for why both passes are right.
+        # T-1350. And a READING that supersedes the bound this pass derives is
+        # spent here too, for the same reason and against the opposite
+        # failure: a hand-written arrival used to survive exactly until the
+        # next --build. See tools/supersede_arrival.py.
+        files[HOUSEHOLDS / f"{doc['id']}.json"] = dumps(supersede(carry(doc)), 1)
 
     # ONE OWNER FOR THE MANIFEST (T-0715). This pass used to mint its own rows and
     # keep every other row verbatim, so a household no pass owned could be regraded
@@ -1141,6 +1295,12 @@ def build(preload: dict | None = None):
                   if path != INDEX})
     rebuild(index, final)
     files[INDEX] = dumps(index, 1)
+    # T-1144 acceptance 8. Every mode leaves through here, so `--check` and
+    # `--report` are refused on the same rule the write is: a research mint may
+    # emit `attested` or `inferred` and nothing else. The `reconstructed` grade
+    # belongs to the reconstruction programme (T-1167), which has its own writer
+    # and does not call this.
+    refuse_texts(files, "mint_letter_list_residents.py")
     return files, accepted, refusals, mine_paths
 
 

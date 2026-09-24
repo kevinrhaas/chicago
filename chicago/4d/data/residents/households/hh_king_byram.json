@@ -13,20 +13,60 @@
   "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints this person at the Democrat of 9 July 1834, column 20, so they are in the town's paper by 1834-07-09 and at no stated time before it; nothing reached says when they came. Last printed 1835-08-05.",
   "precision": "not_later_than"
  },
+ "arrival_year": {
+  "value": 1833,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1834-07-09 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1834."
+  },
+  "seed": "hh_king_byram:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
  "party_size_on_arrival": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
  },
  "origin": {
-  "value": null,
+  "value": "New York State",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_king_byram:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "A store for the traffic of a town filling up",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THIS HOUSEHOLD'S OWN RECORDED TRADE, WHICH IS NOT ITS MOTIVE. The head is recorded as hardware merchant, and this names the documented draw that trade answered in this town in this decade. It does not claim to know why these people came. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_recorded_trade",
+   "note": "arrival_fill.trade_reasons.a_store_for_the_traffic — the head's recorded trade is evidence about this household, and the draw it answered is the reason the record will carry until a source states one."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -45,6 +85,15 @@
    "chicago_democrat_1833_1835"
   ],
   "note": "Printed on or after the scene date — last at the Democrat of 5 August 1835, column 8 — so the corpus itself puts this person in the town's paper at 1835-08-05."
+ },
+ "modelled_family": {
+  "stage": "modelled_families",
+  "ticket": "T-1171",
+  "household_type": "family_with_children",
+  "size_drawn": 7,
+  "kin_seated": 7,
+  "seed": "hh_king_byram:household_size",
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
  },
  "persons": [
   {
@@ -65,9 +114,76 @@
      "hardware_merchant"
     ]
    },
+   "workplaces": [
+    {
+     "business_id": "biz_jones_king",
+     "business_name": "Jones & King",
+     "role": "partner",
+     "printed_as": "Byram King",
+     "from": "1834-07-09",
+     "to": "1834-12-03",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card king_byram (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1834_07_09#c020",
+      "chicago_democrat_1834_07_23#c007",
+      "chicago_democrat_1834_09_03#c022",
+      "chicago_democrat_1834_09_10#c003",
+      "chicago_democrat_1834_09_10#c008",
+      "chicago_democrat_1834_12_03#c007",
+      "chicago_democrat_1834_12_03#c024"
+     ],
+     "business_present_at_scene_date": true
+    },
+    {
+     "business_id": "biz_jones_king_co",
+     "business_name": "Jones, King & Co.",
+     "role": "partner",
+     "printed_as": "Byram King",
+     "from": "1835-05-27",
+     "to": "1835-08-05",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card king_byram (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1835_05_27#c005",
+      "chicago_democrat_1835_07_08#c009",
+      "chicago_democrat_1835_07_22#c009",
+      "chicago_democrat_1835_07_29#c012",
+      "chicago_democrat_1835_08_05#c008"
+     ],
+     "business_present_at_scene_date": true
+    }
+   ],
    "sources": [
     "census_1840_chicago_familysearch_images",
     "chicago_democrat_1833_1835"
+   ],
+   "dated_bounds": [
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1835_06_17#c002",
+     "claim_kind": "event",
+     "as_printed": "B. King",
+     "role": "of the committee of seven",
+     "locator": "chicago_democrat_1835_06_17 page 2 column 5",
+     "describes_date": "1835-06-17",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-17",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_byram_king, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-06-17 names 'B. King' in the claim read as chicago_democrat_1835_06_17#c002, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
    ],
    "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'B. King' and 'BYRA' and 'BYRAM KING' and 'BYRAM KING, Clerk' and 'BYRAM KING.' and 'BYRAM, KING' and 'BYRKAM KING,' and 'BYWAM KING' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 9 July 1834, column 20; the Democrat of 27 May 1835, column 5; the Democrat of 17 June 1835, column 2; the Democrat of 17 June 1835, column 6; the Democrat of 1 July 1835, column 12; the Democrat of 8 July 1835, column 9, and 4 further mention(s). The corpus associates the name with Chicago, South Water Street; that is where the paper does business with this person and not a statement about where they slept, and the storefront tickets are the ones that may stand a shop there. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `hardware_merchant` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Byram King” (33SQ-GYYJ-93G, printed page 207, line 4). This project has ruled the head a CANDIDATE and no more: the name agrees and is unique on both sides, but nothing independent of the name was found. A candidate is not an identity — nothing is asserted from it, no household of 1840 is carried back, and the ruling is recorded so that a reader can see it was made rather than missed. Under the rule that decided it (L7 candidate), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
@@ -102,12 +218,16 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "chicago_democrat_1833_1835"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
     }
    ],
    "merge_ruling": [
@@ -122,7 +242,426 @@
      "for_merge": "One letter at the head of a forename on a surname that agrees letter for letter, and the Byram card is documented: Byram King, hardware merchant, in the Democrat of 9 July 1834 (#c020), 23 July 1834 as 'Byra[m]' and 3 September 1834 (#c022), in the 1840 census at 207:4 and in Fergus's old-settler notices. The paper is demonstrably unsteady about this very forename — T-1027's own table records the printings BYRA, BYRAM, BYRKAM and BYWAM.",
      "against_merge": "BYRAM AND HYRAM ARE TWO GIVEN NAMES, NOT TWO SPELLINGS OF ONE. Hyram is Hiram, among the commonest forenames in the corpus; Byram is rare. The paper's instability about Byram runs to its last letters — BYRA, BYRKAM, BYWAM — and never to its first, which is the letter that would have to move. The printings do not touch: every Byram reading is the Democrat of 1834 or later records, and 'Hyram King' is a single reading in the American of 20 June 1835 (#c016). KING IS THE MOST POPULATED SURNAME IN THIS POOL — the town holds seven King cards, including a king_byron whose forename is a third variant nobody proposes folding — and no printing sets Byram and Hyram for one man. D8."
     }
-   ]
+   ],
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "sex_share_of_the_roll",
+     "note": "Drawn at 93.2% male, the rate measured on the documented roll's own people whose sex the evidence settles (pooled across every roll: this one settles too few names to measure on its own). data/reconstruction/1835_sex_age_model.json holds the measurement."
+    },
+    "seed": "king_byram:sex_ratio",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
+    },
+    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'king_byram:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
+   },
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "king_byram:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('king_byram:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
+  },
+  {
+   "id": "rc_king_byram_wife",
+   "name": "Abigail King",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30'. Never above the head's own band: the spacing rule of the household model, which the 1840 adult sex ratio argues for and no source states."
+    },
+    "seed": "hh_king_byram:wife_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Abigail King",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_king_byram:wife_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Byram King's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people from the 1840 city's size histogram, at the head's own band and not at the mean. A house of 7 with a head of 20 and over is a married house, and this is its wife."
+   },
+   "seed": "hh_king_byram:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_king_byram_child_1",
+   "name": "Nancy King",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_king_byram:child_1_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Nancy King",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_king_byram:child_1_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Byram King's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_king_byram:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_king_byram_child_2",
+   "name": "Hannah King",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_king_byram:child_2_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Hannah King",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_king_byram:child_2_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Byram King's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_king_byram:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_king_byram_child_3",
+   "name": "Sophronia King",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_king_byram:child_3_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Sophronia King",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_king_byram:child_3_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Byram King's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_king_byram:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_king_byram_child_4",
+   "name": "Amanda King",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_king_byram:child_4_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Amanda King",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_king_byram:child_4_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Byram King's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_king_byram:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_king_byram_child_5",
+   "name": "Ira King",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_king_byram:child_5_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Ira King",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_king_byram:child_5_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Byram King's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_king_byram:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,

@@ -1,0 +1,90 @@
+{
+  "id": "biz_r_stewart_attorney",
+  "register_id": "business_r_stewart_attorney",
+  "name": "R. Stewart, attorney",
+  "provenance": "compiled_from_register",
+  "type": [
+    "lawyer"
+  ],
+  "trade": "attorney at law",
+  "occupation": "attorney",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "R. Stewart",
+      "person_id": "stewart_r",
+      "register_person_id": "person_r_stewart",
+      "role": "proprietor",
+      "from": "1835-06-13",
+      "to": "1835-06-13",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card stewart_r (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_13#c003"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-06-13",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-13",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-13, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-13",
+    "last_issue": "1835-06-13",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: R. Stewart (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "stewart_r",
+        "name": "R. Stewart",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_13#c003"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

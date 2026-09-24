@@ -314,13 +314,13 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 302,
-  "outside": 81,
+  "inside": 299,
+  "outside": 114,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 23,
-   "north_of_the_limit": 20,
-   "west_of_canal_street": 36,
+   "north_of_the_limit": 23,
+   "west_of_canal_street": 66,
    "south_of_washington_street": 1,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
@@ -354,6 +354,9 @@
    "north_of_the_limit": [
     "clybourn_cabins",
     "clybourn_slaughterhouse",
+    "inf_labourer_shanty_north_a",
+    "inf_labourer_shanty_north_b",
+    "inf_mason_dwelling_north",
     "recon_1835_north_a1_036",
     "recon_1835_north_a2_059",
     "recon_1835_north_d1_013",
@@ -366,12 +369,12 @@
     "recon_1835_north_d3_024",
     "recon_1835_north_d3_038",
     "recon_1835_north_d3_055",
+    "recon_1835_north_d4_015",
     "recon_1835_north_d4_025",
     "recon_1835_north_d4_056",
     "recon_1835_north_d5_057",
     "recon_1835_north_d6_058",
-    "recon_1835_north_h2_030",
-    "recon_1835_north_i2_015"
+    "recon_1835_north_h2_030"
    ],
    "west_of_canal_street": [
     "inf_artisan_dwelling_west_a",
@@ -393,6 +396,7 @@
     "recon_1835_west_001",
     "recon_1835_west_002",
     "recon_1835_west_003",
+    "recon_1835_west_004",
     "recon_1835_west_005",
     "recon_1835_west_006",
     "recon_1835_west_007",
@@ -401,15 +405,44 @@
     "recon_1835_west_010",
     "recon_1835_west_011",
     "recon_1835_west_012",
+    "recon_1835_west_013",
     "recon_1835_west_014",
     "recon_1835_west_015",
     "recon_1835_west_016",
+    "recon_1835_west_017",
     "recon_1835_west_018",
     "recon_1835_west_019",
+    "recon_1835_west_020",
     "recon_1835_west_021",
     "recon_1835_west_022",
     "recon_1835_west_023",
-    "recon_1835_west_024"
+    "recon_1835_west_024",
+    "recon_1835_west_025",
+    "recon_1835_west_026",
+    "recon_1835_west_028",
+    "recon_1835_west_030",
+    "recon_1835_west_031",
+    "recon_1835_west_033",
+    "recon_1835_west_034",
+    "recon_1835_west_036",
+    "recon_1835_west_038",
+    "recon_1835_west_039",
+    "recon_1835_west_040",
+    "recon_1835_west_041",
+    "recon_1835_west_042",
+    "recon_1835_west_043",
+    "recon_1835_west_044",
+    "recon_1835_west_045",
+    "recon_1835_west_046",
+    "recon_1835_west_047",
+    "recon_1835_west_048",
+    "recon_1835_west_049",
+    "recon_1835_west_050",
+    "recon_1835_west_051",
+    "recon_1835_west_052",
+    "recon_1835_west_053",
+    "recon_1835_west_054",
+    "recon_1835_west_055"
    ],
    "south_of_washington_street": [
     "heacock_house_monroe"
@@ -425,9 +458,9 @@
  "block_infill_programme": {
   "counted_from": "data/reconstruction/1835_665_roof_programme.json schedule[]",
   "method": "A block's centre is the mean of the four corners its own four bounding street centrelines make. No block polygon is invented.",
-  "blocks_with_four_bounding_streets": 21,
-  "inside_the_limit": 18,
-  "outside_the_limit": 3,
+  "blocks_with_four_bounding_streets": 57,
+  "inside_the_limit": 24,
+  "outside_the_limit": 33,
   "scheduling_roofs_outside_the_limit": 0,
   "scheduling_roofs_outside_the_limit_rows": [],
   "blocks_outside_the_limit": [
@@ -452,6 +485,306 @@
     "inside_the_limit": false
    },
    {
+    "id": "blk_superior_north_wolcott",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     888.69,
+     971.99
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_superior_north_cass",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1000.25,
+     971.08
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_superior_north_rush",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1111.81,
+     970.16
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_huron_north_wolcott",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     888.09,
+     882.67
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_huron_north_cass",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     999.64,
+     881.76
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_huron_north_rush",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1111.2,
+     880.85
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_huron_north_pine",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1222.76,
+     879.93
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_erie_north_wolcott",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     887.48,
+     793.36
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_erie_north_cass",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     999.03,
+     792.44
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_erie_north_rush",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1110.59,
+     791.52
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_erie_north_pine",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1222.14,
+     790.61
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_ontario_north_wolcott",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     886.86,
+     704.04
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_ontario_north_cass",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     998.42,
+     703.12
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_ontario_north_rush",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1109.97,
+     702.21
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_ontario_north_pine",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1221.53,
+     701.29
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_ohio_north_wolcott",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     886.25,
+     614.72
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_ohio_north_cass",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     997.81,
+     613.81
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_ohio_north_rush",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1109.36,
+     612.89
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_ohio_north_pine",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1220.91,
+     611.98
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_indiana_north_wolcott",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     885.64,
+     525.4
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_indiana_north_cass",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     997.2,
+     524.49
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_indiana_north_rush",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1108.75,
+     523.58
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_indiana_north_pine",
+    "state": "unsubdivided",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     1220.31,
+     522.66
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_west_fulton_des_plaines",
+    "state": "gated",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -461.53,
+     -46.34
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_west_fulton_jefferson",
+    "state": "gated",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -342.28,
+     -47.11
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_west_fulton_clinton",
+    "state": "gated",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -224.04,
+     -47.88
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_west_lake_des_plaines",
+    "state": "gated",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -458.39,
+     -177.38
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_west_lake_jefferson",
+    "state": "gated",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -339.13,
+     -178.34
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_west_randolph_des_plaines",
+    "state": "gated",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -455.06,
+     -316.45
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_west_randolph_jefferson",
+    "state": "gated",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -335.8,
+     -317.42
+    ],
+    "inside_the_limit": false
+   },
+   {
     "id": "blk_south_water_clinton",
     "state": "not_a_block",
     "roofs_scheduled": 0,
@@ -464,10 +797,112 @@
   ],
   "rows_without_block_geometry": [
    {
+    "id": "blk_michigan_st_tract_west_north",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_michigan_st_tract_west_south",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_michigan_st_tract_east_north",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_michigan_st_tract_east_south",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_b_t1",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_c_t1",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_b_t2",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_c_t2",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_b_t3",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_c_t3",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_b_t4",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_b_t5",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_c_t5",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_b_t6",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_c_t6",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_b_t7",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
+    "id": "blk_wabansia_c_t7",
+    "kind": "platted_block_unscheduled",
+    "state": "gated",
+    "roofs": 0
+   },
+   {
     "id": "west_wolf_point_outer",
     "kind": "reviewed_recipe_remainder",
     "state": "gated",
-    "roofs": 35
+    "roofs": 5
    },
    {
     "id": "south_plat_beyond_committed_control",

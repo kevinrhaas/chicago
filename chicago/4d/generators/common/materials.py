@@ -41,21 +41,45 @@ and does nothing else, and this paragraph is the "state the space in the file th
 holds it" §3.4 asks for. A PNG atlas is sRGB by convention; the bake half has to
 convert, and this is the sentence that tells it so.
 
-## WHAT IS NOT CLAIMED HERE — R-W2a finding 2, and it stands
+## THE ROOF COVERING — what was open, what was misread, and what is now claimed
 
-**No source in this repository states what any Chicago roof of 1835 was covered
-with.** 315 records state a roof type and a pitch; zero state a covering. So there is
-no `shingle` row in this file and no `roof_board` row, and the roof rows below are
-graded by **condition** — fresh, weathered, darkened, patched — which is a statement
-about weathering that 218 records actually carry, and not a statement about material.
-A future parcel that finds a source for the covering adds the rows then; inventing
-one here to make the sheet look finished is the exact move `docs/LIBERTIES.md`
-exists to catch. materials.md §2.2 and §5 own the open question.
+This file used to say, under the heading WHAT IS NOT CLAIMED HERE, that **no source in
+this repository states what any Chicago roof of 1835 was covered with**, and therefore
+that there was no `shingle` row and no `roof_board` row. That sentence was read for a
+year as the reason the roofs could not be given a material, and `outbuilding.py`,
+`frame_dwelling.py` and `frame_storefront.py` each quote it back in a comment beside a
+roughness literal they declined to choose.
 
-Likewise absent: the shingle exposure, and a brick or stone course dimension. §3.2
-says plainly that no source this project holds gives one, so `brick` and `stone`
-carry `tile_m = None` rather than a modern brick quietly chosen to make the
-arithmetic land.
+**It overstated its own research.** What `docs/RESEARCH/materials.md` §2.2 grades is
+narrower and more permissive than the summary above:
+
+| substrate | evidence | grade |
+|---|---|---|
+| `shingle` | the one direct attestation in the repository — the North Side school of 1833, *"a frame building twenty-six by thirty-eight feet; twelve-foot posts; sheeted and shingled roof"* | **attested** for that building; **inferred** as the ordinary covering of a framed building here |
+| `roof_board` | `outbuilding.py`: *"a shingle field on an outbuilding would be claiming a finish"* | **inferred, and well argued** |
+
+The covering was never the open question. The open question was the **exposure** — how
+much of each shingle the weather sees, and therefore the tiling rate — and §2.2 said
+exactly how to close it: *pick the exposure from a source or record a liberty*. **L263
+recorded the liberty** on the owner's ruling of 2026-09-20: 0.14 m, the same exposure
+this project committed for clapboard at T-0049, giving a 4.48 m tile at 228.6 px/m.
+
+So the two rows are here now, and `roof_plane` survives below them as the fallback for
+a roof whose covering is genuinely undecidable — carrying zero records today, and kept
+rather than deleted so that a reader can see the question was answered and not removed.
+`roof_substrate()` is the dealing rule and states its own argument; **L266** is the
+liberty for the part of that rule §2.2 does not grade.
+
+What is still graded by CONDITION and not by material is the roof's **finish** — fresh,
+weathered, darkened, patched — which 218 records carry. A covering and a weathering are
+two different claims and this file keeps them apart.
+
+Likewise still absent: a brick or stone course dimension. §3.2 says plainly that no
+source this project holds gives one, so `brick` and `stone` carry `tile_m = None`
+rather than a modern brick quietly chosen to make the arithmetic land. L264 committed a
+brick course on the same day L263 committed the shingle exposure and it is NOT wired
+here — that is the brick half of T-1450's acceptance and it is still open; this parcel
+is the roof half and does not reach into it.
 
 ## The blast radius, stated
 
@@ -198,19 +222,55 @@ SUBSTRATES: dict[str, Substrate] = {
         tile_m=4.00, module_m=None, texel_px_per_m=None,
         note="Trodden ground and turf. Both records carrying it say plainly that no "
              "source describes it. A noise tile: no rhythm to be integral with."),
-    # The roof substrate is deliberately ONE row and deliberately unnamed as a
-    # covering. See the module docstring: nothing states what these roofs were made
-    # of, so the sheet describes the plane and not its material. The roughness is
-    # the archetypes' own committed value and is NOT re-argued here — materials.md
-    # §3.1 says in terms that the deliverable is a roughness map, not better
-    # constants, and that R-W2b should not spend a round re-tuning the 18 numbers.
+    # ------------------------------------------------------------- the roof rows
+    #
+    # THREE rows, and the module docstring is the argument for why there used to be
+    # one. `roof_substrate()` below is the rule that deals them, and it states its
+    # own reasoning; L266 is the liberty for the part of it §2.2 does not grade.
+    #
+    # NEITHER ROUGHNESS IS NEW, and that is deliberate. materials.md §3.1 says in
+    # terms that the deliverable is a roughness map and not better constants, and
+    # that a round should not be spent re-tuning the 18 numbers. So `shingle` takes
+    # the 0.90 the framed archetypes have always shipped and `roof_board` takes the
+    # 0.93 `outbuilding.py` has always shipped — NOT `sawn_board`'s 0.94, which is a
+    # wall row and would move 130 roofs for no reason anybody argued. What this
+    # parcel moves is not a float; it is that each roof is drawn on a row that says
+    # what it is made of.
+    "shingle": Substrate(
+        key="shingle", roughness=0.90, tier="inferred",
+        tile_m=4.48, module_m=0.14, texel_px_per_m=228.6,
+        note="Riven shingles lapped down the slope. materials.md §2.2 grades the "
+             "covering ATTESTED on the North Side school of 1833 — 'a frame building "
+             "twenty-six by thirty-eight feet; twelve-foot posts; sheeted and "
+             "shingled roof' — and INFERRED as the ordinary covering of a framed "
+             "building here. The 0.14 m exposure is L263, taken on the owner's "
+             "ruling of 2026-09-20 and set to the clapboard exposure this project "
+             "already committed at T-0049, so the town's two lapped surfaces are "
+             "dealt from one number. 32 courses to the tile."),
+    "roof_board": Substrate(
+        key="roof_board", roughness=0.93, tier="inferred",
+        tile_m=4.00, module_m=None, texel_px_per_m=256.0,
+        note="Plain sawn boards laid down the slope, no shingle field. §2.2 grades "
+             "this inferred and well argued, and the argument is `outbuilding.py`'s "
+             "own: 'a shingle field on an outbuilding would be claiming a finish'. "
+             "The tile is `sawn_board`'s 4.00 m because it IS sawn board — the "
+             "widths are random and the surface carries grain, not a rhythm, so "
+             "there is no module for the rate to be integral with. The 0.93 is the "
+             "outbuilding's own committed roughness and is not re-argued."),
+    # THE FALLBACK, and it is kept rather than deleted. `roof_substrate()` resolves
+    # every archetype in this dataset to shingle or board, so this row carries ZERO
+    # records today — which is the point. A reader who comes to this file asking what
+    # a roof of unstated covering is drawn on should find the question answered and
+    # the row still standing, not find that it was quietly removed; and the next
+    # archetype whose covering nobody can argue has somewhere honest to land.
     "roof_plane": Substrate(
         key="roof_plane", roughness=0.90, tier="reconstructed",
         tile_m=None, module_m=None, texel_px_per_m=None,
-        note="The roof plane, COVERING UNSTATED. R-W2a finding 2: 315 records state a "
-             "roof type, zero state what it is made of. No exposure, therefore no "
-             "tile — materials.md §2.2 says pick the exposure from a source or record "
-             "a liberty, and this parcel does neither because it invents nothing."),
+        note="The roof plane, COVERING GENUINELY UNDECIDABLE — the fallback, and it "
+             "carries no record in this dataset. No covering, therefore no exposure, "
+             "therefore no tile: a roof that lands here is one nothing can be said "
+             "about, and it is drawn untextured rather than dealt a material it has "
+             "no claim to."),
 }
 
 
@@ -625,9 +685,95 @@ def wall_colour(construction: str | None = None) -> Finish | None:
     return None
 
 
+#: Every archetype in this dataset that builds a roof over a building. `palisade`,
+#: `bridge_timber` and `pier_crib` are deliberately absent: none of them roofs
+#: anything. (The palisade DID carry a material called `roof` until this parcel; it
+#: draws two gate leaves and is now called `gate`, so that "a material called roof
+#: states its covering" is true of the town rather than true with one exception.)
+_ROOFED_BUILDING_ARCHETYPES = frozenset({
+    "frame_dwelling", "frame_storefront", "frame_tavern",   # §2.2's framed buildings
+    "log_dwelling", "fort_structure",                        # L266
+})
+
+
+#: The archetypes whose roof is a SHED'S roof and not a building's. Exactly one row,
+#: and it is the one archetype that argues its own covering in its own source:
+#: `outbuilding.py` says a shingle field on an outbuilding would be claiming a finish.
+_BOARD_ROOF_ARCHETYPES = frozenset({"outbuilding"})
+
+
+def roof_substrate(archetype: str | None = None) -> Substrate:
+    """What a roof is COVERED WITH, given the kind of building under it.
+
+    The rule is one sentence: **an outbuilding takes boards, every other roofed
+    building takes a shingle field.** What follows is why, and which half of it is
+    graded and which half is a liberty, because those are not the same and a reader
+    should not have to work out which is which.
+
+    **The board half is §2.2's and is not new.** `outbuilding.py` has argued since it
+    was written that "a shingle field on an outbuilding would be claiming a finish",
+    and `docs/RESEARCH/materials.md` §2.2 grades `roof_board` inferred and well
+    argued on exactly that reasoning. A privy, a stable, a wagon shed and a smokehouse
+    are built of what is to hand and roofed to keep the rain off a thing, not a
+    family. 130 phases.
+
+    **The shingle half is §2.2's for the framed buildings** — the North Side school of
+    1833 is the one direct attestation in the repository, and §2.2 grades a shingled
+    covering inferred as the ordinary covering of a framed building here. That reaches
+    `frame_dwelling` (128), `frame_storefront` (42) and `frame_tavern` (12).
+
+    **And it is L266 for the rest**, which is the part worth being explicit about. The
+    rule above also gives a shingle field to the 49 `log_dwelling` cabins and the 14
+    `fort_structure` garrison buildings, and §2.2 grades shingle for a FRAMED building
+    — not for a log one. The claim being made is that the two coverings this project
+    can argue split on what the roof is FOR and not on what the walls are made of: the
+    board roof is argued as the shed's, and a log cabin is not a shed, it is a dwelling
+    that has to carry a family through a Chicago winter and it meets the same demand
+    the framed dwelling's roof meets. That is an argument, not a source, so it takes an
+    L-number — L266 — and a reader who asks why a cabin is shingled finds it there.
+
+    **What this is NOT.** It is not a statement about weathering: `roof_finish` owns
+    that and the two are kept apart. It is not a colour: no substrate owns one (§1.1).
+    And the material NAME an archetype builds from this row is not a contract —
+    `docs/GLB-CONTRACT.md` says material names are not pinned and that a renderer keyed
+    on one would be reading a convention nobody promised to keep. T-1488 has to settle
+    how the substrate actually reaches the renderer.
+
+    Anything unrecognised falls to `roof_plane`, which is the honest landing for a
+    covering nothing can be said about. It carries no record today.
+    """
+    if archetype in _BOARD_ROOF_ARCHETYPES:
+        return SUBSTRATES["roof_board"]
+    if archetype in _ROOFED_BUILDING_ARCHETYPES:
+        return SUBSTRATES["shingle"]
+    return SUBSTRATES["roof_plane"]
+
+
+def roof_material_name(substrate: Substrate) -> str:
+    """The name an archetype gives the roof's material slot, given its covering.
+
+    One function rather than a literal per archetype, because seven call sites naming
+    the same thing by hand is how this project ended up with two hewn-log colours and
+    two materials called `heavy_timber` (materials.md findings 2 and 3).
+
+    It is a LABEL and not a contract. `docs/GLB-CONTRACT.md` says material names are
+    not pinned by that document and that a renderer keyed on one would be reading a
+    convention nobody promised to keep — which is still true, and is why T-1488 has to
+    choose deliberately between proposing a pin and carrying the substrate in the
+    material's `extras`. Until it does, this name is for a person reading a GLB.
+    """
+    return substrate.key if substrate.key.startswith("roof") else f"roof_{substrate.key}"
+
+
 def roof_finish(roof_condition: str | None = None) -> Finish:
-    """What a roof wears. A WEATHERING CONDITION and never a covering — see the
-    module docstring, and R-W2a finding 2, which this parcel does not discharge."""
+    """What a roof WEARS — a weathering condition, and never a covering.
+
+    The covering is `roof_substrate()`'s, and the two are separate questions asked of
+    separate evidence: 218 records state a condition, and what they are made of is a
+    rule dealt by archetype. This function's docstring used to cite R-W2a finding 2 as
+    an open question; the module docstring records what that finding actually graded
+    and L263 records the liberty that closed it.
+    """
     if roof_condition and roof_condition in ROOF_CONDITIONS:
         return ROOF_CONDITIONS[roof_condition]
     return ROOF_DEFAULT

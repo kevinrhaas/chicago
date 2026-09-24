@@ -62,6 +62,18 @@
    "relationship": "head",
    "grade": "attested",
    "ladder_rule": "G1b",
+   "associated_with": [
+    {
+     "kind": "land_purchased",
+     "place_or_structure_id": "school_section",
+     "resolves_to": "tract",
+     "from": "1833-10-22",
+     "to": null,
+     "tier": "inferred",
+     "source_id": "isa_public_domain_land_tract_sales",
+     "note": "GROUND HE BOUGHT, WHICH IS NOT GROUND HE STOOD ON — the rung is `tract` for that reason, and `land_purchased` is in neither the home kinds nor the work kinds because a holding is not a place a man was. The federal tract-sale register carries 1 row(s) — ls0227 — to this purchaser, read as 'HARMON CHARLES L', sorted onto school_section by tools/sort_land_sales_onto_tracts.py and covering about 2.6 acre(s) of it. THE TIER IS INFERRED AND THE TWO HALVES DIFFER: the purchase is documented — the register is a public record and states it — while the tie between that purchaser and THIS card is an identity ruling, upheld under T-0990 on 2026-09-10 by the rule 'HARMON CHARLES L matches Charles Loomis Harmon: the forename names Charles Loomis Harmon of the 6 people of this surname, and the forename agrees in full.'. The weaker half sets the tier. `to` is null because the register records a sale and not a tenure."
+    }
+   ],
    "sex": "male",
    "occupation": {
     "value": "none_recorded",
@@ -98,7 +110,74 @@
     "fergus_chicago_directory_1843",
     "isa_public_domain_land_tract_sales"
    ],
-   "note": "THE INITIALS ARE RESOLVED BY A SENTENCE IN ANOTHER CHAPTER, which is the find that makes this household possible. Andreas's life of Dr Elijah Dewey Harmon lists his five surviving children: 'Charles Loomis Harmon, Isaac Dewey Harmon, Harriet Harmon, Lucretia Harmon, and Welthyan Loomis Harmon.' C. and I. are therefore the doctor's two eldest sons, and the firm in the town's first newspaper is a family partnership. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Election returns — poll list of 1834, filed 11 August 1834 — “Harmon, C. L.” (poll_1834_051, line 220). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Harmon' agrees with the entry's forenames; 3 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Chas. L. Harmon” (f1839_v0709, printed page 40, ward 1). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Harmon' folds to the same string as the 1837 entry's, and the given name of both begins C. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 6 times, as “HARMON CHARLES L”, “HARMON CHAS L”, 1833-10-22 to 1836-06-30: 1 federal land entry — NW sec 04 T39N R13E and 4 lots in the platted town — lot 10 of block 20 in the town the register codes CHIV (L10BL20CHIV, as printed); lot 7 of block 20 in the town the register codes CHIV (L7BL20CHIV, as printed); lot 8 of block 20 in the town the register codes CHIV (L8BL20CHIV, as printed); lot 9 of block 20 in the town the register codes CHIV (L9BL20CHIV, as printed) and 1 parcel of the school section — BL137 of the school section (sec 16 T39N R14E), as read, 80.45 acres stated in all, for $5540.55 (ls0227, ls1210, ls1211, ls1212, ls1213, ls0751). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $5310.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: HARMON CHARLES L matches Charles Loomis Harmon: the forename names Charles Loomis Harmon of the 5 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "dated_bounds": [
+    {
+     "bound_kind": "presence",
+     "list": "poll_1834",
+     "list_title": "Election returns — poll list of 1834, filed 11 August 1834",
+     "record_id": "poll_1834_051",
+     "as_read": "Harmon, C. L.",
+     "locator": "voter_lists_1833_1835.txt line 220",
+     "describes_date": "1834-08-11",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-11",
+     "here_by": "1834-08-11",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'C. L. Harmon' against resident 'Charles Loomis Harmon'",
+     "identity_rule": "one resident of the surname 'Harmon' agrees with the entry's forenames; 6 bearer(s) of the surname were considered.",
+     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Election returns — poll list of 1834, filed 11 August 1834 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1834-08-11. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Harmon' agrees with the entry's forenames; 6 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'C. L. Harmon' against resident 'Charles Loomis Harmon'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0227",
+     "as_read": "HARMON CHARLES L",
+     "locator": "purchase 0369850, volume 817 page 029, section 16, T39N R14E",
+     "describes_date": "10/22/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-22",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HARMON CHARLES L matches Charles Loomis Harmon: the forename names Charles Loomis Harmon of the 6 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HARMON CHARLES L to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_10_29#c006",
+     "claim_kind": "person",
+     "as_printed": "C, L. Harmon,",
+     "role": "committee member",
+     "locator": "chicago_democrat_1834_10_29 page 2 column 2",
+     "describes_date": "1834-10-29",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-10-29",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_c_l_harmon, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-10-29 names 'C, L. Harmon,' in the claim read as chicago_democrat_1834_10_29#c006, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
+   "note": "THE INITIALS ARE RESOLVED BY A SENTENCE IN ANOTHER CHAPTER, which is the find that makes this household possible. Andreas's life of Dr Elijah Dewey Harmon lists his five surviving children: 'Charles Loomis Harmon, Isaac Dewey Harmon, Harriet Harmon, Lucretia Harmon, and Welthyan Loomis Harmon.' C. and I. are therefore the doctor's two eldest sons, and the firm in the town's first newspaper is a family partnership. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Election returns — poll list of 1834, filed 11 August 1834 — “Harmon, C. L.” (poll_1834_051, line 220). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Harmon' agrees with the entry's forenames; 3 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Chas. L. Harmon” (f1839_v0709, printed page 40, ward 1). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Harmon' folds to the same string as the 1837 entry's, and the given name of both begins C. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 6 times, as “HARMON CHARLES L”, “HARMON CHAS L”, 1833-10-22 to 1836-06-30: 1 federal land entry — NW sec 04 T39N R13E and 4 lots in the platted town — lot 10 of block 20 in the town the register codes CHIV (L10BL20CHIV, as printed); lot 7 of block 20 in the town the register codes CHIV (L7BL20CHIV, as printed); lot 8 of block 20 in the town the register codes CHIV (L8BL20CHIV, as printed); lot 9 of block 20 in the town the register codes CHIV (L9BL20CHIV, as printed) and 1 parcel of the school section — BL137 of the school section (sec 16 T39N R14E), as read, 80.45 acres stated in all, for $5540.55 (ls0227, ls1210, ls1211, ls1212, ls1213, ls0751). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $5310.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: HARMON CHARLES L matches Charles Loomis Harmon: the forename names Charles Loomis Harmon of the 6 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
     "programme": "resident-research-2026",
     "ticket": "T-0509",
@@ -163,12 +242,16 @@
      "precision": "month",
      "dated_by": "source_describes_date",
      "covers_scene_date": false,
+     "fills_scene_view": false,
      "confidence": "attested",
      "sources": [
       "chicago_democrat_1833_11_26"
      ],
      "claim": null,
-     "note": "A DATED ROLE THAT DOES NOT REACH THE SCENE DATE (T-0991, withdrawn from the 1835 field by tools/derive_resident_roles.py). No source cited for this trade describes 1835, so it is retained here with the bound its evidence permits and the 1835 compatibility view reads `none_recorded` instead. tools/audit_scene_window_trades.py's verdict is `firm_in_window_trade_not_printed`: 'C. & I. HARMON', dry goods, crockery, hardware and groceries, Chicago Democrat, 26 November 1833. A Harmon dry-goods firm does stand inside the window — the Democrat of 17 June 1835 prints 'Messrs. Harmon, Loomis & Co.' — but that notice prints no trade, and tying the 1833 brothers to the 1835 firm is reasoning rather than a printing. Both halves would have to be written down before the citation could move."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A DATED ROLE THAT DOES NOT REACH THE SCENE DATE (T-0991, withdrawn from the 1835 field by tools/derive_resident_roles.py). No source cited for this trade describes 1835, so it is retained here with the bound its evidence permits and the 1835 compatibility view reads `none_recorded` instead. tools/audit_scene_window_trades.py's verdict is `firm_in_window_trade_not_printed`: 'C. & I. HARMON', dry goods, crockery, hardware and groceries, Chicago Democrat, 26 November 1833. A Harmon dry-goods firm does stand inside the window — the Democrat of 17 June 1835 prints 'Messrs. Harmon, Loomis & Co.' — but that notice prints no trade, and tying the 1833 brothers to the 1835 firm is reasoning rather than a printing. Both halves would have to be written down before the citation could move.",
+     "premises": "own_premises"
     },
     {
      "role": null,
@@ -179,14 +262,56 @@
      "precision": "year",
      "dated_by": "printing_year",
      "covers_scene_date": false,
+     "fills_scene_view": false,
      "confidence": "attested",
      "sources": [
       "fergus_chicago_directory_1843"
      ],
      "claim": null,
-     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1843."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1843. SYNONYM-FOLDED (T-1254): the same source prints this role as dry goods and groceries, 145 South Water. s.-w as well, and one source asserting one role over one bound is one row.",
+     "premises": null
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "dry goods and groceries",
+     "from": "1844",
+     "to": "1844",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "claim": "n1844_e0795",
+     "place": "cor Clark and South Water sts",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1844 DIRECTORY, 9 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
     }
-   ]
+   ],
+   "age_band": {
+    "value": "40-49",
+    "low": 40,
+    "high": 49,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 40 under 50', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "harmon_charles_l:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('harmon_charles_l:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   },
   {
    "id": "harmon_isaac_d",
@@ -194,6 +319,18 @@
    "relationship": "brother",
    "grade": "attested",
    "ladder_rule": "G1b",
+   "associated_with": [
+    {
+     "kind": "land_purchased",
+     "place_or_structure_id": "school_section",
+     "resolves_to": "tract",
+     "from": "1833-10-22",
+     "to": null,
+     "tier": "inferred",
+     "source_id": "isa_public_domain_land_tract_sales",
+     "note": "GROUND HE BOUGHT, WHICH IS NOT GROUND HE STOOD ON — the rung is `tract` for that reason, and `land_purchased` is in neither the home kinds nor the work kinds because a holding is not a place a man was. The federal tract-sale register carries 1 row(s) — ls0229 — to this purchaser, read as 'HARMON ISAAC D', sorted onto school_section by tools/sort_land_sales_onto_tracts.py and covering about 2.6 acre(s) of it. THE TIER IS INFERRED AND THE TWO HALVES DIFFER: the purchase is documented — the register is a public record and states it — while the tie between that purchaser and THIS card is an identity ruling, upheld under T-0990 on 2026-09-10 by the rule 'HARMON ISAAC D matches Isaac Dewey Harmon: the forename names Isaac Dewey Harmon of the 6 people of this surname, and the forename agrees in full.'. The weaker half sets the tier. `to` is null because the register records a sale and not a tenure."
+    }
+   ],
    "sex": "male",
    "occupation": {
     "value": "none_recorded",
@@ -230,7 +367,143 @@
     "fergus_chicago_directory_1839",
     "isa_public_domain_land_tract_sales"
    ],
-   "note": "A SEPARATE MAN FROM 'ISAAC HARMON, TOWN CLERK', OR PERHAPS NOT, AND THE RECORD WILL NOT DECIDE. Andreas has an Isaac Harmon appointed clerk of the first board of trustees on 12 August 1833 and again as clerk and collector in 1834; he also prints an 1832 militia agreement signed by BOTH 'Isaac Harmon' AND 'Isaac D. Harmon', two lines apart, which is positive evidence that the town contained two men of that name. The town clerk is therefore NOT identified with this merchant and gets no person record here at all - writing him would risk creating a duplicate of a man already in this household. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Tax list of the Town of Chicago, 1833 — “Harmon, Isaac” (tax_1833_043, line 95). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Harmon' agrees with the entry's forenames; 3 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Isaac D. Harmon,” (f1839_v0112, printed page 42, ward 1, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Harmon' folds to the same string as the 1837 entry's, and the given name of both begins I. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “HARMON ISAAC D”, 1833-10-22: 1 parcel of the school section — BL137 of the school section (sec 16 T39N R14E), as read, 0.00 acres stated in all, for $130.00 (ls0229). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: HARMON ISAAC D matches Isaac Dewey Harmon: the forename names Isaac Dewey Harmon of the 5 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "dated_bounds": [
+    {
+     "bound_kind": "property",
+     "list": "tax_1833",
+     "list_title": "Tax list of the Town of Chicago, 1833",
+     "record_id": "tax_1833_043",
+     "as_read": "Harmon, Isaac",
+     "locator": "voter_lists_1833_1835.txt line 95",
+     "describes_date": "1833",
+     "date_confidence": "documented",
+     "precision": "year",
+     "reaches": "1833-12-31",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'Isaac Harmon' against resident 'Isaac Dewey Harmon'",
+     "identity_rule": "one resident of the surname 'Harmon' agrees with the entry's forenames; 6 bearer(s) of the surname were considered.",
+     "note": "PROPERTY, NOT PRESENCE (T-1117). Tax list of the Town of Chicago, 1833 names the owners of ground inside the town, resident or not — its entry 110 is Alexander Wolcott, who had been dead since 25 October 1830 — so this row bounds what this person was assessed for and says nothing about where the person was. tools/assert_tax_roll_ruling.py holds that ruling on the two readings it rests on. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Harmon' agrees with the entry's forenames; 6 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'Isaac Harmon' against resident 'Isaac Dewey Harmon'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0229",
+     "as_read": "HARMON ISAAC D",
+     "locator": "purchase 0369854, volume 817 page 029, section 16, T39N R14E",
+     "describes_date": "10/22/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-22",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HARMON ISAAC D matches Isaac Dewey Harmon: the forename names Isaac Dewey Harmon of the 6 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HARMON ISAAC D to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1833_12_17#c008",
+     "claim_kind": "notice",
+     "as_printed": "Jeanc Jarmon",
+     "role": "justice of the peace before whom the estray was appraised",
+     "locator": "chicago_democrat_1833_12_17 page 3 column 5",
+     "describes_date": "1833-12-17",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-12-17",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_isaac_harmon, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1833-12-17 names 'Jeanc Jarmon' in the claim read as chicago_democrat_1833_12_17#c008, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1833_12_24#c006",
+     "claim_kind": "notice",
+     "as_printed": "Isaac Harmon",
+     "role": "clerk of the Board of Trustees",
+     "locator": "chicago_democrat_1833_12_24 page 4 column 5",
+     "describes_date": "1833-12-24",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-12-24",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_isaac_harmon, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1833-12-24 names 'Isaac Harmon' in the claim read as chicago_democrat_1833_12_24#c006, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_08_20#c006",
+     "claim_kind": "notice",
+     "as_printed": "ISAAC HAR",
+     "role": "administrator with the will annexed",
+     "locator": "chicago_democrat_1834_08_20 page 3 column 3",
+     "describes_date": "1834-08-20",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-20",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_uncertain_isaac_harmon, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-08-20 names 'ISAAC HAR' in the claim read as chicago_democrat_1834_08_20#c006, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_10_29#c006",
+     "claim_kind": "person",
+     "as_printed": "Isaac Harmon,",
+     "role": "committee member",
+     "locator": "chicago_democrat_1834_10_29 page 2 column 2",
+     "describes_date": "1834-10-29",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-10-29",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_isaac_harmon, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-10-29 names 'Isaac Harmon,' in the claim read as chicago_democrat_1834_10_29#c006, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
+   "note": "A SEPARATE MAN FROM 'ISAAC HARMON, TOWN CLERK', OR PERHAPS NOT, AND THE RECORD WILL NOT DECIDE. Andreas has an Isaac Harmon appointed clerk of the first board of trustees on 12 August 1833 and again as clerk and collector in 1834; he also prints an 1832 militia agreement signed by BOTH 'Isaac Harmon' AND 'Isaac D. Harmon', two lines apart, which is positive evidence that the town contained two men of that name. The town clerk is therefore NOT identified with this merchant and gets no person record here at all - writing him would risk creating a duplicate of a man already in this household. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Tax list of the Town of Chicago, 1833 — “Harmon, Isaac” (tax_1833_043, line 95). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Harmon' agrees with the entry's forenames; 3 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Isaac D. Harmon,” (f1839_v0112, printed page 42, ward 1, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Harmon' folds to the same string as the 1837 entry's, and the given name of both begins I. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “HARMON ISAAC D”, 1833-10-22: 1 parcel of the school section — BL137 of the school section (sec 16 T39N R14E), as read, 0.00 acres stated in all, for $130.00 (ls0229). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: HARMON ISAAC D matches Isaac Dewey Harmon: the forename names Isaac Dewey Harmon of the 6 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
     "programme": "resident-research-2026",
     "ticket": "T-0510",
@@ -306,12 +579,76 @@
      "precision": "month",
      "dated_by": "source_describes_date",
      "covers_scene_date": false,
+     "fills_scene_view": false,
      "confidence": "attested",
      "sources": [
       "chicago_democrat_1833_11_26"
      ],
      "claim": null,
-     "note": "A DATED ROLE THAT DOES NOT REACH THE SCENE DATE (T-0991, withdrawn from the 1835 field by tools/derive_resident_roles.py). No source cited for this trade describes 1835, so it is retained here with the bound its evidence permits and the 1835 compatibility view reads `none_recorded` instead. tools/audit_scene_window_trades.py's verdict is `firm_in_window_trade_not_printed`: The other half of C. & I. Harmon, and the same reading. The Democrat of 5 August 1835 prints 'Isaac Harmon, esq.' winding up Bristol, Vale & Hogue — the man inside the window, without his trade."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A DATED ROLE THAT DOES NOT REACH THE SCENE DATE (T-0991, withdrawn from the 1835 field by tools/derive_resident_roles.py). No source cited for this trade describes 1835, so it is retained here with the bound its evidence permits and the 1835 compatibility view reads `none_recorded` instead. tools/audit_scene_window_trades.py's verdict is `firm_in_window_trade_not_printed`: The other half of C. & I. Harmon, and the same reading. The Democrat of 5 August 1835 prints 'Isaac Harmon, esq.' winding up Bristol, Vale & Hogue — the man inside the window, without his trade.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "justice_of_the_peace",
+     "kind": "office",
+     "as_printed": "justice of the peace",
+     "from": "1833-12-17",
+     "to": "1834-10-29",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_isaac_harmon",
+     "place": "not_stated",
+     "employer_or_body": "cook_county",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1833-12-17 to 1834-10-29, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "no_fixed_premises"
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "secretary, Board of Trustees",
+     "from": "1833-12-17",
+     "to": "1834-10-29",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_isaac_harmon",
+     "place": "not_stated",
+     "employer_or_body": "town_of_chicago",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1833-12-17 to 1834-10-29, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": null
+    },
+    {
+     "role": "town_clerk",
+     "kind": "office",
+     "as_printed": "clerk of the board of trustees",
+     "from": "1833-12-17",
+     "to": "1834-10-29",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_isaac_harmon",
+     "place": "not_stated",
+     "employer_or_body": "town_of_chicago",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1833-12-17 to 1834-10-29, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view. SYNONYM-FOLDED (T-1254): the same source prints this role as town clerk as well, and one source asserting one role over one bound is one row.",
+     "premises": "no_fixed_premises"
     },
     {
      "role": null,
@@ -322,12 +659,16 @@
      "precision": "year",
      "dated_by": "printing_year",
      "covers_scene_date": false,
+     "fills_scene_view": false,
      "confidence": "attested",
      "sources": [
       "fergus_chicago_directory_1839"
      ],
      "claim": null,
-     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839.",
+     "premises": null
     }
    ],
    "merge_ruling": [
@@ -342,7 +683,32 @@
      "for_merge": "'Isaac' is identical and the surnames differ by one interior vowel. Isaac Dewey Harmon is documented and anchored — Fergus's old-settler notice of 9 April 1886, the 1833 tax list, the Black Hawk muster of 1832, the Democrat of 17 December 1833 and 5 August 1835 — and the `harmon-isaac` cluster has already folded a bare 'Isaac Harmon' onto him under C3 as the one Isaac Harmon the town documents. An 'Isaac Harman' on the 1834 poll looks like the same man with the vowel mis-set.",
      "against_merge": "THE ROLL THAT SETS HARMAN SETS HARMON ON THE NEXT TWO LINES, FOR OTHER MEN. The poll filed 11 August 1834 enters 'Harman, Isaac' at voter_lists_1833_1835.txt line 219 and then 'Harmon, C. L.' at 220 and 'Harmon, M. D.' at 221 — one roll, one clerk, both spellings, deliberately distinguished within three lines. That is the opposite of C9's demonstration: the printing is caught keeping the spellings apart. Isaac Dewey Harmon's own readings are on the 1833 tax list and not on that poll, so no roll sets both spellings for HIM; and the Harmon stem is heavily populated here — harmon_charles_l, harmon_d, harmon_elijah_d, harmon_isaac_d, harmon_m_d, five cards — while Harman has one. D9, and the C3 fold inside the `harmon-isaac` cluster is untouched because it folded a card spelled Harmon."
     }
-   ]
+   ],
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "inferred",
+    "tier": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+   },
+   "birth_year": {
+    "value": 1813,
+    "precision": "band",
+    "band": [
+     1813,
+     1814
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "A BIRTH INTERVAL OUT OF A DEATH NOTICE, NOT A RECORD OF A BIRTH. The page prints the death as 'April 9, 1886' and the age as 'aged 72'. An age of 72 completed years means at least 72 and less than 73, so the birth falls between 1813-04-10 and 1814-04-09: the birth year is 1813 or 1814. The subtraction is this project's; the page states no year of birth. Fergus's 1843 directory (1896) prints the entry \"Harmon, Isaac Dewey, died April 9, 1886, aged 72.\", and its header admits the list also names citizens who arrived after 1843 and others merely prominently connected with Illinois history — so a match here is never evidence of residence in 1835 and never moves a grade. The match to this person was adjudicated in data/research/old_settlers/death_notices_crosswalk_1835.json and written onto this card by tools/spend_old_settlers.py; this pass only spends its arithmetic into a birth year. Both sides of the match spell a forename out — the crosswalk's thin matches, where a single initial is the whole of the discriminator, are refused rather than spent.",
+    "contradicted_by_the_card": "AND THE CARD DOES NOT AGREE WITH IT (T-1179). This card says the person stands on muster_1832, and the interval leaves them 19 in 1832 — under the 20 a poll, tax or muster list is drawn at. That floor is the franchise's line and no source states it, so it is set beside this interval and not used to strike it out. The interval is carried anyway, because the floor it misses is one this project invented and says so — the model carries it under the liberty L-rc-age-conditioning — and a floor nobody can cite may not strike out a reading. Both are printed so that a reader meets the disagreement rather than one side of it."
+   }
   }
  ],
  "touches_removal": false,

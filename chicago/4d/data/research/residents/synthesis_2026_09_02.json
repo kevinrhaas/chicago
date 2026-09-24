@@ -11,7 +11,7 @@
     "attested": "confidently corroborated real named circa-1835 Chicago resident",
     "inferred": "real named person reasonably believed to belong to circa-1835 Chicago",
     "projected_resident": "inferred subtype documented in at least one relevant source but too thin/ambiguous for stronger profile",
-    "reconstructed": "reserved for later explicit reconstruction; zero now"
+    "reconstructed": "a person no source names, written only by the T-1167 programme's own stage and re-derived by it"
   },
   "research": {
     "reviewed_people": 873,
@@ -1081,11 +1081,11 @@
     "census_1840_linked": 0
   },
   "after": {
-    "households": 1258,
-    "persons": 1282,
+    "households": 1393,
+    "persons": 2265,
     "attested": 410,
-    "inferred": 872,
-    "reconstructed": 0,
+    "inferred": 875,
+    "reconstructed": 980,
     "letter_list_only": 736,
     "projected_residents": 721,
     "census_1840_linked": 3

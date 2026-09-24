@@ -181,6 +181,46 @@
         }
       ],
       "research_note": "THE HOUSEHOLD THAT EXISTS TO CARRY AN UNRESOLVED HANDOVER RATHER THAN TO HIDE IT. The Mansion House had a keeper on 1 July 1835 and this project cannot say which of two named men it was. Writing no household would lose a documented tavern keeper; writing two would double-count a job only one man held; writing Markle would be a coin-flip stated as a fact. So one household is written, graded derived throughout, with presence recorded as uncertain and the alternative named in the notes. A LATER PARCEL SHOULD LOOK FOR THE MONTH - the Chicago American began publishing in June 1835 and a change of landlord is exactly the thing a new paper advertises."
+    },
+    {
+      "household": "hh_lodging_mansion_house",
+      "name": "The lodgers of Mansion House",
+      "division": "south",
+      "relation": "lodged here",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 5 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "sources": [],
+      "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
+      "persons": [
+        {
+          "name": "Sarah Kellogg",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 5 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Harriet Whitcomb",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 5 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Erastus Metcalf",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 5 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Jared Hale",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 5 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
     }
   ],
   "citations": [
@@ -239,5 +279,25 @@
   ],
   "research_note": "THE BUILDING THE PROJECT BRIEF ASKED TO BE TREATED AS ONE STRUCTURE, AND ANDREAS SETTLES THAT IN A SENTENCE. 'Dexter Graves - Mansion House, Lake nr. Dearborn, 1831. See section 6 - his boarding house = the Mansion House' is how docs/research/04-structures-south.md puts it; Andreas puts it as one continuous succession of keepers in one building on one site, from Graves's log tavern of 1831 through Haddock and Markle to its removal in 1850. There is no second structure. THE FABRIC IS BETTER ATTESTED THAN ANYTHING ELSE IN THIS PARCEL, and it is the reason this record is a log_dwelling with a frame front rather than a frame tavern: an unpretentious LOG tavern of 1831, standing back from Lake Street, with a FRAME ADDITION built across its front in 1833 that came out to the street line, and an UNFINISHED LOFT that the Circuit Court sat in in May 1834. Four facts about the building itself, from two independent passages of Andreas. Nothing else in this parcel has that. WHAT IS STILL INVENTED: every dimension, the storey counts of both elements, the roof, the finish and the chimney. THE ONE READING RECORDED AND NOT ADOPTED: Andreas's 'according to some authorities had no name, being on the site of the building which was afterwards known by the above-mentioned name' admits a version in which the 1833 log tavern was replaced by a later Mansion House rather than becoming it. His own hotel chapter contradicts that by carrying one building forward from 1831, and this record follows the hotel chapter; if the other reading is right, the building standing on 1835-07-01 is still Graves's log tavern and only its name is wrong here. A CONTEMPORARY PUZZLE WORTH LEAVING OPEN: the Chicago Democrat advertisement that names Graves' Tavern places the blacksmith 'on MAIN-STREET, nearly opposite' it. No street called Main is platted in the 1830 Thompson plat, appears on Wright 1834, or is named anywhere in Andreas vol. 1 for Chicago. The likeliest reading is that an advertiser new to the town called the principal thoroughfare by the name every other town used, and that the street meant is Lake or South Water; it is not resolved here and it is the only contemporary statement of this building's street. See docs/RESEARCH/mansion_house.md. APPENDED 2026-08-29, T-0324. GRAVES' TAVERN WAS NOT RENAMED THE TREMONT HOUSE, and the corpus now says why the anchor changed. Matthias Mason & Co.'s standing blacksmith advertisement - ONE dateline, 'Chicago, Nov. 26, 1833', unchanged in every setting - is anchored on Graves' Tavern from 1833-11-26 to 1834-06-11 and on the Tremont House from 1834-09-10 to 1834-12-10 (T-0345 holds the dated change; it brackets it 1834-07-16, but the committed extractions carry no Mason printing that week, so the bracket is 1834-06-11 to 1834-09-10). Neither the forge nor this house moved: THE LANDLORD'S NAME WENT STALE. The Democrat's last 'Graves' Tavern' is 1834-06-11 and its first use of 'Mansion-House' as this building's own name is 1834-09-03 c010, a militia election 'held at the Mansion-House in Chicago' - one week before Mason's advertisement first reads 'the Tremont House'. An advertiser whose landmark was named for a keeper who had left re-anchored on the largest name at the crossing, and both houses stood throughout, diagonally across Dearborn, which is what Andreas's 'almost opposite the old Tremont House' already says. THAT ALSO ANSWERS THE 'SOME AUTHORITIES' ASIDE ABOVE: the town's own newspaper calls this house the Mansion House by September 1834, ten months before the scene date. AND THE STREET WORD IN MASON'S ADVERTISEMENT IS UNSTABLE, which is a warning rather than a finding: four settings read 'Main-street' and the setting of 1834-10-15 (c007) reads 'on Mar[k]et street, opposite the Tremont House' - same copy, same dateline, two street names. Main Street is still NOT identified with any platted street here, and this makes the case for leaving it alone stronger than the paragraph above found it. THE TAVERN'S OWN SPELLING IS SETTLED: G. Spring's For-Sale notice reads 'Haddock's Tavern' in four legible settings (1834-06-18, 1834-09-03, 1834-10-15, 1834-11-19) and 'Maddock's Tavern' in exactly one (1834-07-09 c024), with a sixth cut to '[...]k'n Tavern' (1834-07-02 c053) - which is the condition the reading pass of 1834-07-30 set for deciding it. The newspaper gazetteer cannot record that merge, because it mints both tavern names as PERSONS and the person rule rightly refuses two entries with a matching surname and differing initials; T-0359 is that defect. See docs/RESEARCH/botsford_graves_1834.md.",
   "research_doc": "docs/RESEARCH/mansion_house.md",
-  "review_required": false
+  "review_required": false,
+  "lodging": {
+    "class": "inn_tavern",
+    "beds_ordinary": 5,
+    "beds_crowded": 35,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": true,
+    "enclosed_floor_m2": 108.0,
+    "confidence": "reconstructed",
+    "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 108 m² of enclosed floor (108 m² × 1 storeys) is of the class's floor area.",
+    "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
+    "occupancy": {
+      "people": 5,
+      "beds_ordinary": 5,
+      "empty": 0,
+      "statement": "5 on this card against an ordinary night's 5 beds: 1 the residents layer already housed here, 4 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "empty_note": "",
+      "keeper_persons": 1,
+      "keeper_owed": "T-1171 refused this head a drawn family — the eligibility refusals are in data/reconstruction/1835_modelled_families.json — so the card stands at one person. T-1179 converges it."
+    }
+  }
 }

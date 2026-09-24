@@ -1,0 +1,36 @@
+{
+  "id": "wood_shingles_weathered",
+  "group": "roofs",
+  "span_m": 4.48,
+  "confidence": "attested once; otherwise inferred",
+  "mean_roughness": 0.9,
+  "kind": "shingle",
+  "colors": [
+    [
+      92,
+      80,
+      67
+    ],
+    [
+      57,
+      56,
+      53
+    ]
+  ],
+  "note": "Riven timber shingles; 0.14 m exposure is a declared reconstruction outside the attested North Side school.",
+  "resolution_px": 1024,
+  "px_per_m": 228.57,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18351671,
+  "generation_method": "deterministic procedural synthesis"
+}

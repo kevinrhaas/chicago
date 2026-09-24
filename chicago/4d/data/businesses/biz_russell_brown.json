@@ -1,0 +1,114 @@
+{
+  "id": "biz_russell_brown",
+  "register_id": "business_russell_brown",
+  "name": "Russell & Brown",
+  "provenance": "compiled_from_register",
+  "type": [
+    "not_stated"
+  ],
+  "trade": "[not stated in the notice]",
+  "occupation": null,
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "P. T. Russell",
+      "person_id": "russell_p_t",
+      "register_person_id": "person_p_t_russell",
+      "role": "partner",
+      "from": "1835-05-20",
+      "to": "1835-05-20",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card russell_p_t (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1835_05_20#c011"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Wm. H. Brown",
+      "person_id": "brown_william_h",
+      "register_person_id": "person_wm_h_brown",
+      "role": "partner",
+      "from": "1835-05-20",
+      "to": "1835-05-20",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card brown_william_h (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1835_05_20#c011"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-05-20",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1835-05-20",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-05-20, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-05-20",
+    "last_issue": "1835-05-20",
+    "copy_dates": [
+      "1835-05-19"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 2 keeper(s) this record names and the resident layer holds a card for all read new_york: Wm. H. Brown (new_york), P. T. Russell (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "brown_william_h",
+        "name": "Wm. H. Brown",
+        "role": "partner",
+        "community": "new_york",
+        "tier": "reconstructed"
+      },
+      {
+        "person_id": "russell_p_t",
+        "name": "P. T. Russell",
+        "role": "partner",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1835_05_20#c011"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

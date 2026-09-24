@@ -1,0 +1,97 @@
+{
+  "id": "biz_william_f_lyon_wholesale_grocery_store",
+  "register_id": "business_william_f_lyon_wholesale_grocery_store",
+  "name": "William F. Lyon, Wholesale Grocery Store",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "wholesale grocery",
+  "occupation": "grocer",
+  "goods": [
+    "coffee",
+    "sugars",
+    "teas",
+    "wines"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Lyon, William F.",
+      "person_id": "lyon_william_f",
+      "register_person_id": "person_lyon_william_f",
+      "role": "proprietor",
+      "from": "1835-08-19",
+      "to": "1835-08-19",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card lyon_william_f (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1835_08_19#c015"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-08-19",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: chicago_democrat_1835_08_19#c015 announces this house opening on 1835-09-01, after the scene date — “will receive and offer for sale on the first of September”. Dated August 1835, so 'the first of September' is 1 September 1835 — two months after the scene date, and the stock is not in the store yet. No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1835-09-01",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "The paper announces the opening: chicago_democrat_1835_08_19#c015 (1835-09-01)."
+  },
+  "evidence": {
+    "first_issue": "1835-08-19",
+    "last_issue": "1835-08-19",
+    "copy_dates": [
+      "1835-08-01"
+    ]
+  },
+  "present_at_scene_date": false,
+  "exclusion": "opening_announced_after_scene_date",
+  "exclusion_note": "chicago_democrat_1835_08_19#c015 announces this house opening on 1835-09-01, after the scene date — “will receive and offer for sale on the first of September”. Dated August 1835, so 'the first of September' is 1 September 1835 — two months after the scene date, and the stock is not in the store yet.",
+  "proprietor_community": {
+    "value": "british",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read british: Lyon, William F. (british). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "lyon_william_f",
+        "name": "Lyon, William F.",
+        "role": "proprietor",
+        "community": "british",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1835_08_19#c015"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

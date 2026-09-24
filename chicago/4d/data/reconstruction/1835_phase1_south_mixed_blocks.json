@@ -4,8 +4,8 @@
   "density_zone": "B",
   "description": "First anonymous infill parcel in five platted blocks between Franklin and State, south of Lake and north of Randolph. Alternating open lots remain intentional.",
   "source_id": "owner_chicago_1835_reconstruction_spec_2026",
-  "principal_functional": 40,
-  "ancillary": 8,
+  "principal_functional": 39,
+  "ancillary": 9,
   "rows": [
     {
       "id": "lake_front",
@@ -21,7 +21,7 @@
         ],
         [
           266,
-          "C1"
+          "D1"
         ],
         [
           292,
@@ -37,7 +37,7 @@
         ],
         [
           390,
-          "C2"
+          "D5"
         ],
         [
           418,
@@ -49,7 +49,7 @@
         ],
         [
           491,
-          "C1"
+          "D1"
         ],
         [
           516,
@@ -94,7 +94,7 @@
         ],
         [
           739,
-          "C1"
+          "D1"
         ],
         [
           765,
@@ -127,7 +127,7 @@
         ],
         [
           283,
-          "W1"
+          "D5"
         ],
         [
           350,
@@ -139,7 +139,7 @@
         ],
         [
           407,
-          "W2"
+          "D4"
         ],
         [
           473,
@@ -151,7 +151,7 @@
         ],
         [
           533,
-          "W3"
+          "H1"
         ],
         [
           596,
@@ -163,7 +163,7 @@
         ],
         [
           659,
-          "W4"
+          "D1"
         ],
         [
           719,
@@ -185,11 +185,11 @@
       "placements": [
         [
           239,
-          "C2"
+          "D6"
         ],
         [
           361,
-          "C3"
+          "A2"
         ],
         [
           482,
@@ -197,7 +197,7 @@
         ],
         [
           604,
-          "F2"
+          "H2"
         ],
         [
           728,

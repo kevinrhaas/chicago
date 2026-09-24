@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import math
 import sys
 from datetime import date
 from pathlib import Path
@@ -37,6 +38,7 @@ READINGS_1812_PATH = TERRAIN / "1812_mouth_readings.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import derive_shore_1812  # noqa: E402  (same directory, deliberately not a package)
+from exact_sums import consistent_reading  # noqa: E402
 
 CONSTRAINTS_PATH = TERRAIN / "1880s_scene_date_constraints.json"
 
@@ -209,11 +211,8 @@ def validate(states_doc: dict, bands_doc: dict, epochs_doc: dict,
     if rings != [expected_ring]:
         bad.append("the disagreement polygon is not the full re-derived 1834/1849 spread")
     measured = props.get("spread_m", {})
-    expected_spread = {
-        "min": round(min(spreads), 1),
-        "max": round(max(spreads), 1),
-        "mean": round(sum(spreads) / len(spreads), 1),
-    }
+    lo, mean, hi = consistent_reading(spreads, 1, label="band spread (m)")
+    expected_spread = {"min": lo, "max": hi, "mean": mean}
     if measured != expected_spread:
         bad.append(f"band spread is {measured}, expected {expected_spread}")
     expected_ns = overlap["measured"]["overlap"]["stations_n_m"]

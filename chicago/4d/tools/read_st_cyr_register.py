@@ -71,6 +71,10 @@ import json
 import re
 import shutil
 import sys
+from pathlib import Path as _ToolsPath
+
+sys.path.insert(0, str(_ToolsPath(__file__).resolve().parent))
+from reconstructed_person import is_reconstructed  # noqa: E402
 import tempfile
 from pathlib import Path
 
@@ -512,6 +516,11 @@ def resident_people(root: Path = ROOT):
     for path in sorted(d.glob("*.json")):
         doc = load(path)
         for p in doc.get("persons") or []:
+            # T-1171: a person the reconstruction programme DREW is not a name any source printed.
+            # Matching one to a printed name would be this project reading its own invention
+            # back as evidence. reconstructed_person.py holds the rule.
+            if is_reconstructed(p):
+                continue
             name = (p.get("name") or "").strip()
             if not name:
                 continue

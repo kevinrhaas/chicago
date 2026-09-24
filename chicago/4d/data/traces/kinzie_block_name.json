@@ -543,7 +543,7 @@
   "phrase_in_the_corpus": {
     "claim": "The phrase 'Kinzie Block' appears nowhere in this project's newspaper, directory and book corpus.",
     "confidence": "documented",
-    "units_searched": 149,
+    "units_searched": 150,
     "phrase_hits": [],
     "sets": [
       {
@@ -559,7 +559,7 @@
       {
         "set": "directories",
         "glob": "directories/**/*.json",
-        "units": 33
+        "units": 34
       },
       {
         "set": "books/text",
@@ -706,6 +706,7 @@
         "directories/fergus_1839_lots_rowmap.json",
         "directories/fergus_1839_register_crosswalk_1835.json",
         "directories/fergus_1839_street_faces.json",
+        "directories/fergus_1839_trade_table.json",
         "directories/fergus_1843_crosswalk_1835.json",
         "directories/norris_1844_advertiser_crosswalk_1835.json",
         "directories/norris_1844_advertiser_index.json",
@@ -783,7 +784,7 @@
     "epoch": "e1834_harbor_cut",
     "heightfield_box_local_enu_m": {
       "e": [
-        -320.0,
+        -705.0,
         1700.0
       ],
       "n": [

@@ -148,7 +148,7 @@ def _rules(prof, minpk=14.0, maxw=7):
             half = [(p, v) for p, v in seg if v >= 0.35 * pk]
             if half[-1][0] - half[0][0] + 1 <= maxw:
                 tot = sum(v for _, v in half)
-                out.append((round(sum(p * v for p, v in half) / tot, 1), round(pk, 1)))
+                out.append((round(math.fsum(p * v for p, v in half) / tot, 1), round(pk, 1)))
             i = j + 1
         else:
             i += 1

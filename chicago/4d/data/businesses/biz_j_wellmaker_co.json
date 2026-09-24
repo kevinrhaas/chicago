@@ -1,0 +1,121 @@
+{
+  "id": "biz_j_wellmaker_co",
+  "register_id": "business_j_wellmaker_co",
+  "name": "J. Wellmaker & Co.",
+  "provenance": "compiled_from_register",
+  "type": [
+    "not_stated"
+  ],
+  "trade": "unstated — the notice announces only its closing",
+  "occupation": null,
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "John Wellmaker",
+      "person_id": "wellmaker_john",
+      "register_person_id": "person_john_wellmaker",
+      "role": "partner",
+      "from": "1834-03-04",
+      "to": "1834-04-08",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card wellmaker_john (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_03_04#c011",
+        "chicago_democrat_1834_03_25#c004",
+        "chicago_democrat_1834_04_08#c013"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "William Adams",
+      "person_id": "adams_william_h",
+      "register_person_id": "person_william_adams",
+      "role": "partner",
+      "from": "1834-03-04",
+      "to": "1834-04-08",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card adams_william_h (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_03_04#c011",
+        "chicago_democrat_1834_03_25#c004",
+        "chicago_democrat_1834_04_08#c013"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-03-04",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_03_04#c011 (notice, 1834-03-04), chicago_democrat_1834_03_25#c004 (notice, 1834-03-25), chicago_democrat_1834_04_08#c013 (notice, 1834-04-08). No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1834-03-04",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-03-04, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-03-04",
+    "last_issue": "1834-04-08",
+    "copy_dates": [
+      "1834-03-04",
+      "1834-03-25"
+    ]
+  },
+  "present_at_scene_date": false,
+  "exclusion": "contradicted_before_scene_date",
+  "exclusion_note": "Contradicted on or before the scene date by chicago_democrat_1834_03_04#c011 (notice, 1834-03-04), chicago_democrat_1834_03_25#c004 (notice, 1834-03-25), chicago_democrat_1834_04_08#c013 (notice, 1834-04-08).",
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "proprietors_disagree",
+    "basis": "The keepers this record names do not read as one community (british, yankee), and nothing in the record chooses between them. Each is named above.",
+    "from": [
+      {
+        "person_id": "adams_william_h",
+        "name": "William Adams",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "inferred"
+      },
+      {
+        "person_id": "wellmaker_john",
+        "name": "John Wellmaker",
+        "role": "partner",
+        "community": "british",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_03_04#c011",
+    "chicago_democrat_1834_03_25#c004",
+    "chicago_democrat_1834_04_08#c013"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

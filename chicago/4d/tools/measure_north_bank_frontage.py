@@ -265,6 +265,12 @@ def write_baseline() -> int:
         entry = exceptions.get(row["key"], {"reason": "UNEXPLAINED — write the reason."})
         entry["face_m"] = row["face_m"]
         exceptions[row["key"]] = entry
+    # An exception for a building that no longer fronts this street is dead, and
+    # leaving it is what the gate's own message asks to be repaired. T-1480 renamed
+    # a roof on this bank and the baseline went on naming the id it left, through a
+    # --write-baseline, because this function only ever ADDED. It prunes now.
+    live = {row["key"] for row in frontages()}
+    exceptions = {k: v for k, v in exceptions.items() if k in live}
     baseline["exceptions"] = dict(sorted(exceptions.items()))
     baseline["rule_m"] = round(rule, 3)
     BASELINE.write_text(json.dumps(baseline, indent=2) + "\n", encoding="utf-8")

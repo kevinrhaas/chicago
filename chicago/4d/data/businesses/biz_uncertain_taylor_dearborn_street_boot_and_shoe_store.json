@@ -1,0 +1,165 @@
+{
+  "id": "biz_uncertain_taylor_dearborn_street_boot_and_shoe_store",
+  "register_id": "business_uncertain_taylor_dearborn_street_boot_and_shoe_store",
+  "name": "[uncertain: …] Taylor, Dearborn Street boot and shoe store",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "boot, shoe and leather store",
+  "occupation": "shoemaker",
+  "goods": [
+    "Boots",
+    "Leather",
+    "Shoes"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "[uncertain: …] Taylor",
+      "person_id": null,
+      "register_person_id": "person_uncertain_taylor",
+      "role": "proprietor",
+      "from": "1834-07-09",
+      "to": "1834-07-09",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_uncertain_taylor with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_09#c019"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Joseph Gilbert",
+      "person_id": "rc_gilbert_joseph",
+      "role": "journeyman",
+      "occupation": "shoemaker",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a boot and shoe shop at the typical band and 1 at the high end, on directory_1839. 27 shoemakers in 1839 against 8 shops here. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#shoemaker_shop.shoemaker; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_gilbert_joseph:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "shoemaker_shop",
+    "reads_as": "a boot and shoe shop",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "journeyman",
+        "occupation": "shoemaker",
+        "household_relationship": "journeyman",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "directory_1839"
+      },
+      {
+        "role": "apprentice",
+        "occupation": "shoemaker",
+        "household_relationship": "apprentice",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "period_convention",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 1,
+      "seats_taken": 1,
+      "seats_against_the_band": 1,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "shoemaker",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        },
+        {
+          "occupation": "shoemaker",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 1. It is at its band.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": "dearborn",
+      "face": null,
+      "primary": true,
+      "from": "1834-07-09",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. The landmark is another documented business (business_newberry_dole), which places this one exactly as well as that one is placed.",
+      "limit_reason": "The register places this house against business_newberry_dole and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "business",
+        "id": "biz_newberry_dole",
+        "title": "Newberry & Dole",
+        "streets": []
+      }
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-09",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-07-09, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-07-09",
+    "last_issue": "1834-07-09",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_07_09#c019"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

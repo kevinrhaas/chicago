@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""West Water seated, and Jefferson and Des Plaines refused by the ground (T-0445).
+"""West Water seated, and Jefferson and Des Plaines seated after it (T-0445, T-1430).
 
 T-0445 is piece 2 of 4 of T-0443. T-0444 measured the West Division's module and
 found three of the plat's five north-south streets held by no committed file at
@@ -18,17 +18,28 @@ The three do not get the same answer, and the reason is the modelled ground:
    the placement, and the note on the record says what would move it (any wharf
    strip between the kerb and the water, whose width no source reached gives).
 
-2. **Jefferson and Des Plaines are refused, and the refusal is a measurement.**
-   Both survive on the ground and their surviving control is already committed —
-   `fulton`'s note carries the OpenStreetMap intersections T-0446 fitted it to,
-   Jefferson at local east -401.04 and Des Plaines at -524.88. The modelled ground
-   ends at local east -320.0 (`heightfield.json`, `box_local_enu_m.e`). Both lines
-   lie WEST of that edge over their whole length. A street drawn there would hang
-   off the end of the terrain, and the plat gate that already refuses a block for
-   exactly this reason (`measure_southern_ground.py`) is the same rule. So they are
-   refused with the number that refuses them, and the refusal names what would
-   reverse it: extending the terrain box west, which is the same parcel that holds
-   35 of the West Division's 55 recipe roofs (ROADMAP K15, LIBERTIES L90).
+2. **Jefferson and Des Plaines were refused by the ground, THE REFUSAL WAS ANSWERED,
+   AND BOTH ARE NOW DRAWN.** Their surviving control was already committed —
+   `fulton`'s note carries the OpenStreetMap intersections T-0446 fitted that tier
+   to, Jefferson at local east -401.04 north +13.11 and Des Plaines at -524.88,
+   +13.72. The modelled ground ended at local east -320.0 and both lines lay WEST
+   of that edge over their whole length; a street drawn there would have hung off
+   the end of the terrain, so they were refused with the number that refused them,
+   and the refusal named what would reverse it: extending the terrain box west,
+   which is the same parcel that held 35 of the West Division's 55 recipe roofs
+   (ROADMAP K15, LIBERTIES L90).
+
+   T-1415 derived the wall, T-1416 built the field out to local east -705.0, and
+   T-1430 seated both lines on it. Each is seated through its own surviving
+   intersection and carries `clinton`'s bearing and `clinton`'s reach, because one
+   intersection fixes a point and not a direction and a borrowed line may not claim
+   more ground than the line it was borrowed from; `geometry_confidence` is
+   `inferred` for that inheritance, and a second surviving intersection on either
+   line is what would raise it. The assertions below hold every one of those
+   clauses, so a line that is re-seated off its control, re-bent off Clinton's
+   bearing, stretched past Clinton's reach or quietly upgraded fails here rather
+   than going quiet. The one thing that has not changed is the module argument
+   under §3: nothing was moved to make these two fit.
 
 3. **What the seating says about the module, which is the finding.** T-0444 derived
    a 458 ft West Division module and measured the committed `clinton -> canal` gap
@@ -64,15 +75,22 @@ MODULE_FT = 458.0
 # committed note, where T-0446 recorded the OpenStreetMap nodes it fitted that
 # tier to; they are quoted here rather than re-fetched so this module reads
 # committed files only.
-OFF_THE_GROUND = {
-    "jefferson": (-401.04, "262247424"),
-    "des_plaines": (-524.88, "258966841"),
+#
+# Named SEATED_BY_T1430 and no longer NOT_YET_DRAWN. T-1416 carried the west wall to
+# E -705, which put both lines on modelled ground; T-1430 drew them. Each value is the
+# surviving OpenStreetMap intersection this line is seated through — easting, northing and
+# node id, all three quoted off `fulton`'s own committed note where T-0446 recorded them, so
+# this module still reads committed files only and re-fetches nothing.
+SEATED_BY_T1430 = {
+    "jefferson": (-401.04, 13.11, "262247424"),
+    "des_plaines": (-524.88, 13.72, "258966841"),
 }
 
-# The reach of the committed west-bank line that is the South Branch's, from the
-# scene's south edge to where the bank turns west at Wolf Point. Vertices past
-# this one run along the junction pool and then north up the North Branch, and a
-# street offset from them would cross the Wolf Point cluster.
+# The bearing both seated lines inherit, and the line they inherit it from. One
+# intersection fixes a point and not a direction, so the direction is Clinton's; the
+# assertions below hold the committed paths to it rather than trusting the seating.
+BEARING_FROM = "clinton"
+
 BANK_REACH = 9
 
 # T-0768 — THE REACH PAST THE TURN. T-0445 stopped at BANK_REACH because a bank-offset line
@@ -309,6 +327,13 @@ def east_at(st, northing):
     return None
 
 
+def slope_of(st):
+    """A two-point north-south line's east-per-north, which is its bearing here. The two
+    seated lines carry Clinton's, and this is what holds them to it."""
+    (x1, y1), (x2, y2) = st["path_local_enu_m"][0], st["path_local_enu_m"][-1]
+    return (x2 - x1) / (y2 - y1)
+
+
 def fit_line(pts):
     """Least squares east = a*north + b, with residuals."""
     n = len(pts)
@@ -393,11 +418,15 @@ def report(d):
         print(f"   {sid:26s} {conf:13s} nearest corner {near:6.2f} m from the bank, "
               f"furthest {far:6.2f} m")
     print()
-    print("== 3. jefferson and des_plaines — refused by the modelled ground")
+    print("== 3. jefferson and des_plaines — seated by T-1430 on the ground T-1416 built")
     print(f"   the heightfield's west edge is local east {d['box_e'][0]:.1f} m")
-    for sid, (e, node) in OFF_THE_GROUND.items():
-        print(f"   {sid:12s} surviving control at east {e:8.2f} "
-              f"(OSM node {node}) — {d['box_e'][0] - e:6.1f} m past the edge")
+    for sid, (e, n, node) in SEATED_BY_T1430.items():
+        line = d["streets"][sid]
+        got = east_at(line, n)
+        print(f"   {sid:12s} control east {e:8.2f} north {n:5.2f} (OSM node {node}) — "
+              f"{e - d['box_e'][0]:6.1f} m inside the wall; the committed line reads "
+              f"{got:8.3f} there, {abs(got - e) * 1000:.1f} mm off, bearing inherited from "
+              f"`{BEARING_FROM}`")
     print()
     print("== 4. the module the seating measures")
     print(f"   the plat's module (T-0444): {MODULE_FT:.0f} ft = {MODULE_FT * FT:.2f} m")
@@ -472,12 +501,34 @@ def self_test(quiet=False):
           max(d["clearances"]) - d["corridor"] / 2 < 0.15)
 
     box_w = d["box_e"][0]
-    for sid, (e, _node) in OFF_THE_GROUND.items():
-        check(f"{sid} is west of the modelled ground's edge and is refused",
-              e < box_w)
-        check(f"{sid} is not committed to data/streets/1835.json", sid not in st)
-    check("the two refused streets are the only West Division lines still absent",
-          sorted(s for s in WEST_NS if s not in st) == sorted(OFF_THE_GROUND))
+    bearing = slope_of(st[BEARING_FROM])
+    for sid, (e, n, _node) in SEATED_BY_T1430.items():
+        check(f"{sid} stands on modelled ground — {e:.2f} against a wall at "
+              f"{box_w:.1f} — which is what T-1416 changed and T-1430 spent",
+              e > box_w)
+        check(f"{sid} is committed to data/streets/1835.json", sid in st)
+        if sid not in st:
+            continue
+        line = st[sid]
+        check(f"…and its committed line passes through its own surviving intersection "
+              f"({abs(east_at(line, n) - e) * 1000:.1f} mm off)",
+              abs(east_at(line, n) - e) <= 0.01)
+        check(f"…on `{BEARING_FROM}`'s bearing, which is where a one-point seating gets "
+              f"its direction from",
+              abs(slope_of(line) - bearing) <= 1e-9)
+        ns = sorted(p[1] for p in line["path_local_enu_m"])
+        want = sorted(p[1] for p in st[BEARING_FROM]["path_local_enu_m"])
+        check(f"…over `{BEARING_FROM}`'s own reach ({ns[0]:.1f} to {ns[-1]:.1f}), because a "
+              f"borrowed line may not claim more ground than the line it is borrowed from",
+              ns == want)
+        check(f"…graded `inferred` for that inheritance, never better than a line whose "
+              f"direction it did not read",
+              line["geometry_confidence"] == "inferred")
+        check(f"…and drawn as platted prairie, not a road: no track, unopened, unworn",
+              line["track_width_m"] == 0 and line["opened"] is False
+              and line["worn"] is False and line["surface"] == "unworn_prairie")
+    check("every West Division line the plat carries is now committed — none is absent",
+          [s_ for s_ in WEST_NS if s_ not in st] == [])
 
     if d["modules"]:
         mean_ft = sum(m[3] for m in d["modules"]) / len(d["modules"]) / FT

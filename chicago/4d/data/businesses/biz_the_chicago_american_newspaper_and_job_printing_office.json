@@ -1,0 +1,100 @@
+{
+  "id": "biz_the_chicago_american_newspaper_and_job_printing_office",
+  "register_id": "business_the_chicago_american_newspaper_and_job_printing_office",
+  "name": "the Chicago American, newspaper and job printing office",
+  "provenance": "compiled_from_register",
+  "type": [
+    "printing_office"
+  ],
+  "trade": "newspaper publishing and job printing",
+  "occupation": "printer",
+  "goods": [
+    "Blank Cards",
+    "Printed Blanks"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [],
+  "staffing": {
+    "class": "printing_office",
+    "reads_as": "a printing office",
+    "principal_role": "printer",
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "printer",
+        "household_relationship": "journeyman",
+        "count_low": 1,
+        "count_typical": 1,
+        "count_high": 2,
+        "drawn": false,
+        "basis": "directory_1839, off the staffing model's `printing_office` class: journeymen at case and press. Fergus's 1839 list counts fifteen printers — compositors, pressmen and job printers — against two editors, and the two offices of the 1835 census are the establishments those hands worked in four years earlier.",
+        "why_not_drawn": "No source reached names a journeyman at the American. The office advertises its PLANT and not its people — 'we h[a]ve just received a large ad[dition to o]ur stock of printing m[a]terials, [and are no]w prepared to execute all orde[rs with d]espatch' — and a stock of materials is not a roll of hands."
+      },
+      {
+        "role": "printer",
+        "household_relationship": "apprentice",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 2,
+        "drawn": false,
+        "basis": "period_convention, off the staffing model's `printing_office` class: the apprentice, who lives in. Its analogue is the journeyman row above; the project holds no roll of either office's hands — docs/RESEARCH/chicago_democrat_office.md reads the imprint and no roll.",
+        "why_not_drawn": "No source reached names an apprentice at the American either. The Democrat's May advertisement is evidence about the Democrat and nothing may carry it across the street."
+      }
+    ],
+    "attendance": null,
+    "writes_no_person": true,
+    "basis": "THE HOUSE THE REGISTER CANNOT PUT A PERSON IN AT ALL. This record's `proprietors` and `partners` are both empty — the one notice it compiles is the shop advertising itself, signed by nobody — so `principal_is` is null, and that null is the finding. The model still says a printing office of 1835 was worked by 1–2–4 hands about its principal, and every one of them stands here undrawn rather than being invented into a house whose keeper the corpus has not yet named.",
+    "replaceable_by": "A masthead or colophon of the Chicago American naming its publisher would give this record a principal; T. O. Davis and the paper's own proprietors are named in later printings this project has not yet read. Any of them would also be the first person from whom its hands could be reasoned."
+  },
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-08-22",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1835-08-22",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-08-22, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-08-22",
+    "last_issue": "1835-08-22",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_08_22#c007"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": true
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

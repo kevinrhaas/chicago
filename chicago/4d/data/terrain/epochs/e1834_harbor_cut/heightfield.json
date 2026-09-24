@@ -6,14 +6,14 @@
  "encoding": "int16",
  "scale": 0.005,
  "offset": 0.0,
- "cols": 809,
+ "cols": 963,
  "rows": 1969,
  "cell_m": 2.5,
- "origin_e": -320.0,
+ "origin_e": -705.0,
  "origin_n": -3800.0,
  "box_local_enu_m": {
   "e": [
-   -320.0,
+   -705.0,
    1700.0
   ],
   "n": [
@@ -25,7 +25,7 @@
  "max_m": 3.7446,
  "quantisation_error_m": 0.0025,
  "water_surface_m": 0.0,
- "water_fraction": 0.188,
+ "water_fraction": 0.1606,
  "relief_ft": {
   "land_min": -1.978,
   "land_max": 12.285,
@@ -38,15 +38,15 @@
    62.5
   ],
   "marsh_exclusion_m": 48.0,
-  "plain_cells_audited": 528081,
+  "plain_cells_audited": 716061,
   "carried_frame": {
-   "cells": 254856,
+   "cells": 356650,
    "block_max": 1.836,
    "north_south_block_max": 0.0,
    "note": "the ground carried south of evidence_limit, excluded from the plain audit and measured here instead. The surface is one evidenced row repeated, so north_south_block_max is the micro-relief texture and nothing else (the spec's own +/- 0.10 ft, two octaves), and the east-west figure is that row's own, already audited where it stands."
   },
   "plain_block_max": 0.468,
-  "plain_block_mean": 0.0962,
+  "plain_block_mean": 0.084,
   "passes": true,
   "plain_cell_roughness_max": 55.913,
   "shore_and_swale_cell_max": 215.233,
@@ -92,7 +92,7 @@
     "cell_max": 171.698
    },
    "bank_face": {
-    "cells": 88603,
+    "cells": 91156,
     "cell_max": 215.233
    },
    "fort_dearborn_mound": {
@@ -120,7 +120,7 @@
     "cell_max": 116.863
    },
    "swales": {
-    "cells": 21732,
+    "cells": 22121,
     "cell_max": 158.047
    }
   },
@@ -136,5 +136,5 @@
   "ground": "gltf/terrain__e1834_harbor_cut.glb",
   "water": "gltf/water__e1834_harbor_cut.glb"
  },
- "inputs_sha256": "e640bef0b1466f57b40c30ce19630ba2295b03fae1750d6fd3d509d214291d7e"
+ "inputs_sha256": "069089ea282fc250fa9e4f832fab9e8ea2fc191a1e8a0240a1ae58e0860cc878"
 }

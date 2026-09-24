@@ -1,0 +1,100 @@
+{
+  "id": "biz_the_lumber_yard_and_warehouse_announced_for_the_opening_of_navigation_1834",
+  "register_id": "business_the_lumber_yard_and_warehouse_announced_for_the_opening_of_navigation_1834",
+  "name": "the lumber yard and warehouse announced for the opening of navigation, 1834",
+  "provenance": "compiled_from_register",
+  "type": [
+    "storage_and_forwarding",
+    "store"
+  ],
+  "trade": "lumber yard and store house, on sale and commission",
+  "occupation": "lumber_merchant",
+  "goods": [
+    "groceries",
+    "lumber",
+    "provisions",
+    "storage"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "David Carver",
+      "person_id": "carver_david",
+      "register_person_id": "person_david_carver",
+      "role": "proprietor",
+      "from": "1833-12-31",
+      "to": "1834-01-28",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card carver_david (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_12_31#c001",
+        "chicago_democrat_1834_01_28#c005"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1833-12-31",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1833-12-31",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-12-31, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-12-31",
+    "last_issue": "1834-01-28",
+    "copy_dates": [
+      "1833-12-31"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "other",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read other: David Carver (other). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "carver_david",
+        "name": "David Carver",
+        "role": "proprietor",
+        "community": "other",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1833_12_31#c001",
+    "chicago_democrat_1834_01_28#c005"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

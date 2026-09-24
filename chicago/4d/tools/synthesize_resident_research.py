@@ -36,6 +36,7 @@ ROOT = Path(os.environ["SYNTH_SCRATCH_ROOT"]) if os.environ.get("SYNTH_SCRATCH_R
 # copy carries data and no tools: measured, ModuleNotFoundError on rebuild_resident_index.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one owner)
+from refuse_reconstructed_grade import refuse  # noqa: E402  (T-1144; the retirement above must actually have happened)
 
 CHICAGO = ROOT.parent
 REPO = CHICAGO.parent
@@ -48,6 +49,11 @@ REFERENCE = CHICAGO / "reference" / "resident-research"
 CENSUS_DIR = CHICAGO / "reference" / "census1840" / "validation"
 CENSUS_CSV = CENSUS_DIR / "H_1840_chicago_with_names_partial.csv"
 PROGRAMME = DATA / "reconstruction" / "1835_inferred_household_programme.json"
+# The programme that SUPERSEDED it (T-1167). The retirement of 2026-09-02 removed a
+# reconstructed population nothing could account for; this file is the authority under
+# which one may be written again, one stage per ticket. The gate below therefore asks
+# whether a stage CLAIMS each reconstructed person rather than whether any exist.
+RECONSTRUCTION_PROGRAMME = DATA / "reconstruction" / "1835_resident_reconstruction_programme.json"
 LEDGER = RESEARCH / "synthesis_2026_09_02.json"
 SUMMARY = ROOT / "docs" / "RESEARCH" / "resident-household-synthesis-2026-09-02.md"
 CENSUS_SOURCE = DATA / "sources" / "census_1840_chicago_name_crosswalk.json"
@@ -550,7 +556,7 @@ def rebuild_index(index,docs,stats):
     index.setdefault("vocabulary",{})["grades"]=["attested","inferred","reconstructed"]
     index["vocabulary"]["resident_subtypes"]=[PROJECTED]
     index["counts"]["reconstructed_removed_in_2026_09_02_synthesis"]=stats["removed_people"]
-    index["_doc"]=("Manifest for data/residents/. Person grade is the top-level resident-evidence classification: attested = confidently corroborated real named circa-1835 Chicago resident; inferred = real named person reasonably believed to belong to the circa-1835 population; reconstructed is reserved for a later explicit reconstruction pass and is intentionally zero after the 2026-09-02 synthesis. resident_subtype projected_resident is the weakest evidence-based inferred subset. Per-attribute confidence is independent. later_census is explicitly 1840 evidence and is never silently back-projected to 1835.")
+    index["_doc"]=("Manifest for data/residents/. Person grade is the top-level resident-evidence classification: attested = confidently corroborated real named circa-1835 Chicago resident; inferred = real named person reasonably believed to belong to the circa-1835 population; reconstructed = a person no source names, written ONLY by tools/reconstruct_residents_1835.py under the programme at data/reconstruction/1835_resident_reconstruction_programme.json, and carrying the stage that re-derives them. It was intentionally zero between the 2026-09-02 synthesis and T-1167, which reopened it under that programme. resident_subtype projected_resident is the weakest evidence-based inferred subset. Per-attribute confidence is independent. later_census is explicitly 1840 evidence and is never silently back-projected to 1835.")
     return index
 
 
@@ -756,7 +762,7 @@ def round_trip_problems():
         it, and what the gate measures is once again whatever the last run left behind.
     """
     problems = []
-    mirror = (REPO / "site" / "chicago" / "4d").resolve()
+    mirror = (REPO / "site" / "4d").resolve()
     for rel in DRIFT_ROOTS:
         root = (REPO / rel).resolve()
         if root == mirror or mirror in root.parents:
@@ -825,8 +831,17 @@ def drift_self_test():
 
 def check():
     index=load(INDEX); docs=[load(p) for p in HOUSEHOLDS.glob("*.json")]; people=[p for d in docs for p in d.get("persons") or []]; problems=[]
-    rec=[p.get("id") for p in people if p.get("grade")=="reconstructed"]
-    if rec: problems.append(f"{len(rec)} reconstructed people remain")
+    # T-1314. Not "no reconstructed person exists" any more - T-1167 reopened that door
+    # under a programme - but "no reconstructed person exists that no stage of the
+    # programme claims". An unaccountable invention is exactly what 2026-09-02 retired,
+    # and that is still refused here; a person a named stage re-derives is not one.
+    stage_keys = set()
+    if RECONSTRUCTION_PROGRAMME.exists():
+        stage_keys = {s.get("key") for s in load(RECONSTRUCTION_PROGRAMME).get("stages") or []}
+    rec=[p.get("id") for p in people if p.get("grade")=="reconstructed"
+         and (p.get("reconstruction") or {}).get("stage") not in stage_keys]
+    if rec: problems.append(f"{len(rec)} reconstructed people answer to no programme stage: "
+                            f"{', '.join(str(r) for r in sorted(rec)[:5])}")
     bad=[p.get("id") for p in people if p.get("resident_subtype")==PROJECTED and p.get("grade")!="inferred"]
     if bad: problems.append(f"{len(bad)} projected residents are not inferred")
     actual=Counter(p.get("grade") for p in people); declared=(index.get("counts") or {}).get("by_grade") or {}
@@ -865,7 +880,7 @@ def check():
     if dead: problems.append(f"{len(dead)} retired household id(s) are still named by a structure record: {', '.join(dead[:3])}")
     if problems:
         print("RESIDENT SYNTHESIS FAIL"); [print(" -",p) for p in problems]; return 1
-    print(f"OK: {len(people)} people; {actual.get('attested',0)} attested, {actual.get('inferred',0)} inferred, 0 reconstructed; {sum(p.get('resident_subtype')==PROJECTED for p in people)} projected")
+    print(f"OK: {len(people)} people; {actual.get('attested',0)} attested, {actual.get('inferred',0)} inferred, {actual.get('reconstructed',0)} reconstructed; {sum(p.get('resident_subtype')==PROJECTED for p in people)} projected")
     return 0
 
 
@@ -882,13 +897,35 @@ def main():
     if args.check: return check()
     index=load(INDEX); current_before=snapshot(index)
     prior_ledger=load(LEDGER) if LEDGER.exists() else {}
-    before=(prior_ledger.get("before") if current_before.get("reconstructed")==0 and prior_ledger.get("before") else current_before)
     docs={p:load(p) for p in sorted(HOUSEHOLDS.glob("*.json"))}; research=research_rows()
+    # T-1314. This pass IS the retirement of 2026-09-02: it removes the reconstructed
+    # population that nothing could account for. The people T-1167's programme writes are
+    # not that population coming back - each one names the stage that re-derives it, and
+    # `tools/reconstruct_residents_1835.py --check` rebuilds them from committed files on
+    # every commit. Removing them here would make the writer and the programme fight over
+    # the same cards forever, and the tree would drift the moment either ran.
+    programme_stages=set()
+    if RECONSTRUCTION_PROGRAMME.exists():
+        programme_stages={row.get("key") for row in (load(RECONSTRUCTION_PROGRAMME).get("stages") or [])}
+
+    def retired_grade(p):
+        """The grade this pass removes: reconstructed, and claimed by no stage."""
+        return p.get("grade")=="reconstructed" and (p.get("reconstruction") or {}).get("stage") not in programme_stages
+
+    # The ledger's `before` is the tree as it stood BEFORE that retirement, and it is
+    # kept from the prior ledger once the retirement has happened. "Has happened" was
+    # read as "the reconstructed count is zero", which stopped being the same question
+    # the moment the programme could write people back - the first run after T-1314 would
+    # otherwise overwrite 920 households / 956 people / 108 reconstructed with today's
+    # numbers and lose what the retirement actually did.
+    retirement_done=not any(retired_grade(p) for d in docs.values() for p in d.get("persons") or [])
+    before=(prior_ledger.get("before") if retirement_done and prior_ledger.get("before")
+            else current_before)
     stats={"removed_people":0,"removed_households":0,"retained_hh_inf":0,"structures_unassigned":0,"roofs_enrolled_anonymous":0}; removed_people=set(); removed_hh=set(); unlink_people=set()
     for path in list(docs):
         doc=docs[path]; kept=[]
         for p in doc.get("persons") or []:
-            if p.get("grade")=="reconstructed": stats["removed_people"]+=1; removed_people.add(p.get("id")); continue
+            if retired_grade(p): stats["removed_people"]+=1; removed_people.add(p.get("id")); continue
             kept.append(p)
         doc["persons"]=kept
         if not kept: stats["removed_households"]+=1; removed_hh.add(doc.get("id") or path.stem); del docs[path]; continue
@@ -952,7 +989,7 @@ def main():
             continue
         p["grade"]="inferred"; p["resident_subtype"]=PROJECTED; missing.append(pid)
     ledger={"date":"2026-09-02","scene_date":"1835-07-01","tickets":["T-0487","T-0488","T-0489","T-0490"],
-        "owner_ruling":{"attested":"confidently corroborated real named circa-1835 Chicago resident","inferred":"real named person reasonably believed to belong to circa-1835 Chicago","projected_resident":"inferred subtype documented in at least one relevant source but too thin/ambiguous for stronger profile","reconstructed":"reserved for later explicit reconstruction; zero now"},
+        "owner_ruling":{"attested":"confidently corroborated real named circa-1835 Chicago resident","inferred":"real named person reasonably believed to belong to circa-1835 Chicago","projected_resident":"inferred subtype documented in at least one relevant source but too thin/ambiguous for stronger profile","reconstructed":"a person no source names, written only by the T-1167 programme's own stage and re-derived by it"},
         "research":{"reviewed_people":len(research),"outcome_counts":dict(sorted(outcomes.items())),"unmatched_research_person_ids":unmatched,"letter_list_missing_research_row":missing,"letter_list_deferred_to_ladder":sorted(set(deferred)),"promoted_facts":promoted,
         # T-0837.  A promotion this pass DECLINED, and why, so a refusal is as legible as a
         # landing and nobody re-proposes it by reading the cards and finding nothing there.
@@ -978,6 +1015,11 @@ def main():
             if retire_roof(doc): stats["roofs_enrolled_anonymous"]+=1
         if json.dumps(doc,sort_keys=True,ensure_ascii=False)!=old: dump(path,doc,1); changed.append(path)
     index=rebuild_index(index,docs,stats); dump(INDEX,index,1)
+    # T-1144 acceptance 8. This pass RETIRES a `reconstructed` person rather than
+    # refusing it (that retirement, T-0489, is most of what it exists to do), so the
+    # refusal belongs here, on the way out: whatever reached the tree, nothing graded
+    # `reconstructed` leaves this writer. Reconstruction begins at T-1167.
+    refuse(docs, "synthesize_resident_research.py")
     for path,doc in docs.items(): dump(path,doc,1)
     for path in HOUSEHOLDS.glob("*.json"):
         if path not in docs: path.unlink()

@@ -39,14 +39,14 @@
   "OS1": 39,
   "OS2A": 7,
   "OS2": 1,
-  "OS3": 116,
-  "OS4": 8,
-  "OS5": 156,
+  "OS3": 117,
+  "OS4": 9,
+  "OS5": 154,
   "merged": 46,
   "probable": 1,
-  "candidate": 8,
-  "refused": 116,
-  "unmatched": 156
+  "candidate": 9,
+  "refused": 117,
+  "unmatched": 154
  },
  "people": [
   {
@@ -717,10 +717,10 @@
    "places_in_1835": false,
    "places_in_1835_why": "the club's criterion is residence in Chicago before 1 January 1840 and majority by then, and the year in the DATE OF ARRIVAL column is what the man himself said in 1879. A self-reported arrival year at or before 1835 is a dated recollection and not a residence on 1 July 1835: under the ratified ladder (T-0513) it corroborates and enriches, and minting waits on a contemporary source (T-0514).",
    "residents_layer": {
-    "rule": "OS5",
-    "outcome": "unmatched",
+    "rule": "OS3",
+    "outcome": "refused",
     "person_id": null,
-    "why": "no bearer of the surname 'burley' in the residents layer"
+    "why": "the residents layer has 1 bearer(s) of 'burley', none with the forename initial 'a'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",
@@ -750,10 +750,10 @@
    "places_in_1835": false,
    "places_in_1835_why": "the club's criterion is residence in Chicago before 1 January 1840 and majority by then, and the year in the DATE OF ARRIVAL column is what the man himself said in 1879. A self-reported arrival year at or before 1835 is a dated recollection and not a residence on 1 July 1835: under the ratified ladder (T-0513) it corroborates and enriches, and minting waits on a contemporary source (T-0514).",
    "residents_layer": {
-    "rule": "OS5",
-    "outcome": "unmatched",
+    "rule": "OS3",
+    "outcome": "refused",
     "person_id": null,
-    "why": "no bearer of the surname 'burley' in the residents layer"
+    "why": "the residents layer has 1 bearer(s) of 'burley', none with the forename initial 'a'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",
@@ -2234,7 +2234,7 @@
     "rule": "OS3",
     "outcome": "refused",
     "person_id": null,
-    "why": "the residents layer has 3 bearer(s) of 'hamilton', none with the forename initial 'p'; same surname, different forename initial never merges"
+    "why": "the residents layer has 4 bearer(s) of 'hamilton', none with the forename initial 'p'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",
@@ -6950,7 +6950,7 @@
     "rule": "OS3",
     "outcome": "refused",
     "person_id": null,
-    "why": "the residents layer has 3 bearer(s) of 'hamilton', none with the forename initial 'p'; same surname, different forename initial never merges"
+    "why": "the residents layer has 4 bearer(s) of 'hamilton', none with the forename initial 'p'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",
@@ -7031,10 +7031,13 @@
    "places_in_1835": false,
    "places_in_1835_why": "the roster's only claim about time is the club's criterion: resident before 1 January 1840 and of age by then.",
    "residents_layer": {
-    "rule": "OS3",
-    "outcome": "refused",
+    "rule": "OS4",
+    "outcome": "candidate",
     "person_id": null,
-    "why": "the residents layer has 5 bearer(s) of 'harmon', none with the forename initial 'w'; same surname, different forename initial never merges"
+    "candidates": [
+     "harmon_welthyan"
+    ],
+    "why": "1 bearers of 'harmon' share the forename initial 'w'; the roster does not discriminate between them"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",

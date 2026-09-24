@@ -1,0 +1,202 @@
+{
+  "id": "biz_russell_clift",
+  "register_id": "business_russell_clift",
+  "name": "Russell & Clift",
+  "provenance": "compiled_from_register",
+  "type": [
+    "book_store"
+  ],
+  "trade": "bookseller and stationer",
+  "occupation": "bookseller",
+  "goods": [
+    "Books",
+    "Hats",
+    "Morison's Hygeian medicine",
+    "Morison's Vegetable Pills",
+    "Patent Medicines",
+    "Shoes",
+    "Stationary",
+    "Stationery",
+    "books",
+    "hats",
+    "ink",
+    "paper",
+    "pens",
+    "stationery",
+    "stocks"
+  ],
+  "firm_styles": [
+    "Russell & Clift"
+  ],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "Aaron Russell",
+      "person_id": "russell_aaron",
+      "register_person_id": "person_aaron_russell",
+      "role": "partner",
+      "from": "1834-08-27",
+      "to": "1835-08-29",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card russell_aaron (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c015",
+        "chicago_american_1835_06_13#c019",
+        "chicago_american_1835_07_04#c006",
+        "chicago_american_1835_08_29#c005",
+        "chicago_democrat_1834_08_27#c002",
+        "chicago_democrat_1834_09_03#c012",
+        "chicago_democrat_1834_11_12#c011",
+        "chicago_democrat_1834_12_03#c004",
+        "chicago_democrat_1835_08_19#c012"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Benj. H. Clift",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "partner",
+      "from": "1834-08-27",
+      "to": "1835-08-29",
+      "tier": "attested",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c015",
+        "chicago_american_1835_06_13#c019",
+        "chicago_american_1835_07_04#c006",
+        "chicago_american_1835_08_29#c005",
+        "chicago_democrat_1834_08_27#c002",
+        "chicago_democrat_1834_09_03#c012",
+        "chicago_democrat_1834_11_12#c011",
+        "chicago_democrat_1834_12_03#c004",
+        "chicago_democrat_1835_08_19#c012"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [
+    {
+      "name": "Asa Sheldon",
+      "person_id": "rc_sheldon_asa",
+      "role": "clerk",
+      "occupation": "clerk",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a book store at the typical band and 1 at the high end, on directory_1839. A book store is a store. `either`: the trade is one of the few a town of this date let a woman keep counter in, and the directory refuses neither. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#book_store.clerk; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_sheldon_asa:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "book_store",
+    "reads_as": "a book store",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "clerk",
+        "occupation": "clerk",
+        "household_relationship": "clerk",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "directory_1839"
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 1,
+      "seats_taken": 1,
+      "seats_against_the_band": 1,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 1. It is at its band.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-08-27",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The anchor \"Mr. P. Carpenter's Drug Establishment, in Water-street\" names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-08-27",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-08-27, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-08-27",
+    "last_issue": "1835-08-29",
+    "copy_dates": [
+      "1834-08-26",
+      "1835-08-12"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: Aaron Russell (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "russell_aaron",
+        "name": "Aaron Russell",
+        "role": "partner",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_08#c015",
+    "chicago_american_1835_06_13#c019",
+    "chicago_american_1835_07_04#c006",
+    "chicago_american_1835_08_29#c005",
+    "chicago_democrat_1834_08_27#c002",
+    "chicago_democrat_1834_09_03#c012",
+    "chicago_democrat_1834_11_12#c011",
+    "chicago_democrat_1834_12_03#c004",
+    "chicago_democrat_1835_08_19#c012"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

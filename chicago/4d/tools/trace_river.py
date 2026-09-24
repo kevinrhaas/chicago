@@ -57,6 +57,10 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+
+import pinned_sources  # noqa: E402  — the sha256 pin every remote region is held to
+
 OUT_DIR = ROOT / "data" / "terrain" / "epochs" / "e1834_harbor_cut"
 
 IIIF = "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:js957744g"
@@ -223,17 +227,25 @@ def die(msg: str, code: int = 2):
 # ---------------------------------------------------------------------------
 
 def fetch_region(cache: Path):
-    x, y, w, h = REGION
-    url = f"{IIIF}/{x},{y},{w},{h}/full/0/default.jpg"
-    if cache.exists():
-        raw = cache.read_bytes()
-    else:
-        print(f"fetching {url}")
-        with urllib.request.urlopen(url, timeout=180) as r:  # noqa: S310
-            raw = r.read()
-        cache.parent.mkdir(parents=True, exist_ok=True)
-        cache.write_bytes(raw)
-    return raw, hashlib.sha256(raw).hexdigest()
+    """The region, held to its pin before a pixel of it is segmented (T-1397).
+
+    This function used to take whatever the cache held or the server returned,
+    hash it, and write the hash into provenance without ever checking it. On
+    2026-09-19 the library re-encoded this region — 263,865 bytes of JPEG became
+    231,112 — and the lap, which runs `rederive.mjs --run` on every merge, re-traced
+    the Chicago River from the new bytes and committed it onto two unrelated
+    branches. The hash was a label; it is a gate now. The callers that set
+    `tr.REGION` and come back here (trace_north_branch, trace_south_branch,
+    read_north_branch_bank_wash, measure_north_branch_banks) are pinned by the
+    same change.
+    """
+    try:
+        return pinned_sources.fetch_pinned(IIIF, REGION, cache)
+    except pinned_sources.SourceMoved as e:
+        # A move the register has already ruled on is not a failure of this run:
+        # the committed reading stands, nothing is left to re-derive, and red here
+        # would abort every lap in the queue. A move nobody has ruled on IS red.
+        die(str(e), 0 if e.recorded else 1)
 
 
 # ---------------------------------------------------------------------------

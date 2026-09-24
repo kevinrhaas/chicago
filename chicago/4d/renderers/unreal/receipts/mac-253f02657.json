@@ -1,0 +1,1129 @@
+{
+  "scene_source_commit": "253f026570358dfcdab62fb2593c4082b058de07",
+  "engine": "5.8.2",
+  "xcode": "27.0 (27A266a)",
+  "architecture": "arm64",
+  "configuration": "Development",
+  "build_cook_run": "PASS",
+  "code_sign_verify": "PASS (Sign to Run Locally, not notarized)",
+  "binary_sha256": "eb31076d2881137547fb3d9d2550529497d50b242ec257aab4838d5213eda03a",
+  "scene_verification": {
+    "imported_mesh_actors": 384,
+    "solid_and_water_collision_profiles": "pass",
+    "native_body_free_pawn": "pass",
+    "player_start_count": 1,
+    "upright_structure_rotations": "pass",
+    "garden_fence": [
+      {
+        "id": "fort_dearborn_garrison_garden",
+        "yaw_deg": 52.99999999551122,
+        "world_height_cm": 113.53333568572998
+      }
+    ],
+    "source_commit": "253f026570358dfcdab62fb2593c4082b058de07",
+    "play_test": "Required separately"
+  },
+  "packaged_walk_samples": [
+    "LogTemp: Display: CHICAGO_WALK_TEST second=0 location=X=10700.000 Y=10300.000 Z=224.657 speed=0.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=1 location=X=10700.000 Y=10300.000 Z=224.657 speed=0.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=2 location=X=10700.000 Y=10300.000 Z=224.657 speed=0.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=3 location=X=10700.000 Y=10580.484 Z=213.626 speed=300.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=4 location=X=10700.000 Y=10880.492 Z=201.827 speed=300.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=5 location=X=10700.000 Y=11180.503 Z=190.027 speed=300.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=6 location=X=10700.000 Y=11480.565 Z=178.226 speed=300.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=7 location=X=10700.000 Y=11780.599 Z=168.196 speed=300.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=8 location=X=10700.000 Y=12080.603 Z=167.945 speed=300.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=9 location=X=10724.129 Y=12217.477 Z=167.807 speed=300.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=10 location=X=10744.024 Y=12224.451 Z=167.705 speed=0.24 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=11 location=X=10743.791 Y=12224.452 Z=167.705 speed=0.23 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=12 location=X=10743.558 Y=12224.452 Z=167.705 speed=0.23 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=13 location=X=10743.326 Y=12224.452 Z=167.705 speed=0.23 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=14 location=X=10743.094 Y=12224.452 Z=167.705 speed=0.23 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=15 location=X=10742.861 Y=12224.452 Z=167.705 speed=0.23 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=16 location=X=10742.629 Y=12224.453 Z=167.705 speed=0.23 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=17 location=X=10742.697 Y=11943.845 Z=167.705 speed=300.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=18 location=X=10742.697 Y=11643.838 Z=170.997 speed=300.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=19 location=X=10742.697 Y=11343.827 Z=182.797 speed=300.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=20 location=X=10742.697 Y=11043.823 Z=194.596 speed=300.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST second=21 location=X=10742.697 Y=11038.343 Z=194.811 speed=0.00 walking=1",
+    "LogTemp: Display: CHICAGO_WALK_TEST_RESULT PASS"
+  ],
+  "walk_observation": "PASS: offscreen 21-second test with keyboard/mouse ignored and heading fixed south. All sampled states grounded. Forward motion stopped at an obstacle around Y=12224 cm, then backed away at 300 cm/s. No teleport, flight or collision bypass.",
+  "interactive_observation": "Earlier packaged version opened in a native window with Chicago visible, controls overlay, no human mesh or green debug box. Escape quit and restart reloaded the map. Final garden-rotation correction was verified in editor actor rotations/world bounds and the rebuilt package offscreen movement test; no final interactive visual check is claimed.",
+  "limitations": [
+    "Preview imports generated glTF terrain and structures. Web-renderer procedural streets, flora, props, and research UI are not ported.",
+    "Custom per-vertex confidence visualization is not implemented; source sidecars remain the provenance record.",
+    "No full bridge, bank/water or wall traversal acceptance; no Windows/Intel build or second-machine distribution test."
+  ],
+  "skipped": [
+    {
+      "id": "estray_pen",
+      "reason": "No glTF asset; enclosures"
+    }
+  ],
+  "source_asset_sha256": {
+    "gltf/terrain__e1834_harbor_cut.glb": "0c91734d9de6b08259ab8c0e7737062b810712b886ed37730cd726ab0a652464",
+    "gltf/water__e1834_harbor_cut.glb": "21dfdb9c5d7c45c6bb4c1355f3c7fb18cccfac7bef3a0f8122f5bf8b575c5a63",
+    "gltf/bates_auction_room__frame_1834.glb": "1dafb0e00eba6ecb46d137b9e70fd6d0d66f06dfc8d31ec1c15dc458651b8592",
+    "gltf/beaubien_barn__converted_1817.glb": "4b418f028f1d854c32d937cea7d6cf335f64cae3010225cb5b5bd24bde5c9a58",
+    "gltf/blacksmith_shop_state_st__log_1823.glb": "d3d24346847757a9bc7eaedda9a9cf63ba0725a93b3e4b394bdc1beb8970ce44",
+    "gltf/brickyard_north_side__yard_1833.glb": "28ad93e1366811d9d31a15c86d0931ddf97cb6d6b9f4d597fd745e10ca0920d2",
+    "gltf/brown_boarding_house__documented_1835.glb": "1e600eee7d977b9fa716ff6c0ab2cc9a3eb79b76e8db9caa27ea0434a75c6613",
+    "gltf/carpenter_south_water_store__frame_1833.glb": "1836840857f1ff02c660040eda04e6a9c4688b4f6e8ca3b713c478abba646766",
+    "gltf/chappel_infant_school__log_1833.glb": "e09caf3780eb6def5ef3036489569768ae533dc12874649e1c5fa9678d048075",
+    "gltf/chicago_american_office__frame_1835.glb": "c2a12f228c0addea313ff71bd1c4d575464260f0c013c0fef265c1e04d641ca7",
+    "gltf/chicago_democrat_office__frame_1833.glb": "27adea7f762beb9916d575b01f28c9b231e3d6bb9b7cbdf2b6122ec0e999d9ee",
+    "gltf/chicago_lighthouse_1832__tower_1832.glb": "ffccf9db31e5252303572304f857ae6003901c262f8c3bccd3d06ef3684dc7de",
+    "gltf/clybourn_cabins__log_1824.glb": "fc0b8274051a1ba4af66cbd776364eb9f51d1e648df35829e6572fa5d8c6b3b8",
+    "gltf/clybourn_slaughterhouse__log_1827.glb": "b1d893a87c596d69fe859614cc1eaaa6866cd7ca17e7c321659eb85afecc7516",
+    "gltf/cobweb_castle__log_1820.glb": "b7d04b6523082a4fc7fe05139c30d77136db6e5a96a3eb78f840fbac4333395c",
+    "gltf/council_house__log_1834.glb": "aa19780ca2466142bfcdab492706f2516981d67b78c4b9ae0fbb8bb701bd297f",
+    "gltf/dearborn_street_drawbridge__draw_1834.glb": "1889475ca50109802cb2d782af06dc290c00dfc9578ebe53c31fd35dcd25031d",
+    "gltf/dole_warehouse_south__frame_1832.glb": "03a4ff96dd9646fce5589920eb79e0370d624912eba574b12e89bdd8cad0ccb8",
+    "gltf/elston_soap_candle_manufactory__works_1833.glb": "cae979ef89e169e2b4a1d26e5c51b3b36d46b5af543ce300deac6b9195f48b8e",
+    "gltf/exchange_coffee_house__frame_1834.glb": "5418f65229336cf2360913b29da7adbdce5b4e50da61fbd19c4444a2aee2f936",
+    "gltf/first_presbyterian_church__frame_1834.glb": "0cc8e05652b85771d70fdcaea8d29be237b7e1f7f57797a50a78c2ea78838d2a",
+    "gltf/fort_dearborn_artillery_house__log_1816.glb": "8a18483104179f799ea178dfb734ef8355265c7e7551b8cd6748e175a0caf981",
+    "gltf/fort_dearborn_barracks__log_1816.glb": "eacfd9c21b6e482f79bbaf211ec7a3776f5ff0981ad3b816c04a86979c311a2d",
+    "gltf/fort_dearborn_big_barn__barn_1830.glb": "890a0e35886282800f469c0d76cb82bbec8fcdc452e204f570ec1c59b2a4bfef",
+    "gltf/fort_dearborn_blockhouse__log_1816.glb": "847a69eb53733f4163265bd2a88f5504190eaef74eab19c56e1240e958621fad",
+    "gltf/fort_dearborn_commandants_quarters__brick_1816.glb": "60bb4512c18f75ad9aaa9c819ccbb0e248afc2425ec0b0b6524c0fa0f027ed3c",
+    "gltf/fort_dearborn_flagstaff__staff_1833_37.glb": "476674491a725533413da111db916bc8922b4f406c2863e633d0562a0b4b29de",
+    "gltf/fort_dearborn_garrison_garden__fence_1816.glb": "dda7c6c9346fc51e8d37825a7a68905cae58fe08695b0937730a141eff3cba24",
+    "gltf/fort_dearborn_guard_house__log_1816.glb": "244f54a1cf6571bf215a25315c2075f4ea287e073c3637855bfec72c99de42fd",
+    "gltf/fort_dearborn_magazine__brick_1816.glb": "80b750217dc6e279255f40edd94bd8ea98e2949994bf4362ec25f3fef5364808",
+    "gltf/fort_dearborn_officers_quarters__log_1816.glb": "888961df3672d3eb02356b70ff121e1e464290a48ed0c8d77341eac115b617b4",
+    "gltf/fort_dearborn_out_building_a__out_building_a_1830.glb": "e85a9f5613f5c4d0f4fce736f902a4ee80024956c1f1991abd0373753adfa4d2",
+    "gltf/fort_dearborn_out_building_b__out_building_b_1830.glb": "5e9cde455ce7900e288dcd77644b87da675f7f765b370372684664bc5a0d8268",
+    "gltf/fort_dearborn_palisade__picket_1816.glb": "1fa8da18a875db10142a19cb41cbeae8d8d9790006ecb5a8579403b6cf6c224b",
+    "gltf/fort_dearborn_parade__parade_1816.glb": "bc45f858a47aed9b89524242010033983e930d174db8787af6000f4c33d334d7",
+    "gltf/fort_dearborn_root_house__cellar_1816.glb": "6826b10837f4d51beab80de4d03b6b4e53867075d688eecf219ef049567e7891",
+    "gltf/fort_dearborn_shop__shop_1830.glb": "ef779b5ccf546752bfd0d0d778d08bc3ed8542ccd20de5b281ddb92fd9f0e943",
+    "gltf/fort_dearborn_store_house__log_1816.glb": "ebcfddb1dba14bc51af53d8fc983db20df5759a6448b03b6ddbc24f4dc374b1c",
+    "gltf/fort_dearborn_sutlers_store__log_1816.glb": "7a2e48a95a97c411950eb912421f734d5a56c3e6787de68e5c7d0c370672af31",
+    "gltf/fort_dearborn_us_factors_house__us_factors_house_1818.glb": "9d6494980ae04c76b4c75ef87a7914080b3d0cb5ff9cb84d0972ee04e52aff99",
+    "gltf/fort_dearborn_wash_house__wash_house_1830.glb": "2b8144a92f426c3c4c44acdff4d8277867d32f63659a9b90fb53b897bb99f306",
+    "gltf/frederick_thomas_shop__frame_1835.glb": "ca681b3651f6e0c1b5bbd1ae7ea49266186bf9ee0d95f5cac1fb2924def30e42",
+    "gltf/goss_cobb_saddlery__shop_1833.glb": "0e5f6841c5eef399d25df900ee0ef8e05d0d5099f6c5ee5aad3d901d330e49de",
+    "gltf/green_tree_tavern__frame_1833.glb": "d52d350deb4f028e65ee3dc76c134f9d31e4884b1d04cd30866fc94de312f66f",
+    "gltf/h_jones_store__frame_1833.glb": "044e63797a5290b88f64ce8870ba80d7974961c6616d6483f333b4e2f7015676",
+    "gltf/harmon_log_cabin__documented_1835.glb": "42b40838a7bcf617ae1fc50b830cd4c8bae395fd1ad8f81248bb6601e59b80e2",
+    "gltf/harmon_loomis_store__frame_1833.glb": "c3dc95dd840583d9361e3bfb2f29ea89e40b03498638f4bff4bd9b5acd276905",
+    "gltf/heacock_house_monroe__documented_1835.glb": "3eb5d96b5f43974a5c0b8040c65f1dadbb01d7e20623c1aaa940f02236b23b63",
+    "gltf/hogan_store__log_1831.glb": "bd10c643d5247df2a7ac4c56902032882196eaf5b623f623b0333e42c4a38aef",
+    "gltf/inf_artisan_dwelling_west_a__inferred_1835.glb": "3b565d1e7aa1f55970df78ccaab2d8c9fc43d8fadda1fca5eae48ab5195e14d2",
+    "gltf/inf_artisan_dwelling_west_b__inferred_1835.glb": "9cd5681a5560200fc849bf73509d747c061be74af5c5b7219a503af1ef1453e2",
+    "gltf/inf_bakery_lake__inferred_1835.glb": "b9dac9a9f9fbacd85c9146405111754f0fcf37b337ba025688f7eb06d0a25d28",
+    "gltf/inf_barber_shop__inferred_1835.glb": "65f5d919a2b057d1421bd8a061c7ce2e2feff46213c35fbe8c59be6cf0144df3",
+    "gltf/inf_blacksmith_shop_west__inferred_1835.glb": "9129be56eb86ef991cf067dc20b3979e3d4bf52dc6d4126848b630388ee38a5a",
+    "gltf/inf_boatman_cabin_north__inferred_1835.glb": "9c7325164e2630492bc09a8b58e8e6711030d735124f596b28c19624186a8093",
+    "gltf/inf_brickmaker_dwelling_north__inferred_1835.glb": "d3081038a0bfd3ddab454a9ae88c1b248a2e001b864ca25c6181d0f1fa099b60",
+    "gltf/inf_butcher_market__inferred_1835.glb": "ec2ec0c0c9e7e861296e924f6a2417c9d80d3020af3d7f4eb588409689eeba6f",
+    "gltf/inf_carpenter_dwelling_north__inferred_1835.glb": "50d8642ca92908d80e27d5aa39df535bdf288ba2b22661b5a2e196a4acd3d989",
+    "gltf/inf_cooperage_south__inferred_1835.glb": "30af30e97100fdd860c2907924d2bc88dcea3c97f845e2cc3191d261b781642e",
+    "gltf/inf_cooperage_south_branch__inferred_1835.glb": "31771f5161ab60f9163b2a45bc47b2c7936a17df3ef46bb5ab3ac8392eaa2413",
+    "gltf/inf_grocery_west__inferred_1835.glb": "9403eb70af8b712a09acae933e9302e9261150f5ca65f9c13ef84ae05e0a5f37",
+    "gltf/inf_gunsmith_shop__inferred_1835.glb": "92d1ab0b63ea7bafdc57343d57727f25e350602263706b85140e88be6ab8bbaf",
+    "gltf/inf_harness_shop__inferred_1835.glb": "195587a490ea1bd47832f4ceeb14ae171572a90d520c85a285d53bd89ef89324",
+    "gltf/inf_labourer_shanty_north_a__inferred_1835.glb": "6c2c06e011d5dfdf39f8190ce3817e0d4ef4e047b1492d260b5fa54a09f9f881",
+    "gltf/inf_labourer_shanty_north_b__inferred_1835.glb": "130ccce595548944c76fcad941ceb7b6c37d2c8850983f0da4b28d89cbd15541",
+    "gltf/inf_labourer_shanty_west_a__inferred_1835.glb": "5a57a29c2d14654208c25120ee472110241fb7da8d1040066007a223b8c8a1a3",
+    "gltf/inf_labourer_shanty_west_b__inferred_1835.glb": "50e5865ed7cc61ffbae3e1c95a253bece79e78dbccc5d0af2845d8b367b38193",
+    "gltf/inf_laundry_north__inferred_1835.glb": "b2d0b9d57fdb99c8d97a3d6820f20cefdab7d52d793537e1ade4ca6781c80836",
+    "gltf/inf_mason_dwelling_north__inferred_1835.glb": "ae934bc363089bb81233ef841050180ba9e3ffa84ffc14d4bb932e9f4112ffa3",
+    "gltf/inf_packer_dwelling__inferred_1835.glb": "52839fc0f56028f5b40ccc8e862e2c3cd39f8523f1c2c0e68f70b5974bd62f1c",
+    "gltf/inf_sawpit_shed__inferred_1835.glb": "a48f32bd7496bd8e8c692eb06e91deb6bf56d989c24a4dd7502b098142a1ec74",
+    "gltf/inf_sawyer_dwelling_a__inferred_1835.glb": "85c14830459e5c78e6d2b9b570d483aef63fb6269debfa3a5e1f833b880f546a",
+    "gltf/inf_sawyer_dwelling_b__inferred_1835.glb": "6074eb8e4326787ca8f25442860fc47832f052eea4416fd33f88a35d2401f5e1",
+    "gltf/inf_shoemaker_shop__inferred_1835.glb": "7aa361f7033188596b8aeb43375cd437e7c1d699f3d0d3b4aeacbcb9e13fd667",
+    "gltf/inf_tailor_shop__inferred_1835.glb": "a14d1e3754a09f6ab259195cee25db38629458510af818b1c053e1324c82efb7",
+    "gltf/inf_teamster_dwelling_south__inferred_1835.glb": "4f64bd8349bce1088650ad3bd7aa465754abf38dde02172ab31b4b56468cc5ee",
+    "gltf/inf_teamster_dwelling_west__inferred_1835.glb": "c2306b194a00a55dcacbf5c59a34e9bec155ae73d6697bd59f464700c61dd2a1",
+    "gltf/inf_teamster_stable_west__inferred_1835.glb": "a3bf1131a6a988dba2db2334e59a716fea985f995dc06ad233f3dea79bdba2db",
+    "gltf/inf_wheelwright_shop_west__inferred_1835.glb": "2d32675d73185dded99e9fdcf552ba4dd50cf682747012f2f527185e6434733d",
+    "gltf/james_kinzie_house__dwelling_1830.glb": "b39be4f0f624008e8604ddf40179642ccba3b5e17dc08e910d1155c1f4a5aab0",
+    "gltf/jb_beaubien_homestead__log_1822.glb": "03e46ecd8e26289cef68154577b2a67f2f04574c96e19cb202c982de89c8e78f",
+    "gltf/jh_kinzie_forwarding_store__frame_1830s.glb": "4f5feb30bc26c170e4bc95987ef8fd2e8f62f23501c3b212be5eea8e5186413c",
+    "gltf/john_holbrook_store__frame_1835.glb": "7a06955d76ced6bbc4c70e95820b92691e7423095118f4db55ba610454a4962b",
+    "gltf/kinzie_hunter_warehouse__warehouse_1834.glb": "161efb14e74181c261c87a7f53a494de381a59f6dab5e044df25cb7f943f696f",
+    "gltf/lake_house_construction__shell_1835.glb": "229e690f6c6cdb0d729bacdf1d9eae0494c77207f4422642ee629704448d836c",
+    "gltf/lasalle_lake_house__documented_1834.glb": "5fa845b0519673a6619dad6472ac0337df698f75250157b219764f35625b3214",
+    "gltf/lasalle_slough_crossing__crossing_1835.glb": "9b56e061cb58e48b726daa140423ddf1cefd43a96096aa7027b4b9b9d639911c",
+    "gltf/log_jail__log_1833.glb": "5f608535885e136d19af2bc05403b8cc5295499fc59ed68dd3ff59b34a340a8a",
+    "gltf/madore_beaubien_house__log_1831.glb": "6a458d71f2a6998b74e4d6e42b50c37bb253d9982c39a82f033f28059583916b",
+    "gltf/mansion_house__log_frame_1833.glb": "29f45c0f507ac4e7313d68f8a030d1f74ce2c97eea27b90806ecd04d3aba8af1",
+    "gltf/mason_blacksmith_shop__documented_1835.glb": "4302374842448701746a06b17298d50acb1a17695dea40eeae22a4d42f161aa3",
+    "gltf/miller_house__log_frame_1827.glb": "b0bd2c6271972dfa5bea3a92ac1d41c54c0be5cd9ed9fb6c6edab71fddcd6390",
+    "gltf/miller_tannery__log_1831.glb": "ae88b8bf08aa1f605a681e5a6b69fc1f6cc2745001bcb6a9043c7328e1ed5652",
+    "gltf/new_york_house__frame_1834.glb": "022208914e1dd39470e20c7cc72a0169ae21f5378ed3ffb3e8a0517d1137b758",
+    "gltf/newberry_dole_slaughterhouse_south_branch__works_1834.glb": "f47e11a493e39a5e14468d3f72fdbbccfc61ba9f2eb69256b58f0f64eafbef95",
+    "gltf/newberry_dole_warehouse__frame_1833.glb": "649ac6222c3476a6b11c7c93a8aaacead47ae075d85d26357a3ece0e7aa91bf1",
+    "gltf/north_bank_shed_dearborn_e1__shed_1835.glb": "c169cdf5c1971c24ba8d50bebf8902af95e0e85f378a96945bff2fc410d9165f",
+    "gltf/north_bank_shed_dearborn_e2__shed_1835.glb": "ae3dae50c38ad90786e6d8d0d29f8e4ee4511a08c25798ad7a3b9f7db805f179",
+    "gltf/north_bank_shed_dearborn_e3__shed_1835.glb": "112b30f32550bf6b40809310c62bcfb311b229ed52a0bc81ee6eb43525f04a0a",
+    "gltf/north_bank_shed_dearborn_w__shed_1835.glb": "3d08d8711d8d39abbe404be127bd3103240579f205ef6714755728c5f794acfc",
+    "gltf/north_branch_bridge__log_1832.glb": "3b491f60162d9defa274ad4f27cf4202e648a529d059021d844a4bfa7a30cb9c",
+    "gltf/north_pier__crib_1835.glb": "ff01695f56d5a64c8793e2d1d8bd6f09c4b5a2f35e7fd6f5c03b4769afae974f",
+    "gltf/north_side_school_1833__log_1833.glb": "d101c87aa90cb64cbfca254bcb72254f5e75c2f193bd2519312fde413b0f833a",
+    "gltf/north_water_slough_crossing__crossing_1835.glb": "ee6aedf35bc9f155bc119f656b76cc3261150d4b79b68edad775df88e0716880",
+    "gltf/old_bank_building__frame_1834.glb": "b076c60066c4fff1562813963b66d05a41971304c3a0a47e653cd683a1304076",
+    "gltf/peck_store__frame_1833.glb": "6c2e5790432c0b9a7132533a0511da6f7bb9bb3b4fd6a443253956fb1f5679f2",
+    "gltf/philo_carpenter_log_shop__log_1832.glb": "706dc3859378cca6d441af4432dd40ede9180db50fa90bd2555f88e91ddefd7d",
+    "gltf/physicians_office__inferred_1835.glb": "088270d2faa55fb4afb155b215fd1e7a5392a4107d5a567005dcad870028e52a",
+    "gltf/pierce_blacksmith_shop__shop_1833.glb": "c11489e179f0a70f6f7251141f8a9f5bac06dac304e34b7cf73ea03962752262",
+    "gltf/pruyne_kimball_drugstore__frame_1830s.glb": "2d21d1c5d6c0ff322df1d1d7723707669ce92eebebea91df998d5757ddd0a378",
+    "gltf/recon_1835_blk_lake_clark_a3_04__inferred_1835.glb": "f2d5e548ea5f52a5b942c56f4c8a1124ddf4495a700ec11047652c690380a69d",
+    "gltf/recon_1835_blk_lake_clark_d1_01__inferred_1835.glb": "42b988840d0018e71cfbf07482a794a77b033032c97304318a831535f48eccdd",
+    "gltf/recon_1835_blk_lake_clark_d3_02__inferred_1835.glb": "ff38e6dfc6940ac3a9240651e9280f7dccb957d1bba7cd34104694bc43ec665b",
+    "gltf/recon_1835_blk_lake_clark_d5_03__inferred_1835.glb": "c022ff8e9dd6d214dd264cd4bc95de0d00ecbb0aaf6107e8834845ab834834ff",
+    "gltf/recon_1835_blk_lake_franklin_a1_03__inferred_1835.glb": "a761f8ba71619cd8ebd190e5fdf77a01829b79fcd945f69637edb36d141842e2",
+    "gltf/recon_1835_blk_lake_franklin_d1_02__inferred_1835.glb": "e61aecc81176ae0bfd49acba74edd12f8bd06ca109c99f7be20c4346698ec6ba",
+    "gltf/recon_1835_blk_lake_franklin_d5_01__inferred_1835.glb": "8cd6ca5b0435a4c2841992080eadab5e1821b6b7991cb012d78d8eb258b401fa",
+    "gltf/recon_1835_blk_lake_market_a1_06__inferred_1835.glb": "338716cf6764c9506d4e71fad77d386ff8f4e44f288b9d330a7b493d0396486c",
+    "gltf/recon_1835_blk_lake_market_a3_07__inferred_1835.glb": "68143e7f07afa734b1c6d2fdd6be10e1ef2243a913fd0cc892ee191e70856770",
+    "gltf/recon_1835_blk_lake_market_d1_05__inferred_1835.glb": "4a6951a3818a4a2b51f3d07e044ef170cd6f67b7d72b9370e60ee3b358c0cf77",
+    "gltf/recon_1835_blk_lake_market_d2_04__inferred_1835.glb": "6296a43770901a64308f745ff3b1a13e9552b438a25f4c9c3a9c3643a97eee47",
+    "gltf/recon_1835_blk_lake_market_d3_03__inferred_1835.glb": "3e7b052722189e414359c564d6f398e8dfd457a81b33ce95df546d06887e36aa",
+    "gltf/recon_1835_blk_lake_market_d4_02__inferred_1835.glb": "91fc4020e3a92b1580da51eec04e07a45aa44bc791e29046a6ae634eab3a5ae8",
+    "gltf/recon_1835_blk_lake_market_d5_01__inferred_1835.glb": "109e969b35e52997e35492cdd55aaa488b4fdb3b0e90bd8c89ffd5a407e7586f",
+    "gltf/recon_1835_blk_randolph_clark_a3_08__inferred_1835.glb": "87de75cab54b04948c26ee347e64492b6e0017243fe94222dcad998da62bf8b4",
+    "gltf/recon_1835_blk_randolph_clark_a4_07__inferred_1835.glb": "c77372d45114b034199cea63c06ff664de23c342166a20f9eea4d1ccfbb23be2",
+    "gltf/recon_1835_blk_randolph_clark_c2_01__inferred_1835.glb": "e43b5eb8c1d48b85f6487803f689ab6821c1ca5d41a843db4a9573f9a6913492",
+    "gltf/recon_1835_blk_randolph_clark_d1_06__inferred_1835.glb": "9109ee4b533a0aa06236d137131f9ddc9f3cc7e9020fd0844af516addb0ef9a9",
+    "gltf/recon_1835_blk_randolph_clark_d2_05__inferred_1835.glb": "415dc48a6f385bef182c1dcf8101abb5aa7d6fe56b25c2be16b60969866ab1f6",
+    "gltf/recon_1835_blk_randolph_clark_d6_04__inferred_1835.glb": "8157e4dd82da5bcee9a1af2e7a075a145164bde3b22bdf4e38a660bd2b9a84aa",
+    "gltf/recon_1835_blk_randolph_clark_h1_03__inferred_1835.glb": "3e26b3ec90f2a309618ca46a76f1aee1bca526e4790b5d9aff21fba6284e285e",
+    "gltf/recon_1835_blk_randolph_clark_h2_02__inferred_1835.glb": "ea249a9565c38db0b4788acbd0c5d66c5ba81e357c9fef4460ce1e841afff8a4",
+    "gltf/recon_1835_blk_randolph_clinton_a1_06__inferred_1835.glb": "81ef805aad9f43e8b403972d6075eda05200d85f9752b98374308851c679a9ae",
+    "gltf/recon_1835_blk_randolph_clinton_a2_05__inferred_1835.glb": "8155020de6e2416b35ac7c2b8b831b00d5118d1326519e1f7e5f6f87e483169e",
+    "gltf/recon_1835_blk_randolph_clinton_a3_07__inferred_1835.glb": "11ff32cb0754c4a3ee56bf8cf23e6fea1ce8d23610f787c99172e26d86a8fa62",
+    "gltf/recon_1835_blk_randolph_clinton_d1_03__inferred_1835.glb": "e146295d949aafaf018a309a9652f21f405ce69b3124ba4532791c2ece1b28d3",
+    "gltf/recon_1835_blk_randolph_clinton_d3_04__inferred_1835.glb": "7002f417b9abb16232e170ee09d589440fde12a630f4d2f5d200fa9d6a202f1c",
+    "gltf/recon_1835_blk_randolph_clinton_d4_02__inferred_1835.glb": "225e41c6bbfaa3e148fe2c93c89df02af540514e90e5cbef88ec9bee8ffd9cd2",
+    "gltf/recon_1835_blk_randolph_clinton_d5_01__inferred_1835.glb": "37f22b510025b7e1fa118cb5d9d706b2599cb12eaa394e2f8549cc58ac3c96c4",
+    "gltf/recon_1835_blk_randolph_dearborn_a1_07__inferred_1835.glb": "b1d3e5db3a05b5e88f1d606c4d74abdab829d74802ee98752a1d818e6bd14fb8",
+    "gltf/recon_1835_blk_randolph_dearborn_a2_08__inferred_1835.glb": "4efc489ff693140658a591bc89b1c72fbeec1004f7fb19cc43a04f90b299e36c",
+    "gltf/recon_1835_blk_randolph_dearborn_a2_17__inferred_1835.glb": "2a3140b93f859370651834128dbab75413e96576c3667cc0f6535819e7f40c65",
+    "gltf/recon_1835_blk_randolph_dearborn_a3_09__inferred_1835.glb": "9f1f9c3189beb7777916b3e96a88738029d2656d6a5d1885892b8ffb4ee6e052",
+    "gltf/recon_1835_blk_randolph_dearborn_a4_06__inferred_1835.glb": "464d0d28b2de72943573e51329036f1c28a08681de330c4e8ea58b8ca18fc663",
+    "gltf/recon_1835_blk_randolph_dearborn_a4_13__inferred_1835.glb": "ea91f1703c5811c40fdaf188990f4652ac268cd81487a4cd22380401eb8ed4ea",
+    "gltf/recon_1835_blk_randolph_dearborn_d1_04__inferred_1835.glb": "97c70650b97a8d17a57919ddb51d23c1f1721d994896dfb750c3e54be79029e3",
+    "gltf/recon_1835_blk_randolph_dearborn_d1_12__inferred_1835.glb": "b38bb534cc455ff60fb9c1ddcfc823f5e10f70220eee6498b1514fa5a10fc98d",
+    "gltf/recon_1835_blk_randolph_dearborn_d1_16__inferred_1835.glb": "5e769fb8d9ef67cb659c31f1a8b634162cf087b059450e04380ae2dbe1582127",
+    "gltf/recon_1835_blk_randolph_dearborn_d2_05__inferred_1835.glb": "4ebb2c04eb955d2f176982ac951953179010a91e2dfc315686a03e7ee77f59e6",
+    "gltf/recon_1835_blk_randolph_dearborn_d3_01__inferred_1835.glb": "d09ec9eb4c46f45211216ba65794c0147ad73cdc351ae7b477d6a18923e53ad2",
+    "gltf/recon_1835_blk_randolph_dearborn_d3_11__inferred_1835.glb": "c49640f05f5872a2859586e8efb0d7b5719688302445d8febc6c92d59a571346",
+    "gltf/recon_1835_blk_randolph_dearborn_d3_15__inferred_1835.glb": "84df6f464d738d22c6251981eab4f860b1615746fc8ec1ec478adad458a90498",
+    "gltf/recon_1835_blk_randolph_dearborn_d4_03__inferred_1835.glb": "382740b178abf6fb65973d135eaad225e02bd1e0889dbdf4746d3eab0973c5f6",
+    "gltf/recon_1835_blk_randolph_dearborn_d5_02__inferred_1835.glb": "2dd97ffa334605e8685d631b169e297ed3dbb98339be218a65bb1628937280f2",
+    "gltf/recon_1835_blk_randolph_dearborn_d6_10__inferred_1835.glb": "5ea08a99e095f61c5642c37b27d1f74b637d6e577e3efdbcac7220c48b03f087",
+    "gltf/recon_1835_blk_randolph_dearborn_h1_14__inferred_1835.glb": "87ee79d7f27d2c794b0f81e0ca3a9f40450240fef6fe1efffccb5a53a0c9b54f",
+    "gltf/recon_1835_blk_randolph_franklin_a1_07__inferred_1835.glb": "6815185605d7dbefec335019616f15f1504ec3c3d87103607b9acb40739baad2",
+    "gltf/recon_1835_blk_randolph_franklin_a3_08__inferred_1835.glb": "f26c92d1288e6efbf849fc08add5f23e47649b7a5d7f56681ef1525e224674ec",
+    "gltf/recon_1835_blk_randolph_franklin_d1_06__inferred_1835.glb": "392d7e73586dcb19d75ec2547aac3506ee5dd83d086f9ab72f670aea97937871",
+    "gltf/recon_1835_blk_randolph_franklin_d2_05__inferred_1835.glb": "b8b0461beddc4cd4f84ac4c9384b935badfcd305c15eda9cb3dedb2ae1b229a7",
+    "gltf/recon_1835_blk_randolph_franklin_d3_04__inferred_1835.glb": "969068c7c9ee57e86cbdffce99fe37fd29e77b08482aa1d227d3866f246ffbab",
+    "gltf/recon_1835_blk_randolph_franklin_d4_03__inferred_1835.glb": "c1896d87e25ca27596f921106c9c5a06bac075ffef35d163c18ef02cd4b4c1cf",
+    "gltf/recon_1835_blk_randolph_franklin_d5_02__inferred_1835.glb": "9eddb6e14c9a74dc08076d4aec5bec4cb5b755242c2eea01120b124b7d967846",
+    "gltf/recon_1835_blk_randolph_franklin_d6_01__inferred_1835.glb": "55317c764260fb1f56d1f226d88ae399f718314789375d5588907b9d5191b0c2",
+    "gltf/recon_1835_blk_randolph_market_a1_07__inferred_1835.glb": "45e38b8a4ab5c2c953e5895faa1c466ae15a1ae69d225f805015687ab386ff45",
+    "gltf/recon_1835_blk_randolph_market_a1_12__inferred_1835.glb": "6d8dd6b961ac2acb9bb878c8e300a5aefcae894d66d66530090f0fc2f8cb1678",
+    "gltf/recon_1835_blk_randolph_market_a2_08__inferred_1835.glb": "89636145968d2b7311602af36f351b5c611b061cfb0272e1ec8239a638f92908",
+    "gltf/recon_1835_blk_randolph_market_a3_05__inferred_1835.glb": "dde009cbb7d216e3984ec0194f10b094f5daa40a9ac40feea846f6a142a6a803",
+    "gltf/recon_1835_blk_randolph_market_a4_06__inferred_1835.glb": "83b8ba205b73b8739c7a29797f29a3236270328e1e337ac73a2506d22340e553",
+    "gltf/recon_1835_blk_randolph_market_d1_10__inferred_1835.glb": "afa05fbd0124e145295ab95582abc09a6a6884a23d930d940d94ffe4bd5c0957",
+    "gltf/recon_1835_blk_randolph_market_d2_09__inferred_1835.glb": "090a9766e8c7bc3a70c324962c5f5460c472ad34641f2f725ae6adfd5beb41f6",
+    "gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb": "29458f9f87a56a9fe245c75bf0bbadf5200e4f572f55b144afad1fda7635b93c",
+    "gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb": "32c59a8a0063c1c37c3fa4127b686c04b455db39b3d052b57622e24990673f62",
+    "gltf/recon_1835_blk_randolph_market_d5_01__inferred_1835.glb": "7282675cfbc59543c26884013559a475b604b0ba5e954c224528cd0750d42ae4",
+    "gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb": "fd7452f0d9a14555b86410c59c48fd0d29df0bc5ead15f3876540243b564a014",
+    "gltf/recon_1835_blk_randolph_market_d6_02__inferred_1835.glb": "70b79a5799c4cdf755316b37479fa77875162f3fce05a7c6aedcc4c23af9fdeb",
+    "gltf/recon_1835_blk_randolph_wells_a1_08__inferred_1835.glb": "d1139067a331bf62782a0d6db2dddbcff7eb0315c73e97ded916e08c03cf61fb",
+    "gltf/recon_1835_blk_randolph_wells_a3_09__inferred_1835.glb": "86672d93dc3da0378af1aaa20f6d37614c8331b673095320e3e8467f38ce39ce",
+    "gltf/recon_1835_blk_randolph_wells_a4_10__inferred_1835.glb": "6fc893f3841b8bd8269b464b7556d5082d68449372ae1a26cc3732e29d315ebd",
+    "gltf/recon_1835_blk_randolph_wells_d1_06__inferred_1835.glb": "7161a0ce8c57c4a1ac6189cde3e869edef909d2b5c156192a6e53905cb79cc01",
+    "gltf/recon_1835_blk_randolph_wells_d2_07__inferred_1835.glb": "085b26b329d519f02116ccfb2d51121188128c9e6ff163d36f322cfbb5f4e4f1",
+    "gltf/recon_1835_blk_randolph_wells_d3_05__inferred_1835.glb": "f26b754e85b01d59e6707d3723828e6c6ba92c585d9402c92084e6352cad0efd",
+    "gltf/recon_1835_blk_randolph_wells_d4_04__inferred_1835.glb": "482b97b977c8c5a59d4fef36eff4a1b9756db0446d8825c6da83460c9b7ceeaf",
+    "gltf/recon_1835_blk_randolph_wells_d5_03__inferred_1835.glb": "1dace8042f76572d5d59c1428083ec04ce566e11dcbbeb8c10b20b6db4eb222b",
+    "gltf/recon_1835_blk_randolph_wells_h1_02__inferred_1835.glb": "387a293db6ffec52e64468a67060303bd6088b82705a0512ca3fa26dc9d60490",
+    "gltf/recon_1835_blk_randolph_wells_h2_01__inferred_1835.glb": "21efd6868635e91954eaf8990847181c4d4438ae3c945b92db89cca65de0b79c",
+    "gltf/recon_1835_blk_south_water_clark_a3_05__inferred_1835.glb": "5504391d388059115f2b86389f2226f3c767e2ecb1daaaa46467f5d96476c5de",
+    "gltf/recon_1835_blk_south_water_clark_a3_07__inferred_1835.glb": "d2aa364a79a35a2fa7793bcd62dda42f8a7cb19f080a4bbea4541e1b39738eef",
+    "gltf/recon_1835_blk_south_water_clark_c2_06__inferred_1835.glb": "450365953a595cb4de55e572120fe00b51af35f2c5e729c25757c11eae88068e",
+    "gltf/recon_1835_blk_south_water_clark_d1_04__inferred_1835.glb": "8807a5b83b72480a6361b30c1570f372c267b0e06b32fab5bb42fc88717e921d",
+    "gltf/recon_1835_blk_south_water_clark_d3_03__inferred_1835.glb": "d80088bd108022afaab383d81d59e1ccae1a4488fd69bf02836d4df4b7f09aa7",
+    "gltf/recon_1835_blk_south_water_clark_d4_02__inferred_1835.glb": "23752e3fda99e190444ab0e597e9efd02d806e4d327e080ae06ac411c4c2481e",
+    "gltf/recon_1835_blk_south_water_clark_d5_01__inferred_1835.glb": "611818109f783c00417abcfe9113ba015874698689a2d60685617bda52196d52",
+    "gltf/recon_1835_blk_south_water_dearborn_a1_09__inferred_1835.glb": "488e8053ea3d7f4be2812adda71a642a45d60d1d0157978367f869d3631f2090",
+    "gltf/recon_1835_blk_south_water_dearborn_a3_06__inferred_1835.glb": "427a28842603f467acc670480fa9573a470355b97b050aab53544f3befead102",
+    "gltf/recon_1835_blk_south_water_dearborn_c3_01__inferred_1835.glb": "e39fac2966e07c1dceeb9dc47a9c98b41f7ee5c0298a2acf0c378c8ec43cf41c",
+    "gltf/recon_1835_blk_south_water_dearborn_c3_02__inferred_1835.glb": "1437abb41b7b951c90e09e61cc98e43149713080b5f3e53328e3b019647818ee",
+    "gltf/recon_1835_blk_south_water_dearborn_d1_05__inferred_1835.glb": "280b109ea596bea1574359d7198836b9a060b52f1ba3f6570844fd1dda0137eb",
+    "gltf/recon_1835_blk_south_water_dearborn_d2_04__inferred_1835.glb": "b7939c825388565a5c0dce56b5e23aa0e3d67d6599a46b4afde5eba4550b33cf",
+    "gltf/recon_1835_blk_south_water_dearborn_d3_08__inferred_1835.glb": "e066da405e8fa9637fd2236c30d2bd194e661eb81bfdd28cdb09d07f4765c61f",
+    "gltf/recon_1835_blk_south_water_dearborn_d5_07__inferred_1835.glb": "ac7c524b5a4d1fafc5e191f40227653c7a2d3d1c37edb1b82dfe7d349f682721",
+    "gltf/recon_1835_blk_south_water_dearborn_h1_03__inferred_1835.glb": "a5afbcf86bdeb79024dd0e309d3651aad00979ca4ba9280fe43cc46bee1f3ff5",
+    "gltf/recon_1835_blk_south_water_franklin_a1_06__inferred_1835.glb": "43b73c7e3bb6e16d9d3b357c6a3b49558604c8a45aa9772224cdbbb6feba7253",
+    "gltf/recon_1835_blk_south_water_franklin_a3_07__inferred_1835.glb": "2ac9f70c8146dd603f2885badd3ec632d7cc323ed6f26079d1339d6c5ba8358e",
+    "gltf/recon_1835_blk_south_water_franklin_a3_11__inferred_1835.glb": "8fc76a6de71be30a2eab24dd0a91688e91409f335c558461bfb45676b63a07e3",
+    "gltf/recon_1835_blk_south_water_franklin_c2_10__inferred_1835.glb": "adbd9ae8c325921b9f3b34cf0e975390e8b885114a8b6aee5172ba9ff0b34fa3",
+    "gltf/recon_1835_blk_south_water_franklin_d1_04__inferred_1835.glb": "7db54005aae28330057be7cf29c30631c6c301ac5dde44c643384656463f0420",
+    "gltf/recon_1835_blk_south_water_franklin_d2_05__inferred_1835.glb": "d460f6545117da0f3e86d1a3fc36f6aad9226ef027bfac9339662da94bad4c11",
+    "gltf/recon_1835_blk_south_water_franklin_d3_03__inferred_1835.glb": "04aa1e24305c943d637ff7a4506872093f61b00cd878373b401c311ef2be9d9a",
+    "gltf/recon_1835_blk_south_water_franklin_d4_02__inferred_1835.glb": "0cb3daf7f5e23889fee52aed2f1037e6c78374a167950fa63fe1103f202eb29f",
+    "gltf/recon_1835_blk_south_water_franklin_d4_08__inferred_1835.glb": "fff2b6efc7943649a4ab226a397d49e9124486b8dbda8914c73b63311f993df5",
+    "gltf/recon_1835_blk_south_water_franklin_d5_01__inferred_1835.glb": "10a1e650c1e3b96593f92a3e82c5f31396c75916f9697f21d010f972d4ba7941",
+    "gltf/recon_1835_blk_south_water_franklin_d5_09__inferred_1835.glb": "70c00598df483256c7ed18b3cb1083f70bf0c42e1784038fb752ec10fc5e5f52",
+    "gltf/recon_1835_blk_south_water_lasalle_a1_06__inferred_1835.glb": "5a6debabae111fe9ef2872bfb7e0b35a54dd0ab0263bdde09cd0ccab48b9f1f6",
+    "gltf/recon_1835_blk_south_water_lasalle_a1_14__inferred_1835.glb": "01965019a8bf1e81c76e6d551639a1df8ebfc2cc8167f1deaeae038c9f15ab08",
+    "gltf/recon_1835_blk_south_water_lasalle_a2_15__inferred_1835.glb": "f88ed6883ef88b6e8e62d78ba62dbfc76fd427141d5fc32fd2bb399fd6ec4e86",
+    "gltf/recon_1835_blk_south_water_lasalle_a3_07__inferred_1835.glb": "036d1bd47c39560b4c54fcd9b043d414be915778a409dbdf0ea04adb4bbfa0db",
+    "gltf/recon_1835_blk_south_water_lasalle_c3_13__inferred_1835.glb": "5e0003d57e963d4cd7a23e1a95be1812a9144e3d1e8754b77b31201aca0c0cee",
+    "gltf/recon_1835_blk_south_water_lasalle_d1_04__inferred_1835.glb": "876743b7712e7c8f8d83e8a7444ca1dcc2a6a5dda954cb346eb7867274f12fa7",
+    "gltf/recon_1835_blk_south_water_lasalle_d1_08__inferred_1835.glb": "0735b19dacb62e4bc18df220ce309527ad07967722b14fb405524c49d74b97ba",
+    "gltf/recon_1835_blk_south_water_lasalle_d2_05__inferred_1835.glb": "1a6b6b0ac9f06ad4b6ba1c4578c1415f722b8b259e851229fcde78e2d763b85a",
+    "gltf/recon_1835_blk_south_water_lasalle_d2_09__inferred_1835.glb": "155d54b5255c7923ada3cc305e95ffaa9dd0414281cfffe3c75e476b7b1fd8be",
+    "gltf/recon_1835_blk_south_water_lasalle_d3_03__inferred_1835.glb": "9d52143e18c7bad3646125edc44b6276bf7d4f7082802943d2d52d282df967d7",
+    "gltf/recon_1835_blk_south_water_lasalle_d3_10__inferred_1835.glb": "f51a0356568318cdbac1a04ea487b0717afa35394eab6a7952a3495a12664799",
+    "gltf/recon_1835_blk_south_water_lasalle_d4_02__inferred_1835.glb": "f4e9d3c12016332fe0bf45c3c129a30108e10ba478a9b6bec00eccde5112e84e",
+    "gltf/recon_1835_blk_south_water_lasalle_d5_01__inferred_1835.glb": "e1fc03901752f8b6b5fec8e43c2db447b0961219f9a630446d1f4021d1347210",
+    "gltf/recon_1835_blk_south_water_lasalle_d6_11__inferred_1835.glb": "20abd5174f09f1aadc909823c1ff745f837bbd549e79b8dda6f6159a9ede6598",
+    "gltf/recon_1835_blk_south_water_lasalle_d7_12__inferred_1835.glb": "a3e3c7d3c3d0657475180e55c824dc62dbf4e0ff43a394b6b4ee339cdb9d4ad2",
+    "gltf/recon_1835_blk_south_water_wells_a1_07__inferred_1835.glb": "a85266a29cce56c2640825557a4dbb57f9bf10889b2a8e15b8ef689f089934a1",
+    "gltf/recon_1835_blk_south_water_wells_a3_08__inferred_1835.glb": "28517526a7d0c75e477f57518f8be105ff8cbe31ab41befac50944e3779163b0",
+    "gltf/recon_1835_blk_south_water_wells_d1_05__inferred_1835.glb": "f5af0ced3fb60d2d73520994b6c9ee4b8aa96414db70086535f877ffb465d070",
+    "gltf/recon_1835_blk_south_water_wells_d2_06__inferred_1835.glb": "503023a72615ba022bd96e9390796cd9e5a28edefef516bf346d7fdea36b81d5",
+    "gltf/recon_1835_blk_south_water_wells_d3_04__inferred_1835.glb": "cdfa14e621d401cb5b5e01aeacf583538c5da631e13d90cb9a38793caab97bc5",
+    "gltf/recon_1835_blk_south_water_wells_d4_03__inferred_1835.glb": "8bf56a5d770e9aba4a3c6449f7aceddfb9ce88380ff267fe2297aaafca41f809",
+    "gltf/recon_1835_blk_south_water_wells_d5_02__inferred_1835.glb": "e443d9ddf3bd3b39a061b0a40fbab7ccb094cb72f8f1312ec469af50f9cd6402",
+    "gltf/recon_1835_blk_south_water_wells_d6_01__inferred_1835.glb": "388cf5d4a65a90ebe86799eed46be24486cc9ae3c778e5f32cecea21f54447a9",
+    "gltf/recon_1835_north_a1_008__inferred_1835.glb": "ee0f7e329ad3e1dc4a4efa967c3c2d01b67b50ab3b2623b2cfbd3f2c9a7554e1",
+    "gltf/recon_1835_north_a1_032__inferred_1835.glb": "94566dc178aeac125eab7957622b03258b30887f67023de97729ab69fde8012a",
+    "gltf/recon_1835_north_a1_036__inferred_1835.glb": "ec0a3101156a80f2cfce1cc453b507a60a9211cb1b60324e3b8da48511663f82",
+    "gltf/recon_1835_north_a1_050__inferred_1835.glb": "97b2498f4d1cb664fdc8a548830cf039f13a3708841eda8a67998eaacdeee245",
+    "gltf/recon_1835_north_a2_033__inferred_1835.glb": "98148e5c57213704d505ff54de17ebabf7499306a62d30ef139de7b979a65b6e",
+    "gltf/recon_1835_north_a2_048__inferred_1835.glb": "e4013f77120db34b1717667e403972486ef9786cadd109cf4e3f9eca09d22501",
+    "gltf/recon_1835_north_a2_059__inferred_1835.glb": "d4008c1b80ee2977976f57819a4ba0b96df53af0c0b7cb778069e710e36b253f",
+    "gltf/recon_1835_north_a3_009__inferred_1835.glb": "3e49bbc717b960cf7719a4f107ed23c62fe6fb414a21e8612e9bec3e84e0aaf8",
+    "gltf/recon_1835_north_a3_034__inferred_1835.glb": "dd3c2a4e3538ed1b43f172f8fcac09101ccae4f39e8c14c803d10739a6eb4242",
+    "gltf/recon_1835_north_a3_051__inferred_1835.glb": "a70961027242264b3d718e262f85158f873a025cd85924522c99f054c39519ad",
+    "gltf/recon_1835_north_a4_010__inferred_1835.glb": "ebb3233fffda41b55499565abb9434f0cc50f297f8ac6636e23e3bbbe7ee01b3",
+    "gltf/recon_1835_north_a4_035__inferred_1835.glb": "d96cfa1899c36468b0ef94f962cf5d989b585e21a5672584e67d5870d709ee79",
+    "gltf/recon_1835_north_a4_052__inferred_1835.glb": "4f6c62d9eb7557c45bd146ab4bdc320816c83f44bf11256a853012bc2dbc145f",
+    "gltf/recon_1835_north_a5_011__inferred_1835.glb": "2694fa8efc8d25f0aeb7b9a78305082a022a3112b333bb375792e6e4315ebd61",
+    "gltf/recon_1835_north_a5_049__inferred_1835.glb": "15040d4197e1986a2933f782ea51f00e88c41f4307564eab3ce1da2c78714384",
+    "gltf/recon_1835_north_c1_020__inferred_1835.glb": "35027c1678e6c6e3a1d6f01b058013e25cd2e2cf05318a8bfd0c5fd046d47403",
+    "gltf/recon_1835_north_c1_047__inferred_1835.glb": "e9bf3cab8c531abb14a5d7317a4306403db690787872bac8cbc95dc9744a00ce",
+    "gltf/recon_1835_north_c2_027__inferred_1835.glb": "d80a020ab15faab59a8d99b910fab45c7c685879791699882b2ac6d50cad1eb2",
+    "gltf/recon_1835_north_d1_001__inferred_1835.glb": "3c94f9742e74406281f1ff0b3ad9be733ad5bfcedabc17a01ca861989e96bc22",
+    "gltf/recon_1835_north_d1_013__inferred_1835.glb": "d525cbe852403c02961293c5963fcf15b81483a7251382f396147f615f744ee3",
+    "gltf/recon_1835_north_d1_023__inferred_1835.glb": "d043f77edc7d045fb76773430d0ae4d42d157ff9b08ce3aa7fbb60bb8e34568f",
+    "gltf/recon_1835_north_d1_053__inferred_1835.glb": "960332fbd1c40444c27e62ec4edb9f957441b6e5080a7bdcc5e165ec9c8ac864",
+    "gltf/recon_1835_north_d1_054__inferred_1835.glb": "68b483b67a22af85758c2b0513e3a97926b4ff9bbc8feca9a4677627e3febfbf",
+    "gltf/recon_1835_north_d1_060__inferred_1835.glb": "67788b5fe18eb266bbab75904b98bec6a7b422ded4bf98038dda2c84771503d7",
+    "gltf/recon_1835_north_d2_003__inferred_1835.glb": "e8f4a052209a12faa9eb270448e87b61ced6b381580ab62a7c4ee2872966a9b7",
+    "gltf/recon_1835_north_d2_014__inferred_1835.glb": "83cd439b8af2a0fad67c6bd5660bb1804e494713cb2e64377d8a630a995360bb",
+    "gltf/recon_1835_north_d2_029__inferred_1835.glb": "c72617a2958d0b384c0b40f7705626de0ce03162c2366ab0acbad03c649687e3",
+    "gltf/recon_1835_north_d2_046__inferred_1835.glb": "40a3d6d620131a2329d9a72194a7dd2bdd09601ce8157a6b9719ac2686cf6c44",
+    "gltf/recon_1835_north_d3_002__inferred_1835.glb": "c51aef70b4be4ee69f9a3f833a0968da6accfbe990bad636b1e27e49b10c144e",
+    "gltf/recon_1835_north_d3_006__inferred_1835.glb": "820135bd62d899cb43dad5866f686d9abfafd7d9ba1d00fc5e9d04b6b07aa23d",
+    "gltf/recon_1835_north_d3_016__inferred_1835.glb": "8f68f7974dfc10f6739b9b5b99f6799b29972d17a2858dfd01392935c2942f2d",
+    "gltf/recon_1835_north_d3_024__inferred_1835.glb": "8546551c0cbcd0d66b717267471d693bc49faf73fd198a01a24128e01889e50b",
+    "gltf/recon_1835_north_d3_038__inferred_1835.glb": "2ec37890eff4760b5699873266289dc0c697fef5b52df6c7a79536d2480e941b",
+    "gltf/recon_1835_north_d3_042__inferred_1835.glb": "387de7b3e706aefbd1eba7df73b78797ee9ac416459d42f338adefd09305bbff",
+    "gltf/recon_1835_north_d3_055__inferred_1835.glb": "1f3bad78ebcd064dc59382293751904910e0efbb63d2d6f62f6db41cc7ffbbf5",
+    "gltf/recon_1835_north_d4_004__inferred_1835.glb": "d17c500f1d862a50c1973864f28324173b8f8de7ee958fd3af4bbacfe6244d57",
+    "gltf/recon_1835_north_d4_012__inferred_1835.glb": "5d59f3646c934473ce8765a52b22fa9d8296e4774fba9f3d920bd79a49d28d2a",
+    "gltf/recon_1835_north_d4_017__inferred_1835.glb": "00f5024b0b642044c1dc0887db54890565d75d67df4ddfd55b6b01a1cb1dcc5f",
+    "gltf/recon_1835_north_d4_025__inferred_1835.glb": "ca45f24b840c3f299c93cbf63a92ba2989079ab6315eaf689bfd93ba34e8c83d",
+    "gltf/recon_1835_north_d4_039__inferred_1835.glb": "9fd95048382e230ea9d78262dada126d658c1cb8d8a18c26e3cd54329f5f49de",
+    "gltf/recon_1835_north_d4_043__inferred_1835.glb": "5174406b0be8f586ca4f3ee54bc5666e6e3e23845272a9c3d00da7446ab2b069",
+    "gltf/recon_1835_north_d4_056__inferred_1835.glb": "a8c43f49a90a9fee40348def984d99e0ac6beca5d5ce0489d2e56537710af1d7",
+    "gltf/recon_1835_north_d5_019__inferred_1835.glb": "7e941c9a0385053fa1e87f8ccfbb5d0e41b1a940033a755413c57fa50c6d70a2",
+    "gltf/recon_1835_north_d5_026__inferred_1835.glb": "80768118e223b7d349b596ee5b48aead3b8a13c30d382489f1fe1657387b5c8f",
+    "gltf/recon_1835_north_d5_037__inferred_1835.glb": "c92766dd4c1bd07b54fc2d2b649e40ea8c24e440f22bb371777a3bc2dad532f2",
+    "gltf/recon_1835_north_d5_041__inferred_1835.glb": "57e35f3420a6492a29907d68842cf1ba04fd30629542edff8636dd740e1c0b63",
+    "gltf/recon_1835_north_d5_057__inferred_1835.glb": "c0b137c86349a1d41112bd3560acad8fb03f37e7ce90376be09a8680896a7600",
+    "gltf/recon_1835_north_d6_021__inferred_1835.glb": "397d5eaf635d5b0933b98f3097cadd7a7b51f8b3eb2a07ded9706b6ed45087df",
+    "gltf/recon_1835_north_d6_044__inferred_1835.glb": "b7603e459e6cdbf70a4d0ed83d74532e4ff8d63da8849429f687ce49949fb75f",
+    "gltf/recon_1835_north_d6_058__inferred_1835.glb": "bc093f3f8225d475b1afaff350e0795c15016347d7fcb5c9bedb68de60a3219d",
+    "gltf/recon_1835_north_d7_031__inferred_1835.glb": "9e4b84b6ff7f77a6583fafb73c7f2d0d01c380e64570775d7f39411ba3d6421c",
+    "gltf/recon_1835_north_f1_022__inferred_1835.glb": "3b21cb315dd38ca51a3cac7c6bc2448035c594d91fbd88d73d7f5ad4197541c1",
+    "gltf/recon_1835_north_h1_007__inferred_1835.glb": "249d48fc168e91153a611d30112d0f4713ac0bbef65e0b2276e90827d4fb3b57",
+    "gltf/recon_1835_north_h2_030__inferred_1835.glb": "26eb3c54a466eaf87f97179586c86bb342fafdca98adf8c0adb6985c3b6c433c",
+    "gltf/recon_1835_north_h3_045__inferred_1835.glb": "0ad863349bd0cebfe65ac58293cbc645c80a3320aa4dd274b439cb45749c7931",
+    "gltf/recon_1835_north_i2_015__inferred_1835.glb": "c095ea1cbdf13bb5ba5cb37667a565ec3ced8b719f334a8d1c5ae3cd9e014ecb",
+    "gltf/recon_1835_north_t1_028__inferred_1835.glb": "350eca05ecf9c5aa9b594ef58538b61875db8ee9e96595b45d1c602ea587a323",
+    "gltf/recon_1835_north_w1_018__inferred_1835.glb": "69d12521eaeb0a64b7d67f9bc22a73d0bef33592afd484a56cc5479cc6e41c5c",
+    "gltf/recon_1835_north_w2_005__inferred_1835.glb": "159829816b2a194e7afa80ba9c47d4f78b02f05a97adf751756099c09f8a67f5",
+    "gltf/recon_1835_north_w5_040__inferred_1835.glb": "6024f83e3ff896b361bccd252464921d7cd9ce8211398e8372bb5ac2055c2fcc",
+    "gltf/recon_1835_south_a1_046__inferred_1835.glb": "305dee959866e261bf8f6b2a3580cb031be1e5bb4457ef35c0c344d1f259d520",
+    "gltf/recon_1835_south_a2_047__inferred_1835.glb": "4afb2e962abbc16607446bcbbe3c9fadfcddfe4120bc02d906b7d5c559f33210",
+    "gltf/recon_1835_south_a3_041__inferred_1835.glb": "73e5ae007d5a7221204bd656338f279ef45bb1fff00e23103bfbb6e0d89515f5",
+    "gltf/recon_1835_south_a3_043__inferred_1835.glb": "ce418627deb4a587cf1137ea14d28d38b76509a4e915ffaaac54e60fbad0bbee",
+    "gltf/recon_1835_south_a3_045__inferred_1835.glb": "684a8f3467ad7d6300e9e46a546bc054f4ca7850237b6176624385a823e5a1e0",
+    "gltf/recon_1835_south_a4_042__inferred_1835.glb": "8926b282110cd0dc1dc96d075bfc2f66c860f8e9aa9303defdf8ff6e435acd11",
+    "gltf/recon_1835_south_a4_048__inferred_1835.glb": "fe052cac26ce2f7e06172aa4cac0e90cb78f58ecae84545dc2ccb619b11fab60",
+    "gltf/recon_1835_south_a5_044__inferred_1835.glb": "207edcde56a1633525e3560bfee60c1fd89728bf7aed08c7b09136b742a45c1c",
+    "gltf/recon_1835_south_c1_003__inferred_1835.glb": "0bf32e5ba120f1bf6f47a4940cece841080785204e4fe9ec19423668509f1065",
+    "gltf/recon_1835_south_c1_010__inferred_1835.glb": "4eec09bc5c4ef82344d71039afbc7aa6a67d943b892cff161e494ae5c5132613",
+    "gltf/recon_1835_south_c1_018__inferred_1835.glb": "b041a7603da0b1e4f3e9ad44c99069c5af1c65ab1dfa29d04fcaca415c5bc234",
+    "gltf/recon_1835_south_c2_007__inferred_1835.glb": "309f052bc6b40392bcb56d1feb622726424a7ac7f9293b0d6c206845f0a4285a",
+    "gltf/recon_1835_south_c2_036__inferred_1835.glb": "df00d65794218f6f432c1b99bfae0556c12a482514b33132ad5c47995fcf0b4c",
+    "gltf/recon_1835_south_c3_015__inferred_1835.glb": "a88f8800c95a076ae7d99017ac0d7470e0427c929e898ace8a306e9ca54caa5d",
+    "gltf/recon_1835_south_c3_037__inferred_1835.glb": "afe30f2d2fcc12e48ea4b2e878c54906261af096709c335971fc99b1bf0ce741",
+    "gltf/recon_1835_south_c3_040__inferred_1835.glb": "7a31c81c04c8d2b7a2a339bd7fdb39aee476b4c300c35c7b77ee02b302993c02",
+    "gltf/recon_1835_south_d1_021__inferred_1835.glb": "4e1c7f27ec0e000e8bd19457c7f1ad3e78deb2cfd1b5a1812b247938b68d4d3c",
+    "gltf/recon_1835_south_d1_033__inferred_1835.glb": "0c2a17aa6a2293fe5147c6ee8d16c15378153901ab082b358ae8f7cdf7e99137",
+    "gltf/recon_1835_south_d2_005__inferred_1835.glb": "c9d9b98488017b1576ba1eba6f1541439469a667fb092cbbdca5942850ee845f",
+    "gltf/recon_1835_south_d2_024__inferred_1835.glb": "73c7b869d3e3c7bef1b11a3fcaf24828803fd95fedbdf2ec075ed0af06147da1",
+    "gltf/recon_1835_south_d3_001__inferred_1835.glb": "1cd78202d569192d5672caccf83804ba3e519040b823ea8f8411e0c1212c5dc7",
+    "gltf/recon_1835_south_d3_008__inferred_1835.glb": "d7f3546cab96ceec5ef1ff129be0c4d198139dc164624f970d0d5e9a93bfc5f7",
+    "gltf/recon_1835_south_d3_013__inferred_1835.glb": "23a28bbfb9e6bfd21519f0c91de3bf071ba2e2aea3b0dcad5447ebfdc242c49f",
+    "gltf/recon_1835_south_d3_017__inferred_1835.glb": "ad9e1e7246347b761a45e73e0ee88971dd1da176aa92d1f5fc67062f8b2031ff",
+    "gltf/recon_1835_south_d3_022__inferred_1835.glb": "21204eb383b608baab64ccc32219fae54076555f42e926d52a93d02aec69e245",
+    "gltf/recon_1835_south_d3_027__inferred_1835.glb": "1a0f913322a6789a9a6897d2b3e682709b9631a4e52e43684bec08e90ddfebfb",
+    "gltf/recon_1835_south_d4_002__inferred_1835.glb": "b9e348ea094202f8203ff24e41d9d4fc3b1ab785fbc4fca09285d30b6dca28a0",
+    "gltf/recon_1835_south_d4_006__inferred_1835.glb": "1ed602ada39483b0fd55e65b4b1e266cb6acd6fb4b724857a391eb38e038c8da",
+    "gltf/recon_1835_south_d4_009__inferred_1835.glb": "1e6d5f2a8334723b407581939fbc738613b311958eb2aef4ce14143f470e27ac",
+    "gltf/recon_1835_south_d4_014__inferred_1835.glb": "e640ca262a148a960672f1ca4ce673f5e6e8cf6f7e056e8bec411cd3bf278a32",
+    "gltf/recon_1835_south_d4_019__inferred_1835.glb": "4dd954bca6c549916c26818f541fea081a83d5e3569f036f63eac717b33e4c6c",
+    "gltf/recon_1835_south_d4_025__inferred_1835.glb": "39a72536d1d038fb439f5365a4f2e6adfe90dae6d98d3b71db51561275ebf82e",
+    "gltf/recon_1835_south_d4_030__inferred_1835.glb": "bc8e2289e13abb3ed84136a505be921c36a335671ec0eee6768a97e1939bfb31",
+    "gltf/recon_1835_south_d5_004__inferred_1835.glb": "fc8d8569a34eab5c7fb5833e899381fdbb07ad2f2bf348516aca17b908a004e1",
+    "gltf/recon_1835_south_d5_011__inferred_1835.glb": "ea95d9f5349faa50bfd7dbf15b1c0bbd31daee142a341c94c5b63df935da2602",
+    "gltf/recon_1835_south_d5_016__inferred_1835.glb": "97f9a456d7b8a1728d45fe03cc8e7b5e929ae13e5ecb1dbc28d7950dd6e624b2",
+    "gltf/recon_1835_south_d5_028__inferred_1835.glb": "71c35e456e35116f7e51e1a05ab1d616402e04f857fe51e69246aedf6d2e3af5",
+    "gltf/recon_1835_south_d5_034__inferred_1835.glb": "511892d9a6bd5af780c95ad7c9e8febfc6368465b9c6244ec247c7a19fef30df",
+    "gltf/recon_1835_south_d6_012__inferred_1835.glb": "c3cf353c0ad380a4b3570d7efd596ea4a014344229ec228125d94b0bfd710c30",
+    "gltf/recon_1835_south_d6_020__inferred_1835.glb": "923f86030f703d6023c7ef5448fa364c3da54c792ca2edf567b3b479a4150681",
+    "gltf/recon_1835_south_d6_031__inferred_1835.glb": "da72fb7a0b8cc7b54cbaed98c52922fad726e2802805ceeca7b6c1d1b5591c5b",
+    "gltf/recon_1835_south_d7_035__inferred_1835.glb": "2dee2d3abd8e200130af80ae559f828ca93904a5679e14fce7064b11bfcc542a",
+    "gltf/recon_1835_south_f1_038__inferred_1835.glb": "54444ca0d72c0263bd31679d2fcdeb0fafff0e3f72520b44daa0b4d1dc36d196",
+    "gltf/recon_1835_south_f2_039__inferred_1835.glb": "4bba1d54114ce14c4f5c5f34af9b6cb0362469fd84a120f2d6d8957f3b27c0b6",
+    "gltf/recon_1835_south_w1_023__inferred_1835.glb": "3efbef8bad9b5ad406ce8dc5be4d4d1c18e71571c373d71d87aac608ab67c93b",
+    "gltf/recon_1835_south_w2_026__inferred_1835.glb": "d4efc02dd56f95bb53bcd5e012f000af2fcfacdb81b0b3975616fbb7e1357fae",
+    "gltf/recon_1835_south_w3_029__inferred_1835.glb": "538ebddebfd5c6dddc8996caee316881eec810bd2f3a081b1c80ce02a0469029",
+    "gltf/recon_1835_south_w4_032__inferred_1835.glb": "e266193c930002f3e43aa84e0d361cbb14a56ce8600f7fee67bedf05dfc94425",
+    "gltf/recon_1835_west_001__inferred_1835.glb": "1d48f4f92b7482282344dcbc06b8d79394c5eb25666ff69b8445c08c812cf740",
+    "gltf/recon_1835_west_002__inferred_1835.glb": "376a7a795b805753c2175bcf199970de3ac2b641fa86cdd28594b8a82f91c2b5",
+    "gltf/recon_1835_west_003__inferred_1835.glb": "5338474b3639dd5ef3e91d6572e52491c40a5b7db355a728e9edcf4c2d6cbf98",
+    "gltf/recon_1835_west_005__inferred_1835.glb": "e60609219f5df74430f123a146cd3fd7557da3f5c6c1e9817627ba0b79c93bbf",
+    "gltf/recon_1835_west_006__inferred_1835.glb": "32425da746c76b2e539f350e1aab0926b51efbca8f2e91e0918fd4dda09235c5",
+    "gltf/recon_1835_west_007__inferred_1835.glb": "b9fb0948e99d8bffa790d735602c040d9c827e3bb9c1d4ae8e08da1abbf3374e",
+    "gltf/recon_1835_west_008__inferred_1835.glb": "a87861778f568e75a119e1e102fc7c2e64f99ad9fb8a71d7566fdc6ff5b5bdee",
+    "gltf/recon_1835_west_009__inferred_1835.glb": "54b44b29c169da4db7bdc798f15bf1afdba446e8d41a35e7b6705d595e5c3c16",
+    "gltf/recon_1835_west_010__inferred_1835.glb": "ecb10a0874a2154d49312182f66beb3e8257dbc345f39b974dd1271525946d85",
+    "gltf/recon_1835_west_011__inferred_1835.glb": "3c6427019b638da0629620fff8ba24583ed906c2fe06e15c1b8af974588f6528",
+    "gltf/recon_1835_west_012__inferred_1835.glb": "16fe013bdd6b917029c51f92a7a243c42fb8704e9a31209b97aa908f32a1b39b",
+    "gltf/recon_1835_west_014__inferred_1835.glb": "e3cfeb177dc8d7335ff4c4edce945dfef0682bfb550e83d1c5425c14453d4b1c",
+    "gltf/recon_1835_west_015__inferred_1835.glb": "09c1cb3da98abf82ace9bbaf0a5f95c2c84d91a02b12fb0bf36bfd6199bacd19",
+    "gltf/recon_1835_west_016__inferred_1835.glb": "bd77f856007133428e8595b4794681af236c2899073764cca092d1ef79e6d8eb",
+    "gltf/recon_1835_west_018__inferred_1835.glb": "5455aa77a76ed02872ce59cca1627d08b13bc3ff094bd9b6e30a7e275e0ec177",
+    "gltf/recon_1835_west_019__inferred_1835.glb": "b128af30a8e5968f5b4dbae070fa3726bc227efe286097d4d25046541ea72892",
+    "gltf/recon_1835_west_021__inferred_1835.glb": "8cfe4987affc745cfcd79199be5ff2732ef495c0a8355ba82bcccb91db4cf8d9",
+    "gltf/recon_1835_west_022__inferred_1835.glb": "2608642021fa81c13f739c4996c3265ada73c2185694d99e86d27905f6cea537",
+    "gltf/recon_1835_west_023__inferred_1835.glb": "7ea8a3e82d3e8d4897cc53907187e610699afbf95d0f89fe9d78340620347cd8",
+    "gltf/recon_1835_west_024__inferred_1835.glb": "6ad093adf156e9ee867100651157374837ae6773465880ac6844f20c21c84db9",
+    "gltf/robert_kinzie_store__store_1830.glb": "76b976391b0e0a19abbf7e53d53d283c966e7f18dd215df7406b57dc24bf3fee",
+    "gltf/robinson_caldwell_cabins__log_1831.glb": "3f520a99a224eb00976a8395f9b39f94bc0f6f8951e6c1feb0ea1ea97a866119",
+    "gltf/sauganash_hotel__frame_1831.glb": "7e0254033c4f378e7da34b268cd8de105c0f8063589d353b648cd33b64df797c",
+    "gltf/slough_log_bridge__log_1833.glb": "2b460c833b229b24634878058c11a4420049004c9d78ac94fd2190da342dd973",
+    "gltf/south_branch_raft_bridge__log_1833.glb": "ea0b43a710bf4ac65d1385a7ffcb962314f3c0a5a2585a537d4c676c2ba6c878",
+    "gltf/south_pier__crib_1835.glb": "c3f0ecfd1bbb9d5c4bf08639678a7a9e07bc61d43fa49b62df28734d03db8989",
+    "gltf/st_marys_church__frame_1833.glb": "05d71a8856c369afbf00825bc9a43af7300a9634f80e32a1e110b4b97d3da473",
+    "gltf/steamboat_hotel__frame_1835.glb": "f14c2f22df470adb543e70b9240edcc8467abb1e325b83cb2877fc91e7502a24",
+    "gltf/temple_building__frame_1833.glb": "283dad2a015a91d9ff5766a9668a3921aff8213ea8449b9906ae24287ab5b1fb",
+    "gltf/temple_lake_st_building__documented_1835.glb": "7b79bf6c474a17180bb57ce77a5a8d0e5c6b9b395fe050a71a398950c8626f88",
+    "gltf/thomas_church_store__frame_1834.glb": "a9dd69e69944058bcf8697a9c4d657e1465c9a9fe1077d2f8f2e4c7fe951e49d",
+    "gltf/tremont_house_1__frame_1833.glb": "b86969cda49cc9150e9f76ff61c7b94f747ad1e1c0d1f0b7bcb652507116ec88",
+    "gltf/walker_meeting_house__log_1831.glb": "d5a0cc472713933f840af2dcd32fdd625840f57c096f487ea59b8d4d7e1c3615",
+    "gltf/watkins_school_house__house_1833.glb": "f676a8ed5134306b7075d8cbf53898e1966976379c6e2851cbcfcda041d73873",
+    "gltf/western_hotel__frame_1834.glb": "826e194804082e0a938e159c7e6b5035fdf1326e7eef01f6db5f20532492948b",
+    "gltf/western_hotel_stable__stable_1834.glb": "ae4ad632e3a4cd142dabe0d6c9b71696b706927c94d1763a0245c2e52028dd17",
+    "gltf/wolf_point_tavern__log_frame_1828.glb": "c72392a83c730cbc66884ed6ba51d3ade0c1b55db2b434b808be1a5ae3c7fb37",
+    "gltf/wolf_point_tavern_stable__stable_1831.glb": "fe84de787858e5030e1a961620698a9c089250e1eaf72f8acc5354827c4d4b45",
+    "gltf/wright_building_to_let_a__documented_1835.glb": "6fbbb1028d5d97d8300bcc8d86b493f3368f535993053b21e1c3934fac9bf19a",
+    "gltf/wright_building_to_let_b__documented_1835.glb": "964d7264fe30b5970b35e376bcfddc1d0bfe82777bfdfd367dd7c2e409e44304"
+  },
+  "terrain_fit": [
+    {
+      "id": "beaubien_barn",
+      "origin_height_m": 2.7179600000000055,
+      "footprint_height_m": 2.7007754516999216,
+      "lowered_m": 0.01718454830008387
+    },
+    {
+      "id": "blacksmith_shop_state_st",
+      "origin_height_m": 1.3292,
+      "footprint_height_m": 1.31865,
+      "lowered_m": 0.010549999999999837
+    },
+    {
+      "id": "brown_boarding_house",
+      "origin_height_m": 0.767192,
+      "footprint_height_m": 0.75027658263125,
+      "lowered_m": 0.01691541736875002
+    },
+    {
+      "id": "chicago_american_office",
+      "origin_height_m": 0.7450119999999992,
+      "footprint_height_m": 0.698155634986716,
+      "lowered_m": 0.046856365013283274
+    },
+    {
+      "id": "chicago_democrat_office",
+      "origin_height_m": 0.7429135383999999,
+      "footprint_height_m": 0.7245714264000036,
+      "lowered_m": 0.018342111999996247
+    },
+    {
+      "id": "clybourn_slaughterhouse",
+      "origin_height_m": 1.1274479999999993,
+      "footprint_height_m": 1.112483742675781,
+      "lowered_m": 0.014964257324218355
+    },
+    {
+      "id": "cobweb_castle",
+      "origin_height_m": 1.3489999999999998,
+      "footprint_height_m": 1.3354999999999995,
+      "lowered_m": 0.01350000000000029
+    },
+    {
+      "id": "fort_dearborn_barracks",
+      "origin_height_m": 3.67302736,
+      "footprint_height_m": 3.634986917144348,
+      "lowered_m": 0.03804044285565178
+    },
+    {
+      "id": "fort_dearborn_commandants_quarters",
+      "origin_height_m": 3.61504,
+      "footprint_height_m": 3.6026643650787524,
+      "lowered_m": 0.012375634921247602
+    },
+    {
+      "id": "fort_dearborn_palisade",
+      "origin_height_m": 3.6441399999999997,
+      "footprint_height_m": 2.206858928145755,
+      "lowered_m": 1.4372810718542448
+    },
+    {
+      "id": "fort_dearborn_parade",
+      "origin_height_m": 3.6518219999999997,
+      "footprint_height_m": 3.62074620023556,
+      "lowered_m": 0.031075799764439527
+    },
+    {
+      "id": "fort_dearborn_shop",
+      "origin_height_m": 2.66542,
+      "footprint_height_m": 2.63086417947623,
+      "lowered_m": 0.03455582052376993
+    },
+    {
+      "id": "fort_dearborn_wash_house",
+      "origin_height_m": 2.233598560000018,
+      "footprint_height_m": 2.2055783130170066,
+      "lowered_m": 0.028020246983011532
+    },
+    {
+      "id": "frederick_thomas_shop",
+      "origin_height_m": 0.755,
+      "footprint_height_m": 0.7329210616743155,
+      "lowered_m": 0.022078938325684527
+    },
+    {
+      "id": "harmon_loomis_store",
+      "origin_height_m": 0.7492839600000002,
+      "footprint_height_m": 0.6804238240966776,
+      "lowered_m": 0.06886013590332263
+    },
+    {
+      "id": "hogan_store",
+      "origin_height_m": 0.7018639999999985,
+      "footprint_height_m": 0.40827096206054697,
+      "lowered_m": 0.2935930379394515
+    },
+    {
+      "id": "inf_blacksmith_shop_west",
+      "origin_height_m": 1.1536764951999996,
+      "footprint_height_m": 1.1390429402682376,
+      "lowered_m": 0.014633554931761994
+    },
+    {
+      "id": "inf_boatman_cabin_north",
+      "origin_height_m": 1.1,
+      "footprint_height_m": 0.9504919883730074,
+      "lowered_m": 0.14950801162699268
+    },
+    {
+      "id": "inf_cooperage_south",
+      "origin_height_m": 0.7537593967999999,
+      "footprint_height_m": 0.6402609684717957,
+      "lowered_m": 0.11349842832820423
+    },
+    {
+      "id": "inf_grocery_west",
+      "origin_height_m": 1.025336000000002,
+      "footprint_height_m": 0.9473551629050759,
+      "lowered_m": 0.07798083709492609
+    },
+    {
+      "id": "inf_sawpit_shed",
+      "origin_height_m": 0.7304749247999971,
+      "footprint_height_m": 0.5696863546142555,
+      "lowered_m": 0.16078857018574155
+    },
+    {
+      "id": "inf_wheelwright_shop_west",
+      "origin_height_m": 1.0959371648000005,
+      "footprint_height_m": 1.0855377352660491,
+      "lowered_m": 0.010399429533951343
+    },
+    {
+      "id": "james_kinzie_house",
+      "origin_height_m": 0.9881280000000002,
+      "footprint_height_m": 0.9583392000000064,
+      "lowered_m": 0.029788799999993842
+    },
+    {
+      "id": "jb_beaubien_homestead",
+      "origin_height_m": 3.4830720000000026,
+      "footprint_height_m": 3.454281600000014,
+      "lowered_m": 0.02879039999998856
+    },
+    {
+      "id": "john_holbrook_store",
+      "origin_height_m": 0.75,
+      "footprint_height_m": 0.7045799999999918,
+      "lowered_m": 0.04542000000000823
+    },
+    {
+      "id": "kinzie_hunter_warehouse",
+      "origin_height_m": 1.115,
+      "footprint_height_m": 1.0907273617187476,
+      "lowered_m": 0.024272638281252368
+    },
+    {
+      "id": "madore_beaubien_house",
+      "origin_height_m": 0.7316640000000006,
+      "footprint_height_m": 0.5972900073242249,
+      "lowered_m": 0.13437399267577577
+    },
+    {
+      "id": "miller_house",
+      "origin_height_m": 1.1400000000000001,
+      "footprint_height_m": 1.1300000000000001,
+      "lowered_m": 0.010000000000000009
+    },
+    {
+      "id": "newberry_dole_slaughterhouse_south_branch",
+      "origin_height_m": 0.7061999999999992,
+      "footprint_height_m": 0.4077456678222662,
+      "lowered_m": 0.298454332177733
+    },
+    {
+      "id": "newberry_dole_warehouse",
+      "origin_height_m": 0.4639520000000038,
+      "footprint_height_m": 0.38980710483398456,
+      "lowered_m": 0.07414489516601924
+    },
+    {
+      "id": "north_bank_shed_dearborn_e1",
+      "origin_height_m": 1.28527732,
+      "footprint_height_m": 1.2722813801174482,
+      "lowered_m": 0.012995939882551877
+    },
+    {
+      "id": "north_bank_shed_dearborn_e2",
+      "origin_height_m": 1.2993380832000003,
+      "footprint_height_m": 1.2826992281486997,
+      "lowered_m": 0.016638855051300583
+    },
+    {
+      "id": "north_bank_shed_dearborn_e3",
+      "origin_height_m": 1.3167311519999998,
+      "footprint_height_m": 1.2919762802536787,
+      "lowered_m": 0.024754871746321072
+    },
+    {
+      "id": "north_bank_shed_dearborn_w",
+      "origin_height_m": 1.2750000000000001,
+      "footprint_height_m": 1.2650000000000001,
+      "lowered_m": 0.010000000000000009
+    },
+    {
+      "id": "north_side_school_1833",
+      "origin_height_m": 1.2326000000000006,
+      "footprint_height_m": 1.22131,
+      "lowered_m": 0.011290000000000688
+    },
+    {
+      "id": "peck_store",
+      "origin_height_m": 0.7420180000000005,
+      "footprint_height_m": 0.7062602274300767,
+      "lowered_m": 0.03575777256992385
+    },
+    {
+      "id": "pierce_blacksmith_shop",
+      "origin_height_m": 1.0970000000000004,
+      "footprint_height_m": 1.0829667314990234,
+      "lowered_m": 0.01403326850097697
+    },
+    {
+      "id": "pruyne_kimball_drugstore",
+      "origin_height_m": 0.75,
+      "footprint_height_m": 0.6928479926757735,
+      "lowered_m": 0.05715200732422654
+    },
+    {
+      "id": "recon_1835_blk_randolph_clinton_a2_05",
+      "origin_height_m": 1.27,
+      "footprint_height_m": 1.2595280532438085,
+      "lowered_m": 0.010471946756191564
+    },
+    {
+      "id": "recon_1835_blk_randolph_clinton_d4_02",
+      "origin_height_m": 1.197944,
+      "footprint_height_m": 1.1866256129789785,
+      "lowered_m": 0.011318387021021392
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_a2_08",
+      "origin_height_m": 1.271898,
+      "footprint_height_m": 1.1665565618217772,
+      "lowered_m": 0.10534143817822272
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d2_05",
+      "origin_height_m": 1.1665300000000014,
+      "footprint_height_m": 1.0884853591655905,
+      "lowered_m": 0.07804464083441087
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_h1_02",
+      "origin_height_m": 0.9025620000000003,
+      "footprint_height_m": 0.8920030244895975,
+      "lowered_m": 0.010558975510402857
+    },
+    {
+      "id": "recon_1835_blk_south_water_clark_c2_06",
+      "origin_height_m": 0.7523800000000006,
+      "footprint_height_m": 0.6931930672136594,
+      "lowered_m": 0.05918693278634124
+    },
+    {
+      "id": "recon_1835_blk_south_water_clark_d1_04",
+      "origin_height_m": 0.7462979999999994,
+      "footprint_height_m": 0.62664420387617,
+      "lowered_m": 0.11965379612382931
+    },
+    {
+      "id": "recon_1835_blk_south_water_clark_d5_01",
+      "origin_height_m": 0.7463919999999996,
+      "footprint_height_m": 0.599970766865753,
+      "lowered_m": 0.1464212331342466
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_a3_06",
+      "origin_height_m": 0.7890157311999997,
+      "footprint_height_m": 0.7663728266317767,
+      "lowered_m": 0.022642904568222932
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_d3_08",
+      "origin_height_m": 0.7541800000000001,
+      "footprint_height_m": 0.7108413244087032,
+      "lowered_m": 0.043338675591296894
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_d5_07",
+      "origin_height_m": 0.76,
+      "footprint_height_m": 0.741116780854884,
+      "lowered_m": 0.018883219145116037
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_h1_03",
+      "origin_height_m": 0.7865845439999998,
+      "footprint_height_m": 0.7487993514108601,
+      "lowered_m": 0.037785192589139704
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d1_08",
+      "origin_height_m": 0.38488031360003094,
+      "footprint_height_m": 0.2781819480340835,
+      "lowered_m": 0.10669836556594742
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d2_09",
+      "origin_height_m": 0.5401690439999968,
+      "footprint_height_m": 0.4129174291488744,
+      "lowered_m": 0.12725161485112235
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d3_10",
+      "origin_height_m": 0.6519347711999994,
+      "footprint_height_m": 0.49126361269222346,
+      "lowered_m": 0.16067115850777597
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d5_01",
+      "origin_height_m": 0.7398119999999995,
+      "footprint_height_m": 0.710308702863349,
+      "lowered_m": 0.029503297136650453
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d6_11",
+      "origin_height_m": 0.73,
+      "footprint_height_m": 0.5828339357641348,
+      "lowered_m": 0.1471660642358652
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d7_12",
+      "origin_height_m": 0.73,
+      "footprint_height_m": 0.6867132360946999,
+      "lowered_m": 0.04328676390530006
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_d5_02",
+      "origin_height_m": 0.7506532496,
+      "footprint_height_m": 0.74,
+      "lowered_m": 0.010653249600000025
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_d6_01",
+      "origin_height_m": 0.7510360000000003,
+      "footprint_height_m": 0.74,
+      "lowered_m": 0.011036000000000268
+    },
+    {
+      "id": "recon_1835_north_a1_008",
+      "origin_height_m": 1.2665440000000001,
+      "footprint_height_m": 1.2550563191693351,
+      "lowered_m": 0.011487680830664981
+    },
+    {
+      "id": "recon_1835_north_a1_032",
+      "origin_height_m": 1.3972088176,
+      "footprint_height_m": 1.3844637768549393,
+      "lowered_m": 0.012745040745060665
+    },
+    {
+      "id": "recon_1835_north_a2_033",
+      "origin_height_m": 1.45,
+      "footprint_height_m": 1.44,
+      "lowered_m": 0.010000000000000009
+    },
+    {
+      "id": "recon_1835_north_a2_048",
+      "origin_height_m": 1.49,
+      "footprint_height_m": 1.48,
+      "lowered_m": 0.010000000000000009
+    },
+    {
+      "id": "recon_1835_north_d1_001",
+      "origin_height_m": 1.2071846512000002,
+      "footprint_height_m": 1.1945923263601563,
+      "lowered_m": 0.01259232483984385
+    },
+    {
+      "id": "recon_1835_north_d1_023",
+      "origin_height_m": 1.4676254720000004,
+      "footprint_height_m": 1.4567231283574222,
+      "lowered_m": 0.010902343642578138
+    },
+    {
+      "id": "recon_1835_north_d1_053",
+      "origin_height_m": 1.3450916480000001,
+      "footprint_height_m": 1.3346831519599613,
+      "lowered_m": 0.010408496040038795
+    },
+    {
+      "id": "recon_1835_north_d2_003",
+      "origin_height_m": 1.31,
+      "footprint_height_m": 1.2999499774006487,
+      "lowered_m": 0.010050022599351394
+    },
+    {
+      "id": "recon_1835_north_d3_006",
+      "origin_height_m": 1.365,
+      "footprint_height_m": 1.355,
+      "lowered_m": 0.010000000000000009
+    },
+    {
+      "id": "recon_1835_north_d3_016",
+      "origin_height_m": 1.3250216288,
+      "footprint_height_m": 1.3128280002441408,
+      "lowered_m": 0.01219362855585926
+    },
+    {
+      "id": "recon_1835_north_d3_038",
+      "origin_height_m": 1.350049536,
+      "footprint_height_m": 1.3381240004882817,
+      "lowered_m": 0.011925535511718266
+    },
+    {
+      "id": "recon_1835_north_d4_004",
+      "origin_height_m": 1.3158059832,
+      "footprint_height_m": 1.2997618307160153,
+      "lowered_m": 0.01604415248398472
+    },
+    {
+      "id": "recon_1835_north_d4_012",
+      "origin_height_m": 1.3081420000000004,
+      "footprint_height_m": 1.2963579997558587,
+      "lowered_m": 0.011784000244141613
+    },
+    {
+      "id": "recon_1835_north_d4_017",
+      "origin_height_m": 1.3756321704000003,
+      "footprint_height_m": 1.364198760124121,
+      "lowered_m": 0.011433410275879297
+    },
+    {
+      "id": "recon_1835_north_d5_019",
+      "origin_height_m": 1.3965850239999997,
+      "footprint_height_m": 1.3855980002441413,
+      "lowered_m": 0.010987023755858472
+    },
+    {
+      "id": "recon_1835_north_d5_041",
+      "origin_height_m": 1.462920243199999,
+      "footprint_height_m": 1.239819352816549,
+      "lowered_m": 0.22310089038344993
+    },
+    {
+      "id": "recon_1835_north_d5_057",
+      "origin_height_m": 1.4348436735999994,
+      "footprint_height_m": 1.4197359995117187,
+      "lowered_m": 0.015107674088280731
+    },
+    {
+      "id": "recon_1835_north_d6_021",
+      "origin_height_m": 1.2399591168000001,
+      "footprint_height_m": 1.2248350795573242,
+      "lowered_m": 0.01512403724267597
+    },
+    {
+      "id": "recon_1835_north_d6_058",
+      "origin_height_m": 1.4616869119999993,
+      "footprint_height_m": 1.4480276995459958,
+      "lowered_m": 0.013659212454003589
+    },
+    {
+      "id": "recon_1835_north_h1_007",
+      "origin_height_m": 1.37,
+      "footprint_height_m": 1.36,
+      "lowered_m": 0.010000000000000009
+    },
+    {
+      "id": "recon_1835_north_w1_018",
+      "origin_height_m": 1.418158000000001,
+      "footprint_height_m": 1.4037284670589096,
+      "lowered_m": 0.014429532941091283
+    },
+    {
+      "id": "recon_1835_north_w2_005",
+      "origin_height_m": 1.305,
+      "footprint_height_m": 1.29052280774107,
+      "lowered_m": 0.01447719225892996
+    },
+    {
+      "id": "recon_1835_north_w5_040",
+      "origin_height_m": 1.4312689007999995,
+      "footprint_height_m": 1.42,
+      "lowered_m": 0.011268900799999537
+    },
+    {
+      "id": "recon_1835_south_c1_018",
+      "origin_height_m": 0.8092827296000001,
+      "footprint_height_m": 0.6712341058697051,
+      "lowered_m": 0.13804862373029503
+    },
+    {
+      "id": "recon_1835_south_c3_040",
+      "origin_height_m": 0.865,
+      "footprint_height_m": 0.855,
+      "lowered_m": 0.010000000000000009
+    },
+    {
+      "id": "recon_1835_south_d1_033",
+      "origin_height_m": 0.8432039999999995,
+      "footprint_height_m": 0.8129079254971769,
+      "lowered_m": 0.030296074502822568
+    },
+    {
+      "id": "recon_1835_south_d4_019",
+      "origin_height_m": 0.8128840000000003,
+      "footprint_height_m": 0.7509741818232846,
+      "lowered_m": 0.0619098181767157
+    },
+    {
+      "id": "recon_1835_south_d4_030",
+      "origin_height_m": 0.8429274239999995,
+      "footprint_height_m": 0.8301416945361693,
+      "lowered_m": 0.012785729463830275
+    },
+    {
+      "id": "recon_1835_south_f1_038",
+      "origin_height_m": 0.865,
+      "footprint_height_m": 0.8548583280624089,
+      "lowered_m": 0.010141671937591079
+    },
+    {
+      "id": "recon_1835_south_f2_039",
+      "origin_height_m": 0.8569284440000007,
+      "footprint_height_m": 0.845226687716338,
+      "lowered_m": 0.011701756283662657
+    },
+    {
+      "id": "recon_1835_south_w3_029",
+      "origin_height_m": 0.840718584,
+      "footprint_height_m": 0.8300000000000001,
+      "lowered_m": 0.01071858399999992
+    },
+    {
+      "id": "recon_1835_west_001",
+      "origin_height_m": 1.0382025559999972,
+      "footprint_height_m": 0.9801881946666555,
+      "lowered_m": 0.0580143613333417
+    },
+    {
+      "id": "recon_1835_west_002",
+      "origin_height_m": 0.9515360000000013,
+      "footprint_height_m": 0.9337940004882808,
+      "lowered_m": 0.017741999511720508
+    },
+    {
+      "id": "recon_1835_west_003",
+      "origin_height_m": 1.0185649119999987,
+      "footprint_height_m": 0.9865372555273322,
+      "lowered_m": 0.03202765647266648
+    },
+    {
+      "id": "recon_1835_west_005",
+      "origin_height_m": 1.125026,
+      "footprint_height_m": 1.0115036847491783,
+      "lowered_m": 0.11352231525082179
+    },
+    {
+      "id": "recon_1835_west_006",
+      "origin_height_m": 1.1862774,
+      "footprint_height_m": 1.1749989357774084,
+      "lowered_m": 0.0112784642225916
+    },
+    {
+      "id": "recon_1835_west_008",
+      "origin_height_m": 1.208244,
+      "footprint_height_m": 1.195014092081633,
+      "lowered_m": 0.01322990791836709
+    },
+    {
+      "id": "recon_1835_west_009",
+      "origin_height_m": 1.1705919999999992,
+      "footprint_height_m": 1.0928668661923922,
+      "lowered_m": 0.07772513380760704
+    },
+    {
+      "id": "recon_1835_west_011",
+      "origin_height_m": 1.158825999999998,
+      "footprint_height_m": 1.1364171320838048,
+      "lowered_m": 0.02240886791619312
+    },
+    {
+      "id": "recon_1835_west_012",
+      "origin_height_m": 1.046529154399998,
+      "footprint_height_m": 1.0266188660032622,
+      "lowered_m": 0.019910288396735698
+    },
+    {
+      "id": "recon_1835_west_014",
+      "origin_height_m": 1.22,
+      "footprint_height_m": 1.21,
+      "lowered_m": 0.010000000000000009
+    },
+    {
+      "id": "robinson_caldwell_cabins",
+      "origin_height_m": 0.99,
+      "footprint_height_m": 0.9753959999999983,
+      "lowered_m": 0.014604000000001727
+    },
+    {
+      "id": "sauganash_hotel",
+      "origin_height_m": 0.6083280000000003,
+      "footprint_height_m": 0.5346396000000001,
+      "lowered_m": 0.07368840000000021
+    },
+    {
+      "id": "steamboat_hotel",
+      "origin_height_m": 1.4096816,
+      "footprint_height_m": 1.3971929494784385,
+      "lowered_m": 0.012488650521561562
+    },
+    {
+      "id": "temple_building",
+      "origin_height_m": 0.765,
+      "footprint_height_m": 0.7277409399884626,
+      "lowered_m": 0.03725906001153745
+    },
+    {
+      "id": "walker_meeting_house",
+      "origin_height_m": 0.985,
+      "footprint_height_m": 0.9352839999999885,
+      "lowered_m": 0.04971600000001153
+    },
+    {
+      "id": "western_hotel",
+      "origin_height_m": 1.1211,
+      "footprint_height_m": 1.10622,
+      "lowered_m": 0.014880000000000004
+    },
+    {
+      "id": "western_hotel_stable",
+      "origin_height_m": 1.125,
+      "footprint_height_m": 1.110006247841797,
+      "lowered_m": 0.014993752158203089
+    },
+    {
+      "id": "wolf_point_tavern",
+      "origin_height_m": 0.9951839999999998,
+      "footprint_height_m": 0.566404445458989,
+      "lowered_m": 0.4287795545410108
+    }
+  ],
+  "fence_fix": "Garden fence: explicit Python yaw=53, pitch=roll=0 replaces positional arguments that produced pitch=53. Verified world height 1.135333 m. All 384 mesh actors have expected upright rotations. Fort palisade also lowered 1.437281 m using browser-compatible footprint terrain anchoring.",
+  "packaged_content_sha256": {
+    "Contents/UE/Chicago4D/Content/Paks/global.ucas": "059d0c438c00a355798533eaf7fddb5e0fc141f18d97ec4ab631dc703ff3eb50",
+    "Contents/UE/Chicago4D/Content/Paks/global.utoc": "8d5593b62adb9f5b6ba82e3fa95f788e17ac8ae578a09da19e9991f7ed6f2e93",
+    "Contents/UE/Chicago4D/Content/Paks/Chicago4D-Mac.ucas": "154f8021ad0821c2e91afbd420819c15ecf08269c22a4341496d2d7a6206fecc",
+    "Contents/UE/Chicago4D/Content/Paks/Chicago4D-Mac.utoc": "39e5597b9ef3daf47ba7d9a6b35e0753b30329701fb9a37ae7010eb92d504595",
+    "Contents/UE/Chicago4D/Content/Paks/Chicago4D-Mac.pak": "ced6978e2600771828ef9d69ad5f59cde2484277dd554f373c5753039859ba83"
+  },
+  "local_gate_notes": [
+    "Mac check.sh reports 25 mesh-input hash differences. For st_marys_church, changing only derived ridge_height_m from 6.176698236990594 to adjacent float 6.176698236990593 reproduces the committed hash exactly. No data or asset was rewritten to force a pass. The selected dev source commit passed its GitHub gate.",
+    "The queue-order self-test passes when TMPDIR is a real local path instead of the macOS /var symlink.",
+    "The merge-ready multi-PR shell fixture fails under macOS Bash 3.2: brace expansion changes its quoted JSON argument. The production script is untouched; GitHub runs its existing Linux gate."
+  ],
+  "renderer_source_sha256": {
+    "Source/Chicago4D/Chicago4D.Build.cs": "7e4b9b218b301b9a01f3973507ac81acc6e2508f739cbd4e63aadb429509a895",
+    "Source/Chicago4D/Chicago4D.cpp": "ff0a5cc0b551dec688cbc9722c3d804f0a7ff93dc6067caf064eb1039b640e71",
+    "Source/Chicago4D/ChicagoWalker.cpp": "9dc18cddc5b489be6cbd934e49e7b945601edbdacbc7586e6565157da2ba3b72",
+    "Source/Chicago4D/ChicagoWalker.h": "8dd7e9a38d941f492048edd7cdb8285cf3a3569e4ae59085f358df87eff74b56",
+    "Source/Chicago4D.Target.cs": "dac14995a4de450d218cca3b6ed3ba641d4bc18bf7d7dee96a4e3ee6cc25dec8",
+    "Source/Chicago4DEditor.Target.cs": "6bd153d667336720a476f50c1dd8ad1e016976cd7206d703d5e6e1a102c7d30f",
+    "Config/DefaultEngine.ini": "e89b3df01993652dc8e5afbf6a0e957f271e5b4407eb92c055131aa57b7abcc7",
+    "Config/DefaultGame.ini": "653feaddb92233ddc49c91b772c1367320f6cb483fa4a0973891c8c87d10e843",
+    "Config/DefaultGameUserSettings.ini": "1c744d0fbe44eefa0e72d439c72132fa46c020fe656f143abfaa869cfbb77ab6",
+    "Config/DefaultInput.ini": "602cf9c04727d82c008f1da64ebc154a9e00e439f0f49d912b467278fc036acb",
+    "Scripts/import_scene.py": "20246ba3de2badbd46f3e527527e2337ebc5087314b252ea7dd1c7b107fda0f6",
+    "Scripts/verify_scene.py": "29bea51cceabc0dae5da363e56622c040b608c0a48b64fc71274ef48914b1125"
+  },
+  "zip_sha256": "1bb984bac3e065103aa1b12d46580346f7bc8649ac40021311ee096fc85197a2",
+  "zip_extract_codesign_verify": "PASS",
+  "zip_filename": "Chicago-1835-Mac-garden-fix.zip",
+  "garden_rotation_regression": {
+    "old_world_height_cm": 6370.358876221016,
+    "fixed_world_height_cm": 113.53333568572998,
+    "old_pitch_deg": 52.99999999254126
+  }
+}

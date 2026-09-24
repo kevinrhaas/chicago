@@ -5,7 +5,7 @@
   "source_id": "st_cyr_register_ichr_v4",
   "pass": "T-0573",
   "target": "data/residents/households/*.json — every named person, at every grade",
-  "targets_examined": 1282,
+  "targets_examined": 1285,
   "rule": "Surnames must fold equal after case and punctuation are dropped, AND the forenames must agree initial for initial in one direction or the other. A surname-only agreement is always a refusal. A row the page prints without a forename is reported no_forename, carried and never matched.",
   "counts": {
     "candidate": 33,

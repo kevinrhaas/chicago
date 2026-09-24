@@ -1,0 +1,197 @@
+{
+  "schema": "chicago4d.book_kin_rulings.v1",
+  "ticket": "T-1320",
+  "_doc": "AUTHORED. One ruling per book claim that states kinship, written by somebody who read the sentence. tools/spend_book_kin.py DERIVES the candidates from data/research/books/claims/*.json and resolves both possible ends against the residents layer through data/research/books/crosswalk.json; it does not decide anything. The split is kin_survey.json / kin_rulings.json's, for kin_survey's own reason: a derivation that carried its own verdicts would rewrite them every time the corpus grew, and a ruling file that carried the derivation would let a statement quietly disappear when a claim was edited. --check refuses while one candidate stands unanswered, so a book read into this corpus tomorrow cannot arrive carrying a kinship nobody looked at. THE READER OVERRULES THE RESOLVER AND NEVER THE OTHER WAY ROUND: bk_mose1_018 folds two names onto two residents and is refused here, because the sentence itself calls its William Jones a NON-RESIDENT. NOTHING HERE MINTS A PERSON. Two verdicts write, and both write only onto cards that already exist.",
+  "what_a_verdict_means": {
+    "tie": "Both ends are people this town holds and the crosswalk has identified both; no row says so yet. Written onto both cards, reciprocally.",
+    "corroborates": "The cards already carry this tie and this reading states it too. The claim is bound to both rows through `book_kin`, the source id joins `sources` where it is a second and independent statement, and the sentence joins the note. The grade does not move.",
+    "relative_not_held": "A source names a real relative OF A HELD RESIDENT who is nobody in this dataset. Kin is inside the town (validate.py, T-0849): evidence for prose, not structure, and the relative is not minted to give the row a far end.",
+    "identity_not_asserted": "The crosswalk has not identified an end with the resident whose name it folds onto, or has refused it.",
+    "neither_end_held": "The sentence is about people outside this town altogether.",
+    "relation_undeclared": "uncle, aunt, cousin, nephew. validate.py declares no inverse, so the tie cannot be checked for reciprocity.",
+    "not_a_kinship": "The word is in the sentence and the relation is not: an honorific, a firm style, a simile, a negative about a class.",
+    "later_only": "The relationship is dated after the scene date of 1835-07-01."
+  },
+  "rulings": {
+    "bk_afc_015": {
+      "ruling": "corroborates",
+      "reading": "half brother of the late John H. Kinzie",
+      "why": "THE TIE STANDS AND THIS IS THE READING IT STANDS ON. Hurlbut's bracketed note is already on both cards at `inferred`, citing chicago_antiquities_american_fur_co and naming bk_afc_015 in its prose; both ends are crosswalked, 'John H. Kinzie' by the merge into John Harris Kinzie and 'Kinzie, James' by the merge into James Kinzie. Nothing about the row changes. What this ruling adds is the machine link the row never had: `book_kin` names the claim, so a later edit that dropped the tie would surface here as a failure rather than as silence, which is the whole reason a reading pass answers every claim in one file.",
+      "source": "chicago_antiquities_american_fur_co",
+      "note": "",
+      "tie": {
+        "a": {
+          "household": "hh_kinzie_james",
+          "person": "kinzie_james"
+        },
+        "b": {
+          "household": "hh_kinzie_john_h",
+          "person": "kinzie_john_h"
+        },
+        "relation": "half_brother",
+        "mirror": "half_brother",
+        "confidence": "inferred"
+      }
+    },
+    "bk_fer2_016": {
+      "ruling": "neither_end_held",
+      "reading": "her cousin Ann Caldwell",
+      "why": "Mrs Duncan's reminiscence of the family's move west in 1834 names her husband the governor, three children, her cousin Ann Caldwell, a nurse and a driver. Not one of them is a person this town holds -- the Duncans' home was Jacksonville -- and 'cousin' is in any case a relation validate.py declares no inverse for, so it could not be written for reciprocity even if both ends were here."
+    },
+    "bk_fer2_018": {
+      "ruling": "neither_end_held",
+      "reading": "Joseph Duncan Jr was born in October 1835",
+      "why": "A father-and-son tie with neither end in this town: Joseph Duncan the governor and the son born to him in October 1835 are both outside the resident layer. The date refuses it a second time -- a birth in October 1835 is three months after the scene date of 1 July 1835, so there is no such son on the day this dataset models."
+    },
+    "bk_fer_024": {
+      "ruling": "relative_not_held",
+      "reading": "Min-ne-mung's sister was the wife of Billy Caldwell",
+      "why": "A REAL RELATIVE OF A HELD RESIDENT, NOT NAMED AND NOT HERE. Beckwith's note states that Billy Caldwell's wife was Min-ne-mung's sister. Billy Caldwell is crosswalked to this town's Billy Caldwell (Sauganash); neither the wife nor Min-ne-mung is a person this dataset holds, and the wife is identified only as somebody's sister. KIN IS INSIDE THE TOWN (validate.py, T-0849): a relative who was never in this scene is EVIDENCE for the prose of a field the card already has, not a structure. Nobody is minted to give the row a far end -- an unnamed woman drawn from a relation is the reconstruction programme's work and its refusal gate, not a reading pass's. The marriage is also dated before 1833 by the note itself and says nothing about 1835."
+    },
+    "bk_fer_025": {
+      "ruling": "neither_end_held",
+      "reading": "the author's father, Major Daniel W. Beckwith",
+      "why": "Beckwith names his own father, a US Deputy Surveyor at work on the Camp Tippecanoe reservations in May 1834. Neither the author nor Major Daniel W. Beckwith is a person this town holds, and the survey it describes is in Indiana. Nothing to write and nobody to mint."
+    },
+    "bk_hub_016": {
+      "ruling": "identity_not_asserted",
+      "reading": "the Gale family, the Fernando Jones family",
+      "why": "Gale's account of the brig Illinois says he was brought ashore with 'brother William with their parents'. The brothers are E. O. Gale and William Gale, and data/research/books/crosswalk.json REFUSES both of them against this town's Stephen F. Gale by name: two refusals, already written, already reasoned. This pass does not re-make an identification the project declined. The 'Gale family' and the 'Fernando Jones family' of the same sentence are families COUNTED and not named, which is the reconstruction programme's side of the line (T-1314) and not this pass's."
+    },
+    "bk_hub_017": {
+      "ruling": "not_a_kinship",
+      "reading": "as a child to its mother",
+      "why": "The word is in the sentence and the relation is not. Gale's word-portrait of Hubbard at the warehouse door says the onlookers took to him 'as a child to its mother' -- a simile about a stranger's manner, naming no child and no mother. Counted here because the vocabulary is declared rather than tuned, and a near-miss a reader dismisses in a second is exactly what a quietly narrowed pattern would drop."
+    },
+    "bk_hub_041": {
+      "ruling": "relative_not_held",
+      "reading": "John H. Kinzie's father then resided at Chicago",
+      "why": "THE FATHER IS REAL, NAMED ELSEWHERE, AND NOBODY HERE. Hubbard's 1818 visit puts John H. Kinzie's father at Chicago; that is John Kinzie the elder, who died in January 1828, seven years before the scene date, and this layer holds no card for him. The resolver agrees for its own reason: data/research/books/crosswalk.json refuses 'John Kinzie' against John Harris Kinzie -- the standing refusal that keeps the father and the son apart -- so the near end is held and the far end is not. Kin is inside the town: the parentage stays evidence in prose, and no John Kinzie senior is minted to carry it."
+    },
+    "bk_hub_048": {
+      "ruling": "relative_not_held",
+      "reading": "the youngest son Robert, later paymaster of the U.S. Army",
+      "why": "THE HOUSEHOLD HUBBARD MET IN 1818 IS THE ELDER KINZIE'S, AND THE ELDER KINZIE IS NOT HERE. The sentence states four ties at once -- Mr Kinzie's eldest daughter Mrs Helm, his youngest daughter Maria, his youngest son Robert, and Maria as 'later the wife of' Major-General David Hunter. Robert Kinzie and David Hunter are people this town holds; the father, Mrs Kinzie, Mrs Helm and Maria are not, and the crosswalk has already refused 'Mrs. Kinzie', 'Mrs. Helm' and 'Maria Kinzie' against Juliette Augusta Magill Kinzie and 'Mr. Kinzie' against John Harris Kinzie. The Hunter marriage is 'later' than 1818 on the source's own word and is not a marriage on the scene date. FOUND AND DELIBERATELY NOT WRITTEN: this claim and bk_hub_041 together would make Robert A. Kinzie and John Harris Kinzie brothers, since one names Robert as the elder Kinzie's son and the other names the elder Kinzie as John H.'s father. That is a join of two readings through a person this town does not hold, which is synthesis; this pass writes what a single statement says. The tie is worth having and it wants a source that states it outright."
+    },
+    "bk_hub_063": {
+      "ruling": "neither_end_held",
+      "reading": "whose wife's grave lay in a picket enclosure",
+      "why": "The Factor House stood occupied from 1804 to about 1810 by Mr Jouett, whose wife's grave lay beside the road. Neither Jouett nor his wife is a person this town holds, and the wife was dead a quarter of a century before the scene date. The grave is a fact about the ground and belongs to the structure record that carries the Factor House, not to a kin row."
+    },
+    "bk_hub_071": {
+      "ruling": "not_a_kinship",
+      "reading": "none of the officers were married",
+      "why": "A NEGATIVE ABOUT A CLASS, NAMING NOBODY. Hubbard says that in the fort of 1818-1823 none of the officers were married. It states no tie between two people and names no person at all; as a fact about the garrison's household composition it is the garrison reconstruction's (T-1176), and it is recorded here only so the claim is answered."
+    },
+    "bk_hub_079": {
+      "ruling": "relation_undeclared",
+      "reading": "sent by Major Robert Forsythe to his uncle Mr John Kinzie",
+      "why": "UNCLE, WHICH THIS PROJECT CANNOT CHECK. validate.py declares no inverse for uncle or nephew -- 'a relation whose inverse is unknown cannot be checked for reciprocity', and the pair is added together or not at all -- so the tie is unwritable whatever the identities. It is unwritable twice over: neither Robert Forsythe nor the elder John Kinzie is a person this town holds, the crosswalk refusing 'John Kinzie' against John Harris Kinzie, and the news being carried is of 1812."
+    },
+    "bk_hub_094": {
+      "ruling": "relative_not_held",
+      "reading": "his father, mother and sister crossed in the bailed-out canoe",
+      "why": "The subject is Robert Kinzie, who is held; the father, mother and sister who crossed to the fire line in July 1827 are the elder John Kinzie, Mrs Kinzie and Mrs Helm, and this layer holds none of the three. The crosswalk has refused each of those names against the residents they fold towards. Three real relatives of a held resident, none of them in this scene: evidence in prose, not structure, and nobody minted to give the rows a far end."
+    },
+    "bk_hub_100": {
+      "ruling": "relative_not_held",
+      "reading": "A letter from Hubbard to his sister Elizabeth at Middletown, Conn.",
+      "why": "Hubbard is held and his sister Elizabeth is not. The letter heads her at Middletown, Connecticut, in 1827 -- a relative who was never in this scene, which validate.py names as the case for evidence rather than a kin row. Nobody is minted."
+    },
+    "bk_hub_101": {
+      "ruling": "relative_not_held",
+      "reading": "bringing back his sisters Mary and Abby to live at Danville",
+      "why": "Hubbard is held; his sisters Mary and Abby are not, and the same sentence says where they went to live -- Danville, not Chicago. A named relative of a held resident who is expressly somewhere else is the clearest form of the rule: evidence in prose, no kin row, and no person minted to carry one."
+    },
+    "bk_ichr4_001": {
+      "ruling": "not_a_kinship",
+      "reading": "Father",
+      "why": "AN HONORIFIC, NOT A RELATION. The word here is the priestly title -- Father Timothy O'Meara and Father St. Cyr -- in an article about the Catholic mission at Chicago. The vocabulary is declared rather than tuned precisely so these five reach a reader instead of being dropped by a pattern nobody would notice was narrowed; a reader answers each in a second, and St Cyr, the one of these priests this town holds, gains no family from any of them."
+    },
+    "bk_ichr4_003": {
+      "ruling": "not_a_kinship",
+      "reading": "Father",
+      "why": "AN HONORIFIC, NOT A RELATION. The word here is the priestly title -- Father O'Meara directing the move of the church -- in an article about the Catholic mission at Chicago. The vocabulary is declared rather than tuned precisely so these five reach a reader instead of being dropped by a pattern nobody would notice was narrowed; a reader answers each in a second, and St Cyr, the one of these priests this town holds, gains no family from any of them."
+    },
+    "bk_ichr4_004": {
+      "ruling": "not_a_kinship",
+      "reading": "Father",
+      "why": "AN HONORIFIC, NOT A RELATION. The word here is the priestly title -- Father Schaefer and Father St. Cyr -- in an article about the Catholic mission at Chicago. The vocabulary is declared rather than tuned precisely so these five reach a reader instead of being dropped by a pattern nobody would notice was narrowed; a reader answers each in a second, and St Cyr, the one of these priests this town holds, gains no family from any of them."
+    },
+    "bk_ichr4_006": {
+      "ruling": "not_a_kinship",
+      "reading": "Father",
+      "why": "AN HONORIFIC, NOT A RELATION. The word here is the priestly title -- Father Schaefer's arrival in the fall of 1836 -- in an article about the Catholic mission at Chicago. The vocabulary is declared rather than tuned precisely so these five reach a reader instead of being dropped by a pattern nobody would notice was narrowed; a reader answers each in a second, and St Cyr, the one of these priests this town holds, gains no family from any of them."
+    },
+    "bk_ichr4_007": {
+      "ruling": "not_a_kinship",
+      "reading": "Father",
+      "why": "AN HONORIFIC, NOT A RELATION. The word here is the priestly title -- Father O'Meara and the house on the church ground -- in an article about the Catholic mission at Chicago. The vocabulary is declared rather than tuned precisely so these five reach a reader instead of being dropped by a pattern nobody would notice was narrowed; a reader answers each in a second, and St Cyr, the one of these priests this town holds, gains no family from any of them."
+    },
+    "bk_mose1_003": {
+      "ruling": "not_a_kinship",
+      "reading": "the Noble brothers",
+      "why": "A FIRM STYLE, NOT A TIE BETWEEN TWO PEOPLE. 'the Noble brothers' names no individual, and a surname plural is the crosswalk's standing refusal -- it declines 'the Kinzies' against John Harris Kinzie for exactly this reason, that the sentence chooses among none of them. This town holds no Noble card the plural could choose between in any case. The packing partnership itself is the business layer's."
+    },
+    "bk_mose1_012": {
+      "ruling": "relative_not_held",
+      "reading": "married Laura Adelaide, daughter of Jacob Sherrill of New Hartford",
+      "why": "John Dean Caton is held; his bride and her father are not, and the sentence places the marriage and the family at Oneida County, New York. THE DATE IS A YEAR AND THE SCENE DATE FALLS INSIDE IT, so this reading cannot even say whether Caton was married on 1 July 1835, let alone seat a wife in the town on that day. A relative outside the scene is evidence, not structure; the marriage belongs in the prose of a field Caton's card already has, and nobody is minted."
+    },
+    "bk_mose1_018": {
+      "ruling": "identity_not_asserted",
+      "reading": "was the first NON-RESIDENT to buy vacant lots in Chicago",
+      "why": "MOSES AND KIRKLAND'S WILLIAM JONES IS NOT THE TOWN'S, AND THE SOURCE IS WHAT SAYS SO. The sentence states a brother tie between William Jones and Benjamin Jones, and both names fold onto residents this layer holds -- which is precisely the identification this pass may not make on a fold. Its William Jones is 'the first NON-RESIDENT to buy vacant lots in Chicago', the father of Fernando Jones, a man buying INTO the town from outside it; hh_jones_william is a man the Chicago Democrat of 1833-1835 and the Fergus and Norris directories name AT Chicago. A shared forename and surname is one agreement and the merge rule asks for a second, and here the source offers a disagreement instead. data/research/books/crosswalk.json has already declined one identification inside this family -- 'Fernando Jones' against 'Benjamin Jones' -- and neither William Jones nor Benjamin Jones is among its 35 merges. No tie is written, and nobody is minted for either end."
+    },
+    "bk_mose1_019": {
+      "ruling": "relation_undeclared",
+      "reading": "Margaret the captive was his aunt",
+      "why": "AUNT, WHICH HAS NO INVERSE IN validate.py, so the tie cannot be checked for reciprocity and this project does not write a claim its gate cannot read. Benjamin Hall is held; Margaret the captive is not a person this dataset carries, and the note that states the tie is Blanchard's, printed in 1881 about a captivity of the previous century."
+    },
+    "bk_mose2_010": {
+      "ruling": "neither_end_held",
+      "reading": "Rev. Allen B. Freeman and Hannah C., his wife",
+      "why": "THE ONE TIE THE SENTENCE STATES HAS NEITHER END HERE. The catalogue of the fourteen founding Baptists states exactly one relationship -- Freeman and Hannah C. his wife -- and this town holds neither of them. AND THE REST OF THE LIST IS NOT A KINSHIP. Samantha Harmon and Lucinda Jackson stand in the same catalogue as Martin D. Harmon and S. T. Jackson, both of whom this town holds, and the sentence states no relation between any of them. A shared surname in a membership list is not a tie and this pass will not read one into it; that is the same refusal the resolver makes by construction and it is written down here because a reader would otherwise be tempted."
+    },
+    "bk_mose2_011": {
+      "ruling": "neither_end_held",
+      "reading": "He arrived with his wife on August 16, 1833",
+      "why": "Freeman and his wife again, and again this town holds neither. She is not even named in this sentence. Rev. Jeremiah Porter, who IS held, appears only as the minister whose congregation Freeman preached to first -- no kinship is stated about him."
+    },
+    "bk_mose2_013": {
+      "ruling": "corroborates",
+      "reading": "In 1831 two brothers, John and Samuel Miller, built a tannery",
+      "why": "THE SECOND AGREEMENT THE MILLER ROW SAYS IT WANTS. hh_miller_john and hh_miller_samuel already carry a brother tie, and their own notes state exactly what is thin about it: Andreas prints the brother as 'Samuel, the landlord' and never with a surname, so what ties him to the town's one Samuel Miller is 'a shared surname carried by the sentence and the same three years in the same town. That is one agreement, and the crosswalk rule this project uses for a MERGE asks for a second.' Moses and Kirkland supply it: a different compilation, different authors, printing BOTH forenames against the surname, with the same 1831, the same tannery and the same tavern it stood north of. Both ends fold onto exactly one resident each and the crosswalk refuses neither pair. THE GRADE STAYS `inferred`: a second recollection is a second recollection, and a confidence is not promoted here because a claim got more comfortable. The source joins both rows and the sentence joins both notes.",
+      "source": "moses_kirkland_history_of_chicago_v2",
+      "note": "A SECOND AND INDEPENDENT STATEMENT OF THE TIE, AND IT SUPPLIES THE SURNAME ANDREAS ELIDES. Moses and Kirkland: 'In 1831 two brothers, John and Samuel Miller, built a tannery just north of the latter's tavern near the junction of the two branches of the Chicago river', filed as bk_mose2_013 in data/research/books/claims/moses_kirkland_history_of_chicago_v2.json. THIS ANSWERS THE WEAKNESS THIS ROW'S GRADE WAS WRITTEN FOR. Andreas prints the brother as 'Samuel, the landlord' and never with a surname, which is one agreement where the crosswalk rule this project uses for a merge asks for a second; Moses and Kirkland print BOTH forenames against the surname, in a different compilation by different authors, and agree with Andreas on the year, the tannery and the tavern it stood north of. THE GRADE DOES NOT MOVE. Moses and Kirkland 1895 is a compilation like Andreas 1884 and neither is a record of the family, so the identification is better supported and still reasoned, and this row stays inferred. Read by tools/spend_book_kin.py (T-1320).",
+      "tie": {
+        "a": {
+          "household": "hh_miller_john",
+          "person": "miller_john"
+        },
+        "b": {
+          "household": "hh_miller_samuel",
+          "person": "miller_samuel"
+        },
+        "relation": "brother",
+        "mirror": "brother",
+        "confidence": "inferred"
+      }
+    },
+    "bk_mose2_017": {
+      "ruling": "not_a_kinship",
+      "reading": "at Father Walker's log cabin",
+      "why": "AN HONORIFIC AGAIN: 'Father Walker' is Rev. Jesse Walker, the Methodist missionary, and the cabin is named after him. The crosswalk has already refused 'Rev. Jesse Walker' against George E. Walker and 'Walker, Rev. Jessa' against Jeremiah Walker, so the town holds no card this name reaches either. Philo Carpenter and John Wright are named as elders of the Presbyterian organisation and no kinship is stated about either -- and John Wright folds onto three residents, which is ambiguous and would be refused even if one were."
+    },
+    "bk_porter_001": {
+      "ruling": "neither_end_held",
+      "reading": "Rufus King Porter, the author's father",
+      "why": "H. H. Porter writing in 1915 about his own father, born at Biddeford and practising law at Machias, Maine, until his death in 1856. Neither is a person this town holds, and data/research/books/crosswalk.json refuses 'H. H. Porter' both against the town's Porter, H. and against Rev. Jeremiah Porter. Nothing to write."
+    },
+    "bk_porter_002": {
+      "ruling": "neither_end_held",
+      "reading": "The author's mother, Lucy Lee Hedge",
+      "why": "The same autobiography on the author's mother, her marriage, and the uncle she lived with at Wiscasset. Neither end is a person this town holds; the places are in Massachusetts and Maine; and 'uncle' has no inverse in validate.py in any case."
+    }
+  }
+}

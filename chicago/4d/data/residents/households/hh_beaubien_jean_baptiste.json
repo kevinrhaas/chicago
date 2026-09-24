@@ -7,9 +7,10 @@
   "value": "1812",
   "confidence": "attested",
   "sources": [
-   "andreas_1884_v1"
+   "andreas_1884_v1",
+   "moses_kirkland_history_of_chicago_v1"
   ],
-  "note": "'He came to Chicago and bought the cabin and cultivated field south of the old fort in 1812' - the earliest arrival in the dataset by nineteen years, and inside the year of the Fort Dearborn massacre.",
+  "note": "'He came to Chicago and bought the cabin and cultivated field south of the old fort in 1812' - the earliest arrival in the dataset by nineteen years, and inside the year of the Fort Dearborn massacre. CORROBORATED BY A SECOND COMPILATION, AND THE YEAR AGREES TO THE YEAR. Moses and Kirkland, History of Chicago vol. 1 (1895), printed pages 78-79, the table headed LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830 (data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json). It is an 1895 compilation crediting Hurlbut's Chicago Antiquities pp. 37-8 three lines above itself, every row transcription_mediated and none scan_verified, so NOTHING READ OFF IT IS GRADED ABOVE `inferred` HERE. Row bk_mose1_as_003 reads 'Beanbien, Jean Baptist' — the scan's u read as an n, in a table whose next two rows print Beaubien — nativity Michigan, YEAR 1812. That is the year this record already carries from Andreas, printed by an independent compiler working from Hurlbut. THE GRADE DOES NOT MOVE: two retrospective secondary works agreeing is corroboration and not a promotion, and `attested` here was earned by Andreas's own sentence. WHAT DOES NOT FOLLOW: the table's own preamble bounds it BEFORE 1830 and its remarks are civic acts of 1825-1830. A man on it is not thereby at Chicago on 1835-07-01, and this edit moves no residence, no `present_on_scene_date` and no grade. The identity is the books crosswalk's landed merge (T-0961) and is not re-opened here.",
   "precision": "year"
  },
  "party_size_on_arrival": {
@@ -21,9 +22,10 @@
   "value": "Detroit and the Milwaukee trade, of a French colonial family",
   "confidence": "attested",
   "sources": [
-   "andreas_1884_v1"
+   "andreas_1884_v1",
+   "moses_kirkland_history_of_chicago_v1"
   ],
-  "note": "'He was settled as a trader in Milwaukee as early as 1800, and until 1818 had a trading-house there.'"
+  "note": "'He was settled as a trader in Milwaukee as early as 1800, and until 1818 had a trading-house there.' Row bk_mose1_as_003 of the settlers table prints his nativity as Michigan, which is the same statement this record makes at Detroit, Detroit being in Michigan; it adds a second printing and no new place."
  },
  "reason_for_coming": {
   "value": "The fur trade",
@@ -98,7 +100,9 @@
     "note": "'J. B. Beaubien, merchant' in the 1833 roster; a licensed trader from the county court's earliest permits - the clerk 'granted permits to sell goods to Alexander Robinson, John B. Beaubien, and Madore B. Beaubien' in 1831 - and before that the American Fur Company's man at Chicago.",
     "derived_from": "roles",
     "roles_at_scene_date": [
-     "trader"
+     "trader",
+     "merchant",
+     "public_administrator"
     ]
    },
    "sources": [
@@ -106,6 +110,485 @@
     "chicago_democrat_1833_1835",
     "chicago_voter_lists_1833_1835_irad",
     "isa_public_domain_land_tract_sales"
+   ],
+   "dated_bounds": [
+    {
+     "bound_kind": "presence",
+     "list": "poll_1833",
+     "list_title": "Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833",
+     "record_id": "poll_1833_003",
+     "as_read": "Beaubien, J. B.",
+     "locator": "voter_lists_1833_1835.txt line 24",
+     "describes_date": "1833-08-10",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-08-10",
+     "here_by": "1833-08-10",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'J. B. Beaubien' against resident 'Col. Jean Baptiste Beaubien'",
+     "identity_rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered.",
+     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1833-08-10. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'J. B. Beaubien' against resident 'Col. Jean Baptiste Beaubien'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "presence",
+     "list": "poll_1835",
+     "list_title": "Poll list of 1835",
+     "record_id": "poll_1835_005",
+     "as_read": "Beaubien, Col. J. B.",
+     "locator": "voter_lists_1833_1835.txt line 290",
+     "describes_date": "1835",
+     "date_confidence": "inferred",
+     "precision": "year",
+     "reaches": "1835-12-31",
+     "here_by": "1835-12-31",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'Col. J. B. Beaubien' against resident 'Col. Jean Baptiste Beaubien'",
+     "identity_rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered.",
+     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Poll list of 1835 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1835-12-31. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'Col. J. B. Beaubien' against resident 'Col. Jean Baptiste Beaubien'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0959",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0362468, volume L5A page 013, lot 4 block 36 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0960",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0362469, volume L5A page 013, lot 6 block 35 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0961",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0362470, volume L5A page 013, lot 3 block 36 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0962",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0362471, volume L5A page 005, lot 2 block 17 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0963",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0362472, volume L5A page 005, lot 1 block 17 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0964",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0362473, volume L5A page 005, lot 7 block 16 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0965",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0362474, volume L5A page 006, lot 7 block 17 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0966",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0362475, volume L5A page 006, lot 1 block 18 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "COOK county list, no section",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0967",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0362476, volume L5A page 006, lot 8 block 17 of CHIOT",
+     "describes_date": "09/27/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 29",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0454",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0082315, volume R13 page 005, section 29, T39N R14E",
+     "describes_date": "09/29/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-29",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads ILLINOIS, which places this purchaser nowhere: a state, and Cook is in it. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 29",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0455",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0082316, volume R13 page 005, section 29, T39N R14E",
+     "describes_date": "09/29/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-29",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads ILLINOIS, which places this purchaser nowhere: a state, and Cook is in it. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 29",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0456",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0378978, volume L5A page 140, section 29, T39N R14E",
+     "describes_date": "09/29/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-29",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 29",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0457",
+     "as_read": "BEAUBIEN J B",
+     "locator": "purchase 0378979, volume L5A page 140, section 29, T39N R14E",
+     "describes_date": "09/29/1830",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1830-09-29",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "initial_agrees",
+     "identity_rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins BEAUBIEN J B to this card on a name, upheld under T-0990, on the ground “initial_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1833_12_17#c007",
+     "claim_kind": "notice",
+     "as_printed": "J. B. BEAUBIES,",
+     "role": "public administrator for Cook county",
+     "locator": "chicago_democrat_1833_12_17 page 3 column 5",
+     "describes_date": "1833-12-17",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-12-17",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_j_b_beaubien, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1833-12-17 names 'J. B. BEAUBIES,' in the claim read as chicago_democrat_1833_12_17#c007, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_04_16#c009",
+     "claim_kind": "person",
+     "as_printed": "to Mensa. J. Bt. enublen? Mark s",
+     "role": "named in a card of thanks for restoring money lost in the town",
+     "locator": "chicago_democrat_1834_04_16 page 3 column 1",
+     "describes_date": "1834-04-16",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-04-16",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_j_b_t_beaubien, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-04-16 names 'to Mensa. J. Bt. enublen? Mark s' in the claim read as chicago_democrat_1834_04_16#c009, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_08_13#c013",
+     "claim_kind": "notice",
+     "as_printed": "J. BT. BEAUBIEN,",
+     "role": "public administrator of Cook county",
+     "locator": "chicago_democrat_1834_08_13 page 3 column 3",
+     "describes_date": "1834-08-13",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-13",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_j_b_beaubien, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-08-13 names 'J. BT. BEAUBIEN,' in the claim read as chicago_democrat_1834_08_13#c013, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_09_03#c010",
+     "claim_kind": "event",
+     "as_printed": "Col. Jous B. Besunirs",
+     "role": "official",
+     "locator": "chicago_democrat_1834_09_03 page 3 column 3",
+     "describes_date": "1834-09-03",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-09-03",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_beaubien_john_b, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-09-03 names 'Col. Jous B. Besunirs' in the claim read as chicago_democrat_1834_09_03#c010, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_09_24#c011",
+     "claim_kind": "event",
+     "as_printed": "Col. Jvo. I. Bravntex",
+     "role": "official",
+     "locator": "chicago_democrat_1834_09_24 page 3 column 2",
+     "describes_date": "1834-09-24",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-09-24",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_beaubien_john_b, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-09-24 names 'Col. Jvo. I. Bravntex' in the claim read as chicago_democrat_1834_09_24#c011, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1835_07_01#c010",
+     "claim_kind": "event",
+     "as_printed": "J. B. Beaubien",
+     "role": "committee",
+     "locator": "chicago_democrat_1835_07_01 page 3 column 2",
+     "describes_date": "1835-07-01",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-07-01",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_j_b_beaubien, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-07-01 names 'J. B. Beaubien' in the claim read as chicago_democrat_1835_07_01#c010, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
+   "appearance_bounds": [
+    {
+     "bound_kind": "district_presence",
+     "corpus": "census_1830",
+     "source_title": "Fifth census of the United States, 1830 — the division headed 'Peoria & Putnam Counties & Territory attached'",
+     "record_id": "census1830_n580_036",
+     "as_read": "John B Beaubien",
+     "role": "head_of_family",
+     "locator": "leaf n580 entry 36, peoria_putnam_1830_leaves_580_582.txt line 55",
+     "describes_date": "1830",
+     "date_confidence": "documented",
+     "precision": "year",
+     "reaches": "1830-12-31",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "census_1830_peoria_county_chicago_precinct"
+     ],
+     "identity_rule": "Surname and given name both agree between the 1830 reading 'John B Beaubien' and the town person 'Col. Jean Baptiste Beaubien' in household hh_beaubien_jean_baptiste. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own.",
+     "note": "A BOUND ON PRESENCE IN A DISTRICT, AND NOT AT CHICAGO. The division is headed 'Peoria & Putnam Counties & Territory attached' and the schedule never writes the word Chicago — the Fox River and Du Page settlements are inside it — so this row bounds presence in that district in the summer of 1830 and puts no body in the town, which is why `here_by` is null. The record's own note says it first: 'Presence in that district in the summer of 1830; not a Chicago residence, and never an 1835 one'. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the leaf is read scan_verified off the federal schedule, and what no source states is that the head of family on it is the person on this card. data/research/census_1830/resident_crosswalk.json joins them on a name agreement and says in terms that it grades nothing on its own. No grade moves here and the identity is neither reopened nor hardened."
+    }
    ],
    "note": "HE CAME TO CHICAGO AND BOUGHT THE CABIN AND CULTIVATED FIELD SOUTH OF THE OLD FORT IN 1812, and the house remained his residence until 1839. He was a trader at Milwaukee as early as 1800. He was one of the twenty-eight electors of 10 August 1833 and took six votes for trustee. HIS TWO MARRIAGES ARE DOCUMENTED AND THEY ARE WHY THIS HOUSEHOLD IS FLAGGED: he married first Mah-naw-bun-no-quah, an Ottawa woman, the mother of his sons Charles Henry and Madore; and in 1812 he married Josette LaFramboise, daughter of Francois LaFramboise, of an influential French trading family. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Beaubien, J. B.” (poll_1833_003, line 24); Poll list of 1835 — “Beaubien, Col. J. B.” (poll_1835_005, line 290). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Beaubien' agrees with the entry's forenames; 4 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 13 times, as “BEAUBIEN J B”, 1830-09-27 to 1830-09-29: 4 federal land entries — NFR2NEVO sec 29 T39N R14E; NFRNE sec 29 T39N R14E; NWFRPTNW sec 29 T39N R14E; NWFRPTNWVO sec 29 T39N R14E and 9 lots in the platted town — lot 1 of block 17 in the town the register codes CHIOT (L1B17CHIOT, as printed); lot 1 of block 18 in the town the register codes CHIOT (L1BL18CHIOT, as printed); lot 2 of block 17 in the town the register codes CHIOT (L2B17CHIOT, as printed); lot 3 of block 36 in the town the register codes CHIOT (L3BL36CHIOT, as printed); lot 4 of block 36 in the town the register codes CHIOT (L4BL36CHIOT, as printed); lot 6 of block 35 in the town the register codes CHIOT (L6BL35CHIOT, as printed); lot 7 of block 16 in the town the register codes CHIOT (L7B16CHIOT, as printed); lot 7 of block 17 in the town the register codes CHIOT (L7BL17CHIOT, as printed); lot 8 of block 17 in the town the register codes CHIOT (L8BL17CHIOT, as printed), 425.22 acres stated in all, for $2472.40 (ls0454, ls0455, ls0456, ls0457, ls0959, ls0960, ls0961, ls0962, ls0963, ls0964, ls0965, ls0966, ls0967). THE REGISTER'S OWN RESIDENCE COLUMN READS ILLINOIS, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $346.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
@@ -174,14 +657,96 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "merchant",
+     "kind": "trade",
+     "as_printed": "merchant",
+     "from": "1833-12-17",
+     "to": "1835-07-01",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": true,
+     "fills_scene_view": true,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_j_b_beaubien",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1833-12-17 to 1835-07-01, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls inside that run, so this role stands in the 1835 view (T-1299).",
+     "premises": "own_premises"
+    },
+    {
+     "role": "public_administrator",
+     "kind": "office",
+     "as_printed": "public administrator",
+     "from": "1833-12-17",
+     "to": "1835-07-01",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": true,
+     "fills_scene_view": true,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_j_b_beaubien",
+     "place": "not_stated",
+     "employer_or_body": "cook_county",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1833-12-17 to 1835-07-01, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls inside that run, so this role stands in the 1835 view (T-1299).",
+     "premises": "no_fixed_premises"
+    },
+    {
+     "role": "militia_officer",
+     "kind": "office",
+     "as_printed": "colonel of the Cook county regiment",
+     "from": "1834-09-03",
+     "to": "1834-09-24",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_beaubien_john_b",
+     "place": "not_stated",
+     "employer_or_body": "cook_county_regiment",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1834-09-03 to 1834-09-24, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "no_fixed_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "beaubien_jean_baptiste:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('beaubien_jean_baptiste:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   },
   {
    "id": "beaubien_josette",
@@ -196,6 +761,31 @@
    },
    "sources": [
     "andreas_1884_v1"
+   ],
+   "appearance_bounds": [
+    {
+     "bound_kind": "presence",
+     "corpus": "st_marys_baptisms",
+     "source_title": "St Mary's baptismal register, Chicago, 1833-1835, read off the deposited page images",
+     "record_id": "st_marys_bapt_1834_18_5_sponsor",
+     "as_read": "Josette Beaubien",
+     "role": "sponsor",
+     "locator": "image S3HT-DHG9-S1C, page 12, entry 18 of the 1834 series",
+     "describes_date": "1834-07-16",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-07-16",
+     "here_by": "1834-07-16",
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "st_marys_baptismal_register_1833_1835"
+     ],
+     "identity_rule": "data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'Josette Laframboise Beaubien' into the residents layer's 'Josette LaFramboise Beaubien' under a written rule naming both spellings verbatim; the rule is read there and is not copied here.",
+     "identity_rule_source": "data/research/church/st_marys_baptisms_crosswalk.json — merges[] into 'Josette LaFramboise Beaubien'",
+     "note": "A BOUND ON PRESENCE AT CHICAGO, AND NOTHING FURTHER. The entry is dated 1834-07-16 at Chicago, Cook County, Illinois and this person stood at the font as sponsor, so the register places a body in the town no later than 1834-07-16. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The entry is read scan_verified off the page image at `documented` confidence. What no source states is that the sponsor the register names is the person on this card: data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'Josette Laframboise Beaubien' into the residents layer's 'Josette LaFramboise Beaubien' under a written rule, and a bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    }
    ],
    "note": "NAMED AND DATED IN THE SOURCE - married to J. B. Beaubien in 1812, daughter of Francois LaFramboise - and nothing places her in the household on 1 July 1835. She is written because a named wife of a named head is exactly the person this layer exists to record, and graded derived because the presence on the day is the reconstruction. The LaFramboise family is separately in the 1833 treaty schedules, where 'Joseph Laframboise and children' receive $1,000.",
    "resident_research": {
@@ -226,7 +816,25 @@
      "for_merge": "The surname, and in Josette's case one letter of a forename.",
      "against_merge": "T-0839 names John S. Beaubien as a second man, not a duplicate of Jean Baptiste — the ticket's own worked warning. Josette LaFramboise Beaubien is Jean Baptiste's wife and is already a member of his household record; she is in this candidate cluster only because her forename begins with the letter J. and 'J. B. Beaubien' prints an initial."
     }
-   ]
+   ],
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 30 under 40', one of its female bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "beaubien_josette:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('beaubien_josette:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   },
   {
    "id": "beaubien_household_unnamed",
@@ -239,7 +847,19 @@
     "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work — the sources of 1835 name the occupations of household heads and almost never those of wives, children or the people counted with them."
    },
    "sources": [],
-   "note": "AN ADMISSION. J. B. Beaubien's family was large and is not enumerated in anything reached; two sons are named in Andreas and one of them, Madore, has his own household here. Carried as one placeholder rather than as invented individuals; do not count it as a person."
+   "note": "AN ADMISSION. J. B. Beaubien's family was large and is not enumerated in anything reached; two sons are named in Andreas and one of them, Madore, has his own household here. Carried as one placeholder rather than as invented individuals; do not count it as a person.",
+   "sex_basis": {
+    "value": null,
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "A COLLECTIVE DESCRIPTION NAMES NOBODY, so there is no sex to draw. This row stands for more than one person and a single band or a single sex would make a group into a person. The refusal is T-1303's and it is kept here word for word rather than overridden by a model that could not tell."
+   },
+   "age_band": {
+    "value": null,
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "A COLLECTIVE DESCRIPTION NAMES NOBODY, so there is no age band to draw. This row stands for more than one person and a single band or a single sex would make a group into a person. The refusal is T-1303's and it is kept here word for word rather than overridden by a model that could not tell."
+   }
   }
  ],
  "touches_removal": true,

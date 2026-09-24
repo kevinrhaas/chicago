@@ -436,6 +436,7 @@ while IFS=$'\t' read -r N BR; do
   # that led the branch's queue goes back to the top. The owner ranks this file.
   ( cd chicago/4d \
     && node tools/stamp-changelog.mjs \
+    && bash tools/tickets.sh \
     && node tools/ticket.mjs reconcile --base "origin/$BASE" \
     && node tools/ticket.mjs prune \
     && node tools/ticket.mjs board \

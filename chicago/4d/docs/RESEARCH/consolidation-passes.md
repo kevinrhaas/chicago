@@ -59,6 +59,19 @@ hop-1 work and belong to the spend tickets (T-0514, T-0515, T-0609, T-0633), not
 card.** The `unwritten_ceiling` for civic and census_1840 is tightened to 0 in
 `tools/research_spend_baseline.json`, so it cannot regrow silently.
 
+> **Addendum, T-1326, 2026-09-18 — on a card is not the same as legible.** This pass wrote
+> its 99 (later 292, as the town grew) as a paragraph in `persons[].note` plus a source id
+> in `persons[].sources`, and by hop 2's own measure that is written. By the measure the
+> research-spend ledger uses one layer down it is not: that instrument counts a reading
+> spent only where a structured node carrying `attested`/`inferred` and a source NAMES the
+> unit, and a person node carries `grade` rather than `confidence`. So all 292 matched roll
+> entries still read `unresolved` two weeks later, deferred to an arrival ticket, while the
+> evidence had been on the cards since 2026-09-04. `tools/spend_civic_roll_bounds.py` writes
+> the same rulings again as `persons[].dated_bounds[]` — one row per roll entry, `inferred`,
+> sourced, `covers_scene_date: false`, and `bounds: "property"` with `here_by: null` on a tax
+> row (T-1117). **The lesson for the next pass in this series: a paragraph is read by a
+> person and by nothing else. Where a ruling has a field to go in, put it in the field.**
+
 ### Hop 1 — read vs ruled
 
 Unmoved, and unmoved on purpose: this pass reads nothing and adjudicates nothing, so it

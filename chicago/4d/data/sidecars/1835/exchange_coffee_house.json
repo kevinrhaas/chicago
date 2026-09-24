@@ -127,6 +127,67 @@
   },
   "residents": [
     {
+      "household": "hh_lodging_exchange_coffee_house",
+      "name": "The lodgers of Exchange Coffee House",
+      "division": "south",
+      "relation": "lodged here",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 11 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "sources": [],
+      "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
+      "persons": [
+        {
+          "name": "Archange Marcotte",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Abigail Rice",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Lucy Whitcomb",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Otis Hastings",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Francois Pothier",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Dennis Sullivan",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Ira Fisk",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    },
+    {
       "household": "hh_murphy_john",
       "name": "The Murphy household",
       "division": "south",
@@ -150,6 +211,20 @@
           "grade": "inferred",
           "occupation": "tavern_keeper",
           "note": "DOCUMENTED AS A PERSON, DERIVED AS A NAME. Andreas calls her only 'Mrs. Murphy'. The forename Harriet reaches this project through data/structures/exchange_coffee_house.json, whose occupants field carries 'John and Harriet Murphy, keepers', and it could not be traced back to a sentence in Andreas. The woman is documented; the forename is the reconstructed part, and that is exactly what the derived grade is for."
+        },
+        {
+          "name": "Thomas Murphy",
+          "relationship": "child",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED PERSON. The 1840 census counts this household member and does not name them; the relation is 'child' because a band tally states an age and a sex and no relation at all. The band is the one the card's named people leave over once they have absorbed the senior bands of their sex, and that allocation writes no age onto any of THEM. Nothing here is evidence about a named individual: the need is the count, and any source naming this household's people retires them."
+        },
+        {
+          "name": "Honora Murphy",
+          "relationship": "household_member",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED PERSON. The 1840 census counts this household member and does not name them; the relation is 'household_member' because a band tally states an age and a sex and no relation at all. The band is the one the card's named people leave over once they have absorbed the senior bands of their sex, and that allocation writes no age onto any of THEM. Nothing here is evidence about a named individual: the need is the count, and any source naming this household's people retires them."
         }
       ],
       "research_note": "THE CLEANEST HOUSEHOLD-TO-BUILDING LINK IN THIS PARCEL, and the reason it is worth writing the residents layer at all: a building record that says 'tavern_inn' becomes a household of two people with a trade, a date and a tenancy with ends. THE CONFLICT ALREADY RECORDED ON THE BUILDING IS NOT RESOLVED HERE: Abram A. Markle's name is on this house in a Chicago American advertisement of August 1836 while Andreas has Markle taking the Mansion House in 1835, and this project holds both readings without choosing. The Murphy tenancy is the one with dates on both sides of 1 July 1835 and it is what this record carries."
@@ -183,5 +258,25 @@
   ],
   "research_note": "MARK BEAUBIEN'S SECOND HOTEL, DOCUMENTED IN EVERYTHING EXCEPT ITS FABRIC. Two independent passages of Andreas - the hotel chapter and the life of Beaubien - agree on the builder, the corner, the year, the keepers and the name, which is more agreement than any other building in this parcel gets. Not one of them says what it was made of, how big it was, how many storeys it had or what it looked like, so every attribute of the form below is conjectural and the confidence view renders the whole house as massing. THE ARCHETYPE CHOICE IS THEREFORE THE GUESS, and it is argued at form.construction rather than buried in the filename. WHY THERE IS NO SEPARATE STAGE OFFICE IN THIS SCENE: data/exclusions.json already excludes one, and this record deliberately does not replace it with a stage-office function here - the only dated evidence for seats being taken at this house is a Chicago American advertisement of 6 August 1836, and the project's own summary of it as '1835-36' is a year generous. See the function note. TWO NAMES IN THE aka LIST POST-DATE THE SCENE and are carried only so the record can be found under them: 'Markle's Exchange Coffee House' is the 1836 advertisement's form, and 'Illinois Exchange' is how Andreas lists a house at this corner among the minor houses of 1845. A SCENE-LEVEL CHECK ON THE PARCEL AS A WHOLE: the Chicago American of 15 August 1835, quoted by Andreas, counted 'eight taverns' in the town six weeks after the scene date. With this record, the Tremont and the Mansion House added, the dataset holds exactly eight public houses for 1835. See docs/RESEARCH/exchange_coffee_house.md.",
   "research_doc": "docs/RESEARCH/exchange_coffee_house.md",
-  "review_required": false
+  "review_required": false,
+  "lodging": {
+    "class": "inn_tavern",
+    "beds_ordinary": 11,
+    "beds_crowded": 35,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": true,
+    "enclosed_floor_m2": 252.0,
+    "confidence": "reconstructed",
+    "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 252 m² of enclosed floor (126 m² × 2 storeys) is of the class's floor area.",
+    "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
+    "occupancy": {
+      "people": 11,
+      "beds_ordinary": 11,
+      "empty": 0,
+      "statement": "11 on this card against an ordinary night's 11 beds: 4 the residents layer already housed here, 7 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "empty_note": "",
+      "keeper_persons": 4,
+      "keeper_owed": ""
+    }
+  }
 }

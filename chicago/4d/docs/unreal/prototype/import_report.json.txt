@@ -1,0 +1,3872 @@
+{
+  "imported": [
+    {
+      "id": "ground",
+      "asset": "gltf/terrain__e1834_harbor_cut.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "water",
+      "asset": "gltf/water__e1834_harbor_cut.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "bates_auction_room",
+      "asset": "gltf/bates_auction_room__frame_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        67970.0,
+        4370.0,
+        77.5
+      ]
+    },
+    {
+      "id": "beaubien_barn",
+      "asset": "gltf/beaubien_barn__converted_1817.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        112709.99999999999,
+        -15850.0,
+        271.79600000000056
+      ]
+    },
+    {
+      "id": "blacksmith_shop_state_st",
+      "asset": "gltf/blacksmith_shop_state_st__log_1823.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        76900.0,
+        -11900.0,
+        132.92
+      ]
+    },
+    {
+      "id": "brickyard_north_side",
+      "asset": "gltf/brickyard_north_side__yard_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        62029.99999999999,
+        -10920.0,
+        123.35919999999993
+      ]
+    },
+    {
+      "id": "brown_boarding_house",
+      "asset": "gltf/brown_boarding_house__documented_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        42434.3,
+        3609.5999999999995,
+        76.7192
+      ]
+    },
+    {
+      "id": "carpenter_south_water_store",
+      "asset": "gltf/carpenter_south_water_store__frame_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        38736.700000000004,
+        1231.9,
+        74.46379999999999
+      ]
+    },
+    {
+      "id": "chappel_infant_school",
+      "asset": "gltf/chappel_infant_school__log_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        81092.0,
+        4706.0,
+        128.62361600000025
+      ]
+    },
+    {
+      "id": "chicago_american_office",
+      "asset": "gltf/chicago_american_office__frame_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        71106.2,
+        1500.6,
+        74.50119999999993
+      ]
+    },
+    {
+      "id": "chicago_democrat_office",
+      "asset": "gltf/chicago_democrat_office__frame_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        55145.299999999996,
+        1250.9,
+        74.29135383999999
+      ]
+    },
+    {
+      "id": "chicago_lighthouse_1832",
+      "asset": "gltf/chicago_lighthouse_1832__tower_1832.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        105558.99999999999,
+        -17254.0,
+        247.616112
+      ]
+    },
+    {
+      "id": "clybourn_cabins",
+      "asset": "gltf/clybourn_cabins__log_1824.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -1070.0,
+        -28420.0,
+        114.86000000000001
+      ]
+    },
+    {
+      "id": "clybourn_slaughterhouse",
+      "asset": "gltf/clybourn_slaughterhouse__log_1827.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -3070.0,
+        -29420.0,
+        112.74479999999994
+      ]
+    },
+    {
+      "id": "cobweb_castle",
+      "asset": "gltf/cobweb_castle__log_1820.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        81400.0,
+        -12200.0,
+        134.89999999999998
+      ]
+    },
+    {
+      "id": "council_house",
+      "asset": "gltf/council_house__log_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        93700.0,
+        -23300.0,
+        140.68
+      ]
+    },
+    {
+      "id": "dearborn_street_drawbridge",
+      "asset": "gltf/dearborn_street_drawbridge__draw_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        69917.0,
+        -2072.0,
+        0
+      ]
+    },
+    {
+      "id": "dole_warehouse_south",
+      "asset": "gltf/dole_warehouse_south__frame_1832.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        71217.7,
+        13688.399999999998,
+        79.8768
+      ]
+    },
+    {
+      "id": "elston_soap_candle_manufactory",
+      "asset": "gltf/elston_soap_candle_manufactory__works_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -1270.0,
+        -18420.0,
+        111.00000000000001
+      ]
+    },
+    {
+      "id": "exchange_coffee_house",
+      "asset": "gltf/exchange_coffee_house__frame_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        31912.0,
+        9066.0,
+        80.0
+      ]
+    },
+    {
+      "id": "first_presbyterian_church",
+      "asset": "gltf/first_presbyterian_church__frame_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        55264.0,
+        13219.0,
+        79.913472
+      ]
+    },
+    {
+      "id": "fort_dearborn_artillery_house",
+      "asset": "gltf/fort_dearborn_artillery_house__log_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        117168.0,
+        -19441.0,
+        368.0
+      ]
+    },
+    {
+      "id": "fort_dearborn_barracks",
+      "asset": "gltf/fort_dearborn_barracks__log_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        117261.99999999999,
+        -20341.0,
+        367.302736
+      ]
+    },
+    {
+      "id": "fort_dearborn_big_barn",
+      "asset": "gltf/fort_dearborn_big_barn__barn_1830.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        104234.99999999999,
+        -14416.999999999998,
+        248.5
+      ]
+    },
+    {
+      "id": "fort_dearborn_blockhouse",
+      "asset": "gltf/fort_dearborn_blockhouse__log_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        112118.0,
+        -19672.0,
+        364.318368
+      ]
+    },
+    {
+      "id": "fort_dearborn_commandants_quarters",
+      "asset": "gltf/fort_dearborn_commandants_quarters__brick_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        114902.0,
+        -24498.0,
+        361.504
+      ]
+    },
+    {
+      "id": "fort_dearborn_flagstaff",
+      "asset": "gltf/fort_dearborn_flagstaff__staff_1833_37.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        115055.0,
+        -22146.0,
+        364.5
+      ]
+    },
+    {
+      "id": "fort_dearborn_garrison_garden",
+      "asset": "gltf/fort_dearborn_garrison_garden__fence_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        101910.0,
+        -10656.0,
+        245.5
+      ]
+    },
+    {
+      "id": "fort_dearborn_guard_house",
+      "asset": "gltf/fort_dearborn_guard_house__log_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        113827.0,
+        -20091.0,
+        365.818
+      ]
+    },
+    {
+      "id": "fort_dearborn_magazine",
+      "asset": "gltf/fort_dearborn_magazine__brick_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        113173.0,
+        -20728.0,
+        364.859552
+      ]
+    },
+    {
+      "id": "fort_dearborn_officers_quarters",
+      "asset": "gltf/fort_dearborn_officers_quarters__log_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        113183.0,
+        -23220.0,
+        362.54392000000007
+      ]
+    },
+    {
+      "id": "fort_dearborn_out_building_a",
+      "asset": "gltf/fort_dearborn_out_building_a__out_building_a_1830.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        117624.0,
+        -5658.0,
+        251.752
+      ]
+    },
+    {
+      "id": "fort_dearborn_out_building_b",
+      "asset": "gltf/fort_dearborn_out_building_b__out_building_b_1830.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        118100.0,
+        -6170.0,
+        251.39999999999998
+      ]
+    },
+    {
+      "id": "fort_dearborn_palisade",
+      "asset": "gltf/fort_dearborn_palisade__picket_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        112207.0,
+        -19845.0,
+        364.414
+      ]
+    },
+    {
+      "id": "fort_dearborn_parade",
+      "asset": "gltf/fort_dearborn_parade__parade_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        113773.0,
+        -20675.0,
+        365.18219999999997
+      ]
+    },
+    {
+      "id": "fort_dearborn_root_house",
+      "asset": "gltf/fort_dearborn_root_house__cellar_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        111773.0,
+        -23544.0,
+        360.92009600000006
+      ]
+    },
+    {
+      "id": "fort_dearborn_shop",
+      "asset": "gltf/fort_dearborn_shop__shop_1830.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        121257.0,
+        -11742.0,
+        266.54200000000003
+      ]
+    },
+    {
+      "id": "fort_dearborn_store_house",
+      "asset": "gltf/fort_dearborn_store_house__log_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        115233.99999999999,
+        -19909.0,
+        366.670352
+      ]
+    },
+    {
+      "id": "fort_dearborn_sutlers_store",
+      "asset": "gltf/fort_dearborn_sutlers_store__log_1816.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        117578.0,
+        -24052.0,
+        362.89599999999996
+      ]
+    },
+    {
+      "id": "fort_dearborn_us_factors_house",
+      "asset": "gltf/fort_dearborn_us_factors_house__us_factors_house_1818.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        115220.0,
+        -3640.0,
+        253.5
+      ]
+    },
+    {
+      "id": "fort_dearborn_wash_house",
+      "asset": "gltf/fort_dearborn_wash_house__wash_house_1830.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        123157.0,
+        -16012.0,
+        223.3598560000018
+      ]
+    },
+    {
+      "id": "frederick_thomas_shop",
+      "asset": "gltf/frederick_thomas_shop__frame_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        74458.1,
+        1434.5,
+        75.5
+      ]
+    },
+    {
+      "id": "goss_cobb_saddlery",
+      "asset": "gltf/goss_cobb_saddlery__shop_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -13833.000000000002,
+        12058.0,
+        108.538512
+      ]
+    },
+    {
+      "id": "green_tree_tavern",
+      "asset": "gltf/green_tree_tavern__frame_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -13530.000000000002,
+        9620.0,
+        106.5288
+      ]
+    },
+    {
+      "id": "h_jones_store",
+      "asset": "gltf/h_jones_store__frame_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        34737.9,
+        1417.1,
+        74.5
+      ]
+    },
+    {
+      "id": "harmon_log_cabin",
+      "asset": "gltf/harmon_log_cabin__documented_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        24595.2,
+        27596.300000000003,
+        82.0
+      ]
+    },
+    {
+      "id": "harmon_loomis_store",
+      "asset": "gltf/harmon_loomis_store__frame_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        58789.0,
+        1270.5,
+        74.92839599999999
+      ]
+    },
+    {
+      "id": "heacock_house_monroe",
+      "asset": "gltf/heacock_house_monroe__documented_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        51469.7,
+        68296.6,
+        88.5
+      ]
+    },
+    {
+      "id": "hogan_store",
+      "asset": "gltf/hogan_store__log_1831.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        12010.0,
+        9210.0,
+        70.18639999999985
+      ]
+    },
+    {
+      "id": "inf_artisan_dwelling_west_a",
+      "asset": "gltf/inf_artisan_dwelling_west_a__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -17743.8,
+        13335.300000000001,
+        113.00000000000001
+      ]
+    },
+    {
+      "id": "inf_artisan_dwelling_west_b",
+      "asset": "gltf/inf_artisan_dwelling_west_b__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -18243.8,
+        3435.3,
+        108.4876
+      ]
+    },
+    {
+      "id": "inf_bakery_lake",
+      "asset": "gltf/inf_bakery_lake__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        61618.799999999996,
+        13621.9,
+        79.24379999999996
+      ]
+    },
+    {
+      "id": "inf_barber_shop",
+      "asset": "gltf/inf_barber_shop__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        40686.700000000004,
+        13204.8,
+        81.0
+      ]
+    },
+    {
+      "id": "inf_blacksmith_shop_west",
+      "asset": "gltf/inf_blacksmith_shop_west__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -17774.3,
+        16426.7,
+        115.36764951999996
+      ]
+    },
+    {
+      "id": "inf_boatman_cabin_north",
+      "asset": "gltf/inf_boatman_cabin_north__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        25243.899999999998,
+        -13304.8,
+        110.00000000000001
+      ]
+    },
+    {
+      "id": "inf_brickmaker_dwelling_north",
+      "asset": "gltf/inf_brickmaker_dwelling_north__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        65725.7,
+        -13634.3,
+        128.5
+      ]
+    },
+    {
+      "id": "inf_butcher_market",
+      "asset": "gltf/inf_butcher_market__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        65619.3,
+        13593.4,
+        79.68680000000006
+      ]
+    },
+    {
+      "id": "inf_carpenter_dwelling_north",
+      "asset": "gltf/inf_carpenter_dwelling_north__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        37725.7,
+        -19634.3,
+        119.7686
+      ]
+    },
+    {
+      "id": "inf_cooperage_south",
+      "asset": "gltf/inf_cooperage_south__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        16164.699999999999,
+        4318.2,
+        75.37593967999999
+      ]
+    },
+    {
+      "id": "inf_cooperage_south_branch",
+      "asset": "gltf/inf_cooperage_south_branch__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        6634.2,
+        23987.7,
+        42.45340527999994
+      ]
+    },
+    {
+      "id": "inf_grocery_west",
+      "asset": "gltf/inf_grocery_west__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -18504.8,
+        1557.1999999999998,
+        102.53360000000025
+      ]
+    },
+    {
+      "id": "inf_gunsmith_shop",
+      "asset": "gltf/inf_gunsmith_shop__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        59656.200000000004,
+        27765.699999999997,
+        88.03140000000008
+      ]
+    },
+    {
+      "id": "inf_harness_shop",
+      "asset": "gltf/inf_harness_shop__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        67956.2,
+        24465.7,
+        87.5
+      ]
+    },
+    {
+      "id": "inf_labourer_shanty_north_a",
+      "asset": "gltf/inf_labourer_shanty_north_a__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        29786.7,
+        -25725.7,
+        123.57339999999999
+      ]
+    },
+    {
+      "id": "inf_labourer_shanty_north_b",
+      "asset": "gltf/inf_labourer_shanty_north_b__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        33786.700000000004,
+        -25725.7,
+        125.45140000000004
+      ]
+    },
+    {
+      "id": "inf_labourer_shanty_west_a",
+      "asset": "gltf/inf_labourer_shanty_west_a__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -23213.3,
+        -11725.7,
+        110.5
+      ]
+    },
+    {
+      "id": "inf_labourer_shanty_west_b",
+      "asset": "gltf/inf_labourer_shanty_west_b__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -23213.3,
+        -14725.7,
+        109.92660000000001
+      ]
+    },
+    {
+      "id": "inf_laundry_north",
+      "asset": "gltf/inf_laundry_north__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        29786.7,
+        -19695.2,
+        120.39040000000001
+      ]
+    },
+    {
+      "id": "inf_mason_dwelling_north",
+      "asset": "gltf/inf_mason_dwelling_north__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        37725.7,
+        -25634.300000000003,
+        124.50000000000001
+      ]
+    },
+    {
+      "id": "inf_packer_dwelling",
+      "asset": "gltf/inf_packer_dwelling__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        12056.199999999999,
+        24035.3,
+        75.61240000000001
+      ]
+    },
+    {
+      "id": "inf_sawpit_shed",
+      "asset": "gltf/inf_sawpit_shed__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        13295.2,
+        7348.6,
+        73.04749247999979
+      ]
+    },
+    {
+      "id": "inf_sawyer_dwelling_a",
+      "asset": "gltf/inf_sawyer_dwelling_a__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        15656.2,
+        27335.3,
+        79.5
+      ]
+    },
+    {
+      "id": "inf_sawyer_dwelling_b",
+      "asset": "gltf/inf_sawyer_dwelling_b__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        18686.7,
+        27304.8,
+        80.0
+      ]
+    },
+    {
+      "id": "inf_shoemaker_shop",
+      "asset": "gltf/inf_shoemaker_shop__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        34656.200000000004,
+        13265.7,
+        80.5
+      ]
+    },
+    {
+      "id": "inf_tailor_shop",
+      "asset": "gltf/inf_tailor_shop__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        37656.200000000004,
+        13235.300000000001,
+        81.47059999999999
+      ]
+    },
+    {
+      "id": "inf_teamster_dwelling_south",
+      "asset": "gltf/inf_teamster_dwelling_south__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        42625.7,
+        13396.3,
+        80.5
+      ]
+    },
+    {
+      "id": "inf_teamster_dwelling_west",
+      "asset": "gltf/inf_teamster_dwelling_west__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -17774.3,
+        20396.3,
+        118.0486
+      ]
+    },
+    {
+      "id": "inf_teamster_stable_west",
+      "asset": "gltf/inf_teamster_stable_west__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -17804.8,
+        23518.199999999997,
+        118.6096
+      ]
+    },
+    {
+      "id": "inf_wheelwright_shop_west",
+      "asset": "gltf/inf_wheelwright_shop_west__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -18204.8,
+        6557.200000000001,
+        109.59371648000004
+      ]
+    },
+    {
+      "id": "james_kinzie_house",
+      "asset": "gltf/james_kinzie_house__dwelling_1830.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -4670.0,
+        7980.0,
+        98.81280000000002
+      ]
+    },
+    {
+      "id": "jb_beaubien_homestead",
+      "asset": "gltf/jb_beaubien_homestead__log_1822.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        112709.99999999999,
+        -17480.0,
+        348.30720000000025
+      ]
+    },
+    {
+      "id": "jh_kinzie_forwarding_store",
+      "asset": "gltf/jh_kinzie_forwarding_store__frame_1830s.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        23298.3,
+        1519.6999999999998,
+        76.5
+      ]
+    },
+    {
+      "id": "john_holbrook_store",
+      "asset": "gltf/john_holbrook_store__frame_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        72630.0,
+        1534.9,
+        75.0
+      ]
+    },
+    {
+      "id": "kinzie_hunter_warehouse",
+      "asset": "gltf/kinzie_hunter_warehouse__warehouse_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        11530.0,
+        -6620.0,
+        111.5
+      ]
+    },
+    {
+      "id": "lake_house_construction",
+      "asset": "gltf/lake_house_construction__shell_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        106121.0,
+        -34121.0,
+        149.5
+      ]
+    },
+    {
+      "id": "lasalle_lake_house",
+      "asset": "gltf/lasalle_lake_house__documented_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        46556.200000000004,
+        9977.2,
+        78.0
+      ]
+    },
+    {
+      "id": "lasalle_slough_crossing",
+      "asset": "gltf/lasalle_slough_crossing__crossing_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        46150.0,
+        -300.0,
+        0
+      ]
+    },
+    {
+      "id": "log_jail",
+      "asset": "gltf/log_jail__log_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        46551.0,
+        27457.0,
+        88.0
+      ]
+    },
+    {
+      "id": "madore_beaubien_house",
+      "asset": "gltf/madore_beaubien_house__log_1831.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        67767.9,
+        1197.8999999999999,
+        73.16640000000007
+      ]
+    },
+    {
+      "id": "mansion_house",
+      "asset": "gltf/mansion_house__log_frame_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        72422.0,
+        9156.0,
+        78.5
+      ]
+    },
+    {
+      "id": "mason_blacksmith_shop",
+      "asset": "gltf/mason_blacksmith_shop__documented_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        73195.2,
+        13757.2,
+        80.0
+      ]
+    },
+    {
+      "id": "miller_house",
+      "asset": "gltf/miller_house__log_frame_1827.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        1400.0,
+        -6100.0,
+        114.00000000000001
+      ]
+    },
+    {
+      "id": "miller_tannery",
+      "asset": "gltf/miller_tannery__log_1831.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        1400.0,
+        -7800.0,
+        113.5
+      ]
+    },
+    {
+      "id": "new_york_house",
+      "asset": "gltf/new_york_house__frame_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        31165.100000000002,
+        9090.0,
+        80.5
+      ]
+    },
+    {
+      "id": "newberry_dole_slaughterhouse_south_branch",
+      "asset": "gltf/newberry_dole_slaughterhouse_south_branch__works_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        7430.0,
+        26580.0,
+        70.62000000000008
+      ]
+    },
+    {
+      "id": "newberry_dole_warehouse",
+      "asset": "gltf/newberry_dole_warehouse__frame_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        20030.0,
+        480.0,
+        46.39520000000031
+      ]
+    },
+    {
+      "id": "north_bank_shed_dearborn_e1",
+      "asset": "gltf/north_bank_shed_dearborn_e1__shed_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        71265.0,
+        -12481.1,
+        128.52773200000001
+      ]
+    },
+    {
+      "id": "north_bank_shed_dearborn_e2",
+      "asset": "gltf/north_bank_shed_dearborn_e2__shed_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        72592.1,
+        -12447.6,
+        129.93380832000003
+      ]
+    },
+    {
+      "id": "north_bank_shed_dearborn_e3",
+      "asset": "gltf/north_bank_shed_dearborn_e3__shed_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        74069.6,
+        -12773.5,
+        131.6731152
+      ]
+    },
+    {
+      "id": "north_bank_shed_dearborn_w",
+      "asset": "gltf/north_bank_shed_dearborn_w__shed_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        68112.3,
+        -12304.1,
+        127.50000000000001
+      ]
+    },
+    {
+      "id": "north_branch_bridge",
+      "asset": "gltf/north_branch_bridge__log_1832.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -11750.0,
+        -26050.0,
+        0
+      ]
+    },
+    {
+      "id": "north_pier",
+      "asset": "gltf/north_pier__crib_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        124350.0,
+        -31193.0,
+        0
+      ]
+    },
+    {
+      "id": "north_side_school_1833",
+      "asset": "gltf/north_side_school_1833__log_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        60050.0,
+        -11600.0,
+        123.26000000000003
+      ]
+    },
+    {
+      "id": "north_water_slough_crossing",
+      "asset": "gltf/north_water_slough_crossing__crossing_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        18300.0,
+        -15600.0,
+        0
+      ]
+    },
+    {
+      "id": "old_bank_building",
+      "asset": "gltf/old_bank_building__frame_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        46577.5,
+        13642.400000000001,
+        78.5
+      ]
+    },
+    {
+      "id": "peck_store",
+      "asset": "gltf/peck_store__frame_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        42814.9,
+        1350.9,
+        74.20180000000005
+      ]
+    },
+    {
+      "id": "philo_carpenter_log_shop",
+      "asset": "gltf/philo_carpenter_log_shop__log_1832.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        11132.0,
+        12750.0,
+        75.0
+      ]
+    },
+    {
+      "id": "physicians_office",
+      "asset": "gltf/physicians_office__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        55756.200000000004,
+        14265.7,
+        80.53140000000008
+      ]
+    },
+    {
+      "id": "pierce_blacksmith_shop",
+      "asset": "gltf/pierce_blacksmith_shop__shop_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -14500.0,
+        13100.0,
+        109.70000000000005
+      ]
+    },
+    {
+      "id": "pruyne_kimball_drugstore",
+      "asset": "gltf/pruyne_kimball_drugstore__frame_1830s.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        62718.600000000006,
+        1174.4,
+        75.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_clark_a3_04",
+      "asset": "gltf/recon_1835_blk_lake_clark_a3_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        60419.399999999994,
+        17594.300000000003,
+        82.18860000000006
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_clark_d1_01",
+      "asset": "gltf/recon_1835_blk_lake_clark_d1_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        58876.5,
+        13461.099999999999,
+        79.42219999999998
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_clark_d3_02",
+      "asset": "gltf/recon_1835_blk_lake_clark_d3_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        59409.7,
+        13391.900000000001,
+        79.10250855999998
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_clark_d5_03",
+      "asset": "gltf/recon_1835_blk_lake_clark_d5_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        59916.600000000006,
+        13694.5,
+        79.38900000000001
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_franklin_a1_03",
+      "asset": "gltf/recon_1835_blk_lake_franklin_a1_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        28724.5,
+        16935.4,
+        83.83297839999992
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_franklin_d1_02",
+      "asset": "gltf/recon_1835_blk_lake_franklin_d1_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        27946.499999999996,
+        13201.300000000001,
+        81.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_franklin_d5_01",
+      "asset": "gltf/recon_1835_blk_lake_franklin_d5_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        28515.4,
+        13477.6,
+        81.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_market_a1_06",
+      "asset": "gltf/recon_1835_blk_lake_market_a1_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        18123.7,
+        16776.4,
+        77.52612544000002
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_market_a3_07",
+      "asset": "gltf/recon_1835_blk_lake_market_a3_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        15278.1,
+        19213.7,
+        76.0562
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_market_d1_05",
+      "asset": "gltf/recon_1835_blk_lake_market_d1_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        15924.7,
+        22913.1,
+        76.94765143999999
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_market_d2_04",
+      "asset": "gltf/recon_1835_blk_lake_market_d2_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        18624.0,
+        23009.6,
+        79.00952319999998
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_market_d3_03",
+      "asset": "gltf/recon_1835_blk_lake_market_d3_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        13350.2,
+        13714.199999999999,
+        74.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_market_d4_02",
+      "asset": "gltf/recon_1835_blk_lake_market_d4_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        15414.8,
+        13802.000000000002,
+        75.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_lake_market_d5_01",
+      "asset": "gltf/recon_1835_blk_lake_market_d5_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        18166.2,
+        13939.500000000002,
+        77.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clark_a3_08",
+      "asset": "gltf/recon_1835_blk_randolph_clark_a3_08__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        61713.4,
+        33461.3,
+        87.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clark_a4_07",
+      "asset": "gltf/recon_1835_blk_randolph_clark_a4_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        66925.40000000001,
+        31437.4,
+        88.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clark_c2_01",
+      "asset": "gltf/recon_1835_blk_randolph_clark_c2_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        66786.3,
+        28241.6,
+        88.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clark_d1_06",
+      "asset": "gltf/recon_1835_blk_randolph_clark_d1_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        62691.09999999999,
+        36862.6,
+        87.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clark_d2_05",
+      "asset": "gltf/recon_1835_blk_randolph_clark_d2_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        64787.0,
+        36965.2,
+        87.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clark_d6_04",
+      "asset": "gltf/recon_1835_blk_randolph_clark_d6_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        67708.4,
+        36548.0,
+        88.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clark_h1_03",
+      "asset": "gltf/recon_1835_blk_randolph_clark_h1_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        62094.899999999994,
+        28689.5,
+        88.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clark_h2_02",
+      "asset": "gltf/recon_1835_blk_randolph_clark_h2_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        64391.600000000006,
+        28666.399999999998,
+        88.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clinton_a1_06",
+      "asset": "gltf/recon_1835_blk_randolph_clinton_a1_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -23221.600000000002,
+        30453.199999999997,
+        124.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clinton_a2_05",
+      "asset": "gltf/recon_1835_blk_randolph_clinton_a2_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -26193.7,
+        33524.799999999996,
+        127.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clinton_a3_07",
+      "asset": "gltf/recon_1835_blk_randolph_clinton_a3_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -18420.6,
+        32901.4,
+        118.84119999999999
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clinton_d1_03",
+      "asset": "gltf/recon_1835_blk_randolph_clinton_d1_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -25188.399999999998,
+        36087.299999999996,
+        126.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clinton_d3_04",
+      "asset": "gltf/recon_1835_blk_randolph_clinton_d3_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -17333.1,
+        36259.5,
+        116.9873156
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clinton_d4_02",
+      "asset": "gltf/recon_1835_blk_randolph_clinton_d4_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -18647.2,
+        27659.699999999997,
+        119.7944
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_clinton_d5_01",
+      "asset": "gltf/recon_1835_blk_randolph_clinton_d5_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -23206.2,
+        27721.899999999998,
+        124.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_a1_07",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_a1_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        74581.2,
+        31209.100000000002,
+        89.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_a2_08",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_a2_08__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        80620.7,
+        30807.9,
+        127.18979999999979
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_a2_17",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_a2_17__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        72243.4,
+        34432.799999999996,
+        88.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_a3_09",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_a3_09__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        75251.2,
+        33673.3,
+        89.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_a4_06",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_a4_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        72834.3,
+        31523.6,
+        89.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_a4_13",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_a4_13__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        77155.8,
+        31494.1,
+        89.50444624
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d1_04",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_d1_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        75259.1,
+        37018.700000000004,
+        88.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d1_12",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_d1_12__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        77468.8,
+        27997.500000000004,
+        89.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d1_16",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_d1_16__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        72948.7,
+        37254.2,
+        89.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d2_05",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_d2_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        79939.5,
+        37116.9,
+        116.65299999999993
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d3_01",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_d3_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        72122.5,
+        28297.199999999997,
+        88.59439999999995
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d3_11",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_d3_11__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        76954.6,
+        27912.2,
+        89.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d3_15",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_d3_15__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        72374.5,
+        37326.6,
+        89.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d4_03",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_d4_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        79871.6,
+        28591.699999999997,
+        116.20239999999981
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d5_02",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_d5_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        74398.5,
+        28425.4,
+        89.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d6_10",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_d6_10__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        76263.4,
+        28148.5,
+        89.29700000000003
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_h1_14",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_h1_14__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        71856.7,
+        37022.9,
+        89.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_franklin_a1_07",
+      "asset": "gltf/recon_1835_blk_randolph_franklin_a1_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        30215.800000000003,
+        30577.2,
+        86.4316
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_franklin_a3_08",
+      "asset": "gltf/recon_1835_blk_randolph_franklin_a3_08__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        24962.399999999998,
+        33219.5,
+        83.49082560000001
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_franklin_d1_06",
+      "asset": "gltf/recon_1835_blk_randolph_franklin_d1_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        25917.7,
+        36565.5,
+        85.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_franklin_d2_05",
+      "asset": "gltf/recon_1835_blk_randolph_franklin_d2_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        28005.399999999998,
+        36661.6,
+        87.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_franklin_d3_04",
+      "asset": "gltf/recon_1835_blk_randolph_franklin_d3_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        30808.2,
+        36505.6,
+        88.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_franklin_d4_03",
+      "asset": "gltf/recon_1835_blk_randolph_franklin_d4_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        22943.7,
+        28241.399999999998,
+        82.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_franklin_d5_02",
+      "asset": "gltf/recon_1835_blk_randolph_franklin_d5_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        27520.9,
+        28349.2,
+        82.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_franklin_d6_01",
+      "asset": "gltf/recon_1835_blk_randolph_franklin_d6_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        30246.100000000002,
+        28286.399999999998,
+        85.07166432000002
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_a1_07",
+      "asset": "gltf/recon_1835_blk_randolph_market_a1_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        12602.4,
+        33732.4,
+        77.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_a1_12",
+      "asset": "gltf/recon_1835_blk_randolph_market_a1_12__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        11004.6,
+        33775.9,
+        77.06004687999994
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_a2_08",
+      "asset": "gltf/recon_1835_blk_randolph_market_a2_08__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        18277.4,
+        34101.6,
+        78.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_a3_05",
+      "asset": "gltf/recon_1835_blk_randolph_market_a3_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        11543.4,
+        31143.9,
+        76.54996207999999
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_a4_06",
+      "asset": "gltf/recon_1835_blk_randolph_market_a4_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        12957.900000000001,
+        31002.999999999996,
+        77.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_d1_10",
+      "asset": "gltf/recon_1835_blk_randolph_market_d1_10__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        10785.2,
+        36757.799999999996,
+        77.08380351999995
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_d2_09",
+      "asset": "gltf/recon_1835_blk_randolph_market_d2_09__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        10268.800000000001,
+        36937.5,
+        77.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_d3_04",
+      "asset": "gltf/recon_1835_blk_randolph_market_d3_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        18242.8,
+        36463.5,
+        79.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_d4_03",
+      "asset": "gltf/recon_1835_blk_randolph_market_d4_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        13779.900000000001,
+        36461.5,
+        77.423
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_d5_01",
+      "asset": "gltf/recon_1835_blk_randolph_market_d5_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        10691.6,
+        28018.0,
+        76.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_d5_11",
+      "asset": "gltf/recon_1835_blk_randolph_market_d5_11__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        11459.0,
+        36559.1,
+        77.1182
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_d6_02",
+      "asset": "gltf/recon_1835_blk_randolph_market_d6_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        12824.5,
+        28066.699999999997,
+        77.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_a1_08",
+      "asset": "gltf/recon_1835_blk_randolph_wells_a1_08__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        36117.1,
+        30660.6,
+        90.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_a3_09",
+      "asset": "gltf/recon_1835_blk_randolph_wells_a3_09__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        37217.1,
+        31407.5,
+        91.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_a4_10",
+      "asset": "gltf/recon_1835_blk_randolph_wells_a4_10__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        37091.8,
+        33596.2,
+        90.68360000000001
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_d1_06",
+      "asset": "gltf/recon_1835_blk_randolph_wells_d1_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        37872.1,
+        36465.8,
+        90.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_d2_07",
+      "asset": "gltf/recon_1835_blk_randolph_wells_d2_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        43085.700000000004,
+        36737.5,
+        90.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_d3_05",
+      "asset": "gltf/recon_1835_blk_randolph_wells_d3_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        35676.0,
+        36807.4,
+        89.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_d4_04",
+      "asset": "gltf/recon_1835_blk_randolph_wells_d4_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        42520.5,
+        28218.8,
+        89.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_d5_03",
+      "asset": "gltf/recon_1835_blk_randolph_wells_d5_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        39667.700000000004,
+        28209.199999999997,
+        89.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_h1_02",
+      "asset": "gltf/recon_1835_blk_randolph_wells_h1_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        37490.8,
+        28378.100000000002,
+        90.25620000000004
+      ]
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_h2_01",
+      "asset": "gltf/recon_1835_blk_randolph_wells_h2_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        34884.5,
+        28385.899999999998,
+        90.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_clark_a3_05",
+      "asset": "gltf/recon_1835_blk_south_water_clark_a3_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        65516.9,
+        4387.8,
+        76.79076944000005
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_clark_a3_07",
+      "asset": "gltf/recon_1835_blk_south_water_clark_a3_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        62219.50000000001,
+        4329.2,
+        77.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_clark_c2_06",
+      "asset": "gltf/recon_1835_blk_south_water_clark_c2_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        62126.3,
+        1619.0000000000002,
+        75.23800000000006
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_clark_d1_04",
+      "asset": "gltf/recon_1835_blk_south_water_clark_d1_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        64839.9,
+        1314.8999999999999,
+        74.62979999999993
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_clark_d3_03",
+      "asset": "gltf/recon_1835_blk_south_water_clark_d3_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        65035.9,
+        9035.7,
+        79.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_clark_d4_02",
+      "asset": "gltf/recon_1835_blk_south_water_clark_d4_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        62563.8,
+        8887.8,
+        79.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_clark_d5_01",
+      "asset": "gltf/recon_1835_blk_south_water_clark_d5_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        65414.6,
+        1569.6,
+        74.63919999999996
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_a1_09",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_a1_09__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        74862.09999999999,
+        4008.1000000000004,
+        76.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_a3_06",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_a3_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        78128.4,
+        4592.900000000001,
+        78.90157312000022
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_c3_01",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_c3_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        78164.3,
+        2235.0,
+        79.12879999999996
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_c3_02",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_c3_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        77591.6,
+        2190.9,
+        76.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_d1_05",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_d1_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        77045.2,
+        1576.5,
+        76.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_d2_04",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_d2_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        75326.70000000001,
+        9226.300000000001,
+        78.95259999999996
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_d3_08",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_d3_08__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        73935.2,
+        1459.0,
+        75.418
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_d5_07",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_d5_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        75361.5,
+        1822.8999999999999,
+        76.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_h1_03",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_h1_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        77734.40000000001,
+        8834.5,
+        78.65845439999998
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_a1_06",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_a1_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        25007.8,
+        6713.599999999999,
+        79.51332864
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_a3_07",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_a3_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        30159.899999999998,
+        4321.099999999999,
+        78.1422
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_a3_11",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_a3_11__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        25284.3,
+        4289.6,
+        78.07920000000001
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_c2_10",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_c2_10__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        24931.399999999998,
+        1853.6000000000001,
+        77.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_d1_04",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_d1_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        29890.199999999997,
+        1344.0,
+        77.08256959999999
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_d2_05",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_d2_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        25683.300000000003,
+        8708.0,
+        80.80501119999997
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_d3_03",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_d3_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        28524.3,
+        8716.6,
+        81.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_d4_02",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_d4_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        30459.899999999998,
+        1530.5,
+        77.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_d4_08",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_d4_08__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        26154.700000000004,
+        1492.8000000000002,
+        77.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_d5_01",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_d5_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        31041.8,
+        1581.9,
+        76.63641264000003
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_d5_09",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_d5_09__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        25517.4,
+        1625.7,
+        77.26870255999998
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_a1_06",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_a1_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        50338.0,
+        6728.3,
+        77.97187679999999
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_a1_14",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_a1_14__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        48429.899999999994,
+        3774.7999999999997,
+        74.54960000000005
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_a2_15",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_a2_15__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        50001.299999999996,
+        3496.0,
+        74.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_a3_07",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_a3_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        53199.1,
+        4269.8,
+        76.40626255999999
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_c3_13",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_c3_13__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        50434.6,
+        1986.6,
+        73.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d1_04",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_d1_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        51958.399999999994,
+        1194.1000000000001,
+        73.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d1_08",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_d1_08__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        47479.3,
+        1189.6000000000001,
+        38.48803135999853
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d2_05",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_d2_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        50166.2,
+        8943.800000000001,
+        78.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d2_09",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_d2_09__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        48067.899999999994,
+        1070.5,
+        54.01690439999943
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d3_03",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_d3_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        55481.600000000006,
+        9015.8,
+        80.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d3_10",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_d3_10__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        48553.4,
+        1205.2,
+        65.19347711999976
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d4_02",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_d4_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        52493.799999999996,
+        1326.0,
+        73.64823040000005
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d5_01",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_d5_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        53079.49999999999,
+        1490.6000000000001,
+        73.98119999999994
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d6_11",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_d6_11__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        49095.6,
+        1501.2,
+        73.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d7_12",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_d7_12__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        49770.100000000006,
+        1361.5,
+        73.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_a1_07",
+      "asset": "gltf/recon_1835_blk_south_water_wells_a1_07__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        38048.8,
+        6822.3,
+        78.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_a3_08",
+      "asset": "gltf/recon_1835_blk_south_water_wells_a3_08__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        40912.6,
+        4330.299999999999,
+        78.0
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_d1_05",
+      "asset": "gltf/recon_1835_blk_south_water_wells_d1_05__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        37883.7,
+        1273.1,
+        74.0462
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_d2_06",
+      "asset": "gltf/recon_1835_blk_south_water_wells_d2_06__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        38301.9,
+        8847.1,
+        79.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_d3_04",
+      "asset": "gltf/recon_1835_blk_south_water_wells_d3_04__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        43172.9,
+        8906.1,
+        79.5
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_d4_03",
+      "asset": "gltf/recon_1835_blk_south_water_wells_d4_03__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        40427.9,
+        8612.1,
+        79.7242
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_d5_02",
+      "asset": "gltf/recon_1835_blk_south_water_wells_d5_02__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        40146.6,
+        1555.7,
+        75.06532496
+      ]
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_d6_01",
+      "asset": "gltf/recon_1835_blk_south_water_wells_d6_01__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        40793.799999999996,
+        1551.8000000000002,
+        75.10360000000003
+      ]
+    },
+    {
+      "id": "recon_1835_north_a1_008",
+      "asset": "gltf/recon_1835_north_a1_008__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        49215.5,
+        -21327.2,
+        126.65440000000001
+      ]
+    },
+    {
+      "id": "recon_1835_north_a1_032",
+      "asset": "gltf/recon_1835_north_a1_032__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        72769.4,
+        -21848.7,
+        139.72088176
+      ]
+    },
+    {
+      "id": "recon_1835_north_a1_036",
+      "asset": "gltf/recon_1835_north_a1_036__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        73251.9,
+        -34069.299999999996,
+        154.0
+      ]
+    },
+    {
+      "id": "recon_1835_north_a1_050",
+      "asset": "gltf/recon_1835_north_a1_050__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        117715.5,
+        -37651.799999999996,
+        157.43099999999998
+      ]
+    },
+    {
+      "id": "recon_1835_north_a2_033",
+      "asset": "gltf/recon_1835_north_a2_033__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        78342.0,
+        -23482.3,
+        145.0
+      ]
+    },
+    {
+      "id": "recon_1835_north_a2_048",
+      "asset": "gltf/recon_1835_north_a2_048__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        111403.2,
+        -32562.2,
+        149.0
+      ]
+    },
+    {
+      "id": "recon_1835_north_a2_059",
+      "asset": "gltf/recon_1835_north_a2_059__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        51628.59999999999,
+        -36501.299999999996,
+        143.75846256
+      ]
+    },
+    {
+      "id": "recon_1835_north_a3_009",
+      "asset": "gltf/recon_1835_north_a3_009__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        53084.0,
+        -23097.399999999998,
+        131.5654528
+      ]
+    },
+    {
+      "id": "recon_1835_north_a3_034",
+      "asset": "gltf/recon_1835_north_a3_034__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        83573.0,
+        -23586.9,
+        145.0
+      ]
+    },
+    {
+      "id": "recon_1835_north_a3_051",
+      "asset": "gltf/recon_1835_north_a3_051__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        124913.4,
+        -35888.5,
+        195.411
+      ]
+    },
+    {
+      "id": "recon_1835_north_a4_010",
+      "asset": "gltf/recon_1835_north_a4_010__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        58671.7,
+        -22746.100000000002,
+        134.3434
+      ]
+    },
+    {
+      "id": "recon_1835_north_a4_035",
+      "asset": "gltf/recon_1835_north_a4_035__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        81117.2,
+        -21652.699999999997,
+        144.80539999999996
+      ]
+    },
+    {
+      "id": "recon_1835_north_a4_052",
+      "asset": "gltf/recon_1835_north_a4_052__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        111871.90000000001,
+        -37803.4,
+        153.05207567999997
+      ]
+    },
+    {
+      "id": "recon_1835_north_a5_011",
+      "asset": "gltf/recon_1835_north_a5_011__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        62627.5,
+        -23669.8,
+        137.5
+      ]
+    },
+    {
+      "id": "recon_1835_north_a5_049",
+      "asset": "gltf/recon_1835_north_a5_049__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        124347.2,
+        -37818.4,
+        192.10879999999986
+      ]
+    },
+    {
+      "id": "recon_1835_north_c1_020",
+      "asset": "gltf/recon_1835_north_c1_020__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        89267.7,
+        -18341.1,
+        140.97749975999997
+      ]
+    },
+    {
+      "id": "recon_1835_north_c1_047",
+      "asset": "gltf/recon_1835_north_c1_047__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        128731.30000000002,
+        -33622.8,
+        233.81300000000005
+      ]
+    },
+    {
+      "id": "recon_1835_north_c2_027",
+      "asset": "gltf/recon_1835_north_c2_027__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        90314.0,
+        -30561.1,
+        146.90328320000003
+      ]
+    },
+    {
+      "id": "recon_1835_north_d1_001",
+      "asset": "gltf/recon_1835_north_d1_001__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        48265.7,
+        -15349.8,
+        120.71846512000002
+      ]
+    },
+    {
+      "id": "recon_1835_north_d1_013",
+      "asset": "gltf/recon_1835_north_d1_013__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        59730.100000000006,
+        -32653.800000000003,
+        143.2831150400001
+      ]
+    },
+    {
+      "id": "recon_1835_north_d1_023",
+      "asset": "gltf/recon_1835_north_d1_023__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        72292.0,
+        -29857.3,
+        146.76254720000003
+      ]
+    },
+    {
+      "id": "recon_1835_north_d1_053",
+      "asset": "gltf/recon_1835_north_d1_053__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        46766.0,
+        -30321.600000000002,
+        134.5091648
+      ]
+    },
+    {
+      "id": "recon_1835_north_d1_054",
+      "asset": "gltf/recon_1835_north_d1_054__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        49711.6,
+        -34674.700000000004,
+        141.5
+      ]
+    },
+    {
+      "id": "recon_1835_north_d1_060",
+      "asset": "gltf/recon_1835_north_d1_060__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        61737.2,
+        -36632.7,
+        149.2654
+      ]
+    },
+    {
+      "id": "recon_1835_north_d2_003",
+      "asset": "gltf/recon_1835_north_d2_003__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        55234.799999999996,
+        -20775.899999999998,
+        131.0
+      ]
+    },
+    {
+      "id": "recon_1835_north_d2_014",
+      "asset": "gltf/recon_1835_north_d2_014__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        64789.700000000004,
+        -34696.6,
+        149.06244016000005
+      ]
+    },
+    {
+      "id": "recon_1835_north_d2_029",
+      "asset": "gltf/recon_1835_north_d2_029__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        68740.20000000001,
+        -34678.2,
+        150.84242912000002
+      ]
+    },
+    {
+      "id": "recon_1835_north_d2_046",
+      "asset": "gltf/recon_1835_north_d2_046__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        91763.0,
+        -31656.2,
+        146.5
+      ]
+    },
+    {
+      "id": "recon_1835_north_d3_002",
+      "asset": "gltf/recon_1835_north_d3_002__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        51753.0,
+        -16848.8,
+        124.70122879999997
+      ]
+    },
+    {
+      "id": "recon_1835_north_d3_006",
+      "asset": "gltf/recon_1835_north_d3_006__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        67751.59999999999,
+        -20827.600000000002,
+        136.5
+      ]
+    },
+    {
+      "id": "recon_1835_north_d3_016",
+      "asset": "gltf/recon_1835_north_d3_016__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        71753.59999999999,
+        -15325.1,
+        132.50216288000001
+      ]
+    },
+    {
+      "id": "recon_1835_north_d3_024",
+      "asset": "gltf/recon_1835_north_d3_024__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        76249.40000000001,
+        -32352.499999999996,
+        152.0
+      ]
+    },
+    {
+      "id": "recon_1835_north_d3_038",
+      "asset": "gltf/recon_1835_north_d3_038__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        44259.0,
+        -33318.799999999996,
+        135.0049536
+      ]
+    },
+    {
+      "id": "recon_1835_north_d3_042",
+      "asset": "gltf/recon_1835_north_d3_042__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        100730.0,
+        -31685.399999999998,
+        147.489664
+      ]
+    },
+    {
+      "id": "recon_1835_north_d3_055",
+      "asset": "gltf/recon_1835_north_d3_055__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        54258.5,
+        -30825.3,
+        138.65059999999994
+      ]
+    },
+    {
+      "id": "recon_1835_north_d4_004",
+      "asset": "gltf/recon_1835_north_d4_004__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        58793.700000000004,
+        -18386.7,
+        131.04779032
+      ]
+    },
+    {
+      "id": "recon_1835_north_d4_012",
+      "asset": "gltf/recon_1835_north_d4_012__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        68287.2,
+        -15907.1,
+        130.81420000000003
+      ]
+    },
+    {
+      "id": "recon_1835_north_d4_017",
+      "asset": "gltf/recon_1835_north_d4_017__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        75800.3,
+        -17407.1,
+        137.56321704000004
+      ]
+    },
+    {
+      "id": "recon_1835_north_d4_025",
+      "asset": "gltf/recon_1835_north_d4_025__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        80793.0,
+        -30414.600000000002,
+        148.77257759999995
+      ]
+    },
+    {
+      "id": "recon_1835_north_d4_039",
+      "asset": "gltf/recon_1835_north_d4_039__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        113673.0,
+        -33104.4,
+        149.91031040000001
+      ]
+    },
+    {
+      "id": "recon_1835_north_d4_043",
+      "asset": "gltf/recon_1835_north_d4_043__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        113694.59999999999,
+        -36089.2,
+        152.42873343999997
+      ]
+    },
+    {
+      "id": "recon_1835_north_d4_056",
+      "asset": "gltf/recon_1835_north_d4_056__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        58173.8,
+        -34085.2,
+        143.39953792
+      ]
+    },
+    {
+      "id": "recon_1835_north_d5_019",
+      "asset": "gltf/recon_1835_north_d5_019__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        85351.5,
+        -16945.2,
+        139.65850239999997
+      ]
+    },
+    {
+      "id": "recon_1835_north_d5_026",
+      "asset": "gltf/recon_1835_north_d5_026__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        85354.4,
+        -33005.6,
+        149.0
+      ]
+    },
+    {
+      "id": "recon_1835_north_d5_037",
+      "asset": "gltf/recon_1835_north_d5_037__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        85147.29999999999,
+        -36008.8,
+        151.00723007999997
+      ]
+    },
+    {
+      "id": "recon_1835_north_d5_041",
+      "asset": "gltf/recon_1835_north_d5_041__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        117163.4,
+        -32008.4,
+        146.2920243199999
+      ]
+    },
+    {
+      "id": "recon_1835_north_d5_057",
+      "asset": "gltf/recon_1835_north_d5_057__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        62834.40000000001,
+        -30988.2,
+        143.48436735999994
+      ]
+    },
+    {
+      "id": "recon_1835_north_d6_021",
+      "asset": "gltf/recon_1835_north_d6_021__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        45340.3,
+        -20496.8,
+        124.49591168
+      ]
+    },
+    {
+      "id": "recon_1835_north_d6_044",
+      "asset": "gltf/recon_1835_north_d6_044__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        120649.90000000001,
+        -35546.6,
+        156.59320000000002
+      ]
+    },
+    {
+      "id": "recon_1835_north_d6_058",
+      "asset": "gltf/recon_1835_north_d6_058__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        66345.5,
+        -31470.800000000003,
+        146.16869119999996
+      ]
+    },
+    {
+      "id": "recon_1835_north_d7_031",
+      "asset": "gltf/recon_1835_north_d7_031__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        89659.3,
+        -36536.700000000004,
+        149.52662952
+      ]
+    },
+    {
+      "id": "recon_1835_north_f1_022",
+      "asset": "gltf/recon_1835_north_f1_022__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        87823.5,
+        -23201.3,
+        142.5
+      ]
+    },
+    {
+      "id": "recon_1835_north_h1_007",
+      "asset": "gltf/recon_1835_north_h1_007__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        64910.0,
+        -22982.6,
+        137.0
+      ]
+    },
+    {
+      "id": "recon_1835_north_h2_030",
+      "asset": "gltf/recon_1835_north_h2_030__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        75591.0,
+        -35970.299999999996,
+        155.0
+      ]
+    },
+    {
+      "id": "recon_1835_north_h3_045",
+      "asset": "gltf/recon_1835_north_h3_045__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        94009.3,
+        -35783.5,
+        149.58310759999998
+      ]
+    },
+    {
+      "id": "recon_1835_north_i2_015",
+      "asset": "gltf/recon_1835_north_i2_015__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        55213.0,
+        -34548.200000000004,
+        142.65613280000002
+      ]
+    },
+    {
+      "id": "recon_1835_north_t1_028",
+      "asset": "gltf/recon_1835_north_t1_028__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        92619.0,
+        -33865.8,
+        147.35935840000002
+      ]
+    },
+    {
+      "id": "recon_1835_north_w1_018",
+      "asset": "gltf/recon_1835_north_w1_018__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        80299.3,
+        -18407.9,
+        141.81580000000008
+      ]
+    },
+    {
+      "id": "recon_1835_north_w2_005",
+      "asset": "gltf/recon_1835_north_w2_005__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        63322.1,
+        -15922.2,
+        130.5
+      ]
+    },
+    {
+      "id": "recon_1835_north_w5_040",
+      "asset": "gltf/recon_1835_north_w5_040__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        84482.2,
+        -21316.7,
+        143.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_a1_046",
+      "asset": "gltf/recon_1835_south_a1_046__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        28273.200000000004,
+        21443.5,
+        86.0
+      ]
+    },
+    {
+      "id": "recon_1835_south_a2_047",
+      "asset": "gltf/recon_1835_south_a2_047__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        53257.2,
+        21556.7,
+        86.0
+      ]
+    },
+    {
+      "id": "recon_1835_south_a3_041",
+      "asset": "gltf/recon_1835_south_a3_041__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        29202.100000000002,
+        17459.7,
+        84.4194
+      ]
+    },
+    {
+      "id": "recon_1835_south_a3_043",
+      "asset": "gltf/recon_1835_south_a3_043__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        54174.6,
+        17547.1,
+        83.0
+      ]
+    },
+    {
+      "id": "recon_1835_south_a3_045",
+      "asset": "gltf/recon_1835_south_a3_045__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        79310.2,
+        17539.4,
+        102.46319999999969
+      ]
+    },
+    {
+      "id": "recon_1835_south_a4_042",
+      "asset": "gltf/recon_1835_south_a4_042__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        41803.1,
+        17499.5,
+        83.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_a4_048",
+      "asset": "gltf/recon_1835_south_a4_048__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        78003.4,
+        21469.6,
+        84.55440000000021
+      ]
+    },
+    {
+      "id": "recon_1835_south_a5_044",
+      "asset": "gltf/recon_1835_south_a5_044__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        66837.3,
+        17438.6,
+        82.37720000000002
+      ]
+    },
+    {
+      "id": "recon_1835_south_c1_003",
+      "asset": "gltf/recon_1835_south_c1_003__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        26603.199999999997,
+        15094.300000000001,
+        81.18860000000006
+      ]
+    },
+    {
+      "id": "recon_1835_south_c1_010",
+      "asset": "gltf/recon_1835_south_c1_010__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        49117.8,
+        15099.0,
+        79.0
+      ]
+    },
+    {
+      "id": "recon_1835_south_c1_018",
+      "asset": "gltf/recon_1835_south_c1_018__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        73900.59999999999,
+        15159.800000000001,
+        80.92827296
+      ]
+    },
+    {
+      "id": "recon_1835_south_c2_007",
+      "asset": "gltf/recon_1835_south_c2_007__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        38967.700000000004,
+        15095.9,
+        82.23161943999995
+      ]
+    },
+    {
+      "id": "recon_1835_south_c2_036",
+      "asset": "gltf/recon_1835_south_c2_036__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        23877.8,
+        23026.2,
+        82.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_c3_015",
+      "asset": "gltf/recon_1835_south_c3_015__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        67838.5,
+        14072.0,
+        79.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_c3_037",
+      "asset": "gltf/recon_1835_south_c3_037__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        36100.1,
+        23074.0,
+        87.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_c3_040",
+      "asset": "gltf/recon_1835_south_c3_040__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        72821.6,
+        23150.6,
+        86.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_d1_021",
+      "asset": "gltf/recon_1835_south_d1_021__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        22889.7,
+        19450.3,
+        80.27939999999998
+      ]
+    },
+    {
+      "id": "recon_1835_south_d1_033",
+      "asset": "gltf/recon_1835_south_d1_033__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        71874.5,
+        19410.2,
+        84.32039999999995
+      ]
+    },
+    {
+      "id": "recon_1835_south_d2_005",
+      "asset": "gltf/recon_1835_south_d2_005__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        34819.9,
+        15138.5,
+        81.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_d2_024",
+      "asset": "gltf/recon_1835_south_d2_024__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        35032.2,
+        19412.899999999998,
+        85.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_d3_001",
+      "asset": "gltf/recon_1835_south_d3_001__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        22643.8,
+        15076.300000000001,
+        81.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_d3_008",
+      "asset": "gltf/recon_1835_south_d3_008__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        41754.5,
+        15147.6,
+        81.0
+      ]
+    },
+    {
+      "id": "recon_1835_south_d3_013",
+      "asset": "gltf/recon_1835_south_d3_013__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        65082.299999999996,
+        13489.599999999999,
+        79.97919999999999
+      ]
+    },
+    {
+      "id": "recon_1835_south_d3_017",
+      "asset": "gltf/recon_1835_south_d3_017__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        71578.9,
+        15039.3,
+        80.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_d3_022",
+      "asset": "gltf/recon_1835_south_d3_022__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        25321.7,
+        19454.7,
+        83.11741592
+      ]
+    },
+    {
+      "id": "recon_1835_south_d3_027",
+      "asset": "gltf/recon_1835_south_d3_027__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        47321.5,
+        19427.600000000002,
+        83.85519999999997
+      ]
+    },
+    {
+      "id": "recon_1835_south_d4_002",
+      "asset": "gltf/recon_1835_south_d4_002__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        24367.8,
+        15081.4,
+        81.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_d4_006",
+      "asset": "gltf/recon_1835_south_d4_006__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        36754.5,
+        15036.199999999999,
+        82.07240000000002
+      ]
+    },
+    {
+      "id": "recon_1835_south_d4_009",
+      "asset": "gltf/recon_1835_south_d4_009__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        46973.899999999994,
+        15144.300000000001,
+        79.28860000000009
+      ]
+    },
+    {
+      "id": "recon_1835_south_d4_014",
+      "asset": "gltf/recon_1835_south_d4_014__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        66537.59999999999,
+        13633.4,
+        79.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_d4_019",
+      "asset": "gltf/recon_1835_south_d4_019__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        76541.09999999999,
+        15144.2,
+        81.28840000000002
+      ]
+    },
+    {
+      "id": "recon_1835_south_d4_025",
+      "asset": "gltf/recon_1835_south_d4_025__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        37710.2,
+        19427.600000000002,
+        85.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_d4_030",
+      "asset": "gltf/recon_1835_south_d4_030__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        59560.4,
+        19443.0,
+        84.29274239999997
+      ]
+    },
+    {
+      "id": "recon_1835_south_d5_004",
+      "asset": "gltf/recon_1835_south_d5_004__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        29215.4,
+        15100.4,
+        82.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_d5_011",
+      "asset": "gltf/recon_1835_south_d5_011__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        51541.200000000004,
+        15138.2,
+        80.27639999999997
+      ]
+    },
+    {
+      "id": "recon_1835_south_d5_016",
+      "asset": "gltf/recon_1835_south_d5_016__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        67168.2,
+        13795.300000000001,
+        79.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_d5_028",
+      "asset": "gltf/recon_1835_south_d5_028__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        50072.9,
+        19467.6,
+        83.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_d5_034",
+      "asset": "gltf/recon_1835_south_d5_034__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        74802.4,
+        19360.7,
+        84.27979456
+      ]
+    },
+    {
+      "id": "recon_1835_south_d6_012",
+      "asset": "gltf/recon_1835_south_d6_012__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        54253.3,
+        15122.300000000001,
+        81.24797127999999
+      ]
+    },
+    {
+      "id": "recon_1835_south_d6_020",
+      "asset": "gltf/recon_1835_south_d6_020__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        79337.90000000001,
+        15129.8,
+        101.90639999999985
+      ]
+    },
+    {
+      "id": "recon_1835_south_d6_031",
+      "asset": "gltf/recon_1835_south_d6_031__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        62456.7,
+        19394.7,
+        83.0
+      ]
+    },
+    {
+      "id": "recon_1835_south_d7_035",
+      "asset": "gltf/recon_1835_south_d7_035__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        77995.0,
+        19382.9,
+        83.77048400000001
+      ]
+    },
+    {
+      "id": "recon_1835_south_f1_038",
+      "asset": "gltf/recon_1835_south_f1_038__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        48212.5,
+        23132.5,
+        86.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_f2_039",
+      "asset": "gltf/recon_1835_south_f2_039__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        60458.1,
+        23065.5,
+        85.69284440000007
+      ]
+    },
+    {
+      "id": "recon_1835_south_w1_023",
+      "asset": "gltf/recon_1835_south_w1_023__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        28242.3,
+        19348.8,
+        85.49068607999999
+      ]
+    },
+    {
+      "id": "recon_1835_south_w2_026",
+      "asset": "gltf/recon_1835_south_w2_026__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        40724.9,
+        19352.1,
+        85.5
+      ]
+    },
+    {
+      "id": "recon_1835_south_w3_029",
+      "asset": "gltf/recon_1835_south_w3_029__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        53329.0,
+        19363.7,
+        84.0718584
+      ]
+    },
+    {
+      "id": "recon_1835_south_w4_032",
+      "asset": "gltf/recon_1835_south_w4_032__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        65882.5,
+        19465.199999999997,
+        84.0
+      ]
+    },
+    {
+      "id": "recon_1835_west_001",
+      "asset": "gltf/recon_1835_west_001__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -21680.1,
+        4530.5,
+        103.82025559999968
+      ]
+    },
+    {
+      "id": "recon_1835_west_002",
+      "asset": "gltf/recon_1835_west_002__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -24443.8,
+        5135.3,
+        95.15360000000013
+      ]
+    },
+    {
+      "id": "recon_1835_west_003",
+      "asset": "gltf/recon_1835_west_003__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -27247.300000000003,
+        5032.0,
+        101.85649119999984
+      ]
+    },
+    {
+      "id": "recon_1835_west_005",
+      "asset": "gltf/recon_1835_west_005__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -22751.3,
+        -2743.2,
+        112.5026
+      ]
+    },
+    {
+      "id": "recon_1835_west_006",
+      "asset": "gltf/recon_1835_west_006__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -27325.0,
+        -2787.1,
+        118.62774
+      ]
+    },
+    {
+      "id": "recon_1835_west_007",
+      "asset": "gltf/recon_1835_west_007__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -21168.8,
+        12813.300000000001,
+        116.37871967999997
+      ]
+    },
+    {
+      "id": "recon_1835_west_008",
+      "asset": "gltf/recon_1835_west_008__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -24912.2,
+        13221.3,
+        120.82440000000001
+      ]
+    },
+    {
+      "id": "recon_1835_west_009",
+      "asset": "gltf/recon_1835_west_009__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -30127.600000000002,
+        13385.0,
+        117.05919999999992
+      ]
+    },
+    {
+      "id": "recon_1835_west_010",
+      "asset": "gltf/recon_1835_west_010__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -22056.5,
+        8757.0,
+        115.12383600000003
+      ]
+    },
+    {
+      "id": "recon_1835_west_011",
+      "asset": "gltf/recon_1835_west_011__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -25071.3,
+        8695.300000000001,
+        115.88259999999974
+      ]
+    },
+    {
+      "id": "recon_1835_west_012",
+      "asset": "gltf/recon_1835_west_012__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -27125.1,
+        8980.7,
+        104.65291543999979
+      ]
+    },
+    {
+      "id": "recon_1835_west_014",
+      "asset": "gltf/recon_1835_west_014__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -21674.3,
+        20765.7,
+        122.0
+      ]
+    },
+    {
+      "id": "recon_1835_west_015",
+      "asset": "gltf/recon_1835_west_015__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -24823.9,
+        20897.2,
+        124.35517536
+      ]
+    },
+    {
+      "id": "recon_1835_west_016",
+      "asset": "gltf/recon_1835_west_016__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -26868.4,
+        20540.0,
+        125.53788800000004
+      ]
+    },
+    {
+      "id": "recon_1835_west_018",
+      "asset": "gltf/recon_1835_west_018__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -21987.7,
+        27264.7,
+        123.50000000000001
+      ]
+    },
+    {
+      "id": "recon_1835_west_019",
+      "asset": "gltf/recon_1835_west_019__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -26463.0,
+        27472.699999999997,
+        126.0
+      ]
+    },
+    {
+      "id": "recon_1835_west_021",
+      "asset": "gltf/recon_1835_west_021__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -23326.2,
+        34323.899999999994,
+        124.50000000000001
+      ]
+    },
+    {
+      "id": "recon_1835_west_022",
+      "asset": "gltf/recon_1835_west_022__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -29624.0,
+        34221.4,
+        130.97117120000001
+      ]
+    },
+    {
+      "id": "recon_1835_west_023",
+      "asset": "gltf/recon_1835_west_023__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -22742.7,
+        23833.8,
+        123.9854
+      ]
+    },
+    {
+      "id": "recon_1835_west_024",
+      "asset": "gltf/recon_1835_west_024__inferred_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -26712.9,
+        23802.0,
+        127.0
+      ]
+    },
+    {
+      "id": "robert_kinzie_store",
+      "asset": "gltf/robert_kinzie_store__store_1830.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -6870.0,
+        6280.0,
+        100.77120000000002
+      ]
+    },
+    {
+      "id": "robinson_caldwell_cabins",
+      "asset": "gltf/robinson_caldwell_cabins__log_1831.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -9200.0,
+        2400.0,
+        99.0
+      ]
+    },
+    {
+      "id": "sauganash_hotel",
+      "asset": "gltf/sauganash_hotel__frame_1831.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        10140.0,
+        13060.0,
+        60.832800000000034
+      ]
+    },
+    {
+      "id": "slough_log_bridge",
+      "asset": "gltf/slough_log_bridge__log_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        80530.0,
+        -1270.0,
+        0
+      ]
+    },
+    {
+      "id": "south_branch_raft_bridge",
+      "asset": "gltf/south_branch_raft_bridge__log_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        686.0,
+        17807.0,
+        0
+      ]
+    },
+    {
+      "id": "south_pier",
+      "asset": "gltf/south_pier__crib_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        121592.0,
+        -25248.0,
+        0
+      ]
+    },
+    {
+      "id": "st_marys_church",
+      "asset": "gltf/st_marys_church__frame_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        80719.3,
+        13764.199999999999,
+        123.50880000000006
+      ]
+    },
+    {
+      "id": "steamboat_hotel",
+      "asset": "gltf/steamboat_hotel__frame_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        92770.0,
+        -22051.0,
+        140.96816
+      ]
+    },
+    {
+      "id": "temple_building",
+      "asset": "gltf/temple_building__frame_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        22072.300000000003,
+        1530.8999999999999,
+        76.5
+      ]
+    },
+    {
+      "id": "temple_lake_st_building",
+      "asset": "gltf/temple_lake_st_building__documented_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        29564.7,
+        13618.199999999999,
+        81.5
+      ]
+    },
+    {
+      "id": "thomas_church_store",
+      "asset": "gltf/thomas_church_store__frame_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        52140.0,
+        9240.0,
+        79.7888
+      ]
+    },
+    {
+      "id": "tremont_house_1",
+      "asset": "gltf/tremont_house_1__frame_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        68782.0,
+        9142.0,
+        79.5
+      ]
+    },
+    {
+      "id": "walker_meeting_house",
+      "asset": "gltf/walker_meeting_house__log_1831.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -10500.0,
+        300.0,
+        98.5
+      ]
+    },
+    {
+      "id": "watkins_school_house",
+      "asset": "gltf/watkins_school_house__house_1833.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        99789.0,
+        -38671.0,
+        153.36664799999997
+      ]
+    },
+    {
+      "id": "western_hotel",
+      "asset": "gltf/western_hotel__frame_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -14305.000000000002,
+        28167.0,
+        112.11000000000001
+      ]
+    },
+    {
+      "id": "western_hotel_stable",
+      "asset": "gltf/western_hotel_stable__stable_1834.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -14090.0,
+        30500.0,
+        112.5
+      ]
+    },
+    {
+      "id": "wolf_point_tavern",
+      "asset": "gltf/wolf_point_tavern__log_frame_1828.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -7730.0,
+        4510.0,
+        99.51839999999999
+      ]
+    },
+    {
+      "id": "wolf_point_tavern_stable",
+      "asset": "gltf/wolf_point_tavern_stable__stable_1831.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        -9700.0,
+        6000.0,
+        102.0
+      ]
+    },
+    {
+      "id": "wright_building_to_let_a",
+      "asset": "gltf/wright_building_to_let_a__documented_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        42391.4,
+        23872.6,
+        87.5
+      ]
+    },
+    {
+      "id": "wright_building_to_let_b",
+      "asset": "gltf/wright_building_to_let_b__documented_1835.glb",
+      "mesh_count": 1,
+      "location_cm": [
+        54711.2,
+        23973.5,
+        87.5
+      ]
+    }
+  ],
+  "skipped": [
+    {
+      "id": "estray_pen",
+      "reason": "No glTF asset; enclosures"
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Preview imports generated glTF terrain and structures. Web-renderer procedural streets, flora, props, and research UI are not ported.",
+    "Custom per-vertex confidence visualization is not implemented; source sidecars remain the provenance record."
+  ],
+  "review_required": [
+    "beaubien_barn",
+    "blacksmith_shop_state_st",
+    "clybourn_slaughterhouse",
+    "cobweb_castle",
+    "council_house",
+    "jb_beaubien_homestead",
+    "madore_beaubien_house",
+    "robert_kinzie_store",
+    "robinson_caldwell_cabins"
+  ],
+  "level": "/Game/Chicago4D/Maps/Chicago1835_Preview",
+  "spawn_cm": [
+    10700.0,
+    10300.0,
+    164.68000000000018
+  ]
+}

@@ -13,20 +13,60 @@
   "note": "A BOUND FROM THE PAPER, NOT AN ARRIVAL. The corpus first prints this person at the Democrat of 17 June 1835, column 2, so they are in the town's paper by 1835-06-17 and at no stated time before it; nothing reached says when they came. Last printed 1835-06-17.",
   "precision": "not_later_than"
  },
+ "arrival_year": {
+  "value": 1833,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-06-17 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
+  },
+  "seed": "hh_morris_b_s:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
  "party_size_on_arrival": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
  },
  "origin": {
-  "value": null,
+  "value": "New York State",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_morris_b_s:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -44,6 +84,20 @@
   "sources": [
    "chicago_democrat_1833_1835"
   ],
+  "last_dated_appearance": {
+   "as_read": "1835-06-17",
+   "precision": "day",
+   "reaches": "1835-06-17",
+   "includes_scene_date": false,
+   "days_before_scene_date": 14,
+   "leg": "arrival_bound",
+   "person": null,
+   "record": null,
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "NO SIGHTING AND NO SPAN, SO THE LEG IS THE ARRIVAL BOUND. It is the only date this card holds: the day by which a record already has this person at Chicago, not a day they were seen. Read from `arrival` as `1835-06-17`, which reaches 1835-06-17 — 14 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+  },
   "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Last printed 1835-06-17, at the Democrat of 17 June 1835, column 2, and nothing reached either follows this person to 1 July 1835 or says they left. A documented resident whose whereabouts on one day are unknown is `uncertain` here rather than dropped: that is the same distinction index.json draws for Jeremiah Porter, and it is a finding rather than a gap."
  },
  "persons": [
@@ -74,7 +128,32 @@
     "fergus_chicago_directory_1839",
     "isa_public_domain_land_tract_sales"
    ],
-   "note": "A DOCUMENTED PERSON, AND NO TRADE IS CLAIMED BECAUSE THE PAPERS GIVE NONE. The corpus prints 'B. S. Morris' and places them at Chicago; it does not say what they did for a living, where this household lived, who else was in it, or when it came. The occupation therefore reads `none_recorded`, this dataset's own word for an absent record, rather than a trade reasoned from the company they keep — the absence is the finding. Cited at the Democrat of 17 June 1835, column 2. THE CORPUS PRINTS THIS PERSON IN THE COMPANY THE TOWN ALREADY HOLDS: 3 people this reconstruction already carries are named in the same claim, which the register records as its `enrich` finding. A place the corpus associates with a person is where the paper does business with them and not a statement about where they slept. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Buckner S. Morris” (f1839_v0668, printed page 46, ward 6, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Morris' folds to the same string as the 1837 entry's, and the given name of both begins B. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “MORRIS B S”, 1836-09-05: 1 lot in the platted town — lot 2 of block 2 in the town the register codes CHI (L2BL2CHI, as printed), 0.00 acres stated in all, for $1900.00 (ls1383). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $1900.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: MORRIS B S matches B. S. Morris: the forename names B. S. Morris of the 2 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
+   "dated_bounds": [
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1835_06_17#c002",
+     "claim_kind": "event",
+     "as_printed": "B. S. Morris",
+     "role": "addressed the meeting, and of the committee of seven",
+     "locator": "chicago_democrat_1835_06_17 page 2 column 5",
+     "describes_date": "1835-06-17",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-17",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_b_s_morris, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-06-17 names 'B. S. Morris' in the claim read as chicago_democrat_1835_06_17#c002, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
+   "note": "A DOCUMENTED PERSON, AND NO TRADE IS CLAIMED BECAUSE THE PAPERS GIVE NONE. The corpus prints 'B. S. Morris' and places them at Chicago; it does not say what they did for a living, where this household lived, who else was in it, or when it came. The occupation therefore reads `none_recorded`, this dataset's own word for an absent record, rather than a trade reasoned from the company they keep — the absence is the finding. Cited at the Democrat of 17 June 1835, column 2. THE CORPUS PRINTS THIS PERSON IN THE COMPANY THE TOWN ALREADY HOLDS: 4 people this reconstruction already carries are named in the same claim, which the register records as its `enrich` finding. A place the corpus associates with a person is where the paper does business with them and not a statement about where they slept. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Buckner S. Morris” (f1839_v0668, printed page 46, ward 6, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Morris' folds to the same string as the 1837 entry's, and the given name of both begins B. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “MORRIS B S”, 1836-09-05: 1 lot in the platted town — lot 2 of block 2 in the town the register codes CHI (L2BL2CHI, as printed), 0.00 acres stated in all, for $1900.00 (ls1383). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $1900.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: MORRIS B S matches B. S. Morris: the forename names B. S. Morris of the 2 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
     "programme": "resident-research-2026",
     "ticket": "T-0510",
@@ -104,19 +183,98 @@
      "precision": "year",
      "dated_by": "printing_year",
      "covers_scene_date": false,
+     "fills_scene_view": false,
      "confidence": "attested",
      "sources": [
       "fergus_chicago_directory_1839"
      ],
      "claim": null,
-     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839.",
+     "premises": null
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "attorney, 59 Clark",
+     "from": "1843",
+     "to": "1843",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "claim": "f1843_e1838",
+     "place": "res Indiana, bet Cass and Rush",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1843 DIRECTORY, 8 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
+    },
+    {
+     "role": "attorney",
+     "kind": "profession",
+     "as_printed": "attorney at law",
+     "from": "1844",
+     "to": "1844",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "claim": "n1844_e1306",
+     "place": "Clark st. opposite City Hotel",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1844 DIRECTORY, 9 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": "own_premises"
     }
-   ]
+   ],
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "sex_share_of_the_roll",
+     "note": "Drawn at 93.2% male, the rate measured on the placed roll's own people whose sex the evidence settles (pooled across every roll: this one settles too few names to measure on its own). data/reconstruction/1835_sex_age_model.json holds the measurement."
+    },
+    "seed": "morris_b_s:sex_ratio",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
+    },
+    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'morris_b_s:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
+   },
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "morris_b_s:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('morris_b_s:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   }
  ],
  "touches_removal": false,
  "review_required": false,
- "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0373) BY A RESIDENCY TEST, NOT BY A TRADE. T-0376's pass mints the register's `new_resident` people whose trade the papers print; this one takes the rest, where there is no trade to anchor anybody and a printed name on its own proves only that a Chicago paper set the type. The test asks the corpus two questions instead: does it place this person inside the town and NOWHERE outside it, and does a second independent witness corroborate a bare 'Chicago' — an address at street level, print in two or more issues, or print beside two or more people this reconstruction already holds. THE CORPUS PRINTS THIS PERSON IN THE COMPANY THE TOWN ALREADY HOLDS: 3 people this reconstruction already carries are named in the same claim, which the register records as its `enrich` finding. The household around them is a CONTAINER and not an argument: one member, no dwelling, no division, no family, no recorded trade, and every one of those absences written as unattested rather than filled in from the shape of the rest of the town. That the person is a HOUSEHOLD is the one invention here and it is recorded as docs/LIBERTIES.md L213. tools/mint_placed_residents.py derives the whole minted set and prints every candidate it refused, with the reason.",
+ "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0373) BY A RESIDENCY TEST, NOT BY A TRADE. T-0376's pass mints the register's `new_resident` people whose trade the papers print; this one takes the rest, where there is no trade to anchor anybody and a printed name on its own proves only that a Chicago paper set the type. The test asks the corpus two questions instead: does it place this person inside the town and NOWHERE outside it, and does a second independent witness corroborate a bare 'Chicago' — an address at street level, print in two or more issues, or print beside two or more people this reconstruction already holds. THE CORPUS PRINTS THIS PERSON IN THE COMPANY THE TOWN ALREADY HOLDS: 4 people this reconstruction already carries are named in the same claim, which the register records as its `enrich` finding. The household around them is a CONTAINER and not an argument: one member, no dwelling, no division, no family, no recorded trade, and every one of those absences written as unattested rather than filled in from the shape of the rest of the town. That the person is a HOUSEHOLD is the one invention here and it is recorded as docs/LIBERTIES.md L213. tools/mint_placed_residents.py derives the whole minted set and prints every candidate it refused, with the reason.",
  "directories": {
   "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. morris_b_s, Fergus's Chicago directory of 1839 — f1839_e1059 (a single entry); morris_b_s, Fergus's Chicago directory of 1843 — f1843_e1838 (a single entry); morris_b_s, Norris's Chicago directory of 1844 — n1844_e1306 (a single entry); morris_b_s, the advertising cards in Norris's directory of 1844 — n1844_ad0011 (a single entry).",
   "sources": [

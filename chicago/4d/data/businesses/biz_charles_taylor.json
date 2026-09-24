@@ -1,0 +1,91 @@
+{
+  "id": "biz_charles_taylor",
+  "register_id": "business_charles_taylor",
+  "name": "Charles Taylor",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other",
+    "store"
+  ],
+  "trade": "clothing and tailoring",
+  "occupation": "clothier",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Charles Taylor",
+      "person_id": "taylor_charles",
+      "register_person_id": "person_charles_taylor",
+      "role": "proprietor",
+      "from": "1834-06-04",
+      "to": "1834-06-04",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card taylor_charles (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_06_04#c008"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-06-04",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_06_04#c008 (business, 1834-06-04). No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1834-06-04",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-06-04, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-06-04",
+    "last_issue": "1834-06-04",
+    "copy_dates": []
+  },
+  "present_at_scene_date": false,
+  "exclusion": "contradicted_before_scene_date",
+  "exclusion_note": "Contradicted on or before the scene date by chicago_democrat_1834_06_04#c008 (business, 1834-06-04).",
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Charles Taylor (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "taylor_charles",
+        "name": "Charles Taylor",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_06_04#c008"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

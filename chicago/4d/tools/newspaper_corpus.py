@@ -61,7 +61,7 @@ DEPOSIT = REPO / "chicago" / "reference" / "newspapers" / "Transcriptions"
 RESEARCH = ROOT / "data" / "research" / "newspapers"
 CORPUS = RESEARCH / "corpus.json"
 TEXT = RESEARCH / "text"
-SITE = REPO / "site" / "chicago" / "4d"
+SITE = REPO / "site" / "4d"
 
 SCHEMA_VERSION = 1
 

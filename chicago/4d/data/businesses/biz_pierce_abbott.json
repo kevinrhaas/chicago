@@ -1,0 +1,130 @@
+{
+  "id": "biz_pierce_abbott",
+  "register_id": "business_pierce_abbott",
+  "name": "Pierce & Abbott",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "blacksmiths",
+  "occupation": "blacksmith",
+  "goods": [
+    "Prairie Ploughs",
+    "blacksmith work of all kinds",
+    "prairie ploughs"
+  ],
+  "firm_styles": [
+    "Pierce & Abb[ott]"
+  ],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "Asahel Pierce",
+      "person_id": "pierce_asahel",
+      "register_person_id": "person_asahel_pierce",
+      "role": "partner",
+      "from": "1834-02-04",
+      "to": "1834-06-11",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card pierce_asahel (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_02_04#c012",
+        "chicago_democrat_1834_04_08#c011",
+        "chicago_democrat_1834_05_07#c004",
+        "chicago_democrat_1834_06_11#c003"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Titus H. Abbott",
+      "person_id": "abbott_titus_h",
+      "register_person_id": "person_titus_h_abbott",
+      "role": "partner",
+      "from": "1834-02-04",
+      "to": "1834-06-11",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card abbott_titus_h (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_02_04#c012",
+        "chicago_democrat_1834_04_08#c011",
+        "chicago_democrat_1834_05_07#c004",
+        "chicago_democrat_1834_06_11#c003"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-02-04",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_06_11#c003 (business, 1834-06-11). No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1834-02-04",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-02-04, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-02-04",
+    "last_issue": "1834-06-11",
+    "copy_dates": [
+      "1833-12-10",
+      "1834-05-05"
+    ]
+  },
+  "present_at_scene_date": false,
+  "exclusion": "contradicted_before_scene_date",
+  "exclusion_note": "Contradicted on or before the scene date by chicago_democrat_1834_06_11#c003 (business, 1834-06-11).",
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "proprietors_disagree",
+    "basis": "The keepers this record names do not read as one community (new_york, yankee), and nothing in the record chooses between them. Each is named above.",
+    "from": [
+      {
+        "person_id": "abbott_titus_h",
+        "name": "Titus H. Abbott",
+        "role": "partner",
+        "community": "new_york",
+        "tier": "reconstructed"
+      },
+      {
+        "person_id": "pierce_asahel",
+        "name": "Asahel Pierce",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "inferred"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_02_04#c012",
+    "chicago_democrat_1834_04_08#c011",
+    "chicago_democrat_1834_05_07#c004",
+    "chicago_democrat_1834_06_11#c003"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

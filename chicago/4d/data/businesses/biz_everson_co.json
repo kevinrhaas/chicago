@@ -1,0 +1,85 @@
+{
+  "id": "biz_everson_co",
+  "register_id": "business_everson_co",
+  "name": "Everson & Co.",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "livery stable",
+  "occupation": "livery_stable_keeper",
+  "goods": [
+    "saddle horses",
+    "single horse carriages"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Everson",
+      "person_id": null,
+      "register_person_id": "person_everson",
+      "role": "proprietor",
+      "from": "1834-03-04",
+      "to": "1834-03-04",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_everson with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_03_04#c007"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-03-04",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The anchor 'the Point' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-03-04",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-03-04, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-03-04",
+    "last_issue": "1834-03-04",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_03_04#c007"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

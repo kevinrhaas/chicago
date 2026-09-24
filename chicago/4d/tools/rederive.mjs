@@ -37,9 +37,21 @@
  * AFTER consolidate, because consolidate moves the inputs mint reads. Built in
  * the wrong order mint still differed on two cards and only converged when re-run.
  *
+ * AND ORDER ALONE IS NOT ENOUGH, which is T-1363. The derived layer has a CYCLE in
+ * it: `reconstruct_residents_1835.py --stage attribute_fill_arrival` draws from the
+ * town model, and model_town_1835.py rebuilds the town model from a profile of the
+ * cards that stage writes. No linear order settles that — put the stage first and
+ * its draws end the run one model behind; put it last and the model ends the run
+ * one population behind. A second `--run` does not help either, because the second
+ * pass moves the model again. So the manifest declares a SECOND PASS: a short list
+ * of steps re-run after the sequence, walking the cycle once more from a settled
+ * model. `--run` runs it; `--check` holds its shape (see `_the_second_pass`); and
+ * tools/check.sh is the proof that it settles, because it asserts the model, the
+ * profile, the tier table and the resident cards all still re-derive afterwards.
+ *
  *   node tools/rederive.mjs --check                 the manifest is well-formed
  *   node tools/rederive.mjs --resolvable <paths…>   may these conflicts be cleared?
- *   node tools/rederive.mjs --run                   run the sequence, in order
+ *   node tools/rederive.mjs --run                   run the sequence, then the second pass
  *   node tools/rederive.mjs --prove                 does every step write what it claims?
  *   node tools/rederive.mjs --self-test
  */
@@ -129,13 +141,74 @@ function check(m = load()) {
     }
   });
 
+  // THE SECOND PASS (T-1363). Its safety rests entirely on every entry naming a
+  // step from the list above: re-running a command the sequence already runs adds
+  // no tool that `_only_gated_tools` has not gated and `--prove` has not proved.
+  // An entry that named a command of its own would slip past both.
+  const key = (c) => (Array.isArray(c) ? c : []).join('\u0000');
+  const stepAt = new Map(m.steps.map((s, i) => [key(s.command), i]));
+  const secondPass = m.second_pass ?? [];
+  if (!Array.isArray(secondPass)) problems.push('second_pass must be an array');
+  else {
+    const seenPass = new Set();
+    let lagSeen = false;
+    secondPass.forEach((e, i) => {
+      const at = `second_pass ${i + 1} (${(e.command ?? []).join(' ')})`;
+      if (!Array.isArray(e.command) || e.command.length < 2) {
+        problems.push(`${at}: command must be an argv array`);
+        return;
+      }
+      const k = key(e.command);
+      if (!stepAt.has(k)) {
+        problems.push(`${at}: names no step in the sequence. The second pass may only re-run `
+          + 'the sequence\'s own commands — a command listed only here is a derivation '
+          + 'nothing gated, proved, or wrote down as part of the layer.');
+      }
+      if (seenPass.has(k)) problems.push(`${at}: is listed twice — a pass, not a loop`);
+      seenPass.add(k);
+      if (!e.why || !String(e.why).trim()) {
+        problems.push(`${at}: needs a why. A step re-run for an unstated reason is one `
+          + 'nobody can ever remove.');
+      }
+      // THE LAG MUST BE REAL. An entry claiming it reads a file the sequence rebuilds
+      // has to point at a step BELOW it that actually resolves that file — otherwise
+      // there is no lag and the re-run is cargo.
+      if (e.reads_rebuilt !== undefined) {
+        if (!Array.isArray(e.reads_rebuilt) || e.reads_rebuilt.length === 0) {
+          problems.push(`${at}: reads_rebuilt must be a non-empty array of paths`);
+        } else {
+          for (const rel of e.reads_rebuilt) {
+            const owner = m.steps.findIndex((st) => (st.resolves ?? []).includes(rel));
+            if (owner < 0) {
+              problems.push(`${at}: claims to read ${rel}, which no step rebuilds — so there `
+                + 'is no lag here and nothing to re-run for. Name the file the sequence '
+                + 'actually rewrites under it.');
+            } else if (owner === stepAt.get(k)) {
+              problems.push(`${at}: claims to lag on ${rel}, which it rebuilds itself at step `
+                + `${owner + 1}. A step cannot be behind its own output.`);
+            } else if (owner < stepAt.get(k)) {
+              problems.push(`${at}: claims to read ${rel}, but step ${owner + 1} rebuilds it `
+                + `BEFORE step ${stepAt.get(k) + 1} runs — the sequence already settles this `
+                + 'one, and a second pass over it is cargo.');
+            }
+          }
+        }
+        lagSeen = true;
+      } else if (!lagSeen) {
+        problems.push(`${at}: is the first entry and states no reads_rebuilt. The pass exists `
+          + 'because something reads a file the sequence rebuilds after it; an entry that '
+          + 'follows no such reader is repairing nothing. Lead with the lagging reader.');
+      }
+    });
+  }
+
   if (problems.length) {
     console.error('derived manifest FAILED:');
     for (const p of problems) console.error(`  - ${p}`);
     return 1;
   }
   console.log(`derived manifest OK — ${m.steps.length} step(s), ${allResolved(m).length} `
-    + 'resolvable file(s), none hand-authored');
+    + `resolvable file(s), none hand-authored; second pass of ${secondPass.length} step(s)`);
   return 0;
 }
 
@@ -170,18 +243,36 @@ function resolvable(paths, m = load()) {
 /* -------------------------------------------------------------------- run */
 
 function run(m = load()) {
-  for (const [i, s] of m.steps.entries()) {
-    const label = s.command.join(' ');
-    process.stdout.write(`  [${i + 1}/${m.steps.length}] ${label}\n`);
+  const exec = (command, label) => {
     try {
-      execFileSync(s.command[0], s.command.slice(1), { cwd: APP, stdio: ['ignore', 'pipe', 'pipe'] });
+      execFileSync(command[0], command.slice(1), { cwd: APP, stdio: ['ignore', 'pipe', 'pipe'] });
+      return true;
     } catch (e) {
       console.error(`  FAILED: ${label}`);
       console.error(`${e.stdout ?? ''}${e.stderr ?? ''}`.split('\n').slice(-8).map((l) => `    ${l}`).join('\n'));
-      return 1;
+      return false;
     }
+  };
+
+  for (const [i, s] of m.steps.entries()) {
+    const label = s.command.join(' ');
+    process.stdout.write(`  [${i + 1}/${m.steps.length}] ${label}\n`);
+    if (!exec(s.command, label)) return 1;
   }
-  console.log(`derived layer rebuilt — ${m.steps.length} step(s), in dependency order`);
+
+  // AND THEN THE CYCLE, ONCE MORE, FROM A SETTLED MODEL (T-1363). Without this the
+  // run ends with the arrival draws standing on the model as it was before the run
+  // moved the population, and the gate goes red on ~1,400 cards. See
+  // `_the_second_pass` in the manifest for the measurement.
+  const secondPass = m.second_pass ?? [];
+  for (const [i, e] of secondPass.entries()) {
+    const label = e.command.join(' ');
+    process.stdout.write(`  [second pass ${i + 1}/${secondPass.length}] ${label}\n`);
+    if (!exec(e.command, label)) return 1;
+  }
+
+  console.log(`derived layer rebuilt — ${m.steps.length} step(s) in dependency order, then a `
+    + `second pass of ${secondPass.length} over the steps that read what the sequence rebuilds`);
   return 0;
 }
 
@@ -280,6 +371,23 @@ async function selfTest() {
     real.steps.findIndex((s) => s.command.join(' ').includes('mint_civic_residents'))
       > real.steps.findIndex((s) => s.command.join(' ').includes('consolidate_resident_evidence')));
 
+  console.log('\n  the second pass that closes the cycle (T-1363)');
+  const pass = real.second_pass ?? [];
+  const k = (c) => c.join('\u0000');
+  check_('the shipped manifest declares one', pass.length > 0, `${pass.length} step(s)`);
+  check_('every entry re-runs a command the sequence already runs — no new tool sneaks in',
+    pass.every((e) => real.steps.some((s) => k(s.command) === k(e.command))));
+  check_('the lagging reader leads it, and it is the arrival stage',
+    (pass[0]?.command ?? []).join(' ').includes('attribute_fill_arrival')
+      && Array.isArray(pass[0]?.reads_rebuilt));
+  check_('the file it lags on IS rebuilt by a later step — the lag is real, not cargo',
+    (pass[0]?.reads_rebuilt ?? []).every((rel) => {
+      const owner = real.steps.findIndex((s) => (s.resolves ?? []).includes(rel));
+      const mine = real.steps.findIndex((s) => k(s.command) === k(pass[0].command));
+      return owner > mine && mine >= 0;
+    }));
+  check_('every entry says why it is re-run', pass.every((e) => String(e.why ?? '').trim().length > 0));
+
   console.log('\n  check() refuses a manifest that would be unsafe');
   const tmp = mkdtempSync(path.join(tmpdir(), 'c4d-rederive-'));
   try {
@@ -302,6 +410,45 @@ async function selfTest() {
       }]) === 1);
     check_('a listed path that is not in the tree',
       bad([{ command: ['python3', 'tools/compile_scene.py'], resolves: ['chicago/4d/data/nope.json'] }]) === 1);
+
+    // …and the second pass's own assertions. Each is a way the pass could quietly
+    // stop meaning anything: a tool nothing gated, a claimed lag that is not one,
+    // a repair with nothing above it to repair, a loop written as a pass.
+    const withPass = (second_pass) => {
+      const f = path.join(tmp, 'p.json');
+      writeFileSync(f, JSON.stringify({
+        schema: 1,
+        steps: [
+          { command: ['python3', 'tools/compile_scene.py'], resolves: [] },
+          { command: ['python3', 'tools/model_town_1835.py', '--build'],
+            resolves: ['chicago/4d/data/reconstruction/1835_town_model.json'] },
+        ],
+        second_pass,
+      }));
+      return check(load(f));
+    };
+    const reader = {
+      command: ['python3', 'tools/compile_scene.py'],
+      reads_rebuilt: ['chicago/4d/data/reconstruction/1835_town_model.json'],
+      why: 'reads the model the step below rebuilds',
+    };
+    check_('a well-formed pass is accepted', withPass([reader]) === 0);
+    check_('an entry naming no step in the sequence — an ungated, unproved derivation',
+      withPass([{ command: ['python3', 'tools/no_such_tool.py'], why: 'x' }]) === 1);
+    check_('an entry with no why — a re-run nobody can ever remove',
+      withPass([{ ...reader, why: '  ' }]) === 1);
+    check_('the same entry twice — a pass, not a loop',
+      withPass([reader, reader]) === 1);
+    check_('a claimed lag on a file NO step rebuilds',
+      withPass([{ ...reader, reads_rebuilt: ['chicago/4d/data/town_census.json'] }]) === 1);
+    check_('a claimed lag on a file rebuilt BEFORE the entry runs — the sequence settles it',
+      withPass([{
+        command: ['python3', 'tools/model_town_1835.py', '--build'],
+        reads_rebuilt: ['chicago/4d/data/reconstruction/1835_town_model.json'],
+        why: 'reads what it rebuilds itself',
+      }]) === 1);
+    check_('a repair with no lagging reader above it — it is repairing nothing',
+      withPass([{ command: ['python3', 'tools/compile_scene.py'], why: 'downstream of nothing' }]) === 1);
   } finally { rmSync(tmp, { recursive: true, force: true }); }
 
   console.log(`\n${failures === 0 ? 'rederive self-test: all pass' : `rederive self-test: ${failures} FAILURE(S)`}`);

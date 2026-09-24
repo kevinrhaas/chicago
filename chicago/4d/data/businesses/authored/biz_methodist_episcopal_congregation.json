@@ -1,0 +1,66 @@
+{
+  "id": "biz_methodist_episcopal_congregation",
+  "register_id": null,
+  "name": "The Methodist Episcopal congregation at Chicago",
+  "provenance": "authored",
+  "type": [
+    "church"
+  ],
+  "trade": "a Methodist Episcopal congregation and its log meeting house at the forks",
+  "occupation": null,
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [],
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "walker_meeting_house",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "basis": "THE CONGREGATION IS BETTER EVIDENCED THAN ITS ADDRESS, AND THIS ROW SAYS SO RATHER THAN CHOOSING. The committed roof walker_meeting_house is the town's log Methodist meeting house — 'Rev. Jesse Walker's log cabin', 'the first Methodist meeting house' — and its own function field is attested on two near-primary witnesses who agree it was built for worship and for teaching and disagree only about which came first. What is NOT settled is which bank it stood on: Wau-Bun and chicagology put a log worship-and-school house on the WEST bank at Wolf Point, the successor congregation's own history (chicago_temple_history) has the Methodists building a log cabin NORTH of the river in 1834, and the structure record adopts west for placement while stating that the likeliest reconciliation is that both are right about DIFFERENT buildings. If that is so, this congregation met in one of two log houses at the forks in July 1835 and the town models the other. The tier is `inferred` for exactly that reason, and it does not fall to `unplaceable`: every candidate reading puts these people at the forks, and the town holds one roof there. WHAT THIS ROW MAY NEVER DO is move south. data/exclusions.json # methodist_meeting_house_south is a location guard, not a date guard: the congregation floated its cabin across the river and rolled it on logs to Clark and Washington only in 1838, and the 'M.E. Church' drawn south of the river on the 1833 reconstructed map is best read as showing where Methodists MET — the fort, and later the Temple Building — not a Methodist-owned building.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "INFERRED BECAUSE IT IS A CEILING AND NOT AN OPENING — the layer's own rule, which this record tripped on the first build: an attested opening is exact. NO SOURCE REACHED DATES THE SOCIETY'S ORGANISATION, and the record leaves `opened` null rather than reading a year off the building. What the sources do give is a ceiling: baptisthistoryhomepage, transcribing Andreas, has the Temple Building 'used by the Methodists, Presbyterians and Baptists alike' from mid-August 1833 until the Presbyterian church was dedicated on 4 January 1834, so a Methodist congregation is meeting at Chicago well before 1834 and is still meeting on the scene date. `not_later_than` is that ceiling and nothing more; a date for the first class or the first quarterly meeting would replace it with a real opening."
+  },
+  "evidence": {
+    "first_issue": null,
+    "last_issue": null,
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "A congregation is not a house of trade and has no keeper to read a community off. This record names nobody at all, which is the point of it: the town's Methodists are documented and their minister on 1 July 1835 is not.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "baptisthistoryhomepage",
+    "chicagology_prefire273",
+    "kinzie_waubun_1856",
+    "chicago_temple_history"
+  ],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A NAME IN THE PULPIT IS WHAT THIS RECORD IS MISSING, and it is the only establishment of the four that has none. The Methodist Episcopal church worked Chicago as a circuit, so the man who preached here on 1 July 1835 is likelier to be found in a conference minute or a circuit appointment list than in the town's own papers; Rev. Jesse Walker, who built the log house, died in 1835 at a date the sources reached do not fix, and naming him for the scene date would be reading a builder as an incumbent. Any such minute would also settle which bank the congregation met on, which is the open question on this record's location and on walker_meeting_house itself."
+}

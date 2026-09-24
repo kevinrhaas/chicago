@@ -98,3 +98,87 @@ ruling on a residency.
 
 Nothing here edits a resident, mints a person, moves a confidence, invents a citation or
 re-adjudicates an identity.
+
+## The firm notices left this register, 2026-09-21 (T-1508)
+
+`the_notice_names_a_firm` is gone from the table above, and it is not a withdrawal: the
+ledger now reads the BUSINESS layer as a target surface beside the residents layer, and
+every one of those notices is spent on the record compiled from it. A business block is
+matched on its own `claim_ids` list — never on a token found in its prose — so a firm is
+reached where the record says it was read, and nowhere else.
+
+What moved, measured on the committed layer:
+
+| | units |
+| --- | ---: |
+| asserted against a business record | 485 |
+| …of which stood unresolved behind the routing ticket T-1468 | 444 |
+| …of which this register had been ruling instead | 22 |
+| …of which the place routing T-1198 had been holding | 19 |
+
+Three of the 22 were ruled `the_issue_is_printed_after_the_scene_date` — two printings of
+the Wm. Hogue & Co. dissolution and one patent-medicine notice. A dated target outranks a
+fallback ruling everywhere else in this derivation and it does so here too: the business
+record carries its own `tier` and `basis` for what it read out of a post-scene printing,
+which is where that judgement belongs. The scene-date question is the record's, not the
+register's.
+
+The rule is gone from the CODE as well, and not silently. A rule that fires zero times
+over the committed corpora is judgement the register never makes, and this one's own
+self-test refuses to let such a rule stand. So the branch that carried it now REFUSES: a
+unit arriving here with a `business` block stops the build and says the ledger owes it a
+spend. Falling through would have been the quiet failure — the branches below read a
+notice as a person or as a family column, and a firm answered by one of those is a wrong
+ruling that nothing would have caught.
+
+What did NOT move is the other half of the same reading and is T-1509: 49 units whose
+only reach is a record's top-level `claim_ids`, which carries no tier, and 52 that reach
+no business record at all. They stand unresolved until they are refused or tiered with
+their reason.
+
+## The other half is answered, 2026-09-21 (T-1509)
+
+The 101 readings the section above hands to T-1509 are 100 units when they are counted off
+the derivation rather than off the prose that described them: 77 newspaper and 23 book
+readings whose own `kind` is `business` and which `research_spend_ledger` routes to
+T-1468. They were the last thing in these two corpora standing `unresolved` behind a
+routing pointer with nothing said about any one of them, and the registers here now rule
+every one — the same statement floor, the same note floor, the same `--check`.
+
+The layer decides which of four answers a reading gets, and the RECORD OUTRANKS THE DATE,
+which is the order T-1508 already set here.
+
+| Rule | Units | Disposition |
+| --- | ---: | --- |
+| `the_compiled_record_names_this_claim_and_tiers_no_field_to_it` | 49 | unresolved → **T-1514** |
+| `a_trade_reading_the_business_layer_holds_no_record_for` | 25 | aggregate_only |
+| `the_reading_is_earlier_than_the_scene_and_does_not_reach_it` | 20 | refused |
+| `the_issue_is_printed_after_the_scene_date` | 6 | later_only |
+
+**The 49 are a fault in the LAYER, not in the reading, and that is why they are handed on
+rather than closed.** 37 compiled business records name these claims — at the record root,
+in `claim_ids`, beside a root `sources` list that carries no tier. The ledger reaches the
+business layer on a block that carries a tier *and* cites a source, and these records have
+no such block: their advertisements are anonymous ("a Chicago stove and hollow ware dealer,
+August 1835", "an iron and hardware stock, Chicago, June 1835"), so `proprietors` and
+`partners` are empty and `person_entry` — the thing that attaches `claim_ids` at `attested`
+on this layer — never runs. What tiered blocks they do carry, `locations` and `dates`, are
+`inferred` from the placement policy and cite nothing. So the reading compiled a whole
+record and no field of that record is attested from it.
+
+Calling the record root a tier would close all 49 today and would be minting a confidence
+the generator never derived, which is the move this project refuses everywhere else. The
+tier belongs in `tools/compile_businesses.py`, where the layer re-derives and a hand edit
+to `data/businesses/` is refused outright; that is T-1514. The day it lands, the ledger
+asserts these 49 with no ruling at all and these rows go red — which is what a hand-off
+closing is supposed to look like.
+
+**The 25 are the same answer the harbour and the price of flour get.** No record of
+`data/businesses/` names their claim anywhere, the layer is the compiled answer to this
+very corpus, and raising a firm off a reading the compiler declined to compile is not a
+spend. They are true, they are in the window, and they size the town's trade in aggregate.
+
+Measured on the committed ledger: unresolved falls from 868 to 817, and T-1468's own
+remainder from 138 to the 38 `civic` units that are another register's file and another
+question. Nothing here edits a business record, mints a firm, moves a tier or invents a
+citation.

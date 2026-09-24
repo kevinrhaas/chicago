@@ -228,7 +228,7 @@ def _rules(prof, minpk=14.0, maxw=9):
             half = [(p, v) for p, v in seg if v >= 0.35 * pk]
             if half[-1][0] - half[0][0] + 1 <= maxw:
                 tot = sum(v for _, v in half)
-                out.append((round(sum(p * v for p, v in half) / tot, 1), round(pk, 1)))
+                out.append((round(math.fsum(p * v for p, v in half) / tot, 1), round(pk, 1)))
             i = j + 1
         else:
             i += 1
@@ -631,11 +631,11 @@ def _wash_ruling(w):
            "patch_box": w["patch_box"], "similarity": {}}
     for name, rgb in w["patch_rgb"].items():
         a = _absorbance(rgb, paper)
-        sims = sorted(((round(sum(x * y for x, y in zip(a, sw[k])), 4), k) for k in sw),
+        sims = sorted(((round(math.fsum(x * y for x, y in zip(a, sw[k])), 4), k) for k in sw),
                       reverse=True)
         out["similarity"][name] = [{"swatch": k, "cos": s} for s, k in sims]
-    pair = round(sum(x * y for x, y in zip(sw["6_surveyed_blank_1833"],
-                                           sw["9_part_of_canal_sec_no_9"])), 4)
+    pair = round(math.fsum(x * y for x, y in zip(sw["6_surveyed_blank_1833"],
+                                                sw["9_part_of_canal_sec_no_9"])), 4)
     out["swatch_6_against_swatch_9"] = pair
     out["ruling"] = (
         "The control works: the School Section's band on the map names its own swatch at "

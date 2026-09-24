@@ -35,7 +35,7 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE = ROOT.parent.parent / "site" / "chicago" / "4d"
+SITE = ROOT.parent.parent / "site" / "4d"
 # THE BUDGET IS READ FROM THE GATE, NOT RESTATED HERE. This tool hardcoded 32.0
 # while tools/validate.py had been raised to 36 (T-0593, #823), so the report said
 # "95.0 % of the 32 MB budget, 1.588 MB of headroom" about a tree the gate saw as

@@ -1,0 +1,87 @@
+{
+  "id": "biz_north_western_fire_and_marine_insurance_company_of_oswego_chicago_agency",
+  "register_id": "business_north_western_fire_and_marine_insurance_company_of_oswego_chicago_agency",
+  "name": "North Western Fire and Marine Insurance Company of Oswego, Chicago agency",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "fire insurance, and marine risks on lake and canal vessels and cargoes",
+  "occupation": "insurance_agent",
+  "goods": [
+    "fire insurance",
+    "marine insurance"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Capt. Hiram Hugunin",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "proprietor",
+      "from": "1835-06-17",
+      "to": "1835-06-17",
+      "tier": "attested",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1835_06_17#c011"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-06-17",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-17",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-17, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-17",
+    "last_issue": "1835-06-17",
+    "copy_dates": [
+      "1835-06-01"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1835_06_17#c011"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

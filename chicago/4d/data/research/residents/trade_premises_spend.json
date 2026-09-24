@@ -1,0 +1,1231 @@
+{
+ "schema": "trade-premises-spend-v1",
+ "_doc": "DERIVED, T-1469, by tools/spend_trade_premises.py from the resident layer and the pass findings beside it -- run --check to re-derive it. The 37 `corroborated_enrichment` units naming a trade, a shop, a tavern, a store or the premises one was kept at, each read against the finished business layer and given one of six outcomes. Nothing here writes a card: every field a row names was written by the pass that owns it, and this register records which field answers which finding.",
+ "ticket": "T-1469",
+ "generated_by": "tools/spend_trade_premises.py",
+ "scene_date": "1835-07-01",
+ "counts": {
+  "units": 37,
+  "by_outcome": {
+   "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date": 21,
+   "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window": 6,
+   "the_reading_is_carried_as_a_dated_profile_fact_on_the_card": 4,
+   "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date": 3,
+   "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks": 2,
+   "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated": 1
+  }
+ },
+ "rows": [
+  {
+   "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/bates_john_jr",
+   "pass": "02",
+   "person": "bates_john_jr",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "an auctioneer's trade, and a Lake Street address the 1843 directory prints",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_bates_john_jr.json#persons[bates_john_jr].occupation",
+     "value": "auctioneer",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_bates_john_jr.json#works_at",
+     "value": "bates_auction_room",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on bates_john_jr returned: “The 1843 Chicago directory identifies John Bates Jr. as an auctioneer at 174 Lake Street, independently extending the exact-name and trade match beyond Andreas.” Sources as recorded: norris_chicago_directory_1843. T-1469 reads that as an auctioneer's trade, and a Lake Street address the 1843 directory prints. The card carries it at data/residents/households/hh_bates_john_jr.json#persons[bates_john_jr].occupation = “auctioneer” (attested, in the 1 July 1835 view); data/residents/households/hh_bates_john_jr.json#works_at = “bates_auction_room” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/calhoun_john",
+   "pass": "02",
+   "person": "calhoun_john",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "the founding and operation of a printing office",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_calhoun_john.json#persons[calhoun_john].occupation",
+     "value": "editor",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "chicago_democrat_1833_11_26"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_calhoun_john.json#persons[calhoun_john].workplaces[0]",
+     "value": "Chicago Democrat printing office",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1834_01_07#c006",
+      "chicago_democrat_1835_05_20#c007",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_calhoun_john.json#works_at",
+     "value": "chicago_democrat_office",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on calhoun_john returned: “The Encyclopedia of Chicago independently identifies John Calhoun as founder of the Chicago Weekly Democrat in 1833 and operator of the city's earliest press.” Sources as recorded: encyclopedia_chicago_newspapers. T-1469 reads that as the founding and operation of a printing office. The card carries it at data/residents/households/hh_calhoun_john.json#persons[calhoun_john].occupation = “editor” (attested, in the 1 July 1835 view); data/residents/households/hh_calhoun_john.json#persons[calhoun_john].workplaces[0] = “Chicago Democrat printing office” (attested, in the 1 July 1835 view); data/residents/households/hh_calhoun_john.json#works_at = “chicago_democrat_office” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/clybourne_archibald",
+   "pass": "02",
+   "person": "clybourne_archibald",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "a slaughterhouse and a meat trade with their premises",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_clybourne_archibald.json#persons[clybourne_archibald].occupation",
+     "value": "butcher",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_clybourne_archibald.json#works_at",
+     "value": "clybourn_slaughterhouse",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on clybourne_archibald returned: “The Encyclopedia of Chicago places Clybourn's slaughterhouse at the city limits from 1827 and describes his 1830s door-to-door meat trade, corroborating occupation while preserving its outside-town location.” Sources as recorded: encyclopedia_chicago_food_processing. T-1469 reads that as a slaughterhouse and a meat trade with their premises. The card carries it at data/residents/households/hh_clybourne_archibald.json#persons[clybourne_archibald].occupation = “butcher” (attested, in the 1 July 1835 view); data/residents/households/hh_clybourne_archibald.json#works_at = “clybourn_slaughterhouse” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/couch_ira",
+   "pass": "02",
+   "person": "couch_ira",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "the keeping of the Tremont House",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_couch_ira.json#persons[couch_ira].occupation",
+     "value": "hotel_keeper",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "chicagology_prefire021"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_couch_ira.json#works_at",
+     "value": "tremont_house_1",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "chicagology_prefire021"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on couch_ira returned: “Chicago History Museum and WTTW independently connect Ira Couch to the Tremont House. Later summaries differ on when management began, so Andreas's earlier 1834 evidence remains qualified rather than replaced.” Sources as recorded: chm_ira_couch_portrait, wttw_ira_couch. T-1469 reads that as the keeping of the Tremont House. The card carries it at data/residents/households/hh_couch_ira.json#persons[couch_ira].occupation = “hotel_keeper” (attested, in the 1 July 1835 view); data/residents/households/hh_couch_ira.json#works_at = “tremont_house_1” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/pearsons_hiram",
+   "pass": "02",
+   "person": "pearsons_hiram",
+   "outcome": "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated",
+   "rule": "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated",
+   "reading": "a house painter's trade, against the `speculator` the card carries as attested",
+   "describes": null,
+   "carries": [],
+   "note": "The pass on pearsons_hiram returned: “A contemporary reminiscence describes Pearsons as a house painter who entered real estate. This corrects the household's unsupported treatment of speculator as attested: house painter is sourced; investor or speculator is interpretive.” Sources as recorded: ingale_early_chicago_reminiscence. T-1469 reads that as a house painter's trade, against the `speculator` the card carries as attested. No field carries it, because the card carries the OPPOSITE reading at a grade the finding disputes; T-1507 owns the re-adjudication."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/sen_elijah_wentworth",
+   "pass": "02",
+   "person": "sen_elijah_wentworth",
+   "outcome": "the_reading_is_carried_as_a_dated_profile_fact_on_the_card",
+   "rule": "the_reading_is_carried_as_a_dated_profile_fact_on_the_card",
+   "reading": "a tavern kept at Wolf Point and later at Sand Ridge",
+   "describes": null,
+   "carries": [
+    {
+     "field": "profile_facts",
+     "at": "data/residents/households/hh_sen_elijah_wentworth.json#persons[sen_elijah_wentworth].profile_facts[0]",
+     "value": "The Wolf Point tavern keeper, resolved against his son by the ‘sen.’ of the transcription",
+     "grade": "inferred",
+     "sources": [
+      "nwchicago_elijah_wentworth"
+     ],
+     "reaches_scene_date": false
+    }
+   ],
+   "note": "The pass on sen_elijah_wentworth returned: “Cited local history and Wau-Bun identify Elijah Wentworth Sr. as a Wolf Point tavern keeper who later operated at Sand Ridge. Exact senior designation, occupation and chronology resolve him, but downtown scene-date presence is not proved.” Sources as recorded: nwchicago_elijah_wentworth, kinzie_waubun_1856. T-1469 reads that as a tavern kept at Wolf Point and later at Sand Ridge. The card carries it at data/residents/households/hh_sen_elijah_wentworth.json#persons[sen_elijah_wentworth].profile_facts[0] = “The Wolf Point tavern keeper, resolved against his son by the ‘sen.’ of the transcription” (inferred, outside the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/taylor_augustine",
+   "pass": "02",
+   "person": "taylor_augustine",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "a builder's trade and the building of St Mary's",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_taylor_augustine.json#persons[taylor_augustine].occupation",
+     "value": "carpenter",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_taylor_augustine.json#works_at",
+     "value": "st_marys_church",
+     "grade": "inferred",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on taylor_augustine returned: “Chicago History Museum identifies Augustine Deodat Taylor as designer and builder of St. Mary's in 1833 using balloon-frame construction, while keeping him distinct from brother Anson who hauled lumber.” Sources as recorded: encyclopedia_chicago_church_architecture. T-1469 reads that as a builder's trade and the building of St Mary's. The card carries it at data/residents/households/hh_taylor_augustine.json#persons[taylor_augustine].occupation = “carpenter” (attested, in the 1 July 1835 view); data/residents/households/hh_taylor_augustine.json#works_at = “st_marys_church” (inferred, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/blodgett_tyler_k",
+   "pass": "03",
+   "person": "blodgett_tyler_k",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "an 1833 north-bank brickyard and a brick house",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_blodgett_tyler_k.json#persons[blodgett_tyler_k].occupation",
+     "value": "brickmaker",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_blodgett_tyler_k.json#works_at",
+     "value": "brickyard_north_side",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on blodgett_tyler_k returned: “A contemporary-recollection compilation independently identifies Tyler K. Blodgett's 1833 north-bank brickyard and brick house. It supports the exact name and trade but does not establish his 1 July 1835 roof.” Sources as recorded: ingale_early_chicago_reminiscence. T-1469 reads that as an 1833 north-bank brickyard and a brick house. The card carries it at data/residents/households/hh_blodgett_tyler_k.json#persons[blodgett_tyler_k].occupation = “brickmaker” (attested, in the 1 July 1835 view); data/residents/households/hh_blodgett_tyler_k.json#works_at = “brickyard_north_side” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/brown_rufus",
+   "pass": "03",
+   "person": "brown_rufus",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "a log boarding house kept full",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_brown_rufus.json#persons[brown_rufus].occupation",
+     "value": "boarding_house_keeper",
+     "grade": "inferred",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_brown_rufus.json#works_at",
+     "value": "brown_boarding_house",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on brown_rufus returned: “The First Presbyterian history describes Rufus Brown's log boarding house as full during the church's earliest period. It corroborates the exact-name lodging role; it does not name Mrs Brown or resolve a street address.” Sources as recorded: first_presbyterian_chicago_1833_1913. T-1469 reads that as a log boarding house kept full. The card carries it at data/residents/households/hh_brown_rufus.json#persons[brown_rufus].occupation = “boarding_house_keeper” (inferred, in the 1 July 1835 view); data/residents/households/hh_brown_rufus.json#works_at = “brown_boarding_house” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/cobb_silas_b",
+   "pass": "03",
+   "person": "cobb_silas_b",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "saddlery and harness work, and a Lake Street address the 1843 directory prints",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_goss_cobb.json#persons[cobb_silas_b].occupation",
+     "value": "saddler",
+     "grade": "inferred",
+     "sources": [
+      "andreas_1884_v1",
+      "chicago_democrat_1833_11_26"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_goss_cobb.json#persons[cobb_silas_b].workplaces[0]",
+     "value": "S. B. Cobb, saddle, harness and trunk manufactory",
+     "grade": "attested",
+     "sources": [
+      "chicago_american_1835_06_08#c007",
+      "chicago_american_1835_06_13#c016",
+      "chicago_american_1835_07_11#c008",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_goss_cobb.json#works_at",
+     "value": "goss_cobb_saddlery",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on cobb_silas_b returned: “Early reminiscence and the 1843 directory independently connect Silas B. Cobb with saddlery and harness work and later premises at 171 Lake Street. The later address extends the profile but is not back-projected to 1835.” Sources as recorded: ingale_early_chicago_reminiscence, norris_chicago_directory_1843. T-1469 reads that as saddlery and harness work, and a Lake Street address the 1843 directory prints. The card carries it at data/residents/households/hh_goss_cobb.json#persons[cobb_silas_b].occupation = “saddler” (inferred, in the 1 July 1835 view); data/residents/households/hh_goss_cobb.json#persons[cobb_silas_b].workplaces[0] = “S. B. Cobb, saddle, harness and trunk manufactory” (attested, in the 1 July 1835 view); data/residents/households/hh_goss_cobb.json#works_at = “goss_cobb_saddlery” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/cohen_peter",
+   "pass": "03",
+   "person": "cohen_peter",
+   "outcome": "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date",
+   "rule": "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date",
+   "reading": "incorporation of the Chicago Hydraulic Company",
+   "describes": "1836-01",
+   "carries": [],
+   "note": "The pass on cohen_peter returned: “Cook County history names Peter Cohen among the January 1836 Chicago Hydraulic Company incorporators. The exact name and immediate civic continuity strengthen identity but do not add a household relationship.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as incorporation of the Chicago Hydraulic Company. Nothing on the card carries it for the scene date, and the reading describes 1836-01, which is after 1 July 1835."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/davis_t_o",
+   "pass": "03",
+   "person": "davis_t_o",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "the establishing of the Whig newspaper in 1835",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_davis_t_o.json#persons[davis_t_o].occupation",
+     "value": "editor",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_davis_t_o.json#works_at",
+     "value": "chicago_american_office",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on davis_t_o returned: “Cook County history corroborates T. O. Davis's role in establishing Chicago's Whig newspaper in 1835. Initials, place, occupation and year resolve the identity; no full-name expansion was safely found.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as the establishing of the Whig newspaper in 1835. The card carries it at data/residents/households/hh_davis_t_o.json#persons[davis_t_o].occupation = “editor” (attested, in the 1 July 1835 view); data/residents/households/hh_davis_t_o.json#works_at = “chicago_american_office” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/elston_daniel",
+   "pass": "03",
+   "person": "elston_daniel",
+   "outcome": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "rule": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "reading": "soap and candle manufacture, and a later distillery and brewery",
+   "describes": null,
+   "carries": [
+    {
+     "field": "withdrawn",
+     "at": "data/residents/households/hh_elston_daniel.json#persons[elston_daniel].occupation.withdrawn_from_scene_date",
+     "value": "soap_and_candle_maker",
+     "grade": "attested",
+     "sources": [],
+     "reaches_scene_date": false
+    },
+    {
+     "field": "roles",
+     "at": "data/residents/households/hh_elston_daniel.json#persons[elston_daniel].roles[0]",
+     "value": "soap_and_candle_maker",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26"
+     ],
+     "reaches_scene_date": false
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_elston_daniel.json#persons[elston_daniel].workplaces[0]",
+     "value": "Chicago Soap and Candle Manufactory",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1834_01_07#c012",
+      "chicago_democrat_1834_03_04#c014",
+      "chicago_democrat_1834_04_08#c005",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_elston_daniel.json#works_at",
+     "value": "elston_soap_candle_manufactory",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on elston_daniel returned: “The University of Illinois finding aid identifies Daniel Elston as an English merchant arriving in Chicago in 1833 who manufactured soap and candles and later operated a distillery and brewery.” Sources as recorded: uiuc_daniel_elston_papers. T-1469 reads that as soap and candle manufacture, and a later distillery and brewery. The card carries it at data/residents/households/hh_elston_daniel.json#persons[elston_daniel].occupation.withdrawn_from_scene_date = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].roles[0] = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].workplaces[0] = “Chicago Soap and Candle Manufactory” (attested, in the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#works_at = “elston_soap_candle_manufactory” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/ingersoll_chester",
+   "pass": "03",
+   "person": "ingersoll_chester",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "the Green Tree house held as landlord 1834-37",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_ingersoll_chester.json#persons[ingersoll_chester].occupation",
+     "value": "tavern_keeper",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "chicago_democrat_1833_11_26"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_ingersoll_chester.json#works_at",
+     "value": "green_tree_tavern",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "drloih_hotels"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on ingersoll_chester returned: “Municipal preservation research dates Chester Ingersoll's Plainfield plat to 1834, while the Green Tree history names him as the Chicago house's 1834-37 landlord. The two places are retained as a mobility question rather than silently collapsed.” Sources as recorded: plainfield_john_temple_report, chicagology_prefire127. T-1469 reads that as the Green Tree house held as landlord 1834-37. The card carries it at data/residents/households/hh_ingersoll_chester.json#persons[ingersoll_chester].occupation = “tavern_keeper” (attested, in the 1 July 1835 view); data/residents/households/hh_ingersoll_chester.json#works_at = “green_tree_tavern” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/handy_major",
+   "pass": "04",
+   "person": "handy_major",
+   "outcome": "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks",
+   "rule": "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks",
+   "reading": "a named role in the 1833 river-improvement works",
+   "describes": null,
+   "carries": [],
+   "note": "The pass on handy_major returned: “Cook County/early-Chicago history independently places Major Handy in the 1833 river-improvement work. The exact name and distinctive public-work role strengthen the resident identity without proving a July 1835 dwelling.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as a named role in the 1833 river-improvement works. No field on the card carries the engagement and none is asked for: it is a dated pre-scene public work, not a trade the 1835 field lacks."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/kinzie_robert_a",
+   "pass": "04",
+   "person": "kinzie_robert_a",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "a frame store and membership of Kinzie, Davis & Hyde",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_kinzie_robert_a.json#persons[kinzie_robert_a].occupation",
+     "value": "merchant",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_kinzie_robert_a.json#works_at",
+     "value": "robert_kinzie_store",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on kinzie_robert_a returned: “Published Cook County biography states Robert A. Kinzie remained mostly in Chicago from 1825 to 1840, built a frame store in 1832 and became a member of Kinzie, Davis & Hyde in 1835. Exact name, family context, business and year strongly corroborate the profile.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as a frame store and membership of Kinzie, Davis & Hyde. The card carries it at data/residents/households/hh_kinzie_robert_a.json#persons[kinzie_robert_a].occupation = “merchant” (attested, in the 1 July 1835 view); data/residents/households/hh_kinzie_robert_a.json#works_at = “robert_kinzie_store” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/mason_matthias",
+   "pass": "04",
+   "person": "mason_matthias",
+   "outcome": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "rule": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "reading": "a blacksmith shop opened in the fall of 1833",
+   "describes": null,
+   "carries": [
+    {
+     "field": "withdrawn",
+     "at": "data/residents/households/hh_mason_matthias.json#persons[mason_matthias].occupation.withdrawn_from_scene_date",
+     "value": "blacksmith",
+     "grade": "attested",
+     "sources": [],
+     "reaches_scene_date": false
+    },
+    {
+     "field": "roles",
+     "at": "data/residents/households/hh_mason_matthias.json#persons[mason_matthias].roles[0]",
+     "value": "blacksmith",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26"
+     ],
+     "reaches_scene_date": false
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_mason_matthias.json#persons[mason_matthias].workplaces[0]",
+     "value": "Matthias Mason & Co.",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26#c020",
+      "chicago_democrat_1833_12_24#c003",
+      "chicago_democrat_1834_01_07#c008",
+      "chicago_democrat_1834_02_18#c010",
+      "chicago_democrat_1834_02_25#c006",
+      "chicago_democrat_1834_03_04#c015",
+      "chicago_democrat_1834_04_01#c012",
+      "chicago_democrat_1834_06_11#c013",
+      "chicago_democrat_1834_09_10#c013",
+      "chicago_democrat_1834_10_15#c007",
+      "chicago_democrat_1834_11_19#c008",
+      "chicago_democrat_1834_12_10#c007",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_mason_matthias.json#works_at",
+     "value": "mason_blacksmith_shop",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on mason_matthias returned: “Early Cook County history identifies Matthias/Mathias Mason opening a Chicago blacksmith shop in fall 1833. The uncommon name, trade, place and date independently support the profile; spelling variants are retained as variants rather than separate people.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as a blacksmith shop opened in the fall of 1833. The card carries it at data/residents/households/hh_mason_matthias.json#persons[mason_matthias].occupation.withdrawn_from_scene_date = “blacksmith” (attested, outside the 1 July 1835 view); data/residents/households/hh_mason_matthias.json#persons[mason_matthias].roles[0] = “blacksmith” (attested, outside the 1 July 1835 view); data/residents/households/hh_mason_matthias.json#persons[mason_matthias].workplaces[0] = “Matthias Mason & Co.” (attested, in the 1 July 1835 view); data/residents/households/hh_mason_matthias.json#works_at = “mason_blacksmith_shop” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/mckee_david",
+   "pass": "04",
+   "person": "mckee_david",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "the agency blacksmith's shop at the foot of State Street",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_mckee_david.json#persons[mckee_david].occupation",
+     "value": "blacksmith",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_mckee_david.json#works_at",
+     "value": "blacksmith_shop_state_st",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on mckee_david returned: “Early Chicago histories independently identify David McKee as the government/agency blacksmith near the foot of State Street. The occupation and institutional role are distinctive enough to corroborate the resident record, while the exact July 1835 workplace continuity is not extended beyond the sources.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as the agency blacksmith's shop at the foot of State Street. The card carries it at data/residents/households/hh_mckee_david.json#persons[mckee_david].occupation = “blacksmith” (attested, in the 1 July 1835 view); data/residents/households/hh_mckee_david.json#works_at = “blacksmith_shop_state_st” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/murphy_john",
+   "pass": "04",
+   "person": "murphy_john",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "the keeping of the Exchange Coffee House from August 1834",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_murphy_john.json#persons[murphy_john].occupation",
+     "value": "tavern_keeper",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "drloih_hotels"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_murphy_john.json#works_at",
+     "value": "exchange_coffee_house",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on murphy_john returned: “Cook County history reports John and Harriet Murphy taking charge of Mark Beaubien's new Exchange Coffee House in August 1834 and remaining until 1836. The named spouse, hotel and bounded chronology strongly corroborate the household across the scene date.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as the keeping of the Exchange Coffee House from August 1834. The card carries it at data/residents/households/hh_murphy_john.json#persons[murphy_john].occupation = “tavern_keeper” (attested, in the 1 July 1835 view); data/residents/households/hh_murphy_john.json#works_at = “exchange_coffee_house” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/pruyne_peter",
+   "pass": "04",
+   "person": "pruyne_peter",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "a drug store kept in partnership from early 1833",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_pruyne_kimberly.json#persons[pruyne_peter].occupation",
+     "value": "druggist",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1",
+      "history_medicine_chicago_kimberly_maxwell"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_pruyne_kimberly.json#persons[pruyne_peter].workplaces[0]",
+     "value": "P. Pruyne & Co.",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_12_03#c011",
+      "chicago_democrat_1834_02_11#c004",
+      "chicago_democrat_1834_04_08#c008",
+      "chicago_democrat_1834_04_23#c005",
+      "chicago_democrat_1834_04_30#c012",
+      "chicago_democrat_1834_05_07#c012",
+      "chicago_democrat_1834_05_21#c001",
+      "chicago_democrat_1834_06_04#c019",
+      "chicago_democrat_1834_06_11#c012",
+      "chicago_democrat_1834_07_02#c009",
+      "chicago_democrat_1835_06_10#c011",
+      "chicago_democrat_1835_07_08#c010",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_pruyne_kimberly.json#works_at",
+     "value": "pruyne_kimball_drugstore",
+     "grade": "inferred",
+     "sources": [
+      "andreas_1884_v1",
+      "history_medicine_chicago_kimberly_maxwell"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on pruyne_peter returned: “Medical/pharmaceutical histories independently identify Peter Pruyne and Edmund Stoughton Kimberly as operators of Chicago's second drug store from early 1833. The business partnership strengthens Pruyne's profile but does not by itself establish a dwelling.” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1469 reads that as a drug store kept in partnership from early 1833. The card carries it at data/residents/households/hh_pruyne_kimberly.json#persons[pruyne_peter].occupation = “druggist” (attested, in the 1 July 1835 view); data/residents/households/hh_pruyne_kimberly.json#persons[pruyne_peter].workplaces[0] = “P. Pruyne & Co.” (attested, in the 1 July 1835 view); data/residents/households/hh_pruyne_kimberly.json#works_at = “pruyne_kimball_drugstore” (inferred, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/thomas_frederick",
+   "pass": "04",
+   "person": "thomas_frederick",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "a barber-surgeon's and retail druggist's trade",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_thomas_frederick.json#persons[thomas_frederick].occupation",
+     "value": "barber_surgeon",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_thomas_frederick.json#persons[thomas_frederick].workplaces[0]",
+     "value": "Frederick Thomas, drugs and paints",
+     "grade": "attested",
+     "sources": [
+      "chicago_american_1835_06_08#c016",
+      "chicago_american_1835_06_13#c018",
+      "chicago_american_1835_06_20#c009",
+      "chicago_american_1835_06_27#c011",
+      "chicago_american_1835_07_04#c005",
+      "chicago_american_1835_08_15#c003",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_thomas_frederick.json#works_at",
+     "value": "frederick_thomas_shop",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on thomas_frederick returned: “The Encyclopedia of Chicago independently identifies Frederick Thomas as Chicago's first barber-surgeon and a retail druggist in the 1830s, corroborating the unusual combined occupation. The project newspaper corpus remains the stronger path for exact 1835 advertising/address detail.” Sources as recorded: encyclopedia_chicago_frederick_thomas. T-1469 reads that as a barber-surgeon's and retail druggist's trade. The card carries it at data/residents/households/hh_thomas_frederick.json#persons[thomas_frederick].occupation = “barber_surgeon” (attested, in the 1 July 1835 view); data/residents/households/hh_thomas_frederick.json#persons[thomas_frederick].workplaces[0] = “Frederick Thomas, drugs and paints” (attested, in the 1 July 1835 view); data/residents/households/hh_thomas_frederick.json#works_at = “frederick_thomas_shop” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/walters_william",
+   "pass": "04",
+   "person": "walters_william",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "the Wolf Point Tavern kept 1833-36",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_walters_william.json#persons[walters_william].occupation",
+     "value": "tavern_keeper",
+     "grade": "inferred",
+     "sources": [
+      "andreas_1884_v1",
+      "drloih_hotels",
+      "drloih_wolf_point"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_walters_william.json#works_at",
+     "value": "wolf_point_tavern",
+     "grade": "inferred",
+     "sources": [
+      "drloih_hotels"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on walters_william returned: “Andreas-derived Wolf Point history gives William Walters as proprietor of the Wolf Point Tavern from 1833 through 1836. That strongly supports scene-period continuity, but because it is a retrospective year range rather than a July 1 instrument the household's cautious presence flag is not silently upgraded here.” Sources as recorded: chicagology_wolf_point_walters. T-1469 reads that as the Wolf Point Tavern kept 1833-36. The card carries it at data/residents/households/hh_walters_william.json#persons[walters_william].occupation = “tavern_keeper” (inferred, in the 1 July 1835 view); data/residents/households/hh_walters_william.json#works_at = “wolf_point_tavern” (inferred, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/kimball_walter",
+   "pass": "05",
+   "person": "kimball_walter",
+   "outcome": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "rule": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "reading": "a New Store at the South Water and Clark junction",
+   "describes": null,
+   "carries": [
+    {
+     "field": "withdrawn",
+     "at": "data/residents/households/hh_kimball_walter.json#persons[kimball_walter].occupation.withdrawn_from_scene_date",
+     "value": "dry_goods_merchant",
+     "grade": "attested",
+     "sources": [],
+     "reaches_scene_date": false
+    },
+    {
+     "field": "roles",
+     "at": "data/residents/households/hh_kimball_walter.json#persons[kimball_walter].roles[0]",
+     "value": "dry_goods_merchant",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26"
+     ],
+     "reaches_scene_date": false
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_kimball_walter.json#persons[kimball_walter].workplaces[1]",
+     "value": "W. Kimball's New Store",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_12_10#c002",
+      "chicago_democrat_1834_01_21#c003",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on kimball_walter returned: “The project's 26 November 1833 Chicago Democrat source records W. Kimball's New Store at the South Water/Clark junction. The unusual initial-plus-surname form matches the resident record and strengthens the merchant identity, but does not safely expand the initial or prove scene-date occupancy.” Sources as recorded: chicago_democrat_1833_11_26. T-1469 reads that as a New Store at the South Water and Clark junction. The card carries it at data/residents/households/hh_kimball_walter.json#persons[kimball_walter].occupation.withdrawn_from_scene_date = “dry_goods_merchant” (attested, outside the 1 July 1835 view); data/residents/households/hh_kimball_walter.json#persons[kimball_walter].roles[0] = “dry_goods_merchant” (attested, outside the 1 July 1835 view); data/residents/households/hh_kimball_walter.json#persons[kimball_walter].workplaces[1] = “W. Kimball's New Store” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/lampman_henry_s",
+   "pass": "05",
+   "person": "lampman_henry_s",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "a brickmaker's trade and the yard that engaged him",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_blodgett_tyler_k.json#persons[lampman_henry_s].occupation",
+     "value": "brickmaker",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_blodgett_tyler_k.json#works_at",
+     "value": "brickyard_north_side",
+     "grade": "attested",
+     "sources": [
+      "andreas_1884_v1"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on lampman_henry_s returned: “A historical compilation states that Tyler K. Blodgett's spring 1833 north-side brickyard engaged Henry S. Lampman, then of Ann Arbor, as a workman; it calls him Chicago's first brickmaker. This adds a trade and Michigan-origin lead while leaving household membership and 1 July 1835 address unresolved.” Sources as recorded: chicagology_chicago_brick. T-1469 reads that as a brickmaker's trade and the yard that engaged him. The card carries it at data/residents/households/hh_blodgett_tyler_k.json#persons[lampman_henry_s].occupation = “brickmaker” (attested, in the 1 July 1835 view); data/residents/households/hh_blodgett_tyler_k.json#works_at = “brickyard_north_side” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_06_75_cohort.json#people/mitchell_henry",
+   "pass": "06",
+   "person": "mitchell_henry",
+   "outcome": "the_reading_is_carried_as_a_dated_profile_fact_on_the_card",
+   "rule": "the_reading_is_carried_as_a_dated_profile_fact_on_the_card",
+   "reading": "wagon-factory work in 1834",
+   "describes": null,
+   "carries": [
+    {
+     "field": "profile_facts",
+     "at": "data/residents/households/hh_mitchell_henry.json#persons[mitchell_henry].profile_facts[0]",
+     "value": "At work in Chicago wagon-factory work in 1834",
+     "grade": "inferred",
+     "sources": [
+      "resident_research_tribune_mitchell_1883"
+     ],
+     "reaches_scene_date": false
+    }
+   ],
+   "note": "The pass on mitchell_henry returned: “An 1883 old-settlers report independently places Henry Mitchell in Chicago wagon-factory work in 1834, strongly corroborating the named Chicago person without establishing a May 1835 address.” Sources as recorded: chicago_democrat_1833_1835, resident_research_tribune_mitchell_1883. T-1469 reads that as wagon-factory work in 1834. The card carries it at data/residents/households/hh_mitchell_henry.json#persons[mitchell_henry].profile_facts[0] = “At work in Chicago wagon-factory work in 1834” (inferred, outside the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/chandler_joseph",
+   "pass": "09",
+   "person": "chandler_joseph",
+   "outcome": "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks",
+   "rule": "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks",
+   "reading": "executive charge of the harbour work begun 1 July 1833",
+   "describes": null,
+   "carries": [],
+   "note": "The pass on chandler_joseph returned: “Andreas names Joseph Chandler and Morgan L. Shapley as having executive charge of Chicago harbor work that began 1 July 1833, and separately says Chandler arrived from Buffalo on 27 June 1833 with Samuel Jackson and Shapley.” Sources as recorded: resident_research_chandler_cook_history. T-1469 reads that as executive charge of the harbour work begun 1 July 1833. No field on the card carries the engagement and none is asked for: it is a dated pre-scene public work, not a trade the 1835 field lacks."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/hathaway_joshua",
+   "pass": "09",
+   "person": "hathaway_joshua",
+   "outcome": "the_reading_is_carried_as_a_dated_profile_fact_on_the_card",
+   "rule": "the_reading_is_carried_as_a_dated_profile_fact_on_the_card",
+   "reading": "the making of the 1834 cadastral map",
+   "describes": null,
+   "carries": [
+    {
+     "field": "profile_facts",
+     "at": "data/residents/households/hh_hathaway_joshua.json#persons[hathaway_joshua].profile_facts[0]",
+     "value": "Drew the 1834 Chicago cadastral map this project reads as a tier-1 source",
+     "grade": "attested",
+     "sources": [
+      "hathaway_1834"
+     ],
+     "reaches_scene_date": false
+    }
+   ],
+   "note": "The pass on hathaway_joshua returned: “Joshua Hathaway Jr. is the named creator of the 1834 Chicago cadastral map already registered as a tier-1 project source. This independently anchors the letter-list name to professional work in Chicago in the same year.” Sources as recorded: hathaway_1834. T-1469 reads that as the making of the 1834 cadastral map. The card carries it at data/residents/households/hh_hathaway_joshua.json#persons[hathaway_joshua].profile_facts[0] = “Drew the 1834 Chicago cadastral map this project reads as a tier-1 source” (attested, outside the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/bailey_bennet",
+   "pass": "14",
+   "person": "bailey_bennet",
+   "outcome": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "rule": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "reading": "a carpenter and builder's trade printed in 1839",
+   "describes": null,
+   "carries": [
+    {
+     "field": "later_occupation",
+     "at": "data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].occupation.later_occupation",
+     "value": "carpenter and builder",
+     "grade": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "reaches_scene_date": false
+    },
+    {
+     "field": "roles",
+     "at": "data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].roles[0]",
+     "value": "carpenter and builder",
+     "grade": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "reaches_scene_date": false
+    }
+   ],
+   "note": "The pass on bailey_bennet returned: “Fergus 1839 prints 'Bailey, Bennett, carpenter and builder' and the 1837 election return 'Bennett Bailey' — an uncommon forename spelt out twice, four and two years after the scene. Pass 3 saw only the 1843 Mechanics' Institute directorship and called it a candidate over a nine-year gap; the 1837 return closes most of…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839, norris_chicago_directory_1843. T-1469 reads that as a carpenter and builder's trade printed in 1839. The card carries it at data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].occupation.later_occupation = “carpenter and builder” (attested, outside the 1 July 1835 view); data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].roles[0] = “carpenter and builder” (attested, outside the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/chapman_chas_h",
+   "pass": "14",
+   "person": "chapman_chas_h",
+   "outcome": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "rule": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "reading": "a real-estate dealer's trade and a Randolph Street address",
+   "describes": null,
+   "carries": [
+    {
+     "field": "later_occupation",
+     "at": "data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].occupation.later_occupation",
+     "value": "real estate dealer",
+     "grade": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "reaches_scene_date": false
+    },
+    {
+     "field": "roles",
+     "at": "data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].roles[1]",
+     "value": "real estate dealer",
+     "grade": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "reaches_scene_date": false
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].workplaces[0]",
+     "value": "C. H. Chapman",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26#c008",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on chapman_chas_h returned: “The 1837 election return prints 'Chas. H. Chapman' — the transcribed 1835 form letter for letter — and Fergus 1839 prints 'Chapman, Charles II., real estate dealer, Randolph street', where 'II.' is the printer's H. The papers run him from 24 December 1833 to 20 June 1835 as a merchant, so the town has him before and a…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839. T-1469 reads that as a real-estate dealer's trade and a Randolph Street address. The card carries it at data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].occupation.later_occupation = “real estate dealer” (attested, outside the 1 July 1835 view); data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].roles[1] = “real estate dealer” (attested, outside the 1 July 1835 view); data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].workplaces[0] = “C. H. Chapman” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/clarke_h_b",
+   "pass": "14",
+   "person": "clarke_h_b",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "a hardware merchant's trade the 1835 papers carry",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_clarke_h_b.json#persons[clarke_h_b].occupation",
+     "value": "hardware_merchant",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_clarke_h_b.json#persons[clarke_h_b].workplaces[0]",
+     "value": "Jones, King & Co.",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1835_05_27#c005",
+      "chicago_democrat_1835_07_08#c009",
+      "chicago_democrat_1835_07_22#c009",
+      "chicago_democrat_1835_07_29#c012",
+      "chicago_democrat_1835_08_05#c008",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on clarke_h_b returned: “The 1837 election return prints 'Henry B. Clarke', expanding both initials of H. B. Clarke, and the papers carry him as a hardware merchant between 27 May and 29 July 1835. REFUSED in the same pass: the old-settler notice 'Clarke, Dr. Henry, died, Walworth, Wis., before April 23, 1853, aged 60' agrees on surname and f…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839. T-1469 reads that as a hardware merchant's trade the 1835 papers carry. The card carries it at data/residents/households/hh_clarke_h_b.json#persons[clarke_h_b].occupation = “hardware_merchant” (attested, in the 1 July 1835 view); data/residents/households/hh_clarke_h_b.json#persons[clarke_h_b].workplaces[0] = “Jones, King & Co.” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/collins_j_h",
+   "pass": "14",
+   "person": "collins_j_h",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "an attorney's practice carried across 1834-35",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_collins_j_h.json#persons[collins_j_h].occupation",
+     "value": "attorney",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_collins_j_h.json#persons[collins_j_h].workplaces[0]",
+     "value": "Collins & Caton",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1834_01_28#c007",
+      "chicago_democrat_1834_02_04#c009",
+      "chicago_democrat_1834_02_11#c005",
+      "chicago_democrat_1834_03_04#c009",
+      "chicago_democrat_1834_04_01#c011",
+      "chicago_democrat_1834_06_04#c003",
+      "chicago_democrat_1834_06_18#c017",
+      "chicago_democrat_1834_07_02#c016",
+      "chicago_democrat_1834_08_13#c021",
+      "chicago_democrat_1835_05_20#c014",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on collins_j_h returned: “The 1837 election return prints 'James H. Collins.', expanding both initials. The papers carry him as an attorney across three separate runs from 28 January 1834 to 5 August 1835. The Fergus 1839 surname entry is contested between several residents and is NOT carried; the 1837 return is what makes this.” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839. T-1469 reads that as an attorney's practice carried across 1834-35. The card carries it at data/residents/households/hh_collins_j_h.json#persons[collins_j_h].occupation = “attorney” (attested, in the 1 July 1835 view); data/residents/households/hh_collins_j_h.json#persons[collins_j_h].workplaces[0] = “Collins & Caton” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/elston_daniel",
+   "pass": "14",
+   "person": "elston_daniel",
+   "outcome": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "rule": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
+   "reading": "soap and candle manufacture read in pass 3 and never written",
+   "describes": null,
+   "carries": [
+    {
+     "field": "withdrawn",
+     "at": "data/residents/households/hh_elston_daniel.json#persons[elston_daniel].occupation.withdrawn_from_scene_date",
+     "value": "soap_and_candle_maker",
+     "grade": "attested",
+     "sources": [],
+     "reaches_scene_date": false
+    },
+    {
+     "field": "roles",
+     "at": "data/residents/households/hh_elston_daniel.json#persons[elston_daniel].roles[0]",
+     "value": "soap_and_candle_maker",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26"
+     ],
+     "reaches_scene_date": false
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_elston_daniel.json#persons[elston_daniel].workplaces[1]",
+     "value": "Daniel Elston & [Co.]",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26#c030",
+      "chicago_democrat_1834_02_18#c002",
+      "chicago_democrat_1834_02_18#c009",
+      "chicago_democrat_1834_03_04#c013",
+      "chicago_democrat_1834_04_01#c007",
+      "chicago_democrat_1834_06_04#c026",
+      "chicago_democrat_1834_07_02#c007",
+      "chicago_democrat_1834_07_02#c027",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "works_at",
+     "at": "data/residents/households/hh_elston_daniel.json#works_at",
+     "value": "elston_soap_candle_manufactory",
+     "grade": "attested",
+     "sources": [
+      "chicago_democrat_1833_11_26"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on elston_daniel returned: “The 1837 election return prints 'Daniel Elston' whole. The University of Illinois finding aid, read in pass 3 and never written to a ledger, identifies the English merchant who reached Chicago in 1833, made soap and candles and later ran a distillery and brewery — the same trade the paper prints for him in its first i…” Sources as recorded: chicago_democrat_1833_11_26, fergus_chicago_directory_1839, uiuc_daniel_elston_papers. T-1469 reads that as soap and candle manufacture read in pass 3 and never written. The card carries it at data/residents/households/hh_elston_daniel.json#persons[elston_daniel].occupation.withdrawn_from_scene_date = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].roles[0] = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].workplaces[1] = “Daniel Elston & [Co.]” (attested, in the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#works_at = “elston_soap_candle_manufactory” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/marshall_j_a",
+   "pass": "14",
+   "person": "marshall_j_a",
+   "outcome": "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date",
+   "rule": "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date",
+   "reading": "an auction and commission trade on South Water Street",
+   "describes": "1839",
+   "carries": [],
+   "note": "The pass on marshall_j_a returned: “Fergus 1839 prints 'Marshall, James A., auctioneer, commission, etc., So. Water st', expanding J. A. exactly. REFUSED: the old-settler notice 'Marshall, James Monroe, real estate, died July 1, 1880, aged 45-9' gives a middle name that conflicts with the A., and an age that would make him an infant in 1835. Not the sam…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839. T-1469 reads that as an auction and commission trade on South Water Street. Nothing on the card carries it for the scene date, and the reading describes 1839, which is after 1 July 1835."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/moore_henry",
+   "pass": "14",
+   "person": "moore_henry",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "an attorney's practice and a Clark Street office",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_moore_henry.json#persons[moore_henry].occupation",
+     "value": "attorney",
+     "grade": "attested",
+     "sources": [
+      "chicago_american_1835",
+      "chicago_democrat_1833_1835"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_moore_henry.json#persons[moore_henry].workplaces[0]",
+     "value": "Henry Moore",
+     "grade": "attested",
+     "sources": [
+      "chicago_american_1835_07_04#c001",
+      "chicago_democrat_1835_06_04#c005",
+      "chicago_democrat_1835_06_24#c010",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on moore_henry returned: “Fergus 1839 prints 'Moore, Henry, attorney and counseller at law, 9 Clark st' and the old-settler notice 'Moore, Henry, died, Concord, Mass., after 1841'. Whole forename, whole surname, and the trade the 1835 papers already print for him between 4 June and 22 August. The 1839 door is 1839's, not 1835's.” Sources as recorded: chicago_democrat_1833_1835, chicago_tribune_1882_04_25_old_settler_deaths, fergus_chicago_directory_1839. T-1469 reads that as an attorney's practice and a Clark Street office. The card carries it at data/residents/households/hh_moore_henry.json#persons[moore_henry].occupation = “attorney” (attested, in the 1 July 1835 view); data/residents/households/hh_moore_henry.json#persons[moore_henry].workplaces[0] = “Henry Moore” (attested, in the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/sabine_wm",
+   "pass": "14",
+   "person": "sabine_wm",
+   "outcome": "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date",
+   "rule": "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date",
+   "reading": "a boarding house at 161 Lake Street",
+   "describes": "1839",
+   "carries": [],
+   "note": "The pass on sabine_wm returned: “Fergus 1839 prints 'Sabine, William A., boarding-house, 161 Lake street, up stairs' and the 1837 election return 'W. Sabine'. The forename expands Wm. and the trade is new to his record; the middle initial A. is 1839's and is carried as 1839's, not as an 1835 fact.” Sources as recorded: fergus_chicago_directory_1839. T-1469 reads that as a boarding house at 161 Lake Street. Nothing on the card carries it for the scene date, and the reading describes 1839, which is after 1 July 1835."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/sen_elijah_wentworth",
+   "pass": "14",
+   "person": "sen_elijah_wentworth",
+   "outcome": "the_reading_is_carried_as_a_dated_profile_fact_on_the_card",
+   "rule": "the_reading_is_carried_as_a_dated_profile_fact_on_the_card",
+   "reading": "the Wolf Point tavern, carried forward from pass 2",
+   "describes": null,
+   "carries": [
+    {
+     "field": "profile_facts",
+     "at": "data/residents/households/hh_sen_elijah_wentworth.json#persons[sen_elijah_wentworth].profile_facts[0]",
+     "value": "The Wolf Point tavern keeper, resolved against his son by the ‘sen.’ of the transcription",
+     "grade": "inferred",
+     "sources": [
+      "nwchicago_elijah_wentworth"
+     ],
+     "reaches_scene_date": false
+    }
+   ],
+   "note": "The pass on sen_elijah_wentworth returned: “Carried forward from pass 2. Local history and Wau-Bun identify Elijah Wentworth Sr. as the Wolf Point tavern keeper who later kept at Sand Ridge; the 'sen.' of the transcription, the occupation and the chronology resolve him against his son. What is NOT established is presence in the platted town on the scene date — …” Sources as recorded: chicago_democrat_1833_1835, kinzie_waubun_1856, nwchicago_elijah_wentworth. T-1469 reads that as the Wolf Point tavern, carried forward from pass 2. The card carries it at data/residents/households/hh_sen_elijah_wentworth.json#persons[sen_elijah_wentworth].profile_facts[0] = “The Wolf Point tavern keeper, resolved against his son by the ‘sen.’ of the transcription” (inferred, outside the 1 July 1835 view)."
+  },
+  {
+   "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/stewart_r",
+   "pass": "14",
+   "person": "stewart_r",
+   "outcome": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
+   "reading": "an attorney's practice on Lake Street",
+   "describes": null,
+   "carries": [
+    {
+     "field": "occupation",
+     "at": "data/residents/households/hh_stewart_r.json#persons[stewart_r].occupation",
+     "value": "attorney",
+     "grade": "attested",
+     "sources": [
+      "chicago_american_1835",
+      "chicago_democrat_1833_1835"
+     ],
+     "reaches_scene_date": true
+    },
+    {
+     "field": "workplaces",
+     "at": "data/residents/households/hh_stewart_r.json#persons[stewart_r].workplaces[0]",
+     "value": "R. Stewart, attorney",
+     "grade": "attested",
+     "sources": [
+      "chicago_american_1835_06_13#c003",
+      "chicago_newspapers_1833_1835"
+     ],
+     "reaches_scene_date": true
+    }
+   ],
+   "note": "The pass on stewart_r returned: “Two records expand the bare R. the same way: Fergus 1839, 'Stewart, Royal, attorney at law, Lake street', and the 1837 election return, 'Royal Stewart'. The papers print an attorney of that surname from 2 July 1834 to 13 June 1835. An uncommon forename agreeing twice is the discriminator.” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839. T-1469 reads that as an attorney's practice on Lake Street. The card carries it at data/residents/households/hh_stewart_r.json#persons[stewart_r].occupation = “attorney” (attested, in the 1 July 1835 view); data/residents/households/hh_stewart_r.json#persons[stewart_r].workplaces[0] = “R. Stewart, attorney” (attested, in the 1 July 1835 view)."
+  }
+ ]
+}

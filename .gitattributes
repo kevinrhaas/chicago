@@ -64,7 +64,11 @@
 # Register it once per clone:  bash chicago/4d/tools/setup-merge-drivers.sh
 # Not registered? git falls back to the ordinary text merge and you get conflict
 # markers — the old behaviour, never something worse. `check.sh` says so.
-chicago/4d/tickets/QUEUE.md merge=queue
+# …AND SINCE 2026-09-23 THE QUEUE IS NOT IN THIS REPOSITORY AT ALL. It moved, with every
+# ticket, to kevinrhaas/chicago-tickets, where each change is a direct commit to main that
+# is rebased rather than merged, so there is no merge for a driver to run in. The rule is
+# gone with the file; the driver (tools/merge-queue.mjs) and its self-test stay as the
+# record, like merge=generated below.
 
 # …AND THE CHANGELOG GETS ONE TOO, for the same reason and with the same care.
 #

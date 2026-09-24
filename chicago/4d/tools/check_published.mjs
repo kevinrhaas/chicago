@@ -51,6 +51,8 @@ const COPIES = [
   ['data/reconstruction/1835_hay_limits.json', 'data/reconstruction/1835_hay_limits.json'],
   ['data/reconstruction/1835_agencies.json', 'data/reconstruction/1835_agencies.json'],
   ['data/reconstruction/1835_population_profile.json', 'data/reconstruction/1835_population_profile.json'],
+  ['data/reconstruction/1835_reconstruction_order_book.json', 'data/reconstruction/1835_reconstruction_order_book.json'],
+  ['data/reconstruction/1835_address_book.json', 'data/reconstruction/1835_address_book.json'],
   ['data/terrain/', 'data/terrain/'],
   ['data/sidecars/', 'data/sidecars/'],
   ['data/residents/', 'data/residents/'],
@@ -63,6 +65,13 @@ const COPIES = [
   ['data/frontage/', 'data/frontage/'],
   ['data/flora/', 'data/flora/'],
   ['data/fauna/', 'data/fauna/'],
+  ['data/businesses/', 'data/businesses/'],
+  // The two roof coverings' relief maps (T-1488). The mirror's asset base is
+  // data/ where the dev tree's is assets/, which is the whole of the rename;
+  // the files themselves are the vendored library's, byte for byte, so this
+  // is a verbatim copy under a different prefix and belongs here rather than
+  // in TRANSFORMED.
+  ['data/textures/', 'assets/textures/'],
 ];
 
 /**

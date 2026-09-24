@@ -1,0 +1,109 @@
+{
+  "id": "biz_new_york_clothing_store",
+  "register_id": "business_new_york_clothing_store",
+  "name": "New York Clothing Store",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "clothing, wholesale and retail",
+  "occupation": "clothier",
+  "goods": [
+    "Brogans",
+    "Coats",
+    "Frock Coats",
+    "Jackets",
+    "Pantaloons",
+    "Vests"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Tuthill King",
+      "person_id": "king_tuthill",
+      "register_person_id": "person_tuthill_king",
+      "role": "proprietor",
+      "from": "1835-06-08",
+      "to": "1835-07-04",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card king_tuthill (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c014",
+        "chicago_american_1835_06_20#c007",
+        "chicago_american_1835_07_04#c003"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": "dearborn",
+      "face": null,
+      "primary": true,
+      "from": "1835-06-08",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. The landmark is the committed structure tremont_house_1.",
+      "limit_reason": "The register places this house against tremont_house_1 and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "structure",
+        "id": "tremont_house_1",
+        "title": "Tremont House (the first)",
+        "streets": []
+      }
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-08",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-08, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-08",
+    "last_issue": "1835-07-04",
+    "copy_dates": [
+      "1835-06-08"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: Tuthill King (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "king_tuthill",
+        "name": "Tuthill King",
+        "role": "proprietor",
+        "community": "new_york",
+        "tier": "inferred"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_08#c014",
+    "chicago_american_1835_06_20#c007",
+    "chicago_american_1835_07_04#c003"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

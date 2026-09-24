@@ -133,14 +133,43 @@ def region_of(birthplace: str) -> str:
 # the five sections
 
 
+def named_arrivals(people: dict) -> dict:
+    """`by_arrival_year`, over the people the layer can name. Same rule as `named_people`:
+    a drawn person inherits the arrival of the household drawn around them, so counting
+    one here would feed the reconstruction's own output back into the floor it was
+    reconstructed against."""
+    out: dict = {}
+    for person in people.get("people") or []:
+        if person.get("grade") == "reconstructed":
+            continue
+        year = person.get("arrival_year")
+        if year is None:
+            continue
+        out[str(year)] = out.get(str(year), 0) + 1
+    return dict(sorted(out.items()))
+
+
+def named_people(counts: dict) -> int:
+    """How many people the layer can NAME: the attested and the inferred, and no more.
+
+    T-1171. This model is a model of the EVIDENCE, and the reconstruction it feeds draws
+    against it — so a reconstructed person counted here would come back round as a larger
+    layer, a higher population floor, a bigger quota and more people to draw, which is a
+    model reading its own output as a reading. `by_grade` keeps the three apart and this
+    is the sum the figures below mean when they say "the layer carries".
+    """
+    by_grade = counts["by_grade"]
+    return int(by_grade["attested"]) + int(by_grade["inferred"])
+
+
 def build_population(people: dict, census: dict, inventory: dict, comp: dict) -> dict:
     counts = people["counts"]
-    known = counts["people"]
+    known = named_people(counts)
     nov_people = census["people"]["town_total"]
     nov_dwellings = census["people"]["town_total_dwellings"]
     state_census = 3297  # bk_mose1_006, the State count of 1 Sept - Dec 1835
 
-    arrivals = counts["by_arrival_year"]
+    arrivals = named_arrivals(people)
     # THE FLOOR RESTS ON THIS DISTRIBUTION, so an empty or scene-blind one is a FAULT and
     # not a floor of zero. Without it the arithmetic silently returns the November ceiling
     # at both ends and the range stops being a range while still looking like one.
@@ -267,6 +296,12 @@ def build_occupations(crosswalk: dict, comp: dict, people: dict, pop: dict) -> d
     short = [c for c in compared if c["delta"] < 0]
     over = [c for c in compared if c["delta"] > 0]
     shortfall = sum(-c["delta"] for c in short)
+    # HOW MUCH OF THE SHORTFALL THE SOURCES HAVE ALREADY ACCOUNTED FOR (T-1428). The
+    # crosswalk names, per class, the register's houses whose OPENING is dated after
+    # 1 July: houses that stand in the autumn census and honestly not in the July town.
+    # Without this the table reads a dated, named August opening as a hole in the town,
+    # which is the reading that nearly had the order book commission two schools.
+    explained = sum(c.get("shortfall_explained_by_later_openings") or 0 for c in short)
 
     industry = comp["industry"]
     employed_share = industry["employed_share_of_persons"]
@@ -302,7 +337,9 @@ def build_occupations(crosswalk: dict, comp: dict, people: dict, pop: dict) -> d
                ["data/research/books/trade_census_1835_crosswalk.json"]),
         figure("classes_short_of_the_census", len(short), len(short),
                f"{len(short)} compared classes hold fewer records than the census counted, "
-               f"{shortfall} establishments short in total; {len(over)} hold more, which is "
+               f"{shortfall} establishments short in total — of which {explained} are houses "
+               "the register names with an opening announced AFTER the scene date, so that "
+               f"much of the gap is already accounted for; {len(over)} hold more, which is "
                "the register counting NOTICES where the census counted houses.",
                ["moses_kirkland_history_of_chicago_v1"],
                ["data/research/books/trade_census_1835_crosswalk.json"]),
@@ -331,7 +368,9 @@ def build_occupations(crosswalk: dict, comp: dict, people: dict, pop: dict) -> d
             "rows": [{"class": c["class"], "census_line": c["census_line"],
                       "census_count": c["census_count"],
                       "town_at_scene_date": c["town_records_at_scene_date"],
-                      "delta": c["delta"], "outcome": c["outcome"]}
+                      "delta": c["delta"], "outcome": c["outcome"],
+                      "opened_after_the_scene_date":
+                          c.get("shortfall_explained_by_later_openings") or 0}
                      for c in sorted(compared, key=lambda c: (c["delta"], c["class"]))],
         },
         "employment_shape_1840": {
@@ -375,7 +414,7 @@ def build_households(comp: dict, census: dict, people: dict, inventory: dict, po
 
     counts = people["counts"]
     layer_households = counts["households"]
-    layer_people = counts["people"]
+    layer_people = named_people(counts)
 
     matrix = inventory["district_group_matrix"]
     figures = [
@@ -479,13 +518,21 @@ def build_lodging(inventory: dict, crosswalk: dict, comp: dict, pop: dict) -> di
                ["owner_chicago_1835_reconstruction_spec_2026"],
                ["data/reconstruction/1835_building_inventory.json"]),
         figure("inns_and_taverns", tavern_line.get("town_records_at_scene_date", inns),
-               max(inns, tavern_line.get("census_count", inns)),
+               max(inns, tavern_line.get("census_count", inns),
+                   tavern_line.get("town_records_at_scene_date", inns)),
                f"The programme schedules {inns} inns and taverns; the State census counted "
                f"{tavern_line.get('census_count', 'no')} taverns two to five months later "
-               f"and the register holds "
+               f"and the business layer holds "
                f"{tavern_line.get('town_records_at_scene_date', 'no')} at the scene date. "
                "The three units are a roof, a licence and a printed notice, and they are not "
-               "the same thing counted three ways.",
+               "the same thing counted three ways. THE LAYER'S COUNT MAY EXCEED BOTH OTHERS "
+               "AND THE CEILING FOLLOWS IT (T-1404): the census's figure is a count of "
+               "LICENCES taken months after the scene, and the town's named public houses — "
+               "the Sauganash, the Exchange, the Tremont, the Mansion House, the Steamboat, "
+               "the Western, Wolf Point — are houses the papers never advertised and the "
+               "licence roll never separated. A licence count cannot cap a house count, so "
+               "the ceiling is whichever of the three reads highest. T-1196 owns re-cutting "
+               "the roof programme against it.",
                ["moses_kirkland_history_of_chicago_v1",
                 "owner_chicago_1835_reconstruction_spec_2026"],
                ["data/reconstruction/1835_building_inventory.json",
@@ -556,11 +603,28 @@ def build_lodging(inventory: dict, crosswalk: dict, comp: dict, pop: dict) -> di
 
 def build_arrival(people: dict, settlers: dict) -> dict:
     counts = people["counts"]
-    arrivals = counts["by_arrival_year"]
-    known = counts["people"]
-    by_year = {int(y): n for y, n in arrivals.items()}
-    since_1833 = sum(n for y, n in by_year.items() if y >= 1833)
-    before_1833 = known - since_1833
+    known = named_people(counts)
+    # THE WHOLE LAYER, and the TABLE below is the only thing that may read it. It is what
+    # the reconstruction's arrival stage draws against, so re-cutting it re-draws every
+    # card it ever dealt; see this section's notes for why that circle is a ticket of its
+    # own and not a line here.
+    by_year = {int(y): n for y, n in counts["by_arrival_year"].items()}
+    # THE NAMED LAYER, and every FIGURE below divides by it. T-1364: the two figures read
+    # `by_year` over `known`, which is a count of the whole compiled layer over a
+    # denominator that excludes every reconstructed person in it. The share passed 1 the
+    # moment T-1171 drew a layer bigger than the evidence, and the complement it printed
+    # went negative — "only -809 came before 1833", which tells a reader nothing except
+    # that something is wrong. `named_arrivals` is the same rule `build_population`
+    # already applies to the population floor, so the two sections now count the same
+    # cohort over the same denominator instead of two different ones.
+    named_by_year = {int(y): n for y, n in named_arrivals(people).items()}
+    dated = sum(named_by_year.values())
+    since_1833 = sum(n for y, n in named_by_year.items() if y >= 1833)
+    before_1833 = dated - since_1833
+    undated = known - dated
+    if since_1833 > known:
+        raise Fault("more named people arrived in 1833-35 than the layer can name, so "
+                    "the arrival share is over the wrong denominator again (T-1364)")
 
     pre36 = [p for p in settlers["people"] if p.get("arrival_at_or_before_1835")]
     regions = Counter(region_of(p.get("birthplace_as_read")) for p in pre36)
@@ -572,14 +636,22 @@ def build_arrival(people: dict, settlers: dict) -> dict:
     figures = [
         figure("arrived_in_the_three_years_before_the_scene",
                round(since_1833 / known, 3), round(since_1833 / known, 3),
-               f"{since_1833:,} of the {known:,} people the layer carries give an arrival "
-               f"year of 1833, 1834 or 1835; only {before_1833} came before 1833. The town "
-               "of 1 July 1835 is overwhelmingly three years old or less.",
+               f"{since_1833:,} of the {known:,} people the layer can NAME give an arrival "
+               f"year of 1833, 1834 or 1835; {before_1833:,} give an earlier one"
+               + (f" and {undated:,} give none at all" if undated else
+                  ", and no named person is left without a year")
+               + ". The town of 1 July 1835 is overwhelmingly three years old or less. "
+               "DENOMINATOR: the named layer — the attested and the inferred — and not "
+               "the whole one. A reconstructed person's arrival year is DRAWN from this "
+               "section's own table, so counting it back into this share would be the "
+               "model reading its own output as a reading.",
                [], ["data/sidecars/1835/people.json"]),
-        figure("arrived_in_1835_itself", round(by_year.get(1835, 0) / known, 3),
-               round(by_year.get(1835, 0) / known, 3),
-               f"{by_year.get(1835, 0):,} of {known:,}. This is the figure the population "
-               "floor is built on, and it is the one most exposed to the bias below.",
+        figure("arrived_in_1835_itself", round(named_by_year.get(1835, 0) / known, 3),
+               round(named_by_year.get(1835, 0) / known, 3),
+               f"{named_by_year.get(1835, 0):,} of the same {known:,} named people. This "
+               "is the figure the population floor is built on — `population_on_1_july_1835` "
+               "divides this same cohort by this same denominator — and it is the one most "
+               "exposed to the bias below.",
                [], ["data/sidecars/1835/people.json"]),
         figure("born_in_new_york_state", round(ny / given, 3) if given else 0.0,
                round((ny + ne) / given, 3) if given else 0.0,
@@ -605,9 +677,17 @@ def build_arrival(people: dict, settlers: dict) -> dict:
 
     tables = {
         "arrival_year_of_the_known_layer": {
-            "unit": "people the layer carries, by the arrival year it records",
+            "unit": "people in the WHOLE compiled layer — named and reconstructed together "
+                    "— by the arrival year each one records, out of the "
+                    f"{sum(by_year.values()):,} who record one at all",
+            "not_the_figures_denominator": "The FIGURES above divide by the named layer "
+                                           "alone; this table does not, and the two are "
+                                           "different populations on purpose (T-1364).",
+            "rows_total": sum(by_year.values()),
             "rows": [{"year": y, "people": by_year[y],
-                      "share": round(by_year[y] / known, 4)} for y in sorted(by_year)],
+                      # exact-sum-ok: a count of rows, summed in exact integers
+                      "share": round(by_year[y] / sum(by_year.values()), 4)}
+                     for y in sorted(by_year)],
         },
         "birthplace_of_the_old_settlers_who_came_by_1835": {
             "unit": "rows of the Calumet Club rolls whose arrival is at or before 1835",
@@ -626,6 +706,21 @@ def build_arrival(people: dict, settlers: dict) -> dict:
             "name them — letter lists, voter rolls, the 1839 and 1843 directories — are "
             "themselves of 1834 and later, so a man who came in 1831 and left no notice is "
             "missing from it. The 1835 share is a ceiling on the true share.",
+            "THE FIGURES AND THE TABLE COUNT TWO DIFFERENT POPULATIONS, and saying so is the "
+            "point of this note. Every figure divides by the NAMED layer — the attested and "
+            "the inferred — because a reconstructed person's arrival year was drawn from "
+            "this model and counting it back in would be the model reading its own output "
+            "(the same rule `people_the_layer_can_name` states). The table below is the "
+            "WHOLE compiled layer, because that is what the reconstruction's arrival stage "
+            "reads: `reconstruct_residents_1835.py` draws each filled arrival from these "
+            "rows. Until T-1364 the figures took the table's numerator over the figures' "
+            "denominator, and the share read 1.605 with a complement of -777 people.",
+            "THAT TABLE IS STILL A CIRCLE, and this model cannot close it alone: the "
+            "distribution the arrival stage draws from is computed over a layer that stage "
+            "has already written into, so each pass re-reads its own last draw. Cutting the "
+            "table to the named layer would redraw every arrival ever dealt, which is a "
+            "rebuild and not a figure — recorded on T-1179, which owns the convergence "
+            "rebuild order, and deliberately not done here.",
             "The Old Settlers roll is a self-selected survivorship sample registered forty-four "
             "years later: it over-represents men who stayed, prospered and lived to 1879, and "
             "it holds no woman who married out of her registered name. Its birthplaces are the "
@@ -821,13 +916,32 @@ def cmd_self_test() -> int:
 
     # EVERY FIGURE NAMES A FILE. Strip the arrival distribution and the section that
     # rests on it cannot be built at all rather than quietly reporting zero.
-    a = list(copy.deepcopy(args)); a[0]["counts"]["by_arrival_year"] = {}
+    # T-1171: the distribution is counted off the people the layer can NAME, one row at a
+    # time, rather than off the sidecar's pre-aggregated tally — so stripping it means
+    # stripping the rows.
+    a = list(copy.deepcopy(args))
+    a[0]["counts"]["by_arrival_year"] = {}
+    a[0]["people"] = []
     try:
         build(*a)
         raise AssertionError("did not fire: an empty arrival distribution")
     except (Fault, ZeroDivisionError, ValueError):
         fired += 1
         print("   fires: an empty arrival distribution")
+
+    # T-1364: AN ARRIVAL SHARE'S NUMERATOR AND DENOMINATOR ARE ONE POPULATION. The
+    # section is built on its own so the guard is tested for the reason it exists and
+    # not for the population floor inverting first. Shrink the named layer below the
+    # named arrivals already counted in it and the share would pass 1 and print a
+    # negative complement, which is exactly what "only -777 came before 1833" was.
+    a = copy.deepcopy(args[0])
+    a["counts"]["by_grade"] = {"attested": 1, "inferred": 1, "reconstructed": 0}
+    try:
+        build_arrival(a, copy.deepcopy(args[5]))
+        raise AssertionError("did not fire: an arrival share over the wrong denominator")
+    except Fault:
+        fired += 1
+        print("   fires: an arrival share over the wrong denominator")
 
     # A POINT READING OUTSIDE ITS OWN RANGE. The half-ashore reading must sit between
     # the floor and the ceiling; a season shorter than the months already ashore

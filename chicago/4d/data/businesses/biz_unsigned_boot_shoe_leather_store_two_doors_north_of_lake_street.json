@@ -1,0 +1,148 @@
+{
+  "id": "biz_unsigned_boot_shoe_leather_store_two_doors_north_of_lake_street",
+  "register_id": "business_unsigned_boot_shoe_leather_store_two_doors_north_of_lake_street",
+  "name": "[unsigned] Boot, Shoe & Leather Store, two doors north of Lake street",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "boot, shoe and leather store",
+  "occupation": "shoemaker",
+  "goods": [
+    "band leather",
+    "boots",
+    "bridle leather",
+    "calf skins",
+    "harness leather",
+    "shoes",
+    "sole leather",
+    "upper leather"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "David Nichols",
+      "person_id": "rc_nichols_david",
+      "role": "journeyman",
+      "occupation": "shoemaker",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a boot and shoe shop at the typical band and 1 at the high end, on directory_1839. 27 shoemakers in 1839 against 8 shops here. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#shoemaker_shop.shoemaker; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_nichols_david:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "shoemaker_shop",
+    "reads_as": "a boot and shoe shop",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "journeyman",
+        "occupation": "shoemaker",
+        "household_relationship": "journeyman",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "directory_1839"
+      },
+      {
+        "role": "apprentice",
+        "occupation": "shoemaker",
+        "household_relationship": "apprentice",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "period_convention",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 1,
+      "seats_taken": 1,
+      "seats_against_the_band": 1,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": "shoemaker",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        },
+        {
+          "occupation": "shoemaker",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 1 hand(s) about this kind of house at its typical band and this house carries 1. It is at its band.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-08-05",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The anchor is a reach of lake and names nothing narrower."
+    }
+  ],
+  "dates": {
+    "opened": "1835-08-05",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-08-05, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-08-05",
+    "last_issue": "1835-08-05",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1835_08_05#c025"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": true
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

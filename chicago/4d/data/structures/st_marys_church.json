@@ -155,9 +155,9 @@
           "note": "Not a build instruction; a scale check. 'The total cost of the edifice was about $400' for 875 sq ft is $0.46 per square foot, against the Presbyterian church's $0.60. The two figures together are what the Temple Building's invented footprint is derived from."
         },
         "siding_exposure_m": {
-          "value": 0.127,
+          "value": 0.114,
           "confidence": "reconstructed",
-          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 4.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
         }
       },
       "change_note": "The frame church raised in August 1833 and fit for occupancy and dedication in October: 25 x 35 ft, about $400, lumber shipped by scow from St Joseph and hauled to the site by Anson Taylor, Augustine D. Taylor architect and builder. Unplastered, unpainted, rough benches, no steeple and no tower. No change of fabric is attested inside the phase; the enlargement and the low open belfry belong to the later site at Michigan and Madison and are outside this phase in both time and place."

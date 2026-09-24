@@ -340,8 +340,12 @@ export function createHud({
    *  restores the section's own name. */
   let backAction = null;
   function setTitle(text, onBack = null) {
-    const tab = root.querySelector(`.panel-tab[data-tab="${currentTab}"] .tab-label`);
-    if (panelTitle) panelTitle.textContent = text ?? tab?.textContent ?? '';
+    const tab = root.querySelector(`.panel-tab[data-tab="${currentTab}"]`);
+    // The head says the section's full name, which the rail cannot always afford:
+    // eight tabs share 390 px on a phone, so a long one carries a short label and
+    // a `data-title`. Where there is no `data-title` the two are the same word.
+    const name = tab?.dataset.title || tab?.querySelector('.tab-label')?.textContent;
+    if (panelTitle) panelTitle.textContent = text ?? name ?? '';
     backAction = onBack;
     panelBack?.toggleAttribute('hidden', !onBack);
   }

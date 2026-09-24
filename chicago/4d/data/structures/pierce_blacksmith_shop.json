@@ -104,6 +104,22 @@
     ],
     "note": "Named as the builder and proprietor, arriving from Vermont on 8 October 1833 (scan p. 1161). Andreas gives his later Chicago career — alderman in 1843 and 1844, and two streets named after him (scan pp. 387, 411) — which corroborates the man and says nothing about who was at the anvil in July 1835."
   },
+  "stands_on_lot": {
+    "claims_lot": false,
+    "grid": "west_division",
+    "plat": "thompson_plat_1830",
+    "layer": "data/traces/vectors/thompson_lots.json",
+    "block_id": "blk_west_lake_canal",
+    "lot_index": 0,
+    "lot_number": 2,
+    "lot_number_withheld": null,
+    "lot_lines_confidence": "inferred",
+    "lot_numbers_confidence": "documented",
+    "confidence": "inferred",
+    "footprint_share": 1.0,
+    "derived_by": "tools/record_lot_seating.py",
+    "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on lot 2 of blk_west_lake_canal in the west_division grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (documented), read from data/traces/vectors/thompson_lots.json."
+  },
   "research_note": "NOT ON THE PARCEL'S ORIGINAL LIST AND ADDED ON THE EVIDENCE. The task that produced this parcel asked whether Matthias Mason & Co., blacksmiths, could be placed from the Chicago Democrat of 26 November 1833; they cannot — the advertisement gives no address, and inventing one would put a named smithy at a false corner. A full-text search of Andreas turned up a better answer three lines below the brickyard passage: a smithy at a DOCUMENTED junction, with a documented date, a documented reason for its construction method, and two documented pieces of work, on the west side in this parcel's own ground. So the town gets its working smithy from the evidence rather than from a guess. TWO CAUTIONS. First, do not merge this with blacksmith_shop_state_st, the shop attested near the Agency House at the foot of State Street on the north side (Andreas scan p. 1161 also) — they are different buildings on opposite sides of the town, and this dataset carries both. Second, do not attach Mason's name to either: nothing connects the Democrat's advertiser to either shop, and the identification would be an invention wearing a citation. WHAT WOULD UPGRADE THIS RECORD: any statement of which corner, which is the one real gap in an otherwise unusually well-attested small building; and further issues of the Chicago Democrat, whose advertising columns are where a smith says where his shop is.",
   "review_required": false
 }

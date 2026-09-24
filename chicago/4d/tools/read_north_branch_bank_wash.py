@@ -248,6 +248,7 @@ def build() -> int:
     import urllib.request
 
     sys.path.insert(0, str(ROOT / "tools"))
+    import pinned_sources  # noqa: PLC0415
     import trace_north_branch as tnb  # noqa: PLC0415
     import trace_river as tr  # noqa: PLC0415
     import measure_north_branch_banks as mnb  # noqa: PLC0415
@@ -256,18 +257,18 @@ def build() -> int:
     P = tnb.PARAMS
 
     def fetch(region, cache):
-        x, y, w, h = region
-        path = Path("/tmp") / cache
-        if path.exists():
-            raw = path.read_bytes()
-        else:
-            url = f"{tr.IIIF}/{x},{y},{w},{h}/full/0/default.jpg"
-            print(f"fetching {url}")
-            with urllib.request.urlopen(url, timeout=180) as r:  # noqa: S310
-                raw = r.read()
-            path.write_bytes(raw)
+        """The region, held to its sha256 pin before it is read (T-1397).
+
+        The legend chips are what every bank-wash threshold in this file is
+        measured against, so reading them off a re-encode of the sheet would move
+        the thresholds without moving a line of code. `fetch_pinned` refuses.
+        """
+        try:
+            raw, sha = pinned_sources.fetch_pinned(tr.IIIF, region, Path("/tmp") / cache)
+        except pinned_sources.SourceMoved as e:
+            tr.die(str(e), 0 if e.recorded else 1)
         return (np.asarray(Image.open(io.BytesIO(raw)).convert("RGB"), dtype=np.float32),
-                hashlib.sha256(raw).hexdigest())
+                sha)
 
     # --- the legend, on the master -----------------------------------------
     leg, leg_sha = fetch(LEGEND_REGION, "wright_1834_legend_region.jpg")

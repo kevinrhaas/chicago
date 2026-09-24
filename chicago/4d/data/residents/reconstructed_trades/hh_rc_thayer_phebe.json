@@ -1,0 +1,137 @@
+{
+ "id": "hh_rc_thayer_phebe",
+ "name": "The Thayer household — a trade the rosters never printed",
+ "division": "south",
+ "head": "rc_thayer_phebe",
+ "source_pass": "reconstructed_trade_household",
+ "trade_household": {
+  "ticket": "T-1347",
+  "parent_ticket": "T-1173",
+  "stage": "trade_households",
+  "bucket": "persons/female/20_29/south/family/trade",
+  "slot": "trade_households:persons/female/20_29/south/family/trade:hardware_merchant:032",
+  "trade": "hardware_merchant",
+  "stands_on": "The order book's `family/trade` bucket for this sex, band and division is short by the number of people this stage drew, and the 1839 trade table is the only per-trade share the corpus yields.",
+  "withdrawn_if": "a source naming a real resident of this trade and division, or a re-cut of the order book that no longer orders this bucket; the retirement runs through --build, never by hand"
+ },
+ "household_owed": {
+  "size_drawn": 5,
+  "kin_seated": 1,
+  "seed": "trade_households:persons/female/20_29/south/family/trade:hardware_merchant:032:household_size",
+  "seated_by": "T-1174 (women and children), T-1175 (lodgers), T-1179 (converge)",
+  "note": "THE FAMILY THIS HEAD IS OWED, AND NOT SEATED HERE. The 1840 size histogram drew this house at 5 people. Its kin are `family/none` in the order book and that quota belongs to T-1174 and T-1171; seating them here would order the same people twice."
+ },
+ "arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "NOT DRAWN HERE, AND THE REASON IS A CIRCLE. The arrival model's own distribution — `arrival_year_of_the_known_layer` — is computed over the compiled scene, and the scene carries these cards; an arrival written here would move the table that drew it, and the research layer's own arrival fills (T-1169) re-derive from that table. The programme's arrival stage owns this block, and T-1179 is where these cards join the tree it runs over.",
+  "seated_by": "T-1169 (the arrival fill), T-1179 (converge)"
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not seated. T-1199 seats the reconstructed households on the lot grid by the placement policy; the division above is the bucket's."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not seated. T-1189 staffs the businesses, and the business band (T-1184 … T-1188) ADOPTS these heads as its proprietors rather than minting its own, so the two bands fill one quota."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "ordered_by_the_reconstruction_order_book",
+   "note": "Ordered, not argued: the book counts this person as missing FROM the town of 1 July 1835, so presence is the order rather than a draw made over it."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a re-cut order book that no longer orders this bucket"
+  }
+ },
+ "persons": [
+  {
+   "id": "rc_thayer_phebe",
+   "name": "Phebe Thayer",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_reconstruction_order_book",
+     "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+    },
+    "seed": "trade_households:persons/female/20_29/south/family/trade:hardware_merchant:032:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+   },
+   "occupation": {
+    "value": "hardware_merchant",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "fergus_1839_trade_table",
+     "note": "Dealt, not drawn. The order book ordered persons/female/20_29-class adults at a trade in the south division, and the 1839 directory's share of hardware_merchant over the trades this stage draws for decides how many of them work at it. The 1839 volume is four years after the scene and its shape is read back onto 1835 knowingly."
+    },
+    "seed": "trade_households:persons/female/20_29/south/family/trade:hardware_merchant:032:trade_deal",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a person of this trade in this division, which would spend this slot on a real name instead"
+    },
+    "note": "NO ROLE ROW. `roles[]` is the canonical record of a trade and its generator reads the research mints' directory, which this one is deliberately outside of; the convergence stage (T-1179) is where these cards join that tree. Nothing about this trade is dated."
+   },
+   "name_basis": {
+    "value": "Phebe Thayer",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Both parts are drawn from the New England and New York pool, which is seeded from the attested residents of this town. The pool is chosen by the weighting the pools file carries for hardware_merchant."
+    },
+    "seed": "trade_households:persons/female/20_29/south/family/trade:hardware_merchant:032:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a real person of this trade and division"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn head from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_reconstruction_order_book",
+    "note": "The book's bucket persons/female/20_29/south/family/trade ordered this person: the town model's employed-persons figure, cut by sex, age band and division, less everyone the sources already name there."
+   },
+   "seed": "trade_households:persons/female/20_29/south/family/trade:hardware_merchant:032:trade_deal",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a resident of this trade, sex, age band and division, who would stand in this slot instead"
+   },
+   "reconstruction": {
+    "stage": "trade_households",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "yankee",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_trade_head",
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the south division, at hardware_merchant. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+}

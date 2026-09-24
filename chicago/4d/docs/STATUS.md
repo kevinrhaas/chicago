@@ -1,5 +1,50 @@
 # STATUS
 
+## Responsive measured boot — T-1246, 2026-09-20
+
+The gate now exposes eight real work phases, completed-work events and measured cold/warm estimates for both viewports at all three detail tiers. Row/batch yields let the loading status repaint during planting; mobile/light measured 123.8 ms cold and 116.5 ms warm between paints, down from 974.5 ms cold. All twelve comparisons preserve geometry bytes, flora/tree statistics, roll and placement census. Optional people/census failures and background resume passed published-browser tests; failed terrain never opens the gate. First-render readiness and asynchronous shader preparation replace the earlier pre-render ready flag. [Measurement/reproduction notes](performance/BOOT-PHASES.md) distinguish the flora result from remaining software-renderer presentation stalls. Full regression validation is recorded in the closing PR.
+
+## Unreal update process and queued parity — 2026-09-20
+
+Owner-requested process documentation now describes selecting the newest passing dev snapshot, isolated Mac builds, packaged tests, checksums and a draft-to-published GitHub prerelease. This documents the working manual path; on-demand automation remains T-1472. New held tickets T-1473/T-1474/T-1475 cover sinking buildings, a flora corridor and navigation/place inspection. Existing T-1360 retains roads. The [parity matrix](unreal/PARITY.md) records broader web gaps and successor obligations. All engine-only tasks remain blocked-tech with ordered HOLD references after South Through Time and before Loop Improvements. No new renderer feature or automatic build service ships in this documentation slice.
+
+## Standalone Mac preview — T-1464, 2026-09-20
+
+The owner prioritised a native Mac app from latest dev before streaming. The local
+Apple Silicon build consumed snapshot `253f026570358dfcdab62fb2593c4082b058de07` with
+Unreal 5.8.2 and Xcode 27.0. BuildCookRun and local code-sign verification passed;
+the packaged app opened directly into Chicago, without the editor or streaming.
+384 terrain/structure mesh actors imported with no errors; `estray_pen` is explicitly
+skipped because its enclosure is browser-generated. The pawn is persistently body-free.
+A 21-second offscreen packaged test, ignoring keyboard/mouse input, passed with
+all sampled states grounded: walk forward, stop at an obstacle, back away. It is
+not a full bridge or bank route test. The owner identified the low garden fence
+near the fort: positional Python Rotator arguments had applied its 53-degree
+bearing as pitch, tilting the entire enclosure into the sky. Explicit yaw arguments
+now keep it upright, with a measured world height of 1.135333 m. Every imported
+structure is checked for zero pitch/roll and its expected yaw. Player start and sun
+also use named rotation fields. Lowest-footprint anchoring separately lowers the
+fort palisade 1.437281 m to bed it in the downhill terrain.
+Escape quit the native app. No claim is made that the streaming corruption is fixed.
+
+[Build source and instructions](../renderers/unreal/README.md) are isolated from the
+web renderer. [The receipt](../renderers/unreal/receipts/mac-253f02657.json) records
+hashes and actual readings. This preview omits browser procedural scenery, research
+UI and confidence visualization. It is locally signed, not notarized for public
+distribution. T-1358/T-1360/T-1361 retain their broader acceptance and execution holds.
+
+## Unreal delivery programme — owner request, 2026-09-18
+
+Nothing in the published scene changes in this ticket/documentation slice. T-1356
+tracks regular bundles (T-1357), repeatable local import (T-1358), the reported
+black-bar/static defect (T-1359), scenery parity beginning with streets (T-1360), and
+approved-host staging (T-1361). Existing T-0252 owns the shared export contract.
+The band is after South Through Time and before Loop Improvements. Engine/deployment
+children are blocked-tech and excluded from the general loop, with visible HOLD
+references. [Runbook](unreal/README.md) records the local prototype and its limits;
+streaming corruption, full walking, parity and remote delivery are NOT verified.
+
+
 ## T-0437 — sparse smoke checkout, 2026-09-17
 
 The bake smoke checkout selects only tools and `docs/SITE-BUDGET.md`, at the
@@ -2735,7 +2780,7 @@ distinct ways. Each is now a guard with a self-test on the case that forced it.
    `inf_*` are excluded outright. Putting a documented firm into an invented roof is a decision
    T-0263 makes deliberately, with the adoption written down; making it by string match is how an
    invention gets laundered into the documented layer. `Kinzie Hall` had matched
-   `recon_1835_north_i2_015` on the word "hall".
+   `recon_1835_north_d4_015` on the word "hall".
 
 5. **A word in the record is not a surname in the record** (T-1042). The pools these guards back
    are word SETS, so any capitalised word in a building's prose could satisfy a required surname:
@@ -2847,7 +2892,7 @@ changes; the 662 roofs are the same 662 roofs, re-typed.
 
 **Why the South pays and no one else.** Six of the North's seven freight roofs are documented
 pre-existing records — Kinzie & Hunter's warehouse, the four north-bank sheds at the Dearborn reach,
-the north-side brickyard — and the seventh, `recon_1835_north_f1_022`, was dealt by a parcel that ran
+the north-side brickyard — and the seventh, `recon_1835_north_h2_022`, was dealt by a parcel that ran
 before anything measured this. Against them the South's freight cell holds seventeen authored slots
 of which five stand: twelve are unbuilt and unnamed. **An authored slot yields to a documented
 record** — the principle T-0032 established when it held the institutional row to the named census —
@@ -3299,10 +3344,10 @@ roofs they have room for. Two do not, and both are in the North Division:
 Six of the seven North freight roofs are **documented pre-existing records** — Kinzie & Hunter's
 warehouse, the four north-bank sheds at the Dearborn reach, the north-side brickyard — so the breach
 is not an invention that can be removed. It is a row authored without the north bank's river-freight
-fabric in view. The seventh is `recon_1835_north_f1_022`, dealt by a parcel that ran before anything
+fabric in view. The seventh is `recon_1835_north_h2_022`, dealt by a parcel that ran before anything
 measured this. The institutional cell is a narrower thing: T-0032 set that row to the NAMED census and
 `measure_institutional_claims.py` holds it there, while this counts every roof that stands — so the
-two gates disagree by exactly `recon_1835_north_i2_015`, the one anonymous school **L93** records as a
+two gates disagree by exactly `recon_1835_north_d4_015`, the one anonymous school **L93** records as a
 liberty taken rather than deleted. Both readings are right for their own question.
 
 **What the breach was costing, which nothing anywhere stated.** `reconcile_665.py` clamps the negative

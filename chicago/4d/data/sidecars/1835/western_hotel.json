@@ -163,6 +163,143 @@
   },
   "residents": [
     {
+      "household": "hh_brown_lemuel",
+      "name": "Lemuel Brown",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at blacksmith in the mechanic group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Lemuel Brown",
+          "relationship": "lodger",
+          "grade": "attested",
+          "occupation": "blacksmith",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_handy_major",
+      "name": "Major Handy",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at mason in the mechanic group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Major Handy",
+          "relationship": "lodger",
+          "grade": "attested",
+          "occupation": "mason",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_lodging_western_hotel",
+      "name": "The lodgers of Western Hotel",
+      "division": "south",
+      "relation": "lodged here",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 15 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "sources": [],
+      "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
+      "persons": [
+        {
+          "name": "Rhoda Lyman",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Betsey Wilcox",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Abigail Thayer",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Owen Nolan",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Lemuel Parmelee",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Otis Nash",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Toussaint Marcotte",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    },
+    {
+      "household": "hh_rc_dufresne_hyacinthe",
+      "name": "Hyacinthe Dufresne",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at boatman in the mechanic group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Hyacinthe Dufresne",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "boatman",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_rc_lyman_george",
+      "name": "George Lyman",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at painter in the mechanic group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "George Lyman",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "painter",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
       "household": "hh_stow_william_h",
       "name": "The Stow household",
       "division": "south",
@@ -180,6 +317,27 @@
           "grade": "attested",
           "occupation": "hotel_keeper",
           "note": "Both sources have him building and operating the house, and he came to Chicago about 1833, so he is present at the scene date on either build date this project holds for the Western. Andreas's later city rosters carry a William H. Stow as an alderman in 1839, which corroborates the man's continuing residence and says nothing about 1835. OLD SETTLERS, 1882 — A DATE OF DEATH, AND NOTHING ABOUT 1835. John Wentworth's roll of old settlers who had died since 1 January 1881, kept for the Calumet Club and printed in the Chicago Tribune of 25 April 1882, carries “William H. stow, Aug. 18, 1881.”. That corroborates a Chicago residence before 1840 and fixes the END of this life, which this record did not carry; it is not an arrival and it places nobody in the town on 1 July 1835. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the city register of 1839 — “William 1 1. Stow” as alderman (f1839_r0015, printed page 38). What a match may carry, and it depends on WHICH TABLE it landed in. A match on printed page 38, or on any row of the mayors' table, is 1839-or-later evidence: it says the man held that office in that year and was therefore in Chicago in that year, it is written with the row's own describes_date and never as an 1835 fact, and the person's grade does not move on it alone — a later appearance is corroboration of CONTINUED RESIDENCE, not of July 1835. A match on the sheriffs' rows of 1831, 1832, 1834 or 1836 is different in kind: the office is contemporary with the town, the 1834 row's term covers the scene date outright, and such a match carries reaches_scene. Even there the SOURCE is a retrospect — a table running to 1874, set in 1876 out of Old Settlers' recollections per the compiler's warning on printed page 3 — so it may be cited as a contemporary office and may not be graded `documented` without a second, nearer record. The ward on printed page 38 is a ward of the CITY of 1839 and places no house in the town of 1835. Identity by the crosswalk's own rule: Surname 'Stow' folds to the same string as the register entry's, and the given name of both begins W. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Wm. H. Stow” (33S7-9YYJ-9HY, printed page 225, line 20). This project has ruled the head a MATCH for this person: the full name agrees, it is unique on both sides, and a discriminator independent of the name — directory persistence — separately places the same person in Chicago after the 1840 book was taken. Under the rule that decided it (L6 matched), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        },
+        {
+          "name": "Esther Stow",
+          "relationship": "wife",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Susan Stow",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Ezra Stow",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
         }
       ],
       "research_note": "A BUILDER-LANDLORD, WHICH IS A COMMON EARLY-CHICAGO PATTERN AND ONE THE OCCUPATION FIELD CANNOT SHOW. Stow put the Western Hotel up and then ran it, and this dataset also holds western_hotel_stable under his name. The occupation vocabulary makes a single choice, so the building half of his life is in this note. NOTHING HERE ABOUT HIS FAMILY: a hotel of forty feet frontage with a wagon yard behind it was not run by one man alone, and every other person in it - servants, hostlers, cooks, his own household - is unattested and belongs to the inferred phase."
@@ -229,5 +387,25 @@
   ],
   "research_note": "The teamsters' house on the west side, and the one record in this parcel where a disputed date could have changed what stands in the scene. chicagology dates it 1834 on W. H. Stow's own word and gives the description everything else here rests on — a 40 ft front and a 60 ft wing in an L, a large stable, a yard the wagon trains drove into with entrances from both streets, and a clientele of farmers and teamsters coming in from the west. The hotel chronology dates it 1835 and calls it 'a small structure', contradicting the size as well as the date. BOTH DISPUTES ARE DECIDED THE SAME WAY AND FOR THE SAME REASON: the builder's own account, with corroborating detail, beats an undated line in a chronology that is unfootnoted and demonstrably inconsistent elsewhere. THE PHASE MECHANISM WAS CONSIDERED FOR THE 1835 READING AND REJECTED — modelling a construction site would require inventing a start month, a build duration and a degree of completeness, which is more invention than the honest alternative of one completed phase with the dispute written down. The largest unmodelled thing about this building is not its date but its yard: the stable and the enclosed wagon court are attested, are most of the site, and are not built by the frame_tavern archetype. See docs/RESEARCH/western_hotel.md and docs/LIBERTIES.md.",
   "research_doc": "docs/RESEARCH/western_hotel.md",
-  "review_required": false
+  "review_required": false,
+  "lodging": {
+    "class": "inn_tavern",
+    "beds_ordinary": 15,
+    "beds_crowded": 35,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": true,
+    "enclosed_floor_m2": 328.72,
+    "confidence": "inferred",
+    "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 329 m² of enclosed floor (164 m² × 2 storeys) is of the class's floor area.",
+    "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
+    "occupancy": {
+      "people": 15,
+      "beds_ordinary": 15,
+      "empty": 0,
+      "statement": "15 on this card against an ordinary night's 15 beds: 4 the residents layer already housed here, 4 seated here from elsewhere in the layer, where no source gives them a roof, 7 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "empty_note": "",
+      "keeper_persons": 4,
+      "keeper_owed": ""
+    }
+  }
 }

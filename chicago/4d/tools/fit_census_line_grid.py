@@ -39,7 +39,7 @@ holds. Two anchors within `--same-line` px of each other are one line (the
 industry columns are exclusive, but two of them can carry an entry for the same
 family, and on 5V three pairs do).
 """
-import argparse, json, os, sys
+import argparse, json, math, os, sys
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -55,7 +55,7 @@ def anchors_from_page(page, same_line):
             merged[-1].append(y)
         else:
             merged.append([y])
-    return [round(sum(g) / len(g)) for g in merged]
+    return [round(math.fsum(g) / len(g)) for g in merged]
 
 
 def ink_lines_from_page(page, same_line, thresh):
@@ -96,7 +96,7 @@ def ink_lines_from_page(page, same_line, thresh):
             merged[-1].append(y)
         else:
             merged.append([y])
-    return [round(sum(g) / len(g), 1) for g in merged]
+    return [round(math.fsum(g) / len(g), 1) for g in merged]
 
 
 def fit(anchors, lo, hi):

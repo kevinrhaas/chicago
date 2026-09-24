@@ -1,0 +1,76 @@
+{
+  "id": "biz_fullerton_botsford",
+  "register_id": "business_fullerton_botsford",
+  "name": "Fullerton & Botsford",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "pork and provisions",
+  "occupation": "provision_dealer",
+  "goods": [
+    "Bacon",
+    "Hams",
+    "Lard",
+    "Pork"
+  ],
+  "firm_styles": [
+    "Fullerton & Botsford"
+  ],
+  "proprietors": [],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "dearborn",
+      "face": null,
+      "primary": true,
+      "from": "1834-06-04",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names Dearborn Street and nothing narrower; a corner of 'Dearborn' and 'Lake-sts. corner of Dearborn and Lake-st', and the plat resolves both sides to ['dearborn', 'lake']."
+    }
+  ],
+  "dates": {
+    "opened": "1834-06-04",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-06-04, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-06-04",
+    "last_issue": "1834-07-09",
+    "copy_dates": [
+      "1834-04-22"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_06_04#c024",
+    "chicago_democrat_1834_07_09#c027"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

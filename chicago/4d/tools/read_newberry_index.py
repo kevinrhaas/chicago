@@ -1276,6 +1276,13 @@ def layer_names() -> dict:
     for path in sorted(hh_dir.glob("*.json")) if hh_dir.exists() else []:
         doc = load(path)
         for person in doc.get("persons") or []:
+            # A RECONSTRUCTED PERSON IS NOT A NAME THIS PROJECT HOLDS (T-1314). The
+            # reconstruction programme's people carry invented forenames drawn from a
+            # pool. Offering one as a candidate for a Newberry index entry would let a
+            # real archival finding be matched to somebody nobody ever wrote down - and
+            # a lead, once ruled, is how a match becomes an identity.
+            if person.get("grade") == "reconstructed":
+                continue
             if person.get("name"):
                 out["residents"].append({"id": person.get("id") or doc["id"],
                                          "name": person["name"],

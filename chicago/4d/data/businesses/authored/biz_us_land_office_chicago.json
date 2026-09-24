@@ -1,0 +1,90 @@
+{
+  "id": "biz_us_land_office_chicago",
+  "register_id": null,
+  "name": "The United States Land Office at Chicago",
+  "provenance": "authored",
+  "type": [
+    "civic"
+  ],
+  "trade": "the United States land office for the Chicago district — register and receiver",
+  "occupation": null,
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "James Whitlock",
+      "person_id": "whitlock_james",
+      "register_person_id": null,
+      "role": "land_office_register",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "basis": "THE OFFICE IS THE MAN'S AND THE MAN IS THE TOWN'S. Andreas names him in the Beaubien pre-emption: the claim was 'entered at the land office in Chicago, of which Edmund D. Taylor was Receiver, and James Whitlock Register' (scan p. 313). The resident layer reads the same office off the Chicago Democrat independently — Register of the Land Office at the paper of 25 March 1835 and again on 8, 15 and 29 July 1835 — so the seat is attested on both sides of the scene date and the card's own occupation, `land_office_register`, is the word used here.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": []
+    },
+    {
+      "name": "Edmund D Taylor",
+      "person_id": "taylor_edmund_d",
+      "register_person_id": null,
+      "role": "land_office_receiver",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "basis": "Andreas, in the same sentence that names the Register: Beaubien's claim was 'entered at the land office in Chicago, of which Edmund D. Taylor was Receiver' (scan p. 313), and the certificate that came of it 'was dated May 28, and recorded June 26' — four weeks before the scene date. NOTE WHAT THIS DOES NOT MOVE. His resident card reads `none_recorded` for a 1835 trade and it stays there: the office is a seat at a place, which is what this layer records, and the occupation field of a person is the residents layer's to change on its own evidence and not this record's.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": []
+    }
+  ],
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "lake",
+      "face": "east",
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "basis": "Andreas gives the street and the block and no building: 'The location of the first United States Land Office in Chicago was on the east side of Lake Street, between Clark and Dearborn streets' (scan p. 313).",
+      "limit_reason": "A STREET AND NO HOUSE, and the source says why in its own next breath: 'the office of the Registers and Receivers were usually at their private offices' (scan p. 313). Nothing reached describes a building, a size or a lot, and the civic dossier's enumeration is explicit that this is a public FUNCTION and not a public building — `us_land_office_1835` stands in data/exclusions.json as a kind guard so that no roof is ever dealt to it."
+    }
+  ],
+  "dates": {
+    "opened": "1835-05",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "Andreas's chronology enters it under 1835 at the month: 'Opening of Government Land-Office at Chicago; great land craze' (scan p. 1317), and the Beaubien certificate dates the office WORKING to 28 May, recorded 26 June. The month is the precision the source carries and no day is claimed for the opening. Nothing closes it inside the window this project models."
+  },
+  "evidence": {
+    "first_issue": null,
+    "last_issue": null,
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "andreas_1884_v1"
+  ],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A deed, a land-office return or a printing that names the building the office sat in, or its side of Lake Street more nearly than the block — that would turn this street_only limit into a premises. A source dating the opening to a day would sharpen the date the same way."
+}

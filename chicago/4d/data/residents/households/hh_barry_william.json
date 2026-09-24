@@ -14,20 +14,60 @@
   "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 17 September 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
   "precision": "not_later_than"
  },
+ "arrival_year": {
+  "value": 1833,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1834-09-17 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1834."
+  },
+  "seed": "hh_barry_william:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
  "party_size_on_arrival": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
  },
  "origin": {
-  "value": null,
+  "value": "The Mid-Atlantic states",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_barry_william:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -48,6 +88,15 @@
   ],
   "note": "THE RECORD BRACKETS THE DAY. This person is named at Chicago at or before 1 July 1835 and named again at or after it, so the sources reach across the scene date rather than stopping at one side of it. Inferred, not documented: no source says where they were on the day."
  },
+ "modelled_family": {
+  "stage": "modelled_families",
+  "ticket": "T-1171",
+  "household_type": "family_with_children",
+  "size_drawn": 6,
+  "kin_seated": 6,
+  "seed": "hh_barry_william:household_size",
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
+ },
  "persons": [
   {
    "id": "barry_william",
@@ -59,7 +108,9 @@
    "occupation": {
     "value": "none_recorded",
     "confidence": "reconstructed",
-    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
+    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it.",
+    "derived_from": "roles",
+    "roles_at_scene_date": []
    },
    "sources": [
     "chicago_democrat_1833_1835",
@@ -88,7 +139,375 @@
      "source": "chicago_democrat_1833_1835",
      "rule": "G1b"
     }
-   ]
+   ],
+   "roles": [
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "postmaster general",
+     "from": "1834-09-17",
+     "to": "1834-09-17",
+     "precision": "day",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_barry_w_t",
+     "place": "not_stated",
+     "employer_or_body": "united_states_post_office",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1834-09-17 to 1834-09-17, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": null
+    }
+   ],
+   "age_band": {
+    "value": "40-49",
+    "low": 40,
+    "high": 49,
+    "confidence": "inferred",
+    "tier": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+   },
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "inferred",
+    "note": "A FORENAME THAT STANDS IN ONE SEX'S NAMING ONLY. 'William' is read as male because 4 persons in this layer whose sex a source records bear it (adams_william_h, egan_william_b, stow_william_h, walters_william), and it stands in the yankee male forename pool of this town's own attested naming. Nothing about this person is recorded; the name is the whole of the reasoning, and the table that licenses it — data/research/residents/forename_sex.json — refuses a name its own evidence splits, refuses Jean, Marion, Leslie and Francis by name, and refuses an initial outright."
+   },
+   "birth_year": {
+    "value": 1795,
+    "precision": "year",
+    "confidence": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "A BIRTH INTERVAL OUT OF A DEATH NOTICE, NOT A RECORD OF A BIRTH. The page prints the death as 'January 17, 1885' and the age as 'aged 89½'. An age of 89 years and 6 months means at least that and less than 89 years and 7 months, so the birth falls between 1795-06-18 and 1795-07-17: the birth year is 1795. The subtraction is this project's; the page states no year of birth. Fergus's 1843 directory (1896) prints the entry \"Barry, Rev. William, died January 17, 1885, aged 89½.\", and its header admits the list also names citizens who arrived after 1843 and others merely prominently connected with Illinois history — so a match here is never evidence of residence in 1835 and never moves a grade. The match to this person was adjudicated in data/research/old_settlers/death_notices_crosswalk_1835.json and written onto this card by tools/spend_old_settlers.py; this pass only spends its arithmetic into a birth year. Both sides of the match spell a forename out — the crosswalk's thin matches, where a single initial is the whole of the discriminator, are refused rather than spent."
+   }
+  },
+  {
+   "id": "rc_barry_william_wife",
+   "name": "Polly Barry",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30'. Never above the head's own band: the spacing rule of the household model, which the 1840 adult sex ratio argues for and no source states."
+    },
+    "seed": "hh_barry_william:wife_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Polly Barry",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_barry_william:wife_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of William Barry's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 6 people from the 1840 city's size histogram, at the head's own band and not at the mean. A house of 6 with a head of 40 and over is a married house, and this is its wife."
+   },
+   "seed": "hh_barry_william:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_barry_william_child_1",
+   "name": "Sarah Barry",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "5-9",
+    "low": 5,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 5 under 10'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_barry_william:child_1_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Sarah Barry",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_barry_william:child_1_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of William Barry's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 6 people; the head and his wife seated, 4 of them are children."
+   },
+   "seed": "hh_barry_william:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_barry_william_child_2",
+   "name": "Reuben Barry",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "15-19",
+    "low": 15,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 15 under 20'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_barry_william:child_2_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Reuben Barry",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_barry_william:child_2_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of William Barry's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 6 people; the head and his wife seated, 4 of them are children."
+   },
+   "seed": "hh_barry_william:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_barry_william_child_3",
+   "name": "Clarissa Barry",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "5-9",
+    "low": 5,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 5 under 10'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_barry_william:child_3_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Clarissa Barry",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_barry_william:child_3_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of William Barry's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 6 people; the head and his wife seated, 4 of them are children."
+   },
+   "seed": "hh_barry_william:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_barry_william_child_4",
+   "name": "Lucy Barry",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "15-19",
+    "low": 15,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 15 under 20'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_barry_william:child_4_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Lucy Barry",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_barry_william:child_4_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of William Barry's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 6 people; the head and his wife seated, 4 of them are children."
+   },
+   "seed": "hh_barry_william:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,

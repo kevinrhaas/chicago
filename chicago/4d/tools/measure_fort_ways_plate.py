@@ -442,7 +442,7 @@ def records():
             "start": path[0],
             "end": path[-1],
             "easting_change_m": round(path[-1][0] - path[0][0], 3),
-            "length_m": round(sum(
+            "length_m": round(math.fsum(
                 math.dist(path[i], path[i + 1]) for i in range(len(path) - 1)), 3),
         }
     return out

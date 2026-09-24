@@ -68,6 +68,8 @@ from __future__ import annotations
 import argparse
 import difflib
 import json
+import tempfile
+import shutil
 import re
 import sys
 from pathlib import Path
@@ -485,19 +487,31 @@ def write() -> int:
 
 
 def self_test() -> int:
-    """Break each assertion and prove the gate says so."""
+    """Break each assertion and prove the gate says so.
+
+    THE BROKEN COPY GOES IN A SCRATCH FILE, NOT IN THE COMMITTED ONE (T-1336). This
+    fixture used to write each break into the live lead_crosswalk.json and restore it
+    in a `finally`. check.sh runs its steps in a job pool, so a neighbour reading that
+    file during the window sees the break and the gate goes red on a tree that is
+    green. `check()` reads the module-level OUT, and a self-test has its own process,
+    so rebinding it is enough.
+    """
+    global OUT
+    live = OUT
     fired = []
 
     def run(label, mutate, expect):
+        global OUT
         doc, cards, volumes = build()
         broken = mutate(json.loads(json.dumps(doc)))
-        saved = OUT.read_text(encoding="utf-8") if OUT.exists() else None
-        try:
-            dump(OUT, broken)
-            bad = check()
-        finally:
-            if saved is not None:
-                OUT.write_text(saved, encoding="utf-8")
+        with tempfile.TemporaryDirectory() as td:
+            scratch = Path(td) / live.name
+            try:
+                OUT = scratch
+                dump(OUT, broken)
+                bad = check()
+            finally:
+                OUT = live
         hit = any(expect in b for b in bad)
         fired.append((label, hit))
         print("   %-46s %s" % (label, "fires" if hit else "SILENT"))

@@ -229,6 +229,10 @@
 }
 .mark-letter_list, .mark-projected { border-color: color-mix(in srgb, var(--con) 60%, transparent); color: var(--con); }
 .mark-civic_mint { border-color: color-mix(in srgb, var(--accent) 55%, transparent); color: var(--accent); }
+/* T-1353. A visitor of the season is not a weaker kind of resident, so the mark is not a
+   weaker version of the resident marks: it reads in the dim ink with a dashed edge, which
+   says "here for a fortnight" without borrowing either of the colours above. */
+.mark-transient { border-style: dashed; border-color: color-mix(in srgb, var(--ink-dim) 70%, transparent); }
 
 .people-empty {
   margin: 0;
@@ -337,7 +341,69 @@
   line-height: 1.5;
 }
 .people-noaddr-why { color: var(--ink-dim); }
+
+/* T-1491. The seat, said in words under the actions block. It is a READING and not a
+   button, so it takes the dashed edge the "No known address" note used to carry rather
+   than the accent fill of a Go-to — a visitor should never mistake "reaches the north
+   division" for somewhere they can be taken. The rung leads, in the accent, because it
+   is the one word that says how far the evidence got. */
+.people-seat {
+  margin: 8px 0 0;
+  padding: 9px 12px;
+  border: 1px dashed var(--edge);
+  border-radius: 10px;
+  color: var(--ink-dim);
+  font-size: 12px;
+  line-height: 1.5;
+  display: grid;
+  gap: 3px;
+}
+.people-seat-rung {
+  color: var(--accent);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.people-seat[data-rung="unplaceable"] .people-seat-rung { color: var(--ink-dim); }
+.people-seat-owed { font-style: italic; }
+.people-seat-next { color: var(--ink-dim); opacity: .85; font-size: 11.5px; }
+
+/* T-1493. The way to the seat. A seat button is a Go-to and takes the Go-to's fill,
+   because it does carry the visitor somewhere — but the rung is in the VERB ("the
+   block face it is housed on", never "the premises"), and where the seat is housing
+   rather than a reading it says so on a third line, in the dim. Arriving must never
+   read as the record having put the house there. */
+.seat-go { border-style: dashed; }
+.seat-go:hover { border-style: solid; }
+.seat-go-sub {
+  color: var(--ink-dim);
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.4;
+}
+.seat-go + .people-seat { margin-top: 6px; border-top-left-radius: 4px; border-top-right-radius: 4px; }
 .people-card-what { margin: 0 0 14px; color: var(--ink-dim); font-size: 11.5px; line-height: 1.5; }
+
+/* T-1172. A re-admitted row is a RECONSTRUCTION standing beside a refusal the
+   research made, and the card has to say so where a reader cannot miss it — hence a
+   ruled edge rather than another line of dim prose. `currentColor` on the rule keeps
+   it single-colour and correct in both themes. */
+.people-card-readmitted {
+  margin: 0 0 14px; padding: 8px 10px; font-size: 11.5px; line-height: 1.55;
+  color: var(--ink-dim); border-left: 2px solid currentColor; opacity: .95;
+}
+.people-card-readmitted b { color: var(--ink); }
+.people-card-readmitted i { font-style: italic; }
+/* The visitor's note, the same shape as the re-admission's above and deliberately so:
+   both say "this row is not what the rest of the list is", and a reader who has learnt
+   one should not have to learn the other. The edge is dashed for the same reason the
+   mark is. */
+.people-card-transient {
+  margin: 0 0 14px; padding: 8px 10px; font-size: 11.5px; line-height: 1.55;
+  color: var(--ink-dim); border-left: 2px dashed currentColor; opacity: .95;
+}
+.people-card-transient b { color: var(--ink); }
+.people-card-transient i { font-style: italic; }
 .people-card-h {
   margin: 0 0 8px;
   padding-top: 12px;
@@ -389,3 +455,34 @@
 [data-theme="light"] .pill[aria-pressed="true"]:not([data-value=""]):hover {
   color: #fff;
 }
+
+/* THE FIRMS A PERSON KEPT (T-1325). A block on the person's card, between what
+   kind of person they are and the household record below: one row a firm, the
+   same three-column grid as a directory row so a firm reads exactly like the
+   list it opens into, with a chevron saying it goes somewhere. The card is the
+   only place these appear, so they carry no separate name styles — `.person-main`,
+   `.person-name` and `.person-sub` above are the row's, and this reuses them. */
+.people-firms { margin: 0 0 14px; }
+.people-firm-list { margin: 0; padding: 0; list-style: none; }
+.people-firm {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 6px 12px 6px 11px;
+  border: 0;
+  border-bottom: 1px solid var(--edge);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .12s;
+}
+.people-firm-list li:last-child .people-firm { border-bottom: 0; }
+.people-firm:hover { background: var(--step); }
+.people-firm:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.people-firm-go { color: var(--accent); font-size: 17px; line-height: 1; }

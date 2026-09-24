@@ -179,7 +179,7 @@
     "roofs_home_named": 0,
     "roofs_home_inferred": 24,
     "roofs_yard": 10,
-    "roofs_in_centreline_band_declined": 4
+    "roofs_in_centreline_band_declined": 5
    },
    "lasalle": {
     "street_name": "La Salle Street",
@@ -235,7 +235,7 @@
     "roofs_home_named": 0,
     "roofs_home_inferred": 21,
     "roofs_yard": 16,
-    "roofs_in_centreline_band_declined": 0
+    "roofs_in_centreline_band_declined": 1
    },
    "south_water": {
     "street_name": "South Water Street",

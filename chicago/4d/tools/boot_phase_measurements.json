@@ -1,0 +1,322 @@
+{
+  "measuredAt": "2026-09-20T18:27:46.533Z",
+  "machine": "Darwin 25.6.0 arm64 / Apple M5 Max",
+  "browser": "153.0.8010.12",
+  "conditions": "Headless Chromium; 390\u00d7780 touch and 1280\u00d7800; no CPU throttle; fresh context cold, repeat navigation warm.",
+  "baselineCommit": "c8c11eabe9fcbe0ddb610161f0d3f5106b3fbefc",
+  "rows": [
+    {
+      "device": "mobile",
+      "detail": "light",
+      "cache": "cold",
+      "floraMaxPaintGapMs": 123.80000007152557,
+      "longestTaskMs": 3393,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 974.5,
+      "phasesSeconds": {
+        "scene": 0.24529999995231627,
+        "terrain": 0.23089999997615815,
+        "buildings": 0.10980000007152557,
+        "ground": 0.2057999999523163,
+        "flora": 1.7327999999523163,
+        "people": 0.08410000002384185,
+        "census": 0.004399999976158142,
+        "interaction": 1.012899999976158
+      },
+      "identicalBeforeAfter": {
+        "hashes": "4fd7c32b2a08e364d494aae05da3ddc14756e8b0d31fb3820d2edbcfa0de5ec8",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "23b2a6b05b0a95a24130a86f88813f5f075e6a052bab3fdc374f070a105b6255",
+        "trees": "9f8cde60146a223566d7e343ef383f7abb0fc60c8f5148e7824b02a8184f0f34",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    },
+    {
+      "device": "mobile",
+      "detail": "light",
+      "cache": "warm",
+      "floraMaxPaintGapMs": 116.5,
+      "longestTaskMs": 3474,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 974.3999999761581,
+      "phasesSeconds": {
+        "scene": 0.20820000004768371,
+        "terrain": 0.22119999992847442,
+        "buildings": 0.102,
+        "ground": 0.15470000004768372,
+        "flora": 1.7651999999284744,
+        "people": 0.06760000002384185,
+        "census": 0.022600000023841858,
+        "interaction": 0.8125
+      },
+      "identicalBeforeAfter": {
+        "hashes": "4fd7c32b2a08e364d494aae05da3ddc14756e8b0d31fb3820d2edbcfa0de5ec8",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "23b2a6b05b0a95a24130a86f88813f5f075e6a052bab3fdc374f070a105b6255",
+        "trees": "9f8cde60146a223566d7e343ef383f7abb0fc60c8f5148e7824b02a8184f0f34",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    },
+    {
+      "device": "mobile",
+      "detail": "balanced",
+      "cache": "cold",
+      "floraMaxPaintGapMs": 123.59999990463257,
+      "longestTaskMs": 3598,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 1327.9000000953674,
+      "phasesSeconds": {
+        "scene": 0.19939999997615815,
+        "terrain": 0.2317000000476837,
+        "buildings": 0.09810000002384185,
+        "ground": 0.21039999997615813,
+        "flora": 2.2037000000476836,
+        "people": 0.0805,
+        "census": 0.005900000095367432,
+        "interaction": 1.2457999999523164
+      },
+      "identicalBeforeAfter": {
+        "hashes": "5a41e186296bfe4042cb74b1b0b7b6229c01dfc52ea708ce521fdb5bb478ab8e",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "92497b71b9f4806f14de1215295d6999ea0c0c9106358a9f91d71fe4c1785a17",
+        "trees": "13580dd116597ab013a142226047565c2e0cb86c2791b1cf8e8e1875f2654c77",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    },
+    {
+      "device": "mobile",
+      "detail": "balanced",
+      "cache": "warm",
+      "floraMaxPaintGapMs": 116.19999992847443,
+      "longestTaskMs": 3603,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 1329.7999999523163,
+      "phasesSeconds": {
+        "scene": 0.2032999999523163,
+        "terrain": 0.221,
+        "buildings": 0.10229999995231628,
+        "ground": 0.1632000000476837,
+        "flora": 2.1790999999046328,
+        "people": 0.06939999997615814,
+        "census": 0.0028000000715255736,
+        "interaction": 0.8325
+      },
+      "identicalBeforeAfter": {
+        "hashes": "5a41e186296bfe4042cb74b1b0b7b6229c01dfc52ea708ce521fdb5bb478ab8e",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "92497b71b9f4806f14de1215295d6999ea0c0c9106358a9f91d71fe4c1785a17",
+        "trees": "13580dd116597ab013a142226047565c2e0cb86c2791b1cf8e8e1875f2654c77",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    },
+    {
+      "device": "mobile",
+      "detail": "full",
+      "cache": "cold",
+      "floraMaxPaintGapMs": 116.19999992847443,
+      "longestTaskMs": 3675,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 1740.1000000238419,
+      "phasesSeconds": {
+        "scene": 0.21460000002384186,
+        "terrain": 0.2322999999523163,
+        "buildings": 0.09329999995231629,
+        "ground": 0.21570000004768372,
+        "flora": 2.714399999976158,
+        "people": 0.08070000004768371,
+        "census": 0.0037000000476837156,
+        "interaction": 1.2212999999523162
+      },
+      "identicalBeforeAfter": {
+        "hashes": "1723ecde51bdbb14b10c224ff1870ecb7eaa6742f47a0d51232dcfcbc751c2dc",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "8bdc6397881fb149d2959fb0a04a663a58ef968cb0d6679084952309644d8c8c",
+        "trees": "1691556fb279bafe211d58f05189879bccb40904f6b4600e5ce41cd4f763d3cc",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    },
+    {
+      "device": "mobile",
+      "detail": "full",
+      "cache": "warm",
+      "floraMaxPaintGapMs": 124,
+      "longestTaskMs": 3685,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 1762.0,
+      "phasesSeconds": {
+        "scene": 0.23919999992847443,
+        "terrain": 0.231,
+        "buildings": 0.10230000007152558,
+        "ground": 0.155,
+        "flora": 2.847,
+        "people": 0.06960000002384185,
+        "census": 0.02360000002384186,
+        "interaction": 0.8255999999046326
+      },
+      "identicalBeforeAfter": {
+        "hashes": "1723ecde51bdbb14b10c224ff1870ecb7eaa6742f47a0d51232dcfcbc751c2dc",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "8bdc6397881fb149d2959fb0a04a663a58ef968cb0d6679084952309644d8c8c",
+        "trees": "1691556fb279bafe211d58f05189879bccb40904f6b4600e5ce41cd4f763d3cc",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    },
+    {
+      "device": "desktop",
+      "detail": "light",
+      "cache": "cold",
+      "floraMaxPaintGapMs": 111.20000004768372,
+      "longestTaskMs": 3896,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 994.7999999523163,
+      "phasesSeconds": {
+        "scene": 0.217,
+        "terrain": 0.2352000000476837,
+        "buildings": 0.10869999992847443,
+        "ground": 0.20189999997615815,
+        "flora": 1.7625,
+        "people": 0.07889999997615814,
+        "census": 0.0032000000476837156,
+        "interaction": 1.3141000000238419
+      },
+      "identicalBeforeAfter": {
+        "hashes": "6569da44cf00308b8a50b1c89066a92a7e66e337381932c3f15f47d242e6f5be",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "23b2a6b05b0a95a24130a86f88813f5f075e6a052bab3fdc374f070a105b6255",
+        "trees": "dd0fb5ead992c3507a89592eb2356bb24fe006357b1d23eacc12915d34e6f711",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    },
+    {
+      "device": "desktop",
+      "detail": "light",
+      "cache": "warm",
+      "floraMaxPaintGapMs": 116.69999992847443,
+      "longestTaskMs": 3868,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 982.6000000238419,
+      "phasesSeconds": {
+        "scene": 0.2052999999523163,
+        "terrain": 0.23239999997615815,
+        "buildings": 0.11480000007152558,
+        "ground": 0.16059999990463256,
+        "flora": 1.7636000000238419,
+        "people": 0.07020000004768372,
+        "census": 0.004600000023841858,
+        "interaction": 0.8743000000715255
+      },
+      "identicalBeforeAfter": {
+        "hashes": "6569da44cf00308b8a50b1c89066a92a7e66e337381932c3f15f47d242e6f5be",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "23b2a6b05b0a95a24130a86f88813f5f075e6a052bab3fdc374f070a105b6255",
+        "trees": "dd0fb5ead992c3507a89592eb2356bb24fe006357b1d23eacc12915d34e6f711",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    },
+    {
+      "device": "desktop",
+      "detail": "balanced",
+      "cache": "cold",
+      "floraMaxPaintGapMs": 101,
+      "longestTaskMs": 3873,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 1339.5,
+      "phasesSeconds": {
+        "scene": 0.21379999995231627,
+        "terrain": 0.23280000007152557,
+        "buildings": 0.09239999997615814,
+        "ground": 0.21560000002384186,
+        "flora": 2.237299999952316,
+        "people": 0.07969999992847443,
+        "census": 0.003399999976158142,
+        "interaction": 1.2937999999523162
+      },
+      "identicalBeforeAfter": {
+        "hashes": "2119250c246f395cbf7fa6bb59f5285f179076e9a8eebcdafc6fc3d98fb5a2ef",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "92497b71b9f4806f14de1215295d6999ea0c0c9106358a9f91d71fe4c1785a17",
+        "trees": "5dfb246b16ed95cfea9c91acab08d29f48d940acac6f08e4e97e48293bf1fd11",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    },
+    {
+      "device": "desktop",
+      "detail": "balanced",
+      "cache": "warm",
+      "floraMaxPaintGapMs": 117.5,
+      "longestTaskMs": 3894,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 1325.2999999523163,
+      "phasesSeconds": {
+        "scene": 0.20340000009536743,
+        "terrain": 0.21629999995231627,
+        "buildings": 0.12,
+        "ground": 0.14939999997615813,
+        "flora": 2.1945,
+        "people": 0.07229999995231629,
+        "census": 0.0045,
+        "interaction": 0.8737999999523163
+      },
+      "identicalBeforeAfter": {
+        "hashes": "2119250c246f395cbf7fa6bb59f5285f179076e9a8eebcdafc6fc3d98fb5a2ef",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "92497b71b9f4806f14de1215295d6999ea0c0c9106358a9f91d71fe4c1785a17",
+        "trees": "5dfb246b16ed95cfea9c91acab08d29f48d940acac6f08e4e97e48293bf1fd11",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    },
+    {
+      "device": "desktop",
+      "detail": "full",
+      "cache": "cold",
+      "floraMaxPaintGapMs": 110.19999992847443,
+      "longestTaskMs": 3898,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 1749.0,
+      "phasesSeconds": {
+        "scene": 0.21,
+        "terrain": 0.2325,
+        "buildings": 0.0975,
+        "ground": 0.2125,
+        "flora": 2.7996999999284746,
+        "people": 0.08310000002384185,
+        "census": 0.003799999952316284,
+        "interaction": 1.3217000000476837
+      },
+      "identicalBeforeAfter": {
+        "hashes": "ea6d423a4651ed14af4d694572841bf81fa251b630e5e0020c9fb3b9c38a2898",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "8bdc6397881fb149d2959fb0a04a663a58ef968cb0d6679084952309644d8c8c",
+        "trees": "7228ce09bdd3255334ed4106982da45b4a6b25bf3ab361c5978ad041358b9113",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    },
+    {
+      "device": "desktop",
+      "detail": "full",
+      "cache": "warm",
+      "floraMaxPaintGapMs": 121.5,
+      "longestTaskMs": 3906,
+      "matchesUnsliced": true,
+      "baselineFloraMaxPaintGapMs": 1795.4000000953674,
+      "phasesSeconds": {
+        "scene": 0.1975,
+        "terrain": 0.2327999999523163,
+        "buildings": 0.11089999997615814,
+        "ground": 0.15739999997615814,
+        "flora": 2.828200000047684,
+        "people": 0.06989999997615814,
+        "census": 0.0045,
+        "interaction": 0.8875
+      },
+      "identicalBeforeAfter": {
+        "hashes": "ea6d423a4651ed14af4d694572841bf81fa251b630e5e0020c9fb3b9c38a2898",
+        "roll": "e97b2d8a6eb66a05e3e43d4f78eb0e581c87ddacc9896a3715d389a16eb128a1",
+        "flora": "8bdc6397881fb149d2959fb0a04a663a58ef968cb0d6679084952309644d8c8c",
+        "trees": "7228ce09bdd3255334ed4106982da45b4a6b25bf3ab361c5978ad041358b9113",
+        "census": "37de1112a5e30a37cb4441661e30d8d63427cccde848f033c569bed4999762e4"
+      }
+    }
+  ],
+  "longTaskNote": "Includes first-presentation software WebGL/compositor work, not only scene-building JavaScript. A diagnostic Chromium trace attributed a 4.2 s presentation stall to Commit/GPUTask. Flora heartbeat is measured separately; no all-browser-tasks latency guarantee."
+}

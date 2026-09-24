@@ -1,7 +1,7 @@
 {
   "schema": "research-spend-rulings-v1",
   "_doc": "HAND-AUTHORED, T-1234. The written ruling on every unasserted PERSON unit the matched-research table of T-1232 does not reach: the book-domain person units and the letter-list name suspicions. tools/research_spend_ledger.py reads this file at the point where it would otherwise leave a unit unresolved, so a ruling here can only close a unit nothing else has already closed and can never overturn an assertion, a later_only or a refusal the readings themselves carry. Every rule below is stated once and every unit carries its own note; the gate fails on a ruling whose unit does not exist, on a ruling that never fires, and on a rule with no statement. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON OR MOVES A CONFIDENCE. A hand-off is not a spend: it names the open ticket whose field owns the finding, and that ticket closing turns this file red, which is the point.",
-  "ticket": "T-1234",
+  "ticket": "T-1234, corrected by T-1322",
   "rules": {
     "earlier_evidence_adds_no_1835_fact": {
       "disposition": "refused",
@@ -19,25 +19,15 @@
       "disposition": "refused",
       "statement": "The books crosswalk has already refused this row by name, under this domain's standing rule that a merge needs a rule naming both spellings verbatim and that a surname-only merge is always a refusal. The ledger now carries that refusal instead of reading the row as work nobody has looked at."
     },
-    "handed_to_the_arrival_pass": {
-      "disposition": "unresolved",
-      "ticket": "T-1169",
-      "statement": "The unit's person content is a dated arrival, a nativity or a dated presence that bounds one, for a person this town holds. That is T-1169's field — the earliest dated appearance as the bound, the biographies where they speak — and filling it here, one book at a time and without the other sources beside it, is how a layer acquires an arrival date it cannot defend."
-    },
     "handed_to_the_family_pass": {
       "disposition": "unresolved",
-      "ticket": "T-1170",
-      "statement": "The unit names kin — a wife, a marriage, a household member — of a head this town holds. T-1170 gives the attested and inferred heads the families the sources name; a marriage names a spouse and creates nobody, and no household member is minted here."
+      "ticket": "T-1335",
+      "statement": "The unit names kin — a wife, a marriage, a household member — of a head this town holds. WAS T-1170 UNTIL T-1313 CLOSED ON 2026-09-18: that ticket was split into T-1312, T-1313 and T-1314, and with the last of the three done the parent is spent work a unit cannot defer to. The three read the relatives named in the CARDS' own prose; these two are book claims that reading never saw, so they go to T-1320 with the seven kin enrichments in the same position. A marriage names a spouse and creates nobody; a marriage names a spouse and creates nobody, and no household member is minted here. THE HANDOFF MOVED FROM T-1320 TO T-1335 ON 2026-09-18. T-1320 was scoped to the BOOK corpus alone — its title is the ties whose relative is ALSO a held resident, and the book-corpus relatives who are nobody here — and the retarget off T-1170's split pointed ALL FOUR domains at it, which it never covered. Its pass (tools/spend_book_kin.py, PR #1464) did the book job and closed, and 168 units read as deferring to spent work: 147 church, 12 newspapers, 7 residents, and 2 book units its own pass left unruled. T-1335 is the family pass proper and owns all of them. A closed ticket cannot own unresolved units, so the line hands on to live work rather than reading as spent."
     },
     "handed_to_the_dated_role_pass": {
       "disposition": "unresolved",
-      "ticket": "T-1145",
-      "statement": "The unit's only person content is a dated office or trade. T-1145 replaces the one-occupation resident field with dated plural roles, and flattening a dated office into the single field the record carries today is the back-projection that ticket exists to stop."
-    },
-    "identity_open_one_letter_apart": {
-      "disposition": "unresolved",
-      "ticket": "T-1144",
-      "statement": "The read name and a name in the residents layer differ by one letter, and this domain's crosswalk may only join them through a rule naming both spellings verbatim. The convergence ticket owns mint drift and false residents; a pass that closed this by eye would be manufacturing the identity it claims to find."
+      "ticket": "T-1299",
+      "statement": "The unit's only person content is a dated office or trade. T-1145 replaced the one-occupation resident field with dated plural roles and is SPLIT and spent — T-1229 wrote the schema, T-1254 migrated the external evidence, T-1255 put the run on the card. The handoff moves to T-1296, which is the open ticket on the singular field: flattening a dated office into it is the back-projection this line exists to stop, and T-1296 is where the four generators that own that field are made to agree."
     },
     "named_as_a_visitor_not_a_resident": {
       "disposition": "refused",
@@ -46,6 +36,14 @@
     "suspicion_is_not_a_reading": {
       "disposition": "refused",
       "statement": "A row of data/research/residents/letter_list_reading_suspicions.json, whose own preamble says it 'is not evidence of anything': suspected_reading is a SUSPICION, it is graded nothing, no source states it, no record carries it, and nothing downstream may read it as a name. A worklist for a pass working the page images is ruled on as what it is; the household keeps the name the letter list actually prints, and the rows stay for the image pass to work."
+    },
+    "merge_target_withdrawn_from_the_layer": {
+      "disposition": "refused",
+      "statement": "A row of Moses and Kirkland's table of actual settlers prior to 1830 whose landed crosswalk merge names a resident card THIS LAYER NO LONGER HOLDS, the card having been withdrawn by a later refusal rather than renamed or folded. There is no card for the row to be spent onto, and minting one from it would put back the resident the withdrawal removed — on pre-1830 evidence that under the ladder ratified 2026-09-03 cannot place anybody on 1835-07-01 by itself. The row is withheld from the town and carried to the borderline roster (T-1159) as a name the research read and did not admit, and the stale merge is left standing in the crosswalk because a merge is an identity statement inside the research layer and was not wrong when it was made."
+    },
+    "the_reading_is_spent_on_the_yard_and_not_on_a_person_or_a_firm": {
+      "disposition": "aggregate_only",
+      "statement": "The unit is a town reading the SCENE has already taken and the person ledger cannot take. This ledger indexes two target surfaces — the residents layer and, since T-1508, the business layer — and a reading spent on the yard, the terrain or the shore lands on neither, so it stands `unresolved` while being, in fact, finished work. That is the same answer a ground reading gets: it is true, it is in the window, it is committed chronology that the layer citing it names by claim id, and it attaches to no person and no firm. Spending it in aggregate records what it did rather than leaving it queued behind a ticket that has closed. Nothing here edits the record that cites it, raises a trade, or moves a tier."
     }
   },
   "rulings": [
@@ -125,11 +123,6 @@
       "note": "John Kinzie the elder, entered as settling in 1803 and dead on 6 January 1828. The volume's 'first white American settler' is a claim held at arm's length and graded tier 3; neither half reaches 1835."
     },
     {
-      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_013",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "McIlvaine dates Gurdon Hubbard's permanent removal to Chicago to 1834 — an arrival date for a head this town grades attested. It is CONTRADICTED at 1832 by bk_mose1_014, and the arrival pass must rule between them rather than take the first it meets."
-    },
-    {
       "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_040",
       "rule": "earlier_evidence_adds_no_1835_fact",
       "note": "Hubbard meets John H. Kinzie at Mackinaw in 1818 and is explicit that he was stationed permanently there. The crosswalk's merge says in terms that it does not follow he was at Chicago in 1818, and 1818 is not 1835 either way."
@@ -175,54 +168,14 @@
       "note": "St. Cyr permitted to remain at Chicago, having been sent by Bishop Rosati in 1833. The crosswalk's merge says his record is not edited: the arrival is already graded attested at year precision off Andreas, so a 1921 digest repeating it adds nothing the card does not hold at least as well."
     },
     {
-      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_001",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "An arrival YEAR of 1832 for eight named men — Philo Carpenter, John S. Wright, T. W. Goodrich, Hamilton Barnes, Dr. Philip Maxwell, Dr. E. S. Kimberly, George W. Snow and Alanson Sweet. A year and not a month, from an 1895 compilation, and the arrival pass owns which of them it can carry."
-    },
-    {
-      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_005",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Arrivals in the SPRING of 1833 for fifteen named men, which is finer than most arrival evidence this project holds. The list says 'among', so it is not a register and is not exhaustive."
-    },
-    {
       "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_012",
       "rule": "handed_to_the_family_pass",
       "note": "John Dean Caton married Laura Adelaide, daughter of Jacob Sherrill, in 1835 — the year only. The scene date sits inside it and the sentence cannot say which side, so the marriage is a family fact for the pass that draws spouses and not an 1835 household of two."
     },
     {
-      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_013",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Philo Carpenter organised a Sunday school on 19 August 1832 'within a month after his arrival', which closes his arrival to within a month before that day. It is an inference on the book's own wording and the normalized reading says so."
-    },
-    {
-      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_014",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "The roster's preamble excludes Gurdon S. Hubbard because he 'did not take up a permanent residence until 1832'. That is an arrival date, and it CONTRADICTS McIlvaine's 1834 at bk_hub_013; the arrival pass rules between them."
-    },
-    {
-      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_005",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "John Dean Caton arrived in 1833, agreeing with volume 1's spring-1833 list, and brought the first suit in any court of record in Cook county. An arrival year for a man this layer holds."
-    },
-    {
-      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_010",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Fourteen named people present at the organisation of the First Baptist society on 19 October 1833, with a denominator of twenty-five Baptists in the settlement. A dated presence is the bound an arrival takes, and the arrival pass owns the bound."
-    },
-    {
       "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_011",
       "rule": "earlier_evidence_adds_no_1835_fact",
       "note": "The Rev. Allen B. Freeman and his wife Hannah C. arrived at Chicago on 16 August 1833 — an arrival to the day, for a man the same volume says died of typhoid in December 1834. Neither of them is in the town of 1 July 1835 and no arrival is carried onto a card that does not exist."
-    },
-    {
-      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_018",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Eleven named men organising the first Episcopal congregation in 1834, eight of them serving as its vestry. A dated presence in the town a year before the scene, and the bound belongs to the arrival pass; 'Dr. Clark' is a surname and reaches nobody."
-    },
-    {
-      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_020",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "James H. Collins, whom this layer holds as J. H. Collins, agreed in 1834 to come to Chicago when his frozen feet mended, and the compiler never says when he came. The arrival pass owns an arrival the source leaves open; it may not be closed by assuming it."
     },
     {
       "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_021",
@@ -240,39 +193,9 @@
       "note": "Anderson, Joseph against Eli F Anderson, the only Anderson this layer holds; the forenames are different words and a surname-only merge is always a refusal in this domain."
     },
     {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_003",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Beaubien, Jean Baptist — nativity Michigan, YEAR 1812. The crosswalk merges the row onto Col. Jean Baptiste Beaubien on that year and states that nothing in data/residents/ is edited by it; the nativity and the year are arrival and origin, and the arrival pass owns them."
-    },
-    {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_004",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Beaubien, Mark — nativity by ditto (Michigan), year 1826. Merged onto Mark Beaubien on the death date; the year of arrival and the dittoed nativity are the arrival pass's to carry or refuse, and a ditto is recorded as resolving and not as a cell of its own."
-    },
-    {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_005",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Beaubien, Medore Benj — nativity CHICAGO and NO year cell, the absence being meaningful: a man born at the settlement has no year of arrival to print. Merged onto Madore Benjamin Beaubien; the origin is the finding."
-    },
-    {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_006",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Caldwell, Billy — nativity Michigan, year 1820. Merged onto Billy Caldwell (Sauganash), whose note already places his birth and schooling at Detroit; the arrival pass rules whether the table's Michigan and 1820 may stand beside that."
-    },
-    {
       "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_007",
       "rule": "identity_refused_in_the_crosswalk",
       "note": "Caldwell, Archibald against Billy Caldwell (Sauganash), the only Caldwell this layer holds and a man merged in this same pass from a different row of this same table. The remarks cell's '1st tavern 1829' licenses nothing about a tavern standing on 1835-07-01."
-    },
-    {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_008",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Clark, John K — YEAR 1817, nativity ILLEGIBLE ('In-1' in the scan, with Ind. and Ire. both two characters away) and recorded as illegible rather than guessed. Merged onto John K Clark; the year is an arrival and the nativity is a hole the arrival pass must leave open."
-    },
-    {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_009",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Clybourn, Archibald — nativity Va, YEAR 1823. Merged onto Archibald Clybourne, whose card already carries Andreas's 'came in 1823'; the nativity is the part the layer does not hold."
     },
     {
       "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_011",
@@ -290,11 +213,6 @@
       "note": "Galloway, James — a name, a state, a year and one civic act, and no Galloway in the residents layer."
     },
     {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_014",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Heacock, Russel E — YEAR 1827 and a nativity by DITTO that the crosswalk explicitly does not believe, because Andreas's account of the man does not make him an Ohioan and a ditto is the easiest cell in a printed table to set one row out of place. Merged on the year alone."
-    },
-    {
       "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_015",
       "rule": "pre_1830_settler_roster",
       "note": "Jouett, Charles — first Indian agent, the remarks cell reading 'left in 1881' where the digits are one transposition from 1811 and Jouett's agency ended that year. An office of 1805-11 and no card in the layer."
@@ -303,16 +221,6 @@
       "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_016",
       "rule": "identity_refused_in_the_crosswalk",
       "note": "Kinzie, John — the row's own remarks cell ends 'died 1828', which is John Kinzie the ELDER. He belongs in no 1835 record at all and the crosswalk refuses him onto his son's card."
-    },
-    {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_017",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Kinzie, John H — nativity Canada, YEAR 1804 for a man the same cell says was born in July 1803: an arrival in arms at ten months old, with his father's household. Merged onto John Harris Kinzie."
-    },
-    {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_018",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Kinzie, James — nativity Detroit, year 1824. Merged onto James Kinzie; the nativity and the year are origin and arrival and neither is on his card."
     },
     {
       "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_019",
@@ -341,13 +249,8 @@
     },
     {
       "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_024",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Laughton, Barney H — nativity New England, year 1827, no remarks cell. Merged onto Barnardus H Laughton, whose only bound today is 7 May 1834; an arrival of 1827 would move that bound and only the arrival pass may move it."
-    },
-    {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_025",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "McKee, David — nativity Va, year 1823. Merged onto David McKee, whose card carries the agency roster and the 1832 militia agreement but neither a nativity nor a year of arrival."
+      "rule": "merge_target_withdrawn_from_the_layer",
+      "note": "Laughton, Barney H — nativity New England, year 1827, no remarks. The books crosswalk merges the row onto 'Barnardus H Laughton' on the middle initial and the everyday form of the forename, AND THAT CARD IS GONE: hh_laughton_barnardus_h.json was minted from a Chicago paper printing the name, and T-1049 (PR #1175) withdrew it when the resolved place vocabulary read the notice as naming a man outside the town. The layer's two Laughton cards today are David and Sophia, neither a Barney nor a B., and joining the table's row to either would be a surname merge, which this domain's standing rule makes a refusal. T-1322 read the row and declined to re-mint the withdrawn card from it."
     },
     {
       "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_026",
@@ -358,16 +261,6 @@
       "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_027",
       "rule": "pre_1830_settler_roster",
       "note": "Ouilmette, Antoine — the layer holds no Ouilmette. On the nativity cell, see the Laframboise rows: it is the compiler's classification and not a birthplace."
-    },
-    {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_028",
-      "rule": "identity_open_one_letter_apart",
-      "note": "Pothier, Joseph — the reading's note says this project holds no card for either spelling, and that is NO LONGER TRUE: the residents layer holds Joseph Porthier, one letter away, and Andreas names a Joseph Porthier as striker to the government blacksmith at the Chicago agency. A one-letter identity is a crosswalk merge with a rule naming both spellings verbatim, and this pass does not make one."
-    },
-    {
-      "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_029",
-      "rule": "handed_to_the_arrival_pass",
-      "note": "Robinson, Alex — YEAR 1814 and a nativity cell that is NOT a nativity: 'Indian Chief' is an office printed where a birthplace belongs. Merged onto Alexander Robinson (Che-che-pin-qua); the year is an arrival and the office cell is read as what it is."
     },
     {
       "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_030",
@@ -403,6 +296,11 @@
       "unit": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_036",
       "rule": "identity_refused_in_the_crosswalk",
       "note": "Welch, Michael — nativity Ire, year 1829, no remarks, against Michael P Welch, a civic-mint card with a middle initial and a bound of 24 December 1834. The crosswalk says what it would take to spend the row and this pass does not supply it."
+    },
+    {
+      "unit": "civic:data/research/civic/claims/town_findings_andreas_v1.json#claims/c013",
+      "rule": "the_reading_is_spent_on_the_yard_and_not_on_a_person_or_a_firm",
+      "note": "Andreas on how Chicago got its water between the public well of November 1834 and the Hydraulic Company's works of 1842: two-wheeled carts with a mounted hogshead driven into the lake at the foot of Randolph, filled by pail and run off through a leathern hose into barrels at a customer's door at five to ten cents. T-0759 took it and is closed: data/yard/town_water_cart.json cites this claim by id, and data/liberties.json and docs/LIBERTIES.md carry what was inferred from it. The cart is yard furniture, not a household and not a firm — the reading's own notes say the trade was never minuted and name no waterman — so there is no record on either indexed layer for this unit to be asserted against. It routed to T-1468 as 'a trade the town ran that no business record carries'; T-1468's last live child closed on 2026-09-21 (T-1509) and the routing had nowhere left to point."
     },
     {
       "unit": "residents:data/research/residents/letter_list_reading_suspicions.json#rows/~1rows~10",

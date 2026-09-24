@@ -1,8 +1,8 @@
 {
-  "$note": "ROADMAP K25(a). Every form value in this project's reconstructed buildings that sits outside the family band its own note cites. This file is a RATCHET, not an allowance: tools/check.sh fails on any offender that is not here and on any listed offender whose value has moved. K25(b) empties it and deletes it. Regenerate with tools/measure_band_claims.py --write-baseline, and only ever to record a repair.",
+  "$note": "ROADMAP K25(a). Every form value in this project's reconstructed buildings that sits outside the family band its own note cites. This file is a RATCHET, not an allowance: tools/check.sh fails on any offender that is not here and on any listed offender whose value has moved. K25(b) empties it and deletes it. Regenerate with tools/measure_band_claims.py --write-baseline, and only ever to record a repair \u2014 or an offender carrying `waiting_on`, which is a DEADLINE and not an allowance: the tool refuses this file once the ticket it names is no longer open, so a recorded compromise cannot outlive its excuse.",
   "counts": {
     "footprint": 2,
-    "levels": 2
+    "levels": 1
   },
   "measured": "2026-08-15",
   "offenders": {
@@ -24,13 +24,6 @@
       "band": "'1' (=> 1-1)",
       "detail": "the band authors no loft",
       "family": "W5",
-      "marginal": false,
-      "value": "loft = true"
-    },
-    "recon_1835_west_021:levels": {
-      "band": "'1' (=> 1-1)",
-      "detail": "the band authors no loft",
-      "family": "W3",
       "marginal": false,
       "value": "loft = true"
     }

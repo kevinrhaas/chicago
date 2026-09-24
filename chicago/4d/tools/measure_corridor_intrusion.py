@@ -1171,7 +1171,20 @@ def main() -> int:
             "inside its own corridor for the dry-ground reason its record states; "
             "`--drawn` re-runs every mode against the pre-ruling corridor. No building "
             "moved and data/streets/1835.json did not move: this table changed because "
-            "the question did.")
+            "the question did. "
+            "T-1191, 2026-09-19, AND FOR THE SAME REASON: the corridor layer now reaches "
+            "the north bank. Until then `plat_corridors.corridors()` returned nothing "
+            "north of the main stem — one pair of street lists decided both which "
+            "streets a BLOCK may be cut between and which streets a BUILDING may be "
+            "reported standing in — so every north-side lap was unmeasurable rather "
+            "than absent. Eleven invented roofs turned out to be in the road and were "
+            "moved out of it by tools/clear_north_corridors.py, which is a repair. The "
+            "three that stayed are the other half of the rule above: "
+            "`north_branch_bridge` is a bridge in a street, and "
+            "`north_bank_shed_dearborn_e1` and `watkins_school_house` hold positions a "
+            "source argues, which outrank a corridor this project derived. They are "
+            "DEBT, entered here as found and owned by T-1197 and T-1198, not an "
+            "allowance.")
         # NOT a constant. This read "2026-08-16" for as long as the file existed, and no
         # --measured option was ever defined to override it, so every repair banked since
         # August has been stamped with the date of the first measurement rather than its

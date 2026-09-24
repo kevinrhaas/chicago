@@ -12,6 +12,23 @@
   "note": "Not_later_than precision on the date of the Democrat issue that reports his school already running. A school in operation on 26 November 1833 means a teacher in Chicago before it.",
   "precision": "not_later_than"
  },
+ "arrival_year": {
+  "value": 1833,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1833-11-26 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1833."
+  },
+  "seed": "hh_sproat_grenville:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
  "party_size_on_arrival": {
   "value": null,
   "confidence": "reconstructed",
@@ -26,9 +43,20 @@
   "note": "'A school established in the village by Mr. Sproat of Boston' - the Chicago Democrat's own words, in the town's own week. The only contemporary origin statement about any resident in this dataset."
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "A congregation or a school",
   "confidence": "reconstructed",
-  "note": "Not attested in anything this project holds."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THIS HOUSEHOLD'S OWN RECORDED TRADE, WHICH IS NOT ITS MOTIVE. The head is recorded as schoolteacher, and this names the documented draw that trade answered in this town in this decade. It does not claim to know why these people came. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_recorded_trade",
+   "note": "arrival_fill.trade_reasons.a_congregation_or_a_school — the head's recorded trade is evidence about this household, and the draw it answered is the reason the record will carry until a source states one."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -49,6 +77,20 @@
   "sources": [
    "andreas_1884_v1"
   ],
+  "last_dated_appearance": {
+   "as_read": "1834-01-21",
+   "precision": "day",
+   "reaches": "1834-01-21",
+   "includes_scene_date": false,
+   "days_before_scene_date": 526,
+   "leg": "sighting",
+   "person": "sproat_grenville",
+   "record": "person_g_n_sproat",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `press_evidence` as `1834-01-21`, which reaches 1834-01-21 — 526 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+  },
   "note": "Documented teaching in 1833-34 and nothing reached follows him to 1835. By the winter of 1834-35 Andreas has George Davis opening a school on Lake Street over a store between Dearborn and Clark, and later in 1835 teaching in the Presbyterian church, which is a different man in a different room."
  },
  "persons": [
@@ -72,6 +114,24 @@
      "schoolteacher"
     ]
    },
+   "workplaces": [
+    {
+     "business_id": "biz_the_chicago_academy",
+     "business_name": "the Chicago Academy",
+     "role": "proprietor",
+     "printed_as": "G. T. Sproat",
+     "from": "1833-12-03",
+     "to": "1834-01-07",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card sproat_grenville (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1833_12_03#c015",
+      "chicago_democrat_1834_01_07#c010"
+     ],
+     "business_present_at_scene_date": true
+    }
+   ],
    "sources": [
     "andreas_1884_v1",
     "chicago_democrat_1833_11_26",
@@ -132,15 +192,63 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1",
       "chicago_democrat_1833_11_26"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "no_fixed_premises"
+    },
+    {
+     "role": "schoolteacher",
+     "kind": "profession",
+     "as_printed": "schoolmaster",
+     "from": "1833-12-03",
+     "to": "1834-02-25",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_g_t_sproat",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1833-12-03 to 1834-02-25, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "no_fixed_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "inferred",
+    "tier": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+   },
+   "birth_year": {
+    "value": 1807,
+    "precision": "band",
+    "band": [
+     1807,
+     1808
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "A BIRTH INTERVAL OUT OF A DEATH NOTICE, NOT A RECORD OF A BIRTH. The page prints the death as 'February 6, 1887' and the age as 'aged 79'. An age of 79 completed years means at least 79 and less than 80, so the birth falls between 1807-02-07 and 1808-02-06: the birth year is 1807 or 1808. The subtraction is this project's; the page states no year of birth. Fergus's 1843 directory (1896) prints the entry \"Sproat, Granville Temple, school-teacher, died, Mt. Lebanon, N.Y., February 6, 1887, aged 79.\", and its header admits the list also names citizens who arrived after 1843 and others merely prominently connected with Illinois history — so a match here is never evidence of residence in 1835 and never moves a grade. The match to this person was adjudicated in data/research/old_settlers/death_notices_crosswalk_1835.json and written onto this card by tools/spend_old_settlers.py; this pass only spends its arithmetic into a birth year. Both sides of the match spell a forename out — the crosswalk's thin matches, where a single initial is the whole of the discriminator, are refused rather than spent."
+   }
   }
  ],
  "touches_removal": false,

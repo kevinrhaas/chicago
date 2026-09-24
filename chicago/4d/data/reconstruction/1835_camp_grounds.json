@@ -1,0 +1,85 @@
+{
+  "$schema_note": "AUTHORED, and it authors no coordinates. One entry per ground this project has a reason to think the transient crowd of the summer of 1835 slept on. Each candidate names the COMMITTED geometry its extent would be resolved from and the sentence that suggested it; tools/model_transients_1835.py --check holds every reference to a file that exists and every candidate to the vocabulary below. The companion refusal file is 1835_no_build_ground.json, which refuses ground to a private BUILDER — see `a_tent_is_not_a_building` below, because the two questions are not the same question.",
+  "id": "camp_grounds_1835",
+  "ticket": "T-1352",
+  "target_date": "1835-07-01",
+  "authored_by": "T-1352, piece 1 of T-1178",
+  "placed_by": "T-1214, which owns where a camp stands and how large it is; this file hands it candidates and never a polygon",
+  "why_this_file_exists": "The American of 13 June 1835 says the strangers who could not get a room slept on the wharves under the open sky and pitched tents on the spot they landed. That is a USE the scene has nowhere to put: the structure layer holds roofs, the no-build file holds ground a builder may not have, and neither of them holds a camp. This file is the list of grounds a camp could stand on, with the evidence for each kept apart from the guess.",
+  "grades": "`confidence` grades THE CANDIDACY and not the ground. `documented` requires a committed source that says people slept there; `inferred` requires the reasoning to be written out in `why`; `conjectural` is a candidate this project offers T-1214 with no source behind it at all, and says so.",
+  "a_tent_is_not_a_building": "1835_no_build_ground.json refuses ground to a private builder — federal reservation, unsold sand bar, burying ground. A refusal there is NOT a refusal here and must never be read as one: the United States Reservation was not ground on which this project may stand an invented dwelling, and a crowd sleeping rough on the lake shore for a fortnight is not a dwelling and asked nobody's leave. Where a candidate falls inside a no-build region the entry says so in `refused_to_a_builder`, and that field is context for T-1214 rather than a veto.",
+  "no_figure_is_drawn": "docs/LIBERTIES.md L1 stands over every entry here. A camp may become canvas, a wagon and a fire ring; it never becomes a human figure.",
+  "candidates": [
+    {
+      "id": "the_landing_place",
+      "name": "The wharves and the bank where the vessels discharged",
+      "kind": "landing",
+      "confidence": "documented",
+      "why": "The one ground a committed source puts people on. The Chicago American of 13 June 1835: 'our wharves are covered with [men], women and children just landed from the vessels, and even some store houses have been thrown open to receive the unsheltered emigrants, who [had else] remained under the open [sk]y upon the wharves. Some build tents upon the spot [t]hey [we]re landed from the b[oa]ts.' The tents are AT THE LANDING, in the paper's own words, and that is what makes this candidate documented while the four below are not.",
+      "sources": ["chicago_american_1835_06_13"],
+      "claim_ids": ["chicago_american_1835_06_13:c001"],
+      "resolves_from": ["data/wharves/river_landings.json"],
+      "resolution_rule": "The bank runs the landings layer already stands its decks on, taken landward of the deck line. No vertex is authored here and none may be: the bank is traced from the Wright 1834 survey and a camp that drifts off it is a camp in the river.",
+      "refused_to_a_builder": null,
+      "capacity": "not stated — this file counts no people"
+    },
+    {
+      "id": "the_lake_shore_south_of_the_fort",
+      "name": "The lake shore south of Fort Dearborn",
+      "kind": "open_shore",
+      "confidence": "conjectural",
+      "why": "Open, level, unplatted, unsold, and the nearest large ground to the landing that carried no lot line in July 1835 — 22.57 ha of United States Reservation and 9.53 ha of sand bar, by the no-build file's own measurement, with no street across either. No committed source says anybody camped there. It is offered because a crowd turned out of the public houses walks to the nearest open ground, and that sentence is an argument about crowds and not a reading of Chicago.",
+      "sources": [],
+      "claim_ids": [],
+      "resolves_from": ["data/reconstruction/1835_no_build_ground.json"],
+      "resolution_rule": "The reservation and sand-bar regions of the no-build file, which resolve their own boundaries from committed survey lines and traced waterline.",
+      "refused_to_a_builder": ["fort_dearborn_reservation", "river_mouth_sand_bar"],
+      "capacity": "not stated — this file counts no people"
+    },
+    {
+      "id": "the_prairie_edge_west_of_the_canal_street_approach",
+      "name": "The prairie edge west of the Canal Street approach",
+      "kind": "prairie_edge",
+      "confidence": "conjectural",
+      "why": "The overland road came in from the west and the wagons that carried immigrant families came with it; the ground beyond the westernmost platted corridor is where a wagon party stops without entering the town. No committed source names a camp here. The candidacy rests on the direction of the traffic and nothing else.",
+      "sources": [],
+      "claim_ids": [],
+      "resolves_from": ["data/streets/1835.json"],
+      "resolution_rule": "West of the committed centreline of the street the layer carries as `canal`, outside the platted corridors, on ground the terrain layer models. T-1193 extends that ground west; until it does, the candidate may have nowhere to stand and T-1214 should expect to wait.",
+      "refused_to_a_builder": null,
+      "capacity": "not stated — this file counts no people"
+    },
+    {
+      "id": "wolf_point",
+      "name": "Wolf Point, at the forks",
+      "kind": "river_junction",
+      "confidence": "conjectural",
+      "why": "The forks were the town's other public place — a tavern, a ferry and a crossing where all three divisions met — and open ground beside a tavern is where travellers who cannot get a bed in it stay. No committed source says a camp stood here in 1835.",
+      "sources": [],
+      "claim_ids": [],
+      "resolves_from": ["data/structures/wolf_point_tavern.json"],
+      "resolution_rule": "The open ground about the tavern's committed position, inside the traced bank of the forks.",
+      "refused_to_a_builder": null,
+      "capacity": "not stated — this file counts no people"
+    },
+    {
+      "id": "the_north_side_commons",
+      "name": "The North Division ground beyond the dealt parcel",
+      "kind": "commons",
+      "confidence": "conjectural",
+      "why": "The North Division was the emptiest of the three in 1835 and its blocks beyond the initial parcel carried few buildings; ground that is platted but not yet built on is ground nobody is standing on to object. No committed source says anybody camped there, and unlike the reservation this ground was SOLD — a camp here is a trespass on somebody's lot, which is a reason to rank it last and a reason not to drop it, because a town full to the floors does not check title.",
+      "sources": [],
+      "claim_ids": [],
+      "resolves_from": ["data/reconstruction/1835_north_division_initial_parcel.json"],
+      "resolution_rule": "The North Division blocks outside the parcel that file deals. T-1194 numbers those lots; until it does the candidate is a direction and not an extent.",
+      "refused_to_a_builder": null,
+      "capacity": "not stated — this file counts no people"
+    }
+  ],
+  "what_this_file_may_not_do": [
+    "state how many people slept on any ground — the cohort's size is the model's (data/reconstruction/1835_transient_cohort.json) and the seating is T-1353's",
+    "author a coordinate — every extent resolves from committed geometry, the same rule 1835_no_build_ground.json keeps",
+    "raise a candidacy to `documented` on an argument — only a source that says people slept there does that",
+    "be read as a permission: T-1214 places a camp, and it may refuse every candidate here"
+  ]
+}

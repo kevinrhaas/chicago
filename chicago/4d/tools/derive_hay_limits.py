@@ -306,8 +306,8 @@ def derive():
         "edges": [
             {"edge": "lake_shore_illinois_to_the_north_pier",
              "vertices": len(lake_run),
-             "length_m": round(sum(_length(lake_run[i], lake_run[i + 1])
-                                   for i in range(len(lake_run) - 1)), 2),
+             "length_m": round(math.fsum(_length(lake_run[i], lake_run[i + 1])
+                                        for i in range(len(lake_run) - 1)), 2),
              "confidence": "inferred",
              "note": "The 1834 lake shore as traced by tools/trace_shoreline.py, walked "
                      "south from the Illinois Street line to the outer end of the north "
@@ -327,8 +327,8 @@ def derive():
              "sources": ["wright_1834_nara_hup"]},
             {"edge": "the_reservation_north_boundary_and_west_side",
              "vertices": len(res_run),
-             "length_m": round(sum(_length(res_run[i], res_run[i + 1])
-                                   for i in range(len(res_run) - 1))
+             "length_m": round(math.fsum(_length(res_run[i], res_run[i + 1])
+                                        for i in range(len(res_run) - 1))
                                + _length(res_run[-1], vertices[0]), 2),
              "confidence": "inferred",
              "note": "The committed Fort Dearborn reservation ring, walked west along its "
@@ -533,7 +533,17 @@ def census(ring):
 def programme_blocks(ring):
     """Does the ground the block-infill schedule treats as built agree with the ground
     the Trustees fenced? Each scheduled block's centre is the mean of the four corners
-    its four bounding streets make, so this is derived the same way the limit is."""
+    its four bounding streets make, so this is derived the same way the limit is.
+
+    THE MEAN IS SUMMED EXACTLY. Kinzie's Addition is laid out in feet, so a quarter of
+    the sum of four corners lands on an exact half-centimetre over and over — twenty of
+    these centroids sit precisely on the 2 dp rounding boundary. `sum()` accumulates
+    left to right and lands a few parts in 10^15 either side of that boundary, and
+    which side it lands on decides the second decimal: blk_superior_north_wolcott's
+    888.695 read 888.70 on one machine and 888.69 on another, and the committed file
+    flapped between them every time a different machine re-derived it. `math.fsum` is
+    correctly rounded and order-independent, so the boundary is crossed the same way
+    everywhere. It moves four centroids by a centimetre and nothing else."""
     streets = {s["id"]: s for s in json.loads(STREETS.read_text())["streets"]}
     programme = json.loads(PROGRAMME.read_text())
     rows, no_geometry = [], []
@@ -548,8 +558,8 @@ def programme_blocks(ring):
             for we in ("west", "east"):
                 hit = meet(path(streets, bounded[ns]), path(streets, bounded[we]))
                 corners.append((hit["local_e"], hit["local_n"]))
-        centre = (round(sum(c[0] for c in corners) / 4, 2),
-                  round(sum(c[1] for c in corners) / 4, 2))
+        centre = (round(math.fsum(c[0] for c in corners) / 4, 2),
+                  round(math.fsum(c[1] for c in corners) / 4, 2))
         rows.append({"id": row["id"], "state": row["state"],
                      "roofs_scheduled": row.get("roofs", 0),
                      "centre_local_enu_m": list(centre),

@@ -1,0 +1,36 @@
+{
+  "id": "cat_and_clay_chimney",
+  "group": "masonry",
+  "span_m": 2.04,
+  "confidence": "reconstructed",
+  "mean_roughness": 0.95,
+  "kind": "clay",
+  "colors": [
+    [
+      139,
+      124,
+      96
+    ],
+    [
+      194,
+      181,
+      151
+    ]
+  ],
+  "note": "Daubed stick-and-clay chimney fabric for log cabins; bounded by chinking and weathered roof tones.",
+  "resolution_px": 1024,
+  "px_per_m": 501.96,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18352059,
+  "generation_method": "deterministic procedural synthesis"
+}

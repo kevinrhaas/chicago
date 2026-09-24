@@ -96,7 +96,7 @@
       "note": "A COUNT OF ZERO IS A CLAIM. An artillery shed is unheated; there is no stack."
     },
     "function": {
-      "value": "artillery house",
+      "value": "artillery_house",
       "confidence": "inferred",
       "sources": [
         "wentworth_1881_fort_dearborn"

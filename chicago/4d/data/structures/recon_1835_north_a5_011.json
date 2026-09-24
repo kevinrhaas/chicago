@@ -123,7 +123,7 @@
     }
   ],
   "function": {
-    "value": "small utility building",
+    "value": "small_utility_building",
     "confidence": "reconstructed",
     "sources": [
       "owner_chicago_1835_reconstruction_spec_2026"
@@ -141,7 +141,7 @@
     "finish_key": "mixed_patch",
     "roof_condition": "weathered",
     "age_state": "older_frontier",
-    "yard_group": "nw_w2_005_yard"
+    "yard_group": "nw_d4_005_yard"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Aggregate mix follows the supplied specification; exact presence, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false

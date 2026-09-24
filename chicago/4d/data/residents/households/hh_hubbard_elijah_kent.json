@@ -16,20 +16,60 @@
   "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 19 November 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
   "precision": "not_later_than"
  },
+ "arrival_year": {
+  "value": 1834,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1834-11-19 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1834."
+  },
+  "seed": "hh_hubbard_elijah_kent:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
  "party_size_on_arrival": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
  },
  "origin": {
-  "value": null,
+  "value": "England",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_hubbard_elijah_kent:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "The land sales and the canal expectation",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THIS HOUSEHOLD'S OWN RECORDED TRADE, WHICH IS NOT ITS MOTIVE. The head is recorded as insurance agent, and this names the documented draw that trade answered in this town in this decade. It does not claim to know why these people came. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_recorded_trade",
+   "note": "arrival_fill.trade_reasons.the_land_and_the_canal — the head's recorded trade is evidence about this household, and the draw it answered is the reason the record will carry until a source states one."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -52,6 +92,15 @@
   ],
   "note": "THE RECORD BRACKETS THE DAY. This person is named at Chicago at or before 1 July 1835 and named again at or after it, so the sources reach across the scene date rather than stopping at one side of it. Inferred, not documented: no source says where they were on the day."
  },
+ "modelled_family": {
+  "stage": "modelled_families",
+  "ticket": "T-1171",
+  "household_type": "family_with_children",
+  "size_drawn": 7,
+  "kin_seated": 7,
+  "seed": "hh_hubbard_elijah_kent:household_size",
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
+ },
  "persons": [
   {
    "id": "hubbard_elijah_kent",
@@ -61,8 +110,8 @@
    "civic_mint": true,
    "ladder_rule": "G1a",
    "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
+    "value": "insurance_agent",
+    "confidence": "inferred",
     "later_occupation": {
      "value": "banker, 47-",
      "describes_date": 1839,
@@ -70,11 +119,24 @@
      "sources": [
       "fergus_chicago_directory_1839"
      ],
-     "note": "NONE RECORDED FOR 1835 — AND A TRADE IS RECORDED FOR 1839. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. It is not a claim about the scene date: the 1835 occupation above still reads `none_recorded`, its grade has not moved, and no premises has been sought on the strength of it, because a directory of 1839 is evidence about 1839. It is written because the field a reader consults was asserting an absence this file contradicts three lines further down, and \"no trade anywhere\" and \"no trade in the scene window, one printed 1839\" are not the same fact (T-0693)."
+     "note": "A TRADE RECORDED FOR 1839, BESIDE A TRADE READ FOR 1835. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. The 1835 field above no longer reads `none_recorded`: T-1299 admitted the press roles whose bound contains the scene date into it, and that field is a GENERATED VIEW of `roles[]` rather than a second assertion. The pointer stays anyway, and this is the second clause of rule 2. `roles[]` derives the card's 1839 row FROM this pointer and from nowhere else, so taking it off would not tidy the card, it would delete the 1839 printing off the timeline. It is still not a claim about the scene date: a directory of 1839 is evidence about 1839 (T-0693, second clause by T-1299)."
     },
-    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it.",
+    "note": "A TRADE READ FOR 1835-07-01 OUT OF THIS CARD'S OWN ROLES. `insurance_agent` is the strongest claiming role in `roles[]` whose bound contains the scene date, and the grade above is that row's: `inferred` where the evidence is a trade printed against this name in the 1833-1835 press, because the paper printed the trade and the resident programme's identity rule tied the printing to this card. The field used to read `none_recorded` while the row beneath it said the evidence reached the day — the four tools that derive this field disagreed, and T-1299 is where they were made to agree (written by tools/derive_resident_roles.py).",
     "derived_from": "roles",
-    "roles_at_scene_date": []
+    "roles_at_scene_date": [
+     "insurance_agent",
+     "merchant"
+    ],
+    "sources": [
+     "chicago_american_1835"
+    ],
+    "promoted_from_roles": {
+     "sources": [
+      "chicago_american_1835"
+     ],
+     "ticket": "T-1299",
+     "note": "THE CITATIONS ARE THE ROWS', NOT THE BLOCK'S OWN. This field was promoted out of `roles[]` by tools/derive_resident_roles.py and holds nothing those rows do not already say; it is recorded here so the block cannot be mistaken for a second, independently sourced assertion of the same trade, and so that tools/derive_resident_roles.py reads its own write as a view rather than as evidence on the next run."
+    }
    },
    "sources": [
     "chicago_american_1835",
@@ -82,6 +144,537 @@
     "chicago_voter_lists_1833_1835_irad",
     "fergus_1843_old_settler_death_notices",
     "isa_public_domain_land_tract_sales"
+   ],
+   "dated_bounds": [
+    {
+     "bound_kind": "presence",
+     "list": "poll_1835",
+     "list_title": "Poll list of 1835",
+     "record_id": "poll_1835_033",
+     "as_read": "Hubbard, E. K.",
+     "locator": "voter_lists_1833_1835.txt line 320",
+     "describes_date": "1835",
+     "date_confidence": "inferred",
+     "precision": "year",
+     "reaches": "1835-12-31",
+     "here_by": "1835-12-31",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'E. K. Hubbard' against resident 'Elijah Kent Hubbard'",
+     "identity_rule": "one resident of the surname 'Hubbard' agrees with the entry's forenames; 5 bearer(s) of the surname were considered.",
+     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Poll list of 1835 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1835-12-31. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Hubbard' agrees with the entry's forenames; 5 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'E. K. Hubbard' against resident 'Elijah Kent Hubbard'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 18",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0617",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0002108, volume 687 page 262, section 18, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 18",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0618",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0026403, volume 687 page 262, section 18, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 20",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0628",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0026408, volume 687 page 262, section 20, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 21",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0632",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0002111, volume 687 page 262, section 21, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 21",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0633",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0027517, volume 687 page 262, section 21, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 22",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0638",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0001025, volume 687 page 263, section 22, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 22",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0639",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0026409, volume 687 page 263, section 22, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 23",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0645",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0003256, volume 687 page 263, section 23, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 24",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0653",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0028636, volume 687 page 263, section 24, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 26",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0663",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0026411, volume 687 page 264, section 26, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 27",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0670",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0020429, volume 687 page 264, section 27, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R14E sec 36",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0717",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0016205, volume 687 page 266, section 36, T38N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R15E sec 31",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0730",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0003257, volume 687 page 299, section 31, T38N R15E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R15E sec 31",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0731",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0027518, volume 687 page 299, section 31, T38N R15E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T38N R15E sec 31",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0732",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0028637, volume 687 page 299, section 31, T38N R15E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R13E sec 08",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0769",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0014614, volume 687 page 187, section 08, T39N R13E",
+     "describes_date": "06/26/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-26",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R13E sec 08",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0770",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0020428, volume 687 page 187, section 08, T39N R13E",
+     "describes_date": "06/26/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-26",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R13E sec 08",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0771",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0028635, volume 687 page 187, section 08, T39N R13E",
+     "describes_date": "06/26/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-26",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R13E sec 14",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0796",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0002109, volume 687 page 187, section 14, T39N R13E",
+     "describes_date": "06/26/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-26",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R13E sec 14",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0797",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0029688, volume 687 page 187, section 14, T39N R13E",
+     "describes_date": "06/26/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-26",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T41N R14E sec 32",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0950",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0002112, volume 687 page 273, section 32, T41N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T41N R14E sec 32",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0951",
+     "as_read": "HUBBARD ELIJAH K",
+     "locator": "purchase 0006879, volume 687 page 273, section 32, T41N R14E",
+     "describes_date": "06/27/1835",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-27",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HUBBARD ELIJAH K to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_11_19#c001",
+     "claim_kind": "event",
+     "as_printed": "E. K. Hub-",
+     "role": "committee member",
+     "locator": "chicago_democrat_1834_11_19 page 3 column 2",
+     "describes_date": "1834-11-19",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-19",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_e_k_hubbard, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-11-19 names 'E. K. Hub-' in the claim read as chicago_democrat_1834_11_19#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1835_06_17#c002",
+     "claim_kind": "event",
+     "as_printed": "E. K. HUBBARD",
+     "role": "chairman",
+     "locator": "chicago_democrat_1835_06_17 page 2 column 5",
+     "describes_date": "1835-06-17",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-17",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_e_k_hubbard, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-06-17 names 'E. K. HUBBARD' in the claim read as chicago_democrat_1835_06_17#c002, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
    ],
    "note": "THE 1835 POLL LIST AND A SECOND INDEPENDENT SOURCE. Read from death_notice, newspaper_1833_1835, poll_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1a), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 19 November 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 26 times, as “HUBBARD ELIJAH K”, “HUBBARD E K”, 1835-06-26 to 1836-06-28: 24 federal land entries — E2NE sec 22 T38N R14E; E2NW sec 14 T39N R13E; E2NW sec 18 T38N R14E; E2NW sec 21 T38N R14E; E2NW sec 32 T41N R14E; E2SE sec 23 T38N R14E; E2SE sec 31 T38N R15E; N2 sec 08 T39N R13E; NEFR sec 32 T41N R14E; SE sec 26 T38N R14E; SE sec 36 T38N R14E; SW sec 08 T39N R13E; SW sec 27 T38N R14E; W2NE sec 18 T38N R14E; W2NE sec 20 T38N R14E; W2NE sec 22 T38N R14E; W2NE sec 24 T38N R14E; W2NE sec 26 T38N R14E; W2NW sec 21 T38N R14E; W2NW sec 31 T38N R15E; W2SE sec 08 T39N R13E; W2SE sec 24 T38N R14E; W2SE sec 31 T38N R15E; W2SW sec 14 T39N R13E and 2 lots in the platted town — lot 6 of block 4 in the town the register codes CHI (L6BL4CHI, as printed); lot 7 of block 4 in the town the register codes CHIV (L7BL4CHIV, as printed), 2428.28 acres stated in all, for $7629.82 (ls0617, ls0618, ls0628, ls0632, ls0633, ls0638, ls0639, ls0645, ls0652, ls0653, ls0662, ls0663, ls0670, ls0717, ls0730, ls0731, ls0732, ls0769, ls0770, ls0771, ls0796, ls0797, ls0950, ls0951, ls1234, ls1235). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $4120.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: HUBBARD ELIJAH K matches Elijah Kent Hubbard: the forename names Elijah Kent Hubbard of the 5 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Poll list of 1835 — “Hubbard, E. K.” (poll_1835_033, line 320). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Hubbard' agrees with the entry's forenames; 5 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json).",
    "civic_evidence": [
@@ -128,6 +721,106 @@
    ],
    "roles": [
     {
+     "role": "insurance_agent",
+     "kind": "trade",
+     "as_printed": "fire insurance agent",
+     "from": "1834-11-19",
+     "to": "1835-07-29",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": true,
+     "fills_scene_view": true,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_american_1835"
+     ],
+     "claim": "person_e_k_hubbard",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1834-11-19 to 1835-07-29, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls inside that run, so this role stands in the 1835 view (T-1299). SYNONYM-FOLDED (T-1254): the same source prints this role as insurance agent as well, and one source asserting one role over one bound is one row.",
+     "premises": "no_fixed_premises"
+    },
+    {
+     "role": "merchant",
+     "kind": "trade",
+     "as_printed": "merchant",
+     "from": "1834-11-19",
+     "to": "1835-07-29",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": true,
+     "fills_scene_view": true,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_american_1835"
+     ],
+     "claim": "person_e_k_hubbard",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1834-11-19 to 1835-07-29, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls inside that run, so this role stands in the 1835 view (T-1299).",
+     "premises": "own_premises"
+    },
+    {
+     "role": "insurance_agent",
+     "kind": "trade",
+     "as_printed": "fire insurance agent",
+     "from": "1835-08-05",
+     "to": "1835-08-05",
+     "precision": "day",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_hubbard_e_k",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1835-08-05 to 1835-08-05, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "no_fixed_premises"
+    },
+    {
+     "role": "land_agent",
+     "kind": "trade",
+     "as_printed": "land agent",
+     "from": "1835-08-05",
+     "to": "1835-08-05",
+     "precision": "day",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_hubbard_e_k",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1835-08-05 to 1835-08-05, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "merchant",
+     "kind": "trade",
+     "as_printed": "merchant",
+     "from": "1835-08-05",
+     "to": "1835-08-05",
+     "precision": "day",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_hubbard_e_k",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1835-08-05 to 1835-08-05, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "own_premises"
+    },
+    {
      "role": null,
      "kind": "trade",
      "as_printed": "banker, 47-",
@@ -136,14 +829,432 @@
      "precision": "year",
      "dated_by": "printing_year",
      "covers_scene_date": false,
+     "fills_scene_view": false,
      "confidence": "attested",
      "sources": [
       "fergus_chicago_directory_1839"
      ],
      "claim": null,
-     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839.",
+     "premises": null
     }
-   ]
+   ],
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "inferred",
+    "tier": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+   },
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "inferred",
+    "note": "A FORENAME THAT STANDS IN ONE SEX'S NAMING ONLY. 'Elijah' is read as male because 1 person in this layer whose sex a source records bears it (harmon_elijah_d). Nothing about this person is recorded; the name is the whole of the reasoning, and the table that licenses it — data/research/residents/forename_sex.json — refuses a name its own evidence splits, refuses Jean, Marion, Leslie and Francis by name, and refuses an initial outright."
+   },
+   "birth_year": {
+    "value": 1812,
+    "precision": "band",
+    "band": [
+     1812,
+     1813
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "A BIRTH INTERVAL OUT OF A DEATH NOTICE, NOT A RECORD OF A BIRTH. The page prints the death as 'May 26, 1839' and the age as 'aged 26'. An age of 26 completed years means at least 26 and less than 27, so the birth falls between 1812-05-27 and 1813-05-26: the birth year is 1812 or 1813. The subtraction is this project's; the page states no year of birth. Fergus's 1843 directory (1896) prints the entry \"Hubbard, Elijah Kent, died May 26, 1839, aged 26.\", and its header admits the list also names citizens who arrived after 1843 and others merely prominently connected with Illinois history — so a match here is never evidence of residence in 1835 and never moves a grade. The match to this person was adjudicated in data/research/old_settlers/death_notices_crosswalk_1835.json and written onto this card by tools/spend_old_settlers.py; this pass only spends its arithmetic into a birth year. Both sides of the match spell a forename out — the crosswalk's thin matches, where a single initial is the whole of the discriminator, are refused rather than spent."
+   }
+  },
+  {
+   "id": "rc_hubbard_elijah_kent_wife",
+   "name": "Almira Hubbard",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30'. Never above the head's own band: the spacing rule of the household model, which the 1840 adult sex ratio argues for and no source states."
+    },
+    "seed": "hh_hubbard_elijah_kent:wife_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Almira Hubbard",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_hubbard_elijah_kent:wife_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Elijah Kent Hubbard's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people from the 1840 city's size histogram, at the head's own band and not at the mean. A house of 7 with a head of 20 and over is a married house, and this is its wife."
+   },
+   "seed": "hh_hubbard_elijah_kent:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_hubbard_elijah_kent_child_1",
+   "name": "Maria Hubbard",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_hubbard_elijah_kent:child_1_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Maria Hubbard",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_hubbard_elijah_kent:child_1_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Elijah Kent Hubbard's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_hubbard_elijah_kent:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_hubbard_elijah_kent_child_2",
+   "name": "Alanson Hubbard",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_hubbard_elijah_kent:child_2_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Alanson Hubbard",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_hubbard_elijah_kent:child_2_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Elijah Kent Hubbard's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_hubbard_elijah_kent:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_hubbard_elijah_kent_child_3",
+   "name": "Amanda Hubbard",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_hubbard_elijah_kent:child_3_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Amanda Hubbard",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_hubbard_elijah_kent:child_3_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Elijah Kent Hubbard's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_hubbard_elijah_kent:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_hubbard_elijah_kent_child_4",
+   "name": "David Hubbard",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_hubbard_elijah_kent:child_4_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "David Hubbard",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_hubbard_elijah_kent:child_4_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Elijah Kent Hubbard's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_hubbard_elijah_kent:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_hubbard_elijah_kent_child_5",
+   "name": "Seth Hubbard",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_hubbard_elijah_kent:child_5_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Seth Hubbard",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_hubbard_elijah_kent:child_5_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Elijah Kent Hubbard's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
+   },
+   "seed": "hh_hubbard_elijah_kent:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,
@@ -205,17 +1316,18 @@
      "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Hubbard, Elijah K., banker, 47-51 Dearborn st'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. The street NUMBER printed against it is a number in the 1839 grid, a numbering this town's year does not have, so the street name crosses and the number does not. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
     },
     "back_projection": {
-     "outcome": "refused",
-     "clause": "1",
-     "value": null,
+     "outcome": "placed",
+     "clause": "3 and 4",
+     "value": "Dearborn Street",
+     "confidence": "reconstructed",
      "describes_date": 1839,
      "read_back_years": 4,
-     "placement": null,
+     "placement": "face",
      "position_local_enu_m": null,
      "sources": [
       "fergus_chicago_directory_1839"
      ],
-     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1839 prints an address against this name in 1839 and this pass will not carry it back to 1835. The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 1)."
+     "note": "A LATER ADDRESS, READ BACKWARDS 4 YEARS. The door is not an 1835 reading: Fergus's Chicago directory of 1839 printed it in 1839, and this pass carries it back to the scene date because the 1835 record attests a trade for this person and nothing in the corpus places it better. What is claimed is the street face and nothing narrower — no lot, no roof, no door count — and the grade is `reconstructed`, which is this dataset's word for a figure the reconstruction supplies rather than a source. Dearborn Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt. The rule this stands on is docs/ADDRESS-BACK-PROJECTION.md and the liberty is L218; a reader who thinks 4 years is too far to carry a shop should read the grade as the disagreement being invited."
     }
    }
   ]

@@ -2,17 +2,17 @@
   "schema": 2,
   "ticket": "T-0714, with T-0896's reasons",
   "what": "The tools carrying a --check mode that tools/check.sh does not run with --check, and WHY each one is not. A ratchet, not a target: this list may shrink, and audit_check_gates.py --gate fails when it grows, when it is left standing above what the tree actually shows, or when a row states no reason.",
-  "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here — --write carries that field forward — and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
+  "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here \u2014 --write carries that field forward \u2014 and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
   "counts": {
-    "check_capable": 150,
-    "gated": 144,
-    "ungated": 6
+    "check_capable": 180,
+    "gated": 173,
+    "ungated": 7
   },
   "ungated": [
     {
       "tool": "tools/measure_street_widths.py",
       "other_modes_in_check_sh": [],
-      "why_not_gated": "Not gateable per commit: `--check` re-reads the Wright sheet over the IIIF endpoint (the region caches to /tmp and is not committed) and needs numpy and Pillow, so a cold tree reaches the network. Measured GREEN — 5 s, 11 corridors, none drifted more than 0.6 ft — with the readers installed. The way to gate it is trace_river.py's split: an offline `--check-properties` half over the committed metres. It has none yet."
+      "why_not_gated": "Not gateable per commit: `--check` re-reads the Wright sheet over the IIIF endpoint (the region caches to /tmp and is not committed) and needs numpy and Pillow, so a cold tree reaches the network. Measured GREEN \u2014 5 s, 11 corridors, none drifted more than 0.6 ft \u2014 with the readers installed. The way to gate it is trace_river.py's split: an offline `--check-properties` half over the committed metres. It has none yet."
     },
     {
       "tool": "tools/mint_letter_list_residents.py",
@@ -20,8 +20,8 @@
         "--gate",
         "--self-test"
       ],
-      "why_not_gated": "RED — T-0691, itself blocked on T-0660's ruling. `--check` reports 798 file(s) differing, re-measured 2026-09-17. T-0662 read that drift and found byte-identity to be the WRONG CONTRACT for this pass: it is not the last writer of the files it derives. tools/synthesize_resident_research.py rewrites the `letter_list_only` cohort's grade, subtype and note and retires households outright, so re-running the mint over the committed tree REVERTS that work — grades go back from `inferred` to `attested` and the PROJECTED RESIDENT qualifier is stripped from post-office-only names, a confidence upgrade this project forbids — and 54 households are re-minted under changed ids (hh_adains_will_si becomes hh_adains_willisi) out of the same name-splitting fault as the documented mint. Gating it wants a contract that compares what this pass owns, not the whole file. check.sh runs --gate and --self-test, which prove different things.",
-      "owner_ticket": "T-0691"
+      "why_not_gated": "RED \u2014 T-1222. It was carried under T-0691 until 2026-09-18, when the owner's ruling landed and that ticket shrank to the card gate; what is left here is the pipeline-ordering question and never was the collisions. `--check` reports 798 file(s) differing, re-measured 2026-09-17. T-0662 read that drift and found byte-identity to be the WRONG CONTRACT for this pass: it is not the last writer of the files it derives. tools/synthesize_resident_research.py rewrites the `letter_list_only` cohort's grade, subtype and note and retires households outright, so re-running the mint over the committed tree REVERTS that work \u2014 grades go back from `inferred` to `attested` and the PROJECTED RESIDENT qualifier is stripped from post-office-only names, a confidence upgrade this project forbids \u2014 and 54 households are re-minted under changed ids (hh_adains_will_si becomes hh_adains_willisi) out of the same name-splitting fault as the documented mint. Gating it wants a contract that compares what this pass owns, not the whole file. check.sh runs --gate and --self-test, which prove different things.",
+      "owner_ticket": "T-1222"
     },
     {
       "tool": "tools/rename_household_ids.py",
@@ -31,7 +31,7 @@
     {
       "tool": "tools/trace_shoreline.py",
       "other_modes_in_check_sh": [],
-      "why_not_gated": "Not gateable per commit, for the reason check.sh already states about trace_river.py: `--check` re-traces a Digital Commonwealth scan over the network and needs numpy, scipy and Pillow. Its three sibling traces carry a `--check-properties` offline half the gate does run; this one does not, and writing it is how this gets gated. Measured GREEN — 24 s, all 316 water vertices and both harbour shore runs stand."
+      "why_not_gated": "Not gateable per commit, for the reason check.sh already states about trace_river.py: `--check` re-traces a Digital Commonwealth scan over the network and needs numpy, scipy and Pillow. Its three sibling traces carry a `--check-properties` offline half the gate does run; this one does not, and writing it is how this gets gated. Measured GREEN \u2014 24 s, all 316 water vertices and both harbour shore runs stand."
     },
     {
       "tool": "tools/verify_fergus_1839_first_ward.py",
@@ -43,8 +43,14 @@
     {
       "tool": "tools/measure_boot_payload.mjs",
       "other_modes_in_check_sh": [],
-      "why_not_gated": "T-0727/T-1156. The --check re-measures the boot payload in a real headless browser against the PUBLISHED mirror (~40 s plus a publish) — check.sh takes seconds and runs no browser. Deliberately ungated until T-1156 wires it into a nightly smoke leg, whose leg budgeting belongs to T-0167.",
+      "why_not_gated": "T-0727/T-1156. The --check re-measures the boot payload in a real headless browser against the PUBLISHED mirror (~40 s plus a publish) \u2014 check.sh takes seconds and runs no browser. Deliberately ungated until T-1156 wires it into a nightly smoke leg, whose leg budgeting belongs to T-0167.",
       "owner_ticket": "T-1156"
+    },
+    {
+      "tool": "tools/measure_boot_phases.mjs",
+      "other_modes_in_check_sh": [],
+      "why_not_gated": "T-1246. --check boots the published mirror in real Chromium for the device/tier cold/warm timing matrix and 250 ms flora paint heartbeat. check.sh deliberately has no browser dependency; tools/test_boot_phases.mjs gates the deterministic phase/readiness/history contract there. The published browser check and failure/resume cases are run explicitly for this ticket, with the measured receipt in tools/boot_phase_measurements.json. A timing run must use a quiet browser host rather than concurrent per-commit gate jobs.",
+      "owner_ticket": "T-1246"
     }
   ]
 }

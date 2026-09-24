@@ -115,7 +115,7 @@
       "note": "A NEGATIVE THAT IS ALSO A CHOICE. Captain Whistler's 1808 index to the FIRST fort says 'the Barracks are two storeys high with shingled Roofs and Galliaries fronting the parade' (Quaife), and galleries on the parade front are the type. Nothing says the 1816 fort's ranges had them, and John H. Kinzie says the two forts were 'differently constructed'. A plain front is rendered because nobody found evidence either way, which is itself a claim a visitor sees."
     },
     "function": {
-      "value": "officers' quarters",
+      "value": "officers_quarters",
       "confidence": "attested",
       "sources": [
         "andreas_1884_v1",
@@ -124,12 +124,14 @@
       "note": "Quarters for the post's subordinate officers. In 1827, with the fort ungarrisoned, Hubbard found them occupied by Russel E. Heacock 'and one other American family' - which is evidence about 1827, not about 1835."
     },
     "occupants": {
-      "value": "subordinate officers of the garrison",
+      "value": "Assistant Surgeon Philip Maxwell and Lieut. James Allen, and the rest of the post's subordinate officers unnamed",
       "confidence": "inferred",
       "sources": [
-        "andreas_1884_v1"
+        "andreas_1884_v1",
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835"
       ],
-      "note": "Not attested for 1835. Inferred from the building's function and from the post being garrisoned on the scene date; Hubbard's 1827 civilian tenants belong to the years when there were no troops."
+      "note": "NAMED, NOT PROMOTED (T-1348). This block read 'subordinate officers of the garrison' and claimed the same thing it claims now; what it did not do was say who. Two men in this dataset are commissioned officers of the United States Army printed at Chicago across 1 July 1835. Philip Maxwell is Andreas's assistant surgeon, on duty at the post from 3 February 1833 to the abandonment, and hh_maxwell_philip already carries this building as its lives_at. James Allen is the papers': army officer and engineer, printed at the Democrat of 25 March 1834 and of 13 August 1834 and at the American of 18 July 1835 — seventeen days after the scene date, which is what makes his household present rather than uncertain. NO SOURCE PUTS EITHER MAN IN THIS BUILDING, so the grade does not move: the Army quartered a lieutenant and a post surgeon in the subordinate officers' quarters and this dataset holds one. ELEVEN OTHER NAMES WERE RULED OUT, each for a stated clause — a militia colonel, a man on the town poll roll, a soldier's trade read once in January 1834 and never again. The whole adjudication is docs/RESEARCH/fort_dearborn_garrison_1835.md. The enlisted strength stays unwritten and unnumbered here (T-1349), and Hubbard's 1827 civilian tenants belong to the years when there were no troops."
     },
     "land_owner": {
       "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
@@ -171,6 +173,57 @@
       "archived_url": "",
       "tier": 3,
       "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_american_1835",
+      "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
+        "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
+        "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
+        "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
+        "the paper's own correction of its first masthead date"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions",
+        "a reliable reading of a dense body column — this run had no reconciled second pass",
+        "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
+        "identification by volume and number: No. 12 is printed on two different issues",
+        "anything at all from an engraving — the cuts are the printer's stock",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
     },
     {
       "source_id": "harrison_1830_river_mouth",

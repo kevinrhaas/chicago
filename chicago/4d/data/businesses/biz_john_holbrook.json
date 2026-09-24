@@ -1,0 +1,107 @@
+{
+  "id": "biz_john_holbrook",
+  "register_id": "business_john_holbrook",
+  "name": "John Holbrook",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "clothing, boots and shoes, wholesale and retail, as agent for the manufacturers",
+  "occupation": "clothier",
+  "goods": [
+    "Boots and Shoes",
+    "Clothing",
+    "Hats",
+    "boots",
+    "clothing",
+    "hats",
+    "shoes"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "John Holbrook",
+      "person_id": "holbrook_john",
+      "register_person_id": "person_john_holbrook",
+      "role": "partner",
+      "from": "1835-06-10",
+      "to": "1835-08-12",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card holbrook_john (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_13#c012",
+        "chicago_democrat_1835_06_10#c010",
+        "chicago_democrat_1835_08_12#c012"
+      ],
+      "also_printed_as": [
+        "Holbrook, John"
+      ]
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "john_holbrook_store",
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1835-06-10",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure john_holbrook_store on its occupants. john_holbrook_store already stands and its occupants carries holbrook — 'John Holbrook'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-10",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "The paper announces the opening: chicago_democrat_1835_08_12#c012 (1835-06-10)."
+  },
+  "evidence": {
+    "first_issue": "1835-06-10",
+    "last_issue": "1835-08-12",
+    "copy_dates": [
+      "1835-06-10",
+      "1835-06-13"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: John Holbrook (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "holbrook_john",
+        "name": "John Holbrook",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_13#c012",
+    "chicago_democrat_1835_06_10#c010",
+    "chicago_democrat_1835_08_12#c012"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

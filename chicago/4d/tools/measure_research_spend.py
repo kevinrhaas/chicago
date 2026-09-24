@@ -224,10 +224,23 @@ PERSON_KEYS = ("household_id", "person_id", "person_ids", "resident", "matched_r
 WRITTEN_OUTCOMES = ("matched", "candidate")
 
 
+# T-1172. `data/residents/readmitted/` is the RECONSTRUCTION, not the research: the
+# borderline roster's names offered back at the reconstructed tier by
+# tools/readmit_borderline_roster.py. The research instruments below measure what the
+# sources say and what has been spent of them, and a reconstruction is neither. Reading it
+# here would let an invention raise the research meter, join a crosswalk, or stand as a
+# rival card in an identity ruling — which is the exact boundary that stage is built on.
+READMITTED_DIR = "readmitted"
+
+
+def town_records(root):
+    """Every committed resident record EXCEPT the reconstruction's own."""
+    return [p for p in sorted(root.rglob("*.json")) if p.parent.name != READMITTED_DIR]
+
 def resident_records() -> dict:
     """Every resident record by its own id — households and the people files alike."""
     out = {}
-    for path in sorted(RESIDENTS.rglob("*.json")):
+    for path in town_records(RESIDENTS):
         doc = read_json(path)
         if isinstance(doc, dict) and doc.get("id"):
             out[doc["id"]] = doc

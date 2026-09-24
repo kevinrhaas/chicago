@@ -114,8 +114,25 @@ def finish_for(key: str) -> tuple[str, str]:
     return "mixed_patch", "unpainted"
 
 
+def band_ft(family: str, bands: dict[str, list[float]]) -> list[float]:
+    """The family's footprint band, from the inventory where it authors one.
+
+    T-1494. `family_bands_ft` in the building inventory carries 21 of the 35 families
+    the programme names, and the redeal moves two of this parcel's roofs into H1 and H2
+    — two it has never carried. The crosswalk authors a band for all 35 and agrees with
+    the inventory on every family both of them carry, so a family the inventory has no
+    row for is read there rather than refused. That is the same reading
+    `generate_block_infill` already makes and for the same reason: a generator that can
+    only build the families somebody retyped into Python cannot build the programme.
+    The inventory stays FIRST, so nothing this parcel already stands on moves.
+    """
+    if family in bands:
+        return list(bands[family])
+    return [float(x) for x in FAMILY_BANDS[family]["band_ft"]]
+
+
 def dimensions(family: str, seq: int, bands: dict[str, list[float]]) -> tuple[float, float]:
-    lo_w, lo_d, hi_w, hi_d = bands[family]
+    lo_w, lo_d, hi_w, hi_d = band_ft(family, bands)
     key = f"{family}:{seq}"
     width_ft = lo_w + (hi_w - lo_w) * (.18 + .70 * stable_fraction(key, 1))
     depth_ft = lo_d + (hi_d - lo_d) * (.15 + .72 * stable_fraction(key, 2))
@@ -123,7 +140,7 @@ def dimensions(family: str, seq: int, bands: dict[str, list[float]]) -> tuple[fl
     # The current frame dwelling generator is eaves-front. D5/D6 can reach a
     # gable-front proportion at the edge of their bands, so keep this first parcel
     # inside the implemented family while the eventual D5/D6 archetypes are built.
-    if family.startswith("D") and family not in ("D1", "D2") and depth > width * 1.46:
+    if archetype_for(family) == "frame_dwelling" and depth > width * 1.46:
         width = min(hi_w * .3048, depth / 1.46)
     return round(width, 3), round(depth, 3)
 
@@ -133,23 +150,75 @@ def archetype_for(family: str) -> str:
         return "log_dwelling"
     if family == "D2" or family.startswith(("W", "A")) or family == "F1":
         return "outbuilding"
-    if family.startswith("D"):
+    if family.startswith(("D", "H")):
         return "frame_dwelling"
     return "frame_storefront"
 
 
 def function_for(family: str) -> str:
+    """The band's term from the closed vocabulary (T-1311)."""
     return {
-        "D1": "older log dwelling", "D2": "rough plank dwelling or shanty",
-        "D3": "one-room frame cottage", "D4": "two-room frame cottage",
-        "D5": "deep-plan frame cottage", "D6": "one-and-a-half-story frame cottage",
-        "D7": "small two-story frame house", "C1": "small shop or office",
-        "C2": "store-residence", "C3": "narrow two-story store",
-        "W1": "blacksmith shop", "W2": "carpenter or joiner shop",
-        "W3": "cooper, wagon, or wheelwright shop", "W4": "small artisan shop",
-        "F1": "freight or storage shed", "F2": "narrow two-story warehouse",
-        "A1": "stable", "A2": "barn or carriage shed", "A3": "privy",
-        "A4": "woodshed or storage shed", "A5": "small utility building",
+        "D1": "older_log_dwelling",
+        "D2": "rough_plank_dwelling_or_shanty",
+        "D3": "one_room_frame_cottage",
+        "D4": "two_room_frame_cottage",
+        "D5": "deep_plan_frame_cottage",
+        "D6": "one_and_a_half_story_frame_cottage",
+        "D7": "small_two_story_frame_house",
+        "C1": "small_shop_or_office",
+        "C2": "store_residence",
+        "C3": "narrow_two_story_store",
+        "W1": "blacksmith_shop",
+        "W2": "carpenter_or_joiner_shop",
+        "W3": "cooper_wagon_or_wheelwright_shop",
+        "W4": "small_artisan_shop",
+        "F1": "freight_or_storage_shed",
+        "F2": "narrow_two_story_warehouse",
+        "A1": "stable",
+        "A2": "barn_or_carriage_shed",
+        "A3": "privy",
+        "A4": "woodshed_or_storage_shed",
+        "A5": "small_utility_building",
+        # T-1494. The redeal sends two of this parcel's roofs into H1 and H2. The terms
+        # are `generate_block_infill`'s own, copied rather than coined: one town says one
+        # thing about a family, and the block parcel already stands six H roofs on these.
+        "H1": "larger_one_and_a_half_story_house",
+        "H2": "merchant_or_professional_house",
+    }[family]
+
+
+def label_for(family: str) -> str:
+    """The prose the record's human-facing `name` has always used.
+
+    Split from `function_for` by T-1311, which closed the `function` vocabulary.
+    A term is not a phrase to put in front of a visitor, and migrating a
+    vocabulary is not licence to rename the buildings that carry it.
+    """
+    return {
+        "D1": "older log dwelling",
+        "D2": "rough plank dwelling or shanty",
+        "D3": "one-room frame cottage",
+        "D4": "two-room frame cottage",
+        "D5": "deep-plan frame cottage",
+        "D6": "one-and-a-half-story frame cottage",
+        "D7": "small two-story frame house",
+        "C1": "small shop or office",
+        "C2": "store-residence",
+        "C3": "narrow two-story store",
+        "W1": "blacksmith shop",
+        "W2": "carpenter or joiner shop",
+        "W3": "cooper, wagon, or wheelwright shop",
+        "W4": "small artisan shop",
+        "F1": "freight or storage shed",
+        "F2": "narrow two-story warehouse",
+        "A1": "stable",
+        "A2": "barn or carriage shed",
+        "A3": "privy",
+        "A4": "woodshed or storage shed",
+        "A5": "small utility building",
+        # T-1494, and the same borrowing as `function_for` above.
+        "H1": "larger one-and-a-half-story house",
+        "H2": "merchant or professional house",
     }[family]
 
 
@@ -203,6 +272,12 @@ def storeys_for(family: str) -> float:
     """
     if family == "D1":
         return 1
+    # T-1494. The crosswalk's own `levels` for the two H families the redeal sends here:
+    # H1 is 1.5 and H2 is 2. Stated rather than sampled, like every row around it.
+    if family == "H1":
+        return 1.5
+    if family == "H2":
+        return 2
     if family.startswith("D") and family != "D2":
         return 1.5 if family == "D6" else (2 if family == "D7" else 1)
     if family.startswith(("C", "F")) and family != "F1":
@@ -218,6 +293,8 @@ def _pitch_default(family: str) -> float:
     the sampler invents no claim where the specification makes none.
     """
     if family == "D1":
+        return 38.0
+    if family.startswith("H"):
         return 38.0
     if family.startswith("D") and family != "D2":
         return 44.0 if family == "D6" else 38.0
@@ -290,15 +367,24 @@ def _form_body(family: str, seq: int, finish: str, width: float, depth: float) -
             "chimneys": inferred(1, why),
         }
 
-    if family.startswith("D") and family != "D2":
-        bays = 5 if family == "D7" else (3 if width >= 5.4 else 2)
-        plan = "centre_passage" if family == "D7" else ("single_pen" if family == "D3" else "hall_parlour")
+    # T-1494. The H families join this branch rather than falling past it into the
+    # outbuilding tail, which is where they landed the first time and where a
+    # `frame_dwelling` record was dealt a plank wall the archetype refuses outright.
+    # `big` and the chimney count are `generate_block_infill`'s own rule for the same
+    # two families, copied so the town does not build an H2 two ways; every existing
+    # family in this parcel keeps the value it had, including D7's single chimney,
+    # because a redeal is not licence to move a roof nobody adjudicated.
+    if family.startswith(("D", "H")) and family != "D2":
+        big = family in ("D7", "H2")
+        bays = 5 if big else (3 if width >= 5.4 else 2)
+        plan = "centre_passage" if big else ("single_pen" if family == "D3" else "hall_parlour")
         result = {
             "stories": inferred(stories, why), "wall_height_m": inferred(wall, why),
             "roof_type": inferred("gable", why),
             "roof_pitch_deg": inferred(pitch(), why),
             "construction": inferred(construction, why), "plan": inferred(plan, why),
-            "bays": inferred(bays, why), "chimneys": inferred(1, why),
+            "bays": inferred(bays, why),
+            "chimneys": inferred(2 if family == "H2" else 1, why),
             "paint": inferred(finish, why),
         }
         # Slot 10, not slot 7: `family_bands.pitch_deg` draws on 7, and two decisions
@@ -385,7 +471,7 @@ def make_record(seq: int, family: str, e: float, n: float, row: dict,
     function = function_for(family)
     return {
         "id": sid,
-        "name": f"Reconstructed {family} {function} #{seq:03d}",
+        "name": f"Reconstructed {family} {label_for(family)} #{seq:03d}",
         "archetype": archetype_for(family),
         "phases": [{
             "id": PHASE_ID,
@@ -664,7 +750,8 @@ def validate_programme(inventory: dict, parcel: dict, records: list[dict]) -> No
     principal = sum(1 for r in records if r["reconstruction"]["inventory_class"] == "principal_functional")
     ancillary = len(records) - principal
     if (len(records), principal, ancillary) != (48, parcel["principal_functional"], parcel["ancillary"]):
-        raise SystemExit(f"phase-one parcel counts are {(len(records), principal, ancillary)}, expected (48, 40, 8)")
+        raise SystemExit(f"phase-one parcel counts are {(len(records), principal, ancillary)}, "
+                         f"expected {(48, parcel['principal_functional'], parcel['ancillary'])}")
     counts = Counter(r["reconstruction"]["family"] for r in records)
     for family, count in counts.items():
         if count > inventory["family_targets"][family]:
@@ -728,7 +815,10 @@ def main() -> int:
             print(f"  - {item}")
         return 1
     mode = "verified" if args.check else "generated"
-    print(f"{mode} {len(records)} inferred anonymous South Division records (40 principal, 8 ancillary)")
+    principal = sum(1 for r in records
+                    if r["reconstruction"]["inventory_class"] == "principal_functional")
+    print(f"{mode} {len(records)} inferred anonymous South Division records "
+          f"({principal} principal, {len(records) - principal} ancillary)")
     return 0
 
 

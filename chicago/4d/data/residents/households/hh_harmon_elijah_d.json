@@ -55,6 +55,20 @@
   "sources": [
    "andreas_1884_v1"
   ],
+  "last_dated_appearance": {
+   "as_read": "1673/1857",
+   "precision": "source_span",
+   "reaches": "1857-12-31",
+   "includes_scene_date": true,
+   "days_before_scene_date": null,
+   "leg": "source_span",
+   "person": "harmon_elijah_d",
+   "record": null,
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "NO SIGHTING, SO THE LEG IS A SOURCE'S SPAN. The card holds no dated reading of this person at or before the scene date; the date here is the far end of what a cited source COVERS, which the role's own note calls the source's bound and not the man's. Read from `roles[] (source_span)` as `1673/1857`, which reaches 1857-12-31 — a window that covers 1835-07-01 itself, so it pins no last sighting before the day and cannot be read as one. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+  },
   "note": "THE ONE HOUSEHOLD IN THIS PARCEL WHOSE HEAD IS DOCUMENTED TO HAVE LEFT. Andreas: 'In 1834, Dr. Harmon migrated to Texas, and until the time of his death - January 3, 1869 - divided his sojourns between that State and Chicago.' A man who divides his sojourns between Texas and Chicago is in one of them on 1 July 1835 and the source does not say which. Recorded as uncertain, and it must not be silently resolved to 'present' because his sons were here."
  },
  "persons": [
@@ -97,7 +111,51 @@
     "isa_public_domain_land_tract_sales",
     "second_presbyterian_chicago_1892"
    ],
-   "note": "HIS STOCK IN TRADE IS DESCRIBED AND IT IS THE MOST CONCRETE MATERIAL DETAIL ABOUT ANY PERSON IN THIS PARCEL: 'A case of rusty instruments, a library of about one hundred volumes and a stock of medicines brought from the Green Mountains ... His residence was a cabin of hewn logs; his larder, a repository of flour, bacon and coffee.' Born at Bennington, Vermont, 20 August 1782; married Welthyan Loomis 30 October 1808; volunteer surgeon aboard the Saratoga at Plattsburg in 1814. He pre-empted one hundred and forty acres whose northern boundary was near Sixteenth Street. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 2 times, as “HARMON ELIJAH D”, 1834-10-02: 1 federal land entry — SWFR sec 22 T39N R14E, 276.48 acres stated in all, for $345.60 (ls0435, ls0436). THE REGISTER'S OWN RESIDENCE COLUMN READS COOK, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. The register states this purchaser's residence as COOK, so the sale is contemporary evidence that a man of this name lived in Cook County on the date of sale. It is not evidence that he lived in the town. Identity by the crosswalk's own rule: HARMON ELIJAH D matches Dr Elijah Dewey Harmon: the forename names Dr Elijah Dewey Harmon of the 5 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Harmon, Mrs. E. C. | Letter. | November 29, 1882.” (second_presb_0181, printed page 164), admitted 1882-11-29 by letter. Under the rule that decided it: Surname 'Harmon' folds to the same string as the roll line's, and the given name of both begins E. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” THE LINE IS A MARRIED WOMAN'S ENTRY, and the crosswalk's own Mrs rule governs what it can have met: “a line flagged a_married_womans_entry that meets a MAN in the 1835 layer has met his name, not him: it corroborates that the name was a Chicago name in the 1840s and it does not put that man on this roll.” The match is filed rather than suppressed, because a suppressed match is invisible and a flagged one can be argued with. This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
+   "dated_bounds": [
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 22",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0435",
+     "as_read": "HARMON ELIJAH D",
+     "locator": "purchase 0020982, volume 687 page 268, section 22, T39N R14E",
+     "describes_date": "10/02/1834",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-10-02",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HARMON ELIJAH D matches Dr Elijah Dewey Harmon: the forename names Dr Elijah Dewey Harmon of the 6 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HARMON ELIJAH D to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "residence_in_cook",
+     "list": "T39N R14E sec 22",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0436",
+     "as_read": "HARMON ELIJAH D",
+     "locator": "purchase 0195009, volume 236 page 037, section 22, T39N R14E",
+     "describes_date": "10/02/1834",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-10-02",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "HARMON ELIJAH D matches Dr Elijah Dewey Harmon: the forename names Dr Elijah Dewey Harmon of the 6 people of this surname, and the forename agrees in full.",
+     "note": "THE REGISTER STATES COOK, AND COOK COUNTY IS NOT THE TOWN. The Residence column reads COOK, so the document itself says a man of this name lived in Cook County on 1834-10-02. The crosswalk says what that is worth in its own words — it is “not evidence that he lived in the town”. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins HARMON ELIJAH D to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
+   "note": "HIS STOCK IN TRADE IS DESCRIBED AND IT IS THE MOST CONCRETE MATERIAL DETAIL ABOUT ANY PERSON IN THIS PARCEL: 'A case of rusty instruments, a library of about one hundred volumes and a stock of medicines brought from the Green Mountains ... His residence was a cabin of hewn logs; his larder, a repository of flour, bacon and coffee.' Born at Bennington, Vermont, 20 August 1782; married Welthyan Loomis 30 October 1808; volunteer surgeon aboard the Saratoga at Plattsburg in 1814. He pre-empted one hundred and forty acres whose northern boundary was near Sixteenth Street. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 2 times, as “HARMON ELIJAH D”, 1834-10-02: 1 federal land entry — SWFR sec 22 T39N R14E, 276.48 acres stated in all, for $345.60 (ls0435, ls0436). THE REGISTER'S OWN RESIDENCE COLUMN READS COOK, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. The register states this purchaser's residence as COOK, so the sale is contemporary evidence that a man of this name lived in Cook County on the date of sale. It is not evidence that he lived in the town. Identity by the crosswalk's own rule: HARMON ELIJAH D matches Dr Elijah Dewey Harmon: the forename names Dr Elijah Dewey Harmon of the 6 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Harmon, Mrs. E. C. | Letter. | November 29, 1882.” (second_presb_0181, printed page 164), admitted 1882-11-29 by letter. Under the rule that decided it: Surname 'Harmon' folds to the same string as the roll line's, and the given name of both begins E. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” THE LINE IS A MARRIED WOMAN'S ENTRY, and the crosswalk's own Mrs rule governs what it can have met: “a line flagged a_married_womans_entry that meets a MAN in the 1835 layer has met his name, not him: it corroborates that the name was a Chicago name in the 1840s and it does not put that man on this roll.” The match is filed rather than suppressed, because a suppressed match is invisible and a flagged one can be argued with. This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
    "resident_research": {
     "programme": "resident-research-2026",
     "ticket": "T-0510",
@@ -134,14 +192,121 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "physician",
+     "kind": "profession",
+     "as_printed": "physician",
+     "from": "1843",
+     "to": "1843",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "claim": "f1843_e1208",
+     "place": "bds C. L. Harmon",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1843 DIRECTORY, 8 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": "own_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "50-59",
+    "low": 50,
+    "high": 59,
+    "confidence": "attested",
+    "tier": "attested",
+    "sources": [
+     "andreas_1884_v1"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+   }
+  },
+  {
+   "id": "harmon_daughter_burley",
+   "name": "The Harmon daughter later known as Mrs A. G. Burley",
+   "relationship": "daughter",
+   "grade": "inferred",
+   "sex": "female",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work - the sources of 1835 name the occupations of household heads and almost never those of wives, children or the people counted with them."
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "NAMED BY THE SOURCE AS A RELATIVE, NOT AS A RESIDENT. Andreas's particulars of Dr Elijah Dewey Harmon come from 'his daughter Mrs A. G. Burley', writing or speaking about fifty years after the scene date. WHAT THIS RECORD IS: a daughter the source names, seated in her father's household because that is the household this layer holds for her. WHAT IT IS NOT: her name in 1835. 'Mrs A. G. Burley' is a married style built on a husband's initials and the marriage is later than the scene; her own forename is printed nowhere this project has read. No birth year is claimed, so no age follows: the marriage of 30 October 1808 bounds her birth after it and nothing bounds it before 1835. The household's presence stands at 'uncertain' and she inherits it.",
+   "stated_family": {
+    "pass": "stated_families",
+    "ticket": "T-1170",
+    "statement": "kin:hh_harmon_elijah_d__daughter__mrs_a_g_burley",
+    "relation": "daughter",
+    "as_read": "Mrs A. G. Burley",
+    "read_from": "hh_harmon_elijah_d"
+   },
+   "age_band": {
+    "value": null,
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "NO BAND IS DRAWN, AND THE REASON IS THIS CARD'S OWN. A household seats this person as its child and the same record names them in a married style, printed by a source later than the scene. A KINSHIP WORD IS NOT AN AGE (T-1179) and a married style is not one either: neither is dated to 1 July 1835, and they cannot both be read as a band. None of this pass's three conditionings fits, and a band drawn from the schedule's child columns would make a married woman a child under fifteen. This row names ONE person, which is why it does not carry the collective refusal it used to: the refusal is T-1395's and the reason is the card's."
+   }
+  },
+  {
+   "id": "harmon_welthyan",
+   "name": "Welthyan Loomis Harmon",
+   "relationship": "wife",
+   "grade": "inferred",
+   "sex": "female",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source records an occupation for this person. This is the ABSENCE of a record rather than a claim that they did no work - the sources of 1835 name the occupations of household heads and almost never those of wives, children or the people counted with them."
+   },
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "NAMED AND DATED IN THE SOURCE - Andreas's biography of Dr Elijah Dewey Harmon gives the marriage as 'married Welthyan Loomis 30 October 1808', twenty-seven years before the scene date. WHAT THE SOURCE DOES NOT SAY: it does not say she came west with him, and nothing in this project places her at Chicago on 1 July 1835. She is written because a named wife of a named head is the person this layer exists to record, and the presence on the day is the reconstruction, not the marriage. The household's own present_on_scene_date stands at 'uncertain' for the doctor - Andreas has him leaving for the lead mines - and she inherits that doubt exactly. No age, no occupation and no arrival is claimed for her.",
+   "stated_family": {
+    "pass": "stated_families",
+    "ticket": "T-1170",
+    "statement": "marriage:hh_harmon_elijah_d:welthyan_loomis",
+    "relation": "spouse",
+    "as_read": "Welthyan Loomis",
+    "read_from": ".persons[0].note"
+   },
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 30 under 40', one of its female bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "harmon_welthyan:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('harmon_welthyan:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   }
  ],
  "touches_removal": false,

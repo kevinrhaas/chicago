@@ -189,8 +189,10 @@ phase-one parcels ran before it existed, and nothing had ever asked the committe
 the question. `tools/measure_institutional_claims.py` asks it of every record in
 `data/structures/`, runs in `tools/check.sh`, and is **absolute** for I1 and I3: an
 anonymous roof of either family is a regression, and zero is enforceable because the
-buildings are enumerable. I2 is a ratchet at one, naming `recon_1835_north_i2_015` — the
-liberty L93 records rather than deletes. All three halves were broken deliberately before
+buildings are enumerable. I2 was a ratchet at one, naming the North
+Division's one anonymous school — the liberty L93 records rather than deletes —
+and it closed at zero when T-1445 re-dealt that roof off its family and T-1480
+carried the verdict out (it is `recon_1835_north_d4_015`, a dwelling, today). All three halves were broken deliberately before
 the gate was trusted.
 
 **The six-roof I3 target is wrong, and correcting it is NOT this parcel.** Three of the

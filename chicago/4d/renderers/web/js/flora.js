@@ -949,6 +949,7 @@ const GRASS_SHAPE = {
  *   collector) · lowSpec (touch/mobile)
  */
 export async function createFlora({
+  checkpoint = () => null,
   dataBase, terrain, footprints = [], growthBlocked = () => false,
   confidence = null, problems = [], lowSpec = false, detail = 'full',
 } = {}) {
@@ -1086,10 +1087,10 @@ export async function createFlora({
     }
   };
 
-  const water = waterField(terrain);
+  const water = await waterField(terrain, checkpoint);
   const blocks = footprintCircles(footprints);
   const finder = zoneFinder(zones, terrain, water);
-  stats.unzonedLandFraction = auditCoverage(terrain, finder);
+  stats.unzonedLandFraction = await auditCoverage(terrain, finder, checkpoint);
   if (stats.unzonedLandFraction >= 0.999) {
     // Not a tolerance: records exist, ground exists, and NOTHING matches — the
     // layer would draw an empty prairie while looking healthy. Any fraction
@@ -1258,7 +1259,7 @@ export async function createFlora({
     return y;
   }
 
-  function rebuildGround(camE, camN, cone) {
+  function* rebuildGround(camE, camN, cone) {
     nearSet.reset();
     midSet.reset();
     for (const k in heads) heads[k].reset();
@@ -1273,7 +1274,7 @@ export async function createFlora({
     // solid up to it. The set-wide call is gone rather than left as a default:
     // a slot that missed its own `ring()` would be drawn on the nominal one and
     // would be the only stippled plant in the field.
-    scatter(camE, camN, tune.near.cell, tune.near.perCell,
+    yield* scatter(camE, camN, tune.near.cell, tune.near.perCell,
       near.lattice.outer, near.lattice.inner, 0x51ed27, 'strata', cone,
       (e, n, r, rng, _cellSeed, u) => {
         // This slot's own outer boundary. The near ring carries no fringe (its
@@ -1333,7 +1334,7 @@ export async function createFlora({
     // out of reach are dropped here rather than pushed at zero height: the
     // lattice grew by `fringe` to carry the ones it pushes IN, and paying for
     // the whole annulus would be paying for the amplitude twice.
-    scatter(camE, camN, tune.mid.cell, tune.mid.perCell,
+    yield* scatter(camE, camN, tune.mid.cell, tune.mid.perCell,
       mid.lattice.outer, mid.lattice.inner, 0x9e3779, 'strata', cone,
       (e, n, r, rng, _cellSeed, u) => {
         const off = fringeOf(e, n, mid.fringe);
@@ -1368,12 +1369,12 @@ export async function createFlora({
     stats.rebuilds++;
   }
 
-  function rebuildForbs(camE, camN, cone) {
+  function* rebuildForbs(camE, camN, cone) {
     forbSet.reset();
     rosetteSet.reset();
     shrubSet.reset();
     const f = rings.forb;
-    scatter(camE, camN, tune.forb.cell, tune.forb.perCell,
+    yield* scatter(camE, camN, tune.forb.cell, tune.forb.perCell,
       f.lattice.outer, f.lattice.inner, 0x2545f9, 'lattice', cone,
       (e, n, r, rng, _cellSeed, u) => {
         // The forb ring ends within a metre of the mid ring, so the two
@@ -1417,7 +1418,7 @@ export async function createFlora({
     // Everything else is the forb pass, unchanged: the fringe, the walker
     // clearance, the station rules and the head. `placeShrub` reads `width_m` as
     // the clump diameter it is on a shrub (K53).
-    scatter(camE, camN, tune.forb.cell, tune.forb.perCell,
+    yield* scatter(camE, camN, tune.forb.cell, tune.forb.perCell,
       f.lattice.outer, f.lattice.inner, 0x7b5c1d, 'lattice', cone,
       (e, n, r, rng, _cellSeed, u) => {
         const off = fringeOf(e, n, f.fringe);
@@ -1462,11 +1463,11 @@ export async function createFlora({
    * deal is still made, and still off the community's own recorded weights,
    * because it is what gives the card its colour and its height.
    */
-  function rebuildFar(camE, camN, cone) {
+  function* rebuildFar(camE, camN, cone) {
     farSet.reset();
     farSet.ring(FAR_RING);
-    tune.far.bands.forEach((band, i) => {
-      scatter(camE, camN, band.cell, band.perCell, band.radius, band.inner,
+    for (const [i, band] of tune.far.bands.entries()) {
+      yield* scatter(camE, camN, band.cell, band.perCell, band.radius, band.inner,
         0x3a91c7 ^ (i * 0x85ebca6b), 'lattice', cone,
         (e, n, r, rng, _cellSeed, u) => {
           if (farRank(e, n, i) >= farKeepAt(r, band)) return;
@@ -1594,14 +1595,14 @@ export async function createFlora({
               farHeadRing(sp, tune.far.minPx, _headRing));
           }
         });
-    });
+    }
   }
 
-  function rebuildAll(camE, camN, cone) {
+  function* rebuildAll(camE, camN, cone) {
     openCensus();
-    rebuildGround(camE, camN, cone);
-    rebuildForbs(camE, camN, cone);
-    rebuildFar(camE, camN, cone);
+    yield* rebuildGround(camE, camN, cone);
+    yield* rebuildForbs(camE, camN, cone);
+    yield* rebuildFar(camE, camN, cone);
     closeCensus();
     for (const s of sets) s.commit();
     stats.instances = sets.reduce((a, s) => a + s.mesh.count, 0);
@@ -1855,6 +1856,18 @@ export async function createFlora({
      */
     handoverAt(e, n, which = 0) { return handoverRank(e, n, which); },
 
+    async prepare(camera, checkpoint = () => null, onProgress = () => {}) {
+      camera.getWorldPosition(tmpV); camera.getWorldDirection(tmpF);
+      const e = tmpV.x, n = -tmpV.z;
+      const fl = Math.hypot(tmpF.x, tmpF.z) || 1;
+      const fe = tmpF.x / fl, fn = -tmpF.z / fl;
+      for (const row of rebuildAll(e, n, { fe, fn, cos: CONE_COS })) {
+        onProgress(row.done, row.total);
+        const pause = checkpoint(); if (pause) await pause;
+      }
+      centres.near = { e, n }; centres.yaw = Math.atan2(fe, fn);
+    },
+
     update(dt, camera) {
       uniforms.uChiTime.value += dt * TUNE.wind.speedNear;
       if (!sunFound) {
@@ -1875,7 +1888,7 @@ export async function createFlora({
         || Math.abs(((yaw - centres.yaw + Math.PI * 3) % (Math.PI * 2)) - Math.PI)
            > CONE_YAW_STEP;
       if (turned || moved(centres.near, e, n, step)) {
-        rebuildAll(e, n, { fe, fn, cos: CONE_COS });
+        for (const _ of rebuildAll(e, n, { fe, fn, cos: CONE_COS })) { /* runtime synchronous path */ }
         centres.near = { e, n };
         centres.yaw = yaw;
       }
@@ -2842,7 +2855,7 @@ function clamp01(v) { return Math.min(1, Math.max(0, v)); }
 
 /** Distance-to-water, two chamfer passes over the committed heightfield.
  *  `buffer` extents ask it for every plant placed. */
-function waterField(terrain) {
+async function waterField(terrain, checkpoint) {
   const hf = terrain.heightfield;
   const cell = 4.0;
   const surfaceY = hf?.meta?.water_surface_m ?? 0;
@@ -2866,15 +2879,17 @@ function waterField(terrain) {
   const toWater = new Float32Array(cols * rows).fill(BIG);
   const toLand = new Float32Array(cols * rows).fill(BIG);
   for (let r = 0; r < rows; r++) {
+    const pause = checkpoint(); if (pause) await pause;
     for (let c = 0; c < cols; c++) {
       const i = r * cols + c;
       if (terrain.isWater(e0 + c * cell, n0 + r * cell)) toWater[i] = 0;
       else toLand[i] = 0;
     }
   }
-  const solve = (d) => {
+  const solve = async (d) => {
     const put = (i, v) => { if (v < d[i]) d[i] = v; };
     for (let r = 0; r < rows; r++) {
+      const pause = checkpoint(); if (pause) await pause;
       for (let c = 0; c < cols; c++) {
         const i = r * cols + c;
         if (c > 0) put(i, d[i - 1] + cell);
@@ -2884,6 +2899,7 @@ function waterField(terrain) {
       }
     }
     for (let r = rows - 1; r >= 0; r--) {
+      const pause = checkpoint(); if (pause) await pause;
       for (let c = cols - 1; c >= 0; c--) {
         const i = r * cols + c;
         if (c < cols - 1) put(i, d[i + 1] + cell);
@@ -2893,8 +2909,8 @@ function waterField(terrain) {
       }
     }
   };
-  solve(toWater);
-  solve(toLand);
+  await solve(toWater);
+  await solve(toLand);
   return {
     surfaceY,
     isWater: (e, n) => terrain.isWater(e, n),
@@ -2993,13 +3009,14 @@ function pointInPolygon(pts, e, n) {
 /** What fraction of the modelled DRY ground matches no community. Sampled over
  *  the whole heightfield, so it is a property of the dataset and not of where
  *  the visitor happens to stand. */
-function auditCoverage(terrain, finder) {
+async function auditCoverage(terrain, finder, checkpoint) {
   const hf = terrain.heightfield;
   if (!hf?.loaded) return 0;
   const step = 8;
   let land = 0;
   let bare = 0;
   for (let n = hf.originN; n <= hf.originN + hf.depthM; n += step) {
+    const pause = checkpoint(); if (pause) await pause;
     for (let e = hf.originE; e <= hf.originE + hf.widthM; e += step) {
       if (terrain.isWater(e, n)) continue;
       land++;
@@ -3425,7 +3442,7 @@ function rngFrom(seed) {
  *  cell-resolution stratification of K49(c2) since. `'strata'` is the block
  *  permutation of K49(d), which the DENSE matrix layers take because a lattice
  *  stripes them. Both are pure functions of the slot's world coordinates. */
-function scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, emit) {
+function* scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, emit) {
   const c0 = Math.floor((camE - radius) / cell);
   const c1 = Math.ceil((camE + radius) / cell);
   const r0 = Math.floor((camN - radius) / cell);
@@ -3444,6 +3461,7 @@ function scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, emi
   // the sweep is what separates neighbouring blocks, and a per-block random
   // start would put it back where K49(f) left it.
   const globalShift = hash3(salt, STRAT_SALT, 0x9e3779b9) / 4294967296;
+  yield { done: 0, total: r1 - r0 + 1 };
   for (let r = r0; r <= r1; r++) {
     for (let c = c0; c <= c1; c++) {
       const cellSeed = hash3(c, r, salt);
@@ -3500,6 +3518,7 @@ function scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, emi
         emit(e, n, d, rng, cellSeed, u);
       }
     }
+    yield { done: r - r0 + 1, total: r1 - r0 + 1 };
   }
 }
 

@@ -89,6 +89,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -119,6 +120,22 @@ GRID_TOWNSHIP = ("39N", "14E")
 
 
 # ---------------------------------------------------------------- plane geometry
+
+
+def _acres(values) -> float:
+    """An acreage column, summed exactly (T-1486).
+
+    `sum()` accumulates left to right and drifts a few parts in 10^15, which decides the
+    last digit whenever the true figure sits on the rounding boundary; `math.fsum` is
+    correctly rounded and order-independent, so the same rows give the same acreage on
+    every machine. `fsum` always returns a FLOAT, though, and a tract with no ground
+    measured here carries an integer `0` in the committed file — so the all-zero column,
+    which has no boundary to drift across, keeps the exact arithmetic it already had.
+    This is an arithmetic fix and it moves no committed byte.
+    """
+    values = list(values)
+    # exact-sum-ok: the fallback runs only on an all-zero column, which has no boundary
+    return round(math.fsum(values) if any(values) else sum(values), 2)
 
 
 def ring_area(ring: list) -> float:
@@ -417,14 +434,11 @@ def assemble(tracts_doc, ground_doc, entries_doc, polys, grades, sorted_rows, re
             "rows_on_or_before_the_scene_date": sum(1 for r in rows if r["on_or_before_scene_date"]),
             "rows_with_no_measured_share": sum(1 for r in rows if r["share_of_the_parcel"] is None),
             "distinct_parcels": len(parcels),
-            "acres_of_DISTINCT_parcel_ground_here": round(sum(parcels.values()), 2),
-            "acres_summed_over_rows": round(
-                sum(
-                    (r["parcel_acres"] or 0) * (r["share_of_the_parcel"] or 0)
-                    for r in rows
-                    if r["route"] == "geometry"
-                ),
-                2,
+            "acres_of_DISTINCT_parcel_ground_here": _acres(parcels.values()),
+            "acres_summed_over_rows": _acres(
+                (r["parcel_acres"] or 0) * (r["share_of_the_parcel"] or 0)
+                for r in rows
+                if r["route"] == "geometry"
             ),
             "why_the_two_acre_figures_differ": (
                 "a school-section BLOCK is the smallest ground this project can place, and a "

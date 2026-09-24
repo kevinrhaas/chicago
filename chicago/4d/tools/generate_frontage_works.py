@@ -378,6 +378,17 @@ EDGE_STREETS = ("south_water", "lake", "randolph", "washington")
 # than bought with a sixth ceiling raise — which T-0237's acceptance refuses in
 # as many words.
 EDGE_SKIP_BLOCKS = ("blk_lake_clinton",)   # across the South Branch — see above
+# AND THE WHOLE WEST DIVISION GRID WITH IT, SINCE T-1455. That ticket cuts the sheet's
+# own West Division blocks on their own tier lines, and nine of them arrived bounded
+# north and south by Lake, Randolph and Washington Streets — all three in `EDGE_STREETS`
+# — so this rule enumerated fifteen new faces and laid 1,227.7 m of plank walk and nine
+# more corner crossings across the South Branch without anybody asking it to. That is the
+# very frontage the measurement above refuses: ONE block's ONE face costs +23,712
+# triangles at `lake_at_canal` and reads 13,890 OVER the `balanced` ceiling on its own.
+# Fifteen faces is not a bigger version of that question, it is the same one, and T-0193
+# stays blocked on T-0190 until the ceiling has room. Skipped by GRID rather than by id
+# so the next West Division cell cut does not quietly reopen it.
+EDGE_SKIP_GRIDS = ("west_division",)
 # THE CROSS STREETS' OWN FRONTAGES (T-0192), AND THE TWO SEPARATE THINGS THAT
 # REFUSED THEM. The four streets above run east-west and bound a block on its
 # NORTH or SOUTH face; a cross street runs north-south and bounds the same block
@@ -2686,7 +2697,7 @@ def _edge_faces(lots_doc):
     offsetting a committed centreline out of `data/streets/1835.json`."""
     out = []
     for block in lots_doc.get("blocks", []):
-        if block["id"] in EDGE_SKIP_BLOCKS:
+        if block["id"] in EDGE_SKIP_BLOCKS or block.get("grid") in EDGE_SKIP_GRIDS:
             continue
         bounded = block.get("bounded_by") or {}
         for face, (run, side, axis) in EDGE_FACES.items():

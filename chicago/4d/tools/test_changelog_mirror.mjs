@@ -48,7 +48,7 @@ const check = (what, ok, detail) => {
 
 const tmp = mkdtempSync(path.join(tmpdir(), 'c4d-changelog-mirror-'));
 const APP = path.join(tmp, 'chicago', '4d');
-const SITE = path.join(tmp, 'site', 'chicago', '4d');
+const SITE = path.join(tmp, 'site', '4d');
 mkdirSync(path.join(APP, 'tools'), { recursive: true });
 mkdirSync(path.join(APP, 'renderers', 'web', 'js'), { recursive: true });
 mkdirSync(path.join(SITE, 'js'), { recursive: true });

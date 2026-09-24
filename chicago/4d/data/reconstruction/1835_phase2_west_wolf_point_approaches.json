@@ -28,39 +28,152 @@
     "west_target": 135
   },
   "inventory_group_totals": {
-    "ordinary_dwellings": 34,
+    "ordinary_dwellings": 39,
     "larger_boarding_houses": 2,
     "stores_mixed_use": 2,
     "inns_taverns": 0,
-    "workshops": 5,
+    "workshops": 1,
     "warehouses_freight": 1,
     "institutional_public": 0,
     "barns_stables": 7,
-    "small_outbuildings": 4
+    "small_outbuildings": 3
   },
   "family_totals": {
     "D1": 9,
-    "D2": 5,
-    "D3": 7,
-    "D4": 6,
-    "D5": 4,
-    "D6": 2,
+    "D2": 6,
+    "D3": 8,
+    "D4": 7,
+    "D5": 5,
+    "D6": 3,
     "D7": 1,
     "H1": 1,
     "H2": 1,
     "C1": 1,
     "C2": 1,
-    "W1": 1,
-    "W2": 1,
-    "W3": 1,
-    "W4": 1,
     "W5": 1,
     "F1": 1,
     "A1": 5,
     "A2": 2,
-    "A3": 2,
+    "A3": 1,
     "A4": 1,
     "A5": 1
+  },
+  "redealt": {
+    "on": "2026-09-20",
+    "ticket": "T-1451",
+    "adjudicated_by": "T-1445",
+    "ledger": "data/reconstruction/1835_roof_redeal.json",
+    "why": "THE ROOF COUNT DOES NOT MOVE AND SIX FAMILIES DO. T-1445 audited the town's 285 anonymous roofs against the re-derived programme and the placement policy and returned 32 refamily verdicts and no retirements: the programme wants 668 roofs and 371 stand, so a standing roof is almost nowhere surplus to what the order book can occupy. Six of the 32 are this parcel's, and this parcel is where the verdicts could be carried out first because `generate_west_infill` reads a placement's id from the recipe rather than building it out of the family - so a refamily here renames nothing. The other 26 ids DO carry their family (`recon_1835_south_c1_003` becomes `..._d1_003`) and are named by the sidecars, the enclosures, the liberties, the signage, the yard, the frontage, the lodger and seating files and the business layer; that is an id migration across the derived layer and it is T-1452's unit of work, not this one's. NOTHING IS ADJUDICATED HERE: every family below is the `to_family` T-1445 reached and every reason beside it is T-1445's own, quoted. The parcel still builds the same 20 roofs out of the same 55 placements, at the same coordinates and rotations and in the same inventory classes, against the same terrain gate holding the same 35 slots west of E -300 m. What moves is which family stands where, and ONE footprint - `recon_1835_west_011`, a 5x6 ft yard privy the policy refuses where it stands, raised to the 12x16 ft floor of the D2 rough-plank band it joins, which is the smallest change that family allows. FOUR WORKSHOP ROOFS LEAVE THE WEST DIVISION'S WORKSHOP ROW and the row falls from 8 standing to 4 against a target of 8. That shortfall is the adjudication's finding and not a side effect of this execution: a trade shop that stands off its street line is refused by the placement policy wherever the town would like a trade shop to be, and the roofs the west still wants are counted in the order book for the seating tickets to put back on the line. Everything here is still conjectural exactly as it was - that any building stood on this ground, which building it was, and every dimension of it. Recorded in docs/LIBERTIES.md.",
+    "roofs": [
+      {
+        "id": "recon_1835_west_008",
+        "slot": "west_rec_008",
+        "was": "W1",
+        "now": "D4",
+        "was_group": "workshops",
+        "now_group": "ordinary_dwellings",
+        "was_footprint_ft": [
+          20,
+          28
+        ],
+        "footprint_ft": [
+          20,
+          28
+        ],
+        "footprint_moved": false,
+        "why": "the placement policy refuses this family here — stands 3.81 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands"
+      },
+      {
+        "id": "recon_1835_west_009",
+        "slot": "west_rec_009",
+        "was": "W2",
+        "now": "D5",
+        "was_group": "workshops",
+        "now_group": "ordinary_dwellings",
+        "was_footprint_ft": [
+          20,
+          30
+        ],
+        "footprint_ft": [
+          20,
+          30
+        ],
+        "footprint_moved": false,
+        "why": "the placement policy refuses this family here — stands on a light street, which mechanics_streets avoids; the slot is wanted and the position stands"
+      },
+      {
+        "id": "recon_1835_west_010",
+        "slot": "west_rec_010",
+        "was": "A1",
+        "now": "D3",
+        "was_group": "barns_stables",
+        "now_group": "ordinary_dwellings",
+        "was_footprint_ft": [
+          16,
+          24
+        ],
+        "footprint_ft": [
+          16,
+          24
+        ],
+        "footprint_moved": false,
+        "why": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+      },
+      {
+        "id": "recon_1835_west_011",
+        "slot": "west_rec_011",
+        "was": "A3",
+        "now": "D2",
+        "was_group": "small_outbuildings",
+        "now_group": "ordinary_dwellings",
+        "was_footprint_ft": [
+          12,
+          16
+        ],
+        "footprint_ft": [
+          12,
+          16
+        ],
+        "footprint_moved": false,
+        "why": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+      },
+      {
+        "id": "recon_1835_west_021",
+        "slot": "west_rec_021",
+        "was": "W3",
+        "now": "D6",
+        "was_group": "workshops",
+        "now_group": "ordinary_dwellings",
+        "was_footprint_ft": [
+          22,
+          33
+        ],
+        "footprint_ft": [
+          22,
+          33
+        ],
+        "footprint_moved": false,
+        "why": "the placement policy refuses this family here — stands 30.47 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands"
+      },
+      {
+        "id": "recon_1835_west_022",
+        "slot": "west_rec_022",
+        "was": "W4",
+        "now": "A1",
+        "was_group": "workshops",
+        "now_group": "barns_stables",
+        "was_footprint_ft": [
+          18,
+          26
+        ],
+        "footprint_ft": [
+          18,
+          26
+        ],
+        "footprint_moved": false,
+        "why": "the placement policy refuses this family here — stands on a light street, which mechanics_streets avoids; the slot is wanted and the position stands"
+      }
+    ]
   },
   "reservation_policy": {
     "named_roofs": "No T-family or I-family anonymous roof is allocated in this first parcel. The three West Division inn/tavern slots and the single institutional/public slot are reserved for reconciliation against named existing records before any anonymous substitution.",
@@ -74,14 +187,34 @@
     "precision_warning": "Decimal coordinates are machine-readable layout controls, not historical precision. Every instance position is conjectural and the 1834 map georeference itself carries about 20 m working uncertainty."
   },
   "terrain_and_hydrology_gate": {
-    "current_terrain_box_local_enu_m": {"e": [-320.0, 1700.0], "n": [-400.0, 400.0]},
+    "boundary_hold": {
+      "block": "Do not emit a structure record or mesh for the placements listed below. The corporate boundary of 7 November 1833 resolves its west leg on Jefferson Street, and tools/measure_corporation_limits.py must carry that leg 1188.8 m past the end of its own committed centreline to reach Ohio Street. Each of these placements stands closer to the extended leg than the leg's own drift, so the EXTRAPOLATION rather than the ordinance would decide whether the roof stood inside the town limits or outside them. The reconstruction leaves that side unstated by not building the roof.",
+      "imposed_by": "T-1444, 2026-09-20",
+      "measured_by": "tools/measure_corporation_limits.py --gate, 2026-09-20",
+      "lifted_when": "Jefferson Street is traced north to Ohio from a committed source, at which point the leg is no longer an extrapolation and its drift falls to the trace tolerance. The held slots keep their ids, their families and their dealt sequence numbers, and instantiate unchanged. T-1490 owns it.",
+      "slots": {
+        "west_rec_027": {"clearance_m": 12.9, "drift_m": 23.8},
+        "west_rec_029": {"clearance_m": 19.2, "drift_m": 23.2},
+        "west_rec_032": {"clearance_m": 22.6, "drift_m": 22.7},
+        "west_rec_035": {"clearance_m": 6.9, "drift_m": 22.0},
+        "west_rec_037": {"clearance_m": 7.4, "drift_m": 22.4}
+      },
+      "next_roof_out": "recon_1835_west_033 clears the leg at 24.8 m against 22.7 m of drift, and is decided."
+    },
+    "current_terrain_box_local_enu_m": {"e": [-705.0, 1700.0], "n": [-3800.0, 1120.0]},
     "required_west_box_local_enu_m": {"e": [-700.0, 1700.0], "n": [-400.0, 400.0]},
-    "instantiation_block": "Do not emit structure records or meshes for any placement with centre E < -300 m until the heightfield, collision surface, vegetation sampler, minimap, and water mask share the extended box.",
+    "instantiation_block_retired": {
+      "was": "Do not emit structure records or meshes for any placement with centre E < -300 m until the heightfield, collision surface, vegetation sampler, minimap, and water mask share the extended box.",
+      "retired_by": "T-1444, 2026-09-20",
+      "why": "The condition is met, so the block is retired rather than waived. T-1416 regenerated the field to E -705 m: data/terrain/epochs/e1834_harbor_cut/terrain_spec.json now grids e_min_m -705, and heightfield.json carries 963 x 1969 samples from origin_e -705. The collision surface, the water mask and the vegetation sampler are not separate extents to be carried out one by one \u2014 all three are readings of that one committed field, and z01/z02, the two communities this prairie falls in, are elevation bands with no box to clip. The minimap the block named is not a feature this renderer has; a surface that does not exist cannot gate one that does, and saying so is better than counting it as carried.",
+      "held_and_released": "35 of the 55 placements were held. All 35 instantiate on their own recipe ids and their own recipe families, which is what the hold promised. The 20 built under the hold are byte-identical after the release: tools/generate_west_infill.py deals seq over the held half first, so no committed roof is redealt because its neighbours arrived.",
+      "what_still_gates": "tools/generate_west_infill.py --check re-derives all 55 and asks the committed field directly: every footprint corner covered, no corner below -0.10 m, no footprint spanning more than 0.35 m of relief, no collision with this parcel or with any committed record, no intrusion into a platted street corridor, and the terrain box still reaching E -705. The ground-contact question the block stood in for is now asked of the ground."
+    },
     "rules": [
       "Reject every footprint intersecting the authoritative 1834 river mask; do not infer dry ground from a positive decorative plane.",
       "Keep principal roofs at least 8 m from the traced waterline unless a named source explicitly documents a landing or waterside building; this 8 m is a modelling safety band, not a historical measurement.",
       "Keep anonymous ancillary roofs at least 5 m from the waterline and attach them to a principal yard group.",
-      "Do not place a roof in the two conjectural west-prairie swales until their alignments are reviewed after the west terrain extension; move the roof rather than flattening the swale.",
+      "Do not place a roof in the two conjectural west-prairie swales until their alignments are reviewed after the west terrain extension; move the roof rather than flattening the swale. THE REVIEW WAS TAKEN BY T-1444 AND DID NOT SAY WHAT THIS RULE ASSUMED: both alignments now begin in open modelled prairie at E -320, where the field's west wall used to be, and west_prairie_swale_a's 30 m corridor already holds seven of the twenty roofs seated under the hold plus one released by T-1444. The swale is the conjectural half of the pair (no source; T-0795 walked the Wright sheet and it draws no watercourse on this prairie), so the alignment and not the roofs is what goes to the owner \u2014 T-1460. Meanwhile generate_west_infill.py freezes the eight it measured and refuses a ninth.",
       "Sample building grade, collision height, and vegetation root height from the same extended terrain surface."
     ]
   },
@@ -125,10 +258,10 @@
     {"id":"west_rec_005","cluster":"w1_canal_lake_mixed","family":"D6","inventory_class":"principal_functional","center_local_enu_m":[-223,24],"footprint_ft":[22,30],"rotation_deg":91,"density_zone":"B"},
     {"id":"west_rec_006","cluster":"w1_canal_lake_mixed","family":"H1","inventory_class":"principal_functional","center_local_enu_m":[-268,24],"footprint_ft":[26,34],"rotation_deg":89,"density_zone":"B"},
     {"id":"west_rec_007","cluster":"w1_canal_lake_mixed","family":"C1","inventory_class":"principal_functional","center_local_enu_m":[-208,-122],"footprint_ft":[16,26],"rotation_deg":0,"density_zone":"B"},
-    {"id":"west_rec_008","cluster":"w1_canal_lake_mixed","family":"W1","inventory_class":"principal_functional","center_local_enu_m":[-246,-128],"footprint_ft":[20,28],"rotation_deg":1,"density_zone":"B"},
-    {"id":"west_rec_009","cluster":"w1_canal_lake_mixed","family":"W2","inventory_class":"principal_functional","center_local_enu_m":[-292,-130],"footprint_ft":[20,32],"rotation_deg":-2,"density_zone":"B"},
-    {"id":"west_rec_010","cluster":"w1_canal_lake_mixed","family":"A1","inventory_class":"ancillary","center_local_enu_m":[-218,-84],"footprint_ft":[16,24],"rotation_deg":2,"density_zone":"B","yard_group":"west_rec_001"},
-    {"id":"west_rec_011","cluster":"w1_canal_lake_mixed","family":"A3","inventory_class":"ancillary","center_local_enu_m":[-250,-86],"footprint_ft":[5,6],"rotation_deg":-3,"density_zone":"B","yard_group":"west_rec_002"},
+    {"id":"west_rec_008","cluster":"w1_canal_lake_mixed","family":"D4","inventory_class":"principal_functional","center_local_enu_m":[-246,-128],"footprint_ft":[20,28],"rotation_deg":1,"density_zone":"B"},
+    {"id":"west_rec_009","cluster":"w1_canal_lake_mixed","family":"D5","inventory_class":"principal_functional","center_local_enu_m":[-292,-130],"footprint_ft":[20,30],"rotation_deg":-2,"density_zone":"B"},
+    {"id":"west_rec_010","cluster":"w1_canal_lake_mixed","family":"D3","inventory_class":"ancillary","center_local_enu_m":[-218,-84],"footprint_ft":[16,24],"rotation_deg":2,"density_zone":"B","yard_group":"west_rec_001"},
+    {"id":"west_rec_011","cluster":"w1_canal_lake_mixed","family":"D2","inventory_class":"ancillary","center_local_enu_m":[-250,-86],"footprint_ft":[12,16],"rotation_deg":-3,"density_zone":"B","yard_group":"west_rec_002"},
     {"id":"west_rec_012","cluster":"w1_canal_lake_mixed","family":"A4","inventory_class":"ancillary","center_local_enu_m":[-280,-88],"footprint_ft":[8,12],"rotation_deg":1,"density_zone":"B","yard_group":"west_rec_003"},
     {"id":"west_rec_013","cluster":"w1_canal_lake_mixed","family":"A5","inventory_class":"ancillary","center_local_enu_m":[-314,-90],"footprint_ft":[8,10],"rotation_deg":-1,"density_zone":"B","yard_group":"west_rec_004"},
 
@@ -139,8 +272,8 @@
     {"id":"west_rec_018","cluster":"w2_canal_randolph_teamster","family":"D5","inventory_class":"principal_functional","center_local_enu_m":[-215,-276],"footprint_ft":[22,32],"rotation_deg":90,"density_zone":"B"},
     {"id":"west_rec_019","cluster":"w2_canal_randolph_teamster","family":"D7","inventory_class":"principal_functional","center_local_enu_m":[-260,-278],"footprint_ft":[22,30],"rotation_deg":89,"density_zone":"B"},
     {"id":"west_rec_020","cluster":"w2_canal_randolph_teamster","family":"C2","inventory_class":"principal_functional","center_local_enu_m":[-306,-280],"footprint_ft":[20,36],"rotation_deg":91,"density_zone":"B"},
-    {"id":"west_rec_021","cluster":"w2_canal_randolph_teamster","family":"W3","inventory_class":"principal_functional","center_local_enu_m":[-230,-338],"footprint_ft":[22,34],"rotation_deg":-1,"density_zone":"B"},
-    {"id":"west_rec_022","cluster":"w2_canal_randolph_teamster","family":"W4","inventory_class":"principal_functional","center_local_enu_m":[-284,-340],"footprint_ft":[18,26],"rotation_deg":2,"density_zone":"B"},
+    {"id":"west_rec_021","cluster":"w2_canal_randolph_teamster","family":"D6","inventory_class":"principal_functional","center_local_enu_m":[-230,-338],"footprint_ft":[22,33],"rotation_deg":-1,"density_zone":"B"},
+    {"id":"west_rec_022","cluster":"w2_canal_randolph_teamster","family":"A1","inventory_class":"principal_functional","center_local_enu_m":[-284,-340],"footprint_ft":[18,26],"rotation_deg":2,"density_zone":"B"},
     {"id":"west_rec_023","cluster":"w2_canal_randolph_teamster","family":"A1","inventory_class":"ancillary","center_local_enu_m":[-226,-242],"footprint_ft":[18,28],"rotation_deg":1,"density_zone":"B","yard_group":"west_rec_014"},
     {"id":"west_rec_024","cluster":"w2_canal_randolph_teamster","family":"A2","inventory_class":"ancillary","center_local_enu_m":[-272,-242],"footprint_ft":[22,36],"rotation_deg":-2,"density_zone":"B","yard_group":"west_rec_016"},
     {"id":"west_rec_025","cluster":"w2_canal_randolph_teamster","family":"A3","inventory_class":"ancillary","center_local_enu_m":[-316,-242],"footprint_ft":[5,7],"rotation_deg":3,"density_zone":"B","yard_group":"west_rec_017"},

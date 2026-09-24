@@ -1,0 +1,160 @@
+{
+  "id": "biz_chicago_democrat_printing_office",
+  "register_id": "business_chicago_democrat_printing_office",
+  "name": "Chicago Democrat printing office",
+  "provenance": "compiled_from_register",
+  "type": [
+    "printing_office"
+  ],
+  "trade": "newspaper and job printing",
+  "occupation": "printer",
+  "goods": [
+    "blanks",
+    "books",
+    "cards",
+    "job printing",
+    "newspapers",
+    "pamphlets"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "John Calhoun",
+      "person_id": "calhoun_john",
+      "register_person_id": "person_john_calhoun",
+      "role": "proprietor",
+      "from": "1834-01-07",
+      "to": "1835-05-20",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card calhoun_john (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_01_07#c006",
+        "chicago_democrat_1835_05_20#c007"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "[unnamed: the apprentice wanted at this office]",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "apprentice",
+      "from": "1835-05-20",
+      "to": null,
+      "tier": "inferred",
+      "basis": "THE OFFICE ADVERTISED FOR HIM SIX WEEKS BEFORE THE SCENE DATE, AND WHETHER HE CAME IS NOT PRINTED. The Democrat of 20 May 1835 carries, in its own columns: 'Wanted immediately, [a]n apprentice at this office to the printing [b]usiness. A good opportunity is offere[d] by an immediate application.' That is the one hand any notice in this corpus places in either printing office, and it is a VACANCY and not a man — which is exactly why the row stands at `inferred` and names nobody. What is attested is the want; what is inferred is that a shop advertising 'immediately' in a town of this size had its boy within six weeks. A reading that the place went unfilled through July is open and this row must be able to take it. NO PERSON IS CLAIMED: `person_id` is null because no name was printed, not because the resident layer was not searched.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1835_05_20#c007"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staffing": {
+    "class": "printing_office",
+    "reads_as": "a printing office",
+    "principal_role": "printer",
+    "principal_is": "John Calhoun, this record's proprietor, whom the corpus prints as editor and printer of the Democrat from its first number.",
+    "hands": [
+      {
+        "role": "printer",
+        "household_relationship": "journeyman",
+        "count_low": 1,
+        "count_typical": 1,
+        "count_high": 2,
+        "drawn": false,
+        "basis": "directory_1839, off the staffing model's `printing_office` class: journeymen at case and press. Fergus's 1839 list counts fifteen printers — compositors, pressmen and job printers — against two editors, and the two offices of the 1835 census are the establishments those hands worked in four years earlier.",
+        "why_not_drawn": "No source reached names a journeyman at the Democrat. The office's own advertisement of 20 May 1835 wants an APPRENTICE, which is the cheaper hand, and a shop that is advertising for the cheaper hand is not evidence that it already had the dearer one."
+      },
+      {
+        "role": "printer",
+        "household_relationship": "apprentice",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 2,
+        "drawn": true,
+        "basis": "period_convention, off the staffing model's `printing_office` class: the apprentice, who lives in. Its analogue is the journeyman row above; the project holds no roll of either office's hands — docs/RESEARCH/chicago_democrat_office.md reads the imprint and no roll.",
+        "why_not_drawn": null
+      }
+    ],
+    "attendance": null,
+    "writes_no_person": true,
+    "basis": "THE ONE HOUSE IN THIS LAYER WHOSE OWN COLUMNS ADVERTISED FOR A HAND. The model puts 1–2–4 about John Calhoun's press; this record now carries one of them, at `inferred`, on the office's own notice of 20 May 1835, and leaves the journeyman undrawn because nothing names him. Calhoun himself is a printer and is not counted twice: he stands in `proprietors`, where the register put him.",
+    "replaceable_by": "An imprint, a wage book, a later directory or a reminiscence naming anyone who set type or worked the press for the Democrat would turn the apprentice row into a person and draw the journeyman. Any printing that names the boy who answered the May advertisement would settle the one inference this record makes."
+  },
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1834-01-07",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Messrs. Jones & King's hardware store\" names nothing the committed town holds."
+    },
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": false,
+      "from": "1834-01-07",
+      "to": "1834-01-07",
+      "tier": "inferred",
+      "basis": "The earlier of this house's two printed anchors, set as “the corner of South Water and Clark streets”; the register makes “Messrs. Jones & King's hardware store” the siting at the scene date.",
+      "limit_reason": "A prose anchor the register did not resolve to a committed id; kept because the house moved and the move is dated. Printed through 1834-01-07; the anchor that supersedes it is first printed 1835-05-20, so the move falls between those two issues and the corpus dates it no closer."
+    }
+  ],
+  "dates": {
+    "opened": "1834-01-07",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-01-07, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-01-07",
+    "last_issue": "1835-05-20",
+    "copy_dates": [
+      "1835-05-20"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: John Calhoun (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "calhoun_john",
+        "name": "John Calhoun",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_01_07#c006",
+    "chicago_democrat_1835_05_20#c007"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

@@ -18,6 +18,96 @@
   gap: 8px;
 }
 .ev-hub[hidden] { display: none; }
+
+/* ---- City: the town's two completeness ladders ------------------------- */
+.city-census {
+  display: grid;
+  gap: 14px;
+  margin: 12px 0 0;
+  min-width: 0;
+  text-align: left;
+}
+.city-census[hidden] { display: none; }
+.city-census .gc-row {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--ink) 3%, transparent);
+}
+.city-census .gc-head {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.city-census .gc-n {
+  font-size: 26px;
+  font-weight: 640;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.city-census .gc-l { font-size: 12px; color: var(--ink); letter-spacing: .01em; }
+.city-census .gc-bar {
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  background: color-mix(in srgb, var(--ink) 14%, transparent);
+}
+.city-census .gc-seg { display: block; height: 100%; }
+.city-census .gc-seg-built { background: var(--accent); }
+.city-census .gc-seg-att { background: var(--doc); }
+.city-census .gc-seg-inf { background: var(--inf); }
+.city-census .gc-seg-rec { background: var(--con); }
+.city-census .gc-of,
+.city-census .gc-definition,
+.city-census .gc-note {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--ink-dim);
+}
+.city-census .gc-of { opacity: .85; }
+.city-census .gc-definition { color: var(--ink); }
+.city-census .gc-note { margin-top: 2px; opacity: .9; }
+.city-census .gc-key {
+  margin: 1px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 12px;
+  font-size: 11px;
+  color: var(--ink-dim);
+  font-variant-numeric: tabular-nums;
+}
+.city-census .gc-key li { display: flex; align-items: center; gap: 5px; }
+.city-census .gc-sw { width: 8px; height: 8px; border-radius: 2px; display: block; }
+.city-census .gc-sw-att { background: var(--doc); }
+.city-census .gc-sw-inf { background: var(--inf); }
+.city-census .gc-sw-rec { background: transparent; border: 1px solid var(--con); }
+[data-theme="light"] .city-census .gc-seg-att,
+[data-theme="light"] .city-census .gc-sw-att { background: color-mix(in srgb, var(--doc) 52%, var(--ink)); }
+[data-theme="light"] .city-census .gc-seg-inf,
+[data-theme="light"] .city-census .gc-sw-inf { background: color-mix(in srgb, var(--inf) 78%, var(--ink)); }
+[data-theme="light"] .city-census .gc-seg-rec { background: color-mix(in srgb, var(--con) 62%, var(--ink)); }
+.city-meta {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0 2px 4px;
+  font-size: 11px;
+  color: var(--ink-dim);
+}
+.city-meta > div { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 8px; }
+.city-meta dt { color: var(--ink); }
+.city-meta dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 .ev-tile {
   display: grid;
   grid-template-rows: auto auto 1fr;
@@ -229,3 +319,27 @@
 }
 .pop-lead { margin: 0; }
 .pop-note { margin: 10px 0 0; font-style: italic; }
+
+/* THE ORDER BOOK'S PROGRESS BARS (T-1166). The panel reuses the population
+   profile's table shell — same `.pop-table` box, same right-aligned `.num`
+   columns — and adds exactly one thing it does not have: a bar per bucket
+   family showing filled against to-do. The bar is a ratio and nothing else, so
+   it carries its own `aria-label` with both numbers rather than leaving a
+   screen reader a coloured box. `currentColor` keeps it a single-colour mark in
+   both themes, the fleet's icon rule applied to a meter. */
+.ob-bar {
+  margin: 12px 0 0; height: 8px; border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 10%, transparent);
+  overflow: hidden;
+}
+.ob-bar > span {
+  display: block; height: 100%; min-width: 0;
+  background: color-mix(in srgb, currentColor 62%, transparent);
+}
+/* The measured pair beside a programme delta: small, monospaced-in-feel, and
+   never wrapped away from the sentence it qualifies. */
+.ob-delta {
+  display: inline-block; margin-left: 4px; white-space: nowrap;
+  font-style: normal; font-variant-numeric: tabular-nums;
+  color: color-mix(in srgb, var(--ink) 62%, transparent);
+}

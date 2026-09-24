@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 384,
+    "structures_placed": 414,
     "structures_reached": 69,
     "structures_reached_by_grade": {
       "inferred": 19,
       "reconstructed": 50
     },
     "structures_unreached_by_section": {
-      "09": 313,
+      "09": 343,
       "10": 1,
       "16": 1
     },
@@ -2254,6 +2254,10 @@
           "margin_m": 26.4
         },
         {
+          "id": "recon_1835_north_d4_015",
+          "margin_m": 64.2
+        },
+        {
           "id": "recon_1835_north_d4_025",
           "margin_m": 24.5
         },
@@ -2272,10 +2276,6 @@
         {
           "id": "recon_1835_north_h2_030",
           "margin_m": 79.6
-        },
-        {
-          "id": "recon_1835_north_i2_015",
-          "margin_m": 63.7
         }
       ]
     },
@@ -2632,8 +2632,12 @@
           "margin_m": 3.3
         },
         {
+          "id": "recon_1835_north_a1_047",
+          "margin_m": 39.3
+        },
+        {
           "id": "recon_1835_north_a1_050",
-          "margin_m": 63.6
+          "margin_m": 56.4
         },
         {
           "id": "recon_1835_north_a2_048",
@@ -2645,27 +2649,19 @@
         },
         {
           "id": "recon_1835_north_a4_052",
-          "margin_m": 78.9
+          "margin_m": 73.7
         },
         {
           "id": "recon_1835_north_a5_049",
-          "margin_m": 69.5
-        },
-        {
-          "id": "recon_1835_north_c1_020",
-          "margin_m": 49.3
-        },
-        {
-          "id": "recon_1835_north_c1_047",
-          "margin_m": 38.7
-        },
-        {
-          "id": "recon_1835_north_c2_027",
-          "margin_m": 58.8
+          "margin_m": 63.4
         },
         {
           "id": "recon_1835_north_d2_046",
           "margin_m": 73.2
+        },
+        {
+          "id": "recon_1835_north_d3_020",
+          "margin_m": 49.2
         },
         {
           "id": "recon_1835_north_d3_042",
@@ -2696,6 +2692,10 @@
           "margin_m": 9.2
         },
         {
+          "id": "recon_1835_north_d6_027",
+          "margin_m": 58.8
+        },
+        {
           "id": "recon_1835_north_d6_044",
           "margin_m": 34.2
         },
@@ -2704,20 +2704,20 @@
           "margin_m": 51.7
         },
         {
-          "id": "recon_1835_north_f1_022",
-          "margin_m": 34.5
+          "id": "recon_1835_north_h2_022",
+          "margin_m": 35.3
         },
         {
-          "id": "recon_1835_north_h3_045",
-          "margin_m": 95.3
+          "id": "recon_1835_north_h2_028",
+          "margin_m": 80.9
         },
         {
-          "id": "recon_1835_north_t1_028",
-          "margin_m": 81.5
+          "id": "recon_1835_north_h2_045",
+          "margin_m": 95.9
         },
         {
           "id": "recon_1835_north_w5_040",
-          "margin_m": 1.2
+          "margin_m": 6.5
         },
         {
           "id": "steamboat_hotel",
@@ -2769,8 +2769,12 @@
           "margin_m": 3.3
         },
         {
+          "id": "recon_1835_north_a1_047",
+          "margin_m": 39.3
+        },
+        {
           "id": "recon_1835_north_a1_050",
-          "margin_m": 63.6
+          "margin_m": 56.4
         },
         {
           "id": "recon_1835_north_a2_048",
@@ -2782,27 +2786,19 @@
         },
         {
           "id": "recon_1835_north_a4_052",
-          "margin_m": 78.9
+          "margin_m": 73.7
         },
         {
           "id": "recon_1835_north_a5_049",
-          "margin_m": 69.5
-        },
-        {
-          "id": "recon_1835_north_c1_020",
-          "margin_m": 49.3
-        },
-        {
-          "id": "recon_1835_north_c1_047",
-          "margin_m": 38.7
-        },
-        {
-          "id": "recon_1835_north_c2_027",
-          "margin_m": 58.8
+          "margin_m": 63.4
         },
         {
           "id": "recon_1835_north_d2_046",
           "margin_m": 73.2
+        },
+        {
+          "id": "recon_1835_north_d3_020",
+          "margin_m": 49.2
         },
         {
           "id": "recon_1835_north_d3_042",
@@ -2833,6 +2829,10 @@
           "margin_m": 9.2
         },
         {
+          "id": "recon_1835_north_d6_027",
+          "margin_m": 58.8
+        },
+        {
           "id": "recon_1835_north_d6_044",
           "margin_m": 34.2
         },
@@ -2841,20 +2841,20 @@
           "margin_m": 51.7
         },
         {
-          "id": "recon_1835_north_f1_022",
-          "margin_m": 34.5
+          "id": "recon_1835_north_h2_022",
+          "margin_m": 35.3
         },
         {
-          "id": "recon_1835_north_h3_045",
-          "margin_m": 95.3
+          "id": "recon_1835_north_h2_028",
+          "margin_m": 80.9
         },
         {
-          "id": "recon_1835_north_t1_028",
-          "margin_m": 81.5
+          "id": "recon_1835_north_h2_045",
+          "margin_m": 95.9
         },
         {
           "id": "recon_1835_north_w5_040",
-          "margin_m": 1.2
+          "margin_m": 6.5
         },
         {
           "id": "steamboat_hotel",
@@ -39733,13 +39733,14 @@
       "recon_1835_north_d3_006",
       "recon_1835_north_d3_016",
       "recon_1835_north_d4_004",
+      "recon_1835_north_d4_005",
       "recon_1835_north_d4_012",
       "recon_1835_north_d4_017",
+      "recon_1835_north_d4_018",
       "recon_1835_north_d6_021",
       "recon_1835_north_h1_007",
-      "recon_1835_north_w1_018",
-      "recon_1835_north_w2_005",
       "recon_1835_south_a1_046",
+      "recon_1835_south_a2_037",
       "recon_1835_south_a2_047",
       "recon_1835_south_a3_041",
       "recon_1835_south_a3_043",
@@ -39747,15 +39748,13 @@
       "recon_1835_south_a4_042",
       "recon_1835_south_a4_048",
       "recon_1835_south_a5_044",
-      "recon_1835_south_c1_003",
-      "recon_1835_south_c1_010",
-      "recon_1835_south_c1_018",
-      "recon_1835_south_c2_007",
-      "recon_1835_south_c2_036",
       "recon_1835_south_c3_015",
-      "recon_1835_south_c3_037",
       "recon_1835_south_c3_040",
+      "recon_1835_south_d1_003",
+      "recon_1835_south_d1_010",
+      "recon_1835_south_d1_018",
       "recon_1835_south_d1_021",
+      "recon_1835_south_d1_032",
       "recon_1835_south_d1_033",
       "recon_1835_south_d2_005",
       "recon_1835_south_d2_024",
@@ -39771,25 +39770,27 @@
       "recon_1835_south_d4_014",
       "recon_1835_south_d4_019",
       "recon_1835_south_d4_025",
+      "recon_1835_south_d4_026",
       "recon_1835_south_d4_030",
       "recon_1835_south_d5_004",
+      "recon_1835_south_d5_007",
       "recon_1835_south_d5_011",
       "recon_1835_south_d5_016",
+      "recon_1835_south_d5_023",
       "recon_1835_south_d5_028",
       "recon_1835_south_d5_034",
       "recon_1835_south_d6_012",
       "recon_1835_south_d6_020",
       "recon_1835_south_d6_031",
+      "recon_1835_south_d6_036",
       "recon_1835_south_d7_035",
       "recon_1835_south_f1_038",
-      "recon_1835_south_f2_039",
-      "recon_1835_south_w1_023",
-      "recon_1835_south_w2_026",
-      "recon_1835_south_w3_029",
-      "recon_1835_south_w4_032",
+      "recon_1835_south_h1_029",
+      "recon_1835_south_h2_039",
       "recon_1835_west_001",
       "recon_1835_west_002",
       "recon_1835_west_003",
+      "recon_1835_west_004",
       "recon_1835_west_005",
       "recon_1835_west_006",
       "recon_1835_west_007",
@@ -39798,15 +39799,44 @@
       "recon_1835_west_010",
       "recon_1835_west_011",
       "recon_1835_west_012",
+      "recon_1835_west_013",
       "recon_1835_west_014",
       "recon_1835_west_015",
       "recon_1835_west_016",
+      "recon_1835_west_017",
       "recon_1835_west_018",
       "recon_1835_west_019",
+      "recon_1835_west_020",
       "recon_1835_west_021",
       "recon_1835_west_022",
       "recon_1835_west_023",
       "recon_1835_west_024",
+      "recon_1835_west_025",
+      "recon_1835_west_026",
+      "recon_1835_west_028",
+      "recon_1835_west_030",
+      "recon_1835_west_031",
+      "recon_1835_west_033",
+      "recon_1835_west_034",
+      "recon_1835_west_036",
+      "recon_1835_west_038",
+      "recon_1835_west_039",
+      "recon_1835_west_040",
+      "recon_1835_west_041",
+      "recon_1835_west_042",
+      "recon_1835_west_043",
+      "recon_1835_west_044",
+      "recon_1835_west_045",
+      "recon_1835_west_046",
+      "recon_1835_west_047",
+      "recon_1835_west_048",
+      "recon_1835_west_049",
+      "recon_1835_west_050",
+      "recon_1835_west_051",
+      "recon_1835_west_052",
+      "recon_1835_west_053",
+      "recon_1835_west_054",
+      "recon_1835_west_055",
       "robert_kinzie_store",
       "robinson_caldwell_cabins",
       "sauganash_hotel",

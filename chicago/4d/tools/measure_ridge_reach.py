@@ -268,7 +268,7 @@ def self_test() -> int:
     cases.append(("the open-sided table drifting from the crosswalk entry", c2))
 
     c3 = copy.deepcopy(clean)
-    c3["unrecorded"] = [("recon_1835_north_f1_022", "F1")]
+    c3["unrecorded"] = [("recon_1835_north_h2_022", "F1")]
     cases.append(("a refused family's record that does not carry the refusal", c3))
 
     c4 = copy.deepcopy(clean)

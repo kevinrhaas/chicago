@@ -1,0 +1,151 @@
+{
+  "id": "biz_the_chicago_democrat",
+  "register_id": "business_the_chicago_democrat",
+  "name": "The Chicago Democrat",
+  "provenance": "compiled_from_register",
+  "type": [
+    "printing_office"
+  ],
+  "trade": "newspaper printing and job printing",
+  "occupation": "printer",
+  "goods": [
+    "Advertisements",
+    "Job Printing",
+    "Newspaper",
+    "Subscriptions",
+    "blank forms",
+    "job printing",
+    "newspaper"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "John Calhoun",
+      "person_id": "calhoun_john",
+      "register_person_id": "person_john_calhoun",
+      "role": "partner",
+      "from": "1833-11-26",
+      "to": "1835-08-05",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card calhoun_john (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_11_26#c033",
+        "chicago_democrat_1834_08_27#c009",
+        "chicago_democrat_1834_09_17#c010",
+        "chicago_democrat_1834_10_08#c005",
+        "chicago_democrat_1834_12_03#c023",
+        "chicago_democrat_1835_08_05#c026"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Calhoun, J.",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "partner",
+      "from": "1833-11-26",
+      "to": "1835-08-05",
+      "tier": "attested",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_11_26#c033",
+        "chicago_democrat_1834_08_27#c009",
+        "chicago_democrat_1834_09_17#c010",
+        "chicago_democrat_1834_10_08#c005",
+        "chicago_democrat_1834_12_03#c023",
+        "chicago_democrat_1835_08_05#c026"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1833-11-26",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. A crossing of two platted streets: clark and south_water.",
+      "limit_reason": "The register places this house against clark+south_water and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "corner",
+        "id": null,
+        "title": "Clark Street and South Water Street",
+        "streets": [
+          "clark",
+          "south_water"
+        ]
+      }
+    },
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": false,
+      "from": "1835-08-05",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The later of this house's two printed anchors, set as “Jones & King's hardware store”; the register makes “the corner of South Water and Clark streets” the siting at the scene date.",
+      "limit_reason": "A prose anchor the register did not resolve to a committed id; kept because the house moved and the move is dated. First printed 1835-08-05, which is after the scene date, so the register keeps the earlier anchor live and this siting is recorded without being made the premises."
+    }
+  ],
+  "dates": {
+    "opened": "1833-11-26",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-11-26, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-11-26",
+    "last_issue": "1835-08-05",
+    "copy_dates": [
+      "1834-10-08"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: John Calhoun (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "calhoun_john",
+        "name": "John Calhoun",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1833_11_26#c033",
+    "chicago_democrat_1834_08_27#c009",
+    "chicago_democrat_1834_09_17#c010",
+    "chicago_democrat_1834_10_08#c005",
+    "chicago_democrat_1834_12_03#c023",
+    "chicago_democrat_1835_08_05#c026"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

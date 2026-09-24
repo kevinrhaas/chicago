@@ -199,7 +199,7 @@ def _extents(trace, blocks):
         ends = sorted((east[t] for t in ts), reverse=True)
         out[sid] = {
             "tiers": sorted(ts),
-            "west_px": round(sum(margin[t]["rule_px_x"][0] for t in ts) / len(ts), 2),
+            "west_px": round(math.fsum(margin[t]["rule_px_x"][0] for t in ts) / len(ts), 2),
             "east_px": ends[0], "east_px_nearer": ends[-1],
         }
     return out, tiers, margin, east
@@ -493,7 +493,8 @@ def _wedge(seat, south_row, wl, cbank, m_per_px):
                          "here it is answered rather than refused."),
             "stations": bank_check,
             "reach_covered": f"{len(covered)} of {len(bank_check)} stations",
-            "mean_abs_m": round(sum(abs(v) for v in covered) / len(covered), 1) if covered else None,
+            "mean_abs_m": (round(math.fsum(abs(v) for v in covered) / len(covered), 1)
+                           if covered else None),
             "max_abs_m": round(max(abs(v) for v in covered), 1) if covered else None,
             "reading": ("The strip's river edge and the committed west bank are the SAME "
                         "LINE over the reach they share: four of the five stations the "
@@ -585,7 +586,17 @@ def _tract(seat, south_row, tiers, margin, east, wedge, wl, cbank, m_per_px):
 
 # ------------------------------------------------------------------ the seating
 
-def build():
+def seating():
+    """The tract's sheet-pixel -> local ENU ladder, and the committed readings it hangs on.
+
+    T-1454 lifted this out of `build()` WITHOUT CHANGING A LINE OF IT so that
+    `tools/generate_plat_lots.py` can cut Wabansia's twenty-one blocks on the same
+    ladder this tool seats its six streets on. One edge cannot be derived twice, and a
+    block's north-west corner and the corner of the street beside it are the same edge:
+    a second seating written into the lot generator would be a second answer to the
+    question this file already answers, which is precisely what `_polygon`'s own note
+    refuses one layer up. `build()` below unpacks what this returns and carries on.
+    """
     trace = json.loads(TRACE.read_text())
     blocks = json.loads(BLOCKS.read_text())
     doc = json.loads(STREETS.read_text())
@@ -635,6 +646,20 @@ def build():
         t = (E - kin[0][0]) / u[0]
         base = (kin[0][0] + t * u[0], kin[0][1] + t * u[1])
         return [round(base[0] + d * nrm[0], 2), round(base[1] + d * nrm[1], 2)]
+
+    return {"trace": trace, "blocks": blocks, "doc": doc, "by": by,
+            "to_local": to_local, "shear": shear, "read": read, "ext": ext,
+            "tiers": tiers, "margin": margin, "east": east,
+            "kin": kin, "u": u, "nrm": nrm,
+            "kinzie_py": kinzie_py, "south_row": south_row, "seat": seat}
+
+
+def build():
+    s = seating()
+    trace, blocks, doc, by = s["trace"], s["blocks"], s["doc"], s["by"]
+    to_local, shear, read, ext = s["to_local"], s["shear"], s["read"], s["ext"]
+    tiers, margin, east = s["tiers"], s["margin"], s["east"]
+    south_row, seat, kinzie_py = s["south_row"], s["seat"], s["kinzie_py"]
 
     bank = _bank_px(to_local)
     m_per_px = math.dist(to_local(900, 1500), to_local(900, 1501))
@@ -763,7 +788,7 @@ def _invariants(poly, wedge, tract):
         if k["m_outside"] > 16.19:
             bad.append(f"water lot {k['figure']} seats {k['m_outside']} m outside the wedge "
                        f"outline, past the registration's own 16.19 m RMS")
-    tiled = round(sum(r["area_m2"] for r in wedge["ranks"]), 1)
+    tiled = round(math.fsum(r["area_m2"] for r in wedge["ranks"]), 1)
     if abs(tiled - wedge["area_m2"]) > 0.02 * wedge["area_m2"]:
         bad.append(f"the four ranks cover {tiled} m2 and the wedge outline "
                    f"{wedge['area_m2']} m2 — they should tile it")

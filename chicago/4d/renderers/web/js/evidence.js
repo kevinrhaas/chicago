@@ -33,7 +33,7 @@ import { escapeHtml } from './citations.js';
 const SVG = (paths) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"`
   + ` stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
 
-/** The seven topics, in the order the tiles read. Titles are NOT here: they are
+/** The topics, in the order the tiles read. Titles are NOT here: they are
  *  read from each topic's own `h3.legend-h`, so the tile and the head can never
  *  say two different things. `facet` turns one entry into the pill it belongs
  *  under (null = no pill for this entry; a topic whose entries yield fewer than
@@ -44,6 +44,14 @@ const TOPICS = [
     gloss: 'attested, inferred, reconstructed — what each word promises',
     icon: SVG('<circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.3 2.3 4.7-5"/>'),
     entries: (topic) => [...topic.querySelectorAll('.legend-list > li')],
+    facet: () => null,
+  },
+  {
+    id: 'city',
+    gloss: 'The town in numbers: what stands, who is named, and what each grade promises',
+    icon: SVG('<path d="M4 20V8l4-3 4 3v12"/><path d="M12 20V5l4-2 4 2v15"/><path d="M2 20h20"/>'),
+    mount: '#city',
+    entries: (topic) => [...topic.querySelectorAll('#city .gc-row')],
     facet: () => null,
   },
   {
@@ -97,6 +105,16 @@ const TOPICS = [
     // under it, and a pill per axis would be a pill per entry.
     facet: () => null,
   },
+  {
+    id: 'orderbook',
+    gloss: 'What the town still owes: the quota, bucket by bucket',
+    icon: SVG('<path d="M4 5.5h6.5a2 2 0 0 1 2 2V19a2 2 0 0 0-2-2H4z"/>'
+      + '<path d="M20 5.5h-5.5a2 2 0 0 0-2 2V19a2 2 0 0 1 2-2H20z"/>'
+      + '<path d="M12.5 7.5V19"/>'),
+    // The chip is the family's own filled/to-do count, which the summary row
+    // already carries — a pill per bucket would be a pill per cell of the town.
+    facet: () => null,
+  },
 ];
 
 /** The chip text on an entry's own summary row — not a nested entry's. */
@@ -115,7 +133,7 @@ export function createEvidenceHub({ root, onTitle = () => {} } = {}) {
   for (const spec of TOPICS) {
     const el = root.querySelector(`.ev-topic[data-topic="${spec.id}"]`);
     if (!el) continue;
-    const mount = el.querySelector('.liberties') || el.querySelector('.legend-list');
+    const mount = el.querySelector(spec.mount || '.liberties') || el.querySelector('.legend-list');
     const title = el.querySelector('.ev-topic-title')?.textContent.trim() || spec.id;
     const entries = spec.entries || ((topic) => [...(mount?.querySelectorAll(':scope > details') ?? [])]);
     topics.set(spec.id, { ...spec, facetOf: spec.facet, el, mount, title, entries: () => entries(el), query: '', facet: null });
@@ -168,7 +186,7 @@ export function createEvidenceHub({ root, onTitle = () => {} } = {}) {
 
   // ---- per-topic tools: search, pills, status -----------------------------
   for (const t of topics.values()) {
-    if (t.id === 'grades') continue; // three words need no search box
+    if (t.id === 'grades' || t.id === 'city') continue; // compact summaries need no search box
     const tools = document.createElement('div');
     tools.className = 'ev-tools';
     tools.innerHTML = `<div class="ev-search-row"><input class="ev-search" type="search" autocomplete="off" spellcheck="false"`

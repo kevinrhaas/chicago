@@ -32,6 +32,9 @@ import argparse
 import json
 import re
 import sys
+from pathlib import Path as _P
+sys.path.insert(0, str(_P(__file__).resolve().parent))
+from reconstructed_person import is_reconstructed  # noqa: E402
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -442,6 +445,10 @@ def resident_index() -> list[dict]:
                          if k not in ("directories", "old_settler_deaths")}
         record_text = json.dumps(record_source, ensure_ascii=False)
         for p in h.get("persons") or []:
+            # T-1171: a person the household model drew is not a name the Calumet Club's
+            # roll can have met. No source names them.
+            if is_reconstructed(p):
+                continue
             surname, initial, fore = name_key(p.get("name") or "")
             # A DEATH THE RECORD ITSELF CARRIES. Fergus's 1843 old-settler death notices
             # are already spent onto some of these cards, and a man who died before a

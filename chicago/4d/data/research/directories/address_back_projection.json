@@ -8,14 +8,14 @@
  "street_layer": "data/streets/1835.json",
  "counts": {
   "addresses_adjudicated": 162,
-  "placed": 18,
-  "placed_as_a_face": 15,
-  "placed_as_a_corner": 1,
+  "placed": 23,
+  "placed_as_a_face": 19,
+  "placed_as_a_corner": 2,
   "placed_anchored_on_a_crossing": 2,
   "already_better_placed": 29,
-  "refused": 115,
-  "refused_clause_1_no_1835_business": 100,
-  "refused_clause_2_a_residence_not_a_shop": 8,
+  "refused": 110,
+  "refused_clause_1_no_1835_business": 94,
+  "refused_clause_2_a_residence_not_a_shop": 9,
   "refused_clause_3_not_on_the_1835_grid": 7,
   "faces_reached": [
    "Canal Street",
@@ -26,7 +26,7 @@
    "Randolph Street",
    "South Water Street"
   ],
-  "lives_at_real_values": 20,
+  "lives_at_real_values": 31,
   "works_at_real_values": 50
  },
  "rows": [
@@ -1600,14 +1600,14 @@
    "sources": [
     "fergus_chicago_directory_1839"
    ],
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "insurance_agent",
    "works_at_1835": null,
-   "outcome": "refused",
-   "clause": "1",
-   "reason": "The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do.",
-   "street_id": null,
-   "face": null,
-   "placement": null,
+   "outcome": "placed",
+   "clause": "3 and 4",
+   "reason": "Dearborn Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt.",
+   "street_id": "dearborn",
+   "face": "Dearborn Street",
+   "placement": "face",
    "qualifier_as_printed": null,
    "position_local_enu_m": null
   },
@@ -1642,11 +1642,11 @@
    "sources": [
     "fergus_chicago_directory_1843"
    ],
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "forwarding_and_commission",
    "works_at_1835": null,
    "outcome": "refused",
-   "clause": "1",
-   "reason": "The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do.",
+   "clause": "2",
+   "reason": "The directory prints this as a RESIDENCE — its own `res`, `bds`, `house` or Norris's `h` — and this pass positions businesses. Reading a home address as a shop door would be the pass answering a question nobody asked it. The residence half is T-0669.",
    "street_id": null,
    "face": null,
    "placement": null,
@@ -1876,16 +1876,19 @@
    "sources": [
     "fergus_chicago_directory_1839"
    ],
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "hardware_merchant",
    "works_at_1835": null,
-   "outcome": "refused",
-   "clause": "1",
-   "reason": "The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do.",
-   "street_id": null,
-   "face": null,
-   "placement": null,
-   "qualifier_as_printed": null,
-   "position_local_enu_m": null
+   "outcome": "placed",
+   "clause": "3 and 4",
+   "reason": "Dearborn Street and Randolph Street both stand in 1835 under those names, and the directory sets the door AT their corner, which is the point where the two committed centrelines cross.",
+   "street_id": "dearborn",
+   "face": "Dearborn Street",
+   "placement": "corner",
+   "qualifier_as_printed": "cor",
+   "position_local_enu_m": [
+    697.3,
+    -258.1
+   ]
   },
   {
    "household_id": "hh_jordan_j_b",
@@ -2023,14 +2026,14 @@
    "sources": [
     "fergus_chicago_directory_1839"
    ],
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "clothier",
    "works_at_1835": null,
-   "outcome": "refused",
-   "clause": "1",
-   "reason": "The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do.",
-   "street_id": null,
-   "face": null,
-   "placement": null,
+   "outcome": "placed",
+   "clause": "3 and 4",
+   "reason": "Lake Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt.",
+   "street_id": "lake",
+   "face": "Lake Street",
+   "placement": "face",
    "qualifier_as_printed": null,
    "position_local_enu_m": null
   },
@@ -2443,14 +2446,14 @@
    "sources": [
     "fergus_chicago_directory_1839"
    ],
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "jeweller",
    "works_at_1835": null,
-   "outcome": "refused",
-   "clause": "1",
-   "reason": "The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do.",
-   "street_id": null,
-   "face": null,
-   "placement": null,
+   "outcome": "placed",
+   "clause": "3 and 4",
+   "reason": "Dearborn Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt.",
+   "street_id": "dearborn",
+   "face": "Dearborn Street",
+   "placement": "face",
    "qualifier_as_printed": null,
    "position_local_enu_m": null
   },
@@ -2968,14 +2971,14 @@
    "sources": [
     "fergus_chicago_directory_1839"
    ],
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "sheriff",
    "works_at_1835": null,
-   "outcome": "refused",
-   "clause": "1",
-   "reason": "The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do.",
-   "street_id": null,
-   "face": null,
-   "placement": null,
+   "outcome": "placed",
+   "clause": "3 and 4",
+   "reason": "Clark Street stands in 1835 under that name and in that place. The directory gives a street and nothing this pass can resolve narrower, so the placement is the FACE — the unit the owner's ruling of 2026-08-29 says a street name constrains — and no roof is dealt.",
+   "street_id": "clark",
+   "face": "Clark Street",
+   "placement": "face",
    "qualifier_as_printed": null,
    "position_local_enu_m": null
   },

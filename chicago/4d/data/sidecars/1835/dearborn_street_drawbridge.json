@@ -185,6 +185,27 @@
           "grade": "attested",
           "occupation": "ship_carpenter",
           "note": "AN ARRIVAL DATED TO THE DAY - 16 NOVEMBER 1833 - which only four households in this parcel have, and a trade that ties a person to two dated artefacts. HE IS IN THE DATASET BECAUSE THE 1835 TOWN CANNOT BE BUILT WITHOUT HIS TRADE. Andreas's roster is the only list this project holds that names artisans at all, and every name on it is a documented alternative to an inferred one."
+        },
+        {
+          "name": "Madeleine Norton",
+          "relationship": "wife",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Archange Norton",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Victoire Norton",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
         }
       ],
       "research_note": "THE ONLY SHIPWRIGHT IN THE DATASET, in a town whose whole future was a harbour. He is also the parcel's clearest example of a trade the structures layer already depends on: data/structures/dearborn_street_drawbridge.json models a bridge whose builder now has a name, an arrival date and a second, later vessel to his credit."

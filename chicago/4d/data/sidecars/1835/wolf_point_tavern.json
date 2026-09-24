@@ -179,6 +179,39 @@
   },
   "residents": [
     {
+      "household": "hh_lodging_wolf_point_tavern",
+      "name": "The lodgers of Wolf Point Tavern",
+      "division": "west",
+      "relation": "lodged here",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 4 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "sources": [],
+      "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
+      "persons": [
+        {
+          "name": "Ellen Burke",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 4 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Amos Metcalf",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 4 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Silas Tuttle",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 4 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    },
+    {
       "household": "hh_walters_william",
       "name": "The Walters household at Wolf Point",
       "division": "west",
@@ -252,5 +285,25 @@
   ],
   "research_note": "The building that named Wolf Point, and the least precisely placeable structure in this parcel. Its identity is vivid and its geometry is unknown: the painted wolf sign, the landlord succession, the 12 1/2-cent rate and the Black Hawk War headquarters are all attested, while not one source measures the building, counts its storeys or fixes it to an intersection. TWO DISPUTES ARE RECORDED RATHER THAN RESOLVED: the build date, 1823 versus 1828, where the same publication contradicts itself and 1828 is adopted for the reasons in the phase's date note; and whether it was still in innkeeping in July 1835, where the balance favours yes under a changed name. Neither dispute changes the scene — the building stood, on the west bank, north of the Lake Street crossing, with a wolf on a board outside it. What would change the record is a measured description in Andreas pp. 626-631, or the Braunhold retrospective view of Wolf Point examined at plate level for storey count and massing. See docs/RESEARCH/wolf_point_tavern.md.",
   "research_doc": "docs/RESEARCH/wolf_point_tavern.md",
-  "review_required": false
+  "review_required": false,
+  "lodging": {
+    "class": "inn_tavern",
+    "beds_ordinary": 4,
+    "beds_crowded": 35,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": false,
+    "enclosed_floor_m2": 84.0,
+    "confidence": "reconstructed",
+    "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 84 m² of enclosed floor (84 m² × 1 storeys) is of the class's floor area.",
+    "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
+    "occupancy": {
+      "people": 4,
+      "beds_ordinary": 4,
+      "empty": 0,
+      "statement": "4 on this card against an ordinary night's 4 beds: 1 the residents layer already housed here, 3 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "empty_note": "",
+      "keeper_persons": 1,
+      "keeper_owed": "T-1171 refused this head a drawn family — the eligibility refusals are in data/reconstruction/1835_modelled_families.json — so the card stands at one person. T-1179 converges it."
+    }
+  }
 }

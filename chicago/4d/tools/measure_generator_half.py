@@ -157,19 +157,30 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # derived at load from committed numbers, so THE ASSET COUNT DOES NOT MOVE and nothing re-stales:
 # this layer, like the other nine, owes a generator half and has none.
 #
+# 384 -> 414 and 382 -> 412 on 2026-09-20 (T-1444): the West Division parcel's terrain hold
+# is retired and thirty of its thirty-five held slots are built — `recon_1835_west_004`,
+# `_013`, `_017`, `_020` and `_025`..`_055` less the five the corporate boundary's
+# extrapolated west leg cannot decide (T-1490). Thirty new structure assets, so thirty more
+# meshes a change to the shared generator modules or to build.py would re-stale; the terrain
+# and pier_crib reaches stay at 2 each. The five held slots add nothing here for the same
+# reason blocks B and C above add nothing: measured, dealt, and deliberately not built.
+#
 STATED = {
-    "assets": 384,
+    "assets": 414,
     "restales": {
-        "generators/common/*.py": 384,
+        "generators/common/*.py": 414,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/build.py": 382,
+        "generators/build.py": 412,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
     },
     "layers_drawn_at_load": 10,
     "layers_with_a_generator": 0,
-    "renderers": 1,
+    # T-1464 (2026-09-20): the owner-requested standalone Unreal adapter now
+    # consumes the committed GLBs. The missing-layer debt has a second reader;
+    # T-0252/T-1360 own the export/parity work, not a reopened wharf-only ticket.
+    "renderers": 2,
 }
 
 # The data layers a renderer draws at load out of committed JSON, rather than
@@ -187,6 +198,25 @@ DRAWN_AT_LOAD = {
     "wells": "wells.js",
     "wharves": "wharves.js",
     "yard": "yard.js",
+}
+
+# AND THE LAYERS THAT CARRY AN INDEX AND ARE NOT DRAWN AT ALL (T-1310). The test above
+# reads `data/*/index.json` and was right that a manifest means a layer; it was not
+# right that a layer means the renderer draws it. A directory under `data/` needs an
+# index for the reason every one of them does — a static host cannot be globbed — and
+# that says nothing about whether anything on screen consumes it. `data/businesses/` is
+# the first of these: 196 compiled records of who traded where, read by the research
+# tools and by tools/validate.py, and drawn by nothing. It owes no generator half
+# because there is no geometry it could generate.
+#
+# This is a third class and not a loophole: a layer must still be NAMED in one of the
+# two tables before the gate goes green, so a renderer-drawn layer that arrives without
+# a module still fails here. What changed is that "not drawn" became a thing a layer is
+# allowed to be, with its reason written next to it, which is what the refusal's own
+# sentence asked for.
+NOT_DRAWN_AT_LOAD = {
+    "businesses": "compiled business records (T-1310); read by the research tools and "
+                  "tools/validate.py, drawn by no renderer module and baked into no asset",
 }
 
 
@@ -270,12 +300,13 @@ def layer_debt() -> tuple[list, list]:
 
     # Derived and named, held against each other. See the module docstring.
     found = {p.parent.name for p in sorted(DATA.glob("*/index.json"))}
-    for extra in sorted(found - set(DRAWN_AT_LOAD)):
+    named = set(DRAWN_AT_LOAD) | set(NOT_DRAWN_AT_LOAD)
+    for extra in sorted(found - named):
         problems.append(f"data/{extra}/index.json is a manifested layer this file "
-                        f"does not name; it is either a tenth drawn layer — in which "
-                        f"case the reading below is out of date — or it is baked, in "
-                        f"which case say so here")
-    for gone in sorted(set(DRAWN_AT_LOAD) - found):
+                        f"does not name; it is a drawn layer — in which case the reading "
+                        f"below is out of date — or it is baked, or nothing draws it at "
+                        f"all, and this file has to say which")
+    for gone in sorted(named - found):
         problems.append(f"data/{gone}/index.json is named here and is not in the "
                         f"tree, so this reading counts a layer that no longer exists")
 

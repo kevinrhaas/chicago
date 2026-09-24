@@ -1,0 +1,3242 @@
+{
+ "schema": 1,
+ "$schema_note": "DERIVED — regenerate with tools/build_trade_table_1839.py --build; tools/check.sh re-derives it. Do not hand-edit.",
+ "id": "fergus_1839_trade_table",
+ "ticket": "T-1346",
+ "generated_by": "tools/build_trade_table_1839.py --build",
+ "source_id": "fergus_directory_1839",
+ "describes_date": "1839",
+ "reads": "data/research/directories/claims/fergus_1839_directory_entries.json",
+ "not_a_reading": "an aggregate over a committed reading — no page was opened here, nobody is named, and no person's card is touched",
+ "date_note": "1839 IS FOUR YEARS AFTER THE SCENE, and this volume is Fergus's 1876 completion of a list that, in the compiler's own words, \"was never written\". Every share below is the shape of a LATER town recalled later still. It is a prior for a draw and it is not a count of 1835, nor evidence about any person in it.",
+ "how_to_use_it": "T-1347 draws a reconstructed head's trade from `rows`, renormalised over the trades it is drawing for. A row whose `in_vocabulary` is false may not be written onto a person until data/residents/index.json carries the term.",
+ "supersedes": "the per-trade table T-1162 was withdrawn before building; its §2 asked for exactly this share and nothing else supplies it",
+ "counts": {
+  "entries": 1655,
+  "entries_with_a_printed_trade": 1583,
+  "mapped": 1377,
+  "refused": 206,
+  "distinct_trades": 88,
+  "trades_outside_the_1835_vocabulary": 13,
+  "share_mapped": 0.86987
+ },
+ "method": {
+  "the_slot": "The segmenter puts everything after the name into the occupation slot, employer and all. The trade is what stands before the first comma; the rest names somebody else's house.",
+  "first_rule_wins": "OCR repairs, then refusals, then the trade patterns, in the order they are written in the tool. The first rule that matches decides, so a specific trade is always set above the general one it contains.",
+  "nothing_is_dropped": "mapped + refused == entries with a printed trade. Every refusal carries its class, its reason and every form it caught.",
+  "compounds": "A compound trade — \"carpenter and builder\", \"grocer and liquor dealer\" — is counted once, under whichever of its trades the ordered rules reach first. The volume prints no second slot and this table invents none.",
+  "determinism": "Sorted throughout and rounded to five places, so two builds on one set of inputs are byte-identical."
+ },
+ "trades_outside_the_1835_vocabulary": {
+  "terms": [
+   "banker",
+   "bar_keeper",
+   "cabinet_maker",
+   "drayman",
+   "engraver",
+   "foreman",
+   "gardener",
+   "millwright",
+   "sexton",
+   "steward",
+   "student",
+   "town_officer",
+   "warehouseman"
+  ],
+  "note": "The 1839 volume prints these trades and data/residents/index.json has no word for any of them. They are counted here because a share that quietly drops a town's draymen is wrong about its carpenters too. T-1347 must extend the vocabulary before it may write one of these people."
+ },
+ "rows": [
+  {
+   "trade": "clerk",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 152,
+   "share_of_mapped": 0.11038,
+   "printed_forms": [
+    {
+     "as_printed": "clerk",
+     "n": 125
+    },
+    {
+     "as_printed": "bookkeeper",
+     "n": 15
+    },
+    {
+     "as_printed": "cashier",
+     "n": 3
+    },
+    {
+     "as_printed": "check clerk",
+     "n": 2
+    },
+    {
+     "as_printed": "salesman",
+     "n": 2
+    },
+    {
+     "as_printed": "clerk circuit court",
+     "n": 1
+    },
+    {
+     "as_printed": "clerk steamer geo. w. dole",
+     "n": 1
+    },
+    {
+     "as_printed": "clerk stiles burton",
+     "n": 1
+    },
+    {
+     "as_printed": "hotel-clerk",
+     "n": 1
+    },
+    {
+     "as_printed": "teller",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "carpenter",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 133,
+   "share_of_mapped": 0.09659,
+   "printed_forms": [
+    {
+     "as_printed": "carpenter",
+     "n": 91
+    },
+    {
+     "as_printed": "carpenter and builder",
+     "n": 18
+    },
+    {
+     "as_printed": "carpenter and joiner",
+     "n": 6
+    },
+    {
+     "as_printed": "ship carpenter",
+     "n": 5
+    },
+    {
+     "as_printed": "carpenters and builders",
+     "n": 2
+    },
+    {
+     "as_printed": "stair-builder",
+     "n": 2
+    },
+    {
+     "as_printed": "carpenter 0 q",
+     "n": 1
+    },
+    {
+     "as_printed": "carpenter and builder n. water near franklin",
+     "n": 1
+    },
+    {
+     "as_printed": "carpenter and wagonmaker",
+     "n": 1
+    },
+    {
+     "as_printed": "city street carpenter",
+     "n": 1
+    },
+    {
+     "as_printed": "doors and sash",
+     "n": 1
+    },
+    {
+     "as_printed": "house-mover",
+     "n": 1
+    },
+    {
+     "as_printed": "sash",
+     "n": 1
+    },
+    {
+     "as_printed": "shipcarpenter",
+     "n": 1
+    },
+    {
+     "as_printed": "steam sash and door factory",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "labourer",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 73,
+   "share_of_mapped": 0.05301,
+   "printed_forms": [
+    {
+     "as_printed": "laborer",
+     "n": 62
+    },
+    {
+     "as_printed": "porter",
+     "n": 7
+    },
+    {
+     "as_printed": "bank porter",
+     "n": 1
+    },
+    {
+     "as_printed": "helper",
+     "n": 1
+    },
+    {
+     "as_printed": "mason laborer",
+     "n": 1
+    },
+    {
+     "as_printed": "wood-chopper",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "grocer",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 65,
+   "share_of_mapped": 0.0472,
+   "printed_forms": [
+    {
+     "as_printed": "grocery and provision store",
+     "n": 22
+    },
+    {
+     "as_printed": "grocer",
+     "n": 10
+    },
+    {
+     "as_printed": "grocery",
+     "n": 6
+    },
+    {
+     "as_printed": "groceries and provisions",
+     "n": 3
+    },
+    {
+     "as_printed": "grocery store",
+     "n": 3
+    },
+    {
+     "as_printed": "grocer and provision store",
+     "n": 2
+    },
+    {
+     "as_printed": "groceries",
+     "n": 2
+    },
+    {
+     "as_printed": "crockery",
+     "n": 1
+    },
+    {
+     "as_printed": "cutlery",
+     "n": 1
+    },
+    {
+     "as_printed": "fish dealer",
+     "n": 1
+    },
+    {
+     "as_printed": "flour dealer",
+     "n": 1
+    },
+    {
+     "as_printed": "flour store",
+     "n": 1
+    },
+    {
+     "as_printed": "grocer and liquor dealer",
+     "n": 1
+    },
+    {
+     "as_printed": "grocer and provisions",
+     "n": 1
+    },
+    {
+     "as_printed": "grocer and saloon",
+     "n": 1
+    },
+    {
+     "as_printed": "groceries and liquors",
+     "n": 1
+    },
+    {
+     "as_printed": "grocers and ship chandlers",
+     "n": 1
+    },
+    {
+     "as_printed": "grocery and boarding-house",
+     "n": 1
+    },
+    {
+     "as_printed": "grocery and provisions",
+     "n": 1
+    },
+    {
+     "as_printed": "grocery and ship stores",
+     "n": 1
+    },
+    {
+     "as_printed": "meat market",
+     "n": 1
+    },
+    {
+     "as_printed": "provision and grocery store",
+     "n": 1
+    },
+    {
+     "as_printed": "provision store",
+     "n": 1
+    },
+    {
+     "as_printed": "ship chandlers and grocers",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "builder",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 54,
+   "share_of_mapped": 0.03922,
+   "printed_forms": [
+    {
+     "as_printed": "canal contractor",
+     "n": 26
+    },
+    {
+     "as_printed": "contractor",
+     "n": 8
+    },
+    {
+     "as_printed": "mason builder",
+     "n": 4
+    },
+    {
+     "as_printed": "mail contractor",
+     "n": 3
+    },
+    {
+     "as_printed": "canal sub-contractor",
+     "n": 2
+    },
+    {
+     "as_printed": "contractor and builder",
+     "n": 2
+    },
+    {
+     "as_printed": "bridge-builder",
+     "n": 1
+    },
+    {
+     "as_printed": "canal subcontractor",
+     "n": 1
+    },
+    {
+     "as_printed": "contractor and street maker",
+     "n": 1
+    },
+    {
+     "as_printed": "general contractor",
+     "n": 1
+    },
+    {
+     "as_printed": "shipbuilder",
+     "n": 1
+    },
+    {
+     "as_printed": "st. sub-contractor",
+     "n": 1
+    },
+    {
+     "as_printed": "stage contractor",
+     "n": 1
+    },
+    {
+     "as_printed": "steamboat builder",
+     "n": 1
+    },
+    {
+     "as_printed": "tender south branch bridge",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "blacksmith",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 48,
+   "share_of_mapped": 0.03486,
+   "printed_forms": [
+    {
+     "as_printed": "blacksmith",
+     "n": 26
+    },
+    {
+     "as_printed": "gunsmith",
+     "n": 6
+    },
+    {
+     "as_printed": "tinsmith",
+     "n": 4
+    },
+    {
+     "as_printed": "blacksmith and horse shoer",
+     "n": 3
+    },
+    {
+     "as_printed": "blacksmith and horse-shoer",
+     "n": 1
+    },
+    {
+     "as_printed": "blacksmith and horseshoer",
+     "n": 1
+    },
+    {
+     "as_printed": "blacksmiths",
+     "n": 1
+    },
+    {
+     "as_printed": "coppersmith",
+     "n": 1
+    },
+    {
+     "as_printed": "farrier",
+     "n": 1
+    },
+    {
+     "as_printed": "locksmith",
+     "n": 1
+    },
+    {
+     "as_printed": "schooner minerva smith",
+     "n": 1
+    },
+    {
+     "as_printed": "ship smith",
+     "n": 1
+    },
+    {
+     "as_printed": "smith d",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "attorney",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 45,
+   "share_of_mapped": 0.03268,
+   "printed_forms": [
+    {
+     "as_printed": "attorney and counsellor at law",
+     "n": 17
+    },
+    {
+     "as_printed": "attorney at law",
+     "n": 14
+    },
+    {
+     "as_printed": "attorney",
+     "n": 5
+    },
+    {
+     "as_printed": "attorney and counseller at law",
+     "n": 1
+    },
+    {
+     "as_printed": "attorney and counsellor",
+     "n": 1
+    },
+    {
+     "as_printed": "attorney and real est",
+     "n": 1
+    },
+    {
+     "as_printed": "attorney and real estate agent",
+     "n": 1
+    },
+    {
+     "as_printed": "attorneys and counsellors at law",
+     "n": 1
+    },
+    {
+     "as_printed": "city attorney",
+     "n": 1
+    },
+    {
+     "as_printed": "judge",
+     "n": 1
+    },
+    {
+     "as_printed": "judge supreme court",
+     "n": 1
+    },
+    {
+     "as_printed": "probate judge",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "dry_goods_merchant",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 45,
+   "share_of_mapped": 0.03268,
+   "printed_forms": [
+    {
+     "as_printed": "dry goods",
+     "n": 17
+    },
+    {
+     "as_printed": "dry goods and groceries",
+     "n": 9
+    },
+    {
+     "as_printed": "dry goods merchant",
+     "n": 7
+    },
+    {
+     "as_printed": "grocer and dry goods",
+     "n": 2
+    },
+    {
+     "as_printed": "wholesale dry goods merchant",
+     "n": 2
+    },
+    {
+     "as_printed": "draper and tailor",
+     "n": 1
+    },
+    {
+     "as_printed": "dry goods and grocery store",
+     "n": 1
+    },
+    {
+     "as_printed": "dry goods jobber",
+     "n": 1
+    },
+    {
+     "as_printed": "dry goods merchants",
+     "n": 1
+    },
+    {
+     "as_printed": "fancy dry goods",
+     "n": 1
+    },
+    {
+     "as_printed": "fancy dry goods merchants",
+     "n": 1
+    },
+    {
+     "as_printed": "fancy dry goods store",
+     "n": 1
+    },
+    {
+     "as_printed": "groceries and dry goods",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "tailor",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 42,
+   "share_of_mapped": 0.0305,
+   "printed_forms": [
+    {
+     "as_printed": "tailor",
+     "n": 29
+    },
+    {
+     "as_printed": "tailor and clothier",
+     "n": 6
+    },
+    {
+     "as_printed": "ready-made clothing",
+     "n": 2
+    },
+    {
+     "as_printed": "cloak and dressmaker",
+     "n": 1
+    },
+    {
+     "as_printed": "cloak maker and tailoress",
+     "n": 1
+    },
+    {
+     "as_printed": "ladies and gents tailor and cutter",
+     "n": 1
+    },
+    {
+     "as_printed": "tailor and cutter",
+     "n": 1
+    },
+    {
+     "as_printed": "tailors and clothiers",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "merchant",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 41,
+   "share_of_mapped": 0.02977,
+   "printed_forms": [
+    {
+     "as_printed": "merchant",
+     "n": 9
+    },
+    {
+     "as_printed": "horse-dealer",
+     "n": 4
+    },
+    {
+     "as_printed": "general merchant",
+     "n": 3
+    },
+    {
+     "as_printed": "boot and shoe dealer",
+     "n": 2
+    },
+    {
+     "as_printed": "cattle dealer",
+     "n": 2
+    },
+    {
+     "as_printed": "general merchants",
+     "n": 2
+    },
+    {
+     "as_printed": "horse dealer",
+     "n": 2
+    },
+    {
+     "as_printed": "dealer in wooden-ware",
+     "n": 1
+    },
+    {
+     "as_printed": "farmer and cattle-dealer",
+     "n": 1
+    },
+    {
+     "as_printed": "farmer and hay dealer",
+     "n": 1
+    },
+    {
+     "as_printed": "furniture dealer",
+     "n": 1
+    },
+    {
+     "as_printed": "general store",
+     "n": 1
+    },
+    {
+     "as_printed": "general supply store",
+     "n": 1
+    },
+    {
+     "as_printed": "great western variety store",
+     "n": 1
+    },
+    {
+     "as_printed": "iron merchant",
+     "n": 1
+    },
+    {
+     "as_printed": "merchant and contractor",
+     "n": 1
+    },
+    {
+     "as_printed": "merchant tailor",
+     "n": 1
+    },
+    {
+     "as_printed": "merchant tailors",
+     "n": 1
+    },
+    {
+     "as_printed": "merchants",
+     "n": 1
+    },
+    {
+     "as_printed": "new york clothing store",
+     "n": 1
+    },
+    {
+     "as_printed": "new york millinery store",
+     "n": 1
+    },
+    {
+     "as_printed": "saddler and shoe dealer",
+     "n": 1
+    },
+    {
+     "as_printed": "salt merchant",
+     "n": 1
+    },
+    {
+     "as_printed": "teamster and horse dealer",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "teamster",
+   "in_vocabulary": true,
+   "column_1840": "Navigation of canals, lakes and rivers",
+   "count": 41,
+   "share_of_mapped": 0.02977,
+   "printed_forms": [
+    {
+     "as_printed": "teamster",
+     "n": 40
+    },
+    {
+     "as_printed": "farmer and teamster",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "drayman",
+   "in_vocabulary": false,
+   "column_1840": "Navigation of canals, lakes and rivers",
+   "count": 30,
+   "share_of_mapped": 0.02179,
+   "printed_forms": [
+    {
+     "as_printed": "drayman",
+     "n": 26
+    },
+    {
+     "as_printed": "driver",
+     "n": 3
+    },
+    {
+     "as_printed": "stage-driver",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "shoemaker",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 27,
+   "share_of_mapped": 0.01961,
+   "printed_forms": [
+    {
+     "as_printed": "boot and shoe maker",
+     "n": 11
+    },
+    {
+     "as_printed": "shoemaker",
+     "n": 7
+    },
+    {
+     "as_printed": "boot and shoemaker",
+     "n": 6
+    },
+    {
+     "as_printed": "boot",
+     "n": 2
+    },
+    {
+     "as_printed": "boots and shoes",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "farmer",
+   "in_vocabulary": true,
+   "column_1840": "Agriculture",
+   "count": 26,
+   "share_of_mapped": 0.01888,
+   "printed_forms": [
+    {
+     "as_printed": "farmer",
+     "n": 26
+    }
+   ]
+  },
+  {
+   "trade": "gardener",
+   "in_vocabulary": false,
+   "column_1840": "Agriculture",
+   "count": 26,
+   "share_of_mapped": 0.01888,
+   "printed_forms": [
+    {
+     "as_printed": "gardener",
+     "n": 13
+    },
+    {
+     "as_printed": "milkman",
+     "n": 9
+    },
+    {
+     "as_printed": "cowfeeder",
+     "n": 1
+    },
+    {
+     "as_printed": "florist",
+     "n": 1
+    },
+    {
+     "as_printed": "landscape gardener",
+     "n": 1
+    },
+    {
+     "as_printed": "veg t gardener",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "boarding_house_keeper",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 25,
+   "share_of_mapped": 0.01816,
+   "printed_forms": [
+    {
+     "as_printed": "boarding-house",
+     "n": 13
+    },
+    {
+     "as_printed": "saloon and boarding-house",
+     "n": 4
+    },
+    {
+     "as_printed": "boarding",
+     "n": 2
+    },
+    {
+     "as_printed": "boarding house",
+     "n": 2
+    },
+    {
+     "as_printed": "boarding and saloon",
+     "n": 1
+    },
+    {
+     "as_printed": "henry wolcott boarding-house",
+     "n": 1
+    },
+    {
+     "as_printed": "private boarding",
+     "n": 1
+    },
+    {
+     "as_printed": "private boarding house",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "land_agent",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 25,
+   "share_of_mapped": 0.01816,
+   "printed_forms": [
+    {
+     "as_printed": "real estate dealer",
+     "n": 11
+    },
+    {
+     "as_printed": "real estate",
+     "n": 5
+    },
+    {
+     "as_printed": "real estate agent",
+     "n": 4
+    },
+    {
+     "as_printed": "dealer in land claims",
+     "n": 1
+    },
+    {
+     "as_printed": "real estate operator",
+     "n": 1
+    },
+    {
+     "as_printed": "real estate speculator",
+     "n": 1
+    },
+    {
+     "as_printed": "receiver united states land office",
+     "n": 1
+    },
+    {
+     "as_printed": "register land office",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "tavern_keeper",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 23,
+   "share_of_mapped": 0.0167,
+   "printed_forms": [
+    {
+     "as_printed": "saloon",
+     "n": 10
+    },
+    {
+     "as_printed": "hotel-keeper",
+     "n": 5
+    },
+    {
+     "as_printed": "tavern-keeper",
+     "n": 4
+    },
+    {
+     "as_printed": "proprietors rat-castle hotel",
+     "n": 1
+    },
+    {
+     "as_printed": "saloon and ball-alley",
+     "n": 1
+    },
+    {
+     "as_printed": "saloon keeper",
+     "n": 1
+    },
+    {
+     "as_printed": "tavern keeper",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "boatman",
+   "in_vocabulary": true,
+   "column_1840": "Navigation of canals, lakes and rivers",
+   "count": 19,
+   "share_of_mapped": 0.0138,
+   "printed_forms": [
+    {
+     "as_printed": "waterman",
+     "n": 7
+    },
+    {
+     "as_printed": "steamboat runner",
+     "n": 2
+    },
+    {
+     "as_printed": "steamer dole",
+     "n": 2
+    },
+    {
+     "as_printed": "gunpowder and canal contrac r",
+     "n": 1
+    },
+    {
+     "as_printed": "mate",
+     "n": 1
+    },
+    {
+     "as_printed": "mate steamer st. louis",
+     "n": 1
+    },
+    {
+     "as_printed": "north branch",
+     "n": 1
+    },
+    {
+     "as_printed": "north branch chicago river",
+     "n": 1
+    },
+    {
+     "as_printed": "steamer geo. w. dole",
+     "n": 1
+    },
+    {
+     "as_printed": "steamer michigan",
+     "n": 1
+    },
+    {
+     "as_printed": "vessel owner",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "cabinet_maker",
+   "in_vocabulary": false,
+   "column_1840": "Manufactures and trades",
+   "count": 18,
+   "share_of_mapped": 0.01307,
+   "printed_forms": [
+    {
+     "as_printed": "cabinet maker",
+     "n": 6
+    },
+    {
+     "as_printed": "cabinet and chair maker",
+     "n": 3
+    },
+    {
+     "as_printed": "turner",
+     "n": 2
+    },
+    {
+     "as_printed": "cabinet makers",
+     "n": 1
+    },
+    {
+     "as_printed": "cabinet makers and undertakers",
+     "n": 1
+    },
+    {
+     "as_printed": "cabinet-maker",
+     "n": 1
+    },
+    {
+     "as_printed": "chair and furniture maker",
+     "n": 1
+    },
+    {
+     "as_printed": "chair maker",
+     "n": 1
+    },
+    {
+     "as_printed": "upholsterer",
+     "n": 1
+    },
+    {
+     "as_printed": "wood turner",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "butcher",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 16,
+   "share_of_mapped": 0.01162,
+   "printed_forms": [
+    {
+     "as_printed": "butcher",
+     "n": 12
+    },
+    {
+     "as_printed": "butchers",
+     "n": 3
+    },
+    {
+     "as_printed": "sausage maker",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "carriage_maker",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 15,
+   "share_of_mapped": 0.01089,
+   "printed_forms": [
+    {
+     "as_printed": "wagon maker",
+     "n": 5
+    },
+    {
+     "as_printed": "carriage-driver",
+     "n": 2
+    },
+    {
+     "as_printed": "wagon-maker",
+     "n": 2
+    },
+    {
+     "as_printed": "carriage and wagon makers",
+     "n": 1
+    },
+    {
+     "as_printed": "carriage maker",
+     "n": 1
+    },
+    {
+     "as_printed": "fanning mill factory",
+     "n": 1
+    },
+    {
+     "as_printed": "grain cradle factory",
+     "n": 1
+    },
+    {
+     "as_printed": "plow and wagon maker",
+     "n": 1
+    },
+    {
+     "as_printed": "wagonmaker",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "forwarding_and_commission",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 15,
+   "share_of_mapped": 0.01089,
+   "printed_forms": [
+    {
+     "as_printed": "commission merchant",
+     "n": 4
+    },
+    {
+     "as_printed": "auctioneers and commission",
+     "n": 1
+    },
+    {
+     "as_printed": "commission",
+     "n": 1
+    },
+    {
+     "as_printed": "commission merchants",
+     "n": 1
+    },
+    {
+     "as_printed": "forwarding",
+     "n": 1
+    },
+    {
+     "as_printed": "forwarding and commission merchant",
+     "n": 1
+    },
+    {
+     "as_printed": "forwarding and commission merchants",
+     "n": 1
+    },
+    {
+     "as_printed": "forwarding commission merchant",
+     "n": 1
+    },
+    {
+     "as_printed": "forwarding commission merchants",
+     "n": 1
+    },
+    {
+     "as_printed": "produce and commission merchant",
+     "n": 1
+    },
+    {
+     "as_printed": "secretary to canal commissioners",
+     "n": 1
+    },
+    {
+     "as_printed": "strictly commission merchants",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "printer",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 15,
+   "share_of_mapped": 0.01089,
+   "printed_forms": [
+    {
+     "as_printed": "compositor",
+     "n": 7
+    },
+    {
+     "as_printed": "printer",
+     "n": 4
+    },
+    {
+     "as_printed": "pressman",
+     "n": 3
+    },
+    {
+     "as_printed": "job and book printer",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "sheriff",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 15,
+   "share_of_mapped": 0.01089,
+   "printed_forms": [
+    {
+     "as_printed": "constable",
+     "n": 6
+    },
+    {
+     "as_printed": "deputy-sheriff",
+     "n": 4
+    },
+    {
+     "as_printed": "deputy-sheriff and constable",
+     "n": 2
+    },
+    {
+     "as_printed": "ex-sheriff",
+     "n": 1
+    },
+    {
+     "as_printed": "high constable",
+     "n": 1
+    },
+    {
+     "as_printed": "sheriff",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "painter",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 14,
+   "share_of_mapped": 0.01017,
+   "printed_forms": [
+    {
+     "as_printed": "painter",
+     "n": 6
+    },
+    {
+     "as_printed": "dyer and scourer",
+     "n": 2
+    },
+    {
+     "as_printed": "portrait painter",
+     "n": 2
+    },
+    {
+     "as_printed": "painter and glazier",
+     "n": 1
+    },
+    {
+     "as_printed": "parisian dyer",
+     "n": 1
+    },
+    {
+     "as_printed": "parisian dyer and scourer",
+     "n": 1
+    },
+    {
+     "as_printed": "sign painters",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "druggist",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 13,
+   "share_of_mapped": 0.00944,
+   "printed_forms": [
+    {
+     "as_printed": "druggist",
+     "n": 7
+    },
+    {
+     "as_printed": "druggist and apothecary",
+     "n": 4
+    },
+    {
+     "as_printed": "over clark drug store",
+     "n": 1
+    },
+    {
+     "as_printed": "wholesale druggist and apothecary",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "schoolteacher",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 13,
+   "share_of_mapped": 0.00944,
+   "printed_forms": [
+    {
+     "as_printed": "school-teacher",
+     "n": 8
+    },
+    {
+     "as_printed": "school inspector",
+     "n": 2
+    },
+    {
+     "as_printed": "actress and teacher of dancing",
+     "n": 1
+    },
+    {
+     "as_printed": "mathematical school",
+     "n": 1
+    },
+    {
+     "as_printed": "sunday school agent",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "surveyor",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 13,
+   "share_of_mapped": 0.00944,
+   "printed_forms": [
+    {
+     "as_printed": "surveyor",
+     "n": 3
+    },
+    {
+     "as_printed": "civil engineer",
+     "n": 2
+    },
+    {
+     "as_printed": "engineer",
+     "n": 2
+    },
+    {
+     "as_printed": "carpenter and surveyor",
+     "n": 1
+    },
+    {
+     "as_printed": "city surveyor",
+     "n": 1
+    },
+    {
+     "as_printed": "draughtsman and surveyor",
+     "n": 1
+    },
+    {
+     "as_printed": "surveying",
+     "n": 1
+    },
+    {
+     "as_printed": "surveyor and engineer",
+     "n": 1
+    },
+    {
+     "as_printed": "u. s. topographical engineer",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "banker",
+   "in_vocabulary": false,
+   "column_1840": "Commerce",
+   "count": 12,
+   "share_of_mapped": 0.00871,
+   "printed_forms": [
+    {
+     "as_printed": "banker",
+     "n": 4
+    },
+    {
+     "as_printed": "capitalist",
+     "n": 2
+    },
+    {
+     "as_printed": "exchange brokers",
+     "n": 1
+    },
+    {
+     "as_printed": "lottery and exchange broker",
+     "n": 1
+    },
+    {
+     "as_printed": "lottery office liberty bigelow",
+     "n": 1
+    },
+    {
+     "as_printed": "lottery ticket dealer",
+     "n": 1
+    },
+    {
+     "as_printed": "pawnbroker",
+     "n": 1
+    },
+    {
+     "as_printed": "w. bankers",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "founder",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 12,
+   "share_of_mapped": 0.00871,
+   "printed_forms": [
+    {
+     "as_printed": "machinist",
+     "n": 7
+    },
+    {
+     "as_printed": "copper",
+     "n": 1
+    },
+    {
+     "as_printed": "foundry",
+     "n": 1
+    },
+    {
+     "as_printed": "foundryman",
+     "n": 1
+    },
+    {
+     "as_printed": "iron foundry",
+     "n": 1
+    },
+    {
+     "as_printed": "moulder",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "mason",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 12,
+   "share_of_mapped": 0.00871,
+   "printed_forms": [
+    {
+     "as_printed": "bricklayer",
+     "n": 3
+    },
+    {
+     "as_printed": "lime burner",
+     "n": 3
+    },
+    {
+     "as_printed": "bricklayer and plasterer",
+     "n": 2
+    },
+    {
+     "as_printed": "mason",
+     "n": 2
+    },
+    {
+     "as_printed": "plasterer and bricklayer",
+     "n": 1
+    },
+    {
+     "as_printed": "stone mason",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "town_officer",
+   "in_vocabulary": false,
+   "column_1840": "Learned professions and engineers",
+   "count": 12,
+   "share_of_mapped": 0.00871,
+   "printed_forms": [
+    {
+     "as_printed": "alderman",
+     "n": 1
+    },
+    {
+     "as_printed": "alderman and justice of the peace",
+     "n": 1
+    },
+    {
+     "as_printed": "city collector",
+     "n": 1
+    },
+    {
+     "as_printed": "city crier",
+     "n": 1
+    },
+    {
+     "as_printed": "city treasurer",
+     "n": 1
+    },
+    {
+     "as_printed": "city wood inspector",
+     "n": 1
+    },
+    {
+     "as_printed": "coroner",
+     "n": 1
+    },
+    {
+     "as_printed": "county collector",
+     "n": 1
+    },
+    {
+     "as_printed": "county commissioner",
+     "n": 1
+    },
+    {
+     "as_printed": "inspector port of chicago",
+     "n": 1
+    },
+    {
+     "as_printed": "recorder",
+     "n": 1
+    },
+    {
+     "as_printed": "united states marshal",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "baker",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 11,
+   "share_of_mapped": 0.00799,
+   "printed_forms": [
+    {
+     "as_printed": "baker",
+     "n": 8
+    },
+    {
+     "as_printed": "bread and biscuit baker",
+     "n": 2
+    },
+    {
+     "as_printed": "city bakehouse",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "livery_stable_keeper",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 11,
+   "share_of_mapped": 0.00799,
+   "printed_forms": [
+    {
+     "as_printed": "hostler",
+     "n": 5
+    },
+    {
+     "as_printed": "livery stable",
+     "n": 4
+    },
+    {
+     "as_printed": "livery stable keeper",
+     "n": 1
+    },
+    {
+     "as_printed": "livery stables",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "lumber_merchant",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 11,
+   "share_of_mapped": 0.00799,
+   "printed_forms": [
+    {
+     "as_printed": "lumber dealer",
+     "n": 4
+    },
+    {
+     "as_printed": "lumber merchant",
+     "n": 4
+    },
+    {
+     "as_printed": "wood merchant",
+     "n": 2
+    },
+    {
+     "as_printed": "alex. lumber merchants",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "music_teacher",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 11,
+   "share_of_mapped": 0.00799,
+   "printed_forms": [
+    {
+     "as_printed": "actor",
+     "n": 5
+    },
+    {
+     "as_printed": "musician",
+     "n": 4
+    },
+    {
+     "as_printed": "comedian",
+     "n": 1
+    },
+    {
+     "as_printed": "violinist",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "student",
+   "in_vocabulary": false,
+   "column_1840": "Learned professions and engineers",
+   "count": 11,
+   "share_of_mapped": 0.00799,
+   "printed_forms": [
+    {
+     "as_printed": "student",
+     "n": 6
+    },
+    {
+     "as_printed": "law student",
+     "n": 3
+    },
+    {
+     "as_printed": "medical student",
+     "n": 2
+    }
+   ]
+  },
+  {
+   "trade": "cooper",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 10,
+   "share_of_mapped": 0.00726,
+   "printed_forms": [
+    {
+     "as_printed": "cooper",
+     "n": 10
+    }
+   ]
+  },
+  {
+   "trade": "auctioneer",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 9,
+   "share_of_mapped": 0.00654,
+   "printed_forms": [
+    {
+     "as_printed": "auctioneer",
+     "n": 8
+    },
+    {
+     "as_printed": "auctioneers",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "master_mariner",
+   "in_vocabulary": true,
+   "column_1840": "Navigation of the ocean",
+   "count": 8,
+   "share_of_mapped": 0.00581,
+   "printed_forms": [
+    {
+     "as_printed": "schooner jefferson",
+     "n": 2
+    },
+    {
+     "as_printed": "bark detroit",
+     "n": 1
+    },
+    {
+     "as_printed": "schooner constitution",
+     "n": 1
+    },
+    {
+     "as_printed": "schooner drift",
+     "n": 1
+    },
+    {
+     "as_printed": "schooner gen. thornton",
+     "n": 1
+    },
+    {
+     "as_printed": "schooner huron",
+     "n": 1
+    },
+    {
+     "as_printed": "schooner st. joseph",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "soap_and_candle_maker",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 8,
+   "share_of_mapped": 0.00581,
+   "printed_forms": [
+    {
+     "as_printed": "soap and candle maker",
+     "n": 2
+    },
+    {
+     "as_printed": "candle and soap factory",
+     "n": 1
+    },
+    {
+     "as_printed": "candle maker",
+     "n": 1
+    },
+    {
+     "as_printed": "soap boiler",
+     "n": 1
+    },
+    {
+     "as_printed": "soap maker",
+     "n": 1
+    },
+    {
+     "as_printed": "soap manufacturer",
+     "n": 1
+    },
+    {
+     "as_printed": "soapmaker",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "tinsmith",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 8,
+   "share_of_mapped": 0.00581,
+   "printed_forms": [
+    {
+     "as_printed": "tinner",
+     "n": 7
+    },
+    {
+     "as_printed": "tin",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "miller",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 7,
+   "share_of_mapped": 0.00508,
+   "printed_forms": [
+    {
+     "as_printed": "miller",
+     "n": 2
+    },
+    {
+     "as_printed": "burr mill stone manufactory",
+     "n": 1
+    },
+    {
+     "as_printed": "fanning-mill factory",
+     "n": 1
+    },
+    {
+     "as_printed": "fanning-mill maker",
+     "n": 1
+    },
+    {
+     "as_printed": "millers",
+     "n": 1
+    },
+    {
+     "as_printed": "steam saw mill",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "watchmaker",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 7,
+   "share_of_mapped": 0.00508,
+   "printed_forms": [
+    {
+     "as_printed": "watchmaker and jeweller",
+     "n": 3
+    },
+    {
+     "as_printed": "watchmaker",
+     "n": 2
+    },
+    {
+     "as_printed": "watch and clock maker",
+     "n": 1
+    },
+    {
+     "as_printed": "watch and clock repairer",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "barber_surgeon",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 6,
+   "share_of_mapped": 0.00436,
+   "printed_forms": [
+    {
+     "as_printed": "barber",
+     "n": 2
+    },
+    {
+     "as_printed": "hair cutting and shaving shop",
+     "n": 2
+    },
+    {
+     "as_printed": "hair cutting and shaving saloon",
+     "n": 1
+    },
+    {
+     "as_printed": "hair cutting and shaving-shop",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "harness_maker",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 6,
+   "share_of_mapped": 0.00436,
+   "printed_forms": [
+    {
+     "as_printed": "harness maker",
+     "n": 4
+    },
+    {
+     "as_printed": "saddle",
+     "n": 1
+    },
+    {
+     "as_printed": "saddle and harness maker",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "milliner",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 6,
+   "share_of_mapped": 0.00436,
+   "printed_forms": [
+    {
+     "as_printed": "milliner and dress maker",
+     "n": 3
+    },
+    {
+     "as_printed": "milliner",
+     "n": 1
+    },
+    {
+     "as_printed": "milliner and mantua-maker",
+     "n": 1
+    },
+    {
+     "as_printed": "millinery and straw bonnets",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "plasterer",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 6,
+   "share_of_mapped": 0.00436,
+   "printed_forms": [
+    {
+     "as_printed": "plasterer",
+     "n": 6
+    }
+   ]
+  },
+  {
+   "trade": "sawyer",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 6,
+   "share_of_mapped": 0.00436,
+   "printed_forms": [
+    {
+     "as_printed": "sawyer",
+     "n": 5
+    },
+    {
+     "as_printed": "wood-sawyer",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "seaman",
+   "in_vocabulary": true,
+   "column_1840": "Navigation of the ocean",
+   "count": 6,
+   "share_of_mapped": 0.00436,
+   "printed_forms": [
+    {
+     "as_printed": "sailor",
+     "n": 4
+    },
+    {
+     "as_printed": "fisherman",
+     "n": 1
+    },
+    {
+     "as_printed": "ship",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "confectioner",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 5,
+   "share_of_mapped": 0.00363,
+   "printed_forms": [
+    {
+     "as_printed": "confectioner",
+     "n": 2
+    },
+    {
+     "as_printed": "candies and notions",
+     "n": 1
+    },
+    {
+     "as_printed": "cigar manufacturer",
+     "n": 1
+    },
+    {
+     "as_printed": "ice cream",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "domestic",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 5,
+   "share_of_mapped": 0.00363,
+   "printed_forms": [
+    {
+     "as_printed": "waiter",
+     "n": 2
+    },
+    {
+     "as_printed": "florist and nurseryman",
+     "n": 1
+    },
+    {
+     "as_printed": "head-waiter",
+     "n": 1
+    },
+    {
+     "as_printed": "midwife",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "hardware_merchant",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 5,
+   "share_of_mapped": 0.00363,
+   "printed_forms": [
+    {
+     "as_printed": "hardware",
+     "n": 3
+    },
+    {
+     "as_printed": "hardware and stove merchant",
+     "n": 1
+    },
+    {
+     "as_printed": "wholesale saddlery hardware",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "hatter",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 5,
+   "share_of_mapped": 0.00363,
+   "printed_forms": [
+    {
+     "as_printed": "hats",
+     "n": 2
+    },
+    {
+     "as_printed": "hatter",
+     "n": 2
+    },
+    {
+     "as_printed": "hat and cap factory",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "physician",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 5,
+   "share_of_mapped": 0.00363,
+   "printed_forms": [
+    {
+     "as_printed": "drs",
+     "n": 2
+    },
+    {
+     "as_printed": "botanic physician",
+     "n": 1
+    },
+    {
+     "as_printed": "eye doctor",
+     "n": 1
+    },
+    {
+     "as_printed": "physician",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "speculator",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 5,
+   "share_of_mapped": 0.00363,
+   "printed_forms": [
+    {
+     "as_printed": "speculator",
+     "n": 5
+    }
+   ]
+  },
+  {
+   "trade": "brickmaker",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 4,
+   "share_of_mapped": 0.0029,
+   "printed_forms": [
+    {
+     "as_printed": "brickmaker",
+     "n": 3
+    },
+    {
+     "as_printed": "brick maker",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "bookseller",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 3,
+   "share_of_mapped": 0.00218,
+   "printed_forms": [
+    {
+     "as_printed": "bookbinder",
+     "n": 1
+    },
+    {
+     "as_printed": "bookbinder and paper ruler",
+     "n": 1
+    },
+    {
+     "as_printed": "bookseller and stationer",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "brewer",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 3,
+   "share_of_mapped": 0.00218,
+   "printed_forms": [
+    {
+     "as_printed": "brewer",
+     "n": 3
+    }
+   ]
+  },
+  {
+   "trade": "foreman",
+   "in_vocabulary": false,
+   "column_1840": "Manufactures and trades",
+   "count": 3,
+   "share_of_mapped": 0.00218,
+   "printed_forms": [
+    {
+     "as_printed": "foreman",
+     "n": 2
+    },
+    {
+     "as_printed": "foreman chicago democrat",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "justice_of_the_peace",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 3,
+   "share_of_mapped": 0.00218,
+   "printed_forms": [
+    {
+     "as_printed": "justice of the peace",
+     "n": 2
+    },
+    {
+     "as_printed": "ex-justice of peace",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "liquor_dealer",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 3,
+   "share_of_mapped": 0.00218,
+   "printed_forms": [
+    {
+     "as_printed": "distiller",
+     "n": 2
+    },
+    {
+     "as_printed": "wholesale liquor dealers",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "mail_contractor",
+   "in_vocabulary": true,
+   "column_1840": "Navigation of canals, lakes and rivers",
+   "count": 3,
+   "share_of_mapped": 0.00218,
+   "printed_forms": [
+    {
+     "as_printed": "stage agent",
+     "n": 1
+    },
+    {
+     "as_printed": "stage office",
+     "n": 1
+    },
+    {
+     "as_printed": "stage-coach ticket agent",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "soldier",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 3,
+   "share_of_mapped": 0.00218,
+   "printed_forms": [
+    {
+     "as_printed": "garrison",
+     "n": 3
+    }
+   ]
+  },
+  {
+   "trade": "tanner",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 3,
+   "share_of_mapped": 0.00218,
+   "printed_forms": [
+    {
+     "as_printed": "tanner",
+     "n": 3
+    }
+   ]
+  },
+  {
+   "trade": "bar_keeper",
+   "in_vocabulary": false,
+   "column_1840": "Commerce",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "bartender",
+     "n": 2
+    }
+   ]
+  },
+  {
+   "trade": "county_clerk",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "county clerk",
+     "n": 1
+    },
+    {
+     "as_printed": "county clerk office",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "dentist",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "dentist",
+     "n": 2
+    }
+   ]
+  },
+  {
+   "trade": "drover",
+   "in_vocabulary": true,
+   "column_1840": "Agriculture",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "cattle drover",
+     "n": 1
+    },
+    {
+     "as_printed": "herdsman",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "editor",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "editor and publisher of chicago democrat",
+     "n": 1
+    },
+    {
+     "as_printed": "publisher and editor of chicago daily american",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "engraver",
+   "in_vocabulary": false,
+   "column_1840": "Manufactures and trades",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "engraver",
+     "n": 2
+    }
+   ]
+  },
+  {
+   "trade": "fire_warden",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "fire warden",
+     "n": 1
+    },
+    {
+     "as_printed": "fireman",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "harbour_agent",
+   "in_vocabulary": true,
+   "column_1840": "Navigation of canals, lakes and rivers",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "harbor government works",
+     "n": 2
+    }
+   ]
+  },
+  {
+   "trade": "minister",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "pastor first presbyterian church",
+     "n": 1
+    },
+    {
+     "as_printed": "pastor methodist church",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "postmaster",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "assist. -postmaster",
+     "n": 1
+    },
+    {
+     "as_printed": "postmaster",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "refectory_keeper",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "city refectory",
+     "n": 1
+    },
+    {
+     "as_printed": "pork an a bean restaurant",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "ship_chandler",
+   "in_vocabulary": true,
+   "column_1840": "Commerce",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "ship chandler",
+     "n": 1
+    },
+    {
+     "as_printed": "ship chandlers",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "steward",
+   "in_vocabulary": false,
+   "column_1840": "Manufactures and trades",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "steward",
+     "n": 2
+    }
+   ]
+  },
+  {
+   "trade": "warehouseman",
+   "in_vocabulary": false,
+   "column_1840": "Commerce",
+   "count": 2,
+   "share_of_mapped": 0.00145,
+   "printed_forms": [
+    {
+     "as_printed": "warehouseman",
+     "n": 2
+    }
+   ]
+  },
+  {
+   "trade": "ferryman",
+   "in_vocabulary": true,
+   "column_1840": "Navigation of canals, lakes and rivers",
+   "count": 1,
+   "share_of_mapped": 0.00073,
+   "printed_forms": [
+    {
+     "as_printed": "ferryman at",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "gunsmith",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 1,
+   "share_of_mapped": 0.00073,
+   "printed_forms": [
+    {
+     "as_printed": "david c. gunsmiths",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "laundress",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 1,
+   "share_of_mapped": 0.00073,
+   "printed_forms": [
+    {
+     "as_printed": "whitewasher and laborer",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "lighthouse_keeper",
+   "in_vocabulary": true,
+   "column_1840": "Navigation of canals, lakes and rivers",
+   "count": 1,
+   "share_of_mapped": 0.00073,
+   "printed_forms": [
+    {
+     "as_printed": "light-housekeeper",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "millwright",
+   "in_vocabulary": false,
+   "column_1840": "Manufactures and trades",
+   "count": 1,
+   "share_of_mapped": 0.00073,
+   "printed_forms": [
+    {
+     "as_printed": "millwright",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "packer",
+   "in_vocabulary": true,
+   "column_1840": "Manufactures and trades",
+   "count": 1,
+   "share_of_mapped": 0.00073,
+   "printed_forms": [
+    {
+     "as_printed": "packer",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "sexton",
+   "in_vocabulary": false,
+   "column_1840": "Manufactures and trades",
+   "count": 1,
+   "share_of_mapped": 0.00073,
+   "printed_forms": [
+    {
+     "as_printed": "sexton",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "trade": "town_clerk",
+   "in_vocabulary": true,
+   "column_1840": "Learned professions and engineers",
+   "count": 1,
+   "share_of_mapped": 0.00073,
+   "printed_forms": [
+    {
+     "as_printed": "city clerk",
+     "n": 1
+    }
+   ]
+  }
+ ],
+ "against_the_1840_industry_columns": {
+  "note": "The 1840 schedule counts PERSONS IN FAMILIES by industry and this table counts DIRECTORY ENTRIES by trade. The two are not the same unit and the deltas are read as shape, not as error.",
+  "columns": [
+   {
+    "column": "Agriculture",
+    "ipums_variable": "nindagr",
+    "persons_1840": 136,
+    "share_of_employed_1840": 0.1563,
+    "entries_1839": 54,
+    "share_of_mapped_1839": 0.03922,
+    "delta": -0.11708
+   },
+   {
+    "column": "Commerce",
+    "ipums_variable": "nindcom",
+    "persons_1840": 185,
+    "share_of_employed_1840": 0.2126,
+    "entries_1839": 468,
+    "share_of_mapped_1839": 0.33987,
+    "delta": 0.12727
+   },
+   {
+    "column": "Manufactures and trades",
+    "ipums_variable": "nindmfg",
+    "persons_1840": 405,
+    "share_of_employed_1840": 0.4655,
+    "entries_1839": 611,
+    "share_of_mapped_1839": 0.44372,
+    "delta": -0.02178
+   },
+   {
+    "column": "Navigation of the ocean",
+    "ipums_variable": "nindocn",
+    "persons_1840": 9,
+    "share_of_employed_1840": 0.0103,
+    "entries_1839": 14,
+    "share_of_mapped_1839": 0.01017,
+    "delta": -0.00013
+   },
+   {
+    "column": "Navigation of canals, lakes and rivers",
+    "ipums_variable": "nindriv",
+    "persons_1840": 62,
+    "share_of_employed_1840": 0.0713,
+    "entries_1839": 97,
+    "share_of_mapped_1839": 0.07044,
+    "delta": -0.00086
+   },
+   {
+    "column": "Learned professions and engineers",
+    "ipums_variable": "nindeng",
+    "persons_1840": 71,
+    "share_of_employed_1840": 0.0816,
+    "entries_1839": 133,
+    "share_of_mapped_1839": 0.09659,
+    "delta": 0.01499
+   },
+   {
+    "column": "Mining",
+    "ipums_variable": "nindmin",
+    "persons_1840": 2,
+    "share_of_employed_1840": 0.0023,
+    "entries_1839": 0,
+    "share_of_mapped_1839": 0.0,
+    "delta": -0.0023
+   }
+  ]
+ },
+ "refusals": [
+  {
+   "class": "a_firm_style",
+   "count": 64,
+   "why": "a firm's trading style, not one person's trade — the entry names a house",
+   "forms": [
+    {
+     "as_printed": "& co",
+     "n": 9
+    },
+    {
+     "as_printed": "goodsell & campbell",
+     "n": 3
+    },
+    {
+     "as_printed": "andrus & doyle",
+     "n": 2
+    },
+    {
+     "as_printed": "botsford & beers",
+     "n": 2
+    },
+    {
+     "as_printed": "church & sheldon",
+     "n": 2
+    },
+    {
+     "as_printed": "crosman & mathes",
+     "n": 2
+    },
+    {
+     "as_printed": "dodge & tucker",
+     "n": 2
+    },
+    {
+     "as_printed": "edwards & bosworth",
+     "n": 2
+    },
+    {
+     "as_printed": "guild & durant",
+     "n": 2
+    },
+    {
+     "as_printed": "gurnee & matteson",
+     "n": 2
+    },
+    {
+     "as_printed": "parsons & holden",
+     "n": 2
+    },
+    {
+     "as_printed": "stearns & hallam",
+     "n": 2
+    },
+    {
+     "as_printed": "& abram f",
+     "n": 1
+    },
+    {
+     "as_printed": "& edward",
+     "n": 1
+    },
+    {
+     "as_printed": "& hyde",
+     "n": 1
+    },
+    {
+     "as_printed": "& i",
+     "n": 1
+    },
+    {
+     "as_printed": "& jacob",
+     "n": 1
+    },
+    {
+     "as_printed": "& james h",
+     "n": 1
+    },
+    {
+     "as_printed": "& john",
+     "n": 1
+    },
+    {
+     "as_printed": "at g. s. hubbard & co. warehouse",
+     "n": 1
+    },
+    {
+     "as_printed": "bristol & porter",
+     "n": 1
+    },
+    {
+     "as_printed": "charles walker & co",
+     "n": 1
+    },
+    {
+     "as_printed": "chas. l. loomis horatio g. & co",
+     "n": 1
+    },
+    {
+     "as_printed": "chas. walker & co",
+     "n": 1
+    },
+    {
+     "as_printed": "d. & stevens",
+     "n": 1
+    },
+    {
+     "as_printed": "d. n. & wadhams",
+     "n": 1
+    },
+    {
+     "as_printed": "dodge & austin",
+     "n": 1
+    },
+    {
+     "as_printed": "foster & robb",
+     "n": 1
+    },
+    {
+     "as_printed": "funk & doyle",
+     "n": 1
+    },
+    {
+     "as_printed": "giles williams & co",
+     "n": 1
+    },
+    {
+     "as_printed": "grocery & provisions",
+     "n": 1
+    },
+    {
+     "as_printed": "harmon & loomis",
+     "n": 1
+    },
+    {
+     "as_printed": "harmon & loomis store",
+     "n": 1
+    },
+    {
+     "as_printed": "hobbie & clark",
+     "n": 1
+    },
+    {
+     "as_printed": "horace norton & co",
+     "n": 1
+    },
+    {
+     "as_printed": "ii. ii. magie & co",
+     "n": 1
+    },
+    {
+     "as_printed": "james a. smith & co",
+     "n": 1
+    },
+    {
+     "as_printed": "jefferson & mckenzie",
+     "n": 1
+    },
+    {
+     "as_printed": "kinzie & gillespie",
+     "n": 1
+    },
+    {
+     "as_printed": "mcclure & co",
+     "n": 1
+    },
+    {
+     "as_printed": "mosely & mccord",
+     "n": 1
+    },
+    {
+     "as_printed": "osbourn & strail",
+     "n": 1
+    },
+    {
+     "as_printed": "stow & williams",
+     "n": 1
+    },
+    {
+     "as_printed": "wheeler & peck",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "class": "no_rule_reaches_it",
+   "count": 61,
+   "why": "the trade slot carries words no committed rule places — a forename the segmenter kept, a works, a vessel or a trade this volume prints once. Counted, printed, and left for a reader rather than guessed at",
+   "forms": [
+    {
+     "as_printed": "house",
+     "n": 4
+    },
+    {
+     "as_printed": "smead",
+     "n": 3
+    },
+    {
+     "as_printed": "agent",
+     "n": 2
+    },
+    {
+     "as_printed": "block and pump maker",
+     "n": 2
+    },
+    {
+     "as_printed": "davis",
+     "n": 2
+    },
+    {
+     "as_printed": "government works",
+     "n": 2
+    },
+    {
+     "as_printed": "horse-rider",
+     "n": 2
+    },
+    {
+     "as_printed": "indian chief",
+     "n": 2
+    },
+    {
+     "as_printed": "ira",
+     "n": 2
+    },
+    {
+     "as_printed": "taylor",
+     "n": 2
+    },
+    {
+     "as_printed": "black pete",
+     "n": 1
+    },
+    {
+     "as_printed": "called old harper",
+     "n": 1
+    },
+    {
+     "as_printed": "charles",
+     "n": 1
+    },
+    {
+     "as_printed": "chess player",
+     "n": 1
+    },
+    {
+     "as_printed": "dan. taylor",
+     "n": 1
+    },
+    {
+     "as_printed": "david",
+     "n": 1
+    },
+    {
+     "as_printed": "dot",
+     "n": 1
+    },
+    {
+     "as_printed": "f avid r",
+     "n": 1
+    },
+    {
+     "as_printed": "fames",
+     "n": 1
+    },
+    {
+     "as_printed": "feather beds",
+     "n": 1
+    },
+    {
+     "as_printed": "frederick sammons",
+     "n": 1
+    },
+    {
+     "as_printed": "frink",
+     "n": 1
+    },
+    {
+     "as_printed": "gamboleer",
+     "n": 1
+    },
+    {
+     "as_printed": "george",
+     "n": 1
+    },
+    {
+     "as_printed": "giles",
+     "n": 1
+    },
+    {
+     "as_printed": "horace",
+     "n": 1
+    },
+    {
+     "as_printed": "joe",
+     "n": 1
+    },
+    {
+     "as_printed": "jones",
+     "n": 1
+    },
+    {
+     "as_printed": "jun",
+     "n": 1
+    },
+    {
+     "as_printed": "kendall",
+     "n": 1
+    },
+    {
+     "as_printed": "lenry",
+     "n": 1
+    },
+    {
+     "as_printed": "liram",
+     "n": 1
+    },
+    {
+     "as_printed": "managers chicago theatre",
+     "n": 1
+    },
+    {
+     "as_printed": "match maker",
+     "n": 1
+    },
+    {
+     "as_printed": "methodist",
+     "n": 1
+    },
+    {
+     "as_printed": "phrenologist",
+     "n": 1
+    },
+    {
+     "as_printed": "rev",
+     "n": 1
+    },
+    {
+     "as_printed": "samuel",
+     "n": 1
+    },
+    {
+     "as_printed": "secretary",
+     "n": 1
+    },
+    {
+     "as_printed": "shakspeare",
+     "n": 1
+    },
+    {
+     "as_printed": "sir",
+     "n": 1
+    },
+    {
+     "as_printed": "street com",
+     "n": 1
+    },
+    {
+     "as_printed": "superintendent tremont house",
+     "n": 1
+    },
+    {
+     "as_printed": "the generous sport",
+     "n": 1
+    },
+    {
+     "as_printed": "theatre",
+     "n": 1
+    },
+    {
+     "as_printed": "u.s.a",
+     "n": 1
+    },
+    {
+     "as_printed": "vapor baths",
+     "n": 1
+    },
+    {
+     "as_printed": "wheeler k peck",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "class": "not_legible",
+   "count": 28,
+   "why": "fewer than three letters survive the scan — a speck, a rule or a broken line",
+   "forms": [
+    {
+     "as_printed": "",
+     "n": 17
+    },
+    {
+     "as_printed": "1",
+     "n": 2
+    },
+    {
+     "as_printed": "jr",
+     "n": 2
+    },
+    {
+     "as_printed": "t",
+     "n": 2
+    },
+    {
+     "as_printed": "de",
+     "n": 1
+    },
+    {
+     "as_printed": "s",
+     "n": 1
+    },
+    {
+     "as_printed": "st",
+     "n": 1
+    },
+    {
+     "as_printed": "v",
+     "n": 1
+    },
+    {
+     "as_printed": "wm",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "class": "an_employer_or_a_name",
+   "count": 25,
+   "why": "the segmenter carried a name, an initial or an employer into the trade slot; the volume gives this person no trade of their own",
+   "forms": [
+    {
+     "as_printed": "att y",
+     "n": 2
+    },
+    {
+     "as_printed": "with sylvester marsh",
+     "n": 2
+    },
+    {
+     "as_printed": "agents for c. m. reed",
+     "n": 1
+    },
+    {
+     "as_printed": "and brother",
+     "n": 1
+    },
+    {
+     "as_printed": "and leighton",
+     "n": 1
+    },
+    {
+     "as_printed": "and samuel",
+     "n": 1
+    },
+    {
+     "as_printed": "and wm",
+     "n": 1
+    },
+    {
+     "as_printed": "assistant s. c. bennett",
+     "n": 1
+    },
+    {
+     "as_printed": "at augustin d. taylor",
+     "n": 1
+    },
+    {
+     "as_printed": "benj. w",
+     "n": 1
+    },
+    {
+     "as_printed": "geo. w",
+     "n": 1
+    },
+    {
+     "as_printed": "gurdon s",
+     "n": 1
+    },
+    {
+     "as_printed": "james a",
+     "n": 1
+    },
+    {
+     "as_printed": "john l",
+     "n": 1
+    },
+    {
+     "as_printed": "samuel m",
+     "n": 1
+    },
+    {
+     "as_printed": "samuel w. goss ik. co",
+     "n": 1
+    },
+    {
+     "as_printed": "seth t",
+     "n": 1
+    },
+    {
+     "as_printed": "supt. u. s. works",
+     "n": 1
+    },
+    {
+     "as_printed": "thomas b",
+     "n": 1
+    },
+    {
+     "as_printed": "with dea. john wright",
+     "n": 1
+    },
+    {
+     "as_printed": "with john fennerty",
+     "n": 1
+    },
+    {
+     "as_printed": "with simon doyle",
+     "n": 1
+    },
+    {
+     "as_printed": "wm. h",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "class": "a_house_not_a_trade",
+   "count": 21,
+   "why": "a named house, church or place of business standing where a trade would be set — it says where the person was, not what they did there",
+   "forms": [
+    {
+     "as_printed": "united states hotel",
+     "n": 2
+    },
+    {
+     "as_printed": "american hotel",
+     "n": 1
+    },
+    {
+     "as_printed": "chicago hotel",
+     "n": 1
+    },
+    {
+     "as_printed": "city hotel",
+     "n": 1
+    },
+    {
+     "as_printed": "columbian house",
+     "n": 1
+    },
+    {
+     "as_printed": "eagle saloon",
+     "n": 1
+    },
+    {
+     "as_printed": "first baptist church",
+     "n": 1
+    },
+    {
+     "as_printed": "first unitarian church",
+     "n": 1
+    },
+    {
+     "as_printed": "first unitarian society",
+     "n": 1
+    },
+    {
+     "as_printed": "illinois exchange",
+     "n": 1
+    },
+    {
+     "as_printed": "lake house",
+     "n": 1
+    },
+    {
+     "as_printed": "late illinois exchange",
+     "n": 1
+    },
+    {
+     "as_printed": "mansion house",
+     "n": 1
+    },
+    {
+     "as_printed": "methodist church",
+     "n": 1
+    },
+    {
+     "as_printed": "new york house",
+     "n": 1
+    },
+    {
+     "as_printed": "presbyterian church",
+     "n": 1
+    },
+    {
+     "as_printed": "sauganash hotel",
+     "n": 1
+    },
+    {
+     "as_printed": "southern hotel",
+     "n": 1
+    },
+    {
+     "as_printed": "st. james church",
+     "n": 1
+    },
+    {
+     "as_printed": "steamboat hotel",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "class": "an_address",
+   "count": 7,
+   "why": "an address or a ward printed where a trade would be, the entry giving no trade at all",
+   "forms": [
+    {
+     "as_printed": "6th ward",
+     "n": 2
+    },
+    {
+     "as_printed": "1 . h",
+     "n": 1
+    },
+    {
+     "as_printed": "121 lake st",
+     "n": 1
+    },
+    {
+     "as_printed": "5th ward",
+     "n": 1
+    },
+    {
+     "as_printed": "cor. cass and",
+     "n": 1
+    },
+    {
+     "as_printed": "street",
+     "n": 1
+    }
+   ]
+  }
+ ]
+}

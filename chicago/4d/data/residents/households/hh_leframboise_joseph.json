@@ -13,20 +13,60 @@
   "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. tax_1833 stands against this person's name by 31 December 1833 and nothing says when they came. THE 1833 TAX LIST IS A PROPERTY ROLL, NOT A RESIDENCE CHECK (T-1117): it names the owner of ground inside the town, resident or not, and its own entry 110 is a man three years dead. It bounds the town's RECORD of this name and not the day this person reached Chicago. The bound is at or before the scene date, so the town's own paper carries this name by 1 July 1835; whether the man it names was standing in the town is a claim this record cannot make, and present_on_scene_date says `uncertain` for that reason.",
   "precision": "not_later_than"
  },
+ "arrival_year": {
+  "value": 1833,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1833-12-31 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1833."
+  },
+  "seed": "hh_leframboise_joseph:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
  "party_size_on_arrival": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
  },
  "origin": {
-  "value": null,
+  "value": "New York State",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_leframboise_joseph:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -44,6 +84,20 @@
   "sources": [
    "chicago_voter_lists_1833_1835_irad"
   ],
+  "last_dated_appearance": {
+   "as_read": "1833",
+   "precision": "year",
+   "reaches": "1833-12-31",
+   "includes_scene_date": false,
+   "days_before_scene_date": 547,
+   "leg": "sighting",
+   "person": "leframboise_joseph",
+   "record": "tax_1833_066",
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `civic_evidence` as `1833`, which reaches 1833-12-31 — 547 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+  },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap. AND THE BRACKET THIS CARD ONCE HAD IS WITHDRAWN, NOT LOST: its at-or-before leg was tax_1833 alone. THE 1833 TAX LIST IS A PROPERTY ROLL, NOT A RESIDENCE CHECK (T-1117): it names the owner of ground inside the town, resident or not, and its own entry 110 is a man three years dead. It bounds the town's RECORD of this name and not the day this person reached Chicago, so it cannot say this person was here to be followed across the day. Withdrawn to `uncertain` and not to `absent` — no source places this person anywhere else on 1 July 1835 either, and a man who was taxed for ground in the town may perfectly well have been standing on it."
  },
  "persons": [
@@ -74,7 +128,31 @@
      "rule": "G3"
     }
    ],
-   "resident_subtype": "projected_resident"
+   "resident_subtype": "projected_resident",
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 30 under 40', one of its male bands, conditioned on `civic_list_20_and_over` because the person stands on a poll, a tax list or a muster roll."
+    },
+    "seed": "leframboise_joseph:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('leframboise_joseph:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a poll, tax or muster list names a person 20 or over - the 1840 schedule's own adult line. THE FRANCHISE'S AGE RULE IS NOT IN ANY SOURCE RECORD THIS PROJECT HOLDS; this is the model's conditioning and not a reading (T-1303's finding, handed to T-1304). No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   },
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "inferred",
+    "note": "A FORENAME THAT STANDS IN ONE SEX'S NAMING ONLY. 'Joseph' is read as male because 2 persons in this layer whose sex a source records bear it (meeker_joseph, porthier_joseph), and it stands in the french_colonial and yankee male forename pool of this town's own attested naming. Nothing about this person is recorded; the name is the whole of the reasoning, and the table that licenses it — data/research/residents/forename_sex.json — refuses a name its own evidence splits, refuses Jean, Marion, Leslie and Francis by name, and refuses an initial outright."
+   }
   }
  ],
  "touches_removal": false,

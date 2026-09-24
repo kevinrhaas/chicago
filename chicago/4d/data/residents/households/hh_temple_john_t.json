@@ -8,10 +8,20 @@
   "confidence": "attested",
   "sources": [
    "andreas_1884_v1",
-   "baptisthistoryhomepage"
+   "baptisthistoryhomepage",
+   "moses_kirkland_history_of_chicago_v1"
   ],
-  "note": "'Arrived early in July, 1833' (Andreas); the Baptist history transcription independently puts him at Chicago 'about 4 July 1833'. Recorded at not_later_than precision on the second source's date, because 'early in July' is a week and not a day.",
+  "note": "'Arrived early in July, 1833' (Andreas); the Baptist history transcription independently puts him at Chicago 'about 4 July 1833'. Recorded at not_later_than precision on the second source's date, because 'early in July' is a week and not a day. THE COMPILER'S SEASON SITS JUST OUTSIDE THIS BOUND AND DOES NOT MOVE IT. Moses and Kirkland vol. 1, printed page 90 (claim bk_mose1_005), names Dr. John T. Temple among the arrivals of the spring of 1833; this field is not_later_than 4 July 1833, on Andreas's \"Arrived early in July, 1833\" and the Baptist history's \"about 4 July 1833\" agreeing independently. Spring ends before either. TWO INDEPENDENT READINGS AT A WEEK'S PRECISION OUTWEIGH ONE SEASONAL LIST AT SIXTY YEARS' REMOVE, and the difference is small enough to be the compiler rounding a July arrival into the season of the men he lists it with. Recorded, not adopted. THE GRADE CEILING IS THE SOURCE'S AND NOT THIS FIELD'S. Moses and Kirkland, History of Chicago, Illinois (1895) is a compiler sixty years after the fact; every claim taken off it is transcription_mediated and none is scan_verified, so nothing drawn from it is graded above `inferred` (the rule T-1322 set for the settlers table, kept here).",
   "precision": "not_later_than"
+ },
+ "arrival_year": {
+  "value": 1833,
+  "confidence": "inferred",
+  "tier": "inferred",
+  "note": "A STATED YEAR, WHERE THE FIELD HELD A DRAW. The completed resident-research pass on temple_john_t read a municipal preservation study as corroborating Temple's July 1833 arrival with wife and four children, and his mail contract. The drawn year read 1833 too, so the value does not move; what moves is that it is now sourced. The same study gives dwelling and office locations that CONFLICT with this household's, and no address is taken from it here — the conflict is left standing where the pass recorded it. Under the evidence ladder ratified 2026-09-03 a source earlier than 1 July 1835 corroborates and dates and never promotes: the person's grade does not move on this.",
+  "sources": [
+   "plainfield_john_temple_report"
+  ]
  },
  "party_size_on_arrival": {
   "value": 6,
@@ -66,6 +76,18 @@
    "relationship": "head",
    "grade": "attested",
    "ladder_rule": "G1b",
+   "associated_with": [
+    {
+     "kind": "land_purchased",
+     "place_or_structure_id": "school_section",
+     "resolves_to": "tract",
+     "from": "1833-10-22",
+     "to": null,
+     "tier": "inferred",
+     "source_id": "isa_public_domain_land_tract_sales",
+     "note": "GROUND HE BOUGHT, WHICH IS NOT GROUND HE STOOD ON — the rung is `tract` for that reason, and `land_purchased` is in neither the home kinds nor the work kinds because a holding is not a place a man was. The federal tract-sale register carries 8 row(s) — ls0353, ls0354, ls0355, ls0356, ls0357, ls0358, ls0359, ls0360 — to this purchaser, read as 'TEMPLE JOHN T', sorted onto school_section by tools/sort_land_sales_onto_tracts.py and covering about 21.1 acre(s) of it. THE TIER IS INFERRED AND THE TWO HALVES DIFFER: the purchase is documented — the register is a public record and states it — while the tie between that purchaser and THIS card is an identity ruling, upheld under T-0990 on 2026-09-11 by the rule 'TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full.'. The weaker half sets the tier. `to` is null because the register records a sale and not a tenure."
+    }
+   ],
    "sex": "male",
    "occupation": {
     "value": "physician",
@@ -85,6 +107,423 @@
     "chicago_democrat_1833_1835",
     "chicago_voter_lists_1833_1835_irad",
     "isa_public_domain_land_tract_sales"
+   ],
+   "dated_bounds": [
+    {
+     "bound_kind": "presence",
+     "list": "poll_1833",
+     "list_title": "Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833",
+     "record_id": "poll_1833_027",
+     "as_read": "Temple, John T.",
+     "locator": "voter_lists_1833_1835.txt line 48",
+     "describes_date": "1833-08-10",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-08-10",
+     "here_by": "1833-08-10",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'John T. Temple' against resident 'Dr John Taylor Temple'",
+     "identity_rule": "one resident of the surname 'Temple' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1833-08-10. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Temple' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'John T. Temple' against resident 'Dr John Taylor Temple'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "property",
+     "list": "tax_1833",
+     "list_title": "Tax list of the Town of Chicago, 1833",
+     "record_id": "tax_1833_102",
+     "as_read": "Temple, John",
+     "locator": "voter_lists_1833_1835.txt line 154",
+     "describes_date": "1833",
+     "date_confidence": "documented",
+     "precision": "year",
+     "reaches": "1833-12-31",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'John Temple' against resident 'Dr John Taylor Temple'",
+     "identity_rule": "one resident of the surname 'Temple' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+     "note": "PROPERTY, NOT PRESENCE (T-1117). Tax list of the Town of Chicago, 1833 names the owners of ground inside the town, resident or not — its entry 110 is Alexander Wolcott, who had been dead since 25 October 1830 — so this row bounds what this person was assessed for and says nothing about where the person was. tools/assert_tax_roll_ruling.py holds that ruling on the two readings it rests on. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Temple' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'John Temple' against resident 'Dr John Taylor Temple'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "presence",
+     "list": "poll_1834",
+     "list_title": "Election returns — poll list of 1834, filed 11 August 1834",
+     "record_id": "poll_1834_107",
+     "as_read": "Temple, John T.",
+     "locator": "voter_lists_1833_1835.txt line 276",
+     "describes_date": "1834-08-11",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-11",
+     "here_by": "1834-08-11",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'John T. Temple' against resident 'Dr John Taylor Temple'",
+     "identity_rule": "one resident of the surname 'Temple' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Election returns — poll list of 1834, filed 11 August 1834 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1834-08-11. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Temple' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'John T. Temple' against resident 'Dr John Taylor Temple'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0353",
+     "as_read": "TEMPLE JOHN T",
+     "locator": "purchase 0373414, volume 818 page 010, section 16, T39N R14E",
+     "describes_date": "10/22/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-22",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins TEMPLE JOHN T to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0354",
+     "as_read": "TEMPLE JOHN T",
+     "locator": "purchase 0373419, volume 818 page 010, section 16, T39N R14E",
+     "describes_date": "10/24/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-24",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins TEMPLE JOHN T to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0355",
+     "as_read": "TEMPLE JOHN T",
+     "locator": "purchase 0373420, volume 818 page 010, section 16, T39N R14E",
+     "describes_date": "10/23/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-23",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins TEMPLE JOHN T to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0356",
+     "as_read": "TEMPLE JOHN T",
+     "locator": "purchase 0373421, volume 818 page 010, section 16, T39N R14E",
+     "describes_date": "10/24/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-24",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins TEMPLE JOHN T to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0357",
+     "as_read": "TEMPLE JOHN T",
+     "locator": "purchase 0373422, volume 818 page 010, section 16, T39N R14E",
+     "describes_date": "10/23/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-23",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins TEMPLE JOHN T to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0358",
+     "as_read": "TEMPLE JOHN T",
+     "locator": "purchase 0373425, volume 818 page 010, section 16, T39N R14E",
+     "describes_date": "10/23/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-23",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins TEMPLE JOHN T to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0359",
+     "as_read": "TEMPLE JOHN T",
+     "locator": "purchase 0373426, volume 818 page 010, section 16, T39N R14E",
+     "describes_date": "10/23/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-23",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins TEMPLE JOHN T to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0360",
+     "as_read": "TEMPLE JOHN T",
+     "locator": "purchase 0373428, volume 818 page 010, section 16, T39N R14E",
+     "describes_date": "10/24/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-24",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins TEMPLE JOHN T to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1833_12_03#c012",
+     "claim_kind": "notice",
+     "as_printed": "JOHN T. TEMPLE",
+     "role": "advertiser wanting horses",
+     "locator": "chicago_democrat_1833_12_03 page 3 column 4",
+     "describes_date": "1833-12-03",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-12-03",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_john_t_temple, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1833-12-03 names 'JOHN T. TEMPLE' in the claim read as chicago_democrat_1833_12_03#c012, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_02_04#c001",
+     "claim_kind": "event",
+     "as_printed": "Dr. Jous T. Terie",
+     "role": "President, Chicago Temperance Society",
+     "locator": "chicago_democrat_1834_02_04 page 3 column 2",
+     "describes_date": "1834-02-04",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-02-04",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_dr_john_t_temple, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-02-04 names 'Dr. Jous T. Terie' in the claim read as chicago_democrat_1834_02_04#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_04_01#c019",
+     "claim_kind": "notice",
+     "as_printed": "oe JOUN T. TEMPLE.",
+     "role": "offers Chicago lots for sale",
+     "locator": "chicago_democrat_1834_04_01 page 3 column 5",
+     "describes_date": "1834-04-01",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-04-01",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_john_t_temple, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-04-01 names 'oe JOUN T. TEMPLE.' in the claim read as chicago_democrat_1834_04_01#c019, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_11_05#c005",
+     "claim_kind": "notice",
+     "as_printed": "John T. Temple",
+     "role": "mentioned",
+     "locator": "chicago_democrat_1834_11_05 page 3 column 2",
+     "describes_date": "1834-11-05",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-05",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_john_t_temple, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-11-05 names 'John T. Temple' in the claim read as chicago_democrat_1834_11_05#c005, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_11_05#c006",
+     "claim_kind": "notice",
+     "as_printed": "JOIN T. TEMPLE",
+     "role": "advertiser",
+     "locator": "chicago_democrat_1834_11_05 page 3 column 2",
+     "describes_date": "1834-11-05",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-05",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_john_t_temple, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-11-05 names 'JOIN T. TEMPLE' in the claim read as chicago_democrat_1834_11_05#c006, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_11_19#c001",
+     "claim_kind": "event",
+     "as_printed": "Doct, J.T. Tomple",
+     "role": "committee member",
+     "locator": "chicago_democrat_1834_11_19 page 3 column 2",
+     "describes_date": "1834-11-19",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-19",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_j_t_temple, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-11-19 names 'Doct, J.T. Tomple' in the claim read as chicago_democrat_1834_11_19#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_11_26#c005",
+     "claim_kind": "event",
+     "as_printed": "IT Temple",
+     "role": "meeting participant",
+     "locator": "chicago_democrat_1834_11_26 page 2 column 5",
+     "describes_date": "1834-11-26",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-26",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_dr_j_t_temple, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-11-26 names 'IT Temple' in the claim read as chicago_democrat_1834_11_26#c005, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1835_06_17#c002",
+     "claim_kind": "event",
+     "as_printed": "J. T. Temple",
+     "role": "of the committee of seven",
+     "locator": "chicago_democrat_1835_06_17 page 2 column 5",
+     "describes_date": "1835-06-17",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-17",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_john_t_temple, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-06-17 names 'J. T. Temple' in the claim read as chicago_democrat_1835_06_17#c002, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
    ],
    "note": "THE BEST-DOCUMENTED ARRIVAL IN THE WHOLE PARCEL, and the only one that gives a month, a party size, an origin AND a reason in a single sentence. Andreas, scan p. 281: 'Dr. John T. Temple, who had arrived early in July, 1833, with his family, consisting of a wife and four children. He was a pious and earnest Baptist Christian, and came to Chicago from Washington, D. C., armed with a contract to carry the mails from Chicago to Fort Howard, Green Bay.' He then headed the subscription for the Temple Building with $100. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 3 times: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Temple, John T.” (poll_1833_027, line 48); Tax list of the Town of Chicago, 1833 — “Temple, John” (tax_1833_102, line 154); Election returns — poll list of 1834, filed 11 August 1834 — “Temple, John T.” (poll_1834_107, line 276). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Temple' agrees with the entry's forenames; 3 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 10 times, as “TEMPLE JOHN T”, “TEMPLE J T”, 1833-10-22 to 1836-06-21: 2 lots in the platted town — lot 4 of block 20 in the town the register codes CHIOT (L4BL20CHIOT, as printed); lot 6 of block 20 in the town the register codes CHIOT (L6BL20CHIOT, as printed) and 8 parcels of the school section — BL103 of the school section (sec 16 T39N R14E), as read; BL110 of the school section (sec 16 T39N R14E), as read; BL111 of the school section (sec 16 T39N R14E), as read; BL112 of the school section (sec 16 T39N R14E), as read; BL17 of the school section (sec 16 T39N R14E), as read; BL76 of the school section (sec 16 T39N R14E), as read; BL77 of the school section (sec 16 T39N R14E), as read; BL99 of the school section (sec 16 T39N R14E), as read, 30.31 acres stated in all, for $21107.00 (ls0353, ls0354, ls0355, ls0356, ls0357, ls0358, ls0359, ls0360, ls1505, ls1506). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $20000.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: TEMPLE JOHN T matches Dr John Taylor Temple: the forename names Dr John Taylor Temple of the 3 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
@@ -174,14 +613,136 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "physician",
+     "kind": "profession",
+     "as_printed": "physician",
+     "from": "1833-12-03",
+     "to": "1834-11-26",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_dr_j_t_temple",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1833-12-03 to 1834-11-26, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "own_premises"
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "land owner",
+     "from": "1834-03-04",
+     "to": "1834-11-19",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_j_t_temple",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1834-03-04 to 1834-11-19, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": null
+    },
+    {
+     "role": "physician",
+     "kind": "profession",
+     "as_printed": "physician",
+     "from": "1834-03-04",
+     "to": "1834-11-19",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_j_t_temple",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1834-03-04 to 1834-11-19, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "own_premises"
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "school trustee",
+     "from": "1834-03-04",
+     "to": "1834-11-19",
+     "precision": "source_span",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_j_t_temple",
+     "place": "not_stated",
+     "employer_or_body": "town_of_chicago",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1834-03-04 to 1834-11-19, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": null
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "physician, 218 Lake",
+     "from": "1843",
+     "to": "1843",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "claim": "f1843_e2424",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1843 DIRECTORY, 8 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
     }
-   ]
+   ],
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 30 under 40', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "temple_john_t:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('temple_john_t:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   },
   {
    "id": "temple_mrs_john_t",
@@ -223,7 +784,25 @@
      "for_merge": "The surname, and the household.",
      "against_merge": "Dr Peter Temple is John Taylor Temple's brother and Mrs Temple is his wife; both are already members of his household record and both are named separately by Andreas."
     }
-   ]
+   ],
+   "age_band": {
+    "value": "15-19",
+    "low": 15,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 15 under 20', one of its female bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "temple_mrs_john_t:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('temple_mrs_john_t:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   },
   {
    "id": "temple_children_four",
@@ -251,6 +830,18 @@
     "source_ids": [
      "chicago_democrat_1833_1835"
     ]
+   },
+   "sex_basis": {
+    "value": null,
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "A COLLECTIVE DESCRIPTION NAMES NOBODY, so there is no sex to draw. This row stands for more than one person and a single band or a single sex would make a group into a person. The refusal is T-1303's and it is kept here word for word rather than overridden by a model that could not tell."
+   },
+   "age_band": {
+    "value": null,
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "A COLLECTIVE DESCRIPTION NAMES NOBODY, so there is no age band to draw. This row stands for more than one person and a single band or a single sex would make a group into a person. The refusal is T-1303's and it is kept here word for word rather than overridden by a model that could not tell."
    }
   },
   {
@@ -333,14 +924,56 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "dentist",
+     "kind": "profession",
+     "as_printed": "dentist",
+     "from": "1834-09-10",
+     "to": "1834-09-10",
+     "precision": "day",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "claim": "person_temple_p",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1834-09-10 to 1834-09-10, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "own_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 30 under 40', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "temple_peter:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('temple_peter:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   }
  ],
  "touches_removal": false,

@@ -1,0 +1,186 @@
+{
+  "id": "biz_newberry_dole",
+  "register_id": "business_newberry_dole",
+  "name": "Newberry & Dole",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": null,
+  "occupation": null,
+  "goods": [
+    "Crockery",
+    "Dry Goods",
+    "Flour",
+    "Groceries",
+    "Hardware",
+    "Provisions",
+    "Salt",
+    "dry goods",
+    "groceries",
+    "hardware",
+    "provisions",
+    "shot guns"
+  ],
+  "firm_styles": [
+    "Newberry & Dole"
+  ],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "Oliver Newberry",
+      "person_id": null,
+      "register_person_id": "person_oliver_newberry",
+      "role": "partner",
+      "from": "1833-11-26",
+      "to": "1835-08-05",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_oliver_newberry with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c011",
+        "chicago_american_1835_06_20#c014",
+        "chicago_american_1835_07_04#c002",
+        "chicago_democrat_1833_11_26#c013",
+        "chicago_democrat_1834_03_04#c021",
+        "chicago_democrat_1834_04_01#c013",
+        "chicago_democrat_1834_04_16#c015",
+        "chicago_democrat_1834_05_07#c009",
+        "chicago_democrat_1834_05_14#c007",
+        "chicago_democrat_1835_07_01#c015",
+        "chicago_democrat_1835_08_05#c022"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "George W. Dole",
+      "person_id": "dole_george_w",
+      "register_person_id": "person_george_w_dole",
+      "role": "partner",
+      "from": "1833-11-26",
+      "to": "1835-08-05",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card dole_george_w (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c011",
+        "chicago_american_1835_06_20#c014",
+        "chicago_american_1835_07_04#c002",
+        "chicago_democrat_1833_11_26#c013",
+        "chicago_democrat_1834_03_04#c021",
+        "chicago_democrat_1834_04_01#c013",
+        "chicago_democrat_1834_04_16#c015",
+        "chicago_democrat_1834_05_07#c009",
+        "chicago_democrat_1834_05_14#c007",
+        "chicago_democrat_1835_07_01#c015",
+        "chicago_democrat_1835_08_05#c022"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "Newberry, [Walter L.]",
+      "person_id": "newberry_walter_loomis",
+      "register_person_id": "person_newberry_walter_l",
+      "role": "partner",
+      "from": "1833-11-26",
+      "to": "1835-08-05",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card newberry_walter_loomis (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_american_1835_06_08#c011",
+        "chicago_american_1835_06_20#c014",
+        "chicago_american_1835_07_04#c002",
+        "chicago_democrat_1833_11_26#c013",
+        "chicago_democrat_1834_03_04#c021",
+        "chicago_democrat_1834_04_01#c013",
+        "chicago_democrat_1834_04_16#c015",
+        "chicago_democrat_1834_05_07#c009",
+        "chicago_democrat_1834_05_14#c007",
+        "chicago_democrat_1835_07_01#c015",
+        "chicago_democrat_1835_08_05#c022"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1833-11-26",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'Fort Dearborn' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1833-11-26",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-11-26, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-11-26",
+    "last_issue": "1835-08-05",
+    "copy_dates": [
+      "1833-11-26",
+      "1834-04-01",
+      "1835-06-08"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 2 keeper(s) this record names and the resident layer holds a card for all read yankee: George W. Dole (yankee), Newberry, [Walter L.] (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "dole_george_w",
+        "name": "George W. Dole",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      },
+      {
+        "person_id": "newberry_walter_loomis",
+        "name": "Newberry, [Walter L.]",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_american_1835_06_08#c011",
+    "chicago_american_1835_06_20#c014",
+    "chicago_american_1835_07_04#c002",
+    "chicago_democrat_1833_11_26#c013",
+    "chicago_democrat_1834_03_04#c021",
+    "chicago_democrat_1834_04_01#c013",
+    "chicago_democrat_1834_04_16#c015",
+    "chicago_democrat_1834_05_07#c009",
+    "chicago_democrat_1834_05_14#c007",
+    "chicago_democrat_1835_07_01#c015",
+    "chicago_democrat_1835_08_05#c022"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

@@ -1,0 +1,92 @@
+{
+  "id": "biz_w_reed",
+  "register_id": "business_w_reed",
+  "name": "W. Reed",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "cabinet making",
+  "occupation": "joiner",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "W. Reed",
+      "person_id": "reed_william",
+      "register_person_id": "person_w_reed",
+      "role": "proprietor",
+      "from": "1834-03-18",
+      "to": "1834-03-18",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card reed_william (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_03_18#c009"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-03-18",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1834-03-18",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-03-18, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-03-18",
+    "last_issue": "1834-03-18",
+    "copy_dates": [
+      "1833-12-11"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: W. Reed (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "reed_william",
+        "name": "W. Reed",
+        "role": "proprietor",
+        "community": "new_york",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_03_18#c009"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

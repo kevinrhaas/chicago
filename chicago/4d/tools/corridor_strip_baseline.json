@@ -3,6 +3,23 @@
  "tool": "tools/measure_corridor_strip.py",
  "reading": {
   "streets": {
+   "kinzie": {
+    "offset_m": 2.91,
+    "bands": {
+     "abandoned": {
+      "area_m2": 4132.8,
+      "dry_pct": 87.5,
+      "lots": 0,
+      "structures": []
+     },
+     "claimed": {
+      "area_m2": 4132.8,
+      "dry_pct": 88.3,
+      "lots": 0,
+      "structures": []
+     }
+    }
+   },
    "south_water": {
     "offset_m": 8.58,
     "bands": {
@@ -29,8 +46,8 @@
    }
   },
   "counterfactual": {
-   "blocks_after": 18,
-   "lots_after": 136,
+   "blocks_after": 71,
+   "lots_after": 218,
    "lots_recut": 32,
    "blocks_lost": [
     "blk_south_water_lasalle"

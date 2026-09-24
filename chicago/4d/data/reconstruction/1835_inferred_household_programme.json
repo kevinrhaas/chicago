@@ -1,5 +1,5 @@
 {
-  "_doc": "RETIRED PROGRAMME RECORD, 2026-09-02. THIS FILE NO LONGER PRODUCES PEOPLE. The owner retired the reconstructed resident population that day - \"remove any pre-existing reconstructed people from the resident list and household\" - and, asked whether the roofs raised for them should be abandoned or kept, ruled \"Keep as anonymous stock\". So its 101 households were deleted from data/residents/ (T-0489) and its 31 roofs were enrolled in the 665-roof programme as anonymous count-units (T-0516). Read `retirement` below for what became of each half.\n\nWHY THE FILE IS KEPT WHOLE AND VERBATIM RATHER THAN REWRITTEN. The alternative considered in T-0516 was to move the surviving half into a new data/reconstruction/1835_anonymous_stock.json and leave this one as history. It was refused for two reasons. The first is that the argument is the part worth keeping: `occupation_census` is 29 reasoned counts against the 1835 census, the 1833 trade roster and the roof schedule, and `calibration` is what made them checkable - splitting the roofs away from the reasoning that raised them would leave 31 buildings in the town with their argument in another file. The second is that this file is still READ: tools/inferred_occupancy.py, tools/adopt_street_faces.py, tools/deal_siding_stock.py, tools/measure_adoption_tests.py and tools/reconcile_665.py all resolve a roof through it, and a retired programme that still answers questions is a record, not a ruin. What changed is the ANSWER it gives: `resident_population_active` is false, and tools/inferred_occupancy.py reads that flag and seats nobody, so the adoption blocks the 101 households had put on 104 anonymous roofs are gone from those records. Turning the flag back to true is all it would take to restore them, which is the property that makes this a retirement rather than a demolition.\n\nTHE OCCUPATION CENSUS IS KEPT AS HISTORY, not as a live calibration. T-0507 is its successor: the town's occupation mix is calibrated there against evidence rather than against this parcel's ratios. Nothing downstream should read `occupation_census` as a claim about the town as it now stands.\n\nPHASE TWO OF THE INFERRED-RESIDENTS PROGRAMME (docs/ROADMAP.md K1): the inferred layer, and the buildings it justifies. Phase one wrote the town's DOCUMENTED and DERIVED people - 72 households, 96 person entries, no inferred persons at all - and left the volume to this parcel. This file is the authored recipe; tools/generate_inferred_households.py expands it into data/residents/households/*.json, the occupancy blocks on the adopted anonymous roofs, and the new structure records, and re-derives all three on every commit so the expansion cannot drift from the recipe.\n\nWHAT AN INFERRED HOUSEHOLD IS AND IS NOT. It is a hypothesised resident filling a demonstrable need of the town, at a count argued from ratios this dataset can check: the 1835 census, the 1833 trade roster, and the reconstruction specification's own roof schedule. It is NOT a person. NO INFERRED PERSON IS GIVEN A NAME - every one carries a designation ('A cooper', 'A journeyman carpenter') and the note says the person is hypothesised. Inventing surnames would produce records indistinguishable at a glance from the documented layer, which is the one thing this programme must never do. No person is drawn either: docs/LIBERTIES.md L1 stands.\n\nTHE COUNTS ARE THE CLAIM. A household here asserts that a town of 3,265 people in 398 dwellings held AT LEAST this many households of this trade; it asserts nothing whatever about any individual. Read occupation_census for the argument behind each number.",
+  "_doc": "RETIRED PROGRAMME RECORD, 2026-09-02. THIS FILE NO LONGER PRODUCES PEOPLE. The owner retired the reconstructed resident population that day - \"remove any pre-existing reconstructed people from the resident list and household\" - and, asked whether the roofs raised for them should be abandoned or kept, ruled \"Keep as anonymous stock\". So its 101 households were deleted from data/residents/ (T-0489) and its 31 roofs were enrolled in the 665-roof programme as anonymous count-units (T-0516). Read `retirement` below for what became of each half.\n\nWHY THE FILE IS KEPT WHOLE AND VERBATIM RATHER THAN REWRITTEN. The alternative considered in T-0516 was to move the surviving half into a new data/reconstruction/1835_anonymous_stock.json and leave this one as history. It was refused for two reasons. The first is that the argument is the part worth keeping: `occupation_census` is 29 reasoned counts against the 1835 census, the 1833 trade roster and the roof schedule, and `calibration` is what made them checkable - splitting the roofs away from the reasoning that raised them would leave 31 buildings in the town with their argument in another file. The second is that this file is still READ: tools/inferred_occupancy.py, tools/adopt_street_faces.py, tools/deal_siding_stock.py, tools/measure_adoption_tests.py and tools/reconcile_665.py all resolve a roof through it, and a retired programme that still answers questions is a record, not a ruin. What changed is the ANSWER it gives: `resident_population_active` is false, and tools/inferred_occupancy.py reads that flag and seats nobody, so the adoption blocks the 101 households had put on 104 anonymous roofs are gone from those records. Turning the flag back to true is all it would take to restore them, which is the property that makes this a retirement rather than a demolition.\n\nTHE OCCUPATION CENSUS IS KEPT AS HISTORY, not as a live calibration. T-0507 is its successor: the town's occupation mix is calibrated there against evidence rather than against this parcel's ratios. Nothing downstream should read `occupation_census` as a claim about the town as it now stands.\n\nPHASE TWO OF THE INFERRED-RESIDENTS PROGRAMME (docs/ROADMAP.md K1): the inferred layer, and the buildings it justifies. Phase one wrote the town's DOCUMENTED and DERIVED people - 72 households, 96 person entries, no inferred persons at all - and left the volume to this parcel. This file is the authored recipe; tools/generate_inferred_households.py expands it into data/residents/households/*.json, the occupancy blocks on the adopted anonymous roofs, and the new structure records, and re-derives all three on every commit so the expansion cannot drift from the recipe.\n\nWHAT AN INFERRED HOUSEHOLD IS AND IS NOT. It is a hypothesised resident filling a demonstrable need of the town, at a count argued from ratios this dataset can check: the 1835 census, the 1833 trade roster, and the reconstruction specification's own roof schedule. It is NOT a person. NO INFERRED PERSON IS GIVEN A NAME - every one carries a designation ('A cooper', 'A journeyman carpenter') and the note says the person is hypothesised. Inventing surnames would produce records indistinguishable at a glance from the documented layer, which is the one thing this programme must never do. No person is drawn either: docs/LIBERTIES.md L1 stands.\n\nTHE COUNTS ARE THE CLAIM. A household here asserts that a town of 3,265 people in 398 dwellings held AT LEAST this many households of this trade; it asserts nothing whatever about any individual. Read occupation_census for the argument behind each number.\n\nTHE SUCCESSOR PROGRAMME DOES NOT RESTORE THIS ONE (T-1167, 2026-09-18). The owner reopened reconstructed residents on 2026-09-17 - \"create reconstructed residents households businesses structures\" - and the programme that answers is data/reconstruction/1835_resident_reconstruction_programme.json, written by tools/reconstruct_residents_1835.py. It writes its OWN people, under their own ids, each with a basis, a seed and a replacement rule. `resident_population_active` here stays FALSE and stays false: turning it back to true would seat 101 households nobody decided to seat, and the 31 inferred_anonymous roofs remain anonymous stock for T-1197 rather than being re-occupied by their old tenants.\n\nAND THE OCCUPATION CENSUS IS SUPERSEDED, not merely historical. The 29 rows below were the town's live occupation calibration until T-1162 folded that question into data/reconstruction/1835_town_model.json (T-1293), where it is stated as ranges with their method and their comparanda rather than as planned household counts. Read the model for what the town's trades are held to now; read these rows for what was argued in 2026-08 and why the roofs above it stand where they do.",
   "id": "chicago_july_1835_inferred_household_programme",
   "status": "phase2_inferred_households",
   "target_date": "1835-07-01",
@@ -276,7 +276,7 @@
       "ordinal": 1,
       "of": 20,
       "lives_at": "recon_1835_south_d3_001",
-      "works_at": "recon_1835_south_w2_026",
+      "works_at": "recon_1835_south_d4_026",
       "extras": [
         {
           "relationship": "journeyman",
@@ -336,7 +336,7 @@
       "ordinal": 1,
       "of": 2,
       "lives_at": "recon_1835_south_d3_022",
-      "works_at": "recon_1835_south_w4_032",
+      "works_at": "recon_1835_south_d1_032",
       "extras": []
     },
     {
@@ -386,7 +386,7 @@
       "ordinal": 2,
       "of": 3,
       "lives_at": "recon_1835_south_d4_014",
-      "works_at": "recon_1835_south_c1_003",
+      "works_at": "recon_1835_south_d1_003",
       "extras": []
     },
     {
@@ -425,8 +425,8 @@
       "division": "south",
       "ordinal": 1,
       "of": 4,
-      "lives_at": "recon_1835_south_c2_007",
-      "works_at": "recon_1835_south_c2_007",
+      "lives_at": "recon_1835_south_d5_007",
+      "works_at": "recon_1835_south_d5_007",
       "extras": []
     },
     {
@@ -435,8 +435,8 @@
       "division": "south",
       "ordinal": 2,
       "of": 4,
-      "lives_at": "recon_1835_south_c2_036",
-      "works_at": "recon_1835_south_c2_036",
+      "lives_at": "recon_1835_south_d6_036",
+      "works_at": "recon_1835_south_d6_036",
       "extras": []
     },
     {
@@ -446,7 +446,7 @@
       "ordinal": 1,
       "of": 4,
       "lives_at": "recon_1835_south_d4_025",
-      "works_at": "recon_1835_south_w3_029",
+      "works_at": "recon_1835_south_h1_029",
       "extras": [
         {
           "relationship": "apprentice",
@@ -476,7 +476,7 @@
       "ordinal": 1,
       "of": 3,
       "lives_at": "recon_1835_south_d5_016",
-      "works_at": "recon_1835_south_w1_023",
+      "works_at": "recon_1835_south_d5_023",
       "extras": [
         {
           "relationship": "journeyman",
@@ -581,7 +581,7 @@
       "ordinal": 2,
       "of": 3,
       "lives_at": "recon_1835_south_d5_034",
-      "works_at": "recon_1835_south_c3_037",
+      "works_at": "recon_1835_south_a2_037",
       "extras": []
     },
     {
@@ -611,7 +611,7 @@
       "ordinal": 1,
       "of": 1,
       "lives_at": "inf_packer_dwelling",
-      "works_at": "recon_1835_south_f2_039",
+      "works_at": "recon_1835_south_h2_039",
       "extras": []
     },
     {
@@ -641,7 +641,7 @@
       "ordinal": 5,
       "of": 20,
       "lives_at": "recon_1835_north_d3_002",
-      "works_at": "recon_1835_north_w2_005",
+      "works_at": "recon_1835_north_d4_005",
       "extras": [
         {
           "relationship": "journeyman",
@@ -916,7 +916,7 @@
       "ordinal": 4,
       "of": 4,
       "lives_at": "recon_1835_north_d5_026",
-      "works_at": "recon_1835_north_c1_020",
+      "works_at": "recon_1835_north_d3_020",
       "extras": []
     },
     {
@@ -926,7 +926,7 @@
       "ordinal": 3,
       "of": 4,
       "lives_at": "recon_1835_north_d5_037",
-      "works_at": "recon_1835_north_c2_027",
+      "works_at": "recon_1835_north_d6_027",
       "extras": []
     },
     {
@@ -936,7 +936,7 @@
       "ordinal": 3,
       "of": 3,
       "lives_at": "recon_1835_north_d5_041",
-      "works_at": "recon_1835_north_f1_022",
+      "works_at": "recon_1835_north_h2_022",
       "extras": []
     },
     {
@@ -946,7 +946,7 @@
       "ordinal": 1,
       "of": 1,
       "lives_at": "recon_1835_north_d5_057",
-      "works_at": "recon_1835_north_c1_047",
+      "works_at": "recon_1835_north_a1_047",
       "extras": []
     },
     {
@@ -956,7 +956,7 @@
       "ordinal": 2,
       "of": 3,
       "lives_at": "recon_1835_north_d6_021",
-      "works_at": "recon_1835_north_w1_018",
+      "works_at": "recon_1835_north_d4_018",
       "extras": []
     },
     {
@@ -976,7 +976,7 @@
       "ordinal": 1,
       "of": 1,
       "lives_at": "recon_1835_north_d7_031",
-      "works_at": "recon_1835_north_t1_028",
+      "works_at": "recon_1835_north_h2_028",
       "extras": []
     },
     {
@@ -1005,8 +1005,8 @@
       "division": "north",
       "ordinal": 3,
       "of": 3,
-      "lives_at": "recon_1835_north_h3_045",
-      "works_at": "recon_1835_north_h3_045",
+      "lives_at": "recon_1835_north_h2_045",
+      "works_at": "recon_1835_north_h2_045",
       "extras": []
     },
     {
@@ -2036,6 +2036,11 @@
         18
       ],
       "rotation_deg": 0,
+      "corridor_clearance": {
+        "street": "kinzie",
+        "clear_m": 0.5,
+        "why": "T-1191 read the north bank's platted corridors into the corridor layer on 2026-09-19. Until that day tools/plat_corridors.py returned nothing north of the main stem — one pair of street lists in tools/generate_plat_lots.py decided both which streets a BLOCK may be cut between and which streets a BUILDING may be reported standing in, and the North Division could not have the first, so it was denied the second. This building's own position note said its centre had been tested “against the platted street corridors of the K7 block grid so that no invented building stands in the roadway”; the K7 grid is nineteen South and West Division blocks and no north-bank street, so north of the river that test passed by covering no ground. Nothing moved and nothing was re-fitted: this building has stood on Kinzie Street's centreline since it was raised, and the first thing able to see it was the corridor. An invented placement has nothing to encroach with, so the corridor wins. 0.5 m is T-0827's margin, kept."
+      },
       "anchor_shift_steps": 0,
       "function": "dwelling",
       "occupation": "labourer",
@@ -2056,6 +2061,11 @@
         18
       ],
       "rotation_deg": 0,
+      "corridor_clearance": {
+        "street": "kinzie",
+        "clear_m": 0.5,
+        "why": "T-1191 read the north bank's platted corridors into the corridor layer on 2026-09-19. Until that day tools/plat_corridors.py returned nothing north of the main stem — one pair of street lists in tools/generate_plat_lots.py decided both which streets a BLOCK may be cut between and which streets a BUILDING may be reported standing in, and the North Division could not have the first, so it was denied the second. This building's own position note said its centre had been tested “against the platted street corridors of the K7 block grid so that no invented building stands in the roadway”; the K7 grid is nineteen South and West Division blocks and no north-bank street, so north of the river that test passed by covering no ground. Nothing moved and nothing was re-fitted: this building has stood on Kinzie Street's centreline since it was raised, and the first thing able to see it was the corridor. An invented placement has nothing to encroach with, so the corridor wins. 0.5 m is T-0827's margin, kept."
+      },
       "anchor_shift_steps": 0,
       "function": "dwelling",
       "occupation": "labourer",
@@ -2096,6 +2106,11 @@
         24
       ],
       "rotation_deg": 0,
+      "corridor_clearance": {
+        "street": "kinzie",
+        "clear_m": 0.5,
+        "why": "T-1191 read the north bank's platted corridors into the corridor layer on 2026-09-19. Until that day tools/plat_corridors.py returned nothing north of the main stem — one pair of street lists in tools/generate_plat_lots.py decided both which streets a BLOCK may be cut between and which streets a BUILDING may be reported standing in, and the North Division could not have the first, so it was denied the second. This building's own position note said its centre had been tested “against the platted street corridors of the K7 block grid so that no invented building stands in the roadway”; the K7 grid is nineteen South and West Division blocks and no north-bank street, so north of the river that test passed by covering no ground. Nothing moved and nothing was re-fitted: this building has stood on Kinzie Street's centreline since it was raised, and the first thing able to see it was the corridor. An invented placement has nothing to encroach with, so the corridor wins. 0.5 m is T-0827's margin, kept."
+      },
       "anchor_shift_steps": 0,
       "function": "dwelling",
       "occupation": "mason",

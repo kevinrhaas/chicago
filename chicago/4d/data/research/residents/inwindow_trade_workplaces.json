@@ -1,0 +1,949 @@
+{
+ "id": "1835_inwindow_trade_workplaces",
+ "ticket": "T-1404",
+ "parent_ticket": "T-1182",
+ "generated_by": "tools/complete_inwindow_trades.py --build",
+ "rulings": "data/businesses/rulings/premises_rulings.json",
+ "not_a_reading": "DERIVED, never hand-edited. Every row is read off a committed role on a committed card and a committed ruling. No page of any source is read here, nobody is minted, nothing is reconstructed and no confidence is promoted: a house raised from a role is `inferred` and says so on its own record.",
+ "scene_date": "1835-07-01",
+ "counts": {
+  "already_holds_a_workplace": 88,
+  "held": 3,
+  "no_premises": 27,
+  "not_ruled": 3,
+  "raise": 39,
+  "houses_raised": 33,
+  "houses_seated_on_a_committed_structure": 10
+ },
+ "houses_by_census_class": {
+  "iron_foundry": 1,
+  "other": 14,
+  "physician": 5,
+  "store": 6,
+  "tavern": 7
+ },
+ "houses_raised": [
+  {
+   "business_id": "biz_andrus_thomas_carpenter",
+   "occupation": "carpenter",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "andrus_thomas"
+   ],
+   "seated_at": null,
+   "sources": [
+    "rr_dupage_andrus_1882"
+   ]
+  },
+  {
+   "business_id": "biz_beaubien_jean_baptiste_merchant",
+   "occupation": "merchant and trader",
+   "census_classes": [
+    "store"
+   ],
+   "keepers": [
+    "beaubien_jean_baptiste"
+   ],
+   "seated_at": null,
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "business_id": "biz_beaubien_madore_merchant",
+   "occupation": "merchant",
+   "census_classes": [
+    "store"
+   ],
+   "keepers": [
+    "beaubien_madore"
+   ],
+   "seated_at": "madore_beaubien_house",
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_beaubien_mark_tavern_keeper",
+   "occupation": "tavern keeper",
+   "census_classes": [
+    "tavern"
+   ],
+   "keepers": [
+    "beaubien_mark"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_blodgett_tyler_k_brickmaker",
+   "occupation": "brickmaker",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "blodgett_tyler_k",
+    "lampman_henry_s"
+   ],
+   "seated_at": "brickyard_north_side",
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_brown_lemuel_blacksmith",
+   "occupation": "blacksmith",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "brown_lemuel"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_brown_rufus_boarding_house_keeper",
+   "occupation": "boarding house keeper",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "brown_rufus",
+    "brown_mrs_rufus"
+   ],
+   "seated_at": "brown_boarding_house",
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_church_thomas_merchant",
+   "occupation": "merchant",
+   "census_classes": [
+    "store"
+   ],
+   "keepers": [
+    "church_thomas"
+   ],
+   "seated_at": "thomas_church_store",
+   "sources": [
+    "chicagology_prefire275"
+   ]
+  },
+  {
+   "business_id": "biz_collett_j_a_refectory_keeper",
+   "occupation": "refectory keeper",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "collett_j_a"
+   ],
+   "seated_at": null,
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "business_id": "biz_couch_ira_hotel_keeper",
+   "occupation": "hotel keeper",
+   "census_classes": [
+    "tavern"
+   ],
+   "keepers": [
+    "couch_ira",
+    "couch_james"
+   ],
+   "seated_at": "tremont_house_1",
+   "sources": [
+    "andreas_1884_v1",
+    "chicagology_prefire021"
+   ]
+  },
+  {
+   "business_id": "biz_davis_john_hotel_keeper",
+   "occupation": "hotel keeper",
+   "census_classes": [
+    "tavern"
+   ],
+   "keepers": [
+    "davis_john"
+   ],
+   "seated_at": "steamboat_hotel",
+   "sources": [
+    "andreas_1884_v1",
+    "drloih_hotels"
+   ]
+  },
+  {
+   "business_id": "biz_egan_william_b_physician",
+   "occupation": "physician",
+   "census_classes": [
+    "physician"
+   ],
+   "keepers": [
+    "egan_william_b"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_gale_stephen_f_merchant",
+   "occupation": "merchant",
+   "census_classes": [
+    "store"
+   ],
+   "keepers": [
+    "gale_stephen_f"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_handy_major_mason",
+   "occupation": "mason",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "handy_major"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_harmon_elijah_d_physician",
+   "occupation": "physician",
+   "census_classes": [
+    "physician"
+   ],
+   "keepers": [
+    "harmon_elijah_d"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_inf_cooper_north_04_cooper",
+   "occupation": "cooper",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "inf_cooper_north_04"
+   ],
+   "seated_at": null,
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "business_id": "biz_inf_joiner_north_02_joiner",
+   "occupation": "joiner",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "inf_joiner_north_02"
+   ],
+   "seated_at": null,
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "business_id": "biz_inf_physician_south_01_physician",
+   "occupation": "physician",
+   "census_classes": [
+    "physician"
+   ],
+   "keepers": [
+    "inf_physician_south_01"
+   ],
+   "seated_at": null,
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "business_id": "biz_keeney_g_w_founder",
+   "occupation": "founder",
+   "census_classes": [
+    "iron_foundry"
+   ],
+   "keepers": [
+    "keeney_g_w"
+   ],
+   "seated_at": null,
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "business_id": "biz_kinzie_james_merchant",
+   "occupation": "merchant",
+   "census_classes": [
+    "store"
+   ],
+   "keepers": [
+    "kinzie_james"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_meeker_joseph_carpenter",
+   "occupation": "carpenter",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "meeker_joseph"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_miller_john_tanner",
+   "occupation": "tanner",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "miller_john",
+    "hall_benjamin"
+   ],
+   "seated_at": "miller_tannery",
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_murphy_john_tavern_keeper",
+   "occupation": "tavern keeper",
+   "census_classes": [
+    "tavern"
+   ],
+   "keepers": [
+    "murphy_john",
+    "murphy_harriet"
+   ],
+   "seated_at": "exchange_coffee_house",
+   "sources": [
+    "andreas_1884_v1",
+    "drloih_hotels"
+   ]
+  },
+  {
+   "business_id": "biz_kimberly_edmund_s_physician",
+   "occupation": "physician",
+   "census_classes": [
+    "physician"
+   ],
+   "keepers": [
+    "kimberly_edmund_s"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1",
+    "history_medicine_chicago_kimberly_maxwell"
+   ]
+  },
+  {
+   "business_id": "biz_smith_george_coffee_house_keeper",
+   "occupation": "coffee house keeper",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "smith_george"
+   ],
+   "seated_at": null,
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ]
+  },
+  {
+   "business_id": "biz_stow_william_h_hotel_keeper",
+   "occupation": "hotel keeper",
+   "census_classes": [
+    "tavern"
+   ],
+   "keepers": [
+    "stow_william_h"
+   ],
+   "seated_at": "western_hotel",
+   "sources": [
+    "andreas_1884_v1",
+    "drloih_hotels"
+   ]
+  },
+  {
+   "business_id": "biz_sweet_alanson_tavern_keeper",
+   "occupation": "tavern keeper",
+   "census_classes": [
+    "tavern"
+   ],
+   "keepers": [
+    "sweet_alanson"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_taylor_anson_h_carpenter",
+   "occupation": "carpenter",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "taylor_anson_h"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_taylor_augustine_carpenter",
+   "occupation": "carpenter",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "taylor_augustine"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_temple_peter_dentist",
+   "occupation": "dentist",
+   "census_classes": [
+    "other"
+   ],
+   "keepers": [
+    "temple_peter"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_temple_john_t_physician",
+   "occupation": "physician",
+   "census_classes": [
+    "physician"
+   ],
+   "keepers": [
+    "temple_john_t"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1"
+   ]
+  },
+  {
+   "business_id": "biz_walters_william_tavern_keeper",
+   "occupation": "tavern keeper",
+   "census_classes": [
+    "tavern"
+   ],
+   "keepers": [
+    "walters_william"
+   ],
+   "seated_at": "wolf_point_tavern",
+   "sources": [
+    "andreas_1884_v1",
+    "drloih_hotels",
+    "drloih_wolf_point"
+   ]
+  },
+  {
+   "business_id": "biz_woodworth_james_h_dry_goods_merchant",
+   "occupation": "dry goods merchant",
+   "census_classes": [
+    "store"
+   ],
+   "keepers": [
+    "woodworth_james_h"
+   ],
+   "seated_at": null,
+   "sources": [
+    "ushouse_james_h_woodworth"
+   ]
+  }
+ ],
+ "no_fixed_premises": [
+  {
+   "person_id": "allen_lieut_james",
+   "name": "Lieut. James Allen",
+   "role": "army_officer",
+   "kind": "profession",
+   "basis": "The garrison is the fort's establishment; T-1176 reads it and T-1204 builds its reach. exercised at an establishment the person does not keep."
+  },
+  {
+   "person_id": "arnold_levi_f",
+   "name": "Levi F. Arnold",
+   "role": "postmaster",
+   "kind": "office",
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "person_id": "baxley_j_m",
+   "name": "Capt. J. M. Baxley",
+   "role": "army_officer",
+   "kind": "profession",
+   "basis": "The garrison is the fort's establishment; T-1176 reads it and T-1204 builds its reach. exercised at an establishment the person does not keep."
+  },
+  {
+   "person_id": "beaubien_jean_baptiste",
+   "name": "Col. Jean Baptiste Beaubien",
+   "role": "public_administrator",
+   "kind": "office",
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "person_id": "beckford_printer",
+   "name": "Beckford",
+   "role": "printer",
+   "kind": "trade",
+   "basis": "A printer is employed in a printing office, and the town's printing offices are already in the register — the December census counts two and the register holds three. worked on somebody else's premises. The workplace link is T-1189's, which staffs every business with real persons; nothing here raises a house."
+  },
+  {
+   "person_id": "crocker_h",
+   "name": "H. Crocker",
+   "role": "schoolteacher",
+   "kind": "profession",
+   "basis": "A school is an establishment, and the December census counts seven of them against the seven the town holds. T-1188 establishes the schools as businesses and T-1189 staffs them. exercised at an establishment the person does not keep."
+  },
+  {
+   "person_id": "davis_t_o",
+   "name": "T. O. Davis",
+   "role": "editor",
+   "kind": "profession",
+   "basis": "An editor conducts a paper printed in somebody's printing office. worked on somebody else's premises. The workplace link is T-1189's, which staffs every business with real persons; nothing here raises a house."
+  },
+  {
+   "person_id": "forbes_stephen",
+   "name": "Stephen Forbes",
+   "role": "sheriff",
+   "kind": "office",
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "person_id": "forbes_stephen",
+   "name": "Stephen Forbes",
+   "role": "sheriff",
+   "kind": "office",
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "person_id": "galaher_thomas",
+   "name": "Thomas Galaher",
+   "role": "postmaster",
+   "kind": "office",
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "person_id": "greene_john",
+   "name": "Major John Greene",
+   "role": "army_officer",
+   "kind": "profession",
+   "basis": "The garrison is the fort's establishment; T-1176 reads it and T-1204 builds its reach. exercised at an establishment the person does not keep."
+  },
+  {
+   "person_id": "hubbard_elijah_kent",
+   "name": "Elijah Kent Hubbard",
+   "role": "insurance_agent",
+   "kind": "trade",
+   "basis": "An agency is HELD, not kept: it was transacted at the agent's own counting-room, and the register already prints the town's insurance agencies as houses. The agency itself is T-1405's `associated_with`."
+  },
+  {
+   "person_id": "hugunin_hiram",
+   "name": "Hiram Hugunin",
+   "role": "insurance_agent",
+   "kind": "trade",
+   "basis": "An agency is HELD, not kept: it was transacted at the agent's own counting-room, and the register already prints the town's insurance agencies as houses. The agency itself is T-1405's `associated_with`."
+  },
+  {
+   "person_id": "jamison_l_t",
+   "name": "L T Jamison",
+   "role": "army_officer",
+   "kind": "profession",
+   "basis": "The garrison is the fort's establishment; T-1176 reads it and T-1204 builds its reach. exercised at an establishment the person does not keep."
+  },
+  {
+   "person_id": "lathrop_samuel_s",
+   "name": "Samuel S. Lathrop",
+   "role": "minister",
+   "kind": "profession",
+   "basis": "A church is an establishment, and the December census counts five. T-1188 establishes the churches and T-1189 staffs them. exercised at an establishment the person does not keep."
+  },
+  {
+   "person_id": "legg_gregory_e",
+   "name": "Gregory E. Legg",
+   "role": "priest",
+   "kind": "profession",
+   "basis": "A church is an establishment, and the December census counts five. T-1188 establishes the churches and T-1189 staffs them. exercised at an establishment the person does not keep."
+  },
+  {
+   "person_id": "maxwell_philip",
+   "name": "Dr Philip Maxwell",
+   "role": "army_surgeon",
+   "kind": "profession",
+   "basis": "The post surgeon serves the garrison and keeps no practice of his own; T-1176 reads the fort's establishment. exercised at an establishment the person does not keep."
+  },
+  {
+   "person_id": "myers_frederick",
+   "name": "Frederick Myers",
+   "role": "clerk",
+   "kind": "trade",
+   "basis": "A clerk keeps a counter for a merchant. worked on somebody else's premises. The workplace link is T-1189's, which staffs every business with real persons; nothing here raises a house."
+  },
+  {
+   "person_id": "norton_nelson_r",
+   "name": "Nelson R. Norton",
+   "role": "ship_carpenter",
+   "kind": "trade",
+   "basis": "A vessel is built in a yard belonging to her owner or to a lumber yard; T-1187 owns the river trades and the pier-works gang."
+  },
+  {
+   "person_id": "porter_eliza_chappel",
+   "name": "Eliza Chappel Porter",
+   "role": "schoolteacher",
+   "kind": "profession",
+   "basis": "A school is an establishment, and the December census counts seven of them against the seven the town holds. T-1188 establishes the schools as businesses and T-1189 staffs them. exercised at an establishment the person does not keep."
+  },
+  {
+   "person_id": "pratt_oscar",
+   "name": "Oscar Pratt",
+   "role": "printer",
+   "kind": "trade",
+   "basis": "A printer is employed in a printing office, and the town's printing offices are already in the register — the December census counts two and the register holds three. worked on somebody else's premises. The workplace link is T-1189's, which staffs every business with real persons; nothing here raises a house."
+  },
+  {
+   "person_id": "salisbury_stephen_m",
+   "name": "Stephen M. Salisbury",
+   "role": "justice_of_the_peace",
+   "kind": "office",
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "person_id": "sherman_silas_w",
+   "name": "Silas W Sherman",
+   "role": "sheriff",
+   "kind": "office",
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "person_id": "snow_george_w",
+   "name": "George W. Snow",
+   "role": "surveyor",
+   "kind": "profession",
+   "basis": "Surveying is done in the field and the plat drawn where the surveyor lodges; no source gives this town a surveyor's office in 1835."
+  },
+  {
+   "person_id": "steele_ashbel",
+   "name": "Ashbel Steele",
+   "role": "plasterer",
+   "kind": "trade",
+   "basis": "Plastering is done inside the customer's building, and T-1185's list of the mechanics' shops — smiths, carpenters and joiners, coopers, wheelwrights and wagon makers, tailors, shoemakers, tanners, saddlers, tinners, masons, painters, bakers and butchers — does not carry a plasterer."
+  },
+  {
+   "person_id": "walker_james",
+   "name": "James Walker",
+   "role": "justice_of_the_peace",
+   "kind": "office",
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "person_id": "wright_john_s",
+   "name": "John S. Wright",
+   "role": "clerk",
+   "kind": "trade",
+   "basis": "A clerk keeps a counter for a merchant. worked on somebody else's premises. The workplace link is T-1189's, which staffs every business with real persons; nothing here raises a house."
+  }
+ ],
+ "held_for_an_identity_ruling": [
+  {
+   "person_id": "bates_john_jr",
+   "name": "John Bates Jr.",
+   "role": "auctioneer",
+   "register_house": "biz_j_bates_jr_auction_store",
+   "printed_as": "J. Bates jr.",
+   "held_by": "the_surname_test",
+   "owed_to": "T-1182 clause 1"
+  },
+  {
+   "person_id": "hubbard_elijah_kent",
+   "name": "Elijah Kent Hubbard",
+   "role": "merchant",
+   "register_house": "biz_hubbard_co",
+   "printed_as": "Hubbard",
+   "held_by": "the_surname_test",
+   "owed_to": "T-1182 clause 1"
+  },
+  {
+   "person_id": "mulford_e_h",
+   "name": "E. H. Mulford",
+   "role": "watchmaker",
+   "register_house": "data/research/books/trade_census_1835_spend_rulings.json#open_questions",
+   "printed_as": "an open identity question: mulford_one_letter",
+   "held_by": "identity_holds",
+   "owed_to": "T-1007's open question"
+  }
+ ],
+ "not_ruled_into_the_vocabulary": [
+  {
+   "person_id": "cass_lewis",
+   "name": "Lewis Cass",
+   "as_printed": "Secretary of War",
+   "reason": "THE PRINTING HAS NOT BEEN RULED INTO THE CLOSED VOCABULARY. The role keeps what the source printed and `role` is null until T-1254 rules the controlled term; a house may not be raised on a string nobody has adjudicated.",
+   "owed_to": "T-1254"
+  },
+  {
+   "person_id": "jamison_l_t",
+   "name": "L T Jamison",
+   "as_printed": "acting commissary of subsistence",
+   "reason": "THE PRINTING HAS NOT BEEN RULED INTO THE CLOSED VOCABULARY. The role keeps what the source printed and `role` is null until T-1254 rules the controlled term; a house may not be raised on a string nobody has adjudicated.",
+   "owed_to": "T-1254"
+  },
+  {
+   "person_id": "jamison_l_t",
+   "name": "L T Jamison",
+   "as_printed": "assistant commissary of subsistence",
+   "reason": "THE PRINTING HAS NOT BEEN RULED INTO THE CLOSED VOCABULARY. The role keeps what the source printed and `role` is null until T-1254 rules the controlled term; a house may not be raised on a string nobody has adjudicated.",
+   "owed_to": "T-1254"
+  }
+ ],
+ "crosswalk_rerun": {
+  "note": "THE DECEMBER 1835 STATE CENSUS, RE-RUN OVER THE LAYER THESE HOUSES JOIN. `town_after` is what tools/trade_census_1835.py --build now counts, which reads the authored records as well as the register as of T-1404; `town_before` subtracts the houses raised here. The count was taken between 1 September and December 1835 and the scene is 1 July: a class still short is not thereby a hole in the July town.",
+  "classes": [
+   {
+    "class": "bank",
+    "census_count": 1,
+    "town_before_T-1404": 0,
+    "raised_here": 0,
+    "town_after_T-1404": 0,
+    "still_short": 1,
+    "documented_zero": true,
+    "owed_to": null
+   },
+   {
+    "class": "book_store",
+    "census_count": 2,
+    "town_before_T-1404": 2,
+    "raised_here": 0,
+    "town_after_T-1404": 2,
+    "still_short": 0,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "brewery",
+    "census_count": 2,
+    "town_before_T-1404": 1,
+    "raised_here": 0,
+    "town_after_T-1404": 1,
+    "still_short": 1,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "church",
+    "census_count": 5,
+    "town_before_T-1404": 4,
+    "raised_here": 0,
+    "town_after_T-1404": 4,
+    "still_short": null,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "druggist",
+    "census_count": 4,
+    "town_before_T-1404": 2,
+    "raised_here": 0,
+    "town_after_T-1404": 2,
+    "still_short": 2,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "iron_foundry",
+    "census_count": 1,
+    "town_before_T-1404": 1,
+    "raised_here": 1,
+    "town_after_T-1404": 2,
+    "still_short": 0,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "lawyer",
+    "census_count": 22,
+    "town_before_T-1404": 18,
+    "raised_here": 0,
+    "town_after_T-1404": 18,
+    "still_short": 4,
+    "documented_zero": false,
+    "owed_to": "T-1186"
+   },
+   {
+    "class": "lottery_office",
+    "census_count": 1,
+    "town_before_T-1404": 0,
+    "raised_here": 0,
+    "town_after_T-1404": 0,
+    "still_short": 1,
+    "documented_zero": true,
+    "owed_to": null
+   },
+   {
+    "class": "lyceum_and_reading_room",
+    "census_count": 1,
+    "town_before_T-1404": 0,
+    "raised_here": 0,
+    "town_after_T-1404": 0,
+    "still_short": 1,
+    "documented_zero": true,
+    "owed_to": null
+   },
+   {
+    "class": "not_stated",
+    "census_count": null,
+    "town_before_T-1404": 3,
+    "raised_here": 0,
+    "town_after_T-1404": 3,
+    "still_short": null,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "other",
+    "census_count": null,
+    "town_before_T-1404": 72,
+    "raised_here": 14,
+    "town_after_T-1404": 86,
+    "still_short": null,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "physician",
+    "census_count": 14,
+    "town_before_T-1404": 3,
+    "raised_here": 5,
+    "town_after_T-1404": 8,
+    "still_short": 6,
+    "documented_zero": false,
+    "owed_to": "T-1186"
+   },
+   {
+    "class": "printing_office",
+    "census_count": 2,
+    "town_before_T-1404": 2,
+    "raised_here": 0,
+    "town_after_T-1404": 2,
+    "still_short": 0,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "school",
+    "census_count": 7,
+    "town_before_T-1404": 5,
+    "raised_here": 0,
+    "town_after_T-1404": 5,
+    "still_short": 2,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "silversmith_jeweller",
+    "census_count": 2,
+    "town_before_T-1404": 1,
+    "raised_here": 0,
+    "town_after_T-1404": 1,
+    "still_short": 1,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "steam_saw_mill",
+    "census_count": 1,
+    "town_before_T-1404": 2,
+    "raised_here": 0,
+    "town_after_T-1404": 2,
+    "still_short": 0,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "storage_and_forwarding",
+    "census_count": 4,
+    "town_before_T-1404": 7,
+    "raised_here": 0,
+    "town_after_T-1404": 7,
+    "still_short": 0,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "store",
+    "census_count": 44,
+    "town_before_T-1404": 59,
+    "raised_here": 6,
+    "town_after_T-1404": 65,
+    "still_short": 0,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "tavern",
+    "census_count": 8,
+    "town_before_T-1404": 4,
+    "raised_here": 7,
+    "town_after_T-1404": 11,
+    "still_short": 0,
+    "documented_zero": false,
+    "owed_to": null
+   },
+   {
+    "class": "tin_and_copper_manufactory",
+    "census_count": 2,
+    "town_before_T-1404": 4,
+    "raised_here": 0,
+    "town_after_T-1404": 4,
+    "still_short": 0,
+    "documented_zero": false,
+    "owed_to": null
+   }
+  ]
+ }
+}

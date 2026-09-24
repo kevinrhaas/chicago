@@ -1,0 +1,103 @@
+{
+  "id": "biz_chicago_soap_and_candle_manufactory",
+  "register_id": "business_chicago_soap_and_candle_manufactory",
+  "name": "Chicago Soap and Candle Manufactory",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "soap and candle manufactory",
+  "occupation": "soap_and_candle_maker",
+  "goods": [
+    "candles",
+    "hard soap",
+    "soap",
+    "soft soap",
+    "tallow candles",
+    "wax candles"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "Daniel Elston",
+      "person_id": "elston_daniel",
+      "register_person_id": "person_daniel_elston",
+      "role": "proprietor",
+      "from": "1834-01-07",
+      "to": "1834-04-08",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card elston_daniel (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_01_07#c012",
+        "chicago_democrat_1834_03_04#c014",
+        "chicago_democrat_1834_04_08#c005"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "elston_soap_candle_manufactory",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-01-07",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure elston_soap_candle_manufactory on its occupants. elston_soap_candle_manufactory already stands and its occupants carries elston — 'Daniel Elston & Co.'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1834-01-07",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-01-07, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-01-07",
+    "last_issue": "1834-04-08",
+    "copy_dates": [
+      "1834-04-01"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "british",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read british: Daniel Elston (british). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "elston_daniel",
+        "name": "Daniel Elston",
+        "role": "proprietor",
+        "community": "british",
+        "tier": "inferred"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_01_07#c012",
+    "chicago_democrat_1834_03_04#c014",
+    "chicago_democrat_1834_04_08#c005"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

@@ -1,0 +1,242 @@
+{
+  "id": "biz_john_h_kinzie",
+  "register_id": "business_john_h_kinzie",
+  "name": "John H. Kinzie",
+  "provenance": "compiled_from_register",
+  "type": [
+    "storage_and_forwarding"
+  ],
+  "trade": "forwarding and commission merchant",
+  "occupation": "forwarding_and_commission",
+  "goods": [
+    "Butter",
+    "Crockery",
+    "Dry Goods",
+    "Flour",
+    "Glass",
+    "Groceries",
+    "Hams",
+    "Hardware",
+    "Iron",
+    "Nails",
+    "Oils",
+    "Paints",
+    "Salt",
+    "Steel",
+    "Tinware",
+    "Window Sash",
+    "crockery",
+    "dry goods",
+    "flour",
+    "groceries",
+    "hardware",
+    "iron",
+    "oils",
+    "paints",
+    "saddlery",
+    "steel",
+    "tinware"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "John H. Kinzie",
+      "person_id": "kinzie_john_h",
+      "register_person_id": "person_john_h_kinzie",
+      "role": "proprietor",
+      "from": "1834-04-16",
+      "to": "1835-07-29",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card kinzie_john_h (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_04_16#c003",
+        "chicago_democrat_1834_04_30#c006",
+        "chicago_democrat_1834_05_07#c008",
+        "chicago_democrat_1834_06_04#c017",
+        "chicago_democrat_1834_08_06#c006",
+        "chicago_democrat_1834_08_13#c010",
+        "chicago_democrat_1834_09_24#c008",
+        "chicago_democrat_1835_07_22#c004",
+        "chicago_democrat_1835_07_29#c007"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Daniel Gallagher",
+      "person_id": "rc_gallagher_daniel",
+      "role": "household_member",
+      "occupation": "teamster",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a forwarding and commission house at the typical band and 2 at the high end, on directory_1839. 41 teamsters and 30 draymen in 1839, against a river trade this one grew out of. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#forwarding_and_warehouse.teamster; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_gallagher_daniel:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    },
+    {
+      "name": "Samuel Newell",
+      "person_id": "rc_newell_samuel",
+      "role": "household_member",
+      "occupation": "teamster",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a forwarding and commission house at the typical band and 2 at the high end, on directory_1839. 41 teamsters and 30 draymen in 1839, against a river trade this one grew out of. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#forwarding_and_warehouse.teamster; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_newell_samuel:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "forwarding_and_warehouse",
+    "reads_as": "a forwarding and commission house",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "clerk",
+        "occupation": "clerk",
+        "household_relationship": "clerk",
+        "count_low": 1,
+        "count_typical": 1,
+        "count_high": 2,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "directory_1839",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      },
+      {
+        "role": "household_member",
+        "occupation": "labourer",
+        "household_relationship": "household_member",
+        "count_low": 1,
+        "count_typical": 2,
+        "count_high": 3,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "directory_1839",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      },
+      {
+        "role": "household_member",
+        "occupation": "teamster",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 2,
+        "seats_drawn": 2,
+        "drawn": true,
+        "basis": "directory_1839"
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 4,
+      "seats_taken": 2,
+      "seats_against_the_band": 1,
+      "short_by": 3,
+      "by_role": [
+        {
+          "occupation": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 1,
+          "count_typical": 1,
+          "count_high": 2,
+          "seats_drawn": 0,
+          "short_by": 1
+        },
+        {
+          "occupation": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 1,
+          "count_typical": 2,
+          "count_high": 3,
+          "seats_drawn": 0,
+          "short_by": 2
+        },
+        {
+          "occupation": "teamster",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "seats_drawn": 2,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts 4 hand(s) about this kind of house at its typical band. This house carries 2, 1 of them in a role that still wanted one, so it stands 3 short — short rather than quietly filled, and short in the roles named below rather than in the total.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "jh_kinzie_forwarding_store",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-04-16",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure jh_kinzie_forwarding_store on its occupants. jh_kinzie_forwarding_store already stands and its occupants carries kinzie — 'J. H. Kinzie; forwarding and commission merchant'. The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1834-04-16",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-04-16, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-04-16",
+    "last_issue": "1835-07-29",
+    "copy_dates": [
+      "1834-04-14",
+      "1834-05-14",
+      "1834-08-12"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_community_on_the_people_named",
+    "basis": "This record names 1 person/people the resident layer holds a card for and the layer knows no community for any of them. The silence is in the resident layer, not in the register.",
+    "from": [
+      {
+        "person_id": "kinzie_john_h",
+        "name": "John H. Kinzie",
+        "role": "proprietor",
+        "community": "unknown",
+        "tier": null
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_04_16#c003",
+    "chicago_democrat_1834_04_30#c006",
+    "chicago_democrat_1834_05_07#c008",
+    "chicago_democrat_1834_06_04#c017",
+    "chicago_democrat_1834_08_06#c006",
+    "chicago_democrat_1834_08_13#c010",
+    "chicago_democrat_1834_09_24#c008",
+    "chicago_democrat_1835_07_22#c004",
+    "chicago_democrat_1835_07_29#c007"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

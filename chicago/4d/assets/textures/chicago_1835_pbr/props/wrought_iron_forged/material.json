@@ -1,0 +1,36 @@
+{
+  "id": "wrought_iron_forged",
+  "group": "props",
+  "span_m": 1.0,
+  "confidence": "period-inferred",
+  "mean_roughness": 0.62,
+  "kind": "iron",
+  "colors": [
+    [
+      48,
+      47,
+      44
+    ],
+    [
+      18,
+      20,
+      20
+    ]
+  ],
+  "note": "Hand-forged iron hardware with restrained oxidation; metallic workflow.",
+  "resolution_px": 1024,
+  "px_per_m": 1024.0,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18352835,
+  "generation_method": "deterministic procedural synthesis"
+}

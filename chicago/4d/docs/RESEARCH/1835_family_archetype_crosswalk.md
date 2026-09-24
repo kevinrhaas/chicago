@@ -128,3 +128,33 @@ notes are machine-readable in `data/reconstruction/1835_family_archetype_crosswa
 Every family implementation must sample the same visible terrain surface used for walking and
 vegetation, expose explicit roof orientation, carry finish/age/condition variation, and retain
 the existing provenance and anonymous-reconstruction labels.
+
+## Delta history — the count fields
+
+*Appended 2026-09-20 (T-1196). The 2026-08 reasoning above stands unchanged; this section
+records what has since moved and what now keeps it from moving again.*
+
+The per-family counts in `1835_family_archetype_crosswalk.json` are **derived**, from
+`1835_building_inventory.json`'s `family_targets` and this file's own `priority_rule`. Until
+now nothing re-derived them, and they had drifted twice:
+
+| When | What moved | What the crosswalk kept saying |
+|---|---|---|
+| 2026-08-27 (T-0032) | I3 six roofs → three | the total followed, 665 → 662; **the ranks did not** |
+| 2026-08-29 (T-0283) | `warehouses_freight` re-cut north/south | C2, W4, A2 and A5 targets unchanged here |
+| 2026-09-11 (T-1036) | roof total 667 → 668 | still 662 |
+
+So the file summed to **662 roofs against the inventory's 668** — C2 12 against 13, W4 6
+against 7, A2 30 against 31, A5 14 against 17 — and nine families (T1, C4, W1, W3, W4, I1,
+W5, F3 and I3) carried a `priority_rank` one place out of the order this file's own rule
+states, because moving I3 from six remaining roofs to three left its rank at 23 when the rule
+puts it at 31.
+
+Both are now re-derived by `tools/reprogramme_roofs_1835.py --build`, and `tools/check.sh`
+refuses the drift rather than waiting for somebody to notice it. The 13 values that changed
+are listed in `docs/RESEARCH/1835_roof_programme_rederivation.md`.
+
+**What did not change**, and will not be changed by that tool: every archetype, variant,
+geometry band, evidence note and assumption note in this file. Those are authored. The tool
+owns five count fields and refuses a layout it cannot edit in place rather than reformatting
+the file around them.

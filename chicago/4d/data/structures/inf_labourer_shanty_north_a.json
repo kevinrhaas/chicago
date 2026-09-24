@@ -1,154 +1,154 @@
 {
- "id": "inf_labourer_shanty_north_a",
- "name": "Reconstructed dwelling (labourer)",
- "archetype": "outbuilding",
- "phases": [
-  {
-   "id": "inferred_1835",
-   "documented_range": {
-    "from": "1835-01-01",
-    "to": "1835-12-31",
-    "confidence": "reconstructed",
-    "note": "NO EVIDENCE ESTABLISHES THAT THIS PARTICULAR BUILDING EXISTED. It is the roof a reconstructed household requires - a labourer's shanty on the north-side fringe. The argument for the trade's presence in the town is in the household record and in the occupation census at data/reconstruction/1835_inferred_household_programme.json; the argument for THIS BUILDING is only that the household needs somewhere to be."
-   },
-   "position": {
-    "utm_e": 447370.567,
-    "utm_n": 4637653.057,
-    "rotation_deg": 0.0,
-    "symbolic_location": "North Division, local ENU E 300 N 260",
-    "confidence": "reconstructed",
-    "note": "INTERPRETIVE PLACEMENT, NOT A RECOVERED LOT. A labourer's shanty on the north-side fringe. The band follows ROADMAP K1's placement rule - businesses toward the river and the built streets, residences further out - using the same frontage bands the reconstruction recipes already work in, which come from the 80 ft platted street module in data/traces/street_control.json. The centre was tested against every structure footprint in the dataset, against the reserved slots of the two uninstantiated phase-2 recipes, against the platted street corridors of the K7 block grid so that no invented building stands in the roadway, and against the committed heightfield for coverage, dry ground and step tolerance; it is free ground and nothing more. The dataset's 20 m working georeference uncertainty applies on top of an already invented position.",
-    "derivation": {
-     "method": "not_derivable",
-     "reason": "No source gives this building a lot. The placement is a frontage-band assignment tested for clearance and buildable ground, which is a production control and not a derivation from any line in the dataset."
+  "id": "inf_labourer_shanty_north_a",
+  "name": "Reconstructed dwelling (labourer)",
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "inferred_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "NO EVIDENCE ESTABLISHES THAT THIS PARTICULAR BUILDING EXISTED. It is the roof a reconstructed household requires - a labourer's shanty on the north-side fringe. The argument for the trade's presence in the town is in the household record and in the occupation census at data/reconstruction/1835_inferred_household_programme.json; the argument for THIS BUILDING is only that the household needs somewhere to be."
+      },
+      "position": {
+        "utm_e": 447370.567,
+        "utm_n": 4637669.59,
+        "rotation_deg": 0.0,
+        "symbolic_location": "North Division, local ENU E 300 N 276.533",
+        "confidence": "reconstructed",
+        "note": "INTERPRETIVE PLACEMENT, NOT A RECOVERED LOT. A labourer's shanty on the north-side fringe. The band follows ROADMAP K1's placement rule - businesses toward the river and the built streets, residences further out - using the same frontage bands the reconstruction recipes already work in, which come from the 80 ft platted street module in data/traces/street_control.json. The centre was tested against every structure footprint in the dataset, against the reserved slots of the two uninstantiated phase-2 recipes, against the platted street corridors of the K7 block grid so that no invented building stands in the roadway, and against the committed heightfield for coverage, dry ground and step tolerance; it is free ground and nothing more. The dataset's 20 m working georeference uncertainty applies on top of an already invented position. MOVED OUT OF THE PLATTED Kinzie Street CORRIDOR, BY THE CORRIDOR RATHER THAN BY HAND (T-1227, settling T-0827's ruling of 2026-09-12). The band assignment above puts this building's centre at local ENU E 300 N 260, which stands 12.19 m inside Kinzie Street's platted corridor. T-1191 read the north bank's platted corridors into the corridor layer on 2026-09-19. Until that day tools/plat_corridors.py returned nothing north of the main stem — one pair of street lists in tools/generate_plat_lots.py decided both which streets a BLOCK may be cut between and which streets a BUILDING may be reported standing in, and the North Division could not have the first, so it was denied the second. This building's own position note said its centre had been tested “against the platted street corridors of the K7 block grid so that no invented building stands in the roadway”; the K7 grid is nineteen South and West Division blocks and no north-bank street, so north of the river that test passed by covering no ground. Nothing moved and nothing was re-fitted: this building has stood on Kinzie Street's centreline since it was raised, and the first thing able to see it was the corridor. An invented placement has nothing to encroach with, so the corridor wins. 0.5 m is T-0827's margin, kept. The record therefore stands 16.533 m north of its band assignment, at E 300.000 N 276.533 — the LEAST this building can move and still leave its whole footprint 0.50 m clear of the platted kerb on BOTH readings of it, the corridor as drawn and the corridor centred on the street's committed control (T-0009), measured through tools/plat_corridors.py, which is the same geometry the gate refuses on. The distance is not typed anywhere: re-fit Kinzie Street again and this building moves again, instead of silently disagreeing with it.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No source gives this building a lot. The placement is a frontage-band assignment tested for clearance and buildable ground, which is a production control and not a derivation from any line in the dataset."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            4.267,
+            0
+          ],
+          [
+            4.267,
+            5.486
+          ],
+          [
+            0,
+            5.486
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "A 14 x 18 ft rectangle from the D2 family band in the reconstruction specification. NO DIMENSION IS DOCUMENTED for this building, which does not exist in any source; the band is type-level evidence about what buildings of this class measured and is not evidence about this one."
+      },
+      "form": {
+        "wall_height_m": {
+          "value": 2.317,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_type": {
+          "value": "shed",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "roof_pitch_deg": {
+          "value": 23.3,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "construction": {
+          "value": "plank",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "door": {
+          "value": "man",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D2 family's key geometry parameters do not speak to a door type, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D2 family's key geometry parameters do not speak to a door side, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
+        },
+        "loft": {
+          "value": false,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "board_gap_m": {
+          "value": 0.012,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D2 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
+        }
+      },
+      "change_note": "Raised by the inferred-household programme. A better-evidenced named building substitutes for this roof rather than standing beside it."
     }
-   },
-   "footprint": {
-    "polygon": [
-     [
-      0,
-      0
-     ],
-     [
-      4.267,
-      0
-     ],
-     [
-      4.267,
-      5.486
-     ],
-     [
-      0,
-      5.486
-     ]
-    ],
-    "confidence": "reconstructed",
-    "note": "A 14 x 18 ft rectangle from the D2 family band in the reconstruction specification. NO DIMENSION IS DOCUMENTED for this building, which does not exist in any source; the band is type-level evidence about what buildings of this class measured and is not evidence about this one."
-   },
-   "form": {
-    "wall_height_m": {
-     "value": 2.317,
-     "confidence": "reconstructed",
-     "sources": [
-      "owner_chicago_1835_reconstruction_spec_2026"
-     ],
-     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
-    },
-    "roof_type": {
-     "value": "shed",
-     "confidence": "reconstructed",
-     "sources": [
-      "owner_chicago_1835_reconstruction_spec_2026"
-     ],
-     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
-    },
-    "roof_pitch_deg": {
-     "value": 23.3,
-     "confidence": "reconstructed",
-     "sources": [
-      "owner_chicago_1835_reconstruction_spec_2026"
-     ],
-     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
-    },
-    "construction": {
-     "value": "plank",
-     "confidence": "reconstructed",
-     "sources": [
-      "owner_chicago_1835_reconstruction_spec_2026"
-     ],
-     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
-    },
-    "door": {
-     "value": "man",
-     "confidence": "reconstructed",
-     "sources": [
-      "owner_chicago_1835_reconstruction_spec_2026"
-     ],
-     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D2 family's key geometry parameters do not speak to a door type, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
-    },
-    "door_side": {
-     "value": "front",
-     "confidence": "reconstructed",
-     "sources": [
-      "owner_chicago_1835_reconstruction_spec_2026"
-     ],
-     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D2 family's key geometry parameters do not speak to a door side, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
-    },
-    "loft": {
-     "value": false,
-     "confidence": "reconstructed",
-     "sources": [
-      "owner_chicago_1835_reconstruction_spec_2026"
-     ],
-     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
-    },
-    "board_gap_m": {
-     "value": 0.012,
-     "confidence": "reconstructed",
-     "sources": [
-      "owner_chicago_1835_reconstruction_spec_2026"
-     ],
-     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. Type-level choice within the D2 band in the reconstruction specification; it is not evidence for this building."
-    },
-    "paint": {
-     "value": "unpainted",
-     "confidence": "reconstructed",
-     "sources": [
-      "owner_chicago_1835_reconstruction_spec_2026"
-     ],
-     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec — what a building of this kind was ordinarily like — not a reading of evidence about this particular building, because no source speaks to it: the structure exists in the model because the town demonstrably needed one of these, and nothing more. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D2 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this building."
-    }
-   },
-   "change_note": "Raised by the inferred-household programme. A better-evidenced named building substitutes for this roof rather than standing beside it."
-  }
- ],
- "function": {
-  "value": "dwelling",
-  "confidence": "reconstructed",
-  "sources": [
-   "andreas_1884_v1",
-   "owner_chicago_1835_reconstruction_spec_2026"
   ],
-  "note": "A labourer's shanty on the north-side fringe."
- },
- "occupants": {
-  "value": "Anonymous stock; no occupant is claimed",
-  "confidence": "reconstructed",
-  "note": "ANONYMOUS STOCK (T-0516). This roof was raised by the inferred-household programme because an argued household needed somewhere to be; the owner retired that reconstructed resident population on 2026-09-02 and ruled the geometry kept - \"keep as anonymous stock\" - so the household this roof was raised for no longer exists and nobody is claimed to be here. It is unassigned until the later placement sweep, and it is counted as one of the anonymous count-units of the 665-roof programme. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the retirement: what was withdrawn is the occupant, not the building. The trade it was raised for is kept in `reconstruction.occupation` and in this record's own name, because that is what the placement sweep works from; the argument that raised it is kept as history in data/reconstruction/1835_inferred_household_programme.json."
- },
- "reconstruction": {
-  "status": "inferred_anonymous",
-  "family": "D2",
-  "district": "north",
-  "programme_phase": "phase2_inferred_households",
-  "source_id": "owner_chicago_1835_reconstruction_spec_2026",
-  "occupation": "labourer"
- },
- "research_note": "RECONSTRUCTED BUILDING, RAISED FOR A RECONSTRUCTED HOUSEHOLD (docs/ROADMAP.md K1, phase two). A labourer's shanty on the north-side fringe. It is NOT one of the anonymous count-units of the 665-roof programme: those are placed by aggregate mix and carry no occupant, while this one exists because the occupation census says the town held a household of this trade and no anonymous roof of the right family stood free in this district. It consumes one slot of its district's programme target rather than adding to it - see the accounting block in data/reconstruction/1835_inferred_household_programme.json.",
- "review_required": false,
- "resident_assignment": {
-  "status": "unassigned",
-  "confidence": "reconstructed",
-  "note": "T-0489 owner ruling 2026-09-02: reconstructed resident population retired; building retained as anonymous stock for later placement."
- }
+  "function": {
+    "value": "dwelling",
+    "confidence": "reconstructed",
+    "sources": [
+      "andreas_1884_v1",
+      "owner_chicago_1835_reconstruction_spec_2026"
+    ],
+    "note": "A labourer's shanty on the north-side fringe."
+  },
+  "occupants": {
+    "value": "Anonymous stock; no occupant is claimed",
+    "confidence": "reconstructed",
+    "note": "ANONYMOUS STOCK (T-0516). This roof was raised by the inferred-household programme because an argued household needed somewhere to be; the owner retired that reconstructed resident population on 2026-09-02 and ruled the geometry kept - \"keep as anonymous stock\" - so the household this roof was raised for no longer exists and nobody is claimed to be here. It is unassigned until the later placement sweep, and it is counted as one of the anonymous count-units of the 665-roof programme. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the retirement: what was withdrawn is the occupant, not the building. The trade it was raised for is kept in `reconstruction.occupation` and in this record's own name, because that is what the placement sweep works from; the argument that raised it is kept as history in data/reconstruction/1835_inferred_household_programme.json."
+  },
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "D2",
+    "district": "north",
+    "programme_phase": "phase2_inferred_households",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "occupation": "labourer"
+  },
+  "research_note": "RECONSTRUCTED BUILDING, RAISED FOR A RECONSTRUCTED HOUSEHOLD (docs/ROADMAP.md K1, phase two). A labourer's shanty on the north-side fringe. It is NOT one of the anonymous count-units of the 665-roof programme: those are placed by aggregate mix and carry no occupant, while this one exists because the occupation census says the town held a household of this trade and no anonymous roof of the right family stood free in this district. It consumes one slot of its district's programme target rather than adding to it - see the accounting block in data/reconstruction/1835_inferred_household_programme.json.",
+  "review_required": false,
+  "resident_assignment": {
+    "status": "unassigned",
+    "confidence": "reconstructed",
+    "note": "T-0489 owner ruling 2026-09-02: reconstructed resident population retired; building retained as anonymous stock for later placement."
+  }
 }

@@ -58,11 +58,11 @@
         },
         {
           "figure": "population_on_1_july_1835",
-          "low": 2350,
+          "low": 2353,
           "high": 3265,
-          "point": 2533,
+          "point": 2536,
           "is_a_count": false,
-          "method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 44.9% of the 1,282 people the layer carries give an arrival year of 1835, so about 1,464 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,533, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
+          "method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 44.7% of the 1,285 people the layer carries give an arrival year of 1835, so about 1,458 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,536, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
           "comparanda": [
             "andreas_1884_v1"
           ],
@@ -73,11 +73,11 @@
         },
         {
           "figure": "people_the_layer_can_name",
-          "low": 1282,
-          "high": 1282,
+          "low": 1285,
+          "high": 1285,
           "point": null,
           "is_a_count": true,
-          "method": "The resident layer carries 1,282 people — 410 attested, 872 inferred, 0 reconstructed. A count of the layer, not of the town.",
+          "method": "The resident layer carries 1,285 people — 410 attested, 875 inferred, 1,610 reconstructed. A count of the layer, not of the town.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -117,7 +117,7 @@
         "Neither recorded count is of the scene, and they disagree with each other by 32 people. Which of 3,265 and 3,297 is the better ceiling is not settled here.",
         "The floor rests on the arrival distribution of the people the layer can NAME, and the sources that name them (letter lists, voter rolls, directories) are themselves dated 1834-1835, so that distribution is biased toward late arrivals and the floor is more likely too low than too high.",
         "`bk_mose1_006`'s reading note says the figure 3,297 'is already in the repository' from the Chicago Democrat of 1835-07-01 and the Chicago American of 1835-06-08 and 1835-06-27. Neither committed text carries it: the 3297 that greps in those files is an OCR coordinate, not a population. The note overstates its corroboration and the claim stands on Moses and Kirkland alone.",
-        "The authored spec's `population_working_range` is [3200, 3265]. This model's derived range for 1 July is [2,350, 3,265] — the same ceiling and a far lower floor. The roof programme is cut against the spec's range; T-1196 is where the two are reconciled."
+        "The authored spec's `population_working_range` is [3200, 3265]. This model's derived range for 1 July is [2,353, 3,265] — the same ceiling and a far lower floor. The roof programme is cut against the spec's range; T-1196 is where the two are reconciled."
       ],
       "tables": {
         "by_division": {
@@ -128,29 +128,29 @@
               "division": "south",
               "dwellings": 176,
               "share": 0.5254,
-              "people_low": 1235,
+              "people_low": 1236,
               "people_high": 1715
             },
             {
               "division": "west",
               "dwellings": 75,
               "share": 0.2239,
-              "people_low": 526,
+              "people_low": 527,
               "people_high": 731
             },
             {
               "division": "north",
               "dwellings": 84,
               "share": 0.2507,
-              "people_low": 589,
+              "people_low": 590,
               "people_high": 819
             }
           ]
         },
         "known_by_presence": {
-          "present": 456,
-          "absent": 2,
-          "uncertain": 824
+          "present": 2717,
+          "absent": 76,
+          "uncertain": 102
         }
       }
     },
@@ -175,10 +175,10 @@
         {
           "figure": "establishments_in_the_compared_classes",
           "low": 118,
-          "high": 118,
+          "high": 130,
           "point": null,
-          "is_a_count": true,
-          "method": "The register holds 118 records at the scene date across the compared classes and the census counted 118 two to five months later — THE SAME NUMBER, which is a coincidence and not an agreement: 8 classes are short and 5 are over, and they cancel. A total that matches while its rows do not is the strongest argument in this model for reading the census BY CLASS and never as a population of shops.",
+          "is_a_count": false,
+          "method": "The register holds 130 records at the scene date across the compared classes and the census counted 118 two to five months later. The low end is what the town can name and the high end is what the census counted, and the difference is growth plus what no notice advertised.",
           "comparanda": [
             "moses_kirkland_history_of_chicago_v1"
           ],
@@ -188,11 +188,11 @@
         },
         {
           "figure": "classes_short_of_the_census",
-          "low": 8,
-          "high": 8,
+          "low": 9,
+          "high": 9,
           "point": null,
           "is_a_count": true,
-          "method": "8 compared classes hold fewer records than the census counted, 22 establishments short in total; 5 hold more, which is the register counting NOTICES where the census counted houses.",
+          "method": "9 compared classes hold fewer records than the census counted, 19 establishments short in total — of which 2 are houses the register names with an opening announced AFTER the scene date, so that much of the gap is already accounted for; 6 hold more, which is the register counting NOTICES where the census counted houses.",
           "comparanda": [
             "moses_kirkland_history_of_chicago_v1"
           ],
@@ -202,7 +202,7 @@
         },
         {
           "figure": "employed_persons",
-          "low": 423,
+          "low": 424,
           "high": 588,
           "point": null,
           "is_a_count": false,
@@ -216,11 +216,11 @@
         },
         {
           "figure": "people_the_layer_gives_a_trade",
-          "low": 127,
-          "high": 262,
+          "low": 138,
+          "high": 327,
           "point": null,
           "is_a_count": false,
-          "method": "127 people carry a role that reaches 1 July 1835; 262 carry any role at all, and 135 carry only roles dated off the scene. The gap between this and the employed-persons figure above is what the reconstruction bands have to fill.",
+          "method": "138 people carry a role that reaches 1 July 1835; 327 carry any role at all, and 189 carry only roles dated off the scene. The gap between this and the employed-persons figure above is what the reconstruction bands have to fill.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -242,9 +242,10 @@
               "class": "physician",
               "census_line": "fourteen physicians",
               "census_count": 14,
-              "town_at_scene_date": 3,
-              "delta": -11,
-              "outcome": "town_holds_fewer_than_the_census_counted"
+              "town_at_scene_date": 8,
+              "delta": -6,
+              "outcome": "town_holds_fewer_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "lawyer",
@@ -252,7 +253,8 @@
               "census_count": 22,
               "town_at_scene_date": 18,
               "delta": -4,
-              "outcome": "town_holds_fewer_than_the_census_counted"
+              "outcome": "town_holds_fewer_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "druggist",
@@ -260,7 +262,17 @@
               "census_count": 4,
               "town_at_scene_date": 2,
               "delta": -2,
-              "outcome": "town_holds_fewer_than_the_census_counted"
+              "outcome": "town_holds_fewer_than_the_census_counted",
+              "opened_after_the_scene_date": 0
+            },
+            {
+              "class": "school",
+              "census_line": "seven schools",
+              "census_count": 7,
+              "town_at_scene_date": 5,
+              "delta": -2,
+              "outcome": "town_holds_fewer_than_the_census_counted",
+              "opened_after_the_scene_date": 2
             },
             {
               "class": "bank",
@@ -268,7 +280,8 @@
               "census_count": 1,
               "town_at_scene_date": 0,
               "delta": -1,
-              "outcome": "town_holds_fewer_than_the_census_counted"
+              "outcome": "town_holds_fewer_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "brewery",
@@ -276,7 +289,8 @@
               "census_count": 2,
               "town_at_scene_date": 1,
               "delta": -1,
-              "outcome": "town_holds_fewer_than_the_census_counted"
+              "outcome": "town_holds_fewer_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "lottery_office",
@@ -284,7 +298,8 @@
               "census_count": 1,
               "town_at_scene_date": 0,
               "delta": -1,
-              "outcome": "town_holds_fewer_than_the_census_counted"
+              "outcome": "town_holds_fewer_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "lyceum_and_reading_room",
@@ -292,7 +307,8 @@
               "census_count": 1,
               "town_at_scene_date": 0,
               "delta": -1,
-              "outcome": "town_holds_fewer_than_the_census_counted"
+              "outcome": "town_holds_fewer_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "silversmith_jeweller",
@@ -300,7 +316,8 @@
               "census_count": 2,
               "town_at_scene_date": 1,
               "delta": -1,
-              "outcome": "town_holds_fewer_than_the_census_counted"
+              "outcome": "town_holds_fewer_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "book_store",
@@ -308,39 +325,26 @@
               "census_count": 2,
               "town_at_scene_date": 2,
               "delta": 0,
-              "outcome": "town_matches_census"
-            },
-            {
-              "class": "iron_foundry",
-              "census_line": "one iron foundry",
-              "census_count": 1,
-              "town_at_scene_date": 1,
-              "delta": 0,
-              "outcome": "town_matches_census"
-            },
-            {
-              "class": "school",
-              "census_line": "seven schools",
-              "census_count": 7,
-              "town_at_scene_date": 7,
-              "delta": 0,
-              "outcome": "town_matches_census"
-            },
-            {
-              "class": "tavern",
-              "census_line": "eight taverns",
-              "census_count": 8,
-              "town_at_scene_date": 8,
-              "delta": 0,
-              "outcome": "town_matches_census"
+              "outcome": "town_matches_census",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "printing_office",
               "census_line": "two printing offices",
               "census_count": 2,
-              "town_at_scene_date": 3,
+              "town_at_scene_date": 2,
+              "delta": 0,
+              "outcome": "town_matches_census",
+              "opened_after_the_scene_date": 0
+            },
+            {
+              "class": "iron_foundry",
+              "census_line": "one iron foundry",
+              "census_count": 1,
+              "town_at_scene_date": 2,
               "delta": 1,
-              "outcome": "town_holds_more_than_the_census_counted"
+              "outcome": "town_holds_more_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "steam_saw_mill",
@@ -348,7 +352,8 @@
               "census_count": 1,
               "town_at_scene_date": 2,
               "delta": 1,
-              "outcome": "town_holds_more_than_the_census_counted"
+              "outcome": "town_holds_more_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "tin_and_copper_manufactory",
@@ -356,7 +361,8 @@
               "census_count": 2,
               "town_at_scene_date": 4,
               "delta": 2,
-              "outcome": "town_holds_more_than_the_census_counted"
+              "outcome": "town_holds_more_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "storage_and_forwarding",
@@ -364,15 +370,26 @@
               "census_count": 4,
               "town_at_scene_date": 7,
               "delta": 3,
-              "outcome": "town_holds_more_than_the_census_counted"
+              "outcome": "town_holds_more_than_the_census_counted",
+              "opened_after_the_scene_date": 0
+            },
+            {
+              "class": "tavern",
+              "census_line": "eight taverns",
+              "census_count": 8,
+              "town_at_scene_date": 11,
+              "delta": 3,
+              "outcome": "town_holds_more_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             },
             {
               "class": "store",
               "census_line": "forty-four stores (dry goods, hardware and groceries)",
               "census_count": 44,
-              "town_at_scene_date": 59,
-              "delta": 15,
-              "outcome": "town_holds_more_than_the_census_counted"
+              "town_at_scene_date": 65,
+              "delta": 21,
+              "outcome": "town_holds_more_than_the_census_counted",
+              "opened_after_the_scene_date": 0
             }
           ]
         },
@@ -475,11 +492,11 @@
         },
         {
           "figure": "household_records_the_layer_carries",
-          "low": 1258,
-          "high": 1258,
+          "low": 1980,
+          "high": 1980,
           "point": null,
           "is_a_count": true,
-          "method": "1,258 household records for 1,282 people — 1.02 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families.",
+          "method": "1,980 household records for 1,285 people — 0.65 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -653,11 +670,11 @@
         },
         {
           "figure": "inns_and_taverns",
-          "low": 8,
-          "high": 10,
+          "low": 11,
+          "high": 11,
           "point": null,
-          "is_a_count": false,
-          "method": "The programme schedules 10 inns and taverns; the State census counted 8 taverns two to five months later and the register holds 8 at the scene date. The three units are a roof, a licence and a printed notice, and they are not the same thing counted three ways.",
+          "is_a_count": true,
+          "method": "The programme schedules 10 inns and taverns; the State census counted 8 taverns two to five months later and the business layer holds 11 at the scene date. The three units are a roof, a licence and a printed notice, and they are not the same thing counted three ways. THE LAYER'S COUNT MAY EXCEED BOTH OTHERS AND THE CEILING FOLLOWS IT (T-1404): the census's figure is a count of LICENCES taken months after the scene, and the town's named public houses — the Sauganash, the Exchange, the Tremont, the Mansion House, the Steamboat, the Western, Wolf Point — are houses the papers never advertised and the licence roll never separated. A licence count cannot cap a house count, so the ceiling is whichever of the three reads highest. T-1196 owns re-cutting the roof programme against it.",
           "comparanda": [
             "moses_kirkland_history_of_chicago_v1",
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -785,11 +802,11 @@
       "figures": [
         {
           "figure": "arrived_in_the_three_years_before_the_scene",
-          "low": 0.961,
-          "high": 0.961,
+          "low": 0.959,
+          "high": 0.959,
           "point": null,
           "is_a_count": true,
-          "method": "1,232 of the 1,282 people the layer carries give an arrival year of 1833, 1834 or 1835; only 50 came before 1833. The town of 1 July 1835 is overwhelmingly three years old or less.",
+          "method": "1,232 of the 1,285 people the layer can NAME give an arrival year of 1833, 1834 or 1835; 53 give an earlier one, and no named person is left without a year. The town of 1 July 1835 is overwhelmingly three years old or less. DENOMINATOR: the named layer — the attested and the inferred — and not the whole one. A reconstructed person's arrival year is DRAWN from this section's own table, so counting it back into this share would be the model reading its own output as a reading.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -797,11 +814,11 @@
         },
         {
           "figure": "arrived_in_1835_itself",
-          "low": 0.449,
-          "high": 0.449,
+          "low": 0.447,
+          "high": 0.447,
           "point": null,
           "is_a_count": true,
-          "method": "575 of 1,282. This is the figure the population floor is built on, and it is the one most exposed to the bias below.",
+          "method": "574 of the same 1,285 named people. This is the figure the population floor is built on — `population_on_1_july_1835` divides this same cohort by this same denominator — and it is the one most exposed to the bias below.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -839,77 +856,86 @@
       "not_claiming": "This section dates and places nobody: it is a distribution over cohorts and an arrival year on a card is still that card's own evidence.",
       "open_questions": [
         "The arrival distribution is of people the project can NAME, and the sources that name them — letter lists, voter rolls, the 1839 and 1843 directories — are themselves of 1834 and later, so a man who came in 1831 and left no notice is missing from it. The 1835 share is a ceiling on the true share.",
+        "THE FIGURES AND THE TABLE COUNT TWO DIFFERENT POPULATIONS, and saying so is the point of this note. Every figure divides by the NAMED layer — the attested and the inferred — because a reconstructed person's arrival year was drawn from this model and counting it back in would be the model reading its own output (the same rule `people_the_layer_can_name` states). The table below is the WHOLE compiled layer, because that is what the reconstruction's arrival stage reads: `reconstruct_residents_1835.py` draws each filled arrival from these rows. Until T-1364 the figures took the table's numerator over the figures' denominator, and the share read 1.605 with a complement of -777 people.",
+        "THAT TABLE IS STILL A CIRCLE, and this model cannot close it alone: the distribution the arrival stage draws from is computed over a layer that stage has already written into, so each pass re-reads its own last draw. Cutting the table to the named layer would redraw every arrival ever dealt, which is a rebuild and not a figure — recorded on T-1179, which owns the convergence rebuild order, and deliberately not done here.",
         "The Old Settlers roll is a self-selected survivorship sample registered forty-four years later: it over-represents men who stayed, prospered and lived to 1879, and it holds no woman who married out of her registered name. Its birthplaces are the only origin distribution this project has and they are not the town's.",
         "WHY people came is not modelled. The land sales, the canal commission and the harbour works are each a documented draw, but no committed source apportions the town between them and this model will not invent the split."
       ],
       "tables": {
         "arrival_year_of_the_known_layer": {
-          "unit": "people the layer carries, by the arrival year it records",
+          "unit": "people in the WHOLE compiled layer — named and reconstructed together — by the arrival year each one records, out of the 2,304 who record one at all",
+          "not_the_figures_denominator": "The FIGURES above divide by the named layer alone; this table does not, and the two are different populations on purpose (T-1364).",
+          "rows_total": 2304,
           "rows": [
             {
               "year": 1812,
               "people": 3,
-              "share": 0.0023
+              "share": 0.0013
             },
             {
               "year": 1816,
               "people": 3,
-              "share": 0.0023
+              "share": 0.0013
             },
             {
               "year": 1818,
-              "people": 1,
-              "share": 0.0008
+              "people": 3,
+              "share": 0.0013
             },
             {
               "year": 1820,
               "people": 1,
-              "share": 0.0008
+              "share": 0.0004
             },
             {
               "year": 1823,
               "people": 2,
-              "share": 0.0016
+              "share": 0.0009
+            },
+            {
+              "year": 1824,
+              "people": 5,
+              "share": 0.0022
             },
             {
               "year": 1826,
-              "people": 2,
-              "share": 0.0016
+              "people": 3,
+              "share": 0.0013
             },
             {
               "year": 1827,
               "people": 2,
-              "share": 0.0016
+              "share": 0.0009
             },
             {
               "year": 1830,
-              "people": 3,
-              "share": 0.0023
+              "people": 5,
+              "share": 0.0022
             },
             {
               "year": 1831,
-              "people": 13,
-              "share": 0.0101
+              "people": 22,
+              "share": 0.0095
             },
             {
               "year": 1832,
-              "people": 20,
-              "share": 0.0156
+              "people": 40,
+              "share": 0.0174
             },
             {
               "year": 1833,
-              "people": 139,
-              "share": 0.1084
+              "people": 221,
+              "share": 0.0959
             },
             {
               "year": 1834,
-              "people": 518,
-              "share": 0.4041
+              "people": 662,
+              "share": 0.2873
             },
             {
               "year": 1835,
-              "people": 575,
-              "share": 0.4485
+              "people": 1332,
+              "share": 0.5781
             }
           ]
         },

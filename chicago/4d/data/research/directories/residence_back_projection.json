@@ -24,7 +24,7 @@
    "Washington Street",
    "Wells Street"
   ],
-  "lives_at_real_values": 20,
+  "lives_at_real_values": 31,
   "works_at_real_values": 50
  },
  "rows": [
@@ -590,7 +590,7 @@
    "sources": [
     "fergus_chicago_directory_1843"
    ],
-   "occupation_1835": null,
+   "occupation_1835": "forwarding_and_commission",
    "trade_not_required": true,
    "lives_at_1835": null,
    "outcome": "refused",

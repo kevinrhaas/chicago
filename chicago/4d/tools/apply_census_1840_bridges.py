@@ -39,6 +39,8 @@ CENSUS_ROWS = CENSUS_DIR / "household_heads.csv.gz"
 LEDGER = RESEARCH / "synthesis_2026_09_02.json"
 SUMMARY = ROOT / "docs" / "RESEARCH" / "resident-household-synthesis-2026-09-02.md"
 SOURCE_ID = "census_1840_chicago_v4_research"
+# The one authority under which a person may be written from a count (T-1167).
+RECONSTRUCTION_PROGRAMME = DATA / "reconstruction" / "1835_resident_reconstruction_programme.json"
 ALLOWED_STATUS = {"validated", "provisional"}
 
 
@@ -381,8 +383,24 @@ def check():
     # `tools/check_published_residents.mjs`, which makes the identical claim over the
     # WHOLE layer (same value, file for file, none missing and none extra) rather than
     # over the handful of rows this bridge file happens to name.
+    # THE CANARY, restated (T-1314). The 1840 row for William Hanford Adams counts two
+    # people and names one, and this tool must never be the thing that turns the second
+    # tally into an 1835 resident: `later_census` is dated 1840 evidence and nothing here
+    # back-projects it. That used to be asserted as "the Adams card holds exactly one
+    # person", which was true only for as long as NOTHING could add a second - and since
+    # T-1167 the reconstruction programme can, deliberately and under its own stage. So
+    # the assertion is now the one it always meant: every person on that card beyond the
+    # head is either a real person the research named, or one the programme claims by
+    # name; nobody arrives unaccounted for.
     adams=people.get("adams_william_h")
-    if adams and len(adams[2].get("persons") or []) != 1: problems.append("Adams 1840 second person was incorrectly back-projected into 1835")
+    if adams:
+        stage_keys={s.get("key") for s in (load(RECONSTRUCTION_PROGRAMME).get("stages") or [])} \
+            if RECONSTRUCTION_PROGRAMME.exists() else set()
+        loose=[p.get("id") for p in (adams[2].get("persons") or [])
+               if p.get("grade")=="reconstructed"
+               and (p.get("reconstruction") or {}).get("stage") not in stage_keys]
+        if loose: problems.append(f"Adams 1840 household carries {len(loose)} back-projected "
+                                  f"person(s) no reconstruction stage claims: {', '.join(map(str, loose))}")
     if problems:
         print("CENSUS BRIDGE FAIL")
         for p in problems: print(" -", p)

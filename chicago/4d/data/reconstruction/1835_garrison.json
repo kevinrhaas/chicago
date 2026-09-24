@@ -1,0 +1,158 @@
+{
+ "_doc": "THE RETURN THE ORDER BOOK ASKED FOR. `persons/garrison/fort` and `households/garrison/fort` carry no target because the fort's strength is read and not apportioned; this file is what stage `garrison` returns, and tools/reconstruct_garrison_1835.py --check re-derives every number in it. IT IS AN ESTABLISHMENT AND NOT A RETURN OF PRESENT-FOR-DUTY. No muster roll, post return or strength figure for Fort Dearborn in mid-1835 has been reached by this project; frontier companies stood below establishment as a matter of course, so every figure here is a CEILING.",
+ "id": "chicago_july_1835_garrison_return",
+ "ticket": "T-1349",
+ "parent": "T-1176",
+ "target_date": "1835-07-01",
+ "generated_by": "tools/reconstruct_garrison_1835.py --build",
+ "checked_by": "tools/reconstruct_garrison_1835.py --check (wired in tools/check.sh)",
+ "dossier": "docs/RESEARCH/fort_dearborn_garrison_strength_1835.md",
+ "establishment": {
+  "source": "us_statutes_1821_army_peace_establishment",
+  "locator": "§ 2",
+  "quoted": "each of which shall consist of one captain, one first lieutenant, one second lieutenant, three sergeants, four corporals, two musicians, and forty-two privates",
+  "per_company": [
+   {
+    "rank": "captain",
+    "number": 1,
+    "kind": "commissioned"
+   },
+   {
+    "rank": "first_lieutenant",
+    "number": 1,
+    "kind": "commissioned"
+   },
+   {
+    "rank": "second_lieutenant",
+    "number": 1,
+    "kind": "commissioned"
+   },
+   {
+    "rank": "sergeant",
+    "number": 3,
+    "kind": "enlisted"
+   },
+   {
+    "rank": "corporal",
+    "number": 4,
+    "kind": "enlisted"
+   },
+   {
+    "rank": "musician",
+    "number": 2,
+    "kind": "enlisted"
+   },
+   {
+    "rank": "private",
+    "number": 42,
+    "kind": "enlisted"
+   }
+  ],
+  "per_company_all_ranks": 54,
+  "per_company_enlisted": 51,
+  "note": "The law of the peace establishment on 1 July 1835. This project reads no act between 2 March 1821 and the scene date that moves an infantry company's strength; if one exists, it retires this block."
+ },
+ "companies": {
+  "number": 2,
+  "regiment": "5th Infantry",
+  "confidence": "reconstructed",
+  "source": "andreas_1884_v1",
+  "via": "docs/RESEARCH/fort_dearborn.md § 2",
+  "note": "Andreas gives two companies of U.S. infantry at the post in 1833 and nothing later; the post was held continuously from June 1832 to 29 December 1836. TWO COMPANIES IN 1835 IS A CARRY-FORWARD OF A 1833 READING, not a reading of the scene year, and is graded accordingly."
+ },
+ "officers": {
+  "at_establishment": 6,
+  "written": 0,
+  "named_at_the_post_by_the_layer": [
+   "greene_john",
+   "maxwell_philip",
+   "allen_lieut_james"
+  ],
+  "refusal": "NO OFFICER IS INVENTED. T-1348 ruled every officer this layer can place at Chicago in the window against the post, admitted one and refused eleven with the clause that refused each. Minting six company officers under invented names would put commissioned officers of the United States Army into this town that no source has. The establishment is printed and the gap is stated."
+ },
+ "laundresses": {
+  "per_company": 4,
+  "written": 8,
+  "confidence": "reconstructed",
+  "source": "us_army_general_regulations_1835",
+  "what_the_regulations_say": "The 1835 General Regulations quarter the washerwomen of a company inside the men's own allowance (art. 31), pay them at a rate the council of administration fixes (art. 30) and settle their accounts against the soldier's pay (arts. 27, 29) — and refer throughout to 'the authorized number of washerwomen' WITHOUT PRINTING IT.",
+  "what_they_do_say_about_number": "Art. 82 quarters washerwomen for straw 'in the proportion of one to every seventeen persons', which over this establishment would give six rather than eight.",
+  "note": "FOUR A COMPANY IS THE PROJECT'S OWN FIGURE, carried from this ticket's instruction, and it is not the figure the one regulation that prints a proportion would give. The divergence is stated rather than resolved and docs/LIBERTIES.md carries it."
+ },
+ "sutler": {
+  "written": 1,
+  "person": "rc_metcalf_david",
+  "seated_at": "fort_dearborn_sutlers_store",
+  "note": "One man at an attested building with an attested function. No family, no partners, no stock is claimed. Andreas's sutler of about 1830 is five years early and is not reused."
+ },
+ "written": {
+  "households": 11,
+  "persons": 125,
+  "by_sex": {
+   "female": 17,
+   "male": 108
+  },
+  "by_age_band": {
+   "0-9": 5,
+   "10-19": 23,
+   "20-29": 65,
+   "30-39": 32
+  },
+  "by_trade": {
+   "laundress": 8,
+   "none_recorded": 14,
+   "soldier": 102,
+   "sutler": 1
+  },
+  "companies": [
+   {
+    "company": 1,
+    "card": "hh_rc_garrison_company_1",
+    "establishment_enlisted": 51,
+    "in_barracks": 47,
+    "married_households": [
+     "hh_rc_tobin_patrick",
+     "hh_rc_sullivan_thomas",
+     "hh_rc_cavanagh_edward",
+     "hh_rc_duffy_martin"
+    ],
+    "officers_not_written": 3
+   },
+   {
+    "company": 2,
+    "card": "hh_rc_garrison_company_2",
+    "establishment_enlisted": 51,
+    "in_barracks": 47,
+    "married_households": [
+     "hh_rc_shea_martin",
+     "hh_rc_walsh_owen",
+     "hh_rc_eastman_james",
+     "hh_rc_sheldon_erastus"
+    ],
+    "officers_not_written": 3
+   }
+  ]
+ },
+ "the_strength_this_returns": {
+  "enlisted_at_establishment": 102,
+  "enlisted_written": 102,
+  "laundresses": 8,
+  "children": 14,
+  "sutler": 1,
+  "all_persons": 125,
+  "note": "The enlisted figure IS the establishment: no place is left empty and none is added. Everything above it is drawn."
+ },
+ "the_quartering_check": {
+  "allowance": "225 square feet to every six non-commissioned officers, musicians, privates and servants, including the authorized number of washerwomen, at posts above the 38th degree of north latitude",
+  "source": "us_army_general_regulations_1835",
+  "locator": "Quarter Master's Department, art. 31",
+  "barracks": "fort_dearborn_barracks",
+  "footprint_m2": 303.3,
+  "footprint_sqft": 3265,
+  "one_floor_quarters": 84,
+  "to_quarter": 110,
+  "shortfall_on_one_floor": 26,
+  "reading": "A CHECK THIS STAGE RUNS AND DOES NOT ACT ON. The barracks record argues its own footprint partly from coherence — 'the largest building in the complex, which is what a barracks for two companies of infantry should be'. The Regulations' own allowance turns that argument into a number, and on ONE floor the drawn range does not reach it. Three readings survive and this stage picks none: the barracks had more than one floor (the usual form, and the record asserts no storey count); or the footprint is short, which the record already invites at plus or minus 20 per cent; or the companies stood below establishment, which is the likeliest thing of all and is exactly what the establishment ceiling cannot see. Recorded for the ticket; nothing here is reduced to fit."
+ },
+ "what_retires_this_whole_file": "A muster roll, post return, descriptive book or monthly return of Fort Dearborn for 1835. The Army kept all four; this project has read none."
+}

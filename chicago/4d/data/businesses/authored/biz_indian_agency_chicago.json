@@ -1,0 +1,167 @@
+{
+  "id": "biz_indian_agency_chicago",
+  "register_id": null,
+  "name": "The United States Indian Agency at Chicago",
+  "provenance": "authored",
+  "type": [
+    "civic"
+  ],
+  "trade": "the United States Indian agency for Chicago — the agent, his sub-agents, the interpreter and the government blacksmith kept under the treaty obligation",
+  "occupation": null,
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Thomas Jefferson Vance Owen",
+      "person_id": "owen_thomas_jv",
+      "register_person_id": null,
+      "role": "indian_agent",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "basis": "THE AGENT, AND THE ESTABLISHMENT IS HIS. Andreas: appointed United States Indian agent for Chicago in the winter of 1830-31, arriving in the spring of 1831, and still agent at his death at Chicago on 15 October 1835 — three and a half months past the scene date, which is what carries the seat over 1 July. Andreas names the establishment in one breath, under the agent's own name: the sub-agents Gholson Kercheval and James Stuart, 'Billy Caldwell (Sauganash) as interpreter; David McKee as blacksmith, and Joseph Porthier as striker'. That sentence is this record: five offices and an agent, read off the source that already grades every one of these men's cards `attested` on the same words. WHAT THIS ROW DOES NOT SAY: his card records the office and not the trustee presidency he also held, and this record follows it. His signature as a commissioner for the United States at the treaty of 26 September 1833 is a fact about the removal rather than about a seat at a place, and it is not written here as one.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": [
+        "Col. T. J. V. Owen"
+      ]
+    },
+    {
+      "name": "Gholson Kercheval",
+      "person_id": "kercheval_gholson",
+      "register_person_id": null,
+      "role": "sub_agent",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "basis": "THE SUB-AGENT WHO HAD RUN THE OFFICE BEFORE THE AGENT CAME. Andreas: 'Colonel Owen was appointed Indian agent in the winter of 1830-31, but did not arrive in Chicago until the spring of 1831, the sub-agent, Mr. Kercheval, attending to the duties of the office until that time' — and the 1833 roster calls him 'Gholson Kercheval, Government Agent and clerk, came in 1831'. THE SEAT IS ATTESTED AND THE PRESENCE IS NOT: his card reads `present_on_scene_date: uncertain`, on a last dated reading of 26 September 1833, 643 days before the scene date, and Andreas dates no departure. A seat is an office a source gives a man; it is not a statement that he stood in the town on 1 July 1835, and this row moves that verdict nowhere.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": []
+    },
+    {
+      "name": "James Stuart",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "sub_agent",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "basis": "THE SECOND SUB-AGENT, AND THE TOWN HOLDS NO CARD FOR HIM. Andreas's roster of the establishment names Kercheval and Stuart together as Owen's sub-agents, so the office is attested on the same sentence as the other five. `person_id` is null because the resident layer holds no James Stuart, and that null is a statement about the evidence and not a placeholder: a seat this record can name does not entitle it to mint a resident, and the residents layer mints nobody on a business record's say-so. Whoever cards him inherits the seat.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": []
+    },
+    {
+      "name": "Billy Caldwell (Sauganash)",
+      "person_id": "caldwell_billy",
+      "register_person_id": null,
+      "role": "interpreter",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "basis": "THE INTERPRETER, AND THE REASON THIS WHOLE RECORD CARRIES review_required. Andreas's roster: 'Billy Caldwell (Sauganash) as interpreter'. He is a Potawatomi leader in the pay of the agency that administered the cession of the ground this town stands on, and he led his people's march west after it; AGENTS.md's standing constraint on the removal and on Native representation is what holds this record, and the consultation with Native scholars or community organisations it asks for is still owed. Nothing is depicted and no figure is drawn. His card's own reading of his presence stands unchanged and is not re-argued here.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": [
+        "Sauganash"
+      ]
+    },
+    {
+      "name": "David McKee",
+      "person_id": "mckee_david",
+      "register_person_id": null,
+      "role": "blacksmith",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "basis": "THE GOVERNMENT BLACKSMITH, AND THE ONE OFFICE HERE THAT A TREATY REQUIRED. Andreas opens his chapter on the town's manufactories with him: 'David McKee was appointed Government blacksmith, his shop being situated near the Agency House, at the foot of State Street'. The 1821 treaty obliged the United States to keep a blacksmith at Chicago for the Potawatomi and he was hired against that obligation in 1823. WHO WAS AT THE ANVIL ON THE SCENE DATE IS NOT ATTESTED: `blacksmith_shop_state_st` says so in its own words — McKee had been carrying the mail since 1827-28 and nothing reached names a smith working there in 1835 — so this row is the seat and not an attendance.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": []
+    },
+    {
+      "name": "Joseph Porthier",
+      "person_id": "porthier_joseph",
+      "register_person_id": null,
+      "role": "blacksmith",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "basis": "THE STRIKER, WRITTEN UNDER THE WORD THE VOCABULARY HAS. Andreas's roster ends 'and Joseph Porthier as striker', and the 1830-31 agency staffing lists him beside McKee in the same pair of offices. A striker swings the sledge while the smith holds; it is a distinct office and this project has no word for it. His own card already made that ruling — 'The occupation vocabulary has no separate entry for a striker and blacksmith is the trade he was in' — and this row follows it rather than minting a seventh role word on one man. The striker is named here in prose so that the card prints what the source said, and a later vocabulary that gains the word replaces this row without re-reading the source.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": [
+        "Joseph Porthick"
+      ]
+    }
+  ],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "basis": "THE ESTABLISHMENT IS ATTESTED AND ITS OFFICE ON 1 JULY 1835 IS NOT, so this record anchors against the Agency House and claims no roof of its own. What the sources place is a CLUSTER: Wau-Bun, 'Around the Agency House were grouped a collection of log buildings, the residences of the different persons in the employ of Government ... blacksmith, striker, and laborers'; Andreas puts McKee's shop 'near the Agency House, at the foot of State Street' and the 'small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' in the same vicinity. THE ANCHOR IS NOT A TENANCY, AND THE BUILDING ITSELF ARGUES AGAINST ONE: `cobweb_castle` records that Andreas has the house 'left unoccupied by the death of Dr. Wolcott' in 1830 and Colonel R. J. Hamilton living in it in the autumn of 1832, with the agency's business running down through the 1833 treaty — so a `premises` row here would claim an office the roof's own record says was probably somebody's private house. The three resident cards that carry `works_at: cobweb_castle` grade that `inferred` for the same reason, and this location is capped at the grade they are.",
+      "limit_reason": "A LANDMARK AND NO OFFICE. Nothing this project holds says where the agent's business was transacted on any date in 1835, and the agency's own buildings had been lent to other uses by 1832. The anchor is the Agency House because that is the thing every source in this cluster measures from, and `structure_id` stays null because the house is what the establishment stood beside and not a roof of the establishment's own.",
+      "anchor": {
+        "kind": "structure",
+        "id": "cobweb_castle",
+        "title": "Indian Agency House",
+        "streets": []
+      }
+    },
+    {
+      "kind": "premises",
+      "structure_id": "blacksmith_shop_state_st",
+      "street_id": null,
+      "face": null,
+      "primary": false,
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "basis": "THE ONE BUILDING OF THIS ESTABLISHMENT THE TOWN STANDS. Andreas: 'David McKee was appointed Government blacksmith, his shop being situated near the Agency House, at the foot of State Street', and `blacksmith_shop_state_st` carries `function: blacksmith_shop` at attested on that sentence, is named 'Government Blacksmith Shop' and reads 'the agency smithy' among its aka. The smithy is the agency's because the office was: the 1821 treaty required the United States to keep a blacksmith at Chicago and McKee held that appointment. It is not the primary location — an agency is transacted at an office and shod at a forge — but it is the only premises of the six offices above that this project can point a visitor at."
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "unbounded",
+    "tier": "inferred",
+    "basis": "NEITHER END IS BOUNDED AND BOTH COULD BE ARGUED WRONGLY. The agency at Chicago is older than this establishment — Dr Wolcott held it before Owen, and the treaty blacksmith was hired in 1823 — so an opening dated to Owen's appointment in the winter of 1830-31 would date the AGENT and not the agency. The closing is worse: the office wound down across the 1833 cession and the removal of August 1835, and no source this project holds names the day it stopped. The record stands on the scene date because the roster's own offices cover it, and bounds neither end."
+  },
+  "evidence": {
+    "first_issue": null,
+    "last_issue": null,
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names no proprietor and no partner — a United States agency has neither — so there is no keeper to read a community off. The six people it does name are its STAFF, and the community of a hand is not the community of the house that employed him; reading this field off Billy Caldwell would make a federal office Potawatomi because it employed a Potawatomi interpreter, which is exactly the inference this field exists to refuse.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "andreas_1884_v1",
+    "kinzie_waubun_1856"
+  ],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": true,
+  "replaceable_by": "A source that says where the agent's business was transacted in 1835 would turn this anchored location into a premises. An agency return, a payroll or an annuity schedule would do three further things this record cannot: card James Stuart, date either end of the office, and — the largest of them — name the Native and Métis employees and the families that the sources only COUNT. Wau-Bun's ring of log buildings holds 'the different persons in the employ of Government ... blacksmith, striker, and laborers', and the laborers are named nowhere, numbered nowhere and not drawn here: this project holds no roll, census or annuity schedule that counts the Native and Métis people at Chicago on 1 July 1835 at all, and a remainder cannot be drawn out of a count that does not exist. docs/RESEARCH/indian_agency_1835.md states that refusal in figures. This record carries review_required for the removal and for the Native people the agency employed, under AGENTS.md's standing constraint."
+}

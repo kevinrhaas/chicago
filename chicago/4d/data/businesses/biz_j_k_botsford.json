@@ -1,0 +1,190 @@
+{
+  "id": "biz_j_k_botsford",
+  "register_id": "business_j_k_botsford",
+  "name": "J. K. Botsford",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store",
+    "tin_and_copper_manufactory"
+  ],
+  "trade": "grocer and tinner",
+  "occupation": "grocer",
+  "goods": [
+    "Brandy",
+    "Clover Seed",
+    "Coffee Pots",
+    "Copper Ware",
+    "Dippers",
+    "Dish Kettles",
+    "Graters",
+    "Groceries",
+    "Iron",
+    "Milk Pans",
+    "Ohio Whiskey",
+    "Ohio whiskey",
+    "Pails",
+    "Scales",
+    "Sheet Iron",
+    "Sheet Iron Ware",
+    "Sheet iron ware",
+    "Soap",
+    "St. Croix Rum",
+    "Stove Pipe",
+    "Stoves",
+    "Tin Cups",
+    "Tin Ware",
+    "Tin ware",
+    "Tunnels",
+    "Wash Basons",
+    "Window Sash",
+    "Wine",
+    "butter",
+    "candle sticks",
+    "cigars",
+    "coffee pots",
+    "covered dishes",
+    "dippers",
+    "dish kettles",
+    "double patent reflecting bakers",
+    "dried peaches",
+    "graters",
+    "lard",
+    "loaf sugar",
+    "milk pans",
+    "milk strainers",
+    "sheet iron ware",
+    "sheet iron work",
+    "stoves",
+    "superfine flour",
+    "tin cups",
+    "tin ware",
+    "wash basins"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "J. K. Botsford",
+      "person_id": "botsford_j_k",
+      "register_person_id": "person_j_k_botsford",
+      "role": "proprietor",
+      "from": "1834-02-18",
+      "to": "1834-12-03",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card botsford_j_k (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_02_18#c003",
+        "chicago_democrat_1834_02_25#c001",
+        "chicago_democrat_1834_02_25#c008",
+        "chicago_democrat_1834_03_04#c005",
+        "chicago_democrat_1834_03_04#c023",
+        "chicago_democrat_1834_04_01#c009",
+        "chicago_democrat_1834_04_01#c010",
+        "chicago_democrat_1834_04_23#c002",
+        "chicago_democrat_1834_04_23#c003",
+        "chicago_democrat_1834_04_23#c008",
+        "chicago_democrat_1834_04_30#c005",
+        "chicago_democrat_1834_05_07#c011",
+        "chicago_democrat_1834_06_04#c018",
+        "chicago_democrat_1834_07_02#c058",
+        "chicago_democrat_1834_07_09#c026",
+        "chicago_democrat_1834_09_10#c015",
+        "chicago_democrat_1834_09_24#c009",
+        "chicago_democrat_1834_10_01#c006",
+        "chicago_democrat_1834_11_12#c006",
+        "chicago_democrat_1834_12_03#c019"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "anchored",
+      "structure_id": null,
+      "street_id": "dearborn",
+      "face": null,
+      "primary": true,
+      "from": "1834-02-18",
+      "to": null,
+      "tier": "inferred",
+      "basis": "Placeable against the committed town. The landmark is the committed structure mansion_house.",
+      "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "structure",
+        "id": "mansion_house",
+        "title": "Mansion House",
+        "streets": []
+      }
+    }
+  ],
+  "dates": {
+    "opened": "1834-02-18",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-02-18, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-02-18",
+    "last_issue": "1834-12-03",
+    "copy_dates": [
+      "1834-02-04",
+      "1834-02-17",
+      "1834-02-24",
+      "1834-04-22"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: J. K. Botsford (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "botsford_j_k",
+        "name": "J. K. Botsford",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "inferred"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_02_18#c003",
+    "chicago_democrat_1834_02_25#c001",
+    "chicago_democrat_1834_02_25#c008",
+    "chicago_democrat_1834_03_04#c005",
+    "chicago_democrat_1834_03_04#c023",
+    "chicago_democrat_1834_04_01#c009",
+    "chicago_democrat_1834_04_01#c010",
+    "chicago_democrat_1834_04_23#c002",
+    "chicago_democrat_1834_04_23#c003",
+    "chicago_democrat_1834_04_23#c008",
+    "chicago_democrat_1834_04_30#c005",
+    "chicago_democrat_1834_05_07#c011",
+    "chicago_democrat_1834_06_04#c018",
+    "chicago_democrat_1834_07_02#c058",
+    "chicago_democrat_1834_07_09#c026",
+    "chicago_democrat_1834_09_10#c015",
+    "chicago_democrat_1834_09_24#c009",
+    "chicago_democrat_1834_10_01#c006",
+    "chicago_democrat_1834_11_12#c006",
+    "chicago_democrat_1834_12_03#c019"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

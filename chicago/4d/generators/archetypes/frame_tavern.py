@@ -26,6 +26,12 @@ from common.mesh import (  # noqa: E402
 )
 from archetypes.frame_tavern_params import FrameTavernParams  # noqa: E402
 
+#: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
+#: `materials.roof_substrate` holds the argument for why it is this one and
+#: which half of it is graded by materials.md §2.2 and which half is L266.
+_ROOF = materials.roof_substrate("frame_tavern")
+
+
 # Materials are indices into the list passed to to_object(), in this order.
 M_WALL, M_ROOF, M_LOG, M_SHUTTER, M_GLASS = 0, 1, 2, 3, 4
 # Appended wherever the record counts a stack. It was appended only when a record
@@ -189,7 +195,10 @@ def build(params: FrameTavernParams, name: str):
 
     mats = [
         simple_material("wall", wall_rgba, roughness=wall_rough),
-        simple_material("roof", roof_rgba, roughness=0.9),
+        # A shingle field, named (T-1487). §2.2 grades it inferred for a framed
+        # building; the roughness is `shingle`'s and is the 0.9 this always shipped.
+        simple_material(materials.roof_material_name(_ROOF), roof_rgba,
+                        roughness=_ROOF.roughness),
         # materials.md finding 2: this archetype was the last importer of the paler
         # of the project's two hewn-log values, which made the Sauganash's wing the
         # ONE log wall in Chicago built from a different timber than the other 52 —

@@ -1,0 +1,160 @@
+{
+  "id": "biz_samuel_lewis",
+  "register_id": "business_samuel_lewis",
+  "name": "Samuel Lewis",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other",
+    "school"
+  ],
+  "trade": "vocal and instrumental music school, and the repair and tuning of piano fortes",
+  "occupation": "schoolteacher",
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "Samuel Lewis",
+      "person_id": "lewis_samuel",
+      "register_person_id": "person_samuel_lewis",
+      "role": "partner",
+      "from": "1835-07-22",
+      "to": "1835-08-12",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card lewis_samuel (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1835_07_22#c005",
+        "chicago_democrat_1835_07_29#c008",
+        "chicago_democrat_1835_08_05#c004",
+        "chicago_democrat_1835_08_12#c005"
+      ],
+      "also_printed_as": [
+        "Lewis, Samuel"
+      ]
+    }
+  ],
+  "staff": [
+    {
+      "name": "Johanna Carroll",
+      "person_id": "rc_carroll_johanna",
+      "role": "household_member",
+      "occupation": "schoolteacher",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 0 of this role in a school at the typical band and 1 at the high end, on period_convention. An assistant, at the larger schools only; the town's schools of 1835 are one room and one teacher. Analogue: the 1839 list's 13 schoolteachers. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#school.schoolteacher; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_carroll_johanna:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "school",
+    "reads_as": "a school",
+    "principal_role": "teacher",
+    "principal_is": "Samuel Lewis, this record's partner row — the register prints him as the house's one person and the compiler files an unpaired principal under `partners`.",
+    "hands": [
+      {
+        "role": "teacher",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 0,
+        "count_high": 1,
+        "drawn": true,
+        "basis": "period_convention, off the staffing model's `school` class, whose own row reads `schoolteacher` — the same office under the business layer's word for it: an assistant at the larger schools only, and the model's typical is 0 because the town's schools of 1835 are one room and one teacher. Its analogue is the 1839 list's thirteen schoolteachers, four years and some three thousand people after the scene.",
+        "why_not_drawn": null
+      }
+    ],
+    "attendance": {
+      "value": null,
+      "kind": "none_printed",
+      "tier": null,
+      "on_date": null,
+      "basis": "NO FIGURE IS PRINTED, AND ONE WAS BEING WAITED FOR. On 5 August 1835 Lewis advertised that he would begin when enough scholars offered; a week later he 'HAS commenced' and asks 'Heads of families who wish their [sons] and daughters instructed' to call at his room. A master waiting on a subscription has no roll to print, and both notices fall after the scene date in any case."
+    },
+    "writes_no_person": true,
+    "basis": "THE TEACHER OF A ONE-ROOM SCHOOL IS THE PERSON WHO KEEPS IT, and this record already names them. The staffing model gives the class one role, an assistant, at 0–0–1 with a typical of nought; drawing one here would put a second schoolteacher in a room the model says held one. So the answer to 'who taught here' is a pointer at a row this record carries, not a new row beside it.",
+    "replaceable_by": "Any printing that names a second person teaching at this school — an assistant, an usher, a monitor — would draw the hand above. A roll, a quarterly return or a subscription list would give the attendance a figure for 1835 instead of a silence.",
+    "shortfall": {
+      "typical_wanted": 0,
+      "seats_taken": 1,
+      "seats_against_the_band": 0,
+      "short_by": 0,
+      "by_role": [
+        {
+          "occupation": null,
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "seats_drawn": 1,
+          "short_by": 0
+        }
+      ],
+      "statement": "The staffing model puts no hand about this kind of house at its typical band; this house carries 1.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1835-07-22",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1835-08-12",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "The paper announces the opening: chicago_democrat_1835_08_12#c005 (1835-08-12)."
+  },
+  "evidence": {
+    "first_issue": "1835-07-22",
+    "last_issue": "1835-08-12",
+    "copy_dates": [
+      "1835-06-22",
+      "1835-08-12"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Samuel Lewis (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "lewis_samuel",
+        "name": "Samuel Lewis",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1835_07_22#c005",
+    "chicago_democrat_1835_07_29#c008",
+    "chicago_democrat_1835_08_05#c004",
+    "chicago_democrat_1835_08_12#c005"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": true
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

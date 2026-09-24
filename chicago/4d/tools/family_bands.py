@@ -79,12 +79,66 @@ def dimensions_m(family: str, band_ft: list[int], key: str) -> tuple[float, floa
     width_ft = lo_w + (hi_w - lo_w) * (.18 + .70 * stable_fraction(key, 1))
     depth_ft = lo_d + (hi_d - lo_d) * (.15 + .72 * stable_fraction(key, 2))
     width, depth = width_ft * .3048, depth_ft * .3048
-    # The implemented frame dwelling is eaves-front. Families whose band reaches a
-    # gable-front proportion are held inside the archetype that exists rather than
-    # being drawn as something the generator cannot build.
-    if family.startswith(("D", "H")) and family not in ("D1", "D2") and depth > width * 1.46:
-        width = min(hi_w * .3048, depth / 1.46)
+    width = eaves_front_width_m(family, width, depth, hi_w * .3048)
     return round(width, 3), round(depth, 3)
+
+
+# The proportion a deep rectangle is held to when it has to stand as an EAVES-FRONT
+# house — ridge parallel to the facade, which is the 1835 form (see
+# docs/RESEARCH/d5_gable_front_cottage_1835.md, T-1497). It sits deliberately BELOW the
+# archetype's own refusal, `frame_dwelling_params.EAVES_FRONT_DEPTH_RATIO_MAX`: a value
+# drawn exactly AT a refusal threshold is one float away from being refused, and the
+# margin is what keeps a sampled rectangle buildable. `eaves_front_refusal_ratio` reads
+# the archetype's number so the two can be compared rather than assumed equal.
+EAVES_FRONT_MAX_RATIO = 1.46
+
+# D1 is a log cabin and D2 a plank shanty; neither is built by the eaves-front frame
+# dwelling and neither is held to its proportion.
+_EAVES_FRONT_EXEMPT = ("D1", "D2")
+
+
+def holds_eaves_front(family: str) -> bool:
+    """Is this a family the eaves-front frame dwelling has to be able to build?"""
+    return family.startswith(("D", "H")) and family not in _EAVES_FRONT_EXEMPT
+
+
+def eaves_front_refusal_ratio(archetype: str | None) -> float | None:
+    """The depth:front ratio the archetype itself refuses past, or None if it names none.
+
+    Asked of the module rather than retyped here, the same way `eave_limits` asks for
+    `wall_height_band_m`. Only `frame_dwelling` publishes one today.
+    """
+    if not archetype:
+        return None
+    try:
+        module = importlib.import_module(f"archetypes.{archetype}_params")
+    except ModuleNotFoundError:
+        return None
+    value = getattr(module, "EAVES_FRONT_DEPTH_RATIO_MAX", None)
+    return None if value is None else float(value)
+
+
+def eaves_front_width_m(family: str, width_m: float, depth_m: float,
+                        max_width_m: float) -> float:
+    """The frontage a deep rectangle must carry to stand as an eaves-front house.
+
+    THE SINGLE RULE, and the reason it is here rather than in each parcel generator: a
+    rectangle deeper than `EAVES_FRONT_MAX_RATIO` times its own front is not a house
+    this project can build, and the honest repair is to widen the front inside the
+    family's band — never to turn the building a quarter circle, which silently records
+    a different building standing a different way round.
+
+    The depth is never shortened: it is the recipe's or the sampler's own figure and it
+    is inside the family band. Only the front moves, and only up to `max_width_m`, which
+    is the band's own ceiling. Where the band's ceiling cannot reach the proportion the
+    rectangle stays as it is and the caller's gate reports it, because a rule that can be
+    satisfied by leaving the band is not a rule.
+    """
+    if not holds_eaves_front(family):
+        return width_m
+    if depth_m <= width_m * EAVES_FRONT_MAX_RATIO:
+        return width_m
+    return min(max_width_m, depth_m / EAVES_FRONT_MAX_RATIO)
 
 
 def storeys(levels: str, key: str | None = None) -> tuple[float, bool]:
@@ -113,6 +167,30 @@ def storeys(levels: str, key: str | None = None) -> tuple[float, bool]:
         return float(head), loft
     except ValueError:
         raise SystemExit(f"cannot read a storey count from levels '{levels}'")
+
+
+def admits_loft(family: str) -> bool:
+    """May this family's records carry `loft = true` at all?
+
+    ASKED OF THE CROSSWALK, never of a list kept by hand. The parcel generators used to
+    carry the answer as a literal set of family ids, and the same drift T-0179 found in
+    the roof literal was sitting in the loft one: `("W2", "W3", "W5", "A1", "A2")` gave a
+    loft to W3 (`levels '1'`, cooper/wagon/wheelwright shop) and W5 (`levels '1'`,
+    sawmill/boat-repair shop), both of which the crosswalk authors at a single storey.
+    west_rec_036 reached the band gate on that literal.
+
+    The test is `tools/measure_band_claims.py`'s own, so the generator and the gate cannot
+    disagree: a loft is worth half a level, "1 + loft" raises the ceiling by that half,
+    and a family admits one when its band reaches `lo + 0.5` — which is true of W2's
+    `1-1.5` without the word appearing in it, and false of a bare `1`.
+    """
+    levels = (families().get(family) or {}).get("levels")
+    text = str(levels or "1").strip()
+    head = text.split("+")[0].strip()
+    band = RANGE_RE.match(head)
+    lo, hi = (float(band.group(1)), float(band.group(2))) if band else (float(head),) * 2
+    ceiling = hi + 0.5 if "loft" in text.lower() else hi
+    return ceiling >= lo + 0.5 - 1e-9
 
 
 # A door has to fit under a wall, and two of the small ancillary families are authored

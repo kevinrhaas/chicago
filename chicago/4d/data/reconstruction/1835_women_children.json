@@ -1,0 +1,148 @@
+{
+ "_doc": "DERIVED — regenerate with tools/reconstruct_women_children.py --build. The measurement this stage is held to: what was drawn, against the model rows and the order book buckets it was drawn from. Do not hand-edit.",
+ "id": "1835_women_children",
+ "ticket": "T-1174",
+ "stage": "women_and_children",
+ "target_date": "1835-07-01",
+ "generated_by": "tools/reconstruct_women_children.py --build",
+ "not_a_reading": "no source was opened; nobody here is named by one",
+ "households_written": 124,
+ "households_by_division": {
+  "north": 26,
+  "south": 65,
+  "west": 33
+ },
+ "people_written": 556,
+ "women_headed": 124,
+ "children_and_household_members": 432,
+ "seated_in_the_residual_sweep": {
+  "north": 22,
+  "south": 49
+ },
+ "relationships_written": {
+  "daughter": 151,
+  "household_member": 87,
+  "son": 194
+ },
+ "head_trades": {
+  "domestic": 18,
+  "dressmaker": 22,
+  "laundress": 33,
+  "milliner": 12,
+  "none_recorded": 32,
+  "schoolteacher": 7
+ },
+ "size_drawn_histogram": {
+  "1": 8,
+  "2": 20,
+  "3": 24,
+  "4": 21,
+  "5": 24,
+  "6": 17,
+  "7": 3,
+  "8": 7
+ },
+ "seated_histogram": {
+  "1": 10,
+  "2": 12,
+  "3": 20,
+  "4": 22,
+  "5": 17,
+  "6": 25,
+  "7": 9,
+  "8": 5,
+  "9": 4
+ },
+ "refusals": {
+  "the west child buckets are full": 6
+ },
+ "fills": {
+  "households/family_dwelling/north": 26,
+  "households/family_dwelling/south": 65,
+  "households/family_dwelling/west": 33,
+  "persons/female/10_19/north/family/none": 23,
+  "persons/female/10_19/south/family/none": 54,
+  "persons/female/10_19/west/family/none": 24,
+  "persons/female/20_29/north/family/none": 8,
+  "persons/female/20_29/south/family/none": 28,
+  "persons/female/20_29/west/family/none": 16,
+  "persons/female/30_39/north/family/none": 10,
+  "persons/female/30_39/south/family/none": 20,
+  "persons/female/30_39/west/family/none": 11,
+  "persons/female/40_49/north/family/none": 5,
+  "persons/female/40_49/south/family/none": 10,
+  "persons/female/40_49/west/family/none": 4,
+  "persons/female/50_plus/north/family/none": 3,
+  "persons/female/50_plus/south/family/none": 7,
+  "persons/female/50_plus/west/family/none": 2,
+  "persons/female/under_10/north/family/none": 16,
+  "persons/female/under_10/south/family/none": 53,
+  "persons/female/under_10/west/family/none": 17,
+  "persons/male/10_19/north/family/none": 28,
+  "persons/male/10_19/south/family/none": 66,
+  "persons/male/10_19/west/family/none": 20,
+  "persons/male/under_10/north/family/none": 27,
+  "persons/male/under_10/south/family/none": 81,
+  "persons/male/under_10/west/family/none": 23
+ },
+ "buckets_left_short": {},
+ "measurement": {
+  "the_town_the_book_counts": "present households only",
+  "people_before_this_stage": 874,
+  "people_after_this_stage": 1430,
+  "households_before_this_stage": 447,
+  "households_after_this_stage": 571,
+  "female_headed_households_after": 148,
+  "female_headed_share_after": 0.2592,
+  "female_headed_share_1840": "not carried: the committed 1840 extract tallies a household's members by sex and age and records no sex for its head, so no measured share exists to compare this one against",
+  "why_the_shares_are_not_yet_in_bracket": "THE COUNTS ARE MET AND THE SHARES ARE NOT, and that is a reading of a town half built rather than a defect of this stage. Every one of this stage's 24 buckets is filled to the number the order book asked for - `this_stage_s_buckets_left_short` is 0 - and those numbers were cut against the model's WHOLE town of 2,535 people. The layer this stage hands on holds about half of it, because the boarders, lodgers, hotel guests and crews (T-1175), the garrison (T-1349), the under-documented cohorts (T-1177) and the transients (T-1178) are not written yet and they are overwhelmingly adult and overwhelmingly male. So the children this stage seated are a larger share of a smaller town than they will be of the finished one, and the adult sex ratio is nearer the model than it was (340.2 -> 161.4) without reaching it. Reporting either as met here would be the invention this programme exists to refuse; T-1179 converges the layer and re-runs the profile.",
+  "adults_after_this_stage": {
+   "male": 472,
+   "female": 240
+  },
+  "adult_sex_ratio_before": 406.9,
+  "adult_sex_ratio_after": 196.7,
+  "the_model_s_range": [
+   120.9,
+   150.0
+  ],
+  "inside_the_model_s_range": false,
+  "age_pyramid_after": {
+   "10_19": 300,
+   "20_29": 379,
+   "30_39": 232,
+   "40_49": 64,
+   "50_plus": 37,
+   "under_10": 410
+  },
+  "share_under_ten_after": 0.2883,
+  "share_under_ten_model": [
+   0.2,
+   0.2702
+  ],
+  "this_stage_s_buckets_left_short": 0,
+  "household_size_1840_share": {
+   "1": 0.0742,
+   "2": 0.1495,
+   "3": 0.1912,
+   "4": 0.1761,
+   "5": 0.1645,
+   "6": 0.1101,
+   "7": 0.0857,
+   "8": 0.0487
+  },
+  "household_size_seated_share": {
+   "1": 0.0806,
+   "2": 0.0968,
+   "3": 0.1613,
+   "4": 0.1774,
+   "5": 0.1371,
+   "6": 0.2016,
+   "7": 0.0726,
+   "8": 0.0403,
+   "9": 0.0323
+  },
+  "largest_share_gap": 0.0915,
+  "what_remains": "T-1175 seats the boarders, lodgers and crews the lodging model counts; T-1179 converges the layer and re-runs the population profile."
+ }
+}

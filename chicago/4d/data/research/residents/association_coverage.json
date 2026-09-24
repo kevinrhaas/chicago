@@ -18,7 +18,8 @@
       "structure",
       "street",
       "face",
-      "division"
+      "division",
+      "tract"
     ],
     "tiers": [
       "attested",
@@ -39,23 +40,27 @@
     ]
   },
   "counts": {
-    "records_with_associations": 4,
-    "rows": 7,
+    "records_with_associations": 76,
+    "rows": 81,
     "undated_rows": 2,
     "by_kind": {
       "business_premises": 1,
-      "church": 2,
+      "church": 19,
+      "civic_seat": 5,
       "home": 1,
+      "land_purchased": 51,
       "lodging": 1,
-      "school": 1,
+      "school": 2,
       "workplace": 1
     },
     "by_resolves_to": {
-      "structure": 7
+      "face": 5,
+      "structure": 25,
+      "tract": 51
     },
     "by_tier": {
-      "attested": 5,
-      "inferred": 2
+      "attested": 23,
+      "inferred": 58
     }
   }
 }

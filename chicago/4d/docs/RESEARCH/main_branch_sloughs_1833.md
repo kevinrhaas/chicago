@@ -84,7 +84,7 @@ the traced line, so the carved beds meet the river's own carved beds without eit
 the trace. The La Salle channel starts one cell SOUTH of the South Water corridor — Wright
 draws the stream stopping at the street line, so the street crossed on fill or a culvert
 nothing describes, and the corridor is left unbroken. The alignments thread every committed
-structure: nearest footprint (recon_1835_south_c1_018) stands 9.1 m off the State centreline
+structure: nearest footprint (recon_1835_south_d1_018) stands 9.1 m off the State centreline
 against a 5 m half-width.
 
 ## 5. Zone 14's dating, carried over from the deferral record

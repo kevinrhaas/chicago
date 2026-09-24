@@ -17,11 +17,11 @@
   "proprietor_names_printed": 204,
   "proprietors_with_a_given_name_or_initial": 157,
   "proprietors_printed_as_a_surname_alone_unmatchable": 47,
-  "residents_considered": 1280,
+  "residents_considered": 1283,
   "matched_one_card": 19,
   "matched_more_than_one_ambiguous": 3,
   "one_printed_proprietor_contested_by_two_residents": 6,
-  "surname_present_initial_absent_refused": 127,
+  "surname_present_initial_absent_refused": 130,
   "letter_list_bucket_refused": 1,
   "residents_that_refusal_reaches": 1,
   "cards_the_whole_name_refused": 0,
@@ -754,7 +754,7 @@
      {
       "key": "jones_william",
       "agrees": false,
-      "why": "no trade on one side"
+      "why": "two trades that do not agree"
      }
     ]
    }
@@ -764,8 +764,8 @@
    "person_id": "jones_william",
    "household_id": "hh_jones_william",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
-   "occupation_1835_confidence": "reconstructed",
+   "occupation_1835": "hardware_merchant",
+   "occupation_1835_confidence": "inferred",
    "lives_at_1835": null,
    "works_at_1835": null,
    "rule": "Surname 'Jones' folds to the same string as the card's, and the given name of both begins W. CONTESTED: 2 residents of 1835 meet the printed name 'William E. Jones' on that rule, and at most one of them is the man who paid for it. The match is not made.",
@@ -780,7 +780,6 @@
     }
    ],
    "could_carry": [
-    "trade",
     "place_of_business"
    ],
    "carry_rule": "Whatever is carried is carried as 1844 evidence with describes_date 1844 on the note, never as an 1835 fact, and the grade of the person does not move. An advertising card is a paid subscription: it is evidence that the firm existed in 1844 and none at all that it existed in 1835.",
@@ -800,7 +799,7 @@
      {
       "key": "jones_william",
       "agrees": false,
-      "why": "no trade on one side"
+      "why": "two trades that do not agree"
      }
     ]
    }
@@ -1182,6 +1181,13 @@
    "surname_on_a_card": "Adams",
    "cards_under_that_surname": 2,
    "rule": "The surname 'Adams' stands on an 1844 advertising card and no proprietor under it carries the initial 'E' of 'Elizabeth Adams'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Ellen Hamilton",
+   "person_id": "hamilton_ellen",
+   "surname_on_a_card": "Hamilton",
+   "cards_under_that_surname": 2,
+   "rule": "The surname 'Hamilton' stands on an 1844 advertising card and no proprietor under it carries the initial 'E' of 'Ellen Hamilton'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Emeline Egan",
@@ -1765,6 +1771,13 @@
    "rule": "The surname 'Sherman' stands on an 1844 advertising card and no proprietor under it carries the initial 'S' of 'Silas W Sherman'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "The Harmon daughter later known as Mrs A. G. Burley",
+   "person_id": "harmon_daughter_burley",
+   "surname_on_a_card": "Burley",
+   "cards_under_that_surname": 1,
+   "rule": "The surname 'Burley' stands on an 1844 advertising card and no proprietor under it carries the initial 'T' of 'The Harmon daughter later known as Mrs A. G. Burley'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Thomas Cook",
    "person_id": "cook_thomas",
    "surname_on_a_card": "Cook",
@@ -1791,6 +1804,13 @@
    "surname_on_a_card": "Newberry",
    "cards_under_that_surname": 1,
    "rule": "The surname 'Newberry' stands on an 1844 advertising card and no proprietor under it carries the initial 'W' of 'Walter Loomis Newberry'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Welthyan Loomis Harmon",
+   "person_id": "harmon_welthyan",
+   "surname_on_a_card": "Harmon",
+   "cards_under_that_surname": 1,
+   "rule": "The surname 'Harmon' stands on an 1844 advertising card and no proprietor under it carries the initial 'W' of 'Welthyan Loomis Harmon'. A surname-only agreement is a refusal."
   },
   {
    "resident": "William George Sherman",

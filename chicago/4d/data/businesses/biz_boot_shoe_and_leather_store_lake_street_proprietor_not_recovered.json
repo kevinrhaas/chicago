@@ -1,0 +1,80 @@
+{
+  "id": "biz_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered",
+  "register_id": "business_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered",
+  "name": "[boot, shoe and leather store, Lake street, proprietor not recovered]",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other",
+    "store"
+  ],
+  "trade": "boot and shoe manufacturing and leather dealing",
+  "occupation": "shoemaker",
+  "goods": [
+    "Baltimore tanned leather",
+    "New-York leather",
+    "Philadelphia tanned leather",
+    "bindings",
+    "bridle, band and upper leather",
+    "hides and skins",
+    "ladies' and gentlemen's boots and shoes",
+    "linings",
+    "morocco",
+    "sole leather"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "lake",
+      "face": null,
+      "primary": true,
+      "from": "1835-06-24",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names Lake Street and nothing narrower; the paper gives no anchor."
+    }
+  ],
+  "dates": {
+    "opened": "1835-06-24",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1835-06-24, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1835-06-24",
+    "last_issue": "1835-06-24",
+    "copy_dates": [
+      "1835-06-01"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1835_06_24#c009"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

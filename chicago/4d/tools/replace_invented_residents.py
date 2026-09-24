@@ -138,6 +138,45 @@ WHAT THIS FILE WILL NOT DO. It will not upgrade a confidence to fill a roof, it
 will not cite a claim the gazetteer does not carry, and it will not deal a
 candidate past a refusal. A trade whose candidates are all refused keeps its
 invented household, and `--report` says which refusal took each one.
+
+THE FIFTH ROOF: ONCE DEALT, REFUSED TODAY, AND STANDING ANYWAY (T-1294).
+
+THIS DEAL SEATS FOUR AND ONCE SEATED FIVE, and the difference is not a bug in
+either number. T-0366 dealt five roofs on 2026-08-13; the fifth was
+`hh_inf_joiner_north_02`, J. W. Reed, joiner. It is refused now — refusal 5,
+`already named in the town` — and the household it left behind is still in the
+tree, head and retired-invented-name prose and all. T-1228 found it and could
+not say whose it was; this is the answer, and it is gated in
+`data/reconstruction/1835_inferred_household_pass_ownership.json` under
+`refused_and_standing`.
+
+  * REFUSAL 5 IS THE ONLY BAR, and it is not this pass refusing its own output.
+    `town_surnames()` deliberately does not read the hh_inf_ layer back (see
+    the comment there), and the six cards that now speak the name Reed are all
+    outside it. Measured 2026-09-21 by withholding them from the name pool and
+    re-running the deal against the same pipeline input: with them, four seats
+    and `joiner  J. W. Reed  already named in the town (reed)`; with all six
+    withheld, five seats and no joiner refusal. Withholding only T-0514's three
+    documented Reeds is not enough — three other cards still say it.
+  * IT BEGAN FIRING UNDER A HOUSEHOLD THAT WAS ALREADY STANDING. All six cards
+    entered the tree after 2026-08-13: the earliest on 2026-08-30 (T-0379's
+    letter-list mint) and the three documented Reed households on 2026-09-04
+    (T-0514). And it is RIGHT to fire — `hh_reid_j_chester`'s own prose reasons
+    about `James W. Reed, joiner, on the 1834 and 1835 polls`, and two of the
+    three documented Reeds are printed as joiners themselves. A reconstructed
+    roof is exactly what refusal 5 keeps out of an open identity question.
+  * THE MAN IS NOT REMOVED TO TIDY A PIPELINE. His evidence never came from
+    this deal: `identity_master.json#id_reed_james_w` carries the 1834 and 1835
+    poll books and the Democrat of 31 December 1833, and the grading ladder
+    raised him to `attested` under G1a on that. census_1830's crosswalk has
+    already ruled under D2 that J. W. Reed, S. W. Reed, Thomas Reed and William
+    Reed are four cards this project will not merge. His grade is the resident
+    layer's to argue and nothing here moves it.
+  * SO THE HOUSEHOLD IS THE RESIDENT LAYER'S, on the same terms as the other
+    four survivors: `tools/synthesize_resident_research.py`, which is what the
+    settlement already said one block up about `the five that survived` and
+    what it now says here too. Five hh_inf_ households survive; this is the
+    fifth.
 """
 from __future__ import annotations
 

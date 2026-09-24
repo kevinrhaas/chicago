@@ -83,18 +83,16 @@ DISTRICTS = ("south", "west", "north", "fort")
 # for the freight row on 2026-08-29 — see `district_group_matrix_note` in the inventory — and
 # the declaration went with it. The one left is not a fault at all: it is two gates reading
 # one liberty differently, and it moves when the liberty does.
-DECLARED_OVERSHOOT = {
-    ("north", "institutional_public"): {
-        "over": 1,
-        "why": "T-0032 set this row to the NAMED institutional census — south 5 / west 1 / "
-               "north 3 — and `tools/measure_institutional_claims.py` holds it there. This "
-               "counts every roof that stands, named or not, so it also counts "
-               "recon_1835_north_i2_015, the one anonymous school docs/LIBERTIES.md records "
-               "at L93 as a liberty taken rather than deleted. The two gates disagree by "
-               "exactly that liberty, and both readings are correct for their own question. "
-               "The row moves when L93 is retired, not before.",
-    },
-}
+# EMPTY, AND THAT IS THE POINT. It carried one declaration: the north division's
+# `institutional_public` row stood one over the NAMED institutional census T-0032
+# set it to, because this gate counts every roof that stands and the town carried
+# one anonymous school — the liberty L93 records rather than deletes. T-1445
+# adjudicated that roof off its family and T-1480 carried the verdict out, so the
+# breach the declaration described is repaired and the declaration is retired
+# with it. A repaired breach is NOT left standing as an allowance for the next
+# one, which is what this gate says when it finds a declaration it no longer
+# needs — and it is why it found this one.
+DECLARED_OVERSHOOT: dict[tuple[str, str], dict] = {}
 
 
 def load(path: Path):
@@ -282,12 +280,30 @@ def self_test() -> int:
     t0032 = copy(inventory)
     t0032["district_group_matrix"]["institutional_public"].update(
         south=10, west=1, north=1, total=12)
+    # BOTH SIDES OF THIS FIXTURE ARE SYNTHETIC NOW, for the reason the freight
+    # fixture below already states about itself. It read the live cell and the
+    # live declaration, and T-1480 moved both: the redeal carried this town's one
+    # anonymous school out of this very cell, so the count fell by one, and the
+    # declaration that described the breach was retired with the breach. The case
+    # is about the ratchet catching a GROWN overshoot, and it went stale on a tree
+    # that was green.
+    t0032_built = {(d, g): (4 if (d, g) == ("north", "institutional_public") else n)
+                   for (d, g), n in built.items()}
+    t0032_was = {("north", "institutional_public"):
+                 {"over": 1, "why": "synthetic, self-test only"}}
     case("the north half of the apportionment T-0032 corrected is caught",
-         overshoot_findings(audit(t0032, built)),
+         overshoot_findings(audit(t0032, t0032_built), t0032_was),
          "the north division's institutional_public overshoot has GROWN from 1 to 3")
 
+    # The row is cut to ONE BELOW what actually stands, read off the committed tree
+    # rather than typed. Typed, it was 20 against 21 standing — and on 2026-09-20
+    # T-1451 re-dealt five West Division roofs into this very cell, so the fixture
+    # started reporting a breach of 6 and the self-test failed on a tree that was
+    # green. A fixture that hard-codes a count of the live dataset is a second
+    # opinion about it, and it goes stale the first time the dataset moves.
+    standing_west_dwellings = built[("west", "ordinary_dwellings")]
     tight = copy(inventory)
-    tight["district_group_matrix"]["ordinary_dwellings"]["west"] = 20
+    tight["district_group_matrix"]["ordinary_dwellings"]["west"] = standing_west_dwellings - 1
     case("a new, undeclared division breach fails",
          overshoot_findings(audit(tight, built)),
          "the west division stands 1 roof(s) OVER its ordinary_dwellings row")
@@ -303,7 +319,11 @@ def self_test() -> int:
     before["district_group_matrix"]["warehouses_freight"].update(south=17, north=1)
     before["district_group_matrix"]["ordinary_dwellings"].update(south=170, north=90)
 
-    grown = {(d, g): n + (3 if (d, g) == ("north", "warehouses_freight") else 0)
+    # ABSOLUTE, like `healed` and `shrunk` below, and not `n + 3`. Adding to the
+    # live count made the expectation below a second opinion about the tree — the
+    # thing this fixture's own comment warns against — and T-1480 proved it by
+    # re-dealing a North Division warehouse into a boarding house.
+    grown = {(d, g): (10 if (d, g) == ("north", "warehouses_freight") else n)
              for (d, g), n in built.items()}
     case("a declared breach that GROWS fails — the ratchet only falls",
          overshoot_findings(audit(before, grown), was),

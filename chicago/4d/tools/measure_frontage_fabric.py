@@ -111,12 +111,17 @@ sys.path.insert(0, str(ROOT / "tools"))
 from generate_plat_lots import point_in_polygon, point_to_ring_m  # noqa: E402
 from measure_corridor_intrusion import is_street_furniture  # noqa: E402
 from measure_street_frontage import layer_of, layer_of_record  # noqa: E402
+from placement_policy_1835 import constant  # noqa: E402
 from plat_corridors import corridors, sampled  # noqa: E402
 
 # The empty gap in the setback distribution, at its midpoint. See the docstring; run
 # --setbacks to re-derive it. A building at or inside this stands ON the street line;
 # anything further back stands in the block behind it.
-STREET_LINE_M = 2.71
+#
+# IT IS NO LONGER TYPED HERE. T-1195 moved the five numbers three modules had each
+# re-typed into `data/reconstruction/1835_placement_policy.json`, and that file's own
+# assertion 5 reads this line: put a literal back and the gate names the module.
+STREET_LINE_M = constant("street_line_m")
 
 # The construction classes this census reads. `construction` is a committed form value on
 # 344 phases and is the field the archetypes build walls from, so the material a visitor
@@ -191,24 +196,179 @@ def buildings() -> list[dict]:
     return out
 
 
-def nearest_frontage(polygon: list[tuple[float, float]], lanes: dict) -> tuple[str, float]:
+def water_rings() -> list[list[tuple[float, float]]]:
+    """The scene epoch's committed water planform, in local ENU metres.
+
+    Read off `terrain_spec.json`'s own `water_polygons` list rather than off a set of
+    filenames typed here: that list is what `generators/terrain_gen.py` cuts the
+    heightfield's channel from, so a reach added to the terrain is in this reading in
+    the same commit, and the two cannot drift into disagreeing about where the river is.
+
+    A ring the spec declares an ISLAND is land and is not returned — the bar between the
+    piers is ground a person stands on, not water anybody is separated by. The entries
+    the spec states as a RULE rather than as a traced polygon (`north_branch_wabansia`,
+    and the open-lake fills) carry no `from` file and are outside this reading; all of
+    them lie beyond the platted town, where there is no corridor to be credited with.
+    """
+    epoch = DATA / "terrain" / "epochs" / "e1834_harbor_cut"
+    spec = load(epoch / "terrain_spec.json")
+    origin_doc = load(DATA / "datum.json")
+    oe, on = float(origin_doc["origin_utm_e"]), float(origin_doc["origin_utm_n"])
+    out = []
+    for entry in spec.get("water_polygons") or []:
+        source = entry.get("from")
+        if not source:
+            continue
+        islands = entry.get("island_rings")
+        if isinstance(islands, str):
+            islands = json.loads(islands)
+        islands = set(islands or [])
+        for feature in load(epoch / source)["features"]:
+            if (feature.get("properties") or {}).get("kind") not in (None, "water"):
+                continue
+            geometry = feature["geometry"]
+            if geometry["type"] == "Polygon":
+                polygons = [geometry["coordinates"]]
+            elif geometry["type"] == "MultiPolygon":
+                polygons = geometry["coordinates"]
+            else:
+                continue
+            for polygon in polygons:
+                for index, ring in enumerate(polygon):
+                    if index in islands:
+                        continue
+                    out.append([(x - oe, y - on) for x, y, *_ in ring])
+    return out
+
+
+def _straddles(a, b, c, d) -> bool:
+    """True where segment a-b and segment c-d cross."""
+    def side(p, q, r):
+        return (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0])
+    d1, d2 = side(c, d, a), side(c, d, b)
+    d3, d4 = side(a, b, c), side(a, b, d)
+    return ((d1 > 0) != (d2 > 0)) and ((d3 > 0) != (d4 > 0))
+
+
+def over_water(a, b, water: list) -> bool:
+    """True where the straight line from a to b passes over committed water."""
+    for ring in water:
+        for c, d in zip(ring, ring[1:] + ring[:1]):
+            if _straddles(a, b, c, d):
+                return True
+    return False
+
+
+def in_water(point, water: list) -> bool:
+    """True where a point stands in committed water."""
+    return any(point_in_polygon(point, ring) for ring in water)
+
+
+def _nearest_on_polyline(point, path):
+    """The nearest point of an open polyline — the street as its record draws it."""
+    best, at = float("inf"), path[0]
+    for (ax, ay), (bx, by) in zip(path, path[1:]):
+        dx, dy = bx - ax, by - ay
+        span = dx * dx + dy * dy
+        t = 0.0 if span == 0 else max(0.0, min(1.0, ((point[0] - ax) * dx +
+                                                     (point[1] - ay) * dy) / span))
+        candidate = (ax + dx * t, ay + dy * t)
+        distance = math.dist(point, candidate)
+        if distance < best:
+            best, at = distance, candidate
+    return at
+
+
+def _edge_candidates(points: list, ring: list) -> list:
+    """(distance, footprint point, corridor point) — the nearest pair per ring edge.
+
+    One candidate per edge rather than one per corridor, because the bank test can
+    REFUSE the nearest point of a corridor and the next-nearest point of the same
+    corridor may still be that footprint's frontage: Kinzie Street is dry for 1,300 m
+    and under the harbour cut for the last 110, and a roof on the north bank must keep
+    the street the cut did not take.
+    """
+    out = []
+    for (ax, ay), (bx, by) in zip(ring, ring[1:] + ring[:1]):
+        dx, dy = bx - ax, by - ay
+        span = dx * dx + dy * dy
+        best = (float("inf"), None, None)
+        for px, py in points:
+            t = 0.0 if span == 0 else max(0.0, min(1.0, ((px - ax) * dx +
+                                                         (py - ay) * dy) / span))
+            corner = (ax + dx * t, ay + dy * t)
+            distance = math.dist((px, py), corner)
+            if distance < best[0]:
+                best = (distance, (px, py), corner)
+        if best[1] is not None:
+            out.append(best)
+    out.sort(key=lambda row: row[0])
+    return out
+
+
+def nearest_frontage(polygon: list[tuple[float, float]], lanes: dict,
+                     water: list | None = None) -> tuple[str, float]:
     """(street id, setback) for the corridor this footprint stands nearest.
 
     Setback is measured from the corridor EDGE and is negative where the footprint reaches
     inside the roadway, so the documented buildings PR #371 found standing in South Water
     sort in front of the row rather than behind it.
+
+    ## THE BANK TEST (T-1429), and it is two clauses because one does not reach
+
+    Until T-1191 this reading was a straight line to the nearest corridor and nothing
+    else, which was harmless while the north bank had no corridors: everything a
+    north-side roof could be measured against was already across the water, and the
+    readings were recorded as outliers with authored reasons saying so. T-1191 put the
+    north bank's own streets in the reading, and the crossing now happens in BOTH
+    directions — where it produces a FALSE CONFORMANCE rather than a stated outlier, an
+    assertion about placement has stopped measuring placement.
+
+    **Clause B, the bank.** A corridor separated from the footprint by the river is not
+    that footprint's frontage. The water is the epoch's own committed planform (see
+    `water_rings`); nothing here re-traces a bank.
+
+    **Clause A, the submerged stretch, and the fort out-buildings are why it exists.**
+    The bank clause alone does not reach `fort_dearborn_out_building_a` and `_b`. Both
+    stand inside the military reservation on the south bank and were credited with
+    Kinzie Street at 198.31 m and 195.52 m — but the point of Kinzie they were measured
+    against is not on the north bank at all. Thompson's plat draws Kinzie east to the
+    town line, and the 1834 harbour cut crosses it: the street's own centre line stands
+    between 0.52 m and 4.52 m UNDER water from local east 995 to its terminus at 1100,
+    and it is the south EDGE of that submerged corridor, clipping the dry spit at the
+    channel's bank, that the ray reaches without crossing anything. So: **a point of
+    corridor is frontage only where the street's own centre line, at the station nearest
+    it, stands on land.** A stretch of street the harbour cut took is not a street.
+
+    With both clauses the two out-buildings measure to Kinzie's dry end instead, 264 m
+    off and across the channel, which Clause B then refuses — and they are outliers
+    again with their reasons intact, which is what `placement_policy_1835` recorded
+    before the north bank had corridors and could no longer say.
+
+    A footprint no corridor reaches gets `(None, inf)`: the reservation and the river
+    mouth hold roofs that front no street, and saying so is the honest reading.
     """
+    water = water_rings() if water is None else water
     best_id, best = None, float("inf")
     points = sampled(polygon)
     for street_id, lane in lanes.items():
-        ring = lane["ring"]
+        ring, centre = lane["ring"], lane["centre"]
         near = float("inf")
-        for point in points:
-            distance = point_to_ring_m(point, ring)
-            if point_in_polygon(point, ring):
-                distance = -distance
-            if distance < near:
+        inside = [p for p in points if point_in_polygon(p, ring)]
+        if inside:
+            # a footprint reaching into the roadway is standing on that street's own
+            # ground: there is no water between them to test for
+            near = -max(point_to_ring_m(p, ring) for p in inside)
+        else:
+            for distance, point, corner in _edge_candidates(points, ring):
+                if distance >= best:
+                    break
+                if in_water(_nearest_on_polyline(corner, centre), water):
+                    continue
+                if over_water(point, corner, water):
+                    continue
                 near = distance
+                break
         if near < best:
             best_id, best = street_id, near
     return best_id, best
@@ -218,10 +378,11 @@ def census(records: list[dict] | None = None,
            streets: dict[str, str] | None = None) -> dict:
     """Every building assigned to the street it stands nearest, split on the line."""
     lanes = corridors()
+    water = water_rings()
     principal = principal_streets() if streets is None else streets
     rows = []
     for record in (buildings() if records is None else records):
-        street, setback = nearest_frontage(record["world"], lanes)
+        street, setback = nearest_frontage(record["world"], lanes, water)
         rows.append({**record, "street": street, "setback_m": round(setback, 2),
                      "on_line": setback <= STREET_LINE_M,
                      "principal": street in principal})
@@ -269,8 +430,9 @@ def failures(result: dict) -> list[str]:
 # C stores and mixed use, F warehouses and freight, W workshops. T (inns and taverns) is
 # NOT one of them — a tavern is a trade but the schedule's T families are lodging, and the
 # South Water row the owner's plate draws is stores and a warehouse. Both readings are
-# printed by --trade so the choice can be checked rather than taken on trust.
-TRADE_LETTERS = ("C", "F", "W")
+# printed by --trade so the choice can be checked rather than taken on trust. Held by the
+# placement policy since T-1195 — see STREET_LINE_M above.
+TRADE_LETTERS = tuple(constant("trade_letters"))
 
 
 def street_traffic() -> dict[str, str]:
@@ -449,6 +611,48 @@ def self_test() -> int:
     out = failures(census(_synthetic(FRAME), {}))
     checks.append(("an ordinary street is out of scope — the rule is about the "
                    "business front", not out, "; ".join(out) or "clean"))
+
+    # THE BANK TEST (T-1429), against the committed water and the committed corridors.
+    # Both clauses are exercised on the record that earned each of them, so a corridor
+    # re-drawn or a reach added to the terrain moves these lines rather than passing
+    # quietly.
+    lanes = corridors()
+    water = water_rings()
+    checks.append(("the epoch's committed water planform is read and is not empty",
+                   len(water) >= 4, f"{len(water)} ring(s)"))
+
+    origin_doc = load(DATA / "datum.json")
+    origin = (float(origin_doc["origin_utm_e"]), float(origin_doc["origin_utm_n"]))
+    kinzie = lanes["kinzie"]
+    checks.append(("Kinzie Street's east terminus stands in the harbour cut — the "
+                   "submerged stretch clause has something to refuse",
+                   in_water(kinzie["centre"][-1], water),
+                   f"terminus {tuple(round(v, 1) for v in kinzie['centre'][-1])}"))
+    checks.append(("…and its west end does not, so the clause refuses a STRETCH and "
+                   "not the street", not in_water(kinzie["centre"][0], water),
+                   f"west end {tuple(round(v, 1) for v in kinzie['centre'][0])}"))
+
+    by_id = {r["id"]: r for r in buildings()}
+    for record_id, expected in (("fort_dearborn_out_building_a", "lake"),
+                                ("fort_dearborn_out_building_b", "lake")):
+        record = by_id.get(record_id)
+        street, setback = (nearest_frontage(record["world"], lanes, water)
+                           if record else (None, float("inf")))
+        checks.append((f"{record_id} is off the far bank's street and onto its own",
+                       street == expected,
+                       f"{street} at {setback:.2f} m" if record else "not committed"))
+    # and the ray clause on its own, which is the half the fort case does not exercise:
+    # a straight line from the reservation to the north bank crosses the water
+    reservation = by_id.get("fort_dearborn_blockhouse")
+    if reservation:
+        here = reservation["world"][0]
+        there = lanes["north_water"]["centre"][0] if "north_water" in lanes else None
+        if there is None:
+            there = kinzie["centre"][0]
+        checks.append(("a straight line from the reservation to a north-bank street "
+                       "crosses committed water", over_water(here, there, water),
+                       f"{tuple(round(v, 1) for v in here)} to "
+                       f"{tuple(round(v, 1) for v in there)}"))
 
     ok = True
     for label, passed, detail in checks:

@@ -12,6 +12,23 @@
   "note": "NOT AN ARRIVAL IN CHICAGO - AN ARRIVAL IN THE HOUSE. What August 1834 dates is the Murphys taking charge of the Exchange Coffee House, and Andreas says nothing about when they reached the town. The value is carried at not_later_than precision for that reason: they were here by 1 August 1834, and possibly long before.",
   "precision": "not_later_than"
  },
+ "arrival_year": {
+  "value": 1834,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1834-08-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1834."
+  },
+  "seed": "hh_murphy_john:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
  "party_size_on_arrival": {
   "value": 2,
   "confidence": "inferred",
@@ -21,9 +38,20 @@
   "note": "Two is the number of people the source names taking charge of the house. It is a count of the keepers, not of a travelling party, and no children are mentioned."
  },
  "origin": {
-  "value": null,
+  "value": "Ireland",
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE NAME, AND A SURNAME IS NOT A NATIONALITY. This household's surname is carried by the irish pool in data/reconstruction/1835_invented_name_pools.json and by no other pool, and that pool's `evidence` field states what this dataset attests about who bore those names in this town. The French colonial value names a COUNTRY OF ORIGIN and no community membership. The pool it comes from is labelled 'French colonial and metis'; saying of anybody in this town that they were Metis or Native is stage `underdocumented`'s (T-1177) alone, under the standing Indigenous-history constraint AGENTS.md sets, and is not said here.",
+  "basis": {
+   "kind": "rule",
+   "id": "origin_from_surname_community",
+   "note": "The one community pool that carries this surname points at an origin more sharply than a draw over a roll of seventy births does."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
   "value": "To keep a new hotel on Lake Street",
@@ -113,6 +141,75 @@
     "chicago_voter_lists_1833_1835_irad",
     "fergus_chicago_directory_1839"
    ],
+   "dated_bounds": [
+    {
+     "bound_kind": "presence",
+     "list": "poll_1834",
+     "list_title": "Election returns — poll list of 1834, filed 11 August 1834",
+     "record_id": "poll_1834_078",
+     "as_read": "Murphy, John",
+     "locator": "voter_lists_1833_1835.txt line 247",
+     "describes_date": "1834-08-11",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-11",
+     "here_by": "1834-08-11",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'John Murphy' against resident 'John Murphy'",
+     "identity_rule": "one resident of the surname 'Murphy' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Election returns — poll list of 1834, filed 11 August 1834 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1834-08-11. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Murphy' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'John Murphy' against resident 'John Murphy'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "presence",
+     "list": "poll_1835",
+     "list_title": "Poll list of 1835",
+     "record_id": "poll_1835_051",
+     "as_read": "Murphy, John",
+     "locator": "voter_lists_1833_1835.txt line 338",
+     "describes_date": "1835",
+     "date_confidence": "inferred",
+     "precision": "year",
+     "reaches": "1835-12-31",
+     "here_by": "1835-12-31",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'John Murphy' against resident 'John Murphy'",
+     "identity_rule": "one resident of the surname 'Murphy' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Poll list of 1835 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1835-12-31. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Murphy' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'John Murphy' against resident 'John Murphy'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
+   "appearance_bounds": [
+    {
+     "bound_kind": "presence",
+     "corpus": "st_marys_baptisms",
+     "source_title": "St Mary's baptismal register, Chicago, 1833-1835, read off the deposited page images",
+     "record_id": "st_marys_bapt_1835_07_4_sponsor",
+     "as_read": "John Murphy",
+     "role": "sponsor",
+     "locator": "image S3HT-DHG9-SJ8, page 16, entry 7 of the 1835 series",
+     "describes_date": "1835-08-20",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-08-20",
+     "here_by": null,
+     "side_of_scene_date": "later",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "st_marys_baptismal_register_1833_1835"
+     ],
+     "identity_rule": "data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'John Murphy' into the residents layer's 'John Murphy' under a written rule naming both spellings verbatim; the rule is read there and is not copied here.",
+     "identity_rule_source": "data/research/church/st_marys_baptisms_crosswalk.json — merges[] into 'John Murphy'",
+     "note": "AN APPEARANCE LATER THAN THE SCENE DATE, WHICH BOUNDS NOTHING AT IT. The entry is dated 1835-08-20 at Chicago, Cook County, Illinois — after 1 July 1835 — and this person stood at the font as sponsor. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. So this row dates and corroborates an appearance and `here_by` is null: it cannot put a body in the town on the scene date, and back-projecting it would be the promotion the ladder forbids. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The entry is read scan_verified off the page image at `documented` confidence. What no source states is that the sponsor the register names is the person on this card: data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'John Murphy' into the residents layer's 'John Murphy' under a written rule, and a bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
    "note": "Attested twice in Andreas, in two different chapters, with dates on both sides of the scene date: 'In August of 1834, Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House. They remained there until 1836, when they removed to the old Sauganash'; and, in the life of Mark Beaubien, the house was 'first kept by Mr. and Mrs. John Murphy'. THIS IS THE BEST-ATTESTED OCCUPANCY OF A NAMED BUILDING BY A NAMED HOUSEHOLD IN THE DATASET. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Election returns — poll list of 1834, filed 11 August 1834 — “Murphy, John” (poll_1834_078, line 247); Poll list of 1835 — “Murphy, John” (poll_1835_051, line 338). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Murphy' agrees with the entry's forenames; 2 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the city register of 1839 — “John Murphy” as alderman (f1839_r0017, printed page 38). What a match may carry, and it depends on WHICH TABLE it landed in. A match on printed page 38, or on any row of the mayors' table, is 1839-or-later evidence: it says the man held that office in that year and was therefore in Chicago in that year, it is written with the row's own describes_date and never as an 1835 fact, and the person's grade does not move on it alone — a later appearance is corroboration of CONTINUED RESIDENCE, not of July 1835. A match on the sheriffs' rows of 1831, 1832, 1834 or 1836 is different in kind: the office is contemporary with the town, the 1834 row's term covers the scene date outright, and such a match carries reaches_scene. Even there the SOURCE is a retrospect — a table running to 1874, set in 1876 out of Old Settlers' recollections per the compiler's warning on printed page 3 — so it may be cited as a contemporary office and may not be graded `documented` without a second, nearer record. The ward on printed page 38 is a ward of the CITY of 1839 and places no house in the town of 1835. Identity by the crosswalk's own rule: Surname 'Murphy' folds to the same string as the register entry's, and the given name of both begins J. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
     "programme": "resident-research-2026",
@@ -135,15 +232,57 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1",
       "drloih_hotels"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254. A CORROBORATOR, NOT A SECOND FOUNDATION (T-1254): drloih_hotels corroborates this role and is deliberately absent from the person's own `sources[]`, which lists what the 1835 RESIDENCY grade stands on. A volume that speaks to the trade and not to the residence does not join it.",
+     "premises": "own_premises"
+    },
+    {
+     "role": null,
+     "kind": "office",
+     "as_printed": "alderman",
+     "from": "1839",
+     "to": "1839",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "claim": "f1839_r0017",
+     "place": "not_stated",
+     "employer_or_body": "city_of_chicago",
+     "note": "AN OFFICE FROM THE FERGUS 1839 CITY REGISTER, carried here by its own crosswalk (T-1254, by tools/derive_resident_roles.py). The register is a retrospective table set in 1876, and its carry rule is explicit: a later office is corroboration of CONTINUED RESIDENCE and never an 1835 fact. It therefore does not stand in the 1835 view.",
+     "premises": null
     }
-   ]
+   ],
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "murphy_john:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('murphy_john:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   },
   {
    "id": "murphy_harriet",
@@ -209,14 +348,142 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "attested",
      "sources": [
       "andreas_1884_v1"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
     }
-   ]
+   ],
+   "age_band": {
+    "value": "40-49",
+    "low": 40,
+    "high": 49,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 40 under 50', one of its female bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "murphy_harriet:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('murphy_harriet:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
+  },
+  {
+   "id": "rc_murphy_thomas",
+   "name": "Thomas Murphy",
+   "relationship": "child",
+   "grade": "reconstructed",
+   "sex": "male",
+   "name_basis": {
+    "confidence": "reconstructed",
+    "note": "INVENTED. The given name is drawn from the irish given-name pool in data/reconstruction/1835_invented_name_pools.json by the seed below; the surname is the head's own, which is the household the count places this person in and not a claim of kinship. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "household_size",
+    "note": "COUNTED, NOT NAMED. The 1840 federal census household of Murphy (IPUMS serial 5102066, printed page 233 row 30) tallies one 'free white males 10 under 15'. Enumerated 1840-06-01 and back-projected 5 years, that person was 5-9 on 1835-07-01 and so was already alive and in this town's head's household; the card names 2 of the row's 6 people and this is one it does not. The bridge is 'validated' and rests on 1835 evidence for the HEAD, never on this composition."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "A band tally states a sex and an age and nothing else. What this person did is not claimed, and a null here is the claim that the count cannot say - not that they did nothing."
+   },
+   "seed": "hh_murphy_john:household_size/nwm1014/1",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "any source naming a member of the Murphy household at or before 1835-07-01"
+   },
+   "reconstruction": {
+    "stage": "named_families",
+    "programme": "chicago_july_1835_resident_reconstruction_programme",
+    "community": "irish",
+    "band_1840": "free white males 10 under 15",
+    "age_on_scene_date": {
+     "low": 5,
+     "high": 9
+    },
+    "counted_by": "census_1840 serial 5102066"
+   },
+   "note": "RECONSTRUCTED PERSON. The 1840 census counts this household member and does not name them; the relation is 'child' because a band tally states an age and a sex and no relation at all. The band is the one the card's named people leave over once they have absorbed the senior bands of their sex, and that allocation writes no age onto any of THEM. Nothing here is evidence about a named individual: the need is the count, and any source naming this household's people retires them.",
+   "age_band": {
+    "value": "5-9",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "note": "READ OFF A COUNT, NOT DRAWN. The `named_families` stage wrote this person from a census column - “free white males 10 under 15” - and the band back-projects to 5-9 on the scene date. This pass draws an age only where nothing dates one, and a tally in an age column dates one.",
+    "basis": {
+     "kind": "rule",
+     "id": "counted_by_a_census_column",
+     "note": "ARGUED, NOT DRAWN. The `named_families` stage wrote this person BECAUSE the 1840 schedule tallies them in “free white males 10 under 15”; that column is the only thing said about their age, and five years off it is the whole derivation. No model row is consulted and nothing is drawn, so this block carries no seed."
+    },
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    }
+   }
+  },
+  {
+   "id": "rc_murphy_honora",
+   "name": "Honora Murphy",
+   "relationship": "household_member",
+   "grade": "reconstructed",
+   "sex": "female",
+   "name_basis": {
+    "confidence": "reconstructed",
+    "note": "INVENTED. The given name is drawn from the irish given-name pool in data/reconstruction/1835_invented_name_pools.json by the seed below; the surname is the head's own, which is the household the count places this person in and not a claim of kinship. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "household_size",
+    "note": "COUNTED, NOT NAMED. The 1840 federal census household of Murphy (IPUMS serial 5102066, printed page 233 row 30) tallies one 'free white females 30 under 40'. Enumerated 1840-06-01 and back-projected 5 years, that person was 25-34 on 1835-07-01 and so was already alive and in this town's head's household; the card names 2 of the row's 6 people and this is one it does not. The bridge is 'validated' and rests on 1835 evidence for the HEAD, never on this composition."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "A band tally states a sex and an age and nothing else. What this person did is not claimed, and a null here is the claim that the count cannot say - not that they did nothing."
+   },
+   "seed": "hh_murphy_john:household_size/nwf30/1",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "any source naming a member of the Murphy household at or before 1835-07-01"
+   },
+   "reconstruction": {
+    "stage": "named_families",
+    "programme": "chicago_july_1835_resident_reconstruction_programme",
+    "community": "irish",
+    "band_1840": "free white females 30 under 40",
+    "age_on_scene_date": {
+     "low": 25,
+     "high": 34
+    },
+    "counted_by": "census_1840 serial 5102066"
+   },
+   "note": "RECONSTRUCTED PERSON. The 1840 census counts this household member and does not name them; the relation is 'household_member' because a band tally states an age and a sex and no relation at all. The band is the one the card's named people leave over once they have absorbed the senior bands of their sex, and that allocation writes no age onto any of THEM. Nothing here is evidence about a named individual: the need is the count, and any source naming this household's people retires them.",
+   "age_band": {
+    "value": "25-34",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "note": "READ OFF A COUNT, NOT DRAWN. The `named_families` stage wrote this person from a census column - “free white females 30 under 40” - and the band back-projects to 25-34 on the scene date. This pass draws an age only where nothing dates one, and a tally in an age column dates one.",
+    "basis": {
+     "kind": "rule",
+     "id": "counted_by_a_census_column",
+     "note": "ARGUED, NOT DRAWN. The `named_families` stage wrote this person BECAUSE the 1840 schedule tallies them in “free white females 30 under 40”; that column is the only thing said about their age, and five years off it is the whole derivation. No model row is consulted and nothing is drawn, so this block carries no seed."
+    },
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    }
+   }
   }
  ],
  "touches_removal": false,

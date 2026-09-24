@@ -1,0 +1,77 @@
+{
+  "id": "biz_chicago_post_office",
+  "register_id": null,
+  "name": "The Post Office at Chicago",
+  "provenance": "authored",
+  "type": [
+    "civic"
+  ],
+  "trade": "the United States post office at Chicago",
+  "occupation": null,
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "John S. C. Hogan",
+      "person_id": "hogan_john_s_c",
+      "register_person_id": null,
+      "role": "postmaster",
+      "from": "1832-11-02",
+      "to": null,
+      "tier": "attested",
+      "basis": "'John S. C. Hogan, Postmaster, came in 1832' — Andreas, and the resident card carries the same office attested at the same citation. He succeeded Bailey on 2 November 1832 and holds the office across the scene date; the `from` on this row is that appointment and not the office's own opening.",
+      "source_id": "andreas_1884_v1",
+      "claim_ids": [],
+      "also_printed_as": []
+    }
+  ],
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1834-07",
+      "to": null,
+      "tier": "attested",
+      "basis": "NOT HOGAN'S STORE, AND THAT IS THE READING THIS RECORD EXISTS TO CARRY. The office was in hogan_store from 31 March 1831 until about July 1834, when Andreas has it removed 'to near the corner of Franklin and South Water', where it stayed through Hogan's term — so on 1835-07-01 it is on South Water Street at the Franklin end. The committed structure record hogan_store already states this in its own `function` note, and the walkthrough's `first_post_office` anchor marks where the mail BEGAN, not where it was taken on the scene date.",
+      "limit_reason": "THE BUILDING IS NOT MODELLED AND WOULD BE ALMOST ENTIRELY INVENTION. hogan_store's research note puts it about 100 m east of that building and says that nothing reached describes its construction, its size or its side of either street; docs/RESEARCH/hogan_store.md § 4 states the same refusal. AND THE CORNER ITSELF CARRIES A LIVE CONFLICT (T-0859): eight printings of Hogan's standing card, from 13 August 1834 through the issue of 1 July 1835, put his South Water store 'one door [… of] the Post Office', and one door is not four blocks from Franklin. The conflict is recorded and not resolved here; the street is what both readings agree on, so the street is as far as this location goes."
+    }
+  ],
+  "dates": {
+    "opened": "1831-03-31",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "The office, not the building: Chicago's post office was established on 31 March 1831 and is still taking the mail on the scene date. It moved rooms about July 1834 — that move is on the location's `from` — and a moved office is the same establishment."
+  },
+  "evidence": {
+    "first_issue": null,
+    "last_issue": null,
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "andreas_1884_v1"
+  ],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A printing or a plat that names the building at Franklin and South Water, or that settles which door of it Hogan's store stood from — either would close T-0859's conflict and could seat this record on a roof."
+}

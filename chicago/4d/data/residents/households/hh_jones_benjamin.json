@@ -12,20 +12,60 @@
   "note": "Not_later_than precision on the day the trustees appointed him street commissioner. His advertisements in the same month corroborate the presence and not the arrival.",
   "precision": "not_later_than"
  },
+ "arrival_year": {
+  "value": 1833,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1833-11-07 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1833."
+  },
+  "seed": "hh_jones_benjamin:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
  "party_size_on_arrival": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested in anything this project holds."
  },
  "origin": {
-  "value": null,
+  "value": "New York State",
   "confidence": "reconstructed",
-  "note": "Not attested in anything this project holds."
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_jones_benjamin:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
   "confidence": "reconstructed",
-  "note": "Not attested in anything this project holds."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -47,6 +87,20 @@
   "sources": [
    "andreas_1884_v1"
   ],
+  "last_dated_appearance": {
+   "as_read": "1833-11/1833-11",
+   "precision": "month",
+   "reaches": "1833-11-30",
+   "includes_scene_date": false,
+   "days_before_scene_date": 578,
+   "leg": "source_span",
+   "person": "jones_benjamin",
+   "record": null,
+   "sources": [
+    "chicago_democrat_1833_11_26"
+   ],
+   "note": "NO SIGHTING, SO THE LEG IS A SOURCE'S SPAN. The card holds no dated reading of this person at or before the scene date; the date here is the far end of what a cited source COVERS, which the role's own note calls the source's bound and not the man's. Read from `roles[] (month)` as `1833-11/1833-11`, which reaches 1833-11-30 — 578 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+  },
   "note": "He resigned a town office for ill health in 1833-34 and nothing reached follows him to 1835. A resignation for ill health is the one biographical fact in the parcel that argues AGAINST assuming continuity, and the value follows it."
  },
  "persons": [
@@ -56,6 +110,18 @@
    "relationship": "head",
    "grade": "attested",
    "ladder_rule": "G1b",
+   "associated_with": [
+    {
+     "kind": "land_purchased",
+     "place_or_structure_id": "school_section",
+     "resolves_to": "tract",
+     "from": "1833-10-22",
+     "to": null,
+     "tier": "inferred",
+     "source_id": "isa_public_domain_land_tract_sales",
+     "note": "GROUND HE BOUGHT, WHICH IS NOT GROUND HE STOOD ON — the rung is `tract` for that reason, and `land_purchased` is in neither the home kinds nor the work kinds because a holding is not a place a man was. The federal tract-sale register carries 4 row(s) — ls0254, ls0255, ls0256, ls0257 — to this purchaser, read as 'JONES BENJAMIN', sorted onto school_section by tools/sort_land_sales_onto_tracts.py and covering about 11.78 acre(s) of it. THE TIER IS INFERRED AND THE TWO HALVES DIFFER: the purchase is documented — the register is a public record and states it — while the tie between that purchaser and THIS card is an identity ruling, upheld under T-0990 on 2026-09-10 by the rule 'JONES BENJAMIN matches Benjamin Jones: the forename names Benjamin Jones of the 6 people of this surname, and the forename agrees in full.'. The weaker half sets the tier. `to` is null because the register records a sale and not a tenure."
+    }
+   ],
    "sex": "male",
    "occupation": {
     "value": "none_recorded",
@@ -83,12 +149,175 @@
     "derived_from": "roles",
     "roles_at_scene_date": []
    },
+   "workplaces": [
+    {
+     "business_id": "biz_b_jones_grocery_and_provision_store",
+     "business_name": "B. Jones, grocery and provision store",
+     "role": "proprietor",
+     "printed_as": "B. Jones",
+     "from": "1833-11-26",
+     "to": "1834-03-04",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card jones_benjamin (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1833_11_26#c018",
+      "chicago_democrat_1834_03_04#c022"
+     ],
+     "business_present_at_scene_date": true
+    },
+    {
+     "business_id": "biz_b_jones_storage_and_forwarding",
+     "business_name": "B. Jones, storage and forwarding",
+     "role": "proprietor",
+     "printed_as": "B. Jones",
+     "from": "1833-11-26",
+     "to": "1833-11-26",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card jones_benjamin (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1833_11_26#c014"
+     ],
+     "business_present_at_scene_date": true
+    }
+   ],
    "sources": [
     "andreas_1884_v1",
     "chicago_democrat_1833_11_26",
     "chicago_tribune_1882_04_25_old_settler_deaths",
     "chicago_voter_lists_1833_1835_irad",
     "isa_public_domain_land_tract_sales"
+   ],
+   "dated_bounds": [
+    {
+     "bound_kind": "presence",
+     "list": "poll_1834",
+     "list_title": "Election returns — poll list of 1834, filed 11 August 1834",
+     "record_id": "poll_1834_060",
+     "as_read": "Jones, Benjamin",
+     "locator": "voter_lists_1833_1835.txt line 229",
+     "describes_date": "1834-08-11",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-11",
+     "here_by": "1834-08-11",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "identity_discriminator": "forenames agree initial for initial: entry 'Benjamin Jones' against resident 'Benjamin Jones'",
+     "identity_rule": "one resident of the surname 'Jones' agrees with the entry's forenames; 6 bearer(s) of the surname were considered.",
+     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Election returns — poll list of 1834, filed 11 August 1834 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1834-08-11. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Jones' agrees with the entry's forenames; 6 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'Benjamin Jones' against resident 'Benjamin Jones'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0254",
+     "as_read": "JONES BENJAMIN",
+     "locator": "purchase 0370606, volume 818 page 009, section 16, T39N R14E",
+     "describes_date": "10/22/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-22",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "JONES BENJAMIN matches Benjamin Jones: the forename names Benjamin Jones of the 6 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins JONES BENJAMIN to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0255",
+     "as_read": "JONES BENJAMIN",
+     "locator": "purchase 0370607, volume 818 page 009, section 16, T39N R14E",
+     "describes_date": "10/24/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-24",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "JONES BENJAMIN matches Benjamin Jones: the forename names Benjamin Jones of the 6 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins JONES BENJAMIN to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0256",
+     "as_read": "JONES BENJAMIN",
+     "locator": "purchase 0370608, volume 818 page 009, section 16, T39N R14E",
+     "describes_date": "10/22/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-22",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "JONES BENJAMIN matches Benjamin Jones: the forename names Benjamin Jones of the 6 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins JONES BENJAMIN to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "appearance",
+     "list": "T39N R14E sec 16",
+     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
+     "record_id": "ls0257",
+     "as_read": "JONES BENJAMIN",
+     "locator": "purchase 0370609, volume 817 page 027, section 16, T39N R14E",
+     "describes_date": "10/22/1833",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1833-10-22",
+     "here_by": null,
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "isa_public_domain_land_tract_sales"
+     ],
+     "identity_discriminator": "forename_agrees",
+     "identity_rule": "JONES BENJAMIN matches Benjamin Jones: the forename names Benjamin Jones of the 6 people of this surname, and the forename agrees in full.",
+     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins JONES BENJAMIN to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_01_21#c005",
+     "claim_kind": "event",
+     "as_printed": "B. JONES",
+     "role": "agent",
+     "locator": "chicago_democrat_1834_01_21 page 3 column 4",
+     "describes_date": "1834-01-21",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-01-21",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_b_jones, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-01-21 names 'B. JONES' in the claim read as chicago_democrat_1834_01_21#c005, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
    ],
    "note": "APPOINTED THE TOWN'S FIRST STREET COMMISSIONER ON 7 NOVEMBER 1833 and resigned before his term expired: Andreas, 'It was during these days that Benjamin Jones was appointed Street Commissioner, but on account of ill-health resigned before his term expired, and was succeeded by O. Morrison and Silas W. Sherman.' His health is the only medical fact about any private resident in this parcel. The Chicago Democrat of 26 November 1833 is the only contemporary Chicago document this project holds; an advertiser in it was paying to be found, which makes it strong evidence of existence and address in November 1833 and weak evidence of survival to 1 July 1835, nineteen months and about 2,400 people later. OLD SETTLERS, 1882 — A DATE OF DEATH, AND NOTHING ABOUT 1835. John Wentworth's roll of old settlers who had died since 1 January 1881, kept for the Calumet Club and printed in the Chicago Tribune of 25 April 1882, carries “Benjamin Jones, Aug. 11, 1881.”. That corroborates a Chicago residence before 1840 and fixes the END of this life, which this record did not carry; it is not an arrival and it places nobody in the town on 1 July 1835. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Election returns — poll list of 1834, filed 11 August 1834 — “Jones, Benjamin” (poll_1834_060, line 229). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Jones' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 5 times, as “JONES BENJAMIN”, 1833-10-22 to 1836-06-22: 1 lot in the platted town — lot 7 of block 35 in the town the register codes CHIOT (L7BL35CHIOT, as printed) and 4 parcels of the school section — BL121 of the school section (sec 16 T39N R14E), as read; lot 2 of block 117 of the school section (sec 16 T39N R14E); lot 4 of block 23 of the school section (sec 16 T39N R14E); lot 4 of block 80 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $7133.00 (ls0254, ls0255, ls0256, ls0257, ls1263). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $6000.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: JONES BENJAMIN matches Benjamin Jones: the forename names Benjamin Jones of the 6 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
    "resident_research": {
@@ -120,12 +349,16 @@
      "precision": "month",
      "dated_by": "source_describes_date",
      "covers_scene_date": false,
+     "fills_scene_view": false,
      "confidence": "attested",
      "sources": [
       "chicago_democrat_1833_11_26"
      ],
      "claim": null,
-     "note": "A DATED ROLE THAT DOES NOT REACH THE SCENE DATE (T-0991, withdrawn from the 1835 field by tools/derive_resident_roles.py). No source cited for this trade describes 1835, so it is retained here with the bound its evidence permits and the 1835 compatibility view reads `none_recorded` instead. tools/audit_scene_window_trades.py's verdict is `pre_scene_printing`: A grocery and provision store, Chicago Democrat, 26 November 1833. The register's later readings of this man print `forwarding_and_commission` (21 January to 16 July 1834), not `grocer`, and neither reaches the scene window."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A DATED ROLE THAT DOES NOT REACH THE SCENE DATE (T-0991, withdrawn from the 1835 field by tools/derive_resident_roles.py). No source cited for this trade describes 1835, so it is retained here with the bound its evidence permits and the 1835 compatibility view reads `none_recorded` instead. tools/audit_scene_window_trades.py's verdict is `pre_scene_printing`: A grocery and provision store, Chicago Democrat, 26 November 1833. The register's later readings of this man print `forwarding_and_commission` (21 January to 16 July 1834), not `grocer`, and neither reaches the scene window.",
+     "premises": "own_premises"
     },
     {
      "role": null,
@@ -136,14 +369,56 @@
      "precision": "year",
      "dated_by": "printing_year",
      "covers_scene_date": false,
+     "fills_scene_view": false,
      "confidence": "attested",
      "sources": [
       "fergus_chicago_directory_1839"
      ],
      "claim": null,
-     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839.",
+     "premises": null
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "of B. J. & Co",
+     "from": "1844",
+     "to": "1844",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "claim": "n1844_e0971",
+     "place": "house Rand, b Clark aud Dearb",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1844 DIRECTORY, 9 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
     }
-   ]
+   ],
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "jones_benjamin:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('jones_benjamin:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
   }
  ],
  "touches_removal": false,

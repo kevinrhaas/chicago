@@ -104,6 +104,22 @@
     ],
     "note": "'David McKee was appointed Government blacksmith, his shop being situated near the Agency House, at the foot of State Street' — Andreas, opening his chapter on the town's early manufactories with it, since a blacksmith is where the manufacturing history of the place starts. WHO WAS WORKING IT ON THE SCENE DATE IS UNATTESTED: McKee had been carrying the mail since 1827-28, the 1830-31 agency staffing lists him as blacksmith with Joseph Porthier as striker, and nothing reached names a smith here in 1835. The record therefore carries no occupants block."
   },
+  "stands_on_lot": {
+    "claims_lot": false,
+    "grid": "north_division_tier",
+    "plat": "thompson_plat_1830",
+    "layer": "data/traces/vectors/north_division_tier_lots.json",
+    "block_id": "blk_kinzie_dearborn_north",
+    "lot_index": 5,
+    "lot_number": 2,
+    "lot_number_withheld": null,
+    "lot_lines_confidence": "inferred",
+    "lot_numbers_confidence": "inferred",
+    "confidence": "inferred",
+    "footprint_share": 1.0,
+    "derived_by": "tools/record_lot_seating.py",
+    "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on lot 2 of blk_kinzie_dearborn_north in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
+  },
   "research_note": "A BUILDING KNOWN ONLY AS A CLAUSE IN OTHER PEOPLE'S SENTENCES, and one of the few in this dataset whose existence rests on four independent statements while nothing at all is known of its shape. It belongs to the agency establishment: the 1821 treaty obliged the Government to keep a blacksmith at Chicago for the Potawatomi, McKee was hired for that and arrived in 1823, and Wau-Bun's ring of log residences round Cobweb Castle is the same cluster seen from 1831. THE RECORD IS FLAGGED review_required for the reason AGENTS.md gives: the smithy exists because of a treaty obligation to the Potawatomi, and that is Indigenous history whatever the building looked like. Nothing here depicts or narrates it. WHAT WOULD UPGRADE THE RECORD: agency accounts or the Indian Office's returns, which paid for the shop and its iron and would describe both; failing that, any of the recollections that place the north-bank cluster building by building. See docs/RESEARCH/blacksmith_shop_state_st.md.",
   "review_required": true
 }

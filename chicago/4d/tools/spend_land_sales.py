@@ -61,6 +61,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -245,14 +246,14 @@ def totals(row: dict) -> dict:
     country = [e for e in row["entries"] if e.get("sale_kind") == "federal_entry"]
     return {
         "entries": len(row["entries"]),
-        "acres": round(sum(num(e["acres"]) for e in row["entries"]), 2),
-        "dollars": round(sum(num(e["total_price"]) for e in row["entries"]), 2),
+        "acres": round(math.fsum(num(e["acres"]) for e in row["entries"]), 2),
+        "dollars": round(math.fsum(num(e["total_price"]) for e in row["entries"]), 2),
         "first_purchase": dates[0] if dates else None,
         "last_purchase": dates[-1] if dates else None,
         "tracts": sorted({e["tract"] for e in country}),
         "school_section": sorted({e["tract"] for e in lots}),
         "town_plat_lots": sorted({e["tract"] for e in town}),
-        "town_plat_dollars": round(sum(num(e["total_price"]) for e in town), 2),
+        "town_plat_dollars": round(math.fsum(num(e["total_price"]) for e in town), 2),
         "residence_as_read": sorted({e["residence_as_read"] or "UNKNOWN"
                                      for e in row["entries"]}),
     }
@@ -345,7 +346,7 @@ def ledger_doc() -> dict:
             "households_touched": len({r["household_id"] for r in rows}),
             "grades_changed": 0,
             "entries_carried": sum(len(r["entries"]) for r in rows),
-            "acres_carried": round(sum(totals(r)["acres"] for r in rows), 2),
+            "acres_carried": round(math.fsum(totals(r)["acres"] for r in rows), 2),
             "school_section_parcels_carried": sum(len(totals(r)["school_section"])
                                                   for r in rows),
             "matched_more_than_once": sum(1 for r in rows

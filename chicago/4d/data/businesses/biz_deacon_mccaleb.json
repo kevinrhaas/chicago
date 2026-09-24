@@ -1,0 +1,102 @@
+{
+  "id": "biz_deacon_mccaleb",
+  "register_id": "business_deacon_mccaleb",
+  "name": "Deacon & McCaleb",
+  "provenance": "compiled_from_register",
+  "type": [
+    "steam_saw_mill",
+    "store"
+  ],
+  "trade": "steam saw mill and lumber, St. Joseph",
+  "occupation": "lumber_merchant",
+  "goods": [
+    "Lumber"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [
+    {
+      "name": "E. P. Deacon",
+      "person_id": null,
+      "register_person_id": "person_e_p_deacon",
+      "role": "partner",
+      "from": "1834-07-23",
+      "to": "1834-07-23",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_e_p_deacon with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_23#c005"
+      ],
+      "also_printed_as": []
+    },
+    {
+      "name": "[uncertain: Wm. McKaleb]",
+      "person_id": null,
+      "register_person_id": "person_uncertain_wm_mckaleb",
+      "role": "partner",
+      "from": "1834-07-23",
+      "to": "1834-07-23",
+      "tier": "attested",
+      "basis": "The register holds this printed name as person_uncertain_wm_mckaleb with action 'new_resident': the town does not carry a card for them under an id this record can name, so the reading is the name and not yet a person. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_07_23#c005"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-07-23",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_07_23#c005 (notice, 1834-07-23). No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1834-07-23",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-07-23, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-07-23",
+    "last_issue": "1834-07-23",
+    "copy_dates": [
+      "1834-07-16"
+    ]
+  },
+  "present_at_scene_date": false,
+  "exclusion": "contradicted_before_scene_date",
+  "exclusion_note": "Contradicted on or before the scene date by chicago_democrat_1834_07_23#c005 (notice, 1834-07-23).",
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_07_23#c005"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

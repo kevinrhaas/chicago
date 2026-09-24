@@ -179,6 +179,34 @@ whose height is a guess is a guessed wall, even if we know it was white.
 - No emissive, no transparency in the base asset. The confidence view's translucency is a
   *renderer* effect (screen-door dither in the opaque pass), never baked geometry.
 
+### Roof coverings — the one pinned material name (PROPOSED 2026-09-20, T-1488)
+
+Material names are **not** pinned by this document, and the `walk_surface_m` row above
+rejected keying on one in terms: *"a renderer keyed on one would be reading a convention
+nobody promised to keep."* This section is a promise to keep exactly one of them, proposed
+the bilateral way this document requires — the generator side names them from one function
+and the renderer side reads them, and neither may change the vocabulary alone.
+
+| thing | convention |
+|---|---|
+| a roof primitive's material name | **`roof_<substrate>`** — today `roof_shingle`, `roof_board`, and `roof_plane` for a covering the sheet cannot name. Written by `generators/common/materials.roof_material_name()` off `roof_substrate()`'s dealing rule (T-1487); **that function is the only writer**, and a new covering is a new row on the sheet rather than a new literal at a call site. |
+| what a renderer may do with it | read the covering, and nothing else. It says what the roof is MADE OF. It does not say the roof's colour (per-vertex), its weathering (`roof_condition` on the record), or its geometry. |
+| what a renderer must do without it | render the roof. `roof-relief.js` binds relief maps to the two coverings it knows and leaves anything else exactly as it was, which is the untextured plane the town shipped before this. |
+
+**Why a name and not `extras`.** `extras` is the better-typed channel and the one this
+document already uses for identity, and it was still the wrong answer here: the substrate is
+*already* in all 384 shipped masters and all 384 web derivatives, so the name route costs no
+bake and the extras route costs 384 of them to carry a fact the file holds. The 2026-08-17
+objection cited ROADMAP K36(a) — 38 assets whose material names had been merged away by the
+`gltf-transform palette` pass. **That pass has been off since K36(b) and the residue is
+gone: re-measured for T-1488 across `assets/gltf/` and `assets/web/`, 384 files each, ZERO
+materials are unnamed.** A convention with one writer, no exceptions and a promise attached
+is no longer a convention nobody promised to keep.
+
+**What the name is NOT a licence for.** Finding the deck of a bridge, or a wall, or a
+chimney, by its material name. Those names have no single writer and no pin, and the
+`walk_surface_m` row's argument still stands for every one of them.
+
 ## Compression
 
 | artifact | form | where |

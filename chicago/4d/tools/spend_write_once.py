@@ -33,8 +33,23 @@ what decides who needs this module:
                                     file byte-for-byte against what the pass re-derives
   spend_ladder_rungs.py             a `ladder_rule` FIELD at a fixed position, and `--check`
                                     compares the whole file the same way
+  spend_civic_roll_bounds.py        a `dated_bounds` BLOCK, replaced whole rather than
+                                    appended to, and `--check` compares the list against
+                                    what the pass re-derives (T-1326; the ninth pass, and
+                                    the first written AFTER this module existed — it takes
+                                    the block route deliberately, for the reason the two
+                                    rows above it demonstrate)
+  spend_appearance_bounds.py        an `appearance_bounds` BLOCK, the same route for the
+                                    same reason (T-1337; the tenth pass). Its own key and
+                                    not T-1326's: that pass's `--check` re-derives
+                                    `dated_bounds` byte for byte against the voter
+                                    crosswalk, so a second corpus written into the same
+                                    list would fail a green gate belonging to a closed
+                                    ticket. The two blocks sit in a fixed order,
+                                    `dated_bounds` then `appearance_bounds`, which
+                                    resident_mint_carry.py also holds
 
-The last two hold the once-each rule ALREADY, and hold it in a way a marker count cannot
+The last three hold the once-each rule ALREADY, and hold it in a way a marker count cannot
 reach: a JSON key exists once by construction, and `--check` re-derives the whole household
 file and compares it byte-for-byte, so a doubled block does not survive. Both were staged red
 under T-0846 to prove it rather than assert it — `spend_directories.py --check` reports DRIFT

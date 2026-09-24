@@ -208,3 +208,64 @@ end, this line's south end moves with it.
   `asset_use: inventory` and the standing rule in its note. The fit in § 3 exists to
   *check* six lines this project already holds; its output is a residual, not a
   vertex.
+
+## 9. The corridor layer reaches the north bank (T-1191, 2026-09-19)
+
+§ 8 above said what this reading refused: *"It does not lay a block grid in the North
+Division. `generate_plat_lots.py` reads a hard-coded street list and this diff does not
+touch it."* That refusal was right and it stands. What it did not say — because nobody
+had yet noticed — is that the same hard-coded list was ALSO deciding a second and quite
+different question, and refusing the north bank an answer to it.
+
+**One list, two questions.** `EW_STREETS`/`NS_STREETS` decided both which streets a
+BLOCK may be cut between and which streets a BUILDING may be reported standing in.
+Cutting a block needs both bounding lines fixed and the ground between them read, which
+the North Division cannot offer — block 6 is drawn across the slough. Asking whether a
+point is in a platted roadway needs only that one street's own corridor be read off a
+sheet. The north bank's were: this file's § 3 for the Thompson tier, and
+`data/traces/kinzie_addition_street_grid.json` for the Addition. The corridor layer is
+now its own pair of lists, derived from `data/traces/street_control.json` § `north_bank`,
+and the block lists are untouched.
+
+| tier | sheet | corridor | how |
+|---|---|---:|---|
+| Thompson North Division | `thompson_plat_1830` | 80 ft, 24.384 m | the sheet letters the figure 80 at every corridor head; the fit returns 45.6 px = 24.4 m (§ 3) |
+| Kinzie's Addition | `wright_1834_nara_hup` | 72.7 ft, 22.17 m | 24 corridors measured, scaled against the Original Town's platted 80 ft on the same sheet |
+
+Twenty streets entered the layer, each cut at its own width. `north_water` did not, and
+the reason is this file's own § 7 and T-0447: its line is derived from the river bank
+rather than from a platted rule, and offsetting a 26-vertex polyline by half a module
+would invent a rectangle no sheet draws. The north-bank frontage rule stays
+`tools/measure_north_bank_frontage.py`.
+
+**What the layer found, the first time it was asked.** Fourteen bodies stand in
+north-bank corridors. Eleven of them are invented — eight from the North Division's
+sixty-roof parcel and the three inferred dwellings on Kinzie Street's centreline — and
+every one of those has been moved out, the shortest distance along the offending
+corridor's own cross axis, by `tools/clear_north_corridors.py` for the parcel and by the
+inferred-household pass's own `corridor_clearance` rule (T-1227) for the three. The moves
+run 4.4 m to 16.9 m against the 25 m of working horizontal uncertainty the recipe
+declares, so none of them spends evidence. The remaining three stay: `north_branch_bridge`
+is a bridge in a street, and `north_bank_shed_dearborn_e1` and `watkins_school_house` hold
+positions a source argues, which outrank a corridor this project derived. They are
+entered in `tools/corridor_intrusion_baseline.json` as debt and are T-1197's and T-1198's.
+
+**A clearance has to clear BOTH readings of a corridor.** T-0009 split them: the intrusion
+gate measures against the corridor centred on a street's committed CONTROL, every
+generator against the corridor as DRAWN. Kinzie holds control at `kinzie_canal`, so the
+two stand 2.91 m apart and the first pass at the shanties cleared one and left them 2.3 m
+inside the other. Both rules now clear both. Kinzie's re-centring also opens a band in
+`tools/corridor_strip_baseline.json` — 4,132.8 m², and empty: no lot and no structure in
+either half of it.
+
+**Wolcott is read twice and is not settled here.** It is the line the two tiers meet on.
+Thompson letters 80 ft across the tier it closes; Wright's Addition reading takes it at
+68.8 ft raw, 67.2 ft scaled. The record keeps the module — the figure a sheet writes, and
+the wider of the two, so no body is cleared out of a corridor on the narrower reading.
+
+**The east–west alley is still unread**, and no record is given `alleys: false` for it.
+The Thompson scan returns five vertical strokes per block — two faces and three lot lines
+for the four lots to a face — so the sheet draws no north–south alley, and that is a
+reading. A scan for vertical ink could not have seen a horizontal rule, and the tier's
+east–west axis was deliberately not fitted (§ 8). `street_control.json` § `north_bank`
+§ `alleys` states both halves.

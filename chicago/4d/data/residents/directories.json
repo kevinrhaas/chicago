@@ -50,10 +50,10 @@
  "counts": {
   "people_shown": 233,
   "people_met_by_more_than_one_volume": 144,
-  "carrying_an_occupation": 134,
+  "carrying_an_occupation": 133,
   "carrying_an_address": 162,
   "line_held_but_parse_refused": 0,
-  "split_refused_trades": 15,
+  "split_refused_trades": 13,
   "split_refused_addresses": 5,
   "grades_1835_changed": 0,
   "by_volume": {
@@ -76,7 +76,7 @@
     "single_entry": 112,
     "ambiguous": 9,
     "contested": 2,
-    "split_refused_fields": 16
+    "split_refused_fields": 14
    },
    "norris_1844_advertiser": {
     "people": 28,
@@ -9098,7 +9098,7 @@
    "household_id": "hh_hubbard_elijah_kent",
    "resident": "Elijah Kent Hubbard",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "insurance_agent",
    "lives_at_1835": null,
    "works_at_1835": null,
    "appearances": [
@@ -9267,7 +9267,7 @@
    "household_id": "hh_hubbard_henry_g",
    "resident": "Henry G Hubbard",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "forwarding_and_commission",
    "lives_at_1835": null,
    "works_at_1835": null,
    "appearances": [
@@ -9312,8 +9312,7 @@
       }
      ],
      "holds": [
-      "address",
-      "occupation"
+      "address"
      ],
      "split_refused": {},
      "sources": [
@@ -9336,30 +9335,15 @@
       }
      ],
      "holds": [
-      "address",
-      "occupation"
+      "address"
      ],
-     "split_refused": {
-      "occupation": "premises_where_a_trade_is"
-     },
+     "split_refused": {},
      "sources": [
       "norris_directory_1844"
      ]
     }
    ],
-   "occupation_later": {
-    "value": "clerk, Circuit Court",
-    "confidence": "attested",
-    "describes_date": 1843,
-    "sources": [
-     "fergus_chicago_directory_1843"
-    ],
-    "claim_id": "f1843_e1350",
-    "as_printed": "Hubbard, Henry George, clerk, Circuit Court, res LaSalle, bet Washington and Madison [died, Sandusky, O., Aug 28, 1852, aged 43¼.]",
-    "printed_fields": "f1843_e1350 | Hubbard, Henry George, clerk, Circuit Court, res LaSalle, bet Washington and Madison [died, Sandusky, O., Aug 28, 1852, aged 43¼.] | fergus_1843_page_003 | alphabetical directory | clerk, Circuit Court | res LaSalle, bet Washington and Madison | died, Sandusky, O., Aug 28, 1852, aged 43¼.",
-    "split": "The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim.",
-    "note": "Fergus's Chicago directory of 1843 prints this trade against this person, in the entry quoted on the card: 'Hubbard, Henry George, clerk, Circuit Court, res LaSalle, bet Washington and Madison [died, Sandusky, O., Aug 28, 1852, aged 43¼.]'. It is evidence about 1843, written here as 1843's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry."
-   },
+   "occupation_later": null,
    "address_later": {
     "value": "res LaSalle, bet Washington and Madison",
     "confidence": "attested",
@@ -10457,7 +10441,7 @@
    "household_id": "hh_jones_william",
    "resident": "William Jones",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "hardware_merchant",
    "lives_at_1835": null,
    "works_at_1835": null,
    "appearances": [
@@ -10501,8 +10485,7 @@
       }
      ],
      "holds": [
-      "address",
-      "occupation"
+      "address"
      ],
      "split_refused": {},
      "sources": [
@@ -10525,12 +10508,9 @@
       }
      ],
      "holds": [
-      "address",
-      "occupation"
+      "address"
      ],
-     "split_refused": {
-      "occupation": "firm_where_a_trade_is"
-     },
+     "split_refused": {},
      "sources": [
       "norris_directory_1844"
      ]
@@ -11246,7 +11226,7 @@
    "household_id": "hh_king_tuthill",
    "resident": "Tuthill King",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "clothier",
    "lives_at_1835": null,
    "works_at_1835": null,
    "appearances": [
@@ -11290,8 +11270,7 @@
       }
      ],
      "holds": [
-      "address",
-      "occupation"
+      "address"
      ],
      "split_refused": {},
      "sources": [
@@ -11314,8 +11293,7 @@
       }
      ],
      "holds": [
-      "address",
-      "occupation"
+      "address"
      ],
      "split_refused": {},
      "sources": [
@@ -13325,7 +13303,7 @@
    "household_id": "hh_mulford_james_h",
    "resident": "James H Mulford",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "jeweller",
    "lives_at_1835": null,
    "works_at_1835": null,
    "appearances": [
@@ -15958,7 +15936,7 @@
    "household_id": "hh_sherman_silas_w",
    "resident": "Silas W Sherman",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "sheriff",
    "lives_at_1835": null,
    "works_at_1835": null,
    "appearances": [
@@ -17845,7 +17823,7 @@
    "household_id": "hh_taylor_william_h",
    "resident": "William H Taylor",
    "grade_1835": "attested",
-   "occupation_1835": "none_recorded",
+   "occupation_1835": "shoemaker",
    "lives_at_1835": null,
    "works_at_1835": null,
    "appearances": [
@@ -17887,9 +17865,7 @@
        "as_printed": "Taylor, William Hartt, agent, Dan. Taylor, 120 Lake"
       }
      ],
-     "holds": [
-      "occupation"
-     ],
+     "holds": [],
      "split_refused": {},
      "sources": [
       "fergus_chicago_directory_1843"

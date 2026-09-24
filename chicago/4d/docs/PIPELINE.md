@@ -11,12 +11,18 @@ production.*
 
 ---
 
+
+> **2026-09-23: this project moved to its own repository, kevinrhaas/chicago,** served
+> at chicago.polecat.live (landing `/`, app `/4d/`, dev preview `/4d/dev/`). The
+> pipeline below is unchanged; where it says "this monorepo" or "other tenants", read
+> it as the history of how it was built inside kevinrhaas/custom. Tickets moved to
+> kevinrhaas/chicago-tickets — see AGENTS.md § THE QUEUE.
 ## The two tiers
 
 | tier | branch | URL | who moves it |
 |---|---|---|---|
-| production | `main` | `/custom/chicago/4d/walk/?year=1835` | the owner, by dispatch |
-| integration | `dev` | `/custom/chicago/4d/dev/walk/?year=1835` | any green PR into `dev` |
+| production | `main` | `chicago.polecat.live/4d/` (year doors `/4d/1835/`) | the owner, by dispatch |
+| integration | `dev` | `chicago.polecat.live/4d/dev/` (year doors `/4d/dev/1835/`) | any green PR into `dev` |
 
 There is **no stage tier and no scheduled promotion**. The pilot has three tiers because it
 promotes on a nightly cron; this app promotes on a human asking, so the middle tier would be
@@ -33,9 +39,12 @@ a queue with nobody in it.
 | `.github/workflows/chicago-4d-pipeline-setup.yml` | one-button: creates `dev` from `main` if absent, then dispatches a deploy. Idempotent. |
 | `.github/workflows/deploy.yml` | the single deploy authority. Assembles ONE Pages artifact: `main` at the root, plus the `dev` branch's `site/4d/` folded in at `site/4d/dev/`. Since T-0938 it PUBLISHES both trees first — `site/4d/` is generated, not committed — and it triggers on `chicago/4d/**` rather than only `site/**`, because a 4D change no longer touches `site/`. |
 | `.github/chicago-4d-dev-preview.mjs` | assembles that preview — copy, `noindex`, banner, dev build stamp, `build.json`, robots disallow. |
-| `.github/workflows/chicago-4d-check.yml` | **the dev gate.** Runs on PRs into `dev` and pushes to `dev` (no branch filter, deliberately). |
+| `.github/workflows/chicago-4d-check.yml` | **the dev gate.** Runs on PRs into `dev` and on pushes to `dev` and `main`. The push trigger was unfiltered until T-1288 measured what that cost: a steward branch with an open PR satisfies BOTH triggers, so every push started the suite twice on one commit and the PR waited on the slower of the pair. |
 | `.github/workflows/chicago-4d-promote-to-prod.yml` | **dispatch-only.** Back-merges `main`→`dev`, merges `dev`→`main` `--no-ff`, tags `release-vNNN`, then dispatches the deploy. |
 | `.github/workflows/chicago-4d-bake.yml` | the content bake. **Builds the ref it was started on, and PRs into that same ref** — `tools/bake_ref.py` decides, and `check.sh` asserts it. The nightly and any run whose ref is `main` build `dev` and PR into `dev`, because the schedule has no tree of its own to speak for and nothing may PR into production. A bake dispatched against a branch builds THAT branch: until T-0454 it silently rebuilt `dev` instead, which is how the staleness gate and the bake came to disagree about one asset while both were right. |
+| `.github/workflows/chicago-4d-pr-lap.yml` | **the un-sticker.** On every push to `dev`, merges `dev` into every open non-draft, non-`hold` PR using this repo's merge drivers, regenerates what a tool owns, and pushes. It does not gate and it does not merge the PR. It exists because GitHub's server-side merge never runs a custom merge driver (T-0857), so a branch that merges `dev` with zero conflicts in a clone is reported CONFLICTING by the platform. |
+| `.github/workflows/chicago-4d-merge-ready.yml` | **the merger.** On every push to `dev`, merges every open PR GitHub itself calls `clean` — the branch merges AND every required check passed. Nothing else in this repository merges a finished pull request. |
+| `.github/workflows/chicago-4d-pr-stuck.yml` | **the reporter** (T-1368). Labels and comments on a PR that none of the three above can move. It merges, pushes and resolves nothing. See below. |
 | `.github/pipeline.json` | the manifest. Declares the shape — tiers, publish paths, workflow names — to anything that reads it. A **data file**: editing it is a sanctioned direct commit to `main`, same as the pilot's. |
 
 `pipeline.json` earns its keep on the fleet console. Manager's Pipeline view
@@ -170,6 +179,78 @@ promotion that carries no new changelog entry reuses the existing number and is 
 with a notice rather than inventing a second sequence. Tagging failures never fail the
 promotion: by then the ship has already landed, and a missing label is not a bad deploy.
 
+---
+
+## When a pull request will not move
+
+A PR can reach a state where **nothing in this repository can advance it**, and until
+T-1368 nothing said so. The cycle:
+
+1. The PR is `dirty`, so GitHub cannot compute a merge ref for it.
+2. The gate runs on `pull_request`, which needs that merge ref — so no gate ever starts
+   and the PR carries **zero check runs**.
+3. `gate` is a required check on `dev`, so GitHub never calls the PR `clean`.
+4. `merge-ready.sh` merges only on `clean`, so it passes over it every time.
+5. `pr-lap.sh` prints `REAL CONFLICT — left alone` and stops, which is correct: it will
+   not hand-merge a file no tool owns.
+
+Six pull requests hit this in two days — #1495 and #1497 (2026-09-19), #1587, #1585, #1584
+and #1590 (2026-09-20). Each needed a person, and the first two merged themselves within
+minutes of a human pushing the merge. The rest of the automation was sound; nobody was
+being told.
+
+**`chicago-4d-pr-stuck.yml` is the telling.** It sweeps the queue on every push to a
+`steward/**` branch — the loop's own heartbeat, and the one trigger that still fires when
+the queue has stopped and nothing is pushing to `dev` — labels such a PR `stuck`, and
+comments once per stuck head with the recipe below. It takes the label back off when
+something moves the PR.
+
+A sweep that cannot SEE the queue fails the job on `dev` and on a dispatch, and only
+annotates on a steward-branch push — because a run started by a push creates a check run on
+that head sha, which there is an open PR's head, and a failing non-required check makes that
+PR `unstable`, which `merge-ready.sh` will never merge. A reporter built to stop pull requests
+rotting must not be the thing that rots one.
+
+It reports and does nothing else. In particular it never touches:
+
+* **a `hold` PR.** That is the owner's park switch, and from outside a held PR is `dirty`
+  with zero checks, i.e. identical. #1533 and #1576 were both mistaken for this deadlock
+  on 2026-09-20.
+* **a PR whose own run is still alive.** #1499 looked exactly like the deadlock and then
+  rebased twice, re-derived, pushed and cleared itself. The branch's `claim/t-nnnn` marker
+  names its run; the reporter asks GitHub whether that run is still going, and anything it
+  cannot read it calls alive.
+* **a PR that is merely `unknown`.** #1518 read `unknown` indefinitely and merged fine.
+* **a PR pushed in the last 45 minutes.** Every open PR goes `dirty` the moment anything
+  merges into `dev` (T-0857). That is the normal state of this queue and the lap is what
+  clears it.
+
+### Clearing one by hand
+
+The hand path stays available and is the second half of the reporter's comment. Some
+conflicts genuinely need a person — #1497 carried 118 resident household cards with drawn
+values on them — and the goal is that such a PR is VISIBLE, never that no PR needs hands.
+
+```bash
+# first, let the lap try: it resolves everything a tool owns
+gh workflow run chicago-4d-pr-lap.yml -f only=<PR number>
+
+# if it printed REAL CONFLICT, the disagreement is about content and wants you
+git fetch origin dev <branch>
+git checkout -B <branch> origin/<branch>
+chicago/4d/tools/setup-merge-drivers.sh      # or the generated files will not resolve
+git merge origin/dev
+#   … resolve the real conflicts …
+( cd chicago/4d \
+  && node tools/rederive.mjs --run \
+  && node tools/ticket.mjs reconcile --base origin/dev \
+  && ./tools/publish.sh )
+git add -A && git commit && git push origin HEAD:<branch>
+```
+
+The push is what produces a merge ref, which produces a gate, which produces `clean`,
+which `merge-ready` takes from there.
+
 ## Running it
 
 ```bash
@@ -195,7 +276,7 @@ gh workflow run chicago-4d-promote-to-prod.yml                   # move it
 ## Proof of life
 
 **2026-08-14** — this line was added on `dev` and nowhere else, as the pipeline's first
-end-to-end proof: it must appear at `/custom/chicago/4d/dev/` while production at
-`/custom/chicago/4d/walk/` is byte-for-byte unchanged. If you are reading it in a file that
+end-to-end proof: it must appear at `/4d/dev/` while production at
+`/4d/` is byte-for-byte unchanged. If you are reading it in a file that
 also exists on `main`, the first promotion has since carried it across, which is the other
 half of the proof.

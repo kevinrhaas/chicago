@@ -1,0 +1,94 @@
+{
+  "id": "rcb_mcguire_physician",
+  "register_id": null,
+  "name": "Dr. J. McGuire, physician",
+  "provenance": "reconstructed",
+  "type": [
+    "physician"
+  ],
+  "trade": "physician",
+  "occupation": "physician",
+  "goods": [
+    "physician"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "John McGuire",
+      "person_id": "rc_mcguire_john",
+      "register_person_id": null,
+      "role": "proprietor",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "ADOPTED, NOT MINTED. John McGuire is the reconstructed trade head the resident band's `trade_households` stage drew at physician in the south division (slot trade_households:persons/male/30_39/south/family/trade:physician:032), and that card says itself that the business band adopts these heads rather than minting its own. One quota, filled once: this house is the establishment that head keeps.",
+      "source_id": null,
+      "claim_ids": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "basis": "A FACE, NOT A PREMISES. The placement rule for a physician kept by a south-division household deals this house onto South Water Street; the face is drawn on the seed printed in `reconstruction.seed` from the faces that rule allows, and no lot, roof or coordinate is claimed. T-1195 writes the placement policy with its evidence and T-1199 seats this house on the lot grid.",
+      "limit_reason": "No source places this house, because no source names it: it exists because the December 1835 State census counts more of its class than the register holds. The street is the reconstruction's own deal and stops there."
+    }
+  ],
+  "dates": {
+    "opened": null,
+    "closed": null,
+    "precision": "unbounded",
+    "tier": "reconstructed",
+    "basis": "NOTHING DATES THIS HOUSE. The census that orders it was taken in December 1835 and counts a standing trade, not an opening; the record claims that the house was trading on 1835-07-01 and nothing about either end."
+  },
+  "evidence": {},
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "irish",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read irish: John McGuire (irish). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "rc_mcguire_john",
+        "name": "John McGuire",
+        "role": "proprietor",
+        "community": "irish",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A register, directory or deed naming a real house of this class in the south division in 1835 — that house takes this slot and this record is withdrawn.",
+  "reconstruction": {
+    "programme": "chicago_1835_business_reconstruction",
+    "group": "professions_and_services",
+    "ticket": "T-1418",
+    "bucket": "businesses/physician",
+    "slot": "professions_and_services:businesses/physician:001",
+    "seed": "professions_and_services:businesses/physician:001",
+    "basis": {
+      "kind": "model",
+      "id": "1835_reconstruction_order_book",
+      "note": "the December 1835 State census prints 14 — a line that counts MEN and not premises (T-1007). The town holds 8 of them at the scene date against 8 register records, and the scene date's population brackets the class between 9 and 13. The book orders to the low end, 9. The book leaves 1 of this class to reconstruct and this is one of them. The style is dealt on the seed printed beside it from the period forms the register itself carries: the form 'Dr. W. G. Austin, botanic physician' prints — the same, with the practice's line after it. The goods line is the trade line the register prints under Dr. J. H. Barnard."
+    },
+    "withdrawn_if": "a source naming a real house of this class, or a re-cut of the order book that no longer orders this bucket; the retirement runs through --build, never by hand"
+  }
+}

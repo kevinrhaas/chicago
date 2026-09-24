@@ -1,0 +1,69 @@
+{
+  "id": "biz_cromelien_brothers_co",
+  "register_id": "business_cromelien_brothers_co",
+  "name": "Cromelien, Brothers & Co.",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "foreign wine and liquor establishment",
+  "occupation": "liquor_dealer",
+  "goods": [
+    "liquors",
+    "wines"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1835-08-05",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "Excluded from the scene-date town: chicago_democrat_1835_08_05#c013 announces this house opening on 1835-08-14, after the scene date — “open a [Branch] of their House in this [place …] from the [Manhattan?] Ho[u]se[…] on the [1]4th inst.”. 'the 14th inst.' in the Democrat of 5 August 1835 is the fourteenth of the current month, 14 August 1835. The New York house is announcing a branch it has not opened yet, six weeks after the scene date. No action; the record is kept so the exclusion can be argued with."
+    }
+  ],
+  "dates": {
+    "opened": "1835-08-14",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "The paper announces the opening: chicago_democrat_1835_08_05#c013 (1835-08-14)."
+  },
+  "evidence": {
+    "first_issue": "1835-08-05",
+    "last_issue": "1835-08-05",
+    "copy_dates": []
+  },
+  "present_at_scene_date": false,
+  "exclusion": "opening_announced_after_scene_date",
+  "exclusion_note": "chicago_democrat_1835_08_05#c013 announces this house opening on 1835-08-14, after the scene date — “open a [Branch] of their House in this [place …] from the [Manhattan?] Ho[u]se[…] on the [1]4th inst.”. 'the 14th inst.' in the Democrat of 5 August 1835 is the fourteenth of the current month, 14 August 1835. The New York house is announcing a branch it has not opened yet, six weeks after the scene date.",
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1835_08_05#c013"
+  ],
+  "liberties": {
+    "survival_required": false,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

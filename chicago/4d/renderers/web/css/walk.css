@@ -100,106 +100,6 @@ html, body {
 }
 .gate-sub { margin: 0 0 18px; color: var(--ink-dim); font-size: 14px; }
 
-/* The town's own completeness, counted from the committed data (T-0036, T-0490).
-   Two rows of ONE shape (T-0782): a headline numeral, a bar filled to what is
-   done, the denominator under it. Stacked rather than side by side because each
-   row now carries a bar, and a bar reads as a proportion only at width. The
-   people bar is segmented by grade in the order the evidence is earned —
-   attested, inferred, reconstructed — so the three grades read as portions of
-   one count filling toward the town's recorded size, not as a separate list.
-   Left-aligned inside a centred card: a bar and its own label have to share an
-   edge or the eye cannot pair them. Tabular numerals so nothing jitters as the
-   counts grow. */
-.gate-census {
-  display: grid;
-  gap: 14px;
-  margin: 0 0 18px;
-  padding: 12px 2px;
-  border-top: 1px solid var(--edge);
-  border-bottom: 1px solid var(--edge);
-  text-align: left;
-}
-.gate-census[hidden] { display: none; }
-.gate-census .gc-row { display: grid; gap: 5px; }
-.gate-census .gc-head {
-  margin: 0;
-  display: flex;
-  align-items: baseline;
-  gap: 7px;
-  flex-wrap: wrap;
-}
-.gate-census .gc-n {
-  font-size: 26px;
-  font-weight: 640;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-}
-.gate-census .gc-l {
-  font-size: 12px;
-  color: var(--ink);
-  letter-spacing: .01em;
-}
-/* The unfilled track is the town still to come, so it must be visible in both
-   themes rather than assumed dark. */
-.gate-census .gc-bar {
-  height: 6px;
-  border-radius: 3px;
-  overflow: hidden;
-  display: flex;
-  background: color-mix(in srgb, var(--ink) 14%, transparent);
-}
-.gate-census .gc-seg { display: block; height: 100%; }
-.gate-census .gc-seg-built { background: var(--accent); }
-.gate-census .gc-seg-att { background: var(--doc); }
-.gate-census .gc-seg-inf { background: var(--inf); }
-.gate-census .gc-seg-rec { background: var(--con); }
-.gate-census .gc-of {
-  margin: 0;
-  font-size: 11px;
-  color: var(--ink-dim);
-  opacity: .85;
-}
-/* The key names the three segments. `reconstructed` is here at zero on purpose —
-   it is the portion still to fill, and the swatch is drawn hollow to say so. */
-.gate-census .gc-key {
-  margin: 1px 0 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px 12px;
-  font-size: 11px;
-  color: var(--ink-dim);
-  font-variant-numeric: tabular-nums;
-}
-.gate-census .gc-key li { display: flex; align-items: center; gap: 5px; }
-.gate-census .gc-sw { width: 8px; height: 8px; border-radius: 2px; display: block; }
-.gate-census .gc-sw-att { background: var(--doc); }
-.gate-census .gc-sw-inf { background: var(--inf); }
-.gate-census .gc-sw-rec { background: transparent; border: 1px solid var(--con); }
-/* The grade hues were authored for a dark panel, where a pale swatch reads as
-   "filled". On the light theme the unfilled track is the DARKER of the two, so a
-   pale fill inverts the whole reading — the bar looks empty where it is full.
-   Deepened against the light theme's own ink rather than respelled as new hex,
-   so the family stays the family and one token change still moves all of it. */
-[data-theme="light"] .gate-census .gc-seg-att,
-[data-theme="light"] .gate-census .gc-sw-att { background: color-mix(in srgb, var(--doc) 52%, var(--ink)); }
-[data-theme="light"] .gate-census .gc-seg-inf,
-[data-theme="light"] .gate-census .gc-sw-inf { background: color-mix(in srgb, var(--inf) 78%, var(--ink)); }
-[data-theme="light"] .gate-census .gc-seg-rec { background: color-mix(in srgb, var(--con) 62%, var(--ink)); }
-/* Placement, not population: these are named residents standing inside a
-   building that stands. It sits under the people row and is never set against
-   the town total. */
-.gate-census .gc-note {
-  margin: 2px 0 0;
-  font-size: 11px;
-  line-height: 1.45;
-  color: var(--ink-dim);
-  opacity: .9;
-}
-
 /* Loading progress. A bar rather than a spinner because the question a visitor
    actually has is "is this stuck?", and only a bar that MOVES answers it. It is
    driven from the real boot stages in main.js, never from a timer. */
@@ -734,6 +634,14 @@ body.is-touch .gate-touch { display: block; }
 [data-theme="light"] .res-role-row.res-role-at,
 [data-theme="light"] .res-role-scene { border-color: color-mix(in srgb, var(--doc) 40%, var(--ink)); }
 [data-theme="light"] .res-role-scene { color: color-mix(in srgb, var(--doc) 30%, var(--ink)); }
+/* The houses a person is named in (T-1432). Built on the roles timeline above
+   because it is the same idea read from the other end — one rule down the left
+   edge a row, and the rule is the GRADE here rather than the scene date, since a
+   partner the register matched to a card and a name it only read out of a firm
+   style are different claims about the same house. */
+.res-workplaces { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; }
+.res-workplaces > li { border-left: 2px solid var(--edge); padding-left: 9px; }
+.res-workplaces .res-role { margin-left: 6px; }
 .res-candidates { margin: 7px 0 0 18px; padding: 0; }
 .res-candidates > li { margin: 0 0 8px; }
 /* The seventeen households this project could not put on a building card. The
@@ -948,6 +856,28 @@ table.attrs td .val { font-variant-numeric: tabular-nums; }
   margin: 4px 0 0;
   font-size: 11.5px; line-height: 1.45; font-style: italic; color: var(--ink-dim);
 }
+
+/* The two numbers are the claim, so they are the thing the eye lands on and the
+   words between them stay small. `ordinary` and `full` are not a range around an
+   estimate — they are two different nights in the same house — which is why they
+   are set apart rather than printed as "9-35". */
+.pop-lodging .lodge-beds {
+  margin: 0 0 6px;
+  font-size: 12.5px; line-height: 1.5; color: var(--ink-dim);
+}
+.pop-lodging .lodge-n { font-size: 17px; font-weight: 600; color: var(--ink); }
+.pop-lodging .lodge-when { margin-left: 4px; }
+.pop-lodging .lodge-sep { margin: 0 7px; opacity: .5; }
+.pop-lodging .lodge-basis { margin: 0 0 6px; font-size: 11.5px; line-height: 1.45; color: var(--ink-dim); }
+.pop-lodging .lodge-empty { margin: 0 0 6px; font-size: 11.5px; line-height: 1.45; font-style: italic; color: var(--ink-dim); }
+.pop-lodging .lodge-empty:last-child { margin-bottom: 0; }
+
+/* Who is in the beds, set like the beds themselves so the eye reads capacity and
+   occupancy as the same kind of number. The empty count is dimmed rather than
+   coloured: a bed nobody has argued for is not a warning, and the sentence under
+   it is what actually says why it is empty. */
+.pop-lodging .lodge-who { margin: 8px 0 6px; font-size: 12.5px; line-height: 1.5; color: var(--ink-dim); }
+.pop-lodging .lodge-short { color: var(--ink-dim); font-weight: 500; }
 
 .pop-residents .res-lead { margin: 0 0 8px; font-size: 12px; color: var(--ink-dim); line-height: 1.45; }
 .pop-residents .res-hh { border-top: 1px solid var(--edge); padding-top: 8px; margin-top: 8px; }

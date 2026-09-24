@@ -1,0 +1,18 @@
+import unreal,json
+from pathlib import Path
+levels=unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
+levels.load_level('/Game/Chicago4D/Maps/Chicago1835_Preview')
+actors=unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_all_level_actors()
+result={'actors':len(actors),'meshes':0,'collision_errors':[],'sample_bounds':{},'spawn':None}
+for a in actors:
+    if isinstance(a,unreal.StaticMeshActor):
+        result['meshes']+=1
+        mesh=a.static_mesh_component.static_mesh
+        flag=str(mesh.get_editor_property('body_setup').get_editor_property('collision_trace_flag'))
+        if a.get_actor_label()!='water' and 'USE_COMPLEX_AS_SIMPLE' not in flag: result['collision_errors'].append(a.get_actor_label())
+        if a.get_actor_label() in ['sauganash_hotel','ground','water']:
+            origin,extent=a.get_actor_bounds(False)
+            result['sample_bounds'][a.get_actor_label()]={'center':[origin.x,origin.y,origin.z],'half_extent':[extent.x,extent.y,extent.z]}
+    if isinstance(a,unreal.PlayerStart):
+        p=a.get_actor_location();result['spawn']=[p.x,p.y,p.z]
+Path('/Users/khaas/Documents/Unreal Projects/Chicago4D_UE/Scripts/verification.json').write_text(json.dumps(result,indent=2))

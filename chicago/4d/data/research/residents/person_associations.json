@@ -1,0 +1,1698 @@
+{
+  "schema": "person_associations/1",
+  "generated_by": "tools/person_associations.py",
+  "_doc": "T-1405. The civic seats, parish acts, agencies, purchased ground and schools this layer can place on a PERSON, and \u2014 the larger half \u2014 every one it refuses to place, with the sentence that refused it. DERIVED: rebuild with --write, and --check refuses a hand-edit or a drift between this file and the rows on the cards.",
+  "scene_date": "1835-07-01",
+  "sources_read": [
+    "data/residents/households/*.json (roles[], church_evidence[])",
+    "data/reconstruction/1835_agencies.json",
+    "data/research/land_sales/resident_crosswalk.json",
+    "data/reconstruction/1835_land_sales_by_tract.json",
+    "docs/RESEARCH/civic_public_buildings_1835.md (the seat table's reading)"
+  ],
+  "counts": {
+    "persons_gaining_rows": 0,
+    "rows_proposed": 0,
+    "rows_by_kind": {},
+    "refusals": 159,
+    "refusals_by_kind": {
+      "agency_held": 2,
+      "church": 16,
+      "civic_seat": 44,
+      "land_purchased": 90,
+      "school": 7
+    },
+    "rows_already_held": 76
+  },
+  "rows_by_person": {},
+  "rows_already_held": [
+    {
+      "person_id": "arnold_levi_f",
+      "key": [
+        "civic_seat",
+        "south_water_and_franklin_corner",
+        "1834"
+      ]
+    },
+    {
+      "person_id": "galaher_thomas",
+      "key": [
+        "civic_seat",
+        "south_water_and_franklin_corner",
+        "1834"
+      ]
+    },
+    {
+      "person_id": "hogan_john_s_c",
+      "key": [
+        "civic_seat",
+        "south_water_and_franklin_corner",
+        "1834"
+      ]
+    },
+    {
+      "person_id": "hogan_john_s_c",
+      "key": [
+        "civic_seat",
+        "south_water_and_franklin_corner",
+        "1834"
+      ]
+    },
+    {
+      "person_id": "taylor_edmund_d",
+      "key": [
+        "civic_seat",
+        "lake_street_east_side_clark_to_dearborn",
+        "1835-05"
+      ]
+    },
+    {
+      "person_id": "whitlock_james",
+      "key": [
+        "civic_seat",
+        "lake_street_east_side_clark_to_dearborn",
+        "1835-05"
+      ]
+    },
+    {
+      "person_id": "beubien_t_b",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1834"
+      ]
+    },
+    {
+      "person_id": "bourassa_mark",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1835-03"
+      ]
+    },
+    {
+      "person_id": "bourque_william",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1835-06"
+      ]
+    },
+    {
+      "person_id": "brannen_w",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1834-07"
+      ]
+    },
+    {
+      "person_id": "carroll_patrick",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1835-04-21"
+      ]
+    },
+    {
+      "person_id": "chevalier_josette",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1835-03"
+      ]
+    },
+    {
+      "person_id": "colewell_m",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1834-06"
+      ]
+    },
+    {
+      "person_id": "faraher_thomas",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1835-04-26"
+      ]
+    },
+    {
+      "person_id": "franchere_l",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1834"
+      ]
+    },
+    {
+      "person_id": "frauner_m",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1834"
+      ]
+    },
+    {
+      "person_id": "hogan_john",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1834-10"
+      ]
+    },
+    {
+      "person_id": "hogan_mary",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1835-04-21"
+      ]
+    },
+    {
+      "person_id": "long_john",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1835-04-26"
+      ]
+    },
+    {
+      "person_id": "meleney_patrick",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1835-04-21"
+      ]
+    },
+    {
+      "person_id": "murphy_n",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1834"
+      ]
+    },
+    {
+      "person_id": "rogers_bridget",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1835-04-26"
+      ]
+    },
+    {
+      "person_id": "witkins_thomas",
+      "key": [
+        "church",
+        "st_marys_church",
+        "1835-04-21"
+      ]
+    },
+    {
+      "person_id": "pearsons_hiram",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "carpenter_philo",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "kinzie_james",
+      "key": [
+        "land_purchased",
+        "canal_section_9_remainder",
+        "1830-09-28"
+      ]
+    },
+    {
+      "person_id": "wolcott_alexander",
+      "key": [
+        "land_purchased",
+        "canal_section_9_remainder",
+        "1830-09-29"
+      ]
+    },
+    {
+      "person_id": "kinzie_robert_a",
+      "key": [
+        "land_purchased",
+        "kinzies_addition",
+        "1831-05-07"
+      ]
+    },
+    {
+      "person_id": "beaubien_mark",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-25"
+      ]
+    },
+    {
+      "person_id": "blanchard_f_gantry",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "blanchard_f_gantry",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "botsford_j_k",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-24"
+      ]
+    },
+    {
+      "person_id": "bowen_erastus_selden",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-23"
+      ]
+    },
+    {
+      "person_id": "boyer_j_k",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "bronson_arthur",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "carver_david",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-25"
+      ]
+    },
+    {
+      "person_id": "casey_edward_w",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-24"
+      ]
+    },
+    {
+      "person_id": "chapman_chas_h",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "clybourne_archibald",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "cole_parker_m",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "cook_josiah_p",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-25"
+      ]
+    },
+    {
+      "person_id": "cook_thomas",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-24"
+      ]
+    },
+    {
+      "person_id": "dole_george_w",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "foot_john",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "foot_s",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "fullerton_alexander",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-24"
+      ]
+    },
+    {
+      "person_id": "inf_physician_south_01",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-25"
+      ]
+    },
+    {
+      "person_id": "goodrich_ebenezer",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "haddock_edward",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "haddock_edward",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-25"
+      ]
+    },
+    {
+      "person_id": "hamilton_richard_j",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "harmon_charles_l",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "harmon_isaac_d",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "heacock_russel_e",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "hubbard_gurdon",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "ingersoll_chester",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-24"
+      ]
+    },
+    {
+      "person_id": "jones_benjamin",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "jones_willard",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "kimball_walter",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-25"
+      ]
+    },
+    {
+      "person_id": "kimberly_edmund_s",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-25"
+      ]
+    },
+    {
+      "person_id": "knickerbacker_a_v",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "lloyd_alexander",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "mulford_james_h",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-25"
+      ]
+    },
+    {
+      "person_id": "noble_john",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "owen_thomas_jv",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-23"
+      ]
+    },
+    {
+      "person_id": "peck_philip",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-23"
+      ]
+    },
+    {
+      "person_id": "pruyne_peter",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-25"
+      ]
+    },
+    {
+      "person_id": "pruyne_peter",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-24"
+      ]
+    },
+    {
+      "person_id": "inf_joiner_north_02",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-25"
+      ]
+    },
+    {
+      "person_id": "sherman_silas_w",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-24"
+      ]
+    },
+    {
+      "person_id": "snow_george_w",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-24"
+      ]
+    },
+    {
+      "person_id": "steele_ashbel",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "temple_john_t",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "west_henry_c",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-25"
+      ]
+    },
+    {
+      "person_id": "wright_truman_g",
+      "key": [
+        "land_purchased",
+        "school_section",
+        "1833-10-22"
+      ]
+    },
+    {
+      "person_id": "watkins_john",
+      "key": [
+        "school",
+        "north_side_school_1833",
+        "1835"
+      ]
+    }
+  ],
+  "refusals": [
+    {
+      "kind": "civic_seat",
+      "person_id": "beaubien_jean_baptiste",
+      "household_id": "hh_beaubien_jean_baptiste",
+      "office": "public_administrator",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "beaubien_jean_baptiste",
+      "household_id": "hh_beaubien_jean_baptiste",
+      "office": "militia_officer",
+      "body": "cook_county_regiment",
+      "why": "A MILITIA COMMISSION IS NOT A PLACE. Nothing reached seats the Cook County regiment in a building, and the dataset holds none for it."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "beaubien_mark",
+      "household_id": "hh_beaubien_mark",
+      "office": "lighthouse_keeper",
+      "body": "united_states_treasury",
+      "why": "The role itself is dated 1843 to 1843 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "bowen_erastus_selden",
+      "household_id": "hh_bowen_erastus_selden",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "brown_william_h",
+      "household_id": "hh_brown_william_h",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "davis_george",
+      "household_id": "hh_davis_george",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "dole_george_w",
+      "household_id": "hh_dole_george_w",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "elston_daniel",
+      "household_id": "hh_elston_daniel",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "forbes_stephen",
+      "household_id": "hh_forbes_stephen",
+      "office": "sheriff",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "forbes_stephen",
+      "household_id": "hh_forbes_stephen",
+      "office": "sheriff",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "hamilton_richard_j",
+      "household_id": "hh_hamilton_richard_j",
+      "office": "county_clerk",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "hamilton_richard_j",
+      "household_id": "hh_hamilton_richard_j",
+      "office": "county_clerk",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "hamilton_richard_j",
+      "household_id": "hh_hamilton_richard_j",
+      "office": "justice_of_the_peace",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "harmon_isaac_d",
+      "household_id": "hh_harmon_brothers",
+      "office": "justice_of_the_peace",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "harmon_isaac_d",
+      "household_id": "hh_harmon_brothers",
+      "office": "town_clerk",
+      "body": "town_of_chicago",
+      "why": "THE TOWN HAD NO HALL. `chicago_town_hall` is one of the three guards `civic_public_buildings_1835.md` \u00a7 4 added to data/exclusions.json precisely so that the next parcel would not build one. A town trustee met where he met; no source reached says where."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "heacock_russel_e",
+      "household_id": "hh_heacock_russel_e",
+      "office": "justice_of_the_peace",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "kercheval_gholson",
+      "household_id": "hh_kercheval_gholson",
+      "office": "sub_agent",
+      "body": "united_states_indian_department",
+      "why": "THE COUNCIL HOUSE IS A COUNCIL HOUSE AND NOT AN OFFICE, and this is the one refusal in this table that had to be argued rather than found. It is the only Indian-department roof the dataset holds, which is exactly what makes the inference tempting; `data/structures/council_house.json` refuses it in its own words \u2014 'Both sources name the building by its function and neither describes what happened inside it in a way this record repeats' \u2014 and the record is `review_required` under AGENTS.md's standing constraint on the removal. Seating an agent's office inside it would put a man to work in a building whose record declines to say what happened in it. T-1204 is the ticket that builds the Agency establishment; a seat waits for it."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "kinzie_john_h",
+      "household_id": "hh_kinzie_john_h",
+      "office": "town_president",
+      "body": "town_of_chicago",
+      "why": "THE TOWN HAD NO HALL. `chicago_town_hall` is one of the three guards `civic_public_buildings_1835.md` \u00a7 4 added to data/exclusions.json precisely so that the next parcel would not build one. A town trustee met where he met; no source reached says where."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "kinzie_john_h",
+      "household_id": "hh_kinzie_john_h",
+      "office": "land_office_register",
+      "body": "united_states_land_office",
+      "why": "The role itself is dated 1844 to 1844 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "loyd_alexander",
+      "household_id": "hh_loyd_alexander",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1840 to 1840 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "miller_john",
+      "household_id": "hh_miller_john",
+      "office": "fire_warden",
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "murphy_john",
+      "household_id": "hh_murphy_john",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "nelson_john_m",
+      "household_id": "hh_nelson_john_m",
+      "office": "sheriff",
+      "body": "cook_county",
+      "why": "The role itself is dated 1864 to 1864 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "ogden_w_b",
+      "household_id": "hh_ogden_w_b",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1837 to 1837 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "owen_thomas_jv",
+      "household_id": "hh_owen_thomas_jv",
+      "office": "indian_agent",
+      "body": "united_states_indian_department",
+      "why": "THE COUNCIL HOUSE IS A COUNCIL HOUSE AND NOT AN OFFICE, and this is the one refusal in this table that had to be argued rather than found. It is the only Indian-department roof the dataset holds, which is exactly what makes the inference tempting; `data/structures/council_house.json` refuses it in its own words \u2014 'Both sources name the building by its function and neither describes what happened inside it in a way this record repeats' \u2014 and the record is `review_required` under AGENTS.md's standing constraint on the removal. Seating an agent's office inside it would put a man to work in a building whose record declines to say what happened in it. T-1204 is the ticket that builds the Agency establishment; a seat waits for it."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "owen_thomas_jv",
+      "household_id": "hh_owen_thomas_jv",
+      "office": "indian_agent",
+      "body": "united_states_indian_department",
+      "why": "THE COUNCIL HOUSE IS A COUNCIL HOUSE AND NOT AN OFFICE, and this is the one refusal in this table that had to be argued rather than found. It is the only Indian-department roof the dataset holds, which is exactly what makes the inference tempting; `data/structures/council_house.json` refuses it in its own words \u2014 'Both sources name the building by its function and neither describes what happened inside it in a way this record repeats' \u2014 and the record is `review_required` under AGENTS.md's standing constraint on the removal. Seating an agent's office inside it would put a man to work in a building whose record declines to say what happened in it. T-1204 is the ticket that builds the Agency establishment; a seat waits for it."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "owen_thomas_jv",
+      "household_id": "hh_owen_thomas_jv",
+      "office": "town_president",
+      "body": "town_of_chicago",
+      "why": "THE TOWN HAD NO HALL. `chicago_town_hall` is one of the three guards `civic_public_buildings_1835.md` \u00a7 4 added to data/exclusions.json precisely so that the next parcel would not build one. A town trustee met where he met; no source reached says where."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "owen_thomas_jv",
+      "household_id": "hh_owen_thomas_jv",
+      "office": "indian_agent",
+      "body": "united_states_indian_department",
+      "why": "THE COUNCIL HOUSE IS A COUNCIL HOUSE AND NOT AN OFFICE, and this is the one refusal in this table that had to be argued rather than found. It is the only Indian-department roof the dataset holds, which is exactly what makes the inference tempting; `data/structures/council_house.json` refuses it in its own words \u2014 'Both sources name the building by its function and neither describes what happened inside it in a way this record repeats' \u2014 and the record is `review_required` under AGENTS.md's standing constraint on the removal. Seating an agent's office inside it would put a man to work in a building whose record declines to say what happened in it. T-1204 is the ticket that builds the Agency establishment; a seat waits for it."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "owen_thomas_jv",
+      "household_id": "hh_owen_thomas_jv",
+      "office": "town_president",
+      "body": "town_of_chicago",
+      "why": "THE TOWN HAD NO HALL. `chicago_town_hall` is one of the three guards `civic_public_buildings_1835.md` \u00a7 4 added to data/exclusions.json precisely so that the next parcel would not build one. A town trustee met where he met; no source reached says where."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "owen_thomas_jv",
+      "household_id": "hh_owen_thomas_jv",
+      "office": "indian_agent",
+      "body": "united_states_indian_department",
+      "why": "THE COUNCIL HOUSE IS A COUNCIL HOUSE AND NOT AN OFFICE, and this is the one refusal in this table that had to be argued rather than found. It is the only Indian-department roof the dataset holds, which is exactly what makes the inference tempting; `data/structures/council_house.json` refuses it in its own words \u2014 'Both sources name the building by its function and neither describes what happened inside it in a way this record repeats' \u2014 and the record is `review_required` under AGENTS.md's standing constraint on the removal. Seating an agent's office inside it would put a man to work in a building whose record declines to say what happened in it. T-1204 is the ticket that builds the Agency establishment; a seat waits for it."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "pierce_asahel",
+      "household_id": "hh_pierce_asahel",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "price_jeremiah",
+      "household_id": "hh_price_jeremiah",
+      "office": "fire_warden",
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "salisbury_stephen_m",
+      "household_id": "hh_salisbury_stephen_m",
+      "office": "justice_of_the_peace",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "scott_john",
+      "household_id": "hh_scott_john",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "sherman_silas_w",
+      "household_id": "hh_sherman_silas_w",
+      "office": "sheriff",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "smith_jeremiah",
+      "household_id": "hh_smith_jeremiah",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "snow_george_w",
+      "household_id": "hh_snow_george_w",
+      "office": "public_administrator",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "snow_george_w",
+      "household_id": "hh_snow_george_w",
+      "office": "town_clerk",
+      "body": "town_of_chicago",
+      "why": "THE TOWN HAD NO HALL. `chicago_town_hall` is one of the three guards `civic_public_buildings_1835.md` \u00a7 4 added to data/exclusions.json precisely so that the next parcel would not build one. A town trustee met where he met; no source reached says where."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "steele_ashbel",
+      "household_id": "hh_steele_ashbel",
+      "office": "sheriff",
+      "body": "cook_county",
+      "why": "The role itself is dated 1840 to 1840 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "stillman_josiah",
+      "household_id": "hh_stillman_josiah",
+      "office": "militia_officer",
+      "body": "cook_county_regiment",
+      "why": "A MILITIA COMMISSION IS NOT A PLACE. Nothing reached seats the Cook County regiment in a building, and the dataset holds none for it."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "stow_william_h",
+      "household_id": "hh_stow_william_h",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "taylor_edmund_d",
+      "household_id": "hh_taylor_edmund_d",
+      "office": "land_office_receiver",
+      "body": "united_states_land_office",
+      "why": "The role itself is dated 1835-07-08 to 1835-07-29 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "thompson_o_i",
+      "household_id": "hh_thompson_o_i",
+      "office": null,
+      "body": "city_of_chicago",
+      "why": "The role itself is dated 1839 to 1839 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "walker_james",
+      "household_id": "hh_walker_james",
+      "office": "justice_of_the_peace",
+      "body": "cook_county",
+      "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
+    },
+    {
+      "kind": "church",
+      "person_id": "andrews_julian",
+      "household_id": "hh_andrews_julian",
+      "record_id": "st_cyr_death_06_1",
+      "why": "The register dates this act 1835-07-17, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "baptist_john",
+      "household_id": "hh_baptist_john",
+      "record_id": "st_cyr_death_05_1",
+      "why": "The register dates this act 1835-07-02, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "bourrassa_leon",
+      "household_id": "hh_bourrassa_leon",
+      "record_id": "st_cyr_death_05_2",
+      "why": "The register dates this act 1835-07-02, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "fitzgerald_thos",
+      "household_id": "hh_fitzgerald_thos",
+      "record_id": "st_cyr_marriage_065_3",
+      "why": "The register dates this act 1837-12-14, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "green_mary",
+      "household_id": "hh_green_mary",
+      "record_id": "st_cyr_marriage_008_2",
+      "why": "The register dates this act 1835-08-29, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "kulozjcky_john",
+      "household_id": "hh_kulozjcky_john",
+      "record_id": "st_cyr_marriage_009_4",
+      "why": "The register dates this act 1835-10-01, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "latzky_john",
+      "household_id": "hh_latzky_john",
+      "record_id": "st_cyr_marriage_009_1",
+      "why": "The register dates this act 1835-10-01, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "lee_george",
+      "household_id": "hh_lee_george",
+      "record_id": "st_cyr_marriage_009_3",
+      "why": "The register dates this act 1835-10-01, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "morris_potily",
+      "household_id": "hh_morris_potily",
+      "record_id": "st_cyr_marriage_009_2",
+      "why": "The register dates this act 1835-10-01, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "nolan_michael",
+      "household_id": "hh_nolan_michael",
+      "record_id": "st_cyr_marriage_008_1",
+      "why": "The register dates this act 1835-08-29, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "nolan_michael",
+      "household_id": "hh_nolan_michael",
+      "record_id": "st_cyr_marriage_008_3",
+      "why": "The register dates this act 1835-08-29, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "owen_thomas_jv",
+      "household_id": "hh_owen_thomas_jv",
+      "record_id": "st_cyr_death_07_1",
+      "why": "The register dates this act 1835-10-15, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "smith_lawrence",
+      "household_id": "hh_smith_lawrence",
+      "record_id": "st_cyr_marriage_010_1",
+      "why": "The register dates this act 1835-10-27, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "wellmaker_john",
+      "household_id": "hh_wellmaker_john",
+      "record_id": "st_cyr_marriage_011_6",
+      "why": "The register dates this act 1836-04-04, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "welsh_mary",
+      "household_id": "hh_welsh_mary",
+      "record_id": "st_cyr_marriage_010_2",
+      "why": "The register dates this act 1835-10-27, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "welsh_t",
+      "household_id": "hh_welsh_t",
+      "record_id": "st_cyr_marriage_010_4",
+      "why": "The register dates this act 1835-10-27, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "agency_held",
+      "holder": "Hubbard & Co.",
+      "holder_id": "business_hubbard_co",
+      "why": "The holder is a firm and not a person; a business's agency belongs on the business layer, which data/reconstruction/1835_agencies.json already carries it to."
+    },
+    {
+      "kind": "agency_held",
+      "holder": "E. K. Hubbard",
+      "holder_id": "person_e_k_hubbard",
+      "household_id": "hh_hubbard_elijah_kent",
+      "why": "THE HOLDING NAMES NO PREMISES, AND THE AGENCY FILE REFUSES THE OBVIOUS SUBSTITUTE IN ITS OWN WORDS. Its caveat reads 'A holding is a relation and nothing more. Nothing here says this holder dealt in the principal's line, kept a roof for it, or was a partner in any house that signed for it', and the firm holding's note says what the relation gains a card: 'a line on its card and nothing else \u2014 no trade, no street, no roof'. Seating the agency at the man's own house or his old firm's roof would be exactly the claim those two sentences refuse. `associated_with[]` is defined over claims with a place; this claim has none, so it has no row. It is not lost: the agency file carries it, and the town card prints it."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "clark_john_k",
+      "purchaser_as_read": "CLARK JOHN K",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "elston_daniel",
+      "purchaser_as_read": "ELSTON DANIEL",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "blanchard_f_gantry",
+      "purchaser_as_read": "BLANCHARD GURTREY",
+      "why": "The crosswalk's match is named, and that file says of itself: 'PROPOSALS, not identities. Nothing here mints a resident'. Only an ADJUDICATED match may reach a card."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "brown_william_h",
+      "purchaser_as_read": "BROWN WILLIAM H",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "bennett_william",
+      "purchaser_as_read": "BENNETT WILLIAM",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "ludby_john",
+      "purchaser_as_read": "LUDBY JOHN",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "harmon_elijah_d",
+      "purchaser_as_read": "HARMON ELIJAH D",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "beaubien_jean_baptiste",
+      "purchaser_as_read": "BEAUBIEN J B",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "heacock_russel_e",
+      "purchaser_as_read": "HEACOCK RUSSELL E",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "kimberly_edmund_s",
+      "purchaser_as_read": "KIMBERLY EDMUND S",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "smith_jeremiah",
+      "purchaser_as_read": "SMITH J",
+      "why": "The crosswalk's match is unruled, and that file says of itself: 'PROPOSALS, not identities. Nothing here mints a resident'. Only an ADJUDICATED match may reach a card."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "smith_jeremiah",
+      "purchaser_as_read": "SMITH JEREMIAH",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "price_jeremiah",
+      "purchaser_as_read": "PRICE JEREMIAH",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "wright_truman_g",
+      "purchaser_as_read": "WRIGHT TRUMAN G",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "andrews_william",
+      "purchaser_as_read": "ANDREWS WILLIAM",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "inf_tavern_keeper_north_01",
+      "purchaser_as_read": "SHRIGLEY JOHN",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "reed_thomas",
+      "purchaser_as_read": "REED THOMAS",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "taylor_edmund_d",
+      "purchaser_as_read": "TAYLOR EDMUND D",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "davis_george",
+      "purchaser_as_read": "DAVIS GEORGE",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "taylor_anson_h",
+      "purchaser_as_read": "TAYLOR ANSON H",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "hunter_edward_e",
+      "purchaser_as_read": "HUNTER EDWARD E",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "king_j_d",
+      "purchaser_as_read": "KING JEREMIAH",
+      "why": "The crosswalk's match is unruled, and that file says of itself: 'PROPOSALS, not identities. Nothing here mints a resident'. Only an ADJUDICATED match may reach a card."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "newberry_walter_loomis",
+      "purchaser_as_read": "NEWBERRY WALTER L",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "marsh_silvester",
+      "purchaser_as_read": "MARSH SYLVESTER",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "handy_henry_s",
+      "purchaser_as_read": "HANDY HENRY S",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "hubbard_elijah_kent",
+      "purchaser_as_read": "HUBBARD ELIJAH K",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "egan_william_b",
+      "purchaser_as_read": "EGAN WILLIAM B",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "whitlock_james",
+      "purchaser_as_read": "WHITLOCK JAMES",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "montgomery_l_w",
+      "purchaser_as_read": "MONTGOMERY LOTON WM",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "montgomery_l_w",
+      "purchaser_as_read": "MONTGOMERY LOTON W",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "breese_judge_sidney",
+      "purchaser_as_read": "BREESE SIDNEY",
+      "why": "The crosswalk's match is unruled, and that file says of itself: 'PROPOSALS, not identities. Nothing here mints a resident'. Only an ADJUDICATED match may reach a card."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "campbell_james_b",
+      "purchaser_as_read": "CAMPBELL JAMES B",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "merrill_george_w",
+      "purchaser_as_read": "MERRILL GEO W",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "merrill_george_w",
+      "purchaser_as_read": "MERRILL GEORGE W",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "blanchard_f_gantry",
+      "purchaser_as_read": "BLANCHARD FRANCIS G",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "jamison_l_t",
+      "purchaser_as_read": "JAMISON LOUIS T",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "pearsons_hiram",
+      "purchaser_as_read": "PEARSONS H",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "harmon_charles_l",
+      "purchaser_as_read": "HARMON CHAS L",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "barry_j_r",
+      "purchaser_as_read": "BARRY JOHN R",
+      "why": "The crosswalk's match is unruled, and that file says of itself: 'PROPOSALS, not identities. Nothing here mints a resident'. Only an ADJUDICATED match may reach a card."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "archer_william_b",
+      "purchaser_as_read": "ARCHER WILLIAM B",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "frame_david_p",
+      "purchaser_as_read": "FRAME DAVID P",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "dill_frank",
+      "purchaser_as_read": "DILL FRANK",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "hunter_edward_e",
+      "purchaser_as_read": "HUNTER E E",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "allen_lieut_james",
+      "purchaser_as_read": "ALLEN JAMES",
+      "why": "The crosswalk's match is unruled, and that file says of itself: 'PROPOSALS, not identities. Nothing here mints a resident'. Only an ADJUDICATED match may reach a card."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "bailey_amos",
+      "purchaser_as_read": "BAILEY AMOS",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "botsford_j_k",
+      "purchaser_as_read": "BOTSFORD J K",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "carpenter_philo",
+      "purchaser_as_read": "CARPENTER P",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "egan_william_b",
+      "purchaser_as_read": "EGAN W B",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "egan_william_b",
+      "purchaser_as_read": "EGAN WILLIAM",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "fullerton_alexander",
+      "purchaser_as_read": "FULLERTON A N",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "funk_absolom",
+      "purchaser_as_read": "FUNK ABSALOM",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "garrett_a",
+      "purchaser_as_read": "GARRETT A",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "garrett_a",
+      "purchaser_as_read": "GARRETT AUGUST",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "inf_physician_south_01",
+      "purchaser_as_read": "GOODHUE J C",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "grant_james",
+      "purchaser_as_read": "GRANT JAMES",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "hamilton_richard_j",
+      "purchaser_as_read": "HAMILTON R J",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "hubbard_elijah_kent",
+      "purchaser_as_read": "HUBBARD E K",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "hubbard_gurdon",
+      "purchaser_as_read": "HUBBARD GORDON S",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "hubbard_henry_g",
+      "purchaser_as_read": "HUBBARD H G",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "hugunin_hiram",
+      "purchaser_as_read": "HUGUNIN H",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "hugunin_hiram",
+      "purchaser_as_read": "HUGUNIN HIRAM",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "kimberly_edmund_s",
+      "purchaser_as_read": "KIMBERLY E S",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "king_tuthill",
+      "purchaser_as_read": "KING TUTHILL",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "kinzie_robert_a",
+      "purchaser_as_read": "KINZIE ROBERT",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "loyd_alexander",
+      "purchaser_as_read": "LOYD A",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "marsh_silvester",
+      "purchaser_as_read": "MARSH S",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "mckee_david",
+      "purchaser_as_read": "MCKEE DAVID",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "merrill_george_w",
+      "purchaser_as_read": "MERRILL G W",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "montgomery_w",
+      "purchaser_as_read": "MONTGOMERY WILLIAM",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "morris_b_s",
+      "purchaser_as_read": "MORRIS B S",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "morrison_james_m",
+      "purchaser_as_read": "MORRISON J M",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "mulford_james_h",
+      "purchaser_as_read": "MULFORD J H",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "newberry_walter_loomis",
+      "purchaser_as_read": "NEWBERRY W L",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "ogden_w_b",
+      "purchaser_as_read": "OGDEN WILLIAM B",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "pearsons_hiram",
+      "purchaser_as_read": "PEARSON HIRAM",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "price_jeremiah",
+      "purchaser_as_read": "PRICE JERE",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "sherman_silas_w",
+      "purchaser_as_read": "SHERMAN S W",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "spring_giles",
+      "purchaser_as_read": "SPRING GILES",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "stewart_r",
+      "purchaser_as_read": "STEWART ROYAL",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "taylor_augustine",
+      "purchaser_as_read": "TAYLOR A D",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "taylor_edmund_d",
+      "purchaser_as_read": "TAYLOR E D",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "temple_john_t",
+      "purchaser_as_read": "TEMPLE J T",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "trowbridge_s_g",
+      "purchaser_as_read": "TROWBRIDGE S G",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "walker_george_h",
+      "purchaser_as_read": "WALKER G H",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "walker_george_h",
+      "purchaser_as_read": "WALKER GEORGE H",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "walker_james",
+      "purchaser_as_read": "WALKER JAMES",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "wellmaker_john",
+      "purchaser_as_read": "WELLMAKER JOHN",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "williams_eli_b",
+      "purchaser_as_read": "WILLIAMS ELI B",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": "woodworth_james_h",
+      "purchaser_as_read": "WOODWORTH J H",
+      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+    },
+    {
+      "kind": "land_purchased",
+      "person_id": null,
+      "why": "379 register row(s) of upheld purchasers are not in the tract sort's `sorted` list at all, so this module has no ground to name for them. The reasons are that file's own: `refusals.town_plat_lots`, `refusals.outside_the_modelled_ground`, `refusals.description_not_read` and `refusals.no_ring_and_no_citation`."
+    },
+    {
+      "kind": "school",
+      "person_id": "crocker_h",
+      "household_id": "hh_crocker_h",
+      "why": "The press and the directories print the trade against the name and not the room. No source reached names a building this teacher taught in, and the dataset's three school records name a teacher between them only where the seat table already says so."
+    },
+    {
+      "kind": "school",
+      "person_id": "everts_hiram",
+      "household_id": "hh_everts_hiram",
+      "why": "The press and the directories print the trade against the name and not the room. No source reached names a building this teacher taught in, and the dataset's three school records name a teacher between them only where the seat table already says so."
+    },
+    {
+      "kind": "school",
+      "person_id": "hunt_charles_cotesworth_pinckney",
+      "household_id": "hh_hunt_charles_cotesworth_pinckney",
+      "why": "The press and the directories print the trade against the name and not the room. No source reached names a building this teacher taught in, and the dataset's three school records name a teacher between them only where the seat table already says so."
+    },
+    {
+      "kind": "school",
+      "person_id": "lewis_samuel",
+      "household_id": "hh_lewis_samuel",
+      "why": "The press and the directories print the trade against the name and not the room. No source reached names a building this teacher taught in, and the dataset's three school records name a teacher between them only where the seat table already says so."
+    },
+    {
+      "kind": "school",
+      "person_id": "marshall_j_a",
+      "household_id": "hh_marshall_j_a",
+      "why": "The press and the directories print the trade against the name and not the room. No source reached names a building this teacher taught in, and the dataset's three school records name a teacher between them only where the seat table already says so."
+    },
+    {
+      "kind": "school",
+      "person_id": "porter_eliza_chappel",
+      "household_id": "hh_porter_jeremiah",
+      "why": "The press and the directories print the trade against the name and not the room. No source reached names a building this teacher taught in, and the dataset's three school records name a teacher between them only where the seat table already says so."
+    },
+    {
+      "kind": "school",
+      "person_id": "sproat_grenville",
+      "household_id": "hh_sproat_grenville",
+      "why": "The press and the directories print the trade against the name and not the room. No source reached names a building this teacher taught in, and the dataset's three school records name a teacher between them only where the seat table already says so."
+    }
+  ]
+}

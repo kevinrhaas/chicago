@@ -1,0 +1,36 @@
+{
+  "id": "clapboard_whitewash",
+  "group": "walls",
+  "span_m": 4.48,
+  "confidence": "attested where recorded",
+  "mean_roughness": 0.9,
+  "kind": "clapboard",
+  "colors": [
+    [
+      211,
+      207,
+      188
+    ],
+    [
+      165,
+      160,
+      143
+    ]
+  ],
+  "note": "Chalky lime wash over visible clapboard substrate; not a default finish.",
+  "resolution_px": 1024,
+  "px_per_m": 228.57,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18350798,
+  "generation_method": "deterministic procedural synthesis"
+}

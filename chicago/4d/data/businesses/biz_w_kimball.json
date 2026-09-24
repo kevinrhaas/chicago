@@ -1,0 +1,130 @@
+{
+  "id": "biz_w_kimball",
+  "register_id": "business_w_kimball",
+  "name": "W. Kimball",
+  "provenance": "compiled_from_register",
+  "type": [
+    "store"
+  ],
+  "trade": "dry goods, crockery, hardware and cutlery",
+  "occupation": "dry_goods_merchant",
+  "goods": [
+    "Blankets",
+    "Caps",
+    "Cotton Batting",
+    "Crockery",
+    "Cutlery",
+    "Dry Goods",
+    "Glass Ware",
+    "Hardware",
+    "Sheeting",
+    "Sheeting and Shirting",
+    "Shirting",
+    "Wicking",
+    "Yarn",
+    "blankets",
+    "caps",
+    "cotton batting",
+    "cotton batting, yarn and wicking",
+    "crockery",
+    "crockery and glass ware",
+    "cutlery",
+    "fancy and staple dry goods",
+    "glass ware",
+    "hardware",
+    "hardware and cutlery",
+    "men's and boys' fur and cloth caps",
+    "sheeting",
+    "sheeting and shirting",
+    "shirting",
+    "wicking",
+    "yarn"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "W. Kimball",
+      "person_id": "kimball_walter",
+      "register_person_id": "person_w_kimball",
+      "role": "proprietor",
+      "from": "1833-11-26",
+      "to": "1834-06-04",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card kimball_walter (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1833_11_26#c012",
+        "chicago_democrat_1834_02_18#c007",
+        "chicago_democrat_1834_03_18#c004",
+        "chicago_democrat_1834_06_04#c020"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "chicago_democrat_office",
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1833-11-26",
+      "to": null,
+      "tier": "attested",
+      "basis": "The register matches this business onto the committed structure chicago_democrat_office on its occupants. chicago_democrat_office already stands and its occupants carries kimball — \"and; on the reading argued here; W. Kimball's new dry-goods store\". The papers add trade, goods and dates to a record that exists.",
+      "limit_reason": null
+    }
+  ],
+  "dates": {
+    "opened": "1833-11-26",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1833-11-26, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1833-11-26",
+    "last_issue": "1834-06-04",
+    "copy_dates": [
+      "1833-11-01",
+      "1833-11-26"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "new_york",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: W. Kimball (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "kimball_walter",
+        "name": "W. Kimball",
+        "role": "proprietor",
+        "community": "new_york",
+        "tier": "inferred"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1833_11_26#c012",
+    "chicago_democrat_1834_02_18#c007",
+    "chicago_democrat_1834_03_18#c004",
+    "chicago_democrat_1834_06_04#c020"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

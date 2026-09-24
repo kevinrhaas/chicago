@@ -48,10 +48,12 @@ on:
     branches: [dev, main]
     paths:
       - 'chicago/4d/**'
+      - 'chicago/reference/**'
       - '.github/workflows/**'
   pull_request:
     paths:
       - 'chicago/4d/**'
+      - 'chicago/reference/**'
       - '.github/workflows/**'
   workflow_dispatch:
 
@@ -82,6 +84,10 @@ jobs:
       - name: Install validator dependencies
         run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
 
+      - name: How many cores this runner has
+        id: jobs
+        run: echo "n=$(nproc)" >> "$GITHUB_OUTPUT"
+
       - name: Run the gate
         working-directory: chicago/4d
         env:
@@ -93,6 +99,19 @@ jobs:
           # skip as a pass. tools/check_rulings_not_lost.py --self-test asserts that
           # both of these lines are still here.
           C4D_GATE_REQUIRE_BASE: '1'
+          # T-1289. THE RUNNER'S CORES, USED. The gate's 489 steps are independent
+          # read-only checks and ran one at a time: 775 s, of which 76 % of the steps
+          # cost under a second each and the slowest twenty were half the clock. With a
+          # pool it is 251 s on four cores, same verdict, same transcript, same order —
+          # the harness's own test holds it to all three.
+          #
+          # This is not a convenience. Every merge into dev makes every other open PR
+          # `dirty`, so a PR's gate IS the window in which it can be overtaken, and on
+          # 2026-09-18 three PRs cost nine dev merges between them — four of those on
+          # one PR overtaken three times while its gate ran. `nproc` rather than a
+          # number because the runner decides, and CHECK_JOBS=1 anywhere restores the
+          # old path exactly if a step ever turns out to share state with another.
+          CHECK_JOBS: ${{ steps.jobs.outputs.n }}
         run: ./tools/check.sh
 
       # T-0409 — deliberately NOT inside check.sh. The nightly bake regenerates

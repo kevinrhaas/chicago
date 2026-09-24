@@ -227,6 +227,55 @@
           "grade": "attested",
           "occupation": "tavern_keeper",
           "note": "A DOCUMENTED RESIDENT IN A CONTEMPORARY NEWSPAPER, which is worth more than any amount of Andreas. Two further things fix him in the town in this period: his house was the district polling place on 9 December 1833, and a travelling ventriloquist named Kenworthy advertised in the Democrat of 10 June 1834 the close of an engagement at 'the Travelers' Home, a hotel kept by Chester Ingersoll, on Wolf Point'. THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 2 times, as “INGERSOLL CHESTER”, 1833-10-24 to 1835-06-26: 1 federal land entry — SW sec 28 T39N R13E and 1 parcel of the school section — BL37 of the school section (sec 16 T39N R14E), as read, 163.79 acres stated in all, for $253.10 (ls0246, ls0849). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: INGERSOLL CHESTER matches Chester Ingersoll: the forename names Chester Ingersoll of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        },
+        {
+          "name": "Martha Ingersoll",
+          "relationship": "wife",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Ira Ingersoll",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Emily Ingersoll",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Nathaniel Ingersoll",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Abigail Ingersoll",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Abner Ingersoll",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Calvin Ingersoll",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
         }
       ],
       "research_note": "A TAVERN KEEPER WHO MOVED HOUSE INSIDE THE DATASET'S OWN WINDOW, which is why the two buildings he is attached to must not be collapsed. In 1833-34 he kept the old Wolf Point house under the sign of the Travelers' Home; by the scene date this project's building record has him at the Green Tree. Both are in data/structures/ and only the second is linked here. THE ARRIVAL IS A NEWSPAPER DATE, NOT A JOURNEY: 4 October 1833 is when his copy was dated, and it bounds his arrival from above and not at all from below."
@@ -319,5 +368,25 @@
   ],
   "research_note": "THE BEST-DOCUMENTED BUILDING IN THIS DATASET, and it is documented from the inside out — which is the opposite of the usual situation here and is worth understanding. The Green Tree survived until 1902, long enough for people who had slept in it to be asked what it was like in print: John Gray, who kept it 1838-41, Edwin O. Gale, who was put up in a chamber 'about 12x12, with two windows 6x8', and F. H. Taylor, who fixed which street the front was on. From them come the room module, the 7 1/2 ft ceilings, the board partitions, the interior whitewash, the dividing hall and its stairway, the bar-room at one end, the attic used for lodging, the gable-end attic window and the low one-storey additions at each end. What none of them gives is an overall dimension, so even here the footprint is a derivation from the room module rather than a measurement. IT ALSO SURVIVED LONG ENOUGH TO BE PHOTOGRAPHED, about 1859, at its original corner — the closest thing to direct visual evidence for any Wolf Point building. Note the caveat carefully, because the version in circulation is wrong: the 1859 plate PREDATES the 1880 move and shows the tavern where it was built, so what stands between it and the scene date is twenty-six years of alteration, not forty-seven years and a move. That plate has not been seen for this record and it is the single highest-value open lead in the parcel: it would settle the overall dimensions, the exterior finish and the gallery in one look. CONFLICTS RECORDED: frame throughout versus a log core weatherboarded later, a claim attributable to W. H. Stow personally; the carpenter, Philo Cobb versus Silas B. Cobb; the move dated 1880 versus 1881; and, the largest in metres, whether 'Lake and Canal' or 'Lake and West Water' names the corner, which are a full block apart. See docs/RESEARCH/green_tree_tavern.md.",
   "research_doc": "docs/RESEARCH/green_tree_tavern.md",
-  "review_required": false
+  "review_required": false,
+  "lodging": {
+    "class": "inn_tavern",
+    "beds_ordinary": 8,
+    "beds_crowded": 35,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": true,
+    "enclosed_floor_m2": 185.78,
+    "confidence": "inferred",
+    "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 186 m² of enclosed floor (93 m² × 2 storeys) is of the class's floor area.",
+    "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
+    "occupancy": {
+      "people": 8,
+      "beds_ordinary": 8,
+      "empty": 0,
+      "statement": "8 on this card against an ordinary night's 8 beds: 8 the residents layer already housed here.",
+      "empty_note": "",
+      "keeper_persons": 8,
+      "keeper_owed": ""
+    }
+  }
 }

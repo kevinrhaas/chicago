@@ -1,0 +1,77 @@
+{
+  "id": "biz_first_baptist_church",
+  "register_id": null,
+  "name": "The First Baptist Church Society of Chicago",
+  "provenance": "authored",
+  "type": [
+    "church"
+  ],
+  "trade": "a Baptist congregation, in the lower storey of the Temple Building",
+  "occupation": null,
+  "goods": [],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Rev. Allen B. Freeman",
+      "person_id": null,
+      "register_person_id": null,
+      "role": "minister",
+      "from": "1833-08-16",
+      "to": null,
+      "tier": "inferred",
+      "basis": "INFERRED, AND THE INFERENCE IS ABOUT THE SCENE DATE AND NOT ABOUT THE MAN. What is attested is his arrival and the organisation: baptisthistoryhomepage, transcribing Andreas vol. 1 pp. 315-325 verbatim, has it that 'When Rev. Allen B. Freeman, with his wife, arrived on the 16th of August, he found the church building ready for use', and that 'The First Baptist Church was organized October 19, 1833, with nineteen members'; the committed roof temple_building carries both sentences in its `occupants` field. What no source reached states is that he was still the minister here on 1 July 1835, twenty months later — and one reading points the other way without dating itself: lathrop_samuel_s's card records Samuel S. Lathrop building the fence around Rev. A. B. Freeman's Chicago grave, so Freeman died at Chicago at some point the sources reached do not fix. A death that might fall on either side of the scene date cannot be read as falling after it, and it cannot be read as falling before it either. So the row stands at `inferred` with the reasoning printed, rather than at `attested` with the caution buried. PERSON_ID IS NULL BECAUSE THE RESIDENT LAYER HOLDS NO CARD FOR HIM: the only Freeman in it is freeman_ford, a letter-list name with no recorded trade, and a surname agreement is a refusal here as everywhere.",
+      "source_id": "baptisthistoryhomepage",
+      "claim_ids": [],
+      "also_printed_as": []
+    }
+  ],
+  "locations": [
+    {
+      "kind": "premises",
+      "structure_id": "temple_building",
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1833-08",
+      "to": null,
+      "tier": "attested",
+      "basis": "THE LOWER STOREY, AND THE SOURCE SAYS SO IN ONE SENTENCE: 'It was a two-story frame structure, the upper story for school, the lower for religious purposes' — baptisthistoryhomepage, transcribing Andreas. Andreas himself calls the building 'a small house of worship belonging to the First Baptist Church Society' by December 1833, and the committed roof temple_building carries both readings in its `occupants` field along with the school in the storey above. THE SHARED USE IS OVER BY THE SCENE DATE and is not carried into this record: the Methodists, Presbyterians and Baptists used this building alike 'until the Presbyterian church was ready for occupancy', which was its dedication on 4 January 1834, eighteen months before 1 July 1835. Where the building stands is the roof's own limit and not restated here — the page says 'NEAR the corner of Franklin and South Water streets' and does not say which of the four corners, which is why temple_building grades its position inferred."
+    }
+  ],
+  "dates": {
+    "opened": "1833-10-19",
+    "closed": null,
+    "precision": "exact",
+    "tier": "attested",
+    "basis": "'The First Baptist Church was organized October 19, 1833, with nineteen members' — baptisthistoryhomepage, transcribing Andreas vol. 1 p. 315, which names fourteen of the founders present. The society is later than the building it met in, which is the unusual order here and is why the location's `from` is two months earlier than this date."
+  },
+  "evidence": {
+    "first_issue": null,
+    "last_issue": null,
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "A congregation is not a house of trade and has no keeper to read a community off. The one person this record names carries no resident card, so there is nothing to read a community from even if a congregation had one.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "baptisthistoryhomepage",
+    "andreas_1884_v1"
+  ],
+  "claim_ids": [],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A date for Rev. Allen B. Freeman's death, or any printing naming who preached to the Baptists in 1835, would settle this record's one inference in a line — and a death before 1 July 1835 would leave the congregation standing and this pulpit vacant, which is a reading this record must be able to take. The fourteen founders baptisthistoryhomepage names are a list the resident layer has not yet been walked against; matching them would give this establishment its members and might give it its officers."
+}

@@ -46,6 +46,8 @@ import argparse
 import difflib
 import hashlib
 import json
+import tempfile
+import shutil
 import re
 import subprocess
 import sys
@@ -582,9 +584,23 @@ def self_test() -> int:
          lambda d: _first_folioless_leaf(d).update(folio_source="read"),
          "on a leaf with no printed_page"),
     ]
+    # BROKEN IN A COPY OF THE BOOKS TREE, NOT IN IT (T-1336). This fixture used to
+    # write each broken index into the live data/research/books/page_index/ and put it
+    # back — between the write and the restore the committed file is wrong, and
+    # check.sh's job pool runs other steps over that same tree at the same time, so a
+    # neighbour reads the break and the gate goes red on a tree that is green.
+    # `check()` reads the module-level BOOKS and a self-test has its own process, so
+    # rebinding it is enough: this process reads the copy, every other process reads
+    # the committed files.
+    global BOOKS
+    live = BOOKS
     failures = 0
-    originals = {key: (BOOKS / "page_index" / (key + ".json")).read_text(encoding="utf-8")
+    originals = {key: (live / "page_index" / (key + ".json")).read_text(encoding="utf-8")
                  for key in {c[0] for c in cases}}
+    scratch_root = tempfile.TemporaryDirectory()
+    scratch = Path(scratch_root.name) / "books"
+    shutil.copytree(live, scratch)
+    BOOKS = scratch
     try:
         for key, label, break_it, wanted in cases:
             path = BOOKS / "page_index" / (key + ".json")
@@ -603,8 +619,14 @@ def self_test() -> int:
             else:
                 print("  caught: %s" % label)
     finally:
-        for key, original in originals.items():
-            (BOOKS / "page_index" / (key + ".json")).write_text(original, encoding="utf-8")
+        BOOKS = live
+        scratch_root.cleanup()
+    # And the live tree is byte-for-byte what it was — a property of the fixture now,
+    # not of its `finally` having run.
+    for key, original in originals.items():
+        if (live / "page_index" / (key + ".json")).read_text(encoding="utf-8") != original:
+            print("  FAIL the fixture wrote %s in the LIVE tree" % key)
+            failures += 1
     if failures:
         return 1
     print("  self-test: OK")

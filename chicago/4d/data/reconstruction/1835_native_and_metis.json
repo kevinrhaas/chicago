@@ -1,0 +1,2600 @@
+{
+ "$schema_note": "DERIVED — regenerate with tools/reconstruct_underdocumented.py --build; tools/check.sh re-derives it. Do not hand-edit: every card under data/residents/underdocumented/ is a function of the borderline roster row named on it.",
+ "schema": 1,
+ "id": "chicago_july_1835_native_and_metis",
+ "ticket": "T-1376",
+ "parent": "T-1177",
+ "stage": "underdocumented",
+ "sub_stage": "native_and_metis",
+ "target_date": "1835-07-01",
+ "generated_by": "tools/reconstruct_underdocumented.py --build",
+ "reads": [
+  "data/reconstruction/1835_borderline_roster.json",
+  "data/research/civic/records/blackhawk_war_1832_chicago.json",
+  "data/reconstruction/1835_readmissions.json"
+ ],
+ "writes": "data/residents/underdocumented/",
+ "the_owners_ruling": {
+  "date": "2026-09-17",
+  "recorded_in": "AGENTS.md § Standing constraint — 1835 and Indigenous history",
+  "quote": "i think it is fair, in fact required to Reconstruct Native or Métis people as part of this.",
+  "what_it_does_not_change": "L1 — no human figure is drawn, for anybody; no staging of the August 1835 gathering; no invented dialogue, ceremony or depiction. A card, and nothing that is looked at."
+ },
+ "the_review_still_owed": "Review by Native scholars or community organisations, which AGENTS.md commits to and which has not been held. Every record this stage writes carries `review_required: true`, which blocks a scene from being marked `released`. The flag is the project's own promise held open, not a formality.",
+ "the_count_that_made_this_stage_necessary": {
+  "roll": "data/research/civic/records/blackhawk_war_1832_chicago.json",
+  "source": "blackhawk_war_chicago_enrollments_isa",
+  "rows_by_company_as_printed": {
+   "G KERCHEVAL": 40,
+   "INDIAN": 94
+  },
+  "kercheval_company_cards_in_the_town_before_this_stage": 20,
+  "indian_company_cards_in_the_town_before_this_stage": 0,
+  "what_separated_them": "Not the evidence — one roll, one year, one page, and the same rank column empty on both. The borderline roster's class rule put a reading carrying a community term into R6 and everything else into R3; T-1172 was licensed to spend R3 and not R6, and R6's owner (T-1177) had not been split into workable tickets until 2026-09-19. So the town carried 20 of Kercheval's forty and none of the other ninety-four."
+ },
+ "rules": {
+  "licence": {
+   "id": "underdocumented_r6_company_roll_names_the_man",
+   "borrowed_from": "R3_1834_return_or_muster",
+   "r3_sentence": "Enrolled at Chicago in the 1832 Black Hawk muster, with no 1835 corroboration and no card; an earlier source dates and corroborates and never promotes, so presence is priced against the persistence model.",
+   "this_sentence": "Enrolled at Chicago in 1832 in the company the Black Hawk War roll heads INDIAN, with no 1835 corroboration and no card. The licence is R3's — the same roll, the same year, the same page — and the twenty men of Kercheval's company the town already carries were re-admitted under it."
+  },
+  "a_one_word_name_is_still_a_name": "T-1172's `not_a_whole_name` refuses a reading without a surname AND a forename. Here that would refuse every man whose name the roll prints whole in the Potawatomi, Ottawa or Ojibwe of this country, so the test is on the reading and not on its shape. A one-word EUROPEAN surname is still refused, because there the roll clipped a name this town carries several of.",
+  "the_term_must_be_a_statement": "The roster's R6 rule is a text match over the reading, and a text match over-catches: an Indian agent's biography carries the word. This stage mints only where the source's own structure says it — here, a company column a clerk filled in with the word INDIAN.",
+  "no_nation_is_written": "The roll heads the company INDIAN and says no more, so `community` is `native` — this vocabulary's term for *the source says Indian and says nothing further* — and no nation, band or village is written on any card.",
+  "the_sex_is_read_and_not_drawn": "A militia enrollment list enrolled men. That is the one attribute the document settles; no age band is drawn beside it, because the same document settles nothing about that and the 1840 Chicago schedule counted no Native person at all."
+ },
+ "persistence_model": {
+  "id": "persistence_1835",
+  "form": "persistence(L) = exp(-lambda * L), L in years before 1835-07-01",
+  "lambda_per_year": 0.06784,
+  "one_year_persistence": 0.9344,
+  "measured_on": [
+   {
+    "volume": "Fergus 1839, the first ward-by-ward list after the scene",
+    "crosswalk": "data/research/directories/fergus_1839_crosswalk_1835.json",
+    "counts_key": "counts.residents_matched_one_entry",
+    "dated": "1839-07-01",
+    "years_after_the_scene": 4.0001,
+    "of_the_layer_still_named": 164
+   },
+   {
+    "volume": "Fergus 1843",
+    "crosswalk": "data/research/directories/fergus_1843_crosswalk_1835.json",
+    "counts_key": "counts.matched_one_1843_entry",
+    "dated": "1843-07-01",
+    "years_after_the_scene": 8.0002,
+    "of_the_layer_still_named": 136
+   },
+   {
+    "volume": "Norris 1844",
+    "crosswalk": "data/research/directories/norris_1844_crosswalk_1835.json",
+    "counts_key": "counts.matched_one_1844_entry",
+    "dated": "1844-07-01",
+    "years_after_the_scene": 9.0022,
+    "of_the_layer_still_named": 112
+   }
+  ],
+  "why_the_slope_and_not_the_level": "Each volume names only a part of the town, and what part is unknown. That unknown coverage multiplies all three counts alike, so it cancels out of the SLOPE of ln(matched) against time and does not cancel out of any one level. The slope is therefore the rate at which the layer's people stop being found in Chicago; the level is mostly a fact about directories.",
+  "what_bounds_it": "Three points, an assumption that directory coverage is roughly steady across 1839-1844, and an exponential form. Nothing here is measured at the short lags the roster actually needs (0-3.5 years), so the rate is carried back to them.",
+  "which_way_it_is_wrong_if_it_is_wrong": "The steady-coverage assumption is the load-bearing one and it is the one most likely to fail: Fergus 1839 is a list first set up from memory in 1839 and completed in 1876, and the 1843 and 1844 volumes are ordinary printed directories. If coverage GREW across the three, the observed fall is shallower than the real one, this lambda is too small, and the stage re-admits too many people rather than too few. Published persistence studies of frontier towns read nearer 0.15-0.25 a year than 0.068. That is stated here rather than corrected for, because correcting it would mean choosing a number instead of measuring one; the ruling it would change is which side of the draw a card whose evidence stops early falls on, and the seed makes that re-runnable the day a measured rate lands.",
+  "what_would_retire_it": "A measured out-migration or persistence rate for Chicago in the 1830s, or a fourth horizon that bends this line.",
+  "tier": "reconstructed"
+ },
+ "counts": {
+  "r6_rows_offered": 136,
+  "already_on_a_card": 16,
+  "cards_minted": 87,
+  "minted_present": 69,
+  "minted_absent": 18,
+  "withheld": 33,
+  "withheld_by_reason": {
+   "a_card_of_that_name_already_stands": 9,
+   "a_one_word_european_surname_gives_no_person": 3,
+   "earlier_than_the_window_and_nothing_follows_the_person_forward": 7,
+   "later_only_and_this_stage_does_not_back_project": 6,
+   "the_reading_carries_no_date_this_tool_can_read": 1,
+   "the_roll_prints_this_name_twice": 1,
+   "the_statement_is_not_on_the_roll_this_stage_reads": 4,
+   "the_term_is_prose_and_not_a_statement": 2
+  }
+ },
+ "the_counted_but_unnamed": {
+  "what_the_ticket_asked_for": "A reconstruction of the counted-but-unnamed remainder within a stated bracket.",
+  "the_answer": "REFUSED, and the refusal is the reading.",
+  "why": "A bracket needs a count. This corpus holds no roll, census, annuity schedule or estimate that counts the Native and Metis people at or about Chicago on 1 July 1835. The roll spent above counts enrolled MEN in 1832 and no woman or child appears on it. The 1840 federal schedule, five years after the scene, counts no Native person in any column. The transient bracket (T-1352) prices the summer crowd off the newspapers and carries no Native row — the paper's `strangers` are the emigrants off the lake vessels and the land-sale parties, and reading them as anything else would be putting a number in a sentence that does not hold one. Reconstructing a remainder without a count would not be a bounded reconstruction; it would be a population invented whole, on the one subject AGENTS.md says is not a research gap to be filled by inference.",
+  "the_one_count_that_exists_and_why_it_is_not_this_one": "The great gathering and the last war dance at Chicago are AUGUST 1835 — six and a half weeks AFTER the scene date, and the event the standing constraint is written about. A crowd that assembled in August is not evidence of a population on 1 July, and this project does not stage it.",
+  "what_would_retire_this_refusal": [
+   "An 1835 annuity payment roll or schedule for the Chicago agency.",
+   "A count of the families at the Agency, at Wolf Point or on the reservations in any month of 1834 or 1835.",
+   "A contemporary estimate of the Native population in or about the town before 1 July 1835, in a source this project can commit."
+  ],
+  "what_the_layer_carries_instead": "Eight households already carry `touches_removal` — the Beaubiens, Robinson, Caldwell, McKee, Porthier, Kercheval and the Agency — and hh_robinson_alexander carries a collective row, `the rest of the Robinson household, unnamed`, which its own note calls an admission and not a person and refuses to count. That refusal is right and is not overturned here."
+ },
+ "sources_read": [
+  {
+   "source_id": "blackhawk_war_chicago_enrollments_isa",
+   "file": "data/research/civic/records/blackhawk_war_1832_chicago.json",
+   "what_it_gave": "94 men enrolled at Chicago in 1832 in the company the roll heads INDIAN",
+   "spent": true
+  },
+  {
+   "source_id": "st_marys_baptismal_register_1833_1835",
+   "file": "data/research/church/records/st_marys_baptisms_1833_1835.json",
+   "what_it_gave": "Four entries of 1833 in which the priest states an Indigenous identity in his own hand — entries 7, 14, 17 and 18, naming Josette Ashkam of Ottaway, Marianne (sauvage) wife of Antoine Aspam, and Jaespquaa (sauvage de Green Bay) wife of Paul Vieaux. The two women are the ONLY adults on their own entries that the borderline roster ruled ineligible, so the town carries their husbands and their children and not them.",
+   "spent": false,
+   "why_not": "A baptism is not a residence and the roster's ineligibility ruling is the research layer's, not this stage's to overturn from the outside. It is a reading, and a reading is a ticket: filed as T-1383, with the four entries and what it should answer.",
+   "filed_as": "T-1383"
+  }
+ ],
+ "minted": [
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_047#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_alex_la_frombois",
+   "person_id": "alex_la_frombois",
+   "name_as_read": "LA FROMBOIS, ALEX",
+   "name": "Alex La Frombois",
+   "file": "underdocumented/hh_um_alex_la_frombois.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_alex_la_frombois:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_002#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_as_ke_witt",
+   "person_id": "as_ke_witt",
+   "name_as_read": "AS KE WITT",
+   "name": "As Ke Witt",
+   "file": "underdocumented/hh_um_as_ke_witt.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_as_ke_witt:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_020#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_baptiste_de_roche",
+   "person_id": "baptiste_de_roche",
+   "name_as_read": "DE ROCHE, BAPTISTE",
+   "name": "Baptiste De Roche",
+   "file": "underdocumented/hh_um_baptiste_de_roche.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_baptiste_de_roche:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_011#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_cau_be_nah",
+   "person_id": "cau_be_nah",
+   "name_as_read": "CAU BE NAH",
+   "name": "Cau Be Nah",
+   "file": "underdocumented/hh_um_cau_be_nah.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_cau_be_nah:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_012#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_cau_o_sett",
+   "person_id": "cau_o_sett",
+   "name_as_read": "CAU O SETT",
+   "name": "Cau O Sett",
+   "file": "underdocumented/hh_um_cau_o_sett.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_cau_o_sett:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_014#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_cee_bou_sunc",
+   "person_id": "cee_bou_sunc",
+   "name_as_read": "CEE BOU SUNC",
+   "name": "Cee Bou Sunc",
+   "file": "underdocumented/hh_um_cee_bou_sunc.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_cee_bou_sunc:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_016#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_che_chalk_goes",
+   "person_id": "che_chalk_goes",
+   "name_as_read": "CHE CHALK GOES",
+   "name": "Che Chalk Goes",
+   "file": "underdocumented/hh_um_che_chalk_goes.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_che_chalk_goes:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_017#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_chene_quaw",
+   "person_id": "chene_quaw",
+   "name_as_read": "CHENE QUAW",
+   "name": "Chene Quaw",
+   "file": "underdocumented/hh_um_chene_quaw.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_chene_quaw:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_018#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_chippe_wai_se",
+   "person_id": "chippe_wai_se",
+   "name_as_read": "CHIPPE WAI SE",
+   "name": "Chippe Wai Se",
+   "file": "underdocumented/hh_um_chippe_wai_se.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_chippe_wai_se:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_023#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_e_te_we_ke_sick",
+   "person_id": "e_te_we_ke_sick",
+   "name_as_read": "E TE WE KE SICK",
+   "name": "E Te We Ke Sick",
+   "file": "underdocumented/hh_um_e_te_we_ke_sick.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_e_te_we_ke_sick:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_024#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_e_toe_won_gote",
+   "person_id": "e_toe_won_gote",
+   "name_as_read": "E TOE WON GOTE",
+   "name": "E Toe Won Gote",
+   "file": "underdocumented/hh_um_e_toe_won_gote.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_e_toe_won_gote:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_007#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_francis_bourbonnois",
+   "person_id": "francis_bourbonnois",
+   "name_as_read": "BOURBONNOIS, FRANCIS SR",
+   "name": "Francis Bourbonnois",
+   "file": "underdocumented/hh_um_francis_bourbonnois.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_francis_bourbonnois:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_026#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_george_forthier",
+   "person_id": "george_forthier",
+   "name_as_read": "FORTHIER, GEORGE",
+   "name": "George Forthier",
+   "file": "underdocumented/hh_um_george_forthier.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_george_forthier:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_019#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_joseph_chonier",
+   "person_id": "joseph_chonier",
+   "name_as_read": "CHONIER, JOSEPH",
+   "name": "Joseph Chonier",
+   "file": "underdocumented/hh_um_joseph_chonier.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_joseph_chonier:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_048#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_joseph_la_frombois",
+   "person_id": "joseph_la_frombois",
+   "name_as_read": "LA FROMBOIS, JOSEPH",
+   "name": "Joseph La Frombois",
+   "file": "underdocumented/hh_um_joseph_la_frombois.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_joseph_la_frombois:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_037#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_kai_bai_squam",
+   "person_id": "kai_bai_squam",
+   "name_as_read": "KAI BAI SQUAM",
+   "name": "Kai Bai Squam",
+   "file": "underdocumented/hh_um_kai_bai_squam.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_kai_bai_squam:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_038#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_kai_shaw_kee",
+   "person_id": "kai_shaw_kee",
+   "name_as_read": "KAI SHAW KEE",
+   "name": "Kai Shaw Kee",
+   "file": "underdocumented/hh_um_kai_shaw_kee.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_kai_shaw_kee:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_039#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_kai_tau_ta_mo",
+   "person_id": "kai_tau_ta_mo",
+   "name_as_read": "KAI TAU TA MO",
+   "name": "Kai Tau Ta Mo",
+   "file": "underdocumented/hh_um_kai_tau_ta_mo.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_kai_tau_ta_mo:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_040#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_ke_o_quaw",
+   "person_id": "ke_o_quaw",
+   "name_as_read": "KE O QUAW",
+   "name": "Ke O Quaw",
+   "file": "underdocumented/hh_um_ke_o_quaw.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_ke_o_quaw:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_041#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_ke_wai_ke_too",
+   "person_id": "ke_wai_ke_too",
+   "name_as_read": "KE WAI KE TOO",
+   "name": "Ke Wai Ke Too",
+   "file": "underdocumented/hh_um_ke_wai_ke_too.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_ke_wai_ke_too:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_042#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_ke_wai_o_nock",
+   "person_id": "ke_wai_o_nock",
+   "name_as_read": "KE WAI O NOCK",
+   "name": "Ke Wai O Nock",
+   "file": "underdocumented/hh_um_ke_wai_o_nock.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_ke_wai_o_nock:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_043#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_ke_way_quam",
+   "person_id": "ke_way_quam",
+   "name_as_read": "KE WAY QUAM",
+   "name": "Ke Way Quam",
+   "file": "underdocumented/hh_um_ke_way_quam.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_ke_way_quam:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_045#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_kick_ke_yok",
+   "person_id": "kick_ke_yok",
+   "name_as_read": "KICK KE YOK",
+   "name": "Kick Ke Yok",
+   "file": "underdocumented/hh_um_kick_ke_yok.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_kick_ke_yok:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_054#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_ma_che_we_ta",
+   "person_id": "ma_che_we_ta",
+   "name_as_read": "MA CHE WE TA",
+   "name": "Ma Che We Ta",
+   "file": "underdocumented/hh_um_ma_che_we_ta.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_ma_che_we_ta:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_055#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_mas_go",
+   "person_id": "mas_go",
+   "name_as_read": "MAS GO",
+   "name": "Mas Go",
+   "file": "underdocumented/hh_um_mas_go.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_mas_go:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_056#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_mas_quat",
+   "person_id": "mas_quat",
+   "name_as_read": "MAS QUAT",
+   "name": "Mas Quat",
+   "file": "underdocumented/hh_um_mas_quat.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_mas_quat:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_057#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_mau_kai_tai_o_suck",
+   "person_id": "mau_kai_tai_o_suck",
+   "name_as_read": "MAU KAI TAI O SUCK",
+   "name": "Mau Kai Tai O Suck",
+   "file": "underdocumented/hh_um_mau_kai_tai_o_suck.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_mau_kai_tai_o_suck:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_058#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_maub_biss",
+   "person_id": "maub_biss",
+   "name_as_read": "MAUB BISS",
+   "name": "Maub Biss",
+   "file": "underdocumented/hh_um_maub_biss.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_maub_biss:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_059#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_mauk_e_sett",
+   "person_id": "mauk_e_sett",
+   "name_as_read": "MAUK-E SETT",
+   "name": "Mauk E Sett",
+   "file": "underdocumented/hh_um_mauk_e_sett.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_mauk_e_sett:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_061#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_me_kai_ta_be_nee",
+   "person_id": "me_kai_ta_be_nee",
+   "name_as_read": "ME KAI TA BE NEE",
+   "name": "Me Kai Ta Be Nee",
+   "file": "underdocumented/hh_um_me_kai_ta_be_nee.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_me_kai_ta_be_nee:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_062#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_me_kess",
+   "person_id": "me_kess",
+   "name_as_read": "ME KESS",
+   "name": "Me Kess",
+   "file": "underdocumented/hh_um_me_kess.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_me_kess:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_063#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_me_she_ke_to_no",
+   "person_id": "me_she_ke_to_no",
+   "name_as_read": "ME SHE KE TO NO",
+   "name": "Me She Ke To No",
+   "file": "underdocumented/hh_um_me_she_ke_to_no.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_me_she_ke_to_no:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_064#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_me_shi_ke_yah",
+   "person_id": "me_shi_ke_yah",
+   "name_as_read": "ME SHI KE YAH",
+   "name": "Me Shi Ke Yah",
+   "file": "underdocumented/hh_um_me_shi_ke_yah.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_me_shi_ke_yah:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_065#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_me_tai_wa",
+   "person_id": "me_tai_wa",
+   "name_as_read": "ME TAI WA",
+   "name": "Me Tai Wa",
+   "file": "underdocumented/hh_um_me_tai_wa.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_me_tai_wa:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_066#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_mes_kee_suck",
+   "person_id": "mes_kee_suck",
+   "name_as_read": "MES KEE SUCK",
+   "name": "Mes Kee Suck",
+   "file": "underdocumented/hh_um_mes_kee_suck.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_mes_kee_suck:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_067#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_messe_non_e_see",
+   "person_id": "messe_non_e_see",
+   "name_as_read": "MESSE NON E SEE",
+   "name": "Messe Non E See",
+   "file": "underdocumented/hh_um_messe_non_e_see.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_messe_non_e_see:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_068#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_mex_e_ke_ne_bee",
+   "person_id": "mex_e_ke_ne_bee",
+   "name_as_read": "MEX E KE NE BEE",
+   "name": "Mex E Ke Ne Bee",
+   "file": "underdocumented/hh_um_mex_e_ke_ne_bee.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_mex_e_ke_ne_bee:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_069#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_mex_e_man",
+   "person_id": "mex_e_man",
+   "name_as_read": "MEX E MAN",
+   "name": "Mex E Man",
+   "file": "underdocumented/hh_um_mex_e_man.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_mex_e_man:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_081#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_mitchel_ouillemett",
+   "person_id": "mitchel_ouillemett",
+   "name_as_read": "OUILLEMETT, MITCHEL",
+   "name": "Mitchel Ouillemett",
+   "file": "underdocumented/hh_um_mitchel_ouillemett.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_mitchel_ouillemett:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_071#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_mon_ta_niss",
+   "person_id": "mon_ta_niss",
+   "name_as_read": "MON TA NISS",
+   "name": "Mon Ta Niss",
+   "file": "underdocumented/hh_um_mon_ta_niss.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_mon_ta_niss:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_074#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_nau_con_ne_bec",
+   "person_id": "nau_con_ne_bec",
+   "name_as_read": "NAU CON NE BEC",
+   "name": "Nau Con Ne Bec",
+   "file": "underdocumented/hh_um_nau_con_ne_bec.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_nau_con_ne_bec:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_075#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_nau_quay_suck",
+   "person_id": "nau_quay_suck",
+   "name_as_read": "NAU QUAY SUCK",
+   "name": "Nau Quay Suck",
+   "file": "underdocumented/hh_um_nau_quay_suck.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_nau_quay_suck:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_076#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_naw_bai_kau",
+   "person_id": "naw_bai_kau",
+   "name_as_read": "NAW BAI KAU",
+   "name": "Naw Bai Kau",
+   "file": "underdocumented/hh_um_naw_bai_kau.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_naw_bai_kau:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_077#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_ne_a_se_no",
+   "person_id": "ne_a_se_no",
+   "name_as_read": "NE A SE NO",
+   "name": "Ne A Se No",
+   "file": "underdocumented/hh_um_ne_a_se_no.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_ne_a_se_no:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_078#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_neen_ko",
+   "person_id": "neen_ko",
+   "name_as_read": "NEEN KO",
+   "name": "Neen Ko",
+   "file": "underdocumented/hh_um_neen_ko.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_neen_ko:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_079#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_no_sha_cum",
+   "person_id": "no_sha_cum",
+   "name_as_read": "NO SHA CUM",
+   "name": "No Sha Cum",
+   "file": "underdocumented/hh_um_no_sha_cum.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_no_sha_cum:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_083#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_pai_ta_ko_too",
+   "person_id": "pai_ta_ko_too",
+   "name_as_read": "PAI TA KO TOO",
+   "name": "Pai Ta Ko Too",
+   "file": "underdocumented/hh_um_pai_ta_ko_too.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_pai_ta_ko_too:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_084#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_pat_e_quee",
+   "person_id": "pat_e_quee",
+   "name_as_read": "PAT E QUEE",
+   "name": "Pat E Quee",
+   "file": "underdocumented/hh_um_pat_e_quee.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_pat_e_quee:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_085#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_pat_ti_co_suck",
+   "person_id": "pat_ti_co_suck",
+   "name_as_read": "PAT TI CO SUCK",
+   "name": "Pat Ti Co Suck",
+   "file": "underdocumented/hh_um_pat_ti_co_suck.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_pat_ti_co_suck:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_086#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_pay_co_je_bai",
+   "person_id": "pay_co_je_bai",
+   "name_as_read": "PAY CO JE BAI",
+   "name": "Pay Co Je Bai",
+   "file": "underdocumented/hh_um_pay_co_je_bai.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_pay_co_je_bai:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_087#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_pe_so_tum",
+   "person_id": "pe_so_tum",
+   "name_as_read": "PE SO TUM",
+   "name": "Pe So Tum",
+   "file": "underdocumented/hh_um_pe_so_tum.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_pe_so_tum:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_088#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_pee_way_tan",
+   "person_id": "pee_way_tan",
+   "name_as_read": "PEE WAY TAN",
+   "name": "Pee Way Tan",
+   "file": "underdocumented/hh_um_pee_way_tan.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_pee_way_tan:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_053#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_perish_le_clair",
+   "person_id": "perish_le_clair",
+   "name_as_read": "LE CLAIR, PERISH",
+   "name": "Perish Le Clair",
+   "file": "underdocumented/hh_um_perish_le_clair.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_perish_le_clair:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_090#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_pet_wai_wai_o_ko",
+   "person_id": "pet_wai_wai_o_ko",
+   "name_as_read": "PET WAI WAI O-KO",
+   "name": "Pet Wai Wai O Ko",
+   "file": "underdocumented/hh_um_pet_wai_wai_o_ko.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_pet_wai_wai_o_ko:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_091#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_pow_she_tow",
+   "person_id": "pow_she_tow",
+   "name_as_read": "POW SHE TOW",
+   "name": "Pow She Tow",
+   "file": "underdocumented/hh_um_pow_she_tow.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_pow_she_tow:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_093#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_sau_ke_ma",
+   "person_id": "sau_ke_ma",
+   "name_as_read": "SAU KE MA",
+   "name": "Sau Ke Ma",
+   "file": "underdocumented/hh_um_sau_ke_ma.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_sau_ke_ma:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_094#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_saus_bock_skuk",
+   "person_id": "saus_bock_skuk",
+   "name_as_read": "SAUS BOCK SKUK",
+   "name": "Saus Bock Skuk",
+   "file": "underdocumented/hh_um_saus_bock_skuk.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_saus_bock_skuk:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_095#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_sha_tee",
+   "person_id": "sha_tee",
+   "name_as_read": "SHA TEE",
+   "name": "Sha Tee",
+   "file": "underdocumented/hh_um_sha_tee.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_sha_tee:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_096#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_shaw_wa_no_quak",
+   "person_id": "shaw_wa_no_quak",
+   "name_as_read": "SHAW WA NO QUAK",
+   "name": "Shaw Wa No Quak",
+   "file": "underdocumented/hh_um_shaw_wa_no_quak.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_shaw_wa_no_quak:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_097#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_shaw_we",
+   "person_id": "shaw_we",
+   "name_as_read": "SHAW-WE",
+   "name": "Shaw We",
+   "file": "underdocumented/hh_um_shaw_we.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_shaw_we:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_098#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_she_kauk",
+   "person_id": "she_kauk",
+   "name_as_read": "SHE KAUK",
+   "name": "She Kauk",
+   "file": "underdocumented/hh_um_she_kauk.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_she_kauk:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_099#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_she_na_ge_win",
+   "person_id": "she_na_ge_win",
+   "name_as_read": "SHE NA GE WIN",
+   "name": "She Na Ge Win",
+   "file": "underdocumented/hh_um_she_na_ge_win.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_she_na_ge_win:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_101#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_show_men_raisin",
+   "person_id": "show_men_raisin",
+   "name_as_read": "SHOW MEN RAISIN",
+   "name": "Show Men Raisin",
+   "file": "underdocumented/hh_um_show_men_raisin.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_show_men_raisin:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_102#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_skaw_tai",
+   "person_id": "skaw_tai",
+   "name_as_read": "SKAW TAI",
+   "name": "Skaw Tai",
+   "file": "underdocumented/hh_um_skaw_tai.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_skaw_tai:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_103#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_ske_yah",
+   "person_id": "ske_yah",
+   "name_as_read": "SKE YAH",
+   "name": "Ske Yah",
+   "file": "underdocumented/hh_um_ske_yah.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_ske_yah:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_106#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_squaz_ke_sick",
+   "person_id": "squaz_ke_sick",
+   "name_as_read": "SQUAZ KE SICK",
+   "name": "Squaz Ke Sick",
+   "file": "underdocumented/hh_um_squaz_ke_sick.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_squaz_ke_sick:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_107#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_suck_ke_na_ke_sick",
+   "person_id": "suck_ke_na_ke_sick",
+   "name_as_read": "SUCK KE NA KE SICK",
+   "name": "Suck Ke Na Ke Sick",
+   "file": "underdocumented/hh_um_suck_ke_na_ke_sick.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_suck_ke_na_ke_sick:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_108#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_taw_no_ko",
+   "person_id": "taw_no_ko",
+   "name_as_read": "TAW NO KO",
+   "name": "Taw No Ko",
+   "file": "underdocumented/hh_um_taw_no_ko.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_taw_no_ko:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_109#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_taw_taupe",
+   "person_id": "taw_taupe",
+   "name_as_read": "TAW TAUPE",
+   "name": "Taw Taupe",
+   "file": "underdocumented/hh_um_taw_taupe.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_taw_taupe:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_111#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_te_kau_ko",
+   "person_id": "te_kau_ko",
+   "name_as_read": "TE KAU KO",
+   "name": "Te Kau Ko",
+   "file": "underdocumented/hh_um_te_kau_ko.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_te_kau_ko:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_113#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wa_ba_kai",
+   "person_id": "wa_ba_kai",
+   "name_as_read": "WA BA KAI",
+   "name": "Wa Ba Kai",
+   "file": "underdocumented/hh_um_wa_ba_kai.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wa_ba_kai:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_114#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wa_o_ya_ka_muck",
+   "person_id": "wa_o_ya_ka_muck",
+   "name_as_read": "WA O YA KA MUCK",
+   "name": "Wa O Ya Ka Muck",
+   "file": "underdocumented/hh_um_wa_o_ya_ka_muck.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wa_o_ya_ka_muck:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_115#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wa_wa_ya_ton",
+   "person_id": "wa_wa_ya_ton",
+   "name_as_read": "WA WA YA TON",
+   "name": "Wa Wa Ya Ton",
+   "file": "underdocumented/hh_um_wa_wa_ya_ton.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wa_wa_ya_ton:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_116#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wab_be_mentoo",
+   "person_id": "wab_be_mentoo",
+   "name_as_read": "WAB BE MENTOO",
+   "name": "Wab Be Mentoo",
+   "file": "underdocumented/hh_um_wab_be_mentoo.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wab_be_mentoo:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_117#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wab_me_mic",
+   "person_id": "wab_me_mic",
+   "name_as_read": "WAB-ME-MIC",
+   "name": "Wab Me Mic",
+   "file": "underdocumented/hh_um_wab_me_mic.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wab_me_mic:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_119#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wai_bais_kuk",
+   "person_id": "wai_bais_kuk",
+   "name_as_read": "WAI BAIS KUK",
+   "name": "Wai Bais Kuk",
+   "file": "underdocumented/hh_um_wai_bais_kuk.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wai_bais_kuk:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_120#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wai_sau",
+   "person_id": "wai_sau",
+   "name_as_read": "WAI SAU",
+   "name": "Wai Sau",
+   "file": "underdocumented/hh_um_wai_sau.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wai_sau:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_121#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wai_sau_e_suck",
+   "person_id": "wai_sau_e_suck",
+   "name_as_read": "WAI SAU E SUCK",
+   "name": "Wai Sau E Suck",
+   "file": "underdocumented/hh_um_wai_sau_e_suck.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wai_sau_e_suck:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_122#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wai_sau_o_ke_yah",
+   "person_id": "wai_sau_o_ke_yah",
+   "name_as_read": "WAI SAU O KE YAH",
+   "name": "Wai Sau O Ke Yah",
+   "file": "underdocumented/hh_um_wai_sau_o_ke_yah.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wai_sau_o_ke_yah:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_123#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wai_sau_won_quat",
+   "person_id": "wai_sau_won_quat",
+   "name_as_read": "WAI SAU WON QUAT",
+   "name": "Wai Sau Won Quat",
+   "file": "underdocumented/hh_um_wai_sau_won_quat.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wai_sau_won_quat:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_124#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wai_wai_se_mau_sick",
+   "person_id": "wai_wai_se_mau_sick",
+   "name_as_read": "WAI WAI SE MAU-SICK",
+   "name": "Wai Wai Se Mau Sick",
+   "file": "underdocumented/hh_um_wai_wai_se_mau_sick.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wai_wai_se_mau_sick:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_126#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wash_e_ocon",
+   "person_id": "wash_e_ocon",
+   "name_as_read": "WASH E OCON",
+   "name": "Wash E Ocon",
+   "file": "underdocumented/hh_um_wash_e_ocon.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wash_e_ocon:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_127#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wau_bon_e",
+   "person_id": "wau_bon_e",
+   "name_as_read": "WAU BON E",
+   "name": "Wau Bon E",
+   "file": "underdocumented/hh_um_wau_bon_e.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wau_bon_e:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_128#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wau_bon_no_sai",
+   "person_id": "wau_bon_no_sai",
+   "name_as_read": "WAU BON NO SAI",
+   "name": "Wau Bon No Sai",
+   "file": "underdocumented/hh_um_wau_bon_no_sai.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wau_bon_no_sai:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_129#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_wau_kai_so",
+   "person_id": "wau_kai_so",
+   "name_as_read": "WAU KAI SO",
+   "name": "Wau Kai So",
+   "file": "underdocumented/hh_um_wau_kai_so.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_wau_kai_so:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_130#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_we_shay",
+   "person_id": "we_shay",
+   "name_as_read": "WE SHAY",
+   "name": "We Shay",
+   "file": "underdocumented/hh_um_we_shay.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_we_shay:persistence"
+   }
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_131#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_company_roll_names_the_man",
+   "household_id": "hh_um_ween_go",
+   "person_id": "ween_go",
+   "name_as_read": "WEEN GO",
+   "name": "Ween Go",
+   "file": "underdocumented/hh_um_ween_go.json",
+   "sources": [
+    "blackhawk_war_chicago_enrollments_isa"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "dated_evidence": "1832",
+   "dated_evidence_read_as": "1832-01-01",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.7888,
+    "years_before_the_scene": 3.4963,
+    "seed": "hh_um_ween_go:persistence"
+   }
+  }
+ ],
+ "already_on_a_card": [
+  {
+   "row_id": "card:hh_andrews_william",
+   "name_as_read": "William Andrews",
+   "household_id": "hh_andrews_william",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_bertrand_b_h",
+   "name_as_read": "B. H. Bertrand",
+   "household_id": "hh_bertrand_b_h",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_boilvin_nicholas",
+   "name_as_read": "Nicholas Boilvin",
+   "household_id": "hh_boilvin_nicholas",
+   "community_term": "treaty of chicago",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_bourassa_mark",
+   "name_as_read": "Mark Bourassa",
+   "household_id": "hh_bourassa_mark",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_burke_james",
+   "name_as_read": "James Burke",
+   "household_id": "hh_burke_james",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_carroll_patrick",
+   "name_as_read": "Patrick Carroll",
+   "household_id": "hh_carroll_patrick",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_chevalier_josette",
+   "name_as_read": "Josette Chevalier",
+   "household_id": "hh_chevalier_josette",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_fitzgerald_thos",
+   "name_as_read": "Thos. Fitzgerald",
+   "household_id": "hh_fitzgerald_thos",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_harmon_elijah_d",
+   "name_as_read": "Dr Elijah Dewey Harmon",
+   "household_id": "hh_harmon_elijah_d",
+   "community_term": "half-breed",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_kercheval_gholson",
+   "name_as_read": "Gholson Kercheval",
+   "household_id": "hh_kercheval_gholson",
+   "community_term": "potawatomi",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_mckee_david",
+   "name_as_read": "David McKee",
+   "household_id": "hh_mckee_david",
+   "community_term": "potawatomi",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_murphy_n",
+   "name_as_read": "N Murphy",
+   "household_id": "hh_murphy_n",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_nolan_michael",
+   "name_as_read": "Michael Nolan",
+   "household_id": "hh_nolan_michael",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_ryan_thomas",
+   "name_as_read": "Thomas Ryan",
+   "household_id": "hh_ryan_thomas",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_vasseur_noel",
+   "name_as_read": "Noel Vasseur",
+   "household_id": "hh_vasseur_noel",
+   "community_term": "treaty of chicago",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_works_charles",
+   "name_as_read": "Charles Works",
+   "household_id": "hh_works_charles",
+   "community_term": "winnebago",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  }
+ ],
+ "withheld": [
+  {
+   "row_id": "books:data/research/books/claims/american_fur_company_hurlbut.json#claims/bk_afc_011#0",
+   "name_as_read": "Mr. John Kinzie",
+   "domain": "books",
+   "describes_date": "1822",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this reading's surname and first given initial, the discriminator this project's directory crosswalks match on. The town already carries this man under his own card; a second would double him."
+  },
+  {
+   "row_id": "books:data/research/books/claims/american_fur_company_hurlbut.json#claims/bk_afc_011#1",
+   "name_as_read": "Mr. Crafts",
+   "domain": "books",
+   "describes_date": "1822",
+   "reason": "earlier_than_the_window_and_nothing_follows_the_person_forward",
+   "why": "The reading is dated before the roster's window opens on 1833-01-01 and nothing in the corpus follows this person forward to the scene. Under the ladder ratified 2026-09-03 an earlier source dates and corroborates and never promotes. The 1832 muster is the one exception this stage takes, and it takes it because T-1172 already took it on the same page for the other company."
+  },
+  {
+   "row_id": "books:data/research/books/claims/american_fur_company_hurlbut.json#claims/bk_afc_011#2",
+   "name_as_read": "Mr. Beaubien",
+   "domain": "books",
+   "describes_date": "1822",
+   "reason": "earlier_than_the_window_and_nothing_follows_the_person_forward",
+   "why": "The reading is dated before the roster's window opens on 1833-01-01 and nothing in the corpus follows this person forward to the scene. Under the ladder ratified 2026-09-03 an earlier source dates and corroborates and never promotes. The 1832 muster is the one exception this stage takes, and it takes it because T-1172 already took it on the same page for the other company."
+  },
+  {
+   "row_id": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_011#0",
+   "name_as_read": "Oseemit",
+   "domain": "books",
+   "describes_date": "1811",
+   "reason": "earlier_than_the_window_and_nothing_follows_the_person_forward",
+   "why": "The reading is dated before the roster's window opens on 1833-01-01 and nothing in the corpus follows this person forward to the scene. Under the ladder ratified 2026-09-03 an earlier source dates and corroborates and never promotes. The 1832 muster is the one exception this stage takes, and it takes it because T-1172 already took it on the same page for the other company."
+  },
+  {
+   "row_id": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_012#0",
+   "name_as_read": "To-pen-ne-bec",
+   "domain": "books",
+   "describes_date": "1812",
+   "reason": "earlier_than_the_window_and_nothing_follows_the_person_forward",
+   "why": "The reading is dated before the roster's window opens on 1833-01-01 and nothing in the corpus follows this person forward to the scene. Under the ladder ratified 2026-09-03 an earlier source dates and corroborates and never promotes. The 1832 muster is the one exception this stage takes, and it takes it because T-1172 already took it on the same page for the other company."
+  },
+  {
+   "row_id": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_012#1",
+   "name_as_read": "John Kinzie",
+   "domain": "books",
+   "describes_date": "1812",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this reading's surname and first given initial, the discriminator this project's directory crosswalks match on. The town already carries this man under his own card; a second would double him."
+  },
+  {
+   "row_id": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_025#0",
+   "name_as_read": "Daniel W. Beckwith",
+   "domain": "books",
+   "describes_date": "1834",
+   "reason": "the_term_is_prose_and_not_a_statement",
+   "why": "The roster classed this row R6 because a community term appears in the text of the reading. A word in a paragraph is not a statement by the source about this person's community — the biography of an Indian agent, a treaty commissioner or a trader who dealt with Native customers carries the same word — and this stage mints only where the source's own structure says it."
+  },
+  {
+   "row_id": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_025#1",
+   "name_as_read": "John Tipton",
+   "domain": "books",
+   "describes_date": "1834",
+   "reason": "the_term_is_prose_and_not_a_statement",
+   "why": "The roster classed this row R6 because a community term appears in the text of the reading. A word in a paragraph is not a statement by the source about this person's community — the biography of an Indian agent, a treaty commissioner or a trader who dealt with Native customers carries the same word — and this stage mints only where the source's own structure says it."
+  },
+  {
+   "row_id": "books:data/research/books/claims/fergus_26_29_second_half.json#claims/bk_fer2_056#0",
+   "name_as_read": "John Kinzie",
+   "domain": "books",
+   "describes_date": "1803",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this reading's surname and first given initial, the discriminator this project's directory crosswalks match on. The town already carries this man under his own card; a second would double him."
+  },
+  {
+   "row_id": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_087#0",
+   "name_as_read": "John Kinzie",
+   "domain": "books",
+   "describes_date": "1827",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this reading's surname and first given initial, the discriminator this project's directory crosswalks match on. The town already carries this man under his own card; a second would double him."
+  },
+  {
+   "row_id": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_015#0",
+   "name_as_read": "Jouett, Charles",
+   "domain": "books",
+   "describes_date": "1805",
+   "reason": "earlier_than_the_window_and_nothing_follows_the_person_forward",
+   "why": "The reading is dated before the roster's window opens on 1833-01-01 and nothing in the corpus follows this person forward to the scene. Under the ladder ratified 2026-09-03 an earlier source dates and corroborates and never promotes. The 1832 muster is the one exception this stage takes, and it takes it because T-1172 already took it on the same page for the other company."
+  },
+  {
+   "row_id": "books:data/research/books/records/moses_kirkland_v1_actual_settlers_pre_1830.json#records/bk_mose1_as_029#0",
+   "name_as_read": "Robinson, Alex",
+   "domain": "books",
+   "describes_date": "1814",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this reading's surname and first given initial, the discriminator this project's directory crosswalks match on. The town already carries this man under his own card; a second would double him."
+  },
+  {
+   "row_id": "church:data/research/church/claims/st_marys_baptisms_town_findings.json#claims/st_marys_town_08#1",
+   "name_as_read": "Jaespquaa",
+   "domain": "church",
+   "describes_date": "1833-10-10",
+   "reason": "the_statement_is_not_on_the_roll_this_stage_reads",
+   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. The row is owed a stage that reads the register, and until one exists the person stays out of the town for want of a reader rather than for want of evidence."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_3_mother#0",
+   "name_as_read": "Marianne (sauvage)",
+   "domain": "church",
+   "describes_date": "1833-10",
+   "reason": "the_statement_is_not_on_the_roll_this_stage_reads",
+   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. The row is owed a stage that reads the register, and until one exists the person stays out of the town for want of a reader rather than for want of evidence."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_3_mother#0",
+   "name_as_read": "Marianne (sauvage)",
+   "domain": "church",
+   "describes_date": "1833-10-08",
+   "reason": "the_statement_is_not_on_the_roll_this_stage_reads",
+   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. The row is owed a stage that reads the register, and until one exists the person stays out of the town for want of a reader rather than for want of evidence."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_3_mother#0",
+   "name_as_read": "Jaespquaa (sauvage de Green Bay)",
+   "domain": "church",
+   "describes_date": "1833-10-10",
+   "reason": "the_statement_is_not_on_the_roll_this_stage_reads",
+   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. The row is owed a stage that reads the register, and until one exists the person stays out of the town for want of a reader rather than for want of evidence."
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_010#0",
+   "name_as_read": "CALDWELL, B",
+   "domain": "civic",
+   "describes_date": "1832",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this reading's surname and first given initial, the discriminator this project's directory crosswalks match on. The town already carries this man under his own card; a second would double him."
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_013#0",
+   "name_as_read": "CAU O SETT",
+   "domain": "civic",
+   "describes_date": "1832",
+   "reason": "the_roll_prints_this_name_twice",
+   "why": "The roll prints this same reading twice in the same company, letter for letter. One card is written for it and the second row is refused, because two identical rows are not evidence of two men and nothing on the page distinguishes them. The test here is EQUALITY of the whole reading and not the surname-plus-initial key T-1172 uses, for the reason the licence gives: that key reads the last word as a family name, and `MES KEE SUCK` and `MAU KAI TAI O SUCK` share a closing syllable and are two men."
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_015#0",
+   "name_as_read": "CHAMBLEE",
+   "domain": "civic",
+   "describes_date": "1832",
+   "reason": "a_one_word_european_surname_gives_no_person",
+   "why": "The roll clipped this reading to a single European surname, and this town carries more than one family of it. A one-word Native name printed whole is admitted here; a one-word surname with no forename is not, because nothing in the row says which man it is."
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_027#0",
+   "name_as_read": "FRANCOIS",
+   "domain": "civic",
+   "describes_date": "1832",
+   "reason": "a_one_word_european_surname_gives_no_person",
+   "why": "The roll clipped this reading to a single European surname, and this town carries more than one family of it. A one-word Native name printed whole is admitted here; a one-word surname with no forename is not, because nothing in the row says which man it is."
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_072#0",
+   "name_as_read": "MORGAN",
+   "domain": "civic",
+   "describes_date": "1832",
+   "reason": "a_one_word_european_surname_gives_no_person",
+   "why": "The roll clipped this reading to a single European surname, and this town carries more than one family of it. A one-word Native name printed whole is admitted here; a one-word surname with no forename is not, because nothing in the row says which man it is."
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_092#0",
+   "name_as_read": "ROBINSON, A",
+   "domain": "civic",
+   "describes_date": "1832",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this reading's surname and first given initial, the discriminator this project's directory crosswalks match on. The town already carries this man under his own card; a second would double him."
+  },
+  {
+   "row_id": "directories:data/research/directories/claims/fergus_1839_directory_entries.json#claims/f1839_e0875#0",
+   "name_as_read": "LaFromboise, Eugene",
+   "domain": "directories",
+   "describes_date": "1839",
+   "reason": "later_only_and_this_stage_does_not_back_project",
+   "why": "The reading is dated AFTER 1 July 1835 — an old-settlers obituary, a directory of 1839 or 1843 — and carries nothing in itself that dates an arrival before the scene. Back-projecting off a later naming is R5's licence and R5 is T-1172's; borrowing it here would be a second borrowed licence in one stage, and one is the argument."
+  },
+  {
+   "row_id": "directories:data/research/directories/claims/fergus_1839_directory_entries.json#claims/f1839_e0876#0",
+   "name_as_read": "LaFromboise, Joseph",
+   "domain": "directories",
+   "describes_date": "1839",
+   "reason": "later_only_and_this_stage_does_not_back_project",
+   "why": "The reading is dated AFTER 1 July 1835 — an old-settlers obituary, a directory of 1839 or 1843 — and carries nothing in itself that dates an arrival before the scene. Back-projecting off a later naming is R5's licence and R5 is T-1172's; borrowing it here would be a second borrowed licence in one stage, and one is the argument."
+  },
+  {
+   "row_id": "directories:data/research/directories/claims/fergus_1843_directory_entries.json#claims/f1843_e0291#0",
+   "name_as_read": "Bates, Augustine Seymour",
+   "domain": "directories",
+   "describes_date": "1843",
+   "reason": "later_only_and_this_stage_does_not_back_project",
+   "why": "The reading is dated AFTER 1 July 1835 — an old-settlers obituary, a directory of 1839 or 1843 — and carries nothing in itself that dates an arrival before the scene. Back-projecting off a later naming is R5's licence and R5 is T-1172's; borrowing it here would be a second borrowed licence in one stage, and one is the argument."
+  },
+  {
+   "row_id": "directories:data/research/directories/claims/fergus_1843_directory_entries.json#claims/f1843_e2274#0",
+   "name_as_read": "Slater, J. E",
+   "domain": "directories",
+   "describes_date": "1843",
+   "reason": "later_only_and_this_stage_does_not_back_project",
+   "why": "The reading is dated AFTER 1 July 1835 — an old-settlers obituary, a directory of 1839 or 1843 — and carries nothing in itself that dates an arrival before the scene. Back-projecting off a later naming is R5's licence and R5 is T-1172's; borrowing it here would be a second borrowed licence in one stage, and one is the argument."
+  },
+  {
+   "row_id": "old_settlers:data/research/old_settlers/death_notices.json#records/fdn0082#0",
+   "name_as_read": "Caldwell, Billy (Indian chief \"Sauganash\")",
+   "domain": "old_settlers",
+   "describes_date": "1841-09-28",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this reading's surname and first given initial, the discriminator this project's directory crosswalks match on. The town already carries this man under his own card; a second would double him."
+  },
+  {
+   "row_id": "old_settlers:data/research/old_settlers/death_notices.json#records/fdn0394#0",
+   "name_as_read": "Little, Turtle",
+   "domain": "old_settlers",
+   "describes_date": "1812-07-14",
+   "reason": "earlier_than_the_window_and_nothing_follows_the_person_forward",
+   "why": "The reading is dated before the roster's window opens on 1833-01-01 and nothing in the corpus follows this person forward to the scene. Under the ladder ratified 2026-09-03 an earlier source dates and corroborates and never promotes. The 1832 muster is the one exception this stage takes, and it takes it because T-1172 already took it on the same page for the other company."
+  },
+  {
+   "row_id": "old_settlers:data/research/old_settlers/death_notices.json#records/fdn0501#0",
+   "name_as_read": "Ouilmette, Antoine (Indian chief)",
+   "domain": "old_settlers",
+   "describes_date": null,
+   "reason": "the_reading_carries_no_date_this_tool_can_read",
+   "why": "A mint needs a dated appearance to price its presence against the persistence model, and this reading gives none."
+  },
+  {
+   "row_id": "old_settlers:data/research/old_settlers/death_notices.json#records/fdn0537#0",
+   "name_as_read": "Red-Bird (Indian chief), d.",
+   "domain": "old_settlers",
+   "describes_date": "1828-02-16",
+   "reason": "earlier_than_the_window_and_nothing_follows_the_person_forward",
+   "why": "The reading is dated before the roster's window opens on 1833-01-01 and nothing in the corpus follows this person forward to the scene. Under the ladder ratified 2026-09-03 an earlier source dates and corroborates and never promotes. The 1832 muster is the one exception this stage takes, and it takes it because T-1172 already took it on the same page for the other company."
+  },
+  {
+   "row_id": "old_settlers:data/research/old_settlers/death_notices.json#records/fdn0553#0",
+   "name_as_read": "Robinson, Alex. (Indian chief)",
+   "domain": "old_settlers",
+   "describes_date": "1872-04-22",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this reading's surname and first given initial, the discriminator this project's directory crosswalks match on. The town already carries this man under his own card; a second would double him."
+  },
+  {
+   "row_id": "old_settlers:data/research/old_settlers/death_notices.json#records/fdn0589#0",
+   "name_as_read": "Shabonee, (Indian chief)",
+   "domain": "old_settlers",
+   "describes_date": "1859-07-17",
+   "reason": "later_only_and_this_stage_does_not_back_project",
+   "why": "The reading is dated AFTER 1 July 1835 — an old-settlers obituary, a directory of 1839 or 1843 — and carries nothing in itself that dates an arrival before the scene. Back-projecting off a later naming is R5's licence and R5 is T-1172's; borrowing it here would be a second borrowed licence in one stage, and one is the argument."
+  },
+  {
+   "row_id": "old_settlers:data/research/old_settlers/death_notices.json#records/fdn0691#0",
+   "name_as_read": "Wabansee, (Indian chief)",
+   "domain": "old_settlers",
+   "describes_date": "1846",
+   "reason": "later_only_and_this_stage_does_not_back_project",
+   "why": "The reading is dated AFTER 1 July 1835 — an old-settlers obituary, a directory of 1839 or 1843 — and carries nothing in itself that dates an arrival before the scene. Back-projecting off a later naming is R5's licence and R5 is T-1172's; borrowing it here would be a second borrowed licence in one stage, and one is the argument."
+  }
+ ]
+}

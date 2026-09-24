@@ -1,0 +1,803 @@
+{
+ "id": "1835_premises_rulings",
+ "ticket": "T-1404",
+ "parent_ticket": "T-1182",
+ "read_by": "tools/complete_inwindow_trades.py",
+ "not_a_reading": "AN ADJUDICATION, NOT A READING. No page of any source is read here. Each ruling says whether a trade of the resident layer's closed occupation vocabulary implies PREMISES OF ITS OWN — a house of trade the tradesman keeps — or does not. The premises-implying set is the parent's: the `public_trades` and `works_trades` of the signage rule (tools/generate_business_signboards.py), plus the lawyers' and physicians' offices the December 1835 State census counts. Every ruling names which term of that rule it stands on, or says which ticket owns the establishment the work was done at.",
+ "vocabulary": [
+  {
+   "value": "own_premises",
+   "label": "a house of trade of the tradesman's own",
+   "note": "The person gets a business record, graded `inferred` — never `attested`: the source says the man followed the trade at Chicago in window, and that a man at this trade kept a shop is an inference about the shop, not a printing of it."
+  },
+  {
+   "value": "no_fixed_premises",
+   "label": "no premises of the tradesman's own",
+   "note": "The role carries `premises: no_fixed_premises` and no business is raised. The basis says where the work was done and which ticket owns the establishment or the link."
+  }
+ ],
+ "census_classes": "data/research/newspapers/trade_class_rulings.json — the ONE taxonomy, so a raised house counts against the December 1835 State census without a second crosswalk.",
+ "identity_rule": "A CANDIDATE WHOSE SURNAME ALREADY STANDS IN THE REGISTER AT HIS OWN TRADE IS HELD, NOT RAISED. 52 keepers printed in the register carry `person_id: null` — the register could not match the printed name to a town card — so raising a house for a man the paper may already have printed would double him. Where an unlinked keeper shares this person's surname AND the house the register prints names this person's own occupation, no record is written and the pair is reported for the identity ruling T-1182 clause 1 owns. A different trade under the same surname is a different house and is raised.",
+ "identity_holds_rule": "AND A HOLD MAY BE RULED BY HAND, where the surname test cannot see the collision. `identity_holds` names a person and a trade this project has an OPEN identity question about; no house is raised and the question is carried on the ledger row. Raising one would answer the question by building — the thing the question was written to refuse.",
+ "identity_holds": [
+  {
+   "person_id": "mulford_e_h",
+   "occupation": "watchmaker",
+   "question": "mulford_one_letter",
+   "where": "data/research/books/trade_census_1835_spend_rulings.json#open_questions",
+   "basis": "Are E. H. Mulford, watch-maker off Andreas, and J. H. Mulford, the register's dealer in watches, jewelry, engravings and fancy goods, one man? T-1007 holds that open and says why: merging them would close a census gap by arithmetic. Raising E. H. Mulford a shop of his own SPLITS them by arithmetic instead, which is the same move in the other direction. The surname test does not catch it — the register prints the trade as `watches, jewelry, engravings and fancy goods` and the card says `watchmaker` — so the hold is ruled here by hand."
+  }
+ ],
+ "rulings": [
+  {
+   "occupation": "army_officer",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "The garrison is the fort's establishment; T-1176 reads it and T-1204 builds its reach. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "army_surgeon",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "The post surgeon serves the garrison and keeps no practice of his own; T-1176 reads the fort's establishment. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "attorney",
+   "premises": "own_premises",
+   "census_class": "lawyer",
+   "signage_function": "office",
+   "basis": "a law office is a door among doors and the December census counts twenty-two of them; the parent's clause 3 names lawyers' offices as premises"
+  },
+  {
+   "occupation": "auctioneer",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "auction_room",
+   "basis": "a sale room whose whole trade is being found on the day — PUBLIC_TRADES `auction_room`"
+  },
+  {
+   "occupation": "baker",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "barber_surgeon",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "blacksmith",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "blacksmith_shop",
+   "basis": "a smith's shop, named on its front for the carter who needs one — WORKS_TRADES `blacksmith_shop`"
+  },
+  {
+   "occupation": "boarding_house_keeper",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "boarding_house",
+   "basis": "lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`"
+  },
+  {
+   "occupation": "boatman",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A boat is worked on the water. worked on the road, the water or the open prairie, and kept no house of trade."
+  },
+  {
+   "occupation": "bookseller",
+   "premises": "own_premises",
+   "census_class": "book_store",
+   "signage_function": "store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule; the December census counts book stores separately"
+  },
+  {
+   "occupation": "brewer",
+   "premises": "own_premises",
+   "census_class": "brewery",
+   "signage_function": null,
+   "basis": "a brewery is a works with a copper in it and the December census counts two; the signage rule has no term for one because the town's single brewery carries no frontage record yet"
+  },
+  {
+   "occupation": "brickmaker",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "brickyard",
+   "basis": "a brickyard names its owner for the builder ordering by the thousand — WORKS_TRADES `brickyard`"
+  },
+  {
+   "occupation": "builder",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "butcher",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "slaughterhouse_packing",
+   "basis": "a slaughter yard names the firm the drover is delivering to — WORKS_TRADES `slaughterhouse_packing`"
+  },
+  {
+   "occupation": "carpenter",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "carriage_maker",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "chaplain",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "Attached to the garrison or to a church, neither of which the chaplain keeps. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "clerk",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A clerk keeps a counter for a merchant. worked on somebody else's premises. The workplace link is T-1189's, which staffs every business with real persons; nothing here raises a house."
+  },
+  {
+   "occupation": "clothier",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "coffee_house_keeper",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "tavern_inn",
+   "basis": "a coffee house is a public house by another name and takes its custom from the road; the December census has no line for one"
+  },
+  {
+   "occupation": "confectioner",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "cooper",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "county_clerk",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "dancing_master",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "Taught in a room hired for the term, commonly a tavern's. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "dentist",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "physicians_office",
+   "basis": "a consulting room a stranger has to be able to find; the December census has no line for a dentist, so the class is `other`"
+  },
+  {
+   "occupation": "domestic",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "Domestic service is given in another household's house. worked on somebody else's premises. The workplace link is T-1189's, which staffs every business with real persons; nothing here raises a house."
+  },
+  {
+   "occupation": "dressmaker",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "drover",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "Stock is driven on the road to the packer's yard. worked on the road, the water or the open prairie, and kept no house of trade."
+  },
+  {
+   "occupation": "druggist",
+   "premises": "own_premises",
+   "census_class": "druggist",
+   "signage_function": "drug_store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule; the December census counts druggists separately"
+  },
+  {
+   "occupation": "dry_goods_merchant",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "editor",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "An editor conducts a paper printed in somebody's printing office. worked on somebody else's premises. The workplace link is T-1189's, which staffs every business with real persons; nothing here raises a house."
+  },
+  {
+   "occupation": "engineer",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "The harbour works are a public undertaking; T-1187 owns the pier-works gang and its yard. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "farmer",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A farm is not a house of trade. The farms and barns on the prairie edge are STRUCTURES, and T-1208 builds them."
+  },
+  {
+   "occupation": "ferryman",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "The ferry is a boat and a pair of landings, not a house of trade; T-1187 owns the ferries."
+  },
+  {
+   "occupation": "fire_warden",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A town office, not a trade."
+  },
+  {
+   "occupation": "forwarding_and_commission",
+   "premises": "own_premises",
+   "census_class": "storage_and_forwarding",
+   "signage_function": "forwarding_and_commission_store",
+   "basis": "a counting-room a shipper has to find from the wharf, with a warehouse behind it — PUBLIC_TRADES `forwarding_and_commission_store` and WORKS_TRADES `forwarding_commission_warehouse`"
+  },
+  {
+   "occupation": "founder",
+   "premises": "own_premises",
+   "census_class": "iron_foundry",
+   "signage_function": null,
+   "basis": "a furnace is a works and the December census counts one; the signage rule has no term for one because the town's single foundry carries no frontage record yet"
+  },
+  {
+   "occupation": "grocer",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "grocery_and_provision_store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "gunsmith",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "harbour_agent",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A public agency, transacted at the works. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "hardware_merchant",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "harness_maker",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "saddlery_and_harness_shop",
+   "basis": "a craft shop selling finished goods over a counter — PUBLIC_TRADES `saddlery_and_harness_shop`"
+  },
+  {
+   "occupation": "hatter",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "hotel_keeper",
+   "premises": "own_premises",
+   "census_class": "tavern",
+   "signage_function": "hotel",
+   "basis": "a public house takes its custom from the road — PUBLIC_TRADES `hotel`; the December census counts a hotel among its eight taverns"
+  },
+  {
+   "occupation": "hunter",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "Worked on the open prairie and the marsh. worked on the road, the water or the open prairie, and kept no house of trade."
+  },
+  {
+   "occupation": "indian_agent",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "insurance_agent",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "An agency is HELD, not kept: it was transacted at the agent's own counting-room, and the register already prints the town's insurance agencies as houses. The agency itself is T-1405's `associated_with`."
+  },
+  {
+   "occupation": "interpreter",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "An interpreter is retained by the Agency or by a treaty commission. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "jeweller",
+   "premises": "own_premises",
+   "census_class": "silversmith_jeweller",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "joiner",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "justice_of_the_peace",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "labourer",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A labourer is hired by the day. worked on somebody else's premises. The workplace link is T-1189's, which staffs every business with real persons; nothing here raises a house."
+  },
+  {
+   "occupation": "land_agent",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "office",
+   "basis": "a land agent kept an office and the register already prints three; the December census has no line for one"
+  },
+  {
+   "occupation": "land_office_receiver",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "land_office_register",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "laundress",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "Washing was taken in at the laundress's own dwelling or done at her employer's, and T-1419 (of T-1186) rules that NEITHER is a house of trade: a dwelling that takes in washing is a dwelling, and work done in another household's kitchen is done on premises the laundress does not keep. The workplace link is T-1189's. This does not touch rcb_fb_washing_and_ironing, an establishment T-1377's documented floor argues for directly."
+  },
+  {
+   "occupation": "lighthouse_keeper",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A public post at a public building."
+  },
+  {
+   "occupation": "liquor_dealer",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "livery_stable_keeper",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": null,
+   "basis": "a livery stable is premises with a yard behind it; the December census has no line for one, and T-1187 owns the drays and the livery"
+  },
+  {
+   "occupation": "lumber_merchant",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "store",
+   "basis": "a lumber yard sells over a counter on the bank and is premises; the December census has no line for one, so the class is `other` and T-1187 owns the yards"
+  },
+  {
+   "occupation": "mail_contractor",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A contract carried on the road. worked on the road, the water or the open prairie, and kept no house of trade."
+  },
+  {
+   "occupation": "mason",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "master_mariner",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A vessel is commanded on the water; T-1187 owns the vessels in port. worked on the road, the water or the open prairie, and kept no house of trade."
+  },
+  {
+   "occupation": "merchant",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "militia_officer",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A militia commission is a seat, not a trade."
+  },
+  {
+   "occupation": "miller",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": null,
+   "basis": "a mill is premises; the December census's one steam saw-mill is a sawyer's works and not a grist miller's, so the class is `other`"
+  },
+  {
+   "occupation": "milliner",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "minister",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A church is an establishment, and the December census counts five. T-1188 establishes the churches and T-1189 staffs them. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "music_teacher",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "Taught in the pupil's house or in a room hired for the term. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "packer",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "packing_house",
+   "basis": "a packing house names the firm the drover is delivering to — WORKS_TRADES `packing_house`"
+  },
+  {
+   "occupation": "painter",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "pedlar",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A pedlar's whole trade is that he has no fixed premises. worked on the road, the water or the open prairie, and kept no house of trade."
+  },
+  {
+   "occupation": "physician",
+   "premises": "own_premises",
+   "census_class": "physician",
+   "signage_function": "physicians_office",
+   "basis": "a consulting room a stranger has to be able to find — PUBLIC_TRADES `physicians_office`; the December census counts fourteen physicians"
+  },
+  {
+   "occupation": "plasterer",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "Plastering is done inside the customer's building, and T-1185's list of the mechanics' shops — smiths, carpenters and joiners, coopers, wheelwrights and wagon makers, tailors, shoemakers, tanners, saddlers, tinners, masons, painters, bakers and butchers — does not carry a plasterer."
+  },
+  {
+   "occupation": "postmaster",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "priest",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A church is an establishment, and the December census counts five. T-1188 establishes the churches and T-1189 staffs them. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "printer",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A printer is employed in a printing office, and the town's printing offices are already in the register — the December census counts two and the register holds three. worked on somebody else's premises. The workplace link is T-1189's, which staffs every business with real persons; nothing here raises a house."
+  },
+  {
+   "occupation": "provision_dealer",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "grocery_and_provision_store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "public_administrator",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "refectory_keeper",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "tavern_inn",
+   "basis": "an eating house takes its custom from the road; the December census has no line for one"
+  },
+  {
+   "occupation": "saddler",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "saddlery_and_harness_shop",
+   "basis": "a craft shop selling finished goods over a counter — PUBLIC_TRADES `saddlery_and_harness_shop`"
+  },
+  {
+   "occupation": "sailmaker",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "sawyer",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A sawyer is employed at a mill. worked on somebody else's premises. The workplace link is T-1189's, which staffs every business with real persons; nothing here raises a house."
+  },
+  {
+   "occupation": "schoolteacher",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A school is an establishment, and the December census counts seven of them against the seven the town holds. T-1188 establishes the schools as businesses and T-1189 staffs them. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "seaman",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A vessel is worked on the water; T-1187 owns the vessels in port. worked on the road, the water or the open prairie, and kept no house of trade."
+  },
+  {
+   "occupation": "sheriff",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "ship_carpenter",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A vessel is built in a yard belonging to her owner or to a lumber yard; T-1187 owns the river trades and the pier-works gang."
+  },
+  {
+   "occupation": "ship_chandler",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "shoemaker",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "silversmith",
+   "premises": "own_premises",
+   "census_class": "silversmith_jeweller",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "soap_and_candle_maker",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "soap_candle_manufactory",
+   "basis": "a manufactory names the firm whose goods leave by the cart-load — WORKS_TRADES `soap_candle_manufactory`"
+  },
+  {
+   "occupation": "soldier",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "The garrison is the fort's establishment. exercised at an establishment the person does not keep."
+  },
+  {
+   "occupation": "speculator",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "Land was bought and sold at the land office and in the taverns; a speculation is not a house of trade."
+  },
+  {
+   "occupation": "stationer",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "stove_dealer",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "sub_agent",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "surveyor",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "Surveying is done in the field and the plat drawn where the surveyor lodges; no source gives this town a surveyor's office in 1835."
+  },
+  {
+   "occupation": "sutler",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "tailor",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "tanner",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "tannery",
+   "basis": "a tan-yard names its master for the trade that brings him hides — WORKS_TRADES `tannery`"
+  },
+  {
+   "occupation": "tavern_keeper",
+   "premises": "own_premises",
+   "census_class": "tavern",
+   "signage_function": "tavern_inn",
+   "basis": "a public house takes its custom from the road — PUBLIC_TRADES `tavern_inn`"
+  },
+  {
+   "occupation": "teamster",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A team is driven on the road. worked on the road, the water or the open prairie, and kept no house of trade."
+  },
+  {
+   "occupation": "tinsmith",
+   "premises": "own_premises",
+   "census_class": "tin_and_copper_manufactory",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "town_assessor",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "town_clerk",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "town_president",
+   "premises": "no_fixed_premises",
+   "census_class": null,
+   "signage_function": null,
+   "basis": "A CIVIC SEAT, NOT A HOUSE OF TRADE. Where the seat was held is a person's other significant location and is written as `associated_with[]` by T-1405; the post office, the land office and the county offices are ESTABLISHMENTS and T-1188 raises them as businesses with their staff."
+  },
+  {
+   "occupation": "trader",
+   "premises": "own_premises",
+   "census_class": "store",
+   "signage_function": "store",
+   "basis": "a counter open to the street — PUBLIC_TRADES `store` of the signage rule"
+  },
+  {
+   "occupation": "trunk_maker",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  },
+  {
+   "occupation": "watchmaker",
+   "premises": "own_premises",
+   "census_class": "silversmith_jeweller",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835; the December census counts silversmiths and jewellers together and a watchmaker's bench is that trade"
+  },
+  {
+   "occupation": "wheelwright",
+   "premises": "own_premises",
+   "census_class": "other",
+   "signage_function": "shop",
+   "basis": "a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835"
+  }
+ ]
+}

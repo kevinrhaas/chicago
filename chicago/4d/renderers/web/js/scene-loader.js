@@ -122,7 +122,7 @@ async function fetchAsset(url) {
  *   registry: Map<string, object>, problems: string[], bytes: number
  * }>}
  */
-export async function loadScene(year, bases = resolveBases()) {
+export async function loadScene(year, bases = resolveBases(), { onProgress = () => {} } = {}) {
   const { dataBase, assetBase } = bases;
   const problems = [];
 
@@ -156,6 +156,8 @@ export async function loadScene(year, bases = resolveBases()) {
   const registry = new Map();
   let bytes = 0;
 
+  let completed = 0;
+  onProgress(0, entries.length);
   const loads = entries.map(async ({ id, sidecar: sidecarPath }) => {
     const sidecarUrl = new URL(sidecarPath ?? `sidecars/${year}/${id}.json`, dataBase);
     let sidecar;
@@ -273,6 +275,6 @@ export async function loadScene(year, bases = resolveBases()) {
     });
   });
 
-  await Promise.all(loads);
+  await Promise.all(loads.map(p => p.finally(() => onProgress(++completed, entries.length))));
   return { year, scene, datum, registry, problems, bytes, index };
 }

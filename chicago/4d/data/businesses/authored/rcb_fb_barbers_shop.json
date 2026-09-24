@@ -1,0 +1,104 @@
+{
+ "id": "rcb_fb_barbers_shop",
+ "register_id": null,
+ "name": "Benjamin Anderson, barber",
+ "provenance": "reconstructed",
+ "type": [
+  "other"
+ ],
+ "trade": "A barber's shop kept by a free Black resident of the town",
+ "occupation": "barber",
+ "goods": [],
+ "firm_styles": [],
+ "proprietors": [
+  {
+   "name": "Benjamin Anderson",
+   "person_id": "rc_fb_anderson_benjamin",
+   "register_person_id": null,
+   "role": "proprietor",
+   "from": null,
+   "to": null,
+   "tier": "reconstructed",
+   "basis": "RECONSTRUCTED, NOT FOUND. No source names a Black-owned business at Chicago in 1835 or names anybody who kept one. This firm exists because its keeper does: the free Black cohort T-1377 writes to the floor of the 1833-1840 bracket is dealt trades, and a trade with a premises is a firm. Written by tools/reconstruct_free_black.py from slot free_black:floor:001.",
+   "source_id": null,
+   "claim_ids": []
+  }
+ ],
+ "partners": [],
+ "staff": [],
+ "locations": [
+  {
+   "kind": "unplaceable",
+   "structure_id": null,
+   "street_id": null,
+   "face": null,
+   "primary": true,
+   "from": null,
+   "to": null,
+   "tier": "reconstructed",
+   "basis": "Unplaceable, and not for want of looking. No reading in this corpus puts a free Black household or business on any street of this town, so the record carries its limit rather than a guess.",
+   "limit_reason": "Nothing places this house. The cohort it belongs to is unplaced for the same reason — no reading puts a free Black household or business on any street of this town — and T-1199 seats the reconstructed layer when the placement policy is written."
+  }
+ ],
+ "dates": {
+  "opened": null,
+  "closed": null,
+  "precision": "unbounded",
+  "tier": "reconstructed",
+  "basis": "No opening and no closing. The firm is reconstructed onto the scene date and carries no date it cannot read."
+ },
+ "evidence": {
+  "first_issue": null,
+  "last_issue": null,
+  "copy_dates": []
+ },
+ "present_at_scene_date": true,
+ "exclusion": null,
+ "exclusion_note": null,
+ "proprietor_community": {
+  "value": "free_black",
+  "tier": "reconstructed",
+  "rule": "proprietors_agree",
+  "basis": "The one keeper this record names is a reconstructed free Black resident and the card says so. A house is not its keeper, so the reading is an inference about the house and is capped there — and under that, at the tier of the person it is read off, which is a reconstruction.",
+  "from": [
+   {
+    "person_id": "rc_fb_anderson_benjamin",
+    "name": "Benjamin Anderson",
+    "role": "proprietor",
+    "community": "free_black",
+    "tier": "reconstructed"
+   }
+  ]
+ },
+ "customers": [],
+ "sources": [],
+ "claim_ids": [],
+ "liberties": {
+  "survival_required": false,
+  "backdating_required": false
+ },
+ "review_required": true,
+ "replaceable_by": "Any source naming a Black-owned business at Chicago in 1835, or naming the person who kept one. REVIEW REQUIRED: this is a reconstructed Black-owned firm written where the corpus is silent, and AGENTS.md's standard holds it for review before a scene carrying it may be marked released.",
+ "reconstruction": {
+  "programme": "chicago_1835_resident_reconstruction",
+  "group": "free_black",
+  "ticket": "T-1377",
+  "floor": {
+   "count": 7,
+   "of": "free Black men resident at Chicago",
+   "as_of": "1833-08",
+   "sources": [
+    "andreas_1884_v1"
+   ],
+   "note": "THE FLOOR OF THE 1835 BRACKET, CARRIED FORWARD WHOLE. Caton's fee in August 1833 counts six or seven free coloured men at Chicago, each of them before the Court of County Commissioners for the certificate of freedom the Illinois black law made the condition of a lawful residence. The 1840 census counts fifty-three free coloured persons in the same town. No monotone path between those two readings passes below the 1833 count on 1 July 1835, so the count is carried and not drawn against a persistence rate — the subject here is a COUNT, and a count does not leave town.",
+   "why_a_firm_and_not_only_a_person": "The floor is a count of PEOPLE. This record exists because one of them keeps a trade with a premises, and a trade with a premises is a firm — the trades are dealt under L255 and the firm follows the keeper. It is not an order against a shortfall in the business model, which is why it names no bucket."
+  },
+  "seed": "free_black:floor:001",
+  "basis": {
+   "kind": "rule",
+   "id": "the_1833_count_is_the_floor_of_the_1835_bracket",
+   "note": "THE FLOOR OF THE 1835 BRACKET, CARRIED FORWARD WHOLE. Caton's fee in August 1833 counts six or seven free coloured men at Chicago, each of them before the Court of County Commissioners for the certificate of freedom the Illinois black law made the condition of a lawful residence. The 1840 census counts fifty-three free coloured persons in the same town. No monotone path between those two readings passes below the 1833 count on 1 July 1835, so the count is carried and not drawn against a persistence rate — the subject here is a COUNT, and a count does not leave town."
+  },
+  "withdrawn_if": "a source naming a Black-owned business at Chicago in 1835 or the person who kept one; a source naming a free Black resident at a trade, which retires the trade liberty this firm stands on; or a re-cut of the bracket that no longer puts the floor at the August 1833 count. The retirement runs through --build, never by hand."
+ }
+}

@@ -126,6 +126,11 @@ def ring_area(ring) -> float:
     return abs(a) / 2.0
 
 
+#: How far a block corner may sit outside its plat's ring and still count as ON it.
+#: data/datum.json derivation.residual_m — the model's own coordinate uncertainty.
+ON_THE_LINE_M = 17.5
+
+
 def inside(point, ring) -> bool:
     x, y = point
     hit = False
@@ -839,17 +844,94 @@ def cross_checks(polys, tracts):
     ka = next(t for t in tracts if t["id"] == "kinzies_addition")
     patent = 102.29
     blocks = load(ROOT / "data/traces/vectors/thompson_lots.json")["blocks"]
-    otring = polys["canal_commissioners_1830"]
-    outside = [b["id"] for b in blocks
-               if not all(inside(tuple(p), otring) for p in b["boundary_local_enu_m"])]
+    # EACH BLOCK IS TESTED AGAINST ITS OWN PLAT'S BOUNDS, and it has to be. The claim
+    # below says "every block generated from the Thompson module", and until T-1194 the
+    # lot layer held nothing else, so reading the whole file and testing it against the
+    # Original Town was the same set by accident. T-1194 seats Kinzie's Addition in the
+    # same file — 27 blocks north of the main stem, on a different sheet with different
+    # bounds — and testing THOSE against the Original Town asks whether a block of one
+    # plat lies inside another, which is not a question about anything. The block's own
+    # `grid` names the tract it was generated on, so the partition is read rather than
+    # assumed, and a plat that arrives without a ring here is a failure and not a skip.
+    GRID_RING = {"original_town": "canal_commissioners_1830",
+                 "kinzies_addition": "kinzies_addition",
+                 "wabansia": "wabansia",
+                 # T-1455. The West Division is the same 1830 plat as the Original Town —
+                 # Thompson drew both sides of the river on one sheet — so it is tested
+                 # against the same ring. It is a separate GRID because its block is a
+                 # different block, not because it is a separate survey.
+                 "west_division": "canal_commissioners_1830"}
+    # A PLAT THIS LAYER HOLDS NO POLYGON FOR IS NAMED, NOT SKIPPED. The test above is
+    # "does a block fall inside its own plat", and it cannot be asked of a plat whose
+    # bounds are not committed anywhere — the Michigan Street tract is seated in the lot
+    # layer (T-1438) and appears in `survey_tracts.json` only as these block ids. Saying
+    # so is the point: the alternative is four blocks quietly passing a test nobody ran,
+    # which is what the `no_ring_for_their_plat` guard was added to stop. The moment a
+    # polygon for it is committed, delete the row and the blocks are tested like the rest.
+    GRID_NO_RING = {
+        "michigan_st_tract": ("no survey-tract polygon is committed for this plat, so "
+                              "there are no bounds to test its blocks against"),
+    }
+    outside, unringed, untestable, per_plat = [], [], {}, {}
+    on_the_line = 0.0
+    for b in blocks:
+        grid = b.get("grid")
+        if grid in GRID_NO_RING:
+            untestable.setdefault(grid, []).append(b["id"])
+            continue
+        key = GRID_RING.get(grid)
+        if key is None or key not in polys:
+            unringed.append(b["id"])
+            continue
+        per_plat[grid] = per_plat.get(grid, 0) + 1
+        # A CORNER ON THE LINE IS NOT A CORNER OUTSIDE IT, and a block grid that tiles
+        # its plat to the edge puts corners on the line by construction — which is what
+        # Wabansia does: five of its corners sit at 0.0 m from the ring on the tract's
+        # north and south limits, and the point-in-polygon test then resolves by
+        # floating-point luck rather than by geometry.
+        #
+        # The tolerance is the datum's own number and NOT one fitted to make this pass.
+        # `data/datum.json` derivation.residual_m is 17.5 m RMS of coordinate
+        # uncertainty — both 1834 sheets carry real anisotropic paper stretch (Wright
+        # 3.7 %, Hathaway 4.5 %), so a global affine cannot do better. A corner within
+        # that of its plat's boundary is ON the boundary as far as this project can
+        # measure, and a block really seated in the wrong place is still caught.
+        #
+        # The worst distance actually used is REPORTED below rather than swallowed, so
+        # a reader sees that Wabansia needs 1.2 m of a 17.5 m allowance. If a later
+        # block needs fifteen, that number moves and says so.
+        for p in b["boundary_local_enu_m"]:
+            if inside(tuple(p), polys[key]):
+                continue
+            off = ring_distance(tuple(p), polys[key])
+            if off > ON_THE_LINE_M:
+                outside.append(b["id"])
+                break
+            on_the_line = max(on_the_line, off)
     return {
         "committed_plat_blocks_inside_the_original_town": {
-            "claim": ("If the four streets are the 1830 plat's bounds, every block this "
-                      "project has already generated from the Thompson module must fall "
-                      "inside them. This does not prove the bounds — a bigger rectangle "
-                      "would pass too — but a block outside would disprove them."),
+            "claim": ("If a plat's bounds are where this project puts them, every block "
+                      "it has generated from that plat's module must fall inside them. "
+                      "This does not prove any bounds — a bigger rectangle would pass "
+                      "too — but a block outside its OWN plat would disprove them. Each "
+                      "block is tested against the tract its `grid` names: the Original "
+                      "Town's blocks against the 1830 canal commissioners' four streets, "
+                      "Kinzie's Addition's against Kinzie's."),
             "blocks": len(blocks),
+            "by_plat": dict(sorted(per_plat.items())),
             "outside": outside,
+            "no_ring_for_their_plat": unringed,
+            "not_testable_and_why": {g: {"blocks": sorted(ids), "reason": GRID_NO_RING[g]}
+                                     for g, ids in sorted(untestable.items())},
+            "corners_on_the_line": {
+                "worst_m": round(on_the_line, 2),
+                "allowance_m": ON_THE_LINE_M,
+                "why": ("A block that tiles its plat to the edge has corners ON the "
+                        "boundary. The allowance is data/datum.json's own 17.5 m RMS "
+                        "coordinate residual, not a figure fitted to this layer; the "
+                        "worst distance actually used is stated so a reader can see how "
+                        "much of it any block needs."),
+            },
             "confidence": "inferred",
         },
         "lighthouse_inside_the_reservation": {
@@ -997,8 +1079,13 @@ def check_properties(doc: dict | None = None) -> int:
     want(abs(d - cc["lighthouse_inside_the_reservation"]["distance_inside_m"]) < 0.02,
          f"the glyph stands {d:.2f} m inside, "
          f"{cc['lighthouse_inside_the_reservation']['distance_inside_m']} recorded")
+    want(not cc["committed_plat_blocks_inside_the_original_town"]["no_ring_for_their_plat"],
+         "a committed plat block names a grid this cross-check has no ring for, so it "
+         "was never tested: "
+         f"{cc['committed_plat_blocks_inside_the_original_town']['no_ring_for_their_plat']}"
+         " — add the plat's tract to GRID_RING rather than letting it pass unchecked")
     want(not cc["committed_plat_blocks_inside_the_original_town"]["outside"],
-         "a committed plat block now stands outside the Original Town's four bounds: "
+         "a committed plat block now stands outside its OWN plat's bounds: "
          f"{cc['committed_plat_blocks_inside_the_original_town']['outside']}")
     ka = next(t for t in doc["tracts"] if t["id"] == "kinzies_addition")
     want(ka["area_acres"] < cc["kinzies_addition_against_its_patent"]["patent_acres"],

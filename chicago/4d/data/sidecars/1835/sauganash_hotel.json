@@ -231,7 +231,65 @@
       "note": "The Beaubiens owned it until 1834; the hotel chronology gives 'Davis (1835)' as operator, possibly the John Davis running the Steamboat Hotel on North Water Street. Mark Beaubien himself had moved on by the scene date — he built the Exchange Coffee House at Lake and Wells in 1834. The 1835 proprietor is a lead, not a settled fact."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_fullerton_alexander",
+      "name": "Alexander N. Fullerton",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at attorney in the professional group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Alexander N. Fullerton",
+          "relationship": "lodger",
+          "grade": "attested",
+          "occupation": "attorney",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_rc_crandall_william",
+      "name": "William Crandall",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at land_agent in the professional group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "William Crandall",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "land_agent",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_rc_stebbins_abigail",
+      "name": "Abigail Stebbins",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at hardware_merchant in the professional group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Abigail Stebbins",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "hardware_merchant",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    }
+  ],
   "citations": [
     {
       "source_id": "andreas_1884_v1",
@@ -353,5 +411,25 @@
   ],
   "research_note": "MILESTONE 0 REFERENCE RECORD. Two things are documented and vivid — the white two-story frame and the bright-blue shutters, both from Wau-Bun — and two things are unknown: the building's dimensions and whether it had a gallery. That combination is exactly why the per-attribute confidence model exists, and this record is deliberately the first one in the dataset. See docs/RESEARCH/sauganash_hotel.md for the source conflicts and the reasoning behind each reading. The Wigwam of 1860 stood on this site later; the hotel burned 4 March 1851.",
   "research_doc": "docs/RESEARCH/sauganash_hotel.md",
-  "review_required": false
+  "review_required": false,
+  "lodging": {
+    "class": "inn_tavern",
+    "beds_ordinary": 7,
+    "beds_crowded": 35,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": true,
+    "enclosed_floor_m2": 158.72,
+    "confidence": "reconstructed",
+    "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 159 m² of enclosed floor (79 m² × 2 storeys) is of the class's floor area.",
+    "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
+    "occupancy": {
+      "people": 3,
+      "beds_ordinary": 7,
+      "empty": 4,
+      "statement": "3 on this card against an ordinary night's 7 beds: 3 seated here from elsewhere in the layer, where no source gives them a roof.",
+      "empty_note": "The residents layer attaches no household to this house and the reconstruction programme did not raise it, so nothing this project holds says which division it stood in — data/structures/*.json carries no division field at all. A person drawn into a lodging house has to be ordered out of the book's bucket for a division, so this stage mints nobody here. Somebody the layer already counts may still be seated here, and the seats above are.",
+      "keeper_persons": 0,
+      "keeper_owed": "NOBODY KEEPS THIS HOUSE IN THIS DATASET. It is a documented building and no source this project holds names its keeper on 1 July 1835. A reconstructed proprietor is not written into a documented house: that is a research question, not a draw."
+    }
+  }
 }

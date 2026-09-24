@@ -1,0 +1,97 @@
+{
+  "id": "biz_a_filer_co",
+  "register_id": "business_a_filer_co",
+  "name": "A. Filer & Co.",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "cabinet and chair manufactory",
+  "occupation": "joiner",
+  "goods": [
+    "cabinet ware",
+    "chairs"
+  ],
+  "firm_styles": [],
+  "proprietors": [
+    {
+      "name": "A. Filer",
+      "person_id": "filer_a",
+      "register_person_id": "person_a_filer",
+      "role": "proprietor",
+      "from": "1834-03-04",
+      "to": "1834-05-21",
+      "tier": "attested",
+      "basis": "The register matches the printed name to the town card filer_a (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_03_04#c003",
+        "chicago_democrat_1834_05_21#c003"
+      ],
+      "also_printed_as": []
+    }
+  ],
+  "partners": [],
+  "staff": [],
+  "staffing": null,
+  "locations": [
+    {
+      "kind": "street_only",
+      "structure_id": null,
+      "street_id": "south_water",
+      "face": null,
+      "primary": true,
+      "from": "1834-03-04",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The paper names a street and no house on it.",
+      "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'the Baptist meeting house' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-03-04",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-03-04, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-03-04",
+    "last_issue": "1834-05-21",
+    "copy_dates": [
+      "1834-03-04"
+    ]
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "yankee",
+    "tier": "reconstructed",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: A. Filer (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "filer_a",
+        "name": "A. Filer",
+        "role": "proprietor",
+        "community": "yankee",
+        "tier": "reconstructed"
+      }
+    ]
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_03_04#c003",
+    "chicago_democrat_1834_05_21#c003"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

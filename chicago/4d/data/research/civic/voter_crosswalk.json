@@ -5,7 +5,7 @@
   "source_id": "chicago_voter_lists_1833_1835_irad",
   "publication_source_id": "chicago_genealogist_1993_voter_lists",
   "crosswalk_target": "data/residents/households/*.json",
-  "residents_compared": 1282,
+  "residents_compared": 1285,
   "counts": {
     "entries": 345,
     "matched": 292,
@@ -206,7 +206,7 @@
       "discriminator": "forenames agree initial for initial: entry 'R. J. Hamilton' against resident 'Richard Jones Hamilton'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Hamilton' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Hamilton' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1833_014",
@@ -977,7 +977,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Richard J. Hamilton' against resident 'Richard Jones Hamilton'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Hamilton' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Hamilton' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_043",
@@ -990,7 +990,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Isaac Harmon' against resident 'Isaac Dewey Harmon'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Harmon' agrees with the entry's forenames; 5 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Harmon' agrees with the entry's forenames; 6 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_044",
@@ -2580,7 +2580,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Richard J. Hamilton' against resident 'Richard Jones Hamilton'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Hamilton' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Hamilton' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_050",
@@ -2606,7 +2606,7 @@
       "discriminator": "forenames agree initial for initial: entry 'C. L. Harmon' against resident 'Charles Loomis Harmon'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Harmon' agrees with the entry's forenames; 5 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Harmon' agrees with the entry's forenames; 6 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_052",
@@ -2619,7 +2619,7 @@
       "discriminator": "forenames agree initial for initial: entry 'M. D. Harmon' against resident 'M D Harmon'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Harmon' agrees with the entry's forenames; 5 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Harmon' agrees with the entry's forenames; 6 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_053",
@@ -3849,7 +3849,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Amos C. Hamilton' against resident 'Amos C Hamilton'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Hamilton' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Hamilton' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1835_031",

@@ -333,7 +333,19 @@ INVENTED_FORM_NOTE = (
 # programme keeps its meaning — it is still the band assignment, still the interpretive
 # choice about which part of town this made-up building occupies — and the corridor is
 # what overrules it, measured rather than typed. A building already clear by the margin
-# does not move at all.
+# does not move at all. The declaration carries its own `why`, because T-0827's Market
+# Street re-fit is no longer the only reason a corridor can arrive under a building:
+# T-1191 read the north bank's corridors into the layer on 2026-09-19 and three shanties
+# that had stood on Kinzie Street's centreline since they were raised turned out to be
+# there — not because the street moved, but because nothing north of the river had ever
+# been asked.
+#
+# AND IT CLEARS BOTH READINGS OF THE CORRIDOR. T-0009 split them: the intrusion gate
+# measures against the corridor centred on each street's committed CONTROL, every
+# generator against the corridor as DRAWN. Kinzie holds control at `kinzie_canal` and its
+# two corridors stand 2.91 m apart, so a body cleared of one alone is still in the road on
+# the other — which is exactly what the first attempt at the shanties produced. Where a
+# street has no control the two rings are identical and this costs nothing.
 #
 # THIS UPGRADES NOTHING. The position stays `reconstructed`, the derivation block stays
 # `not_derivable`, and standing clear of a derived corridor is not standing on a
@@ -344,15 +356,12 @@ CORRIDOR_CLEARANCE_NOTE = (
     " MOVED OUT OF THE PLATTED {street_name} CORRIDOR, BY THE CORRIDOR RATHER THAN BY "
     "HAND (T-1227, settling T-0827's ruling of 2026-09-12). The band assignment above "
     "puts this building's centre at local ENU E {from_e:g} N {from_n:g}, which stands "
-    "{depth:.2f} m inside {street_name}'s platted corridor — and the reason is that the "
-    "ROADWAY moved, not the building: T-0827 re-fitted {street_name} off the plat's own "
-    "400 ft module instead of off the modern junction on N Wacker Drive it had been hung "
-    "from, and the corridor came west onto this footprint. An invented placement has "
-    "nothing to encroach with, so the corridor wins. The record therefore stands "
-    "{shift:.3f} m {direction} of its band assignment, at E {to_e:.3f} N {to_n:.3f} — the "
-    "LEAST this building can move and still leave its whole footprint {clear:.2f} m clear "
-    "of the platted kerb, measured against the corridor through tools/plat_corridors.py, "
-    "which is the same geometry the gate refuses on. The margin is T-0827's own and the "
+    "{depth:.2f} m inside {street_name}'s platted corridor. {why} The record therefore "
+    "stands {shift:.3f} m {direction} of its band assignment, at E {to_e:.3f} N "
+    "{to_n:.3f} — the LEAST this building can move and still leave its whole footprint "
+    "{clear:.2f} m clear of the platted kerb on BOTH readings of it, the corridor as "
+    "drawn and the corridor centred on the street's committed control (T-0009), measured "
+    "through tools/plat_corridors.py, which is the same geometry the gate refuses on. The "
     "distance is not typed anywhere: re-fit {street_name} again and this building moves "
     "again, instead of silently disagreeing with it."
 )
@@ -455,7 +464,7 @@ def resolve_corridor_clearance(programme: dict) -> None:
     """
     from plat_corridors import sampled  # noqa: PLC0415
     from generate_plat_lots import (  # noqa: PLC0415
-        EW_STREETS, NS_STREETS, point_in_polygon, point_to_ring_m,
+        CORRIDOR_EW, CORRIDOR_NS, point_in_polygon, point_to_ring_m,
     )
 
     lanes = None
@@ -469,16 +478,18 @@ def resolve_corridor_clearance(programme: dict) -> None:
         if lanes is None:
             from plat_corridors import corridors  # noqa: PLC0415
             lanes = corridors()
+            control_lanes = corridors(from_control=True)
         street = spec["street"]
         if street not in lanes:
             raise SystemExit(f"{b['id']} names a corridor no committed street draws: {street}")
-        axis = 0 if street in NS_STREETS else 1 if street in EW_STREETS else None
+        axis = 0 if street in CORRIDOR_NS else 1 if street in CORRIDOR_EW else None
         if axis is None:
             raise SystemExit(f"{b['id']} names {street}, which is on neither grid axis, so the "
                              f"corridor has no cross axis to move along")
 
         clear = float(spec["clear_m"])
-        ring = lanes[street]["ring"]
+        rings = [lanes[street]["ring"], control_lanes[street]["ring"]]
+        ring = rings[0]
         ce, cn = (float(v) for v in b["center_local_enu_m"])
         wft, dft = b["footprint_ft"]
         w, d = round(wft * FT, 3), round(dft * FT, 3)
@@ -496,9 +507,10 @@ def resolve_corridor_clearance(programme: dict) -> None:
             """
             worst = -math.inf
             for point in sampled(body(shift)):
-                depth = point_to_ring_m(point, ring)
-                inside = point_in_polygon(point, ring)
-                worst = max(worst, (depth if inside else -depth) + clear)
+                for r in rings:
+                    depth = point_to_ring_m(point, r)
+                    inside = point_in_polygon(point, r)
+                    worst = max(worst, (depth if inside else -depth) + clear)
             return worst
 
         if signed(0.0) <= 0.0:
@@ -510,7 +522,8 @@ def resolve_corridor_clearance(programme: dict) -> None:
         # out of one and a bisection per side is exact. The winner is rounded AWAY from
         # the roadway to the millimetre this dataset quotes a position in, which can only
         # leave the building clearer than the rule asks and never nearer.
-        reach = 2.0 * (point_to_ring_m((ce, cn), ring) + max(w, d) + clear) + 1.0
+        reach = 2.0 * (max(point_to_ring_m((ce, cn), r) for r in rings)
+                       + max(w, d) + clear) + 1.0
         best = None
         for sign in (-1.0, 1.0):
             hi = reach
@@ -530,8 +543,8 @@ def resolve_corridor_clearance(programme: dict) -> None:
             raise SystemExit(f"{b['id']} cannot be moved clear of the {street} corridor along "
                              f"its cross axis: the band assignment is in the wrong place")
 
-        depth = max((point_to_ring_m(pt, ring) for pt in sampled(body(0.0))
-                     if point_in_polygon(pt, ring)), default=0.0)
+        depth = max((point_to_ring_m(pt, r) for pt in sampled(body(0.0))
+                     for r in rings if point_in_polygon(pt, r)), default=0.0)
         moved = (round(ce + best, 3), cn) if axis == 0 else (ce, round(cn + best, 3))
         b["_corridor_clearance_applied"] = {
             "street_name": lanes[street]["name"],
@@ -542,6 +555,7 @@ def resolve_corridor_clearance(programme: dict) -> None:
                          else ("south" if best < 0 else "north"),
             "depth": depth,
             "clear": clear,
+            "why": str(spec["why"]).strip(),
         }
         b["center_local_enu_m"] = [moved[0], moved[1]]
 
@@ -1313,6 +1327,9 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true",
                         help="report drift in the fields this pass still owns")
+    parser.add_argument("--sync-owned", action="store_true",
+                        help="write only the fields the settlement still gives this pass, "
+                             "keeping the withheld ones as the tree holds them")
     parser.add_argument("--write-anyway", action="store_true",
                         help="write, knowing it reverses the owner's T-0489 ruling")
     args = parser.parse_args()
@@ -1354,6 +1371,43 @@ def main() -> int:
             "tools/generate_inferred_households.py"]["still_owns"]["data/structures"]
         print(f"   OK: {len(owned['ids'])} structure record(s) re-derive in every field "
               f"this pass still owns, and T-0489's retirement stands on all of them")
+
+    elif args.sync_owned:
+        # THE MODE THE REFUSAL BELOW WAS MISSING (T-1191). `--write` regenerates whole
+        # records and that reverses T-0489, so it is refused; but a pass that owns a
+        # record and cannot write it has no way to land a correction either, and the
+        # answer for a fortnight was to hand-edit the generated file — the exact fault
+        # T-1227 exists to stop. This writes the derivation for the fields the
+        # settlement still gives this pass and keeps the TREE for every withheld path,
+        # so the retirement stands untouched and the geometry follows the programme.
+        # `--check` is the proof: it compares the same two halves.
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import inferred_household_ownership as ownership  # noqa: PLC0415
+
+        withheld = ownership.withheld_paths("tools/generate_inferred_households.py")
+        owned = set(ownership.settlement()["passes"][
+            "tools/generate_inferred_households.py"]["still_owns"]["data/structures"]["ids"])
+        wrote = 0
+        for path, text in sorted(files.items()):
+            sid = path.stem
+            if sid not in owned or not path.exists():
+                continue
+            raw = path.read_text(encoding="utf-8")
+            tree = json.loads(raw)
+            merged = ownership.graft(json.loads(text), tree, withheld.get(sid, []))
+            if merged == tree:
+                continue
+            # THE FILE'S OWN INDENT, not this pass's. These records are written at one
+            # space and `dumps(record, 2)` above emits two, so re-serialising every
+            # owned record would have rewritten 4,436 lines across 31 files to land a
+            # correction in three of them. A sync that reformats the tree is a sync
+            # nobody can read the diff of.
+            body = raw.split("\n", 1)[1]
+            indent = len(body) - len(body.lstrip(" ")) or 2
+            path.write_text(json.dumps(merged, indent=indent, ensure_ascii=False) + "\n",
+                            encoding="utf-8")
+            wrote += 1
+        print(f"   synced {wrote} structure record(s) in the fields this pass still owns")
 
     elif not args.write_anyway:
         # Writing is the reversal itself. This run watched it try: regenerating

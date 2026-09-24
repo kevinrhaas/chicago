@@ -77,6 +77,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import tempfile
 import os
 import pathlib
 import sys
@@ -328,12 +329,16 @@ def self_test():
     src = Image.open(PLATES / calib["crop"]).convert("L")
     arr = np.asarray(src)
     shuffled = arr[rng.permutation(arr.shape[0]), :]
-    scrambled = ROOT / "tools" / f".selftest_{calib['crop']}"
-    Image.fromarray(shuffled).save(scrambled)
-    try:
+    # The decoy goes in a temporary directory, not in tools/ (T-1336). It is this
+    # fixture's own scratch and no committed file was ever at that path, so it could
+    # not redden a neighbouring step the way the page-index and businesses fixtures
+    # did — but check.sh runs its steps in a job pool over one working tree, and a
+    # self-test that leaves anything in the tree at all is a step that cannot be
+    # reasoned about from its name.
+    with tempfile.TemporaryDirectory() as _td:
+        scrambled = pathlib.Path(_td) / f"scrambled_{calib['crop']}"
+        Image.fromarray(shuffled).save(scrambled)
         decoy = measure(scrambled, SHEET, _sweep(calib["scale"]))
-    finally:
-        scrambled.unlink(missing_ok=True)
     if decoy["ncc"] >= got["ncc"] - 0.15:
         failures.append(f"SELF-TEST FAIL: row-shuffled noise scored {decoy['ncc']} "
                         f"against the real join's {got['ncc']} — the measure does not "

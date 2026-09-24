@@ -32,6 +32,8 @@ from associations import (ASSOCIATION_KINDS, ASSOCIATION_RESOLUTION,
                          check_association_rows, singular_drift)
 from heightfield import Heightfield
 from migrate_attribute_tiers import check_tier_block
+from reconstruct_residents_1835 import (PROGRAMME as RECONSTRUCTION_PROGRAMME,
+                                        check_reconstructed_person)
 from tiers import (SOLE_EVIDENCE_MAX_TIER, TESTIMONY_MAX_TIER,
                    TRACEABLE_MAX_TIER, tier_ladder)
 
@@ -4756,7 +4758,24 @@ RESIDENT_SCENE_DATE = "1835-07-01"
 # person, so it stays optional and off the manifest's public vocabulary block:
 # the ~70-odd hand-authored households were never minted by any pass and never
 # carry the key at all.
-RESIDENT_SOURCE_PASSES = ("documented", "placed", "letter_list", "civic")
+# `reconstructed_readmission` is T-1167's: a person the research READ and withheld,
+# re-admitted by the reconstruction programme under their own read name. It is a pass
+# and not a mint, which is why it is named here rather than given an id prefix - the
+# id scheme marks an INVENTED person (`rc_`), and a re-admitted one is not invented.
+# `reconstructed_women_children` is T-1174's, and it is the first pass to write a
+# HOUSEHOLD nobody is named in. Like the re-admission above it is a pass and not a mint,
+# but for the opposite reason: every person on one of its cards is invented and carries the
+# `rc_` id that says so, and the pass name is what says which stage of the reconstruction
+# programme made the card.
+# `reconstructed_garrison` is T-1349's, stage `garrison` of the same programme. It writes
+# households nobody is named in, like the one above, and differs in what its cards are
+# ARGUED from: not a share of a town model but a statute, a company count and the Army's
+# own regulations. Its cards are also the first of the reconstruction to be SEATED — the
+# fort's roofs are in the record already — which is why they carry a `lives_at` where
+# T-1174's carry null.
+RESIDENT_SOURCE_PASSES = ("documented", "placed", "letter_list", "civic",
+                          "reconstructed_readmission", "reconstructed_women_children",
+                          "reconstructed_garrison")
 
 # The per-domain evidence blocks tools/mint_civic_residents.py writes onto a person
 # (T-0514). Each row is a READING: the list it came from, the transcription as read,
@@ -4786,9 +4805,25 @@ RESIDENT_ROLE_KINDS = ("trade", "profession", "office", "employment", "business_
 RESIDENT_ROLE_PRECISION = ("day", "month", "year", "source_span", "unknown")
 RESIDENT_ROLE_DATED_BY = ("source_describes_date", "printing_year", "stated_date",
                           "undated")
+# `place` and `employer_or_body` are T-1254's (T-1145 acceptance 7 and 8): a role names
+# WHERE it was exercised and WHICH body or firm it was exercised for, when the record
+# says, so T-1147 can carry a role's place onto `works_at[]` and the business band
+# (T-1180 onward) can attach a clerk to the establishment he served without re-reading
+# prose. `not_stated` is the value when the record does not say, and it is an ASSERTION
+# rather than a blank: the row was read, and the reading found no place.
+# `fills_scene_view` is also T-1254's, and it is NOT a second spelling of
+# `covers_scene_date`. One says whether the evidence reaches 1 July 1835; the other says
+# whether this row is what the singular `occupation` field stands on. They came apart
+# when the external volumes arrived: ten press readings reach the scene date and none of
+# them fills the field, because three other tools derive that field (T-0693's
+# tools/qualify_later_trades.py, the ladder resident pass, and T-0837's write gate) and a
+# value none of them derives is a value the next gate run reverts. A row may not fill a
+# view it does not reach; reaching without filling is the honest, recorded state, and
+# T-1296 is where the generators are made to agree.
 RESIDENT_ROLE_KEYS = ("role", "kind", "as_printed", "from", "to", "precision",
-                      "dated_by", "covers_scene_date", "confidence", "sources", "claim",
-                      "note")
+                      "dated_by", "covers_scene_date", "fills_scene_view", "confidence",
+                      "sources", "claim", "place", "employer_or_body", "note")
+RESIDENT_ROLE_NOT_STATED = "not_stated"
 
 # `either_of_two_days` is what a source looks like when it will not choose. Hurlbut
 # prints Hubbard as arriving at Chicago "on the last day of October or first day of
@@ -4930,9 +4965,41 @@ def check_resident_roles(where: str, person: dict, occupations: set, source_ids:
                                  f"roles[] - the view keys describe a derivation that is "
                                  f"not there. Run tools/derive_resident_roles.py --write")
         if occ.get("value") not in (None, "", "none_recorded"):
-            rep.error(where, f"occupation '{occ.get('value')}' stands with no roles[] "
-                             f"behind it. The trade IS role evidence and owes a dated "
-                             f"row; tools/derive_resident_roles.py writes it")
+            # A RECONSTRUCTED TRADE IS NOT A READING, SO IT OWES NO ROLE (T-1174). The rule
+            # above is about a trade somebody READ: a role row carries the source, the date
+            # and the bound that reading rests on, and a reader of a card is owed all three.
+            # A trade the population model DREW has none of them, and a role row written for
+            # one would have to cite a source that does not exist — which is the single
+            # thing docs/LIBERTIES.md refuses outright. What such a block owes instead is
+            # the reconstruction contract: the model row it was drawn from, the seed that
+            # redraws it, and the evidence that would retire it. That is asserted here
+            # rather than waved through, so exempting the role does not exempt the working.
+            if occ.get("confidence") == "reconstructed":
+                # A TRADE ARGUED FROM A RULE CARRIES NO SEED, BECAUSE NOTHING WAS DRAWN
+                # (T-1349). The programme's own person contract says exactly this —
+                # `reconstruct_residents_1835.check_reconstructed_person` refuses a seed on
+                # a `basis.kind == "rule"` person — and a garrison soldier's trade is that
+                # case: the Act of 2 March 1821 fixes what a company of infantry consisted
+                # of, so the trade follows from the establishment rather than from a draw
+                # over a model row. Demanding a seed there would make the record claim a
+                # draw it never made, which is the same misrepresentation this clause
+                # exists to prevent, pointed the other way. The rule id and the replacement
+                # are still owed, and still asserted.
+                argued = (occ.get("basis") or {}).get("kind") == "rule" \
+                    if isinstance(occ.get("basis"), dict) else False
+                owed = ("tier", "basis", "replaceable_by") if argued \
+                    else ("tier", "basis", "seed", "replaceable_by")
+                for key in owed:
+                    if key in (None, "") or occ.get(key) in (None, ""):
+                        rep.error(where, f"occupation '{occ.get('value')}' is graded "
+                                         f"reconstructed and carries no {key}. A drawn "
+                                         f"trade owes no dated role and owes its working "
+                                         f"instead: the model row, the seed that redraws "
+                                         f"it and what would retire it")
+            else:
+                rep.error(where, f"occupation '{occ.get('value')}' stands with no roles[] "
+                                 f"behind it. The trade IS role evidence and owes a dated "
+                                 f"row; tools/derive_resident_roles.py writes it")
         return
     if not isinstance(roles, list) or not roles:
         rep.error(where, "roles is present and is not a non-empty list. An empty roles "
@@ -4940,6 +5007,7 @@ def check_resident_roles(where: str, person: dict, occupations: set, source_ids:
         return
 
     at_scene = []
+    strongest_at_scene = None
     for i, row in enumerate(roles):
         rwhere = f"{where}/roles[{i}]"
         if not isinstance(row, dict):
@@ -5005,10 +5073,25 @@ def check_resident_roles(where: str, person: dict, occupations: set, source_ids:
                               f"sources {sorted(srcs)} is listed by the person; a role "
                               f"about the scene date may not float free of the evidence "
                               f"its card's grade stands on")
+        for key in ("place", "employer_or_body"):
+            value = row.get(key)
+            if not isinstance(value, str) or not value.strip():
+                rep.error(rwhere, f"{key} must be a non-empty string - "
+                                  f"'{RESIDENT_ROLE_NOT_STATED}' is the value for a record "
+                                  f"that does not say, and it is an assertion, not a blank")
         if not (row.get("note") or "").strip():
             rep.error(rwhere, "a role owes a note saying what its bound means")
-        if row.get("covers_scene_date") and role and row.get("confidence") in CLAIMING_GRADES:
+        if not isinstance(row.get("fills_scene_view"), bool):
+            rep.error(rwhere, "fills_scene_view must be true or false")
+        elif row.get("fills_scene_view") and not row.get("covers_scene_date"):
+            rep.error(rwhere, "this role fills the 1835 view and does not reach the scene "
+                              "date. A row may not stand in a field its own evidence does "
+                              "not reach")
+        if (row.get("fills_scene_view") and role
+                and row.get("confidence") in CLAIMING_GRADES and role not in at_scene):
             at_scene.append(role)
+            if row.get("confidence") == "attested" and strongest_at_scene is None:
+                strongest_at_scene = role
 
     # --- the compatibility view ------------------------------------------
     if occ.get("derived_from") != "roles":
@@ -5020,7 +5103,11 @@ def check_resident_roles(where: str, person: dict, occupations: set, source_ids:
         rep.error(where, f"occupation.roles_at_scene_date is {named!r} and the roles that "
                          f"reach the scene date are {at_scene!r}. Run "
                          f"tools/derive_resident_roles.py --write")
-    want = at_scene[0] if at_scene else "none_recorded"
+    # THE SINGULAR FIELD HOLDS THE STRONGEST COVERING CLAIM, not the first row in date
+    # order (T-1254). Once the press gazetteer began offering `inferred` roles beside a
+    # card's own `attested` one, a date sort could have put an inferred trade into the
+    # field a documented one already held - a demotion decided by an ordering.
+    want = strongest_at_scene or (at_scene[0] if at_scene else "none_recorded")
     if occ.get("value") != want:
         rep.error(where, f"occupation '{occ.get('value')}' is not the view its roles "
                          f"derive ('{want}'). A role that does not reach "
@@ -5039,6 +5126,29 @@ def check_resident_roles(where: str, person: dict, occupations: set, source_ids:
                                  f"and the verdict that took it off")
     elif withdrawn is not None:
         rep.error(where, "withdrawn_from_scene_date must be an object")
+
+
+_RECONSTRUCTION_STAGES: tuple | None = None
+
+
+def _reconstruction_stage_keys() -> set:
+    """The stages the reconstruction programme declares, read once.
+
+    A reconstructed person names the stage that wrote them. The keys live in
+    `data/reconstruction/1835_resident_reconstruction_programme.json` rather than
+    here so that adding a stage is a data change and not a validator change - and
+    an absent programme file yields an empty set, which refuses every reconstructed
+    person by name. That is the correct answer: with no programme there is no
+    authority to write one.
+    """
+    global _RECONSTRUCTION_STAGES
+    if _RECONSTRUCTION_STAGES is None:
+        try:
+            prog = json.loads(RECONSTRUCTION_PROGRAMME.read_text(encoding="utf-8"))
+            _RECONSTRUCTION_STAGES = tuple(s["key"] for s in prog.get("stages", []))
+        except (OSError, ValueError, KeyError, TypeError):
+            _RECONSTRUCTION_STAGES = ()
+    return set(_RECONSTRUCTION_STAGES)
 
 
 def check_resident_grade(where: str, grade, sources, note: str, source_ids: set,
@@ -5108,6 +5218,83 @@ def check_resident_grade(where: str, grade, sources, note: str, source_ids: set,
                          "inferred one the name comes from a source, and marking it as invented "
                          "would understate what is known about a real person")
 
+    # --- and the invention must show its working ------------------------------
+    #
+    # T-1167. `name_basis` says the NAME was invented; these say the PERSON was, and
+    # by what. The contract is the reconstruction programme's own, imported rather
+    # than restated, so the writer that mints a person and the gate that reads one
+    # back cannot drift apart - which is exactly how the 2026-09-02 population came
+    # to be unaccountable and had to be retired whole.
+    if grade == "reconstructed":
+        check_reconstructed_person(where, person or {}, _reconstruction_stage_keys(),
+                                   rep.error)
+
+
+#: The roles a person may hold at a house of trade — the businesses schema's own enum,
+#: read from the file rather than restated, so the two can never drift apart.
+def business_roles(data_root: Path | None = None) -> set:
+    schema = (data_root or DATA) / "businesses.schema.json"
+    if not schema.exists():
+        return set()
+    try:
+        return set(json.loads(schema.read_text(encoding="utf-8"))["$defs"]["role"]["enum"])
+    except Exception:
+        return set()
+
+
+#: Every key an entry carries. Written by tools/staff_businesses_1835.py and by
+#: nothing else; the shape is fixed so a card and a gate read the same row.
+PERSON_WORKPLACE_KEYS = {"business_id", "business_name", "role", "printed_as", "from", "to",
+                         "tier", "basis", "source_id", "claim_ids",
+                         "business_present_at_scene_date"}
+
+
+def check_person_workplaces(where: str, rows, grades, rep: Report) -> None:
+    """persons[].workplaces - the FIRMS a person worked for, one entry a (house, role).
+
+    NOT `works_at`, which is the BUILDING and is singular, undated and policed above as a
+    structure link. The two were deliberately given different words at T-1432 because they
+    answer different questions, and the day they share one is the day a list of dated
+    employments starts reading as a second opinion about a structure id.
+
+    What is checked here is the SHAPE and the grade; that each `business_id` answers to a
+    record, and that the record names the person back, is `check_business_layer`'s, which
+    is the half of the file that holds the business records.
+    """
+    if not isinstance(rows, list) or not rows:
+        rep.error(where, "workplaces is present and is not a non-empty list. A person who "
+                         "worked nowhere the record knows of carries no key at all - an "
+                         "empty list claims a join that is not there")
+        return
+    roles = business_roles()
+    for row in rows:
+        if not isinstance(row, dict):
+            rep.error(where, "a workplaces entry must be an object")
+            continue
+        missing = sorted(PERSON_WORKPLACE_KEYS - set(row))
+        extra = sorted(set(row) - PERSON_WORKPLACE_KEYS)
+        if missing:
+            rep.error(where, f"a workplaces entry is missing {missing}")
+        if extra:
+            rep.error(where, f"a workplaces entry carries {extra}, which the shape does not "
+                             f"hold - add it to the tool and to PERSON_WORKPLACE_KEYS together")
+        bid = row.get("business_id")
+        if not isinstance(bid, str) or not bid.startswith("biz_"):
+            rep.error(where, f"a workplaces entry names business '{bid}', which is not a "
+                             f"business id")
+        if roles and row.get("role") not in roles:
+            rep.error(where, f"a workplaces entry carries role '{row.get('role')}', which the "
+                             f"businesses schema's role vocabulary does not hold")
+        if row.get("tier") not in grades:
+            rep.error(where, f"a workplaces entry carries tier '{row.get('tier')}', which is "
+                             f"not one of the manifest's grades. A row is carried across at "
+                             f"the grade the business layer gave it and is never upgraded "
+                             f"by being copied")
+        if row.get("tier") == "attested" and not row.get("source_id"):
+            rep.error(where, "a workplaces entry is attested and cites no source")
+        if row.get("tier") in ("inferred", "reconstructed") and not (row.get("basis") or "").strip():
+            rep.error(where, f"a workplaces entry is {row.get('tier')} and states no basis")
+
 
 def check_resident_link(where: str, key: str, node, structure_ids: set, rep: Report) -> None:
     """lives_at / works_at must name a real structure or be null."""
@@ -5126,6 +5313,93 @@ def check_resident_link(where: str, key: str, node, structure_ids: set, rep: Rep
         rep.error(where, f"{key} names '{v}', which is not a structure id in data/structures/. "
                          f"A resident may point at a building that exists or at null; a later "
                          f"parcel closes the loop by building the structure")
+
+
+def check_business_layer(structure_ids: set, rep: Report, tally: dict,
+                         data_root: Path | None = None) -> None:
+    """data/businesses/ — every id a record points at has to answer (T-1310).
+
+    The business layer is where a house of trade gets its people, its premises and its
+    dates. Three kinds of pointer leave it and each is checked here rather than trusted:
+    a location naming a structure, the index naming its own record files, and the
+    `works_at` crosswalk, which is the bridge between a resident's bare structure id and
+    the business that stood in it. A dangling business id is the failure mode this layer
+    replaces — the register's `works_at` was a structure id nobody could resolve to a
+    firm — so it is refused, not noted.
+    """
+    root = (data_root or DATA) / "businesses"
+    index_path = root / "index.json"
+    if not index_path.exists():
+        rep.note("businesses: no data/businesses/index.json - the town carries no business layer")
+        return
+    index = load_json(index_path, rep)
+    if not isinstance(index, dict):
+        return
+
+    records = {}
+    for path in sorted(root.glob("*.json")) + sorted((root / "authored").glob("*.json")):
+        if path.name == "index.json":
+            continue
+        doc = load_json(path, rep)
+        if not isinstance(doc, dict):
+            continue
+        where = f"businesses/{path.name}"
+        if doc.get("id") != path.stem:
+            rep.error(where, f"id '{doc.get('id')}' does not match the filename")
+        records[doc.get("id")] = doc
+        for loc in doc.get("locations") or []:
+            sid = loc.get("structure_id")
+            if sid is not None and sid not in structure_ids:
+                rep.error(where, f"a location names structure '{sid}', which is not a structure "
+                                 f"id in data/structures/")
+
+    for row in index.get("businesses") or []:
+        if row.get("id") not in records:
+            rep.error("businesses/index.json",
+                      f"the index lists '{row.get('id')}' and no record answers to it")
+
+    # T-1432. THE JOIN READ FROM THE OTHER END. `persons[].workplaces` names a firm;
+    # a firm that the layer does not hold, or that does not name the person back, is a
+    # fossil, and this is the half of the file that can tell. That the list re-derives
+    # from the business records at all is tools/staff_businesses_1835.py --check's.
+    named: dict = {}
+    for bid, doc in records.items():
+        for key in ("proprietors", "partners", "staff"):
+            for prow in doc.get(key) or []:
+                if prow.get("person_id"):
+                    named.setdefault((prow["person_id"], bid), set()).add(prow.get("role"))
+    hh_root = (data_root or DATA) / "residents" / "households"
+    for path in sorted(hh_root.glob("*.json")):
+        doc = load_json(path, rep)
+        if not isinstance(doc, dict):
+            continue
+        for person in doc.get("persons") or []:
+            for row in person.get("workplaces") or []:
+                where = f"residents/households/{path.name}/{person.get('id')}"
+                bid = row.get("business_id")
+                if bid not in records:
+                    rep.error(where, f"a workplace names business '{bid}', which the layer "
+                                     f"does not hold")
+                    continue
+                if row.get("role") not in named.get((person.get("id"), bid), set()):
+                    rep.error(where, f"a workplace puts this person in '{bid}' as "
+                                     f"'{row.get('role')}' and the business record does not "
+                                     f"name them in that role - the join has to hold from "
+                                     f"both ends or it is not a join")
+
+    for row in index.get("works_at") or []:
+        where = "businesses/index.json"
+        sid = row.get("structure_id")
+        if sid is not None and sid not in structure_ids:
+            rep.error(where, f"the works_at crosswalk names structure '{sid}' for household "
+                             f"'{row.get('household_id')}', which is not a structure id")
+        for bid in row.get("business_ids") or []:
+            if bid not in records:
+                rep.error(where, f"the works_at crosswalk points household "
+                                 f"'{row.get('household_id')}' at business '{bid}', which the "
+                                 f"layer does not hold")
+
+    tally["businesses"] = len(records)
 
 
 def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dict,
@@ -5203,6 +5477,17 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
     sexes = set(vocab.get("sexes") or [])
     presences = set(vocab.get("presence") or [])
     divisions = set(vocab.get("divisions") or [])
+    # T-1405. `associated_with[]` gained a `tract` rung, for the ground a man
+    # BOUGHT rather than the ground he stood on: a quarter-section has no street,
+    # no face and no division, and the survey layer is the only committed list of
+    # which ones this project holds. A missing file is an empty vocabulary and
+    # every tract row then fails loudly, which is the right way round.
+    tracts = set()
+    _tract_file = ROOT / "data" / "reconstruction" / "1835_survey_tracts.json"
+    if _tract_file.exists():
+        tracts = {t.get("id") for t in
+                  (json.loads(_tract_file.read_text()).get("tracts") or [])
+                  if isinstance(t, dict) and t.get("id")}
 
     households: dict = {}
     kin_rows: list = []
@@ -5289,10 +5574,13 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
             for k in ("lives_at", "works_at"):
                 if k in p:
                     check_resident_link(pwhere, k, p.get(k), structure_ids, rep)
+            if "workplaces" in p:
+                check_person_workplaces(pwhere, p.get("workplaces"), RESIDENT_GRADES, rep)
             if "associated_with" in p:
                 check_association_rows(pwhere, p.get("associated_with"), error=rep.error,
                                        structure_ids=structure_ids, source_ids=source_ids,
-                                       divisions=divisions, scene=scene)
+                                       divisions=divisions, scene=scene,
+                                       tracts=tracts)
                 for msg in singular_drift(p, p.get("associated_with")):
                     rep.error(pwhere, msg)
 
@@ -5396,7 +5684,8 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
         if "associated_with" in h:
             check_association_rows(where, h.get("associated_with"), error=rep.error,
                                    structure_ids=structure_ids, source_ids=source_ids,
-                                   divisions=divisions, scene=scene)
+                                   divisions=divisions, scene=scene,
+                                   tracts=tracts)
             for msg in singular_drift(h, h.get("associated_with")):
                 rep.error(where, msg)
 
@@ -5727,6 +6016,11 @@ def main() -> int:
     # (ROADMAP K34).
     households = check_residents(source_ids, {st.get("id") for st in structures.values()
                                               if isinstance(st, dict)}, rep, tally)
+
+    # and the layer the town's businesses live in, whose every outward pointer -
+    # a premises, an index row, a resident's workplace - has to answer (T-1310)
+    check_business_layer({st.get("id") for st in structures.values()
+                          if isinstance(st, dict)}, rep, tally)
 
     # scenes
     for name, sc in scenes.items():
@@ -6123,7 +6417,7 @@ def run_bake_reach_check(structures: dict, scenes: dict, rep: Report) -> None:
 
 
 def run_site_check(rep: Report) -> None:
-    site = ROOT.parent.parent / "site" / "chicago" / "4d"
+    site = ROOT.parent.parent / "site" / "4d"
     if not site.exists():
         rep.note("site check: nothing published yet")
         return

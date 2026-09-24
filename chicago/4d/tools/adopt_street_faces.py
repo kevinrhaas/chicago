@@ -347,7 +347,7 @@ def dwellings() -> dict[str, list[str]]:
     the narrow reading — no roof the inferred programme held happened to have its platted
     lot on a street the register named — and the corner-side ruling made it bite at once:
     the very first re-derivation handed Elmira Fowler's Dearborn Street millinery a corner
-    roof, `recon_1835_south_w4_032`, that the inferred layer already holds. The ledger
+    roof, `recon_1835_south_d1_032`, that the inferred layer already holds. The ledger
     caught it, which is what the ledger is for; refusing it HERE is what keeps the table
     derivable rather than merely gated.
 

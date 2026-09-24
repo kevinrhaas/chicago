@@ -7,9 +7,10 @@
   "value": "1833-06-01",
   "confidence": "attested",
   "sources": [
-   "andreas_1884_v1"
+   "andreas_1884_v1",
+   "moses_kirkland_history_of_chicago_v1"
   ],
-  "note": "Cobb's arrival, dated to the day by Andreas's roster: 'S. B. Cobb, a minor, came June 1, 1833.' Goss's own arrival is undated; his canal-lot purchase of 3 September 1832 would put him in the country a year earlier if he is the same O. Goss.",
+  "note": "Cobb's arrival, dated to the day by Andreas's roster: 'S. B. Cobb, a minor, came June 1, 1833.' Goss's own arrival is undated; his canal-lot purchase of 3 September 1832 would put him in the country a year earlier if he is the same O. Goss. THE COMPILER'S SPRING LIST AGREES WITH COBB'S DAY. Moses and Kirkland vol. 1, printed page 90 (claim bk_mose1_005), names Silas B. Cobb among the arrivals of the spring of 1833; Andreas's roster has \"S. B. Cobb, a minor, came June 1, 1833\", which is inside that season. Corroboration at season precision for a field already carrying a day, so it does not move. It says nothing about Goss, whom the compiler does not name. THE GRADE CEILING IS THE SOURCE'S AND NOT THIS FIELD'S. Moses and Kirkland, History of Chicago, Illinois (1895) is a compiler sixty years after the fact; every claim taken off it is transcription_mediated and none is scan_verified, so nothing drawn from it is graded above `inferred` (the rule T-1322 set for the settlers table, kept here).",
   "precision": "day"
  },
  "party_size_on_arrival": {
@@ -26,9 +27,20 @@
   "note": "From the canal-lot purchaser's entry, which gives 'O. Goss, Washington Co. Vermont'. It is an origin for a man identified with this one by initial alone."
  },
  "reason_for_coming": {
-  "value": null,
+  "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
   "confidence": "reconstructed",
-  "note": "Not attested in anything this project holds."
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
  },
  "lives_at": {
   "value": null,
@@ -49,6 +61,20 @@
   "sources": [
    "chicago_democrat_1833_11_26"
   ],
+  "last_dated_appearance": {
+   "as_read": "1835-06-13",
+   "precision": "day",
+   "reaches": "1835-06-13",
+   "includes_scene_date": false,
+   "days_before_scene_date": 18,
+   "leg": "sighting",
+   "person": "cobb_silas_b",
+   "record": "person_s_b_cobb",
+   "sources": [
+    "chicago_american_1835"
+   ],
+   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `press_evidence` as `1835-06-13`, which reaches 1835-06-13 — 18 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+  },
   "note": "Documented at Lake and Canal in November 1833. Silas B. Cobb's later Chicago career is long and prominent, which argues he stayed; the firm's survival is a different question and is not attested."
  },
  "persons": [
@@ -68,6 +94,28 @@
     ],
     "note": "NO TRADE STANDS FOR THIS MAN IN JULY 1835, AND THE CORPUS IS WHY (T-0991). The firm 'Goss & Cobb, saddle and harness makers' advertises in the Chicago Democrat of 26 November 1833, self-reported on the corner of Lake and Canal streets — and that printing is the ONLY one this card ever had. The Chicago American of 8 June 1835 prints the partnership's DISSOLUTION over copy dated 'Chicago, Feb. 18, 1835' (chicago_american_1835_06_08#c006), and the issue of 13 June reprints it with this man's own signature now readable — 'OL[IVE]R GOS[S]' (#c015). The newspaper register reads business_goss_cobb as `present_at_scene_date: false` on those two notices, with exclusion `contradicted_before_scene_date`. So the trade held here at `attested` for 1 July 1835 was not merely undated by the corpus: it was CONTRADICTED by it, four and a half months before the scene date. The surviving partner carried the shop on alone — the American of 13 June prints 'S. B. COBB will continue the above business' — and nothing in the corpus prints a trade for Oliver Goss after the dissolution. The 1835 field is therefore `none_recorded` at `reconstructed`, this dataset's reading for a figure the reconstruction supplies rather than a source. THE 1833 SADDLERY IS NOT LOST: it stands in the structures layer at goss_cobb_saddlery and in the newspaper register's own compilation, dated to the years that print it. This is the one row of T-0991's eight the corpus decided by itself; the other rows are a grading question and are the owner's."
    },
+   "workplaces": [
+    {
+     "business_id": "biz_goss_cobb",
+     "business_name": "Goss & Cobb",
+     "role": "partner",
+     "printed_as": "Oliver Goss",
+     "from": "1833-11-26",
+     "to": "1835-06-13",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card goss_o (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_american_1835_06_08#c006",
+      "chicago_american_1835_06_13#c015",
+      "chicago_democrat_1833_11_26#c019",
+      "chicago_democrat_1833_12_10#c001",
+      "chicago_democrat_1834_06_04#c001",
+      "chicago_democrat_1834_07_02#c001"
+     ],
+     "business_present_at_scene_date": false
+    }
+   ],
    "sources": [
     "andreas_1884_v1",
     "chicago_american_1835",
@@ -99,6 +147,24 @@
      "chicago_american_1835",
      "chicago_democrat_1833_11_26"
     ]
+   },
+   "age_band": {
+    "value": "60-69",
+    "low": 60,
+    "high": 69,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 60 under 70', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "goss_o:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('goss_o:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
    }
   },
   {
@@ -121,6 +187,25 @@
      "saddler"
     ]
    },
+   "workplaces": [
+    {
+     "business_id": "biz_s_b_cobb_saddle_harness_and_trunk_manufactory",
+     "business_name": "S. B. Cobb, saddle, harness and trunk manufactory",
+     "role": "proprietor",
+     "printed_as": "S. B. Cobb",
+     "from": "1835-06-08",
+     "to": "1835-07-11",
+     "tier": "attested",
+     "basis": "The register matches the printed name to the town card cobb_silas_b (action: enrich), so this is the same person the resident layer already holds. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_american_1835_06_08#c007",
+      "chicago_american_1835_06_13#c016",
+      "chicago_american_1835_07_11#c008"
+     ],
+     "business_present_at_scene_date": true
+    }
+   ],
    "sources": [
     "andreas_1884_v1",
     "calumet_club_early_chicago_1879",
@@ -202,15 +287,103 @@
      "precision": "source_span",
      "dated_by": "source_describes_date",
      "covers_scene_date": true,
+     "fills_scene_view": true,
      "confidence": "inferred",
      "sources": [
       "andreas_1884_v1",
       "chicago_democrat_1833_11_26"
      ],
      "claim": null,
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254."
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "saddler",
+     "kind": "trade",
+     "as_printed": "saddler",
+     "from": "1835-06-13",
+     "to": "1835-06-13",
+     "precision": "day",
+     "dated_by": "stated_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_american_1835"
+     ],
+     "claim": "person_s_b_cobb",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "PRINTED AGAINST THIS NAME IN THE 1833-1835 PRESS and carried here from the newspaper gazetteer (T-1254, by tools/derive_resident_roles.py). The gazetteer holds its trades on the PERSON record and not on a single issue, so the bound is the run of this person's own dated mentions, 1835-06-13 to 1835-06-13, and the grade is `inferred`: the paper printed the trade, and the resident programme's identity rule tied the printing to this card. The scene date falls outside that run, so this role does not stand in the 1835 view.",
+     "premises": "own_premises"
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "saddler and harness maker. 171 Lake",
+     "from": "1843",
+     "to": "1843",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "claim": "f1843_e0656",
+     "place": "res 75 Michigan ave, s.-w. cor Lake",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1843 DIRECTORY, 8 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "saddler and harness maker",
+     "from": "1844",
+     "to": "1844",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "claim": "n1844_e0377",
+     "place": "171 Lake st",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1844 DIRECTORY, 9 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
     }
-   ]
+   ],
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "inferred",
+    "tier": "inferred",
+    "sources": [
+     "calumet_club_early_chicago_1879"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+   },
+   "birth_year": {
+    "value": 1811,
+    "precision": "band",
+    "band": [
+     1811,
+     1812
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "calumet_club_early_chicago_1879"
+    ],
+    "note": "A BIRTH INTERVAL OUT OF A MAN'S OWN STATEMENT OF HIS AGE. He registered at the Calumet Club's reception to the settlers of Chicago on 27 May 1879 and gave his age as 67: \"Cobb, Silas B. | 1833, May 29, | Montpelier, Vt. | 67 | Chicago.\". An age of 67 completed years given on that day means the birth falls after 27 May 1811 and on or before 27 May 1812, so the birth year is 1811 or 1812. The subtraction is this project's; the page states no year of birth. IT IS A RECOLLECTION, forty-four years after the scene date — better than a recollection about somebody else, and still not a record. The merge onto this person is the old-settler crosswalk's own (OS1), in data/research/old_settlers/people.json."
+   }
   }
  ],
  "touches_removal": false,

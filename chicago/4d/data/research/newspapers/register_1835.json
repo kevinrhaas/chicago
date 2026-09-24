@@ -9,10 +9,10 @@
       "persons": 2685,
       "businesses": 196
     },
-    "structures": 384,
-    "structures_sharing_a_name": 37,
-    "streets": 77,
-    "resident_persons": 1282
+    "structures": 414,
+    "structures_sharing_a_name": 39,
+    "streets": 79,
+    "resident_persons": 1285
   },
   "counts": {
     "businesses": {
@@ -48,9 +48,9 @@
     "persons": {
       "total": 2685,
       "by_action": {
-        "enrich": 1351,
-        "new_resident": 1309,
-        "replace_invented": 25
+        "enrich": 1363,
+        "new_resident": 1299,
+        "replace_invented": 23
       },
       "letter_list_only": 1970
     },
@@ -59,11 +59,11 @@
         "boarding_house_keeper": 1,
         "hotel_keeper": 1,
         "merchant": 1,
-        "none_recorded": 863,
+        "none_recorded": 865,
         "printer": 1,
         "tavern_keeper": 2
       },
-      "households_total": 869,
+      "households_total": 871,
       "retirable_by_trade": {
         "merchant": 1,
         "tavern_keeper": 2
@@ -74,6 +74,7 @@
   "businesses": [
     {
       "id": "business_a_chicago_stove_and_hollow_ware_dealer_august_1835",
+      "business_record_id": "biz_a_chicago_stove_and_hollow_ware_dealer_august_1835",
       "name": "a Chicago stove and hollow ware dealer, August 1835",
       "trade": "stoves, hollow ware and castings",
       "occupation": "stove_dealer",
@@ -111,6 +112,7 @@
     },
     {
       "id": "business_a_clybourn_s_market_on_the_market_square",
+      "business_record_id": "biz_a_clybourn_s_market_on_the_market_square",
       "name": "A. Clybourn's market on the market square",
       "trade": "butcher — slaughtering, and a retail market stall",
       "occupation": "butcher",
@@ -152,6 +154,7 @@
     },
     {
       "id": "business_a_filer_co",
+      "business_record_id": "biz_a_filer_co",
       "name": "A. Filer & Co.",
       "trade": "cabinet and chair manufactory",
       "occupation": "joiner",
@@ -193,6 +196,7 @@
     },
     {
       "id": "business_a_garrett",
+      "business_record_id": "biz_a_garrett",
       "name": "A. Garrett",
       "trade": "auction and commission",
       "occupation": "auctioneer",
@@ -234,6 +238,7 @@
     },
     {
       "id": "business_a_garrett_auctioneer",
+      "business_record_id": "biz_a_garrett_auctioneer",
       "name": "A. Garrett, auctioneer",
       "trade": "auction of town lots and land",
       "occupation": "auctioneer",
@@ -275,6 +280,7 @@
     },
     {
       "id": "business_a_leather_stock_chicago_june_1835",
+      "business_record_id": "biz_a_leather_stock_chicago_june_1835",
       "name": "a leather stock, Chicago, June 1835",
       "trade": "leather",
       "occupation": "merchant",
@@ -312,6 +318,7 @@
     },
     {
       "id": "business_a_new_auction_and_commission_room_south_water_street",
+      "business_record_id": "biz_a_new_auction_and_commission_room_south_water_street",
       "name": "a new auction and commission room, South Water Street",
       "trade": "auction and commission",
       "occupation": "auctioneer",
@@ -353,6 +360,7 @@
     },
     {
       "id": "business_a_new_tailoring_establishment_chicago_june_1835",
+      "business_record_id": "biz_a_new_tailoring_establishment_chicago_june_1835",
       "name": "a new tailoring establishment, Chicago, June 1835",
       "trade": "tailoring",
       "occupation": "tailor",
@@ -394,6 +402,7 @@
     },
     {
       "id": "business_a_o_t_breed",
+      "business_record_id": "biz_a_o_t_breed",
       "name": "A. O. T. Breed",
       "trade": "storekeeper (winding up)",
       "occupation": "merchant",
@@ -431,6 +440,7 @@
     },
     {
       "id": "business_a_travelling_dentist_at_the_new_york_house",
+      "business_record_id": "biz_a_travelling_dentist_at_the_new_york_house",
       "name": "a travelling dentist at the New York House",
       "trade": "dentistry",
       "occupation": "dentist",
@@ -472,6 +482,7 @@
     },
     {
       "id": "business_a_wholesale_wine_and_liquor_store_dearborn_street",
+      "business_record_id": "biz_a_wholesale_wine_and_liquor_store_dearborn_street",
       "name": "a wholesale wine and liquor store, Dearborn Street",
       "trade": "wholesale wine and liquors",
       "occupation": "liquor_dealer",
@@ -509,6 +520,7 @@
     },
     {
       "id": "business_an_iron_and_hardware_stock_chicago_june_1835",
+      "business_record_id": "biz_an_iron_and_hardware_stock_chicago_june_1835",
       "name": "an iron and hardware stock, Chicago, June 1835",
       "trade": "iron and hardware",
       "occupation": "hardware_merchant",
@@ -546,6 +558,7 @@
     },
     {
       "id": "business_andrews_eells",
+      "business_record_id": "biz_andrews_eells",
       "name": "Andrews & Eells",
       "trade": "fashionable tailoring",
       "occupation": "tailor",
@@ -587,6 +600,7 @@
     },
     {
       "id": "business_b_jones_grocery_and_provision_store",
+      "business_record_id": "biz_b_jones_grocery_and_provision_store",
       "name": "B. Jones, grocery and provision store",
       "trade": "grocery and provision store",
       "occupation": "grocer",
@@ -628,6 +642,7 @@
     },
     {
       "id": "business_b_jones_storage_and_forwarding",
+      "business_record_id": "biz_b_jones_storage_and_forwarding",
       "name": "B. Jones, storage and forwarding",
       "trade": "storage, forwarding and commission",
       "occupation": "forwarding_and_commission",
@@ -669,6 +684,7 @@
     },
     {
       "id": "business_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered",
+      "business_record_id": "biz_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered",
       "name": "[boot, shoe and leather store, Lake street, proprietor not recovered]",
       "trade": "boot and shoe manufacturing and leather dealing",
       "occupation": "shoemaker",
@@ -706,6 +722,7 @@
     },
     {
       "id": "business_brewster_hogan_co",
+      "business_record_id": "biz_brewster_hogan_co",
       "name": "Brewster, Hogan & Co.",
       "trade": "forwarding and commission merchants, dry goods and groceries",
       "occupation": "forwarding_and_commission",
@@ -755,6 +772,7 @@
     },
     {
       "id": "business_briggs_humphrey",
+      "business_record_id": "biz_briggs_humphrey",
       "name": "Briggs & Humphrey",
       "trade": "carriage and sleigh making",
       "occupation": "carriage_maker",
@@ -801,6 +819,7 @@
     },
     {
       "id": "business_brown_painter",
+      "business_record_id": "biz_brown_painter",
       "name": "Brown, painter",
       "trade": "carriage, sign, ornamental and figure painting, and gilding",
       "occupation": "painter",
@@ -842,6 +861,7 @@
     },
     {
       "id": "business_c_h_chapman",
+      "business_record_id": "biz_c_h_chapman",
       "name": "C. H. Chapman",
       "trade": null,
       "occupation": null,
@@ -883,6 +903,7 @@
     },
     {
       "id": "business_c_i_harmon",
+      "business_record_id": "biz_c_i_harmon",
       "name": "C. & I. Harmon",
       "trade": "dry goods, crockery, hardware and groceries",
       "occupation": "dry_goods_merchant",
@@ -924,6 +945,7 @@
     },
     {
       "id": "business_carpenter_chicago_merchant",
+      "business_record_id": "biz_carpenter_chicago_merchant",
       "name": "Carpenter, Chicago merchant",
       "trade": "general merchandise on consignment",
       "occupation": "merchant",
@@ -961,6 +983,7 @@
     },
     {
       "id": "business_charles_hunt_high_school_for_young_ladies",
+      "business_record_id": "biz_charles_hunt_high_school_for_young_ladies",
       "name": "Charles Hunt, High School for Young Ladies",
       "trade": "school",
       "occupation": "schoolteacher",
@@ -1011,6 +1034,7 @@
     },
     {
       "id": "business_charles_taylor",
+      "business_record_id": "biz_charles_taylor",
       "name": "Charles Taylor",
       "trade": "clothing and tailoring",
       "occupation": "clothier",
@@ -1052,6 +1076,7 @@
     },
     {
       "id": "business_chase_ballard",
+      "business_record_id": "biz_chase_ballard",
       "name": "Chase & Ballard",
       "trade": "hardware, stoves and iron",
       "occupation": "hardware_merchant",
@@ -1089,6 +1114,7 @@
     },
     {
       "id": "business_chicago_bakery",
+      "business_record_id": "biz_chicago_bakery",
       "name": "Chicago Bakery",
       "trade": "baker",
       "occupation": "baker",
@@ -1130,6 +1156,7 @@
     },
     {
       "id": "business_chicago_democrat_printing_office",
+      "business_record_id": "biz_chicago_democrat_printing_office",
       "name": "Chicago Democrat printing office",
       "trade": "newspaper and job printing",
       "occupation": "printer",
@@ -1260,6 +1287,7 @@
     },
     {
       "id": "business_chicago_soap_and_candle_manufactory",
+      "business_record_id": "biz_chicago_soap_and_candle_manufactory",
       "name": "Chicago Soap and Candle Manufactory",
       "trade": "soap and candle manufactory",
       "occupation": "soap_and_candle_maker",
@@ -1301,6 +1329,7 @@
     },
     {
       "id": "business_chicago_st_joseph_packet_schooner_llewellyn",
+      "business_record_id": "biz_chicago_st_joseph_packet_schooner_llewellyn",
       "name": "Chicago & St. Joseph Packet (schooner Llewellyn)",
       "trade": "packet service for freight and passengers between Chicago and the mouth of the St. Joseph",
       "occupation": null,
@@ -1342,6 +1371,7 @@
     },
     {
       "id": "business_clark_filer_co",
+      "business_record_id": "biz_clark_filer_co",
       "name": "Clark, Filer & Co.",
       "trade": "cabinet shop; chairs",
       "occupation": "joiner",
@@ -1385,6 +1415,7 @@
     },
     {
       "id": "business_collins_caton",
+      "business_record_id": "biz_collins_caton",
       "name": "Collins & Caton",
       "trade": "attorneys and counsellors at law, and solicitors in chancery",
       "occupation": "attorney",
@@ -1435,6 +1466,7 @@
     },
     {
       "id": "business_cook_george",
+      "business_record_id": "biz_cook_george",
       "name": "Cook & George",
       "trade": "bakery",
       "occupation": "baker",
@@ -1478,6 +1510,7 @@
     },
     {
       "id": "business_cooley_and_halsman",
+      "business_record_id": "biz_cooley_and_halsman",
       "name": "Cooley and Halsman",
       "trade": "tailors",
       "occupation": "tailor",
@@ -1536,6 +1569,7 @@
     },
     {
       "id": "business_cooley_and_hol_b_man",
+      "business_record_id": "biz_cooley_and_hol_b_man",
       "name": "Cooley and Hol[b]man",
       "trade": "tailoring",
       "occupation": "tailor",
@@ -1588,6 +1622,7 @@
     },
     {
       "id": "business_cromelien_brothers_co",
+      "business_record_id": "biz_cromelien_brothers_co",
       "name": "Cromelien, Brothers & Co.",
       "trade": "foreign wine and liquor establishment",
       "occupation": "liquor_dealer",
@@ -1634,6 +1669,7 @@
     },
     {
       "id": "business_d_carver_co",
+      "business_record_id": "biz_d_carver_co",
       "name": "D. Carver & Co.",
       "trade": "lumber merchant",
       "occupation": "lumber_merchant",
@@ -1675,6 +1711,7 @@
     },
     {
       "id": "business_d_graves",
+      "business_record_id": "biz_d_graves",
       "name": "D. Graves",
       "trade": "bakery",
       "occupation": "baker",
@@ -1716,6 +1753,7 @@
     },
     {
       "id": "business_d_o_robinson_and_r_a_neff",
+      "business_record_id": "biz_d_o_robinson_and_r_a_neff",
       "name": "D. O. Robinson and R. A. Neff",
       "trade": "[not stated in the notice]",
       "occupation": null,
@@ -1759,6 +1797,7 @@
     },
     {
       "id": "business_dally_youngs",
+      "business_record_id": "biz_dally_youngs",
       "name": "Dally & Youngs",
       "trade": "blacksmithing and edge tool making",
       "occupation": "blacksmith",
@@ -1800,6 +1839,7 @@
     },
     {
       "id": "business_daniel_elston_co",
+      "business_record_id": "biz_daniel_elston_co",
       "name": "Daniel Elston & [Co.]",
       "trade": "soap and candle manufactory",
       "occupation": "soap_and_candle_maker",
@@ -1846,6 +1886,7 @@
     },
     {
       "id": "business_dart_co_castings",
+      "business_record_id": "biz_dart_co_castings",
       "name": "Dart & Co., castings",
       "trade": "iron castings",
       "occupation": "founder",
@@ -1883,6 +1924,7 @@
     },
     {
       "id": "business_david_carver",
+      "business_record_id": "biz_david_carver",
       "name": "David Carver",
       "trade": "lumber yard",
       "occupation": "lumber_merchant",
@@ -1924,6 +1966,7 @@
     },
     {
       "id": "business_deacon_mccaleb",
+      "business_record_id": "biz_deacon_mccaleb",
       "name": "Deacon & McCaleb",
       "trade": "steam saw mill and lumber, St. Joseph",
       "occupation": "lumber_merchant",
@@ -1967,6 +2010,7 @@
     },
     {
       "id": "business_dr_j_h_barnard",
+      "business_record_id": "biz_dr_j_h_barnard",
       "name": "Dr. J. H. Barnard",
       "trade": "physician",
       "occupation": "physician",
@@ -2008,6 +2052,7 @@
     },
     {
       "id": "business_dr_w_g_austin",
+      "business_record_id": "biz_dr_w_g_austin",
       "name": "Dr. W. G. Austin",
       "trade": "practice of medicine, botanic system",
       "occupation": "physician",
@@ -2068,6 +2113,7 @@
     },
     {
       "id": "business_e_l_thrall",
+      "business_record_id": "biz_e_l_thrall",
       "name": "E. L. Thrall",
       "trade": "tailoring and ready made clothing",
       "occupation": "clothier",
@@ -2109,6 +2155,7 @@
     },
     {
       "id": "business_e_p_deacon",
+      "business_record_id": "biz_e_p_deacon",
       "name": "E. P. Deacon",
       "trade": "steam saw mill and lumber, St. Joseph",
       "occupation": "lumber_merchant",
@@ -2150,6 +2197,7 @@
     },
     {
       "id": "business_e_w_haddock",
+      "business_record_id": "biz_e_w_haddock",
       "name": "E. W. Haddock",
       "trade": "merchant",
       "occupation": "merchant",
@@ -2191,6 +2239,7 @@
     },
     {
       "id": "business_e_wentworth",
+      "business_record_id": "biz_e_wentworth",
       "name": "E. Wentworth",
       "trade": "tavern",
       "occupation": "tavern_keeper",
@@ -2232,6 +2281,7 @@
     },
     {
       "id": "business_e_wentworth_s_public_house_on_flag_creek",
+      "business_record_id": "biz_e_wentworth_s_public_house_on_flag_creek",
       "name": "E. Wentworth's public house on Flag Creek",
       "trade": "tavern",
       "occupation": "tavern_keeper",
@@ -2273,6 +2323,7 @@
     },
     {
       "id": "business_e_wentworth_s_tavern_flag_creek",
+      "business_record_id": "biz_e_wentworth_s_tavern_flag_creek",
       "name": "E. Wentworth's tavern, Flag Creek",
       "trade": "public house",
       "occupation": "tavern_keeper",
@@ -2314,6 +2365,7 @@
     },
     {
       "id": "business_e_wentworth_s_tavern_on_flag_creek",
+      "business_record_id": "biz_e_wentworth_s_tavern_on_flag_creek",
       "name": "E. Wentworth's tavern on Flag Creek",
       "trade": "tavern",
       "occupation": "tavern_keeper",
@@ -2355,6 +2407,7 @@
     },
     {
       "id": "business_eagle_hotel",
+      "business_record_id": "biz_eagle_hotel",
       "name": "Eagle Hotel",
       "trade": "hotel",
       "occupation": "hotel_keeper",
@@ -2398,6 +2451,7 @@
     },
     {
       "id": "business_eagle_tavern",
+      "business_record_id": "biz_eagle_tavern",
       "name": "Eagle Tavern",
       "trade": "tavern and hotel",
       "occupation": "hotel_keeper",
@@ -2439,6 +2493,7 @@
     },
     {
       "id": "business_ebenezer_s_more_attorney_at_law",
+      "business_record_id": "biz_ebenezer_s_more_attorney_at_law",
       "name": "Ebenezer S. More, attorney at law",
       "trade": "attorney at law",
       "occupation": "attorney",
@@ -2480,6 +2535,7 @@
     },
     {
       "id": "business_edward_w_casey",
+      "business_record_id": "biz_edward_w_casey",
       "name": "Edward W. Casey",
       "trade": "attorney and counsellor at law",
       "occupation": "attorney",
@@ -2521,6 +2577,7 @@
     },
     {
       "id": "business_elmira_fowler",
+      "business_record_id": "biz_elmira_fowler",
       "name": "Elmira Fowler",
       "trade": "millinery and dress making",
       "occupation": "milliner",
@@ -2562,6 +2619,7 @@
     },
     {
       "id": "business_everson_co",
+      "business_record_id": "biz_everson_co",
       "name": "Everson & Co.",
       "trade": "livery stable",
       "occupation": "livery_stable_keeper",
@@ -2603,6 +2661,7 @@
     },
     {
       "id": "business_frederick_thomas_drugs_and_paints",
+      "business_record_id": "biz_frederick_thomas_drugs_and_paints",
       "name": "Frederick Thomas, drugs and paints",
       "trade": "drugs, paints, chemicals, perfumery and dye stuffs",
       "occupation": "druggist",
@@ -2644,6 +2703,7 @@
     },
     {
       "id": "business_fullerton_botsford",
+      "business_record_id": "biz_fullerton_botsford",
       "name": "Fullerton & Botsford",
       "trade": "pork and provisions",
       "occupation": "provision_dealer",
@@ -2685,6 +2745,7 @@
     },
     {
       "id": "business_fullerton_g_attorneys_and_counsellors",
+      "business_record_id": "biz_fullerton_g_attorneys_and_counsellors",
       "name": "Fullerton & G., attorneys and counsellors",
       "trade": "attorneys and counsellors at law",
       "occupation": "attorney",
@@ -2726,6 +2787,7 @@
     },
     {
       "id": "business_g_blanshard",
+      "business_record_id": "biz_g_blanshard",
       "name": "G. Blanshard",
       "trade": "houses and lots for sale or to let",
       "occupation": "land_agent",
@@ -2769,6 +2831,7 @@
     },
     {
       "id": "business_g_spring",
+      "business_record_id": "biz_g_spring",
       "name": "G. Spring",
       "trade": "attorney and counsellor at law, and solicitor in chancery",
       "occupation": "attorney",
@@ -2989,6 +3052,7 @@
     },
     {
       "id": "business_g_w_w_laird",
+      "business_record_id": "biz_g_w_w_laird",
       "name": "G. W. & W. Laird",
       "trade": "merchants",
       "occupation": "merchant",
@@ -3032,6 +3096,7 @@
     },
     {
       "id": "business_geo_w_laird_naper_s_settlement",
+      "business_record_id": "biz_geo_w_laird_naper_s_settlement",
       "name": "Geo. W. Laird, Naper's Settlement",
       "trade": "general store",
       "occupation": "merchant",
@@ -3073,6 +3138,7 @@
     },
     {
       "id": "business_george_holsman",
+      "business_record_id": "biz_george_holsman",
       "name": "George Holsman",
       "trade": "tailoring",
       "occupation": "tailor",
@@ -3123,6 +3189,7 @@
     },
     {
       "id": "business_goss_cobb",
+      "business_record_id": "biz_goss_cobb",
       "name": "Goss & Cobb",
       "trade": null,
       "occupation": null,
@@ -3171,6 +3238,7 @@
     },
     {
       "id": "business_h_c_bennett",
+      "business_record_id": "biz_h_c_bennett",
       "name": "H. C. Bennett",
       "trade": "attorney and counsellor at law, and solicitor in chancery",
       "occupation": "attorney",
@@ -3212,6 +3280,7 @@
     },
     {
       "id": "business_h_doty_co",
+      "business_record_id": "biz_h_doty_co",
       "name": "H. Doty & Co.",
       "trade": "dry goods and groceries",
       "occupation": "dry_goods_merchant",
@@ -3255,6 +3324,7 @@
     },
     {
       "id": "business_harmon_loomis_co",
+      "business_record_id": "biz_harmon_loomis_co",
       "name": "Harmon, Loomis & Co.",
       "trade": "wholesale and retail dry goods, groceries, hardware and crockery",
       "occupation": "dry_goods_merchant",
@@ -3303,6 +3373,7 @@
     },
     {
       "id": "business_henry_moore",
+      "business_record_id": "biz_henry_moore",
       "name": "Henry Moore",
       "trade": "attorney and counsellor at law, and solicitor in chancery",
       "occupation": "attorney",
@@ -3344,6 +3415,7 @@
     },
     {
       "id": "business_henry_moore_attorney_counsellor_at_law",
+      "business_record_id": "biz_henry_moore_attorney_counsellor_at_law",
       "name": "Henry Moore, Attorney & Counsellor at Law",
       "trade": "law",
       "occupation": "attorney",
@@ -3385,6 +3457,7 @@
     },
     {
       "id": "business_hiram_everts_high_school_for_young_gentlemen",
+      "business_record_id": "biz_hiram_everts_high_school_for_young_gentlemen",
       "name": "Hiram Everts, High School for Young Gentlemen",
       "trade": "school",
       "occupation": "schoolteacher",
@@ -3435,6 +3508,7 @@
     },
     {
       "id": "business_hiram_pearsons",
+      "business_record_id": "biz_hiram_pearsons",
       "name": "Hiram Pearsons",
       "trade": "storage and commission merchant",
       "occupation": "merchant",
@@ -3476,6 +3550,7 @@
     },
     {
       "id": "business_hubbard_co",
+      "business_record_id": "biz_hubbard_co",
       "name": "Hubbard & Co.",
       "trade": "commission and forwarding merchants",
       "occupation": "merchant",
@@ -3524,6 +3599,7 @@
     },
     {
       "id": "business_ingersoll_s_tavern_stand",
+      "business_record_id": "biz_ingersoll_s_tavern_stand",
       "name": "Ingersoll's tavern stand",
       "trade": "tavern",
       "occupation": "tavern_keeper",
@@ -3565,6 +3641,7 @@
     },
     {
       "id": "business_j_a_marshall_s_dancing_school",
+      "business_record_id": "biz_j_a_marshall_s_dancing_school",
       "name": "J. A. Marshall's dancing school",
       "trade": "dancing school",
       "occupation": "schoolteacher",
@@ -3606,6 +3683,7 @@
     },
     {
       "id": "business_j_b_brown_dearborn_street_grocery",
+      "business_record_id": "biz_j_b_brown_dearborn_street_grocery",
       "name": "J. B. Brown, Dearborn Street grocery",
       "trade": "groceries",
       "occupation": "grocer",
@@ -3649,6 +3727,7 @@
     },
     {
       "id": "business_j_bates_jr_auction_store",
+      "business_record_id": "biz_j_bates_jr_auction_store",
       "name": "J. Bates jr., Auction Store",
       "trade": "auction store",
       "occupation": "auctioneer",
@@ -3692,6 +3771,7 @@
     },
     {
       "id": "business_j_c_goodhue_land_agent",
+      "business_record_id": "biz_j_c_goodhue_land_agent",
       "name": "J. C. Goodhue, land agent",
       "trade": "leasing town lots",
       "occupation": "land_agent",
@@ -3733,6 +3813,7 @@
     },
     {
       "id": "business_j_curtiss",
+      "business_record_id": "biz_j_curtiss",
       "name": "J. Curtiss",
       "trade": "attorney and counsellor at law, and solicitor in chancery",
       "occupation": "attorney",
@@ -3774,6 +3855,7 @@
     },
     {
       "id": "business_j_curtiss_attorney_and_counsellor_at_law",
+      "business_record_id": "biz_j_curtiss_attorney_and_counsellor_at_law",
       "name": "J. Curtiss, Attorney and Counsellor at Law",
       "trade": "law",
       "occupation": "attorney",
@@ -3815,6 +3897,7 @@
     },
     {
       "id": "business_j_d_caton_attorney_and_counsellor_at_law",
+      "business_record_id": "biz_j_d_caton_attorney_and_counsellor_at_law",
       "name": "J. D. Caton, attorney and counsellor at law",
       "trade": "attorney and solicitor in chancery",
       "occupation": "attorney",
@@ -3856,6 +3939,7 @@
     },
     {
       "id": "business_j_h_kinzie_merchant",
+      "business_record_id": "biz_j_h_kinzie_merchant",
       "name": "J. H. Kinzie, merchant",
       "trade": "lumber, nails and salt",
       "occupation": "lumber_merchant",
@@ -3897,6 +3981,7 @@
     },
     {
       "id": "business_j_h_mulford",
+      "business_record_id": "biz_j_h_mulford",
       "name": "J. H. Mulford",
       "trade": "watches, jewelry, engravings and fancy goods",
       "occupation": "jeweller",
@@ -3940,6 +4025,7 @@
     },
     {
       "id": "business_j_k_botsford",
+      "business_record_id": "biz_j_k_botsford",
       "name": "J. K. Botsford",
       "trade": "grocer and tinner",
       "occupation": "grocer",
@@ -3981,6 +4067,7 @@
     },
     {
       "id": "business_j_k_botsford_tin_sheet_iron_and_copper_factory",
+      "business_record_id": "biz_j_k_botsford_tin_sheet_iron_and_copper_factory",
       "name": "J. K. Botsford, Tin, Sheet Iron and Copper Factory",
       "trade": "tin, sheet iron and copper factory",
       "occupation": "tinsmith",
@@ -4025,6 +4112,7 @@
     },
     {
       "id": "business_j_l_wilson_co",
+      "business_record_id": "biz_j_l_wilson_co",
       "name": "J. L. Wilson & Co.",
       "trade": "dry goods, groceries, hardware and crockery",
       "occupation": "dry_goods_merchant",
@@ -4077,6 +4165,7 @@
     },
     {
       "id": "business_j_s_c_hogan",
+      "business_record_id": "biz_j_s_c_hogan",
       "name": "J. S. C. Hogan",
       "trade": "general store and post office",
       "occupation": "postmaster",
@@ -4120,6 +4209,7 @@
     },
     {
       "id": "business_j_wellmaker_co",
+      "business_record_id": "biz_j_wellmaker_co",
       "name": "J. Wellmaker & Co.",
       "trade": "unstated — the notice announces only its closing",
       "occupation": null,
@@ -4163,6 +4253,7 @@
     },
     {
       "id": "business_j_wright_merchant",
+      "business_record_id": "biz_j_wright_merchant",
       "name": "J. Wright, merchant",
       "trade": "leather, salt and lumber",
       "occupation": "lumber_merchant",
@@ -4204,6 +4295,7 @@
     },
     {
       "id": "business_james_grant",
+      "business_record_id": "biz_james_grant",
       "name": "James Grant",
       "trade": "attorney and counsellor at law",
       "occupation": "attorney",
@@ -4245,6 +4337,7 @@
     },
     {
       "id": "business_john_bates_jr",
+      "business_record_id": "biz_john_bates_jr",
       "name": "John Bates, Jr.",
       "trade": "auctioneer",
       "occupation": "auctioneer",
@@ -4288,6 +4381,7 @@
     },
     {
       "id": "business_john_dave_north_water_street",
+      "business_record_id": "biz_john_dave_north_water_street",
       "name": "John Dave, North Water Street",
       "trade": null,
       "occupation": null,
@@ -4329,6 +4423,7 @@
     },
     {
       "id": "business_john_dean_caton",
+      "business_record_id": "biz_john_dean_caton",
       "name": "John Dean Caton",
       "trade": "attorney and counsellor at law, and solicitor in chancery",
       "occupation": "attorney",
@@ -4370,6 +4465,7 @@
     },
     {
       "id": "business_john_dean_caton_attorney_and_counsellor_at_law",
+      "business_record_id": "biz_john_dean_caton_attorney_and_counsellor_at_law",
       "name": "John Dean Caton, Attorney and Counsellor at Law",
       "trade": "law",
       "occupation": "attorney",
@@ -4411,6 +4507,7 @@
     },
     {
       "id": "business_john_h_kinzie",
+      "business_record_id": "biz_john_h_kinzie",
       "name": "John H. Kinzie",
       "trade": "forwarding and commission merchant",
       "occupation": "forwarding_and_commission",
@@ -4452,6 +4549,7 @@
     },
     {
       "id": "business_john_holbrook",
+      "business_record_id": "biz_john_holbrook",
       "name": "John Holbrook",
       "trade": "clothing, boots and shoes, wholesale and retail, as agent for the manufacturers",
       "occupation": "clothier",
@@ -4514,6 +4612,7 @@
     },
     {
       "id": "business_john_s_kinzie_forwarding_and_commission_merchant",
+      "business_record_id": "biz_john_s_kinzie_forwarding_and_commission_merchant",
       "name": "John S. Kinzie, forwarding and commission merchant",
       "trade": "forwarding and commission merchant",
       "occupation": "forwarding_and_commission",
@@ -4555,6 +4654,7 @@
     },
     {
       "id": "business_john_watkins",
+      "business_record_id": "biz_john_watkins",
       "name": "John Watkins",
       "trade": "school books, and a school room",
       "occupation": "schoolteacher",
@@ -4596,6 +4696,7 @@
     },
     {
       "id": "business_john_wright",
+      "business_record_id": "biz_john_wright",
       "name": "John Wright",
       "trade": "general merchandise",
       "occupation": "merchant",
@@ -4637,6 +4738,7 @@
     },
     {
       "id": "business_jones_king",
+      "business_record_id": "biz_jones_king",
       "name": "Jones & King",
       "trade": "stove and hollow ware",
       "occupation": "stove_dealer",
@@ -4683,6 +4785,7 @@
     },
     {
       "id": "business_jones_king_co",
+      "business_record_id": "biz_jones_king_co",
       "name": "Jones, King & Co.",
       "trade": "hardware, cutlery, nails, iron, steel, stoves, stove furniture, iron ware and saw mill gearing, wholesale and retail",
       "occupation": "hardware_merchant",
@@ -4749,6 +4852,7 @@
     },
     {
       "id": "business_kercheval_hamilton",
+      "business_record_id": "biz_kercheval_hamilton",
       "name": "Kercheval & Hamilton",
       "trade": "agents for lots in the School Section",
       "occupation": "schoolteacher",
@@ -4792,6 +4896,7 @@
     },
     {
       "id": "business_kinzie_forsyth",
+      "business_record_id": "biz_kinzie_forsyth",
       "name": "Kinzie & Forsyth",
       "trade": "merchants, and sellers of the lithographic town map",
       "occupation": "merchant",
@@ -4833,6 +4938,7 @@
     },
     {
       "id": "business_kinzie_hall",
+      "business_record_id": "biz_kinzie_hall",
       "name": "Kinzie & Hall",
       "trade": "dry goods, hardware and groceries",
       "occupation": "dry_goods_merchant",
@@ -4877,6 +4983,7 @@
     },
     {
       "id": "business_l_g_curtiss",
+      "business_record_id": "biz_l_g_curtiss",
       "name": "L. G. Curtiss",
       "trade": "deputy surveyor of Cook County",
       "occupation": "surveyor",
@@ -4918,6 +5025,7 @@
     },
     {
       "id": "business_l_g_curtiss_deputy_surveyor_of_cook_county",
+      "business_record_id": "biz_l_g_curtiss_deputy_surveyor_of_cook_county",
       "name": "L. G. Curtiss, Deputy Surveyor of Cook County",
       "trade": "land surveying",
       "occupation": "surveyor",
@@ -4959,6 +5067,7 @@
     },
     {
       "id": "business_l_w_montgomery_boot_and_shoe_maker",
+      "business_record_id": "biz_l_w_montgomery_boot_and_shoe_maker",
       "name": "L. W. Montgomery, boot and shoe maker",
       "trade": "boot and shoe making",
       "occupation": "shoemaker",
@@ -5000,6 +5109,7 @@
     },
     {
       "id": "business_lathrop_johnson_co_livery",
+      "business_record_id": "biz_lathrop_johnson_co_livery",
       "name": "Lathrop Johnson & Co., livery",
       "trade": "livery",
       "occupation": "livery_stable_keeper",
@@ -5041,6 +5151,7 @@
     },
     {
       "id": "business_m_cormick_moon",
+      "business_record_id": "biz_m_cormick_moon",
       "name": "M'Cormick & Moon",
       "trade": "hat manufacturers and wholesale dealers, Detroit",
       "occupation": null,
@@ -5082,6 +5193,7 @@
     },
     {
       "id": "business_magie_wilkinson",
+      "business_record_id": "biz_magie_wilkinson",
       "name": "Magie & Wilkinson",
       "trade": "dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
       "occupation": "dry_goods_merchant",
@@ -5128,6 +5240,7 @@
     },
     {
       "id": "business_marsh_simons",
+      "business_record_id": "biz_marsh_simons",
       "name": "Marsh & Simons",
       "trade": "provision dealers at the Boston Market",
       "occupation": "provision_dealer",
@@ -5171,6 +5284,7 @@
     },
     {
       "id": "business_matthias_mason_co",
+      "business_record_id": "biz_matthias_mason_co",
       "name": "Matthias Mason & Co.",
       "trade": "blacksmith",
       "occupation": "blacksmith",
@@ -5362,6 +5476,7 @@
     },
     {
       "id": "business_miss_bayne_s_boarding_and_day_school",
+      "business_record_id": "biz_miss_bayne_s_boarding_and_day_school",
       "name": "Miss Bayne's Boarding and Day School",
       "trade": "boarding and day school for young ladies",
       "occupation": "schoolteacher",
@@ -5405,6 +5520,7 @@
     },
     {
       "id": "business_montgomery_auction_and_commission_house",
+      "business_record_id": "biz_montgomery_auction_and_commission_house",
       "name": "Montgomery, auction and commission house",
       "trade": "auction and commission house, selling merchandize and real estate",
       "occupation": "auctioneer",
@@ -5448,6 +5564,7 @@
     },
     {
       "id": "business_mrs_h_sherman",
+      "business_record_id": "biz_mrs_h_sherman",
       "name": "Mrs. H. Sherman",
       "trade": "millinery and dress making",
       "occupation": "milliner",
@@ -5489,6 +5606,7 @@
     },
     {
       "id": "business_mrs_herman",
+      "business_record_id": "biz_mrs_herman",
       "name": "[Mrs.] Herman",
       "trade": "millinery and dress making",
       "occupation": "milliner",
@@ -5530,6 +5648,7 @@
     },
     {
       "id": "business_new_york_clothing_store",
+      "business_record_id": "biz_new_york_clothing_store",
       "name": "New York Clothing Store",
       "trade": "clothing, wholesale and retail",
       "occupation": "clothier",
@@ -5571,6 +5690,7 @@
     },
     {
       "id": "business_newberry_dole",
+      "business_record_id": "biz_newberry_dole",
       "name": "Newberry & Dole",
       "trade": null,
       "occupation": null,
@@ -5619,6 +5739,7 @@
     },
     {
       "id": "business_noble_wesencraft",
+      "business_record_id": "biz_noble_wesencraft",
       "name": "Noble & Wesencraft",
       "trade": "steam saw mill",
       "occupation": "miller",
@@ -5656,6 +5777,7 @@
     },
     {
       "id": "business_north_western_fire_and_marine_insurance_company_of_oswego_chicago_agency",
+      "business_record_id": "biz_north_western_fire_and_marine_insurance_company_of_oswego_chicago_agency",
       "name": "North Western Fire and Marine Insurance Company of Oswego, Chicago agency",
       "trade": "fire insurance, and marine risks on lake and canal vessels and cargoes",
       "occupation": "insurance_agent",
@@ -5697,6 +5819,7 @@
     },
     {
       "id": "business_p_f_peck",
+      "business_record_id": "biz_p_f_peck",
       "name": "P. F. Peck",
       "trade": "general store — dry goods, hardware, groceries and crockery",
       "occupation": "dry_goods_merchant",
@@ -5738,6 +5861,7 @@
     },
     {
       "id": "business_p_pruyne_co",
+      "business_record_id": "biz_p_pruyne_co",
       "name": "P. Pruyne & Co.",
       "trade": "wholesale and retail store — groceries, hardware, crockery and drugs",
       "occupation": "hardware_merchant",
@@ -5786,6 +5910,7 @@
     },
     {
       "id": "business_p_s_carli_eagle_tavern",
+      "business_record_id": "biz_p_s_carli_eagle_tavern",
       "name": "P. S. Carli, Eagle Tavern",
       "trade": "tavern keeper, and dealer in chairs, harnesses and saddles",
       "occupation": "harness_maker",
@@ -5827,6 +5952,7 @@
     },
     {
       "id": "business_peter_cohen",
+      "business_record_id": "biz_peter_cohen",
       "name": "Peter Cohen",
       "trade": "clothier, grocer and liquor dealer",
       "occupation": "clothier",
@@ -5870,6 +5996,7 @@
     },
     {
       "id": "business_peter_cohen_s_store",
+      "business_record_id": "biz_peter_cohen_s_store",
       "name": "Peter Cohen's store",
       "trade": "merchant",
       "occupation": "merchant",
@@ -5911,6 +6038,7 @@
     },
     {
       "id": "business_philo_carpenter",
+      "business_record_id": "biz_philo_carpenter",
       "name": "Philo Carpenter",
       "trade": "drugs and medicines",
       "occupation": "druggist",
@@ -5952,6 +6080,7 @@
     },
     {
       "id": "business_pierce_abbott",
+      "business_record_id": "biz_pierce_abbott",
       "name": "Pierce & Abbott",
       "trade": "blacksmiths",
       "occupation": "blacksmith",
@@ -5998,6 +6127,7 @@
     },
     {
       "id": "business_pierce_french",
+      "business_record_id": "biz_pierce_french",
       "name": "Pierce & French",
       "trade": "blacksmithing and edge tool making",
       "occupation": "blacksmith",
@@ -6044,6 +6174,7 @@
     },
     {
       "id": "business_r_a_kinzie",
+      "business_record_id": "biz_r_a_kinzie",
       "name": "R. A. Kinzie",
       "trade": "merchant",
       "occupation": "merchant",
@@ -6085,6 +6216,7 @@
     },
     {
       "id": "business_r_stewart_attorney",
+      "business_record_id": "biz_r_stewart_attorney",
       "name": "R. Stewart, attorney",
       "trade": "attorney at law",
       "occupation": "attorney",
@@ -6126,6 +6258,7 @@
     },
     {
       "id": "business_richard_m_sweet_corn_at_his_barn_on_the_dupage",
+      "business_record_id": "biz_richard_m_sweet_corn_at_his_barn_on_the_dupage",
       "name": "Richard M. Sweet, corn at his barn on the Dupage",
       "trade": "corn, sold from a barn",
       "occupation": null,
@@ -6167,6 +6300,7 @@
     },
     {
       "id": "business_riggs_humphrey",
+      "business_record_id": "biz_riggs_humphrey",
       "name": "Riggs & Humphrey",
       "trade": "carriage and sleigh making",
       "occupation": "carriage_maker",
@@ -6208,6 +6342,7 @@
     },
     {
       "id": "business_rockwell_cabinet_furniture_warehouse",
+      "business_record_id": "biz_rockwell_cabinet_furniture_warehouse",
       "name": "Rockwell, cabinet furniture warehouse",
       "trade": "cabinet furniture",
       "occupation": "joiner",
@@ -6249,6 +6384,7 @@
     },
     {
       "id": "business_russell_brown",
+      "business_record_id": "biz_russell_brown",
       "name": "Russell & Brown",
       "trade": "[not stated in the notice]",
       "occupation": null,
@@ -6292,6 +6428,7 @@
     },
     {
       "id": "business_russell_clift",
+      "business_record_id": "biz_russell_clift",
       "name": "Russell & Clift",
       "trade": "bookseller and stationer",
       "occupation": "bookseller",
@@ -6338,6 +6475,7 @@
     },
     {
       "id": "business_russell_e_heacock",
+      "business_record_id": "biz_russell_e_heacock",
       "name": "Russell E. Heacock",
       "trade": "counsellor and attorney at law, land conveyancing, justice of the peace business, and a land agency office",
       "occupation": "attorney",
@@ -6382,6 +6520,7 @@
     },
     {
       "id": "business_s_abell_attorney_and_counsellor",
+      "business_record_id": "biz_s_abell_attorney_and_counsellor",
       "name": "S. Abell, attorney and counsellor",
       "trade": "attorney, counsellor and land conveyancer",
       "occupation": "attorney",
@@ -6425,6 +6564,7 @@
     },
     {
       "id": "business_s_abell_attorney_counsellor_at_law",
+      "business_record_id": "biz_s_abell_attorney_counsellor_at_law",
       "name": "S. Abell, Attorney & Counsellor at Law",
       "trade": "law",
       "occupation": "attorney",
@@ -6466,6 +6606,7 @@
     },
     {
       "id": "business_s_b_cobb_saddle_harness_and_trunk_manufactory",
+      "business_record_id": "biz_s_b_cobb_saddle_harness_and_trunk_manufactory",
       "name": "S. B. Cobb, saddle, harness and trunk manufactory",
       "trade": "saddle, harness and trunk manufactory",
       "occupation": "harness_maker",
@@ -6507,6 +6648,7 @@
     },
     {
       "id": "business_s_dewey",
+      "business_record_id": "biz_s_dewey",
       "name": "S. Dewey",
       "trade": "cabinet making",
       "occupation": "joiner",
@@ -6548,6 +6690,7 @@
     },
     {
       "id": "business_s_foot",
+      "business_record_id": "biz_s_foot",
       "name": "S. Foot",
       "trade": "grocer",
       "occupation": "grocer",
@@ -6589,6 +6732,7 @@
     },
     {
       "id": "business_s_lincoln",
+      "business_record_id": "biz_s_lincoln",
       "name": "S. Lincoln",
       "trade": "tailoring",
       "occupation": "tailor",
@@ -6630,6 +6774,7 @@
     },
     {
       "id": "business_samuel_lewis",
+      "business_record_id": "biz_samuel_lewis",
       "name": "Samuel Lewis",
       "trade": "vocal and instrumental music school, and the repair and tuning of piano fortes",
       "occupation": "schoolteacher",
@@ -6682,6 +6827,7 @@
     },
     {
       "id": "business_sarah_d_howe",
+      "business_record_id": "biz_sarah_d_howe",
       "name": "Sarah D. Howe",
       "trade": "dress, cloak and habit making",
       "occupation": "dressmaker",
@@ -6742,6 +6888,7 @@
     },
     {
       "id": "business_stuart_s_confectionary_and_perfumery",
+      "business_record_id": "biz_stuart_s_confectionary_and_perfumery",
       "name": "Stuart's confectionary and perfumery",
       "trade": "confectionary and perfumery",
       "occupation": "confectioner",
@@ -6783,6 +6930,7 @@
     },
     {
       "id": "business_taylor_handy",
+      "business_record_id": "biz_taylor_handy",
       "name": "Taylor & Handy",
       "trade": "unstated — the notice announces only its dissolution",
       "occupation": null,
@@ -6826,6 +6974,7 @@
     },
     {
       "id": "business_the_boston_market",
+      "business_record_id": "biz_the_boston_market",
       "name": "The Boston Market",
       "trade": "market, provisions",
       "occupation": "provision_dealer",
@@ -6867,6 +7016,7 @@
     },
     {
       "id": "business_the_chicago_academy",
+      "business_record_id": "biz_the_chicago_academy",
       "name": "the Chicago Academy",
       "trade": "English and classical academy",
       "occupation": "schoolteacher",
@@ -6908,6 +7058,7 @@
     },
     {
       "id": "business_the_chicago_american_newspaper_and_job_printing_office",
+      "business_record_id": "biz_the_chicago_american_newspaper_and_job_printing_office",
       "name": "the Chicago American, newspaper and job printing office",
       "trade": "newspaper publishing and job printing",
       "occupation": "printer",
@@ -6945,6 +7096,7 @@
     },
     {
       "id": "business_the_chicago_and_st_joseph_packet_schooner_phillips",
+      "business_record_id": "biz_the_chicago_and_st_joseph_packet_schooner_phillips",
       "name": "The Chicago and St. Joseph packet, schooner Phillips",
       "trade": "lake packet",
       "occupation": null,
@@ -6982,6 +7134,7 @@
     },
     {
       "id": "business_the_chicago_brewery",
+      "business_record_id": "biz_the_chicago_brewery",
       "name": "the Chicago Brewery",
       "trade": "brewing",
       "occupation": "brewer",
@@ -7023,6 +7176,7 @@
     },
     {
       "id": "business_the_chicago_democrat",
+      "business_record_id": "biz_the_chicago_democrat",
       "name": "The Chicago Democrat",
       "trade": "newspaper printing and job printing",
       "occupation": "printer",
@@ -7183,6 +7337,7 @@
     },
     {
       "id": "business_the_dearborn_street_auction_and_commission_rooms",
+      "business_record_id": "biz_the_dearborn_street_auction_and_commission_rooms",
       "name": "the Dearborn Street auction and commission rooms",
       "trade": "auction and commission rooms",
       "occupation": "auctioneer",
@@ -7229,6 +7384,7 @@
     },
     {
       "id": "business_the_livery_stable_at_the_point",
+      "business_record_id": "biz_the_livery_stable_at_the_point",
       "name": "the Livery Stable at the Point",
       "trade": "livery stable",
       "occupation": "livery_stable_keeper",
@@ -7266,6 +7422,7 @@
     },
     {
       "id": "business_the_lumber_yard_and_warehouse_announced_for_the_opening_of_navigation_1834",
+      "business_record_id": "biz_the_lumber_yard_and_warehouse_announced_for_the_opening_of_navigation_1834",
       "name": "the lumber yard and warehouse announced for the opening of navigation, 1834",
       "trade": "lumber yard and store house, on sale and commission",
       "occupation": "lumber_merchant",
@@ -7307,6 +7464,7 @@
     },
     {
       "id": "business_the_man_trap",
+      "business_record_id": "biz_the_man_trap",
       "name": "the Man Trap",
       "trade": "bakery and liquor shop",
       "occupation": "baker",
@@ -7348,6 +7506,7 @@
     },
     {
       "id": "business_the_new_blacksmith_shop_opposite_the_chicago_hotel",
+      "business_record_id": "biz_the_new_blacksmith_shop_opposite_the_chicago_hotel",
       "name": "the new blacksmith shop opposite the Chicago Hotel",
       "trade": "blacksmith",
       "occupation": "blacksmith",
@@ -7391,6 +7550,7 @@
     },
     {
       "id": "business_the_new_store_at_the_corner_of_water_and_clark_streets",
+      "business_record_id": "biz_the_new_store_at_the_corner_of_water_and_clark_streets",
       "name": "the New Store at the corner of Water and Clark streets",
       "trade": "dry goods, crockery, hardware and cutlery",
       "occupation": "dry_goods_merchant",
@@ -7428,6 +7588,7 @@
     },
     {
       "id": "business_the_stove_and_tin_ware_store_in_water_street_near_the_bridge",
+      "business_record_id": "biz_the_stove_and_tin_ware_store_in_water_street_near_the_bridge",
       "name": "the stove and tin ware store in Water Street near the bridge",
       "trade": "stoves, tin ware and hollow ware",
       "occupation": "stove_dealer",
@@ -7465,6 +7626,7 @@
     },
     {
       "id": "business_the_traveller_s_home",
+      "business_record_id": "biz_the_traveller_s_home",
       "name": "the Traveller's Home",
       "trade": "tavern",
       "occupation": "tavern_keeper",
@@ -7502,6 +7664,7 @@
     },
     {
       "id": "business_thomas_s_eels",
+      "business_record_id": "biz_thomas_s_eels",
       "name": "Thomas S. Eels",
       "trade": "tailoring",
       "occupation": "tailor",
@@ -7543,6 +7706,7 @@
     },
     {
       "id": "business_thos_emerson_co",
+      "business_record_id": "biz_thos_emerson_co",
       "name": "Thos. Emerson & Co.",
       "trade": "livery stable",
       "occupation": "livery_stable_keeper",
@@ -7580,6 +7744,7 @@
     },
     {
       "id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
+      "business_record_id": "biz_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
       "name": "[tin, sheet iron and stove manufactory, proprietor not recovered]",
       "trade": "tin, sheet iron and stove work",
       "occupation": "tinsmith",
@@ -7617,6 +7782,7 @@
     },
     {
       "id": "business_tuttle_brown",
+      "business_record_id": "biz_tuttle_brown",
       "name": "Tuttle & Brown",
       "trade": "groceries",
       "occupation": "grocer",
@@ -7660,6 +7826,7 @@
     },
     {
       "id": "business_uncertain_datid_gad_auction_and_commission_merchant_south_water_street",
+      "business_record_id": "biz_uncertain_datid_gad_auction_and_commission_merchant_south_water_street",
       "name": "[uncertain: DATID GAD], auction and commission merchant, South Water Street",
       "trade": "auction and commission merchant",
       "occupation": "auctioneer",
@@ -7701,6 +7868,7 @@
     },
     {
       "id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker",
+      "business_record_id": "biz_uncertain_j_i_mulford_carriage_and_sleigh_maker",
       "name": "[uncertain: J. I. Mulford], carriage and sleigh maker",
       "trade": "carriage and sleigh making, and repairing",
       "occupation": "carriage_maker",
@@ -7742,6 +7910,7 @@
     },
     {
       "id": "business_uncertain_noble_wesencaft",
+      "business_record_id": "biz_uncertain_noble_wesencaft",
       "name": "[uncertain: Noble & Wesencaft]",
       "trade": "steam saw mill",
       "occupation": "miller",
@@ -7783,6 +7952,7 @@
     },
     {
       "id": "business_uncertain_taylor_dearborn_street_boot_and_shoe_store",
+      "business_record_id": "biz_uncertain_taylor_dearborn_street_boot_and_shoe_store",
       "name": "[uncertain: …] Taylor, Dearborn Street boot and shoe store",
       "trade": "boot, shoe and leather store",
       "occupation": "shoemaker",
@@ -7824,6 +7994,7 @@
     },
     {
       "id": "business_uncertain_the_dentist_lodging_near_lake_street_july_1834",
+      "business_record_id": "biz_uncertain_the_dentist_lodging_near_lake_street_july_1834",
       "name": "[uncertain: the dentist lodging near Lake Street, July 1834]",
       "trade": "dentistry",
       "occupation": "dentist",
@@ -7861,6 +8032,7 @@
     },
     {
       "id": "business_uncertain_the_physician_lodging_at_the_mansion_house_july_1834",
+      "business_record_id": "biz_uncertain_the_physician_lodging_at_the_mansion_house_july_1834",
       "name": "[uncertain: the physician lodging at the Mansion House, July 1834]",
       "trade": "medicine and surgery",
       "occupation": "physician",
@@ -7898,6 +8070,7 @@
     },
     {
       "id": "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store",
+      "business_record_id": "biz_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store",
       "name": "[uncertain: W. H. Taylor], Dearborn Street boot and shoe store",
       "trade": "boot, shoe and leather store, and boot and shoe making",
       "occupation": "shoemaker",
@@ -7939,6 +8112,7 @@
     },
     {
       "id": "business_unidentified_dentist",
+      "business_record_id": "biz_unidentified_dentist",
       "name": "[unidentified dentist]",
       "trade": "dentistry",
       "occupation": "dentist",
@@ -7976,6 +8150,7 @@
     },
     {
       "id": "business_unnamed_hat_manufacturer_dealer",
+      "business_record_id": "biz_unnamed_hat_manufacturer_dealer",
       "name": "[unnamed] hat manufacturer & dealer",
       "trade": "hat manufacturer and dealer; also harness",
       "occupation": "harness_maker",
@@ -8015,6 +8190,7 @@
     },
     {
       "id": "business_unnamed_house_and_land_agent",
+      "business_record_id": "biz_unnamed_house_and_land_agent",
       "name": "[unnamed] house and land agent",
       "trade": "houses and lands purchased and sold; building lots; houses to let",
       "occupation": "land_agent",
@@ -8052,6 +8228,7 @@
     },
     {
       "id": "business_unnamed_new_store_la_salle_street",
+      "business_record_id": "biz_unnamed_new_store_la_salle_street",
       "name": "[unnamed] New Store, La Salle street",
       "trade": "dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
       "occupation": "dry_goods_merchant",
@@ -8098,6 +8275,7 @@
     },
     {
       "id": "business_unsigned_boot_shoe_leather_store_two_doors_north_of_lake_street",
+      "business_record_id": "biz_unsigned_boot_shoe_leather_store_two_doors_north_of_lake_street",
       "name": "[unsigned] Boot, Shoe & Leather Store, two doors north of Lake street",
       "trade": "boot, shoe and leather store",
       "occupation": "shoemaker",
@@ -8146,6 +8324,7 @@
     },
     {
       "id": "business_w_g_blanchard",
+      "business_record_id": "biz_w_g_blanchard",
       "name": "W. G. Blanchard",
       "trade": "house and land agent",
       "occupation": "land_agent",
@@ -8189,6 +8368,7 @@
     },
     {
       "id": "business_w_h_brown",
+      "business_record_id": "biz_w_h_brown",
       "name": "W. H. Brown",
       "trade": "store; groceries and general goods",
       "occupation": "grocer",
@@ -8226,6 +8406,7 @@
     },
     {
       "id": "business_w_h_taylor",
+      "business_record_id": "biz_w_h_taylor",
       "name": "[W. H.] Taylor",
       "trade": "boot, shoe and leather store",
       "occupation": "shoemaker",
@@ -8267,6 +8448,7 @@
     },
     {
       "id": "business_w_keeney",
+      "business_record_id": "biz_w_keeney",
       "name": "W. Keeney",
       "trade": "tin, sheet iron and copper ware, stoves and castings",
       "occupation": "tinsmith",
@@ -8308,6 +8490,7 @@
     },
     {
       "id": "business_w_kimball",
+      "business_record_id": "biz_w_kimball",
       "name": "W. Kimball",
       "trade": "dry goods, crockery, hardware and cutlery",
       "occupation": "dry_goods_merchant",
@@ -8352,6 +8535,7 @@
     },
     {
       "id": "business_w_kimball_s_new_store",
+      "business_record_id": "biz_w_kimball_s_new_store",
       "name": "W. Kimball's New Store",
       "trade": "dry goods, crockery, hardware and cutlery",
       "occupation": "dry_goods_merchant",
@@ -8396,6 +8580,7 @@
     },
     {
       "id": "business_w_montgomery",
+      "business_record_id": "biz_w_montgomery",
       "name": "W. Montgomery",
       "trade": "auction and commission house",
       "occupation": "auctioneer",
@@ -8446,6 +8631,7 @@
     },
     {
       "id": "business_w_montgomery_auction_and_commission_house",
+      "business_record_id": "biz_w_montgomery_auction_and_commission_house",
       "name": "W. Montgomery, Auction and Commission House",
       "trade": "auction and commission",
       "occupation": "auctioneer",
@@ -8496,6 +8682,7 @@
     },
     {
       "id": "business_w_reed",
+      "business_record_id": "biz_w_reed",
       "name": "W. Reed",
       "trade": "cabinet making",
       "occupation": "joiner",
@@ -8537,6 +8724,7 @@
     },
     {
       "id": "business_whitehead_co",
+      "business_record_id": "biz_whitehead_co",
       "name": "Whitehead & Co.",
       "trade": "letting agents",
       "occupation": "land_agent",
@@ -8574,6 +8762,7 @@
     },
     {
       "id": "business_william_clay",
+      "business_record_id": "biz_william_clay",
       "name": "William Clay",
       "trade": "hat manufacturing and dealing",
       "occupation": "hatter",
@@ -8615,6 +8804,7 @@
     },
     {
       "id": "business_william_f_lyon_wholesale_grocery_store",
+      "business_record_id": "biz_william_f_lyon_wholesale_grocery_store",
       "name": "William F. Lyon, Wholesale Grocery Store",
       "trade": "wholesale grocery",
       "occupation": "grocer",
@@ -8665,6 +8855,7 @@
     },
     {
       "id": "business_wm_h_kennicott",
+      "business_record_id": "biz_wm_h_kennicott",
       "name": "Wm. H. Kennicott",
       "trade": "surgeon dentistry",
       "occupation": "dentist",
@@ -8706,6 +8897,7 @@
     },
     {
       "id": "business_wm_h_kennicott_surgeon_dentist",
+      "business_record_id": "biz_wm_h_kennicott_surgeon_dentist",
       "name": "Wm. H. Kennicott, Surgeon Dentist",
       "trade": "dentistry",
       "occupation": "dentist",
@@ -8747,6 +8939,7 @@
     },
     {
       "id": "business_wm_h_taylor",
+      "business_record_id": "biz_wm_h_taylor",
       "name": "Wm. H. Taylor",
       "trade": "boot, shoe and leather store, wholesale and retail, and boots and shoes made to order",
       "occupation": "shoemaker",
@@ -8788,6 +8981,7 @@
     },
     {
       "id": "business_wm_h_taylor_boot_shoe_leather_store",
+      "business_record_id": "biz_wm_h_taylor_boot_shoe_leather_store",
       "name": "Wm. H. Taylor, Boot, Shoe & Leather Store",
       "trade": "boot, shoe and leather store",
       "occupation": "shoemaker",
@@ -8838,6 +9032,7 @@
     },
     {
       "id": "business_wm_hogue_co",
+      "business_record_id": "biz_wm_hogue_co",
       "name": "Wm. Hogue & Co.",
       "trade": "merchant",
       "occupation": "merchant",
@@ -8891,6 +9086,7 @@
     },
     {
       "id": "business_wm_sabine_storage_forwarding_and_commission_merchant",
+      "business_record_id": "biz_wm_sabine_storage_forwarding_and_commission_merchant",
       "name": "Wm. Sabine, storage, forwarding and commission merchant",
       "trade": "storage, forwarding and commission merchant",
       "occupation": "forwarding_and_commission",
@@ -8983,9 +9179,9 @@
       "letter_list_only": false,
       "first_seen": "1833-12-10",
       "last_seen": "1834-12-24",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "clybourne_archibald",
+      "action_note": "data/residents/ already holds this person as clybourne_archibald (hh_clybourne_archibald, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_a_filer",
@@ -9556,8 +9752,8 @@
       "first_seen": "1834-12-24",
       "last_seen": "1834-12-24",
       "action": "enrich",
-      "action_target": "sweet_a",
-      "action_note": "data/residents/ already holds this person as sweet_a (hh_sweet_a, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "sweet_alanson",
+      "action_note": "data/residents/ already holds this person as sweet_alanson (hh_sweet_alanson, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_albert_fo_w_ler",
@@ -10182,9 +10378,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "knight_clark",
+      "action_note": "data/residents/ already holds this person as knight_clark (hh_knight_clark, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_ann_bandle",
@@ -10226,9 +10422,9 @@
       "letter_list_only": false,
       "first_seen": "1834-11-12",
       "last_seen": "1834-11-12",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "taylor_anson_h",
+      "action_note": "data/residents/ already holds this person as taylor_anson_h (hh_taylor_anson, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_anstin_mr_al",
@@ -11183,9 +11379,9 @@
       "letter_list_only": false,
       "first_seen": "1834-09-03",
       "last_seen": "1834-09-24",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "beaubien_jean_baptiste",
+      "action_note": "data/residents/ already holds this person as beaubien_jean_baptiste (hh_beaubien_jean_baptiste, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_bebee_orson",
@@ -15462,9 +15658,9 @@
       "letter_list_only": false,
       "first_seen": "1834-05-14",
       "last_seen": "1835-08-22",
-      "action": "enrich",
-      "action_target": "temple_john_t",
-      "action_note": "data/residents/ already holds this person as temple_john_t (hh_temple_john_t, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
     },
     {
       "id": "person_dr_trimball",
@@ -15737,9 +15933,9 @@
       "letter_list_only": false,
       "first_seen": "1834-10-01",
       "last_seen": "1834-10-01",
-      "action": "enrich",
-      "action_target": "rider_elia",
-      "action_note": "data/residents/ already holds this person as rider_elia (hh_rider_elia, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
     },
     {
       "id": "person_e_s_kimberley",
@@ -15748,9 +15944,9 @@
       "letter_list_only": false,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "kimberly_edmund_s",
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_e_s_kimberly",
@@ -15759,9 +15955,9 @@
       "letter_list_only": false,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "kimberly_edmund_s",
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_e_simons",
@@ -15814,9 +16010,9 @@
       "letter_list_only": false,
       "first_seen": "1834-03-18",
       "last_seen": "1834-03-18",
-      "action": "replace_invented",
-      "action_target": "merchant",
-      "action_note": "A documented merchant. The town invented 1 household(s) of this trade because no documented person was available; this is a candidate to retire one."
+      "action": "enrich",
+      "action_target": "haddock_edward",
+      "action_note": "data/residents/ already holds this person as haddock_edward (hh_haddock_edward, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_e_wentworth",
@@ -15968,9 +16164,9 @@
       "letter_list_only": false,
       "first_seen": "1833-12-10",
       "last_seen": "1834-08-13",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "kimberly_edmund_s",
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_edmund_uncertain_poke",
@@ -16310,8 +16506,8 @@
       "first_seen": "1834-07-02",
       "last_seen": "1834-07-16",
       "action": "enrich",
-      "action_target": "smith_elded",
-      "action_note": "data/residents/ already holds this person as smith_elded (hh_smith_elded, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "smith_e_kirby",
+      "action_note": "data/residents/ already holds this person as smith_e_kirby (hh_smith_e_kirby, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_elijah_wentworth_sen",
@@ -17266,9 +17462,9 @@
       "letter_list_only": false,
       "first_seen": "1834-01-21",
       "last_seen": "1834-01-21",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "sproat_grenville",
+      "action_note": "data/residents/ already holds this person as sproat_grenville (hh_sproat_grenville, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_g_s_hubbard",
@@ -17772,9 +17968,9 @@
       "letter_list_only": true,
       "first_seen": "1834-07-02",
       "last_seen": "1834-07-16",
-      "action": "enrich",
-      "action_target": "walker_george_e",
-      "action_note": "data/residents/ already holds this person as walker_george_e (hh_walker_george_e, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
     },
     {
       "id": "person_germanicus_kent",
@@ -19764,8 +19960,8 @@
       "first_seen": "1834-09-03",
       "last_seen": "1834-09-17",
       "action": "enrich",
-      "action_target": "hogan_john",
-      "action_note": "data/residents/ already holds this person as hogan_john (hh_hogan_john, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "hogan_john_s_c",
+      "action_note": "data/residents/ already holds this person as hogan_john_s_c (hh_hogan_john_s_c, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_hogan_john_s_c",
@@ -19775,8 +19971,8 @@
       "first_seen": "1835-08-12",
       "last_seen": "1835-08-19",
       "action": "enrich",
-      "action_target": "hogan_john",
-      "action_note": "data/residents/ already holds this person as hogan_john (hh_hogan_john, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "hogan_john_s_c",
+      "action_note": "data/residents/ already holds this person as hogan_john_s_c (hh_hogan_john_s_c, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_hogue_w_m",
@@ -20687,9 +20883,9 @@
       "letter_list_only": true,
       "first_seen": "1834-01-28",
       "last_seen": "1834-01-28",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "scarrett_isaac",
+      "action_note": "data/residents/ already holds this person as scarrett_isaac (hh_scarrett_isaac, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_isaac_stevens",
@@ -20786,9 +20982,9 @@
       "letter_list_only": false,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-18",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "allen_lieut_james",
+      "action_note": "data/residents/ already holds this person as allen_lieut_james (hh_allen_lieut_james, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_j_b_barnard",
@@ -20808,9 +21004,9 @@
       "letter_list_only": false,
       "first_seen": "1833-12-17",
       "last_seen": "1835-07-01",
-      "action": "replace_invented",
-      "action_target": "merchant",
-      "action_note": "A documented merchant. The town invented 1 household(s) of this trade because no documented person was available; this is a candidate to retire one."
+      "action": "enrich",
+      "action_target": "beaubien_jean_baptiste",
+      "action_note": "data/residents/ already holds this person as beaubien_jean_baptiste (hh_beaubien_jean_baptiste, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_j_b_brown",
@@ -20841,9 +21037,9 @@
       "letter_list_only": false,
       "first_seen": "1834-04-16",
       "last_seen": "1834-04-16",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "beaubien_jean_baptiste",
+      "action_note": "data/residents/ already holds this person as beaubien_jean_baptiste (hh_beaubien_jean_baptiste, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_j_b_tuttle",
@@ -21095,8 +21291,8 @@
       "first_seen": "1834-03-04",
       "last_seen": "1835-07-01",
       "action": "enrich",
-      "action_target": "kinzie_james",
-      "action_note": "data/residents/ already holds this person as kinzie_james (hh_kinzie_james, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "kinzie_john_h",
+      "action_note": "data/residents/ already holds this person as kinzie_john_h (hh_kinzie_john_h, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_j_h_mulford",
@@ -21304,8 +21500,8 @@
       "first_seen": "1834-02-11",
       "last_seen": "1835-07-04",
       "action": "enrich",
-      "action_target": "hogan_john",
-      "action_note": "data/residents/ already holds this person as hogan_john (hh_hogan_john, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "hogan_john_s_c",
+      "action_note": "data/residents/ already holds this person as hogan_john_s_c (hh_hogan_john_s_c, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_j_s_evert",
@@ -21337,8 +21533,8 @@
       "first_seen": "1834-10-29",
       "last_seen": "1834-10-29",
       "action": "enrich",
-      "action_target": "wright_j",
-      "action_note": "data/residents/ already holds this person as wright_j (hh_wright_j, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "wright_john_s",
+      "action_note": "data/residents/ already holds this person as wright_john_s (hh_wright_john, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_j_shrigley",
@@ -21369,9 +21565,9 @@
       "letter_list_only": false,
       "first_seen": "1834-03-04",
       "last_seen": "1834-11-19",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "temple_john_t",
+      "action_note": "data/residents/ already holds this person as temple_john_t (hh_temple_john_t, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_j_u_lius_pe_r_rin",
@@ -21424,9 +21620,9 @@
       "letter_list_only": false,
       "first_seen": "1835-05-20",
       "last_seen": "1835-05-20",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "eldridge_john_w",
+      "action_note": "data/residents/ already holds this person as eldridge_john_w (hh_eldridge_john_w, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_j_w_fell",
@@ -22591,8 +22787,8 @@
       "first_seen": "1834-10-29",
       "last_seen": "1834-10-29",
       "action": "enrich",
-      "action_target": "kinzie_james",
-      "action_note": "data/residents/ already holds this person as kinzie_james (hh_kinzie_james, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "kinzie_john_h",
+      "action_note": "data/residents/ already holds this person as kinzie_john_h (hh_kinzie_john_h, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_jno_l_wilson_co",
@@ -22932,8 +23128,8 @@
       "first_seen": "1834-04-16",
       "last_seen": "1835-07-29",
       "action": "enrich",
-      "action_target": "kinzie_james",
-      "action_note": "data/residents/ already holds this person as kinzie_james (hh_kinzie_james, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "kinzie_john_h",
+      "action_note": "data/residents/ already holds this person as kinzie_john_h (hh_kinzie_john_h, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_john_h_woods",
@@ -23207,8 +23403,8 @@
       "first_seen": "1834-01-28",
       "last_seen": "1835-05-27",
       "action": "enrich",
-      "action_target": "hogan_john",
-      "action_note": "data/residents/ already holds this person as hogan_john (hh_hogan_john, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "hogan_john_s_c",
+      "action_note": "data/residents/ already holds this person as hogan_john_s_c (hh_hogan_john_s_c, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_john_s_davison",
@@ -23229,8 +23425,8 @@
       "first_seen": "1833-12-10",
       "last_seen": "1833-12-10",
       "action": "enrich",
-      "action_target": "kinzie_james",
-      "action_note": "data/residents/ already holds this person as kinzie_james (hh_kinzie_james, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "kinzie_john_h",
+      "action_note": "data/residents/ already holds this person as kinzie_john_h (hh_kinzie_john_h, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_john_sewel_l",
@@ -23272,9 +23468,9 @@
       "letter_list_only": false,
       "first_seen": "1833-12-03",
       "last_seen": "1835-07-29",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "temple_john_t",
+      "action_note": "data/residents/ already holds this person as temple_john_t (hh_temple_john_t, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_john_thomas",
@@ -23460,8 +23656,8 @@
       "first_seen": "1834-02-25",
       "last_seen": "1834-07-02",
       "action": "enrich",
-      "action_target": "wright_j",
-      "action_note": "data/residents/ already holds this person as wright_j (hh_wright_j, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "wright_john",
+      "action_note": "data/residents/ already holds this person as wright_john (hh_wright_john, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_john_y_m_lean",
@@ -23558,9 +23754,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "enrich",
-      "action_target": "johnson_samuel",
-      "action_note": "data/residents/ already holds this person as johnson_samuel (hh_johnson_samuel, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
     },
     {
       "id": "person_johnson_stevens",
@@ -23756,9 +23952,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "enrich",
-      "action_target": "jones_willard",
-      "action_note": "data/residents/ already holds this person as jones_willard (hh_jones_willard, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
     },
     {
       "id": "person_jones_william",
@@ -23778,9 +23974,9 @@
       "letter_list_only": false,
       "first_seen": "1834-09-03",
       "last_seen": "1834-09-03",
-      "action": "enrich",
-      "action_target": "jones_willard",
-      "action_note": "data/residents/ already holds this person as jones_willard (hh_jones_willard, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
     },
     {
       "id": "person_jordan_j_b",
@@ -24559,9 +24755,9 @@
       "letter_list_only": true,
       "first_seen": "1834-10-22",
       "last_seen": "1834-10-22",
-      "action": "enrich",
-      "action_target": "king_byram",
-      "action_note": "data/residents/ already holds this person as king_byram (hh_king_byram, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
     },
     {
       "id": "person_king_byram",
@@ -24703,8 +24899,8 @@
       "first_seen": "1834-09-03",
       "last_seen": "1835-08-19",
       "action": "enrich",
-      "action_target": "kinzie_james",
-      "action_note": "data/residents/ already holds this person as kinzie_james (hh_kinzie_james, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "kinzie_john_h",
+      "action_note": "data/residents/ already holds this person as kinzie_john_h (hh_kinzie_john_h, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_kirne_e_capt",
@@ -25902,8 +26098,8 @@
       "first_seen": "1834-04-01",
       "last_seen": "1834-04-01",
       "action": "enrich",
-      "action_target": "smith_lawrence",
-      "action_note": "data/residents/ already holds this person as smith_lawrence (hh_smith_lawrence, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "smith_l_w",
+      "action_note": "data/residents/ already holds this person as smith_l_w (hh_smith_l_w, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_lyon_josoph",
@@ -26925,8 +27121,8 @@
       "first_seen": "1833-12-10",
       "last_seen": "1833-12-10",
       "action": "enrich",
-      "action_target": "beaubien_mark",
-      "action_note": "data/residents/ already holds this person as beaubien_mark (hh_beaubien_mark, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "beaubien_madore",
+      "action_note": "data/residents/ already holds this person as beaubien_madore (hh_beaubien_madore, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_meltic_alezamler",
@@ -30588,8 +30784,8 @@
       "first_seen": "1834-09-10",
       "last_seen": "1834-09-17",
       "action": "enrich",
-      "action_target": "rider_elia",
-      "action_note": "data/residents/ already holds this person as rider_elia (hh_rider_elia, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "rider_eli_a",
+      "action_note": "data/residents/ already holds this person as rider_eli_a (hh_rider_eli_a, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_riggs_humphrey",
@@ -31842,8 +32038,8 @@
       "first_seen": "1834-04-01",
       "last_seen": "1834-04-01",
       "action": "enrich",
-      "action_target": "johnson_samuel",
-      "action_note": "data/residents/ already holds this person as johnson_samuel (hh_johnson_samuel, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "johnson_sanford",
+      "action_note": "data/residents/ already holds this person as johnson_sanford (hh_johnson_sanford, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_sanford_ruth",
@@ -33007,9 +33203,9 @@
       "letter_list_only": false,
       "first_seen": "1834-08-06",
       "last_seen": "1834-08-13",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "salisbury_stephen_m",
+      "action_note": "data/residents/ already holds this person as salisbury_stephen_m (hh_salisbury_stephen_m, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_stephen_mack",
@@ -33546,9 +33742,9 @@
       "letter_list_only": false,
       "first_seen": "1835-08-12",
       "last_seen": "1835-08-12",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "temple_john_t",
+      "action_note": "data/residents/ already holds this person as temple_john_t (hh_temple_john_t, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_t_e_parsons_2",
@@ -33678,9 +33874,9 @@
       "letter_list_only": false,
       "first_seen": "1834-12-03",
       "last_seen": "1834-12-03",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "temple_john_t",
+      "action_note": "data/residents/ already holds this person as temple_john_t (hh_temple_john_t, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_ta_y_lor_charles",
@@ -33789,8 +33985,8 @@
       "first_seen": "1834-10-22",
       "last_seen": "1835-08-05",
       "action": "enrich",
-      "action_target": "taylor_william",
-      "action_note": "data/residents/ already holds this person as taylor_william (hh_taylor_william, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "taylor_william_h",
+      "action_note": "data/residents/ already holds this person as taylor_william_h (hh_taylor_william_h, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_temple",
@@ -33810,9 +34006,9 @@
       "letter_list_only": false,
       "first_seen": "1834-09-10",
       "last_seen": "1835-08-19",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "temple_john_t",
+      "action_note": "data/residents/ already holds this person as temple_john_t (hh_temple_john_t, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_temple_p",
@@ -35647,9 +35843,9 @@
       "letter_list_only": false,
       "first_seen": "1834-07-02",
       "last_seen": "1834-07-02",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "temple_john_t",
+      "action_note": "data/residents/ already holds this person as temple_john_t (hh_temple_john_t, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_uncertain_thomas_eisdell",
@@ -35725,8 +35921,8 @@
       "first_seen": "1834-07-16",
       "last_seen": "1834-07-16",
       "action": "enrich",
-      "action_target": "taylor_william",
-      "action_note": "data/residents/ already holds this person as taylor_william (hh_taylor_william, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "taylor_william_h",
+      "action_note": "data/residents/ already holds this person as taylor_william_h (hh_taylor_william_h, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_uncertain_warren_hanke",
@@ -36341,8 +36537,8 @@
       "first_seen": "1834-11-05",
       "last_seen": "1834-11-05",
       "action": "enrich",
-      "action_target": "taylor_william",
-      "action_note": "data/residents/ already holds this person as taylor_william (hh_taylor_william, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "taylor_william_h",
+      "action_note": "data/residents/ already holds this person as taylor_william_h (hh_taylor_william_h, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_w_harrison",
@@ -37925,8 +38121,8 @@
       "first_seen": "1835-05-20",
       "last_seen": "1835-05-20",
       "action": "enrich",
-      "action_target": "taylor_william",
-      "action_note": "data/residents/ already holds this person as taylor_william (hh_taylor_william, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "taylor_william_h",
+      "action_note": "data/residents/ already holds this person as taylor_william_h (hh_taylor_william_h, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_wm_hogue",
@@ -37968,9 +38164,9 @@
       "letter_list_only": false,
       "first_seen": "1834-07-02",
       "last_seen": "1834-07-23",
-      "action": "enrich",
-      "action_target": "jones_willard",
-      "action_note": "data/residents/ already holds this person as jones_willard (hh_jones_willard, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
     },
     {
       "id": "person_wm_kimbal",
@@ -38100,9 +38296,9 @@
       "letter_list_only": false,
       "first_seen": "1834-01-21",
       "last_seen": "1834-01-21",
-      "action": "enrich",
-      "action_target": "taylor_william",
-      "action_note": "data/residents/ already holds this person as taylor_william (hh_taylor_william, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
     },
     {
       "id": "person_wm_teall",
@@ -38134,8 +38330,8 @@
       "first_seen": "1834-04-01",
       "last_seen": "1834-04-01",
       "action": "enrich",
-      "action_target": "smith_william",
-      "action_note": "data/residents/ already holds this person as smith_william (hh_smith_william, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "smith_william_v",
+      "action_note": "data/residents/ already holds this person as smith_william_v (hh_smith_william_v, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_wm_w_wattles",
@@ -38354,8 +38550,8 @@
       "first_seen": "1833-11-26",
       "last_seen": "1833-11-26",
       "action": "enrich",
-      "action_target": "wright_j",
-      "action_note": "data/residents/ already holds this person as wright_j (hh_wright_j, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "wright_john",
+      "action_note": "data/residents/ already holds this person as wright_john (hh_wright_john, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_wright_john_d",
@@ -38365,8 +38561,8 @@
       "first_seen": "1834-10-22",
       "last_seen": "1834-10-22",
       "action": "enrich",
-      "action_target": "wright_j",
-      "action_note": "data/residents/ already holds this person as wright_j (hh_wright_j, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "wright_john",
+      "action_note": "data/residents/ already holds this person as wright_john (hh_wright_john, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_wright_samuel_l",

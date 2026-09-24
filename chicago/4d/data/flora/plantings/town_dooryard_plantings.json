@@ -18,7 +18,7 @@
   "in_enclosure": null,
   "zone": "z10_settled_town",
   "the_street_a_yard_is_measured_from": {
-    "why_this_is_stated": "A stem is seated AWAY FROM THE NEAREST STREET, because the yard is behind the house — so what 'the nearest street' is allowed to mean decides where every tree in this record stands, and until T-0255 it meant the nearest of all 77 records in data/streets/1835.json at any distance on either bank. Nobody chose that: a 23.91 m track laid on the SOUTH bank below the fort's north gate (T-0099) became the nearest street to a dwelling on the NORTH bank, with no crossing between the two for hundreds of metres, and turned that house's cottonwoods. The rule now has two bounds and both are measured rather than picked.",
+    "why_this_is_stated": "A stem is seated AWAY FROM THE NEAREST STREET, because the yard is behind the house — so what 'the nearest street' is allowed to mean decides where every tree in this record stands, and until T-0255 it meant the nearest of all 79 records in data/streets/1835.json at any distance on either bank. Nobody chose that: a 23.91 m track laid on the SOUTH bank below the fort's north gate (T-0099) became the nearest street to a dwelling on the NORTH bank, with no crossing between the two for hundreds of metres, and turned that house's cottonwoods. The rule now has two bounds and both are measured rather than picked.",
     "the_bank": "A street is a house's street only where it stands on the same dry ground. The committed heightfield's land cells fall into 6 four-connected pieces — the West, South and North Divisions the river separates, and the lake shore east of the 1834 harbour cut — and that partition IS the river, read off the same field the renderer walks the visitor over. Each street's path is cut into the segments that lie in each piece and a house measures only the segments in its own, so Kinzie Street — which runs out of the West Division, across the North Branch at Wolf Point and into the North — is measured from a North Division house along its North Division reach and not across the water. This is a connected component and not a tolerance: there is no threshold to tune.",
     "the_reach_m": 68.72,
     "the_reach": "68.72 m, and the figure is the plat's own. The deepest committed lot in data/traces/vectors/thompson_lots.json is 56.53 m deep (144 lots, 43.83-56.53 m), and the centreline of the street it fronts stands half of the plat's 80 ft module — 12.192 m — beyond its frontage, so no ground inside the platted town lies further than 68.72 m from the centreline of the street it fronts. Ground past that reach is no further 'away from the street' than ground at it. THE BOUND IS A CLAMP AND NOT A CLIFF: a cliff would score a house's far candidates above its near ones wherever the bound fell inside its own ring of candidate ground, and seat its trees outside its lot to escape a street.",
@@ -225,7 +225,7 @@
       "species": "ribes_spp",
       "at_local_enu_m": [
         384.79,
-        268.29
+        268.53
       ],
       "height_m": 1.03,
       "confidence": "reconstructed",
@@ -565,7 +565,7 @@
       "id": "recon_1835_blk_randolph_wells_h2_01_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        356.1,
+        350.33,
         -288.97
       ],
       "height_m": 0.88,
@@ -837,6 +837,39 @@
       "note": "DEALT BY RULE for recon_1835_north_d3_016: the closest allowed ground to the house, which is where a dooryard bush stands. 1.16 m is inside the species' recorded band."
     },
     {
+      "id": "recon_1835_north_d3_020_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        875.96,
+        188.11
+      ],
+      "height_m": 18.3,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_north_d3_020: the best-scored allowed ground in this house's yard quarter. 18.3 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_north_d3_020_tree_2",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        878.53,
+        191.47
+      ],
+      "height_m": 18.1,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_north_d3_020: the best-scored allowed ground in this house's yard quarter. 18.1 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_north_d3_020_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        896.52,
+        186.52
+      ],
+      "height_m": 0.94,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_north_d3_020: the closest allowed ground to the house, which is where a dooryard bush stands. 0.94 m is inside the species' recorded band."
+    },
+    {
       "id": "recon_1835_north_d3_024_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
@@ -928,12 +961,34 @@
       "id": "recon_1835_north_d4_004_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        589.93,
+        597.73,
         171.46
       ],
       "height_m": 1.27,
       "confidence": "reconstructed",
       "note": "DEALT BY RULE for recon_1835_north_d4_004: the closest allowed ground to the house, which is where a dooryard bush stands. 1.27 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_north_d4_005_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        636.94,
+        167.02
+      ],
+      "height_m": 17.8,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_north_d4_005: the best-scored allowed ground in this house's yard quarter. 17.8 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_north_d4_005_tree_2",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        638.44,
+        169.62
+      ],
+      "height_m": 17.5,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_north_d4_005: the best-scored allowed ground in this house's yard quarter. 17.5 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
     },
     {
       "id": "recon_1835_north_d4_012_bush_1",
@@ -945,6 +1000,28 @@
       "height_m": 0.95,
       "confidence": "reconstructed",
       "note": "DEALT BY RULE for recon_1835_north_d4_012: the closest allowed ground to the house, which is where a dooryard bush stands. 0.95 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_north_d4_015_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        555.0,
+        332.85
+      ],
+      "height_m": 16.5,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_north_d4_015: the best-scored allowed ground in this house's yard quarter. 16.5 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_north_d4_015_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        562.18,
+        357.18
+      ],
+      "height_m": 1.47,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_north_d4_015: the closest allowed ground to the house, which is where a dooryard bush stands. 1.47 m is inside the species' recorded band."
     },
     {
       "id": "recon_1835_north_d4_017_tree_1",
@@ -967,6 +1044,17 @@
       "height_m": 0.95,
       "confidence": "reconstructed",
       "note": "DEALT BY RULE for recon_1835_north_d4_017: the closest allowed ground to the house, which is where a dooryard bush stands. 0.95 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_north_d4_018_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        805.11,
+        188.85
+      ],
+      "height_m": 1.12,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_north_d4_018: the closest allowed ground to the house, which is where a dooryard bush stands. 1.12 m is inside the species' recorded band."
     },
     {
       "id": "recon_1835_north_d4_025_tree_1",
@@ -1181,12 +1269,45 @@
       "id": "recon_1835_north_d6_021_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        431.98,
+        419.48,
         200.0
       ],
       "height_m": 16.8,
       "confidence": "reconstructed",
       "note": "DEALT BY RULE for recon_1835_north_d6_021: the best-scored allowed ground in this house's yard quarter. 16.8 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_north_d6_027_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        900.0,
+        317.48
+      ],
+      "height_m": 19.0,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_north_d6_027: the best-scored allowed ground in this house's yard quarter. 19.0 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_north_d6_027_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        908.21,
+        304.74
+      ],
+      "height_m": 1.1,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_north_d6_027: the closest allowed ground to the house, which is where a dooryard bush stands. 1.1 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_north_d6_027_bush_2",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        908.21,
+        295.26
+      ],
+      "height_m": 1.25,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_north_d6_027: the closest allowed ground to the house, which is where a dooryard bush stands. 1.25 m is inside the species' recorded band."
     },
     {
       "id": "recon_1835_north_d6_044_bush_1",
@@ -1343,6 +1464,50 @@
       "note": "DEALT BY RULE for recon_1835_west_003: the best-scored allowed ground in this house's yard quarter. 18.6 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
     },
     {
+      "id": "recon_1835_west_004_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -325.5,
+        -52.0
+      ],
+      "height_m": 20.3,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_004: the best-scored allowed ground in this house's yard quarter. 20.3 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_004_tree_2",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -324.9,
+        -56.53
+      ],
+      "height_m": 16.4,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_004: the best-scored allowed ground in this house's yard quarter. 16.4 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_004_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -302.75,
+        -61.09
+      ],
+      "height_m": 0.85,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_004: the closest allowed ground to the house, which is where a dooryard bush stands. 0.85 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_004_bush_2",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -313.25,
+        -42.91
+      ],
+      "height_m": 1.41,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_004: the closest allowed ground to the house, which is where a dooryard bush stands. 1.41 m is inside the species' recorded band."
+    },
+    {
       "id": "recon_1835_west_005_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
@@ -1363,6 +1528,72 @@
       "height_m": 1.4,
       "confidence": "reconstructed",
       "note": "DEALT BY RULE for recon_1835_west_005: the closest allowed ground to the house, which is where a dooryard bush stands. 1.4 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_008_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -241.54,
+        -144.66
+      ],
+      "height_m": 18.0,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_008: the best-scored allowed ground in this house's yard quarter. 18.0 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_008_tree_2",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -246.0,
+        -144.24
+      ],
+      "height_m": 20.4,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_008: the best-scored allowed ground in this house's yard quarter. 20.4 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_009_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -313.55,
+        -137.62
+      ],
+      "height_m": 18.0,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_009: the best-scored allowed ground in this house's yard quarter. 18.0 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_010_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -218.0,
+        -67.6
+      ],
+      "height_m": 18.5,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_010: the best-scored allowed ground in this house's yard quarter. 18.5 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_010_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -222.7,
+        -75.86
+      ],
+      "height_m": 0.95,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_010: the closest allowed ground to the house, which is where a dooryard bush stands. 0.95 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_010_bush_2",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -213.3,
+        -92.14
+      ],
+      "height_m": 1.29,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_010: the closest allowed ground to the house, which is where a dooryard bush stands. 1.29 m is inside the species' recorded band."
     },
     {
       "id": "recon_1835_west_014_tree_1",
@@ -1396,6 +1627,39 @@
       "height_m": 17.6,
       "confidence": "reconstructed",
       "note": "DEALT BY RULE for recon_1835_west_016: the best-scored allowed ground in this house's yard quarter. 17.6 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_017_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -326.42,
+        -203.6
+      ],
+      "height_m": 16.7,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_017: the best-scored allowed ground in this house's yard quarter. 16.7 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_017_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -310.0,
+        -217.0
+      ],
+      "height_m": 1.33,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_017: the closest allowed ground to the house, which is where a dooryard bush stands. 1.33 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_017_bush_2",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -310.0,
+        -199.0
+      ],
+      "height_m": 1.26,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_017: the closest allowed ground to the house, which is where a dooryard bush stands. 1.26 m is inside the species' recorded band."
     },
     {
       "id": "recon_1835_west_018_tree_1",
@@ -1473,6 +1737,391 @@
       "height_m": 0.84,
       "confidence": "reconstructed",
       "note": "DEALT BY RULE for recon_1835_west_019: the closest allowed ground to the house, which is where a dooryard bush stands. 0.84 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_021_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -217.95,
+        -325.95
+      ],
+      "height_m": 20.5,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_021: the best-scored allowed ground in this house's yard quarter. 20.5 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_021_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -230.0,
+        -348.04
+      ],
+      "height_m": 1.3,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_021: the closest allowed ground to the house, which is where a dooryard bush stands. 1.3 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_021_bush_2",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -235.52,
+        -347.56
+      ],
+      "height_m": 1.0,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_021: the closest allowed ground to the house, which is where a dooryard bush stands. 1.0 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_026_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -341.95,
+        -45.84
+      ],
+      "height_m": 18.2,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_026: the best-scored allowed ground in this house's yard quarter. 18.2 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_026_tree_2",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -341.95,
+        -50.16
+      ],
+      "height_m": 19.7,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_026: the best-scored allowed ground in this house's yard quarter. 19.7 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_030_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -423.98,
+        -134.07
+      ],
+      "height_m": 18.6,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_030: the best-scored allowed ground in this house's yard quarter. 18.6 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_030_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -402.08,
+        -130.57
+      ],
+      "height_m": 1.13,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_030: the closest allowed ground to the house, which is where a dooryard bush stands. 1.13 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_031_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -442.55,
+        -116.19
+      ],
+      "height_m": 1.25,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_031: the closest allowed ground to the house, which is where a dooryard bush stands. 1.25 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_033_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -425.91,
+        -198.0
+      ],
+      "height_m": 19.9,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_033: the best-scored allowed ground in this house's yard quarter. 19.9 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_033_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -413.46,
+        -188.55
+      ],
+      "height_m": 1.16,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_033: the closest allowed ground to the house, which is where a dooryard bush stands. 1.16 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_034_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -458.83,
+        -179.45
+      ],
+      "height_m": 16.7,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_034: the best-scored allowed ground in this house's yard quarter. 16.7 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_038_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -481.97,
+        57.04
+      ],
+      "height_m": 18.4,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_038: the best-scored allowed ground in this house's yard quarter. 18.4 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_039_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -533.43,
+        55.92
+      ],
+      "height_m": 1.32,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_039: the closest allowed ground to the house, which is where a dooryard bush stands. 1.32 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_040_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -483.24,
+        -36.0
+      ],
+      "height_m": 18.0,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_040: the best-scored allowed ground in this house's yard quarter. 18.0 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_040_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -506.9,
+        -42.9
+      ],
+      "height_m": 1.02,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_040: the closest allowed ground to the house, which is where a dooryard bush stands. 1.02 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_042_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -481.77,
+        -141.78
+      ],
+      "height_m": 17.1,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_042: the best-scored allowed ground in this house's yard quarter. 17.1 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_042_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -479.4,
+        -119.4
+      ],
+      "height_m": 1.18,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_042: the closest allowed ground to the house, which is where a dooryard bush stands. 1.18 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_043_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -564.4,
+        -134.0
+      ],
+      "height_m": 18.4,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_043: the best-scored allowed ground in this house's yard quarter. 18.4 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_043_tree_2",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -563.84,
+        -138.24
+      ],
+      "height_m": 17.0,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_043: the best-scored allowed ground in this house's yard quarter. 17.0 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_043_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -539.86,
+        -129.3
+      ],
+      "height_m": 0.84,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_043: the closest allowed ground to the house, which is where a dooryard bush stands. 0.84 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_044_tree_1",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -478.85,
+        -205.25
+      ],
+      "height_m": 16.1,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_044: the best-scored allowed ground in this house's yard quarter. 16.1 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_044_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -488.75,
+        -204.91
+      ],
+      "height_m": 0.99,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_044: the closest allowed ground to the house, which is where a dooryard bush stands. 0.99 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_045_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -557.46,
+        -229.46
+      ],
+      "height_m": 1.22,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_045: the closest allowed ground to the house, which is where a dooryard bush stands. 1.22 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_045_bush_2",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -546.54,
+        -210.54
+      ],
+      "height_m": 0.82,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_045: the closest allowed ground to the house, which is where a dooryard bush stands. 0.82 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_048_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -596.05,
+        71.84
+      ],
+      "height_m": 19.8,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_048: the best-scored allowed ground in this house's yard quarter. 19.8 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_048_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -581.4,
+        80.6
+      ],
+      "height_m": 0.84,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_048: the closest allowed ground to the house, which is where a dooryard bush stands. 0.84 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_048_bush_2",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -594.6,
+        67.4
+      ],
+      "height_m": 0.99,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_048: the closest allowed ground to the house, which is where a dooryard bush stands. 0.99 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_049_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -648.7,
+        53.86
+      ],
+      "height_m": 19.7,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_049: the best-scored allowed ground in this house's yard quarter. 19.7 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_049_tree_2",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -639.3,
+        70.14
+      ],
+      "height_m": 18.6,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_049: the best-scored allowed ground in this house's yard quarter. 18.6 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_049_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -651.27,
+        57.8
+      ],
+      "height_m": 1.06,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_049: the closest allowed ground to the house, which is where a dooryard bush stands. 1.06 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_049_bush_2",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -636.73,
+        66.2
+      ],
+      "height_m": 1.02,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_049: the closest allowed ground to the house, which is where a dooryard bush stands. 1.02 m is inside the species' recorded band."
+    },
+    {
+      "id": "recon_1835_west_052_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -600.79,
+        -227.71
+      ],
+      "height_m": 19.1,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_052: the best-scored allowed ground in this house's yard quarter. 19.1 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_053_tree_1",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        -659.12,
+        -310.87
+      ],
+      "height_m": 18.8,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_053: the best-scored allowed ground in this house's yard quarter. 18.8 m sits in the low third of the species' recorded 18-26 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_053_tree_2",
+      "species": "ulmus_americana",
+      "at_local_enu_m": [
+        -648.88,
+        -293.13
+      ],
+      "height_m": 16.7,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_053: the best-scored allowed ground in this house's yard quarter. 16.7 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
+    },
+    {
+      "id": "recon_1835_west_053_bush_1",
+      "species": "ribes_spp",
+      "at_local_enu_m": [
+        -645.99,
+        -297.38
+      ],
+      "height_m": 1.27,
+      "confidence": "reconstructed",
+      "note": "DEALT BY RULE for recon_1835_west_053: the closest allowed ground to the house, which is where a dooryard bush stands. 1.27 m is inside the species' recorded band."
     },
     {
       "id": "robinson_caldwell_cabins_tree_1",
@@ -1602,8 +2251,14 @@
     "recon_1835_blk_south_water_wells_d5_02: no allowed ground for bush 1",
     "recon_1835_blk_south_water_wells_d6_01: no allowed ground for tree 1",
     "recon_1835_blk_south_water_wells_d6_01: no allowed ground for bush 1",
+    "recon_1835_south_d1_003: no allowed ground for tree 1",
+    "recon_1835_south_d1_003: no allowed ground for bush 1",
+    "recon_1835_south_d1_010: no allowed ground for tree 1",
+    "recon_1835_south_d1_010: no allowed ground for bush 1",
+    "recon_1835_south_d1_018: no allowed ground for tree 1",
     "recon_1835_south_d1_021: no allowed ground for tree 1",
     "recon_1835_south_d1_021: no allowed ground for bush 1",
+    "recon_1835_south_d1_032: no allowed ground for bush 1",
     "recon_1835_south_d1_033: no allowed ground for bush 1",
     "recon_1835_south_d3_001: no allowed ground for tree 1",
     "recon_1835_south_d3_008: no allowed ground for tree 1",
@@ -1624,22 +2279,33 @@
     "recon_1835_south_d4_014: no allowed ground for bush 1",
     "recon_1835_south_d4_025: no allowed ground for tree 1",
     "recon_1835_south_d4_025: no allowed ground for bush 1",
+    "recon_1835_south_d4_026: no allowed ground for tree 1",
+    "recon_1835_south_d4_026: no allowed ground for bush 1",
     "recon_1835_south_d4_030: no allowed ground for bush 1",
     "recon_1835_south_d5_004: no allowed ground for tree 1",
     "recon_1835_south_d5_004: no allowed ground for bush 1",
+    "recon_1835_south_d5_007: no allowed ground for tree 1",
+    "recon_1835_south_d5_007: no allowed ground for bush 1",
     "recon_1835_south_d5_011: no allowed ground for tree 1",
     "recon_1835_south_d5_016: no allowed ground for tree 1",
     "recon_1835_south_d5_016: no allowed ground for bush 1",
+    "recon_1835_south_d5_023: no allowed ground for tree 1",
+    "recon_1835_south_d5_023: no allowed ground for bush 1",
     "recon_1835_south_d5_028: no allowed ground for tree 1",
     "recon_1835_south_d5_034: no allowed ground for bush 1",
     "recon_1835_south_d6_012: no allowed ground for tree 1",
     "recon_1835_south_d6_012: no allowed ground for bush 1",
     "recon_1835_south_d6_031: no allowed ground for tree 1",
     "recon_1835_south_d6_031: no allowed ground for bush 1",
+    "recon_1835_south_d6_036: no allowed ground for tree 1",
+    "recon_1835_south_d6_036: no allowed ground for bush 1",
+    "recon_1835_south_h1_029: no allowed ground for tree 1",
+    "recon_1835_south_h2_039: no allowed ground for tree 1",
+    "recon_1835_south_h2_039: no allowed ground for bush 1",
     "wright_building_to_let_a: no allowed ground for tree 1",
     "wright_building_to_let_a: no allowed ground for bush 1",
     "wright_building_to_let_b: no allowed ground for tree 1",
     "wright_building_to_let_b: no allowed ground for bush 1"
   ],
-  "research_note": "69 DOORYARD TREES AND 64 CURRANT BUSHES ACROSS 64 OF THE TOWN'S 154 DWELLINGS, EVERY ONE OF THEM DEALT BY THE RULE IN tools/generate_dooryard_plantings.py — no source counts any house's trees, so the honest shape is a rule that says why each house got what it got, re-derived on every commit. THE DEAL IS DELIBERATELY THIN: at most two trees and two bushes to a house, under half a town of houses drawing any tree at all, and the dense party-wall blocks refuse themselves (a stem must clear every committed footprint by more than the renderer's own margin, so a rowhouse yard offers no allowed ground — the refusals below name each one). WHAT THE DENSITY IS NOT: ZONE 10's 8-25/ha relict band binds the DEALT wood inside that zone's drawn extent, and only 3 of these 133 stems stand inside it; this record makes a HOUSEHOLD claim (a dooryard's stems), not an ecological one, and the two must not be added together. Whether any given tree was kept from the clearing or planted by the household is unknowable and unclaimed. Heights: trees in the LOW third of their recorded bands (cut-back if kept, young if planted); bushes anywhere in theirs. Every coordinate, count and height is reconstructed and claimed in docs/LIBERTIES.md L151. WHAT IS DELIBERATELY NOT HERE: the Lombardy poplars the ticket names are not dealt, because no committed flora zone record describes the species and the renderer refuses a stem the zone records do not carry — holding the poplar as a species is its own ticket; and the currant clumps are drawn without their July fruit, because the clonal draw path carries no berry (stated in trees.js). WHAT WOULD UPGRADE IT: T-0075's source records for the plates, or any sale notice, diary or view that counts or places a particular house's trees."
+  "research_note": "100 DOORYARD TREES AND 92 CURRANT BUSHES ACROSS 91 OF THE TOWN'S 191 DWELLINGS, EVERY ONE OF THEM DEALT BY THE RULE IN tools/generate_dooryard_plantings.py — no source counts any house's trees, so the honest shape is a rule that says why each house got what it got, re-derived on every commit. THE DEAL IS DELIBERATELY THIN: at most two trees and two bushes to a house, under half a town of houses drawing any tree at all, and the dense party-wall blocks refuse themselves (a stem must clear every committed footprint by more than the renderer's own margin, so a rowhouse yard offers no allowed ground — the refusals below name each one). WHAT THE DENSITY IS NOT: ZONE 10's 8-25/ha relict band binds the DEALT wood inside that zone's drawn extent, and only 3 of these 192 stems stand inside it; this record makes a HOUSEHOLD claim (a dooryard's stems), not an ecological one, and the two must not be added together. Whether any given tree was kept from the clearing or planted by the household is unknowable and unclaimed. Heights: trees in the LOW third of their recorded bands (cut-back if kept, young if planted); bushes anywhere in theirs. Every coordinate, count and height is reconstructed and claimed in docs/LIBERTIES.md L151. WHAT IS DELIBERATELY NOT HERE: the Lombardy poplars the ticket names are not dealt, because no committed flora zone record describes the species and the renderer refuses a stem the zone records do not carry — holding the poplar as a species is its own ticket; and the currant clumps are drawn without their July fruit, because the clonal draw path carries no berry (stated in trees.js). WHAT WOULD UPGRADE IT: T-0075's source records for the plates, or any sale notice, diary or view that counts or places a particular house's trees."
 }

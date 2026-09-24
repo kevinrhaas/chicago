@@ -12,7 +12,7 @@
         "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
       },
       "position": {
-        "utm_e": 447660.637,
+        "utm_e": 447668.437,
         "utm_n": 4637579.667,
         "rotation_deg": 180.0,
         "symbolic_location": "Anonymous reconstructed roof in North Division cluster north_water_west; between the north bank and Michigan Street",
@@ -128,7 +128,7 @@
     }
   ],
   "function": {
-    "value": "two-room frame cottage",
+    "value": "two_room_frame_cottage",
     "confidence": "reconstructed",
     "sources": [
       "owner_chicago_1835_reconstruction_spec_2026"

@@ -1,0 +1,143 @@
+{
+  "id": "biz_thos_emerson_co",
+  "register_id": "business_thos_emerson_co",
+  "name": "Thos. Emerson & Co.",
+  "provenance": "compiled_from_register",
+  "type": [
+    "other"
+  ],
+  "trade": "livery stable",
+  "occupation": "livery_stable_keeper",
+  "goods": [
+    "horses kept by the day or week",
+    "saddle horses",
+    "single horse carriages"
+  ],
+  "firm_styles": [],
+  "proprietors": [],
+  "partners": [],
+  "staff": [
+    {
+      "name": "Owen Hayes",
+      "person_id": "rc_hayes_owen",
+      "role": "household_member",
+      "occupation": "labourer",
+      "tier": "reconstructed",
+      "basis": "The staffing model puts 1 of this role in a livery stable at the typical band and 2 at the high end, on period_convention. Hostlers. `hostler` is outside the vocabulary; see `vocabulary_gaps`. Analogue: the 11 livery stable keepers of 1839, against whom the list prints no hostler. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#livery_stable.labourer; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
+      "seed": "rc_hayes_owen:employment",
+      "replaceable_by": "a source naming where this person worked, which retires the draw"
+    }
+  ],
+  "staffing": {
+    "class": "livery_stable",
+    "reads_as": "a livery stable",
+    "principal_role": null,
+    "principal_is": null,
+    "hands": [
+      {
+        "role": "household_member",
+        "occupation": "labourer",
+        "household_relationship": "household_member",
+        "count_low": 1,
+        "count_typical": 1,
+        "count_high": 2,
+        "seats_drawn": 1,
+        "drawn": true,
+        "basis": "period_convention"
+      },
+      {
+        "role": "household_member",
+        "occupation": "labourer",
+        "household_relationship": "household_member",
+        "count_low": 0,
+        "count_typical": 1,
+        "count_high": 1,
+        "seats_drawn": 0,
+        "drawn": false,
+        "basis": "period_convention",
+        "why_not_drawn": "The reconstructed seating had nobody of this trade left to seat here. A source naming a hand at this house would write one in, and T-1448's mint order is the count of what the town still owes it."
+      }
+    ],
+    "writes_no_person": true,
+    "basis": "the 1835 business staffing model's band for this class, with the reconstructed seats T-1433 put in this house marked drawn",
+    "replaceable_by": "a source naming the hands of this house, which retires every reconstructed seat it covers",
+    "shortfall": {
+      "typical_wanted": 2,
+      "seats_taken": 1,
+      "seats_against_the_band": 1,
+      "short_by": 1,
+      "by_role": [
+        {
+          "occupation": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 1,
+          "count_typical": 1,
+          "count_high": 2,
+          "seats_drawn": 1,
+          "short_by": 0
+        },
+        {
+          "occupation": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "seats_drawn": 0,
+          "short_by": 1
+        }
+      ],
+      "statement": "The staffing model puts 2 hand(s) about this kind of house at its typical band and this house carries 1. It stands 1 short, and stands short rather than being quietly filled.",
+      "counted_here": "the reconstructed hands this overlay seats. A hand a SOURCE names carries its own citation in staff[] and is counted by the attested join, not by this.",
+      "replaceable_by": "a source naming a hand at this house, which retires the seat it replaces, or the mint T-1448 ordered, which draws the rest"
+    }
+  },
+  "locations": [
+    {
+      "kind": "unplaceable",
+      "structure_id": null,
+      "street_id": null,
+      "face": null,
+      "primary": true,
+      "from": "1834-02-18",
+      "to": null,
+      "tier": "inferred",
+      "basis": "The register resolved no place for this house at the scene date.",
+      "limit_reason": "No street the model holds. The anchor 'the Point (Wolf Point, the forks of the Chicago river)' names nothing the committed town holds."
+    }
+  ],
+  "dates": {
+    "opened": "1834-02-18",
+    "closed": null,
+    "precision": "not_later_than",
+    "tier": "inferred",
+    "basis": "No opening is announced. The first printing, 1834-02-18, is the bound: the house was trading by then and the record does not say when it began."
+  },
+  "evidence": {
+    "first_issue": "1834-02-18",
+    "last_issue": "1834-02-18",
+    "copy_dates": []
+  },
+  "present_at_scene_date": true,
+  "exclusion": null,
+  "exclusion_note": null,
+  "proprietor_community": {
+    "value": "unknown",
+    "tier": null,
+    "rule": "no_person_linked",
+    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
+    "from": []
+  },
+  "customers": [],
+  "sources": [
+    "chicago_newspapers_1833_1835"
+  ],
+  "claim_ids": [
+    "chicago_democrat_1834_02_18#c001"
+  ],
+  "liberties": {
+    "survival_required": true,
+    "backdating_required": false
+  },
+  "review_required": false,
+  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+}

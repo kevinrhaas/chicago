@@ -125,6 +125,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import math
 import re
 import struct
 import sys
@@ -601,7 +602,7 @@ def east_limits(src: str) -> dict:
             # The same mean the renderer takes, and taken here for the same
             # reason it is taken there: a centreline is two or more points and
             # is not exactly north-south.
-            "east_m": round(sum(p[0] for p in pts) / len(pts), 1),
+            "east_m": round(math.fsum(p[0] for p in pts) / len(pts), 1),
         }
     return out
 

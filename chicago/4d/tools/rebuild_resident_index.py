@@ -37,9 +37,32 @@ through to the compare path, printed that the manifest re-derives, wrote
 nothing, and exited 0 — the same quiet staleness T-0715 was opened about, one
 level up. An unrecognised flag is now a refusal.
 
+THE REDIRECT TABLE IS THE SECOND HALF OF THE SAME RULE (T-1144 acceptance 6).
+`merged` is one row per card folded onto another, and the card it summarises is
+`data/residents/merged/*.json` — kept whole, with a `merged_into` block, and
+never deleted. That table was the one list in the manifest nobody derived, and
+it had drifted in both directions by the time this was written:
+
+  * `hh_vanderbogart_h` was retired under T-0842 and given NO row at all, so the
+    id resolved to nothing — while the retired record itself says, in its own
+    note, that "data/residents/index.json's `merged` table redirects the id".
+  * `hh_blanchard_gantry` was carried under rule `C7`. T-0993 minted `C8` for
+    that fold in the same ticket that made it, and `card_merge_rulings.json`
+    says `C8`; `C7` is now the compound-surname particle rule, which is a
+    different argument about a different name. The manifest row was the only
+    place in the tree still naming the old letter to a reader.
+
+Both are the shape T-0715 was opened about — a summary nobody re-derives — so
+the answer is the same one: the RECORDS are authoritative, `merged` is derived
+from them, and `tools/check.sh` re-derives it. On top of the tally this asserts
+that every redirect ARRIVES: the household and person it names are live cards,
+no retired id shadows a live one, and no redirect points at another retired
+card. A redirect that does not arrive is refused, in `--check` and in `--write`
+both, because writing it would publish a dead end.
+
 WHAT IT DOES NOT TOUCH: `_doc`, `version`, `scene_date`, `dossier`,
-`vocabulary`, `researched_not_resident`, and any `counts` key that is not
-derivable from the cards (the frozen
+`vocabulary`, `researched_not_resident`, `_merged_doc`, and any `counts` key
+that is not derivable from the cards (the frozen
 `reconstructed_removed_in_2026_09_02_synthesis` figure is the one today). Those
 are authored, not summarised, and a derivation that overwrote them would be
 deleting evidence to make a tally tidy.
@@ -55,6 +78,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RESIDENTS = ROOT / "data" / "residents"
 HOUSEHOLDS = RESIDENTS / "households"
+MERGED = RESIDENTS / "merged"
 INDEX = RESIDENTS / "index.json"
 
 PROJECTED = "projected_resident"
@@ -70,7 +94,16 @@ ROW_KEYS = ("id", "file", "letter_list_only", "civic_mint", "head", "division",
 # The count keys this derivation owns. Anything else in `counts` is authored and
 # is carried through untouched, in its committed position.
 DERIVED_COUNTS = ("households", "persons", "by_grade", "letter_list_only",
-                  "projected_residents", "census_1840_linked", "civic_mint")
+                  "projected_residents", "census_1840_linked", "civic_mint",
+                  "merged_away")
+
+# One redirect row, derived from one retired record in data/residents/merged/.
+# The order is the committed one; every key is copied from the record's own
+# `merged_into` block except `name`, which is read off the person the fold
+# retired, inside the superseded card kept beneath it.
+MERGED_ROW_KEYS = ("person", "household", "name", "merged_into_person",
+                   "merged_into_household", "record_file", "rule", "cluster",
+                   "ticket")
 
 
 def _value(field):
@@ -83,6 +116,35 @@ def load_households(root: Path | None = None) -> dict[Path, dict]:
     houses = (root or HOUSEHOLDS)
     return {p: json.loads(p.read_text(encoding="utf-8"))
             for p in sorted(houses.glob("*.json"))}
+
+
+def load_retired(root: Path | None = None) -> dict[Path, dict]:
+    """Every retired card on disk, which is the whole input to the redirect table."""
+    folder = (root or MERGED)
+    if not folder.is_dir():
+        return {}
+    return {p: json.loads(p.read_text(encoding="utf-8"))
+            for p in sorted(folder.glob("*.json"))}
+
+
+def retired_docs(docs) -> dict[Path, dict]:
+    """The retired cards out of a pass's in-memory file map, by directory name.
+
+    The same filter as `household_docs` one directory over. A pass that carries
+    none is the ordinary case — all eight callers of `rebuild` write households
+    and none of them retires a card — and `rebuild` reads the committed records
+    off disk for them rather than deriving an empty table from their silence.
+    """
+    out = {}
+    for path, doc in (docs or {}).items():
+        path = Path(path)
+        if path.suffix != ".json" or path.parent.name != "merged":
+            continue
+        if isinstance(doc, (str, bytes)):
+            doc = json.loads(doc)
+        if isinstance(doc, dict) and doc.get("id"):
+            out[path] = doc
+    return out
 
 
 def household_docs(docs) -> dict[Path, dict]:
@@ -139,6 +201,69 @@ def row_for(path: Path, doc: dict) -> dict:
     return {k: row[k] for k in ROW_KEYS if k in row}
 
 
+def merged_row_for(path: Path, doc: dict) -> dict:
+    """One redirect row, derived from one retired record and nothing else."""
+    into = doc.get("merged_into") or {}
+    retired_person = into.get("person_merged")
+    row = {
+        "person": retired_person,
+        "household": doc.get("id"),
+        "name": _retired_name(doc, retired_person),
+        "merged_into_person": into.get("person"),
+        "merged_into_household": into.get("household"),
+        "record_file": f"merged/{path.name}",
+        "rule": into.get("rule"),
+        "cluster": into.get("cluster"),
+        "ticket": into.get("ticket"),
+    }
+    return {k: row[k] for k in MERGED_ROW_KEYS}
+
+
+def _retired_name(doc: dict, person_id: str | None) -> str | None:
+    """The retired person's name, as the superseded card itself printed it."""
+    card = doc.get("superseded_record") or {}
+    for person in card.get("persons") or []:
+        if person.get("id") == person_id:
+            return person.get("name")
+    return None
+
+
+def redirect_faults(index: dict, docs=None) -> list[str]:
+    """Where a redirect does not ARRIVE at a live card. Empty is the only pass.
+
+    The tally above can be perfectly re-derived and still describe a dead end:
+    a row is a promise that an id resolves, and nothing was checking that the
+    id it resolves TO is still in the layer. Four ways it can fail, and each is
+    a sentence rather than a flag, because the repair differs for each.
+    """
+    houses = household_docs(docs) if docs is not None else load_households()
+    live_households = {doc.get("id") for doc in houses.values()}
+    live_persons = {person.get("id")
+                    for doc in houses.values()
+                    for person in (doc.get("persons") or [])}
+    rows = index.get("merged") or []
+    retired_ids = {row.get("household") for row in rows}
+
+    out: list[str] = []
+    for row in rows:
+        rid, target = row.get("household"), row.get("merged_into_household")
+        missing = [k for k in MERGED_ROW_KEYS if k != "name" and not row.get(k)]
+        if missing:
+            out.append(f"retired '{rid}' states no {', '.join(missing)}")
+        if target in retired_ids:
+            out.append(f"retired '{rid}' redirects to '{target}', which is itself "
+                       f"retired — a redirect may not point at another redirect")
+        elif target not in live_households:
+            out.append(f"retired '{rid}' redirects to '{target}', which is not a "
+                       f"household card")
+        if row.get("merged_into_person") not in live_persons:
+            out.append(f"retired '{rid}' redirects to person "
+                       f"'{row.get('merged_into_person')}', who is in no household card")
+        if rid in live_households:
+            out.append(f"'{rid}' is retired and is also a live household card")
+    return out
+
+
 def rebuild(index: dict, docs=None) -> dict:
     """Re-derive EVERY row and every derived count from the cards, in place.
 
@@ -150,6 +275,15 @@ def rebuild(index: dict, docs=None) -> dict:
     rows = sorted((row_for(path, doc) for path, doc in houses.items()),
                   key=lambda r: r["id"])
     index["households"] = rows
+
+    # The retired cards. A caller's map carries them only if that pass retires
+    # a card, and none of the eight does; for everyone else the committed
+    # records ARE the layer, and reading an empty table out of a pass that was
+    # never asked about redirects would delete 66 of them.
+    retired = retired_docs(docs) or load_retired()
+    index["merged"] = sorted(
+        (merged_row_for(path, doc) for path, doc in retired.items()),
+        key=lambda r: r["household"] or "")
 
     grades = {g: 0 for g in GRADES}
     for row in rows:
@@ -165,6 +299,7 @@ def rebuild(index: dict, docs=None) -> dict:
                                    if p.get("resident_subtype") == PROJECTED),
         "census_1840_linked": sum(1 for p in people if p.get("later_census")),
         "civic_mint": sum(1 for p in people if p.get("civic_mint")),
+        "merged_away": len(index["merged"]),
     }
     counts = dict(index.get("counts") or {})
     counts.update(derived)                       # in place for keys already there
@@ -194,6 +329,23 @@ def differences(committed: dict, derived: dict, limit: int = 12) -> list[str]:
                 if a.get(key) != b.get(key):
                     out.append(f"household '{hid}' {key}: manifest {a.get(key)!r}, "
                                f"cards {b.get(key)!r}")
+    was_m = {r.get("household"): r for r in committed.get("merged") or []}
+    now_m = {r.get("household"): r for r in derived.get("merged") or []}
+    for rid in sorted(set(was_m) | set(now_m), key=lambda x: x or ""):
+        a, b = was_m.get(rid), now_m.get(rid)
+        if a == b:
+            continue
+        if a is None:
+            out.append(f"retired '{rid}' has a record and no redirect row, so the "
+                       f"id resolves to nothing")
+        elif b is None:
+            out.append(f"retired '{rid}' has a redirect row and no record in "
+                       f"data/residents/merged/")
+        else:
+            for key in sorted(set(a) | set(b)):
+                if a.get(key) != b.get(key):
+                    out.append(f"retired '{rid}' {key}: manifest {a.get(key)!r}, "
+                               f"record {b.get(key)!r}")
     ca, cb = committed.get("counts") or {}, derived.get("counts") or {}
     for key in DERIVED_COUNTS:
         if ca.get(key) != cb.get(key):
@@ -223,6 +375,22 @@ def _card(hid: str, persons: list[dict], **fields) -> tuple[Path, dict]:
            "division": fields.pop("division", "north"), "persons": persons}
     doc.update(fields)
     return HOUSEHOLDS / f"{hid}.json", doc
+
+
+def _retired(hid: str, person: str, into_person: str, into_household: str,
+             **fields) -> tuple[Path, dict]:
+    """One synthetic retired card, addressed as if it sat beside the live ones."""
+    doc = {"id": hid,
+           "merged_into": {"person": into_person, "household": into_household,
+                           "person_merged": person,
+                           "rule": fields.pop("rule", "C0"),
+                           "cluster": fields.pop("cluster", "cluster"),
+                           "ticket": fields.pop("ticket", "T-0839")},
+           "superseded_record": {
+               "id": hid,
+               "persons": [{"id": person, "name": fields.pop("name", "A Name")}]}}
+    doc.update(fields)
+    return MERGED / f"{hid}.json", doc
 
 
 def _copy(obj):
@@ -348,6 +516,79 @@ def self_test() -> int:
     check_that("the drift report is capped, and says how many it did not print",
                any("more" in d for d in differences(over, derived, limit=1)))
 
+    # --- the redirect table, and every way it can lie (T-1144 acceptance 6) --
+    r_path, r_doc = _retired("hh_z_old", "p_z_old", "p_a1", "hh_a",
+                             rule="C8", cluster="z", ticket="T-0993",
+                             name="Zeb Old")
+    r2_path, r2_doc = _retired("hh_y_old", "p_y_old", "p_b1", "hh_b")
+    with_retired = dict(docs)
+    with_retired[r_path], with_retired[r2_path] = r_doc, r2_doc
+    red = rebuild({"counts": {}}, with_retired)
+    mrows = {r["household"]: r for r in red["merged"]}
+
+    check_that("a redirect row is the retired record's own merged_into block, "
+               "and the retired name is read off the superseded card beneath it",
+               mrows["hh_z_old"] == {
+                   "person": "p_z_old", "household": "hh_z_old", "name": "Zeb Old",
+                   "merged_into_person": "p_a1", "merged_into_household": "hh_a",
+                   "record_file": "merged/hh_z_old.json", "rule": "C8",
+                   "cluster": "z", "ticket": "T-0993"})
+    check_that("redirect rows are ordered by the retired id, and tallied",
+               [r["household"] for r in red["merged"]] == ["hh_y_old", "hh_z_old"]
+               and red["counts"]["merged_away"] == 2)
+    check_that("a pass that retires no card keeps the committed redirect table "
+               "instead of deriving an empty one out of its silence",
+               len(rebuild({"counts": {}}, docs)["merged"]) == len(load_retired()))
+    check_that("a sound layer's redirects all arrive",
+               redirect_faults(red, with_retired) == [])
+
+    dead = _copy(red)
+    dead["merged"][0]["merged_into_household"] = "hh_gone"
+    check_that("a redirect to a household that is not a card is refused",
+               any("is not a household card" in f
+                   for f in redirect_faults(dead, with_retired)))
+
+    chained = _copy(red)
+    chained["merged"][0]["merged_into_household"] = "hh_z_old"
+    check_that("a redirect that points at another retired card is refused",
+               any("is itself retired" in f
+                   for f in redirect_faults(chained, with_retired)))
+
+    ghost = _copy(red)
+    ghost["merged"][0]["merged_into_person"] = "p_gone"
+    check_that("a redirect to a person who is in no household card is refused",
+               any("is in no household card" in f
+                   for f in redirect_faults(ghost, with_retired)))
+
+    shadow = _copy(red)
+    shadow["merged"][0]["household"] = "hh_a"
+    check_that("a retired id that is also a live card is refused",
+               any("is also a live household card" in f
+                   for f in redirect_faults(shadow, with_retired)))
+
+    blank = _copy(red)
+    blank["merged"][0]["rule"] = None
+    check_that("a redirect that states no rule is refused",
+               any("states no rule" in f for f in redirect_faults(blank, with_retired)))
+
+    # The two drifts this ticket found on `dev`, each as a case.
+    lost = _copy(red)
+    lost["merged"] = [r for r in lost["merged"] if r["household"] != "hh_z_old"]
+    check_that("a retired record with no redirect row is caught, and the sentence "
+               "says the id resolves to nothing (hh_vanderbogart_h, T-0842)",
+               any("resolves to nothing" in d for d in differences(lost, red)))
+
+    stale = _copy(red)
+    stale["merged"][1]["rule"] = "C7"
+    check_that("a redirect row whose rule disagrees with its record is caught "
+               "(hh_blanchard_gantry, T-0993)",
+               any("hh_z_old" in d and "rule" in d for d in differences(stale, red)))
+
+    orphan = _copy(red)
+    orphan["merged"].append({"household": "hh_none"})
+    check_that("a redirect row with no record behind it is caught",
+               any("no record in" in d for d in differences(orphan, red)))
+
     # --- what the argument list refuses --------------------------------------
     #
     # The fault this ticket is named for: `--wrtie` used to report success and
@@ -383,20 +624,38 @@ def main(argv: list[str]) -> int:
         return self_test()
     committed = json.loads(INDEX.read_text(encoding="utf-8"))
     derived = rebuild(json.loads(json.dumps(committed)))
+
+    # A redirect that does not arrive is refused BEFORE the drift comparison,
+    # and in --write as well as --check: the table can re-derive perfectly and
+    # still send a reader to a card that is not there. The records are the
+    # repair, not the manifest.
+    faults = redirect_faults(derived)
+    if faults:
+        print("data/residents/merged/ holds a redirect that does not arrive at a "
+              "live card:", file=sys.stderr)
+        for line in faults:
+            print(f"    {line}", file=sys.stderr)
+        print("  Fix the retired record, or the household it names. The manifest "
+              "is derived and is not the place to patch this.", file=sys.stderr)
+        return 1
+
     if args.write:
         # The published mirror is NOT a copy - tools/publish.sh transforms the
         # residents layer and check_published_residents.mjs gates the transform -
         # so this writes the source and leaves the mirror to the publisher.
         INDEX.write_text(dumps(derived), encoding="utf-8")
         print(f"rebuilt {INDEX.relative_to(ROOT)} from "
-              f"{derived['counts']['households']} household cards")
+              f"{derived['counts']['households']} household cards and "
+              f"{derived['counts']['merged_away']} retired records")
         return 0
     if dumps(committed) == dumps(derived):
         print(f"data/residents/index.json re-derives from its "
-              f"{derived['counts']['households']} household cards")
+              f"{derived['counts']['households']} household cards, and every one "
+              f"of its {derived['counts']['merged_away']} redirects arrives at a "
+              f"live card")
         return 0
-    print("data/residents/index.json is DERIVED from the household cards and no "
-          "longer matches them.\n"
+    print("data/residents/index.json is DERIVED from the household cards and the "
+          "retired records, and no longer matches them.\n"
           f"  The cards are authoritative. Run: {FIX}\n"
           "  What drifted:", file=sys.stderr)
     for line in differences(committed, derived):

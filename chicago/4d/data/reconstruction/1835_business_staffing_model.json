@@ -1,0 +1,2136 @@
+{
+  "$schema_note": "DERIVED — regenerate with tools/build_staffing_model_1835.py --build; tools/check.sh re-derives it. Do not hand-edit.",
+  "id": "1835_business_staffing_model",
+  "ticket": "T-1183",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/build_staffing_model_1835.py --build",
+  "not_a_reading": "an adjudication over committed files — no page of any source is read here, and no person is written",
+  "writes_no_person": true,
+  "inputs": [
+    "data/businesses/*.json",
+    "data/research/directories/fergus_1839_trade_table.json",
+    "data/reconstruction/1835_town_model.json",
+    "data/research/books/trade_census_1835_crosswalk.json",
+    "data/residents/index.json"
+  ],
+  "vocabularies": {
+    "age_bands": {
+      "youth_12_18": "a boy or girl bound or hired young — the apprentice, the tavern boy",
+      "young_adult_16_25": "the clerkship and journeyman years, before a man sets up for himself",
+      "adult_18_45": "a working adult of no more exact age",
+      "adult_any": "any adult; the role says nothing about age"
+    },
+    "sex_rules": {
+      "male": "men only, on every case the sources show",
+      "female": "women only, on every case the sources show",
+      "predominantly_male": "men in the great majority; a woman in the role is not refused",
+      "predominantly_female": "women in the great majority; a man in the role is not refused",
+      "either": "the sources show both and neither predominates"
+    },
+    "bases": {
+      "attested_in_the_layer": "a business record in this project names a hand of this kind",
+      "directory_1839": "Fergus's 1839 directory, read by T-1346, counts the trade",
+      "period_convention": "the project holds no figure; the row is reconstructed from the practice of the trade and names its analogue"
+    },
+    "age_bands_are_this_model_s_own": "These say what age a kind of hand was. The residents layer's age bands say how a card's age was EVIDENCED. They are different questions and this file does not mix them."
+  },
+  "calibration": {
+    "clerks_per_commerce_principal": {
+      "clerks_1839": 152,
+      "commerce_principals_1839": 312,
+      "ratio": 0.48718,
+      "trades_counted_as_principals": [
+        "auctioneer",
+        "banker",
+        "boarding_house_keeper",
+        "bookseller",
+        "druggist",
+        "dry_goods_merchant",
+        "forwarding_and_commission",
+        "grocer",
+        "hardware_merchant",
+        "land_agent",
+        "livery_stable_keeper",
+        "lumber_merchant",
+        "merchant",
+        "refectory_keeper",
+        "ship_chandler",
+        "speculator",
+        "tavern_keeper"
+      ],
+      "trades_held_back_as_staff": [
+        "bar_keeper",
+        "clerk",
+        "domestic",
+        "foreman",
+        "laundress",
+        "steward",
+        "student",
+        "warehouseman"
+      ],
+      "what_it_is": "clerks per PERSON in a commerce trade, not per establishment — the directory counts people and prints no houses. It is the WIDE reading, and it divides by tavern and livery keepers who kept no counting house; the like-for-like ratio below is the one the reconciliation uses, and this one stands beside it so that the narrowing is visible.",
+      "date_caution": "1839 IS FOUR YEARS AFTER THE SCENE, and this volume is Fergus's 1876 completion of a list that, in the compiler's own words, \"was never written\". Every share below is the shape of a LATER town recalled later still. It is a prior for a draw and it is not a count of 1835, nor evidence about any person in it.",
+      "source_ids": [
+        "fergus_directory_1839"
+      ]
+    },
+    "clerks_per_clerk_employing_principal": {
+      "clerks_1839": 152,
+      "principals_1839": 221,
+      "ratio": 0.68778,
+      "trades_counted_as_principals": [
+        "auctioneer",
+        "bookseller",
+        "druggist",
+        "dry_goods_merchant",
+        "forwarding_and_commission",
+        "grocer",
+        "hardware_merchant",
+        "land_agent",
+        "merchant"
+      ],
+      "trades_dropped_from_the_wide_denominator": [
+        "banker",
+        "boarding_house_keeper",
+        "livery_stable_keeper",
+        "lumber_merchant",
+        "refectory_keeper",
+        "ship_chandler",
+        "speculator",
+        "tavern_keeper"
+      ],
+      "what_it_is": "the same 152 clerks over only those 1839 trades that this model's class table sends to an establishment with a clerk in it. A trade the 1839 list counts and this town holds no record of — the banker, the ship chandler — falls out of the denominator with the taverns, and that is a NARROWING: it raises the ratio and so flatters the model. It is used because it is the only comparison in matching units, and the wide reading above is printed so the reader can take the other view.",
+      "date_caution": "1839 IS FOUR YEARS AFTER THE SCENE, and this volume is Fergus's 1876 completion of a list that, in the compiler's own words, \"was never written\". Every share below is the shape of a LATER town recalled later still. It is a prior for a draw and it is not a count of 1835, nor evidence about any person in it.",
+      "source_ids": [
+        "fergus_directory_1839"
+      ]
+    },
+    "the_directory_did_not_canvass_service": {
+      "keepers_of_houses_of_entertainment_1839": 50,
+      "bar_keepers_printed": 2,
+      "domestics_printed": 5,
+      "laundresses_printed": 1,
+      "hostlers_printed": 0,
+      "cooks_printed": 0,
+      "chambermaids_printed": 0,
+      "finding": "50 keepers of taverns, boarding houses and refectories stand in the 1839 list against 2 bar-keepers, 5 domestics and 1 laundress. No hostler, cook or chambermaid is printed at all. That is a list of householders, so it is a FLOOR for service labour and never a count — which is why every service row in this model is `period_convention`.",
+      "source_ids": [
+        "fergus_directory_1839"
+      ]
+    }
+  },
+  "classes": [
+    {
+      "class": "auction_and_commission_room",
+      "reads_as": "an auction and commission room",
+      "occupations_in_this_class": [
+        "auctioneer"
+      ],
+      "column_1840": "Commerce",
+      "establishments_at_the_scene_date": 10,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.4,
+          "basis": "directory_1839",
+          "note": "A sale is cried by the auctioneer and booked by somebody. 9 auctioneers in 1839.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.0,
+          "basis": "period_convention",
+          "note": "A porter on sale days. Analogue: the stores above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 2
+      }
+    },
+    {
+      "class": "bakery",
+      "reads_as": "a bakery",
+      "occupations_in_this_class": [
+        "baker"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 3,
+      "staff_roles": [
+        {
+          "role": "baker",
+          "occupation_term": "baker",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.5,
+          "basis": "directory_1839",
+          "note": "11 bakers in 1839. A bakehouse is worked at night and the hand sleeps there.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 0.3,
+          "basis": "period_convention",
+          "note": "A boy on the delivery basket. Analogue: the bakehouse above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 2
+      }
+    },
+    {
+      "class": "book_store",
+      "reads_as": "a book store",
+      "occupations_in_this_class": [
+        "bookseller"
+      ],
+      "column_1840": "Commerce",
+      "establishments_at_the_scene_date": 1,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "either",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.5,
+          "basis": "directory_1839",
+          "note": "A book store is a store. `either`: the trade is one of the few a town of this date let a woman keep counter in, and the directory refuses neither.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 1
+      }
+    },
+    {
+      "class": "brewery",
+      "reads_as": "a brewery",
+      "occupations_in_this_class": [
+        "brewer"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 1,
+      "staff_roles": [
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 1,
+          "count_typical": 2,
+          "count_high": 3,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.2,
+          "basis": "directory_1839",
+          "note": "3 brewers in 1839 for 2 breweries in the 1835 census — the principals only; the mash was worked by hands the list booked as labourers.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 1,
+        "typical": 2,
+        "high": 3
+      }
+    },
+    {
+      "class": "butcher_shop",
+      "reads_as": "a butcher's shop",
+      "occupations_in_this_class": [
+        "butcher"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 1,
+      "staff_roles": [
+        {
+          "role": "butcher",
+          "occupation_term": "butcher",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.2,
+          "basis": "directory_1839",
+          "note": "16 butchers in 1839 against the one shop and the market here.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 1
+      }
+    },
+    {
+      "class": "dentist_stand",
+      "reads_as": "a dentist's stand",
+      "occupations_in_this_class": [
+        "dentist"
+      ],
+      "column_1840": "Learned professions and engineers",
+      "establishments_at_the_scene_date": 5,
+      "staff_roles": [],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 0,
+        "high": 0
+      }
+    },
+    {
+      "class": "drug_store",
+      "reads_as": "a drug store",
+      "occupations_in_this_class": [
+        "druggist"
+      ],
+      "column_1840": "Commerce",
+      "establishments_at_the_scene_date": 2,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.5,
+          "basis": "directory_1839",
+          "note": "13 druggists in 1839 and the commerce clerk share over them. The druggist's clerk is often reading medicine, which is why he boards in the house.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 1
+      }
+    },
+    {
+      "class": "dry_goods_store",
+      "reads_as": "a dry-goods store",
+      "occupations_in_this_class": [
+        "clothier",
+        "dry_goods_merchant",
+        "merchant"
+      ],
+      "column_1840": "Commerce",
+      "establishments_at_the_scene_date": 27,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 1,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.5,
+          "basis": "directory_1839",
+          "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.0,
+          "basis": "period_convention",
+          "note": "A porter to shift goods, at the larger houses only. Analogue: the 1839 list's seven porters, counted under labourer, against 151 commerce principals.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 1,
+        "typical": 1,
+        "high": 3
+      }
+    },
+    {
+      "class": "forwarding_and_warehouse",
+      "reads_as": "a forwarding and commission house",
+      "occupations_in_this_class": [
+        "forwarding_and_commission"
+      ],
+      "column_1840": "Commerce",
+      "establishments_at_the_scene_date": 4,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 1,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.4,
+          "basis": "directory_1839",
+          "note": "The forwarding house is the heaviest clerical trade on the river: 15 forwarding and commission principals in 1839 and the bookkeepers counted with the clerks.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 1,
+          "count_typical": 2,
+          "count_high": 3,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.0,
+          "basis": "directory_1839",
+          "note": "Warehousemen: the 1839 list prints the term only twice, which is the floor and not the count — a warehouse on the South Water landings was worked by hands the directory booked as labourers, of whom it counts 73.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "teamster",
+          "occupation_term": "teamster",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.0,
+          "basis": "directory_1839",
+          "note": "41 teamsters and 30 draymen in 1839, against a river trade this one grew out of.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 2,
+        "typical": 4,
+        "high": 7
+      }
+    },
+    {
+      "class": "foundry",
+      "reads_as": "an iron foundry",
+      "occupations_in_this_class": [
+        "founder"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 1,
+      "staff_roles": [
+        {
+          "role": "founder",
+          "occupation_term": "founder",
+          "household_relationship": "journeyman",
+          "count_low": 1,
+          "count_typical": 2,
+          "count_high": 4,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.1,
+          "basis": "directory_1839",
+          "note": "12 founders in 1839. A furnace is the largest hand-count of any shop in town.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 1,
+        "typical": 2,
+        "high": 4
+      }
+    },
+    {
+      "class": "grocery_and_provision_store",
+      "reads_as": "a grocery and provision store",
+      "occupations_in_this_class": [
+        "grocer",
+        "liquor_dealer",
+        "provision_dealer"
+      ],
+      "column_1840": "Commerce",
+      "establishments_at_the_scene_date": 8,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.5,
+          "basis": "directory_1839",
+          "note": "A grocery is a smaller counting house than a dry-goods store and the low end is the keeper alone. Same clerk calibration, one step down.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.0,
+          "basis": "period_convention",
+          "note": "A hand for barrels and the drayage. Analogue: as above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 2
+      }
+    },
+    {
+      "class": "hardware_or_stove_store",
+      "reads_as": "a hardware or stove store",
+      "occupations_in_this_class": [
+        "hardware_merchant",
+        "stove_dealer"
+      ],
+      "column_1840": "Commerce",
+      "establishments_at_the_scene_date": 7,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.5,
+          "basis": "directory_1839",
+          "note": "Counted with the commerce clerks; the trade is a store whatever it sells.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "tinsmith",
+          "occupation_term": "tinsmith",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.25,
+          "basis": "period_convention",
+          "note": "A stove dealer who fits and repairs keeps a tinner. Analogue: the town's own tin and copper manufactories, which the census counts separately.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 2
+      }
+    },
+    {
+      "class": "land_or_insurance_office",
+      "reads_as": "a land or insurance office",
+      "occupations_in_this_class": [
+        "insurance_agent",
+        "land_agent"
+      ],
+      "column_1840": "Commerce",
+      "establishments_at_the_scene_date": 6,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.3,
+          "basis": "directory_1839",
+          "note": "25 land agents in 1839; the office is the principal and his papers, and a clerk only at the busiest.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 0,
+        "high": 1
+      }
+    },
+    {
+      "class": "law_office",
+      "reads_as": "a law office",
+      "occupations_in_this_class": [
+        "attorney"
+      ],
+      "column_1840": "Learned professions and engineers",
+      "establishments_at_the_scene_date": 18,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.3,
+          "basis": "period_convention",
+          "note": "The student-at-law, who read in an office rather than at a school. Analogue: the 1839 list's 11 students against 45 attorneys, a quarter of them.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 0,
+        "high": 1
+      }
+    },
+    {
+      "class": "leather_shop",
+      "reads_as": "a saddler's and harness maker's shop",
+      "occupations_in_this_class": [
+        "harness_maker"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 3,
+      "staff_roles": [
+        {
+          "role": "harness_maker",
+          "occupation_term": "harness_maker",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.3,
+          "basis": "directory_1839",
+          "note": "6 harness makers in 1839 against 3 shops here.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "harness_maker",
+          "occupation_term": "harness_maker",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 0.6,
+          "basis": "period_convention",
+          "note": "Analogue: the journeyman row above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 2
+      }
+    },
+    {
+      "class": "livery_stable",
+      "reads_as": "a livery stable",
+      "occupations_in_this_class": [
+        "livery_stable_keeper"
+      ],
+      "column_1840": "Commerce",
+      "establishments_at_the_scene_date": 3,
+      "staff_roles": [
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 1,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.6,
+          "basis": "period_convention",
+          "note": "Hostlers. `hostler` is outside the vocabulary; see `vocabulary_gaps`. Analogue: the 11 livery stable keepers of 1839, against whom the list prints no hostler.",
+          "source_ids": []
+        },
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 0.8,
+          "basis": "period_convention",
+          "note": "The stable boy. Analogue: as above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 1,
+        "typical": 2,
+        "high": 3
+      }
+    },
+    {
+      "class": "lumber_yard",
+      "reads_as": "a lumber yard",
+      "occupations_in_this_class": [
+        "lumber_merchant"
+      ],
+      "column_1840": "Commerce",
+      "establishments_at_the_scene_date": 6,
+      "staff_roles": [
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 1,
+          "count_typical": 2,
+          "count_high": 3,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.0,
+          "basis": "period_convention",
+          "note": "A yard is piled and loaded by hand. Analogue: the forwarding houses above, whose warehouse labour this model prices the same way.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 1,
+        "typical": 2,
+        "high": 3
+      }
+    },
+    {
+      "class": "mill",
+      "reads_as": "a mill",
+      "occupations_in_this_class": [
+        "miller"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 2,
+      "staff_roles": [
+        {
+          "role": "sawyer",
+          "occupation_term": "sawyer",
+          "household_relationship": "household_member",
+          "count_low": 1,
+          "count_typical": 2,
+          "count_high": 3,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.2,
+          "basis": "directory_1839",
+          "note": "6 sawyers and 7 millers in 1839; a steam saw-mill is a gang and not a man.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 1,
+        "typical": 2,
+        "high": 3
+      }
+    },
+    {
+      "class": "millinery_and_dressmaking",
+      "reads_as": "a millinery or dressmaking room",
+      "occupations_in_this_class": [
+        "dressmaker",
+        "milliner"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 4,
+      "staff_roles": [
+        {
+          "role": "dressmaker",
+          "occupation_term": "dressmaker",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "female",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.3,
+          "basis": "period_convention",
+          "note": "The needle trades ran on assistants and the 1835 notices advertise for them. Analogue: the 1839 list's six milliners and its tailoresses, and the 1840 column that has no row for them at all.",
+          "source_ids": []
+        },
+        {
+          "role": "dressmaker",
+          "occupation_term": "dressmaker",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "female",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 0.6,
+          "basis": "period_convention",
+          "note": "A girl bound to the needle, living in. Analogue: as above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 3
+      }
+    },
+    {
+      "class": "painter_shop",
+      "reads_as": "a painter's shop",
+      "occupations_in_this_class": [
+        "painter"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 1,
+      "staff_roles": [
+        {
+          "role": "painter",
+          "occupation_term": "painter",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.2,
+          "basis": "directory_1839",
+          "note": "14 painters in 1839; the trade works in pairs.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "painter",
+          "occupation_term": "painter",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 0.5,
+          "basis": "period_convention",
+          "note": "Analogue: the journeyman row above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 2
+      }
+    },
+    {
+      "class": "physician_practice",
+      "reads_as": "a physician's practice",
+      "occupations_in_this_class": [
+        "physician"
+      ],
+      "column_1840": "Learned professions and engineers",
+      "establishments_at_the_scene_date": 3,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.4,
+          "basis": "period_convention",
+          "note": "A physician's student, on the same footing as the law student. Analogue: as above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 0,
+        "high": 1
+      }
+    },
+    {
+      "class": "post_office",
+      "reads_as": "the post office",
+      "occupations_in_this_class": [
+        "postmaster"
+      ],
+      "column_1840": "Learned professions and engineers",
+      "establishments_at_the_scene_date": 1,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "either",
+          "age_band": "adult_any",
+          "lives_on_premises": 0.0,
+          "basis": "period_convention",
+          "note": "An assistant in the office. Analogue: the two postmasters of 1839.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 0,
+        "high": 1
+      }
+    },
+    {
+      "class": "printing_office",
+      "reads_as": "a printing office",
+      "occupations_in_this_class": [
+        "printer"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 3,
+      "staff_roles": [
+        {
+          "role": "printer",
+          "occupation_term": "printer",
+          "household_relationship": "journeyman",
+          "count_low": 1,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.3,
+          "basis": "directory_1839",
+          "note": "Journeymen at case and press. The 1839 list counts 15 printers — compositors, pressmen and job printers — against 2 editors, and the two offices of the 1835 census are the establishments those hands worked in four years earlier.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "printer",
+          "occupation_term": "printer",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "male",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 0.8,
+          "basis": "period_convention",
+          "note": "The apprentice, who lives in. Analogue: the journeyman row above; the project holds no roll of the Democrat's or the American's hands — see docs/RESEARCH/chicago_democrat_office.md, which reads the imprint and no roll.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 1,
+        "typical": 2,
+        "high": 4
+      }
+    },
+    {
+      "class": "school",
+      "reads_as": "a school",
+      "occupations_in_this_class": [
+        "schoolteacher"
+      ],
+      "column_1840": "Learned professions and engineers",
+      "establishments_at_the_scene_date": 6,
+      "staff_roles": [
+        {
+          "role": "schoolteacher",
+          "occupation_term": "schoolteacher",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "either",
+          "age_band": "adult_any",
+          "lives_on_premises": 0.0,
+          "basis": "period_convention",
+          "note": "An assistant, at the larger schools only; the town's schools of 1835 are one room and one teacher. Analogue: the 1839 list's 13 schoolteachers.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 0,
+        "high": 1
+      }
+    },
+    {
+      "class": "shoemaker_shop",
+      "reads_as": "a boot and shoe shop",
+      "occupations_in_this_class": [
+        "shoemaker"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 8,
+      "staff_roles": [
+        {
+          "role": "shoemaker",
+          "occupation_term": "shoemaker",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.3,
+          "basis": "directory_1839",
+          "note": "27 shoemakers in 1839 against 8 shops here.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "shoemaker",
+          "occupation_term": "shoemaker",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 0.6,
+          "basis": "period_convention",
+          "note": "Analogue: the journeyman row above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 2
+      }
+    },
+    {
+      "class": "small_luxury_shop",
+      "reads_as": "a jeweller's, hatter's or confectioner's shop",
+      "occupations_in_this_class": [
+        "confectioner",
+        "hatter",
+        "jeweller"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 3,
+      "staff_roles": [
+        {
+          "role": "clerk",
+          "occupation_term": "clerk",
+          "household_relationship": "clerk",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "either",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.4,
+          "basis": "period_convention",
+          "note": "A jeweller's, hatter's or confectioner's is a one-hand shop at this date. Analogue: the 1839 list's 7 watchmakers and 5 hatters, none with a counted hand.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 0,
+        "high": 1
+      }
+    },
+    {
+      "class": "smithy",
+      "reads_as": "a blacksmith's shop",
+      "occupations_in_this_class": [
+        "blacksmith"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 4,
+      "staff_roles": [
+        {
+          "role": "blacksmith",
+          "occupation_term": "blacksmith",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.3,
+          "basis": "period_convention",
+          "note": "The striker, who swings while the smith holds. Analogue: the 1839 list's 48 smiths in a town that had 5 shops in 1835.",
+          "source_ids": []
+        },
+        {
+          "role": "blacksmith",
+          "occupation_term": "blacksmith",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 0.7,
+          "basis": "period_convention",
+          "note": "A bound boy. Analogue: as above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 2
+      }
+    },
+    {
+      "class": "soap_and_candle_works",
+      "reads_as": "a soap and candle works",
+      "occupations_in_this_class": [
+        "soap_and_candle_maker"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 2,
+      "staff_roles": [
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.1,
+          "basis": "directory_1839",
+          "note": "8 soap and candle makers in 1839 across a handful of works.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 2
+      }
+    },
+    {
+      "class": "surveyor_office",
+      "reads_as": "a surveyor's office",
+      "occupations_in_this_class": [
+        "surveyor"
+      ],
+      "column_1840": "Learned professions and engineers",
+      "establishments_at_the_scene_date": 2,
+      "staff_roles": [
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.0,
+          "basis": "period_convention",
+          "note": "Chainmen, hired by the survey and not by the year. Analogue: the 13 surveyors of 1839, against whom the list prints no chainman.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 1,
+        "high": 2
+      }
+    },
+    {
+      "class": "tailor_shop",
+      "reads_as": "a tailoring establishment",
+      "occupations_in_this_class": [
+        "tailor"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 7,
+      "staff_roles": [
+        {
+          "role": "tailor",
+          "occupation_term": "tailor",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.3,
+          "basis": "directory_1839",
+          "note": "42 tailors in 1839 against 7 tailoring houses here.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "dressmaker",
+          "occupation_term": "dressmaker",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "female",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.1,
+          "basis": "period_convention",
+          "note": "The tailoress, who sewed what the cutter cut. Analogue: the 1839 list's printed 'cloak maker and tailoress', counted under tailor, and the millinery rows above.",
+          "source_ids": []
+        },
+        {
+          "role": "tailor",
+          "occupation_term": "tailor",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 0,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 0.6,
+          "basis": "period_convention",
+          "note": "Analogue: the journeyman row above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 2,
+        "high": 5
+      }
+    },
+    {
+      "class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "occupations_in_this_class": [
+        "hotel_keeper",
+        "tavern_keeper"
+      ],
+      "column_1840": "Commerce",
+      "establishments_at_the_scene_date": 7,
+      "staff_roles": [
+        {
+          "role": "tavern_keeper",
+          "occupation_term": "tavern_keeper",
+          "household_relationship": "household_member",
+          "count_low": 1,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "predominantly_male",
+          "age_band": "adult_any",
+          "lives_on_premises": 1.0,
+          "basis": "period_convention",
+          "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
+          "source_ids": []
+        },
+        {
+          "role": "labourer",
+          "occupation_term": "labourer",
+          "household_relationship": "household_member",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.7,
+          "basis": "period_convention",
+          "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
+          "source_ids": []
+        },
+        {
+          "role": "domestic",
+          "occupation_term": "domestic",
+          "household_relationship": "servant",
+          "count_low": 1,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "female",
+          "age_band": "adult_18_45",
+          "lives_on_premises": 0.8,
+          "basis": "period_convention",
+          "note": "The cook. A house that feeds travellers cooks every day of the week. Analogue: the 1839 list's five domestics against a town of 4,000 — a floor, not a count.",
+          "source_ids": []
+        },
+        {
+          "role": "domestic",
+          "occupation_term": "domestic",
+          "household_relationship": "servant",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "female",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.9,
+          "basis": "period_convention",
+          "note": "Chambermaids, by the number of beds. Analogue: the lodging model's per-place capacities, which this row does not itself read.",
+          "source_ids": []
+        },
+        {
+          "role": "domestic",
+          "occupation_term": "domestic",
+          "household_relationship": "servant",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 1.0,
+          "basis": "period_convention",
+          "note": "The boy — boots, errands, the yard. Analogue: as above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 2,
+        "typical": 5,
+        "high": 6
+      }
+    },
+    {
+      "class": "tinner_shop",
+      "reads_as": "a tin and copper manufactory",
+      "occupations_in_this_class": [
+        "tinsmith"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 3,
+      "staff_roles": [
+        {
+          "role": "tinsmith",
+          "occupation_term": "tinsmith",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.3,
+          "basis": "directory_1839",
+          "note": "8 tinsmiths in 1839; the census counts 2 manufactories in 1835.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "tinsmith",
+          "occupation_term": "tinsmith",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 0.6,
+          "basis": "period_convention",
+          "note": "Analogue: the journeyman row above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 2,
+        "high": 2
+      }
+    },
+    {
+      "class": "unclassified",
+      "reads_as": "a business the layer gives no trade to",
+      "occupations_in_this_class": [],
+      "column_1840": null,
+      "establishments_at_the_scene_date": 9,
+      "staff_roles": [],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 0,
+        "high": 0
+      }
+    },
+    {
+      "class": "wood_trades_shop",
+      "reads_as": "a joiner's or carriage maker's shop",
+      "occupations_in_this_class": [
+        "carriage_maker",
+        "joiner"
+      ],
+      "column_1840": "Manufactures and trades",
+      "establishments_at_the_scene_date": 8,
+      "staff_roles": [
+        {
+          "role": "joiner",
+          "occupation_term": "joiner",
+          "household_relationship": "journeyman",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 2,
+          "sex_rule": "male",
+          "age_band": "young_adult_16_25",
+          "lives_on_premises": 0.2,
+          "basis": "directory_1839",
+          "note": "The building trades are the largest in the 1839 list — 133 carpenters and 54 builders — and a master's shop is where they stood.",
+          "source_ids": [
+            "fergus_directory_1839"
+          ]
+        },
+        {
+          "role": "joiner",
+          "occupation_term": "joiner",
+          "household_relationship": "apprentice",
+          "count_low": 0,
+          "count_typical": 1,
+          "count_high": 1,
+          "sex_rule": "male",
+          "age_band": "youth_12_18",
+          "lives_on_premises": 0.6,
+          "basis": "period_convention",
+          "note": "Analogue: the journeyman row above.",
+          "source_ids": []
+        }
+      ],
+      "staff_per_establishment": {
+        "low": 0,
+        "typical": 2,
+        "high": 3
+      }
+    }
+  ],
+  "the_shop_household_rule": {
+    "shared_with": "T-1163",
+    "rule": "`lives_on_premises` is the share of holders of a role who slept in the proprietor's house or over the shop, and `household_relationship` is the term their card carries in that household. A clerk at 0.5 means half the clerks of that class are household members of their employer and half keep their own lodging or board elsewhere.",
+    "who_lives_in": [
+      "bakery/baker/journeyman",
+      "book_store/clerk/clerk",
+      "drug_store/clerk/clerk",
+      "dry_goods_store/clerk/clerk",
+      "grocery_and_provision_store/clerk/clerk",
+      "hardware_or_stove_store/clerk/clerk",
+      "leather_shop/harness_maker/apprentice",
+      "livery_stable/labourer/household_member",
+      "millinery_and_dressmaking/dressmaker/apprentice",
+      "painter_shop/painter/apprentice",
+      "printing_office/printer/apprentice",
+      "shoemaker_shop/shoemaker/apprentice",
+      "smithy/blacksmith/apprentice",
+      "tailor_shop/tailor/apprentice",
+      "tavern_or_hotel/domestic/servant",
+      "tavern_or_hotel/labourer/household_member",
+      "tavern_or_hotel/tavern_keeper/household_member",
+      "tinner_shop/tinsmith/apprentice",
+      "wood_trades_shop/joiner/apprentice"
+    ],
+    "not_a_seating": "A share is not a bed. The lodging model (T-1370) owns capacity and T-1371 owns who sleeps where; this rule only says which staff are candidates for the employer's household."
+  },
+  "vocabulary_gaps": [
+    {
+      "term": "bar_keeper",
+      "wanted_for": "the tavern and hotel bar, carried here as `tavern_keeper`",
+      "rule": "may not be written onto a person until data/residents/index.json carries it"
+    },
+    {
+      "term": "chambermaid",
+      "wanted_for": "the tavern and hotel chambers, carried here as `domestic`",
+      "rule": "may not be written onto a person until data/residents/index.json carries it"
+    },
+    {
+      "term": "cook",
+      "wanted_for": "the tavern and hotel kitchen, carried here as `domestic`",
+      "rule": "may not be written onto a person until data/residents/index.json carries it"
+    },
+    {
+      "term": "hostler",
+      "wanted_for": "the tavern, hotel and livery stable, carried here as `labourer`",
+      "rule": "may not be written onto a person until data/residents/index.json carries it"
+    },
+    {
+      "term": "student_at_law",
+      "wanted_for": "the law offices, carried here as `clerk`",
+      "rule": "may not be written onto a person until data/residents/index.json carries it"
+    },
+    {
+      "term": "warehouseman",
+      "wanted_for": "the forwarding houses, carried here as `labourer`",
+      "rule": "may not be written onto a person until data/residents/index.json carries it"
+    }
+  ],
+  "unstaffed_records": [
+    {
+      "id": "biz_c_h_chapman",
+      "name": "C. H. Chapman",
+      "type": [
+        "other"
+      ],
+      "why_no_staff": "The layer gives this record no `occupation`, so there is no establishment kind to staff it as. Giving it one here would be T-1182's audit performed by a tool with no licence for it."
+    },
+    {
+      "id": "biz_chicago_st_joseph_packet_schooner_llewellyn",
+      "name": "Chicago & St. Joseph Packet (schooner Llewellyn)",
+      "type": [
+        "other"
+      ],
+      "why_no_staff": "The layer gives this record no `occupation`, so there is no establishment kind to staff it as. Giving it one here would be T-1182's audit performed by a tool with no licence for it."
+    },
+    {
+      "id": "biz_d_o_robinson_and_r_a_neff",
+      "name": "D. O. Robinson and R. A. Neff",
+      "type": [
+        "not_stated"
+      ],
+      "why_no_staff": "The layer gives this record no `occupation`, so there is no establishment kind to staff it as. Giving it one here would be T-1182's audit performed by a tool with no licence for it."
+    },
+    {
+      "id": "biz_john_dave_north_water_street",
+      "name": "John Dave, North Water Street",
+      "type": [
+        "not_stated"
+      ],
+      "why_no_staff": "The layer gives this record no `occupation`, so there is no establishment kind to staff it as. Giving it one here would be T-1182's audit performed by a tool with no licence for it."
+    },
+    {
+      "id": "biz_m_cormick_moon",
+      "name": "M'Cormick & Moon",
+      "type": [
+        "other",
+        "store"
+      ],
+      "why_no_staff": "The layer gives this record no `occupation`, so there is no establishment kind to staff it as. Giving it one here would be T-1182's audit performed by a tool with no licence for it."
+    },
+    {
+      "id": "biz_newberry_dole",
+      "name": "Newberry & Dole",
+      "type": [
+        "store"
+      ],
+      "why_no_staff": "The layer gives this record no `occupation`, so there is no establishment kind to staff it as. Giving it one here would be T-1182's audit performed by a tool with no licence for it."
+    },
+    {
+      "id": "biz_richard_m_sweet_corn_at_his_barn_on_the_dupage",
+      "name": "Richard M. Sweet, corn at his barn on the Dupage",
+      "type": [
+        "other"
+      ],
+      "why_no_staff": "The layer gives this record no `occupation`, so there is no establishment kind to staff it as. Giving it one here would be T-1182's audit performed by a tool with no licence for it."
+    },
+    {
+      "id": "biz_russell_brown",
+      "name": "Russell & Brown",
+      "type": [
+        "not_stated"
+      ],
+      "why_no_staff": "The layer gives this record no `occupation`, so there is no establishment kind to staff it as. Giving it one here would be T-1182's audit performed by a tool with no licence for it."
+    },
+    {
+      "id": "biz_the_chicago_and_st_joseph_packet_schooner_phillips",
+      "name": "The Chicago and St. Joseph packet, schooner Phillips",
+      "type": [
+        "other"
+      ],
+      "why_no_staff": "The layer gives this record no `occupation`, so there is no establishment kind to staff it as. Giving it one here would be T-1182's audit performed by a tool with no licence for it."
+    }
+  ],
+  "dry_run": {
+    "businesses_staffed": 179,
+    "principals_already_in_the_layer": 165,
+    "staff_by_role": [
+      {
+        "occupation_term": "clerk",
+        "household_relationship": "clerk",
+        "sex_rule": "male",
+        "age_band": "young_adult_16_25",
+        "low": 31,
+        "typical": 58,
+        "high": 116,
+        "from_classes": [
+          "auction_and_commission_room",
+          "drug_store",
+          "dry_goods_store",
+          "forwarding_and_warehouse",
+          "grocery_and_provision_store",
+          "hardware_or_stove_store",
+          "land_or_insurance_office",
+          "law_office",
+          "physician_practice"
+        ]
+      },
+      {
+        "occupation_term": "labourer",
+        "household_relationship": "household_member",
+        "sex_rule": "male",
+        "age_band": "adult_18_45",
+        "low": 14,
+        "typical": 36,
+        "high": 99,
+        "from_classes": [
+          "auction_and_commission_room",
+          "brewery",
+          "dry_goods_store",
+          "forwarding_and_warehouse",
+          "grocery_and_provision_store",
+          "livery_stable",
+          "lumber_yard",
+          "soap_and_candle_works",
+          "surveyor_office",
+          "tavern_or_hotel"
+        ]
+      },
+      {
+        "occupation_term": "joiner",
+        "household_relationship": "apprentice",
+        "sex_rule": "male",
+        "age_band": "youth_12_18",
+        "low": 0,
+        "typical": 8,
+        "high": 8,
+        "from_classes": [
+          "wood_trades_shop"
+        ]
+      },
+      {
+        "occupation_term": "joiner",
+        "household_relationship": "journeyman",
+        "sex_rule": "male",
+        "age_band": "young_adult_16_25",
+        "low": 0,
+        "typical": 8,
+        "high": 16,
+        "from_classes": [
+          "wood_trades_shop"
+        ]
+      },
+      {
+        "occupation_term": "shoemaker",
+        "household_relationship": "journeyman",
+        "sex_rule": "male",
+        "age_band": "young_adult_16_25",
+        "low": 0,
+        "typical": 8,
+        "high": 8,
+        "from_classes": [
+          "shoemaker_shop"
+        ]
+      },
+      {
+        "occupation_term": "domestic",
+        "household_relationship": "servant",
+        "sex_rule": "female",
+        "age_band": "adult_18_45",
+        "low": 7,
+        "typical": 7,
+        "high": 7,
+        "from_classes": [
+          "tavern_or_hotel"
+        ]
+      },
+      {
+        "occupation_term": "domestic",
+        "household_relationship": "servant",
+        "sex_rule": "female",
+        "age_band": "young_adult_16_25",
+        "low": 0,
+        "typical": 7,
+        "high": 14,
+        "from_classes": [
+          "tavern_or_hotel"
+        ]
+      },
+      {
+        "occupation_term": "domestic",
+        "household_relationship": "servant",
+        "sex_rule": "male",
+        "age_band": "youth_12_18",
+        "low": 0,
+        "typical": 7,
+        "high": 7,
+        "from_classes": [
+          "tavern_or_hotel"
+        ]
+      },
+      {
+        "occupation_term": "dressmaker",
+        "household_relationship": "journeyman",
+        "sex_rule": "female",
+        "age_band": "adult_18_45",
+        "low": 0,
+        "typical": 7,
+        "high": 14,
+        "from_classes": [
+          "tailor_shop"
+        ]
+      },
+      {
+        "occupation_term": "tailor",
+        "household_relationship": "journeyman",
+        "sex_rule": "male",
+        "age_band": "young_adult_16_25",
+        "low": 0,
+        "typical": 7,
+        "high": 14,
+        "from_classes": [
+          "tailor_shop"
+        ]
+      },
+      {
+        "occupation_term": "tavern_keeper",
+        "household_relationship": "household_member",
+        "sex_rule": "predominantly_male",
+        "age_band": "adult_any",
+        "low": 7,
+        "typical": 7,
+        "high": 7,
+        "from_classes": [
+          "tavern_or_hotel"
+        ]
+      },
+      {
+        "occupation_term": "blacksmith",
+        "household_relationship": "journeyman",
+        "sex_rule": "male",
+        "age_band": "young_adult_16_25",
+        "low": 0,
+        "typical": 4,
+        "high": 4,
+        "from_classes": [
+          "smithy"
+        ]
+      },
+      {
+        "occupation_term": "dressmaker",
+        "household_relationship": "journeyman",
+        "sex_rule": "female",
+        "age_band": "young_adult_16_25",
+        "low": 0,
+        "typical": 4,
+        "high": 8,
+        "from_classes": [
+          "millinery_and_dressmaking"
+        ]
+      },
+      {
+        "occupation_term": "sawyer",
+        "household_relationship": "household_member",
+        "sex_rule": "male",
+        "age_band": "adult_18_45",
+        "low": 2,
+        "typical": 4,
+        "high": 6,
+        "from_classes": [
+          "mill"
+        ]
+      },
+      {
+        "occupation_term": "teamster",
+        "household_relationship": "household_member",
+        "sex_rule": "male",
+        "age_band": "adult_18_45",
+        "low": 0,
+        "typical": 4,
+        "high": 8,
+        "from_classes": [
+          "forwarding_and_warehouse"
+        ]
+      },
+      {
+        "occupation_term": "baker",
+        "household_relationship": "journeyman",
+        "sex_rule": "male",
+        "age_band": "young_adult_16_25",
+        "low": 0,
+        "typical": 3,
+        "high": 3,
+        "from_classes": [
+          "bakery"
+        ]
+      },
+      {
+        "occupation_term": "harness_maker",
+        "household_relationship": "journeyman",
+        "sex_rule": "male",
+        "age_band": "young_adult_16_25",
+        "low": 0,
+        "typical": 3,
+        "high": 3,
+        "from_classes": [
+          "leather_shop"
+        ]
+      },
+      {
+        "occupation_term": "labourer",
+        "household_relationship": "household_member",
+        "sex_rule": "male",
+        "age_band": "youth_12_18",
+        "low": 0,
+        "typical": 3,
+        "high": 6,
+        "from_classes": [
+          "bakery",
+          "livery_stable"
+        ]
+      },
+      {
+        "occupation_term": "printer",
+        "household_relationship": "apprentice",
+        "sex_rule": "male",
+        "age_band": "youth_12_18",
+        "low": 0,
+        "typical": 3,
+        "high": 6,
+        "from_classes": [
+          "printing_office"
+        ]
+      },
+      {
+        "occupation_term": "printer",
+        "household_relationship": "journeyman",
+        "sex_rule": "male",
+        "age_band": "young_adult_16_25",
+        "low": 3,
+        "typical": 3,
+        "high": 6,
+        "from_classes": [
+          "printing_office"
+        ]
+      },
+      {
+        "occupation_term": "tinsmith",
+        "household_relationship": "apprentice",
+        "sex_rule": "male",
+        "age_band": "youth_12_18",
+        "low": 0,
+        "typical": 3,
+        "high": 3,
+        "from_classes": [
+          "tinner_shop"
+        ]
+      },
+      {
+        "occupation_term": "tinsmith",
+        "household_relationship": "journeyman",
+        "sex_rule": "male",
+        "age_band": "young_adult_16_25",
+        "low": 0,
+        "typical": 3,
+        "high": 10,
+        "from_classes": [
+          "hardware_or_stove_store",
+          "tinner_shop"
+        ]
+      },
+      {
+        "occupation_term": "founder",
+        "household_relationship": "journeyman",
+        "sex_rule": "male",
+        "age_band": "adult_18_45",
+        "low": 1,
+        "typical": 2,
+        "high": 4,
+        "from_classes": [
+          "foundry"
+        ]
+      },
+      {
+        "occupation_term": "butcher",
+        "household_relationship": "journeyman",
+        "sex_rule": "male",
+        "age_band": "adult_18_45",
+        "low": 0,
+        "typical": 1,
+        "high": 1,
+        "from_classes": [
+          "butcher_shop"
+        ]
+      },
+      {
+        "occupation_term": "clerk",
+        "household_relationship": "clerk",
+        "sex_rule": "either",
+        "age_band": "young_adult_16_25",
+        "low": 0,
+        "typical": 1,
+        "high": 4,
+        "from_classes": [
+          "book_store",
+          "small_luxury_shop"
+        ]
+      },
+      {
+        "occupation_term": "painter",
+        "household_relationship": "journeyman",
+        "sex_rule": "male",
+        "age_band": "young_adult_16_25",
+        "low": 0,
+        "typical": 1,
+        "high": 1,
+        "from_classes": [
+          "painter_shop"
+        ]
+      },
+      {
+        "occupation_term": "blacksmith",
+        "household_relationship": "apprentice",
+        "sex_rule": "male",
+        "age_band": "youth_12_18",
+        "low": 0,
+        "typical": 0,
+        "high": 4,
+        "from_classes": [
+          "smithy"
+        ]
+      },
+      {
+        "occupation_term": "clerk",
+        "household_relationship": "clerk",
+        "sex_rule": "either",
+        "age_band": "adult_any",
+        "low": 0,
+        "typical": 0,
+        "high": 1,
+        "from_classes": [
+          "post_office"
+        ]
+      },
+      {
+        "occupation_term": "dressmaker",
+        "household_relationship": "apprentice",
+        "sex_rule": "female",
+        "age_band": "youth_12_18",
+        "low": 0,
+        "typical": 0,
+        "high": 4,
+        "from_classes": [
+          "millinery_and_dressmaking"
+        ]
+      },
+      {
+        "occupation_term": "harness_maker",
+        "household_relationship": "apprentice",
+        "sex_rule": "male",
+        "age_band": "youth_12_18",
+        "low": 0,
+        "typical": 0,
+        "high": 3,
+        "from_classes": [
+          "leather_shop"
+        ]
+      },
+      {
+        "occupation_term": "painter",
+        "household_relationship": "apprentice",
+        "sex_rule": "male",
+        "age_band": "youth_12_18",
+        "low": 0,
+        "typical": 0,
+        "high": 1,
+        "from_classes": [
+          "painter_shop"
+        ]
+      },
+      {
+        "occupation_term": "schoolteacher",
+        "household_relationship": "household_member",
+        "sex_rule": "either",
+        "age_band": "adult_any",
+        "low": 0,
+        "typical": 0,
+        "high": 6,
+        "from_classes": [
+          "school"
+        ]
+      },
+      {
+        "occupation_term": "shoemaker",
+        "household_relationship": "apprentice",
+        "sex_rule": "male",
+        "age_band": "youth_12_18",
+        "low": 0,
+        "typical": 0,
+        "high": 8,
+        "from_classes": [
+          "shoemaker_shop"
+        ]
+      },
+      {
+        "occupation_term": "tailor",
+        "household_relationship": "apprentice",
+        "sex_rule": "male",
+        "age_band": "youth_12_18",
+        "low": 0,
+        "typical": 0,
+        "high": 7,
+        "from_classes": [
+          "tailor_shop"
+        ]
+      }
+    ],
+    "staff_by_sex_rule": {
+      "either": {
+        "low": 0,
+        "typical": 1,
+        "high": 11
+      },
+      "female": {
+        "low": 7,
+        "typical": 25,
+        "high": 47
+      },
+      "male": {
+        "low": 51,
+        "typical": 169,
+        "high": 352
+      },
+      "predominantly_male": {
+        "low": 7,
+        "typical": 7,
+        "high": 7
+      }
+    },
+    "staff_total": {
+      "low": 65,
+      "typical": 202,
+      "high": 417
+    },
+    "staff_living_on_the_premises": {
+      "low": 31.1,
+      "typical": 87.5,
+      "high": 149.4
+    },
+    "working_persons_implied": {
+      "low": 230,
+      "typical": 367,
+      "high": 582
+    },
+    "not_a_roster": "Counts of ROLES over establishments. No person is named, drawn or written; T-1189 does that and this is the quota it does it to."
+  },
+  "reconciliation": {
+    "against_the_clerk_calibration": {
+      "layer_principals_in_clerk_employing_classes": 86,
+      "ratio_1839_like_for_like": 0.68778,
+      "clerks_the_1839_ratio_predicts": 59.1,
+      "clerks_this_model_puts_in_those_classes": 59,
+      "delta": -0.1,
+      "tolerance": 14.8,
+      "agrees": true,
+      "on_the_wide_ratio_instead": {
+        "ratio_1839_wide": 0.48718,
+        "clerks_predicted": 41.9,
+        "delta": 17.1,
+        "note": "The wide ratio divides the same clerks by tavern, livery and boarding-house keepers as well, and on it the model looks over-clerked. Printed rather than buried: it is the reading a sceptic would take."
+      },
+      "if_it_disagrees": "The per-house rules are period convention and the ratio is a 1839 measurement of a bigger town. A disagreement is STATED here and neither side is moved to close it; T-1189 spends against the rules and reports the residual."
+    },
+    "against_the_town_model_employment": {
+      "employed_persons_low": 424,
+      "employed_persons_high": 588,
+      "working_persons_implied_typical": 367,
+      "working_persons_implied_low": 230,
+      "working_persons_implied_high": 582,
+      "inside_the_bracket": false,
+      "method": "The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster.",
+      "what_it_does_not_mean": "The town model's employed persons counts EVERY working person — the labourers of the harbour works, the garrison, the farmers outside the limits, the domestic service the 1840 columns have no row for. The businesses of this layer are a PART of that figure, so falling below the low end is expected and falling above it is a refusal."
+    }
+  },
+  "open_questions": [
+    {
+      "question": "Is the 1839 clerk ratio a prior for 1835 at all?",
+      "why_it_matters": "It is the only staffing figure the project holds, and 1839 is a town with a bank, a canal and four more years of growth. The model uses it to CHECK its rules and not to set them, which is the most weight it will bear.",
+      "owned_by": [
+        "T-1183",
+        "T-1189"
+      ]
+    },
+    {
+      "question": "What does the town do about the service labour no source counts?",
+      "why_it_matters": "The 1840 industry columns have no row for domestic service and the 1839 directory prints five domestics. The town model already says its trade split understates household labour by an amount it cannot bound; this model reconstructs that labour for businesses and cannot bound it either.",
+      "owned_by": [
+        "T-1183",
+        "T-1163",
+        "T-1189"
+      ]
+    },
+    {
+      "question": "The records the layer gives no trade to.",
+      "why_it_matters": "9 of the 179 houses standing at the scene date carry no `occupation`, so they are staffed by nobody here. T-1182's audit is what fixes that, and until it runs this model understates the town.",
+      "owned_by": [
+        "T-1182"
+      ]
+    }
+  ]
+}

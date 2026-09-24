@@ -1,0 +1,36 @@
+{
+  "id": "packed_black_loam",
+  "group": "ground",
+  "span_m": 6.0,
+  "confidence": "attested geology; reconstructed surface",
+  "mean_roughness": 0.96,
+  "kind": "earth",
+  "colors": [
+    [
+      73,
+      67,
+      51
+    ],
+    [
+      45,
+      44,
+      38
+    ]
+  ],
+  "note": "Compacted dark loam for yards and trodden dry ground.",
+  "resolution_px": 1024,
+  "px_per_m": 170.67,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18352156,
+  "generation_method": "deterministic procedural synthesis"
+}

@@ -2459,14 +2459,53 @@ def initials(name):
     OPEN policy question are now expressible, because the parse can finally SAY which
     side is unread instead of guessing a letter for it.
     """
+    return tuple(UNREAD if w[0] == UNREAD_MARK else w[0].lower()
+                 for w in _forename_fragments(name))
+
+
+def _forename_fragments(name):
+    """The forename WORDS of a name, in order, with the abbreviating point kept.
+
+    The parse `initials` has always made, lifted out so that the two readings of a
+    forename this project needs — its initial, and whether the printing SPELLS it —
+    can never be taken from two different tokenizers (T-1440). `initials` is written
+    in terms of this and its answer is unchanged: the point cannot be a word's first
+    character, so taking `w[0]` off these fragments is what it always took.
+
+    The point is kept because it is the tell `_forename_token` reads: 'Wm.' is an
+    abbreviation of William and 'William' is not an abbreviation of anything, and the
+    papers print both. Dropping it made 'Wm.' and 'William' two spelled words that
+    disagree.
+    """
     name = UNCERTAIN_PART.sub(r"\1", name or "")
     # The marker becomes a sentinel BEFORE the generic bracket strip, so `[?]` is not
     # mistaken for a supplied letter, and it stays welded to the word it opens: the
     # first character of `[?]rah` is unread, and `[?]rah` is still ONE forename.
     name = re.sub(r"\[([^\]]*)\]", r"\1", name.replace("[?]", UNREAD_MARK)).strip()
     fore = name.split(",", 1)[1] if "," in name else " ".join(name.split()[:-1])
-    words = re.findall(r"(?:%s|[^\W\d_])+" % re.escape(UNREAD_MARK), fore, re.UNICODE)
-    return tuple(UNREAD if w[0] == UNREAD_MARK else w[0].lower() for w in words)
+    return re.findall(r"(?:%s|[^\W\d_])+\.?" % re.escape(UNREAD_MARK), fore, re.UNICODE)
+
+
+def forename_readings(name):
+    """Each forename word as (initial, spelled_out, word) — the identity policy's detail.
+
+    `initials` answers "which letters", which is the whole of what a letter list can be
+    asked. A TOWN CARD is a richer thing: it carries the forename its sources spell, and
+    the difference between 'James Kinzie' and 'J. Kinzie' standing against the cards of
+    James and of John Harris is the difference between a reading and a coin toss.
+
+    `spelled_out` is false for a bare initial and for an abbreviation — the two forms the
+    papers print, told apart by the point, exactly as `_forename_token` tells them apart
+    for a surname. An UNREAD initial is never spelled out and its letter equals no other.
+    """
+    out = []
+    for w in _forename_fragments(name):
+        if w[0] == UNREAD_MARK:
+            out.append((UNREAD, False, UNREAD))
+            continue
+        bare = w.rstrip(".")
+        out.append((bare[0].lower(), not _forename_token(w), bare.lower()))
+    return tuple(out)
 
 
 # --------------------------------------------------------------------------

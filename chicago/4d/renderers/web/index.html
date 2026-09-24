@@ -28,6 +28,7 @@
 <link rel="stylesheet" href="./css/goto.css">
 <link rel="stylesheet" href="./css/travel.css">
 <link rel="stylesheet" href="./css/people.css">
+<link rel="stylesheet" href="./css/businesses.css">
 <link rel="stylesheet" href="./css/evidence.css">
 <link rel="stylesheet" href="./css/card.css">
 
@@ -55,11 +56,6 @@
     <p class="gate-eyebrow">4D Chicago</p>
     <h1 id="gate-title">Chicago, summer 1835</h1>
     <p class="gate-sub" id="gate-sub">Loading the scene…</p>
-    <!-- What the town holds, counted at load from data/town_census.json (T-0036).
-         Empty in the markup on purpose: every figure AND every denominator comes
-         out of the committed census, so there is no number here to go stale.
-         Stays hidden if the census cannot be read — see js/census.js. -->
-    <div class="gate-census" id="gate-census" hidden></div>
     <div class="gate-bar" id="gate-bar" role="progressbar" aria-labelledby="gate-sub"
          aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
     <button id="gate-btn" class="gate-btn" disabled>Tap to walk</button>
@@ -196,6 +192,7 @@
       <button class="panel-tab is-on" data-tab="goto" role="tab" aria-selected="true" title="Go to"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span class="tab-label">Go to</span></button>
       <button class="panel-tab" data-tab="travel" role="tab" aria-selected="false" title="Travel"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17h3l2-5h6l2 5h3"/><path d="M9 12l1.5-4h3L15 12"/><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/><path d="M12 8V4"/></svg><span class="tab-label">Travel</span></button>
       <button class="panel-tab" data-tab="people" role="tab" aria-selected="false" title="People"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.5A5 5 0 0 1 22 19"/></svg><span class="tab-label">People</span></button>
+      <button class="panel-tab" data-tab="businesses" data-title="Businesses" role="tab" aria-selected="false" title="Businesses"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 4.7 5.2A1.6 1.6 0 0 1 6.2 4.2h11.6a1.6 1.6 0 0 1 1.5 1L21 9.5"/><path d="M4.5 9.5v9a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-9"/><path d="M3 9.5a2.6 2.6 0 0 0 5 0 2.6 2.6 0 0 0 4 0 2.6 2.6 0 0 0 4 0 2.6 2.6 0 0 0 5 0"/><path d="M9.5 20v-5h5v5"/></svg><span class="tab-label">Firms</span></button>
       <button class="panel-tab" data-tab="evidence" role="tab" aria-selected="false" title="Evidence"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg><span class="tab-label">Evidence</span></button>
       <button class="panel-tab" data-tab="settings" role="tab" aria-selected="false" title="Settings"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 12h2M10 12h10M4 17h8M16 17h4"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="14" cy="17" r="2"/></svg><span class="tab-label">Settings</span></button>
       <button class="panel-tab" data-tab="controls" role="tab" aria-selected="false" title="Controls"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10"/></svg><span class="tab-label">Controls</span></button>
@@ -258,8 +255,16 @@
         <p class="legend-note">Loading…</p>
       </div>
     </section>
+    <!-- Every firm the register knows, as a directory: js/businesses.js renders it
+         from data/businesses/index.json, which tools/compile_businesses.py derives.
+         166 of the 196 have no roof in this town — a landmark, a street and no
+         more, or nothing at all — so this card is the only place they can be
+         read. -->
+    <section class="panel-body" data-panel="businesses" hidden>
+      <div id="businesses-directory"></div>
+    </section>
     <section class="panel-body" data-panel="evidence" hidden>
-      <!-- The Evidence hub (evidence.js). Seven topics, one shown at a time; the
+      <!-- The Evidence hub (evidence.js). Ten topics, one shown at a time; the
            tiles render into #evidence-hub. Each topic is a container whose mounts
            keep their ids — liberties.js, ground.js, fauna.js, plants.js and
            exclusions.js still render into them, and the smoke reads them by id.
@@ -282,6 +287,14 @@
         <p class="legend-note">Every building is clickable. The tint and the citation come from the
           same record, so they cannot drift apart. Dimensional uncertainty is separate: a building
           can be well documented in character and still have a guessed size, and the popup says so.</p>
+      </div>
+
+      <div class="ev-topic" data-topic="city">
+        <h3 class="legend-h ev-topic-title">City</h3>
+        <p class="legend-note ev-lead">The town in numbers: what stands, who is named, and what each grade promises.</p>
+        <div class="city-census" id="city" aria-busy="true">
+          <p class="legend-note">Loading…</p>
+        </div>
       </div>
 
       <div class="ev-topic" data-topic="liberties">
@@ -418,6 +431,25 @@
             invented: the reconstructed grade stands at zero on purpose.</p>
         </details>
         <div class="liberties" id="population" aria-busy="true">
+          <p class="legend-note">Loading…</p>
+        </div>
+      </div>
+
+      <div class="ev-topic" data-topic="orderbook">
+        <h3 class="legend-h ev-topic-title">Reconstructing the town</h3>
+        <p class="legend-note ev-lead" id="order-book-note" aria-busy="true">Loading…</p>
+        <details class="ev-about">
+          <summary>About this list</summary>
+          <p class="legend-note">The order book: what the models say the town of 1 July 1835 held,
+            minus what the sources can name, bucket by bucket — people by sex, age, division,
+            household and trade; households by kind; the December 1835 trade census against the
+            firms the town already holds; and the roofs the building programme still owes. Each
+            bucket names the ticket that owes it and carries a counter the reconstruction tools
+            write, so the bars fill as the town does. Nothing here is a claim about 1835: it is
+            the quota the reconstruction is held to, and every figure it collapses from a range
+            says so.</p>
+        </details>
+        <div class="liberties" id="order-book" aria-busy="true">
           <p class="legend-note">Loading…</p>
         </div>
       </div>

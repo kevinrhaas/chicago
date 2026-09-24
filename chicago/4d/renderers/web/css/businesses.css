@@ -1,0 +1,174 @@
+/* businesses.css — the Businesses section.
+ *
+ * The list, its filters and the card are the People view's, class for class:
+ * `people.css` styles `.people-home`, `.person-row`, `.people-filters` and the
+ * card, and this file adds only what a FIRM has that a person does not — how far
+ * the record could place it, what it sold, the printings behind it — plus the two
+ * rules people.css scopes to `[data-panel="people"]` and which this panel needs
+ * under its own name. One list idiom, two directories: a visitor who has learnt
+ * the People view has learnt this one.
+ */
+
+/* The card takes the section over, and the drawer's head carries the back arrow
+   — the same contract people.css states for the People panel. */
+.panel-body[data-panel="businesses"].people-card-open > :not(#businesses-directory) { display: none; }
+.panel-body[data-panel="businesses"].has-head-back .people-back { display: none; }
+
+/* How far the record could place a house. The ladder reads down: a roof needs no
+   mark at all, a landmark and a street take the inferred colour, and a house the
+   register could place nowhere takes the conjectural one — the same colour the
+   letter-list people wear in the People view, for the same reason. */
+.mark-anchored, .mark-street_only { border-color: color-mix(in srgb, var(--inf) 55%, transparent); color: var(--inf); }
+.mark-unplaceable { border-color: color-mix(in srgb, var(--con) 60%, transparent); color: var(--con); }
+.mark-premises { border-color: color-mix(in srgb, var(--doc) 55%, transparent); color: var(--doc); }
+
+/* ------------------------------------------------------------- the card --- */
+
+.biz-people, .biz-locs, .biz-claims, .biz-liberties {
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.biz-people li {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.biz-people .grade-dot { transform: translateY(-1px); }
+.biz-role {
+  color: var(--ink-dim);
+  font-size: 11.5px;
+  text-transform: lowercase;
+}
+.biz-when {
+  display: inline-block;
+  color: var(--ink-dim);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+}
+/* The other styles the same paper printed one partner under. Quiet, because the
+   fold is the reading and the typography is only the proof it was a fold. */
+.biz-styles {
+  color: var(--ink-dim);
+  font-size: 11px;
+  font-style: italic;
+}
+/* A house anchored against another house: the only way out its location has. */
+.biz-anchor-firm {
+  padding: 0;
+  border: 0;
+  margin-top: 4px;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+.biz-anchor-firm:hover { text-decoration: underline; }
+.biz-person {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+.biz-person:hover { text-decoration: underline; }
+.biz-person:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* A location is a small block, because the limit under it is the finding and a
+   one-line row would bury it. The principal one carries the accent edge. */
+.biz-loc {
+  padding: 9px 11px;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: var(--step);
+}
+.biz-loc.is-primary { border-left: 3px solid var(--accent); }
+.biz-loc-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+.biz-loc .legend-note { margin: 4px 0 0; font-size: 12px; }
+.biz-limit { color: var(--con); }
+.biz-primary {
+  color: var(--accent);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.biz-loc .people-go { margin-top: 8px; }
+
+.biz-goods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 14px;
+}
+.biz-good {
+  padding: 2px 9px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  color: var(--ink-dim);
+  font-size: 11.5px;
+}
+.biz-claims li { font-size: 11.5px; }
+.biz-claims code { color: var(--ink-dim); word-break: break-all; }
+.biz-liberties li {
+  color: var(--con);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.biz-dates { margin: 0 0 6px; font-size: 13px; }
+.biz-dates .grade-dot { margin-right: 6px; }
+.biz-review { color: var(--con); }
+
+/* A reconstructed house says so before it says anything else (T-1184). The lede of
+   "Why this house is here" carries the reconstructed grade's own colour, so a reader who
+   opened the card for a name sees the invention in the same glance as the name. */
+.biz-invented {
+  color: var(--con);
+  border-left: 2px solid var(--con);
+  padding-left: 9px;
+}
+.biz-invented b { color: inherit; }
+
+/* WHO WORKED THERE (T-1462). A drawn hand carries the seed that drew it, so a reader
+   who doubts the row can retype it rather than take the grade dot's word. Quiet, the
+   way `.biz-styles` is quiet: the person is the reading and this is only the proof. */
+.biz-drawn {
+  color: var(--ink-dim);
+  font-size: 11px;
+}
+.biz-drawn code { word-break: break-all; }
+
+/* The house's own shortfall against the staffing model. A house at its band says so in
+   the ordinary voice; a house standing short takes the conjectural grade's colour and a
+   rule down its edge, because a half-filled house that reads as a full one is exactly
+   the silence this block was added to break. */
+.biz-shortfall { margin: -6px 0 14px; }
+.biz-short {
+  color: var(--con);
+  border-left: 2px solid var(--con);
+  padding-left: 9px;
+}
+
+/* T-1493. The seat block under "Where it stood": the address book's answer for a
+   firm whose own locations reached no roof. Indented to the locations list it
+   answers for, so it reads as the last rung of that ladder and not a new claim. */
+.biz-seat-slot:empty { display: none; }
+.biz-seat-slot { margin: 6px 0 0; display: grid; gap: 0; }

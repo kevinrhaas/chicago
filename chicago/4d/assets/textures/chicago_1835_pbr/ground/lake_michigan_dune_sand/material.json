@@ -1,0 +1,36 @@
+{
+  "id": "lake_michigan_dune_sand",
+  "group": "ground",
+  "span_m": 6.0,
+  "confidence": "attested setting; reconstructed grain",
+  "mean_roughness": 0.93,
+  "kind": "sand",
+  "colors": [
+    [
+      177,
+      163,
+      129
+    ],
+    [
+      129,
+      122,
+      101
+    ]
+  ],
+  "note": "Muted gray-tan freshwater beach and low dune sand.",
+  "resolution_px": 1024,
+  "px_per_m": 170.67,
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "seamless": true,
+  "generator_seed": 18352447,
+  "generation_method": "deterministic procedural synthesis"
+}

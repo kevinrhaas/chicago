@@ -125,6 +125,15 @@ PORCHES = ("stoop", "roofed")
 
 ELL_SIDES = ("west", "east")
 
+# The deepest range this archetype will carry on a given front, as a multiple of that
+# front. PUBLISHED, NOT CHANGED: this is the same 1.5 `_validate_massing` has always
+# refused past (T-1497 only gave the literal a name so that `tools/family_bands.py` can
+# ASK for it instead of retyping it, exactly as `eave_limits` asks for
+# `wall_height_band_m`). A generator that holds a rectangle to a buildable proportion
+# has to know where the refusal is; a generator that guesses it is how a quarter-circle
+# turn came to stand in for the rule.
+EAVES_FRONT_DEPTH_RATIO_MAX = 1.5
+
 # 1, 1.5 or 2, and nothing else. Three storeys is not a dwelling question in 1835
 # Chicago: the town's first three-storey building is the Saloon Building of 1836
 # (data/exclusions.json), and the only earlier claim is the Tremont House, a hotel
@@ -506,7 +515,7 @@ class FrameDwellingParams:
         # facade, so a range deeper than it is wide would build an implausibly tall roof
         # on an implausibly narrow front rather than the gable-front house someone
         # probably meant.
-        if self.main_depth_m > self.width_m * 1.5:
+        if self.main_depth_m > self.width_m * EAVES_FRONT_DEPTH_RATIO_MAX:
             raise ParamError(
                 f"the front range is {self.main_depth_m:.2f} m deep on a "
                 f"{self.width_m:.2f} m front. This archetype builds an EAVES-FRONT "
