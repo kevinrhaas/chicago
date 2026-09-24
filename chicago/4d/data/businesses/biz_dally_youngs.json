@@ -21,6 +21,32 @@
   "firm_styles": [
     "Dally & Youngs"
   ],
+  "notice": {
+    "reads": "Dally & Youngs",
+    "trade": "blacksmithing and edge tool making",
+    "goods": [
+      "Edge Tools",
+      "Ox Chains",
+      "Prairie Ploughs",
+      "cradle scythes",
+      "edge tools",
+      "grass scythes",
+      "prairie ploughs",
+      "wagon chains"
+    ],
+    "names_a_keeper": false,
+    "from": "1834-06-18",
+    "to": "1834-12-17",
+    "tier": "attested",
+    "basis": "The advertisement is anonymous: the paper printed the trade and the goods and no proprietor, so no person of this record can carry the reading it was compiled from. What is attested here is what the notice itself set in type — “blacksmithing and edge tool making” — and nothing beyond it: no keeper is claimed, and the premises and dates of this record stay on their own blocks at the tier the placement policy left them. Bounded by the printing window (printed 1834-06-18 to 1834-12-17), which dates the notice and not the house.",
+    "source_id": "chicago_newspapers_1833_1835",
+    "claim_ids": [
+      "chicago_democrat_1834_06_18#c005",
+      "chicago_democrat_1834_07_02#c019",
+      "chicago_democrat_1834_09_10#c019",
+      "chicago_democrat_1834_12_17#c007"
+    ]
+  },
   "proprietors": [],
   "partners": [],
   "staff": [

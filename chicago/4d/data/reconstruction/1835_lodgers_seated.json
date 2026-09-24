@@ -2231,6 +2231,21 @@
   "persons/male/under_10/north/lodging/none": 5,
   "persons/male/under_10/west/lodging/none": 1
  },
+ "household_fills": {
+  "statement": "One fill per lodging household record this stage writes, keyed on the order book's own household cell. A card written is a house filled.",
+  "unit": "houses, not people — the book's `households/<class>/<division>` cells. The people in them are counted separately by `fills`, against the `lodging` PERSON cells, and the two must never be added together.",
+  "carried_from": "T-1537, which is the reconciliation T-1534's acceptance asked for before either half of its order was minted.",
+  "not_a_draw": "No card, person, name, age band or seat is derived from this. It counts cards this stage already wrote; --check re-derives every one of them and refuses a differing byte.",
+  "by_cell": {
+   "households/boarding_house/north": 5,
+   "households/boarding_house/south": 1,
+   "households/boarding_house/west": 1,
+   "households/inn_tavern/north": 1,
+   "households/inn_tavern/south": 6,
+   "households/inn_tavern/west": 1
+  },
+  "houses_filled": 15
+ },
  "keeper_families": {
   "ticket": "T-1533",
   "statement": "The keepers this stage MINTED, and the household the 1840 size histogram draws each of them. A documented keeper is not here: their family is T-1171's draw or T-1179's convergence and was settled before this stage ran.",
@@ -2512,6 +2527,31 @@
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
   "buckets_filled": 22,
+  "house_cells_filled": 6,
+  "lodging_households_built": 15,
+  "the_two_counts_reconciled": {
+   "lodging_roofs_the_model_schedules": 52,
+   "lodging_places_built": 16,
+   "lodging_places_unbuilt": 36,
+   "built_places_holding_a_household": 15,
+   "built_places_holding_no_household": 1,
+   "ordinary_night_beds": 144,
+   "ordinary_night_beds_slept_in": 144,
+   "households_the_book_orders_in_these_two_classes": 64,
+   "houses_this_stage_has_filled": 15,
+   "houses_still_ordered_after_this_stage_s_counter": 49,
+   "built_places_with_no_household_and_why": [
+    {
+     "place": "green_tree_tavern",
+     "name": "Green Tree Tavern",
+     "beds_ordinary": 8,
+     "occupancy": 8,
+     "owed_a_lodging_household": false,
+     "why": "Its own keeper's household fills its ordinary-night figure, so this stage seats nobody here and there is no container to write."
+    }
+   ],
+   "may_anything_more_be_minted_here": "No, and neither unit is the reason on its own. A person needs a bed and a household needs a roof. Every one of the 144 ordinary night beds in the 16 built lodging places is slept in, and every built place that has room for anybody holds a lodging household — the one that holds none is full of its own keeper's family. So the 36 unbuilt roofs are the whole of the remainder: T-1209 raises them and T-1538 seats them."
+  },
   "child_buckets_filled": 3,
   "every_child_is_kin_of_a_named_keeper": true,
   "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 67 of them into beds and 10 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children of houses this stage does not keep."

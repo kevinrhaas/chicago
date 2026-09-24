@@ -125,9 +125,20 @@ def open_lots(block: dict) -> list[dict]:
 def witness_rows() -> list[dict]:
     """The clause's own evidence, re-read against the same scored term.
 
-    `_breaches` scores `class:<the nearest street's traffic class>` against the
-    clause's `avoids`. The clause avoids `class:principal`, so this asks the
+    `_breaches` scores `class:<the traffic class of the street the record FRONTS>`
+    against the clause's `avoids`. The clause avoids `class:principal`, so this asks the
     documented stables and barns it cites the question it asked the six roofs.
+
+    T-1511: a record beyond the census's frontage reach fronts no street and therefore
+    has no class, so the scored term cannot speak for it either way — `no` would read as
+    "and the clause is content with it", which is not what the policy says. Such a row is
+    reported as `fronts_no_street` and counted separately from the breaching ones. Two of
+    this clause's four evidence records are in that position: `fort_dearborn_big_barn`
+    and `fort_dearborn_wash_house`, on the reservation, 270.75 m and 420.22 m from the
+    nearest platted corridor. The policy still refuses the wash house — the clause seats
+    a roof by a `yard` setback off a block alley and there is no platted lot under it —
+    and accepts the barn under `farms_and_country_seats`, which is the `unplatted`
+    clause written for that ground.
     """
     import placement_policy_1835 as policy  # noqa: PLC0415
     clause = policy.clause(CLAUSE_ID)
@@ -142,8 +153,12 @@ def witness_rows() -> list[dict]:
             "id": rid, "standing_with_a_street": True,
             "family": row["family"], "street": row.get("street"),
             "street_class": row["class"],
-            "setback_m": round(float(row["setback_m"]), 2),
+            "setback_m": (None if row["setback_m"] is None
+                          else round(float(row["setback_m"]), 2)),
+            "fronts_no_street": row.get("street") is None,
             "breaches_its_own_clause": f"class:{row['class']}" in clause["avoids"],
+            "the_policy_refuses_it": CLAUSE_ID in {
+                cid for cid, breaches in row["breaches"].items() if breaches},
         })
     return rows
 
@@ -244,6 +259,7 @@ def build() -> dict:
 
     witness = witness_rows()
     breaching = [row for row in witness if row.get("breaches_its_own_clause")]
+    streetless = [row for row in witness if row.get("fronts_no_street")]
     ground = sum(len(entry["open_lots"]) for entry in blocks.values())
 
     return {
@@ -272,23 +288,35 @@ def build() -> dict:
             "open_lots_across_the_three_blocks": ground,
             "clause_evidence_records": len(witness),
             "clause_evidence_breaching_their_own_clause": len(breaching),
+            "clause_evidence_fronting_no_street": len(streetless),
         },
         "roofs": roofs,
         "ground": blocks,
         "clause_witness": {
             "clause": CLAUSE_ID,
             "scored_term": "class:principal in `avoids`, against the traffic class of "
-                           "the street each record stands nearest",
+                           "the street each record FRONTS — a record that fronts none "
+                           "has no class and the term cannot speak for it (T-1511); "
+                           "`the_policy_refuses_it` is the clause's whole answer, both "
+                           "terms",
             "rows": witness,
+            "clause_evidence_fronting_no_street": len(streetless),
             "reading": (
                 f"{len(breaching)} of the {len(witness)} documented buildings this "
-                f"clause cites as its evidence stand nearest a principal street, which "
+                f"clause cites as its evidence FRONTS a principal street, which "
                 f"is the position the clause says it avoids and the one term the policy "
                 f"scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a "
                 f"principal street; `recon_1835_blk_randolph_market_a1_07` is an A1 "
                 f"standing 29.28 m from one. The test that refamilies the second "
                 f"refamilies the first. That is a question about the clause, and this "
-                f"tool does not answer it."),
+                f"tool does not answer it."
+                + (f" {len(streetless)} more front no street at all, out on the "
+                   f"reservation beyond the census's frontage reach (T-1511): the "
+                   f"scored term has no class to read for them, and the clause's own "
+                   f"answer is printed beside it — it refuses "
+                   f"{sum(1 for r in streetless if r['the_policy_refuses_it'])} of them "
+                   f"on the `yard` setback it seats by, which is measured off a block "
+                   f"alley this ground does not have." if streetless else "")),
         },
         "remedies": [
             {
@@ -416,17 +444,22 @@ def render_markdown(doc: dict) -> str:
         "",
         doc["clause_witness"]["reading"],
         "",
-        "| evidence record | family | nearest street | class | setback m | breaches "
-        "its own clause |",
-        "| --- | --- | --- | --- | ---: | --- |",
+        "| evidence record | family | street it fronts | class | setback m | "
+        "scored term | the clause refuses it |",
+        "| --- | --- | --- | --- | ---: | --- | --- |",
     ]
     for row in doc["clause_witness"]["rows"]:
         if not row.get("standing_with_a_street"):
-            out.append(f"| `{row['id']}` | — | — | — | — | not standing with a street |")
+            out.append(f"| `{row['id']}` | — | — | — | — | — | "
+                       f"not standing with a street |")
             continue
-        out.append(f"| `{row['id']}` | {row['family']} | {row['street']} | "
-                   f"{row['street_class']} | {row['setback_m']:.2f} | "
-                   f"{'yes' if row['breaches_its_own_clause'] else 'no'} |")
+        term = ("cannot speak — it fronts none" if row["fronts_no_street"]
+                else "yes" if row["breaches_its_own_clause"] else "no")
+        setback = "—" if row["setback_m"] is None else f"{row['setback_m']:.2f}"
+        out.append(f"| `{row['id']}` | {row['family']} | "
+                   f"{row['street'] or '(none)'} | {row['street_class'] or '—'} | "
+                   f"{setback} | {term} | "
+                   f"{'yes' if row['the_policy_refuses_it'] else 'no'} |")
     out += ["", "## The three remedies, and what each one changes", ""]
     for remedy in doc["remedies"]:
         out += [f"### {remedy['what']}", "",

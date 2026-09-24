@@ -177,7 +177,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1174 | 680 | 27 |
 | T-1347 | 308 | 24 |
 | T-1171 | 296 | 19 |
-| T-1371 | 67 | 22 |
+| T-1371 | 82 | 28 |
 | T-1448 | 36 | 12 |
 | T-1533 | 10 | 3 |
 | T-1418 | 3 | 2 |
@@ -365,15 +365,15 @@ The households the model wants, by kind and division.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
-| `households/boarding_house/north` | 11 | 1 | 10 | 0 | T-1538 |
-| `households/boarding_house/south` | 40 | 7 | 33 | 0 | T-1538 |
-| `households/boarding_house/west` | 9 | 1 | 8 | 0 | T-1538 |
+| `households/boarding_house/north` | 11 | 1 | 10 | 5 | T-1538 |
+| `households/boarding_house/south` | 40 | 7 | 33 | 1 | T-1538 |
+| `households/boarding_house/west` | 9 | 1 | 8 | 1 | T-1538 |
 | `households/family_dwelling/north` | 121 | 11 | 110 | 26 | T-1171 |
 | `households/family_dwelling/south` | 253 | 41 | 212 | 65 | T-1171 |
 | `households/family_dwelling/west` | 108 | 7 | 101 | 33 | T-1171 |
-| `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-1538 |
-| `households/inn_tavern/south` | 7 | 1 | 6 | 0 | T-1538 |
-| `households/inn_tavern/west` | 4 | 0 | 4 | 0 | T-1538 |
+| `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-1538 |
+| `households/inn_tavern/south` | 7 | 1 | 6 | 6 | T-1538 |
+| `households/inn_tavern/west` | 4 | 0 | 4 | 1 | T-1538 |
 | `households/institutional/north` | 4 | 0 | 4 | 0 | T-1531 |
 | `households/institutional/south` | 7 | 1 | 6 | 0 | T-1531 |
 | `households/institutional/west` | 1 | 0 | 1 | 0 | T-1531 |

@@ -8,13 +8,13 @@ The companion report is `research-closing-audit-2026-09.md` (T-1241), which read
 
 ## The verdict
 
-### NO-GO for reconstruction
+### GO for reconstruction
 
 | Condition | Holds | Ticket |
 | --- | ---: | ---: |
 | **C1** — Every registered reading unit carries one of the six durable dispositions | yes | T-1143 |
 | **C2** — Every asserted unit lands on a field that exists on the record it names | yes | T-1143 |
-| **C3** — Every unresolved unit defers to a ticket that is still live, or states the evidence that would reopen it | **NO** | T-1143 |
+| **C3** — Every unresolved unit defers to a ticket that is still live, or states the evidence that would reopen it | yes | T-1143 |
 | **C4** — The resident synthesizer stands zero files from the cards it writes | yes | T-0838 |
 | **C5** — No role row claims 1 July 1835 without a source that describes it | yes | T-1145 |
 | **C6** — Every person working in the window resolves to a workplace or says why none does | yes | T-1147 |
@@ -23,9 +23,7 @@ The companion report is `research-closing-audit-2026-09.md` (T-1241), which read
 | **C9** — Every check this tree cannot gate declares why, and who owns the answer | yes | T-0714 |
 | **C10** — The People surface renders the plural roles and the plural associations | yes | T-1145 · T-1147 |
 
-**NO-GO.** These must close before a reconstruction ticket may be claimed, because a band that inherits an unaccounted reading will invent what a source already says:
-
-- **C3** — Every unresolved unit defers to a ticket that is still live, or states the evidence that would reopen it: 49 units defer to finished work (T-1143).
+**GO.** Every condition holds in the committed tree, so the reconstruction bands may be claimed. What GO means, precisely: the research this project has read is accounted for — dispositioned, landed on a structured field, or withheld with its reason on the record — so a reconstruction pass can tell an attested fact from an absent one and will not invent over either. What GO does NOT mean: that 1835 is fully known. Section 7 names what is still missing, and every reconstructed value that fills one of those gaps carries its tier, basis, seed and `replaceable_by` (T-1158) so a later reading can displace it.
 
 Reproduce: `python3 tools/report_research_signoff.py --check`.
 
@@ -34,26 +32,25 @@ Reproduce: `python3 tools/report_research_signoff.py --check`.
 | Disposition | Units |
 | --- | ---: |
 | aggregate_only | 211 |
-| asserted | 1,292 |
+| asserted | 1,348 |
 | later_only | 12,580 |
 | outside_chicago | 109 |
 | refused | 8,722 |
-| unresolved | 779 |
+| unresolved | 723 |
 
-Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,292 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
+Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,348 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
 
 An `unresolved` unit is research read and not yet spent, and it is only legitimate while the ticket it defers to is still going to happen. Read the owners column carefully — it is the most informative table in this report:
 
 | Owner | Units | State | Live |
 | --- | ---: | ---: | ---: |
-| T-1198 | 279 | split_live | yes |
+| T-1198 | 272 | split_live | yes |
 | T-1335 | 169 | open | yes |
-| T-1514 | 49 | done | **NO** |
 | T-1189 | 12 | split_live | yes |
 | T-1315 | 3 | open | yes |
 | T-1299 | 1 | claimed | yes |
 
-Not one of those owners asks for another READING. The heaviest are T-1198 (279), T-1335 (169), T-1514 (49), T-1189 (12), T-1315 (3) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **49** units defer to work that is no longer live (C3).
+Not one of those owners asks for another READING. The heaviest are T-1198 (272), T-1335 (169), T-1189 (12), T-1315 (3), T-1299 (1) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
 
 **266** further unresolved unit(s) name no ticket at all, because no ticket can settle them: they are names the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, and what is open is whether the person was in the town on 1 July 1835. Each states the document that would reopen it (T-1423):
 
@@ -284,6 +281,6 @@ None of these is a condition above, and that is a judgement rather than an overs
 
 ## 8. What this signs, and what it does not
 
-Signed **NO-GO** on 2026-09-18, by measurement over the committed tree. The signature is the ten conditions and nothing else: it says the research is accounted for, not that the town is known. Every gap in section 7 stays a gap, keeps its ticket, and will be filled — where it is filled at all — by a reconstructed value that says so on its own face.
+Signed **GO** on 2026-09-18, by measurement over the committed tree. The signature is the ten conditions and nothing else: it says the research is accounted for, not that the town is known. Every gap in section 7 stays a gap, keeps its ticket, and will be filled — where it is filled at all — by a reconstructed value that says so on its own face.
 
 If a condition later breaks, `tools/check.sh` goes red on this report and the next run must re-derive the signature. A sign-off that cannot be revoked is not a measurement.
