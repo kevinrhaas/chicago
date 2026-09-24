@@ -524,12 +524,12 @@
     {
      "bucket": "persons/female/20_29/south/lodging/none",
      "the_deal_was_dealt_against": 14,
-     "the_book_orders_now": 19
+     "the_book_orders_now": 20
     },
     {
      "bucket": "persons/female/20_29/south/lodging/trade",
      "the_deal_was_dealt_against": 7,
-     "the_book_orders_now": 2
+     "the_book_orders_now": 1
     },
     {
      "bucket": "persons/female/30_39/south/lodging/none",
@@ -559,37 +559,27 @@
     {
      "bucket": "persons/male/20_29/south/lodging/none",
      "the_deal_was_dealt_against": 24,
-     "the_book_orders_now": 34
+     "the_book_orders_now": 35
     },
     {
      "bucket": "persons/male/20_29/south/lodging/trade",
      "the_deal_was_dealt_against": 12,
-     "the_book_orders_now": 2
+     "the_book_orders_now": 1
     },
     {
      "bucket": "persons/male/30_39/south/lodging/none",
      "the_deal_was_dealt_against": 14,
-     "the_book_orders_now": 18
+     "the_book_orders_now": 20
     },
     {
      "bucket": "persons/male/30_39/south/lodging/trade",
      "the_deal_was_dealt_against": 7,
-     "the_book_orders_now": 3
+     "the_book_orders_now": 1
     },
     {
      "bucket": "persons/female/10_19/west/lodging/none",
      "the_deal_was_dealt_against": 5,
      "the_book_orders_now": 1
-    },
-    {
-     "bucket": "persons/female/20_29/west/lodging/none",
-     "the_deal_was_dealt_against": 6,
-     "the_book_orders_now": 9
-    },
-    {
-     "bucket": "persons/female/20_29/west/lodging/trade",
-     "the_deal_was_dealt_against": 3,
-     "the_book_orders_now": 0
     },
     {
      "bucket": "persons/female/30_39/west/lodging/none",
@@ -615,16 +605,6 @@
      "bucket": "persons/male/20_29/west/lodging/trade",
      "the_deal_was_dealt_against": 5,
      "the_book_orders_now": 1
-    },
-    {
-     "bucket": "persons/male/40_49/west/lodging/none",
-     "the_deal_was_dealt_against": 2,
-     "the_book_orders_now": 3
-    },
-    {
-     "bucket": "persons/male/40_49/west/lodging/trade",
-     "the_deal_was_dealt_against": 1,
-     "the_book_orders_now": 0
     }
    ],
    "gone_from_the_book": [],
@@ -781,10 +761,11 @@
    "seated": [
     "montgomery_w",
     "smith_george",
-    "wright_robert_c"
+    "whistler_john_harrison",
+    "rc_stiles_abigail"
    ],
    "minted_keeper": "rc_bardwell_esther",
-   "minted_lodgers": 3,
+   "minted_lodgers": 2,
    "occupancy_after": 7,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -808,7 +789,7 @@
     "hunter_david",
     "owen_j_v",
     "smith_william",
-    "rc_flynn_owen"
+    "wright_robert_c"
    ],
    "minted_keeper": "rc_barnes_ezra",
    "minted_lodgers": 3,
@@ -837,7 +818,7 @@
     "laird_william",
     "perry_calvin",
     "thompson_o_i",
-    "rc_gilbert_nancy"
+    "rc_flynn_owen"
    ],
    "minted_keeper": "rc_cavanagh_johanna",
    "minted_lodgers": 3,
@@ -864,7 +845,7 @@
     "latzky_john",
     "roberts_edmund",
     "trowbridge_g_g",
-    "rc_mccarthy_ellen"
+    "rc_gilbert_nancy"
    ],
    "minted_keeper": "rc_newell_lydia",
    "minted_lodgers": 3,
@@ -892,7 +873,7 @@
     "laughton_david",
     "sasoton_a_b",
     "ulrich_nicholas",
-    "rc_shea_mary"
+    "rc_mccarthy_ellen"
    ],
    "minted_keeper": "rc_gilbert_benjamin",
    "minted_lodgers": 3,
@@ -917,7 +898,7 @@
     "merrill_george_w",
     "shatttuck_walter",
     "vaughan_dow_w",
-    "rc_stiles_abigail"
+    "rc_shea_catherine"
    ],
    "minted_keeper": "rc_fitzgerald_martin",
    "minted_lodgers": 3,
@@ -1791,6 +1772,28 @@
    }
   },
   {
+   "person": "whistler_john_harrison",
+   "name": "John Harrison Whistler",
+   "household": "hh_whistler_john_harrison",
+   "file": "households/hh_whistler_john_harrison.json",
+   "drawn_solitary_by": "T-1171",
+   "drawn_solitary_in_stage": "modelled_families",
+   "trade": "none_recorded",
+   "group": "labour",
+   "place": "recon_1835_north_h1_007",
+   "place_name": "Reconstructed H1 small boarding house #007",
+   "relationship": "boarder",
+   "basis": {
+    "kind": "rule",
+    "id": "the_mix_of_the_lodging_model",
+    "note": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source that says where this person lived on 1 July 1835"
+   }
+  },
+  {
    "person": "wright_robert_c",
    "name": "Robert C Wright",
    "household": "hh_wright_robert_c",
@@ -1799,8 +1802,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_north_h1_007",
-   "place_name": "Reconstructed H1 small boarding house #007",
+   "place": "recon_1835_north_h2_022",
+   "place_name": "Reconstructed H2 medium boarding house #022",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -1887,8 +1890,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "labourer",
    "group": "labour",
-   "place": "recon_1835_north_h2_022",
-   "place_name": "Reconstructed H2 medium boarding house #022",
+   "place": "recon_1835_north_h2_028",
+   "place_name": "Reconstructed H2 medium boarding house #028",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -1909,8 +1912,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "domestic",
    "group": "labour",
-   "place": "recon_1835_north_h2_028",
-   "place_name": "Reconstructed H2 medium boarding house #028",
+   "place": "recon_1835_north_h2_030",
+   "place_name": "Reconstructed H2 medium boarding house #030",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -1997,8 +2000,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "domestic",
    "group": "labour",
-   "place": "recon_1835_north_h2_030",
-   "place_name": "Reconstructed H2 medium boarding house #030",
+   "place": "recon_1835_north_h2_045",
+   "place_name": "Reconstructed H2 medium boarding house #045",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2011,16 +2014,16 @@
    }
   },
   {
-   "person": "rc_shea_mary",
-   "name": "Mary Shea",
-   "household": "hh_rc_shea_mary",
-   "file": "reconstructed_trades/hh_rc_shea_mary.json",
+   "person": "rc_shea_catherine",
+   "name": "Catherine Shea",
+   "household": "hh_rc_shea_catherine",
+   "file": "reconstructed_trades/hh_rc_shea_catherine.json",
    "drawn_solitary_by": "T-1173",
    "drawn_solitary_in_stage": "trade_households",
    "trade": "domestic",
    "group": "labour",
-   "place": "recon_1835_north_h2_045",
-   "place_name": "Reconstructed H2 medium boarding house #045",
+   "place": "recon_1835_west_006",
+   "place_name": "Reconstructed H1 small boarding house #005",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2063,8 +2066,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "domestic",
    "group": "labour",
-   "place": "recon_1835_west_006",
-   "place_name": "Reconstructed H1 small boarding house #005",
+   "place": "recon_1835_north_h1_007",
+   "place_name": "Reconstructed H1 small boarding house #007",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2100,7 +2103,7 @@
    "id": "hh_lodging_recon_1835_north_h1_007",
    "file": "lodgers/hh_lodging_recon_1835_north_h1_007.json",
    "place": "recon_1835_north_h1_007",
-   "persons": 4
+   "persons": 3
   },
   {
    "id": "hh_lodging_recon_1835_north_h2_022",
@@ -2161,7 +2164,7 @@
   "persons/female/10_19/north/lodging/none": 3,
   "persons/female/10_19/south/lodging/none": 4,
   "persons/female/10_19/west/lodging/none": 1,
-  "persons/female/20_29/north/lodging/none": 3,
+  "persons/female/20_29/north/lodging/none": 2,
   "persons/female/20_29/north/lodging/trade": 1,
   "persons/female/20_29/south/lodging/none": 5,
   "persons/female/20_29/west/lodging/none": 1,
@@ -2331,8 +2334,8 @@
   "ordinary_night_beds": 144,
   "crowded_beds": 462,
   "occupied_before_this_stage": 30,
-  "seated_from_the_layer": 47,
-  "minted_here": 56,
+  "seated_from_the_layer": 48,
+  "minted_here": 55,
   "minted_keepers": 6,
   "occupied_after_this_stage": 133,
   "ordinary_night_beds_still_empty": 11,
@@ -2340,6 +2343,6 @@
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
   "buckets_filled": 20,
-  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 56 of them; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children who are keepers' families rather than boarders."
+  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 55 of them; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children who are keepers' families rather than boarders."
  }
 }

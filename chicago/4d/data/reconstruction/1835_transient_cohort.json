@@ -31,9 +31,9 @@
       "figures": [
         {
           "figure": "residents_on_1_july_1835",
-          "low": 2353,
+          "low": 2363,
           "high": 3265,
-          "point": 2536,
+          "point": 2543,
           "is_a_count": false,
           "method": "CARRIED, not derived. The town model's own reading, repeated here because the transient bracket is stated against it and a reader must not have to hold two files open to see what it is a fraction of.",
           "comparanda": [
@@ -49,7 +49,7 @@
           "high": 3000,
           "point": null,
           "is_a_count": false,
-          "method": "The Chicago American of 13 June 1835, eighteen days before the scene: the actual population 'we cannot estimate with any degree of accuracy, but it is now supposed to be between 2500 and 3000'. An estimate that says it is one. The town model's point reading of 2,536 — built five years later out of a November census and an arrival distribution, and knowing nothing of this sentence — falls inside it.",
+          "method": "The Chicago American of 13 June 1835, eighteen days before the scene: the actual population 'we cannot estimate with any degree of accuracy, but it is now supposed to be between 2500 and 3000'. An estimate that says it is one. The town model's point reading of 2,543 — built five years later out of a November census and an arrival distribution, and knowing nothing of this sentence — falls inside it.",
           "comparanda": [
             "chicago_american_1835_06_13"
           ],
@@ -122,7 +122,7 @@
           "high": 900,
           "point": null,
           "is_a_count": false,
-          "method": "FLOOR: 7.56% — the LOWER of the two 1843 rates above, the one Chicago's own enumerator printed — applied to this model's resident point of 2,536, which gives 192. The higher reading of the same census would give 523. It is a floor and not an estimate because 1 July 1835 is not an ordinary day: the federal land sale closed four days earlier, the navigation season was at its height, and the same enumerator says the crowd of 1835 inflated the town's own reckoning of itself by thousands. CEILING: 900, the most the American's 'some hundreds more' will carry, written in the town in the month itself. NO POINT READING: see the section's open questions — a draining sale crowd and a landing immigrant stream cross on this day in opposite directions, no committed source measures either, and a midpoint would be a number nobody could defend dressed as an answer.",
+          "method": "FLOOR: 7.56% — the LOWER of the two 1843 rates above, the one Chicago's own enumerator printed — applied to this model's resident point of 2,543, which gives 192. The higher reading of the same census would give 524. It is a floor and not an estimate because 1 July 1835 is not an ordinary day: the federal land sale closed four days earlier, the navigation season was at its height, and the same enumerator says the crowd of 1835 inflated the town's own reckoning of itself by thousands. CEILING: 900, the most the American's 'some hundreds more' will carry, written in the town in the month itself. NO POINT READING: see the section's open questions — a draining sale crowd and a landing immigrant stream cross on this day in opposite directions, no committed source measures either, and a midpoint would be a number nobody could defend dressed as an answer.",
           "comparanda": [
             "chicago_american_1835_06_13",
             "fergus_chicago_directory_1843"
@@ -137,7 +137,7 @@
       "not_claiming": "This section does not say that any named person was a transient, and the land-sale purchasers it counts are a measurement of the register rather than a roll of the crowd.",
       "open_questions": [
         "This model declines a point reading, and that is a refusal rather than an omission. The sale closed on 27 June and the Democrat of 1 July says it 'has passed', so the sale crowd is leaving; the Marine Journal has vessels in with passengers on 28 and 29 June and again on 2 and 3 July, so the immigrant stream is still landing. Nothing committed measures the rate of either, and the answer is a band.",
-        "The two readings of the same 1843 census disagree. The printed table carries 533 transient persons INSIDE a total of 7,580; Norris's own remarks on that census say every person not permanently residing was excluded and that including them would have made the town 'undoubtedly 8,500'. Whether the 533 and the ~920 are the same people counted twice or two different exclusions is not settled here, and the second reading would put the floor at 523 instead of 192.",
+        "The two readings of the same 1843 census disagree. The printed table carries 533 transient persons INSIDE a total of 7,580; Norris's own remarks on that census say every person not permanently residing was excluded and that including them would have made the town 'undoubtedly 8,500'. Whether the 533 and the ~920 are the same people counted twice or two different exclusions is not settled here, and the second reading would put the floor at 524 instead of 192.",
         "The floor derived from the 1843 rate sits just below the least value the American's phrase can carry (192 against 200). Two arguments that share no evidence landing that close together is the best corroboration this model has, and it is not a confirmation: both could be low.",
         "The register's residence column reads UNKNOWN on every June 1835 row, so a purchaser the crosswalk cannot place is a purchaser this project cannot name at Chicago — never a purchaser shown to have come from elsewhere."
       ],
@@ -148,7 +148,7 @@
           "rows": [
             {
               "reading": "twice the 1843 rate",
-              "persons": 384,
+              "persons": 385,
               "argument": "1 July 1835 is a land-sale week and 1 August 1843 was not, so the measured rate is doubled. The multiplier is invented and nothing in the record sets it."
             },
             {

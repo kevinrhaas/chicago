@@ -78,20 +78,20 @@
   },
   "readmitted": {
    "R1_in_window_uncertain": 725,
-   "R2_in_window_single_source": 120,
+   "R2_in_window_single_source": 62,
    "R3_1834_return_or_muster": 20,
    "R5_later_only_backprojectable": 39
   },
   "withheld": {
    "R1_in_window_uncertain": 79,
-   "R2_in_window_single_source": 189,
+   "R2_in_window_single_source": 247,
    "R3_1834_return_or_muster": 9,
    "R5_later_only_backprojectable": 14
   },
   "presence_ruled_present": 688,
   "presence_ruled_absent": 37,
-  "cards_minted": 179,
-  "minted_present": 160
+  "cards_minted": 121,
+  "minted_present": 109
  },
  "the_tension_this_leaves": {
   "what": "The order book (T-1166) models 643 households in the town on 1 July 1835 and the layer carries 436 present today. Ruling 787 more cards present takes that to 1,223, which is nearly twice the model.",
@@ -20927,90 +20927,6 @@
    }
   },
   {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_george_beaubien",
-   "person_id": "george_beaubien",
-   "name_as_read": "George Beaubien",
-   "name": "George Beaubien",
-   "file": "readmitted/hh_george_beaubien.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-05-22",
-   "dated_evidence_read_as": "1833-05-22",
-   "present_on_scene_date": {
-    "value": "absent",
-    "persistence": 0.8667,
-    "years_before_the_scene": 2.1082,
-    "seed": "hh_george_beaubien:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_3_mother#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_monique_nadeau",
-   "person_id": "monique_nadeau",
-   "name_as_read": "Monique Nadeau",
-   "name": "Monique Nadeau",
-   "file": "readmitted/hh_monique_nadeau.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-05-22",
-   "dated_evidence_read_as": "1833-05-22",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8667,
-    "years_before_the_scene": 2.1082,
-    "seed": "hh_monique_nadeau:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_joseph_mayo",
-   "person_id": "joseph_mayo",
-   "name_as_read": "Joseph",
-   "name": "Joseph Mayo",
-   "file": "readmitted/hh_joseph_mayo.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-05-26",
-   "dated_evidence_read_as": "1833-05-26",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8674,
-    "years_before_the_scene": 2.0972,
-    "seed": "hh_joseph_mayo:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_2_father#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_michel_mayo",
-   "person_id": "michel_mayo",
-   "name_as_read": "Michel Mayo",
-   "name": "Michel Mayo",
-   "file": "readmitted/hh_michel_mayo.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-05-26",
-   "dated_evidence_read_as": "1833-05-26",
-   "present_on_scene_date": {
-    "value": "absent",
-    "persistence": 0.8674,
-    "years_before_the_scene": 2.0972,
-    "seed": "hh_michel_mayo:persistence"
-   }
-  },
-  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_3_mother#0",
    "class": "R2_in_window_single_source",
    "rule": "readmission_r2_single_source_read_name",
@@ -21029,153 +20945,6 @@
     "persistence": 0.8674,
     "years_before_the_scene": 2.0972,
     "seed": "hh_marguerite_malore:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_augustin_pottier",
-   "person_id": "augustin_pottier",
-   "name_as_read": "Augustin Pottier",
-   "name": "Augustin Pottier",
-   "file": "readmitted/hh_augustin_pottier.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-06-03",
-   "dated_evidence_read_as": "1833-06-03",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8687,
-    "years_before_the_scene": 2.0753,
-    "seed": "hh_augustin_pottier:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_2_father#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_jean_pottier",
-   "person_id": "jean_pottier",
-   "name_as_read": "Jean Potier",
-   "name": "Jean Pottier",
-   "file": "readmitted/hh_jean_pottier.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-06-03",
-   "dated_evidence_read_as": "1833-06-03",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8687,
-    "years_before_the_scene": 2.0753,
-    "seed": "hh_jean_pottier:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_3_mother#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_victoire_madera",
-   "person_id": "victoire_madera",
-   "name_as_read": "Victoire Madera",
-   "name": "Victoire Madera",
-   "file": "readmitted/hh_victoire_madera.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-06-03",
-   "dated_evidence_read_as": "1833-06-03",
-   "present_on_scene_date": {
-    "value": "absent",
-    "persistence": 0.8687,
-    "years_before_the_scene": 2.0753,
-    "seed": "hh_victoire_madera:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_4_godfather#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_augustin_bonn",
-   "person_id": "augustin_bonn",
-   "name_as_read": "Augustin Bonné",
-   "name": "Augustin Bonn",
-   "file": "readmitted/hh_augustin_bonn.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-06-03",
-   "dated_evidence_read_as": "1833-06-03",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8687,
-    "years_before_the_scene": 2.0753,
-    "seed": "hh_augustin_bonn:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_4_sponsor#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_john_whistler",
-   "person_id": "john_whistler",
-   "name_as_read": "John Whistler",
-   "name": "John Whistler",
-   "file": "readmitted/hh_john_whistler.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-06-05",
-   "dated_evidence_read_as": "1833-06-05",
-   "present_on_scene_date": {
-    "value": "absent",
-    "persistence": 0.869,
-    "years_before_the_scene": 2.0699,
-    "seed": "hh_john_whistler:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_5_sponsor#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_esther_bailly",
-   "person_id": "esther_bailly",
-   "name_as_read": "Esther Bailly",
-   "name": "Esther Bailly",
-   "file": "readmitted/hh_esther_bailly.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-06-05",
-   "dated_evidence_read_as": "1833-06-05",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.869,
-    "years_before_the_scene": 2.0699,
-    "seed": "hh_esther_bailly:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_05_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_marguerite_juneau",
-   "person_id": "marguerite_juneau",
-   "name_as_read": "Marguerit",
-   "name": "Marguerite Juneau",
-   "file": "readmitted/hh_marguerite_juneau.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-06-05",
-   "dated_evidence_read_as": "1833-06-05",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.869,
-    "years_before_the_scene": 2.0699,
-    "seed": "hh_marguerite_juneau:persistence"
    }
   },
   {
@@ -21200,27 +20969,6 @@
    }
   },
   {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_john_david_dird",
-   "person_id": "john_david_dird",
-   "name_as_read": "John David",
-   "name": "John David Dird",
-   "file": "readmitted/hh_john_david_dird.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-06-05",
-   "dated_evidence_read_as": "1833-06-05",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.869,
-    "years_before_the_scene": 2.0699,
-    "seed": "hh_john_david_dird:persistence"
-   }
-  },
-  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_2_father#0",
    "class": "R2_in_window_single_source",
    "rule": "readmission_r2_single_source_read_name",
@@ -21242,69 +20990,6 @@
    }
   },
   {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_mary_wode",
-   "person_id": "mary_wode",
-   "name_as_read": "Mary",
-   "name": "Mary Wode",
-   "file": "readmitted/hh_mary_wode.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-07-14",
-   "dated_evidence_read_as": "1833-07-14",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8753,
-    "years_before_the_scene": 1.9631,
-    "seed": "hh_mary_wode:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_2_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_catherine_wode",
-   "person_id": "catherine_wode",
-   "name_as_read": "Catherine",
-   "name": "Catherine Wode",
-   "file": "readmitted/hh_catherine_wode.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-07-14",
-   "dated_evidence_read_as": "1833-07-14",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8753,
-    "years_before_the_scene": 1.9631,
-    "seed": "hh_catherine_wode:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_3_father#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_john_wode",
-   "person_id": "john_wode",
-   "name_as_read": "John Wode",
-   "name": "John Wode",
-   "file": "readmitted/hh_john_wode.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-07-14",
-   "dated_evidence_read_as": "1833-07-14",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8753,
-    "years_before_the_scene": 1.9631,
-    "seed": "hh_john_wode:persistence"
-   }
-  },
-  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_4_mother#0",
    "class": "R2_in_window_single_source",
    "rule": "readmission_r2_single_source_read_name",
@@ -21323,48 +21008,6 @@
     "persistence": 0.8753,
     "years_before_the_scene": 1.9631,
     "seed": "hh_mariana_kamenwith:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_5_sponsor#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_jacob_jolly",
-   "person_id": "jacob_jolly",
-   "name_as_read": "Jacob Jolly",
-   "name": "Jacob Jolly",
-   "file": "readmitted/hh_jacob_jolly.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-07-14",
-   "dated_evidence_read_as": "1833-07-14",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8753,
-    "years_before_the_scene": 1.9631,
-    "seed": "hh_jacob_jolly:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_6_sponsor#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_catherine_harrington",
-   "person_id": "catherine_harrington",
-   "name_as_read": "Catherine Harrington",
-   "name": "Catherine Harrington",
-   "file": "readmitted/hh_catherine_harrington.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-07-14",
-   "dated_evidence_read_as": "1833-07-14",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8753,
-    "years_before_the_scene": 1.9631,
-    "seed": "hh_catherine_harrington:persistence"
    }
   },
   {
@@ -21431,48 +21074,6 @@
    }
   },
   {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_louis_bouchard",
-   "person_id": "louis_bouchard",
-   "name_as_read": "Louis",
-   "name": "Louis Bouchard",
-   "file": "readmitted/hh_louis_bouchard.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-08-18",
-   "dated_evidence_read_as": "1833-08-18",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.881,
-    "years_before_the_scene": 1.8673,
-    "seed": "hh_louis_bouchard:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_2_father#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_andrew_bouchard",
-   "person_id": "andrew_bouchard",
-   "name_as_read": "Andrew [Bouchard]",
-   "name": "Andrew Bouchard",
-   "file": "readmitted/hh_andrew_bouchard.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-08-18",
-   "dated_evidence_read_as": "1833-08-18",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.881,
-    "years_before_the_scene": 1.8673,
-    "seed": "hh_andrew_bouchard:persistence"
-   }
-  },
-  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_1_child#0",
    "class": "R2_in_window_single_source",
    "rule": "readmission_r2_single_source_read_name",
@@ -21491,153 +21092,6 @@
     "persistence": 0.881,
     "years_before_the_scene": 1.8673,
     "seed": "hh_isabelle_bouchard:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_fran_ois_laframboise",
-   "person_id": "fran_ois_laframboise",
-   "name_as_read": "François Lafambise",
-   "name": "Fran Ois Laframboise",
-   "file": "readmitted/hh_fran_ois_laframboise.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-08",
-   "dated_evidence_read_as": "1833-08-01",
-   "present_on_scene_date": {
-    "value": "absent",
-    "persistence": 0.8782,
-    "years_before_the_scene": 1.9138,
-    "seed": "hh_fran_ois_laframboise:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_3_mother#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_jacquette_peltier",
-   "person_id": "jacquette_peltier",
-   "name_as_read": "Jacquet Peltier",
-   "name": "Jacquette Peltier",
-   "file": "readmitted/hh_jacquette_peltier.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-08",
-   "dated_evidence_read_as": "1833-08-01",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8782,
-    "years_before_the_scene": 1.9138,
-    "seed": "hh_jacquette_peltier:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_jean_baptiste_aspam",
-   "person_id": "jean_baptiste_aspam",
-   "name_as_read": "Jean Baptiste",
-   "name": "Jean Baptiste Aspam",
-   "file": "readmitted/hh_jean_baptiste_aspam.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-10",
-   "dated_evidence_read_as": "1833-10-01",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8883,
-    "years_before_the_scene": 1.7468,
-    "seed": "hh_jean_baptiste_aspam:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_2_father#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_antoine_aspam",
-   "person_id": "antoine_aspam",
-   "name_as_read": "Antoine Aspam",
-   "name": "Antoine Aspam",
-   "file": "readmitted/hh_antoine_aspam.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-10",
-   "dated_evidence_read_as": "1833-10-01",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8883,
-    "years_before_the_scene": 1.7468,
-    "seed": "hh_antoine_aspam:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_catherine_gagnier",
-   "person_id": "catherine_gagnier",
-   "name_as_read": "Catherine",
-   "name": "Catherine Gagnier",
-   "file": "readmitted/hh_catherine_gagnier.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-10-04",
-   "dated_evidence_read_as": "1833-10-04",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8887,
-    "years_before_the_scene": 1.7386,
-    "seed": "hh_catherine_gagnier:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_2_father#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_alexis_gagnier",
-   "person_id": "alexis_gagnier",
-   "name_as_read": "Alexis Gagnier",
-   "name": "Alexis Gagnier",
-   "file": "readmitted/hh_alexis_gagnier.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-10-04",
-   "dated_evidence_read_as": "1833-10-04",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8887,
-    "years_before_the_scene": 1.7386,
-    "seed": "hh_alexis_gagnier:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_susanne_tranche",
-   "person_id": "susanne_tranche",
-   "name_as_read": "Susanne",
-   "name": "Susanne Tranche",
-   "file": "readmitted/hh_susanne_tranche.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-10-08",
-   "dated_evidence_read_as": "1833-10-08",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8894,
-    "years_before_the_scene": 1.7276,
-    "seed": "hh_susanne_tranche:persistence"
    }
   },
   {
@@ -21662,132 +21116,6 @@
    }
   },
   {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_4_godfather#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_jean_baptiste_lavigne",
-   "person_id": "jean_baptiste_lavigne",
-   "name_as_read": "Jean Baptiste Lavigne",
-   "name": "Jean Baptiste Lavigne",
-   "file": "readmitted/hh_jean_baptiste_lavigne.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-10-08",
-   "dated_evidence_read_as": "1833-10-08",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8894,
-    "years_before_the_scene": 1.7276,
-    "seed": "hh_jean_baptiste_lavigne:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_magdeleine_aspam",
-   "person_id": "magdeleine_aspam",
-   "name_as_read": "Magdelene",
-   "name": "Magdeleine Aspam",
-   "file": "readmitted/hh_magdeleine_aspam.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-10-08",
-   "dated_evidence_read_as": "1833-10-08",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8894,
-    "years_before_the_scene": 1.7276,
-    "seed": "hh_magdeleine_aspam:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_susanne_vieaux",
-   "person_id": "susanne_vieaux",
-   "name_as_read": "Susanne",
-   "name": "Susanne Vieaux",
-   "file": "readmitted/hh_susanne_vieaux.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-10-10",
-   "dated_evidence_read_as": "1833-10-10",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8897,
-    "years_before_the_scene": 1.7221,
-    "seed": "hh_susanne_vieaux:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_12_4_godfather#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_joseph_pallet",
-   "person_id": "joseph_pallet",
-   "name_as_read": "Joseph Pallet",
-   "name": "Joseph Pallet",
-   "file": "readmitted/hh_joseph_pallet.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-06-16",
-   "dated_evidence_read_as": "1834-06-16",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9319,
-    "years_before_the_scene": 1.0404,
-    "seed": "hh_joseph_pallet:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_joseph_welsh",
-   "person_id": "joseph_welsh",
-   "name_as_read": "Joseph",
-   "name": "Joseph Welsh",
-   "file": "readmitted/hh_joseph_welsh.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-06-29",
-   "dated_evidence_read_as": "1834-06-29",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9341,
-    "years_before_the_scene": 1.0048,
-    "seed": "hh_joseph_welsh:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_3_mother#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_marie_louise_ouilmette",
-   "person_id": "marie_louise_ouilmette",
-   "name_as_read": "Marie Louise Wimette",
-   "name": "Marie Louise Ouilmette",
-   "file": "readmitted/hh_marie_louise_ouilmette.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-06-29",
-   "dated_evidence_read_as": "1834-06-29",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9341,
-    "years_before_the_scene": 1.0048,
-    "seed": "hh_marie_louise_ouilmette:persistence"
-   }
-  },
-  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_4_godfather#0",
    "class": "R2_in_window_single_source",
    "rule": "readmission_r2_single_source_read_name",
@@ -21806,90 +21134,6 @@
     "persistence": 0.9341,
     "years_before_the_scene": 1.0048,
     "seed": "hh_n_thob:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_5_godmother#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_louise_caroline_choulet",
-   "person_id": "louise_caroline_choulet",
-   "name_as_read": "Louise Caroline Choulet",
-   "name": "Louise Caroline Choulet",
-   "file": "readmitted/hh_louise_caroline_choulet.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-06-29",
-   "dated_evidence_read_as": "1834-06-29",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9341,
-    "years_before_the_scene": 1.0048,
-    "seed": "hh_louise_caroline_choulet:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_17_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_catharine_welsh",
-   "person_id": "catharine_welsh",
-   "name_as_read": "Cattarine",
-   "name": "Catharine Welsh",
-   "file": "readmitted/hh_catharine_welsh.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-06-29",
-   "dated_evidence_read_as": "1834-06-29",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9341,
-    "years_before_the_scene": 1.0048,
-    "seed": "hh_catharine_welsh:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_17_5_sponsor#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_claudia_pierrette_choulet",
-   "person_id": "claudia_pierrette_choulet",
-   "name_as_read": "Claudia Pierrette Choulet",
-   "name": "Claudia Pierrette Choulet",
-   "file": "readmitted/hh_claudia_pierrette_choulet.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-06-29",
-   "dated_evidence_read_as": "1834-06-29",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9341,
-    "years_before_the_scene": 1.0048,
-    "seed": "hh_claudia_pierrette_choulet:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_18_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_cicely_wagon",
-   "person_id": "cicely_wagon",
-   "name_as_read": "Cicely",
-   "name": "Cicely Wagon",
-   "file": "readmitted/hh_cicely_wagon.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-07-16",
-   "dated_evidence_read_as": "1834-07-16",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9371,
-    "years_before_the_scene": 0.9583,
-    "seed": "hh_cicely_wagon:persistence"
    }
   },
   {
@@ -21914,111 +21158,6 @@
    }
   },
   {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_18_3_mother#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_mary_duggan",
-   "person_id": "mary_duggan",
-   "name_as_read": "Mary Duggan",
-   "name": "Mary Duggan",
-   "file": "readmitted/hh_mary_duggan.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-07-16",
-   "dated_evidence_read_as": "1834-07-16",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9371,
-    "years_before_the_scene": 0.9583,
-    "seed": "hh_mary_duggan:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_19_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_el_onore_beaubien",
-   "person_id": "el_onore_beaubien",
-   "name_as_read": "Eléonore Beaubien",
-   "name": "El Onore Beaubien",
-   "file": "readmitted/hh_el_onore_beaubien.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-08-06",
-   "dated_evidence_read_as": "1834-08-06",
-   "present_on_scene_date": {
-    "value": "absent",
-    "persistence": 0.9407,
-    "years_before_the_scene": 0.9008,
-    "seed": "hh_el_onore_beaubien:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_elisabeth_coslet",
-   "person_id": "elisabeth_coslet",
-   "name_as_read": "Elisabeth",
-   "name": "Elisabeth Coslet",
-   "file": "readmitted/hh_elisabeth_coslet.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-12-10",
-   "dated_evidence_read_as": "1834-12-10",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.963,
-    "years_before_the_scene": 0.5558,
-    "seed": "hh_elisabeth_coslet:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_2_father#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_godfrey_coslet",
-   "person_id": "godfrey_coslet",
-   "name_as_read": "Godfrey Coslet",
-   "name": "Godfrey Coslet",
-   "file": "readmitted/hh_godfrey_coslet.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-12-10",
-   "dated_evidence_read_as": "1834-12-10",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.963,
-    "years_before_the_scene": 0.5558,
-    "seed": "hh_godfrey_coslet:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_3_mother#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_marian_eberling",
-   "person_id": "marian_eberling",
-   "name_as_read": "Marian Eberling",
-   "name": "Marian Eberling",
-   "file": "readmitted/hh_marian_eberling.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-12-10",
-   "dated_evidence_read_as": "1834-12-10",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.963,
-    "years_before_the_scene": 0.5558,
-    "seed": "hh_marian_eberling:persistence"
-   }
-  },
-  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_4_godmother#0",
    "class": "R2_in_window_single_source",
    "rule": "readmission_r2_single_source_read_name",
@@ -22037,132 +21176,6 @@
     "persistence": 0.963,
     "years_before_the_scene": 0.5558,
     "seed": "hh_marian_mouch:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_susan_beaubien",
-   "person_id": "susan_beaubien",
-   "name_as_read": "Susan",
-   "name": "Susan Beaubien",
-   "file": "readmitted/hh_susan_beaubien.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-12-24",
-   "dated_evidence_read_as": "1834-12-24",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9655,
-    "years_before_the_scene": 0.5175,
-    "seed": "hh_susan_beaubien:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_3_mother#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_lucy_kennedy",
-   "person_id": "lucy_kennedy",
-   "name_as_read": "Lucy Kennedy",
-   "name": "Lucy Kennedy",
-   "file": "readmitted/hh_lucy_kennedy.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-12-24",
-   "dated_evidence_read_as": "1834-12-24",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9655,
-    "years_before_the_scene": 0.5175,
-    "seed": "hh_lucy_kennedy:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_22_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_robert_jerome_beaubien",
-   "person_id": "robert_jerome_beaubien",
-   "name_as_read": "Robert Jerome Beaubien",
-   "name": "Robert Jerome Beaubien",
-   "file": "readmitted/hh_robert_jerome_beaubien.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-12-22",
-   "dated_evidence_read_as": "1834-12-22",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9651,
-    "years_before_the_scene": 0.5229,
-    "seed": "hh_robert_jerome_beaubien:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_22_5_godmother#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_gwinthlean_whistler",
-   "person_id": "gwinthlean_whistler",
-   "name_as_read": "Gwinthlean Whistler",
-   "name": "Gwinthlean Whistler",
-   "file": "readmitted/hh_gwinthlean_whistler.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-12-22",
-   "dated_evidence_read_as": "1834-12-22",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9651,
-    "years_before_the_scene": 0.5229,
-    "seed": "hh_gwinthlean_whistler:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_noel_bourassa",
-   "person_id": "noel_bourassa",
-   "name_as_read": "Noel Bourassa",
-   "name": "Noel Bourassa",
-   "file": "readmitted/hh_noel_bourassa.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-12-29",
-   "dated_evidence_read_as": "1834-12-29",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9664,
-    "years_before_the_scene": 0.5038,
-    "seed": "hh_noel_bourassa:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_2_father#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_l_on_bourassa",
-   "person_id": "l_on_bourassa",
-   "name_as_read": "Léon Bourassa",
-   "name": "L. On Bourassa",
-   "file": "readmitted/hh_l_on_bourassa.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1834-12-29",
-   "dated_evidence_read_as": "1834-12-29",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9664,
-    "years_before_the_scene": 0.5038,
-    "seed": "hh_l_on_bourassa:persistence"
    }
   },
   {
@@ -22208,153 +21221,6 @@
    }
   },
   {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_mary_elisabeth_forester",
-   "person_id": "mary_elisabeth_forester",
-   "name_as_read": "Mary Elisabeth",
-   "name": "Mary Elisabeth Forester",
-   "file": "readmitted/hh_mary_elisabeth_forester.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1835-02-23",
-   "dated_evidence_read_as": "1835-02-23",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9765,
-    "years_before_the_scene": 0.3505,
-    "seed": "hh_mary_elisabeth_forester:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_2_father#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_thomas_forester",
-   "person_id": "thomas_forester",
-   "name_as_read": "Thomas Forester",
-   "name": "Thomas Forester",
-   "file": "readmitted/hh_thomas_forester.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1835-02-23",
-   "dated_evidence_read_as": "1835-02-23",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9765,
-    "years_before_the_scene": 0.3505,
-    "seed": "hh_thomas_forester:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_3_mother#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_bridget_finegan",
-   "person_id": "bridget_finegan",
-   "name_as_read": "Brigitt Finegan",
-   "name": "Bridget Finegan",
-   "file": "readmitted/hh_bridget_finegan.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1835-02-23",
-   "dated_evidence_read_as": "1835-02-23",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9765,
-    "years_before_the_scene": 0.3505,
-    "seed": "hh_bridget_finegan:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_catherine_henrietta_bousque",
-   "person_id": "catherine_henrietta_bousque",
-   "name_as_read": "Catherine Henrietta Bousque",
-   "name": "Catherine Henrietta Bousque",
-   "file": "readmitted/hh_catherine_henrietta_bousque.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1835-04-05",
-   "dated_evidence_read_as": "1835-04-05",
-   "present_on_scene_date": {
-    "value": "absent",
-    "persistence": 0.984,
-    "years_before_the_scene": 0.2382,
-    "seed": "hh_catherine_henrietta_bousque:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_2_father#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_bernard_bousque",
-   "person_id": "bernard_bousque",
-   "name_as_read": "Bernard Bousque",
-   "name": "Bernard Bousque",
-   "file": "readmitted/hh_bernard_bousque.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1835-04-05",
-   "dated_evidence_read_as": "1835-04-05",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.984,
-    "years_before_the_scene": 0.2382,
-    "seed": "hh_bernard_bousque:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_3_mother#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_catherine_preman",
-   "person_id": "catherine_preman",
-   "name_as_read": "Catherine Preman",
-   "name": "Catherine Preman",
-   "file": "readmitted/hh_catherine_preman.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1835-04-05",
-   "dated_evidence_read_as": "1835-04-05",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.984,
-    "years_before_the_scene": 0.2382,
-    "seed": "hh_catherine_preman:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_4_sponsor#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_henry_stone",
-   "person_id": "henry_stone",
-   "name_as_read": "Henry Stone",
-   "name": "Henry Stone",
-   "file": "readmitted/hh_henry_stone.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1835-04-05",
-   "dated_evidence_read_as": "1835-04-05",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.984,
-    "years_before_the_scene": 0.2382,
-    "seed": "hh_henry_stone:persistence"
-   }
-  },
-  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_5_sponsor#0",
    "class": "R2_in_window_single_source",
    "rule": "readmission_r2_single_source_read_name",
@@ -22373,90 +21239,6 @@
     "persistence": 0.984,
     "years_before_the_scene": 0.2382,
     "seed": "hh_catherine_debert:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_03_1_subject#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_genevi_ve_medera",
-   "person_id": "genevi_ve_medera",
-   "name_as_read": "Geneviève Medera",
-   "name": "Genevi Ve Medera",
-   "file": "readmitted/hh_genevi_ve_medera.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1835-06-06",
-   "dated_evidence_read_as": "1835-06-06",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9954,
-    "years_before_the_scene": 0.0684,
-    "seed": "hh_genevi_ve_medera:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_03_3_witness#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_l_chevalier",
-   "person_id": "l_chevalier",
-   "name_as_read": "L. Chevalier",
-   "name": "L. Chevalier",
-   "file": "readmitted/hh_l_chevalier.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1835-06-06",
-   "dated_evidence_read_as": "1835-06-06",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9954,
-    "years_before_the_scene": 0.0684,
-    "seed": "hh_l_chevalier:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_jean_baptiste_bourassa",
-   "person_id": "jean_baptiste_bourassa",
-   "name_as_read": "Jean Baptiste",
-   "name": "Jean Baptiste Bourassa",
-   "file": "readmitted/hh_jean_baptiste_bourassa.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1835-06-29",
-   "dated_evidence_read_as": "1835-06-29",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9996,
-    "years_before_the_scene": 0.0055,
-    "seed": "hh_jean_baptiste_bourassa:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_4_godfather#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_jean_baptiste_derocher",
-   "person_id": "jean_baptiste_derocher",
-   "name_as_read": "Jean Baptiste Derocher",
-   "name": "Jean Baptiste Derocher",
-   "file": "readmitted/hh_jean_baptiste_derocher.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1835-06-29",
-   "dated_evidence_read_as": "1835-06-29",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9996,
-    "years_before_the_scene": 0.0055,
-    "seed": "hh_jean_baptiste_derocher:persistence"
    }
   },
   {
@@ -24779,9 +23561,37 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "George Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Monique Nadeau",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_5_godmother#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Archange Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Michel Mayo",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24796,6 +23606,34 @@
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_5_sponsor#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Archange Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Augustin Pottier",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Potier",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Victoire Madera",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_4_godfather#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Augustin Bonné",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24821,9 +23659,37 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_4_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "John Whistler",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_5_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Esther Bailly",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_05_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Marguerit",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_05_5_sponsor#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Elozina[?] Bailly",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "John David",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24852,6 +23718,55 @@
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_08_5_godmother#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Monique Nadeau",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Mary",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_2_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Catherine",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_3_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "John Wode",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_5_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jacob Jolly",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_6_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Catherine Harrington",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Louis",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Andrew [Bouchard]",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24891,6 +23806,13 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "François Lafambise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_2_father#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Joseph Laframboise",
@@ -24898,9 +23820,30 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jacquet Peltier",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_5_godmother#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Josette Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Baptiste",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Antoine Aspam",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24915,6 +23858,20 @@
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_5_sponsor#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Monique Nodeau",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Catherine",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Alexis Gagnier",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24940,6 +23897,13 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Susanne",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_3_mother#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Josette Aspam",
@@ -24947,9 +23911,23 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_4_godfather#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Baptiste Lavigne",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_5_godmother#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Monique Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Magdelene",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24971,6 +23949,13 @@
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_5_godmother#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Josette Aspam",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Susanne",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -25024,6 +24009,13 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_12_4_godfather#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph Pallet",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_14_1_child#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Alexander",
@@ -25059,9 +24051,37 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_2_father#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "John Welsh",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Marie Louise Wimette",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Louise Caroline Choulet",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_17_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Cattarine",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -25080,6 +24100,34 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_17_5_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Claudia Pierrette Choulet",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_18_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Cicely",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_18_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Mary Duggan",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_19_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Eléonore Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_19_3_mother#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Monique Nodou",
@@ -25094,9 +24142,44 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Elisabeth",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Godfrey Coslet",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Marian Eberling",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Susan",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_2_father#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Charles Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Lucy Kennedy",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -25108,9 +24191,37 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_22_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Robert Jerome Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_22_3_mother#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Josette Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_22_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Gwinthlean Whistler",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Noel Bourassa",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Léon Bourassa",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -25157,6 +24268,76 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Mary Elisabeth",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Thomas Forester",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Brigitt Finegan",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Catherine Henrietta Bousque",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Bernard Bousque",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Catherine Preman",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_4_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Henry Stone",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_03_1_subject#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Geneviève Medera",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_03_3_witness#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "L. Chevalier",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Baptiste",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_2_father#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Léon Bourrasso",
@@ -25167,6 +24348,13 @@
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_3_mother#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Marguerite",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_4_godfather#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Baptiste Derocher",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },

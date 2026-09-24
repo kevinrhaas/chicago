@@ -14,7 +14,7 @@
   "precision": "not_later_than"
  },
  "arrival_year": {
-  "value": 1834,
+  "value": 1835,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-01-21 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",

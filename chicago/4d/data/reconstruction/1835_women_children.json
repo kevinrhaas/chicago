@@ -17,43 +17,44 @@
  "children_and_household_members": 432,
  "seated_in_the_residual_sweep": {
   "north": 22,
-  "south": 49
+  "south": 46
  },
  "relationships_written": {
-  "daughter": 151,
-  "household_member": 87,
-  "son": 194
+  "daughter": 153,
+  "household_member": 83,
+  "son": 196
  },
  "head_trades": {
-  "domestic": 18,
+  "domestic": 17,
   "dressmaker": 22,
   "laundress": 33,
   "milliner": 12,
   "none_recorded": 32,
-  "schoolteacher": 7
+  "schoolteacher": 8
  },
  "size_drawn_histogram": {
   "1": 8,
-  "2": 20,
+  "2": 19,
   "3": 24,
   "4": 21,
-  "5": 24,
+  "5": 25,
   "6": 17,
   "7": 3,
   "8": 7
  },
  "seated_histogram": {
   "1": 10,
-  "2": 12,
-  "3": 20,
-  "4": 22,
-  "5": 17,
+  "2": 13,
+  "3": 19,
+  "4": 21,
+  "5": 18,
   "6": 25,
   "7": 9,
   "8": 5,
   "9": 4
  },
  "refusals": {
+  "the pool could not name this house past the real layer": 1,
   "the west child buckets are full": 6
  },
  "fills": {
@@ -88,19 +89,19 @@
  "buckets_left_short": {},
  "measurement": {
   "the_town_the_book_counts": "present households only",
-  "people_before_this_stage": 874,
-  "people_after_this_stage": 1430,
-  "households_before_this_stage": 447,
-  "households_after_this_stage": 571,
+  "people_before_this_stage": 882,
+  "people_after_this_stage": 1438,
+  "households_before_this_stage": 451,
+  "households_after_this_stage": 575,
   "female_headed_households_after": 148,
-  "female_headed_share_after": 0.2592,
+  "female_headed_share_after": 0.2574,
   "female_headed_share_1840": "not carried: the committed 1840 extract tallies a household's members by sex and age and records no sex for its head, so no measured share exists to compare this one against",
   "why_the_shares_are_not_yet_in_bracket": "THE COUNTS ARE MET AND THE SHARES ARE NOT, and that is a reading of a town half built rather than a defect of this stage. Every one of this stage's 24 buckets is filled to the number the order book asked for - `this_stage_s_buckets_left_short` is 0 - and those numbers were cut against the model's WHOLE town of 2,535 people. The layer this stage hands on holds about half of it, because the boarders, lodgers, hotel guests and crews (T-1175), the garrison (T-1349), the under-documented cohorts (T-1177) and the transients (T-1178) are not written yet and they are overwhelmingly adult and overwhelmingly male. So the children this stage seated are a larger share of a smaller town than they will be of the finished one, and the adult sex ratio is nearer the model than it was (340.2 -> 161.4) without reaching it. Reporting either as met here would be the invention this programme exists to refuse; T-1179 converges the layer and re-runs the profile.",
   "adults_after_this_stage": {
-   "male": 472,
-   "female": 240
+   "male": 476,
+   "female": 242
   },
-  "adult_sex_ratio_before": 406.9,
+  "adult_sex_ratio_before": 403.4,
   "adult_sex_ratio_after": 196.7,
   "the_model_s_range": [
    120.9,
@@ -109,13 +110,13 @@
   "inside_the_model_s_range": false,
   "age_pyramid_after": {
    "10_19": 300,
-   "20_29": 379,
-   "30_39": 232,
+   "20_29": 384,
+   "30_39": 233,
    "40_49": 64,
    "50_plus": 37,
-   "under_10": 410
+   "under_10": 412
   },
-  "share_under_ten_after": 0.2883,
+  "share_under_ten_after": 0.2881,
   "share_under_ten_model": [
    0.2,
    0.2702
@@ -133,10 +134,10 @@
   },
   "household_size_seated_share": {
    "1": 0.0806,
-   "2": 0.0968,
-   "3": 0.1613,
-   "4": 0.1774,
-   "5": 0.1371,
+   "2": 0.1048,
+   "3": 0.1532,
+   "4": 0.1694,
+   "5": 0.1452,
    "6": 0.2016,
    "7": 0.0726,
    "8": 0.0403,

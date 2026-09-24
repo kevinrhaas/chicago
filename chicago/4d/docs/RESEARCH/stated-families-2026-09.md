@@ -11,8 +11,8 @@ Seating is **open** (T-1313 — the seat T-1170's reading left held; see tickets
 ## What was read
 
 - 10 marriage statements, read off the marriage verb in prose the cards already carry.
-- 12 relatives named by `tools/survey_stated_kin.py` whose other end is nobody this town holds.
-- 22 statements in all, every one of them answered below.
+- 13 relatives named by `tools/survey_stated_kin.py` whose other end is nobody this town holds.
+- 23 statements in all, every one of them answered below.
 
 ## The verdicts
 
@@ -23,7 +23,7 @@ Seating is **open** (T-1313 — the seat T-1170's reading left held; see tickets
 | `later_only` | 2 |
 | `not_present` | 1 |
 | `no_seat` | 2 |
-| `insufficient_identity` | 10 |
+| `insufficient_identity` | 11 |
 
 ## The 3 people ruled onto a card
 
@@ -210,4 +210,12 @@ Seating is **open** (T-1313 — the seat T-1170's reading left held; see tickets
 - **verdict** `insufficient_identity` — The burial entry names the parent and COUNTS the child: 'one of the daughters of M. Colewell'. A member a source counts and does not name is the reconstruction half of T-1170 and is not this pass's to write.
 
 > Parent of death entry 1 of 11 on Father St. Cyr's death page, 1834-06. No forename and no age for the child; the father is named with his office. The burial rite is stated for this entry by the line that closes the group. Line 13 closes this group of four: “All were buried according to the rites of
+
+### `kin:st_marys_bapt_1833_12_3_mother__parent_of__st_marys_bapt_1833_12_1_child`
+
+- **read as** Isabelle Bouchard — mother of `bouchard_adelaide` in `hh_bouchard_adelaide`
+- **from** `st_marys_bapt_1833_12_3_mother`
+- **verdict** `insufficient_identity` — The register states the relation plainly — entry 12 of 1833 baptises 'Isabelle[?] daughter of Andrew and Adelaide Bouchard, born the eighth of May eighteen hundred & thirty three' — and the mother is a head this layer carries. What the reading does not reach is the CHILD. The transcriber bracketed her forename: the row is graded `inferred`, its own note says 'the forename is written small and the first syllable is not certain', and the surname is the father's rather than anything the entry writes for her. The civic mint refuses her on exactly that ground — `REFUSE id_bouchard_isabelle: the transcription bracketed the name as uncertain` — and a pass that declines to mint an uncertain forename may not seat the same uncertain forename through the kin door instead. Her brother Louis, baptised on the same day out of the same entry pair with an unbracketed name, stands on his own card, so the household this register documents is in the layer; what is missing is a name this project can assert. A scan reading that settles the first syllable retires this ruling and the person becomes landable.
+
+> On the same day eighteen hundred and thirty three I, the undersigned, baptised Isabelle[?] daughter of Andrew and Adelaide Bouchard, born the eighth of May eighteen hundred & thirty three. Sponsors were Augustin Bonné and Josette Chevalier.
 

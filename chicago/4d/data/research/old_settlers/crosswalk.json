@@ -723,7 +723,7 @@
    "source_id": "calumet_club_early_chicago_1879",
    "rule": "OS3",
    "outcome": "refused",
-   "why": "the residents layer has 2 bearer(s) of 'egan', none with the forename initial 'w'; same surname, different forename initial never merges"
+   "why": "the residents layer has 3 bearer(s) of 'egan', none with the forename initial 'w'; same surname, different forename initial never merges"
   },
   {
    "id": "os1879r041",
@@ -1163,7 +1163,7 @@
    "source_id": "calumet_club_early_chicago_1879",
    "rule": "OS3",
    "outcome": "refused",
-   "why": "the residents layer has 2 bearer(s) of 'murray', none with the forename initial 'r'; same surname, different forename initial never merges"
+   "why": "the residents layer has 5 bearer(s) of 'murray', none with the forename initial 'r'; same surname, different forename initial never merges"
   },
   {
    "id": "os1879r102",
@@ -1395,7 +1395,7 @@
    "source_id": "calumet_club_early_chicago_1879",
    "rule": "OS3",
    "outcome": "refused",
-   "why": "the residents layer has 9 bearer(s) of 'smith', none with the forename initial 'd'; same surname, different forename initial never merges"
+   "why": "the residents layer has 10 bearer(s) of 'smith', none with the forename initial 'd'; same surname, different forename initial never merges"
   },
   {
    "id": "os1879r135",
@@ -1611,10 +1611,11 @@
    "source_id": "chicago_tribune_1882_05_19_fourth_reception",
    "rule": "OS4",
    "outcome": "candidate",
-   "why": "2 bearers of 'beaubien' share the forename initial 'm'; the roster does not discriminate between them",
+   "why": "3 bearers of 'beaubien' share the forename initial 'm'; the roster does not discriminate between them",
    "candidates": [
     "beaubien_madore",
-    "beaubien_mark"
+    "beaubien_mark",
+    "beaubien_monique"
    ]
   },
   {
@@ -1786,7 +1787,7 @@
    "source_id": "chicago_tribune_1882_05_19_fourth_reception",
    "rule": "OS3",
    "outcome": "refused",
-   "why": "the residents layer has 2 bearer(s) of 'egan', none with the forename initial 'w'; same surname, different forename initial never merges"
+   "why": "the residents layer has 3 bearer(s) of 'egan', none with the forename initial 'w'; same surname, different forename initial never merges"
   },
   {
    "id": "os1882g036",
@@ -2269,7 +2270,7 @@
    "source_id": "chicago_tribune_1882_05_19_fourth_reception",
    "rule": "OS3",
    "outcome": "refused",
-   "why": "the residents layer has 9 bearer(s) of 'smith', none with the forename initial 'd'; same surname, different forename initial never merges"
+   "why": "the residents layer has 10 bearer(s) of 'smith', none with the forename initial 'd'; same surname, different forename initial never merges"
   },
   {
    "id": "os1882g101",

@@ -10,7 +10,7 @@
   "note": "NOT AN ARRIVAL DATE, AND THE RECORD HAD NONE AT ALL. The recovered v4 research places William H. Adams on an 1835 Chicago poll list; it does not say when the poll was taken, and nothing in the corpus says when he came. The only thing the evidence bears is that he was in Chicago at some point during 1835, so the value carried here is the last day that evidence can reach, at 'not_later_than' precision — the same shape the town's letter-list arrivals take, and a bound rather than a date. Whether he was standing here on 1 July 1835 is the open question present_on_scene_date records as uncertain. The block arrived from PR #670 with a null value and no precision, which the gate could not read."
  },
  "arrival_year": {
-  "value": 1835,
+  "value": 1834,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-12-31 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household. THE ROLL'S OWN YEAR IS REFUSED HERE: this man registered “1837, Sept.” at the Calumet Club in 1879, which is after the scene date, and the contemporary evidence that put this household in the 1835 layer bounds it at 1835-12-31. A recollection set down forty-four years later does not outrank a record made at the time, and the roll's row is kept in data/research/old_settlers/people.json rather than corrected.",
@@ -42,14 +42,14 @@
   "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
+  "value": "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
   "basis": {
    "kind": "rule",
    "id": "reason_from_arrival_cohort",
-   "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1834) is the only thing about it this value rests on."
   },
   "replaceable_by": {
    "kind": "person",

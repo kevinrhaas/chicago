@@ -5,7 +5,7 @@
   "source_id": "chicago_voter_lists_1833_1835_irad",
   "publication_source_id": "chicago_genealogist_1993_voter_lists",
   "crosswalk_target": "data/residents/households/*.json",
-  "residents_compared": 1285,
+  "residents_compared": 1405,
   "counts": {
     "entries": 345,
     "matched": 292,
@@ -76,7 +76,7 @@
       "discriminator": "forenames agree initial for initial: entry 'J. B. Beaubien' against resident 'Col. Jean Baptiste Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1833_004",
@@ -89,7 +89,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Mark Beaubien' against resident 'Mark Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1833_005",
@@ -102,7 +102,7 @@
       "discriminator": null,
       "candidate": null,
       "rivals": [],
-      "rule": "no resident of the surname 'Beaubien' agrees with the entry's forenames (8 bearer(s) of the surname considered), and no bridge row carries the entry."
+      "rule": "no resident of the surname 'Beaubien' agrees with the entry's forenames (18 bearer(s) of the surname considered), and no bridge row carries the entry."
     },
     {
       "record_id": "poll_1833_006",
@@ -297,7 +297,7 @@
       "discriminator": "forenames agree initial for initial: entry 'John Miller' against resident 'John Miller'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Miller' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Miller' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1833_021",
@@ -349,7 +349,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Matthias Smith' against resident 'Matthias Smith'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Smith' agrees with the entry's forenames; 9 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Smith' agrees with the entry's forenames; 10 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1833_025",
@@ -457,7 +457,7 @@
       "discriminator": "forenames agree initial for initial: entry 'John S. Beaubien' against resident 'John S Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_003",
@@ -470,7 +470,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Mark Beaubien' against resident 'Mark Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_004",
@@ -795,7 +795,7 @@
       "discriminator": "forenames agree initial for initial: entry 'William Bradshaw Egan' against resident 'Dr William Bradshaw Egan'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Egan' agrees with the entry's forenames; 2 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Egan' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_029",
@@ -1380,7 +1380,7 @@
       "discriminator": "forenames agree initial for initial: entry 'George Miller' against resident 'George Miller'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Miller' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Miller' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_074",
@@ -1393,7 +1393,7 @@
       "discriminator": "forenames agree initial for initial: entry 'John Miller' against resident 'John Miller'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Miller' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Miller' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_075",
@@ -1406,7 +1406,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Samuel Miller' against resident 'Samuel Miller'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Miller' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Miller' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_076",
@@ -1844,7 +1844,7 @@
       "discriminator": null,
       "candidate": null,
       "rivals": [],
-      "rule": "surname-only: the entry 'Whistler' prints no forename, and a bare surname separates no member of a family; refused whether or not the residents layer carries the surname (0 do)."
+      "rule": "surname-only: the entry 'Whistler' prints no forename, and a bare surname separates no member of a family; refused whether or not the residents layer carries the surname (2 do)."
     },
     {
       "record_id": "tax_1833_109",
@@ -2056,7 +2056,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Charles H. Beaubien' against resident 'Charles H Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_010",
@@ -2069,7 +2069,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Madore Beaubien' against resident 'Madore Benjamin Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_011",
@@ -2082,7 +2082,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Mark Beaubien' against resident 'Mark Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_012",
@@ -2437,7 +2437,7 @@
       "discriminator": "forenames agree initial for initial: entry 'William Bradshaw Egan' against resident 'Dr William Bradshaw Egan'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Egan' agrees with the entry's forenames; 2 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Egan' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_039",
@@ -2885,7 +2885,7 @@
       "discriminator": "forenames agree initial for initial: entry 'John Miller' against resident 'John Miller'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Miller' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Miller' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_073",
@@ -2963,7 +2963,7 @@
       "discriminator": "forenames agree initial for initial: entry 'John Murphy' against resident 'John Murphy'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Murphy' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Murphy' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_079",
@@ -2976,7 +2976,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Patrick Murray' against resident 'Patrick Murray'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Murray' agrees with the entry's forenames; 2 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Murray' agrees with the entry's forenames; 5 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_080",
@@ -3268,7 +3268,7 @@
       "discriminator": "forenames agree initial for initial: entry 'L. W. Smith' against resident 'L W Smith'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Smith' agrees with the entry's forenames; 9 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Smith' agrees with the entry's forenames; 10 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_102",
@@ -3518,7 +3518,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Col. J. B. Beaubien' against resident 'Col. Jean Baptiste Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 8 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1835_006",
@@ -4140,7 +4140,7 @@
       "discriminator": "forenames agree initial for initial: entry 'John Murphy' against resident 'John Murphy'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Murphy' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Murphy' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1835_052",
@@ -4428,7 +4428,7 @@
       "discriminator": "forenames agree initial for initial: entry 'William V. Smith' against resident 'William V Smith'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Smith' agrees with the entry's forenames; 9 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Smith' agrees with the entry's forenames; 10 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1835_073",

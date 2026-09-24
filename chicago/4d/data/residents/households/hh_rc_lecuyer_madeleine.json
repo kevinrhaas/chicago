@@ -87,8 +87,8 @@
   "head_trade": "dressmaker",
   "head_trade_seed": "rc_wc_south_049:female_trades",
   "size_drawn": 2,
-  "seated": 3,
-  "seated_beyond_the_draw": 1,
+  "seated": 2,
+  "seated_beyond_the_draw": 0,
   "seed": "rc_wc_south_049:household_size",
   "note": "The women and children the age pyramid still lacks. A servant, an apprentice or a lodger this house may also have held is priced by T-1183 and seated by T-1173 and T-1175; the drawn size is a floor on the house, and where the division's child buckets were still short after every house was drawn the remainder was seated across them and says so."
  },
@@ -226,70 +226,6 @@
     "note": "Drawn by the draw against the south division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
    },
    "seed": "rc_wc_south_049:rc_lecuyer_madeleine:member_1_sex_age",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
-    "community": "french_colonial",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
-  },
-  {
-   "id": "rc_lecuyer_madeleine_2",
-   "name": "Jean Lecuyer",
-   "relationship": "son",
-   "grade": "reconstructed",
-   "sex": "male",
-   "age_band": {
-    "value": "10-19",
-    "low": 10,
-    "high": 19,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 10 under 15'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
-    },
-    "seed": "rc_wc_south_residual_01:rc_lecuyer_madeleine:member_2_sex_age",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "Jean Lecuyer",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the French colonial and metis of the Detroit and Milwaukee country pool; the surname is the household's own."
-    },
-    "seed": "rc_wc_south_residual_01:rc_lecuyer_madeleine:member_2_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of this household"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the French colonial and metis of the Detroit and Milwaukee country pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "age_bands_1840",
-    "note": "Drawn by the residual sweep against the south division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
-   },
-   "seed": "rc_wc_south_residual_01:rc_lecuyer_madeleine:member_2_sex_age",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a woman who kept her own house in this division, or anyone in it"

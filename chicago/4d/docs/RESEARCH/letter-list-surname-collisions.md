@@ -29,8 +29,8 @@ rows they were, read now off what the pass says rather than off who it drops.
 * the pool the register offers this pass: **1877** candidates
 * accepted under the pre-T-0638 reading: **769**
 * accepted under the corrected reading: **789**
-* standing records a mint-time refusal lands on, corrected reading: **75**; pre-T-0638 reading: **67**
-* THE COLLISIONS THIS FAULT UNCOVERED — said under the corrected reading and not under the old one: **8**
+* standing records a mint-time refusal lands on, corrected reading: **79**; pre-T-0638 reading: **70**
+* THE COLLISIONS THIS FAULT UNCOVERED — said under the corrected reading and not under the old one: **9**
 * candidates the correction ADMITS that the old reading refused: **20**
 
 ## The collisions — what the paper printed, and who holds the surname instead
@@ -42,6 +42,7 @@ in the table because it is the measure of what option (c) declined to throw away
 
 | printed | as a card shows it | old | new | the refusal it says | holds it | returns | carries |
 |---|---|---|---|---|---|---|---|
+| `Daniel B. Clevinger 4` | B. Clevinger [?] Daniel | `4` | `daniel` | the town already names a Daniel | Frederick Daniel (hh_daniel_frederick) | 1 | — |
 | `Es,Jones, High` | High Es Jones | `es` | `jones` | the town already names a Jones | Benjamin Jones (hh_jones_benjamin); D E Jones (hh_jones_d_e); M Jones (hh_jones_m) … | 1 | research row T-0481 (no_corroboration_yet) |
 | `Esther Preston` | Esther Preston | `preston` | `preston` | surname already minted | Stephen II. Preston | 1 | research row T-0479 (no_corroboration_yet) |
 | `Frederick W. Page` | Frederick W. Page | `page` | `page` | surname already minted | Elisha S. Page | 1 | research row T-0510 (no_corroboration) |
