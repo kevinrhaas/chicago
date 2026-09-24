@@ -1658,7 +1658,10 @@ const MUTATING = new Set(['new', 'claim', 'done', 'block', 'unblock', 'withdraw'
 let commitMessage = null;     // a case may name its own commit; the default names the command
 let mintedFiles = [];         // tickets this command created, for renumberCollisions
 let published = false;        // a case that pushed for itself (claim) sets this
-if (inRepoMode() && (MUTATING.has(cmd) || ['list', 'inflight'].includes(cmd))) pullTickets();
+// Not before `sync`: its whole job is to publish edits already sitting in the clone, and
+// a pull over them either fails (dirty tree) or, with --autostash, would lay them on top
+// of someone else's change unseen. Its push rebases, and a conflict there is refused.
+if (inRepoMode() && ((MUTATING.has(cmd) && cmd !== 'sync') || ['list', 'inflight'].includes(cmd))) pullTickets();
 const tickets = loadAll();
 
 // CLOSING THE LAST CHILD OF A SPLIT KILLS THE PARENT, AND NOTHING SAID SO.
@@ -2612,7 +2615,8 @@ switch (cmd) {
       process.exit(1);
     }
     const open = tickets.filter((t) => WORKABLE.includes(t.state)).length;
-    const blocked = tickets.filter((t) => t.state === 'blocked-owner').length;
+    // Waiting on the owner = parked as blocked-owner OR asked in the queue (`ask`).
+    const blocked = tickets.filter((t) => t.state === 'blocked-owner' || t.decision === 'pending').length;
     console.log(`ticket queue OK — ${tickets.length} tickets, ${open} in the queue, ${blocked} waiting on the owner`);
     break;
   }
@@ -2773,7 +2777,8 @@ switch (cmd) {
    *  body, say). Every other command pushes for itself. */
   case 'sync': {
     if (!inRepoMode()) { console.log('sync: the tickets are not a repository of their own here — nothing to push'); break; }
-    commitMessage = flag('m') && flag('m') !== true ? String(flag('m')) : 'tickets: hand edits';
+    const m = flag('m') ?? (args.includes('-m') ? args[args.indexOf('-m') + 1] : null);
+    commitMessage = m && m !== true ? String(m) : 'tickets: hand edits';
     break;
   }
   default:
