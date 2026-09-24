@@ -8,6 +8,7 @@
   "generated_by": "tools/spend_remainder_rulings.py",
   "counts": {
     "corroboration_confirms_and_moves_nothing": 47,
+    "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses": 1,
     "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks": 2,
     "the_enrichment_dates_an_appearance_the_card_already_carries": 15,
     "the_enrichment_is_written_onto_the_card_it_names": 7,
@@ -19,7 +20,6 @@
     "the_later_volume_enriches_a_biography_and_names_no_1835_field": 7,
     "the_manifest_is_a_reservation_and_not_a_reading": 75,
     "the_pass_named_a_candidate_and_did_not_assert_it": 162,
-    "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated": 1,
     "the_reading_is_carried_as_a_dated_profile_fact_on_the_card": 4,
     "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window": 6,
     "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date": 21,
@@ -29,6 +29,10 @@
     "corroboration_confirms_and_moves_nothing": {
       "disposition": "refused",
       "statement": "The completed pass returned `corroborated`: an independent source agrees with what the card already says, and the finding's own words are that the person was confirmed, NOT MOVED. Under the evidence ladder ratified 2026-09-03 corroboration corroborates; it does not promote and it names no new structured field, so there is nothing here to write. The agreement is a closed decision and the sources stand in the finding where the pass put them."
+    },
+    "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses": {
+      "disposition": "refused",
+      "statement": "The completed pass returned `corroborated_enrichment` and it did NOT corroborate: the reminiscence gives Hiram Pearsons a HOUSE PAINTER'S trade, and the card carried `speculator` at `attested` on a note that called it this project's own reading. That was a deferral when T-1469 read it, because no field held the painter and a register may not hand-edit a field tools/derive_resident_roles.py derives. IT IS NOT A DEFERRAL NOW. T-1507 re-adjudicated both halves: the 1835 trade field stands at `speculator`/`inferred` over the land register, its note saying in its own words that no source this project holds prints a trade for this man in or about 1835; and the painter reading is carried in `persons[].roles[]` as an undated row citing the reminiscence, written from data/research/residents/prose_role_readings.json by the pass that owns that field. The reading has reached a structured field; it is not waiting on one. It stands OUTSIDE the 1 July 1835 view, and the reason is the evidence ladder ratified 2026-09-03 rather than a bound -- the volume names no year the row could read -- so the finding names no field the card lacks and no ticket is handed anything."
     },
     "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks": {
       "disposition": "refused",
@@ -77,11 +81,6 @@
     "the_pass_named_a_candidate_and_did_not_assert_it": {
       "disposition": "refused",
       "statement": "The completed pass reviewed this reserved person and returned a CANDIDATE IDENTITY it explicitly did not assert -- the finding's own candidate rows carry `asserted: false` and name the conflict that stopped them. The research already refused the join; the ledger now carries that refusal instead of leaving the row open. Closing it by eye would be manufacturing the identity the pass declined to make, and this ruling does not touch the candidate, the card, or the grade either of them carries."
-    },
-    "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated": {
-      "disposition": "unresolved",
-      "ticket": "T-1507",
-      "statement": "The completed pass returned `corroborated_enrichment` and it does NOT corroborate: the reminiscence gives Hiram Pearsons a HOUSE PAINTER'S trade, and the card carries `speculator` at `attested` on a note that calls it this project's own reading of a man who arrived before the land craze. One of the two has a source and the other has an inference wearing a grade, which is the fault the finding was raised against. Correcting it is a re-adjudication of the 1835 trade field -- the field tools/derive_resident_roles.py derives from the role readings -- and a register may not hand-edit a derived field. It is the one unit of the thirty-seven that stays unresolved, and the ticket it names owns the correction."
     },
     "the_reading_is_carried_as_a_dated_profile_fact_on_the_card": {
       "disposition": "refused",
@@ -263,8 +262,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/pearsons_hiram",
-      "rule": "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated",
-      "note": "The pass on pearsons_hiram returned: “A contemporary reminiscence describes Pearsons as a house painter who entered real estate. This corrects the household's unsupported treatment of speculator as attested: house painter is sourced; investor or speculator is interpretive.” Sources as recorded: ingale_early_chicago_reminiscence. T-1469 reads that as a house painter's trade, against the `speculator` the card carries as attested. No field carries it, because the card carries the OPPOSITE reading at a grade the finding disputes; T-1507 owns the re-adjudication."
+      "rule": "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses",
+      "note": "The pass on pearsons_hiram returned: “A contemporary reminiscence describes Pearsons as a house painter who entered real estate. This corrects the household's unsupported treatment of speculator as attested: house painter is sourced; investor or speculator is interpretive.” Sources as recorded: ingale_early_chicago_reminiscence. T-1469 reads that as a house painter's trade, against the `speculator` the card carries for 1835. The card carries it at data/residents/households/hh_pearsons_hiram.json#persons[pearsons_hiram].roles[3] = “house painter” (inferred, outside the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/peck_philip",
@@ -1330,7 +1329,7 @@
     {
       "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/bailey_bennet",
       "rule": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
-      "note": "The pass on bailey_bennet returned: “Fergus 1839 prints 'Bailey, Bennett, carpenter and builder' and the 1837 election return 'Bennett Bailey' — an uncommon forename spelt out twice, four and two years after the scene. Pass 3 saw only the 1843 Mechanics' Institute directorship and called it a candidate over a nine-year gap; the 1837 return closes most of…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839, norris_chicago_directory_1843. T-1469 reads that as a carpenter and builder's trade printed in 1839. The card carries it at data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].occupation.later_occupation = “carpenter and builder” (attested, outside the 1 July 1835 view); data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].roles[0] = “carpenter and builder” (attested, outside the 1 July 1835 view)."
+      "note": "The pass on bailey_bennet returned: “Fergus 1839 prints 'Bailey, Bennett, carpenter and builder' and the 1837 election return 'Bennett Bailey' — an uncommon forename spelt out twice, four and two years after the scene. Pass 3 saw only the 1843 Mechanics' Institute directorship and called it a candidate over a nine-year gap; the 1837 return closes most of…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839, norris_chicago_directory_1843. T-1469 reads that as a carpenter and builder's trade printed in 1839. The card carries it at data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].occupation.later_occupation = “carpenter and builder” (attested, outside the 1 July 1835 view); data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].roles[0] = “carpenter and builder” (inferred, outside the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/bartlett_charles_h",
@@ -1375,7 +1374,7 @@
     {
       "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/chapman_chas_h",
       "rule": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
-      "note": "The pass on chapman_chas_h returned: “The 1837 election return prints 'Chas. H. Chapman' — the transcribed 1835 form letter for letter — and Fergus 1839 prints 'Chapman, Charles II., real estate dealer, Randolph street', where 'II.' is the printer's H. The papers run him from 24 December 1833 to 20 June 1835 as a merchant, so the town has him before and a…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839. T-1469 reads that as a real-estate dealer's trade and a Randolph Street address. The card carries it at data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].occupation.later_occupation = “real estate dealer” (attested, outside the 1 July 1835 view); data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].roles[1] = “real estate dealer” (attested, outside the 1 July 1835 view); data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].workplaces[0] = “C. H. Chapman” (attested, in the 1 July 1835 view)."
+      "note": "The pass on chapman_chas_h returned: “The 1837 election return prints 'Chas. H. Chapman' — the transcribed 1835 form letter for letter — and Fergus 1839 prints 'Chapman, Charles II., real estate dealer, Randolph street', where 'II.' is the printer's H. The papers run him from 24 December 1833 to 20 June 1835 as a merchant, so the town has him before and a…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839. T-1469 reads that as a real-estate dealer's trade and a Randolph Street address. The card carries it at data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].occupation.later_occupation = “real estate dealer” (attested, outside the 1 July 1835 view); data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].roles[1] = “real estate dealer” (inferred, outside the 1 July 1835 view); data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].workplaces[0] = “C. H. Chapman” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/chappel_eliza_mir",

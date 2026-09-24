@@ -222,6 +222,26 @@
     {
      "role": null,
      "kind": "trade",
+     "as_printed": "Botsford & Beers",
+     "from": "1839",
+     "to": "1839",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "claim": "f1839_e0142",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1839 DIRECTORY, 4 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on. An address NUMBER in the 1839 directory is 1876's and not 1839's, on the compiler's own statement on printed page 3, so `place` carries the street NAME the entry names and the number is dropped — the crosswalk's own `address_rule`, applied here rather than tripped over downstream.",
+     "premises": null
+    },
+    {
+     "role": null,
+     "kind": "trade",
      "as_printed": "(B. & Beers), 109 Lake",
      "from": "1843",
      "to": "1843",

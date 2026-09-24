@@ -36,14 +36,14 @@ And each of those open lots is declared open in the recipe with a stated reason 
 
 ## The clause, asked its own question
 
-3 of the 4 documented buildings this clause cites as its evidence stand nearest a principal street, which is the position the clause says it avoids and the one term the policy scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a principal street; `recon_1835_blk_randolph_market_a1_07` is an A1 standing 29.28 m from one. The test that refamilies the second refamilies the first. That is a question about the clause, and this tool does not answer it.
+1 of the 4 documented buildings this clause cites as its evidence FRONTS a principal street, which is the position the clause says it avoids and the one term the policy scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a principal street; `recon_1835_blk_randolph_market_a1_07` is an A1 standing 29.28 m from one. The test that refamilies the second refamilies the first. That is a question about the clause, and this tool does not answer it. 2 more front no street at all, out on the reservation beyond the census's frontage reach (T-1511): the scored term has no class to read for them, and the clause's own answer is printed beside it — it refuses 2 of them on the `yard` setback it seats by, which is measured off a block alley this ground does not have.
 
-| evidence record | family | nearest street | class | setback m | breaches its own clause |
-| --- | --- | --- | --- | ---: | --- |
-| `western_hotel_stable` | A1 | canal | ordinary | 0.59 | no |
-| `wolf_point_tavern_stable` | A1 | lake | principal | 36.70 | yes |
-| `fort_dearborn_big_barn` | A2 | lake | principal | 270.75 | yes |
-| `fort_dearborn_wash_house` | A5 | lake | principal | 420.22 | yes |
+| evidence record | family | street it fronts | class | setback m | scored term | the clause refuses it |
+| --- | --- | --- | --- | ---: | --- | --- |
+| `western_hotel_stable` | A1 | canal | ordinary | 0.59 | no | no |
+| `wolf_point_tavern_stable` | A1 | lake | principal | 36.70 | yes | yes |
+| `fort_dearborn_big_barn` | A2 | (none) | — | 270.75 | cannot speak — it fronts none | yes |
+| `fort_dearborn_wash_house` | A5 | (none) | — | 420.22 | cannot speak — it fronts none | yes |
 
 ## The three remedies, and what each one changes
 
@@ -61,7 +61,7 @@ The verdict's own sentence — `the slot is wanted and the position stands` — 
 
 ### Let the six stand as the A-family yard buildings they are and record the refusal against the adjudication.
 
-It re-opens T-1445's scoring for this clause, because the reason these six were refused refuses 3 of the clause's own 4 evidence records too. That is the owner's call and not this tool's: a scored term that its own evidence breaches is either the wrong term or the wrong evidence.
+It re-opens T-1445's scoring for this clause, because the reason these six were refused refuses 1 of the clause's own 4 evidence records too. That is the owner's call and not this tool's: a scored term that its own evidence breaches is either the wrong term or the wrong evidence.
 
 **Costs:** 0 roofs move; the adjudication's block verdicts are withdrawn and the clause is re-read.
 

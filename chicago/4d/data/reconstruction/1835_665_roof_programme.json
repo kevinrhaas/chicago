@@ -19,8 +19,8 @@
   "overrun": "Where evidence has put more roofs into a family than the target allows, the excess is reported and the remainder is reduced in the families with the most slack. A documented roof is never removed to protect a family cap.",
   "family_mix": "An apportionment of the district's remainder across its schedule units, not a claim about any block. Hamilton's method throughout, so every marginal closes exactly.",
   "business_front": {
-   "what": "Which of a district's principal roofs land on which platted block is weighted by what the block FRONTS, because the documented trade share is monotone in the committed street hierarchy. It is a permutation of the families the district deal already placed, among the same blocks, so no total moves: not the target, not a district, not a family, not any block's roof count.",
-   "measured": "tools/measure_frontage_fabric.py --trade — the share of DOCUMENTED buildings carrying a trade family (C stores, F warehouses, W workshops), by the traffic class of the street they stand nearest. The research layer only: weighting the schedule by what the schedule invented would ratchet.",
+   "what": "Which of a district's principal roofs land on which platted block is weighted by what the block FRONTS, because the documented trade share differs by the committed street hierarchy — highest on the principal class. It is a permutation of the families the district deal already placed, among the same blocks, so no total moves: not the target, not a district, not a family, not any block's roof count.",
+   "measured": "tools/measure_frontage_fabric.py --trade — the share of DOCUMENTED buildings carrying a trade family (C stores, F warehouses, W workshops), by the traffic class of the street they FRONT. The research layer only: weighting the schedule by what the schedule invented would ratchet. Since T-1511 a building beyond the census's frontage reach fronts no street and votes in no class: nineteen roofs left the principal class, seventeen of them inside the Fort Dearborn reservation and only two of the nineteen carrying a trade family, and the principal share went from 0.3846 (15 of 39) to 0.6500 (13 of 20). The weight ordering of the four South Water blocks is unchanged by it and the same eight trade roofs are re-dealt to the same quota.",
    "weight": "A block's weight is the mean of its four faces' class shares, read off data/streets/1835.json. Re-class a street there and every block on it re-weights in the same commit.",
    "trade_share_by_class": {
     "light": {
@@ -34,9 +34,9 @@
      "share": 0.4167
     },
     "principal": {
-     "n": 39,
-     "trade": 15,
-     "share": 0.3846
+     "n": 20,
+     "trade": 13,
+     "share": 0.65
     }
    },
    "moved": [
@@ -371,7 +371,7 @@
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.4006,
+   "frontage_weight": 0.5333,
    "trade_roofs": 1,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
@@ -403,7 +403,7 @@
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.4006,
+   "frontage_weight": 0.5333,
    "trade_roofs": 1,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
@@ -485,7 +485,7 @@
    },
    "principal": 3,
    "ancillary": 1,
-   "frontage_weight": 0.4572,
+   "frontage_weight": 0.5899,
    "trade_roofs": 1,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
@@ -2239,7 +2239,7 @@
    },
    "principal": 21,
    "ancillary": 6,
-   "frontage_weight": 0.3926,
+   "frontage_weight": 0.5917,
    "trade_roofs": 5,
    "lot_ceiling_principal": 7,
    "row_lots_required": 7
