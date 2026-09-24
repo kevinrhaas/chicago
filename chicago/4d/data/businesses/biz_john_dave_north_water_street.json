@@ -40,8 +40,19 @@
       "from": "1835-06-13",
       "to": null,
       "tier": "inferred",
-      "basis": "The paper names a street and no house on it.",
-      "limit_reason": "The paper names North Water Street and nothing narrower; the anchor 'NORT[H] WATER STREET NORTM WATER STREET,' names nothing the committed town holds."
+      "basis": "North Water Street is the reading taken, at the inferred tier (T-0305, owner's ruling 2026-09-23). The card is set immediately below Wm. Sabine's and moves with it: North Water on 13 and 20 June, South Water on 4 July. The printings nearest the scene date and before it read North, exactly as Sabine's do, and the two are one question rather than two.",
+      "limit_reason": "The paper names North Water Street and nothing narrower, and prints South Water once, three days after the scene date. Street only, at inferred.",
+      "contested": {
+        "ticket": "T-0305",
+        "reads": "North Water",
+        "for": [
+          "chicago_american_1835_06_13#c006"
+        ],
+        "against": [
+          "chicago_american_1835_07_04#c002"
+        ],
+        "unresolved": []
+      }
     }
   ],
   "dates": {
@@ -86,5 +97,5 @@
     "backdating_required": false
   },
   "review_required": false,
-  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+  "replaceable_by": "The page images of the Chicago American, 13 June 1835 p3 c5 (reading North) and 4 July 1835 p4 c4 (reading South) — the same pair that settles Wm. Sabine's — or any directory or deed that places John Dave[s]'s house."
 }

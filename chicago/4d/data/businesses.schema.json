@@ -179,7 +179,20 @@
         "basis": {"type": "string", "minLength": 1},
         "limit_reason": {"type": ["string", "null"],
           "description": "Required on `street_only` and `unplaceable`: WHY the record stops where it does, in the register's own words."},
-        "anchor": {"$ref": "#/$defs/anchor"}
+        "anchor": {"$ref": "#/$defs/anchor"},
+        "contested": {
+          "type": "object",
+          "description": "Set only by a T-0305 ruling (data/businesses/rulings/contested_readings.json): the location is built from one reading of a newspaper that prints this house's address two ways, or never resolves it. `reads` is the reading taken; `for` / `against` / `unresolved` sort every printing by how it reads, so no alternative is lost. tools/measure_american_contradictions.py --gate holds each to the printings.",
+          "additionalProperties": false,
+          "required": ["ticket", "reads", "for", "against", "unresolved"],
+          "properties": {
+            "ticket": {"type": "string", "pattern": "^T-\\d{4}$"},
+            "reads": {"type": "string", "minLength": 1},
+            "for": {"type": "array", "items": {"type": "string"}},
+            "against": {"type": "array", "items": {"type": "string"}},
+            "unresolved": {"type": "array", "items": {"type": "string"}}
+          }
+        }
       }
     }
   },

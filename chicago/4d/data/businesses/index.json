@@ -30,8 +30,8 @@
     "by_location_kind": {
       "anchored": 27,
       "premises": 52,
-      "street_only": 89,
-      "unplaceable": 109
+      "street_only": 90,
+      "unplaceable": 108
     },
     "named_people": 406,
     "named_people_linked_to_a_town_card": 352,
@@ -45,12 +45,13 @@
     "by_where_kind": {
       "anchored": 27,
       "premises": 51,
-      "street_only": 89,
-      "unplaceable": 105
+      "street_only": 90,
+      "unplaceable": 104
     },
     "by_street": {
       "Canal Street": 6,
       "Dearborn Street": 29,
+      "Franklin Street": 1,
       "Kinzie Street": 4,
       "La Salle Street": 4,
       "Lake Street": 19,
@@ -598,15 +599,15 @@
         }
       ],
       "where": {
-        "kind": "unplaceable",
+        "kind": "street_only",
         "structure_id": null,
         "anchor": null,
-        "street_id": null,
-        "street": null,
+        "street_id": "franklin",
+        "street": "Franklin Street",
         "tier": "inferred",
         "from": "1835-06-27",
         "to": null,
-        "limit_reason": "No street the model holds. The paper gives no anchor."
+        "limit_reason": "The paper names Franklin Street and no house on it, and prints Lake Street once, after the scene date. Street only, at inferred: the page images would settle which, and no source names the house itself."
       },
       "locations": 1,
       "opened": "1835-06-27",
@@ -6993,7 +6994,7 @@
         "tier": "inferred",
         "from": "1835-06-13",
         "to": null,
-        "limit_reason": "The paper names North Water Street and nothing narrower; the anchor 'NORT[H] WATER STREET NORTM WATER STREET,' names nothing the committed town holds."
+        "limit_reason": "The paper names North Water Street and nothing narrower, and prints South Water once, three days after the scene date. Street only, at inferred."
       },
       "locations": 1,
       "opened": "1835-06-13",
@@ -14032,7 +14033,7 @@
         "tier": "inferred",
         "from": "1835-06-13",
         "to": null,
-        "limit_reason": "The paper names North Water Street and nothing narrower; the anchor 'Commission Merc[hant]. N[ORT]H WATER [S]TREET Commission Mere NbeEM WATER ITREET,' names nothing the committed town holds."
+        "limit_reason": "The paper names North Water Street and nothing narrower, and prints South Water once, three days after the scene date. Street only, at inferred."
       },
       "locations": 1,
       "opened": "1835-06-13",

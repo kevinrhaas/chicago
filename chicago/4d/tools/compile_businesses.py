@@ -84,6 +84,9 @@ RESIDENTS = ROOT / "data" / "residents"
 BUSINESSES = ROOT / "data" / "businesses"
 AUTHORED = BUSINESSES / "authored"
 STAFFING_OVERLAY = BUSINESSES / "rulings" / "establishment_staffing.json"
+# T-0305: the owner's ruling on readings the paper contradicts — which printing a house's
+# address is taken from, at `inferred`, and which page columns would replace it.
+CONTESTED_READINGS = BUSINESSES / "rulings" / "contested_readings.json"
 RECONSTRUCTED_STAFF_OVERLAY = (ROOT / "data" / "reconstruction"
                               / "1835_business_staff_overlay.json")
 INDEX = BUSINESSES / "index.json"
@@ -1058,6 +1061,76 @@ def apply_reconstructed_overlay(records, overlay):
     return records
 
 
+def read_contested_readings():
+    """The T-0305 rulings, keyed by business id. Absent file, no rulings."""
+    if not CONTESTED_READINGS.exists():
+        return {}
+    doc = load_json(CONTESTED_READINGS)
+    by_id = {}
+    for entry in doc.get("entries") or []:
+        if entry["business_id"] in by_id:
+            raise ValueError("contested_readings.json rules on %s twice; one house, one ruling"
+                             % entry["business_id"])
+        by_id[entry["business_id"]] = entry
+    return by_id
+
+
+def apply_contested_readings(records, rulings):
+    """Lay each T-0305 ruling over its record.
+
+    A RULING ON A READING, NOT A NEW FACT. `street_only` makes the ruled street the
+    house's scene-date location — replacing an `unplaceable` or `street_only` row the
+    register could not settle, and refusing anything stronger, because a ruling on a
+    contested street may not unseat a premises the register matched. `keep_premises`
+    leaves the committed building where it stands and says on the row what its address
+    rests on. Either way the row stays `inferred`, carries the ruling's basis and limit,
+    and the record's `replaceable_by` names the page columns that would settle it.
+    """
+    by_id = {record["id"]: record for record in records}
+    for business_id, entry in sorted(rulings.items()):
+        record = by_id.get(business_id)
+        if record is None:
+            raise ValueError("contested_readings.json rules on %s, which the register does "
+                             "not compile" % business_id)
+        locations = record.get("locations") or []
+        primary = next((loc for loc in locations if loc.get("primary")), None)
+        if primary is None:
+            raise ValueError("%s has no primary location to rule on" % business_id)
+        effect = entry.get("effect")
+        if effect == "street_only":
+            if primary.get("kind") not in ("unplaceable", "street_only"):
+                raise ValueError(
+                    "contested_readings.json would move %s off a %s row; a ruling on a "
+                    "contested street may only settle a street the register left open"
+                    % (business_id, primary.get("kind")))
+            primary.update({
+                "kind": "street_only",
+                "structure_id": None,
+                "street_id": entry["street_id"],
+                "tier": "inferred",
+                "basis": entry["basis"],
+                "limit_reason": entry["limit_reason"],
+            })
+        elif effect == "keep_premises":
+            if primary.get("structure_id") != entry.get("structure_id"):
+                raise ValueError(
+                    "contested_readings.json keeps %s on %s, but the register seats it on %s"
+                    % (business_id, entry.get("structure_id"), primary.get("structure_id")))
+            primary["basis"] = (primary.get("basis") or "").rstrip() + " " + entry["basis"]
+        else:
+            raise ValueError("contested_readings.json: unknown effect %r on %s"
+                             % (effect, business_id))
+        primary["contested"] = {
+            "ticket": "T-0305",
+            "reads": entry["reads"],
+            "for": entry.get("for") or [],
+            "against": entry.get("against") or [],
+            "unresolved": entry.get("unresolved") or [],
+        }
+        record["replaceable_by"] = entry["replaceable_by"]
+    return records
+
+
 def staffing_problems(records):
     """The rules the `staffing` block stands on. Every one is a --self-test case.
 
@@ -1118,6 +1191,7 @@ def compiled_docs(residents_dir=None):
     records = compile_all(register, gazetteer, town_ids, person_communities(residents_dir))
     records = apply_staffing_overlay(records, read_staffing_overlay())
     records = apply_reconstructed_overlay(records, read_reconstructed_overlay())
+    records = apply_contested_readings(records, read_contested_readings())
     authored = read_authored()
     return records, authored, build_index(records, authored, works_at_rows(residents_dir))
 

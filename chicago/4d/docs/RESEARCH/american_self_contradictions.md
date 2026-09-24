@@ -184,8 +184,36 @@ transcription can give, and three of the four subjects appear nowhere else in ei
 committed extraction has to carry, at the page and column named, and re-derives the negative
 half — that the Democrat supplies **no address** for the tailor, for Sabine or for Dave[s] — over
 all seventy-three of its issues. It fails if a printing moves, if a reading changes, if a
-disagreement collapses, or if the Democrat turns out to place one of them after all. Eight
-assertions, each proved to fire under `--self-test`.
+disagreement collapses, or if the Democrat turns out to place one of them after all. It also
+holds the ruling below to the printings. Sixteen assertions, each proved to fire under
+`--self-test`.
 
 So the day one of these four is answered — by an image, or by an extraction pass reaching a card
 nobody has read — the gate says so, instead of this page going quietly out of date.
+
+---
+
+## The ruling: built from the best reading, until the images arrive
+
+The six columns are held outside the repository. On 2026-09-23 the owner answered T-0305 with
+option (b): *build from the best transcription reading now, marked inferred, and replace it if the
+images ever arrive.* The rulings are `data/businesses/rulings/contested_readings.json`, and
+`tools/compile_businesses.py` lays them over the four houses.
+
+**One rule chooses every reading:** take the resolved printing nearest the scene date (1 July 1835)
+and on or before it. The printings on the other side stay on the record as `against`, and the
+unreadable ones as `unresolved`. None of them is deleted.
+
+| question | built as | for | against | what changed on the model |
+|---|---|---|---|---|
+| the tailor's street | **Franklin Street**, `street_only`, inferred | 06-27, 07-25 | 08-15 (Lake) | the house was `unplaceable` and now stands on a street |
+| Sabine's Water street | **North Water**, inferred | 06-13 | 07-04 (South) | the record now says why North, and what would replace it |
+| John Dave[s]'s Water street | **North Water**, inferred | 06-13 | 07-04 (South) | the same, as one question with Sabine's |
+| Cobb's cross street | **Lake and Canal**, kept on `goss_cobb_saddlery` | the Democrat, 1833-11-26 | none | nothing moves; the record says the 1835 corner is inferred from the 1833 card |
+
+Each record's `replaceable_by` names its exact columns, so the image that settles a question
+names the record it replaces. The gate refuses a ruling that picks a reading no printing carries,
+or one that goes against the printing nearest the scene date. It also refuses one that sorts the
+printings differently from how they read, or one that the compiled house does not carry at
+`inferred`.
+

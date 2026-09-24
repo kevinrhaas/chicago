@@ -1,5 +1,41 @@
 # STATUS
 
+## Ruled readings for the American's four contradictions — T-0305, 2026-09-24
+
+**What a visitor sees:** Edward Burton's tailoring shop was `unplaceable`. Its card now puts it on
+**Franklin Street**, placed by street only and marked inferred. The cards of Wm. Sabine, John
+Dave[s] and S. B. Cobb's saddlery now say which printings they follow, which ones disagree with
+them, and which page columns would replace them.
+
+**The owner's answer (b), 2026-09-23:** build from the best transcription reading now, marked
+inferred, and replace it if the images ever arrive. This overrides acceptance point 4 ("no
+confidence moves") for the build, and for the build only. No bracket is filled, no printing is
+dropped, and no building moves.
+
+**One rule chooses:** take the resolved printing nearest the scene date (1835-07-01) and on or
+before it. The rulings are `data/businesses/rulings/contested_readings.json`, laid over the
+register by `tools/compile_businesses.py`.
+
+| question | built as | against |
+|---|---|---|
+| Burton's street | Franklin, `street_only` (was `unplaceable`) | 08-15 Lake |
+| Sabine's Water street | North Water (unchanged) | 07-04 South |
+| Dave[s]'s Water street | North Water (unchanged) | 07-04 South |
+| Cobb's cross street | Lake and Canal, `goss_cobb_saddlery` (unchanged) | none; the 1835 cards lose it |
+
+**Held by the gate.** `measure_american_contradictions.py --gate` now refuses any of these:
+
+- a question with no ruling;
+- a reading no printing carries;
+- a ruling against the printing nearest the scene date;
+- `for`/`against`/`unresolved` lists that do not match the printings;
+- an unresolved street ruled without the Democrat address under it;
+- a `replaceable_by` that names no column;
+- a compiled house that does not carry the ruling at `inferred`.
+
+That is 16 self-tests, up from 8. The page-image ask stands unchanged: six columns still settle
+all four.
+
 ## Responsive measured boot — T-1246, 2026-09-20
 
 The gate now exposes eight real work phases, completed-work events and measured cold/warm estimates for both viewports at all three detail tiers. Row/batch yields let the loading status repaint during planting; mobile/light measured 123.8 ms cold and 116.5 ms warm between paints, down from 974.5 ms cold. All twelve comparisons preserve geometry bytes, flora/tree statistics, roll and placement census. Optional people/census failures and background resume passed published-browser tests; failed terrain never opens the gate. First-render readiness and asynchronous shader preparation replace the earlier pre-render ready flag. [Measurement/reproduction notes](performance/BOOT-PHASES.md) distinguish the flora result from remaining software-renderer presentation stalls. Full regression validation is recorded in the closing PR.
