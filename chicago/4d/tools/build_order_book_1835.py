@@ -1786,9 +1786,26 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
             if todo is not None and b["filled"] > todo:
                 was = quota_before.get(b["key"])
                 cause = "the_re_cut_reached_work_already_drawn"
-                if was is None:
-                    was = committed_order.get(b["key"])
-                    cause = "a_documented_reading_shrank_the_order"
+                # AND A PERSON BUCKET'S ORDER FALLS THE SAME WAY A BUSINESS BUCKET'S DOES
+                # (T-0841). The pre-ruling cut is only the right yardstick while it is
+                # ABOVE what was drawn: it is computed from the residents layer as it
+                # stands, so the moment the town READS documented people into a cell, the
+                # pre-ruling quota falls too and the test above stops telling a re-cut
+                # apart from a filler — it calls both a filler. Measured reading St Mary's
+                # baptismal register into the ladder: 25 more documented men aged 20-29 in
+                # a south-side family trade, this cell's cut 60 -> 35, and its 60 drawn
+                # were every one of them drawn against the 60 THIS BOOK ORDERED. That is
+                # the T-1299 case exactly, one family over, and the owner's ruling of
+                # 2026-09-20 covers it: nothing already drawn moves. So the fallback the
+                # business families take is taken here too, and it is a fallback rather
+                # than a replacement — `filled` above even the order the work was drawn
+                # against is still a filler bypassing the book, and still a FAULT.
+                if was is None or was < b["filled"]:
+                    committed = committed_order.get(b["key"])
+                    if committed is not None and committed >= b["filled"]:
+                        was, cause = committed, "a_documented_reading_shrank_the_order"
+                    elif was is None:
+                        was, cause = committed, "a_documented_reading_shrank_the_order"
                 if was is not None and b["filled"] <= was:
                     recut_refusals.append({
                         "bucket": b["key"],

@@ -10,10 +10,10 @@
    "unmatched": 826
   },
   "church": {
-   "names_read": 520,
-   "identities": 480,
-   "appearances_on_an_identity_the_town_already_carries": 35,
-   "unmatched": 485
+   "names_read": 956,
+   "identities": 662,
+   "appearances_on_an_identity_the_town_already_carries": 150,
+   "unmatched": 806
   },
   "civic": {
    "names_read": 460,
@@ -80,18 +80,18 @@
  },
  "overlap": {
   "census_1840|census_1840": 858,
-  "census_1840|church": 25,
+  "census_1840|church": 26,
   "census_1840|civic": 25,
   "census_1840|directories": 145,
   "census_1840|newspapers": 51,
   "census_1840|old_settlers": 13,
   "census_1840|residents": 42,
-  "church|church": 480,
-  "church|civic": 3,
-  "church|directories": 44,
-  "church|newspapers": 9,
-  "church|old_settlers": 6,
-  "church|residents": 34,
+  "church|church": 662,
+  "church|civic": 7,
+  "church|directories": 51,
+  "church|newspapers": 15,
+  "church|old_settlers": 7,
+  "church|residents": 40,
   "civic|civic": 374,
   "civic|directories": 80,
   "civic|newspapers": 113,
@@ -115,11 +115,11 @@
  },
  "negative_searches_recorded": {
   "derived_refusals_by_rule": {
-   "R1": 375,
+   "R1": 402,
    "R5": 263,
-   "R2": 970,
+   "R2": 1004,
    "R3": 118,
-   "R4": 86,
+   "R4": 85,
    "R6": 9,
    "R7": 39,
    "X1": 1,
