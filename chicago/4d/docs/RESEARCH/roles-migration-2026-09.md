@@ -6,17 +6,20 @@ describing the tree it is about. T-1254, of T-1145 (acceptance 3 and 9).
 
 ## What was offered, and what was made of it
 
-Five research records hold structured role evidence about people the residents
-layer carries: the newspaper gazetteer compiled from the 1833-1835 Chicago press,
-the Fergus 1839 city register's office tables, and the Fergus 1839, Fergus 1843 and
-Norris 1844 directory crosswalks. Every row each of them offers about a resident is
-listed below under the disposition it received.
+Six research records hold role evidence about people the residents layer carries:
+the newspaper gazetteer compiled from the 1833-1835 Chicago press, the Fergus 1839
+city register's office tables, the Fergus 1839, Fergus 1843 and Norris 1844
+directory crosswalks, and — since T-1507 — the adjudicated readings of
+retrospective PROSE, which is the one of the six that is not a structured record
+and the reason a trade named only in a reminiscence used to be carried by nothing
+at all. Every row each of them offers about a resident is listed below under the
+disposition it received.
 
-The 1839 DIRECTORY is the fifth and joined the table in T-1515. Until then its
-printings reached a card only through `occupation_later`, a pointer written only
-where the 1835 field had a gap to fill, so the volume's evidence was conditional on
-the 1835 field being empty and its three siblings' was not. It is read off its own
-crosswalk now, whatever the 1835 field holds, and the pointer is a convenience.
+The 1839 DIRECTORY joined the table in T-1515. Until then its printings reached a
+card only through `occupation_later`, a pointer written only where the 1835 field
+had a gap to fill, so that volume's evidence was conditional on the 1835 field
+being empty and its siblings' was not. It is read off its own crosswalk now,
+whatever the 1835 field holds, and the pointer is a convenience.
 
 - **asserted** — the printing IS a word in the residents vocabulary.
 - **folded** — a synonym ruled onto a controlled word (`boot and shoe maker` ->
@@ -40,7 +43,8 @@ carry is a controlled word, and it may not fill the 1835 view without one.
 | `fergus_1843_directory` | 125 | 19 | 11 | 12 | 83 |
 | `newspaper_gazetteer` | 213 | 88 | 81 | 44 | 0 |
 | `norris_1844_directory` | 100 | 22 | 14 | 8 | 56 |
-| **total** | **607** | **148** | **122** | **85** | **252** |
+| `retrospective_prose` | 1 | 0 | 1 | 0 | 0 |
+| **total** | **608** | **148** | **123** | **85** | **252** |
 
 `10` further row(s) were SYNONYM-FOLDED INTO EACH OTHER: one
 source printing two wordings for one controlled role over one bound asserts that
@@ -242,7 +246,7 @@ least one source in common, with corroborators beside it.
 | `paine_seth` | 2 | 0 | dry goods merchant |
 | `parsons_edward` | 3 | 0 | (Clark, Haines & Co.); Parsons & Holden; of Clark, Haines, & Co |
 | `peacock_elijah` | 4 | 0 | judge of election; watchmaker; watchmaker and jeweler, 195 Lake; watchmaker and jeweller |
-| `pearsons_hiram` | 3 | 1 | real estate dealer; speculator |
+| `pearsons_hiram` | 4 | 1 | house painter; real estate dealer; speculator |
 | `peck_philip` | 8 | 1 | capitalist; merchant; price reporter for the Chicago Democrat; real estate speculator; storekeeper |
 | `perry_a_8` | 3 | 0 | barber; barber, ex-justice of peace; barber, ex-justice of the peace, Reservation |
 | `pierce_asahel` | 5 | 1 | alderman; blacksmith; blacksmith, 20 Market; blacksmith. S. Water st. b Lake and Randolph sts; plow and wagon maker |

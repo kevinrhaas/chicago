@@ -1293,7 +1293,7 @@
    "household_id": "hh_pearsons_hiram",
    "grade_1835": "attested",
    "occupation_1835": "speculator",
-   "occupation_1835_confidence": "attested",
+   "occupation_1835_confidence": "inferred",
    "lives_at_1835": null,
    "works_at_1835": null,
    "rule": "Surname 'Pearsons' folds to the same string as the 1844 entry's, and the given name of both begins H.",

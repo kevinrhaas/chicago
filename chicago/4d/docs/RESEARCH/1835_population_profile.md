@@ -369,7 +369,7 @@ THE NINE QUESTIONS ASKED OF EVERY ONE OF THE 2265 PEOPLE, TOGETHER. 6 of the nin
 | arrival | household | 2265 | 100.0% | 127 | 1445 | 693 | 0 | 0 |
 | origin | household | 2265 | 100.0% | 24 | 84 | 2157 | 0 | 0 |
 | reason for coming | household | 2265 | 100.0% | 33 | 28 | 2204 | 0 | 0 |
-| a role, or a stated reason for having none | person | 2265 | 100.0% | 156 | 171 | 1938 | 0 | 0 |
+| a role, or a stated reason for having none | person | 2265 | 100.0% | 155 | 172 | 1938 | 0 | 0 |
 | presence on the scene date | household | 2265 | 100.0% | 59 | 1520 | 686 | 0 | 0 |
 | division | household | 857 | 37.8% | 0 | 0 | 0 | 857 | 1408 |
 | household relationship | person | 2265 | 100.0% | 0 | 0 | 0 | 2265 | 0 |
@@ -2008,7 +2008,7 @@ Every household carries an arrival block and 95.3% of them (1327) hold a `not_la
 
 ## Roles — plural and dated
 
-327 of 2265 persons carry at least one role and 195 carry two or more. 160 of the 764 roles in the layer reach 1 July 1835; the other 604 are printed against the name in a later volume and say so.
+327 of 2265 persons carry at least one role and 195 carry two or more. 160 of the 765 roles in the layer reach 1 July 1835; the other 605 are printed against the name in a later volume and say so.
 
 ### Persons by number of roles
 
@@ -2017,8 +2017,8 @@ Every household carries an arrival block and 95.3% of them (1327) hold a `not_la
 | 0 | 1938 | 85.6% |
 | 1 | 132 | 5.8% |
 | 2 or more | 73 | 3.2% |
-| 3 or more | 59 | 2.6% |
-| 4 or more | 36 | 1.6% |
+| 3 or more | 58 | 2.6% |
+| 4 or more | 37 | 1.6% |
 | 5 or more | 10 | 0.4% |
 | 6 or more | 9 | 0.4% |
 | 7 or more | 4 | 0.2% |
@@ -2029,7 +2029,7 @@ Every household carries an arrival block and 95.3% of them (1327) hold a `not_la
 
 | kind | roles |
 |---|---:|
-| trade | 627 |
+| trade | 628 |
 | profession | 84 |
 | office | 52 |
 | employment | 1 |
@@ -2038,8 +2038,8 @@ Every household carries an arrival block and 95.3% of them (1327) hold a `not_la
 
 | tier | persons |
 |---|---:|
-| attested | 119 |
-| inferred | 18 |
+| attested | 118 |
+| inferred | 19 |
 | reconstructed | 203 |
 
 ### The trades themselves

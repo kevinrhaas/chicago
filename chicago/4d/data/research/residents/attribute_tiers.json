@@ -29,8 +29,8 @@
     "blocks": 18239,
     "tiers_written_on_the_card": 8121,
     "by_tier": {
-      "attested": 589,
-      "inferred": 3319,
+      "attested": 588,
+      "inferred": 3320,
       "reconstructed": 8305,
       "unknown": 6026
     },
@@ -132,8 +132,8 @@
         "unknown": 0
       },
       "persons[].occupation": {
-        "attested": 119,
-        "inferred": 19,
+        "attested": 118,
+        "inferred": 20,
         "reconstructed": 203,
         "unknown": 1924
       },

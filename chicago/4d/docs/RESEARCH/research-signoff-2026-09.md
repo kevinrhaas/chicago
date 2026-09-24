@@ -85,7 +85,7 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | Persons in the layer | 2,265 |
 | Carrying at least one dated role | 327 |
 | Carrying two or more | 195 |
-| Role rows in total | 764 |
+| Role rows in total | 765 |
 | Persons whose roles reach 1835-07-01 | 138 |
 | Persons whose every role is dated away from it | 189 |
 | Persons carrying no dated role at all | 1,938 |
@@ -95,17 +95,17 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | `employment` | 1 |
 | `office` | 52 |
 | `profession` | 84 |
-| `trade` | 627 |
+| `trade` | 628 |
 
 | Dating | Rows |
 | --- | ---: |
-| dated away from it | 604 |
+| dated away from it | 605 |
 | reaches 1 July 1835 | 160 |
 
 | Confidence | Rows |
 | --- | ---: |
-| `attested` | 159 |
-| `inferred` | 605 |
+| `attested` | 158 |
+| `inferred` | 607 |
 
 Of the rows that reach the scene date, every one names a source that describes it (C5) — 127 by `source_describes_date`, 33 by `stated_date`.
 

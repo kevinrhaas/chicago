@@ -437,6 +437,7 @@ FOLD: dict[str, tuple[str | None, str | None, str | None]] = {
     "grocer": ("grocer", "trade", None),
     "wholesale grocer": ("grocer", "trade", None),
     "harbour agent": ("harbour_agent", "employment", None),
+    "house painter": ("painter", "trade", None),
     "hardware merchant": ("hardware_merchant", "trade", None),
     "hatter": ("hatter", "trade", None),
     "hotel keeper": ("hotel_keeper", "trade", None),
@@ -515,6 +516,7 @@ REGISTER_1839 = DIRECTORIES / "fergus_1839_register_crosswalk_1835.json"
 FERGUS_1839 = DIRECTORIES / "fergus_1839_crosswalk_1835.json"
 FERGUS_1843 = DIRECTORIES / "fergus_1843_crosswalk_1835.json"
 NORRIS_1844 = DIRECTORIES / "norris_1844_crosswalk_1835.json"
+PROSE_READINGS = RESEARCH / "residents" / "prose_role_readings.json"
 
 MIGRATION_TABLE = ROOT / "docs" / "RESEARCH" / "roles-migration-2026-09.md"
 
@@ -732,6 +734,88 @@ def directory_roles(person_id: str, path: Path, year: str, entries_key: str,
     return rows
 
 
+_PROSE: list[dict] | None = None
+
+
+def prose_index() -> list[dict]:
+    global _PROSE
+    if _PROSE is None:
+        doc = _load(PROSE_READINGS) or {}
+        _PROSE = [r for r in (doc.get("readings") or []) if r.get("person_id")]
+    return _PROSE
+
+
+def prose_roles(person_id: str, person: dict) -> list[dict]:
+    """A trade a RETROSPECTIVE PROSE SOURCE names, as the role nothing else carried (T-1507).
+
+    THE HOLE THIS FILLS. The four records above are structured — a gazetteer, a register,
+    two directory crosswalks — and a reminiscence is none of them, so a trade read out of
+    recollected prose had no way onto a card at all. Hiram Pearsons' card carried
+    `speculator` at `attested` on a note that called it this project's own reading, while
+    the one volume that states a trade of him in words described a house painter, and no
+    field anywhere held it.
+
+    IT NEVER FILLS THE 1835 VIEW, AND NOT BECAUSE OF ITS BOUND. Every volume the readings
+    file holds is set down after the scene, so the ladder ratified 2026-09-03 (T-0513)
+    settles it before the dates are consulted: a later volume may date and corroborate and
+    may never promote. `fills_scene_view` is therefore false unconditionally, and the note
+    says the ladder is the reason — a refusal that looked like a missing bound would invite
+    the next run to "fix" the bound and promote the trade.
+
+    THE BOUND IS STILL READ AND STILL STATED. A row may give its own `describes_date`;
+    otherwise the source's is read, and prose as vague as `nineteenth century` names no
+    year, which is `unknown` precision and `undated`, not a silent 1835.
+    """
+    rows = []
+    listed = set(person.get("sources") or [])
+    for reading in prose_index():
+        if reading.get("person_id") != person_id:
+            continue
+        printed = (reading.get("as_printed") or "").strip()
+        if not printed:
+            continue
+        source = reading.get("source_id") or ""
+        role, kind, body, disposition = _fold(printed)
+        span = str(reading.get("describes_date") or "") or describes_date(source)
+        frm, to = _ends(span)
+        rows.append({
+            "role": role,
+            "kind": kind or "trade",
+            "as_printed": printed,
+            "from": frm or None,
+            "to": to or None,
+            "precision": _precision(frm, to),
+            "dated_by": "source_describes_date" if frm else "undated",
+            "covers_scene_date": covers_scene(span),
+            "fills_scene_view": False,
+            "confidence": "inferred",
+            "sources": [source] if source else [],
+            "claim": reading.get("read_in"),
+            "place": NOT_STATED,
+            "employer_or_body": body or NOT_STATED,
+            "note": _external_note(
+                "A TRADE NAMED IN RETROSPECTIVE PROSE, carried here by its reading in "
+                + str(PROSE_READINGS.relative_to(ROOT)) + " (T-1507, by " + GENERATOR
+                + "). The grade is `inferred`: the volume states the trade in words, and "
+                "the resident programme's identity rule tied the passage to this card, so "
+                "the trade is inferred FOR this person rather than stated OF him. The "
+                "bound is " + (frm + " to " + to if frm and to else
+                               "UNSTATED — the volume names no year this can read")
+                + ".",
+                "It does not stand in the " + SCENE_DATE + " view, and the reason is the "
+                "evidence ladder ratified 2026-09-03 (T-0513) and not the bound: a volume "
+                "set down after the scene may date and corroborate and may never promote. "
+                + ("The volume is deliberately absent from the person's own `sources[]`, "
+                   "which lists what the 1835 RESIDENCY grade stands on (T-1254). "
+                   if source and source not in listed else "")
+                + "The reading's own reason is in the readings file, beside the pass that "
+                "made it."),
+            "_disposition": disposition,
+            "_offered_by": "retrospective_prose",
+        })
+    return rows
+
+
 FERGUS_1839_CAVEAT = (
     "An address NUMBER in the 1839 directory is 1876's and not 1839's, on the compiler's "
     "own statement on printed page 3, so `place` carries the street NAME the entry names "
@@ -848,6 +932,7 @@ def roles_for(person: dict, gazetteer: dict[str, dict] | None = None) -> list[di
     rows += directory_roles(pid, NORRIS_1844, "1844", "entries_1844", "occupation_1844",
                             ("place_of_business_1844", "address_1844"),
                             "norris_1844_directory")
+    rows += prose_roles(pid, person)
     # THE POINTER GOES LAST, AND THAT IS THE WHOLE OF ITS DEMOTION (T-1515). It offers
     # the same assertion as the volume's own crosswalk row for 73 of the 90 1839
     # printings it carries — one source, one wording, one year — so `fold_duplicates`
@@ -1068,7 +1153,8 @@ def offered() -> tuple[dict[str, dict[str, int]], int, list[tuple[str, list[dict
                         + directory_roles(pid, NORRIS_1844, "1844", "entries_1844",
                                           "occupation_1844",
                                           ("place_of_business_1844", "address_1844"),
-                                          "norris_1844_directory"))
+                                          "norris_1844_directory")
+                        + prose_roles(pid, person))
             for row in external:
                 bucket = tally.setdefault(row["_offered_by"], dict.fromkeys(DISPOSITIONS, 0))
                 bucket[row["_disposition"]] += 1
@@ -1098,17 +1184,20 @@ def migration_table() -> str:
     w("")
     w("## What was offered, and what was made of it")
     w("")
-    w("Five research records hold structured role evidence about people the residents")
-    w("layer carries: the newspaper gazetteer compiled from the 1833-1835 Chicago press,")
-    w("the Fergus 1839 city register's office tables, and the Fergus 1839, Fergus 1843 and")
-    w("Norris 1844 directory crosswalks. Every row each of them offers about a resident is")
-    w("listed below under the disposition it received.")
+    w("Six research records hold role evidence about people the residents layer carries:")
+    w("the newspaper gazetteer compiled from the 1833-1835 Chicago press, the Fergus 1839")
+    w("city register's office tables, the Fergus 1839, Fergus 1843 and Norris 1844")
+    w("directory crosswalks, and — since T-1507 — the adjudicated readings of")
+    w("retrospective PROSE, which is the one of the six that is not a structured record")
+    w("and the reason a trade named only in a reminiscence used to be carried by nothing")
+    w("at all. Every row each of them offers about a resident is listed below under the")
+    w("disposition it received.")
     w("")
-    w("The 1839 DIRECTORY is the fifth and joined the table in T-1515. Until then its")
-    w("printings reached a card only through `occupation_later`, a pointer written only")
-    w("where the 1835 field had a gap to fill, so the volume's evidence was conditional on")
-    w("the 1835 field being empty and its three siblings' was not. It is read off its own")
-    w("crosswalk now, whatever the 1835 field holds, and the pointer is a convenience.")
+    w("The 1839 DIRECTORY joined the table in T-1515. Until then its printings reached a")
+    w("card only through `occupation_later`, a pointer written only where the 1835 field")
+    w("had a gap to fill, so that volume's evidence was conditional on the 1835 field")
+    w("being empty and its siblings' was not. It is read off its own crosswalk now,")
+    w("whatever the 1835 field holds, and the pointer is a convenience.")
     w("")
     w("- **asserted** — the printing IS a word in the residents vocabulary.")
     w("- **folded** — a synonym ruled onto a controlled word (`boot and shoe maker` ->")
@@ -1333,6 +1422,15 @@ def self_test() -> int:
                                        "sources": ["fergus_chicago_directory_1843"]}})
         card("hh_none", "none", {"value": ABSENT, "confidence": "reconstructed",
                                  "note": "held"})
+        # T-1507's reading, over a fixture rather than over the committed file, so the
+        # rule is held and not merely the one row the tree happens to hold today.
+        card("hh_prose", "prose", {"value": ABSENT, "confidence": "reconstructed",
+                                   "note": "held"})
+        global _PROSE
+        _PROSE = [{"person_id": "prose", "source_id": "ingale_early_chicago_reminiscence",
+                   "as_printed": "house painter", "read_in": "fixture"},
+                  {"person_id": "prose", "source_id": "andreas_1884_v1",
+                   "as_printed": "cooper", "describes_date": "1835"}]
         out = proposed(hh)
 
         w = out["hh_window.json"]["persons"][0]
@@ -1361,6 +1459,20 @@ def self_test() -> int:
         holds("…and it does not reach the scene date", lt["roles"][0]["covers_scene_date"],
               False)
         holds("…and the 1835 field stays absent", lt["occupation"]["value"], ABSENT)
+
+        pr = out["hh_prose.json"]["persons"][0]
+        holds("a trade named in retrospective prose becomes a role",
+              pr["roles"][1]["as_printed"], "house painter")
+        holds("…folded onto the controlled word", pr["roles"][1]["role"], "painter")
+        holds("…undated where the volume names no year",
+              (pr["roles"][1]["from"], pr["roles"][1]["dated_by"]), (None, "undated"))
+        holds("…and the 1835 field stays absent", pr["occupation"]["value"], ABSENT)
+        holds("a prose reading whose volume spans the scene says so",
+              pr["roles"][0]["covers_scene_date"], True)
+        holds("…and is refused the view anyway, by the ladder and not by its bound",
+              pr["roles"][0]["fills_scene_view"], False)
+        holds("…and the note gives the ladder as the reason",
+              "may never promote" in pr["roles"][0]["note"], True)
 
         holds("the card's own scene role is admitted to the view",
               w["roles"][0]["fills_scene_view"], True)
@@ -1458,10 +1570,11 @@ def self_test() -> int:
         for name, doc in out.items():
             (hh / name).write_text(dumps(doc), encoding="utf-8")
         holds("a second derivation proposes nothing", sorted(proposed(hh)), [])
+        _PROSE = None
 
     for line in failures:
         print(f"FAIL {line}", file=sys.stderr)
-    print(f"self-test: {65 - len(failures)}/65 assertions hold")
+    print(f"self-test: {72 - len(failures)}/72 assertions hold")
     return 1 if failures else 0
 
 
