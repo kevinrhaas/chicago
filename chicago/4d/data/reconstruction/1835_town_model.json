@@ -77,7 +77,7 @@
           "high": 1405,
           "point": null,
           "is_a_count": true,
-          "method": "The resident layer carries 1,405 people — 412 attested, 993 inferred, 1,551 reconstructed. A count of the layer, not of the town.",
+          "method": "The resident layer carries 1,405 people — 412 attested, 993 inferred, 1,545 reconstructed. A count of the layer, not of the town.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -148,8 +148,8 @@
           ]
         },
         "known_by_presence": {
-          "present": 2671,
-          "absent": 69,
+          "present": 2668,
+          "absent": 66,
           "uncertain": 216
         }
       }

@@ -39,7 +39,7 @@
   "basis": {
    "kind": "model",
    "id": "persistence_1835",
-   "note": "The reading dates this name at 1834-12-10, 0.56 years before the scene date. The persistence model gives 0.963 for that lag and the seeded draw reads present."
+   "note": "The reading dates this name at 1834-12-10, 0.56 years before the scene date. The persistence model gives 0.965 for that lag and the seeded draw reads present."
   },
   "seed": "hh_marian_mouch:persistence",
   "replaceable_by": {

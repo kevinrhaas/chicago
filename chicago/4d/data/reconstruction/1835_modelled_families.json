@@ -6,29 +6,29 @@
  "target_date": "1835-07-01",
  "generated_by": "tools/reconstruct_modelled_families.py --build",
  "not_a_reading": "no source was opened; nobody here is named by one",
- "heads_drawn_for": 120,
+ "heads_drawn_for": 126,
  "people_drawn": 296,
  "wives": 84,
  "children": 212,
  "refused_by_eligibility": {
   "a letter-list mint argues for a person and not for a household": 743,
   "a source already names, counts or rules on this household's family": 147,
-  "a woman heading her own household is the age pyramid's, T-1174": 25,
+  "a woman heading her own household is the age pyramid's, T-1174": 31,
   "an evidence-only container holds read evidence and not a household to draw a family into": 5,
-  "presence on the scene date is not settled (T-1172's roster holds it)": 118,
+  "presence on the scene date is not settled (T-1172's roster holds it)": 2,
   "the fort and the country outside the town are not this stage's": 3,
   "the head is not a person the sources name": 11,
-  "the head is not an adult the household model seats as a husband": 27,
+  "the head is not an adult the household model seats as a husband": 71,
   "the head's own trade says he kept no wife": 1,
   "the household carries a standing review, and only T-1177's stage may reconstruct within one": 4,
-  "the order book has no woman left in this house's cell": 309
+  "the order book has no woman left in this house's cell": 369
  },
  "refused_by_the_order_book": {
-  "persons/female/20_29/north/family/none": 55,
-  "persons/female/20_29/south/family/none": 148,
-  "persons/female/20_29/west/family/none": 48,
-  "persons/female/30_39/north/family/none": 14,
-  "persons/female/30_39/south/family/none": 26,
+  "persons/female/20_29/north/family/none": 68,
+  "persons/female/20_29/south/family/none": 180,
+  "persons/female/20_29/west/family/none": 56,
+  "persons/female/30_39/north/family/none": 16,
+  "persons/female/30_39/south/family/none": 31,
   "persons/female/30_39/west/family/none": 14,
   "persons/female/40_49/south/family/none": 2,
   "persons/female/40_49/west/family/none": 1,
@@ -39,28 +39,28 @@
   "persons/male/under_10/south/family/none": 1,
   "persons/male/under_10/west/family/none": 1
  },
- "houses_the_book_refused": 309,
+ "houses_the_book_refused": 369,
  "size_drawn_histogram": {
-  "1": 36,
-  "2": 59,
-  "3": 86,
-  "4": 73,
-  "5": 61,
-  "6": 59,
-  "7": 34,
-  "8": 21
+  "1": 42,
+  "2": 76,
+  "3": 97,
+  "4": 88,
+  "5": 68,
+  "6": 64,
+  "7": 37,
+  "8": 23
  },
  "size_refused_histogram": {
-  "2": 48,
-  "3": 70,
-  "4": 59,
-  "5": 47,
-  "6": 44,
-  "7": 25,
-  "8": 16
+  "2": 65,
+  "3": 81,
+  "4": 74,
+  "5": 54,
+  "6": 49,
+  "7": 28,
+  "8": 18
  },
  "kin_seated_histogram": {
-  "1": 36,
+  "1": 42,
   "2": 13,
   "3": 15,
   "4": 16,
@@ -139,6 +139,11 @@
    "kin_seated": 1,
    "household_type": "solitary"
   },
+  "hh_bailly_esther": {
+   "size_drawn": 1,
+   "kin_seated": 1,
+   "household_type": "solitary"
+  },
   "hh_barry_j_r": {
    "size_drawn": 1,
    "kin_seated": 1,
@@ -154,10 +159,20 @@
    "kin_seated": 1,
    "household_type": "solitary"
   },
+  "hh_beaubien_archange": {
+   "size_drawn": 1,
+   "kin_seated": 1,
+   "household_type": "solitary"
+  },
   "hh_blanchard_f_gantry": {
    "size_drawn": 5,
    "kin_seated": 5,
    "household_type": "family_with_children"
+  },
+  "hh_bouchard_adelaide": {
+   "size_drawn": 1,
+   "kin_seated": 1,
+   "household_type": "solitary"
   },
   "hh_bowen_erastus_selden": {
    "size_drawn": 5,
@@ -278,6 +293,11 @@
    "size_drawn": 3,
    "kin_seated": 3,
    "household_type": "family_with_children"
+  },
+  "hh_derocher_jean_baptiste": {
+   "size_drawn": 1,
+   "kin_seated": 1,
+   "household_type": "solitary"
   },
   "hh_donner_jacob": {
    "size_drawn": 1,
@@ -434,6 +454,11 @@
    "kin_seated": 2,
    "household_type": "married_couple"
   },
+  "hh_laframboise_marguerite": {
+   "size_drawn": 1,
+   "kin_seated": 1,
+   "household_type": "solitary"
+  },
   "hh_lafrombois_joseph": {
    "size_drawn": 5,
    "kin_seated": 5,
@@ -565,6 +590,11 @@
    "household_type": "solitary"
   },
   "hh_sasoton_a_b": {
+   "size_drawn": 1,
+   "kin_seated": 1,
+   "household_type": "solitary"
+  },
+  "hh_schwartz_adam": {
    "size_drawn": 1,
    "kin_seated": 1,
    "household_type": "solitary"
@@ -702,14 +732,14 @@
  },
  "measurement": {
   "the_town_the_book_counts": "present households only",
-  "people_before_this_stage": 1971,
-  "people_after_this_stage": 2267,
+  "people_before_this_stage": 2087,
+  "people_after_this_stage": 2383,
   "adults_after_this_stage": {
-   "male": 1189,
-   "female": 287
+   "male": 1255,
+   "female": 288
   },
-  "adult_sex_ratio_before": 585.7,
-  "adult_sex_ratio_after": 414.3,
+  "adult_sex_ratio_before": 615.2,
+  "adult_sex_ratio_after": 435.8,
   "the_model_s_range": [
    120.9,
    150.0
@@ -717,12 +747,12 @@
   "inside_the_model_s_range": false,
   "what_closes_it": "T-1174 (done, 856/856) and T-1347 (done, 308/308) drew the women and children the pyramid was short, but they were drawn as their own records and not into these houses: 310 married houses this stage drew stand with no woman left in their cell. Re-housing them is T-1179's convergence, and it is what closes this ratio; nothing this stage may draw does.",
   "age_pyramid_after": {
-   "10_19": 369,
-   "20_29": 805,
-   "30_39": 453,
-   "40_49": 137,
-   "50_plus": 81,
-   "under_10": 412
+   "10_19": 380,
+   "20_29": 845,
+   "30_39": 469,
+   "40_49": 145,
+   "50_plus": 84,
+   "under_10": 450
   },
   "household_size_1840_share": {
    "1": 0.0742,
@@ -735,15 +765,15 @@
    "8": 0.0487
   },
   "household_size_drawn_share": {
-   "1": 0.0839,
-   "2": 0.1375,
-   "3": 0.2005,
-   "4": 0.1702,
-   "5": 0.1422,
-   "6": 0.1375,
-   "7": 0.0793,
-   "8": 0.049
+   "1": 0.0848,
+   "2": 0.1535,
+   "3": 0.196,
+   "4": 0.1778,
+   "5": 0.1374,
+   "6": 0.1293,
+   "7": 0.0747,
+   "8": 0.0465
   },
-  "largest_share_gap": 0.0274
+  "largest_share_gap": 0.0271
  }
 }

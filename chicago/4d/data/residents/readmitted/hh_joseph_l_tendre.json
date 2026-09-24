@@ -33,13 +33,13 @@
   "note": "Not attested."
  },
  "present_on_scene_date": {
-  "value": "absent",
+  "value": "present",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "basis": {
    "kind": "model",
    "id": "persistence_1835",
-   "note": "The reading dates this name at 1833-07-26, 1.93 years before the scene date. The persistence model gives 0.877 for that lag and the seeded draw reads absent."
+   "note": "The reading dates this name at 1833-07-26, 1.93 years before the scene date. The persistence model gives 0.884 for that lag and the seeded draw reads present."
   },
   "seed": "hh_joseph_l_tendre:persistence",
   "replaceable_by": {

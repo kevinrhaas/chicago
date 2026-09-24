@@ -69,11 +69,11 @@
  },
  "persons": [
   {
-   "id": "rc_burke_ellen",
-   "name": "Ellen Burke",
+   "id": "rc_hubbard_samuel",
+   "name": "Samuel Hubbard",
    "relationship": "lodger",
    "grade": "reconstructed",
-   "sex": "female",
+   "sex": "male",
    "age_band": {
     "value": "10-19",
     "low": 10,
@@ -85,7 +85,7 @@
      "id": "1835_reconstruction_order_book",
      "note": "The bucket that ordered this person is 10_19; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:wolf_point_tavern:female:10_19:001:age_band",
+    "seed": "lodgers:wolf_point_tavern:male:10_19:001:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -93,15 +93,15 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Ellen Burke",
+    "value": "Samuel Hubbard",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_invented_name_pools",
-     "note": "Both parts are drawn from the irish pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
+     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:wolf_point_tavern:female:10_19:001:forename",
+    "seed": "lodgers:wolf_point_tavern:male:10_19:001:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -111,9 +111,9 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "note": "The book's bucket persons/female/10_19/west/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is wolf_point_tavern's, from the lodging model's ordinary-night figure of 4."
+    "note": "The book's bucket persons/male/10_19/west/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is wolf_point_tavern's, from the lodging model's ordinary-night figure of 4."
    },
-   "seed": "lodgers:wolf_point_tavern:female:10_19:001:forename",
+   "seed": "lodgers:wolf_point_tavern:male:10_19:001:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -121,7 +121,7 @@
    "reconstruction": {
     "stage": "lodgers",
     "programme": "chicago_1835_resident_reconstruction",
-    "community": "irish",
+    "community": "yankee",
     "review_required": false
    },
    "resident_subtype": "reconstructed_lodger",
