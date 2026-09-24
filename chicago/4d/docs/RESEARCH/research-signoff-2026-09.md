@@ -50,7 +50,7 @@ An `unresolved` unit is research read and not yet spent, and it is only legitima
 | T-1189 | 12 | split_live | yes |
 | T-1315 | 3 | open | yes |
 | T-1299 | 1 | claimed | yes |
-| T-1507 | 1 | open | yes |
+| T-1507 | 1 | claimed | yes |
 
 Not one of those owners asks for another READING. The heaviest are T-1198 (279), T-1335 (169), T-1514 (49), T-1189 (12), T-1315 (3) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
 
@@ -85,7 +85,7 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | Persons in the layer | 2,265 |
 | Carrying at least one dated role | 327 |
 | Carrying two or more | 173 |
-| Role rows in total | 687 |
+| Role rows in total | 688 |
 | Persons whose roles reach 1835-07-01 | 138 |
 | Persons whose every role is dated away from it | 189 |
 | Persons carrying no dated role at all | 1,938 |
@@ -95,17 +95,17 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | `employment` | 1 |
 | `office` | 50 |
 | `profession` | 80 |
-| `trade` | 556 |
+| `trade` | 557 |
 
 | Dating | Rows |
 | --- | ---: |
-| dated away from it | 527 |
+| dated away from it | 528 |
 | reaches 1 July 1835 | 160 |
 
 | Confidence | Rows |
 | --- | ---: |
-| `attested` | 258 |
-| `inferred` | 429 |
+| `attested` | 257 |
+| `inferred` | 431 |
 
 Of the rows that reach the scene date, every one names a source that describes it (C5) — 127 by `source_describes_date`, 33 by `stated_date`.
 
