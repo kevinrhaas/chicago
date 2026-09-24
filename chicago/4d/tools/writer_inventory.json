@@ -616,6 +616,13 @@
       "finding": "Reproduces: ran `--write` on a clean tree in 1s, wrote its output, changed no committed byte.",
       "placed": "by layer, 2026-09-21 — reasoned, not derived. It reads tools/generate_plat_lots.py's output (the block and lot grid, and the omissions carrying `already_derived_as`) and is placed immediately after it; run earlier it would measure a stale pair. Nothing reads what it writes, so nothing constrains it from below."
     },
+    "measure_west_division_spacing.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-09-24",
+      "finding": "Reproduces: ran `--write` on a clean tree in under 1s, wrote its output, changed no committed byte.",
+      "placed": "by layer, 2026-09-24 — reasoned, not derived. It reads tools/generate_plat_lots.py's output (the West Division's blocks, their lot cuts and their `bounded_by` lines) and is placed immediately after tools/measure_west_grid_migration.py, which reads the same file for the same ticket family; run earlier it would measure a stale grid. Nothing reads what it writes, so nothing constrains it from below."
+    },
     "measure_wright_lighthouse.py": {
       "placement": "not_a_writer",
       "write_mode": null,

@@ -1,0 +1,382 @@
+{
+ "_doc": "T-1540. Which control seats the West Division's north-south lines, what the plat's 458 ft module would cost if it were imposed on them, and what is seated on the spacing they have today. NOTHING IS MOVED BY THE TOOL THAT WRITES THIS FILE: no centreline is edited, no block re-emitted, no record re-seated. It is a measurement, in the manner of tools/measure_west_division_module.py, and it exists because the owner ruled on 2026-09-21 that the successor to T-0444 and T-0445 must own the whole question rather than the one number those two closed on.",
+ "tool": "tools/measure_west_division_spacing.py",
+ "ticket": "T-1540",
+ "generated_from": [
+  "data/streets/1835.json",
+  "data/traces/thompson_west_division_lots.json",
+  "data/traces/vectors/thompson_lots.json",
+  "data/datum.json",
+  "data/structures/*.json",
+  "data/enclosures/town_lot_line_rails.json",
+  "data/enclosures/town_lot_line_boards.json",
+  "data/enclosures/town_lot_line_pickets.json",
+  "data/frontage/town_street_edge.json"
+ ],
+ "the_lines": [
+  {
+   "id": "west_water",
+   "name_1835": "West Water Street",
+   "mean_east_local_m": -13.15,
+   "geometry_confidence": "inferred",
+   "sources": [
+    "wright_1834",
+    "thompson_plat_1830",
+    "fergus_chicago_directory_1839",
+    "osm_streets_2026"
+   ],
+   "what_places_this_line": {
+    "wright_1834": "a georeferenced 1834 sheet",
+    "osm_streets_2026": "modern surviving street geometry, warped through the datum"
+   },
+   "what_only_attests_the_street": {
+    "thompson_plat_1830": "the plat that DRAWS the street and prints the module",
+    "fergus_chicago_directory_1839": "a directory that names the street"
+   }
+  },
+  {
+   "id": "canal",
+   "name_1835": "Canal Street",
+   "mean_east_local_m": -170.12,
+   "geometry_confidence": "attested",
+   "sources": [
+    "chicago_dpw_1891_streets",
+    "hathaway_1834",
+    "wright_1834",
+    "osm_streets_2026",
+    "thompson_plat_1830"
+   ],
+   "what_places_this_line": {
+    "chicago_dpw_1891_streets": "an 1891 municipal street survey",
+    "hathaway_1834": "a georeferenced 1834 sheet",
+    "wright_1834": "a georeferenced 1834 sheet",
+    "osm_streets_2026": "modern surviving street geometry, warped through the datum"
+   },
+   "what_only_attests_the_street": {
+    "thompson_plat_1830": "the plat that DRAWS the street and prints the module"
+   }
+  },
+  {
+   "id": "clinton",
+   "name_1835": "Clinton Street",
+   "mean_east_local_m": -282.25,
+   "geometry_confidence": "attested",
+   "sources": [
+    "hathaway_1834",
+    "wright_1834",
+    "osm_streets_2026",
+    "thompson_plat_1830"
+   ],
+   "what_places_this_line": {
+    "hathaway_1834": "a georeferenced 1834 sheet",
+    "wright_1834": "a georeferenced 1834 sheet",
+    "osm_streets_2026": "modern surviving street geometry, warped through the datum"
+   },
+   "what_only_attests_the_street": {
+    "thompson_plat_1830": "the plat that DRAWS the street and prints the module"
+   }
+  },
+  {
+   "id": "jefferson",
+   "name_1835": "Jefferson Street",
+   "mean_east_local_m": -396.89,
+   "geometry_confidence": "inferred",
+   "sources": [
+    "thompson_plat_1830",
+    "osm_streets_2026"
+   ],
+   "what_places_this_line": {
+    "osm_streets_2026": "modern surviving street geometry, warped through the datum"
+   },
+   "what_only_attests_the_street": {
+    "thompson_plat_1830": "the plat that DRAWS the street and prints the module"
+   }
+  },
+  {
+   "id": "des_plaines",
+   "name_1835": "Des Plaines Street",
+   "mean_east_local_m": -520.72,
+   "geometry_confidence": "inferred",
+   "sources": [
+    "thompson_plat_1830",
+    "osm_streets_2026"
+   ],
+   "what_places_this_line": {
+    "osm_streets_2026": "modern surviving street geometry, warped through the datum"
+   },
+   "what_only_attests_the_street": {
+    "thompson_plat_1830": "the plat that DRAWS the street and prints the module"
+   }
+  }
+ ],
+ "the_two_controls": {
+  "the_survey_control": {
+   "source_id": "osm_streets_2026",
+   "lines_it_places": [
+    "west_water",
+    "canal",
+    "clinton",
+    "jefferson",
+    "des_plaines"
+   ],
+   "of": 5,
+   "what_it_gives": "a position for each line, and no module",
+   "carried_through": "data/datum.json, an affine fit of the 1834 sheets to modern ground at 17.5 m RMS"
+  },
+  "the_plat_control": {
+   "source_id": "thompson_plat_1830",
+   "lines_it_attests": [
+    "west_water",
+    "canal",
+    "clinton",
+    "jefferson",
+    "des_plaines"
+   ],
+   "of": 5,
+   "the_module_ft": 458.0,
+   "the_module_m": 139.598,
+   "module_confidence": "documented",
+   "what_it_gives": "a module, a count and an arrangement, and no position",
+   "in_its_own_words": "`documented` grades THE FIGURES AND THE COUNTS, which is all this file holds — a number printed on a tier-1 sheet and a numeral counted in a block. It does not grade any position: nothing here says where in the world a block is, and every derived centreline in west_division_module.md stays `inferred` because its anchor, the traced west bank, is inferred. Arithmetic does not upgrade its anchor."
+  },
+  "so": "the two are not rivals for the same job. NOT ONE of these lines was ever placed by the plat — the sheet reading refuses to place anything, in its own confidence note — and the plat is the only thing that says the grid should be even. A ruling that 'the plat wins' therefore cannot mean 'take the plat's positions', because it has none; it can only mean 'impose the module on an anchor', which is priced below."
+ },
+ "the_intervals": [
+  {
+   "east": "west_water",
+   "west": "canal",
+   "committed_m": 156.97,
+   "committed_ft": 515.0,
+   "the_plat_asks_ft": 458.0,
+   "short_by_ft": -57.0,
+   "short_by_m": -17.37,
+   "the_datum_residual_m": 17.5,
+   "inside_the_datum_residual": true,
+   "blocks_cut_between_these_lines": [
+    "blk_west_lake_canal",
+    "blk_west_randolph_canal"
+   ]
+  },
+  {
+   "east": "canal",
+   "west": "clinton",
+   "committed_m": 112.13,
+   "committed_ft": 367.9,
+   "the_plat_asks_ft": 458.0,
+   "short_by_ft": 90.1,
+   "short_by_m": 27.47,
+   "the_datum_residual_m": 17.5,
+   "inside_the_datum_residual": false,
+   "blocks_cut_between_these_lines": [
+    "blk_lake_clinton",
+    "blk_randolph_clinton",
+    "blk_west_fulton_clinton"
+   ]
+  },
+  {
+   "east": "clinton",
+   "west": "jefferson",
+   "committed_m": 114.64,
+   "committed_ft": 376.1,
+   "the_plat_asks_ft": 458.0,
+   "short_by_ft": 81.9,
+   "short_by_m": 24.96,
+   "the_datum_residual_m": 17.5,
+   "inside_the_datum_residual": false,
+   "blocks_cut_between_these_lines": [
+    "blk_west_fulton_jefferson",
+    "blk_west_lake_jefferson",
+    "blk_west_randolph_jefferson"
+   ]
+  },
+  {
+   "east": "jefferson",
+   "west": "des_plaines",
+   "committed_m": 123.83,
+   "committed_ft": 406.3,
+   "the_plat_asks_ft": 458.0,
+   "short_by_ft": 51.7,
+   "short_by_m": 15.77,
+   "the_datum_residual_m": 17.5,
+   "inside_the_datum_residual": true,
+   "blocks_cut_between_these_lines": [
+    "blk_west_fulton_des_plaines",
+    "blk_west_lake_des_plaines",
+    "blk_west_randolph_des_plaines"
+   ]
+  }
+ ],
+ "intervals_short_of_the_plat": 3,
+ "intervals_short_by_more_than_the_datum_residual": 2,
+ "across_the_division": {
+  "from": "west_water",
+  "to": "des_plaines",
+  "intervals": 4,
+  "committed_m": 507.57,
+  "committed_ft": 1665.3,
+  "the_plat_asks_m": 558.39,
+  "the_plat_asks_ft": 1832.0,
+  "short_by_m": 50.82,
+  "short_by_ft": 166.7,
+  "as_a_share_of_the_plat": 0.091,
+  "times_the_datum_residual": 2.9,
+  "so": "the whole division is narrower than the plat draws it, by more than the datum's own uncertainty, so the difference is not the georeferencing alone even where a single interval's share of it is.",
+  "the_grid_proper": {
+   "from": "canal",
+   "to": "des_plaines",
+   "intervals": 3,
+   "committed_ft": 1150.3,
+   "the_plat_asks_ft": 1374.0,
+   "short_by_ft": 223.7,
+   "as_a_share_of_the_plat": 0.1628,
+   "times_the_datum_residual": 3.9,
+   "so": "holding the riverfront line out does not soften the finding, it sharpens it: the three intervals the plat's module actually governs are shorter together than the four are."
+  }
+ },
+ "is_the_committed_grid_the_plat_module_rescaled": {
+  "all_intervals": {
+   "the_widest_ft": 515.0,
+   "the_narrowest_ft": 367.9,
+   "spread_ft": 147.1,
+   "spread_m": 44.84,
+   "spread_exceeds_the_residual": true
+  },
+  "the_grid_proper": {
+   "held_out": "west_water",
+   "why_held_out": "the division's easternmost line is its riverfront street, seated off the committed 1834 waterline rather than off the grid, so the interval behind it is not evidence about how the grid was cut",
+   "the_widest_ft": 406.3,
+   "the_narrowest_ft": 367.9,
+   "spread_ft": 38.4,
+   "spread_m": 11.7,
+   "spread_exceeds_the_residual": false,
+   "so": "inside the grid the intervals differ by LESS than the datum's own residual, so their unevenness on its own does not refute a single module — this file will not claim that it does."
+  },
+  "the_datum_residual_m": 17.5,
+  "but_one_line_cannot_close_it": {
+   "intervals_short_of_the_plat": 3,
+   "intervals_a_single_centreline_reaches": 2,
+   "so": "this does not depend on the residual at all. A centreline moved east or west changes exactly the two intervals that touch it, and more than two are short — so no one street move closes the gap, and the repair is not 'move Clinton'. That is the arithmetic T-0444 and T-0445 did not have when they closed on the single figure."
+  }
+ },
+ "what_moves_if_the_plat_wins": [
+  {
+   "anchor": "west_water",
+   "why_this_anchor": "the only line in the division with a PHYSICAL control — T-0445 seats its east kerb on the committed 1834 waterline, so it is the one line whose position is held by the modelled ground rather than by a modern street",
+   "lines": [
+    {
+     "id": "west_water",
+     "committed_east_local_m": -13.15,
+     "the_plat_wants_east_local_m": -13.15,
+     "moves_m": 0.0,
+     "moves_ft": 0.0,
+     "direction": "held"
+    },
+    {
+     "id": "canal",
+     "committed_east_local_m": -170.12,
+     "the_plat_wants_east_local_m": -152.75,
+     "moves_m": 17.37,
+     "moves_ft": 57.0,
+     "direction": "east"
+    },
+    {
+     "id": "clinton",
+     "committed_east_local_m": -282.25,
+     "the_plat_wants_east_local_m": -292.35,
+     "moves_m": -10.1,
+     "moves_ft": -33.1,
+     "direction": "west"
+    },
+    {
+     "id": "jefferson",
+     "committed_east_local_m": -396.89,
+     "the_plat_wants_east_local_m": -431.95,
+     "moves_m": -35.06,
+     "moves_ft": -115.0,
+     "direction": "west"
+    },
+    {
+     "id": "des_plaines",
+     "committed_east_local_m": -520.72,
+     "the_plat_wants_east_local_m": -571.54,
+     "moves_m": -50.82,
+     "moves_ft": -166.7,
+     "direction": "west"
+    }
+   ],
+   "total_absolute_movement_m": 113.35,
+   "the_largest_single_move_m": 50.82
+  },
+  {
+   "anchor": "canal",
+   "why_this_anchor": "the best-surviving line of the grid proper — it carries an 1891 municipal survey as well as both 1834 sheets and the modern street, which is more control than any other line here has",
+   "lines": [
+    {
+     "id": "west_water",
+     "committed_east_local_m": -13.15,
+     "the_plat_wants_east_local_m": -30.52,
+     "moves_m": -17.37,
+     "moves_ft": -57.0,
+     "direction": "west"
+    },
+    {
+     "id": "canal",
+     "committed_east_local_m": -170.12,
+     "the_plat_wants_east_local_m": -170.12,
+     "moves_m": 0.0,
+     "moves_ft": 0.0,
+     "direction": "held"
+    },
+    {
+     "id": "clinton",
+     "committed_east_local_m": -282.25,
+     "the_plat_wants_east_local_m": -309.72,
+     "moves_m": -27.47,
+     "moves_ft": -90.1,
+     "direction": "west"
+    },
+    {
+     "id": "jefferson",
+     "committed_east_local_m": -396.89,
+     "the_plat_wants_east_local_m": -449.32,
+     "moves_m": -52.43,
+     "moves_ft": -172.0,
+     "direction": "west"
+    },
+    {
+     "id": "des_plaines",
+     "committed_east_local_m": -520.72,
+     "the_plat_wants_east_local_m": -588.92,
+     "moves_m": -68.2,
+     "moves_ft": -223.7,
+     "direction": "west"
+    }
+   ],
+   "total_absolute_movement_m": 165.46,
+   "the_largest_single_move_m": 68.2
+  }
+ ],
+ "what_is_seated_on_the_short_spacing_today": {
+  "structures_seated_by_block_id": 9,
+  "structures_named_on_those_lots": 25,
+  "lots_reached_by_a_committed_record": 19,
+  "rows_seated_on_those_lots": {
+   "data/enclosures/town_lot_line_rails.json": 54,
+   "data/enclosures/town_lot_line_pickets.json": 16
+  },
+  "blocks_cut_between_these_lines": 11,
+  "blocks_by_grid": {
+   "original_town": 2,
+   "west_division": 9
+  },
+  "blocks_with_their_lot_lines_cut": 5,
+  "lots_cut": 46,
+  "so": "every one of these blocks is bounded by two of the five lines, so its face, its area, its lot lines and everything seated against them are measured off the present spacing. Moving a line re-cuts the blocks on both sides of it, and this is the size of that."
+ },
+ "what_this_leaves_to_decide": {
+  "the_question": "the plat has no positions to take. Its own sheet reading says `documented` grades the figures and the counts and NOT any position, so 'the plat wins' cannot mean 'adopt the plat's centrelines' — there are none. It can only mean imposing the module on an anchor, which replaces five lines seated on survey control with five lines derived from a figure that grades no position. That is a downgrade, and it is priced above rather than argued for here.",
+  "what_the_record_supports": "leaving the five lines where their own control puts them, publishing the disagreement with the plat on every interval instead of on one, and treating the 458 ft module as a figure the committed grid cannot carry at printed size — which is what tools/generate_plat_lots.py already does block by block in `closure_against_the_committed_lines`. On that reading the shortfall is recorded, not repaired, and T-1479's refusal 1 is PERMANENT rather than pending: no street move is coming that would let the printed module be seated at printed size.",
+  "what_only_the_owner_can_settle": "whether this reconstruction is a georeferenced dataset that records its disagreement with the plat, or a plat reconstruction that seats the draughtsman's module and accepts a warped fit to modern ground. That is a question about what the project IS, it costs 113 m or 165 m of street movement depending on the anchor, and it re-cuts everything counted in `what_is_seated_on_the_short_spacing_today`. It is asked on its own ticket rather than decided here."
+ },
+ "what_this_does_not_say": "that any of these five lines is in the wrong place. Each is seated on the best control its own record carries, and three of them were seated by tickets that said in writing what would move them. Nor does it say the plat's module is wrong: it closes to the foot on two readings that share no figure. What it says is that the two cannot both be true of the same ground, that the difference is bigger than the datum's own uncertainty and uneven across the division, and that choosing between them is a street move with a price — which is stated here so that it can be decided rather than inherited."
+}
