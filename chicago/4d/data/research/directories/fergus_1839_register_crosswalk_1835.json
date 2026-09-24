@@ -141,7 +141,7 @@
   {
    "what": "letter-list and newspaper persons",
    "path": "data/research/newspapers/gazetteer.json",
-   "n": 2640
+   "n": 2623
   },
   {
    "what": "1840 heads of household read in this repo",
@@ -165,7 +165,7 @@
   "voters_surname_only_refused": 21,
   "letter_list_matched_one_entry": 34,
   "letter_list_ambiguous": 19,
-  "letter_list_surname_only_refused": 156,
+  "letter_list_surname_only_refused": 154,
   "heads_1840_matched_one_entry": 21,
   "heads_1840_ambiguous": 9,
   "heads_1840_surname_only_refused": 68
@@ -4638,16 +4638,6 @@
     "name": "[?]. Smith",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Smith' stands on printed pages 38-39 and no man under it carries the initial '-' of '[?]. Smith'. A surname-only agreement is a refusal."
-   },
-   {
-    "name": "[?]. [H]. Scott",
-    "candidates_under_that_surname": 1,
-    "rule": "The surname 'Scott' stands on printed pages 38-39 and no man under it carries the initial 'H' of '[?]. [H]. Scott'. A surname-only agreement is a refusal."
-   },
-   {
-    "name": "[?]kiler Brown",
-    "candidates_under_that_surname": 1,
-    "rule": "The surname 'Brown' stands on printed pages 38-39 and no man under it carries the initial 'K' of '[?]kiler Brown'. A surname-only agreement is a refusal."
    },
    {
     "name": "[L]. H. Scott",
