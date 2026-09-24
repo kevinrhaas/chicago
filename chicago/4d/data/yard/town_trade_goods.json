@@ -9,15 +9,15 @@
   "counts": {
     "frontages": 27,
     "objects": 155,
-    "wagons": 70,
+    "wagons": 69,
     "wagons_by_kind": {
-      "farm_box": 26,
+      "farm_box": 25,
       "covered": 27,
       "cart": 17
     },
-    "wagons_at_street_verges": 64,
+    "wagons_at_street_verges": 63,
     "wagons_in_yards": 3,
-    "wagon_stands_refused": 41,
+    "wagon_stands_refused": 42,
     "benches": 1,
     "sheds": 1,
     "marked_objects": 155,
@@ -959,20 +959,20 @@
       "standoff_m": 0.55,
       "ground_quad_local_enu_m": [
         [
-          -135.3,
-          -96.2
+          -18.9,
+          -96.19
         ],
         [
-          -135.3,
-          -88.58
+          -18.9,
+          -88.57
         ],
         [
-          -147.49,
-          -88.58
+          -31.09,
+          -88.57
         ],
         [
-          -147.49,
-          -96.2
+          -31.09,
+          -96.19
         ]
       ],
       "items": [
@@ -980,8 +980,8 @@
           "kind": "barrel",
           "pose": "upright",
           "at_local_enu_m": [
-            -148.04,
-            -95.39
+            -31.64,
+            -95.38
           ],
           "bearing_deg": 270.0,
           "mark": {
@@ -996,8 +996,8 @@
           "kind": "barrel",
           "pose": "upright",
           "at_local_enu_m": [
-            -148.04,
-            -94.77
+            -31.64,
+            -94.76
           ],
           "bearing_deg": 270.0,
           "mark": {
@@ -1012,8 +1012,8 @@
           "kind": "barrel",
           "pose": "upright",
           "at_local_enu_m": [
-            -148.04,
-            -94.15
+            -31.64,
+            -94.14
           ],
           "bearing_deg": 270.0,
           "mark": {
@@ -1028,8 +1028,8 @@
           "kind": "barrel",
           "pose": "laid",
           "at_local_enu_m": [
-            -148.04,
-            -93.18
+            -31.64,
+            -93.17
           ],
           "bearing_deg": 270.0,
           "mark": {
@@ -1044,8 +1044,8 @@
           "kind": "crate",
           "tier": 0,
           "at_local_enu_m": [
-            -148.04,
-            -91.86
+            -31.64,
+            -91.84
           ],
           "bearing_deg": 270.0,
           "mark": {
@@ -3632,11 +3632,11 @@
       "kind": "farm_box",
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -128.28,
-        -90.18
+        -11.88,
+        -90.17
       ],
       "bearing_deg": 90.0,
-      "clearance_m": 32.02,
+      "clearance_m": 28.42,
       "note": "A FARM WAGON IN THE GREEN TREE'S YARD, and the picture is the whole reason it is here. The Trowbridge drawing of this inn (data/sources/assets/owner_brief_2026_08_18/README.md, image 7) shows farm wagons standing in its yard — a tier-5 retrospective view, which may drive furniture and setting and may never drive a coordinate. So WHERE is derived: the wagons stand drawn up square to the building's built rear face — since T-0083 that is the rear ell's far wall — tongues out, 1.00 m clear of it, spaced at the 3.20 m of ground a parked wagon needs, laid in from the far end of that wall. The yard is taken to run back as far as the front is wide, which is the only length this record has. What is invented is the depth of that yard, that a wagon stood in it at noon on 1 July 1835, and the wagon itself: docs/LIBERTIES.md L131 and L133."
     },
     {
@@ -3645,11 +3645,11 @@
       "kind": "farm_box",
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -128.28,
-        -93.38
+        -11.88,
+        -93.37
       ],
       "bearing_deg": 90.0,
-      "clearance_m": 29.0,
+      "clearance_m": 28.87,
       "note": "A FARM WAGON IN THE GREEN TREE'S YARD, and the picture is the whole reason it is here. The Trowbridge drawing of this inn (data/sources/assets/owner_brief_2026_08_18/README.md, image 7) shows farm wagons standing in its yard — a tier-5 retrospective view, which may drive furniture and setting and may never drive a coordinate. So WHERE is derived: the wagons stand drawn up square to the building's built rear face — since T-0083 that is the rear ell's far wall — tongues out, 1.00 m clear of it, spaced at the 3.20 m of ground a parked wagon needs, laid in from the far end of that wall. The yard is taken to run back as far as the front is wide, which is the only length this record has. What is invented is the depth of that yard, that a wagon stood in it at noon on 1 July 1835, and the wagon itself: docs/LIBERTIES.md L131 and L133."
     },
     {
@@ -3660,11 +3660,11 @@
       "tilt": true,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -137.33,
-        -86.98
+        -20.93,
+        -86.97
       ],
       "bearing_deg": 90.0,
-      "clearance_m": 32.0,
+      "clearance_m": 17.25,
       "note": "THE COVERED WAGON UNDER THE SHED, from the same plate and standing on the same derived centre as the bay over it. It is the farm wagon this record already draws — the body, the wheels and the tongue are L131's invented numbers and have not moved — with a TILT added: canvas on bows, 1.10 m of rise over the body's top rail and 0.12 m pulled past the end bows, open at both ends. The bows themselves are not drawn, for the reason the barrels' hoops are not: under the canvas there is nothing to see. It lies ALONG the wall because that is how a 4.05 m bay takes a 3.05 m body, with the tongue down and out of the open end into the yard. What is invented is the wagon, the tilt and the fact that either stood here on 1 July 1835: docs/LIBERTIES.md L131 and L134."
     },
     {
@@ -3706,26 +3706,6 @@
       "slew_steps": 9,
       "clear_of_track_m": 1.05,
       "note": "A two-wheeled cart standing at the verge of Canal Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up square to the road and facing the way traffic on this side of it goes — and then slewed 3.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 12 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
-      "id": "town_wagon_canal_4",
-      "kind": "farm_box",
-      "stands_on": "canal",
-      "belongs_to": null,
-      "tilt": false,
-      "yoke": false,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        -155.49,
-        -84.86
-      ],
-      "bearing_deg": 173.7,
-      "drawn_up": "along the road",
-      "slew_deg": -3.0,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A farm box wagon standing at the verge of Canal Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 3.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
       "id": "town_wagon_clark_north_1",
@@ -4995,8 +4975,8 @@
       "kind": "bench",
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -147.67,
-        -90.0
+        -31.27,
+        -89.98
       ],
       "bearing_deg": 270.0,
       "note": "THE BENCH AGAINST THE FRONT WALL, and the people on it are not drawn. The Trowbridge drawing of this inn (data/sources/assets/owner_brief_2026_08_18/README.md, image 7) shows a bench of sitters against the front wall of the Green Tree. THE SITTERS ARE REFERENCE ONLY — AGENTS.md's standing constraint on depicting people is not relaxed by a plate, and v1 ships no human figures at all — so what is taken from the picture is the BENCH, which is the buildable fact in it. Its stand is derived: against the front wall at the +u end, 0.50 m in from the end of the frontage, which is the end the barrels do not pile at. Its size is invented: docs/LIBERTIES.md L133."
@@ -5009,15 +4989,15 @@
       "kind": "wagon_shed",
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -137.33,
-        -86.98
+        -20.93,
+        -86.97
       ],
       "bearing_deg": 0.0,
       "length_m": 4.05,
       "depth_m": 3.2,
       "eave_m": 2.95,
       "head_m": 3.63,
-      "clearance_m": 32.0,
+      "clearance_m": 17.25,
       "note": "AN OPEN-SIDED WAGON SHED AT THE INN'S YARD END, and the picture is the whole reason it is here. The Trowbridge drawing of this inn (data/sources/assets/owner_brief_2026_08_18/README.md, image 7) shows an open-sided wagon shed attached at the left of the house with a covered wagon standing under it — a tier-5 retrospective view, which may drive furniture and setting and may never drive a coordinate. WHICH WALL IS DERIVED: the placement record puts the front on Canal and the long side on Lake, T-0080's wagons already stand off the rear wall, and that leaves the north side wall — the only one of this inn's four that is neither a street frontage nor already occupied, and a wagon shed is entered off a yard rather than off a corporation street. WHAT IS NOT HONOURED: the committed massing lays this building's ridge along its longer axis, which puts its gables on the front and the rear, so this stands at the left END and not at a gable; the gable is a correction to the building's fabric and is bake-gated (T-0083). HOW BIG IS ARITHMETIC on numbers already here: the bay is 4.05 m along the wall (the wagon's body and 0.50 m of air at each end) by 3.20 m out from it (the ground a parked wagon is given), its open eave stands 2.95 m up (0.35 m over the tilt it covers) and its plate meets the wall 3.63 m up at 12 degrees. What is invented is that this inn had a wagon shed on 1 July 1835 and every dimension of it: docs/LIBERTIES.md L134. NOT THE SAME THING as the low one-storey additions John Gray describes at each end of the house — those are attributes of the BUILDING, dated three to six years after the scene and deliberately excluded from its footprint; this is a yard structure on the yard's own ground, and it does not date them."
     }
   ],
@@ -5106,7 +5086,12 @@
     {
       "stand": "lake 8",
       "street": "Lake Street",
-      "why": "on the right verge, it reaches into the Canal Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway. · on the left verge, it reaches into the Canal Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
+      "why": "on the right verge, it reaches into the Canal Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
+    },
+    {
+      "stand": "lake 11",
+      "street": "Lake Street",
+      "why": "on the left verge, it reaches into the West Water Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
     },
     {
       "stand": "lake 26",
@@ -5265,7 +5250,7 @@
     },
     {
       "stand": "*",
-      "why": "926 offered stand(s) fell more than 16 m from every committed footprint in the town and are not enumerated one by one. Past that the street is running out into the prairie: a wagon parked in the grass two blocks beyond the last house would be this record inventing a reason for it to be there, and the reason is the whole of what an invented object has to have."
+      "why": "928 offered stand(s) fell more than 16 m from every committed footprint in the town and are not enumerated one by one. Past that the street is running out into the prairie: a wagon parked in the grass two blocks beyond the last house would be this record inventing a reason for it to be there, and the reason is the whole of what an invented object has to have."
     }
   ],
   "research_note": "WHAT WOULD MOVE ANY OF THIS OFF RECONSTRUCTION: the missing fourth page of the Democrat's first issue, which would carry more of the ordinances and may carry Ordinance 9's own text and its penalty; any later Chicago corporation order about obstructions, which would say what was being obstructed with; an insurance or tax description of a South Water Street lot; a traveller's account of walking the street; or the pre-fire photographs of surviving 1830s frontages actually opened at their holding institutions. WHAT THIS RECORD IS STILL SHORT OF, stated rather than left to be noticed: Ordinance 9's timber, stone and brick are not drawn at all; and nothing stands in a roadway though the ordinance is about roadways. WHAT IS NO LONGER SHORT, and it is worth being exact about what changed: this note used to end 'the wagons in this town still stand at two addresses out of hundreds', and T-0064 answered it on the owner's instruction rather than on a source. The town's wagons are spread now, and NOT ONE OF THEM IS BETTER EVIDENCED THAN IT WAS — the two the evidence reaches are still the wagon-yard's and the Green Tree's, everything else is `reconstructed` on a rule, and the rule is on this record under `town_wagon_rule` so it can be argued with. WHAT WOULD MOVE THE REST: a teamster's or a forwarding house's day-book naming what stood in the street; a Chicago corporation order about vehicles left standing, which would put a number on the thing Ordinance 9 only implies; or any dated view of a Chicago street before 1840. THE SHED IS THE FIRST ROOF THIS LAYER HAS EVER DRAWN, and it is worth saying what that does not mean: it is not a structure record, it has no archetype and it is not baked, because it is derived from a committed footprint the way a fence and a signboard are. If a second yard building is ever wanted the question to ask first is whether it belongs here or in data/structures/."

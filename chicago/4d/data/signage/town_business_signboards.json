@@ -3488,7 +3488,7 @@
     {
       "structure_id": "green_tree_tavern",
       "trade": "tavern_inn",
-      "why": "it carries a NAMED board on its own post at the street corner instead. Images 6 and 7 of data/sources/assets/owner_brief_2026_08_18/README.md both show ONE board at this inn, post-mounted at the corner and lettered GREEN TREE; it is drawn from data/frontage/green_tree_frontage.json by renderers/web/js/frontage.js (T-0082, docs/LIBERTIES.md L135). That board is the exemplar this record's own post mounting is copied from. A second sign here would be this layer drawing the same claim a second time."
+      "why": "images 6 and 7 of data/sources/assets/owner_brief_2026_08_18/README.md show ONE board at this inn and it is POST-MOUNTED AT THE CORNER, so a board on this wall is not the same board in a second place — it is a board the plates do not show, in a position no source gives, needing wording no source states. THE POST IS NOT STANDING TODAY: the inn's move left it one walk of the two its corner post is derived from, and data/frontage/green_tree_frontage.json refuses the post in writing. So the town holds no board for this inn at all, which is the honest reading of one post-mounted board whose corner is gone — not licence to hang a different one here. T-1547 owns getting the corner back; when it does, the post returns with its GREEN TREE lettering and this clause reads as it did before, with no edit to this table."
     },
     {
       "structure_id": "inf_blacksmith_shop_west",
