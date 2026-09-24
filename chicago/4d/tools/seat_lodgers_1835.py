@@ -45,16 +45,22 @@ id, so two runs over one layer seat the same people in the same houses without a
 
 WHAT IT REFUSES, each one written rather than quietly taken.
 
-  1. NO DIVISION, NO MINT. A person drawn into a lodging house has to be ordered out of
-     the book's bucket for a division, and this dataset states a structure's division
-     nowhere: `data/structures/*.json` carries no division field at all. Where a
-     household the residents layer already attaches to the house gives one, or where the
-     reconstruction programme raised the roof in a named district, the division is read
-     off that. Where neither does — the New York House and the Sauganash Hotel, two
-     documented houses the residents layer attaches nobody to — THIS STAGE MINTS NOBODY.
-     Their beds stand empty and the ledger says why. Seating somebody already in the
-     layer there is still allowed, because a person the town already counts needs no
-     bucket.
+  1. NO DIVISION, NO MINT — AND SINCE T-1535 THAT IS A MUCH NARROWER REFUSAL. A person
+     drawn into a lodging house has to be ordered out of the book's bucket for a
+     division. `data/structures/*.json` carries no division field, and this stage used to
+     read that as the dataset saying nothing, so the New York House and the Sauganash
+     Hotel — two documented houses the residents layer attaches nobody to, between them
+     ELEVEN empty ordinary-night beds and every other built house full — minted nobody.
+     That was a fact about where this tool looked. `1835_existing_roof_reconciliation`
+     has settled every documented roof standing on the scene date into a district since
+     T-0283's programme work, and it names both of them: south, and south. So the
+     division is read, in this order, off the programme's own district for the roof, then
+     off a household the residents layer attaches to the house, then off that
+     reconciliation — last, so that nothing already resolved moves. A house all three are
+     silent about, or one reconciled into the `fort` district, which is not one of the
+     town's three civil divisions, still mints nobody and the ledger still says why.
+     Seating somebody already in the layer there is allowed either way, because a person
+     the town already counts needs no bucket.
 
   2. NO TRADE IS DEALT. The book's `lodging/trade` buckets want working lodgers and this
      stage does not fill them, because dealing a trade is T-1173's machinery and the
@@ -130,6 +136,7 @@ BOOK = RECON / "1835_reconstruction_order_book.json"
 POOLS = RECON / "1835_invented_name_pools.json"
 FAMILIES = RECON / "1835_modelled_families.json"
 TRADE_LEDGER = RECON / "1835_trade_households.json"
+ROOF_RECONCILIATION = RECON / "1835_existing_roof_reconciliation.json"
 LEDGER = RECON / "1835_lodgers_seated.json"
 
 STAGE = "lodgers"
@@ -224,6 +231,40 @@ def allocate(total: int, weights: list) -> dict:
     return {k: v for k, v in out.items() if v}
 
 
+def allocate_within(total: int, weights: list, capacity: dict) -> tuple:
+    """`allocate()`, but no cell is dealt more than the room it actually has left.
+
+    T-1535. The deal above is proportional and knows nothing about capacity, which is
+    fine where the room is large against the deal and wrong where it is not: the two
+    houses T-1535 brings in are dealt against what the BOOK has left today rather than
+    against this stage's frozen basis, and two of the south cells they weigh on have four
+    slots and no more. Over-dealing one of them is refused by `refuse()` — correctly, as
+    "a re-cut has taken the order out from under people already standing" — so the deal
+    has to respect the ceiling itself.
+
+    Largest remainder is kept, and the surplus a clamped cell sheds is re-dealt over the
+    cells that still have room, until the total is spent or the room is. Returns the deal
+    and what could NOT be dealt, because a bed left empty for want of an order is a thing
+    the ledger says out loud rather than a number that quietly disappears.
+    """
+    out: dict = {}
+    left = int(total)
+    while left > 0:
+        pool = [(key, w) for key, w in weights if capacity.get(key, 0) - out.get(key, 0) > 0]
+        if not pool:
+            break
+        moved = 0
+        for key, count in allocate(left, pool).items():
+            take = min(count, capacity.get(key, 0) - out.get(key, 0))
+            if take > 0:
+                out[key] = out.get(key, 0) + take
+                moved += take
+        if moved == 0:
+            break
+        left -= moved
+    return {k: v for k, v in out.items() if v}, left
+
+
 def dumps(doc) -> str:
     return json.dumps(doc, indent=1, ensure_ascii=False) + "\n"
 
@@ -244,6 +285,32 @@ def lodging_model() -> dict:
 
 def pools() -> dict:
     return load(POOLS)
+
+
+def committed_districts() -> dict:
+    """structure id -> the district the roof reconciliation already committed for it.
+
+    T-1535. The refusal below used to say that "nothing this project holds says which
+    division it stood in", and that was true of `data/structures/*.json`, which carries no
+    division field — but it was never true of the dataset. `1835_existing_roof_reconciliation`
+    settles every documented roof standing on the scene date into a district, BY NAME, and
+    it names both houses this stage was refusing. The refusal was a fact about where this
+    tool looked, not about the evidence.
+
+    It is read LAST, after the programme's own district and after the household the
+    residents layer attaches, so no house already resolved can move: the two sources
+    disagree on exactly one house — `western_hotel`, south to the household that lives
+    there and west to the reconciliation — and this ordering leaves that house, and the
+    people already seated in it, exactly where they are. The disagreement is not swallowed:
+    every house row carries `district_in_the_roof_reconciliation` beside the division it
+    took, so a reader can see the two and T-1207 can adjudicate it.
+
+    `fort` is a district of the building programme and is NOT one of the town's three
+    civil divisions, so a roof reconciled there resolves to nothing here and keeps the
+    refusal.
+    """
+    return {r["structure_id"]: r.get("district")
+            for r in load(ROOF_RECONCILIATION)["records"]}
 
 
 def sibling_directories() -> list:
@@ -511,10 +578,12 @@ def house_rows(model: dict, lives: dict, keeps: dict) -> list:
     are not rows here. A house that holds nobody cannot be filled to a capacity it does
     not have.
     """
+    reconciled = committed_districts()
     rows = []
     for place in model["places"]:
         residents = lives.get(place["id"], [])
         keepers = keeps.get(place["id"], [])
+        district = reconciled.get(place["id"])
         division = place.get("division")
         division_from = "the reconstruction programme's own district for this roof"
         if not division:
@@ -523,6 +592,11 @@ def house_rows(model: dict, lives: dict, keeps: dict) -> list:
             division = divisions[0] if len(divisions) == 1 else None
             division_from = ("the division of the household the residents layer attaches "
                              "to this house" if division else None)
+        if not division and district in DIVISIONS:
+            division = district
+            division_from = ("the district data/reconstruction/1835_existing_roof_"
+                             "reconciliation.json already settles this documented roof "
+                             "into (T-1535)")
         rows.append({
             "id": place["id"],
             "name": place["name"],
@@ -531,6 +605,7 @@ def house_rows(model: dict, lives: dict, keeps: dict) -> list:
             "standing": place["standing"],
             "division": division,
             "division_from": division_from,
+            "district_in_the_roof_reconciliation": district,
             "beds_ordinary": int(place["beds_ordinary"]),
             "beds_crowded": int(place["beds_crowded"]),
             "occupied_before": sum(len(c.get("persons") or []) for c in residents),
@@ -914,11 +989,23 @@ def fill() -> tuple:
     # the basis, and on every build after the first it is what was read back — see
     # `committed_basis()`.
     room_as_dealt = dict(room)
+    live_room = book_lodging_room()
     fills = Counter()
     cards: dict[str, dict] = {}
     refusals = list(seat_refusals)
 
-    for house in houses:
+    # T-1535 — THE HOUSES THE DIVISION REFUSAL USED TO HOLD ARE DEALT LAST, and that
+    # ordering is the whole reason lifting the refusal moves nobody. The loop below spends
+    # `room` as it goes, so a house inserted ahead of another changes what the second one
+    # sees and re-deals people who are already standing in it — the fault T-1503 spent a
+    # whole ticket on, where 25 of 56 invented boarders moved and six gate steps went red
+    # behind them. Dealt last, every house dealt before T-1535 sees exactly the room it
+    # saw before, draws the same cells on the same seeds, and writes the same bytes.
+    def dealt_last(house: dict) -> tuple:
+        new_to_the_deal = str(house.get("division_from") or "").startswith("the district data")
+        return (1 if new_to_the_deal else 0, house["id"])
+
+    for house in sorted(houses, key=dealt_last):
         short = house["beds_ordinary"] - house["occupancy"]
         if short <= 0:
             continue
@@ -927,10 +1014,12 @@ def fill() -> tuple:
                 "place": house["id"],
                 "refusal": "no division, no mint",
                 "beds_left_empty": short,
-                "note": "The residents layer attaches no household to this house and the "
-                        "reconstruction programme did not raise it, so nothing this "
-                        "project holds says which division it stood in — "
-                        "data/structures/*.json carries no division field at all. A "
+                "note": "Nothing this project holds says which division this house "
+                        "stood in: the reconstruction programme did not raise it, the "
+                        "residents layer attaches no household to it, and "
+                        "data/reconstruction/1835_existing_roof_reconciliation.json "
+                        "either does not name it or reconciles it into a district that "
+                        "is not one of the town's three civil divisions (T-1535). A "
                         "person drawn into a lodging house has to be ordered out of the "
                         "book's bucket for a division, so this stage mints nobody here. "
                         "Somebody the layer already counts may still be seated here, and "
@@ -956,7 +1045,28 @@ def fill() -> tuple:
                 needed -= 1
         weights = [((sex, band), n) for (div, sex, band, axis), (_, n) in sorted(room.items())
                    if div == house["division"] and axis == "none" and band in ADULT_BANDS and n > 0]
-        deal = allocate(needed, weights) if needed > 0 else {}
+        # The ceiling is the BOOK'S OWN, live, less whatever this build has already drawn
+        # out of the cell. It binds only where the frozen basis is more generous than the
+        # book is today (T-1535's houses are dealt against the remainder, and two of the
+        # south cells they weigh on have four slots left and no more); everywhere else
+        # `room`'s figure is the smaller of the two and the deal is unchanged.
+        capacity = {(sex, band): min(n, live_room.get((house["division"], sex, band, "none"),
+                                                      (None, 0))[1]
+                                     - fills[room[(house["division"], sex, band, "none")][0]])
+                    for (sex, band), n in weights}
+        deal, undealt = allocate_within(needed, weights, capacity) if needed > 0 else ({}, 0)
+        if undealt:
+            refusals.append({
+                "place": house["id"],
+                "refusal": "no order left, no mint",
+                "beds_left_empty": undealt,
+                "note": "This house has a division and empty beds, and the order book has "
+                        "nothing left to draw them out of: every adult `lodging/none` cell "
+                        "of the %s division is filled to what the book orders there. A "
+                        "person minted past that would be a person the town never ordered, "
+                        "so the beds stand empty and the order rather than the roof is what "
+                        "is short (T-1535)." % house["division"],
+            })
         index = 0
         for (sex, band), count in sorted(deal.items()):
             key = room[(house["division"], sex, band, "none")][0]
@@ -995,6 +1105,7 @@ def fill() -> tuple:
             "data/reconstruction/1835_modelled_families.json",
             "data/reconstruction/1835_trade_households.json",
             "data/reconstruction/1835_invented_name_pools.json",
+            "data/reconstruction/1835_existing_roof_reconciliation.json",
             "data/residents/",
         ],
         "the_mix": {
@@ -1332,13 +1443,43 @@ def self_test() -> int:
     except SystemExit:
         case("an invented name a real person bears is refused", True)
 
-    # 4. A house whose division nothing states mints nobody, and says so.
+    # 4. A house whose division nothing states mints nobody, and says so. Since T-1535
+    #    resolved both houses that used to stand here live, the case is MADE rather than
+    #    observed: a house is asked for with every division source silent, and the answer
+    #    has to be a refusal by name with its empty beds counted. The live half still
+    #    holds too — whatever this stage refuses today, it minted nobody into.
     divisionless = [h for h in ledger["houses"] if h["division"] not in DIVISIONS]
     said = {r.get("place") for r in ledger["refusals"] if r["refusal"] == "no division, no mint"}
-    case("a house with no division mints nobody and the refusal is written",
-         bool(divisionless) and all(h["minted_lodgers"] == 0 and h["minted_keeper"] is None
-                                    for h in divisionless)
+    case("what this stage refuses for want of a division mints nobody",
+         all(h["minted_lodgers"] == 0 and h["minted_keeper"] is None for h in divisionless)
          and {h["id"] for h in divisionless} == said)
+
+    silent = house_rows({"places": [{"id": "a_house_nothing_places", "name": "A house "
+                                     "nothing places", "function": "tavern_inn",
+                                     "class": "inn_tavern", "standing": "named",
+                                     "beds_ordinary": 6, "beds_crowded": 12}]}, {}, {})
+    case("a house every division source is silent about resolves to no division",
+         len(silent) == 1 and silent[0]["division"] is None
+         and silent[0]["district_in_the_roof_reconciliation"] is None)
+
+    fort = house_rows({"places": [{"id": "fort_dearborn_big_barn", "name": "A roof on "
+                                   "the reservation", "function": "tavern_inn",
+                                   "class": "inn_tavern", "standing": "named",
+                                   "beds_ordinary": 6, "beds_crowded": 12}]}, {}, {})
+    case("a roof reconciled into the fort district is not given a civil division",
+         len(fort) == 1 and fort[0]["division"] is None
+         and fort[0]["district_in_the_roof_reconciliation"] == "fort")
+
+    # 4b. T-1535's own source is read LAST, so a house a household already places keeps
+    #     the division it has even where the reconciliation disagrees — `western_hotel`
+    #     is south to the people living in it and west to the reconciliation, and it is
+    #     the reason the order matters rather than a hypothetical.
+    disagree = [h for h in ledger["houses"]
+                if h["district_in_the_roof_reconciliation"] in DIVISIONS
+                and h["division"] in DIVISIONS
+                and h["district_in_the_roof_reconciliation"] != h["division"]]
+    case("a division read off the layer is not overturned by the reconciliation",
+         all(h["division_from"].startswith("the division of the household") for h in disagree))
 
     # 5. A named house is never given an invented keeper.
     case("only a roof this programme raised is given a keeper",

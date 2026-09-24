@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1084, title: 'Eleven people move into the Sauganash and the New York House', kind: 'change', ts: '2026-09-24T09:18:01.198Z', date: 'Sep 24, 2026, 4:18 AM CT',
+    items: [
+      'Two of the best-known houses in the town \u2014 the Sauganash Hotel at Lake and Market, and the New York House on Lake near Wells \u2014 had beds and nobody in them. Eleven beds, and every other lodging house in Chicago was full.',
+      'They were empty for a reason that turned out not to be true. Somebody drawn into a lodging house has to be counted into one of the town\u2019s three divisions, and the tool that seats lodgers looked for each house\u2019s division in one place, found nothing there, and left both houses alone rather than guess. But this project had already settled the question elsewhere: the ledger that reconciles every documented roof standing that summer places both of them in the South Division, by name.',
+      'So the beds are made up. Seven lodgers at the New York House, four at the Sauganash \u2014 reconstructed people, labelled as such, each drawn out of the town model\u2019s own order for a South Division bed. Every one of the town\u2019s 144 ordinary night beds is now slept in, where eleven stood empty before.',
+      'Nobody already in the town moved an inch. The two houses are seated last, after every house that was already dealt, so each of the other fourteen sees exactly the room it saw before and draws exactly the people it drew before \u2014 not one existing card changed. Where the two sources disagree about a house, the people living there still decide; the Western Hotel keeps its division and its lodgers.',
+    ] },
   { v: 1083, title: 'A doctor in Wabansia is counted as a Chicago man', kind: 'change', ts: '2026-09-24T08:16:24.521Z', date: 'Sep 24, 2026, 3:16 AM CT',
     items: [
       'This town is built partly out of what two newspapers printed, and every place name they print has to be settled as in the town or out of it \u2014 because that is what decides whether the person printed there counts as somebody who was here. A handful of names were settled as neither, and said so plainly rather than guessing.',

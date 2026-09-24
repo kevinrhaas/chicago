@@ -1115,7 +1115,7 @@
     },
     {
       "ticket": "T-1371",
-      "records": 56,
+      "records": 67,
       "buckets": [
         "persons/female/10_19/north/lodging/none",
         "persons/female/10_19/south/lodging/none",
@@ -1126,6 +1126,7 @@
         "persons/female/20_29/west/lodging/none",
         "persons/female/30_39/north/lodging/trade",
         "persons/female/30_39/south/lodging/none",
+        "persons/female/40_49/south/lodging/none",
         "persons/male/10_19/north/lodging/none",
         "persons/male/10_19/south/lodging/none",
         "persons/male/10_19/west/lodging/none",
@@ -1136,7 +1137,8 @@
         "persons/male/20_29/west/lodging/trade",
         "persons/male/30_39/north/lodging/none",
         "persons/male/30_39/south/lodging/none",
-        "persons/male/30_39/west/lodging/none"
+        "persons/male/30_39/west/lodging/none",
+        "persons/male/40_49/south/lodging/none"
       ]
     },
     {
@@ -1196,8 +1198,8 @@
     "roofs_standing": 414,
     "roofs_to_build": 267,
     "persons_standing": 2263,
-    "persons_still_owed": 505,
-    "persons_when_the_book_is_filled": 2768,
+    "persons_still_owed": 494,
+    "persons_when_the_book_is_filled": 2757,
     "persons_target_range": [
       2353,
       3265
@@ -1221,14 +1223,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2263,
-      "persons_still_owed": 505,
-      "converges_to": 2768,
+      "persons_still_owed": 494,
+      "converges_to": 2757,
       "model_point": 2536,
       "model_range": [
         2353,
         3265
       ],
-      "measured": "2,263 standing plus 505 still owed is 2,768, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 232 above the model's 2,536 point, and that surplus is the 587 people drawn into 51 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,263 standing plus 494 still owed is 2,757, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 221 above the model's 2,536 point, and that surplus is the 587 people drawn into 51 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -1568,7 +1570,7 @@
           "known_attested": 5,
           "known_inferred": 10,
           "to_reconstruct": 19,
-          "filled": 5,
+          "filled": 7,
           "owning_ticket": "T-1500",
           "basis": "a bed rather than a household"
         },
@@ -1784,7 +1786,7 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 10,
-          "filled": 2,
+          "filled": 4,
           "owning_ticket": "T-1500",
           "basis": "a bed rather than a household"
         },
@@ -2000,7 +2002,7 @@
           "known_attested": 1,
           "known_inferred": 1,
           "to_reconstruct": 4,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1500",
           "basis": "a bed rather than a household"
         },
@@ -2696,7 +2698,7 @@
           "known_attested": 8,
           "known_inferred": 17,
           "to_reconstruct": 34,
-          "filled": 7,
+          "filled": 10,
           "owning_ticket": "T-1500",
           "basis": "a bed rather than a household"
         },
@@ -2909,7 +2911,7 @@
           "known_attested": 5,
           "known_inferred": 10,
           "to_reconstruct": 18,
-          "filled": 4,
+          "filled": 6,
           "owning_ticket": "T-1500",
           "basis": "a bed rather than a household"
         },
@@ -3122,7 +3124,7 @@
           "known_attested": 2,
           "known_inferred": 3,
           "to_reconstruct": 4,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1500",
           "basis": "a bed rather than a household"
         },
@@ -5400,195 +5402,6 @@
       "by": "tools/reconstruct_modelled_families.py --build"
     },
     {
-      "bucket": "households/family_dwelling/north",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 26,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "households/family_dwelling/south",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 65,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "households/family_dwelling/west",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 33,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/10_19/north/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 23,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/10_19/south/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 54,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/10_19/west/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 24,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/north/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 8,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/south/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 28,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/west/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 16,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/north/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 10,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/south/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 20,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/west/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 11,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/40_49/north/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 5,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/40_49/south/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 10,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/40_49/west/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 4,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/50_plus/north/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 3,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/50_plus/south/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 7,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/50_plus/west/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 2,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/under_10/north/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 16,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/under_10/south/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 53,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/under_10/west/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 17,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/north/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 28,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/south/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 66,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/west/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 20,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/male/under_10/north/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 27,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/male/under_10/south/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 81,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/male/under_10/west/family/none",
-      "ticket": "T-1174",
-      "stage": "women_and_children",
-      "records": 23,
-      "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
       "bucket": "persons/female/20_29/north/family/trade",
       "ticket": "T-1347",
       "stage": "trade_households",
@@ -5830,7 +5643,7 @@
       "bucket": "persons/female/20_29/south/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 5,
+      "records": 7,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -5851,7 +5664,14 @@
       "bucket": "persons/female/30_39/south/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 2,
+      "records": 4,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -5893,7 +5713,7 @@
       "bucket": "persons/male/20_29/south/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 7,
+      "records": 10,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -5921,7 +5741,7 @@
       "bucket": "persons/male/30_39/south/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 4,
+      "records": 6,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -5930,6 +5750,202 @@
       "stage": "lodgers",
       "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/40_49/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/family_dwelling/north",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 26,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "households/family_dwelling/south",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 65,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "households/family_dwelling/west",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 33,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/north/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 23,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/south/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 54,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/west/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 24,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/north/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 8,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/south/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 28,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/west/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 16,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/north/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 10,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/south/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 20,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/west/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 11,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/north/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 5,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/south/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 10,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/west/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 4,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/50_plus/north/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 3,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/50_plus/south/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 7,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/50_plus/west/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 2,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/north/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 16,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/south/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 53,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/west/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 17,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/north/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 28,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/south/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 66,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/west/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 20,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/north/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 27,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/south/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 81,
+      "by": "tools/reconstruct_women_children.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/west/family/none",
+      "ticket": "T-1174",
+      "stage": "women_and_children",
+      "records": 23,
+      "by": "tools/reconstruct_women_children.py --build"
     }
   ]
 }
