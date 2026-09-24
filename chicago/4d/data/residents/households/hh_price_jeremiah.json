@@ -228,26 +228,6 @@
    ],
    "roles": [
     {
-     "role": null,
-     "kind": "trade",
-     "as_printed": "fire warden",
-     "from": "1839",
-     "to": "1839",
-     "precision": "year",
-     "dated_by": "printing_year",
-     "covers_scene_date": false,
-     "fills_scene_view": false,
-     "confidence": "attested",
-     "sources": [
-      "fergus_chicago_directory_1839"
-     ],
-     "claim": null,
-     "place": "not_stated",
-     "employer_or_body": "not_stated",
-     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1839.",
-     "premises": null
-    },
-    {
      "role": "fire_warden",
      "kind": "office",
      "as_printed": "fire warden",
@@ -264,7 +244,7 @@
      "claim": "f1839_r0031",
      "place": "not_stated",
      "employer_or_body": "city_of_chicago",
-     "note": "AN OFFICE FROM THE FERGUS 1839 CITY REGISTER, carried here by its own crosswalk (T-1254, by tools/derive_resident_roles.py). The register is a retrospective table set in 1876, and its carry rule is explicit: a later office is corroboration of CONTINUED RESIDENCE and never an 1835 fact. It therefore does not stand in the 1835 view. SYNONYM-FOLDED (T-1254): the same source prints this role as fire warden as well, and one source asserting one role over one bound is one row.",
+     "note": "AN OFFICE FROM THE FERGUS 1839 CITY REGISTER, carried here by its own crosswalk (T-1254, by tools/derive_resident_roles.py). The register is a retrospective table set in 1876, and its carry rule is explicit: a later office is corroboration of CONTINUED RESIDENCE and never an 1835 fact. It therefore does not stand in the 1835 view. SYNONYM-FOLDED (T-1254): the same source prints this role as fire warden as well, and one source asserting one role over one bound is one row. POINTER-FOLDED (T-1539): the card's own `later_occupation` pointer offers this same printing, from this same source and over this same bound, as a row that names neither the entry it was read from nor the place the entry printed. This row is that row's record, so the two are one assertion and this is the one kept. The pointer's row is graded `attested` on the PRINTING existing; this row is graded on whether the printing belongs to this card, which is the weaker claim and the one a role on a person makes.",
      "premises": "no_fixed_premises"
     }
    ],

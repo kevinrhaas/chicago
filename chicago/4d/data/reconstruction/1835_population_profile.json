@@ -2238,8 +2238,8 @@
        "person",
        2265,
        "100.0%",
-       155,
-       172,
+       127,
+       200,
        1938,
        0,
        0
@@ -11639,7 +11639,7 @@
   {
    "id": "roles",
    "title": "Roles — plural and dated",
-   "lead": "327 of 2265 persons carry at least one role and 195 carry two or more. 160 of the 765 roles in the layer reach 1 July 1835; the other 605 are printed against the name in a later volume and say so.",
+   "lead": "327 of 2265 persons carry at least one role and 183 carry two or more. 160 of the 734 roles in the layer reach 1 July 1835; the other 574 are printed against the name in a later volume and say so.",
    "tables": [
     {
      "title": "Persons by number of roles",
@@ -11657,32 +11657,32 @@
       ],
       [
        "1",
-       132,
-       "5.8%"
+       144,
+       "6.4%"
       ],
       [
        "2 or more",
-       73,
-       "3.2%"
+       69,
+       "3.0%"
       ],
       [
        "3 or more",
-       58,
-       "2.6%"
+       56,
+       "2.5%"
       ],
       [
        "4 or more",
-       37,
-       "1.6%"
+       32,
+       "1.4%"
       ],
       [
        "5 or more",
-       10,
-       "0.4%"
+       11,
+       "0.5%"
       ],
       [
        "6 or more",
-       9,
+       8,
        "0.4%"
       ],
       [
@@ -11692,7 +11692,7 @@
       ],
       [
        "8 or more",
-       3,
+       2,
        "0.1%"
       ],
       [
@@ -11713,7 +11713,7 @@
      "rows": [
       [
        "trade",
-       628
+       597
       ],
       [
        "profession",
