@@ -1091,7 +1091,7 @@
     },
     {
       "ticket": "T-1371",
-      "records": 82,
+      "records": 92,
       "buckets": [
         "households/boarding_house/north",
         "households/boarding_house/south",
@@ -1106,9 +1106,11 @@
         "persons/female/20_29/north/lodging/trade",
         "persons/female/20_29/south/lodging/none",
         "persons/female/20_29/west/lodging/none",
+        "persons/female/30_39/north/lodging/none",
         "persons/female/30_39/north/lodging/trade",
         "persons/female/30_39/south/lodging/none",
         "persons/female/40_49/south/lodging/none",
+        "persons/female/50_plus/west/lodging/trade",
         "persons/male/10_19/north/lodging/none",
         "persons/male/10_19/south/lodging/none",
         "persons/male/10_19/west/lodging/none",
@@ -1125,7 +1127,7 @@
     },
     {
       "ticket": "T-1533",
-      "records": 10,
+      "records": 11,
       "buckets": [
         "persons/female/under_10/north/lodging/none",
         "persons/male/under_10/north/lodging/none",
@@ -1191,14 +1193,14 @@
     "roofs_standing": 417,
     "roofs_to_build": 264,
     "persons_standing": 2263,
-    "persons_still_owed": 484,
-    "persons_when_the_book_is_filled": 2747,
+    "persons_still_owed": 474,
+    "persons_when_the_book_is_filled": 2737,
     "persons_target_range": [
       2353,
       3265
     ],
     "households_standing": 217,
-    "households_still_owed": 424
+    "households_still_owed": 423
   },
   "what_the_re_cut_found": [
     {
@@ -1216,14 +1218,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2263,
-      "persons_still_owed": 484,
-      "converges_to": 2747,
+      "persons_still_owed": 474,
+      "converges_to": 2737,
       "model_point": 2536,
       "model_range": [
         2353,
         3265
       ],
-      "measured": "2,263 standing plus 484 still owed is 2,747, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 211 above the model's 2,536 point, and that surplus is the 462 people drawn into 47 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,263 standing plus 474 still owed is 2,737, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 201 above the model's 2,536 point, and that surplus is the 462 people drawn into 47 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -1502,7 +1504,7 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 6,
-          "filled": 3,
+          "filled": 4,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -1646,7 +1648,7 @@
           "known_attested": 1,
           "known_inferred": 3,
           "to_reconstruct": 9,
-          "filled": 1,
+          "filled": 3,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -1718,7 +1720,7 @@
           "known_attested": 1,
           "known_inferred": 2,
           "to_reconstruct": 3,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -2275,7 +2277,7 @@
           "known_attested": 0,
           "known_inferred": 0,
           "to_reconstruct": 1,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 1
@@ -2773,7 +2775,7 @@
           "known_attested": 3,
           "known_inferred": 6,
           "to_reconstruct": 13,
-          "filled": 2,
+          "filled": 3,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -2844,7 +2846,7 @@
           "known_attested": 2,
           "known_inferred": 3,
           "to_reconstruct": 7,
-          "filled": 3,
+          "filled": 4,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -2986,7 +2988,7 @@
           "known_attested": 2,
           "known_inferred": 3,
           "to_reconstruct": 6,
-          "filled": 1,
+          "filled": 3,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -3517,7 +3519,7 @@
           "known_attested": 3,
           "known_inferred": 6,
           "to_reconstruct": 10,
-          "filled": 1,
+          "filled": 2,
           "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
@@ -3609,7 +3611,7 @@
           "target": 9,
           "known": 1,
           "to_reconstruct": 8,
-          "filled": 1,
+          "filled": 2,
           "owning_ticket": "T-1538",
           "basis": "the model's 643 households apportioned on the inventory's own boarding_house roof count in the west division"
         },
@@ -5593,6 +5595,251 @@
       "by": "tools/reconstruct_businesses_1835.py --build"
     },
     {
+      "bucket": "businesses/lawyer",
+      "ticket": "T-1418",
+      "stage": "professions_and_services",
+      "records": 1,
+      "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
+      "bucket": "businesses/physician",
+      "ticket": "T-1418",
+      "stage": "professions_and_services",
+      "records": 1,
+      "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 3,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 4,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 4,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/north/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 7,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/20_29/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 3,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/north/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 4,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/50_plus/west/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 3,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 4,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/10_19/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 6,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/north/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 10,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 3,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/20_29/west/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/30_39/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 4,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/30_39/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 6,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/30_39/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 3,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/40_49/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/under_10/north/lodging/none",
+      "ticket": "T-1533",
+      "stage": "lodgers",
+      "records": 4,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/north/lodging/none",
+      "ticket": "T-1533",
+      "stage": "lodgers",
+      "records": 5,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/under_10/west/lodging/none",
+      "ticket": "T-1533",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/boarding_house/north",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 5,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/boarding_house/south",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/boarding_house/west",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/inn_tavern/north",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/inn_tavern/south",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 6,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "households/inn_tavern/west",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
       "bucket": "households/family_dwelling/north",
       "ticket": "T-1174",
       "stage": "women_and_children",
@@ -5780,237 +6027,6 @@
       "stage": "women_and_children",
       "records": 23,
       "by": "tools/reconstruct_women_children.py --build"
-    },
-    {
-      "bucket": "persons/female/10_19/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 3,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/10_19/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 4,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/10_19/west/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 3,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/north/lodging/trade",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 7,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/20_29/west/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/north/lodging/trade",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 2,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/30_39/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 4,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/40_49/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 3,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 4,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/10_19/west/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 6,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/north/lodging/trade",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 2,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 10,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/west/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 2,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/20_29/west/lodging/trade",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/30_39/north/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 3,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/30_39/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 6,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/30_39/west/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/40_49/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/under_10/north/lodging/none",
-      "ticket": "T-1533",
-      "stage": "lodgers",
-      "records": 4,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/under_10/north/lodging/none",
-      "ticket": "T-1533",
-      "stage": "lodgers",
-      "records": 5,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/under_10/west/lodging/none",
-      "ticket": "T-1533",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/boarding_house/north",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 5,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/boarding_house/south",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/boarding_house/west",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/inn_tavern/north",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/inn_tavern/south",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 6,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/inn_tavern/west",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "businesses/lawyer",
-      "ticket": "T-1418",
-      "stage": "professions_and_services",
-      "records": 1,
-      "by": "tools/reconstruct_businesses_1835.py --build"
-    },
-    {
-      "bucket": "businesses/physician",
-      "ticket": "T-1418",
-      "stage": "professions_and_services",
-      "records": 1,
-      "by": "tools/reconstruct_businesses_1835.py --build"
     }
   ]
 }

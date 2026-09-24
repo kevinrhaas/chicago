@@ -12,7 +12,7 @@
 | Businesses (enumerated classes) | 108 | 130 | 6 |
 | Roofs | 668 | 417 | 264 |
 
-**2,263 people stand in the layer today** and **484** are still owed after the counters, so the town this book converges to is **2,747** — inside the model's 2,353-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
+**2,263 people stand in the layer today** and **474** are still owed after the counters, so the town this book converges to is **2,737** — inside the model's 2,353-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
 ## What the re-cut found
 
@@ -31,7 +31,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,263 standing plus 484 still owed is 2,747, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 211 above the model's 2,536 point, and that surplus is the 462 people drawn into 47 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,263 standing plus 474 still owed is 2,737, inside the model's 2,353-3,265. Before the re-cut the same sum was 2,263 + 843 = 3,106, and the book was ordering a replacement for 826 people already in the layer. It is 201 above the model's 2,536 point, and that surplus is the 462 people drawn into 47 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
@@ -176,8 +176,8 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1174 | 680 | 27 |
 | T-1347 | 308 | 24 |
 | T-1171 | 296 | 19 |
-| T-1371 | 82 | 28 |
-| T-1533 | 10 | 3 |
+| T-1371 | 92 | 30 |
+| T-1533 | 11 | 3 |
 | T-1184 | 2 | 1 |
 | T-1185 | 2 | 2 |
 | T-1418 | 2 | 2 |
@@ -232,7 +232,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/20_29/north/family/trade` | 18 | 9 | 15 | 15 | T-1347 |
 | `persons/female/20_29/north/family/none` | 34 | 16 | 28 | 28 | T-1174 |
 | `persons/female/20_29/north/lodging/trade` | 6 | 3 | 3 | 1 | T-1532 |
-| `persons/female/20_29/north/lodging/none` | 12 | 6 | 6 | 3 | T-1538 |
+| `persons/female/20_29/north/lodging/none` | 12 | 6 | 6 | 4 | T-1538 |
 | `persons/female/20_29/south/family/trade` | 43 | 22 | 35 | 35 | T-1347 |
 | `persons/female/20_29/south/family/none` | 81 | 42 | 66 | 66 | T-1174 |
 | `persons/female/20_29/south/lodging/trade` | 10 | 8 | 2 | 0 | T-1532 |
@@ -240,11 +240,11 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/20_29/west/family/trade` | 16 | 8 | 13 | 13 | T-1347 |
 | `persons/female/20_29/west/family/none` | 30 | 15 | 25 | 25 | T-1174 |
 | `persons/female/20_29/west/lodging/trade` | 3 | 3 | 0 | 0 | T-1532 |
-| `persons/female/20_29/west/lodging/none` | 13 | 4 | 9 | 1 | T-1538 |
+| `persons/female/20_29/west/lodging/none` | 13 | 4 | 9 | 3 | T-1538 |
 | `persons/female/30_39/north/family/trade` | 8 | 4 | 6 | 6 | T-1347 |
 | `persons/female/30_39/north/family/none` | 16 | 8 | 13 | 13 | T-1174 |
 | `persons/female/30_39/north/lodging/trade` | 3 | 1 | 2 | 2 | T-1532 |
-| `persons/female/30_39/north/lodging/none` | 6 | 3 | 3 | 0 | T-1538 |
+| `persons/female/30_39/north/lodging/none` | 6 | 3 | 3 | 1 | T-1538 |
 | `persons/female/30_39/south/family/trade` | 20 | 10 | 16 | 16 | T-1347 |
 | `persons/female/30_39/south/family/none` | 38 | 20 | 31 | 31 | T-1174 |
 | `persons/female/30_39/south/lodging/trade` | 4 | 4 | 0 | 0 | T-1532 |
@@ -275,7 +275,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/50_plus/south/lodging/none` | 3 | 1 | 2 | 0 | T-1538 |
 | `persons/female/50_plus/west/family/trade` | 2 | 1 | 2 | 2 | T-1347 |
 | `persons/female/50_plus/west/family/none` | 3 | 1 | 2 | 2 | T-1174 |
-| `persons/female/50_plus/west/lodging/trade` | 1 | 0 | 1 | 0 | T-1532 |
+| `persons/female/50_plus/west/lodging/trade` | 1 | 0 | 1 | 1 | T-1532 |
 | `persons/female/50_plus/west/lodging/none` | 1 | 0 | 1 | 0 | T-1538 |
 | `persons/female/under_10/north/family/none` | 55 | 27 | 45 | 45 | T-1174 |
 | `persons/female/under_10/north/lodging/none` | 19 | 10 | 9 | 4 | T-1536 |
@@ -303,11 +303,11 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/20_29/west/family/trade` | 27 | 13 | 23 | 23 | T-1347 |
 | `persons/male/20_29/west/family/none` | 51 | 24 | 27 | 0 | T-1171 |
 | `persons/male/20_29/west/lodging/trade` | 6 | 5 | 1 | 1 | T-1532 |
-| `persons/male/20_29/west/lodging/none` | 22 | 9 | 13 | 2 | T-1538 |
+| `persons/male/20_29/west/lodging/none` | 22 | 9 | 13 | 3 | T-1538 |
 | `persons/male/30_39/north/family/trade` | 18 | 9 | 15 | 15 | T-1347 |
 | `persons/male/30_39/north/family/none` | 34 | 16 | 18 | 0 | T-1171 |
 | `persons/male/30_39/north/lodging/trade` | 6 | 3 | 3 | 0 | T-1532 |
-| `persons/male/30_39/north/lodging/none` | 12 | 5 | 7 | 3 | T-1538 |
+| `persons/male/30_39/north/lodging/none` | 12 | 5 | 7 | 4 | T-1538 |
 | `persons/male/30_39/south/family/trade` | 43 | 22 | 35 | 35 | T-1347 |
 | `persons/male/30_39/south/family/none` | 81 | 42 | 39 | 0 | T-1171 |
 | `persons/male/30_39/south/lodging/trade` | 11 | 8 | 3 | 0 | T-1532 |
@@ -315,7 +315,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/30_39/west/family/trade` | 16 | 8 | 13 | 13 | T-1347 |
 | `persons/male/30_39/west/family/none` | 30 | 15 | 15 | 0 | T-1171 |
 | `persons/male/30_39/west/lodging/trade` | 5 | 2 | 3 | 0 | T-1532 |
-| `persons/male/30_39/west/lodging/none` | 11 | 5 | 6 | 1 | T-1538 |
+| `persons/male/30_39/west/lodging/none` | 11 | 5 | 6 | 3 | T-1538 |
 | `persons/male/40_49/north/family/trade` | 5 | 2 | 4 | 4 | T-1347 |
 | `persons/male/40_49/north/family/none` | 10 | 5 | 5 | 0 | T-1171 |
 | `persons/male/40_49/north/lodging/trade` | 2 | 1 | 1 | 0 | T-1532 |
@@ -345,7 +345,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/under_10/south/family/none` | 148 | 77 | 120 | 120 | T-1174 |
 | `persons/male/under_10/south/lodging/none` | 52 | 27 | 25 | 0 | T-1536 |
 | `persons/male/under_10/west/family/none` | 55 | 27 | 43 | 43 | T-1174 |
-| `persons/male/under_10/west/lodging/none` | 19 | 9 | 10 | 1 | T-1536 |
+| `persons/male/under_10/west/lodging/none` | 19 | 9 | 10 | 2 | T-1536 |
 | `persons/garrison/fort` | — | 2 | — | 0 | T-1176 |
 | `persons/transient/town` | — | 0 | — | 0 | T-1178 |
 
@@ -365,7 +365,7 @@ The households the model wants, by kind and division.
 |---|---:|---:|---:|---:|---|
 | `households/boarding_house/north` | 11 | 1 | 10 | 5 | T-1538 |
 | `households/boarding_house/south` | 40 | 7 | 33 | 1 | T-1538 |
-| `households/boarding_house/west` | 9 | 1 | 8 | 1 | T-1538 |
+| `households/boarding_house/west` | 9 | 1 | 8 | 2 | T-1538 |
 | `households/family_dwelling/north` | 121 | 11 | 110 | 26 | T-1171 |
 | `households/family_dwelling/south` | 253 | 41 | 212 | 65 | T-1171 |
 | `households/family_dwelling/west` | 108 | 7 | 101 | 33 | T-1171 |

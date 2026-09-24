@@ -183,9 +183,9 @@
   },
   "what_the_book_can_pay": {
     "what_it_is": "The order book's `.../trade` person buckets with slots left. Every one of them is a `lodging/trade` bucket and every one is owned by T-1532, the working lodgers — so a mint that spends them spends another stage's quota, which is itself part of the question above. T-1532 because T-1175, which held these buckets when this sentence was written, split and left them ordered by nobody; T-1420 swept the book onto the live placeholder T-1500 on 2026-09-21, and T-1500 cut the bed buckets three ways on 2026-09-24, the `lodging/trade` third of them to T-1532. The stage is the same stage throughout.",
-    "slots_outstanding": 61,
+    "slots_outstanding": 60,
     "by_sex": {
-      "female": 25,
+      "female": 24,
       "male": 36
     },
     "owning_tickets": [
@@ -269,15 +269,6 @@
         "sex": "female",
         "age_band": "50_plus",
         "division": "south",
-        "household_type": "lodging",
-        "outstanding": 1,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/female/50_plus/west/lodging/trade",
-        "sex": "female",
-        "age_band": "50_plus",
-        "division": "west",
         "household_type": "lodging",
         "outstanding": 1,
         "owning_ticket": "T-1532"
@@ -395,12 +386,12 @@
   "the_collision": {
     "on_the_count": {
       "hands_wanted": 130,
-      "slots_outstanding": 61,
-      "short_by": 69
+      "slots_outstanding": 60,
+      "short_by": 70
     },
     "on_the_sex": {
       "hands_wanted_that_may_be_paid_from_a_woman_s_slot": 0,
-      "women_s_slots_outstanding": 25,
+      "women_s_slots_outstanding": 24,
       "reads_as": "Every hand the shops want is a man or a role the model calls predominantly male, and the book's remaining slots are two fifths women's. Those slots cannot be spent here at all."
     },
     "on_the_age": {
@@ -419,8 +410,7 @@
       "persons/female/40_49/north/lodging/trade": 1,
       "persons/female/40_49/west/lodging/trade": 1,
       "persons/female/50_plus/north/lodging/trade": 1,
-      "persons/female/50_plus/south/lodging/trade": 1,
-      "persons/female/50_plus/west/lodging/trade": 1
+      "persons/female/50_plus/south/lodging/trade": 1
     }
   },
   "rows": [

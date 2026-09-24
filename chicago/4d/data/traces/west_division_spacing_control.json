@@ -79,7 +79,7 @@
   {
    "id": "jefferson",
    "name_1835": "Jefferson Street",
-   "mean_east_local_m": -396.89,
+   "mean_east_local_m": -400.51,
    "geometry_confidence": "inferred",
    "sources": [
     "thompson_plat_1830",
@@ -176,11 +176,11 @@
   {
    "east": "clinton",
    "west": "jefferson",
-   "committed_m": 114.64,
-   "committed_ft": 376.1,
+   "committed_m": 118.26,
+   "committed_ft": 388.0,
    "the_plat_asks_ft": 458.0,
-   "short_by_ft": 81.9,
-   "short_by_m": 24.96,
+   "short_by_ft": 70.0,
+   "short_by_m": 21.34,
    "the_datum_residual_m": 17.5,
    "inside_the_datum_residual": false,
    "blocks_cut_between_these_lines": [
@@ -192,13 +192,13 @@
   {
    "east": "jefferson",
    "west": "des_plaines",
-   "committed_m": 123.83,
-   "committed_ft": 406.3,
+   "committed_m": 120.21,
+   "committed_ft": 394.4,
    "the_plat_asks_ft": 458.0,
-   "short_by_ft": 51.7,
-   "short_by_m": 15.77,
+   "short_by_ft": 63.6,
+   "short_by_m": 19.39,
    "the_datum_residual_m": 17.5,
-   "inside_the_datum_residual": true,
+   "inside_the_datum_residual": false,
    "blocks_cut_between_these_lines": [
     "blk_west_fulton_des_plaines",
     "blk_west_lake_des_plaines",
@@ -207,7 +207,7 @@
   }
  ],
  "intervals_short_of_the_plat": 3,
- "intervals_short_by_more_than_the_datum_residual": 2,
+ "intervals_short_by_more_than_the_datum_residual": 3,
  "across_the_division": {
   "from": "west_water",
   "to": "des_plaines",
@@ -244,10 +244,10 @@
   "the_grid_proper": {
    "held_out": "west_water",
    "why_held_out": "the division's easternmost line is its riverfront street, seated off the committed 1834 waterline rather than off the grid, so the interval behind it is not evidence about how the grid was cut",
-   "the_widest_ft": 406.3,
+   "the_widest_ft": 394.4,
    "the_narrowest_ft": 367.9,
-   "spread_ft": 38.4,
-   "spread_m": 11.7,
+   "spread_ft": 26.5,
+   "spread_m": 8.08,
    "spread_exceeds_the_residual": false,
    "so": "inside the grid the intervals differ by LESS than the datum's own residual, so their unevenness on its own does not refute a single module — this file will not claim that it does."
   },
@@ -289,10 +289,10 @@
     },
     {
      "id": "jefferson",
-     "committed_east_local_m": -396.89,
+     "committed_east_local_m": -400.51,
      "the_plat_wants_east_local_m": -431.95,
-     "moves_m": -35.06,
-     "moves_ft": -115.0,
+     "moves_m": -31.44,
+     "moves_ft": -103.1,
      "direction": "west"
     },
     {
@@ -304,7 +304,7 @@
      "direction": "west"
     }
    ],
-   "total_absolute_movement_m": 113.35,
+   "total_absolute_movement_m": 109.73,
    "the_largest_single_move_m": 50.82
   },
   {
@@ -337,10 +337,10 @@
     },
     {
      "id": "jefferson",
-     "committed_east_local_m": -396.89,
+     "committed_east_local_m": -400.51,
      "the_plat_wants_east_local_m": -449.32,
-     "moves_m": -52.43,
-     "moves_ft": -172.0,
+     "moves_m": -48.81,
+     "moves_ft": -160.1,
      "direction": "west"
     },
     {
@@ -352,7 +352,7 @@
      "direction": "west"
     }
    ],
-   "total_absolute_movement_m": 165.46,
+   "total_absolute_movement_m": 161.84,
    "the_largest_single_move_m": 68.2
   }
  ],
