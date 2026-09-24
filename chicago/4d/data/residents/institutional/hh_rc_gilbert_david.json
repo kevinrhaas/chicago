@@ -1,0 +1,154 @@
+{
+ "id": "hh_rc_gilbert_david",
+ "name": "The keeper's quarters at the Chicago light",
+ "division": "south",
+ "head": "rc_gilbert_david",
+ "source_pass": "reconstructed_institutional_household",
+ "institutional_household": {
+  "ticket": "T-1531",
+  "stage": "institutional_households",
+  "place": "chicago_lighthouse_1832",
+  "place_name": "Chicago Lighthouse (1832 tower)",
+  "family": "I3",
+  "bucket": "households/institutional/south",
+  "adjudication_tier": "inferred",
+  "stands_on": "THE QUARTERS ARE PART OF THE APPOINTMENT. `docs/RESEARCH/chicago_lighthouse_1832.md` § 4 records the keepership as paid 'at $350 a year WITH QUARTERS', and the same section records that no keeper's dwelling is modelled — 'a small house beside the tower is plausible and unattested'. So the quarters this project can account for are at the light itself, and a light that was kept nightly was kept by somebody who slept beside it. WHO kept it on 1 July 1835 is expressly unsettled there: Lasby was the first keeper, Wentworth names William M. Stevens only from October 1836, and 'no source reached covers the gap'.",
+  "withdrawn_if": "a re-reading of this building's record that no longer puts a household under it, or a source naming who actually lived here; the retirement runs through --build, never by hand",
+  "the_seven_refused": [
+   "council_house",
+   "first_presbyterian_church",
+   "log_jail",
+   "north_side_school_1833",
+   "st_marys_church",
+   "temple_building",
+   "walker_meeting_house"
+  ]
+ },
+ "household_owed": {
+  "size_drawn": null,
+  "kin_seated": 1,
+  "seed": null,
+  "seated_by": "T-1171 (the modelled families), T-1174 (women and children), T-1179 (converge)",
+  "note": "NO SIZE IS DRAWN, AND THAT IS A REFUSAL RATHER THAN AN OVERSIGHT. The 1840 histogram is a distribution over DWELLINGS and these quarters are a light tower's; nothing states a family at the light, and drawing 4.4 people into a forty-foot tower would be the model reaching past the one thing the record gives it. A source naming the keeper's household is what fills this."
+ },
+ "arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "NOT DRAWN HERE, AND THE REASON IS A CIRCLE. The arrival model's own distribution is computed over the compiled scene and the scene carries these cards; an arrival written here would move the table that drew it. The programme's arrival stage owns this block.",
+  "seated_by": "T-1169 (the arrival fill), T-1179 (converge)"
+ },
+ "lives_at": {
+  "value": "chicago_lighthouse_1832",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "1835_institutional_lodging",
+   "note": "THE ROOF IS THE CLAIM, and it is the only part of this card that is not an invention. THE QUARTERS ARE PART OF THE APPOINTMENT. `docs/RESEARCH/chicago_lighthouse_1832.md` § 4 records the keepership as paid 'at $350 a year WITH QUARTERS', and the same section records that no keeper's dwelling is modelled — 'a small house beside the tower is plausible and unattested'. So the quarters this project can account for are at the light itself, and a light that was kept nightly was kept by somebody who slept beside it. WHO kept it on 1 July 1835 is expressly unsettled there: Lasby was the first keeper, Wentworth names William M. Stevens only from October 1836, and 'no source reached covers the gap'."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source naming who lived at this building on the scene date"
+  },
+  "note": "SEATED ON A BUILDING THAT STANDS. Unlike the trade and family reconstructions, this household is not waiting on T-1199 for a lot: the roof it is under is a committed, placed record and is the reason the household was ordered at all."
+ },
+ "works_at": {
+  "value": "chicago_lighthouse_1832",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "The establishment is the building: the keepership of this light is kept at the light."
+ },
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "rule",
+   "id": "ordered_by_the_reconstruction_order_book",
+   "note": "Ordered, not argued: the book counts this household as missing FROM the town of 1 July 1835, so presence is the order rather than a draw made over it."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a re-cut order book that no longer orders this bucket"
+  }
+ },
+ "persons": [
+  {
+   "id": "rc_gilbert_david",
+   "name": "David Gilbert",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "rule",
+     "id": "chicago_lighthouse_1832",
+     "note": "NOT DRAWN FROM THE SEX MODEL. Every keeper of this light the sources name — Lasby, Stevens, Beaubien — is a man, and the federal appointment record this project can reach names no woman at it. That is a bound on the reconstruction rather than a reading of this person, who is not named by anything."
+    },
+    "seed": null,
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming the person who lived here on the scene date"
+    }
+   },
+   "age_band": null,
+   "occupation": {
+    "value": "lighthouse_keeper",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "rule",
+     "id": "1835_institutional_lodging",
+     "note": "THE APPOINTMENT, NOT A DEAL. The keepership of this light is recorded at $350 a year with quarters, and a light that burned every night was kept by somebody. What is reconstructed is the PERSON, not the post: the post is documented and the holder on 1 July 1835 is not. Samuel Lasby was the first keeper and Wentworth names William M. Stevens only from October 1836; no source reached covers the gap this person stands in."
+    },
+    "seed": null,
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming this establishment's holder in 1835"
+    }
+   },
+   "name_basis": {
+    "value": "David Gilbert",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Both parts are drawn from the New England and New York pool, which is seeded from the attested residents of this town. No weighting is applied: the adjudication says who lived under this roof and nothing whatever about where they came from."
+    },
+    "seed": "institutional_households:chicago_lighthouse_1832:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a real person living at this building in 1835"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn head from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "rule",
+    "id": "1835_institutional_lodging",
+    "note": "The adjudication of the town's nine standing institutional roofs admits chicago_lighthouse_1832 as holding a household, and the order book's bucket households/institutional/south is the one household it orders there."
+   },
+   "seed": "institutional_households:chicago_lighthouse_1832:forename",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a resident of this building on the scene date, who would stand in this slot instead"
+   },
+   "reconstruction": {
+    "stage": "institutional_households",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "yankee",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_institutional_head",
+   "sources": [],
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because Chicago Lighthouse (1832 tower) is one of two institutional roofs in this town whose own committed record puts a household under it, and because the reconstruction order book counts that household missing. The whole of what is claimed is that somebody lived here. No figure is drawn (L1)."
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "WRITTEN BY tools/reconstruct_institutional_households.py (T-1531), the `institutional_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+}

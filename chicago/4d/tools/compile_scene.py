@@ -834,6 +834,16 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     trades = load(trades_path) if trades_path.exists() else {}
     trade_rows_minted = trades.get("minted", [])
 
+    # T-1531, stage `institutional_households`. The two people the town's nine standing
+    # institutional roofs can honestly be said to have housed: the keeper at the light,
+    # whose appointment is recorded "with quarters", and whoever kept the Michigan Street
+    # house Watkins taught in, whose own record's function is domestic. The other seven
+    # roofs are refused by name in `1835_institutional_lodging.json`. Outside the mints'
+    # directory for the reason the three above are.
+    institutional_path = DATA / "reconstruction" / "1835_institutional_households.json"
+    institutional = load(institutional_path) if institutional_path.exists() else {}
+    institutional_rows_minted = institutional.get("minted", [])
+
     # T-1353. The summer crowd, and the one set of rows in this file that is NOT the town's
     # own population. They live outside the mints' directory for the reason the two above
     # do and for one more: a card in data/residents/households/ is a card the manifest, the
@@ -895,7 +905,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     stage_order = [s.get("key") for s in programme_stages if s.get("key")]
 
     def row_for(hh, person, rel, ruling=None, minted=None, trade=None, transient=None,
-                lodging=None, underdocumented=None):
+                lodging=None, underdocumented=None, institutional=None):
         occ = person.get("occupation") or {}
         occ_value = occ.get("value")
         arrival = hh.get("arrival") or {}
@@ -974,6 +984,20 @@ def compile_people(scene_id: str, outdir: Path) -> int:
                 "name_as_read": rm.get("name_as_read"),
                 "stands_on": rm.get("stands_on"),
                 "note": ((hh.get("present_on_scene_date") or {}).get("basis") or {}).get("note"),
+                "replaced_by": (person.get("replaceable_by") or {}).get("match"),
+            }
+        elif institutional is not None:
+            ih = hh.get("institutional_household") or {}
+            owed = hh.get("household_owed") or {}
+            row["institutional_household"] = {
+                "ticket": ih.get("ticket"),
+                "place": ih.get("place"),
+                "place_name": ih.get("place_name"),
+                "family": ih.get("family"),
+                "bucket": ih.get("bucket"),
+                "stands_on": ih.get("stands_on"),
+                "household_size_owed": owed.get("size_drawn"),
+                "kin_seated_by": owed.get("seated_by"),
                 "replaced_by": (person.get("replaceable_by") or {}).get("match"),
             }
         elif trade is not None:
@@ -1104,6 +1128,18 @@ def compile_people(scene_id: str, outdir: Path) -> int:
         for person in hh.get("persons", []) or []:
             rows.append(row_for(hh, person, minted["file"], lodging=minted))
     seal("lodgers")
+
+    institutional_households = 0
+    for minted in institutional_rows_minted:
+        path = DATA / "residents" / minted["file"]
+        if not path.exists():
+            continue
+        hh = load(path)
+        institutional_households += 1
+        households += 1
+        for person in hh.get("persons", []) or []:
+            rows.append(row_for(hh, person, minted["file"], institutional=minted))
+    seal("institutional")
 
     underdocumented_households = 0
     for minted in underdocumented_rows_minted:
@@ -1258,6 +1294,10 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "reconstructed_trade_heads": len(trade_heads),
             "reconstructed_trade_households": trade_households,
             "reconstructed_lodging_households": lodging_households,
+            # T-1531. The two roofs of the town's nine institutional ones whose own
+            # committed record puts a household under them. The other seven are refused
+            # by name in data/reconstruction/1835_institutional_lodging.json.
+            "institutional_households": institutional_households,
             "lodging_seats": sum(1 for r in rows if r.get("lodging_seat")),
             "reconstructed_trade_by_trade": {
                 t: sum(1 for r in trade_heads if r["reconstructed_trade"]["trade"] == t)

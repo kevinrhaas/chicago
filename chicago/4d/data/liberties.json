@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 268,
+  "count": 269,
   "liberties": [
     {
       "id": "L1",
@@ -16311,6 +16311,51 @@
         {
           "label": "Recorded",
           "text": "2026-09-20. **The count moved to 73 on 2026-09-21 (T-1444).** It read 67 — 53 log dwellings and 14 fort structures — when the South migration last restated it. The West Division release instantiated its held slots and six of them are log cabins, so the liberty now reaches **73**: 59 log dwellings and the same 14 fort structures. The argument does not move with the number, and it is not supposed to: the scope is counted off the records' own `archetype` precisely so a release restates it instead of leaving the entry asserting what it reached the day it was written."
+        }
+      ]
+    },
+    {
+      "id": "L267",
+      "title": "Two people are invented for the two institutional roofs whose own records put a household under them, and the other seven are refused",
+      "section": "per_subject",
+      "subjects": [
+        "temple_building"
+      ],
+      "covers": [],
+      "scope": {
+        "enumeration": "residents.persons[institutional_households]",
+        "count": 2
+      },
+      "recorded": "2026-09-24",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`tools/reconstruct_institutional_households.py` (T-1531) writes **two** reconstructed heads into `data/residents/institutional/` — one at the Chicago light and one in the Michigan Street house John Watkins taught in. They are the whole of what the town's nine standing `institutional_public` roofs yield in people, and `data/reconstruction/1835_institutional_lodging.json` is the adjudication that says so, roof by roof, with the sentence that refuses each of the other seven."
+        },
+        {
+          "label": "Scope",
+          "text": "`residents.persons[institutional_households]` — 2 people in 2 cards, one head apiece, re-derivable from `tools/reconstruct_institutional_households.py --check`."
+        },
+        {
+          "label": "Why",
+          "text": "because the household quota was ordering twelve of them. The model's 643 households are apportioned across the roof groups by ROOF COUNT, which is right for a group whose roofs are houses and wrong for the one group whose roofs are a church, a jail, a council house and a light tower. Nine institutional roofs drew twelve households — more than one per roof — and nobody had ever asked the roofs the question. Ordering ten households that could never honestly be written is not a conservative error; it is a standing instruction to invent ten families and hang them on buildings nothing says anybody slept in. The book now weights those cells on the adjudication instead, and orders two."
+        },
+        {
+          "label": "What is invented, exactly",
+          "text": "two people and nothing else about the two buildings. Each carries a name from the invented pools; the light keeper's sex is bounded by the three keepers of this light the sources name, all men, and the Watkins house's is drawn from the town model's own sex ratio with the seed printed on the card. No age is written at all — the household buckets carry no age axis, so nothing ordered a band and none is invented. The keeper's occupation is the APPOINTMENT rather than a deal: the keepership is recorded at $350 a year with quarters, and what is reconstructed is the holder, not the post. The Watkins house's head is given no trade, because the obvious guess — a schoolmaster — is exactly the guess this project does not write. **What this deliberately does NOT do.** It seats nobody at St. Mary's, at the First Presbyterian church, in the Temple Building, in the log jail, in Billy Caldwell's council house, in the North Side school or in the Walker meeting house. A congregation is not a household, a use is not a residence, and confinement is not residence; the minister whose lodging the sources DO record — Porter, in the unfinished loft of Peck's store — is lodged somewhere else entirely. And it draws no kin: a Chicago dwelling held 4.4 people on the 1840 histogram, and the size drawn for the Watkins house is written onto `household_owed` with the ticket that seats it (T-1171, T-1174), because seating them here would order the same people twice. The keeper's quarters draw no size at all — a forty-foot light tower is not a distribution over dwellings."
+        },
+        {
+          "label": "What would discharge it",
+          "text": "a source naming who lived at either building on 1 July 1835 retires that card and puts a reading in its place. A source putting a household under any of the seven refused roofs — a sexton's or a gaoler's return, a directory entry at a church address, a trustee's note that the master lodged in the school — moves that row to `true`, raises the division's capable count, and the book orders the household on the next build."
+        },
+        {
+          "label": "Related",
+          "text": "**L248** (the trade heads, the same shape at 308 times the size), **L253** (the lodgers), **L1** (no human figure is drawn, for anybody), T-1531 (this entry), T-1476 (which made the household quota speak at all), T-1196 (the roof programme)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-24."
         }
       ]
     },

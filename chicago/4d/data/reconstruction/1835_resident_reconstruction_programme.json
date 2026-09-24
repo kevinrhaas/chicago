@@ -376,6 +376,23 @@
    ]
   },
   {
+   "key": "institutional_households",
+   "ticket": "T-1531",
+   "title": "The people who slept at the town's institutions",
+   "writes": "reconstructed persons, one head per institutional roof whose own record puts a household under it",
+   "draws_from": [
+    "sex_ratio",
+    "household_size"
+   ],
+   "note": "The household quota apportions the town's houses across the roof groups by roof count, and `institutional_public` is the one group where that does not follow: nine standing roofs, most of them a church, a jail, a council house or a light tower, drew twelve households. data/reconstruction/1835_institutional_lodging.json adjudicates the nine out of each committed record's own function, occupants and research_note blocks; two hold a household and seven are refused there by name. The order book weights the institutional cells on that file, so it now orders two, and this stage mints them. No age band is written - the household buckets carry no age axis - and no kin are seated, which is T-1171's and T-1174's quota.",
+   "implemented": true,
+   "built_by": "tools/reconstruct_institutional_households.py",
+   "mints": "persons",
+   "liberties": [
+    "L267"
+   ]
+  },
+  {
    "key": "converge",
    "ticket": "T-1179",
    "title": "Converge the reconstructed resident layer",

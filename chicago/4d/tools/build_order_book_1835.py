@@ -1199,6 +1199,47 @@ def person_owner(axes: dict) -> tuple[str, str]:
     raise Fault(f"no ticket owns the person bucket {axes}")
 
 
+def institutional_lodging() -> dict:
+    """The adjudication of the nine standing institutional roofs (T-1531).
+
+    Hand-authored, because it is nine judgements about nine committed records and not a
+    derivation of anything. `tools/reconstruct_institutional_households.py` mints against
+    the same file, so the order and the mint cannot disagree about which roofs hold
+    anybody.
+    """
+    path = ROOT / "data" / "reconstruction" / "1835_institutional_lodging.json"
+    if not path.exists():
+        raise Fault("the institutional lodging adjudication is missing: the household "
+                    "quota cannot weight the institutional cells without it")
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    capable = doc.get("lodging_capable_by_division")
+    rows = doc.get("adjudication") or []
+    if not isinstance(capable, dict) or not rows:
+        raise Fault("the institutional lodging adjudication carries no roofs or no "
+                    "lodging_capable_by_division")
+    for division, n in sorted(capable.items()):
+        counted = sum(1 for r in rows
+                      if r.get("holds_a_household") and r.get("division") == division)
+        if int(n) != counted:
+            raise Fault(f"the institutional adjudication says {n} lodging-capable roof(s) "
+                        f"in the {division} division and admits {counted}")
+    return doc
+
+
+def _apportioned_on(htype: str) -> str:
+    """What a household bucket's order was apportioned on, in words.
+
+    Written out rather than inlined in the f-string it feeds: a conditional
+    spanning several lines inside an f-string expression is Python 3.12 syntax
+    (PEP 701) and this repository runs 3.11, where it does not parse at all.
+    The wording is unchanged.
+    """
+    if htype == "institutional":
+        return ("institutional roofs whose own record puts a household under them "
+                "(1835_institutional_lodging, T-1531)")
+    return f"inventory's own {htype} roof count"
+
+
 def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
     hh_fig = figure(model, "households_and_families", "households_on_1_july_1835")
     total, basis = point_of(hh_fig)
@@ -1206,13 +1247,34 @@ def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
     if not matrix:
         raise Fault("the building inventory carries no district/group matrix")
 
+    # A CHURCH IS NOT A DWELLING, AND THE WEIGHT NOW SAYS SO (T-1531). Every other row
+    # here weights its household type on the roofs of its group, which is right for a
+    # group whose roofs are houses: a dwelling holds a household, a store-residence holds
+    # a household, an inn holds several. `institutional_public` is the one group where
+    # that does not follow. Its nine standing roofs are four places of worship or meeting,
+    # two schools and three civic buildings, and weighting them like dwellings ordered
+    # TWELVE households onto them — more than one per roof, across a jail, a council house
+    # and a light tower. Nobody had asked the roofs the question; T-1476 made the quota
+    # speak and the twelve appeared, ordered from a ticket nobody could claim.
+    #
+    # `1835_institutional_lodging.json` is that question asked once of each of the nine,
+    # out of each committed record's own `function`, `occupants` and `research_note`. TWO
+    # hold a household — the Watkins house, whose own function is domestic, and the light,
+    # whose keepership is recorded at "$350 a year with quarters" — and the other seven
+    # are refused there by name, each with the sentence that refuses it. This is NOT a
+    # re-cut of the roof row: nine roofs stand and nine are still ordered. What moves is
+    # only how many HOUSEHOLDS hang on them.
+    capable = institutional_lodging()["lodging_capable_by_division"]
     weights: dict[str, float] = {}
     for htype, group, _ in HOUSEHOLD_BUCKETS:
         row = matrix.get(group)
         if row is None:
             raise Fault(f"the inventory's matrix has no row for {group}")
         for division in CIVIL_DIVISIONS:
-            roofs = float(row.get(division) or 0)
+            if htype == "institutional":
+                roofs = float(capable.get(division) or 0)
+            else:
+                roofs = float(row.get(division) or 0)
             if roofs > 0:
                 weights[f"{htype}/{division}"] = roofs
     targets = largest_remainder(total, weights)
@@ -1245,8 +1307,10 @@ def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
             "to_reconstruct": max(0, targets[key] - known_by_cell[key]),
             "filled": 0,
             "owning_ticket": owners[htype],
-            "basis": f"the model's {total:,} households apportioned on the inventory's own "
-                     f"{htype} roof count in the {division} division",
+            "basis": (
+                f"the model's {total:,} households apportioned on the "
+                f"{_apportioned_on(htype)} in the "
+                f"{division} division"),
         })
     buckets.append({
         "key": "households/garrison/fort",
