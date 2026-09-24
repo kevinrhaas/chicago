@@ -731,13 +731,13 @@ RULES = {
 # (T-1310, T-1440..T-1442), the one-occupation field became dated plural roles with a
 # `covers_scene_date` flag and a written withdrawal (T-0837, T-0991), and the candidate-fact
 # table is committed (T-1232). tools/spend_trade_premises.py reads all 37 against those
-# fields and gives each one of SIX outcomes, 36 of them terminal. Its rules are folded in
+# fields and gives each one of SIX outcomes, all of them terminal since T-1526. Its rules are folded in
 # here rather than restated, for the same reason `wrote_by_spend` imports the arrival pass's
 # table: the pass that read the card is the pass that says what the card answered with, and
 # a rule renamed there cannot drift out of the register that vouches for it.
 from spend_trade_premises import (BOUNDED as TRADE_BOUNDED,  # noqa: E402
                                   CARRIED as TRADE_CARRIED,
-                                  HANDED as TRADE_HANDED,
+                                  CONTRADICTING as TRADE_CONTRADICTING,
                                   LATER as TRADE_LATER,
                                   PROFILE as TRADE_PROFILE,
                                   RULES as TRADE_RULES,
@@ -1710,7 +1710,7 @@ def self_test() -> int:
             ("a trade carried as a profile fact", "06", "mitchell_henry", TRADE_PROFILE),
             ("a trade printed for a later year", "14", "sabine_wm", TRADE_LATER),
             ("a pre-scene engagement", "04", "handy_major", TRADE_UNREACHED),
-            ("a reading the card contradicts", "02", "pearsons_hiram", TRADE_HANDED),
+            ("a reading the card contradicts", "02", "pearsons_hiram", TRADE_CONTRADICTING),
             ("a county office", "04", "steele_ashbel", "the_enrichment_names_a_civic_church_or_school_post_no_field_carries"),
             ("a landholding", "05", "wright_john_s", "the_enrichment_names_a_landholding_no_field_carries"),
             ("a later volume", "15", "doolittle_ehjah", "the_later_volume_enriches_a_biography_and_names_no_1835_field")):
