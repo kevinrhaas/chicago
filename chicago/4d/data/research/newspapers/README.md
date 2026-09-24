@@ -412,6 +412,7 @@ contradicts them, and one last seen before 1835 stands on a stated liberty.
 name, so `Cohen, P.` and `Cohen, J.` are two people. A merge is declared in
 `identity.json` with a `merge_rule` naming both spellings; same surname with different
 initials never merges, rule or no rule.
+One exception, and it carries its own undo: an initial one printing could not READ, against the same initial another prints whole, at the same entry of the same list (T-0392, below).
 
 **The first bulk merge pass is T-0299**: the list of letters remaining in the Post Office at
 Chicago on 1 July 1834, which the Democrat printed three times — 1834-07-02, 1834-07-09 and
@@ -426,10 +427,8 @@ de-duplication. The gazetteer went from 2,108 persons to 1,933. The file's `pass
 states the method, the canonical-reading rule, and the two returns printed in the same
 issues that are deliberately NOT part of this list (Plainfield and Juliet). Seventeen of
 the twenty-nine refusals are an initial one printing could not read against the same
-initial another prints whole. **Whether such a pair may merge is NOT settled here**: it is a
-change to the identity policy and it is the owner's, and T-0392 carries the question with
-both answers and their costs — no keeps eighteen duplicate persons the project's own best
-witness resolves, yes needs a bound (same list, same entry, no competing letter).
+initial another prints whole, and **those seventeen are merges now** — the owner's ruling
+on T-0392, below.
 
 `surname()` and `initials()` take the transcription's markup off before they parse (T-0299).
 They did not, so `A[n]drew W. Borland` read as four forenames and `Benjamın Swena` as two,
@@ -451,6 +450,48 @@ person merges and 29 refusals before and after, 2,634 persons either way, and `g
 and `register_1835.json` are byte-identical across the change. Nine self-test cases assert
 the VALUE and not merely that a pair differs, which is what let `[?]nn M. Gooding` pass while
 reading `N. M.`
+
+### THE OWNER'S RULING OF 2026-09-21 — an unread initial may be joined to a read one, UNDOABLY (T-0392)
+
+The question T-0397 could finally state and could not answer: may a merge be declared where
+one side's forename initial is `[?]` — unread — and the other side's is read, when the two
+stand at the SAME ENTRY of the SAME LIST? The owner's answer, verbatim in the ticket:
+
+> yes — merge, and record it as UNDOABLE. … Same entry of the same list is the same physical
+> ink, and refusing there costs eighteen known duplicates for a scruple that does not apply to
+> the page in front of us. BUT THE MERGE CARRIES ITS OWN UNDO, and that condition is the
+> ruling, not a nicety.
+
+**What that cost the town, measured.** Seventeen refusals became merges and the gazetteer went
+from 2,685 persons to 2,668. The eighteenth did not move, and it is the finding of carrying the
+ruling out: `J. W. Smith` / `[?]. Smith` reads TWO initials against one slot, so its second
+initial is ABSENT rather than unread — nothing on the page says a letter stood there — and
+that is the case the ruling held over, not the case it granted. It is reclassified
+`absent_initial` beside `Samuel E. Toby` / `Samuel. Toby`, both still refuse, and **T-1528**
+carries the question they raise. All thirteen `read_initials_disagree` refusals still refuse,
+which is what the ruling says they must do forever.
+
+**The undo is a record, not a sentence in a PR.** Each of the seventeen merges declares an
+`unread_initial` block: the unread side, the read side, the list, the entry — measured, as the
+ordinal of each reading among its printing's addressee entities — the witnesses, the slots
+that differ, `basis: "positional"`, and the undo in words. `tools/compile_gazetteer.py` refuses
+the merge without that block, refuses a block that names the wrong side or the wrong slot of
+its own pair, refuses a basis other than `positional`, refuses an undo that does not name the
+unread reading verbatim, and refuses a merge that would keep the UNREAD reading as the
+surviving person. Ten self-test cases hold those refusals open. The block is carried onto the
+person in `gazetteer.json` too, under `merged[].unread_initial`, so a reader of the compiled
+record can see that this person is one line read twice and not two readings of a letter.
+
+**Why undoable rather than simply allowed.** These pages get re-read. When somebody reads that
+initial, either it agrees — and the merge gains a real basis — or it does not, and two men
+have to come apart again. The second case is the one that quietly corrupts a town, and a merge
+whose ground is recorded can be split by whoever reads the page, in one step.
+
+**Five merges changed direction** so that the surviving person is the side a printing read. The
+gazetteer no longer keys anybody on `bey blankinship`, `oon bowrassa`, `kiler brown`,
+`saac scarrett` or a bare `blair` — non-names manufactured by deleting a `[?]` from the front
+of a forename. Where the read side is itself an `[uncertain: …]` reading, that wrapper is what
+survives, because it is the honest form of what the best of the three printings set.
 
 **AND THE RULE HAS NO SIBLING FOR FIRMS, WHICH IS WHY ONE BOOKSHOP STANDS IN THREE PLACES.**
 The Chicago Democrat's bookseller is `RUISAL & CLUPR,` in the December 1834 advertisement's

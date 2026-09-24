@@ -36,7 +36,7 @@
   {
    "what": "letter-list and newspaper persons",
    "path": "data/research/newspapers/gazetteer.json",
-   "n": 2640
+   "n": 2623
   },
   {
    "what": "1840 heads of household read in this repo",
@@ -54,7 +54,7 @@
   "voters_surname_only_refused": 75,
   "letter_list_matched_one_entry": 340,
   "letter_list_ambiguous": 93,
-  "letter_list_surname_only_refused": 670,
+  "letter_list_surname_only_refused": 665,
   "heads_1840_matched_one_entry": 170,
   "heads_1840_ambiguous": 56,
   "heads_1840_surname_only_refused": 223,
@@ -23968,34 +23968,9 @@
     "rule": "'[?] Warren' carries no forename — a rank or a suffix stands where the given name would be — so there is no initial to carry the surname 'Warren' to. Fergus 1839 prints 1 entry under that surname and the rule cannot choose between them."
    },
    {
-    "name": "[?]. Blair",
-    "candidates_under_that_surname": 1,
-    "rule": "'[?]. Blair' carries no forename — a rank or a suffix stands where the given name would be — so there is no initial to carry the surname 'Blair' to. Fergus 1839 prints 1 entry under that surname and the rule cannot choose between them."
-   },
-   {
-    "name": "[?]. D. Doty",
-    "candidates_under_that_surname": 1,
-    "rule": "The surname 'Doty' is in Fergus 1839 and no entry under it carries the initial 'D' of '[?]. D. Doty'. A surname-only agreement is a refusal."
-   },
-   {
     "name": "[?]. Smith",
     "candidates_under_that_surname": 23,
     "rule": "'[?]. Smith' carries no forename — a rank or a suffix stands where the given name would be — so there is no initial to carry the surname 'Smith' to. Fergus 1839 prints 23 entries under that surname and the rule cannot choose between them."
-   },
-   {
-    "name": "[?]. [H]. Scott",
-    "candidates_under_that_surname": 2,
-    "rule": "The surname 'Scott' is in Fergus 1839 and no entry under it carries the initial 'H' of '[?]. [H]. Scott'. A surname-only agreement is a refusal."
-   },
-   {
-    "name": "[?]amnee Ball",
-    "candidates_under_that_surname": 1,
-    "rule": "The surname 'Ball' is in Fergus 1839 and no entry under it carries the initial 'A' of '[?]amnee Ball'. A surname-only agreement is a refusal."
-   },
-   {
-    "name": "[?]kiler Brown",
-    "candidates_under_that_surname": 10,
-    "rule": "The surname 'Brown' is in Fergus 1839 and no entry under it carries the initial 'K' of '[?]kiler Brown'. A surname-only agreement is a refusal."
    },
    {
     "name": "[C]yrenius C. H[o]lmes",
