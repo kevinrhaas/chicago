@@ -227,13 +227,13 @@ def west_held_back(recipe: dict) -> int:
     if gate.get("instantiation_block"):
         held += sum(1 for p in recipe["placements"]
                     if p["center_local_enu_m"][0] < WEST_INSTANTIATION_BLOCK_E)
-    # T-1444. The terrain block is retired and a second one took its place, on a question
-    # terrain cannot answer: five slots stand inside the drift band of the corporate
-    # boundary's extrapolated west leg, so which side of the 1833 town limits they were on
-    # is not knowable until Jefferson Street is traced north (T-1490). A hold is a hold —
-    # the schedule counts what the parcel still owes, not why it owes it — and the count
-    # is read off the recipe rather than retyped here.
-    held += len((gate.get("boundary_hold") or {}).get("slots") or {})
+    # T-1444, re-cut by T-1490. The terrain block is retired and a second hold took its
+    # place; T-1490 traced Jefferson north and released three of its five slots, and the
+    # two that remain are held on a question the boundary was hiding — they stand inside
+    # the platted Jefferson corridor. A hold is a hold — the schedule counts what the
+    # parcel still owes, not why it owes it — and the count is read off the recipe rather
+    # than retyped here.
+    held += len((gate.get("corridor_hold") or {}).get("slots") or {})
     return held
 
 # What the balance of each district is waiting on. The West entry is the street control
