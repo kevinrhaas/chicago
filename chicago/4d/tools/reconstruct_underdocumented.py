@@ -167,9 +167,11 @@ REFUSALS = {
         "written onto this name and onto no other on the line — so the refusal above, "
         "that a term in prose is not a statement, would be untrue of this row. What "
         "holds it out is this stage's SCOPE: the only book it reads is the 1832 muster "
-        "roll, and this reading is a baptismal register entry. The row is owed a stage "
-        "that reads the register, and until one exists the person stays out of the town "
-        "for want of a reader rather than for want of evidence."),
+        "roll, and this reading is a baptismal register entry. THE READER IT WAS OWED "
+        "NOW EXISTS: T-1504 built `tools/reconstruct_church_register.py`, the "
+        "`church_register` sub-stage of this same stage, which reads St Mary's register "
+        "and spends these rows. So this is a refusal of SCOPE and nothing more — the row "
+        "is not out of the town, it is carded by the sibling that can read its book."),
     "a_card_of_that_name_already_stands": (
         "A person already in the layer shares this reading's surname and first given "
         "initial, the discriminator this project's directory crosswalks match on. The "
@@ -651,12 +653,20 @@ def derive() -> tuple[dict, dict]:
                               "ineligible, so the town carries their husbands and their "
                               "children and not them."),
              "spent": False,
-             "why_not": ("A baptism is not a residence and the roster's ineligibility "
-                         "ruling is the research layer's, not this stage's to overturn "
-                         "from the outside. It is a reading, and a reading is a ticket: "
-                         "filed as T-1383, with the four entries and what it should "
-                         "answer."),
-             "filed_as": "T-1383"},
+             "why_not": ("Not by THIS sub-stage, which reads the muster roll and nothing "
+                         "else. A baptism is not a residence and the roster's "
+                         "ineligibility ruling is the research layer's, not this stage's "
+                         "to overturn from the outside. It was a reading, and a reading "
+                         "is a ticket: filed as T-1383 and answered by T-1504."),
+             "filed_as": "T-1383",
+             "spent_instead_by": {
+                 "ticket": "T-1504",
+                 "tool": "tools/reconstruct_church_register.py",
+                 "sub_stage": "church_register",
+                 "what_it_did": ("Read the register's R6 rows and carded the two women "
+                                 "the priest wrote the term onto — the two adults on "
+                                 "entries 14, 17 and 18 the town did not already hold, "
+                                 "its four printings being two people.")}},
         ],
         "minted": sorted(minted, key=lambda m: m["household_id"]),
         "already_on_a_card": sorted(already, key=lambda a: a["row_id"]),
@@ -824,10 +834,13 @@ def self_test() -> int:
          all(roster_rule.get(w["row_id"]) == "community_term_written_onto_the_name"
              for w in record["withheld"]
              if w["reason"] == "the_statement_is_not_on_the_roll_this_stage_reads"))
-    case("the register's two mothers reach this stage and are refused in its own words",
+    case("the register's two mothers reach this stage and are held out on SCOPE, with the "
+         "sibling that reads their book named",
          {w["name_as_read"] for w in record["withheld"]
           if w["reason"] == "the_statement_is_not_on_the_roll_this_stage_reads"}
-         >= {"Marianne (sauvage)", "Jaespquaa (sauvage de Green Bay)"})
+         >= {"Marianne (sauvage)", "Jaespquaa (sauvage de Green Bay)"}
+         and "reconstruct_church_register" in
+             REFUSALS["the_statement_is_not_on_the_roll_this_stage_reads"])
 
     case("no person drawn here is invented — every id is a read name",
          all(not p["id"].startswith("rc_") for c in cards.values() for p in c["persons"]))

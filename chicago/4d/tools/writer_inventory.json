@@ -1018,7 +1018,14 @@
       "finding": "Reproduces: ran `--group stores_and_provisions --build` on a clean tree in 1s, wrote its records, its ledger and the order book's fill, and changed no committed byte.",
       "placed": "not yet — measured to reproduce. Its header states that the quota lives in the reconstruction order book and nothing about it lives in the tool, so any ticket that re-cuts the book moves this stage with it; it writes the order book's fill as well as its own records. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
     },
-    "reconstruct_free_black.py": {
+    "reconstruct_church_register.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-25",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0.31s, rewrote its 2 household cards and its derived record, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool, which reports both gated commands writing nothing in-tree.",
+   "placed": "not yet — measured to reproduce. Stage `underdocumented`, sub-stage `church_register` (T-1504, of T-1177). It is the THIRD writer of data/residents/underdocumented/, each sweeping its own id prefix out of it — `hh_cr_` here, `hh_um_` in reconstruct_underdocumented.py, `hh_fb_` in reconstruct_free_black.py — so it inherits the same unstated order against its two siblings that reconstruct_free_black.py's row records. The manifest's order is its own measured pass, so this cannot be appended blind."
+  },
+  "reconstruct_free_black.py": {
       "placement": "pending",
       "write_mode": "--build",
       "measured": "2026-09-19",
