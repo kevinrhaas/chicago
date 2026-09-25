@@ -23,17 +23,17 @@
     "ruling": "the owner's ruling of 2026-09-20 on T-1448's three answers: re-cut the book (option 1), and re-cut JUST THE REMAINDER",
     "ticket": "T-1459",
     "slots_the_re_cut_wanted": 36,
-    "slots_that_moved": 36,
-    "why_it_stopped": "The remainder paid for the re-cut in full: the book's employed total is unchanged, no cell's population changed, and nothing a stage has drawn against was touched.",
+    "slots_that_moved": 31,
+    "why_it_stopped": "The remainder could not pay for the re-cut in full. Every cell that could not take or give its share is named below with the ticket that spent there.",
     "the_sex_axis": "130 of the 137 are men. That is not a licence to cut the trade remainder male: the sources that print an occupation — notices, poll lists, the trade census, the directories — print PROPRIETORS and heads of household, and a record of who advertised is not a record of who worked. The town model's own occupations section says the same thing from the other side: the 1840 schedule's seven columns have no row for domestic service, 'which a port with this adult sex ratio certainly had', and the trade split understates household labour 'by an amount this model cannot bound'. Both arguments point one way and neither bounds a number, so the SEX of the trade remainder is NOT re-cut. The book keeps the population's own split, and the hands a shop wants that only a man can fill stand short with the reason said out loud.",
-    "and_the_mint_is_still_short": "After the re-cut, 32 of the 130 hands are payable and 98 are not. The re-cut opened the band the shop boys stand in — 33 slot(s) outstanding in it now — and refused the sex axis on the evidence. The sex bar is what the 98 stand behind, and re-cutting again cannot move it."
+    "and_the_mint_is_still_short": "After the re-cut, 23 of the 130 hands are payable and 107 are not. The re-cut opened the band the shop boys stand in — 28 slot(s) outstanding in it now — and refused the sex axis on the evidence. The sex bar is what the 107 stand behind, and re-cutting again cannot move it."
   },
   "the_question": {
     "for": "the owner, and T-1166 which owns the order book",
-    "asked": "The shops want 130 hands and the book has 56 outstanding trade slots, of which 24 are women's and cannot be spent on them. Spent greedily in the stated order the book pays for 32 and leaves 98 with nowhere to come from — and every payable slot belongs to another stage. Which gives way?",
+    "asked": "The shops want 130 hands and the book has 37 outstanding trade slots, of which 14 are women's and cannot be spent on them. Spent greedily in the stated order the book pays for 23 and leaves 107 with nowhere to come from — and every payable slot belongs to another stage. Which gives way?",
     "the_answers_as_this_project_sees_them": [
       "RE-CUT THE BOOK (T-1166) — RULED, RUN AND SPENT; see `what_the_re_cut_returned` above. It opened the band the shop boys stand in and it refused the sex axis on the evidence, so it did not make the mint payable to the typical band. This answer is no longer on the table, and the two below are.",
-      "COME DOWN OFF THE TYPICAL BAND. Staff every house to the model's own `count_low` instead and the demand falls from 130 hands to 47, of which the book pays for 26 and leaves 21 short. `count_low` and `short_by_at_the_low_band` are carried on every row below, so this answer prices house by house and not only in totals. A low-band town is inside the staffing model's own stated range.",
+      "COME DOWN OFF THE TYPICAL BAND. Staff every house to the model's own `count_low` instead and the demand falls from 130 hands to 47, of which the book pays for 23 and leaves 24 short. `count_low` and `short_by_at_the_low_band` are carried on every row below, so this answer prices house by house and not only in totals. A low-band town is inside the staffing model's own stated range.",
       "LET THE HOUSES STAND SHORT AND SAY SO. Mint nothing, and let the business card print the shortfall as the honest state of the evidence. It costs the layer nothing and it is the only answer that invents nobody."
     ],
     "answered": "ANSWERED on 2026-09-25 — the owner took the second answer, the model's LOW band. The three are kept below because the ruling is only readable against what it chose between. What the answer buys is `the_owner_s_ruling` above.",
@@ -195,10 +195,10 @@
   },
   "what_the_book_can_pay": {
     "what_it_is": "The order book's `.../trade` person buckets with slots left. Every one of them is a `lodging/trade` bucket and every one is owned by T-1532, the working lodgers — so a mint that spends them spends another stage's quota, which is itself part of the question above. T-1532 because T-1175, which held these buckets when this sentence was written, split and left them ordered by nobody; T-1420 swept the book onto the live placeholder T-1500 on 2026-09-21, and T-1500 cut the bed buckets three ways on 2026-09-24, the `lodging/trade` third of them to T-1532. The stage is the same stage throughout.",
-    "slots_outstanding": 56,
+    "slots_outstanding": 37,
     "by_sex": {
-      "female": 24,
-      "male": 32
+      "female": 14,
+      "male": 23
     },
     "owning_tickets": [
       "T-1532"
@@ -219,7 +219,7 @@
         "age_band": "10_19",
         "division": "south",
         "household_type": "lodging",
-        "outstanding": 8,
+        "outstanding": 7,
         "owning_ticket": "T-1532"
       },
       {
@@ -232,84 +232,12 @@
         "owning_ticket": "T-1532"
       },
       {
-        "bucket": "persons/female/20_29/north/lodging/trade",
-        "sex": "female",
-        "age_band": "20_29",
-        "division": "north",
-        "household_type": "lodging",
-        "outstanding": 1,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/female/20_29/west/lodging/trade",
-        "sex": "female",
-        "age_band": "20_29",
-        "division": "west",
-        "household_type": "lodging",
-        "outstanding": 2,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/female/30_39/north/lodging/trade",
-        "sex": "female",
-        "age_band": "30_39",
-        "division": "north",
-        "household_type": "lodging",
-        "outstanding": 1,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/female/40_49/north/lodging/trade",
-        "sex": "female",
-        "age_band": "40_49",
-        "division": "north",
-        "household_type": "lodging",
-        "outstanding": 1,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/female/40_49/west/lodging/trade",
-        "sex": "female",
-        "age_band": "40_49",
-        "division": "west",
-        "household_type": "lodging",
-        "outstanding": 1,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/female/50_plus/north/lodging/trade",
-        "sex": "female",
-        "age_band": "50_plus",
-        "division": "north",
-        "household_type": "lodging",
-        "outstanding": 1,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/female/50_plus/south/lodging/trade",
-        "sex": "female",
-        "age_band": "50_plus",
-        "division": "south",
-        "household_type": "lodging",
-        "outstanding": 1,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/female/50_plus/west/lodging/trade",
-        "sex": "female",
-        "age_band": "50_plus",
-        "division": "west",
-        "household_type": "lodging",
-        "outstanding": 1,
-        "owning_ticket": "T-1532"
-      },
-      {
         "bucket": "persons/male/10_19/north/lodging/trade",
         "sex": "male",
         "age_band": "10_19",
         "division": "north",
         "household_type": "lodging",
-        "outstanding": 3,
+        "outstanding": 2,
         "owning_ticket": "T-1532"
       },
       {
@@ -318,7 +246,7 @@
         "age_band": "10_19",
         "division": "south",
         "household_type": "lodging",
-        "outstanding": 12,
+        "outstanding": 10,
         "owning_ticket": "T-1532"
       },
       {
@@ -327,16 +255,7 @@
         "age_band": "10_19",
         "division": "west",
         "household_type": "lodging",
-        "outstanding": 3,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/male/30_39/north/lodging/trade",
-        "sex": "male",
-        "age_band": "30_39",
-        "division": "north",
-        "household_type": "lodging",
-        "outstanding": 3,
+        "outstanding": 2,
         "owning_ticket": "T-1532"
       },
       {
@@ -345,7 +264,7 @@
         "age_band": "30_39",
         "division": "south",
         "household_type": "lodging",
-        "outstanding": 1,
+        "outstanding": 5,
         "owning_ticket": "T-1532"
       },
       {
@@ -354,16 +273,7 @@
         "age_band": "30_39",
         "division": "west",
         "household_type": "lodging",
-        "outstanding": 3,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/male/40_49/north/lodging/trade",
-        "sex": "male",
-        "age_band": "40_49",
-        "division": "north",
-        "household_type": "lodging",
-        "outstanding": 1,
+        "outstanding": 2,
         "owning_ticket": "T-1532"
       },
       {
@@ -372,7 +282,7 @@
         "age_band": "40_49",
         "division": "south",
         "household_type": "lodging",
-        "outstanding": 2,
+        "outstanding": 1,
         "owning_ticket": "T-1532"
       },
       {
@@ -383,94 +293,46 @@
         "household_type": "lodging",
         "outstanding": 1,
         "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/male/50_plus/north/lodging/trade",
-        "sex": "male",
-        "age_band": "50_plus",
-        "division": "north",
-        "household_type": "lodging",
-        "outstanding": 1,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/male/50_plus/south/lodging/trade",
-        "sex": "male",
-        "age_band": "50_plus",
-        "division": "south",
-        "household_type": "lodging",
-        "outstanding": 1,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/male/50_plus/west/lodging/trade",
-        "sex": "male",
-        "age_band": "50_plus",
-        "division": "west",
-        "household_type": "lodging",
-        "outstanding": 1,
-        "owning_ticket": "T-1532"
       }
     ]
   },
   "the_collision": {
     "on_the_count": {
       "hands_wanted": 130,
-      "slots_outstanding": 56,
-      "short_by": 74
+      "slots_outstanding": 37,
+      "short_by": 93
     },
     "on_the_sex": {
       "hands_wanted_that_may_be_paid_from_a_woman_s_slot": 0,
-      "women_s_slots_outstanding": 24,
-      "reads_as": "Every one of the 130 hands the shops want is a man or a role the model calls predominantly male — not one of them could be paid from a woman's slot. 24 of the book's 56 outstanding slots are women's, and they cannot be spent here at all."
+      "women_s_slots_outstanding": 14,
+      "reads_as": "Every one of the 130 hands the shops want is a man or a role the model calls predominantly male — not one of them could be paid from a woman's slot. 14 of the book's 37 outstanding slots are women's, and they cannot be spent here at all."
     },
     "on_the_age": {
       "boys_wanted_12_to_18": 24,
-      "slots_outstanding_in_a_band_that_reaches_them": 33,
+      "slots_outstanding_in_a_band_that_reaches_them": 28,
       "slots_in_that_band_by_sex": {
-        "female": 15,
-        "male": 18
+        "female": 14,
+        "male": 14
       },
-      "reads_as": "The apprentice and the shop boy are 24 of the 130 hands wanted, and the band that reaches them is NO LONGER DRAWN OUT: 33 slot(s) stand outstanding in it, 18 of them men's and so spendable on a boy, 15 of them women's and so not. The age bar this file was written against is paid for; the sex bar is not."
+      "reads_as": "The apprentice and the shop boy are 24 of the 130 hands wanted, and the band that reaches them is NO LONGER DRAWN OUT: 28 slot(s) stand outstanding in it, 14 of them men's and so spendable on a boy, 14 of them women's and so not. The age bar this file was written against is paid for; the sex bar is not."
     },
-    "what_the_book_could_pay_for_today": 32,
-    "what_would_go_unpaid": 98,
+    "what_the_book_could_pay_for_today": 23,
+    "what_would_go_unpaid": 107,
     "slots_that_would_be_left": {
       "persons/female/10_19/north/lodging/trade": 3,
-      "persons/female/10_19/south/lodging/trade": 8,
-      "persons/female/10_19/west/lodging/trade": 4,
-      "persons/female/20_29/north/lodging/trade": 1,
-      "persons/female/20_29/west/lodging/trade": 2,
-      "persons/female/30_39/north/lodging/trade": 1,
-      "persons/female/40_49/north/lodging/trade": 1,
-      "persons/female/40_49/west/lodging/trade": 1,
-      "persons/female/50_plus/north/lodging/trade": 1,
-      "persons/female/50_plus/south/lodging/trade": 1,
-      "persons/female/50_plus/west/lodging/trade": 1
+      "persons/female/10_19/south/lodging/trade": 7,
+      "persons/female/10_19/west/lodging/trade": 4
     },
     "at_the_model_s_low_band": {
       "what_it_is": "The same arithmetic against the second answer — every house staffed to `count_low` rather than to the typical band, paid from the same purse in the same order.",
       "hands_wanted": 47,
       "houses_short": 44,
-      "what_the_book_could_pay_for": 26,
-      "what_would_go_unpaid": 21,
+      "what_the_book_could_pay_for": 23,
+      "what_would_go_unpaid": 24,
       "slots_that_would_be_left": {
         "persons/female/10_19/north/lodging/trade": 3,
-        "persons/female/10_19/south/lodging/trade": 8,
-        "persons/female/10_19/west/lodging/trade": 4,
-        "persons/female/20_29/north/lodging/trade": 1,
-        "persons/female/20_29/west/lodging/trade": 2,
-        "persons/female/30_39/north/lodging/trade": 1,
-        "persons/female/40_49/north/lodging/trade": 1,
-        "persons/female/40_49/west/lodging/trade": 1,
-        "persons/female/50_plus/north/lodging/trade": 1,
-        "persons/female/50_plus/south/lodging/trade": 1,
-        "persons/female/50_plus/west/lodging/trade": 1,
-        "persons/male/40_49/south/lodging/trade": 2,
-        "persons/male/40_49/west/lodging/trade": 1,
-        "persons/male/50_plus/north/lodging/trade": 1,
-        "persons/male/50_plus/south/lodging/trade": 1,
-        "persons/male/50_plus/west/lodging/trade": 1
+        "persons/female/10_19/south/lodging/trade": 7,
+        "persons/female/10_19/west/lodging/trade": 4
       }
     }
   },
@@ -482,24 +344,24 @@
     "what_it_ruled": "Mint to the model's LOW band: the hands the book can pay for minted out of the outstanding lodging/trade slots, the houses it cannot reach left short and saying so on the business card.",
     "why_that_one": "It is the band the staffing model itself states for this case, it leaves the smallest unexplained gap, and the houses it fills are chosen by a stated band rather than by the order the arithmetic happens to run in.",
     "hands_the_ruling_wants": 47,
-    "hands_the_book_pays_for_in_slots": 26,
-    "houses_left_short": 21,
+    "hands_the_book_pays_for_in_slots": 23,
+    "houses_left_short": 24,
     "on_the_household_axis": {
       "what_it_is": "A slot is not only a sex and an age band; it is also a HOUSEHOLD TYPE, and `pay_the_demand` does not look at one. Every slot it can reach is a `lodging/trade` bucket — a person the book orders into a lodging household — and the staffing model's own `the_shop_household_rule` houses the on-premises share of these roles with their EMPLOYER instead.",
       "the_rule_it_reads": "`lives_on_premises` is the share of holders of a role who slept in the proprietor's house or over the shop, and `household_relationship` is the term their card carries in that household. A clerk at 0.5 means half the clerks of that class are household members of their employer and half keep their own lodging or board elsewhere.",
-      "hands_paid_for_whose_role_the_rule_houses_with_the_employer": 15,
-      "hands_paid_for_the_model_houses_there_at_every_share": 7,
+      "hands_paid_for_whose_role_the_rule_houses_with_the_employer": 13,
+      "hands_paid_for_the_model_houses_there_at_every_share": 6,
       "family_trade_slots_outstanding": 0,
-      "reads_as": "Of the 26 hands the ruling buys, 15 hold a role the model's own rule houses with their employer, and 7 of those it states at `lives_on_premises: 1.0` — a household member at every share of the role, and so not a lodger a `lodging/trade` slot can pay for at all. The household type that could pay for them is `family/trade`, and it has 0 slot(s) outstanding.",
+      "reads_as": "Of the 23 hands the ruling buys, 13 hold a role the model's own rule houses with their employer, and 6 of those it states at `lives_on_premises: 1.0` — a household member at every share of the role, and so not a lodger a `lodging/trade` slot can pay for at all. The household type that could pay for them is `family/trade`, and it has 0 slot(s) outstanding.",
       "hands_paid_for_by_the_share_the_model_states": {
-        "1.0": 7,
+        "1.0": 6,
         "0.6": 2,
-        "0.5": 6,
+        "0.5": 5,
         "0.4": 1,
         "0.3": 1,
         "0.2": 1,
         "0.1": 1,
-        "0.0": 7
+        "0.0": 6
       }
     },
     "on_the_bed_bound": {
@@ -512,11 +374,11 @@
       "ordinary_night_beds_still_empty": 0,
       "lodging_places_unbuilt": 35,
       "may_anything_more_be_minted_here": "No, and neither unit is the reason on its own. A person needs a bed and a household needs a roof. Every one of the 153 ordinary night beds in the 17 built lodging places is slept in, and every built place that has room for anybody holds a lodging household — the one that holds none is full of its own keeper's family. So the 35 unbuilt roofs are the whole of the remainder: T-1209 raises them and T-1538 seats them.",
-      "hands_of_the_ruling_that_would_need_a_bed": 19,
-      "reads_as": "19 of the 26 hands the ruling buys would have to be seated as lodgers, and 0 ordinary-night bed(s) stand empty in the 17 built lodging places. The 35 lodging roofs the model schedules and nothing has raised are where the rest of the beds are."
+      "hands_of_the_ruling_that_would_need_a_bed": 17,
+      "reads_as": "17 of the 23 hands the ruling buys would have to be seated as lodgers, and 0 ordinary-night bed(s) stand empty in the 17 built lodging places. The 35 lodging roofs the model schedules and nothing has raised are where the rest of the beds are."
     },
     "mintable_today": 0,
-    "reads_as": "The ruling stands and the arithmetic under it is unchanged: 47 hands wanted at the low band, 26 of them payable in slots. What the town cannot do today is SEAT them. 7 are household members the lodging purse is the wrong household type for, and the 19 left need a bed against 0 empty. So 0 of them can be minted on the files as committed. This is a bed bound and a household-type bound, not a ruling that has been refused, and neither can be lifted by re-cutting the book.",
+    "reads_as": "The ruling stands and the arithmetic under it is unchanged: 47 hands wanted at the low band, 23 of them payable in slots. What the town cannot do today is SEAT them. 6 are household members the lodging purse is the wrong household type for, and the 17 left need a bed against 0 empty. So 0 of them can be minted on the files as committed. This is a bed bound and a household-type bound, not a ruling that has been refused, and neither can be lifted by re-cutting the book.",
     "waits_on": [
       "T-1209 — raise the lodging roofs the model schedules; the beds are there and nowhere else",
       "T-1538 — seat the houses once they stand",
@@ -527,7 +389,7 @@
       "hands_paid_for_by_the_placement_of_their_house": {
         "premises": 5,
         "street_only": 2,
-        "unplaceable": 19
+        "unplaceable": 16
       },
       "filed_as": "T-1566, beside this one"
     }
@@ -619,7 +481,7 @@
       "note": "Analogue: the journeyman row above.",
       "paid_from": [
         {
-          "bucket": "persons/male/10_19/north/lodging/trade",
+          "bucket": "persons/male/10_19/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -861,7 +723,7 @@
       "unpaid": 0,
       "paid_from_at_the_low_band": [
         {
-          "bucket": "persons/male/10_19/north/lodging/trade",
+          "bucket": "persons/male/10_19/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -927,7 +789,7 @@
       "note": "27 shoemakers in 1839 against 8 shops here.",
       "paid_from": [
         {
-          "bucket": "persons/male/10_19/south/lodging/trade",
+          "bucket": "persons/male/10_19/west/lodging/trade",
           "hands": 1
         }
       ],
@@ -959,7 +821,7 @@
       "note": "The building trades are the largest in the 1839 list — 133 carpenters and 54 builders — and a master's shop is where they stood.",
       "paid_from": [
         {
-          "bucket": "persons/male/10_19/south/lodging/trade",
+          "bucket": "persons/male/10_19/west/lodging/trade",
           "hands": 1
         }
       ],
@@ -989,14 +851,9 @@
       "short_by_at_the_low_band": 0,
       "basis": "period_convention",
       "note": "Analogue: the journeyman row above.",
-      "paid_from": [
-        {
-          "bucket": "persons/male/10_19/south/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid": 1,
-      "unpaid": 0,
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
       "paid_from_at_the_low_band": [],
       "paid_at_the_low_band": 0,
       "unpaid_at_the_low_band": 0
@@ -1021,14 +878,9 @@
       "short_by_at_the_low_band": 1,
       "basis": "directory_1839",
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
-      "paid_from": [
-        {
-          "bucket": "persons/male/10_19/west/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid": 1,
-      "unpaid": 0,
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
       "paid_from_at_the_low_band": [
         {
           "bucket": "persons/male/10_19/south/lodging/trade",
@@ -1058,14 +910,9 @@
       "short_by_at_the_low_band": 1,
       "basis": "directory_1839",
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
-      "paid_from": [
-        {
-          "bucket": "persons/male/10_19/west/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid": 1,
-      "unpaid": 0,
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
       "paid_from_at_the_low_band": [
         {
           "bucket": "persons/male/10_19/south/lodging/trade",
@@ -1095,14 +942,9 @@
       "short_by_at_the_low_band": 0,
       "basis": "directory_1839",
       "note": "Counted with the commerce clerks; the trade is a store whatever it sells.",
-      "paid_from": [
-        {
-          "bucket": "persons/male/10_19/west/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid": 1,
-      "unpaid": 0,
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
       "paid_from_at_the_low_band": [],
       "paid_at_the_low_band": 0,
       "unpaid_at_the_low_band": 0
@@ -1188,7 +1030,7 @@
       "note": "8 soap and candle makers in 1839 across a handful of works.",
       "paid_from": [
         {
-          "bucket": "persons/male/30_39/north/lodging/trade",
+          "bucket": "persons/male/30_39/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -1274,7 +1116,7 @@
       "note": "A yard is piled and loaded by hand. Analogue: the forwarding houses above, whose warehouse labour this model prices the same way.",
       "paid_from": [
         {
-          "bucket": "persons/male/30_39/north/lodging/trade",
+          "bucket": "persons/male/30_39/south/lodging/trade",
           "hands": 2
         }
       ],
@@ -1343,8 +1185,12 @@
       "note": "12 founders in 1839. A furnace is the largest hand-count of any shop in town.",
       "paid_from": [
         {
+          "bucket": "persons/male/30_39/south/lodging/trade",
+          "hands": 1
+        },
+        {
           "bucket": "persons/male/30_39/west/lodging/trade",
-          "hands": 2
+          "hands": 1
         }
       ],
       "paid": 2,
@@ -1444,11 +1290,11 @@
       "note": "A yard is piled and loaded by hand. Analogue: the forwarding houses above, whose warehouse labour this model prices the same way.",
       "paid_from": [
         {
-          "bucket": "persons/male/40_49/north/lodging/trade",
+          "bucket": "persons/male/40_49/south/lodging/trade",
           "hands": 1
         },
         {
-          "bucket": "persons/male/40_49/south/lodging/trade",
+          "bucket": "persons/male/40_49/west/lodging/trade",
           "hands": 1
         }
       ],
@@ -1510,14 +1356,9 @@
       "short_by_at_the_low_band": 1,
       "basis": "period_convention",
       "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
-      "paid_from": [
-        {
-          "bucket": "persons/male/40_49/south/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid": 1,
-      "unpaid": 0,
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
       "paid_from_at_the_low_band": [
         {
           "bucket": "persons/male/10_19/south/lodging/trade",
@@ -1574,14 +1415,9 @@
       "short_by_at_the_low_band": 0,
       "basis": "period_convention",
       "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
-      "paid_from": [
-        {
-          "bucket": "persons/male/40_49/west/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid": 1,
-      "unpaid": 0,
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
       "paid_from_at_the_low_band": [],
       "paid_at_the_low_band": 0,
       "unpaid_at_the_low_band": 0
@@ -1589,279 +1425,6 @@
     {
       "business_id": "biz_e_wentworth_s_public_house_on_flag_creek",
       "business_name": "E. Wentworth's public house on Flag Creek",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "tavern_keeper",
-      "role_row": 0,
-      "occupation_term": "tavern_keeper",
-      "household_relationship": "household_member",
-      "sex_rule": "predominantly_male",
-      "age_band": "adult_any",
-      "lives_on_premises": 1.0,
-      "count_low": 1,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 1,
-      "basis": "period_convention",
-      "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
-      "paid_from": [
-        {
-          "bucket": "persons/male/50_plus/north/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid": 1,
-      "unpaid": 0,
-      "paid_from_at_the_low_band": [
-        {
-          "bucket": "persons/male/10_19/south/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid_at_the_low_band": 1,
-      "unpaid_at_the_low_band": 0
-    },
-    {
-      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
-      "business_name": "E. Wentworth's tavern, Flag Creek",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "domestic",
-      "role_row": 2,
-      "occupation_term": "domestic",
-      "household_relationship": "servant",
-      "sex_rule": "male",
-      "age_band": "youth_12_18",
-      "lives_on_premises": 1.0,
-      "count_low": 0,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 0,
-      "basis": "period_convention",
-      "note": "The boy — boots, errands, the yard. Analogue: as above.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1,
-      "paid_from_at_the_low_band": [],
-      "paid_at_the_low_band": 0,
-      "unpaid_at_the_low_band": 0
-    },
-    {
-      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
-      "business_name": "E. Wentworth's tavern, Flag Creek",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "labourer",
-      "role_row": 0,
-      "occupation_term": "labourer",
-      "household_relationship": "household_member",
-      "sex_rule": "male",
-      "age_band": "adult_18_45",
-      "lives_on_premises": 0.7,
-      "count_low": 0,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 0,
-      "basis": "period_convention",
-      "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1,
-      "paid_from_at_the_low_band": [],
-      "paid_at_the_low_band": 0,
-      "unpaid_at_the_low_band": 0
-    },
-    {
-      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
-      "business_name": "E. Wentworth's tavern, Flag Creek",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "tavern_keeper",
-      "role_row": 0,
-      "occupation_term": "tavern_keeper",
-      "household_relationship": "household_member",
-      "sex_rule": "predominantly_male",
-      "age_band": "adult_any",
-      "lives_on_premises": 1.0,
-      "count_low": 1,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 1,
-      "basis": "period_convention",
-      "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
-      "paid_from": [
-        {
-          "bucket": "persons/male/50_plus/south/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid": 1,
-      "unpaid": 0,
-      "paid_from_at_the_low_band": [
-        {
-          "bucket": "persons/male/10_19/south/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid_at_the_low_band": 1,
-      "unpaid_at_the_low_band": 0
-    },
-    {
-      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
-      "business_name": "E. Wentworth's tavern on Flag Creek",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "domestic",
-      "role_row": 2,
-      "occupation_term": "domestic",
-      "household_relationship": "servant",
-      "sex_rule": "male",
-      "age_band": "youth_12_18",
-      "lives_on_premises": 1.0,
-      "count_low": 0,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 0,
-      "basis": "period_convention",
-      "note": "The boy — boots, errands, the yard. Analogue: as above.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1,
-      "paid_from_at_the_low_band": [],
-      "paid_at_the_low_band": 0,
-      "unpaid_at_the_low_band": 0
-    },
-    {
-      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
-      "business_name": "E. Wentworth's tavern on Flag Creek",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "labourer",
-      "role_row": 0,
-      "occupation_term": "labourer",
-      "household_relationship": "household_member",
-      "sex_rule": "male",
-      "age_band": "adult_18_45",
-      "lives_on_premises": 0.7,
-      "count_low": 0,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 0,
-      "basis": "period_convention",
-      "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1,
-      "paid_from_at_the_low_band": [],
-      "paid_at_the_low_band": 0,
-      "unpaid_at_the_low_band": 0
-    },
-    {
-      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
-      "business_name": "E. Wentworth's tavern on Flag Creek",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "tavern_keeper",
-      "role_row": 0,
-      "occupation_term": "tavern_keeper",
-      "household_relationship": "household_member",
-      "sex_rule": "predominantly_male",
-      "age_band": "adult_any",
-      "lives_on_premises": 1.0,
-      "count_low": 1,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 1,
-      "basis": "period_convention",
-      "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
-      "paid_from": [
-        {
-          "bucket": "persons/male/50_plus/west/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid": 1,
-      "unpaid": 0,
-      "paid_from_at_the_low_band": [
-        {
-          "bucket": "persons/male/10_19/south/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid_at_the_low_band": 1,
-      "unpaid_at_the_low_band": 0
-    },
-    {
-      "business_id": "biz_eagle_tavern",
-      "business_name": "Eagle Tavern",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "domestic",
-      "role_row": 2,
-      "occupation_term": "domestic",
-      "household_relationship": "servant",
-      "sex_rule": "male",
-      "age_band": "youth_12_18",
-      "lives_on_premises": 1.0,
-      "count_low": 0,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 0,
-      "basis": "period_convention",
-      "note": "The boy — boots, errands, the yard. Analogue: as above.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1,
-      "paid_from_at_the_low_band": [],
-      "paid_at_the_low_band": 0,
-      "unpaid_at_the_low_band": 0
-    },
-    {
-      "business_id": "biz_eagle_tavern",
-      "business_name": "Eagle Tavern",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "labourer",
-      "role_row": 0,
-      "occupation_term": "labourer",
-      "household_relationship": "household_member",
-      "sex_rule": "male",
-      "age_band": "adult_18_45",
-      "lives_on_premises": 0.7,
-      "count_low": 0,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "short_by_at_the_low_band": 0,
-      "basis": "period_convention",
-      "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1,
-      "paid_from_at_the_low_band": [],
-      "paid_at_the_low_band": 0,
-      "unpaid_at_the_low_band": 0
-    },
-    {
-      "business_id": "biz_eagle_tavern",
-      "business_name": "Eagle Tavern",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "tavern_keeper",
@@ -1885,6 +1448,264 @@
       "paid_from_at_the_low_band": [
         {
           "bucket": "persons/male/10_19/west/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
+    },
+    {
+      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
+      "business_name": "E. Wentworth's tavern, Flag Creek",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "domestic",
+      "role_row": 2,
+      "occupation_term": "domestic",
+      "household_relationship": "servant",
+      "sex_rule": "male",
+      "age_band": "youth_12_18",
+      "lives_on_premises": 1.0,
+      "count_low": 0,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "short_by_at_the_low_band": 0,
+      "basis": "period_convention",
+      "note": "The boy — boots, errands, the yard. Analogue: as above.",
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
+    },
+    {
+      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
+      "business_name": "E. Wentworth's tavern, Flag Creek",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "labourer",
+      "role_row": 0,
+      "occupation_term": "labourer",
+      "household_relationship": "household_member",
+      "sex_rule": "male",
+      "age_band": "adult_18_45",
+      "lives_on_premises": 0.7,
+      "count_low": 0,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "short_by_at_the_low_band": 0,
+      "basis": "period_convention",
+      "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
+    },
+    {
+      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
+      "business_name": "E. Wentworth's tavern, Flag Creek",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "tavern_keeper",
+      "role_row": 0,
+      "occupation_term": "tavern_keeper",
+      "household_relationship": "household_member",
+      "sex_rule": "predominantly_male",
+      "age_band": "adult_any",
+      "lives_on_premises": 1.0,
+      "count_low": 1,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "short_by_at_the_low_band": 1,
+      "basis": "period_convention",
+      "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/west/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
+    },
+    {
+      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
+      "business_name": "E. Wentworth's tavern on Flag Creek",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "domestic",
+      "role_row": 2,
+      "occupation_term": "domestic",
+      "household_relationship": "servant",
+      "sex_rule": "male",
+      "age_band": "youth_12_18",
+      "lives_on_premises": 1.0,
+      "count_low": 0,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "short_by_at_the_low_band": 0,
+      "basis": "period_convention",
+      "note": "The boy — boots, errands, the yard. Analogue: as above.",
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
+    },
+    {
+      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
+      "business_name": "E. Wentworth's tavern on Flag Creek",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "labourer",
+      "role_row": 0,
+      "occupation_term": "labourer",
+      "household_relationship": "household_member",
+      "sex_rule": "male",
+      "age_band": "adult_18_45",
+      "lives_on_premises": 0.7,
+      "count_low": 0,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "short_by_at_the_low_band": 0,
+      "basis": "period_convention",
+      "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
+    },
+    {
+      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
+      "business_name": "E. Wentworth's tavern on Flag Creek",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "tavern_keeper",
+      "role_row": 0,
+      "occupation_term": "tavern_keeper",
+      "household_relationship": "household_member",
+      "sex_rule": "predominantly_male",
+      "age_band": "adult_any",
+      "lives_on_premises": 1.0,
+      "count_low": 1,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "short_by_at_the_low_band": 1,
+      "basis": "period_convention",
+      "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/30_39/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
+    },
+    {
+      "business_id": "biz_eagle_tavern",
+      "business_name": "Eagle Tavern",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "domestic",
+      "role_row": 2,
+      "occupation_term": "domestic",
+      "household_relationship": "servant",
+      "sex_rule": "male",
+      "age_band": "youth_12_18",
+      "lives_on_premises": 1.0,
+      "count_low": 0,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "short_by_at_the_low_band": 0,
+      "basis": "period_convention",
+      "note": "The boy — boots, errands, the yard. Analogue: as above.",
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
+    },
+    {
+      "business_id": "biz_eagle_tavern",
+      "business_name": "Eagle Tavern",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "labourer",
+      "role_row": 0,
+      "occupation_term": "labourer",
+      "household_relationship": "household_member",
+      "sex_rule": "male",
+      "age_band": "adult_18_45",
+      "lives_on_premises": 0.7,
+      "count_low": 0,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "short_by_at_the_low_band": 0,
+      "basis": "period_convention",
+      "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
+    },
+    {
+      "business_id": "biz_eagle_tavern",
+      "business_name": "Eagle Tavern",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "tavern_keeper",
+      "role_row": 0,
+      "occupation_term": "tavern_keeper",
+      "household_relationship": "household_member",
+      "sex_rule": "predominantly_male",
+      "age_band": "adult_any",
+      "lives_on_premises": 1.0,
+      "count_low": 1,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "short_by_at_the_low_band": 1,
+      "basis": "period_convention",
+      "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/30_39/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -1916,7 +1737,7 @@
       "unpaid": 1,
       "paid_from_at_the_low_band": [
         {
-          "bucket": "persons/male/10_19/west/lodging/trade",
+          "bucket": "persons/male/30_39/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -2027,14 +1848,9 @@
       "paid_from": [],
       "paid": 0,
       "unpaid": 1,
-      "paid_from_at_the_low_band": [
-        {
-          "bucket": "persons/male/10_19/west/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid_at_the_low_band": 1,
-      "unpaid_at_the_low_band": 0
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_george_holsman",
@@ -2196,7 +2012,7 @@
       "unpaid": 1,
       "paid_from_at_the_low_band": [
         {
-          "bucket": "persons/male/30_39/north/lodging/trade",
+          "bucket": "persons/male/30_39/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -2255,7 +2071,7 @@
       "unpaid": 2,
       "paid_from_at_the_low_band": [
         {
-          "bucket": "persons/male/30_39/north/lodging/trade",
+          "bucket": "persons/male/30_39/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -2476,7 +2292,7 @@
       "unpaid": 2,
       "paid_from_at_the_low_band": [
         {
-          "bucket": "persons/male/30_39/north/lodging/trade",
+          "bucket": "persons/male/30_39/west/lodging/trade",
           "hands": 1
         }
       ],
@@ -2562,7 +2378,7 @@
       "unpaid": 2,
       "paid_from_at_the_low_band": [
         {
-          "bucket": "persons/male/30_39/south/lodging/trade",
+          "bucket": "persons/male/30_39/west/lodging/trade",
           "hands": 1
         }
       ],
@@ -2783,7 +2599,7 @@
       "unpaid": 2,
       "paid_from_at_the_low_band": [
         {
-          "bucket": "persons/male/30_39/west/lodging/trade",
+          "bucket": "persons/male/40_49/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -3274,7 +3090,7 @@
       "unpaid": 1,
       "paid_from_at_the_low_band": [
         {
-          "bucket": "persons/male/30_39/west/lodging/trade",
+          "bucket": "persons/male/40_49/west/lodging/trade",
           "hands": 1
         }
       ],
@@ -3331,14 +3147,9 @@
       "paid_from": [],
       "paid": 0,
       "unpaid": 2,
-      "paid_from_at_the_low_band": [
-        {
-          "bucket": "persons/male/30_39/west/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid_at_the_low_band": 1,
-      "unpaid_at_the_low_band": 0
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_the_man_trap",
@@ -3498,14 +3309,9 @@
       "paid_from": [],
       "paid": 0,
       "unpaid": 1,
-      "paid_from_at_the_low_band": [
-        {
-          "bucket": "persons/male/40_49/north/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid_at_the_low_band": 1,
-      "unpaid_at_the_low_band": 0
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_thos_emerson_co",

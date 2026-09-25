@@ -1,7 +1,7 @@
 {
  "id": "hh_rc_gallagher_catherine",
  "name": "The Gallagher household — a trade the rosters never printed",
- "division": "west",
+ "division": "north",
  "head": "rc_gallagher_catherine",
  "source_pass": "reconstructed_trade_household",
  "trade_household": {
@@ -14,12 +14,28 @@
   "stands_on": "The order book's `family/trade` bucket for this sex, band and division is short by the number of people this stage drew, and the 1839 trade table is the only per-trade share the corpus yields.",
   "withdrawn_if": "a source naming a real resident of this trade and division, or a re-cut of the order book that no longer orders this bucket; the retirement runs through --build, never by hand"
  },
+ "refamilied": {
+  "ticket": "T-1563",
+  "parent_ticket": "T-1559",
+  "ruling": "the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the re-cut holds is RE-FAMILIED rather than retired",
+  "rule": "C1",
+  "rule_read_from": "data/reconstruction/1835_refamily_rule.json#the_moves_the_rule_yields",
+  "drawn_in_bucket": "persons/female/50_plus/west/family/trade",
+  "counted_in_bucket": "persons/female/50_plus/north/lodging/trade",
+  "changed": [
+   "division",
+   "household"
+  ],
+  "what_moved": "WHICH CELL OF THE BOOK'S LADDER THIS HEAD IS COUNTED IN, and nothing else. The draw above is not un-written: the bucket he was dealt in keeps it and names him in `refamilied_out`, the bucket he is counted in now fills one of its own orders with a person the town already holds, and his id, his name, his trade, his sex, his age band and every seed on this card are the ones the deal gave him. T-1557 built that accounting; this is one of its rows.",
+  "what_it_re_casts": "an invented family house as a boarding-house family — this head boards at his trade rather than keeping a house of his own. The kind of house this was, was invented with it, so re-casting it is a reconstruction decision about invented people at the `reconstructed` tier, made and recorded here rather than refused. No attested household is touched by it.",
+  "withdrawn_if": "the rule no longer yields this move; the re-family runs through --build, never by hand"
+ },
  "household_owed": {
   "size_drawn": 7,
   "kin_seated": 1,
   "seed": "trade_households:persons/female/50_plus/west/family/trade:laundress:002:household_size",
-  "seated_by": "T-1174 (women and children), T-1175 (lodgers), T-1179 (converge)",
-  "note": "THE FAMILY THIS HEAD IS OWED, AND NOT SEATED HERE. The 1840 size histogram drew this house at 7 people. Its kin are `family/none` in the order book and that quota belongs to T-1174 and T-1171; seating them here would order the same people twice."
+  "seated_by": "nobody — the re-family above makes this head a boarder, and a boarder is owed no household",
+  "note": "NO FAMILY IS OWED HERE ANY MORE, AND THE DRAW THAT ORDERED ONE IS LEFT PRINTED. The 1840 size histogram drew this house at 7 people while it stood in the book's `persons/female/50_plus/west/family/trade` bucket. The re-family recorded above counts this head in `persons/female/50_plus/north/lodging/trade` instead, where he boards at his trade, and a lodging head keeps no house for kin to be seated in. The drawn size stays on the card because it is what was drawn; what changed is what is owed against it, which is now nothing."
  },
  "arrival": {
   "value": null,
@@ -32,7 +48,7 @@
   "value": null,
   "confidence": "reconstructed",
   "tier": "unknown",
-  "note": "Not seated. T-1199 seats the reconstructed households on the lot grid by the placement policy; the division above is the bucket's."
+  "note": "Not seated. T-1199 seats the reconstructed households on the lot grid by the placement policy; the division above is the bucket this head was RE-FAMILIED INTO, not the one he was dealt in, and `refamilied` above names both."
  },
  "works_at": {
   "value": null,
@@ -128,7 +144,7 @@
     "review_required": false
    },
    "resident_subtype": "reconstructed_trade_head",
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the west division, at laundress. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the north division, at laundress. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,

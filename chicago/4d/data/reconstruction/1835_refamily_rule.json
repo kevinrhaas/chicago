@@ -5362,24 +5362,6 @@
       }
     },
     {
-      "person": "rc_bertrand_pierre",
-      "household": "hh_rc_bertrand_pierre",
-      "relationship": "head",
-      "stage": "trade_households",
-      "ticket": "T-1347",
-      "bucket": "persons/male/50_plus/north/family/trade",
-      "rung": "C1",
-      "adoptions": [],
-      "deal_key": "trade_households:persons/male/50_plus/north/family/trade:speculator:002",
-      "axes": {
-        "sex": "male",
-        "age_band": "50_plus",
-        "division": "north",
-        "household": "family",
-        "trade": "trade"
-      }
-    },
-    {
       "person": "rc_bourassa_antoine",
       "household": "hh_rc_bourassa_antoine",
       "relationship": "head",
@@ -7577,30 +7559,6 @@
       }
     },
     {
-      "person": "rc_crandall_chauncey",
-      "household": "hh_rc_crandall_chauncey",
-      "relationship": "head",
-      "stage": "trade_households",
-      "ticket": "T-1347",
-      "bucket": "persons/male/50_plus/north/family/trade",
-      "rung": "R_adopted",
-      "adoptions": [
-        {
-          "layer": "employment",
-          "seat": "on_their_own_account",
-          "houses": []
-        }
-      ],
-      "deal_key": "trade_households:persons/male/50_plus/north/family/trade:hatter:001",
-      "axes": {
-        "sex": "male",
-        "age_band": "50_plus",
-        "division": "north",
-        "household": "family",
-        "trade": "trade"
-      }
-    },
-    {
       "person": "rc_crandall_clarissa",
       "household": "hh_rc_crandall_clarissa",
       "relationship": "head",
@@ -8611,24 +8569,6 @@
       }
     },
     {
-      "person": "rc_duffy_bridget",
-      "household": "hh_rc_duffy_bridget",
-      "relationship": "head",
-      "stage": "trade_households",
-      "ticket": "T-1347",
-      "bucket": "persons/female/50_plus/south/family/trade",
-      "rung": "C1",
-      "adoptions": [],
-      "deal_key": "trade_households:persons/female/50_plus/south/family/trade:domestic:002",
-      "axes": {
-        "sex": "female",
-        "age_band": "50_plus",
-        "division": "south",
-        "household": "family",
-        "trade": "trade"
-      }
-    },
-    {
       "person": "rc_duffy_catherine",
       "household": "hh_rc_duffy_catherine",
       "relationship": "head",
@@ -8920,24 +8860,6 @@
       }
     },
     {
-      "person": "rc_eastman_clarissa",
-      "household": "hh_rc_eastman_clarissa",
-      "relationship": "head",
-      "stage": "trade_households",
-      "ticket": "T-1347",
-      "bucket": "persons/female/50_plus/south/family/trade",
-      "rung": "C1",
-      "adoptions": [],
-      "deal_key": "trade_households:persons/female/50_plus/south/family/trade:domestic:003",
-      "axes": {
-        "sex": "female",
-        "age_band": "50_plus",
-        "division": "south",
-        "household": "family",
-        "trade": "trade"
-      }
-    },
-    {
       "person": "rc_eastman_emily",
       "household": "hh_rc_eastman_emily",
       "relationship": "head",
@@ -9097,30 +9019,6 @@
         "division": "west",
         "household": "family",
         "trade": "none"
-      }
-    },
-    {
-      "person": "rc_eastman_hannah",
-      "household": "hh_rc_eastman_hannah",
-      "relationship": "head",
-      "stage": "trade_households",
-      "ticket": "T-1347",
-      "bucket": "persons/female/50_plus/south/family/trade",
-      "rung": "R_adopted",
-      "adoptions": [
-        {
-          "layer": "employment",
-          "seat": "on_their_own_account",
-          "houses": []
-        }
-      ],
-      "deal_key": "trade_households:persons/female/50_plus/south/family/trade:boarding_house_keeper:001",
-      "axes": {
-        "sex": "female",
-        "age_band": "50_plus",
-        "division": "south",
-        "household": "family",
-        "trade": "trade"
       }
     },
     {
@@ -9988,24 +9886,6 @@
       }
     },
     {
-      "person": "rc_fisk_phebe",
-      "household": "hh_rc_fisk_phebe",
-      "relationship": "head",
-      "stage": "trade_households",
-      "ticket": "T-1347",
-      "bucket": "persons/female/50_plus/west/family/trade",
-      "rung": "C1",
-      "adoptions": [],
-      "deal_key": "trade_households:persons/female/50_plus/west/family/trade:domestic:001",
-      "axes": {
-        "sex": "female",
-        "age_band": "50_plus",
-        "division": "west",
-        "household": "family",
-        "trade": "trade"
-      }
-    },
-    {
       "person": "rc_fitzgerald_alice",
       "household": "hh_rc_fitzgerald_alice",
       "relationship": "head",
@@ -10667,24 +10547,6 @@
         "sex": "male",
         "age_band": "20_29",
         "division": "north",
-        "household": "family",
-        "trade": "trade"
-      }
-    },
-    {
-      "person": "rc_gallagher_catherine",
-      "household": "hh_rc_gallagher_catherine",
-      "relationship": "head",
-      "stage": "trade_households",
-      "ticket": "T-1347",
-      "bucket": "persons/female/50_plus/west/family/trade",
-      "rung": "C1",
-      "adoptions": [],
-      "deal_key": "trade_households:persons/female/50_plus/west/family/trade:laundress:002",
-      "axes": {
-        "sex": "female",
-        "age_band": "50_plus",
-        "division": "west",
         "household": "family",
         "trade": "trade"
       }
@@ -21310,30 +21172,6 @@
       }
     },
     {
-      "person": "rc_wadsworth_polly",
-      "household": "hh_rc_wadsworth_polly",
-      "relationship": "head",
-      "stage": "trade_households",
-      "ticket": "T-1347",
-      "bucket": "persons/female/50_plus/south/family/trade",
-      "rung": "R_adopted",
-      "adoptions": [
-        {
-          "layer": "employment",
-          "seat": "on_their_own_account",
-          "houses": []
-        }
-      ],
-      "deal_key": "trade_households:persons/female/50_plus/south/family/trade:hardware_merchant:004",
-      "axes": {
-        "sex": "female",
-        "age_band": "50_plus",
-        "division": "south",
-        "household": "family",
-        "trade": "trade"
-      }
-    },
-    {
       "person": "rc_wadsworth_susan",
       "household": "hh_rc_wadsworth_susan",
       "relationship": "head",
@@ -24116,7 +23954,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_newell_seth.json"
+      }
     },
     {
       "person": "rc_leland_harvey",
@@ -24128,7 +23971,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_leland_harvey.json"
+      }
     },
     {
       "person": "rc_bertrand_pierre",
@@ -24141,7 +23989,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_bertrand_pierre.json"
+      }
     },
     {
       "person": "rc_newell_hiram",
@@ -24154,7 +24007,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_newell_hiram.json"
+      }
     },
     {
       "person": "rc_nash_eli",
@@ -24167,7 +24025,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_nash_eli.json"
+      }
     },
     {
       "person": "rc_sheldon_willard",
@@ -24180,7 +24043,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_sheldon_willard.json"
+      }
     },
     {
       "person": "rc_thayer_harvey",
@@ -24193,7 +24061,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_thayer_harvey.json"
+      }
     },
     {
       "person": "rc_stiles_nathaniel",
@@ -24206,7 +24079,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_stiles_nathaniel.json"
+      }
     },
     {
       "person": "rc_stiles_alvah",
@@ -24218,7 +24096,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_stiles_alvah.json"
+      }
     },
     {
       "person": "rc_robillard_michel",
@@ -24231,7 +24114,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_robillard_michel.json"
+      }
     },
     {
       "person": "rc_gallagher_catherine",
@@ -24244,7 +24132,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_gallagher_catherine.json"
+      }
     },
     {
       "person": "rc_eastman_clarissa",
@@ -24256,7 +24149,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_eastman_clarissa.json"
+      }
     },
     {
       "person": "rc_duffy_bridget",
@@ -24269,7 +24167,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_duffy_bridget.json"
+      }
     },
     {
       "person": "rc_reilly_johanna",
@@ -24282,7 +24185,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_reilly_johanna.json"
+      }
     },
     {
       "person": "rc_kelly_catherine",
@@ -24295,7 +24203,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_kelly_catherine.json"
+      }
     },
     {
       "person": "rc_sullivan_johanna",
@@ -24308,7 +24221,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_sullivan_johanna.json"
+      }
     },
     {
       "person": "rc_newell_amanda",
@@ -24321,7 +24239,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_newell_amanda.json"
+      }
     },
     {
       "person": "rc_eastman_lucy",
@@ -24333,7 +24256,12 @@
         "household"
       ],
       "ticket": "T-1556",
-      "adoptions_carried": []
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_eastman_lucy.json"
+      }
     },
     {
       "person": "rc_shea_alice",
@@ -24342,6 +24270,115 @@
       "to_bucket": "persons/female/20_29/west/lodging/trade",
       "rule": "C1",
       "changes": [
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": [],
+      "carried_by": {
+        "ticket": "T-1563",
+        "stage": "reconstructed_trade_household",
+        "card": "reconstructed_trades/hh_rc_shea_alice.json"
+      }
+    },
+    {
+      "person": "rc_woodruff_ruth",
+      "household": "hh_rc_woodruff_ruth",
+      "from_bucket": "persons/female/30_39/west/family/none",
+      "to_bucket": "persons/female/30_39/south/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "division",
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_woodruff_ruth_1",
+      "household": "hh_rc_woodruff_ruth",
+      "from_bucket": "persons/male/under_10/west/family/none",
+      "to_bucket": "persons/male/under_10/south/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "division",
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_woodruff_ruth_2",
+      "household": "hh_rc_woodruff_ruth",
+      "from_bucket": "persons/male/10_19/west/family/none",
+      "to_bucket": "persons/male/10_19/south/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "division",
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_woodruff_ruth_3",
+      "household": "hh_rc_woodruff_ruth",
+      "from_bucket": "persons/male/under_10/west/family/none",
+      "to_bucket": "persons/male/under_10/south/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "division",
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_woodruff_ruth_4",
+      "household": "hh_rc_woodruff_ruth",
+      "from_bucket": "persons/male/10_19/west/family/none",
+      "to_bucket": "persons/male/10_19/south/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "division",
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_woodruff_ruth_5",
+      "household": "hh_rc_woodruff_ruth",
+      "from_bucket": "persons/male/under_10/west/family/none",
+      "to_bucket": "persons/male/under_10/south/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "division",
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_woodruff_ruth_6",
+      "household": "hh_rc_woodruff_ruth",
+      "from_bucket": "persons/male/under_10/west/family/none",
+      "to_bucket": "persons/male/under_10/south/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "division",
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_woodruff_ruth_7",
+      "household": "hh_rc_woodruff_ruth",
+      "from_bucket": "persons/female/10_19/west/family/none",
+      "to_bucket": "persons/female/10_19/south/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "division",
         "household"
       ],
       "ticket": "T-1556",
@@ -24673,8 +24710,8 @@
       "adoptions_carried": []
     },
     {
-      "person": "rc_stebbins_clarissa",
-      "household": "hh_rc_stebbins_clarissa",
+      "person": "rc_thayer_sarah",
+      "household": "hh_rc_thayer_sarah",
       "from_bucket": "persons/female/30_39/south/family/none",
       "to_bucket": "persons/female/30_39/north/lodging/none",
       "rule": "C1",
@@ -24686,13 +24723,50 @@
       "adoptions_carried": []
     },
     {
-      "person": "rc_stebbins_clarissa_1",
-      "household": "hh_rc_stebbins_clarissa",
-      "from_bucket": "persons/female/under_10/south/family/none",
-      "to_bucket": "persons/female/under_10/north/lodging/none",
+      "person": "rc_thayer_sarah_1",
+      "household": "hh_rc_thayer_sarah",
+      "from_bucket": "persons/male/under_10/south/family/none",
+      "to_bucket": "persons/male/under_10/north/lodging/none",
       "rule": "C1",
       "changes": [
         "division",
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_thayer_sarah_2",
+      "household": "hh_rc_thayer_sarah",
+      "from_bucket": "persons/male/10_19/south/family/none",
+      "to_bucket": "persons/male/10_19/north/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "division",
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_stebbins_clarissa",
+      "household": "hh_rc_stebbins_clarissa",
+      "from_bucket": "persons/female/30_39/south/family/none",
+      "to_bucket": "persons/female/30_39/south/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_stebbins_clarissa_1",
+      "household": "hh_rc_stebbins_clarissa",
+      "from_bucket": "persons/female/under_10/south/family/none",
+      "to_bucket": "persons/female/under_10/south/lodging/none",
+      "rule": "C1",
+      "changes": [
         "household"
       ],
       "ticket": "T-1556",
@@ -24702,10 +24776,9 @@
       "person": "rc_stebbins_clarissa_2",
       "household": "hh_rc_stebbins_clarissa",
       "from_bucket": "persons/female/under_10/south/family/none",
-      "to_bucket": "persons/female/under_10/north/lodging/none",
+      "to_bucket": "persons/female/under_10/south/lodging/none",
       "rule": "C1",
       "changes": [
-        "division",
         "household"
       ],
       "ticket": "T-1556",
@@ -24715,10 +24788,81 @@
       "person": "rc_stebbins_clarissa_3",
       "household": "hh_rc_stebbins_clarissa",
       "from_bucket": "persons/male/under_10/south/family/none",
-      "to_bucket": "persons/male/under_10/north/lodging/none",
+      "to_bucket": "persons/male/under_10/south/lodging/none",
       "rule": "C1",
       "changes": [
-        "division",
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_pothier_victoire",
+      "household": "hh_rc_pothier_victoire",
+      "from_bucket": "persons/female/20_29/west/family/none",
+      "to_bucket": "persons/female/20_29/west/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_pothier_victoire_1",
+      "household": "hh_rc_pothier_victoire",
+      "from_bucket": "persons/male/under_10/west/family/none",
+      "to_bucket": "persons/male/under_10/west/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_pothier_victoire_2",
+      "household": "hh_rc_pothier_victoire",
+      "from_bucket": "persons/male/under_10/west/family/none",
+      "to_bucket": "persons/male/under_10/west/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_pothier_victoire_3",
+      "household": "hh_rc_pothier_victoire",
+      "from_bucket": "persons/male/under_10/west/family/none",
+      "to_bucket": "persons/male/under_10/west/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_pothier_victoire_4",
+      "household": "hh_rc_pothier_victoire",
+      "from_bucket": "persons/male/10_19/west/family/none",
+      "to_bucket": "persons/male/10_19/west/lodging/none",
+      "rule": "C1",
+      "changes": [
+        "household"
+      ],
+      "ticket": "T-1556",
+      "adoptions_carried": []
+    },
+    {
+      "person": "rc_pothier_victoire_5",
+      "household": "hh_rc_pothier_victoire",
+      "from_bucket": "persons/female/under_10/west/family/none",
+      "to_bucket": "persons/female/under_10/west/lodging/none",
+      "rule": "C1",
+      "changes": [
         "household"
       ],
       "ticket": "T-1556",
@@ -24943,45 +25087,6 @@
       "household": "hh_rc_dufresne_therese",
       "from_bucket": "persons/male/under_10/north/family/none",
       "to_bucket": "persons/male/under_10/south/lodging/none",
-      "rule": "C1",
-      "changes": [
-        "division",
-        "household"
-      ],
-      "ticket": "T-1556",
-      "adoptions_carried": []
-    },
-    {
-      "person": "rc_carroll_ellen",
-      "household": "hh_rc_carroll_ellen",
-      "from_bucket": "persons/female/40_49/north/family/none",
-      "to_bucket": "persons/female/40_49/west/lodging/none",
-      "rule": "C1",
-      "changes": [
-        "division",
-        "household"
-      ],
-      "ticket": "T-1556",
-      "adoptions_carried": []
-    },
-    {
-      "person": "rc_carroll_ellen_1",
-      "household": "hh_rc_carroll_ellen",
-      "from_bucket": "persons/male/under_10/north/family/none",
-      "to_bucket": "persons/male/under_10/west/lodging/none",
-      "rule": "C1",
-      "changes": [
-        "division",
-        "household"
-      ],
-      "ticket": "T-1556",
-      "adoptions_carried": []
-    },
-    {
-      "person": "rc_carroll_ellen_2",
-      "household": "hh_rc_carroll_ellen",
-      "from_bucket": "persons/female/under_10/north/family/none",
-      "to_bucket": "persons/female/under_10/west/lodging/none",
       "rule": "C1",
       "changes": [
         "division",
@@ -26226,12 +26331,6 @@
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
     {
-      "person": "rc_fisk_phebe",
-      "household": "hh_rc_fisk_phebe",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
       "person": "rc_dickinson_betsey",
       "household": "hh_rc_dickinson_betsey",
       "rung": "C1",
@@ -26448,54 +26547,6 @@
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
     {
-      "person": "rc_woodruff_ruth",
-      "household": "hh_rc_woodruff_ruth",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_woodruff_ruth_1",
-      "household": "hh_rc_woodruff_ruth",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_woodruff_ruth_2",
-      "household": "hh_rc_woodruff_ruth",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_woodruff_ruth_3",
-      "household": "hh_rc_woodruff_ruth",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_woodruff_ruth_4",
-      "household": "hh_rc_woodruff_ruth",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_woodruff_ruth_5",
-      "household": "hh_rc_woodruff_ruth",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_woodruff_ruth_6",
-      "household": "hh_rc_woodruff_ruth",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_woodruff_ruth_7",
-      "household": "hh_rc_woodruff_ruth",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
       "person": "rc_wilcox_martha",
       "household": "hh_rc_wilcox_martha",
       "rung": "C1",
@@ -26642,24 +26693,6 @@
     {
       "person": "rc_tobin_ellen_3",
       "household": "hh_rc_tobin_ellen",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_thayer_sarah",
-      "household": "hh_rc_thayer_sarah",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_thayer_sarah_1",
-      "household": "hh_rc_thayer_sarah",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_thayer_sarah_2",
-      "household": "hh_rc_thayer_sarah",
       "rung": "C1",
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
@@ -26990,42 +27023,6 @@
     {
       "person": "rc_quinn_ellen_5",
       "household": "hh_rc_quinn_ellen",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_pothier_victoire",
-      "household": "hh_rc_pothier_victoire",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_pothier_victoire_1",
-      "household": "hh_rc_pothier_victoire",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_pothier_victoire_2",
-      "household": "hh_rc_pothier_victoire",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_pothier_victoire_3",
-      "household": "hh_rc_pothier_victoire",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_pothier_victoire_4",
-      "household": "hh_rc_pothier_victoire",
-      "rung": "C1",
-      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
-    },
-    {
-      "person": "rc_pothier_victoire_5",
-      "household": "hh_rc_pothier_victoire",
       "rung": "C1",
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
@@ -28266,6 +28263,24 @@
       "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
     },
     {
+      "person": "rc_carroll_ellen",
+      "household": "hh_rc_carroll_ellen",
+      "rung": "C1",
+      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
+    },
+    {
+      "person": "rc_carroll_ellen_1",
+      "household": "hh_rc_carroll_ellen",
+      "rung": "C1",
+      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
+    },
+    {
+      "person": "rc_carroll_ellen_2",
+      "household": "hh_rc_carroll_ellen",
+      "rung": "C1",
+      "why": "no open (division, household kind) shape has room for every one of this house's people at once, and a C1 move is a move of the whole house"
+    },
+    {
       "person": "rc_burke_mary",
       "household": "hh_rc_burke_mary",
       "rung": "C1",
@@ -28375,59 +28390,59 @@
     }
   ],
   "counts": {
-    "people_in_the_refused_buckets": 1159,
-    "the_surplus_those_buckets_hold": 523,
+    "people_in_the_refused_buckets": 1151,
+    "the_surplus_those_buckets_hold": 504,
     "by_rung": {
       "C0": 220,
-      "C1": 445,
-      "R_adopted": 419,
+      "C1": 440,
+      "R_adopted": 416,
       "R_seated": 22,
       "R_division_is_a_reading": 53
     },
-    "movable_people": 665,
-    "refused_on_their_own_account": 358,
+    "movable_people": 660,
+    "refused_on_their_own_account": 355,
     "refused_with_their_house": 136,
-    "carrying_an_adoption_themselves": 283,
-    "moves_the_rule_yields": 73,
-    "buckets_moved_out_of": 32,
+    "carrying_an_adoption_themselves": 280,
+    "moves_the_rule_yields": 87,
+    "buckets_moved_out_of": 33,
     "buckets_moved_into": 35,
     "adoptions_carried": 0,
-    "the_roster_is_reconciled": "all 48 refused buckets accounted for, 1,159 people named"
+    "the_roster_is_reconciled": "all 45 refused buckets accounted for, 1,151 people named"
   },
   "the_ceilings": {
     "_doc": "Upper bounds, each loosening ONE more axis than the one above it. They are bounds and not plans: the rule's own yield is below the last of them because movability then applies.",
     "if_only_the_division_changed": 0,
-    "if_the_household_kind_changed_too": 123,
-    "if_the_trade_could_change_as_well": 233,
-    "and_then_with_movability_applied_but_a_house_free_to_split": 119,
-    "under_this_rule": 73,
-    "what_the_whole_house_condition_costs": 46,
-    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The 46 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
+    "if_the_household_kind_changed_too": 114,
+    "if_the_trade_could_change_as_well": 214,
+    "and_then_with_movability_applied_but_a_house_free_to_split": 112,
+    "under_this_rule": 87,
+    "what_the_whole_house_condition_costs": 25,
+    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The 25 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
     "the_number_T_1556_named": 265,
-    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 233: 285 of the 427 open slots stand in adult-MALE cells while the surplus holds 287 people under twenty and 145 adult women, whose cells hold 142 slots between them.",
-    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 69 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
+    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 214: 275 of the 408 open slots stand in adult-MALE cells while the surplus holds 287 people under twenty and 136 adult women, whose cells hold 133 slots between them.",
+    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 57 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
   },
   "what_the_town_converges_to": {
     "persons_standing_in_the_layer": 2381,
-    "still_owed_now": 427,
-    "converges_to_now": 2808,
-    "converges_to_if_the_rule_is_spent": 2735,
+    "still_owed_now": 408,
+    "converges_to_now": 2789,
+    "converges_to_if_the_rule_is_spent": 2702,
     "the_model_point": 2543,
     "the_model_range": [
       2362,
       3265
     ],
-    "reading": "2,735 is inside the model's 2,362-3,265 and 192 above its 2,543 point, against 265 above it today."
+    "reading": "2,702 is inside the model's 2,362-3,265 and 159 above its 2,543 point, against 246 above it today."
   },
   "what_would_raise_the_ceiling": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 287 people under twenty and 145 adult women, and their cells hold 101 and 41 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 287 people under twenty and 136 adult women, and their cells hold 101 and 32 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "283 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 136 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "280 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 136 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {
