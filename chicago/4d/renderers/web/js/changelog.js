@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1106, title: 'Three finished changes could not reach the town, and nothing said so', kind: 'fix', ts: '2026-09-25T15:28:29.589Z', date: 'Sep 25, 2026, 10:28 AM CT',
+    items: [
+      'Finished work gets into this town through a queue: a change is written, checked, and then a housekeeping job walks the queue every few minutes, brings each waiting change up to date with everything that landed before it, and lets it through. On 21 September three changes reached the front of that queue, passed every check, and stopped. They stayed stopped. The job reported success each time it ran.',
+      'The cause is one step out of order. Part of the checking rebuilds a set of summary figures, and the last of those figures counts the residents as the published site actually carries them. The published site is not kept in the project’s files — it is rebuilt from them on demand — so on a fresh machine it is not there yet, and that step refuses to write a count it did not take. Refusing is right; it is the rule that keeps a made-up number out of a report. But the housekeeping job never built the site before asking, so the refusal fell on every single pass, and a change stuck behind it was stuck for ever rather than waiting its turn.',
+      'From outside those two look the same, which is why nobody caught it for a day: a change the job cannot finish and a change the job has not reached yet both read as ‘in the queue’.',
+      'It now builds the site first, before anything reads it — which is what the project’s own checking has always done, for exactly this reason. The job’s habit of naming the step that failed and why is what made this findable at all, and that half is untouched.',
+      'A test holds it shut, and the test is run twice: once against the job as it now stands, which must let the change through, and once against a copy with the fix removed, which must get stuck. A regression test that cannot see the regression is decoration.',
+      'Nothing about the town itself changed today. This is the road the work travels on.',
+    ] },
   { v: 1105, title: 'One list, printed three times, is still one sighting', kind: 'fix', ts: '2026-09-25T14:50:48.031Z', date: 'Sep 25, 2026, 9:50 AM CT',
     items: [
       'Samuel Toby became one man last week. This is the housekeeping that follows, and it moves a date on his card: the last day this project can still see him is now 2 July 1834, not the 9th.',

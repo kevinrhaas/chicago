@@ -2426,6 +2426,21 @@ step "a claim is a lock on the remote, and two runs cannot hold one ticket" \
 step "a lap that could not ask never reports that it found nothing" \
   node tools/test_pr_lap_list.mjs
 
+# AND THE LAP MUST BE ABLE TO FINISH A REBUILD IT STARTS (T-1521). `site/4d/` is
+# generated and untracked (T-0938), so the lap's checkout has no mirror — and step
+# 156 of 156, `rebuild_closing_set.py --build`, reads the published residents and
+# REFUSES rather than write a count it did not take. The lap ran `rederive.mjs`
+# without publishing, so every lap over such a PR failed at the same step and left
+# it alone FOR EVER, which from outside looks exactly like a queue the lap has not
+# got to. Measured 2026-09-21, lap run 35624254338: #1629, #1630 and #1631 sat
+# unmergeable with GREEN gates while the lap reported success. This gate publishes
+# first for the same reason (its step 1); the lap now does too. The suite runs the
+# REAL script over a REAL bare remote with stub tools, and then runs it AGAIN with
+# the publish neutered and requires that to fail — a regression test that cannot
+# see the regression is decoration.
+step "the lap publishes the mirror before the rebuild that reads it" \
+  node tools/test_pr_lap_publish.mjs
+
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
 # fleet janitor said the lap plus auto-merge did it, while excluding `custom`
