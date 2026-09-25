@@ -6215,8 +6215,19 @@
     "what_a_move_is_not": "a retirement (nobody is un-written, which is T-1459's ruling of 2026-09-20) and a draw (no stranger enters the town, so the population does not move — only what is still OWED does).",
     "who_chooses_who_moves": {
       "ticket": "T-1558",
-      "settled": false,
-      "why": "the rule is modelled against the adoption layers and is not this ticket's. Every row must NAME the rule that chose its head, so a move made before the rule exists cannot be written without saying so."
+      "settled": true,
+      "rule": "A move may change only what was never read about the person, and it is spent at the LOWEST COST first; an adoption is a refusal at the top of the ladder and never a selector at the bottom.",
+      "the_rungs_a_move_may_name": [
+        "C0",
+        "C1"
+      ],
+      "the_rungs_it_refuses_on": [
+        "R_adopted",
+        "R_seated",
+        "R_division_is_a_reading"
+      ],
+      "read_from": "data/reconstruction/1835_refamily_rule.json",
+      "why": "T-1558 modelled it against the adoption layers and published the cost ladder there, with the tier of every held person and the ceilings the axes impose. `refamily_shape` above refuses a move whose `rule` is not one of the movable rungs, so the naming T-1557 required is now checked rather than trusted."
     },
     "who_makes_the_moves": {
       "ticket": "T-1559",
