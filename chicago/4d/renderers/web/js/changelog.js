@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1111, title: 'Nineteen invented tradespeople move house instead of being deleted', kind: 'change', ts: '2026-09-25T19:30:12.001Z', date: 'Sep 25, 2026, 2:30 PM CT',
+  { v: 1112, title: 'Nineteen invented tradespeople move house instead of being deleted', kind: 'change', ts: '2026-09-25T19:55:07.776Z', date: 'Sep 25, 2026, 2:55 PM CT',
     items: [
       'Five hundred and twenty-three invented residents stand in cells of the order book that no longer want them, and the owner ruled they are moved rather than deleted. Two entries ago built the bookkeeping for a move; the last one worked out who may be moved, and found the rule yields seventy-three of them. This is the first nineteen, actually made.',
       'They are the invented tradespeople — a music teacher, a carpenter, a laundress, nineteen in all — who were drawn as heads of their own households in cells the book has since re-cut. Each of them is now counted as boarding at his or her trade instead of keeping a house: the same person, the same name, the same trade, the same age, standing in a cell where the book still has room. Fourteen of the nineteen are also counted on a different side of the river.',
@@ -7,6 +7,12 @@ export const CHANGELOG = [ // newest first
       'The change is written in the one place it can be checked. Each of the nineteen cards now says, on its own face, the cell it was drawn in, the cell it is counted in, the rung of the rule that let it cross, and that what moved is an accounting cell and not a person — including the plainest part: a boarder keeps no house, so the family the size table drew for this head is no longer owed. The drawn size stays printed, because it is what was drawn.',
       'The ledger and the cards cannot drift apart, and the build now refuses to let them. A move is written onto the card first, inside the derivation that draws the person, so it survives a rebuild byte for byte; the book then takes a row only where the card already says the same thing, field for field. A move typed into the ledger by hand does not survive, and a card claiming a move the rule does not allow fails the build outright.',
       'The other fifty-four moves belong to the invented women and children, and are the next piece of work. Nothing you can see in the town changed today: none of these nineteen has ever had an address.',
+    ] },
+  { v: 1111, title: 'When the queue job cannot pick up a change, it now says why', kind: 'fix', ts: '2026-09-25T19:36:58.576Z', date: 'Sep 25, 2026, 2:36 PM CT',
+    items: [
+      'The housekeeping job that brings waiting changes up to date starts each one by fetching it and switching to it. When either of those two steps failed, it said only ‘fetch failed’ or ‘checkout failed’ and threw away git’s own explanation, so a stuck change left a report with no reason in it.',
+      'It now says which of the two steps failed, repeats git’s own words, and tells apart the usual causes: a branch that was deleted, one it was never told to fetch, and a working copy left untidy by the change before.',
+      'Nothing about the town itself changed. This is the road the work travels on.',
     ] },
   { v: 1110, title: 'Three finished changes could not reach the town, and nothing said so', kind: 'fix', ts: '2026-09-25T18:50:58.289Z', date: 'Sep 25, 2026, 1:50 PM CT',
     items: [
