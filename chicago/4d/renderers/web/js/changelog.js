@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'Nineteen invented tradespeople move house instead of being deleted', kind: 'change', ts: '',
+  { v: 1108, title: 'Nineteen invented tradespeople move house instead of being deleted', kind: 'change', ts: '2026-09-25T17:48:03.215Z', date: 'Sep 25, 2026, 12:48 PM CT',
     items: [
       'Five hundred and twenty-three invented residents stand in cells of the order book that no longer want them, and the owner ruled they are moved rather than deleted. Two entries ago built the bookkeeping for a move; the last one worked out who may be moved, and found the rule yields seventy-three of them. This is the first nineteen, actually made.',
       'They are the invented tradespeople — a music teacher, a carpenter, a laundress, nineteen in all — who were drawn as heads of their own households in cells the book has since re-cut. Each of them is now counted as boarding at his or her trade instead of keeping a house: the same person, the same name, the same trade, the same age, standing in a cell where the book still has room. Fourteen of the nineteen are also counted on a different side of the river.',
