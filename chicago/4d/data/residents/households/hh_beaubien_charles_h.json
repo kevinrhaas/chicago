@@ -170,12 +170,19 @@
     "value": "20-29",
     "low": 20,
     "high": 29,
-    "confidence": "inferred",
-    "tier": "inferred",
-    "sources": [
-     "fergus_1843_old_settler_death_notices"
-    ],
-    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `civic_list_20_and_over` because the person stands on a poll, a tax list or a muster roll."
+    },
+    "seed": "beaubien_charles_h:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('beaubien_charles_h:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a poll, tax or muster list names a person 20 or over - the 1840 schedule's own adult line. THE FRANCHISE'S AGE RULE IS NOT IN ANY SOURCE RECORD THIS PROJECT HOLDS; this is the model's conditioning and not a reading (T-1303's finding, handed to T-1304). No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
    },
    "sex": "male",
    "sex_basis": {

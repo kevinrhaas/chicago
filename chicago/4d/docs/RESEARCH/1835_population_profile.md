@@ -444,7 +444,7 @@ Named rather than summed away, which is the whole of this section. Every reason 
 
 ## Age
 
-64 of 2383 persons carry a year or an age off a source; 627 more are placed in an adult band by what they are recorded DOING — a poll, a tax list, a muster, a trade, an office, a marriage — and 1649 carry nothing that bears on age at all. SINCE T-1304 EVERY ONE OF THEM CARRIES AN AGE BAND, and the tier table below says which of the three it stands on. The bands are the 1840 Chicago schedule's and a drawn one is never turned into a year. THIS IS STILL NOT AN AGE PYRAMID OF THE TOWN: these are the people the rolls name, overwhelmingly adult men, and the women and children the pyramid lacks are T-1174's brief.
+64 of 2383 persons carry a year or an age off a source; 628 more are placed in an adult band by what they are recorded DOING — a poll, a tax list, a muster, a trade, an office, a marriage — and 1648 carry nothing that bears on age at all. SINCE T-1304 EVERY ONE OF THEM CARRIES AN AGE BAND, and the tier table below says which of the three it stands on. The bands are the 1840 Chicago schedule's and a drawn one is never turned into a year. THIS IS STILL NOT AN AGE PYRAMID OF THE TOWN: these are the people the rolls name, overwhelmingly adult men, and the women and children the pyramid lacks are T-1174's brief.
 
 ### Age bands
 
@@ -452,11 +452,11 @@ Named rather than summed away, which is the whole of this section. Every reason 
 |---|---:|---:|---|
 | birth_year_known | 64 | 2.7% | a source gives the year, however loosely |
 | age_stated | 0 | 0.0% | a source gives an age at 1 July 1835 |
-| adult_by_civic_list | 193 | 8.1% | an adult: a voter, a taxpayer or a man of militia age |
+| adult_by_civic_list | 194 | 8.1% | an adult: a voter, a taxpayer or a man of militia age |
 | adult_by_role | 418 | 17.5% | an adult: a trade, profession or office is not held by a child |
 | adult_by_marriage_or_parenthood | 16 | 0.7% | an adult on the register's own face |
 | child_by_baptism | 43 | 1.8% | a child |
-| unknown | 1649 | 69.2% | nothing on the card bears on age at all |
+| unknown | 1648 | 69.2% | nothing on the card bears on age at all |
 
 ### The age band every person now carries, by tier
 
@@ -477,8 +477,8 @@ Named rather than summed away, which is the whole of this section. Every reason 
 | 10-14 | 26 | 1.1% |
 | 10-19 | 238 | 10.0% |
 | 15-19 | 116 | 4.9% |
-| 20-29 | 846 | 35.5% |
-| 30-39 | 469 | 19.7% |
+| 20-29 | 847 | 35.5% |
+| 30-39 | 468 | 19.6% |
 | 40-49 | 145 | 6.1% |
 | 50-59 | 44 | 1.8% |
 | 50+ | 13 | 0.5% |
@@ -523,8 +523,8 @@ Named rather than summed away, which is the whole of this section. Every reason 
 | Philo Carpenter | 31 | inferred |
 | Rev. John Mary Irenaeus St Cyr | 31 | attested |
 | Lieut. James Allen | 30 | inferred |
-| Charles H Beaubien | 29 | inferred |
 | Hibbard Porter | 29 | inferred |
+| John Harrison Whistler | 29 | inferred |
 | Davi Andrews | 28 | inferred |
 | Grenville Temple Sproat | 28 | inferred |
 | Eliza Chappel Porter | 27 | attested |

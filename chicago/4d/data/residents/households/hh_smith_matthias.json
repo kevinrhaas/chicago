@@ -157,6 +157,19 @@
     "regraded_on": "2026-09-04",
     "rule": "G2b"
    },
+   "merge_ruling": [
+    {
+     "ticket": "T-1525",
+     "verdict": "distinct",
+     "rule": "D8",
+     "cluster": "smith-mathias-matthias",
+     "weighed_against": [
+      "smith_mathias"
+     ],
+     "for_merge": "Mathias and Matthias ARE two spellings of one name, not two given names — this is D8's shape and not the stronger refusal it reserves for Mark against Mary. The surname agrees letter for letter, neither card carries a middle initial, so nothing but one doubled t stands between them, and the town holds exactly one bearer of each spelling.",
+     "against_merge": "NO PRINTING SETS BOTH, AND SMITH IS THE WORST SURNAME IN THE CORPUS TO FOLD ON A RESEMBLANCE. The corpus and the reading index were searched: 'Matthias Smith' is set 7 times across four texts and stands on the poll of 1833; 'Mathias Smith' is set NOWHERE in the deposited corpus and stands on one reading, a St Mary's sponsor of 5 June 1833. A poll book against a parish register — two instruments that do not touch — and no single issue, roll or directory entry is caught setting both spellings for one man. Against the corpus silence stands the surname itself: Smith is set 1,107 times across 93 texts and the layer already carries ten Smith cards, so this stem has abundant independent life and the silence around one forename spelling proves nothing about identity. The reading index holds 75 identities of each spelling. D8."
+    }
+   ],
    "age_band": {
     "value": "30-39",
     "low": 30,
@@ -175,19 +188,6 @@
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('smith_matthias:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a poll, tax or muster list names a person 20 or over - the 1840 schedule's own adult line. THE FRANCHISE'S AGE RULE IS NOT IN ANY SOURCE RECORD THIS PROJECT HOLDS; this is the model's conditioning and not a reading (T-1303's finding, handed to T-1304). No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
    },
-   "merge_ruling": [
-    {
-     "ticket": "T-1525",
-     "verdict": "distinct",
-     "rule": "D8",
-     "cluster": "smith-mathias-matthias",
-     "weighed_against": [
-      "smith_mathias"
-     ],
-     "for_merge": "Mathias and Matthias ARE two spellings of one name, not two given names — this is D8's shape and not the stronger refusal it reserves for Mark against Mary. The surname agrees letter for letter, neither card carries a middle initial, so nothing but one doubled t stands between them, and the town holds exactly one bearer of each spelling.",
-     "against_merge": "NO PRINTING SETS BOTH, AND SMITH IS THE WORST SURNAME IN THE CORPUS TO FOLD ON A RESEMBLANCE. The corpus and the reading index were searched: 'Matthias Smith' is set 7 times across four texts and stands on the poll of 1833; 'Mathias Smith' is set NOWHERE in the deposited corpus and stands on one reading, a St Mary's sponsor of 5 June 1833. A poll book against a parish register — two instruments that do not touch — and no single issue, roll or directory entry is caught setting both spellings for one man. Against the corpus silence stands the surname itself: Smith is set 1,107 times across 93 texts and the layer already carries ten Smith cards, so this stem has abundant independent life and the silence around one forename spelling proves nothing about identity. The reading index holds 75 identities of each spelling. D8."
-    }
-   ],
    "sex": "male",
    "sex_basis": {
     "value": "male",

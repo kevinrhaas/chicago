@@ -155,22 +155,15 @@
     "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'whistler_john_harrison:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
    },
    "age_band": {
-    "value": "30-39",
-    "low": 30,
-    "high": 39,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 30 under 40', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
-    },
-    "seed": "whistler_john_harrison:age_bands_1840",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('whistler_john_harrison:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "inferred",
+    "tier": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
    },
    "birth_year": {
     "value": 1806,

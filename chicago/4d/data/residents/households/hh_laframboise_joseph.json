@@ -183,6 +183,19 @@
      "rule": "G1c"
     }
    ],
+   "merge_ruling": [
+    {
+     "ticket": "T-1525",
+     "verdict": "distinct",
+     "rule": "D7",
+     "cluster": "laframboise-leframboise",
+     "weighed_against": [
+      "leframboise_joseph"
+     ],
+     "for_merge": "'Joseph' against 'Joseph', identical, and one vowel at the head of a surname the fur trade spelled every way it could: La Framboise, Laframboise, Le Framboise. The corpus was searched and the asymmetry is the shape a mis-set card usually takes — 'leframboise' is set NOWHERE in the deposited texts, not once, while Laframboise is set 30 times across ten of them and 'Joseph Laframboise' 7 times across four. Within the town the Le- stem holds exactly one card and the La- stem seven.",
+     "against_merge": "THE TWO BODIES OF EVIDENCE DO NOT TOUCH, AND NO TITLE SETS BOTH SPELLINGS. Every Laframboise reading is a muster or a parish register — 'LAFRAMBOISE, JOSEPH' on the Black Hawk War enrollments of 1832, and 'Joseph Laframboise' as sponsor on 26 May 1833 and as father in August 1833 and on 28 June 1834 in St Mary's. 'Le Framboise, Joseph' is the tax list of 1833 and nothing else: one roll, one instrument, which none of the Laframboise readings is on. So there is no single roll whose silence could be weighed either way, and no printing is caught setting both spellings for one man. Only one card cites `chicago_voter_lists_1833_1835_irad`, so D9's measurement at the roll does not apply here — the instruments are genuinely different, which is D7's general case rather than D6's serial-roll one. THIS IS NOT A CLAIM THAT THE TOWN HELD TWO JOSEPHS OF THIS NAME, and the `for_merge` is kept verbatim so a page that sets both reopens it. D7."
+    }
+   ],
    "sex": "male",
    "sex_basis": {
     "value": "male",
@@ -217,20 +230,7 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('laframboise_joseph:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a poll, tax or muster list names a person 20 or over - the 1840 schedule's own adult line. THE FRANCHISE'S AGE RULE IS NOT IN ANY SOURCE RECORD THIS PROJECT HOLDS; this is the model's conditioning and not a reading (T-1303's finding, handed to T-1304). No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
-   },
-   "merge_ruling": [
-    {
-     "ticket": "T-1525",
-     "verdict": "distinct",
-     "rule": "D7",
-     "cluster": "laframboise-leframboise",
-     "weighed_against": [
-      "leframboise_joseph"
-     ],
-     "for_merge": "'Joseph' against 'Joseph', identical, and one vowel at the head of a surname the fur trade spelled every way it could: La Framboise, Laframboise, Le Framboise. The corpus was searched and the asymmetry is the shape a mis-set card usually takes — 'leframboise' is set NOWHERE in the deposited texts, not once, while Laframboise is set 30 times across ten of them and 'Joseph Laframboise' 7 times across four. Within the town the Le- stem holds exactly one card and the La- stem seven.",
-     "against_merge": "THE TWO BODIES OF EVIDENCE DO NOT TOUCH, AND NO TITLE SETS BOTH SPELLINGS. Every Laframboise reading is a muster or a parish register — 'LAFRAMBOISE, JOSEPH' on the Black Hawk War enrollments of 1832, and 'Joseph Laframboise' as sponsor on 26 May 1833 and as father in August 1833 and on 28 June 1834 in St Mary's. 'Le Framboise, Joseph' is the tax list of 1833 and nothing else: one roll, one instrument, which none of the Laframboise readings is on. So there is no single roll whose silence could be weighed either way, and no printing is caught setting both spellings for one man. Only one card cites `chicago_voter_lists_1833_1835_irad`, so D9's measurement at the roll does not apply here — the instruments are genuinely different, which is D7's general case rather than D6's serial-roll one. THIS IS NOT A CLAIM THAT THE TOWN HELD TWO JOSEPHS OF THIS NAME, and the `for_merge` is kept verbatim so a page that sets both reopens it. D7."
-    }
-   ]
+   }
   }
  ],
  "touches_removal": false,
