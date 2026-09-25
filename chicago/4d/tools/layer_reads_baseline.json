@@ -72,6 +72,33 @@
       "records": 1512,
       "refused_because": "Denormalised. The MANIFEST's copy is what the panel groups and labels rows by, and validate.py fails the build if the two disagree; reading both would be two answers to one question."
     },
+    "residents/household:division_reconstructed.band": {
+      "records": 1305
+    },
+    "residents/household:division_reconstructed.basis.kind": {
+      "records": 1305
+    },
+    "residents/household:division_reconstructed.clause": {
+      "records": 1305
+    },
+    "residents/household:division_reconstructed.replaceable_by.kind": {
+      "records": 1305
+    },
+    "residents/household:division_reconstructed.replaceable_by.match": {
+      "records": 1305
+    },
+    "residents/household:division_reconstructed.seed": {
+      "records": 1305
+    },
+    "residents/household:division_reconstructed.tier": {
+      "records": 1305
+    },
+    "residents/household:division_reconstructed.value": {
+      "records": 1305
+    },
+    "residents/household:division_reconstructed.written_by_stage": {
+      "records": 1305
+    },
     "residents/household:garrison.company": {
       "records": 10
     },
@@ -447,6 +474,9 @@
     "residents/manifest:counts.reconstructed_removed_in_2026_09_02_synthesis": {
       "records": 1,
       "refused_because": "Bookkeeping about an OPERATION, not a figure about the town: how many reconstructed cards the synthesis of 2 September 2026 removed. The town it describes no longer exists in this tree, so a visitor has nothing to hold it against; `by_grade.reconstructed` — which reads 0 — is the fact about the layer, and the removal itself is docs/LIBERTIES.md's business."
+    },
+    "residents/manifest:households[].division_reconstructed": {
+      "records": 1305
     },
     "residents/manifest:households[].head": {
       "records": 1512,
