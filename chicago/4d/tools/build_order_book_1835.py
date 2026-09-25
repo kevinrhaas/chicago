@@ -1998,6 +1998,8 @@ def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int
                     rule: dict | None = None) -> dict:
     """The book's account of what has moved, what is still held, and where it could land."""
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
+    still = sum(r.get("surplus_still_held",
+                      r["already_drawn"] - r["the_re_cut_would_have_ordered"]) for r in refusals)
     headroom = sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in buckets)
     moved_from = sorted({m["from_bucket"] for m in moves})
     moved_into = sorted({m["to_bucket"] for m in moves})
@@ -2052,6 +2054,15 @@ def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int
                                    "move the residents layer has not made, and a row typed "
                                    "into it by hand does not survive a --build.",
         },
+        # THE PROGRAMME ITSELF IS A STEP, and `settled` is arithmetic rather than
+        # opinion: it finishes when nobody is held, and only then. Every step here
+        # carrying `settled: false` is a forward-looking work order, and
+        # `every_work_order_names_a_live_ticket` refuses one whose ticket has closed
+        # (T-1530). It has to, because the prose this ledger replaced handed the same
+        # 523 people to T-1196, T-1197 and T-1179 for four days after all three had
+        # closed, through every green gate — a refused bucket has `to_reconstruct` set
+        # down to `filled`, so the bucket sweep reads 0 left and steps over it by design.
+        "the_programme": {"ticket": "T-1556", "settled": still == 0},
         "moves": moves,
         "counts": {
             "moves": len(moves),
@@ -2063,6 +2074,7 @@ def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int
         "the_held_surplus": {
             "buckets_refused": len(refusals),
             "people_held": held,
+            "people_still_held": still,
             "open_headroom_in_person_buckets": headroom,
             "why_the_headroom_matters": "a held head moved into an open order fills that "
                                         "order without drawing a stranger, so each move "
@@ -2494,7 +2506,29 @@ def ticket_states(directory: Path = TICKETS) -> dict[str, str]:
     return out
 
 
-def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | None = None) -> str:
+def ticket_children(directory: Path = TICKETS) -> dict[str, list[str]]:
+    """Every ticket that has a parent, indexed by the parent — a CHECK INPUT only.
+
+    A `split` ticket is a grouping record and its children are the runs that discharge
+    it. Nothing the book EMITS may depend on this, for the reason written on
+    `ticket_states`; the gate below reads it and nothing else does.
+    """
+    out: dict[str, list[str]] = {}
+    if not directory.is_dir():
+        return out
+    for path in sorted(directory.rglob("T-*.md")):
+        head = path.read_text(encoding="utf-8").split("---")
+        if len(head) < 3:
+            continue
+        fields = dict(re.findall(r"^(\w+): (.*)$", head[1], re.M))
+        parent, tid = fields.get("parent", "").strip(), fields.get("id", "").strip()
+        if tid and parent and parent != "null":
+            out.setdefault(parent, []).append(tid)
+    return out
+
+
+def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | None = None,
+                                         children: dict[str, list[str]] | None = None) -> str:
     """THE WORK-ORDER GATE (T-1420), asked on every --build and --check.
 
     THE FAILURE IT REMOVES. `ticket.mjs done` already prints a NOTE when a close
@@ -2524,8 +2558,24 @@ def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | Non
 
     A BLOCKED TICKET IS LIVE. `blocked-owner` and `blocked-tech` are on the board,
     carry a `blocked_on`, and unblock; `done`, `split` and `withdrawn` name nobody.
+
+    AND A BUCKET IS NOT THE ONLY PLACE WORK IS ORDERED FROM (T-1530). Every step of
+    `re_family_ledger` carrying `settled: false` is a forward-looking work order, and
+    it is the one class the bucket sweep above CANNOT reach: a refused bucket has
+    `to_reconstruct` set down to `filled`, so it reads 0 left and is skipped by design.
+    That is how 523 held people sat in prose naming T-1196, T-1197 and T-1179 — all
+    three closed — through four days of green gates, and how the ledger that replaced
+    the prose could go the same way as its own pieces close.
+
+    A SPLIT PROGRAMME IS LIVE WHILE ONE OF ITS PIECES IS, and only here. The asymmetry
+    with a bucket is the point: a bucket names the single run that owes it, so a split
+    leaves the next run guessing which child it is — the T-1192 stranding this sweep
+    exists for. The re-family programme is the opposite, because the owner ruled on
+    2026-09-24 that all 523 are ONE unit: the grouping ticket IS the owner and its
+    children are its runs. What must never go stale is that somebody is still on it.
     """
     states = ticket_states() if states is None else states
+    children = ticket_children() if children is None else children
     holes = []
     for family in doc.get("bucket_families", []):
         for bucket in family.get("buckets", []):
@@ -2548,6 +2598,33 @@ def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | Non
                 elif state in DEAD_TICKET_STATES:
                     holes.append(f"{bucket['key']} has {left} left and is ordered by "
                                  f"{ticket}, which is {state}")
+    def live_pieces_of(ticket):
+        return [k for k in (children.get(ticket) or [])
+                if states.get(k) and states.get(k) not in DEAD_TICKET_STATES]
+
+    steps, carried = [], []
+    for name, step in sorted((doc.get("re_family_ledger") or {}).items()):
+        if not isinstance(step, dict) or step.get("settled") is not False:
+            continue
+        ticket = step.get("ticket")
+        state = states.get(ticket) if ticket else None
+        steps.append(name)
+        if not ticket:
+            holes.append(f"the re-family programme's {name} is ordered by nobody")
+        elif state is None:
+            holes.append(f"the re-family programme's {name} is ordered by {ticket}, "
+                         f"which is not a ticket")
+        elif state == "split":
+            pieces = live_pieces_of(ticket)
+            if pieces:
+                carried.append(f"{name} through {', '.join(sorted(pieces))}")
+            else:
+                holes.append(f"the re-family programme's {name} is ordered by {ticket}, "
+                             f"which is split and has no live piece left — the programme "
+                             f"ended with people still held")
+        elif state in DEAD_TICKET_STATES:
+            holes.append(f"the re-family programme's {name} is ordered by {ticket}, "
+                         f"which is {state}")
     if holes:
         raise Fault("the book orders work from tickets nobody can claim — sweep the owner "
                     "tables onto the live successors (T-1420): " + "; ".join(sorted(holes)[:8])
@@ -2555,7 +2632,11 @@ def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | Non
     if not states:
         return "the queue could not be read, so no work order was checked"
     ordered = sum(1 for f in doc.get("bucket_families", []) for b in f.get("buckets", []))
-    return f"every work order across {ordered} buckets names a ticket a run can still claim"
+    said = f"every work order across {ordered} buckets names a ticket a run can still claim"
+    if steps:
+        said += (f", and so do the re-family programme's {len(steps)} unsettled step(s)"
+                 + (f" ({'; '.join(carried)})" if carried else ""))
+    return said
 
 
 def recut_findings(known: dict, before: dict, families: list, refusals: list) -> list[dict]:
@@ -3438,16 +3519,23 @@ def cmd_self_test() -> int:
 
     buckets = [b for f in doc["bucket_families"] for b in f["buckets"]]
     owed_by = next(b for b in buckets if left(b) > 0 and b.get("owning_ticket"))
+    # The shipped ledger's own unsettled steps are part of the fixture now: the gate
+    # reads them too, so a `states` built from the buckets alone would fail every case
+    # below for a reason none of them is about.
     states = {t: "open" for b in buckets for t in named(b)}
-    every_work_order_names_a_live_ticket(doc, states)
-    every_work_order_names_a_live_ticket(doc, {**states, owed_by["owning_ticket"]: "blocked-tech"})
+    states.update({step["ticket"]: "open"
+                   for step in (doc.get("re_family_ledger") or {}).values()
+                   if isinstance(step, dict) and step.get("ticket")})
+    every_work_order_names_a_live_ticket(doc, states, {})
+    every_work_order_names_a_live_ticket(
+        doc, {**states, owed_by["owning_ticket"]: "blocked-tech"}, {})
     for dead in ("done", "split", "withdrawn"):
         fires(f"a bucket with work left ordered by a {dead} ticket",
               lambda d=dead: every_work_order_names_a_live_ticket(
-                  doc, {**states, owed_by["owning_ticket"]: d}))
+                  doc, {**states, owed_by["owning_ticket"]: d}, {}))
     fires("a bucket ordered by an id that is not a ticket at all",
           lambda: every_work_order_names_a_live_ticket(
-              doc, {k: v for k, v in states.items() if k != owed_by["owning_ticket"]}))
+              doc, {k: v for k, v in states.items() if k != owed_by["owning_ticket"]}, {}))
     # A DONE TICKET ON A FULLY DISCHARGED BUCKET IS FINE — that is what this asserts.
     # It has to pick a ticket that owns NO bucket with work left, not merely A bucket
     # with none: the gate is asked per TICKET, so marking one done fails the moment it
@@ -3459,9 +3547,48 @@ def cmd_self_test() -> int:
     live_owners = {t for b in buckets if left(b) > 0 for t in named(b)}
     discharged = next(b for b in buckets if b.get("owning_ticket") and left(b) <= 0
                       and b["owning_ticket"] not in live_owners)
-    every_work_order_names_a_live_ticket(doc, {**states, discharged["owning_ticket"]: "done"})
+    every_work_order_names_a_live_ticket(doc, {**states, discharged["owning_ticket"]: "done"}, {})
     assert "T-1166" not in {t for b in buckets for t in named(b)}, \
         "the book's own authoring ticket is provenance and must not be a work order"
+
+    # AN UNSETTLED STEP OF THE RE-FAMILY PROGRAMME IS A WORK ORDER TOO (T-1530). Every
+    # case below is asserted against a MADE ledger rather than the shipped one, because
+    # what the queue holds this morning may not decide whether a gate is proven — and
+    # because a settled programme carries no unsettled step at all, which is the healthy
+    # state and can prove nothing. That is exactly how the prose hand-off this ledger
+    # replaced stayed green for four days.
+    def with_ledger(**steps):
+        return {**doc, "re_family_ledger": {
+            "ticket": "T-1557",
+            **{k: {"ticket": t, "settled": settled} for k, (t, settled) in steps.items()}}}
+
+    def gate(d, st, ch=None):
+        return every_work_order_names_a_live_ticket(d, st, ch or {})
+
+    live = with_ledger(the_programme=("T-9000", False), who_makes_the_moves=("T-9003", False))
+    gate(live, {**states, "T-9000": "open", "T-9003": "claimed"})
+    gate(live, {**states, "T-9000": "blocked-owner", "T-9003": "review"})
+    for dead in ("done", "withdrawn"):
+        fires(f"an unsettled re-family step ordered by a {dead} ticket",
+              lambda d=dead: gate(live, {**states, "T-9000": d, "T-9003": "open"}))
+    fires("an unsettled re-family step ordered by an id that is not a ticket at all",
+          lambda: gate(live, {**states, "T-9003": "open"}))
+    fires("an unsettled re-family step ordered by nobody at all",
+          lambda: gate(with_ledger(the_programme=(None, False)), states))
+    # A SETTLED STEP ORDERS NOBODY, so a closed ticket on one is not a hole — that is
+    # what finishing the programme looks like and the gate must not block it.
+    gate(with_ledger(the_programme=("T-9000", True)), {**states, "T-9000": "done"})
+    # A SPLIT PROGRAMME IS LIVE WHILE A PIECE OF IT IS, and dead the moment none is.
+    # Both halves are asserted: accepting `split` unconditionally would be the stranding
+    # the bucket sweep refuses, and refusing it would strand the programme.
+    split = with_ledger(the_programme=("T-9000", False))
+    kin = {"T-9000": ["T-9001", "T-9002"]}
+    gate(split, {**states, "T-9000": "split", "T-9001": "done", "T-9002": "claimed"}, kin)
+    fires("a split re-family programme whose every piece has closed",
+          lambda: gate(split, {**states, "T-9000": "split", "T-9001": "done",
+                               "T-9002": "withdrawn"}, kin))
+    fires("a split re-family programme with no pieces at all",
+          lambda: gate(split, {**states, "T-9000": "split"}))
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "

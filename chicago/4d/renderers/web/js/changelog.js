@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1106, title: 'Nineteen invented tradespeople move house instead of being deleted', kind: 'change', ts: '2026-09-25T15:32:57.244Z', date: 'Sep 25, 2026, 10:32 AM CT',
+  { v: 1107, title: 'Nineteen invented tradespeople move house instead of being deleted', kind: 'change', ts: '2026-09-25T15:54:23.903Z', date: 'Sep 25, 2026, 10:54 AM CT',
     items: [
       'Five hundred and twenty-three invented residents stand in cells of the order book that no longer want them, and the owner ruled they are moved rather than deleted. Two entries ago built the bookkeeping for a move; the last one worked out who may be moved, and found the rule yields seventy-three of them. This is the first nineteen, actually made.',
       'They are the invented tradespeople — a music teacher, a carpenter, a laundress, nineteen in all — who were drawn as heads of their own households in cells the book has since re-cut. Each of them is now counted as boarding at his or her trade instead of keeping a house: the same person, the same name, the same trade, the same age, standing in a cell where the book still has room. Fourteen of the nineteen are also counted on a different side of the river.',
@@ -7,6 +7,13 @@ export const CHANGELOG = [ // newest first
       'The change is written in the one place it can be checked. Each of the nineteen cards now says, on its own face, the cell it was drawn in, the cell it is counted in, the rung of the rule that let it cross, and that what moved is an accounting cell and not a person — including the plainest part: a boarder keeps no house, so the family the size table drew for this head is no longer owed. The drawn size stays printed, because it is what was drawn.',
       'The ledger and the cards cannot drift apart, and the build now refuses to let them. A move is written onto the card first, inside the derivation that draws the person, so it survives a rebuild byte for byte; the book then takes a row only where the card already says the same thing, field for field. A move typed into the ledger by hand does not survive, and a card claiming a move the rule does not allow fails the build outright.',
       'The other fifty-four moves belong to the invented women and children, and are the next piece of work. Nothing you can see in the town changed today: none of these nineteen has ever had an address.',
+    ] },
+  { v: 1106, title: 'The 523 held people can no longer be owed to nobody', kind: 'change', ts: '2026-09-25T15:16:40.298Z', date: 'Sep 25, 2026, 10:16 AM CT',
+    items: [
+      'Nothing you can see changed in the town today. What changed is a way this project had of losing work quietly, and it had already lost this particular work for four days.',
+      'The town is reconstructed against an order book, and the book refuses to delete anybody: where reading real people showed it had already invented too many in some cohort, it keeps them and writes down both numbers. That leaves 523 invented people standing past any order, and the owner has ruled they are re-familied into the cohorts the same re-count GREW rather than retired. Somebody has to actually do that.',
+      'Who that somebody was lived in a sentence. The sentence named three pieces of work, all three of which had finished, so the 523 were owed to nobody at all \u2014 and every check this project runs stayed green through it, because a cohort held at what was drawn reads as having nothing left to do. The ledger written yesterday replaced the sentence, and its own steps can close the same way.',
+      'So the checks now read it. Each unfinished step of the re-familying has to name work somebody can still pick up, and the gate goes red the moment the last one closes with people still held. A programme split into pieces counts as live while one piece is \u2014 and only then.',
     ] },
   { v: 1105, title: 'One list, printed three times, is still one sighting', kind: 'fix', ts: '2026-09-25T14:50:48.031Z', date: 'Sep 25, 2026, 9:50 AM CT',
     items: [
