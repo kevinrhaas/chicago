@@ -61,8 +61,8 @@ The research spend was, correctly, conservative. This page does not overturn one
 | class / rule | rows |
 |---|---:|
 | `R0_ineligible/already_carried_as_present` | 1067 |
-| `R0_ineligible/carried_by_the_cards_own_row` | 1242 |
-| `R0_ineligible/carried_under_a_crosswalk_merged_name` | 161 |
+| `R0_ineligible/carried_by_the_cards_own_row` | 1241 |
+| `R0_ineligible/carried_under_a_crosswalk_merged_name` | 162 |
 | `R0_ineligible/earlier_than_the_window` | 146 |
 | `R0_ineligible/forename_printed_surname_lost` | 1 |
 | `R0_ineligible/later_only_and_not_backprojectable` | 9812 |

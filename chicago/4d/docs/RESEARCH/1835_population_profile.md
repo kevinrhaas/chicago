@@ -4420,6 +4420,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Samuel Calhoun | New England | reconstructed |
 | Samuel Damels | New York State | reconstructed |
 | Samuel Devoe | The Mid-Atlantic states | reconstructed |
+| Samuel E. Toby | New England | reconstructed |
 | Samuel Eberiden | New England | reconstructed |
 | Samuel Gage | New England | reconstructed |
 | Samuel Haviland | West of the Alleghenies | reconstructed |
@@ -4440,7 +4441,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Samuel Stuart | The Mid-Atlantic states | reconstructed |
 | Samuel Thayer | New York State | reconstructed |
 | Samuel Woodruff | New York State | reconstructed |
-| Samuel. Toby | New England | reconstructed |
 | Sanford Johnson | New York State | reconstructed |
 | Sarah Allen | New England | reconstructed |
 | Sarah Barry | The Mid-Atlantic states | reconstructed |

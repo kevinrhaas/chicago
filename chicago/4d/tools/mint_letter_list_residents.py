@@ -1481,6 +1481,38 @@ def ruled_renamings() -> dict[str, dict]:
     return out
 
 
+def gazetteer_persons() -> dict[str, dict]:
+    """record id -> the gazetteer person, for the readings a card cites.
+
+    Read here rather than passed in with the tree, for the reason `ruled_renamings()`
+    is: the gate's harness breaks a CARD and requires this to notice, and a harness
+    that could edit the evidence too could satisfy the assertion by moving the
+    citation instead of the claim.
+    """
+    if not GAZETTEER.exists():
+        return {}
+    return {p["id"]: p for p in load(GAZETTEER).get("persons") or [] if p.get("id")}
+
+
+def cited_readings(person: dict, records: dict[str, dict]) -> set[str]:
+    """Every name this card still CITES, in the order a card is written in.
+
+    A press row carries the reading it was read as (`as_read`) and the id of the
+    gazetteer person it belongs to, and either may be printed surname-first.
+    `display()` is what turns a printing into the given-first order a card wears,
+    so both sides of the comparison are made by the same function and `Allen,
+    William` against `William Allen` is not mistaken for a disagreement.
+    """
+    out: set[str] = set()
+    for row in person.get("press_evidence") or []:
+        if row.get("as_read"):
+            out.add(display(str(row["as_read"])))
+        record = records.get(row.get("record_id"))
+        if record and record.get("name"):
+            out.add(display(str(record["name"])))
+    return out
+
+
 def gate_problems(docs: dict, index: dict, structure_text: dict) -> list[str]:
     """Every way the minted cohort could stop being what the owner ruled for.
 
@@ -1500,6 +1532,7 @@ def gate_problems(docs: dict, index: dict, structure_text: dict) -> list[str]:
     rows = {r["id"]: r for r in index.get("households") or []}
     flagged_persons = 0
     renamings = ruled_renamings()
+    records = gazetteer_persons()
     for path, doc in sorted(minted.items()):
         hid = doc.get("id")
         persons = doc.get("persons") or []
@@ -1631,6 +1664,31 @@ def gate_problems(docs: dict, index: dict, structure_text: dict) -> list[str]:
                                     f"it moved and {NAME_RULINGS.relative_to(ROOT)} "
                                     f"says {was!r} — the card must carry the "
                                     f"adjudication it stands on (T-1218)")
+            # T-1561. A CARD WEARS A READING ITS OWN EVIDENCE STILL HOLDS. When two
+            # readings of one printed line are declared one person, the gazetteer
+            # keeps the one that carries every letter a printing set and the
+            # absorbed spelling stops being cited anywhere — but the card minted off
+            # the absorbed side goes on displaying it, and nothing noticed. That is
+            # `Samuel. Toby`, which stood on this cohort after T-1528 merged it into
+            # `Samuel E. Toby`: a display name whose only evidence had been merged
+            # away, with the surviving reading sitting in that same card's own
+            # `press_evidence` row, unread by anybody.
+            #
+            # Only cards that CITE something are held to it. 665 of the cohort carry
+            # their reading in `letter_list_returns` and the note with no press block
+            # at all, and a gate may not fire on evidence a card does not have.
+            # And ANY cited reading satisfies it: a name read three ways across three
+            # printings cites three, and WHICH of them a card should wear is the
+            # mint's choice — a different question from whether it wears one at all,
+            # and not one to smuggle in here.
+            citations = cited_readings(person, records)
+            if citations and shown not in citations:
+                problems.append(f"{hid}/{pid}: the card displays {shown!r} and the "
+                                f"reading(s) its own press evidence cites are "
+                                f"{', '.join(repr(c) for c in sorted(citations))} — a "
+                                f"card wears a reading its evidence still holds, and "
+                                f"this one wears a spelling that was merged away "
+                                f"(T-1561)")
             dates = person.get("letter_list_returns")
             if not isinstance(dates, list) or not dates:
                 problems.append(f"{hid}/{pid}: letter_list_returns is "
@@ -2095,7 +2153,30 @@ def self_test() -> int:
         person = next(p for p in doc["persons"] if p["id"] in RULED)
         person["name_ruling"]["displayed_name_was"] = person["name"]
 
+    # T-1561. The defect exactly as T-1528 left it: a card displaying a spelling
+    # its own evidence no longer holds. The mutation puts a spare initial into a
+    # card's forename and leaves the family name and the punctuation alone, so
+    # neither T-1121's comma nor T-1218's surname can catch it and this assertion
+    # has to.
+    def uncite_the_card(d, i, s):
+        records = gazetteer_persons()
+        for path, doc in sorted(d.items()):
+            if not minted_by(path, doc, "letter_list", PREFIX):
+                continue
+            person = (doc.get("persons") or [{}])[0]
+            shown = str(person.get("name") or "")
+            tokens = shown.split()
+            cited = cited_readings(person, records)
+            if len(tokens) < 2 or not cited:
+                continue
+            spoiled = " ".join(tokens[:-1] + ["Q."] + tokens[-1:])
+            if spoiled not in cited and surname(spoiled) == surname(shown):
+                person["name"] = spoiled
+                return
+        raise AssertionError("no card citing a reading a spare initial would leave")
+
     cases = [
+        ("a card wears a reading it no longer cites", uncite_the_card, "T-1561"),
         ("a card's ordered name keeps a comma", punctuate_the_card, "T-1121"),
         ("a card's surname is re-spelled off its id", respell_a_card, "T-1218"),
         ("a ruled card is re-spelled a third way", respell_a_ruled_card, "awards"),
