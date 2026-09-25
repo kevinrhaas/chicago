@@ -1901,9 +1901,36 @@ def presence_agrees(known: dict, before: dict, rulings: dict) -> None:
 # the order he filled, the rule that chose him and the adoptions travelling with him,
 # and `--check` re-derives the whole book, so a hand-written row cannot survive.
 REFAMILY_REQUIRED = ("person", "from_bucket", "to_bucket", "ticket", "rule")
+# THE RULE A MOVE NAMES IS NOW A RUNG SOMEBODY PUBLISHED (T-1558). T-1557 required every
+# row to NAME the rule that chose its head and could not check the name, because no rule
+# existed yet; `data/reconstruction/1835_refamily_rule.json` publishes the cost ladder and
+# this book refuses a move whose `rule` is not one of its MOVABLE rungs. Build order: the
+# book first (the rule model reads it), then the rule, then the book again — the only thing
+# that travels back here is the rung ids and the rule's one line, both literals in
+# tools/model_refamily_rule.py, so the two cannot chase each other.
+REFAMILY_RULE = ROOT / "data" / "reconstruction" / "1835_refamily_rule.json"
 
 
-def refamily_shape(moves: list | None) -> list:
+def refamily_rule() -> dict | None:
+    """The published rule, or None while T-1558's model has not been built yet."""
+    if not REFAMILY_RULE.exists():
+        return None
+    try:
+        doc = json.loads(REFAMILY_RULE.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise Fault(f"the re-family rule is not JSON: {exc}") from exc
+    ladder = (doc.get("the_rule") or {}).get("the_cost_ladder") or []
+    if not ladder:
+        raise Fault("the re-family rule publishes no cost ladder")
+    return {
+        "ticket": doc.get("ticket"),
+        "one_line": (doc.get("the_rule") or {}).get("one_line"),
+        "rungs": [r["id"] for r in ladder],
+        "movable": [r["id"] for r in ladder if r.get("tier") == "movable"],
+    }
+
+
+def refamily_shape(moves: list | None, rule: dict | None = None) -> list:
     """The checks a move row can be given before the buckets are cut."""
     rows = list(moves or [])
     seen = set()
@@ -1924,6 +1951,14 @@ def refamily_shape(moves: list | None) -> list:
         if not isinstance(m.get("adoptions_carried"), list):
             raise Fault(f"the re-family move of {m['person']} does not say which "
                         f"adoptions travel with him")
+        # AND THE RULE IT NAMES IS A RUNG THE MODEL PUBLISHED, on a MOVABLE tier. A move
+        # standing on a refused rung is the rule contradicting itself, and a rung nobody
+        # published is the un-checkable string T-1557 had to accept.
+        if rule and m["rule"] not in rule["movable"]:
+            known = ", ".join(rule["movable"]) or "none"
+            raise Fault(f"the re-family move of {m['person']} names the rule "
+                        f"{m['rule']!r}, which is not a movable rung of "
+                        f"{rule['ticket']}'s cost ladder ({known})")
         if m["person"] in seen:
             raise Fault(f"{m['person']} is re-familied twice; a person has one bucket")
         seen.add(m["person"])
@@ -1955,7 +1990,8 @@ def refamily_against_buckets(moves: list, buckets: list, drawn: Counter) -> None
                         f"ever drawn there")
 
 
-def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int) -> dict:
+def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int,
+                    rule: dict | None = None) -> dict:
     """The book's account of what has moved, what is still held, and where it could land."""
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     still = sum(r.get("surplus_still_held",
@@ -1977,13 +2013,25 @@ def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int
         "what_a_move_is_not": "a retirement (nobody is un-written, which is T-1459's ruling "
                               "of 2026-09-20) and a draw (no stranger enters the town, so "
                               "the population does not move — only what is still OWED does).",
-        "who_chooses_who_moves": {
+        "who_chooses_who_moves": ({
+            "ticket": rule["ticket"],
+            "settled": True,
+            "rule": rule["one_line"],
+            "the_rungs_a_move_may_name": rule["movable"],
+            "the_rungs_it_refuses_on": [r for r in rule["rungs"] if r not in rule["movable"]],
+            "read_from": "data/reconstruction/1835_refamily_rule.json",
+            "why": "T-1558 modelled it against the adoption layers and published the cost "
+                   "ladder there, with the tier of every held person and the ceilings the "
+                   "axes impose. `refamily_shape` above refuses a move whose `rule` is not "
+                   "one of the movable rungs, so the naming T-1557 required is now checked "
+                   "rather than trusted.",
+        } if rule else {
             "ticket": "T-1558",
             "settled": False,
             "why": "the rule is modelled against the adoption layers and is not this "
                    "ticket's. Every row must NAME the rule that chose its head, so a move "
                    "made before the rule exists cannot be written without saying so.",
-        },
+        }),
         "who_makes_the_moves": {"ticket": "T-1559", "settled": False},
         # THE PROGRAMME ITSELF IS A STEP, and `settled` is arithmetic rather than
         # opinion: it finishes when nobody is held, and only then. Every step here
@@ -2029,7 +2077,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     for fill in fills:
         if not isinstance(fill, dict) or not fill.get("ticket") or not fill.get("bucket"):
             raise Fault("a fill in the ledger names no ticket or no bucket")
-    moves = refamily_shape(moves)
+    rule = refamily_rule()
+    moves = refamily_shape(moves, rule)
     known = known_layer(data["residents"], data["presence_rulings"])
     before = known_layer(data["residents"])
     presence_agrees(known, before, data["presence_rulings"])
@@ -2379,7 +2428,7 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
         "re_family_ledger": refamily_ledger(
             moves, families[0]["buckets"], recut_refusals,
             sum(max(0, (b["to_reconstruct"] or 0) - b["filled"])
-                for b in families[0]["buckets"])),
+                for b in families[0]["buckets"]), rule),
     }
     if len(doc["bucket_families"]) != 5:
         raise Fault("the order book is five bucket families; fewer is a book with a hole in it")
@@ -3120,7 +3169,12 @@ def cmd_self_test() -> int:
     def move(**over):
         row = {"person": "res_self_test_head", "from_bucket": held["key"],
                "to_bucket": twin["key"], "order_filled": twin.get("owning_ticket"),
-               "rule": "the_self_test", "ticket": "T-1557", "adoptions_carried": []}
+               # A RUNG THE MODEL PUBLISHES, since T-1558. The fixture used to name
+               # `the_self_test` here and the book could not tell: the string was
+               # un-checkable. It reads the ladder now, so this row stands or falls with
+               # the same gate a real move does.
+               "rule": (refamily_rule() or {}).get("movable", ["C1"])[-1],
+               "ticket": "T-1557", "adoptions_carried": []}
         row.update(over)
         return row
 
@@ -3160,6 +3214,16 @@ def cmd_self_test() -> int:
           lambda: build(data, _fills_on_disk(), occ, [move(person=None)]))
     fires("a re-family move that names no rule that chose the head",
           lambda: build(data, _fills_on_disk(), occ, [move(rule=None)]))
+    # AND A RULE NOBODY PUBLISHED, OR ONE PUBLISHED AS A REFUSAL (T-1558). The first was
+    # un-checkable until the cost ladder existed; the second is the rule contradicting
+    # itself — a move standing on the rung that refuses it.
+    if refamily_rule():
+        fires("a re-family move naming a rule that is not a rung of the cost ladder",
+              lambda: build(data, _fills_on_disk(), occ, [move(rule="whoever_lacked_a_job")]))
+        refusing = [r for r in refamily_rule()["rungs"]
+                    if r not in refamily_rule()["movable"]]
+        fires("a re-family move standing on a rung the rule refuses on",
+              lambda: build(data, _fills_on_disk(), occ, [move(rule=refusing[0])]))
     fires("a re-family move that does not say which adoptions travel with the head",
           lambda: build(data, _fills_on_disk(), occ, [move(adoptions_carried=None)]))
     fires("a re-family move that leaves and enters the same bucket",

@@ -661,6 +661,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "model_refamily_rule.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-25",
+      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on the committed tree rewrote data/reconstruction/1835_refamily_rule.json and docs/RESEARCH/1835_refamily_rule.md and changed no committed byte; the perturbation test says that is idempotence rather than inertia — the JSON was deleted, `--check` went red on it (\"the re-family rule is missing — run --build\"), `--build` restored it, and `git status` came back empty.",
+      "placed": "not yet — measured to reproduce, and the ordering is the thing to settle. This tool reads the order book, and build_order_book_1835.py then reads the rung ids and the rule's one line back out of it, so the pair wants TWO passes in the manifest's order (book, rule, book) rather than one slot. Only literals travel back — the ladder's ids and the rule's one-line sentence, both constants in model_refamily_rule.py — so the two cannot oscillate; what has to be settled is whether the manifest can express a second pass over a tool it has already run, which is not this ticket's to decide."
+    },
     "model_town_1835.py": {
       "placement": "manifest",
       "write_mode": null,
