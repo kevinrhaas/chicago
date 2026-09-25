@@ -524,7 +524,7 @@ HELD_IDS = {f"{PREFIX}{rid.split('_')[-1]}" for rid in CORRIDOR_HOLDS}
 # refused for the same offence at greater depth, and west_046 stands 12.08 m into Des
 # Plaines, deeper than either of the two that were held. They are not moved here. Each was
 # dealt, reviewed and baked on its present seat, and re-seating six committed roofs is a
-# different act from releasing two that were never built — T-1567 owns it, with these
+# different act from releasing two that were never built — T-1570 owns it, with these
 # readings. What this set does is stop a seventh arriving unremarked.
 WEST_DIVISION_CORRIDOR_OCCUPANTS = {
     (f"{PREFIX}005", "fulton"),        # 3.72 m in
@@ -767,7 +767,7 @@ def validate(records: list[dict], rows: list[dict],
     # The streets that check cannot see — jefferson among them, which is how the two slots
     # T-1490 held got 11.9 m and 9.7 m into a drawn street without this gate saying a word.
     # Frozen occupancy, not a refusal: the six roofs already standing in one are named in
-    # WEST_DIVISION_CORRIDOR_OCCUPANTS and owned by T-1567, and the fifth cannot arrive
+    # WEST_DIVISION_CORRIDOR_OCCUPANTS and owned by T-1570, and the fifth cannot arrive
     # quietly. A slot re-dealt off a corridor leaves this set, which is the assertion that
     # T-1545's release actually cleared what it claimed to.
     omitted = omitted_street_corridors()

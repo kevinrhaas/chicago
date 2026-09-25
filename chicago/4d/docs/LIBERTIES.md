@@ -2933,7 +2933,7 @@ the omitted streets' own declared corridors: `recon_1835_west_030` 3.28 m and `r
 3.72 m and `recon_1835_west_006` 4.61 m into Fulton, and `recon_1835_west_039` 2.37 m and
 `recon_1835_west_046` 12.08 m into Des Plaines, the last of them deeper in than either slot the
 hold refused. None is moved here: each was dealt, reviewed and baked on its present seat, and
-re-seating six committed roofs is a different act from releasing two never built. T-1567 owns
+re-seating six committed roofs is a different act from releasing two never built. T-1570 owns
 them, and the occupancy is frozen in the generator so a seventh cannot arrive unremarked.
 **What the release did NOT settle.** The recipe's fourth terrain rule deferred a reading of the
 two conjectural west-prairie swales to "after the west terrain extension". T-1444 took it, and it
