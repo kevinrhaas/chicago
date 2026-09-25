@@ -1,7 +1,7 @@
 {
   "id": "rcb_cavanagh_boarding_house",
   "register_id": null,
-  "name": "Johanna Cavanagh's boarding house",
+  "name": "Ellen Cavanagh's boarding house",
   "provenance": "reconstructed",
   "type": [
     "other"
@@ -12,14 +12,14 @@
   "firm_styles": [],
   "proprietors": [
     {
-      "name": "Johanna Cavanagh",
-      "person_id": "rc_cavanagh_johanna",
+      "name": "Ellen Cavanagh",
+      "person_id": "rc_cavanagh_ellen",
       "register_person_id": null,
       "role": "proprietor",
       "from": null,
       "to": null,
       "tier": "reconstructed",
-      "basis": "ADOPTED, NOT MINTED. Johanna Cavanagh is the keeper the lodgers stage (T-1371) drew for this house and printed in data/reconstruction/1835_lodgers_seated.json § keepers; that card reads the trade off the building it stands in and heads hh_lodging_recon_1835_north_h2_028. One quota, filled once: this record is the house they keep, not a second person.",
+      "basis": "ADOPTED, NOT MINTED. Ellen Cavanagh is the keeper the lodgers stage (T-1371) drew for this house and printed in data/reconstruction/1835_lodgers_seated.json § keepers; that card reads the trade off the building it stands in and heads hh_lodging_recon_1835_north_h2_028. One quota, filled once: this record is the house they keep, not a second person.",
       "source_id": null,
       "claim_ids": []
     }
@@ -58,8 +58,8 @@
     "basis": "This record names 1 person/people the resident layer holds a card for and the layer knows no community for any of them. The silence is in the resident layer, not in the register.",
     "from": [
       {
-        "person_id": "rc_cavanagh_johanna",
-        "name": "Johanna Cavanagh",
+        "person_id": "rc_cavanagh_ellen",
+        "name": "Ellen Cavanagh",
         "role": "proprietor",
         "community": "unknown",
         "tier": null
@@ -83,9 +83,9 @@
       "structure_id": "recon_1835_north_h2_028",
       "class": "boarding_house",
       "beds_ordinary": 11,
-      "keeper_person_id": "rc_cavanagh_johanna",
+      "keeper_person_id": "rc_cavanagh_ellen",
       "keeper_household_id": "hh_lodging_recon_1835_north_h2_028",
-      "note": "A STANDING ROOF, NOT A SHORTFALL. The December 1835 State census enumerates taverns and never boarding houses, so the order book holds no bucket of this class to point at and no count of it is short. What is committed is the building: recon_1835_north_h2_028 stands, the lodging model apportioned it 11 ordinary-night beds out of a bracket the town model owns, and the lodgers stage put people in them and named Johanna Cavanagh their keeper. The firm is what was missing, and it is withdrawn with the roof."
+      "note": "A STANDING ROOF, NOT A SHORTFALL. The December 1835 State census enumerates taverns and never boarding houses, so the order book holds no bucket of this class to point at and no count of it is short. What is committed is the building: recon_1835_north_h2_028 stands, the lodging model apportioned it 11 ordinary-night beds out of a bracket the town model owns, and the lodgers stage put people in them and named Ellen Cavanagh their keeper. The firm is what was missing, and it is withdrawn with the roof."
     },
     "seed": "lodging_river_and_transport:lodging/boarding_house/north:003",
     "basis": {

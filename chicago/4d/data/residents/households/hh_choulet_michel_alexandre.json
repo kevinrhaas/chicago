@@ -1,0 +1,326 @@
+{
+ "id": "hh_choulet_michel_alexandre",
+ "name": "The Choulet household — a name the town's own records carry",
+ "division": "unplaced",
+ "head": "choulet_michel_alexandre",
+ "source_pass": "civic",
+ "arrival": {
+  "value": "1835-07-05",
+  "confidence": "inferred",
+  "sources": [
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844",
+   "st_marys_baptismal_register_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 5 July 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason.",
+  "precision": "not_later_than"
+ },
+ "arrival_year": {
+  "value": 1835,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-05 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
+  },
+  "seed": "hh_choulet_michel_alexandre:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": "New York State",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_choulet_michel_alexandre:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "reason_for_coming": {
+  "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844",
+   "st_marys_baptismal_register_1833_1835"
+  ],
+  "last_dated_appearance": {
+   "as_read": null,
+   "precision": null,
+   "reaches": null,
+   "includes_scene_date": false,
+   "days_before_scene_date": null,
+   "leg": "none",
+   "person": null,
+   "record": null,
+   "sources": [],
+   "note": "NO DATED EVIDENCE AT OR BEFORE 1835-07-01. The earliest date this card carries is 1835-07-05, which is after the scene, so it is a later appearance rather than the leg under this verdict — T-1159 class R5 is where a later record is back-projected, and it is not done here."
+  },
+  "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "persons": [
+  {
+   "id": "choulet_michel_alexandre",
+   "name": "Michel Alexandre Choulet",
+   "relationship": "head",
+   "grade": "inferred",
+   "civic_mint": true,
+   "ladder_rule": "G2c",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "later_occupation": {
+     "value": "carpenter, Alex. Loyd",
+     "describes_date": 1839,
+     "confidence": "attested",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "NONE RECORDED FOR 1835 — AND A TRADE IS RECORDED FOR 1839. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. It is not a claim about the scene date: the 1835 occupation above still reads `none_recorded`, its grade has not moved, and no premises has been sought on the strength of it, because a directory of 1839 is evidence about 1839. It is written because the field a reader consults was asserting an absence this file contradicts three lines further down, and \"no trade anywhere\" and \"no trade in the scene window, one printed 1839\" are not the same fact (T-0693)."
+    },
+    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it.",
+    "derived_from": "roles",
+    "roles_at_scene_date": []
+   },
+   "sources": [
+    "fergus_chicago_directory_1843",
+    "norris_directory_1844",
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835, directory_1843, directory_1844. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 5 July 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason. No figure is drawn (L1).",
+   "church_evidence": [
+    {
+     "list": "church_1833_1835",
+     "as_read": "Michel Choulet",
+     "locator": "godfather",
+     "record_id": "st_marys_bapt_1835_06_4_godfather",
+     "describes_date": "1835-07-05",
+     "source": "st_marys_baptismal_register_1833_1835",
+     "rule": "G2c"
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "directory_1843",
+     "as_read": "Choulet, Michel Alexandre, carpenter, res Dearborn [died 1854. a. 47]",
+     "locator": "res Dearborn",
+     "record_id": "f1843_e0602",
+     "describes_date": "1843",
+     "source": "fergus_chicago_directory_1843",
+     "rule": "G2c"
+    },
+    {
+     "list": "directory_1844",
+     "as_read": "Choulet, Michael, carpenter, res Dearborn st",
+     "locator": "res Dearborn st",
+     "record_id": "n1844_e0334",
+     "describes_date": "1844",
+     "source": "norris_directory_1844",
+     "rule": "G2c"
+    }
+   ],
+   "roles": [
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "carpenter, Alex. Loyd",
+     "from": "1839",
+     "to": "1839",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "claim": "f1839_e0272",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1839 DIRECTORY, 4 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on. An address NUMBER in the 1839 directory is 1876's and not 1839's, on the compiler's own statement on printed page 3, so `place` carries the street NAME the entry names and the number is dropped — the crosswalk's own `address_rule`, applied here rather than tripped over downstream. SYNONYM-FOLDED (T-1254): the same source prints this role as carpenter, Alex. Loyd as well, and one source asserting one role over one bound is one row.",
+     "premises": null
+    },
+    {
+     "role": "carpenter",
+     "kind": "trade",
+     "as_printed": "carpenter",
+     "from": "1843",
+     "to": "1843",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "claim": "f1843_e0602",
+     "place": "res Dearborn",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1843 DIRECTORY, 8 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": "own_premises"
+    },
+    {
+     "role": "carpenter",
+     "kind": "trade",
+     "as_printed": "carpenter",
+     "from": "1844",
+     "to": "1844",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "norris_directory_1844"
+     ],
+     "claim": "n1844_e0334",
+     "place": "res Dearborn st",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1844 DIRECTORY, 9 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": "own_premises"
+    }
+   ],
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "sex_share_of_the_roll",
+     "note": "Drawn at 94.7% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
+    },
+    "seed": "choulet_michel_alexandre:sex_ratio",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
+    },
+    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'choulet_michel_alexandre:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
+   },
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 30 under 40', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "choulet_michel_alexandre:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('choulet_michel_alexandre:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. choulet_michel_alexandre, Fergus's Chicago directory of 1839 — f1839_e0272 (a single entry); choulet_michel_alexandre, Fergus's Chicago directory of 1843 — f1843_e0602 (a single entry); choulet_michel_alexandre, Norris's Chicago directory of 1844 — n1844_e0334 (a single entry).",
+  "sources": [
+   "fergus_chicago_directory_1839",
+   "fergus_chicago_directory_1843",
+   "norris_directory_1844"
+  ],
+  "people": [
+   {
+    "person_id": "choulet_michel_alexandre",
+    "occupation_later": {
+     "value": "carpenter, Alex. Loyd",
+     "confidence": "attested",
+     "describes_date": 1839,
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Choulet, Michael, carpenter, Alex. Loyd'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "address_later": {
+     "value": "res Dearborn",
+     "confidence": "attested",
+     "describes_date": 1843,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "Fergus's Chicago directory of 1843 prints this address against this person, in the entry quoted on the card: 'Choulet, Michel Alexandre, carpenter, res Dearborn [died 1854. a. 47]'. It is evidence about 1843, written here as 1843's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
+    },
+    "back_projection": {
+     "outcome": "refused",
+     "clause": "1",
+     "value": null,
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": null,
+     "position_local_enu_m": null,
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1843 prints an address against this name in 1843 and this pass will not carry it back to 1835. The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/ADDRESS-BACK-PROJECTION.md, clause 1)."
+    },
+    "residence_back_projection": {
+     "outcome": "placed",
+     "clause": "R4 and R5",
+     "kind": "resides",
+     "value": "Dearborn Street",
+     "confidence": "reconstructed",
+     "describes_date": 1843,
+     "read_back_years": 8,
+     "placement": "face",
+     "sources": [
+      "fergus_chicago_directory_1843"
+     ],
+     "note": "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS. The street is not an 1835 reading: Fergus's Chicago directory of 1843 printed where this person lived in 1843, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Dearborn Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 8 years is too far to carry a house should read the grade as the disagreement being invited."
+    }
+   }
+  ]
+ }
+}

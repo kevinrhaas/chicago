@@ -37,14 +37,14 @@
   ]
  },
  "reason_for_coming": {
-  "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+  "value": "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
   "basis": {
    "kind": "rule",
    "id": "reason_from_arrival_cohort",
-   "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1834) is the only thing about it this value rests on."
   },
   "replaceable_by": {
    "kind": "person",

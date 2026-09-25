@@ -15,47 +15,47 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 2854,
-  "households": 1974,
-  "known": 2659,
-  "unknown": 195,
+  "persons": 2914,
+  "households": 2035,
+  "known": 2777,
+  "unknown": 137,
   "by_community": {
-   "yankee": 1248,
-   "new_york": 502,
-   "irish": 401,
-   "unknown": 195,
-   "other": 123,
-   "french_canadian": 121,
-   "british": 97,
+   "yankee": 1278,
+   "new_york": 543,
+   "irish": 399,
+   "french_canadian": 146,
+   "unknown": 137,
+   "other": 132,
+   "british": 109,
    "native": 87,
-   "southern": 63,
+   "southern": 66,
    "free_black": 15,
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 2600,
-   "null": 195,
+   "reconstructed": 2718,
+   "null": 137,
    "inferred": 56,
    "attested": 3
   },
   "by_rule": {
-   "reconstruction_community": 1390,
-   "origin_region": 1262,
-   "no_origin_recorded": 179,
+   "reconstruction_community": 1389,
+   "origin_region": 1363,
+   "no_origin_recorded": 121,
+   "stated_community": 25,
    "origin_does_not_speak_for_this_person": 12,
-   "stated_community": 7,
    "origin_unreadable": 4
   },
   "households_by_community": {
-   "yankee": 698,
-   "new_york": 501,
-   "unknown": 182,
+   "yankee": 733,
+   "new_york": 542,
    "irish": 163,
-   "other": 123,
-   "british": 97,
+   "other": 132,
+   "unknown": 124,
+   "british": 109,
    "native": 87,
-   "southern": 60,
-   "french_canadian": 54,
+   "french_canadian": 73,
+   "southern": 63,
    "free_black": 7,
    "metis": 2
   }
@@ -161,11 +161,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "alexis_gagnier": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "allan_b_freeman": {
    "value": "unknown",
    "tier": null,
@@ -236,11 +231,6 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "andrew_bouchard": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "andrews_davi": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -266,6 +256,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "ann_cierno": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "ansel_chipmon": {
    "value": "unknown",
    "tier": null,
@@ -275,11 +270,6 @@
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
-  },
-  "antoine_aspam": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "arams_benj_i": {
    "value": "yankee",
@@ -302,6 +292,16 @@
    "rule": "origin_region"
   },
   "arnold_levi_f": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "arquette_joseph": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "arquette_michel": {
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
@@ -336,15 +336,25 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "augustin_bonn": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
+  "aspam_antoine": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
   },
-  "augustin_pottier": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
+  "aspam_jean_baptiste": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "aspam_josette": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "aspam_magdeleine": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
   },
   "austin_w_g": {
    "value": "other",
@@ -389,6 +399,11 @@
   "bailey_bennet": {
    "value": "southern",
    "tier": "inferred",
+   "rule": "origin_region"
+  },
+  "bailly_esther": {
+   "value": "yankee",
+   "tier": "reconstructed",
    "rule": "origin_region"
   },
   "bailly_joseph": {
@@ -576,8 +591,18 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "beaubien_alexander": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "beaubien_alexandre": {
    "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "beaubien_archange": {
+   "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -586,8 +611,28 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "beaubien_caroline": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "beaubien_charles": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "beaubien_charles_h": {
    "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "beaubien_elonore": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "beaubien_george": {
+   "value": "southern",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -603,6 +648,11 @@
   },
   "beaubien_john_s": {
    "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "beaubien_joseph": {
+   "value": "british",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -625,6 +675,21 @@
    "value": "unknown",
    "tier": null,
    "rule": "origin_does_not_speak_for_this_person"
+  },
+  "beaubien_monique": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "beaubien_robert_jerome": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "beaubien_susan": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
   },
   "bebee_orson": {
    "value": "southern",
@@ -736,11 +801,6 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "bernard_bousque": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "bernard_schaeffer": {
    "value": "unknown",
    "tier": null,
@@ -826,6 +886,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "blanchemontagne_alexis_thomas": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "blanshard_f_g": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -906,6 +971,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "bonn_augustin": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "borland_andrew_w": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -926,12 +996,37 @@
    "tier": "inferred",
    "rule": "origin_region"
   },
+  "bouchard_adelaide": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "bouchard_louis": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "boucher_joseph": {
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "bourassa_jean_baptiste": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "bourassa_lon": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
   "bourassa_mark": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "bourassa_noel": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "stated_community"
@@ -943,6 +1038,16 @@
   },
   "bourrassa_leon": {
    "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "bousque_bernard": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "bousque_catherine_henrietta": {
+   "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -1011,6 +1116,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "brenin_mary": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "brewster_franklin": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -1020,11 +1130,6 @@
    "value": "irish",
    "tier": "reconstructed",
    "rule": "origin_region"
-  },
-  "bridget_finegan": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "brigham_nelson": {
    "value": "new_york",
@@ -1128,6 +1233,16 @@
   },
   "brundage_asa": {
    "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "bruno_anne_franoise_apolline": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "bruno_jean_baptiste": {
+   "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -1351,37 +1466,12 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "catharine_welsh": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
+  "casy_honora": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region"
   },
   "catherine_debert": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "catherine_gagnier": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "catherine_harrington": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "catherine_henrietta_bousque": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "catherine_preman": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "catherine_wode": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
@@ -1433,6 +1523,11 @@
   },
   "chancie_joseph": {
    "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "chandler_catherine": {
+   "value": "other",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -1531,7 +1626,17 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "chevalier_joseph": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
   "chevalier_josette": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "chevalier_louis_p": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "stated_community"
@@ -1571,6 +1676,21 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "choulet_claudia_pierrette": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "choulet_louise_caroline": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "choulet_michel_alexandre": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "christian_b_dodson": {
    "value": "unknown",
    "tier": null,
@@ -1600,11 +1720,6 @@
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
-  },
-  "cicely_wagon": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "clapp_a_p": {
    "value": "yankee",
@@ -1647,11 +1762,6 @@
    "rule": "origin_region"
   },
   "claude_lafromboise": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "claudia_pierrette_choulet": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
@@ -1821,6 +1931,16 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "coslet_elisabeth": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "coslet_godfrey": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "couch_ira": {
    "value": "new_york",
    "tier": "inferred",
@@ -1941,6 +2061,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "daly_edward": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "damels_samuel": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -1948,6 +2073,11 @@
   },
   "daniel_b_clevinger_4": {
    "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "daniel_frederick": {
+   "value": "british",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -2081,6 +2211,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "derocher_jean_baptiste": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "devoe_samuel": {
    "value": "other",
    "tier": "reconstructed",
@@ -2118,6 +2253,11 @@
   },
   "dimmick_e": {
    "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "dird_john_david": {
+   "value": "other",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -2246,6 +2386,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "duggan_mary": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "dunlap_alva": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -2253,6 +2398,16 @@
   },
   "dunn_dangerfield": {
    "value": "southern",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "duplas_catherine": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "duplas_joseph": {
+   "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -2321,6 +2476,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "eberling_marian": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "edmund_s_kimberley": {
    "value": "unknown",
    "tier": null,
@@ -2356,11 +2516,6 @@
    "tier": "inferred",
    "rule": "origin_region"
   },
-  "el_onore_beaubien": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "eldridge_john_w": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -2382,11 +2537,6 @@
    "rule": "origin_region"
   },
   "elijah_sen_wentworth": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "elisabeth_coslet": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
@@ -2420,11 +2570,6 @@
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
-  },
-  "esther_bailly": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "evans_sciota": {
    "value": "british",
@@ -2546,6 +2691,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "finegan_bridget": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "finley_clement_a": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -2641,6 +2791,21 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "forester_mary_elisabeth": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "forester_thomas": {
+   "value": "southern",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "forster_bridget": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "forster_jane": {
    "value": "british",
    "tier": "reconstructed",
@@ -2681,17 +2846,17 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "fran_ois_laframboise": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "fran_ois_tranche": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
   },
   "franchere_l": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "franchre_louis": {
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
@@ -2756,6 +2921,16 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "gagnier_alexis": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "gagnier_catherine": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
   "galaher_thomas": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -2795,16 +2970,6 @@
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
-  },
-  "genevi_ve_medera": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "george_beaubien": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "george_c": {
    "value": "yankee",
@@ -2865,11 +3030,6 @@
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
-  },
-  "godfrey_coslet": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "godfrey_t": {
    "value": "yankee",
@@ -3006,10 +3166,10 @@
    "tier": null,
    "rule": "no_origin_recorded"
   },
-  "gwinthlean_whistler": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
+  "guy_josphine": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
   },
   "h_w_knickerbocker": {
    "value": "unknown",
@@ -3146,6 +3306,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "harrington_catherine": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "harris_david": {
    "value": "other",
    "tier": "reconstructed",
@@ -3250,11 +3415,6 @@
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
-  },
-  "henry_stone": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "henry_w_cleaveland": {
    "value": "unknown",
@@ -3676,11 +3836,6 @@
    "tier": null,
    "rule": "no_origin_recorded"
   },
-  "jacob_jolly": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "jacob_richard": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -3692,11 +3847,6 @@
    "rule": "no_origin_recorded"
   },
   "jacob_sherrill": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "jacquette_peltier": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
@@ -3761,31 +3911,6 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "jean_baptiste_aspam": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "jean_baptiste_bourassa": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "jean_baptiste_derocher": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "jean_baptiste_lavigne": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "jean_pottier": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "jeddiah_woolley": {
    "value": "unknown",
    "tier": null,
@@ -3821,11 +3946,6 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "john_david_dird": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "john_f_herndon": {
    "value": "unknown",
    "tier": null,
@@ -3852,16 +3972,6 @@
    "rule": "no_origin_recorded"
   },
   "john_welch": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "john_whistler": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "john_wode": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
@@ -3893,6 +4003,11 @@
   },
   "jolin_mosgrove": {
    "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "jolly_jacob": {
+   "value": "british",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -3966,25 +4081,10 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "joseph_mayo": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "joseph_metcalf": {
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
-  },
-  "joseph_pallet": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "joseph_welsh": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "josepit_ogan": {
    "value": "new_york",
@@ -3996,10 +4096,20 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "judar_barbery": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "julien_s_rumsey": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
+  },
+  "juneau_marguerite": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
   },
   "juneau_solomon": {
    "value": "new_york",
@@ -4057,6 +4167,11 @@
    "rule": "origin_region"
   },
   "kendall_samuel": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "kennedy_lucy": {
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
@@ -4301,20 +4416,45 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "l_chevalier": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "l_on_bourassa": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "lacey_j_s": {
    "value": "other",
    "tier": "reconstructed",
    "rule": "origin_region"
+  },
+  "laframboise_ccile": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "laframboise_claude": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "laframboise_franois": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "laframboise_joseph": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "laframboise_josette": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "laframboise_marguerite": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "laframboise_thrse": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
   },
   "lafrombois_joseph": {
    "value": "british",
@@ -4398,6 +4538,11 @@
   },
   "lauretta_plympton_2": {
    "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "lavigne_jean_baptiste": {
+   "value": "british",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -4541,11 +4686,6 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "louis_bouchard": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "louis_franch_re": {
    "value": "unknown",
    "tier": null,
@@ -4555,11 +4695,6 @@
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
-  },
-  "louise_caroline_choulet": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "lovel_kimball_or": {
    "value": "new_york",
@@ -4591,6 +4726,16 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "ltendre_baptiste": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "ltendre_joseph": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "lucas_robert": {
    "value": "british",
    "tier": "reconstructed",
@@ -4602,11 +4747,6 @@
    "rule": "origin_region"
   },
   "lucinda_jackson": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "lucy_kennedy": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
@@ -4666,10 +4806,10 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "magdeleine_aspam": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
+  "madera_victoire": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region"
   },
   "makepiece_george_r": {
    "value": "yankee",
@@ -4678,6 +4818,11 @@
   },
   "makio_james": {
    "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "mallet_marie_louise": {
+   "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -4691,17 +4836,7 @@
    "tier": null,
    "rule": "no_origin_recorded"
   },
-  "marguerite_juneau": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "marguerite_malore": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "marian_eberling": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
@@ -4712,11 +4847,6 @@
    "rule": "no_origin_recorded"
   },
   "mariana_kamenwith": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "marie_louise_ouilmette": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
@@ -4756,25 +4886,10 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "mary_duggan": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "mary_elisabeth_forester": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "mary_nelson": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
-  },
-  "mary_wode": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "mas_go": {
    "value": "native",
@@ -4851,6 +4966,16 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "mayo_joseph": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "mayo_michel": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "mcburney_samuel": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -4918,6 +5043,11 @@
   },
   "meacham_mary": {
    "value": "southern",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "medera_genevive": {
+   "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -4996,13 +5126,13 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "michel_mayo": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "miles_andrew": {
    "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "miller_catherine": {
+   "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -5091,15 +5221,20 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "molony_denis": {
+   "value": "southern",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "molony_john": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "mon_ta_niss": {
    "value": "native",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
-  },
-  "monique_nadeau": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "montgomery_l_w": {
    "value": "yankee",
@@ -5231,6 +5366,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "murphy_mary": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "murphy_n": {
    "value": "irish",
    "tier": "reconstructed",
@@ -5238,6 +5378,21 @@
   },
   "murray_alonzo": {
    "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "murray_catherine": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "murray_john": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "murray_martha": {
+   "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -5275,6 +5430,11 @@
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
+  },
+  "nadeau_monique": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
   },
   "nalla_john_v": {
    "value": "yankee",
@@ -5371,11 +5531,6 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "noel_bourassa": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "nolan_michael": {
    "value": "irish",
    "tier": "reconstructed",
@@ -5436,6 +5591,16 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "omarra_bridget": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "omarra_james": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "one_of_daughters_of_m_colewell": {
    "value": "unknown",
    "tier": null,
@@ -5468,6 +5633,11 @@
   },
   "otto_silas_p": {
    "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "ouilmette_marie_louise": {
+   "value": "other",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -5522,6 +5692,11 @@
    "rule": "origin_region"
   },
   "paine_william": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "pallet_joseph": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
@@ -5665,6 +5840,11 @@
    "value": "native",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
+  },
+  "peltier_jacquette": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
   },
   "pennington_sack_f": {
    "value": "yankee",
@@ -5811,6 +5991,21 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "pottier_augustin": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "pottier_jean": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "pottier_joseph": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "pow_she_tow": {
    "value": "native",
    "tier": "reconstructed",
@@ -5843,6 +6038,11 @@
   },
   "preinen_v_a": {
    "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "preman_catherine": {
+   "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -5911,26 +6111,6 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "rc_abbott_titus_h_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_abell_sidney_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_abell_sidney_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_abrams_john_child_5": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_abrams_john_wife": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -5982,6 +6162,21 @@
    "rule": "reconstruction_community"
   },
   "rc_andrews_william_wife": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_aspam_josette_child_1": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_aspam_josette_child_2": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_aspam_josette_wife": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -6342,6 +6537,31 @@
    "rule": "reconstruction_community"
   },
   "rc_bourassa_hyacinthe": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourassa_madeleine": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourassa_madeleine_1": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourassa_madeleine_2": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourassa_madeleine_3": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourassa_madeleine_4": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -7407,11 +7627,6 @@
    "rule": "reconstruction_community"
   },
   "rc_doyle_ellen_4": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_doyle_honora": {
    "value": "irish",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -8531,11 +8746,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_hastings_almira_3": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_hastings_amanda": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -9241,12 +9451,12 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_laframboise_francois": {
+  "rc_laframboise_charles": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_laframboise_joseph": {
+  "rc_laframboise_francois": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -9312,11 +9522,6 @@
    "rule": "reconstruction_community"
   },
   "rc_lecuyer_madeleine_1": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_lecuyer_madeleine_2": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -9611,6 +9816,11 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
+  "rc_lynch_margaret": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
   "rc_lynch_martin": {
    "value": "irish",
    "tier": "reconstructed",
@@ -9871,21 +10081,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_murphy_bridget": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_murphy_bridget_1": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_murphy_bridget_2": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_murphy_bryan": {
    "value": "irish",
    "tier": "reconstructed",
@@ -9948,6 +10143,16 @@
   },
   "rc_murphy_margaret_8": {
    "value": "irish",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_murphy_mary_child_1": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_murphy_mary_wife": {
+   "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
@@ -10931,11 +11136,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_ryan_margaret": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_ryan_mary": {
    "value": "irish",
    "tier": "reconstructed",
@@ -11206,26 +11406,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_smith_matthias_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_smith_matthias_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_smith_matthias_child_3": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_smith_matthias_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_spring_giles_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -11401,6 +11581,31 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
+  "rc_stone_henry_child_1": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_stone_henry_child_2": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_stone_henry_child_3": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_stone_henry_child_4": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_stone_henry_wife": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
   "rc_stow_william_h_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -11437,6 +11642,11 @@
    "rule": "reconstruction_community"
   },
   "rc_sullivan_james": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_sullivan_johanna": {
    "value": "irish",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -11846,17 +12056,42 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
+  "rc_vieau_angelique": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_vieau_angelique_1": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_vieau_angelique_2": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_vieau_angelique_3": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_vieau_angelique_4": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_vieau_angelique_5": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_vieau_angelique_6": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
   "rc_vieau_baptiste": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_vieau_francois": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_vieau_hyacinthe": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -11866,42 +12101,17 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_vieau_josette": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_vieau_josette_1": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_vieau_josette_2": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_vieau_josette_3": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_vieau_josette_4": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_vieau_josette_5": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_vieau_josette_6": {
+  "rc_vieau_louis": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
   "rc_vieau_marie": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_vieau_toussaint": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -12041,16 +12251,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_wesencraft_charles_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_wesencraft_charles_child_3": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_wesencraft_charles_child_4": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -12102,11 +12302,6 @@
    "rule": "reconstruction_community"
   },
   "rc_whitcomb_seth": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_whitlock_james_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -12516,6 +12711,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "riffe_pierre": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "rinhart_james_h": {
    "value": "other",
    "tier": "reconstructed",
@@ -12546,11 +12746,6 @@
    "tier": null,
    "rule": "no_origin_recorded"
   },
-  "robert_jerome_beaubien": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "robert_patrick": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -12568,6 +12763,11 @@
   },
   "robes_philander": {
    "value": "southern",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "robi_marguerite": {
+   "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -12612,6 +12812,21 @@
    "rule": "origin_region"
   },
   "rogers_edward_a": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "roi_anne_franoise_virginie": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "roi_george_david": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "roi_joseph_claude": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
@@ -12838,6 +13053,16 @@
   },
   "schindler_joseph": {
    "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "schwartz_adam": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "schwartz_pierre_adam": {
+   "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -13106,6 +13331,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "smith_mathias": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "smith_matthias": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -13356,6 +13586,11 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "stone_henry": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "story_j_n": {
    "value": "other",
    "tier": "reconstructed",
@@ -13412,21 +13647,6 @@
    "rule": "origin_region"
   },
   "susan_anderson": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "susan_beaubien": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "susanne_tranche": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "susanne_vieaux": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
@@ -13566,11 +13786,6 @@
    "tier": null,
    "rule": "no_origin_recorded"
   },
-  "thomas_forester": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "thomas_frederick": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -13626,6 +13841,16 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "tony_jacob": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "tony_louisa": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "torry_d_v_s": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -13637,6 +13862,16 @@
    "rule": "origin_region"
   },
   "trall_e_l": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "tranche_marguerite": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "tranche_susanne": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
@@ -13781,10 +14016,30 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "victoire_madera": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
+  "vieau_jacob": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "vieau_josette": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "vieau_marie_josette": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "vieau_paul": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community"
+  },
+  "vieaux_susanne": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
   },
   "villame_john_c": {
    "value": "yankee",
@@ -13830,6 +14085,11 @@
    "value": "native",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
+  },
+  "wagon_cicely": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
   },
   "wai_bais_kuk": {
    "value": "native",
@@ -14016,6 +14276,21 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "welsh_catharine": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "welsh_john": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "welsh_joseph": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
   "welsh_mary": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -14062,6 +14337,16 @@
    "rule": "origin_region"
   },
   "wheldon_james": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "whistler_gwinthlean": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "whistler_john_harrison": {
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
@@ -14223,6 +14508,21 @@
   },
   "witkins_thomas": {
    "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "wode_catherine": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "wode_john": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "wode_mary": {
+   "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -14466,13 +14766,6 @@
    "head": "alden_ebenozer",
    "file": "households/hh_alden_ebenozer.json"
   },
-  "hh_alexis_gagnier": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "alexis_gagnier",
-   "file": "readmitted/hh_alexis_gagnier.json"
-  },
   "hh_allan_b_freeman": {
    "value": "unknown",
    "tier": null,
@@ -14571,13 +14864,6 @@
    "head": "andress_stephen",
    "file": "households/hh_andress_stephen.json"
   },
-  "hh_andrew_bouchard": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "andrew_bouchard",
-   "file": "readmitted/hh_andrew_bouchard.json"
-  },
   "hh_andrews_davi": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -14613,6 +14899,13 @@
    "head": "andrus_thomas",
    "file": "households/hh_andrus_thomas.json"
   },
+  "hh_ann_cierno": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "ann_cierno",
+   "file": "households/hh_ann_cierno.json"
+  },
   "hh_ansel_chipmon": {
    "value": "unknown",
    "tier": null,
@@ -14626,13 +14919,6 @@
    "rule": "origin_region",
    "head": "anstin_al",
    "file": "households/hh_anstin_al.json"
-  },
-  "hh_antoine_aspam": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "antoine_aspam",
-   "file": "readmitted/hh_antoine_aspam.json"
   },
   "hh_arams_benj_i": {
    "value": "yankee",
@@ -14669,6 +14955,20 @@
    "head": "arnold_levi_f",
    "file": "households/hh_arnold_levi_f.json"
   },
+  "hh_arquette_joseph": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "arquette_joseph",
+   "file": "households/hh_arquette_joseph.json"
+  },
+  "hh_arquette_michel": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "arquette_michel",
+   "file": "households/hh_arquette_michel.json"
+  },
   "hh_arrasmith_james": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -14704,19 +15004,33 @@
    "head": "ashbaugh_fre",
    "file": "households/hh_ashbaugh_fre.json"
   },
-  "hh_augustin_bonn": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "augustin_bonn",
-   "file": "readmitted/hh_augustin_bonn.json"
+  "hh_aspam_antoine": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "aspam_antoine",
+   "file": "households/hh_aspam_antoine.json"
   },
-  "hh_augustin_pottier": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "augustin_pottier",
-   "file": "readmitted/hh_augustin_pottier.json"
+  "hh_aspam_jean_baptiste": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "aspam_jean_baptiste",
+   "file": "households/hh_aspam_jean_baptiste.json"
+  },
+  "hh_aspam_josette": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "aspam_josette",
+   "file": "households/hh_aspam_josette.json"
+  },
+  "hh_aspam_magdeleine": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "aspam_magdeleine",
+   "file": "households/hh_aspam_magdeleine.json"
   },
   "hh_austin_w_g": {
    "value": "other",
@@ -14780,6 +15094,13 @@
    "rule": "origin_region",
    "head": "bailey_bennet",
    "file": "households/hh_bailey_bennet.json"
+  },
+  "hh_bailly_esther": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "bailly_esther",
+   "file": "households/hh_bailly_esther.json"
   },
   "hh_bailly_joseph": {
    "value": "new_york",
@@ -15033,12 +15354,26 @@
    "head": "bean_george_b",
    "file": "households/hh_bean_george_b.json"
   },
+  "hh_beaubien_alexander": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "beaubien_alexander",
+   "file": "households/hh_beaubien_alexander.json"
+  },
   "hh_beaubien_alexandre": {
    "value": "british",
    "tier": "reconstructed",
    "rule": "origin_region",
    "head": "beaubien_alexandre",
    "file": "households/hh_beaubien_alexandre.json"
+  },
+  "hh_beaubien_archange": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "beaubien_archange",
+   "file": "households/hh_beaubien_archange.json"
   },
   "hh_beaubien_b": {
    "value": "yankee",
@@ -15047,12 +15382,40 @@
    "head": "beaubien_b",
    "file": "households/hh_beaubien_b.json"
   },
+  "hh_beaubien_caroline": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "beaubien_caroline",
+   "file": "households/hh_beaubien_caroline.json"
+  },
+  "hh_beaubien_charles": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "beaubien_charles",
+   "file": "households/hh_beaubien_charles.json"
+  },
   "hh_beaubien_charles_h": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region",
    "head": "beaubien_charles_h",
    "file": "households/hh_beaubien_charles_h.json"
+  },
+  "hh_beaubien_elonore": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "beaubien_elonore",
+   "file": "households/hh_beaubien_elonore.json"
+  },
+  "hh_beaubien_george": {
+   "value": "southern",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "beaubien_george",
+   "file": "households/hh_beaubien_george.json"
   },
   "hh_beaubien_jean_baptiste": {
    "value": "french_canadian",
@@ -15068,6 +15431,13 @@
    "head": "beaubien_john_s",
    "file": "households/hh_beaubien_john_s.json"
   },
+  "hh_beaubien_joseph": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "beaubien_joseph",
+   "file": "households/hh_beaubien_joseph.json"
+  },
   "hh_beaubien_madore": {
    "value": "unknown",
    "tier": null,
@@ -15081,6 +15451,27 @@
    "rule": "stated_community",
    "head": "beaubien_mark",
    "file": "households/hh_beaubien_mark.json"
+  },
+  "hh_beaubien_monique": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "beaubien_monique",
+   "file": "households/hh_beaubien_monique.json"
+  },
+  "hh_beaubien_robert_jerome": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "beaubien_robert_jerome",
+   "file": "households/hh_beaubien_robert_jerome.json"
+  },
+  "hh_beaubien_susan": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "beaubien_susan",
+   "file": "households/hh_beaubien_susan.json"
   },
   "hh_bebee_orson": {
    "value": "southern",
@@ -15229,13 +15620,6 @@
    "head": "berger_f_c",
    "file": "households/hh_berger_f_c.json"
   },
-  "hh_bernard_bousque": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "bernard_bousque",
-   "file": "readmitted/hh_bernard_bousque.json"
-  },
   "hh_bernard_schaeffer": {
    "value": "unknown",
    "tier": null,
@@ -15355,6 +15739,13 @@
    "head": "blanchard_w_g",
    "file": "households/hh_blanchard_w_g.json"
   },
+  "hh_blanchemontagne_alexis_thomas": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "blanchemontagne_alexis_thomas",
+   "file": "households/hh_blanchemontagne_alexis_thomas.json"
+  },
   "hh_blanshard_f_g": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -15467,6 +15858,13 @@
    "head": "bonin_augustus",
    "file": "households/hh_bonin_augustus.json"
   },
+  "hh_bonn_augustin": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "bonn_augustin",
+   "file": "households/hh_bonn_augustin.json"
+  },
   "hh_borland_andrew_w": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -15495,6 +15893,20 @@
    "head": "botsford_j_k",
    "file": "households/hh_botsford_j_k.json"
   },
+  "hh_bouchard_adelaide": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "bouchard_adelaide",
+   "file": "households/hh_bouchard_adelaide.json"
+  },
+  "hh_bouchard_louis": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "bouchard_louis",
+   "file": "households/hh_bouchard_louis.json"
+  },
   "hh_boucher_joseph": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -15502,12 +15914,33 @@
    "head": "boucher_joseph",
    "file": "households/hh_boucher_joseph.json"
   },
+  "hh_bourassa_jean_baptiste": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "bourassa_jean_baptiste",
+   "file": "households/hh_bourassa_jean_baptiste.json"
+  },
+  "hh_bourassa_lon": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "bourassa_lon",
+   "file": "households/hh_bourassa_lon.json"
+  },
   "hh_bourassa_mark": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "stated_community",
    "head": "bourassa_mark",
    "file": "households/hh_bourassa_mark.json"
+  },
+  "hh_bourassa_noel": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "bourassa_noel",
+   "file": "households/hh_bourassa_noel.json"
   },
   "hh_bourque_william": {
    "value": "other",
@@ -15522,6 +15955,20 @@
    "rule": "origin_region",
    "head": "bourrassa_leon",
    "file": "households/hh_bourrassa_leon.json"
+  },
+  "hh_bousque_bernard": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "bousque_bernard",
+   "file": "households/hh_bousque_bernard.json"
+  },
+  "hh_bousque_catherine_henrietta": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "bousque_catherine_henrietta",
+   "file": "households/hh_bousque_catherine_henrietta.json"
   },
   "hh_bowen_air": {
    "value": "new_york",
@@ -15614,6 +16061,13 @@
    "head": "breese_judge_sidney",
    "file": "households/hh_breese_judge_sidney.json"
   },
+  "hh_brenin_mary": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "brenin_mary",
+   "file": "households/hh_brenin_mary.json"
+  },
   "hh_brewster_franklin": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -15627,13 +16081,6 @@
    "rule": "origin_region",
    "head": "brewster_william",
    "file": "households/hh_brewster_william.json"
-  },
-  "hh_bridget_finegan": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "bridget_finegan",
-   "file": "readmitted/hh_bridget_finegan.json"
   },
   "hh_brigham_nelson": {
    "value": "new_york",
@@ -15774,6 +16221,20 @@
    "rule": "origin_region",
    "head": "brundage_asa",
    "file": "households/hh_brundage_asa.json"
+  },
+  "hh_bruno_anne_franoise_apolline": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "bruno_anne_franoise_apolline",
+   "file": "households/hh_bruno_anne_franoise_apolline.json"
+  },
+  "hh_bruno_jean_baptiste": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "bruno_jean_baptiste",
+   "file": "households/hh_bruno_jean_baptiste.json"
   },
   "hh_brush_matthias": {
    "value": "other",
@@ -16083,12 +16544,12 @@
    "head": "castle_alonzo",
    "file": "households/hh_castle_alonzo.json"
   },
-  "hh_catharine_welsh": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "catharine_welsh",
-   "file": "readmitted/hh_catharine_welsh.json"
+  "hh_casy_honora": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "casy_honora",
+   "file": "households/hh_casy_honora.json"
   },
   "hh_catherine_debert": {
    "value": "unknown",
@@ -16096,41 +16557,6 @@
    "rule": "no_origin_recorded",
    "head": "catherine_debert",
    "file": "readmitted/hh_catherine_debert.json"
-  },
-  "hh_catherine_gagnier": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "catherine_gagnier",
-   "file": "readmitted/hh_catherine_gagnier.json"
-  },
-  "hh_catherine_harrington": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "catherine_harrington",
-   "file": "readmitted/hh_catherine_harrington.json"
-  },
-  "hh_catherine_henrietta_bousque": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "catherine_henrietta_bousque",
-   "file": "readmitted/hh_catherine_henrietta_bousque.json"
-  },
-  "hh_catherine_preman": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "catherine_preman",
-   "file": "readmitted/hh_catherine_preman.json"
-  },
-  "hh_catherine_wode": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "catherine_wode",
-   "file": "readmitted/hh_catherine_wode.json"
   },
   "hh_caton_john_dean": {
    "value": "new_york",
@@ -16180,6 +16606,13 @@
    "rule": "origin_region",
    "head": "chancie_joseph",
    "file": "households/hh_chancie_joseph.json"
+  },
+  "hh_chandler_catherine": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "chandler_catherine",
+   "file": "households/hh_chandler_catherine.json"
   },
   "hh_chandler_joseph": {
    "value": "new_york",
@@ -16300,12 +16733,26 @@
    "head": "chesnut_jules",
    "file": "households/hh_chesnut_jules.json"
   },
+  "hh_chevalier_joseph": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "chevalier_joseph",
+   "file": "households/hh_chevalier_joseph.json"
+  },
   "hh_chevalier_josette": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "stated_community",
    "head": "chevalier_josette",
    "file": "households/hh_chevalier_josette.json"
+  },
+  "hh_chevalier_louis_p": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "chevalier_louis_p",
+   "file": "households/hh_chevalier_louis_p.json"
   },
   "hh_chevallier_john_b": {
    "value": "yankee",
@@ -16349,6 +16796,27 @@
    "head": "chittenden_jesse",
    "file": "households/hh_chittenden_jesse.json"
   },
+  "hh_choulet_claudia_pierrette": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "choulet_claudia_pierrette",
+   "file": "households/hh_choulet_claudia_pierrette.json"
+  },
+  "hh_choulet_louise_caroline": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "choulet_louise_caroline",
+   "file": "households/hh_choulet_louise_caroline.json"
+  },
+  "hh_choulet_michel_alexandre": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "choulet_michel_alexandre",
+   "file": "households/hh_choulet_michel_alexandre.json"
+  },
   "hh_christian_b_dodson": {
    "value": "unknown",
    "tier": null,
@@ -16390,13 +16858,6 @@
    "rule": "origin_region",
    "head": "churchill_alfred",
    "file": "households/hh_churchill_alfred.json"
-  },
-  "hh_cicely_wagon": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "cicely_wagon",
-   "file": "readmitted/hh_cicely_wagon.json"
   },
   "hh_clapp_a_p": {
    "value": "yankee",
@@ -16460,13 +16921,6 @@
    "rule": "no_origin_recorded",
    "head": "claude_lafromboise",
    "file": "readmitted/hh_claude_lafromboise.json"
-  },
-  "hh_claudia_pierrette_choulet": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "claudia_pierrette_choulet",
-   "file": "readmitted/hh_claudia_pierrette_choulet.json"
   },
   "hh_clay_william": {
    "value": "new_york",
@@ -16692,6 +17146,20 @@
    "head": "cooley_edward_v",
    "file": "households/hh_cooley_edward_v.json"
   },
+  "hh_coslet_elisabeth": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "coslet_elisabeth",
+   "file": "households/hh_coslet_elisabeth.json"
+  },
+  "hh_coslet_godfrey": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "coslet_godfrey",
+   "file": "households/hh_coslet_godfrey.json"
+  },
   "hh_couch_ira": {
    "value": "new_york",
    "tier": "inferred",
@@ -16853,6 +17321,13 @@
    "head": "dalton_edward",
    "file": "households/hh_dalton_edward.json"
   },
+  "hh_daly_edward": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "daly_edward",
+   "file": "households/hh_daly_edward.json"
+  },
   "hh_damels_samuel": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -16866,6 +17341,13 @@
    "rule": "origin_region",
    "head": "daniel_b_clevinger_4",
    "file": "households/hh_daniel_b_clevinger_4.json"
+  },
+  "hh_daniel_frederick": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "daniel_frederick",
+   "file": "households/hh_daniel_frederick.json"
   },
   "hh_daniel_morrison": {
    "value": "unknown",
@@ -17056,6 +17538,13 @@
    "head": "demotte_lenac",
    "file": "households/hh_demotte_lenac.json"
   },
+  "hh_derocher_jean_baptiste": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "derocher_jean_baptiste",
+   "file": "households/hh_derocher_jean_baptiste.json"
+  },
   "hh_devoe_samuel": {
    "value": "other",
    "tier": "reconstructed",
@@ -17111,6 +17600,13 @@
    "rule": "origin_region",
    "head": "dimmick_e",
    "file": "households/hh_dimmick_e.json"
+  },
+  "hh_dird_john_david": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "dird_john_david",
+   "file": "households/hh_dird_john_david.json"
   },
   "hh_dix_elijah": {
    "value": "new_york",
@@ -17287,6 +17783,13 @@
    "head": "dudley_john",
    "file": "households/hh_dudley_john.json"
   },
+  "hh_duggan_mary": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "duggan_mary",
+   "file": "households/hh_duggan_mary.json"
+  },
   "hh_dunlap_alva": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -17300,6 +17803,20 @@
    "rule": "origin_region",
    "head": "dunn_dangerfield",
    "file": "households/hh_dunn_dangerfield.json"
+  },
+  "hh_duplas_catherine": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "duplas_catherine",
+   "file": "households/hh_duplas_catherine.json"
+  },
+  "hh_duplas_joseph": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "duplas_joseph",
+   "file": "households/hh_duplas_joseph.json"
   },
   "hh_dustin_thomas": {
    "value": "other",
@@ -17378,6 +17895,13 @@
    "head": "eberiden_samuel",
    "file": "households/hh_eberiden_samuel.json"
   },
+  "hh_eberling_marian": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "eberling_marian",
+   "file": "households/hh_eberling_marian.json"
+  },
   "hh_edmund_s_kimberley": {
    "value": "unknown",
    "tier": null,
@@ -17420,13 +17944,6 @@
    "head": "egan_william_b",
    "file": "households/hh_egan_william_b.json"
   },
-  "hh_el_onore_beaubien": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "el_onore_beaubien",
-   "file": "readmitted/hh_el_onore_beaubien.json"
-  },
   "hh_eldridge_john_w": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -17461,13 +17978,6 @@
    "rule": "no_origin_recorded",
    "head": "elijah_sen_wentworth",
    "file": "readmitted/hh_elijah_sen_wentworth.json"
-  },
-  "hh_elisabeth_coslet": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "elisabeth_coslet",
-   "file": "readmitted/hh_elisabeth_coslet.json"
   },
   "hh_elisha_rayond": {
    "value": "yankee",
@@ -17510,13 +18020,6 @@
    "rule": "origin_region",
    "head": "erastus_patterson",
    "file": "households/hh_erastus_patterson.json"
-  },
-  "hh_esther_bailly": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "esther_bailly",
-   "file": "readmitted/hh_esther_bailly.json"
   },
   "hh_evans_sciota": {
    "value": "british",
@@ -17735,6 +18238,13 @@
    "head": "filliams_gilea",
    "file": "households/hh_filliams_gilea.json"
   },
+  "hh_finegan_bridget": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "finegan_bridget",
+   "file": "households/hh_finegan_bridget.json"
+  },
   "hh_finley_clement_a": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -17868,6 +18378,27 @@
    "head": "ford_ebenezer",
    "file": "households/hh_ford_ebenezer.json"
   },
+  "hh_forester_mary_elisabeth": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "forester_mary_elisabeth",
+   "file": "households/hh_forester_mary_elisabeth.json"
+  },
+  "hh_forester_thomas": {
+   "value": "southern",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "forester_thomas",
+   "file": "households/hh_forester_thomas.json"
+  },
+  "hh_forster_bridget": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "forster_bridget",
+   "file": "households/hh_forster_bridget.json"
+  },
   "hh_forster_jane": {
    "value": "british",
    "tier": "reconstructed",
@@ -17924,13 +18455,6 @@
    "head": "frame_david_p",
    "file": "households/hh_frame_david_p.json"
   },
-  "hh_fran_ois_laframboise": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "fran_ois_laframboise",
-   "file": "readmitted/hh_fran_ois_laframboise.json"
-  },
   "hh_fran_ois_tranche": {
    "value": "unknown",
    "tier": null,
@@ -17944,6 +18468,13 @@
    "rule": "origin_region",
    "head": "franchere_l",
    "file": "households/hh_franchere_l.json"
+  },
+  "hh_franchre_louis": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "franchre_louis",
+   "file": "households/hh_franchre_louis.json"
   },
   "hh_francis_labaque": {
    "value": "unknown",
@@ -18022,6 +18553,20 @@
    "head": "gage_eli",
    "file": "households/hh_gage_eli.json"
   },
+  "hh_gagnier_alexis": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "gagnier_alexis",
+   "file": "households/hh_gagnier_alexis.json"
+  },
+  "hh_gagnier_catherine": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "gagnier_catherine",
+   "file": "households/hh_gagnier_catherine.json"
+  },
   "hh_galaher_thomas": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -18077,20 +18622,6 @@
    "rule": "origin_region",
    "head": "garton_elijah",
    "file": "households/hh_garton_elijah.json"
-  },
-  "hh_genevi_ve_medera": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "genevi_ve_medera",
-   "file": "readmitted/hh_genevi_ve_medera.json"
-  },
-  "hh_george_beaubien": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "george_beaubien",
-   "file": "readmitted/hh_george_beaubien.json"
   },
   "hh_george_c": {
    "value": "yankee",
@@ -18168,13 +18699,6 @@
    "rule": "origin_region",
    "head": "goddard_wm_h",
    "file": "households/hh_goddard_wm_h.json"
-  },
-  "hh_godfrey_coslet": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "godfrey_coslet",
-   "file": "readmitted/hh_godfrey_coslet.json"
   },
   "hh_godfrey_t": {
    "value": "yankee",
@@ -18365,12 +18889,12 @@
    "head": "gurtrey_blanchard",
    "file": "readmitted/hh_gurtrey_blanchard.json"
   },
-  "hh_gwinthlean_whistler": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "gwinthlean_whistler",
-   "file": "readmitted/hh_gwinthlean_whistler.json"
+  "hh_guy_josphine": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "guy_josphine",
+   "file": "households/hh_guy_josphine.json"
   },
   "hh_h_w_knickerbocker": {
    "value": "unknown",
@@ -18526,6 +19050,13 @@
    "head": "harriet_paddock",
    "file": "households/hh_harriet_paddock.json"
   },
+  "hh_harrington_catherine": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "harrington_catherine",
+   "file": "households/hh_harrington_catherine.json"
+  },
   "hh_harris_david": {
    "value": "other",
    "tier": "reconstructed",
@@ -18665,13 +19196,6 @@
    "rule": "origin_region",
    "head": "henry_hamilton_s",
    "file": "households/hh_henry_hamilton_s.json"
-  },
-  "hh_henry_stone": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "henry_stone",
-   "file": "readmitted/hh_henry_stone.json"
   },
   "hh_henry_w_cleaveland": {
    "value": "unknown",
@@ -19261,13 +19785,6 @@
    "head": "jacob_benninger",
    "file": "readmitted/hh_jacob_benninger.json"
   },
-  "hh_jacob_jolly": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "jacob_jolly",
-   "file": "readmitted/hh_jacob_jolly.json"
-  },
   "hh_jacob_richard": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -19288,13 +19805,6 @@
    "rule": "no_origin_recorded",
    "head": "jacob_sherrill",
    "file": "readmitted/hh_jacob_sherrill.json"
-  },
-  "hh_jacquette_peltier": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "jacquette_peltier",
-   "file": "readmitted/hh_jacquette_peltier.json"
   },
   "hh_jaines_gooding": {
    "value": "new_york",
@@ -19380,41 +19890,6 @@
    "head": "janea_russell",
    "file": "households/hh_janea_russell.json"
   },
-  "hh_jean_baptiste_aspam": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "jean_baptiste_aspam",
-   "file": "readmitted/hh_jean_baptiste_aspam.json"
-  },
-  "hh_jean_baptiste_bourassa": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "jean_baptiste_bourassa",
-   "file": "readmitted/hh_jean_baptiste_bourassa.json"
-  },
-  "hh_jean_baptiste_derocher": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "jean_baptiste_derocher",
-   "file": "readmitted/hh_jean_baptiste_derocher.json"
-  },
-  "hh_jean_baptiste_lavigne": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "jean_baptiste_lavigne",
-   "file": "readmitted/hh_jean_baptiste_lavigne.json"
-  },
-  "hh_jean_pottier": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "jean_pottier",
-   "file": "readmitted/hh_jean_pottier.json"
-  },
   "hh_jeddiah_woolley": {
    "value": "unknown",
    "tier": null,
@@ -19464,13 +19939,6 @@
    "head": "jerome_orin",
    "file": "households/hh_jerome_orin.json"
   },
-  "hh_john_david_dird": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "john_david_dird",
-   "file": "readmitted/hh_john_david_dird.json"
-  },
   "hh_john_f_herndon": {
    "value": "unknown",
    "tier": null,
@@ -19513,20 +19981,6 @@
    "head": "john_welch",
    "file": "readmitted/hh_john_welch.json"
   },
-  "hh_john_whistler": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "john_whistler",
-   "file": "readmitted/hh_john_whistler.json"
-  },
-  "hh_john_wode": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "john_wode",
-   "file": "readmitted/hh_john_wode.json"
-  },
   "hh_johnson_lathrop": {
    "value": "british",
    "tier": "reconstructed",
@@ -19568,6 +20022,13 @@
    "rule": "origin_region",
    "head": "jolin_mosgrove",
    "file": "households/hh_jolin_mosgrove.json"
+  },
+  "hh_jolly_jacob": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "jolly_jacob",
+   "file": "households/hh_jolly_jacob.json"
   },
   "hh_joln_naper": {
    "value": "yankee",
@@ -19653,33 +20114,12 @@
    "head": "joseph_l_tendre",
    "file": "readmitted/hh_joseph_l_tendre.json"
   },
-  "hh_joseph_mayo": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "joseph_mayo",
-   "file": "readmitted/hh_joseph_mayo.json"
-  },
   "hh_joseph_metcalf": {
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region",
    "head": "joseph_metcalf",
    "file": "households/hh_joseph_metcalf.json"
-  },
-  "hh_joseph_pallet": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "joseph_pallet",
-   "file": "readmitted/hh_joseph_pallet.json"
-  },
-  "hh_joseph_welsh": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "joseph_welsh",
-   "file": "readmitted/hh_joseph_welsh.json"
   },
   "hh_josepit_ogan": {
    "value": "new_york",
@@ -19695,12 +20135,26 @@
    "head": "joter_johnson",
    "file": "households/hh_joter_johnson.json"
   },
+  "hh_judar_barbery": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "judar_barbery",
+   "file": "households/hh_judar_barbery.json"
+  },
   "hh_julien_s_rumsey": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded",
    "head": "julien_s_rumsey",
    "file": "readmitted/hh_julien_s_rumsey.json"
+  },
+  "hh_juneau_marguerite": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "juneau_marguerite",
+   "file": "households/hh_juneau_marguerite.json"
   },
   "hh_juneau_solomon": {
    "value": "new_york",
@@ -19736,6 +20190,13 @@
    "rule": "origin_region",
    "head": "kendall_samuel",
    "file": "households/hh_kendall_samuel.json"
+  },
+  "hh_kennedy_lucy": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "kennedy_lucy",
+   "file": "households/hh_kennedy_lucy.json"
   },
   "hh_kennicott_m_h": {
    "value": "yankee",
@@ -20052,26 +20513,61 @@
    "head": "kurcheval_louis_c",
    "file": "households/hh_kurcheval_louis_c.json"
   },
-  "hh_l_chevalier": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "l_chevalier",
-   "file": "readmitted/hh_l_chevalier.json"
-  },
-  "hh_l_on_bourassa": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "l_on_bourassa",
-   "file": "readmitted/hh_l_on_bourassa.json"
-  },
   "hh_lacey_j_s": {
    "value": "other",
    "tier": "reconstructed",
    "rule": "origin_region",
    "head": "lacey_j_s",
    "file": "households/hh_lacey_j_s.json"
+  },
+  "hh_laframboise_ccile": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "laframboise_ccile",
+   "file": "households/hh_laframboise_ccile.json"
+  },
+  "hh_laframboise_claude": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "laframboise_claude",
+   "file": "households/hh_laframboise_claude.json"
+  },
+  "hh_laframboise_franois": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "laframboise_franois",
+   "file": "households/hh_laframboise_franois.json"
+  },
+  "hh_laframboise_joseph": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "laframboise_joseph",
+   "file": "households/hh_laframboise_joseph.json"
+  },
+  "hh_laframboise_josette": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "laframboise_josette",
+   "file": "households/hh_laframboise_josette.json"
+  },
+  "hh_laframboise_marguerite": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "laframboise_marguerite",
+   "file": "households/hh_laframboise_marguerite.json"
+  },
+  "hh_laframboise_thrse": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "laframboise_thrse",
+   "file": "households/hh_laframboise_thrse.json"
   },
   "hh_lafrombois_joseph": {
    "value": "british",
@@ -20184,6 +20680,13 @@
    "rule": "origin_region",
    "head": "lauretta_plympton_2",
    "file": "households/hh_lauretta_plympton_2.json"
+  },
+  "hh_lavigne_jean_baptiste": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "lavigne_jean_baptiste",
+   "file": "households/hh_lavigne_jean_baptiste.json"
   },
   "hh_lawrence_james_r": {
    "value": "yankee",
@@ -20381,13 +20884,6 @@
    "head": "loring_wm",
    "file": "households/hh_loring_wm.json"
   },
-  "hh_louis_bouchard": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "louis_bouchard",
-   "file": "readmitted/hh_louis_bouchard.json"
-  },
   "hh_louis_franch_re": {
    "value": "unknown",
    "tier": null,
@@ -20401,13 +20897,6 @@
    "rule": "origin_region",
    "head": "louis_malzacher",
    "file": "households/hh_louis_malzacher.json"
-  },
-  "hh_louise_caroline_choulet": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "louise_caroline_choulet",
-   "file": "readmitted/hh_louise_caroline_choulet.json"
   },
   "hh_lovel_kimball_or": {
    "value": "new_york",
@@ -20451,6 +20940,20 @@
    "head": "loyell_j_hi",
    "file": "households/hh_loyell_j_hi.json"
   },
+  "hh_ltendre_baptiste": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "ltendre_baptiste",
+   "file": "households/hh_ltendre_baptiste.json"
+  },
+  "hh_ltendre_joseph": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "ltendre_joseph",
+   "file": "households/hh_ltendre_joseph.json"
+  },
   "hh_lucas_robert": {
    "value": "british",
    "tier": "reconstructed",
@@ -20471,13 +20974,6 @@
    "rule": "no_origin_recorded",
    "head": "lucinda_jackson",
    "file": "readmitted/hh_lucinda_jackson.json"
-  },
-  "hh_lucy_kennedy": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "lucy_kennedy",
-   "file": "readmitted/hh_lucy_kennedy.json"
   },
   "hh_ludb_john": {
    "value": "british",
@@ -20549,12 +21045,12 @@
    "head": "maclean_archibald",
    "file": "households/hh_maclean_archibald.json"
   },
-  "hh_magdeleine_aspam": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "magdeleine_aspam",
-   "file": "readmitted/hh_magdeleine_aspam.json"
+  "hh_madera_victoire": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "madera_victoire",
+   "file": "households/hh_madera_victoire.json"
   },
   "hh_makepiece_george_r": {
    "value": "yankee",
@@ -20570,6 +21066,13 @@
    "head": "makio_james",
    "file": "households/hh_makio_james.json"
   },
+  "hh_mallet_marie_louise": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "mallet_marie_louise",
+   "file": "households/hh_mallet_marie_louise.json"
+  },
   "hh_malone_patrick": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -20584,26 +21087,12 @@
    "head": "manqua_masqua",
    "file": "readmitted/hh_manqua_masqua.json"
   },
-  "hh_marguerite_juneau": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "marguerite_juneau",
-   "file": "readmitted/hh_marguerite_juneau.json"
-  },
   "hh_marguerite_malore": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded",
    "head": "marguerite_malore",
    "file": "readmitted/hh_marguerite_malore.json"
-  },
-  "hh_marian_eberling": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "marian_eberling",
-   "file": "readmitted/hh_marian_eberling.json"
   },
   "hh_marian_mouch": {
    "value": "unknown",
@@ -20618,13 +21107,6 @@
    "rule": "no_origin_recorded",
    "head": "mariana_kamenwith",
    "file": "readmitted/hh_mariana_kamenwith.json"
-  },
-  "hh_marie_louise_ouilmette": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "marie_louise_ouilmette",
-   "file": "readmitted/hh_marie_louise_ouilmette.json"
   },
   "hh_markle_joseph_w": {
    "value": "new_york",
@@ -20675,33 +21157,12 @@
    "head": "martin_patrick",
    "file": "households/hh_martin_patrick.json"
   },
-  "hh_mary_duggan": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "mary_duggan",
-   "file": "readmitted/hh_mary_duggan.json"
-  },
-  "hh_mary_elisabeth_forester": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "mary_elisabeth_forester",
-   "file": "readmitted/hh_mary_elisabeth_forester.json"
-  },
   "hh_mary_nelson": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region",
    "head": "mary_nelson",
    "file": "households/hh_mary_nelson.json"
-  },
-  "hh_mary_wode": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "mary_wode",
-   "file": "readmitted/hh_mary_wode.json"
   },
   "hh_mason_matthias": {
    "value": "other",
@@ -20773,6 +21234,20 @@
    "head": "maynard_elias",
    "file": "households/hh_maynard_elias.json"
   },
+  "hh_mayo_joseph": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "mayo_joseph",
+   "file": "households/hh_mayo_joseph.json"
+  },
+  "hh_mayo_michel": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "mayo_michel",
+   "file": "households/hh_mayo_michel.json"
+  },
   "hh_mcburney_samuel": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -20835,6 +21310,13 @@
    "rule": "origin_region",
    "head": "meacham_mary",
    "file": "households/hh_meacham_mary.json"
+  },
+  "hh_medera_genevive": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "medera_genevive",
+   "file": "households/hh_medera_genevive.json"
   },
   "hh_meeker_joseph": {
    "value": "yankee",
@@ -20913,19 +21395,19 @@
    "head": "michel_james",
    "file": "households/hh_michel_james.json"
   },
-  "hh_michel_mayo": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "michel_mayo",
-   "file": "readmitted/hh_michel_mayo.json"
-  },
   "hh_miles_andrew": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region",
    "head": "miles_andrew",
    "file": "households/hh_miles_andrew.json"
+  },
+  "hh_miller_catherine": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "miller_catherine",
+   "file": "households/hh_miller_catherine.json"
   },
   "hh_miller_george": {
    "value": "yankee",
@@ -21039,12 +21521,19 @@
    "head": "mlean_john_y",
    "file": "households/hh_mlean_john_y.json"
   },
-  "hh_monique_nadeau": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "monique_nadeau",
-   "file": "readmitted/hh_monique_nadeau.json"
+  "hh_molony_denis": {
+   "value": "southern",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "molony_denis",
+   "file": "households/hh_molony_denis.json"
+  },
+  "hh_molony_john": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "molony_john",
+   "file": "households/hh_molony_john.json"
   },
   "hh_montgomery_l_w": {
    "value": "yankee",
@@ -21221,6 +21710,13 @@
    "head": "murphy_john",
    "file": "households/hh_murphy_john.json"
   },
+  "hh_murphy_mary": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "murphy_mary",
+   "file": "households/hh_murphy_mary.json"
+  },
   "hh_murphy_n": {
    "value": "irish",
    "tier": "reconstructed",
@@ -21234,6 +21730,27 @@
    "rule": "origin_region",
    "head": "murray_alonzo",
    "file": "households/hh_murray_alonzo.json"
+  },
+  "hh_murray_catherine": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "murray_catherine",
+   "file": "households/hh_murray_catherine.json"
+  },
+  "hh_murray_john": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "murray_john",
+   "file": "households/hh_murray_john.json"
+  },
+  "hh_murray_martha": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "murray_martha",
+   "file": "households/hh_murray_martha.json"
   },
   "hh_murray_patrick": {
    "value": "british",
@@ -21283,6 +21800,13 @@
    "rule": "no_origin_recorded",
    "head": "n_thob",
    "file": "readmitted/hh_n_thob.json"
+  },
+  "hh_nadeau_monique": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "nadeau_monique",
+   "file": "households/hh_nadeau_monique.json"
   },
   "hh_nalla_john_v": {
    "value": "yankee",
@@ -21375,13 +21899,6 @@
    "head": "noble_william_b",
    "file": "households/hh_noble_william_b.json"
   },
-  "hh_noel_bourassa": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "noel_bourassa",
-   "file": "readmitted/hh_noel_bourassa.json"
-  },
   "hh_nolan_michael": {
    "value": "irish",
    "tier": "reconstructed",
@@ -21466,6 +21983,20 @@
    "head": "olingar_samuel",
    "file": "households/hh_olingar_samuel.json"
   },
+  "hh_omarra_bridget": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "omarra_bridget",
+   "file": "households/hh_omarra_bridget.json"
+  },
+  "hh_omarra_james": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "omarra_james",
+   "file": "households/hh_omarra_james.json"
+  },
   "hh_one_of_daughters_of_m_colewell": {
    "value": "unknown",
    "tier": null,
@@ -21514,6 +22045,13 @@
    "rule": "origin_region",
    "head": "otto_silas_p",
    "file": "households/hh_otto_silas_p.json"
+  },
+  "hh_ouilmette_marie_louise": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "ouilmette_marie_louise",
+   "file": "households/hh_ouilmette_marie_louise.json"
   },
   "hh_outhet_daniel": {
    "value": "new_york",
@@ -21577,6 +22115,13 @@
    "rule": "origin_region",
    "head": "paine_william",
    "file": "households/hh_paine_william.json"
+  },
+  "hh_pallet_joseph": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "pallet_joseph",
+   "file": "households/hh_pallet_joseph.json"
   },
   "hh_palmer_dyer": {
    "value": "unknown",
@@ -21738,6 +22283,13 @@
    "rule": "origin_region",
    "head": "peck_philip",
    "file": "households/hh_peck_philip.json"
+  },
+  "hh_peltier_jacquette": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "peltier_jacquette",
+   "file": "households/hh_peltier_jacquette.json"
   },
   "hh_pennington_sack_f": {
    "value": "yankee",
@@ -21921,6 +22473,27 @@
    "head": "porthier_joseph",
    "file": "households/hh_porthier_joseph.json"
   },
+  "hh_pottier_augustin": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "pottier_augustin",
+   "file": "households/hh_pottier_augustin.json"
+  },
+  "hh_pottier_jean": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "pottier_jean",
+   "file": "households/hh_pottier_jean.json"
+  },
+  "hh_pottier_joseph": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "pottier_joseph",
+   "file": "households/hh_pottier_joseph.json"
+  },
   "hh_powell_geo_n": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -21955,6 +22528,13 @@
    "rule": "origin_region",
    "head": "preinen_v_a",
    "file": "households/hh_preinen_v_a.json"
+  },
+  "hh_preman_catherine": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "preman_catherine",
+   "file": "households/hh_preman_catherine.json"
   },
   "hh_preston_esther": {
    "value": "yankee",
@@ -22228,6 +22808,13 @@
    "rule": "reconstruction_community",
    "head": "rc_bourassa_hyacinthe",
    "file": "reconstructed_trades/hh_rc_bourassa_hyacinthe.json"
+  },
+  "hh_rc_bourassa_madeleine": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_bourassa_madeleine",
+   "file": "households/hh_rc_bourassa_madeleine.json"
   },
   "hh_rc_brady_catherine": {
    "value": "irish",
@@ -22698,12 +23285,12 @@
    "head": "rc_doyle_ellen",
    "file": "households/hh_rc_doyle_ellen.json"
   },
-  "hh_rc_doyle_honora": {
+  "hh_rc_doyle_margaret": {
    "value": "irish",
    "tier": "reconstructed",
    "rule": "reconstruction_community",
-   "head": "rc_doyle_honora",
-   "file": "reconstructed_trades/hh_rc_doyle_honora.json"
+   "head": "rc_doyle_margaret",
+   "file": "reconstructed_trades/hh_rc_doyle_margaret.json"
   },
   "hh_rc_duffy_alice": {
    "value": "irish",
@@ -23468,19 +24055,19 @@
    "head": "rc_laframboise_archange",
    "file": "households/hh_rc_laframboise_archange.json"
   },
+  "hh_rc_laframboise_charles": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_laframboise_charles",
+   "file": "reconstructed_trades/hh_rc_laframboise_charles.json"
+  },
   "hh_rc_laframboise_francois": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community",
    "head": "rc_laframboise_francois",
    "file": "reconstructed_trades/hh_rc_laframboise_francois.json"
-  },
-  "hh_rc_laframboise_joseph": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community",
-   "head": "rc_laframboise_joseph",
-   "file": "reconstructed_trades/hh_rc_laframboise_joseph.json"
   },
   "hh_rc_laframboise_madeleine": {
    "value": "french_canadian",
@@ -23824,13 +24411,6 @@
    "rule": "reconstruction_community",
    "head": "rc_metcalf_nathaniel",
    "file": "reconstructed_trades/hh_rc_metcalf_nathaniel.json"
-  },
-  "hh_rc_murphy_bridget": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community",
-   "head": "rc_murphy_bridget",
-   "file": "households/hh_rc_murphy_bridget.json"
   },
   "hh_rc_murphy_bryan": {
    "value": "irish",
@@ -24399,13 +24979,6 @@
    "head": "rc_ryan_ellen",
    "file": "households/hh_rc_ryan_ellen.json"
   },
-  "hh_rc_ryan_margaret": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community",
-   "head": "rc_ryan_margaret",
-   "file": "reconstructed_trades/hh_rc_ryan_margaret.json"
-  },
   "hh_rc_ryan_mary": {
    "value": "irish",
    "tier": "reconstructed",
@@ -24686,6 +25259,13 @@
    "head": "rc_sullivan_james",
    "file": "reconstructed_trades/hh_rc_sullivan_james.json"
   },
+  "hh_rc_sullivan_johanna": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_sullivan_johanna",
+   "file": "reconstructed_trades/hh_rc_sullivan_johanna.json"
+  },
   "hh_rc_sullivan_margaret": {
    "value": "irish",
    "tier": "reconstructed",
@@ -24868,26 +25448,19 @@
    "head": "rc_tuttle_ruth",
    "file": "reconstructed_trades/hh_rc_tuttle_ruth.json"
   },
+  "hh_rc_vieau_angelique": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_vieau_angelique",
+   "file": "households/hh_rc_vieau_angelique.json"
+  },
   "hh_rc_vieau_baptiste": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community",
    "head": "rc_vieau_baptiste",
    "file": "reconstructed_trades/hh_rc_vieau_baptiste.json"
-  },
-  "hh_rc_vieau_francois": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community",
-   "head": "rc_vieau_francois",
-   "file": "reconstructed_trades/hh_rc_vieau_francois.json"
-  },
-  "hh_rc_vieau_hyacinthe": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community",
-   "head": "rc_vieau_hyacinthe",
-   "file": "reconstructed_trades/hh_rc_vieau_hyacinthe.json"
   },
   "hh_rc_vieau_jean": {
    "value": "french_canadian",
@@ -24896,12 +25469,12 @@
    "head": "rc_vieau_jean",
    "file": "reconstructed_trades/hh_rc_vieau_jean.json"
   },
-  "hh_rc_vieau_josette": {
+  "hh_rc_vieau_louis": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community",
-   "head": "rc_vieau_josette",
-   "file": "households/hh_rc_vieau_josette.json"
+   "head": "rc_vieau_louis",
+   "file": "reconstructed_trades/hh_rc_vieau_louis.json"
   },
   "hh_rc_vieau_marie": {
    "value": "french_canadian",
@@ -24909,6 +25482,13 @@
    "rule": "reconstruction_community",
    "head": "rc_vieau_marie",
    "file": "reconstructed_trades/hh_rc_vieau_marie.json"
+  },
+  "hh_rc_vieau_toussaint": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_vieau_toussaint",
+   "file": "reconstructed_trades/hh_rc_vieau_toussaint.json"
   },
   "hh_rc_wadsworth_alvah": {
    "value": "yankee",
@@ -25274,6 +25854,13 @@
    "head": "rider_elia",
    "file": "households/hh_rider_elia.json"
   },
+  "hh_riffe_pierre": {
+   "value": "british",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "riffe_pierre",
+   "file": "households/hh_riffe_pierre.json"
+  },
   "hh_rinhart_james_h": {
    "value": "other",
    "tier": "reconstructed",
@@ -25316,13 +25903,6 @@
    "head": "robert_freeman",
    "file": "readmitted/hh_robert_freeman.json"
   },
-  "hh_robert_jerome_beaubien": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "robert_jerome_beaubien",
-   "file": "readmitted/hh_robert_jerome_beaubien.json"
-  },
   "hh_robert_patrick": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -25350,6 +25930,13 @@
    "rule": "origin_region",
    "head": "robes_philander",
    "file": "households/hh_robes_philander.json"
+  },
+  "hh_robi_marguerite": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "robi_marguerite",
+   "file": "households/hh_robi_marguerite.json"
   },
   "hh_robian_daniel_o": {
    "value": "yankee",
@@ -25399,6 +25986,27 @@
    "rule": "origin_region",
    "head": "rogers_edward_a",
    "file": "households/hh_rogers_edward_a.json"
+  },
+  "hh_roi_anne_franoise_virginie": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "roi_anne_franoise_virginie",
+   "file": "households/hh_roi_anne_franoise_virginie.json"
+  },
+  "hh_roi_george_david": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "roi_george_david",
+   "file": "households/hh_roi_george_david.json"
+  },
+  "hh_roi_joseph_claude": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "roi_joseph_claude",
+   "file": "households/hh_roi_joseph_claude.json"
   },
   "hh_rollins_charles": {
    "value": "new_york",
@@ -25700,6 +26308,20 @@
    "rule": "origin_region",
    "head": "schindler_joseph",
    "file": "households/hh_schindler_joseph.json"
+  },
+  "hh_schwartz_adam": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "schwartz_adam",
+   "file": "households/hh_schwartz_adam.json"
+  },
+  "hh_schwartz_pierre_adam": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "schwartz_pierre_adam",
+   "file": "households/hh_schwartz_pierre_adam.json"
   },
   "hh_scott_john": {
    "value": "southern",
@@ -26015,6 +26637,13 @@
    "rule": "origin_region",
    "head": "smith_lawrence",
    "file": "households/hh_smith_lawrence.json"
+  },
+  "hh_smith_mathias": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "smith_mathias",
+   "file": "households/hh_smith_mathias.json"
   },
   "hh_smith_matthias": {
    "value": "yankee",
@@ -26359,6 +26988,13 @@
    "head": "stold_abraham_f",
    "file": "households/hh_stold_abraham_f.json"
   },
+  "hh_stone_henry": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "stone_henry",
+   "file": "households/hh_stone_henry.json"
+  },
   "hh_story_j_n": {
    "value": "other",
    "tier": "reconstructed",
@@ -26435,27 +27071,6 @@
    "rule": "no_origin_recorded",
    "head": "susan_anderson",
    "file": "readmitted/hh_susan_anderson.json"
-  },
-  "hh_susan_beaubien": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "susan_beaubien",
-   "file": "readmitted/hh_susan_beaubien.json"
-  },
-  "hh_susanne_tranche": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "susanne_tranche",
-   "file": "readmitted/hh_susanne_tranche.json"
-  },
-  "hh_susanne_vieaux": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "susanne_vieaux",
-   "file": "readmitted/hh_susanne_vieaux.json"
   },
   "hh_swapp_abram": {
    "value": "new_york",
@@ -26597,13 +27212,6 @@
    "head": "thomas_drummond",
    "file": "readmitted/hh_thomas_drummond.json"
   },
-  "hh_thomas_forester": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "thomas_forester",
-   "file": "readmitted/hh_thomas_forester.json"
-  },
   "hh_thomas_frederick": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -26681,6 +27289,20 @@
    "head": "todd_hugh",
    "file": "households/hh_todd_hugh.json"
   },
+  "hh_tony_jacob": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "tony_jacob",
+   "file": "households/hh_tony_jacob.json"
+  },
+  "hh_tony_louisa": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "tony_louisa",
+   "file": "households/hh_tony_louisa.json"
+  },
   "hh_torry_d_v_s": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -26701,6 +27323,20 @@
    "rule": "origin_region",
    "head": "trall_e_l",
    "file": "households/hh_trall_e_l.json"
+  },
+  "hh_tranche_marguerite": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "tranche_marguerite",
+   "file": "households/hh_tranche_marguerite.json"
+  },
+  "hh_tranche_susanne": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "tranche_susanne",
+   "file": "households/hh_tranche_susanne.json"
   },
   "hh_trimble_edward": {
    "value": "british",
@@ -27507,12 +28143,40 @@
    "head": "vial_james",
    "file": "households/hh_vial_james.json"
   },
-  "hh_victoire_madera": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "victoire_madera",
-   "file": "readmitted/hh_victoire_madera.json"
+  "hh_vieau_jacob": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "vieau_jacob",
+   "file": "households/hh_vieau_jacob.json"
+  },
+  "hh_vieau_josette": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "vieau_josette",
+   "file": "households/hh_vieau_josette.json"
+  },
+  "hh_vieau_marie_josette": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "vieau_marie_josette",
+   "file": "households/hh_vieau_marie_josette.json"
+  },
+  "hh_vieau_paul": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "stated_community",
+   "head": "vieau_paul",
+   "file": "households/hh_vieau_paul.json"
+  },
+  "hh_vieaux_susanne": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "vieaux_susanne",
+   "file": "households/hh_vieaux_susanne.json"
   },
   "hh_villame_john_c": {
    "value": "yankee",
@@ -27541,6 +28205,13 @@
    "rule": "origin_region",
    "head": "vyekoff_henry_s",
    "file": "households/hh_vyekoff_henry_s.json"
+  },
+  "hh_wagon_cicely": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "wagon_cicely",
+   "file": "households/hh_wagon_cicely.json"
   },
   "hh_walford_h": {
    "value": "new_york",
@@ -27717,6 +28388,27 @@
    "head": "wells_george",
    "file": "households/hh_wells_george.json"
   },
+  "hh_welsh_catharine": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "welsh_catharine",
+   "file": "households/hh_welsh_catharine.json"
+  },
+  "hh_welsh_john": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "welsh_john",
+   "file": "households/hh_welsh_john.json"
+  },
+  "hh_welsh_joseph": {
+   "value": "other",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "welsh_joseph",
+   "file": "households/hh_welsh_joseph.json"
+  },
   "hh_welsh_mary": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -27786,6 +28478,20 @@
    "rule": "origin_region",
    "head": "wheldon_james",
    "file": "households/hh_wheldon_james.json"
+  },
+  "hh_whistler_gwinthlean": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "whistler_gwinthlean",
+   "file": "households/hh_whistler_gwinthlean.json"
+  },
+  "hh_whistler_john_harrison": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "whistler_john_harrison",
+   "file": "households/hh_whistler_john_harrison.json"
   },
   "hh_white_edson": {
    "value": "irish",
@@ -28010,6 +28716,27 @@
    "rule": "origin_region",
    "head": "witkins_thomas",
    "file": "households/hh_witkins_thomas.json"
+  },
+  "hh_wode_catherine": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "wode_catherine",
+   "file": "households/hh_wode_catherine.json"
+  },
+  "hh_wode_john": {
+   "value": "new_york",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "wode_john",
+   "file": "households/hh_wode_john.json"
+  },
+  "hh_wode_mary": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "origin_region",
+   "head": "wode_mary",
+   "file": "households/hh_wode_mary.json"
   },
   "hh_wolcott_alexander": {
    "value": "yankee",

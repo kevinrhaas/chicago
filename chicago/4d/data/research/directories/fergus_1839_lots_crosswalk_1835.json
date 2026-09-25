@@ -19,7 +19,7 @@
   {
    "what": "residents layer, persons",
    "path": "data/residents/households/",
-   "n": 1283
+   "n": 1402
   },
   {
    "what": "voter, poll and tax list entries (T-0493)",
@@ -40,10 +40,10 @@
  "counts": {
   "bidders": 96,
   "bidders_with_a_usable_surname": 96,
-  "residents_matched_one_bidder": 18,
+  "residents_matched_one_bidder": 19,
   "residents_ambiguous": 1,
-  "residents_contested": 9,
-  "residents_surname_only_refused": 83,
+  "residents_contested": 10,
+  "residents_surname_only_refused": 93,
   "voters_matched_one_bidder": 20,
   "voters_ambiguous": 1,
   "voters_surname_only_refused": 43,
@@ -496,6 +496,40 @@
     "person_id": "smith_george",
     "household_id": "hh_smith_george",
     "grade_1835": "attested",
+    "carry_rule": "What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds."
+   },
+   {
+    "name": "Henry Stone",
+    "rule": "Surname 'Stone' folds to the same string as the bidder's, and the given name of both begins H.",
+    "bids_1839": [
+     {
+      "bidder_as_printed": "H. O. Stone",
+      "lots_bid": 1,
+      "amount_read_usd": 300,
+      "lots_whose_price_the_scan_destroyed": 0,
+      "lots": [
+       {
+        "claim": "f1839_lot0257",
+        "block": 15,
+        "block_carried": true,
+        "lot": 4,
+        "amount_usd": 300,
+        "as_printed": {
+         "block": null,
+         "lot": "4",
+         "bidder": "H. O. Stone,",
+         "amount": "300"
+        },
+        "printed_page": 49,
+        "bidder_ditto": false,
+        "bidder_braced": false
+       }
+      ]
+     }
+    ],
+    "person_id": "stone_henry",
+    "household_id": "hh_stone_henry",
+    "grade_1835": "inferred",
     "carry_rule": "What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds."
    },
    {
@@ -1184,7 +1218,7 @@
   "contested": [
    {
     "name": "Col. Jean Baptiste Beaubien",
-    "rule": "Surname 'Beaubien' folds to the same string as the bidder's, and the given name of both begins J. CONTESTED: 3 residents of 1835 meet this one bidder on that rule, and at most one of them is the man who bid. The match is not made.",
+    "rule": "Surname 'Beaubien' folds to the same string as the bidder's, and the given name of both begins J. CONTESTED: 4 residents of 1835 meet this one bidder on that rule, and at most one of them is the man who bid. The match is not made.",
     "bids_1839": [
      {
       "bidder_as_printed": "J. B. Beaubien",
@@ -1216,7 +1250,8 @@
     "grade_1835": "attested",
     "contested_with": [
      "Josette LaFramboise Beaubien",
-     "John S Beaubien"
+     "John S Beaubien",
+     "Joseph Beaubien"
     ]
    },
    {
@@ -1396,7 +1431,7 @@
    },
    {
     "name": "John S Beaubien",
-    "rule": "Surname 'Beaubien' folds to the same string as the bidder's, and the given name of both begins J. CONTESTED: 3 residents of 1835 meet this one bidder on that rule, and at most one of them is the man who bid. The match is not made.",
+    "rule": "Surname 'Beaubien' folds to the same string as the bidder's, and the given name of both begins J. CONTESTED: 4 residents of 1835 meet this one bidder on that rule, and at most one of them is the man who bid. The match is not made.",
     "bids_1839": [
      {
       "bidder_as_printed": "J. B. Beaubien",
@@ -1428,7 +1463,8 @@
     "grade_1835": "inferred",
     "contested_with": [
      "Col. Jean Baptiste Beaubien",
-     "Josette LaFramboise Beaubien"
+     "Josette LaFramboise Beaubien",
+     "Joseph Beaubien"
     ]
    },
    {
@@ -1506,8 +1542,46 @@
     ]
    },
    {
+    "name": "Joseph Beaubien",
+    "rule": "Surname 'Beaubien' folds to the same string as the bidder's, and the given name of both begins J. CONTESTED: 4 residents of 1835 meet this one bidder on that rule, and at most one of them is the man who bid. The match is not made.",
+    "bids_1839": [
+     {
+      "bidder_as_printed": "J. B. Beaubien",
+      "lots_bid": 1,
+      "amount_read_usd": 225,
+      "lots_whose_price_the_scan_destroyed": 0,
+      "lots": [
+       {
+        "claim": "f1839_lot0074",
+        "block": 5,
+        "block_carried": true,
+        "lot": 11,
+        "amount_usd": 225,
+        "as_printed": {
+         "block": null,
+         "lot": "1 1",
+         "bidder": "J. B. Beaubien,",
+         "amount": "225"
+        },
+        "printed_page": 48,
+        "bidder_ditto": false,
+        "bidder_braced": false
+       }
+      ]
+     }
+    ],
+    "person_id": "beaubien_joseph",
+    "household_id": "hh_beaubien_joseph",
+    "grade_1835": "inferred",
+    "contested_with": [
+     "Col. Jean Baptiste Beaubien",
+     "Josette LaFramboise Beaubien",
+     "John S Beaubien"
+    ]
+   },
+   {
     "name": "Josette LaFramboise Beaubien",
-    "rule": "Surname 'Beaubien' folds to the same string as the bidder's, and the given name of both begins J. CONTESTED: 3 residents of 1835 meet this one bidder on that rule, and at most one of them is the man who bid. The match is not made.",
+    "rule": "Surname 'Beaubien' folds to the same string as the bidder's, and the given name of both begins J. CONTESTED: 4 residents of 1835 meet this one bidder on that rule, and at most one of them is the man who bid. The match is not made.",
     "bids_1839": [
      {
       "bidder_as_printed": "J. B. Beaubien",
@@ -1539,7 +1613,8 @@
     "grade_1835": "inferred",
     "contested_with": [
      "Col. Jean Baptiste Beaubien",
-     "John S Beaubien"
+     "John S Beaubien",
+     "Joseph Beaubien"
     ]
    },
    {
@@ -1678,6 +1753,11 @@
     "rule": "The surname 'Russell' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'A' of 'Aaron Russell'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Alexander Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'A' of 'Alexander Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Alexandre Beaubien",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'A' of 'Alexandre Beaubien'. A surname-only agreement is a refusal."
@@ -1696,6 +1776,11 @@
     "name": "Anson H. Taylor",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Taylor' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'A' of 'Anson H. Taylor'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Archange Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'A' of 'Archange Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "Augustine Deodat Taylor",
@@ -1726,6 +1811,16 @@
     "name": "Byron King",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'King' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'B' of 'Byron King'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Caroline Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'C' of 'Caroline Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Charles Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'C' of 'Charles Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "Charles H Beaubien",
@@ -1773,9 +1868,19 @@
     "rule": "The surname 'Smith' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'E' of 'Elded Smith'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Elonore Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'E' of 'Elonore Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Erastus Bowen",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Bowen' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'E' of 'Erastus Bowen'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "George Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'G' of 'George Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "George Dyer",
@@ -1913,9 +2018,19 @@
     "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'M' of 'Mark Beaubien'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Mathias Smith",
+    "candidates_under_that_surname": 3,
+    "rule": "The surname 'Smith' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'M' of 'Mathias Smith'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Matthias Smith",
     "candidates_under_that_surname": 3,
     "rule": "The surname 'Smith' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'M' of 'Matthias Smith'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Monique Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'M' of 'Monique Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "Mrs. C. Taylor",
@@ -1973,6 +2088,11 @@
     "rule": "The surname 'Wright' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'R' of 'Robert C Wright'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Robert Jerome Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'R' of 'Robert Jerome Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "S W Reed",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Reed' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'S' of 'S W Reed'. A surname-only agreement is a refusal."
@@ -2006,6 +2126,11 @@
     "name": "Silas W Sherman",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Sherman' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'S' of 'Silas W Sherman'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Susan Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'S' of 'Susan Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "T. M. Morrison",

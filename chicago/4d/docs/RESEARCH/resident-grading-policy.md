@@ -39,7 +39,7 @@ The rungs are tried in the order printed here; the first that fires, wins.
 | **G1c** | `attested` | **CONVERGENCE (T-0699).** Two or more independent in-window records from DIFFERENT class families — the town's civic lists · the contemporary press, letter lists included · the parish register. Two bodies that did not copy each other, naming one man inside the scene window. |
 | **G2a** | `inferred` | The 1835 poll list alone. |
 | **G2b** | `inferred` | An 1833 or 1834 list (poll, tax, the 1832 muster) **with another source**. |
-| **G2c** | `inferred` | The St Cyr parish register inside 1833–1835 — a party to a marriage or a burial in the scene window. |
+| **G2c** | `inferred` | **The parish register of 1833–1835 — a party to an act the register records, inside the scene window: a marriage, a burial, a baptism.** The priest who keeps it is a party too, because he signs a dated entry for an act he is himself performing, so the book is evidence about him on the days he signs it and on the same terms as about the people it names. Not about the days between, and not about anyone the register does not name. *(Widened from “a marriage or a burial” by the owner's ruling of 2026-09-21 — see below.)* |
 | **G3** | `inferred` + `projected_resident` | A single appearance and nothing else. |
 | **G2e** | `inferred` | A Chicago post-office letter list of 1833–1835 **and something else**. |
 | **G2d** | `inferred` | Fergus 1843 or Norris 1844 naming a person the town already carries, with a trade or an address. |
@@ -102,7 +102,7 @@ letter-list-only name is `inferred`, never `attested` — and says so here rathe
 quietly. **If the owner rules the other way, one line of `grade()` changes and the counts
 move; nothing else does.**
 
-### The second reading put back to the owner — the parish register, and the man who kept it (T-0841)
+### The parish register, and the man who kept it — RULED 2026-09-21 (T-0841)
 
 **Does G2c's `a party to a marriage or burial in the parish` mean the parish REGISTER, baptisms
 included?** T-0724 gave `st_cyr_john_mary` a rung at last and the rung came out **G5**, the ladder
@@ -147,19 +147,76 @@ his own register — and it is not. Measured on dev 8c260130f, with the register
   18 refusals and 275 rulings are spent here today. The register says who is who and testifies to
   nobody's presence.
 
-**The question, and it is his.** Either (1) G2c means a marriage or a burial and no more — the
+**The question, and it was his.** Either (1) G2c means a marriage or a burial and no more — the
 register's baptismal pages stay out, the priest stays a G5 conflict, and this is written down as a
 ruling rather than an omission; or (2) G2c means the parish register of 1833-1835, its parties
-whatever the sacrament, in which case the rung's text changes to say so and 137 people take it. Both
-are defensible. Neither is a tool's call, and the tool has not made it: nothing in
-`grading_proposal.json` moved for this pass.
+whatever the sacrament, in which case the rung's text changes to say so and 137 people take it.
 
-**What did land**, because it needs no ruling: every reading in `data/research/church/records/` is now
-either read by `read_church()` or declared unread in `CHURCH_RECORDS_NOT_READ` with its reason, and
-`--check` fails on a file that is neither. The baptismal register was invisible for as long as the
-file list was a two-name tuple, and it was not alone — the Second Presbyterian roll of 1842-1892 sat
-beside it in the same silence. `--report` now prints both, under the domain table whose `church` row
-counts two readings of four.
+#### The owner's ruling, 2026-09-21, verbatim
+
+> *"G2c reaches the parish REGISTER of 1833-1835, baptisms included, and the officiant is graded on
+> it. A priest who signs a dated entry in his own hand states his own presence as directly as this
+> corpus states anything, and refusing that while accepting the same line as evidence about the
+> child, the parents and the godparents is the document doing one job for six people and a different
+> one for the seventh."*
+
+With three instructions attached, and each one is a line of the implementation:
+
+1. **Write the rule as the reason, not as the outcome.** *"A rule written as 'the officiant of a
+   parish register takes G2c' would be a special case with a name on it, and the next register would
+   have to be argued from scratch."* So the rung says what a register IS — a record of acts, made by
+   one of the parties to them — and the priest follows from that rather than being named by it.
+2. **The bound is the signing.** *"He is attested where he signs, on the dates he signs, and the
+   register's existence attests nothing about the days between."* So `read_church()` yields ONE
+   officiant appearance per ENTRY, dated as that entry is dated — 57 rows out of a book of 267
+   readings, not 267 and not one blanket 1833-1835 presence.
+3. **Nothing taken wider than the ruling.** The priest is a party where the register names him and
+   the officiant where he signs it; he is not put in the town on the strength of the book existing.
+
+#### What landed, 2026-09-24, and what it cost
+
+The register is read. `CHURCH_RECORDS_READ` carries all three files, the officiant row is generated
+per entry with `record_id` `<first reading of the entry>#officiant`, and `saint` joins the closed
+particle list with a spelling rule — `SURNAME_PARTICLE_SPELLINGS`, `{"saint": "st"}` — so the four
+printings of the priest's surname key alike (`Rev. John Mary Irenaeus St Cyr`, `John Mary Irenaeus
+Saint Cyr`, `J. M. I. Saint Cyr`, `J. M. I. St. Cyr` → `stcyr`) and no second priest is minted. The
+spelling rule rewrites a PARTICLE only: `Sainthill` is one token and keeps its letters, and the old
+settlers' `Saint, Cyr` — a comma form where `Saint` is the whole surname — is left standing as its
+own identity, because folding it in would be a merge ruling on an 1883 obituary rather than a
+spelling.
+
+**Fr St Cyr takes G2c and stops being a G5 abstention.** 95 appearances, on his own card
+`st_cyr_john_mary`. And the rung is not one man's:
+
+| | before | after |
+|---|---|---|
+| identities | 6,798 | **6,966** (169 minted, 1 folded away) |
+| G2c | 34 | **172** |
+| G1c (convergence) | 25 | 28 |
+| G5 (the ladder abstains) | 45 | 43 |
+| conflicts listed for the owner | 81 | 79 |
+
+**Ten people already in the layer move, and every one of them moves UP.** Five off G0 onto G2c
+(Michel Alexandre Choulet, Doctor Egan, Mary Murphy, John Murray, John Harrison Whistler); three
+onto G1c where the register converges with the press or the civic lists (Joseph M. Chandler, Louis
+P. Chevalier, Joseph Laframboise); and two off G5, the priest and Josette Laframboise Beaubien. The
+one identity that disappears is a gain rather than a loss: `C. Harrington`, an out-of-town newspaper
+row that stood alone under an initial, merges onto **Catherine Harrington**, whom the register names
+at Chicago on 14 July 1833.
+
+**The place refusal, and it is not yet uniform.** The register travels with its priest: 12 of its 57
+entries were written at Bear Creek, the South Fork of the Sangamon, Springfield and Ottawa, and the
+reading marks every row of them `at_chicago: false`. Those 69 readings (57 person rows + 12
+officiant rows) are carried under a new class `church_out_of_town`, on exactly the terms
+`newspaper_out_of_town` already sets: no rung spends one, no class family counts one,
+`independent_records` does not let one corroborate, and the row is KEPT so the refusal can be
+counted. **`CHURCH_RECORDS_PLACE_FILTERED` names the one file it applies to**, and the reason is
+scope, not principle: the marriage register's six Sangamon County rows are spent today, and refusing
+them would take six people down from G2c on a ruling nobody has made. T-1129 ruled on how those
+cards READ; the reader half is filed as its own ticket.
+
+**What is still not read.** `second_presbyterian_members_1842_1892.json` — declared, with its reason,
+in `CHURCH_RECORDS_NOT_READ`. `--report` prints the declared silence under the domain table.
 
 ## What the tool proposes today
 

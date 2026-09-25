@@ -258,6 +258,27 @@
   },
   {
    "outcome": "merged",
+   "person_id": "egan_william_b",
+   "folded_person_id": "egan_doctor",
+   "rule": "C0",
+   "cluster": "egan",
+   "record_ids": [
+    "f1843_e0136",
+    "st_marys_bapt_1834_18_4_sponsor"
+   ],
+   "domains": [
+    "church",
+    "directories",
+    "old_settlers"
+   ],
+   "sources": [
+    "fergus_chicago_directory_1843",
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "evidence": "T-0839: 'egan_doctor' and 'egan_william_b' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'egan'."
+  },
+  {
+   "outcome": "merged",
    "person_id": "eldridge_john_w",
    "folded_person_id": "eldredge_john_w",
    "rule": "C9",
@@ -642,6 +663,27 @@
   {
    "outcome": "merged",
    "person_id": "kimberly_edmund_s",
+   "folded_person_id": "kimberley_ed",
+   "rule": "C9",
+   "cluster": "kimberley",
+   "record_ids": [
+    "33S7-9YYJ-99F:3",
+    "person_e_s_kimberley"
+   ],
+   "domains": [
+    "census_1840",
+    "newspapers"
+   ],
+   "sources": [
+    "census_1840_chicago_familysearch_images",
+    "chicago_democrat_1833_1835",
+    "isa_public_domain_land_tract_sales"
+   ],
+   "evidence": "T-1001: 'kimberley_ed' and 'kimberly_edmund_s' are one person under rule C9; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kimberley'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "kimberly_edmund_s",
    "folded_person_id": "kimberly_e_s",
    "rule": "C0",
    "cluster": "kimberly",
@@ -690,27 +732,6 @@
     "chicago_voter_lists_1833_1835_irad"
    ],
    "evidence": "T-0839: 'kimberly_edmund_l' and 'kimberly_edmund_s' are one person under rule C0; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kimberly'."
-  },
-  {
-   "outcome": "merged",
-   "person_id": "kimberly_edmund_s",
-   "folded_person_id": "kimberley_ed",
-   "rule": "C9",
-   "cluster": "kimberley",
-   "record_ids": [
-    "33S7-9YYJ-99F:3",
-    "person_e_s_kimberley"
-   ],
-   "domains": [
-    "census_1840",
-    "newspapers"
-   ],
-   "sources": [
-    "census_1840_chicago_familysearch_images",
-    "chicago_democrat_1833_1835",
-    "isa_public_domain_land_tract_sales"
-   ],
-   "evidence": "T-1001: 'kimberley_ed' and 'kimberly_edmund_s' are one person under rule C9; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'kimberley'."
   },
   {
    "outcome": "merged",

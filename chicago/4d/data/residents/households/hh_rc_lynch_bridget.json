@@ -11,7 +11,7 @@
   "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records."
  },
  "arrival_year": {
-  "value": 1833,
+  "value": 1835,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
@@ -561,10 +561,10 @@
   },
   {
    "id": "rc_lynch_bridget_7",
-   "name": "Margaret Lynch",
+   "name": "Daniel Lynch",
    "relationship": "household_member",
    "grade": "reconstructed",
-   "sex": "female",
+   "sex": "male",
    "age_band": {
     "value": "10-19",
     "low": 10,
@@ -574,7 +574,7 @@
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 10 under 15'. Older than the head's own band allows her to have borne, so no kin tie is claimed. The model places older children out as apprentices and servants; WHICH of the two this person was is not claimed, because nothing here can tell."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 10 under 15'. Older than the head's own band allows her to have borne, so no kin tie is claimed. The model places older children out as apprentices and servants; WHICH of the two this person was is not claimed, because nothing here can tell."
     },
     "seed": "rc_wc_south_residual_01:rc_lynch_bridget:member_7_sex_age",
     "replaceable_by": {
@@ -589,7 +589,7 @@
     "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
    },
    "name_basis": {
-    "value": "Margaret Lynch",
+    "value": "Daniel Lynch",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {

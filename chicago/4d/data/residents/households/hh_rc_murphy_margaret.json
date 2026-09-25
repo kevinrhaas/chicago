@@ -234,7 +234,7 @@
   },
   {
    "id": "rc_murphy_margaret_2",
-   "name": "Mary Murphy",
+   "name": "Catherine Murphy",
    "relationship": "daughter",
    "grade": "reconstructed",
    "sex": "female",
@@ -262,7 +262,7 @@
     "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
    },
    "name_basis": {
-    "value": "Mary Murphy",
+    "value": "Catherine Murphy",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -367,15 +367,15 @@
    "grade": "reconstructed",
    "sex": "female",
    "age_band": {
-    "value": "0-9",
-    "low": 0,
-    "high": 9,
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 10 under 15'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
     },
     "seed": "rc_wc_north_015:rc_murphy_margaret:member_4_sex_age",
     "replaceable_by": {
@@ -407,7 +407,7 @@
    },
    "basis": {
     "kind": "model",
-    "id": "under_ten",
+    "id": "age_bands_1840",
     "note": "Drawn by the draw against the north division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
    },
    "seed": "rc_wc_north_015:rc_murphy_margaret:member_4_sex_age",
@@ -490,7 +490,7 @@
   },
   {
    "id": "rc_murphy_margaret_6",
-   "name": "Catherine Murphy",
+   "name": "Alice Murphy",
    "relationship": "daughter",
    "grade": "reconstructed",
    "sex": "female",
@@ -518,7 +518,7 @@
     "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
    },
    "name_basis": {
-    "value": "Catherine Murphy",
+    "value": "Alice Murphy",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -554,7 +554,7 @@
   },
   {
    "id": "rc_murphy_margaret_7",
-   "name": "Alice Murphy",
+   "name": "Bridget Murphy",
    "relationship": "daughter",
    "grade": "reconstructed",
    "sex": "female",
@@ -582,7 +582,7 @@
     "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
    },
    "name_basis": {
-    "value": "Alice Murphy",
+    "value": "Bridget Murphy",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {

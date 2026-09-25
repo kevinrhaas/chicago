@@ -17,11 +17,11 @@
   "proprietor_names_printed": 204,
   "proprietors_with_a_given_name_or_initial": 157,
   "proprietors_printed_as_a_surname_alone_unmatchable": 47,
-  "residents_considered": 1283,
-  "matched_one_card": 19,
+  "residents_considered": 1402,
+  "matched_one_card": 20,
   "matched_more_than_one_ambiguous": 3,
   "one_printed_proprietor_contested_by_two_residents": 6,
-  "surname_present_initial_absent_refused": 130,
+  "surname_present_initial_absent_refused": 133,
   "letter_list_bucket_refused": 1,
   "residents_that_refusal_reaches": 1,
   "cards_the_whole_name_refused": 0,
@@ -34,8 +34,8 @@
   "ties_narrowed_by_a_trade": 0,
   "of_those_contested": 0,
   "of_those_ambiguous": 0,
-  "could_carry_trade": 13,
-  "could_carry_place_of_business": 14
+  "could_carry_trade": 14,
+  "could_carry_place_of_business": 15
  },
  "matches": [
   {
@@ -318,6 +318,32 @@
      "trade_1844": "wholesale and retail dealers in groceries, nails, glass, shoes and leather; cash paid for wheat",
      "address_1844": "101 Lake street",
      "printed_page": 88
+    }
+   ],
+   "could_carry": [
+    "trade",
+    "place_of_business"
+   ],
+   "carry_rule": "Whatever is carried is carried as 1844 evidence with describes_date 1844 on the note, never as an 1835 fact, and the grade of the person does not move. An advertising card is a paid subscription: it is evidence that the firm existed in 1844 and none at all that it existed in 1835."
+  },
+  {
+   "resident": "Henry Stone",
+   "person_id": "stone_henry",
+   "household_id": "hh_stone_henry",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "occupation_1835_confidence": "reconstructed",
+   "lives_at_1835": null,
+   "works_at_1835": null,
+   "rule": "Surname 'Stone' folds to the same string as the card's, and the given name of both begins H.",
+   "cards_1844": [
+    {
+     "claim": "n1844_ad0042",
+     "proprietor_as_printed": "H. O. Stone",
+     "firm": "H. O. Stone",
+     "trade_1844": "wholesale and retail dealer in dry goods, groceries and hardware; storage and forwarding; cash paid for wheat, flour, corn and oats",
+     "address_1844": "No. 114 Lake street; storage and forwarding on South Water street",
+     "printed_page": 87
     }
    ],
    "could_carry": [
@@ -1064,6 +1090,13 @@
    "rule": "The surname 'Foster' stands on an 1844 advertising card and no proprietor under it carries the initial 'C' of 'Caleb Foster'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Catherine Miller",
+   "person_id": "miller_catherine",
+   "surname_on_a_card": "Miller",
+   "cards_under_that_surname": 1,
+   "rule": "The surname 'Miller' stands on an 1844 advertising card and no proprietor under it carries the initial 'C' of 'Catherine Miller'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Charles L Bristol",
    "person_id": "bristol_charles_l",
    "surname_on_a_card": "Bristol",
@@ -1601,6 +1634,20 @@
    "surname_on_a_card": "Barrows",
    "cards_under_that_surname": 1,
    "rule": "The surname 'Barrows' stands on an 1844 advertising card and no proprietor under it carries the initial 'M' of 'Mary Barrows'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Mary Murphy",
+   "person_id": "murphy_mary",
+   "surname_on_a_card": "Murphy",
+   "cards_under_that_surname": 1,
+   "rule": "The surname 'Murphy' stands on an 1844 advertising card and no proprietor under it carries the initial 'M' of 'Mary Murphy'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Mathias Smith",
+   "person_id": "smith_mathias",
+   "surname_on_a_card": "Smith",
+   "cards_under_that_surname": 7,
+   "rule": "The surname 'Smith' stands on an 1844 advertising card and no proprietor under it carries the initial 'M' of 'Mathias Smith'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Matthias Smith",

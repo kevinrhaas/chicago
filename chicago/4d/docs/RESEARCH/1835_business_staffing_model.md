@@ -316,7 +316,7 @@ A share is not a bed. The lodging model (T-1370) owns capacity and T-1371 owns w
 
 - **Against the 1839 clerk ratio, like for like.** 86 principals stand in the layer's clerk-employing classes; × 0.68778 that predicts 59.1 clerks, and the per-house rules put 59 there — a delta of -0.1 against a tolerance of 14.8. They agree.
 - **And on the wide ratio.** Divide the same 1839 clerks by every commerce principal, tavern and livery keepers included, and the ratio falls to 0.48718, predicting 41.9 — a delta of 17.1. The wide ratio divides the same clerks by tavern, livery and boarding-house keepers as well, and on it the model looks over-clerked. Printed rather than buried: it is the reading a sceptic would take.
-- **Against the town model's employment.** 367 working persons implied, against 424–588 employed persons. Below the low end, which is expected: The town model's employed persons counts EVERY working person — the labourers of the harbour works, the garrison, the farmers outside the limits, the domestic service the 1840 columns have no row for. The businesses of this layer are a PART of that figure, so falling below the low end is expected and falling above it is a refusal.
+- **Against the town model's employment.** 367 working persons implied, against 425–588 employed persons. Below the low end, which is expected: The town model's employed persons counts EVERY working person — the labourers of the harbour works, the garrison, the farmers outside the limits, the domestic service the 1840 columns have no row for. The businesses of this layer are a PART of that figure, so falling below the low end is expected and falling above it is a refusal.
 
 ## Terms the residents vocabulary does not hold
 

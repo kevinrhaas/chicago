@@ -7,7 +7,7 @@
   "proprietors": "ADOPTED from data/residents/reconstructed_trades/, never minted. tools/reconstruct_residents_1835.py is the one writer of a person.",
   "style_guide": "docs/RESEARCH/business-naming-1835.md",
   "liberty": "docs/LIBERTIES.md § L254",
-  "records": 32,
+  "records": 31,
   "groups": {
     "lodging_river_and_transport": {
       "ticket": "T-1187",
@@ -46,7 +46,7 @@
       "proprietors_adopted": [
         "rc_bardwell_esther",
         "rc_barnes_ezra",
-        "rc_cavanagh_johanna",
+        "rc_cavanagh_ellen",
         "rc_dufresne_joseph",
         "rc_fitzgerald_martin",
         "rc_gilbert_benjamin",
@@ -82,11 +82,10 @@
     "professions_and_services": {
       "ticket": "T-1418",
       "title": "the professions and the services",
-      "records": 17,
+      "records": 16,
       "by_class": {
         "lawyer": 1,
-        "other": 15,
-        "physician": 1
+        "other": 15
       },
       "by_street": {
         "Canal Street": 3,
@@ -94,7 +93,7 @@
         "Kinzie Street": 3,
         "Lake Street": 4,
         "North Water Street": 2,
-        "South Water Street": 2
+        "South Water Street": 1
       },
       "by_roof": {},
       "ids": [
@@ -105,7 +104,6 @@
         "rcb_fairbanks_land_office",
         "rcb_goodrich_millinery",
         "rcb_kellogg_millinery",
-        "rcb_mcguire_physician",
         "rcb_metcalf_land_office",
         "rcb_murphy_land_office",
         "rcb_quinn_millinery",
@@ -124,13 +122,12 @@
         "rc_fairbanks_seth",
         "rc_goodrich_seth",
         "rc_kellogg_almira",
-        "rc_mcguire_john",
         "rc_metcalf_hiram",
         "rc_murphy_hugh",
         "rc_quinn_honora",
         "rc_robillard_baptiste",
         "rc_sawyer_almira",
-        "rc_shea_alice",
+        "rc_shea_mary",
         "rc_sullivan_mary",
         "rc_walsh_honora",
         "rc_woodruff_hannah"
@@ -212,7 +209,7 @@
         "standing": "reconstructed",
         "beds_ordinary": 11,
         "beds_crowded": 26,
-        "keeper_person": "rc_cavanagh_johanna",
+        "keeper_person": "rc_cavanagh_ellen",
         "firm": "rcb_cavanagh_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
         "kept_by": "this programme",
@@ -520,8 +517,8 @@
         "why": "A CONTRACT IS NOT A SHOP, and T-1425 closes the deferral without building anything. The mail contractor holds a ROUTE under the Post Office Department; the office at the end of it is a civic establishment T-1410 already built, and this corpus gives the contractor no stage yard, no stable and no stand of his own — the stage and stable yard T-1424 wondered about is a building nobody printed. The hire teams of this town stood at the two livery stables the trade quota built, which is where a route's horses would be kept by a man who kept no yard. So the head is a contract and keeps no house, and T-1189 seats him where the work was done.",
         "people": [
           {
-            "person_id": "rc_vieau_francois",
-            "name": "Francois Vieau",
+            "person_id": "rc_vieau_louis",
+            "name": "Louis Vieau",
             "division": "north",
             "head_slot": "trade_households:persons/male/20_29/north/family/trade:mail_contractor:020",
             "firm": null
@@ -910,8 +907,8 @@
             "firm": null
           },
           {
-            "person_id": "rc_ryan_margaret",
-            "name": "Margaret Ryan",
+            "person_id": "rc_shea_alice",
+            "name": "Alice Shea",
             "division": "west",
             "head_slot": "trade_households:persons/female/20_29/west/family/trade:domestic:006",
             "firm": null
@@ -1022,8 +1019,8 @@
             "firm": null
           },
           {
-            "person_id": "rc_shea_mary",
-            "name": "Mary Shea",
+            "person_id": "rc_shea_catherine",
+            "name": "Catherine Shea",
             "division": "south",
             "head_slot": "trade_households:persons/female/30_39/south/family/trade:domestic:013",
             "firm": null
@@ -1043,8 +1040,8 @@
             "firm": null
           },
           {
-            "person_id": "rc_sullivan_ellen",
-            "name": "Ellen Sullivan",
+            "person_id": "rc_sullivan_johanna",
+            "name": "Johanna Sullivan",
             "division": "west",
             "head_slot": "trade_households:persons/female/30_39/west/family/trade:domestic:005",
             "firm": null
@@ -1226,8 +1223,8 @@
             "firm": "rcb_sullivan_millinery"
           },
           {
-            "person_id": "rc_shea_alice",
-            "name": "Alice Shea",
+            "person_id": "rc_shea_mary",
+            "name": "Mary Shea",
             "division": "west",
             "head_slot": "trade_households:persons/female/20_29/west/family/trade:milliner:013",
             "firm": "rcb_shea_millinery"
@@ -1304,7 +1301,7 @@
             "name": "John McGuire",
             "division": "south",
             "head_slot": "trade_households:persons/male/30_39/south/family/trade:physician:032",
-            "firm": "rcb_mcguire_physician"
+            "firm": null
           }
         ]
       },

@@ -30,12 +30,12 @@
   {
    "rule": "F1",
    "why": "a `contested` or `ambiguous` row is a rival still standing: the crosswalk did not choose between the bearers of the name, and a card that cited the volume anyway would print an undecided identity as a decided one",
-   "rulings": 60
+   "rulings": 63
   },
   {
    "rule": "F2",
    "why": "a surname-only agreement is a refusal in both crosswalks and in the newspapers' ratified rules, and refusals are not spent",
-   "rulings": 272
+   "rulings": 289
   },
   {
    "rule": "F3",
@@ -820,6 +820,29 @@
    "written": "FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “H. Mitchell” (f1839_v0220, printed page 42, ward 2, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Mitchell' folds to the same string as the 1837 entry's, and the given name of both begins H. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
   },
   {
+   "household_id": "hh_stone_henry",
+   "person_id": "stone_henry",
+   "name": "Henry Stone",
+   "source_id": "fergus_chicago_directory_1839",
+   "grade_1835": "inferred",
+   "rules": [
+    "Surname 'Stone' folds to the same string as the 1837 entry's, and the given name of both begins H."
+   ],
+   "entries": [
+    {
+     "claim_id": "f1839_v0610",
+     "list": "city_election_1837",
+     "as_printed": "H. 0. Stone",
+     "printed_page": 45,
+     "describes_date": "1837-05-02",
+     "ward": 6,
+     "voted_for": "William B. Ogden",
+     "office": null
+    }
+   ],
+   "written": "FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “H. 0. Stone” (f1839_v0610, printed page 45, ward 6, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Stone' folds to the same string as the 1837 entry's, and the given name of both begins H. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+  },
+  {
    "household_id": "hh_walton_henry",
    "person_id": "walton_henry",
    "name": "Henry Walton",
@@ -1496,29 +1519,6 @@
     }
    ],
    "written": "FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “Morris O. Jones” (f1839_v0419, printed page 44, ward 3, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Jones' folds to the same string as the 1837 entry's, and the given name of both begins M. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
-  },
-  {
-   "household_id": "hh_smith_matthias",
-   "person_id": "smith_matthias",
-   "name": "Matthias Smith",
-   "source_id": "fergus_chicago_directory_1839",
-   "grade_1835": "inferred",
-   "rules": [
-    "Surname 'Smith' folds to the same string as the 1837 entry's, and the given name of both begins M."
-   ],
-   "entries": [
-    {
-     "claim_id": "f1839_v0380",
-     "list": "city_election_1837",
-     "as_printed": "M. Smith",
-     "printed_page": 43,
-     "describes_date": "1837-05-02",
-     "ward": 2,
-     "voted_for": "John H. Kinzie",
-     "office": null
-    }
-   ],
-   "written": "FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “M. Smith” (f1839_v0380, printed page 43, ward 2, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Smith' folds to the same string as the 1837 entry's, and the given name of both begins M. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
   },
   {
    "household_id": "hh_thompson_o_i",

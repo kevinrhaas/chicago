@@ -190,11 +190,11 @@ turned out not to be in the register at all: `### L-rc-sex-rate` and
 | `attribute_fill_sex_age` | attribute blocks | — | — | **L-rc-sex-rate**, **L-rc-age-conditioning** |
 | `attribute_fill_arrival` | attribute blocks | — | — | **L243** |
 | `named_families` | persons | 3 | 2 | **L242** |
-| `modelled_families` | persons | 296 | 84 | **L244** |
-| `readmissions` | persons | 179 | 179 | **L246** |
+| `modelled_families` | persons | 295 | 84 | **L244** |
+| `readmissions` | persons | 121 | 121 | **L246** |
 | `trade_households` | persons | 308 | 308 | **L248** |
 | `women_and_children` | persons | 556 | 124 | **L247** |
-| `lodgers` | persons | 87 | 16 | **L252** |
+| `lodgers` | persons | 84 | 16 | **L252** |
 | `garrison` | persons | 125 | 11 | **L251** |
 | `underdocumented` | persons | 102 | 94 | **L250**, **L255** |
 | `transients` | persons | 307 | 83 | **L249** |

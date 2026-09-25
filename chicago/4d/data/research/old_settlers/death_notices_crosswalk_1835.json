@@ -8,11 +8,11 @@
  "what_a_match_here_does_not_mean": "It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload.",
  "rule": "SURNAME must match after both are folded (case, punctuation and the transcriber's usual confusions removed), AND the first initial of the given name must match. A surname-only agreement is a REFUSAL, however good it looks. Where one 1835 person meets more than one entry the match is AMBIGUOUS and is filed as such; where two 1835 people meet one entry it is CONTESTED and no match is made.",
  "counts": {
-  "residents_considered": 1283,
-  "matched_one_entry": 63,
+  "residents_considered": 1402,
+  "matched_one_entry": 64,
   "matched_more_than_one_ambiguous": 17,
-  "one_entry_contested_by_two_residents": 16,
-  "surname_present_initial_absent_refused": 244,
+  "one_entry_contested_by_two_residents": 20,
+  "surname_present_initial_absent_refused": 264,
   "matches_carrying_a_birth_year": 42,
   "matches_carrying_a_date_of_death": 57
  },
@@ -259,34 +259,6 @@
      "birth_year_earliest": 1801,
      "birth_year_latest": 1802,
      "birth_year_arithmetic": "The page prints the death as 'April 21, 1892' and the age as 'aged 90'. An age of 90 completed years means at least 90 and less than 91, so the birth falls between 1801-04-22 and 1802-04-21: the birth year is 1801 or 1802. The subtraction is this project's; the page states no year of birth."
-    }
-   ],
-   "could_carry": [
-    "birth_year",
-    "date_of_death"
-   ],
-   "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record."
-  },
-  {
-   "resident": "Charles H Beaubien",
-   "person_id": "beaubien_charles_h",
-   "household_id": "hh_beaubien_charles_h",
-   "grade_1835": "inferred",
-   "occupation_1835": "none_recorded",
-   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins C.",
-   "resident_given_is_initial_only": false,
-   "entries": [
-    {
-     "record": "fdn0029",
-     "as_read": "Beaubien, Charles Henry, died, Gross Point, Ill., 1858, aged 51.",
-     "trade_or_office": null,
-     "manner_of_death": "died",
-     "place_of_death": "Gross Point, Ill.",
-     "death_date": "1858",
-     "age_as_printed": "aged 51",
-     "birth_year_earliest": 1806,
-     "birth_year_latest": 1807,
-     "birth_year_arithmetic": "The page prints the death as '1858' and the age as 'aged 51'. An age of 51 completed years means at least 51 and less than 52, so the birth falls between 1806-01-02 and 1807-12-31: the birth year is 1806 or 1807. The subtraction is this project's; the page states no year of birth."
     }
    ],
    "could_carry": [
@@ -648,6 +620,31 @@
     "birth_year",
     "date_of_death"
    ],
+   "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record."
+  },
+  {
+   "resident": "Franois Laframboise",
+   "person_id": "laframboise_franois",
+   "household_id": "hh_laframboise_franois",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "rule": "Surname 'Laframboise' folds to the same string as the entry's, and the given name of both begins F.",
+   "resident_given_is_initial_only": false,
+   "entries": [
+    {
+     "record": "fdn0376",
+     "as_read": "Laframboise, Francis, died",
+     "trade_or_office": null,
+     "manner_of_death": "died",
+     "place_of_death": null,
+     "death_date": null,
+     "age_as_printed": null,
+     "birth_year_earliest": null,
+     "birth_year_latest": null,
+     "birth_year_arithmetic": null
+    }
+   ],
+   "could_carry": [],
    "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record."
   },
   {
@@ -1197,6 +1194,34 @@
      "birth_year_earliest": 1791,
      "birth_year_latest": 1792,
      "birth_year_arithmetic": "The page prints the death as 'December 28, 1865' and the age as 'aged 73'. An age of 73 completed years means at least 73 and less than 74, so the birth falls between 1791-12-29 and 1792-12-28: the birth year is 1791 or 1792. The subtraction is this project's; the page states no year of birth."
+    }
+   ],
+   "could_carry": [
+    "birth_year",
+    "date_of_death"
+   ],
+   "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record."
+  },
+  {
+   "resident": "John Harrison Whistler",
+   "person_id": "whistler_john_harrison",
+   "household_id": "hh_whistler_john_harrison",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "rule": "Surname 'Whistler' folds to the same string as the entry's, and the given name of both begins J.",
+   "resident_given_is_initial_only": false,
+   "entries": [
+    {
+     "record": "fdn0728",
+     "as_read": "Whistler, John Harrison, born in Fort Dearborn, October 7, 1807, died, Burlington, Kansas, October 23, 1873, aged 66.",
+     "trade_or_office": "born in Fort Dearborn, October 7, 1807",
+     "manner_of_death": "died",
+     "place_of_death": "Burlington, Kansas",
+     "death_date": "1873-10-23",
+     "age_as_printed": "aged 66",
+     "birth_year_earliest": 1806,
+     "birth_year_latest": 1807,
+     "birth_year_arithmetic": "The page prints the death as 'October 23, 1873' and the age as 'aged 66'. An age of 66 completed years means at least 66 and less than 67, so the birth falls between 1806-10-24 and 1807-10-23: the birth year is 1806 or 1807. The subtraction is this project's; the page states no year of birth. The page also prints the birth as 'born in Fort Dearborn, October 7, 1807', which falls inside the window — so here the subtraction is a CHECK on the page rather than the only evidence."
     }
    ],
    "could_carry": [
@@ -1867,6 +1892,102 @@
    ]
   },
   {
+   "resident": "Caroline Beaubien",
+   "person_id": "beaubien_caroline",
+   "household_id": "hh_beaubien_caroline",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins C. CONTESTED: 3 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
+   "resident_given_is_initial_only": false,
+   "entries": [
+    {
+     "record": "fdn0029",
+     "as_read": "Beaubien, Charles Henry, died, Gross Point, Ill., 1858, aged 51.",
+     "trade_or_office": null,
+     "manner_of_death": "died",
+     "place_of_death": "Gross Point, Ill.",
+     "death_date": "1858",
+     "age_as_printed": "aged 51",
+     "birth_year_earliest": 1806,
+     "birth_year_latest": 1807,
+     "birth_year_arithmetic": "The page prints the death as '1858' and the age as 'aged 51'. An age of 51 completed years means at least 51 and less than 52, so the birth falls between 1806-01-02 and 1807-12-31: the birth year is 1806 or 1807. The subtraction is this project's; the page states no year of birth."
+    }
+   ],
+   "could_carry": [
+    "birth_year",
+    "date_of_death"
+   ],
+   "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record.",
+   "contested_with": [
+    "Charles Beaubien",
+    "Charles H Beaubien"
+   ]
+  },
+  {
+   "resident": "Charles Beaubien",
+   "person_id": "beaubien_charles",
+   "household_id": "hh_beaubien_charles",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins C. CONTESTED: 3 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
+   "resident_given_is_initial_only": false,
+   "entries": [
+    {
+     "record": "fdn0029",
+     "as_read": "Beaubien, Charles Henry, died, Gross Point, Ill., 1858, aged 51.",
+     "trade_or_office": null,
+     "manner_of_death": "died",
+     "place_of_death": "Gross Point, Ill.",
+     "death_date": "1858",
+     "age_as_printed": "aged 51",
+     "birth_year_earliest": 1806,
+     "birth_year_latest": 1807,
+     "birth_year_arithmetic": "The page prints the death as '1858' and the age as 'aged 51'. An age of 51 completed years means at least 51 and less than 52, so the birth falls between 1806-01-02 and 1807-12-31: the birth year is 1806 or 1807. The subtraction is this project's; the page states no year of birth."
+    }
+   ],
+   "could_carry": [
+    "birth_year",
+    "date_of_death"
+   ],
+   "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record.",
+   "contested_with": [
+    "Caroline Beaubien",
+    "Charles H Beaubien"
+   ]
+  },
+  {
+   "resident": "Charles H Beaubien",
+   "person_id": "beaubien_charles_h",
+   "household_id": "hh_beaubien_charles_h",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins C. CONTESTED: 3 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
+   "resident_given_is_initial_only": false,
+   "entries": [
+    {
+     "record": "fdn0029",
+     "as_read": "Beaubien, Charles Henry, died, Gross Point, Ill., 1858, aged 51.",
+     "trade_or_office": null,
+     "manner_of_death": "died",
+     "place_of_death": "Gross Point, Ill.",
+     "death_date": "1858",
+     "age_as_printed": "aged 51",
+     "birth_year_earliest": 1806,
+     "birth_year_latest": 1807,
+     "birth_year_arithmetic": "The page prints the death as '1858' and the age as 'aged 51'. An age of 51 completed years means at least 51 and less than 52, so the birth falls between 1806-01-02 and 1807-12-31: the birth year is 1806 or 1807. The subtraction is this project's; the page states no year of birth."
+    }
+   ],
+   "could_carry": [
+    "birth_year",
+    "date_of_death"
+   ],
+   "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record.",
+   "contested_with": [
+    "Caroline Beaubien",
+    "Charles Beaubien"
+   ]
+  },
+  {
    "resident": "Charles H. Taylor",
    "person_id": "taylor_charles",
    "household_id": "hh_taylor_anson",
@@ -2087,7 +2208,7 @@
    "household_id": "hh_beaubien_madore",
    "grade_1835": "attested",
    "occupation_1835": "merchant",
-   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins M. CONTESTED: 2 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
+   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins M. CONTESTED: 3 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
    "resident_given_is_initial_only": false,
    "entries": [
     {
@@ -2109,7 +2230,8 @@
    ],
    "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record.",
    "contested_with": [
-    "Mark Beaubien"
+    "Mark Beaubien",
+    "Monique Beaubien"
    ]
   },
   {
@@ -2118,7 +2240,7 @@
    "household_id": "hh_beaubien_mark",
    "grade_1835": "attested",
    "occupation_1835": "tavern_keeper",
-   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins M. CONTESTED: 2 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
+   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins M. CONTESTED: 3 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
    "resident_given_is_initial_only": false,
    "entries": [
     {
@@ -2140,7 +2262,40 @@
    ],
    "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record.",
    "contested_with": [
-    "Madore Benjamin Beaubien"
+    "Madore Benjamin Beaubien",
+    "Monique Beaubien"
+   ]
+  },
+  {
+   "resident": "Monique Beaubien",
+   "person_id": "beaubien_monique",
+   "household_id": "hh_beaubien_monique",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins M. CONTESTED: 3 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
+   "resident_given_is_initial_only": false,
+   "entries": [
+    {
+     "record": "fdn0030",
+     "as_read": "Beaubien, Medore Benj., d., Silver Lake, Kas., Dec. 26, 1883, a. 74½",
+     "trade_or_office": null,
+     "manner_of_death": "d.",
+     "place_of_death": "Silver Lake, Kas.",
+     "death_date": "1883-12-26",
+     "age_as_printed": "a. 74½",
+     "birth_year_earliest": 1809,
+     "birth_year_latest": 1809,
+     "birth_year_arithmetic": "The page prints the death as 'Dec. 26, 1883' and the age as 'a. 74½'. An age of 74 years and 6 months means at least that and less than 74 years and 7 months, so the birth falls between 1809-05-27 and 1809-06-26: the birth year is 1809. The subtraction is this project's; the page states no year of birth."
+    }
+   ],
+   "could_carry": [
+    "birth_year",
+    "date_of_death"
+   ],
+   "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record.",
+   "contested_with": [
+    "Madore Benjamin Beaubien",
+    "Mark Beaubien"
    ]
   },
   {
@@ -3037,6 +3192,13 @@
    "rule": "The surname 'Sweet' is in Fergus's death notices and no entry under it carries the initial 'A' of 'Alanson Sweet'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
+   "resident": "Alexander Beaubien",
+   "person_id": "beaubien_alexander",
+   "surname_in_the_list": "Beaubien",
+   "candidates": 2,
+   "rule": "The surname 'Beaubien' is in Fergus's death notices and no entry under it carries the initial 'A' of 'Alexander Beaubien'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
    "resident": "Alexander Lloyd",
    "person_id": "lloyd_alexander",
    "surname_in_the_list": "Lloyd",
@@ -3084,6 +3246,13 @@
    "surname_in_the_list": "Day",
    "candidates": 1,
    "rule": "The surname 'Day' is in Fergus's death notices and no entry under it carries the initial 'A' of 'Ann Airs. Day'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Archange Beaubien",
+   "person_id": "beaubien_archange",
+   "surname_in_the_list": "Beaubien",
+   "candidates": 2,
+   "rule": "The surname 'Beaubien' is in Fergus's death notices and no entry under it carries the initial 'A' of 'Archange Beaubien'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "Archibald Knox",
@@ -3163,6 +3332,20 @@
    "rule": "The surname 'Robinson' is in Fergus's death notices and no entry under it carries the initial 'C' of 'Catherine Chevalier Robinson'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
+   "resident": "Catherine Miller",
+   "person_id": "miller_catherine",
+   "surname_in_the_list": "Miller",
+   "candidates": 1,
+   "rule": "The surname 'Miller' is in Fergus's death notices and no entry under it carries the initial 'C' of 'Catherine Miller'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Ccile Laframboise",
+   "person_id": "laframboise_ccile",
+   "surname_in_the_list": "Laframboise",
+   "candidates": 2,
+   "rule": "The surname 'Laframboise' is in Fergus's death notices and no entry under it carries the initial 'C' of 'Ccile Laframboise'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
    "resident": "Charles C. Drake",
    "person_id": "drake_charles_c",
    "surname_in_the_list": "Drake",
@@ -3189,6 +3372,13 @@
    "surname_in_the_list": "Chapman",
    "candidates": 1,
    "rule": "The surname 'Chapman' is in Fergus's death notices and no entry under it carries the initial 'C' of 'Chas. H. Chapman'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Claude Laframboise",
+   "person_id": "laframboise_claude",
+   "surname_in_the_list": "Laframboise",
+   "candidates": 2,
+   "rule": "The surname 'Laframboise' is in Fergus's death notices and no entry under it carries the initial 'C' of 'Claude Laframboise'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "Col. Jean Baptiste Beaubien",
@@ -3380,6 +3570,13 @@
    "rule": "The surname 'Pearce' is in Fergus's death notices and no entry under it carries the initial 'E' of 'Eliza Pearce'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
+   "resident": "Elonore Beaubien",
+   "person_id": "beaubien_elonore",
+   "surname_in_the_list": "Beaubien",
+   "candidates": 2,
+   "rule": "The surname 'Beaubien' is in Fergus's death notices and no entry under it carries the initial 'E' of 'Elonore Beaubien'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
    "resident": "Emeline Egan",
    "person_id": "egan_emeline",
    "surname_in_the_list": "Egan",
@@ -3406,6 +3603,13 @@
    "surname_in_the_list": "Noble",
    "candidates": 5,
    "rule": "The surname 'Noble' is in Fergus's death notices and no entry under it carries the initial 'E' of 'Esq. Mark Noble'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Esther Bailly",
+   "person_id": "bailly_esther",
+   "surname_in_the_list": "Bailly",
+   "candidates": 1,
+   "rule": "The surname 'Bailly' is in Fergus's death notices and no entry under it carries the initial 'E' of 'Esther Bailly'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "Ezekiel Turner",
@@ -3455,6 +3659,13 @@
    "surname_in_the_list": "Burlingame",
    "candidates": 2,
    "rule": "The surname 'Burlingame' is in Fergus's death notices and no entry under it carries the initial 'G' of 'Geo. A. Burlingame'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "George Beaubien",
+   "person_id": "beaubien_george",
+   "surname_in_the_list": "Beaubien",
+   "candidates": 2,
+   "rule": "The surname 'Beaubien' is in Fergus's death notices and no entry under it carries the initial 'G' of 'George Beaubien'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "George Chapman",
@@ -3511,6 +3722,13 @@
    "surname_in_the_list": "Hubbard",
    "candidates": 1,
    "rule": "The surname 'Hubbard' is in Fergus's death notices and no entry under it carries the initial 'G' of 'Gurdon Saltonstall Hubbard'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Gwinthlean Whistler",
+   "person_id": "whistler_gwinthlean",
+   "surname_in_the_list": "Whistler",
+   "candidates": 3,
+   "rule": "The surname 'Whistler' is in Fergus's death notices and no entry under it carries the initial 'G' of 'Gwinthlean Whistler'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "H Bond",
@@ -3574,6 +3792,13 @@
    "surname_in_the_list": "Hunt",
    "candidates": 3,
    "rule": "The surname 'Hunt' is in Fergus's death notices and no entry under it carries the initial 'H' of 'Henry N. Hunt'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Henry Stone",
+   "person_id": "stone_henry",
+   "surname_in_the_list": "Stone",
+   "candidates": 4,
+   "rule": "The surname 'Stone' is in Fergus's death notices and no entry under it carries the initial 'H' of 'Henry Stone'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "Henry Tucker",
@@ -3877,6 +4102,13 @@
    "rule": "The surname 'Archer' is in Fergus's death notices and no entry under it carries the initial 'J' of 'Joseph Archer'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
+   "resident": "Joseph Beaubien",
+   "person_id": "beaubien_joseph",
+   "surname_in_the_list": "Beaubien",
+   "candidates": 2,
+   "rule": "The surname 'Beaubien' is in Fergus's death notices and no entry under it carries the initial 'J' of 'Joseph Beaubien'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
    "resident": "Joseph Bradley",
    "person_id": "bradley_joseph",
    "surname_in_the_list": "Bradley",
@@ -3891,6 +4123,13 @@
    "rule": "The surname 'Chadwick' is in Fergus's death notices and no entry under it carries the initial 'J' of 'Joseph Chadwick'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
+   "resident": "Joseph Laframboise",
+   "person_id": "laframboise_joseph",
+   "surname_in_the_list": "Laframboise",
+   "candidates": 2,
+   "rule": "The surname 'Laframboise' is in Fergus's death notices and no entry under it carries the initial 'J' of 'Joseph Laframboise'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
    "resident": "Joseph Reynolds",
    "person_id": "reynolds_joseph",
    "surname_in_the_list": "Reynolds",
@@ -3903,6 +4142,13 @@
    "surname_in_the_list": "Beaubien",
    "candidates": 2,
    "rule": "The surname 'Beaubien' is in Fergus's death notices and no entry under it carries the initial 'J' of 'Josette LaFramboise Beaubien'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Josette Laframboise",
+   "person_id": "laframboise_josette",
+   "surname_in_the_list": "Laframboise",
+   "candidates": 2,
+   "rule": "The surname 'Laframboise' is in Fergus's death notices and no entry under it carries the initial 'J' of 'Josette Laframboise'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "Josiah P Cook",
@@ -4052,6 +4298,20 @@
    "rule": "The surname 'Parker' is in Fergus's death notices and no entry under it carries the initial 'M' of 'Manson Parker'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
+   "resident": "Marguerite Laframboise",
+   "person_id": "laframboise_marguerite",
+   "surname_in_the_list": "Laframboise",
+   "candidates": 2,
+   "rule": "The surname 'Laframboise' is in Fergus's death notices and no entry under it carries the initial 'M' of 'Marguerite Laframboise'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Marie Louise Ouilmette",
+   "person_id": "ouilmette_marie_louise",
+   "surname_in_the_list": "Ouilmette",
+   "candidates": 1,
+   "rule": "The surname 'Ouilmette' is in Fergus's death notices and no entry under it carries the initial 'M' of 'Marie Louise Ouilmette'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
    "resident": "Mary Green",
    "person_id": "green_mary",
    "surname_in_the_list": "Green",
@@ -4071,6 +4331,20 @@
    "surname_in_the_list": "Meacham",
    "candidates": 1,
    "rule": "The surname 'Meacham' is in Fergus's death notices and no entry under it carries the initial 'M' of 'Mary Meacham'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Mary Murphy",
+   "person_id": "murphy_mary",
+   "surname_in_the_list": "Murphy",
+   "candidates": 2,
+   "rule": "The surname 'Murphy' is in Fergus's death notices and no entry under it carries the initial 'M' of 'Mary Murphy'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Mathias Smith",
+   "person_id": "smith_mathias",
+   "surname_in_the_list": "Smith",
+   "candidates": 7,
+   "rule": "The surname 'Smith' is in Fergus's death notices and no entry under it carries the initial 'M' of 'Mathias Smith'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "Matthias Smith",
@@ -4283,6 +4557,13 @@
    "rule": "The surname 'Hunter' is in Fergus's death notices and no entry under it carries the initial 'R' of 'Robert Hunter'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
+   "resident": "Robert Jerome Beaubien",
+   "person_id": "beaubien_robert_jerome",
+   "surname_in_the_list": "Beaubien",
+   "candidates": 2,
+   "rule": "The surname 'Beaubien' is in Fergus's death notices and no entry under it carries the initial 'R' of 'Robert Jerome Beaubien'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
    "resident": "Rowland I!. Cook",
    "person_id": "cook_rowland_i",
    "surname_in_the_list": "Cook",
@@ -4486,6 +4767,13 @@
    "rule": "The surname 'Mack' is in Fergus's death notices and no entry under it carries the initial 'S' of 'Stephen Mack'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
+   "resident": "Susan Beaubien",
+   "person_id": "beaubien_susan",
+   "surname_in_the_list": "Beaubien",
+   "candidates": 2,
+   "rule": "The surname 'Beaubien' is in Fergus's death notices and no entry under it carries the initial 'S' of 'Susan Beaubien'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
    "resident": "T. M. Morrison",
    "person_id": "morrison_t_m",
    "surname_in_the_list": "Morrison",
@@ -4540,6 +4828,13 @@
    "surname_in_the_list": "Ryan",
    "candidates": 1,
    "rule": "The surname 'Ryan' is in Fergus's death notices and no entry under it carries the initial 'T' of 'Thomas Ryan'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
+  },
+  {
+   "resident": "Thrse Laframboise",
+   "person_id": "laframboise_thrse",
+   "surname_in_the_list": "Laframboise",
+   "candidates": 2,
+   "rule": "The surname 'Laframboise' is in Fergus's death notices and no entry under it carries the initial 'T' of 'Thrse Laframboise'. A surname-only agreement is a refusal, here as everywhere: the list prints eleven Smiths."
   },
   {
    "resident": "Timothy J Clark",

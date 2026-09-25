@@ -532,8 +532,19 @@ EPIC_PIECES = {
                         "a trade the town ran that no business record carries."
                         " T-1182 WAS SPLIT on 2026-09-19 into T-1401..T-1405 and all five are DONE, so the pointer moves again rather than going quiet with the ticket. T-1190 since 2026-09-20 (owner's call): the business layer's convergence is what is left to reconcile a trade or a premises against the layer once the audit is spent."
                         " AND T-1190 IS SPENT SINCE 2026-09-20, its three pieces T-1440, T-1441 and T-1442 all closed; the pointer moves once more, to T-1468, which owns the reconciliation itself rather than the convergence that has now finished."),
-    "census_1830": ("T-1297", "The name-on-a-roll piece owns this unasserted unit."),
-    "directories": ("T-1297", "The name-on-a-roll piece owns this unasserted unit."),
+    # AND THE NAME-ON-A-ROLL POINTER HAS GONE THE SAME WAY, for the same reason and caught
+    # the same way. T-1297 closed on 2026-09-17 and nothing noticed, because on the day it
+    # closed no unit of either domain reached it. T-1525 is what made one reach it: minting
+    # the register's 120 documented residents changes WHICH units are unasserted, and the
+    # one that arrives is `census1830_n580_030` — "Clouded L Framboy" on image n580 of the
+    # 1830 Peoria & Putnam schedule, normalised CLAUDE LAFRAMBOISE, a head of family one
+    # line below Joseph. That is precisely the corpus T-1525 found the register carries as
+    # real people, which is why it is reachable now and was not before.
+    # A closed ticket cannot own an unresolved unit, so the pointer moves to live work
+    # rather than going quiet with the ticket — the rule this table has already applied
+    # twice to `civic`.
+    "census_1830": ("T-1551", "The 1830 census and directory residue T-1297 left behind."),
+    "directories": ("T-1551", "The 1830 census and directory residue T-1297 left behind."),
 }
 
 # T-1241 ENDED T-1147, AND THE SAME ROUTING RULE APPLIES A THIRD TIME. The place and
@@ -593,8 +604,15 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
             # owns what is left of the role migration.
             return {"disposition": "unresolved", "ticket": "T-1254",
                     "reason": "The dated plural-role migration owns this temporal role ruling."}
+        # AND THE REMAINDER POINTER HAS GONE THE SAME WAY AS T-1145's ABOVE. T-1298
+        # closed on its own corpus and the four sites below still named it, so a unit
+        # arriving today cites a ticket this gate cannot resolve. T-1525 is what made one
+        # arrive: minting the register's 120 documented residents changes which units are
+        # unasserted, and a Second Presbyterian roll entry reached it. A closed ticket
+        # cannot own an unresolved unit, so the pointer moves to T-1552 — the same rule
+        # this module has already applied to T-1145, and EPIC_PIECES to T-1297.
         if name == "letter_list_reading_suspicions.json":
-            return {"disposition": "unresolved", "ticket": "T-1298",
+            return {"disposition": "unresolved", "ticket": "T-1552",
                     "reason": "The remainder piece of the epic owns this surviving name suspicion."}
         finding = resident_finding(root, unit)
         if finding:
@@ -603,7 +621,7 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
                 return {"disposition": "refused", "rule": outcome,
                         "evidence": finding.get("summary") or finding["default_summary"]}
             if not finding.get("completed"):
-                return {"disposition": "unresolved", "ticket": "T-1298",
+                return {"disposition": "unresolved", "ticket": "T-1552",
                         "reason": "The resident research pass has not completed this reserved person."}
         # The pilot is a reservation without a committed findings file; positive
         # pass findings that have no exact structured target also remain owned here.
@@ -612,7 +630,7 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
             if not unit["source_ids"] or set(unit["source_ids"]) & set(target["sources"]):
                 target = {k: v for k, v in target.items() if k != "sources"}
                 return {"disposition": "asserted", "target": target}
-        return {"disposition": "unresolved", "ticket": "T-1298",
+        return {"disposition": "unresolved", "ticket": "T-1552",
                 "reason": "No exact source-bearing structured resident field is named yet."}
 
     if domain == "newberry_index":
@@ -647,7 +665,7 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
         owner, reason = PLACE_AND_ENTERPRISE[kind]
         return {"disposition": "unresolved", "ticket": owner, "reason": reason}
     owner, reason = EPIC_PIECES.get(
-        domain, ("T-1298", "The remainder piece of the epic owns this unasserted unit."))
+        domain, ("T-1552", "The remainder piece of the epic owns this unasserted unit."))
     return {"disposition": "unresolved", "ticket": owner, "reason": reason}
 
 

@@ -84,7 +84,7 @@
       "adopted": 335,
       "delta": 0,
       "moved": false,
-      "why": "The model's own low end IS this schedule. The order book's competing figure is 643 HOUSEHOLDS, which is a different unit: satisfying it with roofs would seat one family per roof, the error the town model exists to refuse. It is met by occupancy instead — see the dwellings reconciliation, where the rate the order book needs falls inside the band the November census brackets."
+      "why": "The model's own low end IS this schedule. The order book's competing figure is 644 HOUSEHOLDS, which is a different unit: satisfying it with roofs would seat one family per roof, the error the town model exists to refuse. It is met by occupancy instead — see the dwellings reconciliation, where the rate the order book needs falls inside the band the November census brackets."
     },
     {
       "group": "small_outbuildings",
@@ -136,15 +136,15 @@
     "ordinary_dwellings": 335,
     "larger_houses_and_boarding_houses": 42,
     "dwelling_roofs_on_the_scene_date": 377,
-    "households_the_order_book_orders": 643,
-    "households_per_dwelling_adopted": 1.706,
+    "households_the_order_book_orders": 644,
+    "households_per_dwelling_adopted": 1.708,
     "households_per_dwelling_the_census_brackets": [
       1.636,
       2.051
     ],
     "inside_the_bracket": true,
     "how_the_bracket_is_got": "8.204 people per dwelling in the town census of November 1835, over the 1840 city's household size of 4.0–5.015 (median to mean).",
-    "people_per_dwelling_adopted": 6.727,
+    "people_per_dwelling_adopted": 6.745,
     "census_dwellings_november_1835": 398,
     "roofs_short_of_the_census": 21,
     "why_short_is_right": "The census counted 398 dwellings in November 1835, four months after the scene, in the fastest-growing months the town had. A July programme of 377 dwelling roofs stands 5.3% below it, which is growth across that gap and not a hole in the schedule. The same date caution governs every class the trade-census crosswalk compares.",

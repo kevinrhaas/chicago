@@ -33,13 +33,13 @@
   "note": "Not attested."
  },
  "present_on_scene_date": {
-  "value": "absent",
+  "value": "present",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "basis": {
    "kind": "model",
    "id": "persistence_1835",
-   "note": "The reading dates this name at 1832, 3.50 years before the scene date. The persistence model gives 0.789 for that lag and the seeded draw reads absent."
+   "note": "The reading dates this name at 1832, 3.50 years before the scene date. The persistence model gives 0.801 for that lag and the seeded draw reads present."
   },
   "seed": "hh_christopher_shedaker:persistence",
   "replaceable_by": {

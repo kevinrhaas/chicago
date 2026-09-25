@@ -7,14 +7,14 @@
  "scene_year": 1835,
  "street_layer": "data/streets/1835.json",
  "counts": {
-  "addresses_adjudicated": 162,
+  "addresses_adjudicated": 165,
   "placed": 23,
   "placed_as_a_face": 19,
   "placed_as_a_corner": 2,
   "placed_anchored_on_a_crossing": 2,
   "already_better_placed": 29,
-  "refused": 110,
-  "refused_clause_1_no_1835_business": 94,
+  "refused": 113,
+  "refused_clause_1_no_1835_business": 97,
   "refused_clause_2_a_residence_not_a_shop": 9,
   "refused_clause_3_not_on_the_1835_grid": 7,
   "faces_reached": [
@@ -630,6 +630,27 @@
    "read_back_years": 4,
    "sources": [
     "fergus_chicago_directory_1839"
+   ],
+   "occupation_1835": "none_recorded",
+   "works_at_1835": null,
+   "outcome": "refused",
+   "clause": "1",
+   "reason": "The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do.",
+   "street_id": null,
+   "face": null,
+   "placement": null,
+   "qualifier_as_printed": null,
+   "position_local_enu_m": null
+  },
+  {
+   "household_id": "hh_choulet_michel_alexandre",
+   "person_id": "choulet_michel_alexandre",
+   "person": "Michel Alexandre Choulet",
+   "address_as_printed": "res Dearborn",
+   "describes_date": 1843,
+   "read_back_years": 8,
+   "sources": [
+    "fergus_chicago_directory_1843"
    ],
    "occupation_1835": "none_recorded",
    "works_at_1835": null,
@@ -2458,6 +2479,27 @@
    "position_local_enu_m": null
   },
   {
+   "household_id": "hh_murray_john",
+   "person_id": "murray_john",
+   "person": "John Murray",
+   "address_as_printed": "res West Water, bet Canal and Clinton",
+   "describes_date": 1843,
+   "read_back_years": 8,
+   "sources": [
+    "fergus_chicago_directory_1843"
+   ],
+   "occupation_1835": "none_recorded",
+   "works_at_1835": null,
+   "outcome": "refused",
+   "clause": "1",
+   "reason": "The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do.",
+   "street_id": null,
+   "face": null,
+   "placement": null,
+   "qualifier_as_printed": null,
+   "position_local_enu_m": null
+  },
+  {
    "household_id": "hh_myers_frederick",
    "person_id": "myers_frederick",
    "person": "Frederick Myers",
@@ -3168,6 +3210,27 @@
    "street_id": "lake",
    "face": "Lake Street",
    "placement": "face",
+   "qualifier_as_printed": null,
+   "position_local_enu_m": null
+  },
+  {
+   "household_id": "hh_stone_henry",
+   "person_id": "stone_henry",
+   "person": "Henry Stone",
+   "address_as_printed": "h Michigan st. b Dearborn and Wolcott sts (See card)",
+   "describes_date": 1844,
+   "read_back_years": 9,
+   "sources": [
+    "norris_directory_1844"
+   ],
+   "occupation_1835": "none_recorded",
+   "works_at_1835": null,
+   "outcome": "refused",
+   "clause": "1",
+   "reason": "The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do.",
+   "street_id": null,
+   "face": null,
+   "placement": null,
    "qualifier_as_printed": null,
    "position_local_enu_m": null
   },

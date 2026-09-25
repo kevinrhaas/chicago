@@ -5,118 +5,62 @@
   "domain": "church",
   "source_id": "st_marys_baptismal_register_1833_1835",
   "pass": "T-0503",
-  "what": "Every ADULT named in the eleven page images — parents, godparents, sponsors, witnesses, spouses and the officiant — held against the 1285 people data/residents/ holds today. That count is DERIVED and it moves: the layer stood at 849 when T-0503 wrote this pass, and a crosswalk built against a layer that has since grown is stale rather than wrong — which is what T-1110 found and why --check now says which of the three it is.",
-  "the_rule": "A merge needs a written rule naming BOTH spellings verbatim; a surname-only merge is always a refusal; an EXACT name with no written rule is neither, and is held in exact_name_unruled[] rather than filed under a refusal whose stated ground is untrue of it; a refusal is declared as explicitly as a merge. Nothing here mints or regrades a resident — T-0514 and T-0515 spend this file.",
+  "what": "Every ADULT named in the eleven page images — parents, godparents, sponsors, witnesses, spouses and the officiant — held against the 1404 people data/residents/ holds today. That count is DERIVED and it moves: the layer stood at 849 when T-0503 wrote this pass, and a crosswalk built against a layer that has since grown is stale rather than wrong — which is what T-1110 found and why --check now says which of the three it is.",
+  "the_rule": "A merge needs a written rule naming BOTH spellings verbatim; a surname-only merge is always a refusal; an EXACT name with no written rule is neither, and is held in exact_name_unruled[] rather than filed under a refusal whose stated ground is untrue of it; a refusal is declared as explicitly as a merge. AN EXACT NAME WHOSE CARD CITES THIS VERY READING is not adjudicated at all (T-1525): the mint made that card FROM this row, so the pair is this crosswalk reading its own output, and it is stated as `minted_from_this_reading` rather than counted as a pair somebody still owes a ruling. Nothing here mints or regrades a resident — T-0514 and T-0515 spend this file.",
   "counts": {
     "adult_readings": 211,
     "distinct_adult_names": 143,
-    "residents_examined": 1285,
+    "residents_examined": 1404,
     "all_places": {
       "merged": 9,
       "refused": 20,
+      "minted_from_this_reading": 52,
       "exact_name_unruled": 0,
-      "refused_surname_only": 8,
-      "no_candidate": 106
+      "refused_surname_only": 15,
+      "no_candidate": 47
     },
     "chicago_entries_only": {
       "merged": 9,
       "refused": 19,
+      "minted_from_this_reading": 52,
       "exact_name_unruled": 0,
-      "refused_surname_only": 4,
-      "no_candidate": 79
+      "refused_surname_only": 11,
+      "no_candidate": 20
     },
-    "chicago_adults_present_nowhere_else": 79
+    "chicago_adults_present_nowhere_else": 20
   },
-  "the_finding": "Of the 111 distinct adults the register names in its CHICAGO entries, 79 reach no surname in the residents layer at all. They are the French, Métis, Irish and German Catholic town that the poll books (which recorded only men who voted) and the post office's letter lists do not reach — and they are what the owner's ask was for.",
+  "the_finding": "Of the 111 distinct adults the register names in its CHICAGO entries, 20 reach no surname in the residents layer at all. They are the French, Métis, Irish and German Catholic town that the poll books (which recorded only men who voted) and the post office's letter lists do not reach — and they are what the owner's ask was for.",
   "chicago_adults_present_nowhere_else": [
-    "Adam Schwartz",
-    "Adelaide Bouchard",
-    "Alexis Gagnier",
-    "Alexis Thomas Blanchemontagne",
-    "Andrew Bouchard",
-    "Angélique Aspam",
-    "Anne Françoise Apolline Bruno",
-    "Antoine Aspam",
     "Augustin Bonné",
     "Baptiste Létendre",
-    "Barbery Judar",
-    "Bernard Bousque",
-    "Bridget Finegan",
     "Catherine Debert",
-    "Catherine Harrington",
-    "Catherine Preman",
-    "Cierno Ann",
-    "Claude Laframboise",
-    "Claudia Pierrette Choulet",
-    "Edward Daly",
-    "François Tranche",
-    "Geneviève Medera",
-    "George David Roi",
-    "Godfrey Coslet",
-    "Gwinthlean Whistler",
-    "Henry Stone",
-    "Honora Casy",
-    "Jacob Jolly",
-    "Jacob Tony",
-    "Jacob Vieau",
-    "Jacquette Peltier",
     "Jaespquaa",
     "James O'Marra",
-    "Jean Baptiste Bruno",
-    "Jean Baptiste Derocher",
-    "Jean Baptiste Lavigne",
-    "Jean Pottier",
-    "John Molony",
-    "John Whistler",
-    "John Wode",
-    "Joseph Duplas",
-    "Joseph Laframboise",
-    "Joseph Pallet",
-    "Josette Aspam",
-    "Josette Laframboise",
-    "Josette Vieau",
-    "Joséphine Guy",
     "Lieu",
     "Louis Franchère",
     "Louis Trombere",
-    "Louise Caroline Choulet",
-    "Lucy Kennedy",
     "M. Rowe",
     "Manqua Masqua",
-    "Marguerite Laframboise",
     "Marguerite Malore",
-    "Marguerite Robi",
-    "Marian Eberling",
     "Marian Mouch",
     "Mariana Kamenwith",
     "Marianne",
     "Marie Dalbau",
     "Marie Delacher",
-    "Marie Louise Mallet",
-    "Mary Brenin",
-    "Mary Duggan",
     "Matanacqua",
-    "Michel Arquette",
-    "Michel Choulet",
-    "Michel Mayo",
     "Miranda",
     "N. Thob",
-    "O'Waichiquoi",
-    "Patrick Wagon",
-    "Paul Vieau",
-    "Pierre Riffe",
-    "Thomas Forester",
-    "Victoire Madera",
-    "William Dird"
+    "O'Waichiquoi"
   ],
   "exact_name_unruled": [],
   "counts_by_ruling": {
     "child_not_crosswalked": 56,
     "merged": 22,
-    "no_candidate": 146,
+    "minted_from_this_reading": 73,
+    "no_candidate": 64,
     "not_a_person": 8,
     "refused": 33,
-    "refused_surname_only": 10
+    "refused_surname_only": 19
   },
   "merges": [
     {
@@ -402,9 +346,17 @@
       "entries": [
         "1835/8"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Adam Schwartz",
+        "Pierre Adam Schwartz"
+      ],
+      "resident_exact_name_matches": [
+        "Adam Schwartz"
+      ],
+      "resident_minted_from_this_reading": [
+        "Adam Schwartz"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Adelaide Bouchard",
@@ -417,9 +369,17 @@
         "1833/11",
         "1833/12"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Adelaide Bouchard",
+        "Louis Bouchard"
+      ],
+      "resident_exact_name_matches": [
+        "Adelaide Bouchard"
+      ],
+      "resident_minted_from_this_reading": [
+        "Adelaide Bouchard"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Alexis Gagnier",
@@ -431,9 +391,17 @@
       "entries": [
         "1833/15"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Alexis Gagnier",
+        "Catherine Gagnier"
+      ],
+      "resident_exact_name_matches": [
+        "Alexis Gagnier"
+      ],
+      "resident_minted_from_this_reading": [
+        "Alexis Gagnier"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Alexis Thomas Blanchemontagne",
@@ -445,9 +413,16 @@
       "entries": [
         "1835/11"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Alexis Thomas Blanchemontagne"
+      ],
+      "resident_exact_name_matches": [
+        "Alexis Thomas Blanchemontagne"
+      ],
+      "resident_minted_from_this_reading": [
+        "Alexis Thomas Blanchemontagne"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Ana Cery",
@@ -461,6 +436,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -474,9 +450,13 @@
         "1833/11",
         "1833/12"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Adelaide Bouchard",
+        "Louis Bouchard"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_minted_from_this_reading": [],
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Angélique Aspam",
@@ -488,9 +468,15 @@
       "entries": [
         "1833/15"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Antoine Aspam",
+        "Jean Baptiste Aspam",
+        "Josette Aspam",
+        "Magdeleine Aspam"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_minted_from_this_reading": [],
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Ann Durbin",
@@ -504,6 +490,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -518,6 +505,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -531,9 +519,15 @@
         "1835/10",
         "1835/11"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Anne Franoise Apolline Bruno",
+        "Jean Baptiste Bruno"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_minted_from_this_reading": [
+        "Anne Franoise Apolline Bruno"
+      ],
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Antoine Aspam",
@@ -546,9 +540,19 @@
         "1833/14",
         "1833/17"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Antoine Aspam",
+        "Jean Baptiste Aspam",
+        "Josette Aspam",
+        "Magdeleine Aspam"
+      ],
+      "resident_exact_name_matches": [
+        "Antoine Aspam"
+      ],
+      "resident_minted_from_this_reading": [
+        "Antoine Aspam"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Archange Beaubien",
@@ -564,16 +568,31 @@
         "1834/19"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Archange Beaubien"
+      ],
+      "resident_minted_from_this_reading": [
+        "Archange Beaubien"
+      ],
       "adjudication": "refused"
     },
     {
@@ -594,6 +613,9 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [
+        "Augustin Bonn"
+      ],
       "adjudication": "no_candidate"
     },
     {
@@ -608,6 +630,9 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [
+        "Baptiste Ltendre"
+      ],
       "adjudication": "no_candidate"
     },
     {
@@ -622,9 +647,16 @@
         "1835/12",
         "1835/13"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Barbery Judar"
+      ],
+      "resident_exact_name_matches": [
+        "Barbery Judar"
+      ],
+      "resident_minted_from_this_reading": [
+        "Barbery Judar"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Bernard Bousque",
@@ -636,9 +668,17 @@
       "entries": [
         "1835/2"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Bernard Bousque",
+        "Catherine Henrietta Bousque"
+      ],
+      "resident_exact_name_matches": [
+        "Bernard Bousque"
+      ],
+      "resident_minted_from_this_reading": [
+        "Bernard Bousque"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Bourrasso",
@@ -652,6 +692,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "refused"
     },
     {
@@ -664,9 +705,16 @@
       "entries": [
         "1835/1"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Bridget Finegan"
+      ],
+      "resident_exact_name_matches": [
+        "Bridget Finegan"
+      ],
+      "resident_minted_from_this_reading": [
+        "Bridget Finegan"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Bridget Forster",
@@ -679,9 +727,15 @@
         "1835/14"
       ],
       "resident_surname_candidates": [
+        "Bridget Forster",
         "Jane Forster"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Bridget Forster"
+      ],
+      "resident_minted_from_this_reading": [
+        "Bridget Forster"
+      ],
       "adjudication": "refused"
     },
     {
@@ -697,9 +751,11 @@
       "resident_surname_candidates": [
         "John Murphy",
         "Harriet Murphy",
+        "Mary Murphy",
         "N Murphy"
       ],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "refused"
     },
     {
@@ -713,9 +769,15 @@
         "1835/13"
       ],
       "resident_surname_candidates": [
+        "Catherine Chandler",
         "Joseph Chandler"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Catherine Chandler"
+      ],
+      "resident_minted_from_this_reading": [
+        "Catherine Chandler"
+      ],
       "adjudication": "refused"
     },
     {
@@ -730,6 +792,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -742,9 +805,16 @@
       "entries": [
         "1833/9"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Catherine Harrington"
+      ],
+      "resident_exact_name_matches": [
+        "Catherine Harrington"
+      ],
+      "resident_minted_from_this_reading": [
+        "Catherine Harrington"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Catherine Miller",
@@ -757,11 +827,17 @@
         "1835/12"
       ],
       "resident_surname_candidates": [
+        "Catherine Miller",
         "George Miller",
         "John Miller",
         "Samuel Miller"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Catherine Miller"
+      ],
+      "resident_minted_from_this_reading": [
+        "Catherine Miller"
+      ],
       "adjudication": "refused"
     },
     {
@@ -776,9 +852,17 @@
       ],
       "resident_surname_candidates": [
         "Alonzo Murray",
+        "Catherine Murray",
+        "John Murray",
+        "Martha Murray",
         "Patrick Murray"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Catherine Murray"
+      ],
+      "resident_minted_from_this_reading": [
+        "Catherine Murray"
+      ],
       "adjudication": "refused"
     },
     {
@@ -791,9 +875,16 @@
       "entries": [
         "1835/2"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Catherine Preman"
+      ],
+      "resident_exact_name_matches": [
+        "Catherine Preman"
+      ],
+      "resident_minted_from_this_reading": [
+        "Catherine Preman"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Catherine Trewin",
@@ -807,6 +898,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -820,16 +912,31 @@
         "1834/21"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Charles Beaubien"
+      ],
+      "resident_minted_from_this_reading": [
+        "Charles Beaubien"
+      ],
       "adjudication": "refused"
     },
     {
@@ -845,6 +952,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -857,9 +965,16 @@
       "entries": [
         "1835/7"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Cierno Ann"
+      ],
+      "resident_exact_name_matches": [
+        "Cierno Ann"
+      ],
+      "resident_minted_from_this_reading": [
+        "Cierno Ann"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Claude Laframboise",
@@ -871,9 +986,22 @@
       "entries": [
         "1834/24"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Ccile Laframboise",
+        "Claude Laframboise",
+        "Franois Laframboise",
+        "Joseph Laframboise",
+        "Josette Laframboise",
+        "Marguerite Laframboise",
+        "Thrse Laframboise"
+      ],
+      "resident_exact_name_matches": [
+        "Claude Laframboise"
+      ],
+      "resident_minted_from_this_reading": [
+        "Claude Laframboise"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Claudia Pierrette Choulet",
@@ -885,9 +1013,18 @@
       "entries": [
         "1834/17"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Claudia Pierrette Choulet",
+        "Louise Caroline Choulet",
+        "Michel Alexandre Choulet"
+      ],
+      "resident_exact_name_matches": [
+        "Claudia Pierrette Choulet"
+      ],
+      "resident_minted_from_this_reading": [
+        "Claudia Pierrette Choulet"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Doctor Egan",
@@ -904,6 +1041,9 @@
         "Emeline Egan"
       ],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [
+        "Dr William Bradshaw Egan"
+      ],
       "adjudication": "merged"
     },
     {
@@ -916,9 +1056,16 @@
       "entries": [
         "1835/14"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Edward Daly"
+      ],
+      "resident_exact_name_matches": [
+        "Edward Daly"
+      ],
+      "resident_minted_from_this_reading": [
+        "Edward Daly"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Elisabeth Durbin",
@@ -934,6 +1081,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -950,6 +1098,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -963,9 +1112,11 @@
         "1833/5"
       ],
       "resident_surname_candidates": [
+        "Esther Bailly",
         "Joseph Bailly"
       ],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "refused"
     },
     {
@@ -980,6 +1131,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -993,9 +1145,15 @@
         "1833/4"
       ],
       "resident_surname_candidates": [
+        "Esther Bailly",
         "Joseph Bailly"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Esther Bailly"
+      ],
+      "resident_minted_from_this_reading": [
+        "Esther Bailly"
+      ],
       "adjudication": "refused"
     },
     {
@@ -1010,6 +1168,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1023,9 +1182,13 @@
         "1833/16",
         "1835/6"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Marguerite Tranche",
+        "Susanne Tranche"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_minted_from_this_reading": [],
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Frederick Daniel",
@@ -1038,10 +1201,16 @@
         "1835/12"
       ],
       "resident_surname_candidates": [
-        "B. Clevinger [?] Daniel"
+        "B. Clevinger [?] Daniel",
+        "Frederick Daniel"
       ],
-      "resident_exact_name_matches": [],
-      "adjudication": "refused_surname_only"
+      "resident_exact_name_matches": [
+        "Frederick Daniel"
+      ],
+      "resident_minted_from_this_reading": [
+        "Frederick Daniel"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Geneviève Medera",
@@ -1053,9 +1222,14 @@
       "entries": [
         "1835/3"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Genevive Medera"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_minted_from_this_reading": [
+        "Genevive Medera"
+      ],
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "George David Roi",
@@ -1068,9 +1242,18 @@
         "1835/10",
         "1835/11"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Anne Franoise Virginie Roi",
+        "George David Roi",
+        "Joseph Claude Roi"
+      ],
+      "resident_exact_name_matches": [
+        "George David Roi"
+      ],
+      "resident_minted_from_this_reading": [
+        "George David Roi"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Godfrey Coslet",
@@ -1082,9 +1265,17 @@
       "entries": [
         "1834/20"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Elisabeth Coslet",
+        "Godfrey Coslet"
+      ],
+      "resident_exact_name_matches": [
+        "Godfrey Coslet"
+      ],
+      "resident_minted_from_this_reading": [
+        "Godfrey Coslet"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Gwinthlean Whistler",
@@ -1096,9 +1287,17 @@
       "entries": [
         "1834/22"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Gwinthlean Whistler",
+        "John Harrison Whistler"
+      ],
+      "resident_exact_name_matches": [
+        "Gwinthlean Whistler"
+      ],
+      "resident_minted_from_this_reading": [
+        "Gwinthlean Whistler"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Henry Kinkie",
@@ -1114,6 +1313,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1126,9 +1326,16 @@
       "entries": [
         "1835/2"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Henry Stone"
+      ],
+      "resident_exact_name_matches": [
+        "Henry Stone"
+      ],
+      "resident_minted_from_this_reading": [
+        "Henry Stone"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Honora Casy",
@@ -1140,9 +1347,16 @@
       "entries": [
         "1835/14"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Honora Casy"
+      ],
+      "resident_exact_name_matches": [
+        "Honora Casy"
+      ],
+      "resident_minted_from_this_reading": [
+        "Honora Casy"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Jacob Jolly",
@@ -1154,9 +1368,16 @@
       "entries": [
         "1833/9"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacob Jolly"
+      ],
+      "resident_exact_name_matches": [
+        "Jacob Jolly"
+      ],
+      "resident_minted_from_this_reading": [
+        "Jacob Jolly"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Jacob Tony",
@@ -1168,9 +1389,17 @@
       "entries": [
         "1835/13"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacob Tony",
+        "Louisa Tony"
+      ],
+      "resident_exact_name_matches": [
+        "Jacob Tony"
+      ],
+      "resident_minted_from_this_reading": [
+        "Jacob Tony"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Jacob Vieau",
@@ -1182,9 +1411,19 @@
       "entries": [
         "1833/8"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacob Vieau",
+        "Josette Vieau",
+        "Marie Josette Vieau",
+        "Paul Vieau"
+      ],
+      "resident_exact_name_matches": [
+        "Jacob Vieau"
+      ],
+      "resident_minted_from_this_reading": [
+        "Jacob Vieau"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Jacquette Peltier",
@@ -1200,9 +1439,16 @@
         "1834/23",
         "1834/24"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacquette Peltier"
+      ],
+      "resident_exact_name_matches": [
+        "Jacquette Peltier"
+      ],
+      "resident_minted_from_this_reading": [
+        "Jacquette Peltier"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Jaespquaa",
@@ -1216,6 +1462,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1230,6 +1477,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1244,6 +1492,9 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [
+        "James Omarra"
+      ],
       "adjudication": "no_candidate"
     },
     {
@@ -1261,16 +1512,27 @@
         "1834/22"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "merged"
     },
     {
@@ -1283,9 +1545,17 @@
       "entries": [
         "1835/10"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Anne Franoise Apolline Bruno",
+        "Jean Baptiste Bruno"
+      ],
+      "resident_exact_name_matches": [
+        "Jean Baptiste Bruno"
+      ],
+      "resident_minted_from_this_reading": [
+        "Jean Baptiste Bruno"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Jean Baptiste Derocher",
@@ -1297,9 +1567,16 @@
       "entries": [
         "1835/4"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jean Baptiste Derocher"
+      ],
+      "resident_exact_name_matches": [
+        "Jean Baptiste Derocher"
+      ],
+      "resident_minted_from_this_reading": [
+        "Jean Baptiste Derocher"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Jean Baptiste Lavigne",
@@ -1312,9 +1589,16 @@
         "1833/16",
         "1833/17"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jean Baptiste Lavigne"
+      ],
+      "resident_exact_name_matches": [
+        "Jean Baptiste Lavigne"
+      ],
+      "resident_minted_from_this_reading": [
+        "Jean Baptiste Lavigne"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Jean Pottier",
@@ -1327,9 +1611,18 @@
         "1833/3",
         "1834/12"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Augustin Pottier",
+        "Jean Pottier",
+        "Joseph Pottier"
+      ],
+      "resident_exact_name_matches": [
+        "Jean Pottier"
+      ],
+      "resident_minted_from_this_reading": [
+        "Jean Pottier"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "John Durbin",
@@ -1343,6 +1636,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1362,6 +1656,7 @@
         "Seth Johnson"
       ],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "refused_surname_only"
     },
     {
@@ -1378,6 +1673,7 @@
         "Malzacher Louis"
       ],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "refused_surname_only"
     },
     {
@@ -1398,6 +1694,7 @@
         "Rev. John Mary Irenaeus St Cyr"
       ],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "merged"
     },
     {
@@ -1412,6 +1709,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1424,9 +1722,17 @@
       "entries": [
         "1835/14"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Denis Molony",
+        "John Molony"
+      ],
+      "resident_exact_name_matches": [
+        "John Molony"
+      ],
+      "resident_minted_from_this_reading": [
+        "John Molony"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "John Murphy",
@@ -1441,11 +1747,13 @@
       "resident_surname_candidates": [
         "John Murphy",
         "Harriet Murphy",
+        "Mary Murphy",
         "N Murphy"
       ],
       "resident_exact_name_matches": [
         "John Murphy"
       ],
+      "resident_minted_from_this_reading": [],
       "adjudication": "merged"
     },
     {
@@ -1460,9 +1768,17 @@
       ],
       "resident_surname_candidates": [
         "Alonzo Murray",
+        "Catherine Murray",
+        "John Murray",
+        "Martha Murray",
         "Patrick Murray"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "John Murray"
+      ],
+      "resident_minted_from_this_reading": [
+        "John Murray"
+      ],
       "adjudication": "refused"
     },
     {
@@ -1477,11 +1793,19 @@
         "1834/17"
       ],
       "resident_surname_candidates": [
+        "Catharine Welsh",
+        "John Welsh",
+        "Joseph Welsh",
         "Mary Welsh",
         "T Welsh"
       ],
-      "resident_exact_name_matches": [],
-      "adjudication": "refused_surname_only"
+      "resident_exact_name_matches": [
+        "John Welsh"
+      ],
+      "resident_minted_from_this_reading": [
+        "John Welsh"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "John Whistler",
@@ -1493,9 +1817,15 @@
       "entries": [
         "1833/4"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Gwinthlean Whistler",
+        "John Harrison Whistler"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_minted_from_this_reading": [
+        "John Harrison Whistler"
+      ],
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "John Wode",
@@ -1507,9 +1837,18 @@
       "entries": [
         "1833/9"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Catherine Wode",
+        "John Wode",
+        "Mary Wode"
+      ],
+      "resident_exact_name_matches": [
+        "John Wode"
+      ],
+      "resident_minted_from_this_reading": [
+        "John Wode"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Joseph Beaubien",
@@ -1522,16 +1861,31 @@
         "1833/18"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Joseph Beaubien"
+      ],
+      "resident_minted_from_this_reading": [
+        "Joseph Beaubien"
+      ],
       "adjudication": "refused"
     },
     {
@@ -1545,11 +1899,13 @@
         "1835/13"
       ],
       "resident_surname_candidates": [
+        "Catherine Chandler",
         "Joseph Chandler"
       ],
       "resident_exact_name_matches": [
         "Joseph Chandler"
       ],
+      "resident_minted_from_this_reading": [],
       "adjudication": "merged"
     },
     {
@@ -1562,9 +1918,17 @@
       "entries": [
         "1835/12"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Catherine Duplas",
+        "Joseph Duplas"
+      ],
+      "resident_exact_name_matches": [
+        "Joseph Duplas"
+      ],
+      "resident_minted_from_this_reading": [
+        "Joseph Duplas"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Joseph Laframboise",
@@ -1579,9 +1943,22 @@
         "1833/2",
         "1834/15"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Ccile Laframboise",
+        "Claude Laframboise",
+        "Franois Laframboise",
+        "Joseph Laframboise",
+        "Josette Laframboise",
+        "Marguerite Laframboise",
+        "Thrse Laframboise"
+      ],
+      "resident_exact_name_matches": [
+        "Joseph Laframboise"
+      ],
+      "resident_minted_from_this_reading": [
+        "Joseph Laframboise"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Joseph Pallet",
@@ -1593,9 +1970,16 @@
       "entries": [
         "1834/12"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Joseph Pallet"
+      ],
+      "resident_exact_name_matches": [
+        "Joseph Pallet"
+      ],
+      "resident_minted_from_this_reading": [
+        "Joseph Pallet"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Josette Ashkam",
@@ -1609,6 +1993,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1624,9 +2009,19 @@
         "1833/17",
         "1835/6"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Antoine Aspam",
+        "Jean Baptiste Aspam",
+        "Josette Aspam",
+        "Magdeleine Aspam"
+      ],
+      "resident_exact_name_matches": [
+        "Josette Aspam"
+      ],
+      "resident_minted_from_this_reading": [
+        "Josette Aspam"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Josette Chevalier",
@@ -1642,9 +2037,14 @@
         "1834/12"
       ],
       "resident_surname_candidates": [
-        "Josette Chevalier"
+        "Joseph Chevalier",
+        "Josette Chevalier",
+        "Louis P Chevalier"
       ],
       "resident_exact_name_matches": [
+        "Josette Chevalier"
+      ],
+      "resident_minted_from_this_reading": [
         "Josette Chevalier"
       ],
       "adjudication": "refused"
@@ -1663,9 +2063,22 @@
         "1834/14",
         "1834/22"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Ccile Laframboise",
+        "Claude Laframboise",
+        "Franois Laframboise",
+        "Joseph Laframboise",
+        "Josette Laframboise",
+        "Marguerite Laframboise",
+        "Thrse Laframboise"
+      ],
+      "resident_exact_name_matches": [
+        "Josette Laframboise"
+      ],
+      "resident_minted_from_this_reading": [
+        "Josette Laframboise"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Josette Laframboise Beaubien",
@@ -1680,18 +2093,29 @@
         "1834/18"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
       "resident_exact_name_matches": [
         "Josette LaFramboise Beaubien"
       ],
+      "resident_minted_from_this_reading": [],
       "adjudication": "merged"
     },
     {
@@ -1706,9 +2130,19 @@
         "1833/10",
         "1833/5"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacob Vieau",
+        "Josette Vieau",
+        "Marie Josette Vieau",
+        "Paul Vieau"
+      ],
+      "resident_exact_name_matches": [
+        "Josette Vieau"
+      ],
+      "resident_minted_from_this_reading": [
+        "Josette Vieau"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Joséphine Guy",
@@ -1720,9 +2154,14 @@
       "entries": [
         "1835/10"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Josphine Guy"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_minted_from_this_reading": [
+        "Josphine Guy"
+      ],
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "L. Chevalier",
@@ -1735,9 +2174,14 @@
         "1835/3"
       ],
       "resident_surname_candidates": [
-        "Josette Chevalier"
+        "Joseph Chevalier",
+        "Josette Chevalier",
+        "Louis P Chevalier"
       ],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [
+        "Louis P Chevalier"
+      ],
       "adjudication": "refused"
     },
     {
@@ -1752,6 +2196,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1766,6 +2211,9 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [
+        "Louis Franchre"
+      ],
       "adjudication": "no_candidate"
     },
     {
@@ -1780,6 +2228,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1796,6 +2245,7 @@
         "John P. Simpson"
       ],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "refused_surname_only"
     },
     {
@@ -1809,9 +2259,18 @@
         "1834/16",
         "1835/4"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Claudia Pierrette Choulet",
+        "Louise Caroline Choulet",
+        "Michel Alexandre Choulet"
+      ],
+      "resident_exact_name_matches": [
+        "Louise Caroline Choulet"
+      ],
+      "resident_minted_from_this_reading": [
+        "Louise Caroline Choulet"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Lucy Kennedy",
@@ -1823,9 +2282,16 @@
       "entries": [
         "1834/21"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Lucy Kennedy"
+      ],
+      "resident_exact_name_matches": [
+        "Lucy Kennedy"
+      ],
+      "resident_minted_from_this_reading": [
+        "Lucy Kennedy"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Léon Bourassa",
@@ -1839,9 +2305,15 @@
         "1835/4"
       ],
       "resident_surname_candidates": [
-        "Mark Bourassa"
+        "Jean Baptiste Bourassa",
+        "Lon Bourassa",
+        "Mark Bourassa",
+        "Noel Bourassa"
       ],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [
+        "Lon Bourassa"
+      ],
       "adjudication": "refused_surname_only"
     },
     {
@@ -1857,6 +2329,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1871,6 +2344,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1885,6 +2359,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1901,6 +2376,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1914,9 +2390,22 @@
         "1834/23",
         "1835/4"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Ccile Laframboise",
+        "Claude Laframboise",
+        "Franois Laframboise",
+        "Joseph Laframboise",
+        "Josette Laframboise",
+        "Marguerite Laframboise",
+        "Thrse Laframboise"
+      ],
+      "resident_exact_name_matches": [
+        "Marguerite Laframboise"
+      ],
+      "resident_minted_from_this_reading": [
+        "Marguerite Laframboise"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Marguerite Malore",
@@ -1930,6 +2419,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1942,9 +2432,16 @@
       "entries": [
         "1835/5"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Marguerite Robi"
+      ],
+      "resident_exact_name_matches": [
+        "Marguerite Robi"
+      ],
+      "resident_minted_from_this_reading": [
+        "Marguerite Robi"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Marian Eberling",
@@ -1956,9 +2453,16 @@
       "entries": [
         "1834/20"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Marian Eberling"
+      ],
+      "resident_exact_name_matches": [
+        "Marian Eberling"
+      ],
+      "resident_minted_from_this_reading": [
+        "Marian Eberling"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Marian Mouch",
@@ -1972,6 +2476,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -1986,6 +2491,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2001,6 +2507,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2015,6 +2522,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2029,6 +2537,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2041,9 +2550,16 @@
       "entries": [
         "1835/11"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Marie Louise Mallet"
+      ],
+      "resident_exact_name_matches": [
+        "Marie Louise Mallet"
+      ],
+      "resident_minted_from_this_reading": [
+        "Marie Louise Mallet"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Marie Louise Ouilmette",
@@ -2056,8 +2572,15 @@
         "1834/16",
         "1834/17"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
+      "resident_surname_candidates": [
+        "Marie Louise Ouilmette"
+      ],
+      "resident_exact_name_matches": [
+        "Marie Louise Ouilmette"
+      ],
+      "resident_minted_from_this_reading": [
+        "Marie Louise Ouilmette"
+      ],
       "adjudication": "refused"
     },
     {
@@ -2074,18 +2597,29 @@
         "1834/19"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
       "resident_exact_name_matches": [
         "Mark Beaubien"
       ],
+      "resident_minted_from_this_reading": [],
       "adjudication": "merged"
     },
     {
@@ -2098,9 +2632,16 @@
       "entries": [
         "1835/9"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Mary Brenin"
+      ],
+      "resident_exact_name_matches": [
+        "Mary Brenin"
+      ],
+      "resident_minted_from_this_reading": [
+        "Mary Brenin"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Mary Duggan",
@@ -2112,9 +2653,16 @@
       "entries": [
         "1834/18"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Mary Duggan"
+      ],
+      "resident_exact_name_matches": [
+        "Mary Duggan"
+      ],
+      "resident_minted_from_this_reading": [
+        "Mary Duggan"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Mary Durbin",
@@ -2128,6 +2676,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "refused"
     },
     {
@@ -2143,9 +2692,15 @@
       "resident_surname_candidates": [
         "John Murphy",
         "Harriet Murphy",
+        "Mary Murphy",
         "N Murphy"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Mary Murphy"
+      ],
+      "resident_minted_from_this_reading": [
+        "Mary Murphy"
+      ],
       "adjudication": "refused"
     },
     {
@@ -2160,6 +2715,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2179,11 +2735,17 @@
         "Jeremiah Smith",
         "L W Smith",
         "Lawrence Smith",
+        "Mathias Smith",
         "Matthias Smith",
         "William Smith",
         "William V Smith"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Mathias Smith"
+      ],
+      "resident_minted_from_this_reading": [
+        "Mathias Smith"
+      ],
       "adjudication": "refused"
     },
     {
@@ -2198,6 +2760,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2212,6 +2775,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2224,9 +2788,17 @@
       "entries": [
         "1835/5"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Joseph Arquette",
+        "Michel Arquette"
+      ],
+      "resident_exact_name_matches": [
+        "Michel Arquette"
+      ],
+      "resident_minted_from_this_reading": [
+        "Michel Arquette"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Michel Choulet",
@@ -2238,9 +2810,16 @@
       "entries": [
         "1835/6"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Claudia Pierrette Choulet",
+        "Louise Caroline Choulet",
+        "Michel Alexandre Choulet"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_minted_from_this_reading": [
+        "Michel Alexandre Choulet"
+      ],
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Michel Mayo",
@@ -2252,9 +2831,17 @@
       "entries": [
         "1833/2"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Joseph Mayo",
+        "Michel Mayo"
+      ],
+      "resident_exact_name_matches": [
+        "Michel Mayo"
+      ],
+      "resident_minted_from_this_reading": [
+        "Michel Mayo"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Miranda",
@@ -2268,6 +2855,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2281,17 +2869,32 @@
         "1833/16"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
-      "resident_exact_name_matches": [],
-      "adjudication": "refused_surname_only"
+      "resident_exact_name_matches": [
+        "Monique Beaubien"
+      ],
+      "resident_minted_from_this_reading": [
+        "Monique Beaubien"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Monique Nadeau",
@@ -2313,8 +2916,15 @@
         "1834/19",
         "1834/21"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
+      "resident_surname_candidates": [
+        "Monique Nadeau"
+      ],
+      "resident_exact_name_matches": [
+        "Monique Nadeau"
+      ],
+      "resident_minted_from_this_reading": [
+        "Monique Nadeau"
+      ],
       "adjudication": "refused"
     },
     {
@@ -2329,6 +2939,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2343,6 +2954,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2357,6 +2969,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2375,6 +2988,9 @@
       "resident_exact_name_matches": [
         "Patrick Carroll"
       ],
+      "resident_minted_from_this_reading": [
+        "Patrick Carroll"
+      ],
       "adjudication": "refused"
     },
     {
@@ -2387,9 +3003,12 @@
       "entries": [
         "1834/18"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Cicely Wagon"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_minted_from_this_reading": [],
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Paul Vieau",
@@ -2401,9 +3020,19 @@
       "entries": [
         "1833/18"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacob Vieau",
+        "Josette Vieau",
+        "Marie Josette Vieau",
+        "Paul Vieau"
+      ],
+      "resident_exact_name_matches": [
+        "Paul Vieau"
+      ],
+      "resident_minted_from_this_reading": [
+        "Paul Vieau"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Philipp Durbin",
@@ -2420,6 +3049,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2432,9 +3062,16 @@
       "entries": [
         "1835/8"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Pierre Riffe"
+      ],
+      "resident_exact_name_matches": [
+        "Pierre Riffe"
+      ],
+      "resident_minted_from_this_reading": [
+        "Pierre Riffe"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Robert Allen Kinzie",
@@ -2455,6 +3092,7 @@
       "resident_exact_name_matches": [
         "Robert Allen Kinzie"
       ],
+      "resident_minted_from_this_reading": [],
       "adjudication": "merged"
     },
     {
@@ -2471,6 +3109,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2485,6 +3124,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2503,9 +3143,13 @@
         "1834/17"
       ],
       "resident_surname_candidates": [
+        "Marguerite Juneau",
         "Solomon Juneau"
       ],
       "resident_exact_name_matches": [
+        "Solomon Juneau"
+      ],
+      "resident_minted_from_this_reading": [
         "Solomon Juneau"
       ],
       "adjudication": "merged"
@@ -2527,6 +3171,7 @@
         "Seth Johnson"
       ],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "refused_surname_only"
     },
     {
@@ -2541,6 +3186,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2555,6 +3201,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2567,9 +3214,17 @@
       "entries": [
         "1835/1"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Mary Elisabeth Forester",
+        "Thomas Forester"
+      ],
+      "resident_exact_name_matches": [
+        "Thomas Forester"
+      ],
+      "resident_minted_from_this_reading": [
+        "Thomas Forester"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "Thomas Potts",
@@ -2583,6 +3238,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2596,9 +3252,16 @@
         "1833/3",
         "1834/12"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Victoire Madera"
+      ],
+      "resident_exact_name_matches": [
+        "Victoire Madera"
+      ],
+      "resident_minted_from_this_reading": [
+        "Victoire Madera"
+      ],
+      "adjudication": "minted_from_this_reading"
     },
     {
       "name": "William Alvey",
@@ -2616,6 +3279,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     },
     {
@@ -2628,9 +3292,12 @@
       "entries": [
         "1833/6"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "John David Dird"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_minted_from_this_reading": [],
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "William Durbin",
@@ -2644,6 +3311,7 @@
       ],
       "resident_surname_candidates": [],
       "resident_exact_name_matches": [],
+      "resident_minted_from_this_reading": [],
       "adjudication": "no_candidate"
     }
   ],
@@ -2701,8 +3369,8 @@
       "name": "Michel Mayo",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_02_3_mother",
@@ -2717,8 +3385,8 @@
       "name": "Joseph Laframboise",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_02_5_sponsor",
@@ -2741,16 +3409,16 @@
       "name": "Jean Pottier",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_03_3_mother",
       "name": "Victoire Madera",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_03_4_godfather",
@@ -2789,16 +3457,16 @@
       "name": "Josette Laframboise",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_04_4_sponsor",
       "name": "John Whistler",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_04_5_sponsor",
@@ -2829,8 +3497,8 @@
       "name": "Josette Vieau",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_05_4_sponsor",
@@ -2861,8 +3529,8 @@
       "name": "William Dird",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_06_3_mother",
@@ -2933,8 +3601,8 @@
       "name": "Jacob Vieau",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_08_3_mother",
@@ -2981,8 +3649,8 @@
       "name": "John Wode",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_09_4_mother",
@@ -2997,16 +3665,16 @@
       "name": "Jacob Jolly",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_09_6_sponsor",
       "name": "Catherine Harrington",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_10_1_child",
@@ -3045,8 +3713,8 @@
       "name": "Josette Vieau",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_11_1_child",
@@ -3061,16 +3729,16 @@
       "name": "Andrew Bouchard",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_11_3_mother",
       "name": "Adelaide Bouchard",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_11_4_sponsor",
@@ -3101,16 +3769,16 @@
       "name": "Andrew Bouchard",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_12_3_mother",
       "name": "Adelaide Bouchard",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_12_4_sponsor",
@@ -3141,16 +3809,16 @@
       "name": "Joseph Laframboise",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_13_3_mother",
       "name": "Jacquette Peltier",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_13_4_godfather",
@@ -3165,8 +3833,8 @@
       "name": "Josette Laframboise",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_14_1_child",
@@ -3181,8 +3849,8 @@
       "name": "Antoine Aspam",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_14_3_mother",
@@ -3221,16 +3889,16 @@
       "name": "Alexis Gagnier",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_15_3_mother",
       "name": "Angélique Aspam",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_15_4_sponsor",
@@ -3261,32 +3929,32 @@
       "name": "François Tranche",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_16_3_mother",
       "name": "Josette Aspam",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_16_4_godfather",
       "name": "Jean Baptiste Lavigne",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_16_5_godmother",
       "name": "Monique Beaubien",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "refused_surname_only",
-      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_17_1_child",
@@ -3301,8 +3969,8 @@
       "name": "Antoine Aspam",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_17_3_mother",
@@ -3317,16 +3985,16 @@
       "name": "Jean Baptiste Lavigne",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_17_5_godmother",
       "name": "Josette Aspam",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_18_1_child",
@@ -3341,8 +4009,8 @@
       "name": "Paul Vieau",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1833_18_3_mother",
@@ -3805,24 +4473,24 @@
       "name": "Jean Pottier",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_12_3_mother",
       "name": "Victoire Madera",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_12_4_godfather",
       "name": "Joseph Pallet",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_12_5_godmother",
@@ -3869,8 +4537,8 @@
       "name": "Josette Laframboise",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_15_1_child",
@@ -3885,16 +4553,16 @@
       "name": "Joseph Laframboise",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_15_3_mother",
       "name": "Jacquette Peltier",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_16_1_child",
@@ -3909,8 +4577,8 @@
       "name": "John Welsh",
       "role": "father",
       "at_chicago": true,
-      "outcome": "refused_surname_only",
-      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_16_3_mother",
@@ -3933,8 +4601,8 @@
       "name": "Louise Caroline Choulet",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_17_1_child",
@@ -3949,8 +4617,8 @@
       "name": "John Welsh",
       "role": "father",
       "at_chicago": true,
-      "outcome": "refused_surname_only",
-      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_17_3_mother",
@@ -3973,8 +4641,8 @@
       "name": "Claudia Pierrette Choulet",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_18_1_child",
@@ -3989,16 +4657,16 @@
       "name": "Patrick Wagon",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1834_18_3_mother",
       "name": "Mary Duggan",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_18_4_sponsor",
@@ -4069,16 +4737,16 @@
       "name": "Godfrey Coslet",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_20_3_mother",
       "name": "Marian Eberling",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_20_4_godmother",
@@ -4109,8 +4777,8 @@
       "name": "Lucy Kennedy",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_21_4_sponsor",
@@ -4149,8 +4817,8 @@
       "name": "Josette Laframboise",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_22_4_godfather",
@@ -4165,8 +4833,8 @@
       "name": "Gwinthlean Whistler",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_23_1_child",
@@ -4189,8 +4857,8 @@
       "name": "Marguerite Laframboise",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_23_4_godfather",
@@ -4205,8 +4873,8 @@
       "name": "Jacquette Peltier",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_24_1_child",
@@ -4221,8 +4889,8 @@
       "name": "Claude Laframboise",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1834_24_3_mother",
@@ -4245,8 +4913,8 @@
       "name": "Jacquette Peltier",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_01_1_child",
@@ -4261,16 +4929,16 @@
       "name": "Thomas Forester",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_01_3_mother",
       "name": "Bridget Finegan",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_01_4_sponsor",
@@ -4301,24 +4969,24 @@
       "name": "Bernard Bousque",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_02_3_mother",
       "name": "Catherine Preman",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_02_4_sponsor",
       "name": "Henry Stone",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_02_5_sponsor",
@@ -4333,8 +5001,8 @@
       "name": "Geneviève Medera",
       "role": "subject",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_03_2_father",
@@ -4381,24 +5049,24 @@
       "name": "Marguerite Laframboise",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_04_4_godfather",
       "name": "Jean Baptiste Derocher",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_04_5_godmother",
       "name": "Louise Caroline Choulet",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_05_1_child",
@@ -4413,16 +5081,16 @@
       "name": "Michel Arquette",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_05_3_mother",
       "name": "Marguerite Robi",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_05_4_godfather",
@@ -4445,24 +5113,24 @@
       "name": "François Tranche",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_06_3_mother",
       "name": "Josette Aspam",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_06_4_godfather",
       "name": "Michel Choulet",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_07_1_child",
@@ -4485,8 +5153,8 @@
       "name": "Cierno Ann",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_07_4_sponsor",
@@ -4517,8 +5185,8 @@
       "name": "Adam Schwartz",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_08_3_mother",
@@ -4533,8 +5201,8 @@
       "name": "Pierre Riffe",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_08_5_godmother",
@@ -4565,8 +5233,8 @@
       "name": "Mary Brenin",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_09_4_godmother",
@@ -4597,32 +5265,32 @@
       "name": "George David Roi",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_10_3_mother",
       "name": "Anne Françoise Apolline Bruno",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_10_4_godfather",
       "name": "Jean Baptiste Bruno",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_10_5_godmother",
       "name": "Joséphine Guy",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_11_1_child",
@@ -4637,32 +5305,32 @@
       "name": "George David Roi",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_11_3_mother",
       "name": "Anne Françoise Apolline Bruno",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_11_4_godfather",
       "name": "Alexis Thomas Blanchemontagne",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_11_5_godmother",
       "name": "Marie Louise Mallet",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_12_1_child",
@@ -4677,8 +5345,8 @@
       "name": "Joseph Duplas",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_12_3_mother",
@@ -4693,16 +5361,16 @@
       "name": "Frederick Daniel",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "refused_surname_only",
-      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_12_5_sponsor",
       "name": "Barbery Judar",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_13_1_child",
@@ -4717,8 +5385,8 @@
       "name": "Jacob Tony",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_13_3_mother",
@@ -4741,8 +5409,8 @@
       "name": "Barbery Judar",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_14_1_child",
@@ -4757,24 +5425,24 @@
       "name": "John Molony",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_14_3_mother",
       "name": "Honora Casy",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_14_4_sponsor",
       "name": "Edward Daly",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "minted_from_this_reading",
+      "rule": "THE LAYER HOLDS THIS PERSON BECAUSE THIS READING PUT THEM THERE. The residents card whose name folds identically to this one cites this very record id in its own church_evidence — the mint read this row and wrote a person from it. So this is not a namesake anybody has to adjudicate and not a pair awaiting a merge rule: the crosswalk would be matching the register against its own output. Neither is it a merge, which is a ruling that two separately-attested people are one; nothing was matched here. A hand-authored merge or refusal still outranks this, because those are rulings somebody made and this is a statement of where the card came from."
     },
     {
       "record_id": "st_marys_bapt_1835_14_5_sponsor",

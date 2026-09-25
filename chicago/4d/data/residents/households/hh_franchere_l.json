@@ -14,7 +14,7 @@
   "precision": "not_later_than"
  },
  "arrival_year": {
-  "value": 1833,
+  "value": 1832,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1834-12-31 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
@@ -53,14 +53,14 @@
   "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+  "value": "The trading post, the fort and the country trade — the town before the boom",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
   "basis": {
    "kind": "rule",
    "id": "reason_from_arrival_cohort",
-   "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1832) is the only thing about it this value rests on."
   },
   "replaceable_by": {
    "kind": "person",
@@ -138,6 +138,20 @@
      "tier": "attested",
      "source_id": "st_cyr_register_ichr_v4",
      "note": "THE REGISTER NAMES HIM AT A PARISH ACT, AND THAT IS THE WHOLE OF THE CLAIM. Father St. Cyr's register carries this person as witness in st_cyr_marriage_001_3, dated 1834 and tied to this card by the church crosswalk's rule G2c. `st_marys_church` is his church, which the structure record states — 'St. Cyr selected the lot in 1833 and ... was succeeded by Father O'Meara only after 1837, so he is the pastor across the whole scene window'. THIS IS NOT A MEMBERSHIP ROW: being a witness, a party or a decedent at a Catholic act is what the register states, and the dates are the act's own, which is why `from` and `to` are the same day and the row is not carried forward to the scene date."
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-1525",
+     "verdict": "undecided",
+     "rule": "U1",
+     "cluster": "franchere",
+     "weighed_against": [
+      "franchre_louis"
+     ],
+     "referred_to": "T-1554",
+     "for_merge": "One man is the likely reading and both cards stand on FATHER ST CYR'S OWN HAND. 'L. Franchere' is a witness in the St Cyr register (ICHR v4) in 1834; 'Louis Franchère' is a sponsor in St Mary's baptismal register on 5 June 1833. L agrees with Louis as an initial stands for a forename, the surname is one name — Franchère — and the apparent one-letter gap is this project's own transcription, one source printing the grave accent and the other not. Neither stem is otherwise populated: one card each, and Franchere is set three times in three texts while Franchre is set nowhere at all, because it is not a spelling anybody used.",
+     "against_merge": "NO RULE IN THIS FILE REACHES IT, AND THE ANSWER IS ON A PAGE. C9 asks that the FORENAME agree on every printing and an initial against a full given name is not that agreement; C10 asks that the SURNAME agree letter for letter and the accent means it does not; so neither demonstration rule is available, and D7 and D8 exist only for pairs that fail the demonstration alone. D10 does not fire either — L and Louis do not DISAGREE, which is the whole of what D10 refuses. Nor is this U2's ambiguity that no evidence can settle: the 1834 marriage entry names its witness, and reading that entry for a full forename settles it either way. So the cluster is WEIGHED and filed rather than guessed, and T-1554 owns the reading. U1."
     }
    ],
    "sex": "male",

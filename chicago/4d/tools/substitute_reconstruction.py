@@ -385,7 +385,12 @@ def declared_shares() -> dict[str, int]:
             continue
         for field in lib.get("fields", []):
             text = field["text"]
-            hit = re.search(r"\*{0,2}(\w+)\*{0,2}\s+are this entry's", text)
+            # T-1525: `is` as well as `are`. The regex was written when every share was
+            # plural; a share can fall to one, and it did — L259's physician's room was
+            # withdrawn and the entry now states a single law office. A parser that reads
+            # only the plural would have made the prose ungrammatical to stay legible to
+            # it, which is the wrong way round.
+            hit = re.search(r"\*{0,2}(\w+)\*{0,2}\s+(?:are|is) this entry's", text)
             if hit:
                 out[lid] = _number(hit.group(1), lid)
                 break

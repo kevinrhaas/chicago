@@ -112,7 +112,7 @@
    "tax_1833_083",
    "tax_1833_086"
   ],
-  "entries_accounted_for_by_a_card_that_is_not_the_survivor": 106,
+  "entries_accounted_for_by_a_card_that_is_not_the_survivor": 107,
   "entries_the_layer_holds_no_card_for": [
    {
     "record_id": "tax_1833_006",
@@ -153,11 +153,6 @@
     "record_id": "tax_1833_084",
     "as_read": "Post",
     "letters_from_pruyne": 5
-   },
-   {
-    "record_id": "tax_1833_108",
-    "as_read": "Whistler",
-    "letters_from_pruyne": 7
    }
   ],
   "holds": true,
@@ -499,7 +494,8 @@
     "forename_could_be_peter": false,
     "letters_from_pruyne": 5,
     "accounted_for_by": [
-     "egan_william_b"
+     "egan_william_b",
+     "egan_doctor"
     ]
    },
    {
@@ -1480,7 +1476,10 @@
     "prints_a_forename": false,
     "forename_could_be_peter": false,
     "letters_from_pruyne": 7,
-    "accounted_for_by": []
+    "accounted_for_by": [
+     "whistler_gwinthlean",
+     "whistler_john_harrison"
+    ]
    },
    {
     "record_id": "tax_1833_109",

@@ -14,13 +14,13 @@
  },
  "counts": {
   "statements_read": 265,
-  "both_ends_in_town": 45,
-  "landable": 17,
+  "both_ends_in_town": 100,
+  "landable": 77,
   "same_household": 3,
-  "ambiguous": 2,
-  "identity_not_asserted": 23,
-  "other_not_in_town": 13,
-  "subject_unresolved": 207,
+  "ambiguous": 3,
+  "identity_not_asserted": 17,
+  "other_not_in_town": 14,
+  "subject_unresolved": 151,
   "relation_undeclared": 0
  },
  "proposals": [
@@ -68,11 +68,15 @@
    ],
    "other": [
     {
+     "household": "hh_beaubien_charles",
+     "person": "beaubien_charles"
+    },
+    {
      "household": "hh_beaubien_charles_h",
      "person": "beaubien_charles_h"
     }
    ],
-   "outcome": "landable"
+   "outcome": "ambiguous"
   },
   {
    "id": "hh_beaubien_madore__son__jean_baptiste_beaubien",
@@ -697,20 +701,6 @@
    "outcome": "identity_not_asserted"
   },
   {
-   "id": "st_cyr_marriage_073_1__husband_of__st_cyr_marriage_073_2",
-   "source": "st_cyr_register_ichr_v4",
-   "locator": "st_cyr_marriage_073_1",
-   "as_read": "Peter Tyler and Mary Murphy, married 1838-02-01",
-   "subject_as_read": "Peter Tyler",
-   "relation": "husband",
-   "other_as_read": "Mary Murphy",
-   "subject_record": "st_cyr_marriage_073_1",
-   "other_record": "st_cyr_marriage_073_2",
-   "subject": null,
-   "other": null,
-   "outcome": "identity_not_asserted"
-  },
-  {
    "id": "st_cyr_marriage_075_1__husband_of__st_cyr_marriage_075_2",
    "source": "st_cyr_register_ichr_v4",
    "locator": "st_cyr_marriage_075_1",
@@ -777,8 +767,109 @@
    "subject_record": "st_marys_bapt_1833_01_2_father",
    "other_record": "st_marys_bapt_1833_01_1_child",
    "subject": null,
-   "other": null,
+   "other": [
+    {
+     "household": "hh_beaubien_george",
+     "person": "beaubien_george"
+    }
+   ],
    "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1833_01_3_mother__parent_of__st_marys_bapt_1833_01_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_01_3_mother",
+   "as_read": "Le 22 de mai mil huit [cent] trente trois, je soussigné ai baptisé George Beaubien fils de Mark Beaubien et de Monique Nadeau, né le 19 août 1832. Parrain a été Mark Beaubien père de l'enfant baptisé; marraine Archange Beaubien nièce du père de l'enfant. J. M. I. Saint Cyr, prêtre.",
+   "subject_as_read": "Monique Nadeau",
+   "relation": "mother",
+   "other_as_read": "George Beaubien",
+   "subject_record": "st_marys_bapt_1833_01_3_mother",
+   "other_record": "st_marys_bapt_1833_01_1_child",
+   "subject": [
+    {
+     "household": "hh_nadeau_monique",
+     "person": "nadeau_monique"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_beaubien_george",
+     "person": "beaubien_george"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_02_2_father__parent_of__st_marys_bapt_1833_02_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_02_2_father",
+   "as_read": "On the 26th of may eighteen hundred thirty three I, the undersigned, baptised Joseph son of Michel Mayo and of Marguerit Malore[?] born the 5[?] of 9ber 1832. Sponsors were Joseph Laframboise and Archange Beaubien.",
+   "subject_as_read": "Michel Mayo",
+   "relation": "father",
+   "other_as_read": "Joseph Mayo",
+   "subject_record": "st_marys_bapt_1833_02_2_father",
+   "other_record": "st_marys_bapt_1833_02_1_child",
+   "subject": [
+    {
+     "household": "hh_mayo_michel",
+     "person": "mayo_michel"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_mayo_joseph",
+     "person": "mayo_joseph"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_03_2_father__parent_of__st_marys_bapt_1833_03_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_03_2_father",
+   "as_read": "Le 3 juin mil huit cent trente trois, je soussigné ai baptisé Augustin Pottier fils de Jean Potier et de Victoire Madera, né le 26 de mai 1832. Parrain a été Augustin Bonné, marraine Monique Nadeau.",
+   "subject_as_read": "Jean Pottier",
+   "relation": "father",
+   "other_as_read": "Augustin Pottier",
+   "subject_record": "st_marys_bapt_1833_03_2_father",
+   "other_record": "st_marys_bapt_1833_03_1_child",
+   "subject": [
+    {
+     "household": "hh_pottier_jean",
+     "person": "pottier_jean"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_pottier_augustin",
+     "person": "pottier_augustin"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_03_3_mother__parent_of__st_marys_bapt_1833_03_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_03_3_mother",
+   "as_read": "Le 3 juin mil huit cent trente trois, je soussigné ai baptisé Augustin Pottier fils de Jean Potier et de Victoire Madera, né le 26 de mai 1832. Parrain a été Augustin Bonné, marraine Monique Nadeau.",
+   "subject_as_read": "Victoire Madera",
+   "relation": "mother",
+   "other_as_read": "Augustin Pottier",
+   "subject_record": "st_marys_bapt_1833_03_3_mother",
+   "other_record": "st_marys_bapt_1833_03_1_child",
+   "subject": [
+    {
+     "household": "hh_madera_victoire",
+     "person": "madera_victoire"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_pottier_augustin",
+     "person": "pottier_augustin"
+    }
+   ],
+   "outcome": "landable"
   },
   {
    "id": "st_marys_bapt_1833_04_2_father__parent_of__st_marys_bapt_1833_04_1_child",
@@ -791,8 +882,37 @@
    "subject_record": "st_marys_bapt_1833_04_2_father",
    "other_record": "st_marys_bapt_1833_04_1_child",
    "subject": null,
-   "other": null,
+   "other": [
+    {
+     "household": "hh_beaubien_caroline",
+     "person": "beaubien_caroline"
+    }
+   ],
    "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1833_04_3_mother__parent_of__st_marys_bapt_1833_04_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_04_3_mother",
+   "as_read": "On the fifth June eighteen hundred and thirty three I, the undersigned, baptised Caroline daughter of Baptist Beaubien and Josette Laframboise, born the tenth of August eighteen hundred thirty two. Sponsors were John Whistler and Esther Bailly.",
+   "subject_as_read": "Josette Laframboise",
+   "relation": "mother",
+   "other_as_read": "Caroline Beaubien",
+   "subject_record": "st_marys_bapt_1833_04_3_mother",
+   "other_record": "st_marys_bapt_1833_04_1_child",
+   "subject": [
+    {
+     "household": "hh_laframboise_josette",
+     "person": "laframboise_josette"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_beaubien_caroline",
+     "person": "beaubien_caroline"
+    }
+   ],
+   "outcome": "landable"
   },
   {
    "id": "st_marys_bapt_1833_05_2_father__parent_of__st_marys_bapt_1833_05_1_child",
@@ -804,9 +924,19 @@
    "other_as_read": "Marguerite Juneau",
    "subject_record": "st_marys_bapt_1833_05_2_father",
    "other_record": "st_marys_bapt_1833_05_1_child",
-   "subject": null,
-   "other": null,
-   "outcome": "identity_not_asserted"
+   "subject": [
+    {
+     "household": "hh_juneau_solomon",
+     "person": "juneau_solomon"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_juneau_marguerite",
+     "person": "juneau_marguerite"
+    }
+   ],
+   "outcome": "landable"
   },
   {
    "id": "st_marys_bapt_1833_05_3_mother__parent_of__st_marys_bapt_1833_05_1_child",
@@ -818,9 +948,331 @@
    "other_as_read": "Marguerite Juneau",
    "subject_record": "st_marys_bapt_1833_05_3_mother",
    "other_record": "st_marys_bapt_1833_05_1_child",
-   "subject": null,
-   "other": null,
-   "outcome": "identity_not_asserted"
+   "subject": [
+    {
+     "household": "hh_vieau_josette",
+     "person": "vieau_josette"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_juneau_marguerite",
+     "person": "juneau_marguerite"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_08_2_father__parent_of__st_marys_bapt_1833_08_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_08_2_father",
+   "as_read": "Le 17 juin mil huit cent trente trois, je soussigné ai baptisé Marie Josette fille de Jacob Vieau et de Matanacqua, née aux environs du 16 de février mil huit cent trente trois. Parrain et marraine furent Solomon Juneau et Monique Nadeau.",
+   "subject_as_read": "Jacob Vieau",
+   "relation": "father",
+   "other_as_read": "Marie Josette Vieau",
+   "subject_record": "st_marys_bapt_1833_08_2_father",
+   "other_record": "st_marys_bapt_1833_08_1_child",
+   "subject": [
+    {
+     "household": "hh_vieau_jacob",
+     "person": "vieau_jacob"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_vieau_marie_josette",
+     "person": "vieau_marie_josette"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_09_3_father__parent_of__st_marys_bapt_1833_09_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_09_3_father",
+   "as_read": "On the fourteenth of July eighteen hundred & thirty three I, the undersigned, baptised Mary and Catherine daughters of John Wode and Mariana Kamenwith[?] born the 16th July 1833. Sponsors were Jacob Jolly and Catherine Harrington.",
+   "subject_as_read": "John Wode",
+   "relation": "father",
+   "other_as_read": "Mary Wode",
+   "subject_record": "st_marys_bapt_1833_09_3_father",
+   "other_record": "st_marys_bapt_1833_09_1_child",
+   "subject": [
+    {
+     "household": "hh_wode_john",
+     "person": "wode_john"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_wode_mary",
+     "person": "wode_mary"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_10_2_father__parent_of__st_marys_bapt_1833_10_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_10_2_father",
+   "as_read": "Le 26 juillet mil huit cent trente trois, je soussigné ai baptisé Joseph Létendre fils de Baptiste Létendre et [de] O'Waichiquoi, né le vingt huit de mai mil huit cent trente [trois]. Parrain et marraine ont été Solomon Juneau et Josette Vieau.",
+   "subject_as_read": "Baptiste Létendre",
+   "relation": "father",
+   "other_as_read": "Joseph Létendre",
+   "subject_record": "st_marys_bapt_1833_10_2_father",
+   "other_record": "st_marys_bapt_1833_10_1_child",
+   "subject": [
+    {
+     "household": "hh_ltendre_baptiste",
+     "person": "ltendre_baptiste"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_ltendre_joseph",
+     "person": "ltendre_joseph"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_11_3_mother__parent_of__st_marys_bapt_1833_11_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_11_3_mother",
+   "as_read": "On the eighteenth of August eighteen hundred and thirty three, I the undersigned, baptised Louis son of Andrew and of Adelaide Bouchard born the 4th December 1830. Sponsors were Augustin Bonné and Josette Chevalier.",
+   "subject_as_read": "Adelaide Bouchard",
+   "relation": "mother",
+   "other_as_read": "Louis Bouchard",
+   "subject_record": "st_marys_bapt_1833_11_3_mother",
+   "other_record": "st_marys_bapt_1833_11_1_child",
+   "subject": [
+    {
+     "household": "hh_bouchard_adelaide",
+     "person": "bouchard_adelaide"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_bouchard_louis",
+     "person": "bouchard_louis"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_13_2_father__parent_of__st_marys_bapt_1833_13_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_13_2_father",
+   "as_read": "Le trente [unième] d'août mil huit cent trente trois, je soussigné ai baptisé François Lafambise fils de Joseph Laframboise et de Jacquet Peltier, né le 1er août mil huit cent trente trois. Parrain et marraine ont été Mark Beaubien et Josette Laframboise.",
+   "subject_as_read": "Joseph Laframboise",
+   "relation": "father",
+   "other_as_read": "François Laframboise",
+   "subject_record": "st_marys_bapt_1833_13_2_father",
+   "other_record": "st_marys_bapt_1833_13_1_child",
+   "subject": [
+    {
+     "household": "hh_laframboise_joseph",
+     "person": "laframboise_joseph"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_laframboise_franois",
+     "person": "laframboise_franois"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_13_3_mother__parent_of__st_marys_bapt_1833_13_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_13_3_mother",
+   "as_read": "Le trente [unième] d'août mil huit cent trente trois, je soussigné ai baptisé François Lafambise fils de Joseph Laframboise et de Jacquet Peltier, né le 1er août mil huit cent trente trois. Parrain et marraine ont été Mark Beaubien et Josette Laframboise.",
+   "subject_as_read": "Jacquette Peltier",
+   "relation": "mother",
+   "other_as_read": "François Laframboise",
+   "subject_record": "st_marys_bapt_1833_13_3_mother",
+   "other_record": "st_marys_bapt_1833_13_1_child",
+   "subject": [
+    {
+     "household": "hh_peltier_jacquette",
+     "person": "peltier_jacquette"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_laframboise_franois",
+     "person": "laframboise_franois"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_14_2_father__parent_of__st_marys_bapt_1833_14_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_14_2_father",
+   "as_read": "Le [quatre?] octobre mil huit cent trente trois, je soussigné ai baptisé Jean Baptiste fils d'Antoine Aspam et de Marianne (sauvage) né le 15 octobre 1831. Parrain et marraine ont été Augustin Bonné et Monique Nodeau.",
+   "subject_as_read": "Antoine Aspam",
+   "relation": "father",
+   "other_as_read": "Jean Baptiste Aspam",
+   "subject_record": "st_marys_bapt_1833_14_2_father",
+   "other_record": "st_marys_bapt_1833_14_1_child",
+   "subject": [
+    {
+     "household": "hh_aspam_antoine",
+     "person": "aspam_antoine"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_aspam_jean_baptiste",
+     "person": "aspam_jean_baptiste"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_15_2_father__parent_of__st_marys_bapt_1833_15_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_15_2_father",
+   "as_read": "Le 4 octobre mil huit cent trente trois, je soussigné ai baptisé Catherine fille d'Alexis Gagnier et d'Angel[ique] Aspam, née le 1er décembre mil huit cent trente. Parrain et marraine ont été Augustin Bonné et Monique Nodeau.",
+   "subject_as_read": "Alexis Gagnier",
+   "relation": "father",
+   "other_as_read": "Catherine Gagnier",
+   "subject_record": "st_marys_bapt_1833_15_2_father",
+   "other_record": "st_marys_bapt_1833_15_1_child",
+   "subject": [
+    {
+     "household": "hh_gagnier_alexis",
+     "person": "gagnier_alexis"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_gagnier_catherine",
+     "person": "gagnier_catherine"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_16_3_mother__parent_of__st_marys_bapt_1833_16_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_16_3_mother",
+   "as_read": "Le huit octobre mil huit cent trente trois, je soussigné ai baptisé Susanne fille de François Tranche[?] et de Josette Aspam, née [le] 15 octobre 1831. Parrain et marraine ont été Jean Baptiste Lavigne et Monique Beaubien.",
+   "subject_as_read": "Josette Aspam",
+   "relation": "mother",
+   "other_as_read": "Susanne Tranche",
+   "subject_record": "st_marys_bapt_1833_16_3_mother",
+   "other_record": "st_marys_bapt_1833_16_1_child",
+   "subject": [
+    {
+     "household": "hh_aspam_josette",
+     "person": "aspam_josette"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_tranche_susanne",
+     "person": "tranche_susanne"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_17_2_father__parent_of__st_marys_bapt_1833_17_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_17_2_father",
+   "as_read": "Le huit october mil huit cent trente trois, je soussigné ai baptisé Magdelene fille d'Antoine Aspam et de Marianne (sauvage) née le vingt neuf mars[?] mil huit cent trente trois. Parrain et marraine ont été Jean Baptiste Lavigne et Josette Aspam.",
+   "subject_as_read": "Antoine Aspam",
+   "relation": "father",
+   "other_as_read": "Magdeleine Aspam",
+   "subject_record": "st_marys_bapt_1833_17_2_father",
+   "other_record": "st_marys_bapt_1833_17_1_child",
+   "subject": [
+    {
+     "household": "hh_aspam_antoine",
+     "person": "aspam_antoine"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_aspam_magdeleine",
+     "person": "aspam_magdeleine"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_18_2_father__parent_of__st_marys_bapt_1833_18_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_18_2_father",
+   "as_read": "Le 10 d'octobre mil huit cent trente trois, je soussigné ai baptisé Susanne fille de Paul Vieaux et de Jaespquaa (sauvage de Green Bay), née le dix mai mil huit cent trente un. Parrain et marraine ont été Joseph Beaubien et Monique Nadeau.",
+   "subject_as_read": "Paul Vieau",
+   "relation": "father",
+   "other_as_read": "Susanne Vieaux",
+   "subject_record": "st_marys_bapt_1833_18_2_father",
+   "other_record": "st_marys_bapt_1833_18_1_child",
+   "subject": [
+    {
+     "household": "hh_vieau_paul",
+     "person": "vieau_paul"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_vieaux_susanne",
+     "person": "vieaux_susanne"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_12_2_father__parent_of__st_marys_bapt_1834_12_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_12_2_father",
+   "as_read": "Le seize juin mil huit cent trente quatre, je soussigné ai baptisé Joseph Pottier fils de Jean Pottier et de Victoire Medero, né [le] huit de mars mil huit [cent] trente quatre. Parrain et marraine ont été Joseph Pallet et Josette Chevalier.",
+   "subject_as_read": "Jean Pottier",
+   "relation": "father",
+   "other_as_read": "Joseph Pottier",
+   "subject_record": "st_marys_bapt_1834_12_2_father",
+   "other_record": "st_marys_bapt_1834_12_1_child",
+   "subject": [
+    {
+     "household": "hh_pottier_jean",
+     "person": "pottier_jean"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_pottier_joseph",
+     "person": "pottier_joseph"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_12_3_mother__parent_of__st_marys_bapt_1834_12_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_12_3_mother",
+   "as_read": "Le seize juin mil huit cent trente quatre, je soussigné ai baptisé Joseph Pottier fils de Jean Pottier et de Victoire Medero, né [le] huit de mars mil huit [cent] trente quatre. Parrain et marraine ont été Joseph Pallet et Josette Chevalier.",
+   "subject_as_read": "Victoire Madera",
+   "relation": "mother",
+   "other_as_read": "Joseph Pottier",
+   "subject_record": "st_marys_bapt_1834_12_3_mother",
+   "other_record": "st_marys_bapt_1834_12_1_child",
+   "subject": [
+    {
+     "household": "hh_madera_victoire",
+     "person": "madera_victoire"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_pottier_joseph",
+     "person": "pottier_joseph"
+    }
+   ],
+   "outcome": "landable"
   },
   {
    "id": "st_marys_bapt_1834_14_2_father__parent_of__st_marys_bapt_1834_14_1_child",
@@ -833,8 +1285,37 @@
    "subject_record": "st_marys_bapt_1834_14_2_father",
    "other_record": "st_marys_bapt_1834_14_1_child",
    "subject": null,
-   "other": null,
+   "other": [
+    {
+     "household": "hh_beaubien_alexander",
+     "person": "beaubien_alexander"
+    }
+   ],
    "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1834_14_3_mother__parent_of__st_marys_bapt_1834_14_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_14_3_mother",
+   "as_read": "Le même jour, je soussigné ai conféré les cérémonies du baptême à Alexander fils de Jean Baptiste Beaubien et de Josette Laframboise, âgé environ de 12 ans.",
+   "subject_as_read": "Josette Laframboise",
+   "relation": "mother",
+   "other_as_read": "Alexander Beaubien",
+   "subject_record": "st_marys_bapt_1834_14_3_mother",
+   "other_record": "st_marys_bapt_1834_14_1_child",
+   "subject": [
+    {
+     "household": "hh_laframboise_josette",
+     "person": "laframboise_josette"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_beaubien_alexander",
+     "person": "beaubien_alexander"
+    }
+   ],
+   "outcome": "landable"
   },
   {
    "id": "st_marys_bapt_1834_15_2_father__parent_of__st_marys_bapt_1834_15_1_child",
@@ -846,9 +1327,19 @@
    "other_as_read": "Thérèse Laframboise",
    "subject_record": "st_marys_bapt_1834_15_2_father",
    "other_record": "st_marys_bapt_1834_15_1_child",
-   "subject": null,
-   "other": null,
-   "outcome": "identity_not_asserted"
+   "subject": [
+    {
+     "household": "hh_laframboise_joseph",
+     "person": "laframboise_joseph"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_laframboise_thrse",
+     "person": "laframboise_thrse"
+    }
+   ],
+   "outcome": "landable"
   },
   {
    "id": "st_marys_bapt_1834_15_3_mother__parent_of__st_marys_bapt_1834_15_1_child",
@@ -860,9 +1351,139 @@
    "other_as_read": "Thérèse Laframboise",
    "subject_record": "st_marys_bapt_1834_15_3_mother",
    "other_record": "st_marys_bapt_1834_15_1_child",
-   "subject": null,
-   "other": null,
-   "outcome": "identity_not_asserted"
+   "subject": [
+    {
+     "household": "hh_peltier_jacquette",
+     "person": "peltier_jacquette"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_laframboise_thrse",
+     "person": "laframboise_thrse"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_16_2_father__parent_of__st_marys_bapt_1834_16_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_16_2_father",
+   "as_read": "Le vingt neuf juin, je soussigné ai conféré les cérémonies du baptême à Joseph fils de John Welsh et de Marie Louise Wimette né le dix huit mars mil huit cent trente trois. Parrain et marraine ont été N. Thob[?] et Louise Caroline Choulet.",
+   "subject_as_read": "John Welsh",
+   "relation": "father",
+   "other_as_read": "Joseph Welsh",
+   "subject_record": "st_marys_bapt_1834_16_2_father",
+   "other_record": "st_marys_bapt_1834_16_1_child",
+   "subject": [
+    {
+     "household": "hh_welsh_john",
+     "person": "welsh_john"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_welsh_joseph",
+     "person": "welsh_joseph"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_16_3_mother__parent_of__st_marys_bapt_1834_16_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_16_3_mother",
+   "as_read": "Le vingt neuf juin, je soussigné ai conféré les cérémonies du baptême à Joseph fils de John Welsh et de Marie Louise Wimette né le dix huit mars mil huit cent trente trois. Parrain et marraine ont été N. Thob[?] et Louise Caroline Choulet.",
+   "subject_as_read": "Marie Louise Ouilmette",
+   "relation": "mother",
+   "other_as_read": "Joseph Welsh",
+   "subject_record": "st_marys_bapt_1834_16_3_mother",
+   "other_record": "st_marys_bapt_1834_16_1_child",
+   "subject": [
+    {
+     "household": "hh_ouilmette_marie_louise",
+     "person": "ouilmette_marie_louise"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_welsh_joseph",
+     "person": "welsh_joseph"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_17_2_father__parent_of__st_marys_bapt_1834_17_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_17_2_father",
+   "as_read": "On the same day eighteen hundred and thirty four I, the undersigned baptised Cattarine daughter of John Welsh and of Mary Louis Wimette, born the ninth of June. Sponsors were Salomon Juneau and Claudia Pierrette Choulet.",
+   "subject_as_read": "John Welsh",
+   "relation": "father",
+   "other_as_read": "Catharine Welsh",
+   "subject_record": "st_marys_bapt_1834_17_2_father",
+   "other_record": "st_marys_bapt_1834_17_1_child",
+   "subject": [
+    {
+     "household": "hh_welsh_john",
+     "person": "welsh_john"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_welsh_catharine",
+     "person": "welsh_catharine"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_17_3_mother__parent_of__st_marys_bapt_1834_17_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_17_3_mother",
+   "as_read": "On the same day eighteen hundred and thirty four I, the undersigned baptised Cattarine daughter of John Welsh and of Mary Louis Wimette, born the ninth of June. Sponsors were Salomon Juneau and Claudia Pierrette Choulet.",
+   "subject_as_read": "Marie Louise Ouilmette",
+   "relation": "mother",
+   "other_as_read": "Catharine Welsh",
+   "subject_record": "st_marys_bapt_1834_17_3_mother",
+   "other_record": "st_marys_bapt_1834_17_1_child",
+   "subject": [
+    {
+     "household": "hh_ouilmette_marie_louise",
+     "person": "ouilmette_marie_louise"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_welsh_catharine",
+     "person": "welsh_catharine"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_18_3_mother__parent_of__st_marys_bapt_1834_18_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_18_3_mother",
+   "as_read": "On the 16th of July eighteen hundred and thirty four I the undersigned conferred the ceremonies of Baptism according to the rites of the holy Catholic church to Cicely daughter of Patrick Wagon[?] and of Mary Duggan, born the 15th of July 1834. Sponsors were Doctor Egan and Josette Beaubien.",
+   "subject_as_read": "Mary Duggan",
+   "relation": "mother",
+   "other_as_read": "Cicely Wagon",
+   "subject_record": "st_marys_bapt_1834_18_3_mother",
+   "other_record": "st_marys_bapt_1834_18_1_child",
+   "subject": [
+    {
+     "household": "hh_duggan_mary",
+     "person": "duggan_mary"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_wagon_cicely",
+     "person": "wagon_cicely"
+    }
+   ],
+   "outcome": "landable"
   },
   {
    "id": "st_marys_bapt_1834_19_2_father__parent_of__st_marys_bapt_1834_19_1_child",
@@ -875,8 +1496,85 @@
    "subject_record": "st_marys_bapt_1834_19_2_father",
    "other_record": "st_marys_bapt_1834_19_1_child",
    "subject": null,
-   "other": null,
+   "other": [
+    {
+     "household": "hh_beaubien_elonore",
+     "person": "beaubien_elonore"
+    }
+   ],
    "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1834_19_3_mother__parent_of__st_marys_bapt_1834_19_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_19_3_mother",
+   "as_read": "Le 6 d'août mil huit cent trente quatre, je soussigné ai baptisé Eléonore Beaubien fille de Mark Beaubien et de Monique Nodou, née le vingt deux de juillet 1834. Parrain et marraine ont été Jean Marie Irénée Saint Cyr et Archange Beaubien.",
+   "subject_as_read": "Monique Nadeau",
+   "relation": "mother",
+   "other_as_read": "Eléonore Beaubien",
+   "subject_record": "st_marys_bapt_1834_19_3_mother",
+   "other_record": "st_marys_bapt_1834_19_1_child",
+   "subject": [
+    {
+     "household": "hh_nadeau_monique",
+     "person": "nadeau_monique"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_beaubien_elonore",
+     "person": "beaubien_elonore"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_20_2_father__parent_of__st_marys_bapt_1834_20_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_20_2_father",
+   "as_read": "On the 10th December eighteen hundred and thirty four I, the undersigned, baptised Elisabeth daughter of Godfrey Coslet and of Marian Eberling, born the 9th of December eighteen hundred and thirty four. Godmother was Marian Mouch[?]; no godfather.",
+   "subject_as_read": "Godfrey Coslet",
+   "relation": "father",
+   "other_as_read": "Elisabeth Coslet",
+   "subject_record": "st_marys_bapt_1834_20_2_father",
+   "other_record": "st_marys_bapt_1834_20_1_child",
+   "subject": [
+    {
+     "household": "hh_coslet_godfrey",
+     "person": "coslet_godfrey"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_coslet_elisabeth",
+     "person": "coslet_elisabeth"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_20_3_mother__parent_of__st_marys_bapt_1834_20_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_20_3_mother",
+   "as_read": "On the 10th December eighteen hundred and thirty four I, the undersigned, baptised Elisabeth daughter of Godfrey Coslet and of Marian Eberling, born the 9th of December eighteen hundred and thirty four. Godmother was Marian Mouch[?]; no godfather.",
+   "subject_as_read": "Marian Eberling",
+   "relation": "mother",
+   "other_as_read": "Elisabeth Coslet",
+   "subject_record": "st_marys_bapt_1834_20_3_mother",
+   "other_record": "st_marys_bapt_1834_20_1_child",
+   "subject": [
+    {
+     "household": "hh_eberling_marian",
+     "person": "eberling_marian"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_coslet_elisabeth",
+     "person": "coslet_elisabeth"
+    }
+   ],
+   "outcome": "landable"
   },
   {
    "id": "st_marys_bapt_1834_21_2_father__parent_of__st_marys_bapt_1834_21_1_child",
@@ -888,9 +1586,43 @@
    "other_as_read": "Susan Beaubien",
    "subject_record": "st_marys_bapt_1834_21_2_father",
    "other_record": "st_marys_bapt_1834_21_1_child",
-   "subject": null,
-   "other": null,
-   "outcome": "identity_not_asserted"
+   "subject": [
+    {
+     "household": "hh_beaubien_charles",
+     "person": "beaubien_charles"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_beaubien_susan",
+     "person": "beaubien_susan"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_21_3_mother__parent_of__st_marys_bapt_1834_21_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_21_3_mother",
+   "as_read": "On the twenty fourth of 10ber eighteen hundred and thirty four I, the undersigned, baptised Susan daughter of Charles Beaubien and of Lucy Kennedy, born sixteenth of 10ber eighteen hundred thirty four. Sponsors were John Mary I. Saint Cyr and Monique Nadeau Beaubien.",
+   "subject_as_read": "Lucy Kennedy",
+   "relation": "mother",
+   "other_as_read": "Susan Beaubien",
+   "subject_record": "st_marys_bapt_1834_21_3_mother",
+   "other_record": "st_marys_bapt_1834_21_1_child",
+   "subject": [
+    {
+     "household": "hh_kennedy_lucy",
+     "person": "kennedy_lucy"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_beaubien_susan",
+     "person": "beaubien_susan"
+    }
+   ],
+   "outcome": "landable"
   },
   {
    "id": "st_marys_bapt_1834_22_2_father__parent_of__st_marys_bapt_1834_22_1_child",
@@ -903,8 +1635,685 @@
    "subject_record": "st_marys_bapt_1834_22_2_father",
    "other_record": "st_marys_bapt_1834_22_1_child",
    "subject": null,
-   "other": null,
+   "other": [
+    {
+     "household": "hh_beaubien_robert_jerome",
+     "person": "beaubien_robert_jerome"
+    }
+   ],
    "outcome": "identity_not_asserted"
+  },
+  {
+   "id": "st_marys_bapt_1834_22_3_mother__parent_of__st_marys_bapt_1834_22_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_22_3_mother",
+   "as_read": "On the 22d of 10ber eighteen hundred and thirty [four] I, the undersigned baptised Robert Jerome Beaubien son of J. Bap[tis]t Beaubien and of Josette Laframboise, born nineteenth december eighteen hundred and thirty four. Godfather and godmother were Mr Robert Kinzie and Gwinthlean Whistler.",
+   "subject_as_read": "Josette Laframboise",
+   "relation": "mother",
+   "other_as_read": "Robert Jerome Beaubien",
+   "subject_record": "st_marys_bapt_1834_22_3_mother",
+   "other_record": "st_marys_bapt_1834_22_1_child",
+   "subject": [
+    {
+     "household": "hh_laframboise_josette",
+     "person": "laframboise_josette"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_beaubien_robert_jerome",
+     "person": "beaubien_robert_jerome"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_23_2_father__parent_of__st_marys_bapt_1834_23_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_23_2_father",
+   "as_read": "Le 29 10bre mil huit cent trente quatre, je soussigné ai baptisé Noel Bourassa fils de Léon Bourassa et de Marguerite Laframboise, âgé de deux ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Peltier Laframboise.",
+   "subject_as_read": "Léon Bourassa",
+   "relation": "father",
+   "other_as_read": "Noel Bourassa",
+   "subject_record": "st_marys_bapt_1834_23_2_father",
+   "other_record": "st_marys_bapt_1834_23_1_child",
+   "subject": [
+    {
+     "household": "hh_bourassa_lon",
+     "person": "bourassa_lon"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_bourassa_noel",
+     "person": "bourassa_noel"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_23_3_mother__parent_of__st_marys_bapt_1834_23_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_23_3_mother",
+   "as_read": "Le 29 10bre mil huit cent trente quatre, je soussigné ai baptisé Noel Bourassa fils de Léon Bourassa et de Marguerite Laframboise, âgé de deux ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Peltier Laframboise.",
+   "subject_as_read": "Marguerite Laframboise",
+   "relation": "mother",
+   "other_as_read": "Noel Bourassa",
+   "subject_record": "st_marys_bapt_1834_23_3_mother",
+   "other_record": "st_marys_bapt_1834_23_1_child",
+   "subject": [
+    {
+     "household": "hh_laframboise_marguerite",
+     "person": "laframboise_marguerite"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_bourassa_noel",
+     "person": "bourassa_noel"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1834_24_2_father__parent_of__st_marys_bapt_1834_24_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1834_24_2_father",
+   "as_read": "Le vingt neuf 10bre mil huit cent trente quatre, je soussigné ai baptisé Cécile fille de Claude Laframboise et de Manqua Masqua[?], âgée de 4 ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Laframboise.",
+   "subject_as_read": "Claude Laframboise",
+   "relation": "father",
+   "other_as_read": "Cécile Laframboise",
+   "subject_record": "st_marys_bapt_1834_24_2_father",
+   "other_record": "st_marys_bapt_1834_24_1_child",
+   "subject": [
+    {
+     "household": "hh_laframboise_claude",
+     "person": "laframboise_claude"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_laframboise_ccile",
+     "person": "laframboise_ccile"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_01_2_father__parent_of__st_marys_bapt_1835_01_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_01_2_father",
+   "as_read": "On twenty third of February eighteen hundred thirty five I, the undersigned, baptised Mary Elisabeth daughter of Thomas Forester and of Brigitt Finegan, born the twenty first of instant 1835. Sponsors were Patrick Carroll and Mary Murphy.",
+   "subject_as_read": "Thomas Forester",
+   "relation": "father",
+   "other_as_read": "Mary Elisabeth Forester",
+   "subject_record": "st_marys_bapt_1835_01_2_father",
+   "other_record": "st_marys_bapt_1835_01_1_child",
+   "subject": [
+    {
+     "household": "hh_forester_thomas",
+     "person": "forester_thomas"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_forester_mary_elisabeth",
+     "person": "forester_mary_elisabeth"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_01_3_mother__parent_of__st_marys_bapt_1835_01_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_01_3_mother",
+   "as_read": "On twenty third of February eighteen hundred thirty five I, the undersigned, baptised Mary Elisabeth daughter of Thomas Forester and of Brigitt Finegan, born the twenty first of instant 1835. Sponsors were Patrick Carroll and Mary Murphy.",
+   "subject_as_read": "Bridget Finegan",
+   "relation": "mother",
+   "other_as_read": "Mary Elisabeth Forester",
+   "subject_record": "st_marys_bapt_1835_01_3_mother",
+   "other_record": "st_marys_bapt_1835_01_1_child",
+   "subject": [
+    {
+     "household": "hh_finegan_bridget",
+     "person": "finegan_bridget"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_forester_mary_elisabeth",
+     "person": "forester_mary_elisabeth"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_02_2_father__parent_of__st_marys_bapt_1835_02_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_02_2_father",
+   "as_read": "On the fifth of April eighteen hundred & thirty five, I the undersigned baptized Catherine Henrietta Bousque daughter of Bernard Bousque & of Catherine Preman, born the fifth of march 1835. Sponsors were Henry Stone & Catherine Debert[?].",
+   "subject_as_read": "Bernard Bousque",
+   "relation": "father",
+   "other_as_read": "Catherine Henrietta Bousque",
+   "subject_record": "st_marys_bapt_1835_02_2_father",
+   "other_record": "st_marys_bapt_1835_02_1_child",
+   "subject": [
+    {
+     "household": "hh_bousque_bernard",
+     "person": "bousque_bernard"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_bousque_catherine_henrietta",
+     "person": "bousque_catherine_henrietta"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_02_3_mother__parent_of__st_marys_bapt_1835_02_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_02_3_mother",
+   "as_read": "On the fifth of April eighteen hundred & thirty five, I the undersigned baptized Catherine Henrietta Bousque daughter of Bernard Bousque & of Catherine Preman, born the fifth of march 1835. Sponsors were Henry Stone & Catherine Debert[?].",
+   "subject_as_read": "Catherine Preman",
+   "relation": "mother",
+   "other_as_read": "Catherine Henrietta Bousque",
+   "subject_record": "st_marys_bapt_1835_02_3_mother",
+   "other_record": "st_marys_bapt_1835_02_1_child",
+   "subject": [
+    {
+     "household": "hh_preman_catherine",
+     "person": "preman_catherine"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_bousque_catherine_henrietta",
+     "person": "bousque_catherine_henrietta"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_04_2_father__parent_of__st_marys_bapt_1835_04_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_04_2_father",
+   "as_read": "Le vingt neuf juin mil huit cent trente cinq, je soussigné ai baptisé Jean Baptiste fils de Léon Bourrasso et de Marguerite [Laframboise]. Né the quatre juin 1835. Parrain et marraine ont été Jean Baptiste Derocher et Louise Caroline Choutet.",
+   "subject_as_read": "Léon Bourassa",
+   "relation": "father",
+   "other_as_read": "Jean Baptiste Bourassa",
+   "subject_record": "st_marys_bapt_1835_04_2_father",
+   "other_record": "st_marys_bapt_1835_04_1_child",
+   "subject": [
+    {
+     "household": "hh_bourassa_lon",
+     "person": "bourassa_lon"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_bourassa_jean_baptiste",
+     "person": "bourassa_jean_baptiste"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_04_3_mother__parent_of__st_marys_bapt_1835_04_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_04_3_mother",
+   "as_read": "Le vingt neuf juin mil huit cent trente cinq, je soussigné ai baptisé Jean Baptiste fils de Léon Bourrasso et de Marguerite [Laframboise]. Né the quatre juin 1835. Parrain et marraine ont été Jean Baptiste Derocher et Louise Caroline Choutet.",
+   "subject_as_read": "Marguerite Laframboise",
+   "relation": "mother",
+   "other_as_read": "Jean Baptiste Bourassa",
+   "subject_record": "st_marys_bapt_1835_04_3_mother",
+   "other_record": "st_marys_bapt_1835_04_1_child",
+   "subject": [
+    {
+     "household": "hh_laframboise_marguerite",
+     "person": "laframboise_marguerite"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_bourassa_jean_baptiste",
+     "person": "bourassa_jean_baptiste"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_05_2_father__parent_of__st_marys_bapt_1835_05_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_05_2_father",
+   "as_read": "Le cinq juillet mil huit cent trente cinq, je soussigné ai administré les cérémonies du baptême à Joseph Arquat fils de Michel Arquot et de Marguerite Robi, âgé de 16 mois. Parrain a été Louis Trombere[?].",
+   "subject_as_read": "Michel Arquette",
+   "relation": "father",
+   "other_as_read": "Joseph Arquette",
+   "subject_record": "st_marys_bapt_1835_05_2_father",
+   "other_record": "st_marys_bapt_1835_05_1_child",
+   "subject": [
+    {
+     "household": "hh_arquette_michel",
+     "person": "arquette_michel"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_arquette_joseph",
+     "person": "arquette_joseph"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_05_3_mother__parent_of__st_marys_bapt_1835_05_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_05_3_mother",
+   "as_read": "Le cinq juillet mil huit cent trente cinq, je soussigné ai administré les cérémonies du baptême à Joseph Arquat fils de Michel Arquot et de Marguerite Robi, âgé de 16 mois. Parrain a été Louis Trombere[?].",
+   "subject_as_read": "Marguerite Robi",
+   "relation": "mother",
+   "other_as_read": "Joseph Arquette",
+   "subject_record": "st_marys_bapt_1835_05_3_mother",
+   "other_record": "st_marys_bapt_1835_05_1_child",
+   "subject": [
+    {
+     "household": "hh_robi_marguerite",
+     "person": "robi_marguerite"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_arquette_joseph",
+     "person": "arquette_joseph"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_06_3_mother__parent_of__st_marys_bapt_1835_06_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_06_3_mother",
+   "as_read": "Le cinq juillet mil huit cent trente cinq, je soussigné ai administré les cérémonies du baptême à Marguerite [struck: Lafambre] fille de François Tranche[?] et de Josette Aspam, âgée d'un an. Parrain a été Michel Choulet.",
+   "subject_as_read": "Josette Aspam",
+   "relation": "mother",
+   "other_as_read": "Marguerite Tranche",
+   "subject_record": "st_marys_bapt_1835_06_3_mother",
+   "other_record": "st_marys_bapt_1835_06_1_child",
+   "subject": [
+    {
+     "household": "hh_aspam_josette",
+     "person": "aspam_josette"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_tranche_marguerite",
+     "person": "tranche_marguerite"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_07_2_father__parent_of__st_marys_bapt_1835_07_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_07_2_father",
+   "as_read": "On the twentieth of August 1835 I, the undersigned baptized Brigitt O'Marra daughter of James O'Marra and Cierno Ann, born the nineteenth of August eighteen hundred thirty five. Sponsors were John Murphy and Brigitte his wife.",
+   "subject_as_read": "James O'Marra",
+   "relation": "father",
+   "other_as_read": "Bridget O'Marra",
+   "subject_record": "st_marys_bapt_1835_07_2_father",
+   "other_record": "st_marys_bapt_1835_07_1_child",
+   "subject": [
+    {
+     "household": "hh_omarra_james",
+     "person": "omarra_james"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_omarra_bridget",
+     "person": "omarra_bridget"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_07_3_mother__parent_of__st_marys_bapt_1835_07_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_07_3_mother",
+   "as_read": "On the twentieth of August 1835 I, the undersigned baptized Brigitt O'Marra daughter of James O'Marra and Cierno Ann, born the nineteenth of August eighteen hundred thirty five. Sponsors were John Murphy and Brigitte his wife.",
+   "subject_as_read": "Cierno Ann",
+   "relation": "mother",
+   "other_as_read": "Bridget O'Marra",
+   "subject_record": "st_marys_bapt_1835_07_3_mother",
+   "other_record": "st_marys_bapt_1835_07_1_child",
+   "subject": [
+    {
+     "household": "hh_ann_cierno",
+     "person": "ann_cierno"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_omarra_bridget",
+     "person": "omarra_bridget"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_08_2_father__parent_of__st_marys_bapt_1835_08_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_08_2_father",
+   "as_read": "Le 24 août 1835, je soussigné ai administré les cérémonies du baptême à Pierre Adam Schwartz fils de Adam Schwartz et de Marie Dalbau[?], âgé de six mois. Parrain et marraine ont été M. Pierre Riffe et Marie Delacher[?].",
+   "subject_as_read": "Adam Schwartz",
+   "relation": "father",
+   "other_as_read": "Pierre Adam Schwartz",
+   "subject_record": "st_marys_bapt_1835_08_2_father",
+   "other_record": "st_marys_bapt_1835_08_1_child",
+   "subject": [
+    {
+     "household": "hh_schwartz_adam",
+     "person": "schwartz_adam"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_schwartz_pierre_adam",
+     "person": "schwartz_pierre_adam"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_09_2_father__parent_of__st_marys_bapt_1835_09_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_09_2_father",
+   "as_read": "On the 25 of 7ber eighteen hundred & thirty five I the undersigned administered the ceremonies of Baptism to Martha daughter of John Murray & Mary Brenin, fifteen days old. Godfather & Godmother were Catherine Murray & J. M. I. St Cyr.",
+   "subject_as_read": "John Murray",
+   "relation": "father",
+   "other_as_read": "Martha Murray",
+   "subject_record": "st_marys_bapt_1835_09_2_father",
+   "other_record": "st_marys_bapt_1835_09_1_child",
+   "subject": [
+    {
+     "household": "hh_murray_john",
+     "person": "murray_john"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_murray_martha",
+     "person": "murray_martha"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_09_3_mother__parent_of__st_marys_bapt_1835_09_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_09_3_mother",
+   "as_read": "On the 25 of 7ber eighteen hundred & thirty five I the undersigned administered the ceremonies of Baptism to Martha daughter of John Murray & Mary Brenin, fifteen days old. Godfather & Godmother were Catherine Murray & J. M. I. St Cyr.",
+   "subject_as_read": "Mary Brenin",
+   "relation": "mother",
+   "other_as_read": "Martha Murray",
+   "subject_record": "st_marys_bapt_1835_09_3_mother",
+   "other_record": "st_marys_bapt_1835_09_1_child",
+   "subject": [
+    {
+     "household": "hh_brenin_mary",
+     "person": "brenin_mary"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_murray_martha",
+     "person": "murray_martha"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_10_2_father__parent_of__st_marys_bapt_1835_10_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_10_2_father",
+   "as_read": "Chicago. Le quatre octobre mil huit cent trente cinq, je soussigné ai baptisé Joseph Claude Roi fils de George David Roi, et d'Anne Françoise Apolline Bruno, âgé de [?] jours. Ses parrain et marraine ont été Jean Baptiste Bruno et Joséphine Guy.",
+   "subject_as_read": "George David Roi",
+   "relation": "father",
+   "other_as_read": "Joseph Claude Roi",
+   "subject_record": "st_marys_bapt_1835_10_2_father",
+   "other_record": "st_marys_bapt_1835_10_1_child",
+   "subject": [
+    {
+     "household": "hh_roi_george_david",
+     "person": "roi_george_david"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_roi_joseph_claude",
+     "person": "roi_joseph_claude"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_10_3_mother__parent_of__st_marys_bapt_1835_10_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_10_3_mother",
+   "as_read": "Chicago. Le quatre octobre mil huit cent trente cinq, je soussigné ai baptisé Joseph Claude Roi fils de George David Roi, et d'Anne Françoise Apolline Bruno, âgé de [?] jours. Ses parrain et marraine ont été Jean Baptiste Bruno et Joséphine Guy.",
+   "subject_as_read": "Anne Françoise Apolline Bruno",
+   "relation": "mother",
+   "other_as_read": "Joseph Claude Roi",
+   "subject_record": "st_marys_bapt_1835_10_3_mother",
+   "other_record": "st_marys_bapt_1835_10_1_child",
+   "subject": [
+    {
+     "household": "hh_bruno_anne_franoise_apolline",
+     "person": "bruno_anne_franoise_apolline"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_roi_joseph_claude",
+     "person": "roi_joseph_claude"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_11_2_father__parent_of__st_marys_bapt_1835_11_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_11_2_father",
+   "as_read": "Chicago. Le quatre d'octobre mil huit cent trente cinq, je soussigné ai baptisé Anne Françoise Virginie Roy fille de George David Roi et de Anne Françoise Apolline Bruno, âgée d'un an. Alexis Thomas Blanchemontagne et Marie Louise Mallet l'ont tenue sur les fonts.",
+   "subject_as_read": "George David Roi",
+   "relation": "father",
+   "other_as_read": "Anne Françoise Virginie Roi",
+   "subject_record": "st_marys_bapt_1835_11_2_father",
+   "other_record": "st_marys_bapt_1835_11_1_child",
+   "subject": [
+    {
+     "household": "hh_roi_george_david",
+     "person": "roi_george_david"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_roi_anne_franoise_virginie",
+     "person": "roi_anne_franoise_virginie"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_11_3_mother__parent_of__st_marys_bapt_1835_11_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_11_3_mother",
+   "as_read": "Chicago. Le quatre d'octobre mil huit cent trente cinq, je soussigné ai baptisé Anne Françoise Virginie Roy fille de George David Roi et de Anne Françoise Apolline Bruno, âgée d'un an. Alexis Thomas Blanchemontagne et Marie Louise Mallet l'ont tenue sur les fonts.",
+   "subject_as_read": "Anne Françoise Apolline Bruno",
+   "relation": "mother",
+   "other_as_read": "Anne Françoise Virginie Roi",
+   "subject_record": "st_marys_bapt_1835_11_3_mother",
+   "other_record": "st_marys_bapt_1835_11_1_child",
+   "subject": [
+    {
+     "household": "hh_bruno_anne_franoise_apolline",
+     "person": "bruno_anne_franoise_apolline"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_roi_anne_franoise_virginie",
+     "person": "roi_anne_franoise_virginie"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_12_2_father__parent_of__st_marys_bapt_1835_12_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_12_2_father",
+   "as_read": "Chicago. On the eighteenth of October eighteen hundred & thirty five I, the undersigned, administered the ceremonies of Baptism to Catherine Duplar two months old daughter of Joseph Duplas & Catherine Miller. Sponsors were Frederick Daniel and Barbery Judar.",
+   "subject_as_read": "Joseph Duplas",
+   "relation": "father",
+   "other_as_read": "Catherine Duplas",
+   "subject_record": "st_marys_bapt_1835_12_2_father",
+   "other_record": "st_marys_bapt_1835_12_1_child",
+   "subject": [
+    {
+     "household": "hh_duplas_joseph",
+     "person": "duplas_joseph"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_duplas_catherine",
+     "person": "duplas_catherine"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_12_3_mother__parent_of__st_marys_bapt_1835_12_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_12_3_mother",
+   "as_read": "Chicago. On the eighteenth of October eighteen hundred & thirty five I, the undersigned, administered the ceremonies of Baptism to Catherine Duplar two months old daughter of Joseph Duplas & Catherine Miller. Sponsors were Frederick Daniel and Barbery Judar.",
+   "subject_as_read": "Catherine Miller",
+   "relation": "mother",
+   "other_as_read": "Catherine Duplas",
+   "subject_record": "st_marys_bapt_1835_12_3_mother",
+   "other_record": "st_marys_bapt_1835_12_1_child",
+   "subject": [
+    {
+     "household": "hh_miller_catherine",
+     "person": "miller_catherine"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_duplas_catherine",
+     "person": "duplas_catherine"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_13_2_father__parent_of__st_marys_bapt_1835_13_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_13_2_father",
+   "as_read": "On the nineth of November eighteen hundred and thirty five I, the undersigned, baptized Louisa born the thirtieth of October, daughter of Jacob Tony and Catherine Chandler. Godfather and godmother were Joseph Chandler and Barbery Judar.",
+   "subject_as_read": "Jacob Tony",
+   "relation": "father",
+   "other_as_read": "Louisa Tony",
+   "subject_record": "st_marys_bapt_1835_13_2_father",
+   "other_record": "st_marys_bapt_1835_13_1_child",
+   "subject": [
+    {
+     "household": "hh_tony_jacob",
+     "person": "tony_jacob"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_tony_louisa",
+     "person": "tony_louisa"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_13_3_mother__parent_of__st_marys_bapt_1835_13_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_13_3_mother",
+   "as_read": "On the nineth of November eighteen hundred and thirty five I, the undersigned, baptized Louisa born the thirtieth of October, daughter of Jacob Tony and Catherine Chandler. Godfather and godmother were Joseph Chandler and Barbery Judar.",
+   "subject_as_read": "Catherine Chandler",
+   "relation": "mother",
+   "other_as_read": "Louisa Tony",
+   "subject_record": "st_marys_bapt_1835_13_3_mother",
+   "other_record": "st_marys_bapt_1835_13_1_child",
+   "subject": [
+    {
+     "household": "hh_chandler_catherine",
+     "person": "chandler_catherine"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_tony_louisa",
+     "person": "tony_louisa"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_14_2_father__parent_of__st_marys_bapt_1835_14_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_14_2_father",
+   "as_read": "Chicago, Illinois. On the twenty five of december eighteen hundred and thirty five I the undersigned baptized Denis Molony born the twentieth of december 1835, son of John Molony and Honour Casy, & sponsors were Edward Daly and Brigitte Forster.",
+   "subject_as_read": "John Molony",
+   "relation": "father",
+   "other_as_read": "Denis Molony",
+   "subject_record": "st_marys_bapt_1835_14_2_father",
+   "other_record": "st_marys_bapt_1835_14_1_child",
+   "subject": [
+    {
+     "household": "hh_molony_john",
+     "person": "molony_john"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_molony_denis",
+     "person": "molony_denis"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1835_14_3_mother__parent_of__st_marys_bapt_1835_14_1_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1835_14_3_mother",
+   "as_read": "Chicago, Illinois. On the twenty five of december eighteen hundred and thirty five I the undersigned baptized Denis Molony born the twentieth of december 1835, son of John Molony and Honour Casy, & sponsors were Edward Daly and Brigitte Forster.",
+   "subject_as_read": "Honora Casy",
+   "relation": "mother",
+   "other_as_read": "Denis Molony",
+   "subject_record": "st_marys_bapt_1835_14_3_mother",
+   "other_record": "st_marys_bapt_1835_14_1_child",
+   "subject": [
+    {
+     "household": "hh_casy_honora",
+     "person": "casy_honora"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_molony_denis",
+     "person": "molony_denis"
+    }
+   ],
+   "outcome": "landable"
   }
  ]
 }

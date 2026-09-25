@@ -39,7 +39,7 @@
   "basis": {
    "kind": "model",
    "id": "persistence_1835",
-   "note": "The reading dates this name at 1835-06, 0.08 years before the scene date. The persistence model gives 0.994 for that lag and the seeded draw reads present."
+   "note": "The reading dates this name at 1835-06, 0.08 years before the scene date. The persistence model gives 0.995 for that lag and the seeded draw reads present."
   },
   "seed": "hh_william_bourque_burke:persistence",
   "replaceable_by": {

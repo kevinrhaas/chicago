@@ -22,51 +22,51 @@
   "housed": 181,
   "households_housed": 31,
   "group_entries": 3,
-  "households_without_a_dwelling": 1362,
+  "households_without_a_dwelling": 1481,
   "town_total": 3265,
   "town_total_dwellings": 398,
   "town_total_source": "andreas_1884_v1",
   "town_total_note": "The town census of November 1835 — four months after the scene date — counts 3,265 people in 398 dwellings (Andreas vol. 1, printed p. 180). Quoted as the town's recorded size, never as the scene's population on 1 July: it is the HIGH END of the town model's range for the scene date, and `scene.target` below is the figure the gate screen and the reconstruction programme both fill toward.",
   "scene": {
-   "persons": 1430,
-   "households": 571,
+   "persons": 1436,
+   "households": 574,
    "by_grade": {
     "attested": 133,
-    "inferred": 324,
-    "reconstructed": 973
+    "inferred": 327,
+    "reconstructed": 976
    },
-   "cards_total": 2265,
-   "cards_not_established": 835,
-   "target": 2536,
-   "target_low": 2353,
+   "cards_total": 2383,
+   "cards_not_established": 947,
+   "target": 2543,
+   "target_low": 2362,
    "target_high": 3265,
    "target_figure": "population_on_1_july_1835",
    "target_source": "data/reconstruction/1835_town_model.json",
-   "target_method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 44.7% of the 1,285 people the layer carries give an arrival year of 1835, so about 1,458 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,536, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
-   "target_note": "The town model's point reading for 1 July 1835 within 2,353–3,265, and the same number the reconstruction order book quotas against. The November count of 3,265 is this range's high end, four months later, and is not what the scene holds.",
+   "target_method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 44.2% of the 1,404 people the layer carries give an arrival year of 1835, so about 1,444 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,543, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
+   "target_note": "The town model's point reading for 1 July 1835 within 2,362–3,265, and the same number the reconstruction order book quotas against. The November count of 3,265 is this range's high end, four months later, and is not what the scene holds.",
    "basis": "Persons in households the layer records `present` on the scene date — the order book's Rule 3. A card the layer holds without establishing the person in Chicago on 1 July is not counted here; `cards_not_established` is how many those are.",
    "question": "How many people does a record establish in Chicago on 1 July 1835? It is the strictest reading the layer supports and it is NOT the town's population: it leaves out every person the research left unadjudicated.",
    "population": {
-    "persons": 2263,
-    "households": 1391,
+    "persons": 2381,
+    "households": 1510,
     "by_grade": {
-     "attested": 409,
-     "inferred": 874,
-     "reconstructed": 980
+     "attested": 411,
+     "inferred": 991,
+     "reconstructed": 979
     },
     "question": "How many people did the project's evidence put in the town on 1 July 1835? This is the population — the established people plus the ones the research left `uncertain` and T-1386 has ruled in, each at the tier its own dated readings reach.",
-    "established": 1430,
-    "ruled_in": 833,
-    "ruled_in_households": 820,
+    "established": 1436,
+    "ruled_in": 945,
+    "ruled_in_households": 936,
     "ruled_in_by_tier": {
      "attested": 61,
      "inferred": 87,
-     "reconstructed": 685
+     "reconstructed": 797
     },
     "ruled_in_by_residence_grade": {
-     "attested": 276,
-     "inferred": 550,
-     "reconstructed": 7
+     "attested": 278,
+     "inferred": 664,
+     "reconstructed": 3
     },
     "absent_on_evidence": 2,
     "basis": "data/reconstruction/1835_presence_rulings.json — one ruling per household the research left `uncertain`, with the dated reading it was reached from. An attested or inferred resident is in the population unless there is EVIDENCE they were not; `absent_on_evidence` is how many that is.",

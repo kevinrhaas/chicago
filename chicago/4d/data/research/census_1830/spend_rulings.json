@@ -6,8 +6,8 @@
   "counts": {
     "the_1830_line_names_the_garrison_and_not_a_person": 1,
     "the_1830_schedule_describes_its_own_making": 2,
-    "the_1830_surname_only_match_was_refused_in_the_crosswalk": 63,
-    "the_1830_surname_stands_in_no_town_household": 121,
+    "the_1830_surname_only_match_was_refused_in_the_crosswalk": 64,
+    "the_1830_surname_stands_in_no_town_household": 118,
     "the_1830_surname_variant_is_a_candidate_and_not_a_merge": 1,
     "the_1830_town_finding_is_earlier_evidence": 2
   },
@@ -311,7 +311,7 @@
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_001",
       "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
-      "note": "The 1830 schedule, leaf n578 entry 1, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Rice Smith' read as 'RICE SMITH'. The 1830 reading 'Rice Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+      "note": "The 1830 schedule, leaf n578 entry 1, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Rice Smith' read as 'RICE SMITH'. The 1830 reading 'Rice Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Mathias Smith (hh_smith_mathias); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_002",
@@ -356,7 +356,7 @@
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_010",
       "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
-      "note": "The 1830 schedule, leaf n578 entry 10, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'David Smith' read as 'DAVID SMITH'. The 1830 reading 'David Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+      "note": "The 1830 schedule, leaf n578 entry 10, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'David Smith' read as 'DAVID SMITH'. The 1830 reading 'David Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Mathias Smith (hh_smith_mathias); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_011",
@@ -426,7 +426,7 @@
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_024",
       "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
-      "note": "The 1830 schedule, leaf n578 entry 24, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Benjamin Smith' read as 'BENJAMIN SMITH'. The 1830 reading 'Benjamin Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+      "note": "The 1830 schedule, leaf n578 entry 24, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Benjamin Smith' read as 'BENJAMIN SMITH'. The 1830 reading 'Benjamin Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Mathias Smith (hh_smith_mathias); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n578_025",
@@ -694,16 +694,6 @@
       "note": "The 1830 schedule, leaf n580 entry 26, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Peter Murer' read as 'PETER MURER'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
     },
     {
-      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_029",
-      "rule": "the_1830_surname_stands_in_no_town_household",
-      "note": "The 1830 schedule, leaf n580 entry 29, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Joseph LaFramboy' read as 'JOSEPH LAFRAMBOISE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
-    },
-    {
-      "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_030",
-      "rule": "the_1830_surname_stands_in_no_town_household",
-      "note": "The 1830 schedule, leaf n580 entry 30, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Clouded L Framboy' read as 'CLAUDE LAFRAMBOISE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
-    },
-    {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n580_031",
       "rule": "the_1830_surname_stands_in_no_town_household",
       "note": "The 1830 schedule, leaf n580 entry 31, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'John B Seco' read as 'JOHN B SECO'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
@@ -751,7 +741,7 @@
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_002",
       "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
-      "note": "The 1830 schedule, leaf n582 entry 2, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Horatio G Smith' read as 'HORATIO G SMITH'. The 1830 reading 'Horatio G Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
+      "note": "The 1830 schedule, leaf n582 entry 2, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Horatio G Smith' read as 'HORATIO G SMITH'. The 1830 reading 'Horatio G Smith' shares only a surname with the town person(s) E Kirby Smith (hh_smith_e_kirby); Elded Smith (hh_smith_elded); George Smith (hh_smith_george); Jeremiah Smith (hh_smith_jeremiah); L W Smith (hh_smith_l_w); Lawrence Smith (hh_smith_lawrence); Mathias Smith (hh_smith_mathias); Matthias Smith (hh_smith_matthias); William Smith (hh_smith_william); William V Smith (hh_smith_william_v). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_003",
@@ -795,8 +785,8 @@
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_014",
-      "rule": "the_1830_surname_stands_in_no_town_household",
-      "note": "The 1830 schedule, leaf n582 entry 14, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Antoine Uilmet' read as 'ANTOINE OUILMETTE'. No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
+      "rule": "the_1830_surname_only_match_was_refused_in_the_crosswalk",
+      "note": "The 1830 schedule, leaf n582 entry 14, in the division headed 'Peoria & Putnam Counties & Territory attached', enters 'Antoine Uilmet' read as 'ANTOINE OUILMETTE'. The 1830 reading 'Antoine Uilmet' shares only a surname with the town person(s) Marie Louise Ouilmette (hh_ouilmette_marie_louise). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again."
     },
     {
       "unit": "census_1830:data/research/census_1830/records/schedule_chicago_1830.json#records/census1830_n582_016",

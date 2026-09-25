@@ -10691,7 +10691,7 @@ lines drawn from no sheet) · tickets **T-0609** (this), **T-0557** (the reading
 
 ### L220 — 392 people join the town on the town's own lists, and a household is written round each of them
 
-**Scope:** `residents.persons[civic_mint]` — 392 people
+**Scope:** `residents.persons[civic_mint]` — 511 people **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. This is the entry the 120 arrive IN, which is why it is the one that rises: 392 to 511.
 **Decision:** on 2026-09-03 the owner ratified a grading ladder for resident evidence,
 quoted in full in T-0514 and in `docs/RESEARCH/resident-grading-policy.md`, and T-0513
 spent it: `tools/consolidate_resident_evidence.py --build` reads seven source domains,
@@ -11152,7 +11152,7 @@ re-dealt id) · **L143** (the same re-deal argument on this same block) · ticke
 **Recorded:** 2026-09-04.
 
 ### L223 — Fourteen houses stand on a street a directory printed eight or nine years after 1835
-**Scope:** `residence_back_projection.positions[placed]` — 10 households
+**Scope:** `residence_back_projection.positions[placed]` — 12 households
 **Decision:** where no source of the scene year says where a person's house stood, a
 **street** printed as that person's residence — the volume's own `res` or `bds`, or
 `house`, `h` and `r`, which is Norris's shorthand for the same word and is declared in
@@ -11296,6 +11296,35 @@ the refusal now resolves it and declines the Cass qualifier. The business pass's
 byte-identical across the change, which is the measurement that says no shop moved.
 Nothing was regraded, nothing was invented, and twenty of 825 households carry a real
 `lives_at` before and after.
+
+**Restated to twelve on 2026-09-25 (T-1525), and it is the town again, not the reading.**
+The fifth restatement, and the fourth of the five that moves because Chicago got bigger
+rather than because a clause changed. T-1525 minted the Catholic town St Mary's baptismal
+register of 1833-1835 names — 120 people the poll books and the letter lists never reached
+— and two of the new cards walked into residence ties this pass had already adjudicated
+and had been holding with no 1835 person to hand them to. Not one line of
+`docs/RESIDENCE-BACK-PROJECTION.md` moved, no clause was relaxed, and no directory page
+was read that had not been read before:
+
+- **`choulet_michel_alexandre`** takes Fergus 1843's residence clause onto **Dearborn
+  Street**, carried back eight years. Dearborn is the street T-1050 said above this entry
+  no longer claims, and it is worth saying plainly that the street is back for the
+  opposite reason to the one that took it away: T-1050 withdrew Rebecca Sherman's face
+  because the READING was wrong, and this places a different person on the same street
+  because the TOWN now holds somebody the volume was already printing.
+- **`stone_henry`** takes Norris 1844's onto **Michigan Street**, carried back nine years,
+  the widest gap in the set. Norris narrows it — he names Dearborn and Wolcott — and
+  clause R5 declines the corner, as it does on every one of the twelve.
+
+The twelve stand seven on Fergus's directory of 1843 and five on Norris's of 1844. THE
+LIBERTY ITSELF IS UNCHANGED and this is the whole of why the count moved: a face is still
+text on a card, still graded `reconstructed`, still no lot, no roof, no door count, no
+`lives_at` and no point. Twenty of 825 households carried a real `lives_at` before the
+mint and twenty carry one after — the two new faces put nobody in a building. What a
+reader should take from five restatements in three directions is the thing the entry has
+said since T-1049: this count is a measurement of the TOWN as much as of the reading, and
+a number that moves when neither the policy nor the page has changed is not a liberty
+being widened.
 
 ### L224 — A house the paper measured, on a corner the paper did not
 **Decision:** `lasalle_lake_house` — the 16-by-30-foot dwelling the *Chicago Democrat*
@@ -12375,8 +12404,8 @@ instruction — and the size is seated as a wife and children: 84 wives and 212 
 the sources do not name. Thirty-five of the hundred and nineteen drew a house of one and hold no
 kin at all, so the drawn people stand on 84 cards.
 
-**Scope:** `residents.persons[modelled_families]` — 296 people in 84 households, every one of
-them re-derivable from `tools/reconstruct_modelled_families.py --check`.
+**Scope:** `residents.persons[modelled_families]` — 295 people in 84 households, every one of
+them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. One drawn family member gives way to a head the register names.
 
 **What is invented, stated plainly.** That these men were married at all; how many children each
 had; every child's age band and sex; every forename. The surname is the head's own, the forename
@@ -12503,7 +12532,7 @@ because the row carries no readable date at all, and 39 because T-1144's reading
 shows its evidence is a source SPAN that runs through 1 July 1835 and therefore pins no day
 before it. A lag nothing measures is not a lag a persistence rate may be applied to.
 
-**Scope:** `residents.persons[readmissions]` — 179 people, in 179 cards of their own in `data/residents/readmitted/`, re-derivable from `tools/readmit_borderline_roster.py --check`. The 904 of the title is what the stage RE-ADMITS and the 179 is what it MINTS: 725 of the 904 are a second presence written beside a reading on a card this layer already held, and only the rows carrying a read name no card of this layer holds get a card here. The stage's own ledger prints both figures; this one is the count of people who exist because this stage ran.
+**Scope:** `residents.persons[readmissions]` — 121 people, in 121 cards of their own in `data/residents/readmitted/`, re-derivable from `tools/readmit_borderline_roster.py --check`. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Fifty-eight of the re-admitted turn out to be people the register NAMES, so they are minted on their own evidence instead of being re-admitted at the reconstructed tier — the strongest possible reason for this number to fall. The 904 of the title is what the stage RE-ADMITS and the 179 is what it MINTS: 725 of the 904 are a second presence written beside a reading on a card this layer already held, and only the rows carrying a read name no card of this layer holds get a card here. The stage's own ledger prints both figures; this one is the count of people who exist because this stage ran.
 
 **What is invented, exactly.** Two things and no more. First, **that these people were in
 Chicago on 1 July 1835**, which no source says of any of them — that is what "withheld"
@@ -12934,7 +12963,7 @@ programme itself raised as a lodging place, at the trade that roof's own `functi
 states. Nothing is hand-authored: every value comes from a seed a reader can retype, and
 `--check` re-derives all twelve cards and the ledger byte for byte.
 
-**Scope:** `residents.persons[lodgers]` — 87 people in 16 lodging-household cards, re-derivable from `tools/seat_lodgers_1835.py --check` (47 seats come from the layer; these 87 are the mint on top of them). **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — "a child does not take a bed at a tavern on their own account" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life.
+**Scope:** `residents.persons[lodgers]` — 84 people in 16 lodging-household cards, re-derivable from `tools/seat_lodgers_1835.py --check` (54 seats come from the layer; these 81 are the mint on top of them). **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Six invented boarders give way: the seats they filled are taken by people the register names, and the seat count from the layer rises 47 to 54 as they do. **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — "a child does not take a bed at a tavern on their own account" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **T-1525 MOVED IT A SECOND TIME, FROM 81 TO 84, AND THIS ONE IS A RE-DEAL AND NOT A ROOF.** The stage freezes the quota it deals against so that a later re-cut of the order book spends what the stage did not and moves nobody — and this branch re-cut the book so far that the frozen quota stood at 334 lodgers where the book now orders 273. The gap was being held shut by a live ceiling that read the book on every build, and that ceiling turned out to be deciding which cells entered the proportional split: a cell the book had emptied since the deal left the split and moved every other cell's share by rounding, with nobody ever over-dealt. So the owner ruled the quota re-frozen against the re-cut book and the ceiling now reads the frozen room alone. THE RE-DEAL IS THE COST OF THAT and it is stated rather than absorbed: 32 invented slots retired, 35 opened and 7 re-banded, for a net of three. Not one of them is a person any source names — every one is `reconstructed`, and a reader who met one of these names met it as an invention. What a re-cut may NOT do is still what it could not do before: take the order out from under somebody already standing. That now stops the build and asks for a deliberate re-freeze instead of being absorbed quietly, which is the whole of what changed.
 
 **The liberty SHRANK on 2026-09-20, and the reason is worth keeping (T-1171).** It stood at
 75 minted against 17 seated. `reconstruct_modelled_families.py` had been refusing 822
@@ -13077,7 +13106,7 @@ letter-list name is worth), tickets **T-1386**, **T-1172**, **T-1144**, the re-c
 **Recorded:** 2026-09-19.
 
 ### L254 — Two apothecaries' shops stand in the town because a census counted four and the newspapers name two
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, seven are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards and fifteen are **L262**'s services, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, seven are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards and fifteen are **L262**'s services, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1184) writes reconstructed business
 records into `data/businesses/authored/`, one for every house the reconstruction order book
@@ -13294,7 +13323,7 @@ outliers, and the seating tickets **T-1198** and **T-1199**.
 
 ### L257 — Six boarding houses become houses of trade because the buildings were already standing and nothing in the business layer could see them
 
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade, of which SEVEN are this
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which SEVEN are this
 entry's. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other twenty-seven are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber
 yards and **L262**'s services; the
@@ -13377,7 +13406,7 @@ the seating tickets **T-1198** and **T-1199**.
 **Recorded:** 2026-09-19.
 
 ### L258 — A brewery and a jeweller's shop stand for a census count, and the brewery carries on its own card the newspaper that argues against it
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade. TWO are this entry's, the
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade. TWO are this entry's, the
 mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, six
 **L257**'s boarding houses, two **L259**'s professions, four **L260**'s liveries and
 lumber yards and fifteen **L262**'s services. The
@@ -13442,8 +13471,9 @@ same selector counts), **L248** (the trade heads these houses adopt), tickets **
 **Recorded:** 2026-09-19.
 
 ### L259 — A law office and a physician's room stand for a census line that counts men, read down to the population the scene date actually had
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade, of which TWO are this
-entry's: one law office and one physician's room. The other thirty-one are **L254**'s
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which ONE is this
+entry's: a single law office. The physician's room went the same way as the second law
+office, and the block below says how. The other thirty-two are **L254**'s
 apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and
 jeweller's, **L260**'s liveries and lumber yards and **L262**'s services — the other half of
 this entry's own group, and the half no census line reaches; the selector reads the whole
@@ -13472,6 +13502,30 @@ reconstruction is supposed to have:** the record said on its own face that it st
 until a reading took its place, and a reading took its place. Reuben Parmelee, the
 reconstructed head who kept it, is untouched — he keeps his trade and waits for a workplace,
 which is what the paragraph below already said would happen to the surplus attorneys.
+
+**THE PHYSICIAN'S ROOM WENT TOO, AND NOT BECAUSE THE TOWN NAMED A PHYSICIAN (T-1525).** The
+same shape as the retirement above and a different mechanism, which is why it is written
+out rather than folded into it. T-1525 minted the 120 households St Mary's baptismal
+register names, and this entry's arithmetic is *a profession scales with the population it
+serves* — so 120 more residents on 1 July 1835 raise what the July town should hold, and
+the physician order moved from **9 to 10** while the class the town can NAME stayed at
+**8**. The shortfall therefore grew from one room to two. **And the book drew neither.**
+`bucket businesses/physician` now reads `target 10, known 8, to_reconstruct 2, filled 0`,
+and the two are handed to **T-1529** as work somebody can pick up. *Dr. J. McGuire,
+physician* on South Water Street was the one room this entry had drawn against the old
+order of nine, and it is withdrawn with the rest — re-derived out through `--build`, by the
+stage's own slot order, never deleted as a file, exactly as *R. Parmelee* was.
+
+**WHY A GROWING SHORTFALL RETIRES A RECONSTRUCTION INSTEAD OF BUYING ANOTHER**, which reads
+backwards until the rule is stated: this project does not draw a house it can hand to a
+named piece of work, and it does not quietly enlarge an invention when the arithmetic that
+justified it moves. The owner's rule on the re-cut is that nothing already drawn is deleted
+to make the books close and nothing new is drawn to fill a gap a ticket can own — the
+over-supply is NAMED, with both figures, as work owed. So the class that went from one
+invented room to two owed ones ends with none invented at all, and a reader who wants to
+know what stands in for the July town's ninth and tenth physicians is pointed at T-1529
+rather than at a drawn name. THE LAW OFFICE IS NOW THE WHOLE OF THIS ENTRY: one house,
+*B. Robillard*, against an order of fifteen lawyers the town can name fourteen of.
 
 **Why:** because the December 1835 State census prints **twenty-two lawyers** and **fourteen
 physicians**, and until this entry the order book set those two figures against the newspaper
@@ -13537,7 +13591,7 @@ nowhere), **T-1404** (a premises for every in-window trade) and **T-1189** (thei
 
 ### L260 — Two livery stables and two lumber yards stand because the men who kept them were already drawn, and nothing else in this town could buy them
 
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade, of which FOUR are this
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which FOUR are this
 entry's. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
 **L262**'s services, which take this entry's own fourth form into four more trades; the
@@ -13695,7 +13749,7 @@ which takes the West Division streets off the old E −320 clip. **Recorded:** 2
 
 ### L262 — Fifteen service houses stand because the women and men who kept them were already drawn, and the December census has no line that could ever have counted them
 
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade, of which FIFTEEN are
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which FIFTEEN are
 this entry's: nine millineries, four land offices, one dress making shop and one barber's
 shop. The other eighteen are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and

@@ -134,7 +134,7 @@
     "note": "DRAWN FROM AN ASSUMPTION THIS PROJECT STATES RATHER THAN A ROW IT READ. The occupation model counts the December 1835 State census's establishments and the 1840 schedule's seven employment columns, and NEITHER counts a woman's work — so there is no female-trade row to draw from. The weights are the programme's own, written where a reader can argue with them and entered in docs/LIBERTIES.md. The term is the residents vocabulary's."
    },
    "employment": {
-    "business_id": "biz_j_a_marshall_s_dancing_school",
+    "business_id": "biz_john_watkins",
     "role": "schoolteacher",
     "tier": "reconstructed",
     "seed": "rc_mccarthy_johanna:employment",

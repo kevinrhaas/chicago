@@ -352,10 +352,26 @@ BUSINESS_TICKETS = {
     # T-1442 printed it, so this row follows the two above to T-1215.
     "school": "T-1215",
     # T-1186 was split on 2026-09-20 when the unit ruling below turned out to be a
-    # demonstration of its own; T-1418 is the piece that owns these two rows and T-1419
+    # demonstration of its own; T-1418 was the piece that owned these two rows and T-1419
     # the services, which the census enumerates nowhere and which therefore own no bucket.
+    #
+    # T-1418 CLOSED, AND ONE OF ITS TWO ROWS THEN GREW WORK AGAIN (T-1525, 2026-09-24).
+    # Both rows read filled the day it closed, so the id sat here as the record of who
+    # filled them and the work-order gate below stayed quiet — which is the rule that gate
+    # states in as many words: a bucket with nothing left keeps the id of the ticket that
+    # filled it. Then the parish register's 120 residents (T-0841) raised the town model's
+    # low end from 2,353 to 2,363, both professions scale with the population they serve,
+    # and `physician` went from ordering 9 to ordering 10 against 9 drawn. A row with work
+    # left and a `done` ticket on it is exactly the hole T-1420 was filed for, so it is
+    # swept — onto T-1529, filed for that tenth physician, because T-1418's whole tree is
+    # closed and there was no live successor to sweep it onto.
+    #
+    # `lawyer` STAYS ON T-1418 and that is deliberate. It orders 1 against 2 drawn, so it
+    # has nothing left, and its surplus is a different question from its order: T-1506
+    # owns retiring the second reconstructed lawyer. Moving this id would rewrite the
+    # record of who filled the row to keep a gate quiet that is not complaining.
     "lawyer": "T-1418",
-    "physician": "T-1418",
+    "physician": "T-1529",
     "lyceum_and_reading_room": "T-1182",
     "other": "T-1182",
     "not_stated": "T-1182",
@@ -1954,9 +1970,26 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
             if todo is not None and b["filled"] > todo:
                 was = quota_before.get(b["key"])
                 cause = "the_re_cut_reached_work_already_drawn"
-                if was is None:
-                    was = committed_order.get(b["key"])
-                    cause = "a_documented_reading_shrank_the_order"
+                # AND A PERSON BUCKET'S ORDER FALLS THE SAME WAY A BUSINESS BUCKET'S DOES
+                # (T-0841). The pre-ruling cut is only the right yardstick while it is
+                # ABOVE what was drawn: it is computed from the residents layer as it
+                # stands, so the moment the town READS documented people into a cell, the
+                # pre-ruling quota falls too and the test above stops telling a re-cut
+                # apart from a filler — it calls both a filler. Measured reading St Mary's
+                # baptismal register into the ladder: 25 more documented men aged 20-29 in
+                # a south-side family trade, this cell's cut 60 -> 35, and its 60 drawn
+                # were every one of them drawn against the 60 THIS BOOK ORDERED. That is
+                # the T-1299 case exactly, one family over, and the owner's ruling of
+                # 2026-09-20 covers it: nothing already drawn moves. So the fallback the
+                # business families take is taken here too, and it is a fallback rather
+                # than a replacement — `filled` above even the order the work was drawn
+                # against is still a filler bypassing the book, and still a FAULT.
+                if was is None or was < b["filled"]:
+                    committed = committed_order.get(b["key"])
+                    if committed is not None and committed >= b["filled"]:
+                        was, cause = committed, "a_documented_reading_shrank_the_order"
+                    elif was is None:
+                        was, cause = committed, "a_documented_reading_shrank_the_order"
                 if was is not None and b["filled"] <= was:
                     recut_refusals.append({
                         "bucket": b["key"],
@@ -2268,7 +2301,15 @@ def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | Non
 
 
 def recut_findings(known: dict, before: dict, families: list, refusals: list) -> list[dict]:
-    """The three things summing T-1386 into `known` made measurable (T-1463)."""
+    """What the re-cut made measurable — T-1463's three, and T-1525's fourth.
+
+    The fourth is the one a refusal cannot say on its own. `recut_refusals` records
+    every bucket the re-cut would have cut below what was already drawn, one row at a
+    time; the DOCUMENTED ones are a different fact from the rest, because they are not
+    a quota drifting under a draw but the town reading a person it can name and finding
+    it had already reconstructed a stranger in that place. Those are over-supplies with
+    a size, and the size is the thing a run retiring them has to know.
+    """
     def owed(fam, ticket=None):
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
@@ -2279,6 +2320,16 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
     low, high = persons["summary"]["town_target_range"]
     standing = known["persons_standing"]
     still = owed(persons)
+    shrank = [r for r in refusals
+              if r.get("cause") == "a_documented_reading_shrank_the_order"]
+    over = [{"bucket": r["bucket"],
+             "owning_ticket": r["owning_ticket"],
+             "already_drawn": r["already_drawn"],
+             "the_re_cut_would_have_ordered": r["the_re_cut_would_have_ordered"],
+             "over_supplied_by": r["already_drawn"] - r["the_re_cut_would_have_ordered"]}
+            for r in sorted(shrank, key=lambda r: -(r["already_drawn"]
+                                                    - r["the_re_cut_would_have_ordered"]))]
+    over_total = sum(b["over_supplied_by"] for b in over)
     return [
         {
             "id": "t_1171_adjudicated",
@@ -2349,6 +2400,33 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
                                      "A record answers both the moment something seats him, and "
                                      "the derivation picks that up on the next rebuild.",
         },
+        {
+            "id": "a_documented_reading_shrank_an_order_the_town_had_drawn",
+            "asks": "The parish register's 120 documented residents (T-0841) land in buckets "
+                    "the town had already reconstructed strangers into. Where did reading a "
+                    "person the town can name put a bucket's order UNDER what was drawn "
+                    "against it, and by how many people?",
+            "the_answer_is": f"{len(over)} bucket(s), over-supplied by {over_total:,} in all.",
+            "buckets": over,
+            "over_supplied_by": over_total,
+            "measured": (
+                ("; ".join(
+                    f"`{b['bucket']}` holds {b['already_drawn']:,} drawn against an order of "
+                    f"{b['the_re_cut_would_have_ordered']:,} — over-supplied by "
+                    f"{b['over_supplied_by']:,}" for b in over)
+                 or "no bucket's order was shrunk by a documented reading")
+                + f". That is {over_total:,} reconstructed people standing where the sources "
+                  "now name someone else, and it is a different fault from the rest of "
+                  "`recut_refusals`: those are quotas drifting under a draw, this is the town "
+                  "learning it invented a person it did not need. Nothing here is clamped and "
+                  "nothing already drawn moves — T-1459 — so the book keeps ordering the "
+                  "larger figure and names the surplus instead."),
+            "declined": "RETIRING a reconstructed card is the bucket owner's work and not this "
+                        "book's: a book that deleted people to make its own arithmetic close "
+                        "would be reconstructing backwards. T-1347, which drew the trade band, "
+                        "has closed, so T-1530 is filed for the south-side 20-29 surplus and "
+                        "T-1506 owns the surplus lawyer.",
+        },
     ]
 
 
@@ -2383,8 +2461,9 @@ def report_text(doc: dict) -> str:
         "",
         "## What the re-cut found",
         "",
-        "> T-1463 summed T-1386's presence rulings into `known`. These are the three things "
-        "that made measurable, carried in the book so they cannot go stale in a report.",
+        "> T-1463 summed T-1386's presence rulings into `known`, and T-1525 read the parish "
+        "register into it. These are the things that made measurable, carried in the book "
+        "so they cannot go stale in a report.",
         "",
     ]
     for f in doc.get("what_the_re_cut_found", []):

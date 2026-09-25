@@ -12,7 +12,7 @@
     "structures": 417,
     "structures_sharing_a_name": 39,
     "streets": 79,
-    "resident_persons": 1285
+    "resident_persons": 1404
   },
   "counts": {
     "businesses": {
@@ -48,8 +48,8 @@
     "persons": {
       "total": 2668,
       "by_action": {
-        "enrich": 1363,
-        "new_resident": 1282,
+        "enrich": 1367,
+        "new_resident": 1278,
         "replace_invented": 23
       },
       "letter_list_only": 1953
@@ -59,11 +59,11 @@
         "boarding_house_keeper": 1,
         "hotel_keeper": 1,
         "merchant": 1,
-        "none_recorded": 865,
+        "none_recorded": 982,
         "printer": 1,
         "tavern_keeper": 2
       },
-      "households_total": 871,
+      "households_total": 988,
       "retirable_by_trade": {
         "merchant": 1,
         "tavern_keeper": 2
@@ -11335,9 +11335,9 @@
       "letter_list_only": true,
       "first_seen": "1835-08-19",
       "last_seen": "1835-08-19",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "beaubien_george",
+      "action_note": "data/residents/ already holds this person as beaubien_george (hh_beaubien_george, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_beaubien_john_b",
@@ -12589,9 +12589,9 @@
       "letter_list_only": false,
       "first_seen": "1835-06-20",
       "last_seen": "1835-06-20",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "harrington_catherine",
+      "action_note": "data/residents/ already holds this person as harrington_catherine (hh_harrington_catherine, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_c_l_harmon",
@@ -13348,9 +13348,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "miller_catherine",
+      "action_note": "data/residents/ already holds this person as miller_catherine (hh_miller_catherine, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_chase_peter",
@@ -21972,9 +21972,9 @@
       "letter_list_only": false,
       "first_seen": "1835-06-20",
       "last_seen": "1835-06-20",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
+      "action": "enrich",
+      "action_target": "murray_john",
+      "action_note": "data/residents/ already holds this person as murray_john (hh_murray_john, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_james_h_phelps",
@@ -25767,9 +25767,9 @@
       "letter_list_only": true,
       "first_seen": "1835-05-20",
       "last_seen": "1835-05-20",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "chevalier_louis_p",
+      "action_note": "data/residents/ already holds this person as chevalier_louis_p (hh_chevalier_louis_p, attested) — the civic pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_louis_p_chevallier",
@@ -26669,9 +26669,9 @@
       "letter_list_only": true,
       "first_seen": "1834-04-16",
       "last_seen": "1834-04-16",
-      "action": "enrich",
-      "action_target": "smith_matthias",
-      "action_note": "data/residents/ already holds this person as smith_matthias (hh_smith_matthias, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
     },
     {
       "id": "person_mason_mathias_co",
@@ -26801,9 +26801,9 @@
       "letter_list_only": true,
       "first_seen": "1835-08-19",
       "last_seen": "1835-08-19",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "mayo_joseph",
+      "action_note": "data/residents/ already holds this person as mayo_joseph (hh_mayo_joseph, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_mcadams_richard",
@@ -27637,9 +27637,9 @@
       "letter_list_only": true,
       "first_seen": "1834-04-01",
       "last_seen": "1834-04-01",
-      "action": "enrich",
-      "action_target": "smith_matthias",
-      "action_note": "data/residents/ already holds this person as smith_matthias (hh_smith_matthias, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
     },
     {
       "id": "person_mr_tilman",
@@ -32598,9 +32598,9 @@
       "letter_list_only": false,
       "first_seen": "1835-08-12",
       "last_seen": "1835-08-12",
-      "action": "enrich",
-      "action_target": "smith_matthias",
-      "action_note": "data/residents/ already holds this person as smith_matthias (hh_smith_matthias, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action": "new_resident",
+      "action_target": null,
+      "action_note": "Ruling 1: a named person the town does not hold. Named in a claim other than a letter list."
     },
     {
       "id": "person_smith_solomon",
@@ -35194,9 +35194,9 @@
       "letter_list_only": true,
       "first_seen": "1834-04-01",
       "last_seen": "1834-04-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "bourassa_lon",
+      "action_note": "data/residents/ already holds this person as bourassa_lon (hh_bourassa_lon, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_uncertain_loon_bowrassa",

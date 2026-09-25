@@ -35,7 +35,7 @@ The inventory's own defensible range is 565–765 roofs; the adopted total is in
 
 **`larger_boarding_houses`** — The model reads this figure off district_group_matrix, so its agreement with the programme is the programme agreeing with itself. Recorded as circular rather than banked as corroboration; the group stands because nothing independent moves it.
 
-**`ordinary_dwellings`** — The model's own low end IS this schedule. The order book's competing figure is 643 HOUSEHOLDS, which is a different unit: satisfying it with roofs would seat one family per roof, the error the town model exists to refuse. It is met by occupancy instead — see the dwellings reconciliation, where the rate the order book needs falls inside the band the November census brackets.
+**`ordinary_dwellings`** — The model's own low end IS this schedule. The order book's competing figure is 644 HOUSEHOLDS, which is a different unit: satisfying it with roofs would seat one family per roof, the error the town model exists to refuse. It is met by occupancy instead — see the dwellings reconciliation, where the rate the order book needs falls inside the band the November census brackets.
 
 **`small_outbuildings`** — Ancillary. The town model carries no figure for yards and outbuildings and the order book orders none; the ratio to principal roofs is T-1212's to deal. The spec stands untouched.
 
@@ -50,8 +50,8 @@ The inventory's own defensible range is 565–765 roofs; the adopted total is in
 The order book orders more households than the programme schedules dwellings. How many households to a roof?
 
 - Dwelling roofs on the scene date: **377** (335 ordinary dwellings, 42 larger houses and boarding houses).
-- Households the order book orders: **643**.
-- Households to a dwelling, adopted: **1.706**.
+- Households the order book orders: **644**.
+- Households to a dwelling, adopted: **1.708**.
 - The band the census brackets: **1.636–2.051** — 8.204 people per dwelling in the town census of November 1835, over the 1840 city's household size of 4.0–5.015 (median to mean).
 - Inside the bracket: **yes**.
 

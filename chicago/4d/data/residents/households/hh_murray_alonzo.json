@@ -14,7 +14,7 @@
   "precision": "not_later_than"
  },
  "arrival_year": {
-  "value": 1833,
+  "value": 1834,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1834-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
@@ -53,14 +53,14 @@
   "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+  "value": "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
   "basis": {
    "kind": "rule",
    "id": "reason_from_arrival_cohort",
-   "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1834) is the only thing about it this value rests on."
   },
   "replaceable_by": {
    "kind": "person",
@@ -249,9 +249,12 @@
  "surname_collision": {
   "refusal": "the town already names a Murray",
   "holds_the_surname": [
+   "Catherine Murray (hh_murray_catherine)",
+   "John Murray (hh_murray_john)",
+   "Martha Murray (hh_murray_martha)",
    "Patrick Murray (hh_murray_patrick)"
   ],
   "ruling": "T-0660, option (c), owner 2026-09-18",
-  "note": "A COLLISION SAID, NOT ACTED ON. Run against the tree as it stands, this pass would not MINT this card: refusal 7 — 'the town already names a Murray' — lands on it, because Patrick Murray (hh_murray_patrick) already holds the family name Murray. The owner ruled on 2026-09-18 (T-0660, option (c)) that refusals 7 and 8 are MINT-TIME rules: they decide whether a new household may be minted on a family name the town already spends, and they do not un-mint one that already stands. So this record is not retired, its id is not redirected at anybody, the town's population does not move, and the research row and directory matches it carries are not stranded on a retirement nothing draws. What has changed is that the collision is legible: a reader sees both cards and why both are here. REFUSAL 7 IS NOT A CLAIM THAT TWO RECORDS ARE ONE PERSON — it is the precedence rule between this pass and the ones above it, which give a man the papers gave a trade the family name a letter list only spells. Two of the collisions this reading uncovered are two different men. The pass's `rank()` is unchanged and the cohort is not re-derived; that was option (b)'s cost and the ruling declined to pay it. The derivation behind this block, both readings side by side, is docs/RESEARCH/letter-list-surname-collisions.md."
+  "note": "A COLLISION SAID, NOT ACTED ON. Run against the tree as it stands, this pass would not MINT this card: refusal 7 — 'the town already names a Murray' — lands on it, because Catherine Murray (hh_murray_catherine); John Murray (hh_murray_john); Martha Murray (hh_murray_martha); Patrick Murray (hh_murray_patrick) already holds the family name Murray. The owner ruled on 2026-09-18 (T-0660, option (c)) that refusals 7 and 8 are MINT-TIME rules: they decide whether a new household may be minted on a family name the town already spends, and they do not un-mint one that already stands. So this record is not retired, its id is not redirected at anybody, the town's population does not move, and the research row and directory matches it carries are not stranded on a retirement nothing draws. What has changed is that the collision is legible: a reader sees both cards and why both are here. REFUSAL 7 IS NOT A CLAIM THAT TWO RECORDS ARE ONE PERSON — it is the precedence rule between this pass and the ones above it, which give a man the papers gave a trade the family name a letter list only spells. Two of the collisions this reading uncovered are two different men. The pass's `rank()` is unchanged and the cohort is not re-derived; that was option (b)'s cost and the ruling declined to pay it. The derivation behind this block, both readings side by side, is docs/RESEARCH/letter-list-surname-collisions.md."
  }
 }
