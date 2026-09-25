@@ -171,6 +171,19 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('whistler_john_harrison:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   },
+   "birth_year": {
+    "value": 1806,
+    "precision": "band",
+    "band": [
+     1806,
+     1807
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "fergus_1843_old_settler_death_notices"
+    ],
+    "note": "A BIRTH INTERVAL OUT OF A DEATH NOTICE, NOT A RECORD OF A BIRTH. The page prints the death as 'October 23, 1873' and the age as 'aged 66'. An age of 66 completed years means at least 66 and less than 67, so the birth falls between 1806-10-24 and 1807-10-23: the birth year is 1806 or 1807. The subtraction is this project's; the page states no year of birth. The page also prints the birth as 'born in Fort Dearborn, October 7, 1807', which falls inside the window — so here the subtraction is a CHECK on the page rather than the only evidence. Fergus's 1843 directory (1896) prints the entry \"Whistler, John Harrison, born in Fort Dearborn, October 7, 1807, died, Burlington, Kansas, October 23, 1873, aged 66.\", and its header admits the list also names citizens who arrived after 1843 and others merely prominently connected with Illinois history — so a match here is never evidence of residence in 1835 and never moves a grade. The match to this person was adjudicated in data/research/old_settlers/death_notices_crosswalk_1835.json and written onto this card by tools/spend_old_settlers.py; this pass only spends its arithmetic into a birth year. Both sides of the match spell a forename out — the crosswalk's thin matches, where a single initial is the whole of the discriminator, are refused rather than spent."
    }
   }
  ],

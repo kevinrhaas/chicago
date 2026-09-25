@@ -175,7 +175,20 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('chevalier_louis_p:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
-   }
+   },
+   "merge_ruling": [
+    {
+     "ticket": "T-1525",
+     "verdict": "distinct",
+     "rule": "D9",
+     "cluster": "chevalier-chevallier",
+     "weighed_against": [
+      "chevallier_louis_p"
+     ],
+     "for_merge": "'Louis P.' against 'Louis P.' — the forename AND the middle initial agree on every printing, so nothing but one doubled L in a nine-letter French surname stands between the cards. Neither stem is otherwise populated by this pair's bearer: the town holds one Chevallier of this forename and one Chevalier of it. Both readings are the Chicago Democrat inside the window.",
+     "against_merge": "ONE CORPUS ID, TWO PRINTINGS SIXTEEN MONTHS APART, AND NEITHER SETS BOTH. Both cards cite `chicago_newspapers_1833_1835`, so a grep over the corpus finds both spellings — but that id is three years of two papers, and the printings are identified: 'Louis P. Chevallier' is the Democrat of 21 January 1834 (#c006) and 'Louis P. Chevalier' the Democrat of 20 May 1835 (#c013). No single issue is caught setting both spellings for one man, so C9's demonstration is absent; no roll enters both as separate entries either, so D5 is unavailable; and because both cards cite one source id, D7's 'the two bodies of evidence do not touch' is literally false and that refusal is not available as written. This is the gap D9 exists to close, measured at the PRINTING rather than at the source id. Neither card is an anchor. The Chevalier side carries a third reading — 'L. Chevalier', a witness in St Mary's on 6 June 1835 — which the Chevallier side has nothing to meet. D9."
+    }
+   ]
   }
  ],
  "touches_removal": false,

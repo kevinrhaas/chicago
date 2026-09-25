@@ -13471,8 +13471,9 @@ same selector counts), **L248** (the trade heads these houses adopt), tickets **
 **Recorded:** 2026-09-19.
 
 ### L259 — A law office and a physician's room stand for a census line that counts men, read down to the population the scene date actually had
-**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which TWO are this
-entry's: one law office and one physician's room. The other thirty-one are **L254**'s
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which ONE is this
+entry's: a single law office. The physician's room went the same way as the second law
+office, and the block below says how. The other thirty-two are **L254**'s
 apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and
 jeweller's, **L260**'s liveries and lumber yards and **L262**'s services — the other half of
 this entry's own group, and the half no census line reaches; the selector reads the whole
@@ -13501,6 +13502,30 @@ reconstruction is supposed to have:** the record said on its own face that it st
 until a reading took its place, and a reading took its place. Reuben Parmelee, the
 reconstructed head who kept it, is untouched — he keeps his trade and waits for a workplace,
 which is what the paragraph below already said would happen to the surplus attorneys.
+
+**THE PHYSICIAN'S ROOM WENT TOO, AND NOT BECAUSE THE TOWN NAMED A PHYSICIAN (T-1525).** The
+same shape as the retirement above and a different mechanism, which is why it is written
+out rather than folded into it. T-1525 minted the 120 households St Mary's baptismal
+register names, and this entry's arithmetic is *a profession scales with the population it
+serves* — so 120 more residents on 1 July 1835 raise what the July town should hold, and
+the physician order moved from **9 to 10** while the class the town can NAME stayed at
+**8**. The shortfall therefore grew from one room to two. **And the book drew neither.**
+`bucket businesses/physician` now reads `target 10, known 8, to_reconstruct 2, filled 0`,
+and the two are handed to **T-1529** as work somebody can pick up. *Dr. J. McGuire,
+physician* on South Water Street was the one room this entry had drawn against the old
+order of nine, and it is withdrawn with the rest — re-derived out through `--build`, by the
+stage's own slot order, never deleted as a file, exactly as *R. Parmelee* was.
+
+**WHY A GROWING SHORTFALL RETIRES A RECONSTRUCTION INSTEAD OF BUYING ANOTHER**, which reads
+backwards until the rule is stated: this project does not draw a house it can hand to a
+named piece of work, and it does not quietly enlarge an invention when the arithmetic that
+justified it moves. The owner's rule on the re-cut is that nothing already drawn is deleted
+to make the books close and nothing new is drawn to fill a gap a ticket can own — the
+over-supply is NAMED, with both figures, as work owed. So the class that went from one
+invented room to two owed ones ends with none invented at all, and a reader who wants to
+know what stands in for the July town's ninth and tenth physicians is pointed at T-1529
+rather than at a drawn name. THE LAW OFFICE IS NOW THE WHOLE OF THIS ENTRY: one house,
+*B. Robillard*, against an order of fifteen lawyers the town can name fourteen of.
 
 **Why:** because the December 1835 State census prints **twenty-two lawyers** and **fourteen
 physicians**, and until this entry the order book set those two figures against the newspaper

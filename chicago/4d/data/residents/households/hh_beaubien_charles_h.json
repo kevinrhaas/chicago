@@ -182,19 +182,6 @@
     "value": "male",
     "confidence": "inferred",
     "note": "A FORENAME THAT STANDS IN ONE SEX'S NAMING ONLY. 'Charles' is read as male because 2 persons in this layer whose sex a source records bear it (harmon_charles_l, taylor_charles), and it stands in the french_colonial and yankee male forename pool of this town's own attested naming. Nothing about this person is recorded; the name is the whole of the reasoning, and the table that licenses it — data/research/residents/forename_sex.json — refuses a name its own evidence splits, refuses Jean, Marion, Leslie and Francis by name, and refuses an initial outright."
-   },
-   "birth_year": {
-    "value": 1806,
-    "precision": "band",
-    "band": [
-     1806,
-     1807
-    ],
-    "confidence": "inferred",
-    "sources": [
-     "fergus_1843_old_settler_death_notices"
-    ],
-    "note": "A BIRTH INTERVAL OUT OF A DEATH NOTICE, NOT A RECORD OF A BIRTH. The page prints the death as '1858' and the age as 'aged 51'. An age of 51 completed years means at least 51 and less than 52, so the birth falls between 1806-01-02 and 1807-12-31: the birth year is 1806 or 1807. The subtraction is this project's; the page states no year of birth. Fergus's 1843 directory (1896) prints the entry \"Beaubien, Charles Henry, died, Gross Point, Ill., 1858, aged 51.\", and its header admits the list also names citizens who arrived after 1843 and others merely prominently connected with Illinois history — so a match here is never evidence of residence in 1835 and never moves a grade. The match to this person was adjudicated in data/research/old_settlers/death_notices_crosswalk_1835.json and written onto this card by tools/spend_old_settlers.py; this pass only spends its arithmetic into a birth year. Both sides of the match spell a forename out — the crosswalk's thin matches, where a single initial is the whole of the discriminator, are refused rather than spent."
    }
   }
  ],
