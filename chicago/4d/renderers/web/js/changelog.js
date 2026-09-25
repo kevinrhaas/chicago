@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1104, title: 'Samuel Toby was joined up, and his card was not told', kind: 'fix', ts: '2026-09-25T14:28:38.259Z', date: 'Sep 25, 2026, 9:28 AM CT',
+    items: [
+      'The last entry joined two readings of one line into one man: the post office\u2019s list for 1 July 1834 was set three times, two settings print \u2018Samuel E. Toby\u2019 and one prints \u2018Samuel. Toby\u2019, and they are now one person rather than two.',
+      'His card went on saying \u2018Samuel. Toby\u2019 anyway. That is the reading that lost \u2014 the one the join folded into the other \u2014 and after the join nothing the card cited read the name that way. The surviving spelling was sitting in the card\u2019s own evidence row the whole time, unread.',
+      'The card now shows the reading its evidence holds. Its internal identifier does not move with it: that is a handle other files point at, not a claim about a name, and the family name is the same either way.',
+      'The real fix is a check rather than an edit. A person\u2019s card must now display a name its own evidence still holds, or the build fails. Joining two people is a thing this project does carefully and rarely, and until today nothing noticed when the town kept wearing the loser\u2019s spelling.',
+      'It fails on one card today \u2014 this one \u2014 and it will fail on the next merge that forgets one, in the commit that declares it.',
+    ] },
   { v: 1103, title: 'Who may be moved, and what it would cost to move them', kind: 'change', ts: '2026-09-25T13:51:35.679Z', date: 'Sep 25, 2026, 8:51 AM CT',
     items: [
       'Five hundred and twenty-three invented residents stand in cells of the order book that no longer want them, and the owner has ruled they are moved rather than deleted. The last entry built the bookkeeping for a move. This one works out who may be moved \u2014 and finds that far fewer can than the arithmetic assumed.',

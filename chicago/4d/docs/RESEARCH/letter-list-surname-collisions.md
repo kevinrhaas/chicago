@@ -79,8 +79,8 @@ split by cause:
 
 | households | cause |
 |---|---|
-| 4 | no longer in the pool the register offers |
-| 3 | the record stands under a different id (a rename, not a retirement) |
+| 4 | the record stands under a different id (a rename, not a retirement) |
+| 3 | no longer in the pool the register offers |
 
 **This is the finding that resized T-0660, and the ruling then dissolved it.** The
 ticket was filed believing the retirements were the collisions. Most of them were

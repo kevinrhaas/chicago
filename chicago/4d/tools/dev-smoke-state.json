@@ -1924,6 +1924,106 @@
         ]
       },
       "source": "/tmp/s_d5.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 93,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 145,
+      "takenAt": "2026-09-25T14:27:39.243Z",
+      "ref": "steward/t1561-toby-card-wears-its-reading",
+      "commit": "04ac8274e701",
+      "devCommit": "31dce24db479",
+      "treeHash": "sha256:9cd1eb3556deb39b",
+      "treeDirty": false,
+      "changelogHash": "sha256:5b7aaaf1b2d24030",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.3,
+          5.3,
+          5.3
+        ]
+      },
+      "source": "/tmp/smoke_m3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 93,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 266,
+      "takenAt": "2026-09-25T14:27:39.126Z",
+      "ref": "steward/t1561-toby-card-wears-its-reading",
+      "commit": "04ac8274e701",
+      "devCommit": "31dce24db479",
+      "treeHash": "sha256:9cd1eb3556deb39b",
+      "treeDirty": false,
+      "changelogHash": "sha256:5b7aaaf1b2d24030",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.3,
+          5.3,
+          5.3
+        ]
+      },
+      "source": "/tmp/smoke_d3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 85,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — TimeoutError: page.waitForFunction: Timeout 30000ms exceeded."
+      ],
+      "wallSeconds": 513,
+      "takenAt": "2026-09-25T14:27:30.854Z",
+      "ref": "steward/t1561-toby-card-wears-its-reading",
+      "commit": "04ac8274e701",
+      "devCommit": "31dce24db479",
+      "treeHash": "sha256:9cd1eb3556deb39b",
+      "treeDirty": false,
+      "changelogHash": "sha256:5b7aaaf1b2d24030",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.6,
+          5.4,
+          5.4
+        ],
+        "frameCostMs": [
+          0,
+          60,
+          57
+        ]
+      },
+      "source": "/tmp/smoke_dev12.log"
     }
   ]
 }
