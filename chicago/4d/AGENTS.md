@@ -55,7 +55,7 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    `CHECK_JOBS=1` is the serial escape hatch, for reproducing one step's red on a quiet
    tree. **It has to keep fitting that ceiling**: the next step that costs a minute is
    made cheaper, moved to `tools/bake.sh`, or argued for in check.sh's header.
-   **Read its last four lines, not its middle.** 263 of its 626 steps are self-tests that
+   **Read its last four lines, not its middle.** 265 of its 628 steps are self-tests that
    prove a gate by breaking it, so a GREEN run prints `FAIL` lines on purpose.
    Those are tagged — every line of a self-test's transcript starts `   self-test | ` —
    and the steps that actually failed are listed once, by label, under `CHECK FAIL` at
