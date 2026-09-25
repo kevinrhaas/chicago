@@ -15,7 +15,8 @@
     "data/businesses/*.json",
     "data/reconstruction/1835_business_staffing_model.json",
     "data/reconstruction/1835_reconstruction_order_book.json",
-    "data/residents/reconstructed_seating.json"
+    "data/residents/reconstructed_seating.json",
+    "data/reconstruction/1835_lodgers_seated.json"
   ],
   "what_the_re_cut_returned": {
     "what_it_is": "The first of the answers below was RULED by the owner and has since been SPENT: the book was re-cut. These are the re-cut's own words and figures, read from data/reconstruction/1835_reconstruction_order_book.json, so that this file cannot go on arguing from a book that has moved under it.",
@@ -35,6 +36,7 @@
       "COME DOWN OFF THE TYPICAL BAND. Staff every house to the model's own `count_low` instead and the demand falls from 130 hands to 47, of which the book pays for 26 and leaves 21 short. `count_low` and `short_by_at_the_low_band` are carried on every row below, so this answer prices house by house and not only in totals. A low-band town is inside the staffing model's own stated range.",
       "LET THE HOUSES STAND SHORT AND SAY SO. Mint nothing, and let the business card print the shortfall as the honest state of the evidence. It costs the layer nothing and it is the only answer that invents nobody."
     ],
+    "answered": "ANSWERED on 2026-09-25 — the owner took the second answer, the model's LOW band. The three are kept below because the ruling is only readable against what it chose between. What the answer buys is `the_owner_s_ruling` above.",
     "what_this_tool_will_not_do": "Choose. Every one of them changes what the town IS, and this file exists to make the choice askable with numbers rather than to make it quietly by running."
   },
   "the_demand": {
@@ -472,6 +474,64 @@
       }
     }
   },
+  "the_owner_s_ruling": {
+    "what_it_is": "The owner's answer to the question below, and what it buys on the town as committed. The question is ANSWERED; this block is the price the mint stage runs from.",
+    "asked": "2026-09-25",
+    "answered": "2026-09-25",
+    "answer": "a",
+    "what_it_ruled": "Mint to the model's LOW band: the hands the book can pay for minted out of the outstanding lodging/trade slots, the houses it cannot reach left short and saying so on the business card.",
+    "why_that_one": "It is the band the staffing model itself states for this case, it leaves the smallest unexplained gap, and the houses it fills are chosen by a stated band rather than by the order the arithmetic happens to run in.",
+    "hands_the_ruling_wants": 47,
+    "hands_the_book_pays_for_in_slots": 26,
+    "houses_left_short": 21,
+    "on_the_household_axis": {
+      "what_it_is": "A slot is not only a sex and an age band; it is also a HOUSEHOLD TYPE, and `pay_the_demand` does not look at one. Every slot it can reach is a `lodging/trade` bucket — a person the book orders into a lodging household — and the staffing model's own `the_shop_household_rule` houses the on-premises share of these roles with their EMPLOYER instead.",
+      "the_rule_it_reads": "`lives_on_premises` is the share of holders of a role who slept in the proprietor's house or over the shop, and `household_relationship` is the term their card carries in that household. A clerk at 0.5 means half the clerks of that class are household members of their employer and half keep their own lodging or board elsewhere.",
+      "hands_paid_for_whose_role_the_rule_houses_with_the_employer": 15,
+      "hands_paid_for_the_model_houses_there_at_every_share": 7,
+      "family_trade_slots_outstanding": 0,
+      "reads_as": "Of the 26 hands the ruling buys, 15 hold a role the model's own rule houses with their employer, and 7 of those it states at `lives_on_premises: 1.0` — a household member at every share of the role, and so not a lodger a `lodging/trade` slot can pay for at all. The household type that could pay for them is `family/trade`, and it has 0 slot(s) outstanding.",
+      "hands_paid_for_by_the_share_the_model_states": {
+        "1.0": 7,
+        "0.6": 2,
+        "0.5": 6,
+        "0.4": 1,
+        "0.3": 1,
+        "0.2": 1,
+        "0.1": 1,
+        "0.0": 7
+      }
+    },
+    "on_the_bed_bound": {
+      "what_it_is": "A lodging slot is a quota and a bed is somewhere to sleep, and the second is the binding one. A lodger has to be seated in a house that stands, on the boarders stage's own bed accounting — the same bound T-1532 is blocked on.",
+      "read_from": "data/reconstruction/1835_lodgers_seated.json",
+      "ticket": "T-1371",
+      "built_lodging_places": 17,
+      "ordinary_night_beds": 153,
+      "ordinary_night_beds_slept_in": 153,
+      "ordinary_night_beds_still_empty": 0,
+      "lodging_places_unbuilt": 35,
+      "may_anything_more_be_minted_here": "No, and neither unit is the reason on its own. A person needs a bed and a household needs a roof. Every one of the 153 ordinary night beds in the 17 built lodging places is slept in, and every built place that has room for anybody holds a lodging household — the one that holds none is full of its own keeper's family. So the 35 unbuilt roofs are the whole of the remainder: T-1209 raises them and T-1538 seats them.",
+      "hands_of_the_ruling_that_would_need_a_bed": 19,
+      "reads_as": "19 of the 26 hands the ruling buys would have to be seated as lodgers, and 0 ordinary-night bed(s) stand empty in the 17 built lodging places. The 35 lodging roofs the model schedules and nothing has raised are where the rest of the beds are."
+    },
+    "mintable_today": 0,
+    "reads_as": "The ruling stands and the arithmetic under it is unchanged: 47 hands wanted at the low band, 26 of them payable in slots. What the town cannot do today is SEAT them. 7 are household members the lodging purse is the wrong household type for, and the 19 left need a bed against 0 empty. So 0 of them can be minted on the files as committed. This is a bed bound and a household-type bound, not a ruling that has been refused, and neither can be lifted by re-cutting the book.",
+    "waits_on": [
+      "T-1209 — raise the lodging roofs the model schedules; the beds are there and nowhere else",
+      "T-1538 — seat the houses once they stand",
+      "T-1532 — the working lodgers, blocked on the same bound, whose lodging/trade buckets this purse is"
+    ],
+    "and_the_division_axis_is_not_priced_either": {
+      "what_it_is": "A third axis the payment does not look at: a slot names the DIVISION the book is short of a person in, and a hand is paid from the first bucket by key whatever division its house stands in. It is named here and not closed here, because for most of these houses it cannot be: the register places no premises for them.",
+      "hands_paid_for_by_the_placement_of_their_house": {
+        "premises": 5,
+        "street_only": 2,
+        "unplaceable": 19
+      },
+      "filed_as": "T-1566, beside this one"
+    }
+  },
   "rows": [
     {
       "business_id": "biz_a_chicago_stove_and_hollow_ware_dealer_august_1835",
@@ -500,7 +560,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_a_filer_co",
@@ -529,7 +592,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_a_filer_co",
@@ -558,7 +624,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_a_leather_stock_chicago_june_1835",
@@ -587,7 +656,15 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/north/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_a_new_auction_and_commission_room_south_water_street",
@@ -616,7 +693,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_a_o_t_breed",
@@ -645,7 +725,15 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/north/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_a_wholesale_wine_and_liquor_store_dearborn_street",
@@ -674,7 +762,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_an_iron_and_hardware_stock_chicago_june_1835",
@@ -703,7 +794,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_b_jones_grocery_and_provision_store",
@@ -732,7 +826,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_b_jones_storage_and_forwarding",
@@ -761,7 +858,15 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/north/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_b_jones_storage_and_forwarding",
@@ -790,7 +895,15 @@
         }
       ],
       "paid": 2,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered",
@@ -819,7 +932,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_briggs_humphrey",
@@ -848,7 +964,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_briggs_humphrey",
@@ -877,7 +996,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_c_i_harmon",
@@ -906,7 +1028,15 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_carpenter_chicago_merchant",
@@ -935,7 +1065,15 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_chase_ballard",
@@ -964,7 +1102,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_chicago_democrat_printing_office",
@@ -988,7 +1129,15 @@
       "note": "Journeymen at case and press. The 1839 list counts 15 printers — compositors, pressmen and job printers — against 2 editors, and the two offices of the 1835 census are the establishments those hands worked in four years earlier.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_chicago_democrat_printing_office",
@@ -1012,7 +1161,10 @@
       "note": "The apprentice, who lives in. Analogue: the journeyman row above; the project holds no roll of the Democrat's or the American's hands — see docs/RESEARCH/chicago_democrat_office.md, which reads the imprint and no roll.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_chicago_soap_and_candle_manufactory",
@@ -1041,7 +1193,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_clark_filer_co",
@@ -1065,7 +1220,10 @@
       "note": "The building trades are the largest in the 1839 list — 133 carpenters and 54 builders — and a master's shop is where they stood.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_clark_filer_co",
@@ -1089,7 +1247,10 @@
       "note": "Analogue: the journeyman row above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_d_carver_co",
@@ -1118,7 +1279,15 @@
         }
       ],
       "paid": 2,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_daniel_elston_co",
@@ -1147,7 +1316,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_dart_co_castings",
@@ -1176,7 +1348,15 @@
         }
       ],
       "paid": 2,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_david_carver",
@@ -1205,7 +1385,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_l_thrall",
@@ -1229,7 +1412,15 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_p_deacon",
@@ -1262,7 +1453,15 @@
         }
       ],
       "paid": 2,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_wentworth",
@@ -1286,7 +1485,10 @@
       "note": "The boy — boots, errands, the yard. Analogue: as above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_wentworth",
@@ -1315,7 +1517,15 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_wentworth_s_public_house_on_flag_creek",
@@ -1339,7 +1549,10 @@
       "note": "The boy — boots, errands, the yard. Analogue: as above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_wentworth_s_public_house_on_flag_creek",
@@ -1368,7 +1581,10 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_wentworth_s_public_house_on_flag_creek",
@@ -1397,7 +1613,15 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_wentworth_s_tavern_flag_creek",
@@ -1421,7 +1645,10 @@
       "note": "The boy — boots, errands, the yard. Analogue: as above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_wentworth_s_tavern_flag_creek",
@@ -1445,7 +1672,10 @@
       "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_wentworth_s_tavern_flag_creek",
@@ -1474,7 +1704,15 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
@@ -1498,7 +1736,10 @@
       "note": "The boy — boots, errands, the yard. Analogue: as above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
@@ -1522,7 +1763,10 @@
       "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
@@ -1551,7 +1795,15 @@
         }
       ],
       "paid": 1,
-      "unpaid": 0
+      "unpaid": 0,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_eagle_tavern",
@@ -1575,7 +1827,10 @@
       "note": "The boy — boots, errands, the yard. Analogue: as above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_eagle_tavern",
@@ -1599,7 +1854,10 @@
       "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_eagle_tavern",
@@ -1623,7 +1881,15 @@
       "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/west/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_everson_co",
@@ -1647,7 +1913,15 @@
       "note": "Hostlers. `hostler` is outside the vocabulary; see `vocabulary_gaps`. Analogue: the 11 livery stable keepers of 1839, against whom the list prints no hostler.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/west/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_everson_co",
@@ -1671,7 +1945,10 @@
       "note": "The stable boy. Analogue: as above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_frederick_thomas_drugs_and_paints",
@@ -1695,7 +1972,10 @@
       "note": "13 druggists in 1839 and the commerce clerk share over them. The druggist's clerk is often reading medicine, which is why he boards in the house.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_fullerton_botsford",
@@ -1719,7 +1999,10 @@
       "note": "A grocery is a smaller counting house than a dry-goods store and the low end is the keeper alone. Same clerk calibration, one step down.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_geo_w_laird_naper_s_settlement",
@@ -1743,7 +2026,15 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/10_19/west/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_george_holsman",
@@ -1767,7 +2058,10 @@
       "note": "42 tailors in 1839 against 7 tailoring houses here.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_harmon_loomis_co",
@@ -1791,7 +2085,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_hiram_pearsons",
@@ -1815,7 +2112,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_ingersoll_s_tavern_stand",
@@ -1839,7 +2139,10 @@
       "note": "The boy — boots, errands, the yard. Analogue: as above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_ingersoll_s_tavern_stand",
@@ -1863,7 +2166,10 @@
       "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_ingersoll_s_tavern_stand",
@@ -1887,7 +2193,15 @@
       "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/30_39/north/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_j_b_brown_dearborn_street_grocery",
@@ -1911,7 +2225,10 @@
       "note": "A grocery is a smaller counting house than a dry-goods store and the low end is the keeper alone. Same clerk calibration, one step down.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_j_h_kinzie_merchant",
@@ -1935,7 +2252,15 @@
       "note": "A yard is piled and loaded by hand. Analogue: the forwarding houses above, whose warehouse labour this model prices the same way.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 2
+      "unpaid": 2,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/30_39/north/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_j_k_botsford",
@@ -1959,7 +2284,10 @@
       "note": "A grocery is a smaller counting house than a dry-goods store and the low end is the keeper alone. Same clerk calibration, one step down.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_j_k_botsford_tin_sheet_iron_and_copper_factory",
@@ -1983,7 +2311,10 @@
       "note": "8 tinsmiths in 1839; the census counts 2 manufactories in 1835.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_j_k_botsford_tin_sheet_iron_and_copper_factory",
@@ -2007,7 +2338,10 @@
       "note": "Analogue: the journeyman row above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_j_l_wilson_co",
@@ -2031,7 +2365,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_j_wright_merchant",
@@ -2055,7 +2392,10 @@
       "note": "A yard is piled and loaded by hand. Analogue: the forwarding houses above, whose warehouse labour this model prices the same way.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_john_bates_jr",
@@ -2079,7 +2419,10 @@
       "note": "A sale is cried by the auctioneer and booked by somebody. 9 auctioneers in 1839.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_john_h_kinzie",
@@ -2103,7 +2446,10 @@
       "note": "The forwarding house is the heaviest clerical trade on the river: 15 forwarding and commission principals in 1839 and the bookkeepers counted with the clerks.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_john_h_kinzie",
@@ -2127,7 +2473,15 @@
       "note": "Warehousemen: the 1839 list prints the term only twice, which is the floor and not the count — a warehouse on the South Water landings was worked by hands the directory booked as labourers, of whom it counts 73.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 2
+      "unpaid": 2,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/30_39/north/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_john_holbrook",
@@ -2151,7 +2505,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_john_s_kinzie_forwarding_and_commission_merchant",
@@ -2175,7 +2532,10 @@
       "note": "The forwarding house is the heaviest clerical trade on the river: 15 forwarding and commission principals in 1839 and the bookkeepers counted with the clerks.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_john_s_kinzie_forwarding_and_commission_merchant",
@@ -2199,7 +2559,15 @@
       "note": "Warehousemen: the 1839 list prints the term only twice, which is the floor and not the count — a warehouse on the South Water landings was worked by hands the directory booked as labourers, of whom it counts 73.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 2
+      "unpaid": 2,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/30_39/south/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_john_wright",
@@ -2223,7 +2591,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_jones_king",
@@ -2247,7 +2618,10 @@
       "note": "Counted with the commerce clerks; the trade is a store whatever it sells.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_kinzie_forsyth",
@@ -2271,7 +2645,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_kinzie_hall",
@@ -2295,7 +2672,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_l_g_curtiss",
@@ -2319,7 +2699,10 @@
       "note": "Chainmen, hired by the survey and not by the year. Analogue: the 13 surveyors of 1839, against whom the list prints no chainman.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_l_w_montgomery_boot_and_shoe_maker",
@@ -2343,7 +2726,10 @@
       "note": "27 shoemakers in 1839 against 8 shops here.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_new_york_clothing_store",
@@ -2367,7 +2753,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_noble_wesencraft",
@@ -2391,7 +2780,15 @@
       "note": "6 sawyers and 7 millers in 1839; a steam saw-mill is a gang and not a man.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 2
+      "unpaid": 2,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/30_39/west/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_p_f_peck",
@@ -2415,7 +2812,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_peter_cohen",
@@ -2439,7 +2839,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_peter_cohen_s_store",
@@ -2463,7 +2866,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_r_a_kinzie",
@@ -2487,7 +2893,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_riggs_humphrey",
@@ -2511,7 +2920,10 @@
       "note": "The building trades are the largest in the 1839 list — 133 carpenters and 54 builders — and a master's shop is where they stood.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_riggs_humphrey",
@@ -2535,7 +2947,10 @@
       "note": "Analogue: the journeyman row above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_rockwell_cabinet_furniture_warehouse",
@@ -2559,7 +2974,10 @@
       "note": "The building trades are the largest in the 1839 list — 133 carpenters and 54 builders — and a master's shop is where they stood.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_rockwell_cabinet_furniture_warehouse",
@@ -2583,7 +3001,10 @@
       "note": "Analogue: the journeyman row above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_s_b_cobb_saddle_harness_and_trunk_manufactory",
@@ -2607,7 +3028,10 @@
       "note": "6 harness makers in 1839 against 3 shops here.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_s_dewey",
@@ -2631,7 +3055,10 @@
       "note": "The building trades are the largest in the 1839 list — 133 carpenters and 54 builders — and a master's shop is where they stood.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_s_dewey",
@@ -2655,7 +3082,10 @@
       "note": "Analogue: the journeyman row above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_s_lincoln",
@@ -2679,7 +3109,10 @@
       "note": "42 tailors in 1839 against 7 tailoring houses here.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_the_boston_market",
@@ -2703,7 +3136,10 @@
       "note": "A grocery is a smaller counting house than a dry-goods store and the low end is the keeper alone. Same clerk calibration, one step down.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_the_chicago_american_newspaper_and_job_printing_office",
@@ -2727,7 +3163,10 @@
       "note": "Journeymen at case and press. The 1839 list counts 15 printers — compositors, pressmen and job printers — against 2 editors, and the two offices of the 1835 census are the establishments those hands worked in four years earlier.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_the_chicago_american_newspaper_and_job_printing_office",
@@ -2751,7 +3190,10 @@
       "note": "The apprentice, who lives in. Analogue: the journeyman row above; the project holds no roll of the Democrat's or the American's hands — see docs/RESEARCH/chicago_democrat_office.md, which reads the imprint and no roll.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_the_chicago_democrat",
@@ -2775,7 +3217,10 @@
       "note": "Journeymen at case and press. The 1839 list counts 15 printers — compositors, pressmen and job printers — against 2 editors, and the two offices of the 1835 census are the establishments those hands worked in four years earlier.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_the_chicago_democrat",
@@ -2799,7 +3244,10 @@
       "note": "The apprentice, who lives in. Analogue: the journeyman row above; the project holds no roll of the Democrat's or the American's hands — see docs/RESEARCH/chicago_democrat_office.md, which reads the imprint and no roll.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_the_livery_stable_at_the_point",
@@ -2823,7 +3271,15 @@
       "note": "Hostlers. `hostler` is outside the vocabulary; see `vocabulary_gaps`. Analogue: the 11 livery stable keepers of 1839, against whom the list prints no hostler.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/30_39/west/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_the_livery_stable_at_the_point",
@@ -2847,7 +3303,10 @@
       "note": "The stable boy. Analogue: as above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_the_lumber_yard_and_warehouse_announced_for_the_opening_of_navigation_1834",
@@ -2871,7 +3330,15 @@
       "note": "A yard is piled and loaded by hand. Analogue: the forwarding houses above, whose warehouse labour this model prices the same way.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 2
+      "unpaid": 2,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/30_39/west/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_the_man_trap",
@@ -2895,7 +3362,10 @@
       "note": "11 bakers in 1839. A bakehouse is worked at night and the hand sleeps there.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_the_new_store_at_the_corner_of_water_and_clark_streets",
@@ -2919,7 +3389,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_the_stove_and_tin_ware_store_in_water_street_near_the_bridge",
@@ -2943,7 +3416,10 @@
       "note": "Counted with the commerce clerks; the trade is a store whatever it sells.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_the_traveller_s_home",
@@ -2967,7 +3443,10 @@
       "note": "The boy — boots, errands, the yard. Analogue: as above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_the_traveller_s_home",
@@ -2991,7 +3470,10 @@
       "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_the_traveller_s_home",
@@ -3015,7 +3497,15 @@
       "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [
+        {
+          "bucket": "persons/male/40_49/north/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid_at_the_low_band": 1,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_thos_emerson_co",
@@ -3039,7 +3529,10 @@
       "note": "The stable boy. Analogue: as above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
@@ -3063,7 +3556,10 @@
       "note": "8 tinsmiths in 1839; the census counts 2 manufactories in 1835.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
@@ -3087,7 +3583,10 @@
       "note": "Analogue: the journeyman row above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_uncertain_datid_gad_auction_and_commission_merchant_south_water_street",
@@ -3111,7 +3610,10 @@
       "note": "A sale is cried by the auctioneer and booked by somebody. 9 auctioneers in 1839.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_uncertain_j_i_mulford_carriage_and_sleigh_maker",
@@ -3135,7 +3637,10 @@
       "note": "The building trades are the largest in the 1839 list — 133 carpenters and 54 builders — and a master's shop is where they stood.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_uncertain_j_i_mulford_carriage_and_sleigh_maker",
@@ -3159,7 +3664,10 @@
       "note": "Analogue: the journeyman row above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_unnamed_hat_manufacturer_dealer",
@@ -3183,7 +3691,10 @@
       "note": "6 harness makers in 1839 against 3 shops here.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_unnamed_new_store_la_salle_street",
@@ -3207,7 +3718,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_w_h_brown",
@@ -3231,7 +3745,10 @@
       "note": "A grocery is a smaller counting house than a dry-goods store and the low end is the keeper alone. Same clerk calibration, one step down.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_w_h_taylor",
@@ -3255,7 +3772,10 @@
       "note": "27 shoemakers in 1839 against 8 shops here.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_w_keeney",
@@ -3279,7 +3799,10 @@
       "note": "8 tinsmiths in 1839; the census counts 2 manufactories in 1835.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_w_keeney",
@@ -3303,7 +3826,10 @@
       "note": "Analogue: the journeyman row above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_w_kimball",
@@ -3327,7 +3853,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_w_kimball_s_new_store",
@@ -3351,7 +3880,10 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_w_montgomery",
@@ -3375,7 +3907,10 @@
       "note": "A sale is cried by the auctioneer and booked by somebody. 9 auctioneers in 1839.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_w_montgomery_auction_and_commission_house",
@@ -3399,7 +3934,10 @@
       "note": "A sale is cried by the auctioneer and booked by somebody. 9 auctioneers in 1839.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_w_reed",
@@ -3423,7 +3961,10 @@
       "note": "The building trades are the largest in the 1839 list — 133 carpenters and 54 builders — and a master's shop is where they stood.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_w_reed",
@@ -3447,7 +3988,10 @@
       "note": "Analogue: the journeyman row above.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_wm_h_taylor_boot_shoe_leather_store",
@@ -3471,7 +4015,10 @@
       "note": "27 shoemakers in 1839 against 8 shops here.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     },
     {
       "business_id": "biz_wm_sabine_storage_forwarding_and_commission_merchant",
@@ -3495,7 +4042,10 @@
       "note": "The forwarding house is the heaviest clerical trade on the river: 15 forwarding and commission principals in 1839 and the bookkeepers counted with the clerks.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 1
     },
     {
       "business_id": "biz_wm_sabine_storage_forwarding_and_commission_merchant",
@@ -3519,7 +4069,10 @@
       "note": "Warehousemen: the 1839 list prints the term only twice, which is the floor and not the count — a warehouse on the South Water landings was worked by hands the directory booked as labourers, of whom it counts 73.",
       "paid_from": [],
       "paid": 0,
-      "unpaid": 1
+      "unpaid": 1,
+      "paid_from_at_the_low_band": [],
+      "paid_at_the_low_band": 0,
+      "unpaid_at_the_low_band": 0
     }
   ],
   "how_the_two_vocabularies_were_matched": {
@@ -3589,7 +4142,7 @@
     "predominantly_male": "paid as male. The model's own gloss declines to refuse a woman the role; declining to refuse is not evidence of one, and spending a woman's slot on it would read that word as if it were."
   },
   "what_this_does_not_do": {
-    "it_does_not_mint": "T-1434's mint is the act this file makes askable. Until the question above is answered, minting to the typical band would either overfill the book — which its `no_bucket_overfilled` invariant refuses — or put 129 people into the town outside the only quota this project holds.",
+    "it_does_not_mint": "T-1434's mint is the act this file prices, and the question it made askable has been answered — the low band, 2026-09-25. What stands between the ruling and the mint now is `the_owner_s_ruling.mintable_today`: a lodging slot is not a bed and the built houses have none empty, and the hands the model puts in their employer's household would need a `family/trade` slot, of which none is outstanding. Minting past either would overfill the book, which its `no_bucket_overfilled` invariant refuses, or seat a lodger in a bed the town does not have.",
     "it_does_not_re_cut_the_book": "Reading a book and proposing one are different acts. T-1166 owns the cut.",
     "it_does_not_seat_anybody": "T-1449 closes the join — the minted hands on the businesses' `staff[]`, every working-age person a workplace or an explicit reason, and the business card printing its people.",
     "the_domestics_are_not_here": "T-1433 found 62 reconstructed domestics it could not seat because the taverns and hotels are already full to the model's HIGH band. That is a town owed more lodging houses, not a house short of hands, and it is not a row in this order."
