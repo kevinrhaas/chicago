@@ -20,8 +20,8 @@
    "G1b": 92,
    "G1c": 11,
    "G2c": 1,
-   "G2e": 54,
-   "G3": 630
+   "G2e": 53,
+   "G3": 631
   },
   "conflicts_by_kind": {
    "abstention": 43,
@@ -6719,9 +6719,9 @@
    "household_id": "hh_toby_samuel",
    "name": "Samuel. Toby",
    "identity": "id_toby_samuel_e",
-   "rule": "G2e",
+   "rule": "G3",
    "grade": "inferred",
-   "resident_subtype": null
+   "resident_subtype": "projected_resident"
   },
   {
    "person_id": "todd_hugh",

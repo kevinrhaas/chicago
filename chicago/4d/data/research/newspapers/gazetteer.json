@@ -350,7 +350,7 @@
   ],
   "counts": {
     "claims": 1189,
-    "persons": 2668,
+    "persons": 2667,
     "places": 3,
     "businesses": 196,
     "agencies": 1
@@ -45931,19 +45931,50 @@
           "claim": "chicago_democrat_1834_07_02#c033"
         },
         {
+          "as_printed": "samuel. Toby",
+          "claim": "chicago_democrat_1834_07_09#c009"
+        },
+        {
           "as_printed": "samuel E. Toby",
           "claim": "chicago_democrat_1834_07_16#c009"
         }
       ],
       "mentions": [
         "chicago_democrat_1834_07_02#c033",
+        "chicago_democrat_1834_07_09#c009",
         "chicago_democrat_1834_07_16#c009"
       ],
       "first_seen": "1834-07-02",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "Samuel. Toby",
+          "merge_rule": "‘Samuel E. Toby’ and ‘Samuel. Toby’ are one person: three printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 219 of the 1834-07-09 segmentation and entry 219 of 1834-07-16 — the same position of the same return, surnamed Toby; the 1834-07-02 segmentation reads it at entry 153 of its own 228 entities and also sets the E. The middle initial is the only thing between them — ‘Samuel E. Toby’ reads S. E. where ‘Samuel. Toby’ reads S. and sets no second slot at all — and an ABSENT initial is not a competing letter either; it is the absence of a position rather than a position with nothing in it (T-0397, T-0392). THE OWNER RULED ON 2026-09-24 (T-1528) that a merge may be declared exactly here, bounded exactly as T-0392's was — same list, same entry, the absent side supplying no competing letter — because the alternative is to carry a known duplicate for a scruple about a compositor who dropped a letter from one of three settings of one line. T-0392's own reasoning did not carry over by itself and was not made to: its ground was that the unread side supplies no LETTER, and this merge asserts instead that the printing which set ‘Samuel. Toby’ had an E it did not print. THE RULING MAKES THE UNDO ITS CONDITION, and `absent_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing on the page says a letter stood in that slot. These pages get re-read. When somebody reads that line from a page image it either shows the E dropped in setting, and this merge gains a real basis, or it shows two Tobys, and they come apart in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0392 held it over, and T-1528 carried the question. T-1528.",
+          "absent_initial": {
+            "absent_side": "Samuel. Toby",
+            "present_side": "Samuel E. Toby",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 219 of the 1834-07-09 segmentation and entry 219 of 1834-07-16 — the same position of the same return, surnamed Toby; the 1834-07-02 segmentation reads it at entry 153 of its own 228 entities and also sets the E.",
+            "witnesses": [
+              "1834-07-02",
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              2
+            ],
+            "basis": "positional",
+            "undo": "Nothing on the page says a letter stood where ‘Samuel. Toby’ sets no second slot — not then and not now. This merge rests on POSITION: ‘Samuel. Toby’ and ‘Samuel E. Toby’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read three times, and not on any evidence about the initial. Whoever reads that entry from a page image splits the two in one step: drop this rule and ‘Samuel. Toby’ is a person of the gazetteer again, with its reading untouched. If the page shows the E dropped in setting the merge gains a real basis and this record can say so; if it shows two men, they were never one and the split is the answer.",
+            "initials_read": {
+              "Samuel E. Toby": "S. E.",
+              "Samuel. Toby": "S."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_samuel_eberiden",
@@ -46281,24 +46312,6 @@
       ],
       "first_seen": "1834-07-02",
       "last_seen": "1834-07-16",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
-      "id": "person_samuel_toby",
-      "name": "Samuel. Toby",
-      "variants": [
-        {
-          "as_printed": "samuel. Toby",
-          "claim": "chicago_democrat_1834_07_09#c009"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c009"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
       "letter_list_only": true,
       "occupations": [],
       "associated_places": []

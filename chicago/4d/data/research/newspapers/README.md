@@ -412,7 +412,7 @@ contradicts them, and one last seen before 1835 stands on a stated liberty.
 name, so `Cohen, P.` and `Cohen, J.` are two people. A merge is declared in
 `identity.json` with a `merge_rule` naming both spellings; same surname with different
 initials never merges, rule or no rule.
-One exception, and it carries its own undo: an initial one printing could not READ, against the same initial another prints whole, at the same entry of the same list (T-0392, below).
+Two exceptions, and each carries its own undo: an initial one printing could not READ, against the same initial another prints whole, at the same entry of the same list (T-0392, below); and an initial one printing does not SET AT ALL, against the same initial another prints, on the same bound (T-1528, below).
 
 **The first bulk merge pass is T-0299**: the list of letters remaining in the Post Office at
 Chicago on 1 July 1834, which the Democrat printed three times — 1834-07-02, 1834-07-09 and
@@ -466,10 +466,11 @@ stand at the SAME ENTRY of the SAME LIST? The owner's answer, verbatim in the ti
 from 2,685 persons to 2,668. The eighteenth did not move, and it is the finding of carrying the
 ruling out: `J. W. Smith` / `[?]. Smith` reads TWO initials against one slot, so its second
 initial is ABSENT rather than unread — nothing on the page says a letter stood there — and
-that is the case the ruling held over, not the case it granted. It is reclassified
-`absent_initial` beside `Samuel E. Toby` / `Samuel. Toby`, both still refuse, and **T-1528**
-carries the question they raise. All thirteen `read_initials_disagree` refusals still refuse,
-which is what the ruling says they must do forever.
+that is the case the ruling held over, not the case it granted. It was reclassified
+`absent_initial` beside `Samuel E. Toby` / `Samuel. Toby`, both refused, and **T-1528** carried
+the question they raise — which the owner has since answered; see below. All thirteen
+`read_initials_disagree` refusals still refuse, which is what the ruling says they must do
+forever.
 
 **The undo is a record, not a sentence in a PR.** Each of the seventeen merges declares an
 `unread_initial` block: the unread side, the read side, the list, the entry — measured, as the
@@ -492,6 +493,66 @@ gazetteer no longer keys anybody on `bey blankinship`, `oon bowrassa`, `kiler br
 `saac scarrett` or a bare `blair` — non-names manufactured by deleting a `[?]` from the front
 of a forename. Where the read side is itself an `[uncertain: …]` reading, that wrapper is what
 survives, because it is the honest form of what the best of the three printings set.
+
+### THE OWNER'S RULING OF 2026-09-24 — a present initial may absorb an ABSENT one, on the same bound (T-1528)
+
+T-0392 was asked about an initial a printing could not READ. It did not reach an initial a
+printing does not SET, and the difference is not a technicality: `[?]` is a position with
+nothing in it, and `Samuel. Toby` against `Samuel E. Toby` is the absence of a position, so a
+merge there asserts that the compositor who set `Samuel. Toby` had an E he did not print — a
+reading about a compositor rather than about a slot. T-0392's own ground, that the unread side
+supplies no competing LETTER, does not carry over by itself, so the question was put separately.
+
+**The owner's answer, 2026-09-24:** yes — *bounded exactly as T-0392 was: same list, same
+entry, the absent side supplying no competing letter, each merge carrying the same positional
+undo record so it can be split by whoever reads the page.*
+
+**What it cost the town, measured.** ONE refusal became a merge and the gazetteer went from
+2,668 persons to 2,667. `Samuel E. Toby` ← `Samuel. Toby`: three printings of one entry of the
+1 July 1834 letter list, at entry 219 of the 1834-07-09 segmentation and entry 219 of
+1834-07-16 — the same position of the same return — with 1834-07-02 reading it at entry 153 of
+its own 228 entities and also setting the E. Two of the three printings set the letter; one
+does not set the slot.
+
+**The other pair did NOT merge, and the bound is why.** `J. W. Smith` / `[?]. Smith` is the
+case the ticket flagged as the weakest of the eighteen, and applying the ruling to it would
+mean ignoring the half of the ruling that says *same entry*. Its two sides are never read in
+one segmentation: `[?]. Smith` is read `[?]` by BOTH the 1834-07-09 and 1834-07-16 printings,
+at entry 205 of each, and the only reading of `J. W. Smith` is the 1834-07-02 segmentation's
+entry 146 — a segmentation holding 228 entities against the others' 324 and 321. Entry 205 and
+entry 146 are ordinals of two different countings of one return, so there is no same entry to
+declare. **That refusal is restated on the alignment**, which is true and checkable, rather
+than left standing on the absent-initial ground the owner has withdrawn; its `kind` is now
+`unaligned_entry`. The way to settle it is to read the 1834-07-02 page and align its
+228-entity segmentation against the other two. **One accepted duplicate on the July list,
+where before this ruling there were two.**
+
+**The undo is a record, gated edge for edge.** Each absent-initial merge declares an
+`absent_initial` block — the absent side, the present side, the list, the entry as measured
+ordinals, the witnesses, the slots one side leaves unset, `basis: "positional"`, and the undo
+in words. `tools/compile_gazetteer.py` refuses the merge without it, refuses a block that
+names the wrong side or the wrong slot of its own pair, refuses a basis other than
+`positional`, refuses an undo that does not name the unset reading verbatim, and refuses a
+merge that would keep `Samuel. Toby` as the surviving person rather than the reading that
+carries every letter a printing set. It also refuses an `unread_initial` block on an absent
+pair and an `absent_initial` block on an unread one — the two rulings are one sentence apart
+and a record that confuses them is a merge claiming a position was read where the page has no
+position. Eleven self-test cases hold those refusals open, and the block is carried onto the
+person in `gazetteer.json` under `merged[].absent_initial`.
+
+**What neither ruling reaches.** A slot the shorter side sets UNREAD — `J. W. Smith` against
+`[?]. Smith` — compounds the two questions, and the parse declines to answer "no competing
+letter" at a slot nobody read AND "no slot" at the next one in one reading; such a pair is
+adjudicated in prose in `identity.json`. A shorter side whose letters do not agree with the
+longer side's IN ORDER (`E. Toby` against `Samuel E. Toby`) is a guess about WHICH slot went
+missing. And two READ letters that disagree stay refused forever.
+
+**Still open, and a different question a third way.** The 1 April 1834 return's
+`[uncertain: — Duncklo]` and `[uncertain: — Denny]`, which the 1834-04-16 printing sets as
+Hexekiah and William, are not absent initials at all: the 1834-04-08 printing has ink there
+— `yy Duncklo` — that nobody could read, so the whole FORENAME is unread rather than unset,
+and both are refused at the mint as garbled rather than in `identity.json` as a merge. T-1528
+recorded them and this ruling does not decide them.
 
 **AND THE RULE HAS NO SIBLING FOR FIRMS, WHICH IS WHY ONE BOOKSHOP STANDS IN THREE PLACES.**
 The Chicago Democrat's bookseller is `RUISAL & CLUPR,` in the December 1834 advertisement's

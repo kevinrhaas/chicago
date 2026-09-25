@@ -28937,9 +28937,7 @@
         "value": "present",
         "confidence": "reconstructed",
         "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
+        "sources": [],
         "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
         "basis": {
           "kind": "rule",

@@ -39,7 +39,7 @@ Reproduce: `python3 tools/measure_research_spend.py --ledger-build` then `python
 | Persons graded `inferred` | 992 |
 | Persons graded `reconstructed` | 979 |
 | Letter-list-only names | 736 |
-| Projected residents | 722 |
+| Projected residents | 723 |
 | Merged away | 67 |
 
 Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.json'))['counts'])"`.
