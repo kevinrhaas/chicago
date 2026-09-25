@@ -2132,8 +2132,17 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     # the book carried when the work was drawn: that is a filler bypassing the book.
     committed_order = {}
     if BOOK.exists():
+        # THE ORDER THE WORK WAS DRAWN AGAINST, AND NOT WHAT IS LEFT OF IT (T-1564). This
+        # is the committed book's word that a bucket's draw was legitimate when it was
+        # made, and a re-family LOWERS a bucket's standing order — the heads that walked
+        # out took it down with them. So a bucket that was ordered at 60, drew 60 and has
+        # since re-familied 8 of them away commits `to_reconstruct: 52`, and reading that
+        # back as the order the 60 were drawn against says the draw was never allowed. The
+        # book writes `drawn_here` on exactly the buckets a move touched, precisely so the
+        # draw stays readable underneath the move; it is preferred here. Found when the
+        # re-family programme settled and the order book could no longer rebuild itself.
         committed_order = {
-            b["key"]: b.get("to_reconstruct", b.get("to_build"))
+            b["key"]: b.get("drawn_here", b.get("to_reconstruct", b.get("to_build")))
             for fam in json.loads(BOOK.read_text(encoding="utf-8"))["bucket_families"]
             for b in fam["buckets"]}
     recut_refusals = []

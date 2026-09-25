@@ -65,9 +65,9 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 | fort | 13 |
 | north | 37 |
 | outside_town | 1 |
-| south | 117 |
+| south | 120 |
 | unplaced | 1,305 |
-| west | 39 |
+| west | 36 |
 
 ## 4. Layer: businesses
 

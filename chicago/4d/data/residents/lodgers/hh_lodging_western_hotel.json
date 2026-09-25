@@ -116,6 +116,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/20_29/south/lodging/none",
     "note": "The book's bucket persons/female/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
    "seed": "lodgers:western_hotel:female:20_29:001:forename",
@@ -180,6 +181,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/30_39/south/lodging/none",
     "note": "The book's bucket persons/female/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
    "seed": "lodgers:western_hotel:female:30_39:002:forename",
@@ -244,6 +246,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/40_49/south/lodging/none",
     "note": "The book's bucket persons/female/40_49/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
    "seed": "lodgers:western_hotel:female:40_49:003:forename",
@@ -308,6 +311,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/10_19/south/lodging/none",
     "note": "The book's bucket persons/male/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
    "seed": "lodgers:western_hotel:male:10_19:004:forename",
@@ -372,6 +376,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/20_29/south/lodging/none",
     "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
    "seed": "lodgers:western_hotel:male:20_29:005:forename",
@@ -436,6 +441,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/20_29/south/lodging/none",
     "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
    "seed": "lodgers:western_hotel:male:20_29:006:forename",
@@ -500,6 +506,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/30_39/south/lodging/none",
     "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
    "seed": "lodgers:western_hotel:male:30_39:007:forename",
