@@ -421,6 +421,24 @@ STREET_ADJUSTMENTS = {
     "west_rec_031": (-1.42, -5.31),  # Lake Street, 5.3 m in
     "west_rec_035": (-0.74, -1.59),  # Randolph Street, 1.5 m in
     "west_rec_036": (-0.48, -0.57),  # Randolph Street, 0.6 m in
+    # T-1545 releases the last two, off the platted JEFFERSON corridor, on this same rule
+    # and by the same search: the nearest quarter-metre step east that clears the corridor
+    # and still passes collision with this parcel and with every committed record, terrain
+    # cover, the dry-ground test and the 0.35 m step contract. West was tried first and
+    # reaches no clearing step at all inside the +/-20 m working uncertainty the recipe
+    # states for its own layout coordinates; east does, and neither slot leaves the cluster
+    # it was dealt into.
+    #
+    # ONE QUARTER-METRE FURTHER THAN THE FIRST STEP THAT CLEARS, and the margin is the
+    # reason. The first clearing steps are 12.00 m and 9.75 m and they leave the corridor
+    # edge by 0.15 m and 0.05 m — at or under the 0.01 m `plat_corridors.QUOTED_M` says a
+    # corridor depth may honestly be quoted to, once the ring, the footprint and the datum
+    # have each been rounded. A clearance that thin is a building that re-derives back into
+    # the roadway the next time any of the three moves, so the step after it is taken and
+    # the figures are stated: 0.40 m and 0.30 m clear of the corridor edge, both well
+    # inside the same +/-20 m.
+    "west_rec_027": (12.25, 0.00),   # Jefferson Street, 11.9 m in; clears by 0.40 m
+    "west_rec_037": (10.00, 0.00),   # Jefferson Street, 9.7 m in; clears by 0.30 m
 }
 
 # THE EAVES-FRONT HOLD — T-1497, and it replaces a quarter-circle turn.
@@ -468,34 +486,77 @@ def eaves_front_hold(family: str, width_ft: float, depth_ft: float) -> float:
                                  hi_w_ft * .3048)
     return held_m / .3048
 
-# TWO SLOTS STAY HELD, AND NOT FOR TERRAIN AND NOT FOR THE BOUNDARY EITHER. They stand
-# INSIDE THE PLATTED JEFFERSON CORRIDOR that `data/streets/1835.json#jefferson` draws —
-# 24.384 m wide, so 12.192 m either side of the centreline — west_rec_027 reaching 12.02 m
-# into it and west_rec_037 9.51 m. `tools/plat_corridors.py` says the bar in as many
-# words: an attested frontage a few metres inside a corridor is a measurement about the
-# georeference, but "an invented placement has no business in the roadway at all". The
-# reconstruction does not build the roof, and does not slide a conjectural building
-# sideways to make room for itself either — that would be asserting a seat it does not
-# have. Note that the generator's own corridor check below cannot catch these: `corridors()`
-# is built from `data/traces/street_control.json`, which carries no jefferson entry, so
-# this street is not in it. T-1490 measured them by hand, 2026-09-24.
-#
-# FIVE SLOTS WERE HELD HERE UNTIL T-1490, on the corporate boundary instead: its west leg
-# resolved on `jefferson_school_section` alone and was carried 1 188.8 m past that line's
-# end to reach Ohio, straight across a West Division that has had its own drawn Jefferson
-# since T-1430, and five slots stood inside that extension's drift. T-1490 carried the
-# West Division line north to local north +381.887 on two more surviving intersections and
-# made the leg walk it; the extension left is 288.3 m with nothing beside it. west_rec_029,
-# west_rec_032 and west_rec_035 are released by that and instantiate unchanged, on their own
-# ids, families and dealt sequence numbers, exactly as the hold promised. The other two were
-# never a boundary question — the boundary hold had been hiding that they stand in the street.
-# The slots and their measurements are RECORDED IN THE RECIPE, under
-# `terrain_and_hydrology_gate.corridor_hold`, and read from there rather than retyped:
-# `tools/reconcile_665.py` has to count the same hold, and two copies of a hold are how
-# a schedule and a generator come to disagree about what the parcel still owes.
+# NOTHING IS HELD NOW, AND THE LAST TWO WERE RE-DEALT RATHER THAN REFUSED. T-1490 held
+# west_rec_027 and west_rec_037 because they stood INSIDE THE PLATTED JEFFERSON CORRIDOR
+# that `data/streets/1835.json#jefferson` draws — 24.384 m wide, so 12.192 m either side
+# of the centreline — 11.9 m and 9.7 m in, on `tools/plat_corridors.py`'s bar that "an
+# invented placement has no business in the roadway at all". It added that the
+# reconstruction "does not slide a conjectural building sideways to make room for itself
+# either", and THAT half does not survive contact with this file: `STREET_ADJUSTMENTS`
+# above is thirteen slots slid sideways off exactly such a corridor, each by the nearest
+# quarter-metre step that clears it, each recorded on its own record in its own words. A
+# rule the same generator breaks thirteen times in one table is not a rule, and the hold's
+# own `lifted_when` names re-dealing as the first of its two exits. So the two are re-dealt
+# and BUILT (T-1545, 2026-09-25), and the recipe's `corridor_hold` now carries the lift
+# with both readings rather than the hold. The mechanism stays wired to the recipe so a
+# future hold works the day one is imposed: fill `slots` and the parcel withholds again.
 CORRIDOR_HOLDS = frozenset(
     load(RECIPE_PATH)["terrain_and_hydrology_gate"]["corridor_hold"]["slots"])
 HELD_IDS = {f"{PREFIX}{rid.split('_')[-1]}" for rid in CORRIDOR_HOLDS}
+
+# AND THE CORRIDOR THE HOLD WAS ABOUT IS NOW GATED, WHICH IT NEVER WAS. The generator's
+# own corridor check reads `plat_corridors.corridors()`, whose layer is
+# `generate_plat_lots.CORRIDOR_EW`/`CORRIDOR_NS` — the Original Town block grid plus the
+# north bank. Forty-six of the seventy-nine streets this project draws are outside it, and
+# jefferson is one, which is why a slot 11.9 m into a drawn street passed that check for as
+# long as it stood. T-1490 said so in the recipe and measured the two by hand; a reading
+# taken by hand is taken once, and this parcel then had no way to notice the next one.
+#
+# So the parcel is measured against the corridors of the streets the corridor layer omits,
+# built from each street record's OWN declared `corridor_width_m`, and the occupancy is
+# FROZEN — the same shape as `SWALE_CORRIDOR_OCCUPANTS` below, and for the same reason: a
+# frozen set says both what stands there and that nothing new may join it.
+#
+# SIX OF THIS PARCEL'S ROOFS ALREADY STAND IN ONE, and they are named here rather than
+# hidden by the re-deal. Two of them are in JEFFERSON — the very street the hold refused
+# two slots for — so the bar the hold quoted was never being applied evenly: west_030 at
+# 3.28 m and west_033 at 3.80 m were built inside it while west_027 and west_037 were
+# refused for the same offence at greater depth, and west_046 stands 12.08 m into Des
+# Plaines, deeper than either of the two that were held. They are not moved here. Each was
+# dealt, reviewed and baked on its present seat, and re-seating six committed roofs is a
+# different act from releasing two that were never built — T-1567 owns it, with these
+# readings. What this set does is stop a seventh arriving unremarked.
+WEST_DIVISION_CORRIDOR_OCCUPANTS = {
+    (f"{PREFIX}005", "fulton"),        # 3.72 m in
+    (f"{PREFIX}006", "fulton"),        # 4.61 m in
+    (f"{PREFIX}030", "jefferson"),     # 3.28 m in
+    (f"{PREFIX}033", "jefferson"),     # 3.80 m in
+    (f"{PREFIX}039", "des_plaines"),   # 2.37 m in
+    (f"{PREFIX}046", "des_plaines"),   # 12.08 m in
+}
+
+
+def omitted_street_corridors() -> dict:
+    """The platted corridor of every street the corridor layer leaves out, by street id.
+
+    Read from `data/streets/1835.json` through `generate_plat_lots`, at each record's own
+    declared width, and never authored here: a street joins or leaves this set by what the
+    layer draws and what `CORRIDOR_EW`/`CORRIDOR_NS` cover, not by a list in this file.
+    """
+    from generate_plat_lots import (  # noqa: PLC0415
+        CORRIDOR_EW, CORRIDOR_NS, offset_polyline, street_lines,
+    )
+    lines = street_lines(load(DATA / "streets" / "1835.json"))
+    out = {}
+    for sid, street in lines.items():
+        if sid in CORRIDOR_EW or sid in CORRIDOR_NS:
+            continue
+        half = float(street["half_width_m"])
+        left = offset_polyline(street["points"], half, (-1.0, 0.0))
+        right = offset_polyline(street["points"], half, (1.0, 0.0))
+        out[sid] = {"name": street["name"], "ring": left + list(reversed(right))}
+    return out
+
 
 # The reading T-1444 took of the recipe's fourth terrain rule, frozen so the corridor
 # cannot quietly gain a roof while T-1460 is open. Measured as footprint-corner distance
@@ -703,6 +764,31 @@ def validate(records: list[dict], rows: list[dict],
             raise SystemExit(f"{sid} reaches {depth:.1f} m inside the platted "
                              f"{lanes[street]['name']} corridor")
 
+    # The streets that check cannot see — jefferson among them, which is how the two slots
+    # T-1490 held got 11.9 m and 9.7 m into a drawn street without this gate saying a word.
+    # Frozen occupancy, not a refusal: the six roofs already standing in one are named in
+    # WEST_DIVISION_CORRIDOR_OCCUPANTS and owned by T-1567, and the fifth cannot arrive
+    # quietly. A slot re-dealt off a corridor leaves this set, which is the assertion that
+    # T-1545's release actually cleared what it claimed to.
+    omitted = omitted_street_corridors()
+    in_omitted = set()
+    for sid, poly in polygons:
+        street, depth = intrusion(poly, omitted)
+        if street:
+            in_omitted.add((sid, street))
+    if in_omitted != WEST_DIVISION_CORRIDOR_OCCUPANTS:
+        arrived = sorted(f"{sid} in {omitted[street]['name']}"
+                         for sid, street in in_omitted - WEST_DIVISION_CORRIDOR_OCCUPANTS)
+        left = sorted(f"{sid} in {omitted[street]['name']}"
+                      for sid, street in WEST_DIVISION_CORRIDOR_OCCUPANTS - in_omitted)
+        raise SystemExit(
+            "the West parcel no longer stands in the street corridors the platted "
+            "corridor layer omits as T-1545 measured it"
+            + (f"; arrived: {', '.join(arrived)}" if arrived else "")
+            + (f"; left: {', '.join(left)}" if left else "")
+            + ". A roof that ARRIVED is a placement in a drawn roadway and must be "
+              "re-dealt off it; one that LEFT is a release, and this set records it.")
+
     from heightfield import Heightfield  # noqa: PLC0415
     field = Heightfield.load(DATA / "terrain" / "epochs" / "e1834_harbor_cut")
     if field is None:
@@ -839,8 +925,9 @@ def main() -> int:
           f"({principal} principal, {len(records) - principal} ancillary); "
           f"{len(first)} dealt under the retired terrain hold and "
           f"{len(released) - len(CORRIDOR_HOLDS)} released onto the ground west of "
-          f"E {WEST_TERRAIN_LIMIT_E:g} m; {len(CORRIDOR_HOLDS)} held inside the platted "
-          f"Jefferson corridor (T-1490)")
+          f"E {WEST_TERRAIN_LIMIT_E:g} m; {len(CORRIDOR_HOLDS)} held by the recipe's "
+          f"corridor hold ({len(STREET_ADJUSTMENTS)} slots set back off a platted "
+          f"corridor, {len(WEST_DIVISION_CORRIDOR_OCCUPANTS)} still standing in one)")
     return 0
 
 

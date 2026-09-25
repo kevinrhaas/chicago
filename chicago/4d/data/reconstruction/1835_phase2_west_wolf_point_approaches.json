@@ -188,11 +188,26 @@
   },
   "terrain_and_hydrology_gate": {
     "corridor_hold": {
-      "block": "Do not emit a structure record or mesh for the placements listed below. Each stands inside the platted corridor of Jefferson Street as data/streets/1835.json#jefferson draws it - a 24.384 m corridor, so 12.192 m either side of the centreline - and an invented placement has no business in the roadway at all (tools/plat_corridors.py states that bar). The reconstruction does not put a roof in a street it has drawn, and it does not move a conjectural building sideways to make room for itself either, so the roof is not built.",
+      "block": "Nothing is held. Fill `slots` with placement ids and the generator withholds their records and meshes again - the mechanism is live and unused. Each reading is {centreline_clearance_m, corridor_half_width_m, intrusion_m}, taken as footprint-corner distance to the street's own drawn centreline in data/streets/1835.json against that record's declared corridor width.",
+      "slots": {},
       "imposed_by": "T-1490, 2026-09-24",
-      "measured_by": "footprint-corner distance to data/streets/1835.json#jefferson against its own corridor_width_m, 2026-09-24; tools/plat_corridors.py does not yet carry this street because data/traces/street_control.json has no jefferson control entry, which is why the generator's own corridor check does not see it",
-      "lifted_when": "The two placements are re-dealt off the Jefferson corridor by the recipe that seated them - not field-edited - or the corridor is refused in writing with the reading that refuses it. Either way the parcel's family mix and dealt sequence numbers are what must survive it.",
-      "slots": {
+      "lifted_by": "T-1545, 2026-09-25 - by the first of the two exits `lifted_when` named, so both roofs are BUILT",
+      "lifted_how": "Re-dealt off the corridor by the recipe that seated them, not field-edited. Both placements took a frozen `STREET_ADJUSTMENTS` setback in tools/generate_west_infill.py - the same table and the same search thirteen other slots of this parcel already stand on: the nearest quarter-metre step that clears the corridor and still passes collision with this parcel and with every committed record, terrain cover, the dry-ground test and the 0.35 m step contract. West was tried first and reaches no clearing step at all inside the +/-20 m working uncertainty this recipe states for its own layout coordinates; east does. One quarter-metre further than the first clearing step was taken in each case, because the first leaves 0.15 m and 0.05 m of the corridor edge and plat_corridors.QUOTED_M says a corridor depth may honestly be quoted to 0.01 m - a clearance that thin re-derives back into the roadway the next time the ring, the footprint or the datum rounds differently. Family mix, recipe ids and dealt sequence numbers all survive it, as `lifted_when` required: a setback moves a building, not a slot's place in the deal.",
+      "re_dealt": {
+        "west_rec_027": {
+          "setback_local_enu_m": [12.25, 0.0],
+          "centreline_clearance_m": 12.59,
+          "clear_of_corridor_edge_m": 0.4,
+          "intrusion_m": 0.0
+        },
+        "west_rec_037": {
+          "setback_local_enu_m": [10.0, 0.0],
+          "centreline_clearance_m": 12.49,
+          "clear_of_corridor_edge_m": 0.3,
+          "intrusion_m": 0.0
+        }
+      },
+      "readings_that_imposed_it": {
         "west_rec_027": {
           "centreline_clearance_m": 0.17,
           "corridor_half_width_m": 12.192,
@@ -204,6 +219,9 @@
           "intrusion_m": 9.51
         }
       },
+      "what_the_hold_s_second_clause_did_not_survive": "The hold read that the reconstruction 'does not move a conjectural building sideways to make room for itself either'. That clause was already false of this generator on the day it was written: `STREET_ADJUSTMENTS` holds thirteen slots of this same parcel slid sideways off a platted corridor on exactly this rule, each recording the move in its own record's words. The first clause stands and is what was acted on - a roof is not left standing in a drawn roadway.",
+      "and_six_roofs_of_this_parcel_still_stand_in_one": "Recorded rather than covered over by the release. The corridor layer plat_corridors.corridors() reads is the Original Town block grid plus the north bank, so 46 of the 79 streets this project draws are outside it and jefferson is one - which is how a placement 11.9 m into a drawn street passed the generator's own corridor check for as long as it stood. Measured against the omitted streets' own declared corridors, six of this parcel's built roofs stand inside one: recon_1835_west_030 3.28 m and recon_1835_west_033 3.80 m into JEFFERSON - the same street these two were refused for - recon_1835_west_005 3.72 m and recon_1835_west_006 4.61 m into FULTON, and recon_1835_west_039 2.37 m and recon_1835_west_046 12.08 m into DES PLAINES. west_046 stands deeper in than either slot the hold refused. They are not moved here: each was dealt, reviewed and baked on its present seat, and re-seating six committed roofs is a different act from releasing two that were never built. T-1567 owns them, with these readings. The occupancy is frozen in the generator as WEST_DIVISION_CORRIDOR_OCCUPANTS and asserted every run, so a seventh cannot arrive unremarked and a roof that leaves is recorded as a release.",
+      "measured_by": "footprint-corner distance to data/streets/1835.json#jefferson against its own corridor_width_m, 2026-09-24; re-measured with the setbacks 2026-09-25. tools/plat_corridors.corridors() does not carry this street because generate_plat_lots.CORRIDOR_EW/CORRIDOR_NS is the Original Town grid and the north bank, which is why the generator's own corridor check did not see it - since T-1545 the parcel is measured against the omitted streets too.",
       "supersedes": "T-1444's boundary_hold, which held five slots because the corporate boundary's west leg was carried 1,188.8 m past the end of jefferson_school_section and three of those five stood inside its drift. T-1490 carried the West Division's own Jefferson north to local north +381.887 on surviving control and made the leg walk it, so the leg no longer reaches these slots at all and nothing stands beside its remaining 288.3 m extension. west_rec_029, west_rec_032 and west_rec_035 are released by that and instantiate unchanged, on their own ids, families and dealt sequence numbers. The other two were never a boundary question: they stand in the street, which the boundary hold had been hiding.",
       "next_roof_out": "recon_1835_west_035 clears the Jefferson corridor by 9.85 m and is built; recon_1835_west_037 is the deepest in, at 9.51 m inside it."
     },
