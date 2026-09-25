@@ -2179,6 +2179,22 @@
       ]
     },
     {
+      "why": "THE EMPLOYMENT ANSWER FOR THE WHOLE LAYER, AND IT WAS A GATED WRITER NOTHING RE-DERIVED (T-1555). tools/check.sh asserts data/residents/employment_coverage.json re-derives, the tool that writes it was measured to reproduce on 2026-09-20, and it was still outside this file — so every change to the resident layer left the join stale with no automated remedy, and it was hand-rebuilt twice in one session. PLACED BY LAYER, AND THE LAYER IS ITS WHOLE INPUT. It joins over the seven resident directories, the compiled business layer, premises_rulings.json, the staffing model, the town model and reconstructed_seating.json, and it writes ONE file beside the layer: it mints nobody, seats nobody, supplies no trade and touches no person card (its own header refuses all three). So its slot is below every step that writes a card — the last of those is the spends at steps 146-148 — and above the reports and exports at the foot, which read the tree off and are last by the same rule. Nothing in this manifest reads employment_coverage.json, so no step below it lags on this one and it needs no second pass. It carries no lag of its own either: the second pass re-draws arrival_year and reason_for_coming, and this tool reads neither. MEASURED, 2026-09-25, which is what _must_reproduce asks and all it asks: --build on a clean dev rewrote data/residents/employment_coverage.json (mtime 1790347317 -> 1790347480, so _must_actually_write is proven for this step too) and git status --porcelain was empty before and empty after — not one committed byte moved. The POSITION is reasoned from what it reads and writes, not measured, exactly as the T-1302 batch above says of itself; the honest test is the first time a change upstream fails to propagate.",
+      "command": [
+        "python3",
+        "tools/employment_coverage_1835.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/residents/employment_coverage.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/employment_coverage_1835.py",
+        "--check"
+      ]
+    },
+    {
       "why": "SHRINK ONLY, and the flag is not --write-baseline on purpose. Step 19 re-runs the synthesizer, so after a lap its outputs no longer drift and the T-0838 baseline still lists them — a ratchet that has tightened, reported as red. Shrinking can only make the gate stricter. --write-baseline regenerates and could ADD a path, recording a brand-new drift as expected; that is a judgement and stays a human's, so this step REFUSES a new drift and leaves the gate red. `resolves` is empty because there is nothing to shrink on most laps and --prove asserts a write.",
       "command": [
         "python3",
