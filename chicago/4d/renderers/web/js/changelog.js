@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1105, title: 'One list, printed three times, is still one sighting', kind: 'fix', ts: '2026-09-25T14:50:48.031Z', date: 'Sep 25, 2026, 9:50 AM CT',
+    items: [
+      'Samuel Toby became one man last week. This is the housekeeping that follows, and it moves a date on his card: the last day this project can still see him is now 2 July 1834, not the 9th.',
+      'The post office published what it was still holding on 1 July 1834, and the Chicago Democrat set that one list three times \u2014 on the 2nd, the 9th and the 16th. Before the merge this card knew only about the middle printing, so it said the man was last seen on 9 July. He was not. He was seen once, on a list dated 1 July, and a printer re-running the same column on two later Wednesdays is not the town seeing him again.',
+      'So the card takes the first printing that carries his name and nothing else. Taking the last one would date the evidence by a compositor\u2019s re-run. Taking both ends would say the office held letters for him in two separate returns \u2014 which is the strongest thing a letter list can say about a man living here, and it is not what happened.',
+      'The card is better cited for it. The date it now shows comes from a real reading of a real page \u2014 the Democrat of 2 July 1834, column 33 \u2014 and it names that page. The date it showed before came from a bare list of days with no source attached to any of them.',
+      'Nothing about when he arrived changed. That was never taken from a printing: the letter was unclaimed on 1 July 1834, so somebody was writing to him here by then, and all three printings say the same.',
+    ] },
   { v: 1104, title: 'Samuel Toby was joined up, and his card was not told', kind: 'fix', ts: '2026-09-25T14:28:38.259Z', date: 'Sep 25, 2026, 9:28 AM CT',
     items: [
       'The last entry joined two readings of one line into one man: the post office\u2019s list for 1 July 1834 was set three times, two settings print \u2018Samuel E. Toby\u2019 and one prints \u2018Samuel. Toby\u2019, and they are now one person rather than two.',
