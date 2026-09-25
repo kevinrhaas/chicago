@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'Work parked for the owner stops being invisible to him', kind: 'change', ts: '',
+  { v: 1112, title: 'Work parked for the owner stops being invisible to him', kind: 'change', ts: '2026-09-25T20:11:36.600Z', date: 'Sep 25, 2026, 3:11 PM CT',
     items: [
       'Nothing you can see in the town changed. This is about how this project tells its owner that a piece of work has stopped and is waiting on him.',
       'Changes reach the town through pull requests, and every automatic pass over them — the one that catches a branch up, the one that merges a green change, the one that shouts when nothing can move a change at all — deliberately steps over any that has been PARKED. That is correct: a park means somebody wanted a person to look. But the reason it was parked was written only on the pull request itself, which is not a page anybody reads. So parked work was, by design, the one kind nothing was coming back for, and the only kind nobody was told about. The owner found three parked at once this week and said so: he had no idea why.',
