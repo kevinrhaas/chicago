@@ -1,11 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1111, title: 'Most of the town now has a quarter to be filtered by', kind: 'change', ts: '2026-09-25T20:11:12.210Z', date: 'Sep 25, 2026, 3:11 PM CT',
+  { v: 1113, title: 'Most of the town now has a quarter to be filtered by', kind: 'change', ts: '2026-09-25T20:42:09.491Z', date: 'Sep 25, 2026, 3:42 PM CT',
     items: [
       'Open the People list and there is a Division filter — south, north, west, the fort. Until today it could not reach most of the town: 2,041 of the 3,292 people in the list answered “unplaced”, meaning nothing said which side of the river they lived on. That number is now 515, and 1,526 people have joined a division.',
       'Nothing was decided today to make that happen. Which quarter these households belong in was worked out three weeks ago, from the ledger this project reconstructs the town against: it states how many households each division held — south 367, north 145, west 131 — and the 1,305 households no source places anywhere were dealt across those three in exactly that proportion. The result was written into one working file and never carried onto the people themselves, so the town knew the answer and could not show it.',
       'Every one of those divisions is DEALT, not discovered, and the list says so: the row reads “west division (dealt)”, and opening the person shows a marked label whose note names the ledger, the shape it borrowed, and the fact that no source is behind either half of it. A visitor filtering to “south” can always tell which kind of south a row is.',
       'What deliberately did not move: these households still have no address, no lot and no roof, and their own record still says no source places them. A quarter of town is the widest thing this project will say about them, and saying it does not make them houses — the count of dwellings in the town is the same 218 it was yesterday.',
       'The filter is held shut by a check that compares the ledger against the cards in both directions. A household the ledger places whose card does not say so fails the build, and so does a card claiming a quarter the ledger does not give it — which is the exact silence that hid this for three weeks.',
+    ] },
+  { v: 1112, title: 'Work parked for the owner stops being invisible to him', kind: 'change', ts: '2026-09-25T20:11:36.600Z', date: 'Sep 25, 2026, 3:11 PM CT',
+    items: [
+      'Nothing you can see in the town changed. This is about how this project tells its owner that a piece of work has stopped and is waiting on him.',
+      'Changes reach the town through pull requests, and every automatic pass over them — the one that catches a branch up, the one that merges a green change, the one that shouts when nothing can move a change at all — deliberately steps over any that has been PARKED. That is correct: a park means somebody wanted a person to look. But the reason it was parked was written only on the pull request itself, which is not a page anybody reads. So parked work was, by design, the one kind nothing was coming back for, and the only kind nobody was told about. The owner found three parked at once this week and said so: he had no idea why.',
+      'The project board now opens with them. Every parked change is listed above the queue with the job it belongs to, how long it has been sitting, when it was last touched, and — read straight off the pull request, never composed — why it was parked and what it is waiting on. A change parked with no reason written anywhere is listed saying exactly that, because that is the true and useful thing to say about it.',
+      'And if the board cannot read the list of changes at all, it says so in those words rather than showing an empty section. An empty list and a failed question look identical otherwise, and mistaking the second for the first is the silence this was all filed against.',
+    ] },
+  { v: 1111, title: 'When the queue job cannot pick up a change, it now says why', kind: 'fix', ts: '2026-09-25T19:36:58.576Z', date: 'Sep 25, 2026, 2:36 PM CT',
+    items: [
+      'The housekeeping job that brings waiting changes up to date starts each one by fetching it and switching to it. When either of those two steps failed, it said only ‘fetch failed’ or ‘checkout failed’ and threw away git’s own explanation, so a stuck change left a report with no reason in it.',
+      'It now says which of the two steps failed, repeats git’s own words, and tells apart the usual causes: a branch that was deleted, one it was never told to fetch, and a working copy left untidy by the change before.',
+      'Nothing about the town itself changed. This is the road the work travels on.',
     ] },
   { v: 1110, title: 'Three finished changes could not reach the town, and nothing said so', kind: 'fix', ts: '2026-09-25T18:50:58.289Z', date: 'Sep 25, 2026, 1:50 PM CT',
     items: [

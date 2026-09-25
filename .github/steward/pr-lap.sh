@@ -272,8 +272,53 @@ while IFS=$'\t' read -r N BR; do
   # rebuild exists to prevent.
   REDERIVED=
   say "=== PR #$N  ($BR)"
-  git fetch origin "$BR" -q 2>/dev/null || { say "  fetch failed"; SKIPPED=$((SKIPPED+1)); continue; }
-  git checkout -B "lap/$N" "origin/$BR" -q 2>/dev/null || { say "  checkout failed"; SKIPPED=$((SKIPPED+1)); continue; }
+  # THE TWO GUARDS THAT SAID FOUR WORDS AND NOTHING ELSE (T-1565). Both of these
+  # were `... 2>/dev/null || { say "  fetch failed"; ... }`, with git's stderr
+  # thrown away and the two failures wearing nearly the same four-word label. So
+  # when #1629 failed here on 2026-09-21 (lap run 35624254338) the run summary
+  # carried no reason at all: not which of the two failed, not git's own message,
+  # not the ref it could not resolve. T-1521 measured it as a SECOND fault in
+  # that same lap run and could only say "and something else went wrong too".
+  #
+  # Every other refusal in this lap names its step and tails its log — the broken
+  # merge, the failed rebuild, the real conflict — which is how T-1521 was found
+  # in the first place. These were the exception, and an exception in the
+  # reporting is exactly where a second fault hides behind the first.
+  if ! git fetch origin "$BR" -q >/tmp/lap-fetch.log 2>&1; then
+    say "  FETCH of \`$BR\` FAILED — left alone:"
+    tail -5 /tmp/lap-fetch.log | sed 's/^/    /'
+    # THE LIKELIEST CAUSE, NAMED RATHER THAN LEFT TO BE GUESSED. A head branch
+    # deleted under the lap — its PR merged from elsewhere, or the run that owned
+    # it tidied up — makes git say "couldn't find remote ref", which reads like a
+    # transport fault to anyone who does not already know the branch is gone. One
+    # question to the remote settles it.
+    if git ls-remote --exit-code --heads origin "$BR" >/dev/null 2>&1; then
+      say "    origin still HAS \`$BR\`, so this is not a deleted branch — read git's message above."
+    else
+      say "    origin has NO branch \`$BR\` any more: it was DELETED under the lap."
+      say "    There is nothing to lap. PR #$N wants closing, or re-cutting from \`$BASE\`."
+    fi
+    SKIPPED=$((SKIPPED+1)); continue
+  fi
+  if ! git checkout -B "lap/$N" "origin/$BR" -q >/tmp/lap-checkout.log 2>&1; then
+    say "  CHECKOUT of \`origin/$BR\` into \`lap/$N\` FAILED — left alone:"
+    tail -5 /tmp/lap-checkout.log | sed 's/^/    /'
+    # Two causes worth telling apart, because the remedy is not the same one.
+    if ! git rev-parse --verify -q "origin/$BR^{commit}" >/dev/null 2>&1; then
+      say "    \`origin/$BR\` does not resolve even though the fetch above succeeded —"
+      say "    the remote-TRACKING ref is what is missing, not the branch. A narrow"
+      say "    remote.origin.fetch refspec does this: the fetch lands in FETCH_HEAD only."
+    fi
+    # ...and the one where THIS PR is innocent: the previous iteration left the
+    # working tree dirty and checkout refuses to overwrite it. Naming the PR
+    # without naming the dirt sends the reader to the wrong branch.
+    DIRT=$(git status --porcelain 2>/dev/null | head -5)
+    if [ -n "$DIRT" ]; then
+      say "    the working tree was NOT clean when the lap reached this PR:"
+      printf '%s\n' "$DIRT" | sed 's/^/      /'
+    fi
+    SKIPPED=$((SKIPPED+1)); continue
+  fi
 
   if [ "$(git rev-list --count "HEAD..origin/$BASE")" -eq 0 ]; then
     say "  already current — nothing to lap"; NOOP=$((NOOP+1)); continue
