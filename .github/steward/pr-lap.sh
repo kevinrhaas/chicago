@@ -186,6 +186,16 @@ fi
 # needs no GraphQL at all. The field names differ — REST spells them `draft` and
 # `head.ref` where gh's GraphQL layer spells them `isDraft` and `headRefName` —
 # and that is the whole of the change; the filter is the one it always was.
+#
+# ONE LABEL IS FILTERED AND IT IS `hold` — and since T-1573 there is a second label
+# that looks like it belongs in this filter and MUST NOT BE ADDED TO IT. `resume`
+# marks a run's own unfinished work: the branch carries it, the run ran out of
+# clock or budget or green, and a later run finishes it. Lapping such a PR is the
+# FIRST thing that has to happen to it — merge `dev` in, rebuild the derived layer,
+# push, let CI gate. A `resume` PR is therefore LIVE to this lap in every respect,
+# indistinguishable from any other, and that is deliberate rather than an oversight
+# in the filter. `hold` is the owner's park switch and stays the only exclusion;
+# T-1573's fixture asserts that this filter names exactly one label.
 PRS=$(gh api --paginate \
         "repos/$REPO/pulls?state=open&base=$BASE&per_page=100" \
         --jq '.[] | select(.draft==false)
