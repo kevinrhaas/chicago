@@ -554,6 +554,24 @@ Hexekiah and William, are not absent initials at all: the 1834-04-08 printing ha
 and both are refused at the mint as garbled rather than in `identity.json` as a merge. T-1528
 recorded them and this ruling does not decide them.
 
+**AND THE RESIDENT CARD HAD TO BE TOLD (T-1561).** A merge moves the gazetteer and it does not
+move the town. `hh_toby_samuel` went on displaying `Samuel. Toby` — the ABSORBED side — for a
+day after this ruling was carried out, while the only reading its own `press_evidence` row
+cited was `Samuel E. Toby`. The card was showing a spelling nothing on it still held, which is
+the same defect as a citation to a record that has been deleted, stated the other way round.
+The name is carried now; the id `toby_samuel` is not, because an id is a handle every
+crosswalk cites and not a claim (rule N5, T-1139), and the family name is unmoved either way.
+
+**It is a gate, not a correction.** `tools/mint_letter_list_residents.py --gate` now requires a
+letter-list card that cites press evidence to DISPLAY a reading that evidence still holds —
+`display()` on both sides, so a surname-first printing is not mistaken for a disagreement; any
+one of several cited readings satisfies it, because which of them a card should wear is the
+mint's choice and a different question; and a card citing nothing is not held to it (665 of the
+743 carry their reading in `letter_list_returns` and the note alone, and a gate may not fire on
+evidence a card does not have). It fires on exactly one card in the committed tree, which is
+the one this section is about, and `--self-test` holds it open. The next merge that leaves a
+card behind fails the gate in the commit that declares it.
+
 **AND THE RULE HAS NO SIBLING FOR FIRMS, WHICH IS WHY ONE BOOKSHOP STANDS IN THREE PLACES.**
 The Chicago Democrat's bookseller is `RUISAL & CLUPR,` in the December 1834 advertisement's
 only legible heading, and T-0327 read the name off the firm's OTHER advertisement rather

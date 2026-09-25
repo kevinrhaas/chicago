@@ -357,11 +357,10 @@
       "finding": "Does NOT reproduce: `--write` rewrote 1 committed file(s) on a tree the gate called clean."
     },
     "employment_coverage_1835.py": {
-      "placement": "pending",
+      "placement": "manifest",
       "write_mode": "--build",
-      "measured": "2026-09-20",
-      "finding": "Reproduces: `--build` on a clean tree rewrote data/residents/employment_coverage.json and nothing else, and `git status --porcelain` was identical before and after — not one committed byte moved, no person card was touched, no trade was supplied and no business record was written to. T-1461. PENDING rather than manifest for the reason its three siblings staff_businesses_1835.py, seat_reconstructed_trades_1835.py and staffing_mint_order_1835.py are: it reads the whole resident layer, the compiled business layer, the premises rulings and two models, and writes a join beside the layer — its slot in the re-derivation order is a question a measured pass of the manifest owns rather than this one.",
-      "placed": "not yet — measured to reproduce. Its header calls it T-1461, piece 1 of 2 of T-1449, and it joins over the WHOLE resident layer, so a slot for it sits after the last stage that seats anybody. That is not a theoretical hazard: T-1463's re-cut left this tool stale, the gate then read fifteen people carrying no employment answer, and CI found the red rather than the manifest (T-1453). the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+      "measured": "2026-09-25",
+      "finding": "Reproduces, measured twice. 2026-09-20 (T-1461): '--build' on a clean tree rewrote data/residents/employment_coverage.json and nothing else, and 'git status --porcelain' was identical before and after — not one committed byte moved, no person card was touched, no trade was supplied and no business record was written to. RE-MEASURED 2026-09-25 (T-1555) on clean dev before placing it: --check green on all 3,305 people, --build rewrote the join (mtime 1790347317 -> 1790347480) and left the porcelain empty, so _must_reproduce and _must_actually_write are both satisfied for its step. PLACED at manifest step 153, below the last step that writes a person card and above the reports at the foot — see that step's own 'why'."
     },
     "execute_roof_redeal.py": {
       "placement": "pending",

@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1104, title: 'Nineteen invented tradespeople move house instead of being deleted', kind: 'change', ts: '2026-09-25T14:19:43.662Z', date: 'Sep 25, 2026, 9:19 AM CT',
+  { v: 1106, title: 'Nineteen invented tradespeople move house instead of being deleted', kind: 'change', ts: '2026-09-25T15:32:57.244Z', date: 'Sep 25, 2026, 10:32 AM CT',
     items: [
       'Five hundred and twenty-three invented residents stand in cells of the order book that no longer want them, and the owner ruled they are moved rather than deleted. Two entries ago built the bookkeeping for a move; the last one worked out who may be moved, and found the rule yields seventy-three of them. This is the first nineteen, actually made.',
       'They are the invented tradespeople — a music teacher, a carpenter, a laundress, nineteen in all — who were drawn as heads of their own households in cells the book has since re-cut. Each of them is now counted as boarding at his or her trade instead of keeping a house: the same person, the same name, the same trade, the same age, standing in a cell where the book still has room. Fourteen of the nineteen are also counted on a different side of the river.',
@@ -7,6 +7,22 @@ export const CHANGELOG = [ // newest first
       'The change is written in the one place it can be checked. Each of the nineteen cards now says, on its own face, the cell it was drawn in, the cell it is counted in, the rung of the rule that let it cross, and that what moved is an accounting cell and not a person — including the plainest part: a boarder keeps no house, so the family the size table drew for this head is no longer owed. The drawn size stays printed, because it is what was drawn.',
       'The ledger and the cards cannot drift apart, and the build now refuses to let them. A move is written onto the card first, inside the derivation that draws the person, so it survives a rebuild byte for byte; the book then takes a row only where the card already says the same thing, field for field. A move typed into the ledger by hand does not survive, and a card claiming a move the rule does not allow fails the build outright.',
       'The other fifty-four moves belong to the invented women and children, and are the next piece of work. Nothing you can see in the town changed today: none of these nineteen has ever had an address.',
+    ] },
+  { v: 1105, title: 'One list, printed three times, is still one sighting', kind: 'fix', ts: '2026-09-25T14:50:48.031Z', date: 'Sep 25, 2026, 9:50 AM CT',
+    items: [
+      'Samuel Toby became one man last week. This is the housekeeping that follows, and it moves a date on his card: the last day this project can still see him is now 2 July 1834, not the 9th.',
+      'The post office published what it was still holding on 1 July 1834, and the Chicago Democrat set that one list three times \u2014 on the 2nd, the 9th and the 16th. Before the merge this card knew only about the middle printing, so it said the man was last seen on 9 July. He was not. He was seen once, on a list dated 1 July, and a printer re-running the same column on two later Wednesdays is not the town seeing him again.',
+      'So the card takes the first printing that carries his name and nothing else. Taking the last one would date the evidence by a compositor\u2019s re-run. Taking both ends would say the office held letters for him in two separate returns \u2014 which is the strongest thing a letter list can say about a man living here, and it is not what happened.',
+      'The card is better cited for it. The date it now shows comes from a real reading of a real page \u2014 the Democrat of 2 July 1834, column 33 \u2014 and it names that page. The date it showed before came from a bare list of days with no source attached to any of them.',
+      'Nothing about when he arrived changed. That was never taken from a printing: the letter was unclaimed on 1 July 1834, so somebody was writing to him here by then, and all three printings say the same.',
+    ] },
+  { v: 1104, title: 'Samuel Toby was joined up, and his card was not told', kind: 'fix', ts: '2026-09-25T14:28:38.259Z', date: 'Sep 25, 2026, 9:28 AM CT',
+    items: [
+      'The last entry joined two readings of one line into one man: the post office\u2019s list for 1 July 1834 was set three times, two settings print \u2018Samuel E. Toby\u2019 and one prints \u2018Samuel. Toby\u2019, and they are now one person rather than two.',
+      'His card went on saying \u2018Samuel. Toby\u2019 anyway. That is the reading that lost \u2014 the one the join folded into the other \u2014 and after the join nothing the card cited read the name that way. The surviving spelling was sitting in the card\u2019s own evidence row the whole time, unread.',
+      'The card now shows the reading its evidence holds. Its internal identifier does not move with it: that is a handle other files point at, not a claim about a name, and the family name is the same either way.',
+      'The real fix is a check rather than an edit. A person\u2019s card must now display a name its own evidence still holds, or the build fails. Joining two people is a thing this project does carefully and rarely, and until today nothing noticed when the town kept wearing the loser\u2019s spelling.',
+      'It fails on one card today \u2014 this one \u2014 and it will fail on the next merge that forgets one, in the commit that declares it.',
     ] },
   { v: 1103, title: 'Who may be moved, and what it would cost to move them', kind: 'change', ts: '2026-09-25T13:51:35.679Z', date: 'Sep 25, 2026, 8:51 AM CT',
     items: [

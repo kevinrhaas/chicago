@@ -196,8 +196,32 @@ console.log(`manifest coverage: OK — ${gated.size} gated tool(s), every one me
 console.log(`  ${counts.manifest} ${REPORTED.manifest} · ${counts.pending} ${REPORTED.pending}`);
 console.log(`  ${counts.not_derivable} ${REPORTED.not_derivable} · ${counts.not_a_writer} ${REPORTED.not_a_writer}`);
 console.log(`  ${Object.values(counts).join(' + ')} = ${summed}, which is the total above.`);
+/**
+ * T-1555. NAME THEM. A COUNT IS NOT A LIST, AND THE HOLE IS THE LIST.
+ *
+ * `pending` is the bucket of gated writers rederive.mjs never runs: check.sh asserts each
+ * one's output re-derives, and nothing rebuilds it, so any change upstream leaves it stale
+ * with no automated remedy and the gate goes red with no clue where to look.
+ * employment_coverage_1835.py sat there for five days and was hand-rebuilt twice in one
+ * session before T-1555 placed it — and the run that did it had to read the JSON to learn
+ * which OTHER tools were in the same hole, because this summary printed `33` and stopped.
+ *
+ * So the list is printed, `--pending` prints it alone for a run that wants only that, and
+ * each row carries the `placed` sentence the audit already refuses to let a row omit. That
+ * sentence is the next run's starting point, which is the whole reason it is required.
+ */
 if (counts.pending) {
-  console.log('  The pending ones are recorded, not hidden. Ordering is its own measured pass:');
-  console.log('  on #1452 three reconstruction stages OSCILLATED until they sat in the right');
-  console.log('  slot, so these cannot be appended to the manifest blind (T-1302 batch 2).');
+  const waiting = [...gated].filter((t) => INV[t].placement === 'pending').sort();
+  console.log(`  The pending ones are recorded, not hidden, and here they are — ${waiting.length} gated`);
+  console.log('  writer(s) that check.sh asserts re-derive and rederive.mjs --run does not rebuild:');
+  for (const t of waiting) {
+    console.log(`    tools/${t}`);
+    const why = String(INV[t].placed).trim().replace(/\s+/g, ' ');
+    console.log(`      ${why.length > 160 ? `${why.slice(0, 159)}\u2026` : why}`);
+  }
+  console.log('  Ordering is its own measured pass: on #1452 three reconstruction stages');
+  console.log('  OSCILLATED until they sat in the right slot, so these cannot be appended to');
+  console.log('  the manifest blind (T-1302 batch 2). Measure what `_must_reproduce` asks —');
+  console.log('  run the build on a clean tree, require that git reports nothing moved — then');
+  console.log('  place ONE, with its slot argued in the step\'s own `why`.');
 }
