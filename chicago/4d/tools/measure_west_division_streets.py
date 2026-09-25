@@ -18,6 +18,23 @@ The three do not get the same answer, and the reason is the modelled ground:
    the placement, and the note on the record says what would move it (any wharf
    strip between the kerb and the water, whose width no source reached gives).
 
+   **WHERE THE REACH PAST THE TURN ENDS MOVED ON 2026-09-24 (T-0141), AND THE RULE DID
+   NOT.** T-0768 carried the bank offset past the Wolf Point turn until the riverward
+   corridor reached a committed footprint standing ACROSS the roadway, and cut it there;
+   the footprint was James Kinzie's house, at 39.55 m along the bank's Wolf Point segment.
+   The Green Tree Tavern then moved onto the west bank north of Lake on the owner's ruling
+   of 2026-09-21, and it stands across the roadway too, at 17.03 m. So the same rule cuts
+   the line 22.53 m earlier, at local [-20.32, -98.49] — 2.30 m SOUTH of West Lake
+   Street's north kerb. THAT UNDOES WHAT T-0768 BOUGHT, and the assertions below say so
+   rather than relaxing: the 20.30 m of centreline north of that kerb is gone, so Fergus
+   1839's 'W. Water st north of West Lake st' again attests a street with no modelled
+   length north of Lake. Both the tavern's placement and this line are graded inferred, so
+   this is not a confidence ranking; it is the owner's ruling on a tavern two independent
+   sources put at this junction, with T-0251's order — the loser re-seated on its own
+   evidence before it is withdrawn — and this line's own evidence is the rule above. A
+   wharf strip between the kerb and the water would push the line west and let both
+   stand; nobody has reached a source that gives its width.
+
 2. **Jefferson and Des Plaines were refused by the ground, THE REFUSAL WAS ANSWERED,
    AND BOTH ARE NOW DRAWN.** Their surviving control was already committed —
    `fulton`'s note carries the OpenStreetMap intersections T-0446 fitted that tier
@@ -90,6 +107,22 @@ SEATED_BY_T1430 = {
 # intersection fixes a point and not a direction, so the direction is Clinton's; the
 # assertions below hold the committed paths to it rather than trusting the seating.
 BEARING_FROM = "clinton"
+
+# T-1490, 2026-09-24 — THE ONE SEATED LINE THAT IS NO LONGER ON A BORROWED REACH.
+# `jefferson` still carries `clinton`'s BEARING, because one intersection still fixes a
+# point and not a direction and the bearing was not refitted. What it no longer carries is
+# Clinton's REACH: two more surviving intersections stand on Jefferson north of Fulton, so
+# the line is drawn over its own control instead, from Clinton's south end to the northern
+# of the two. The assertions below hold it to exactly that — the same bearing, the south
+# end unmoved, the north end on the control, and each further node reproduced by the
+# committed line rather than fitted to. (Name, local east, local north, OpenStreetMap node,
+# read 2026-09-24 by the node rule in data/traces/street_control.json and transformed to
+# EPSG:26916 against data/datum.json.) The corporate boundary's west leg walks the result;
+# see tools/measure_corporation_limits.py.
+CARRIED_ONTO_OWN_CONTROL = {
+    "jefferson": [("Kinzie", -410.158, 263.614, "708314133"),
+                  ("Hubbard", -410.159, 381.887, "12233681439")],
+}
 
 BANK_REACH = 9
 
@@ -476,18 +509,29 @@ def self_test(quiet=False):
     check("the reach past the turn is cut where a committed footprint enters the corridor",
           bool(tail["obstructions"])
           and abs(tail["cut_along"] - tail["obstructions"][0][0]) < 1e-9)
-    check("james_kinzie_house is what stops it, and it stands ACROSS the roadway",
+    check("green_tree_tavern is what stops it, and it stands ACROSS the roadway",
           bool(tail["obstructions"])
-          and tail["obstructions"][0][1] == "james_kinzie_house"
+          and tail["obstructions"][0][1] == "green_tree_tavern"
           and tail["obstructions"][0][4] > 0.0
           and tail["obstructions"][0][5] < d["corridor"])
+    check("james_kinzie_house still stands across it too, further along the bank",
+          any(o[1] == "james_kinzie_house" and o[4] > 0.0 and o[5] < d["corridor"]
+              for o in tail["obstructions"][1:]))
     check("the cut is inside the bank segment it is measured along, not past its end",
           tail["cut_along"] < tail["seg_len"])
     old_gap, north = d["lake"]
     check(f"T-0445's end stood SOUTH of West Lake Street's north kerb "
           f"({old_gap:.2f} m), so the attested reach had zero length", old_gap > 0)
-    check(f"the seated continuation carries real frontage north of that kerb "
-          f"({north:.2f} m)", north > 15.0)
+    # T-0141, 2026-09-24. This read `north > 15.0` from T-0768 until the Green
+    # Tree Tavern moved onto the bank north of Lake on the owner's ruling of
+    # 2026-09-21 and became the first footprint standing across the roadway. The
+    # rule that bought the reach is the rule that takes it back, and the finding
+    # this line now carries is the LOSS: the attested 1839 frontage north of West
+    # Lake Street has no modelled length again. Asserting `== 0.0` rather than
+    # relaxing the old bound keeps that visible - the day a wharf strip pushes the
+    # whole line west, this fails and has to be re-argued rather than drifting.
+    check(f"the continuation is cut short of that kerb by the tavern, so the attested "
+          f"reach north of it has no modelled length ({north:.2f} m)", north == 0.0)
     worst = min(c[2] for c in tail["clearances"])
     check(f"no line fits riverward of the cluster: the widest clear strip between the "
           f"water and it is {worst:.2f} m against {d['corridor']:.3f} m",
@@ -518,9 +562,22 @@ def self_test(quiet=False):
               abs(slope_of(line) - bearing) <= 1e-9)
         ns = sorted(p[1] for p in line["path_local_enu_m"])
         want = sorted(p[1] for p in st[BEARING_FROM]["path_local_enu_m"])
-        check(f"…over `{BEARING_FROM}`'s own reach ({ns[0]:.1f} to {ns[-1]:.1f}), because a "
-              f"borrowed line may not claim more ground than the line it is borrowed from",
-              ns == want)
+        carried = CARRIED_ONTO_OWN_CONTROL.get(sid)
+        if carried is None:
+            check(f"…over `{BEARING_FROM}`'s own reach ({ns[0]:.1f} to {ns[-1]:.1f}), "
+                  f"because a borrowed line may not claim more ground than the line it is "
+                  f"borrowed from", ns == want)
+        else:
+            check(f"…south end still on `{BEARING_FROM}`'s reach and north end on this "
+                  f"line's own control ({ns[0]:.1f} to {ns[-1]:.1f}), which is the one "
+                  f"thing T-1490 changed about it",
+                  ns[0] == want[0] and abs(ns[-1] - carried[-1][2]) <= 0.01)
+            for name, ce, cn, node in carried:
+                off = abs(east_at(line, cn) - ce)
+                check(f"…and the carried line REPRODUCES the surviving {name} "
+                      f"intersection rather than being refitted to it: {off:.3f} m off "
+                      f"OpenStreetMap node {node}, inside the 20 m trace tolerance",
+                      off <= 20.0)
         check(f"…graded `inferred` for that inheritance, never better than a line whose "
               f"direction it did not read",
               line["geometry_confidence"] == "inferred")

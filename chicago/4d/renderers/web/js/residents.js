@@ -728,6 +728,55 @@ function laterOccupationHtml(later, citationsById) {
 }
 
 /**
+ * WHY a trade is NOT on the 1835 field, on the cards a withdrawal fired on (T-0991).
+ *
+ * The mirror of `laterOccupationHtml` above, and the owner ruled on 2026-09-21 that it
+ * should read like one. Six cards carried a trade the Chicago Democrat printed on 26
+ * November 1833 that no source puts inside the scene window, so
+ * `tools/derive_resident_roles.py` took it off the 1835 field and wrote
+ * `withdrawn_from_scene_date` in its place: the trade, the grade it had been held at, and
+ * `tools/audit_scene_window_trades.py`'s verdict for taking it off.
+ *
+ * THAT BLOCK REACHED NO VISITOR. The row read `not recorded`, and WHICH trade came off
+ * and WHY — the adjudication that is the whole product of the repair — sat in the record
+ * and nowhere on the page. `tools/layer_reads_baseline.json` banked all three of its
+ * figures as read by nothing, which is the measurement saying so. The owner's ruling had
+ * already answered what should happen instead: *"THE TRADES ARE NOT LOST ... A man's
+ * trade in 1833 stays on his card, dated 1833, cited to the printing that states it."*
+ *
+ * THE DATE IS THE PRESERVED ROLE ROW'S, NOT A SECOND COPY ON THE BLOCK. `roles[]` keeps
+ * the withdrawn trade with the bound its own sources permit, and the timetable further
+ * down the card prints that row; reading the date off it is what stops the two ever
+ * disagreeing, and it is why this needed no new figure on the record. The citation is
+ * the same one for the same reason — the block's own list, directly below, is the
+ * printing the trade was read off, and a second copy here would only say it twice.
+ *
+ * Nothing here asserts an 1835 fact. The field above still reads `none_recorded`, still
+ * at `reconstructed`, and this prints BESIDE it and never in place of it.
+ */
+function withdrawnOccupationHtml(withdrawn, roles) {
+  if (!withdrawn || !withdrawn.value) return '';
+  const row = (roles || []).find((r) => r && r.role === withdrawn.value
+    && !r.covers_scene_date) || null;
+  const verdict = words(withdrawn.verdict || 'unadjudicated');
+  return `<br><span class="res-why">Recorded for ${escapeHtml(withdrawnBound(row))},
+    and not for 1835: ${swatch(withdrawn.confidence)}${escapeHtml(words(withdrawn.value))}
+    \u2014 taken off the 1835 field, verdict: ${escapeHtml(verdict)}.
+    ${escapeHtml(withdrawn.note || '')}</span>`;
+}
+
+/**
+ * The bound to print for a withdrawn trade, and what to say when there is none.
+ *
+ * A withdrawal whose role row is missing must not print an empty date and read as though
+ * the trade were undated on purpose — the year is the half of this that stops the row
+ * being the back-projection the whole repair refuses, in reverse.
+ */
+function withdrawnBound(row) {
+  return row ? roleBound(row) : 'a year no role on this card dates';
+}
+
+/**
  * WHAT THE RESEARCH ACTUALLY SAID ABOUT THIS PERSON (T-1232).
  *
  * The layer carries 94 research blocks whose identity the project ASSERTED — its own
@@ -1521,6 +1570,23 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
   // trade printed in another year does not read, closed, as a card with no trade.
   const roles = (person.roles || []).filter(Boolean);
   const rolesAtScene = roles.filter((r) => r.covers_scene_date).length;
+  // T-0991's withdrawal, and the role row that still carries the trade's own dates. The
+  // block says WHAT came off the 1835 field and why; `roles[]` says WHEN the printing
+  // that stated it was, and the card prints the two together rather than either alone.
+  const withdrawn = occ.withdrawn_from_scene_date || null;
+  const withdrawnRow = withdrawn && withdrawn.value
+    ? roles.find((r) => r && r.role === withdrawn.value && !r.covers_scene_date) || null
+    : null;
+  // THE YEARS A TRADE IS PRINTED FOR, WHEN 1835 IS NOT ONE OF THEM. A card can carry
+  // both pointers at once — a trade printed before the scene and another after it, which
+  // is Daniel Elston exactly: soap and candles in November 1833, brick in 1839. Said as
+  // two clauses they stuttered, `for 1835 · … for 1835 · …`, and read as a rendering
+  // fault rather than as two findings. One clause, earliest first, so the summary runs
+  // in the order the timetable inside the card does.
+  const printedFor = [
+    withdrawn ? withdrawnBound(withdrawnRow) : null,
+    occ.later_occupation ? String(occ.later_occupation.describes_date) : null,
+  ].filter(Boolean);
   const cites = (person.sources || []).map((id) => citationsById.get(id)).filter(Boolean);
   const occCites = (occ.sources || []).map((id) => citationsById.get(id)).filter(Boolean);
   const born = person.birth_year || null;
@@ -1542,8 +1608,8 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
     <summary><span class="lib-title">${swatch(person.grade)}${escapeHtml(person.name || 'unnamed')}</span>
       <span class="res-role">${escapeHtml(words(person.relationship))}${
         occ.value ? ` · ${escapeHtml(words(occ.value))}` : ''}${
-        occ.later_occupation ? ` for 1835 · a trade is printed for ${
-          escapeHtml(String(occ.later_occupation.describes_date))}` : ''}${
+        printedFor.length ? ` for 1835 · a trade is printed for ${
+          escapeHtml(printedFor.join(' and for '))}` : ''}${
         roles.length ? ` · ${roles.length} dated ${roles.length === 1 ? 'role' : 'roles'}${
           rolesAtScene ? '' : ', none on 1 July 1835'}` : ''}</span></summary>
     <dl class="lib-body">
@@ -1562,8 +1628,9 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
         person.age_band, citationsById)}
       ${occ.value ? `<dt>Occupation</dt><dd>${swatch(tierOf(occ))}${tierWord(tierOf(occ))}${
         isNotAsserted(occ) ? 'not recorded' : escapeHtml(words(occ.value))}${
-        occ.later_occupation ? ' for 1835' : ''}${
+        printedFor.length ? ' for 1835' : ''}${
         occ.note ? `<br><span class="res-why">${escapeHtml(occ.note)}</span>` : ''}${
+        withdrawnOccupationHtml(withdrawn, roles)}${
         laterOccupationHtml(occ.later_occupation, citationsById)}${
         occCites.length ? `<ol class="cites">${citationItems(occCites)}</ol>` : ''}</dd>` : ''}
       ${rolesHtml(roles, citationsById)}
@@ -1621,8 +1688,26 @@ function gradeChips(grades) {
  * reaches no building sidecar, so before this section it appeared nowhere a
  * visitor could go.
  */
+const DWELLING_CLAUSE_LABEL = {
+  a_stated_dwelling: 'a house — a source says where they lived',
+  a_stated_premises: 'a house — a source says where they worked',
+  more_than_one_named_person: 'a house — more than one person is named in it',
+  a_stated_kinship: 'a house — a source states the family in it',
+  a_stated_division: 'a house — a source places it in this division',
+  the_programme_built_it_as_a_house: 'a house the reconstruction built',
+};
+const AWAITING_A_HOUSEHOLD =
+  'a person awaiting a household — nothing here says they kept a house';
+
 function householdSummary(entry, { orphanChip = true } = {}) {
   const reaches = Boolean(entry.lives_at || entry.works_at);
+  // T-1476, the owner's ruling of 21 September 2026. A name on a letter list is
+  // evidence that a man was at Chicago and not that he kept a house, so a record
+  // and a household are two units — and the chip says which this row is, and why,
+  // before anybody opens it.
+  const unit = entry.dwelling_evidence
+    ? (DWELLING_CLAUSE_LABEL[entry.dwelling_evidence] || 'a house')
+    : AWAITING_A_HOUSEHOLD;
   const label = entry.id.replace(/^hh_/, '').replace(/_/g, ' ');
   return `<details class="lib res-hh" data-file="${escapeHtml(entry.file)}"
       data-id="${escapeHtml(entry.id)}" data-loaded="0"
@@ -1636,7 +1721,9 @@ function householdSummary(entry, { orphanChip = true } = {}) {
         entry.census_1840_linked
           ? `<span class="res-chip res-research">${entry.census_1840_linked} bridged to an 1840 census household</span>` : ''}${
         reaches || !orphanChip
-          ? '' : '<span class="res-chip res-orphan">on no building card</span>'}</span></summary>
+          ? '' : '<span class="res-chip res-orphan">on no building card</span>'}<span
+        class="res-chip ${entry.dwelling_evidence ? 'res-house' : 'res-awaiting'}">${
+        escapeHtml(unit)}</span></span></summary>
     <div class="lib-body res-hh-body"><p class="legend-note">Loading…</p></div>
   </details>`;
 }
@@ -2036,6 +2123,19 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
           + `admits should be held, so they are listed together, below the households the `
           + `rest of the corpus documents, and which of these people are a name and `
           + `nothing else can be seen without opening anything. ` : '')
+      + (counts.houses
+        // T-1476. The owner ruled on 21 September 2026 that a name on a post-office
+        // letter list evidences a PERSON and not a HOUSE, and this is where a visitor
+        // meets that: the layer's record count and the town's house count are two
+        // different units, so the sentence gives both and every row below says which
+        // it is. Nothing was retired to reach it — the difference is a backlog of
+        // people still to be seated, not a correction.
+        ? `${counts.houses} of these ${entries.length} records carry a reading about a `
+          + `dwelling — a street, a premises, a stated family, a division — and the `
+          + `other ${counts.awaiting_a_household} are people awaiting a household: a `
+          + `name on a list is evidence that somebody was at Chicago and not that they `
+          + `kept a house. Every row below says which it is, and why. None of them was `
+          + `retired or downgraded to say so. ` : '')
       + (counts.census_1840_linked
         // T-0491. Three people carry an identity bridge to a named head of household
         // in the 1840 census, and the bridge is an argument rather than a fact: it is

@@ -16,12 +16,13 @@ vegetation sampler are all readings of that same field, so the condition the blo
 written against is met and the block is retired rather than waived. The 35 held slots
 instantiate on their recipe ids and their recipe families, exactly as the hold promised.
 
-**Five of those thirty-five stay held, on a different question entirely.** They stand
-inside the drift band of the corporate boundary's extrapolated west leg, so it would be
-the extrapolation rather than the 1833 ordinance deciding whether each stood inside the
-town limits or outside them. The reconstruction leaves that side unstated by not
-building the roof; see `BOUNDARY_HOLDS`. They keep their ids, their families and their
-dealt sequence numbers, exactly as the terrain hold kept them.
+**Two of those thirty-five stay held, on a different question entirely.** They stand
+inside the platted corridor of Jefferson Street, and an invented placement has no
+business in the roadway. The reconstruction does not build the roof and does not slide
+it sideways either; see `CORRIDOR_HOLDS`. They keep their ids, their families and their
+dealt sequence numbers, exactly as the terrain hold kept them. Five were held here until
+T-1490, three of them only because the corporate boundary's west leg was extrapolated
+1,188.8 m across a West Division that already had a drawn Jefferson in it.
 
 The hold's one lasting mark is the dealing order. `seq` deals finish, roof condition,
 age state and form, and the twenty roofs built under the hold were dealt 1..20 in
@@ -467,25 +468,34 @@ def eaves_front_hold(family: str, width_ft: float, depth_ft: float) -> float:
                                  hi_w_ft * .3048)
     return held_m / .3048
 
-# FIVE SLOTS STAY HELD, AND NOT FOR TERRAIN. The corporate boundary of 7 November 1833
-# resolves its west leg on Jefferson Street, whose committed centreline ends far south
-# of this parcel: `tools/measure_corporation_limits.py` carries it 1 188.8 m past that
-# end to reach Ohio, and an extension that long is uncertain by 22 m of drift. Five of
-# the released slots stand inside that band — 6.9 to 22.6 m from the line — so it is the
-# EXTRAPOLATION, not the ordinance, that would decide whether each of them stood inside
-# the town of Chicago or outside it. The gate says the remedy in as many words: trace the
-# street, or leave the structure's side unstated. Tracing Jefferson north to Ohio is not
-# this ticket's work, so the side is left unstated in the only way a reconstruction can
-# leave it unstated — the roof is not built. They keep their ids, their families and
-# their dealt sequence numbers exactly as the terrain hold kept them, so the day the
-# centreline is carried they instantiate unchanged. Measured 2026-09-20; T-1490 owns it.
+# TWO SLOTS STAY HELD, AND NOT FOR TERRAIN AND NOT FOR THE BOUNDARY EITHER. They stand
+# INSIDE THE PLATTED JEFFERSON CORRIDOR that `data/streets/1835.json#jefferson` draws —
+# 24.384 m wide, so 12.192 m either side of the centreline — west_rec_027 reaching 12.02 m
+# into it and west_rec_037 9.51 m. `tools/plat_corridors.py` says the bar in as many
+# words: an attested frontage a few metres inside a corridor is a measurement about the
+# georeference, but "an invented placement has no business in the roadway at all". The
+# reconstruction does not build the roof, and does not slide a conjectural building
+# sideways to make room for itself either — that would be asserting a seat it does not
+# have. Note that the generator's own corridor check below cannot catch these: `corridors()`
+# is built from `data/traces/street_control.json`, which carries no jefferson entry, so
+# this street is not in it. T-1490 measured them by hand, 2026-09-24.
+#
+# FIVE SLOTS WERE HELD HERE UNTIL T-1490, on the corporate boundary instead: its west leg
+# resolved on `jefferson_school_section` alone and was carried 1 188.8 m past that line's
+# end to reach Ohio, straight across a West Division that has had its own drawn Jefferson
+# since T-1430, and five slots stood inside that extension's drift. T-1490 carried the
+# West Division line north to local north +381.887 on two more surviving intersections and
+# made the leg walk it; the extension left is 288.3 m with nothing beside it. west_rec_029,
+# west_rec_032 and west_rec_035 are released by that and instantiate unchanged, on their own
+# ids, families and dealt sequence numbers, exactly as the hold promised. The other two were
+# never a boundary question — the boundary hold had been hiding that they stand in the street.
 # The slots and their measurements are RECORDED IN THE RECIPE, under
-# `terrain_and_hydrology_gate.boundary_hold`, and read from there rather than retyped:
+# `terrain_and_hydrology_gate.corridor_hold`, and read from there rather than retyped:
 # `tools/reconcile_665.py` has to count the same hold, and two copies of a hold are how
 # a schedule and a generator come to disagree about what the parcel still owes.
-BOUNDARY_HOLDS = frozenset(
-    load(RECIPE_PATH)["terrain_and_hydrology_gate"]["boundary_hold"]["slots"])
-HELD_IDS = {f"{PREFIX}{rid.split('_')[-1]}" for rid in BOUNDARY_HOLDS}
+CORRIDOR_HOLDS = frozenset(
+    load(RECIPE_PATH)["terrain_and_hydrology_gate"]["corridor_hold"]["slots"])
+HELD_IDS = {f"{PREFIX}{rid.split('_')[-1]}" for rid in CORRIDOR_HOLDS}
 
 # The reading T-1444 took of the recipe's fourth terrain rule, frozen so the corridor
 # cannot quietly gain a roof while T-1460 is open. Measured as footprint-corner distance
@@ -651,9 +661,9 @@ def validate(records: list[dict], rows: list[dict],
     # Every placement instantiates, on its own recipe id. The hold promised the 35 held
     # slots would arrive unchanged in id and family, and this is where that is kept.
     placement_ids = {row["id"] for row in recipe["placements"]}
-    if not BOUNDARY_HOLDS <= placement_ids:
-        raise SystemExit("BOUNDARY_HOLDS names a slot this recipe does not place: "
-                         + ", ".join(sorted(BOUNDARY_HOLDS - placement_ids)))
+    if not CORRIDOR_HOLDS <= placement_ids:
+        raise SystemExit("CORRIDOR_HOLDS names a slot this recipe does not place: "
+                         + ", ".join(sorted(CORRIDOR_HOLDS - placement_ids)))
     expected_ids = {f"{PREFIX}{row['id'].split('_')[-1]}" for row in recipe["placements"]}
     if {r["id"] for r in records} != expected_ids:
         raise SystemExit("the West parcel no longer instantiates one record per "
@@ -828,9 +838,9 @@ def main() -> int:
     print(f"{mode} {len(records)} inferred anonymous West Division records "
           f"({principal} principal, {len(records) - principal} ancillary); "
           f"{len(first)} dealt under the retired terrain hold and "
-          f"{len(released) - len(BOUNDARY_HOLDS)} released onto the ground west of "
-          f"E {WEST_TERRAIN_LIMIT_E:g} m; {len(BOUNDARY_HOLDS)} held on the corporate "
-          f"boundary's extrapolated west leg (T-1444, T-1490)")
+          f"{len(released) - len(CORRIDOR_HOLDS)} released onto the ground west of "
+          f"E {WEST_TERRAIN_LIMIT_E:g} m; {len(CORRIDOR_HOLDS)} held inside the platted "
+          f"Jefferson corridor (T-1490)")
     return 0
 
 

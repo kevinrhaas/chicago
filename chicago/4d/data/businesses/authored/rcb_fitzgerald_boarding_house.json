@@ -36,7 +36,7 @@
       "from": null,
       "to": null,
       "tier": "reconstructed",
-      "basis": "THE ROOF IS THE PREMISES, and it is the one thing here that was not dealt. This firm exists because recon_1835_west_006 stands in data/structures/ with 8 ordinary-night beds in it; the building came first and the house of trade is what the building was missing. No street is claimed beyond the one the roof already stands on, and no coordinate is written here at all.",
+      "basis": "THE ROOF IS THE PREMISES, and it is the one thing here that was not dealt. This firm exists because recon_1835_west_006 stands in data/structures/ with 7 ordinary-night beds in it; the building came first and the house of trade is what the building was missing. No street is claimed beyond the one the roof already stands on, and no coordinate is written here at all.",
       "limit_reason": null
     }
   ],
@@ -82,16 +82,16 @@
     "roof": {
       "structure_id": "recon_1835_west_006",
       "class": "boarding_house",
-      "beds_ordinary": 8,
+      "beds_ordinary": 7,
       "keeper_person_id": "rc_fitzgerald_martin",
       "keeper_household_id": "hh_lodging_recon_1835_west_006",
-      "note": "A STANDING ROOF, NOT A SHORTFALL. The December 1835 State census enumerates taverns and never boarding houses, so the order book holds no bucket of this class to point at and no count of it is short. What is committed is the building: recon_1835_west_006 stands, the lodging model apportioned it 8 ordinary-night beds out of a bracket the town model owns, and the lodgers stage put people in them and named Martin Fitzgerald their keeper. The firm is what was missing, and it is withdrawn with the roof."
+      "note": "A STANDING ROOF, NOT A SHORTFALL. The December 1835 State census enumerates taverns and never boarding houses, so the order book holds no bucket of this class to point at and no count of it is short. What is committed is the building: recon_1835_west_006 stands, the lodging model apportioned it 7 ordinary-night beds out of a bracket the town model owns, and the lodgers stage put people in them and named Martin Fitzgerald their keeper. The firm is what was missing, and it is withdrawn with the roof."
     },
     "seed": "lodging_river_and_transport:lodging/boarding_house/west:001",
     "basis": {
       "kind": "model",
       "id": "1835_lodging_model",
-      "note": "the lodging model gives 1 standing boarding house roof(s) in the west division their beds and the lodgers stage named a keeper for each. the keeper is a man. The style is dealt on the seed printed beside it from the keeper's possessive, form 5 of the naming guide: the possessive in full, as the structure layer's own *Rufus Brown's Boarding House* prints it. No honorific is dealt, because nothing on this keeper's card says whether they were married, widowed or single and a sign that said so would be inventing it."
+      "note": "the lodging model gives 2 standing boarding house roof(s) in the west division their beds and the lodgers stage named a keeper for each. the keeper is a man. The style is dealt on the seed printed beside it from the keeper's possessive, form 5 of the naming guide: the possessive in full, as the structure layer's own *Rufus Brown's Boarding House* prints it. No honorific is dealt, because nothing on this keeper's card says whether they were married, widowed or single and a sign that said so would be inventing it."
     },
     "withdrawn_if": "the retirement of the roof itself, a re-cut lodging model that gives this house no beds, or a source naming whoever really kept it; the retirement runs through --build, never by hand"
   }

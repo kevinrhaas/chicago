@@ -3,7 +3,7 @@
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it — ticket.mjs check writes nothing on a consistent tree and REPAIRS tickets.json on a stale one, and measures clean here purely because the mirror was current when this ran (T-1341). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
   "measured": "2026-09-24",
   "gate_verdict": "CHECK FAIL",
-  "declared_steps": 604,
+  "declared_steps": 614,
   "exempt": {
     "site/": {
       "reason": "THE PUBLISHED MIRROR, AND THE GATE'S OWN FIRST STEP REGENERATES IT WHOLESALE. site/4d/ is generated (T-0938) and check.sh opens by running publish.sh over it; the single check_flush barrier T-1289 added sits directly after that step, with the comment 'everything below reads the mirror the step above writes'. So these writes are ordered rather than racing, and they are the one mutation this gate is built around instead of against. A write anywhere OUTSIDE site/ is not covered by this."
@@ -1421,18 +1421,22 @@
         "site/4d/data/residents/households/hh_young_richard_m.json",
         "site/4d/data/residents/households/hh_zearly_reason.json",
         "site/4d/data/residents/index.json",
+        "site/4d/data/residents/institutional/hh_rc_gilbert_david.json",
+        "site/4d/data/residents/institutional/hh_rc_sawyer_amanda.json",
         "site/4d/data/residents/kin_readings.json",
         "site/4d/data/residents/kin_rulings.json",
         "site/4d/data/residents/kin_survey.json",
         "site/4d/data/residents/lodgers/hh_lodging_brown_boarding_house.json",
         "site/4d/data/residents/lodgers/hh_lodging_exchange_coffee_house.json",
         "site/4d/data/residents/lodgers/hh_lodging_mansion_house.json",
+        "site/4d/data/residents/lodgers/hh_lodging_new_york_house.json",
         "site/4d/data/residents/lodgers/hh_lodging_recon_1835_north_h1_007.json",
         "site/4d/data/residents/lodgers/hh_lodging_recon_1835_north_h2_022.json",
         "site/4d/data/residents/lodgers/hh_lodging_recon_1835_north_h2_028.json",
         "site/4d/data/residents/lodgers/hh_lodging_recon_1835_north_h2_030.json",
         "site/4d/data/residents/lodgers/hh_lodging_recon_1835_north_h2_045.json",
         "site/4d/data/residents/lodgers/hh_lodging_recon_1835_west_006.json",
+        "site/4d/data/residents/lodgers/hh_lodging_sauganash_hotel.json",
         "site/4d/data/residents/lodgers/hh_lodging_steamboat_hotel.json",
         "site/4d/data/residents/lodgers/hh_lodging_tremont_house_1.json",
         "site/4d/data/residents/lodgers/hh_lodging_western_hotel.json",
@@ -2177,85 +2181,88 @@
       ],
       "wrote_by": [
         "- ../../site/4d/data/residents",
-        "- ../../site/4d/walk/index.html build 8d5c95039 · Sep 21, 2026, 11:31 AM CT"
+        "- ../../site/4d/walk/index.html build ace9a3dc · Sep 24, 2026, 2:35 PM CT"
       ]
     },
-    "/home/runner/work/polecat-platform/polecat-platform/custom-repo/.github/chicago-4d-dev-preview.mjs": {
+    "/home/user/wt-t1531/.github/chicago-4d-dev-preview.mjs": {
       "wrote": []
     },
-    "/home/runner/work/polecat-platform/polecat-platform/custom-repo/.github/chicago-4d-url-check.mjs": {
+    "/home/user/wt-t1531/.github/chicago-4d-url-check.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-0SJA1j/gh.mjs": {
+    "/tmp/c4d-repomode-Lb2SGj/bin/gh": {
       "wrote": []
     },
-    "/tmp/prstuck-4Q5iLi/gh.mjs": {
+    "/tmp/prstuck-0brSbi/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-4WtZkH/gh.mjs": {
+    "/tmp/prstuck-2Q1Gjo/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-5dJiP3/gh.mjs": {
+    "/tmp/prstuck-35CCot/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-9RVYk5/gh.mjs": {
+    "/tmp/prstuck-DffgiV/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-AqJDy7/gh.mjs": {
+    "/tmp/prstuck-FaxWRT/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-DUYAiD/gh.mjs": {
+    "/tmp/prstuck-GdoPXr/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-IC9ag9/gh.mjs": {
+    "/tmp/prstuck-HSB6OO/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-JmGj58/gh.mjs": {
+    "/tmp/prstuck-Ms8aq9/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-K3K0gE/gh.mjs": {
+    "/tmp/prstuck-P9dPbC/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-POXImG/gh.mjs": {
+    "/tmp/prstuck-QiBExI/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-Q2Jpyn/gh.mjs": {
+    "/tmp/prstuck-WlxzXI/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-QB1j1v/gh.mjs": {
+    "/tmp/prstuck-bNTEWn/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-TiCH6U/gh.mjs": {
+    "/tmp/prstuck-cjxW29/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-ZdPiov/gh.mjs": {
+    "/tmp/prstuck-fcK9hA/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-ZijKcP/gh.mjs": {
+    "/tmp/prstuck-nLpqVU/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-dxq7YU/gh.mjs": {
+    "/tmp/prstuck-oK4YYv/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-gTY79T/gh.mjs": {
+    "/tmp/prstuck-oRyEk5/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-gj2xcO/gh.mjs": {
+    "/tmp/prstuck-pVDf1b/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-k5YbFZ/gh.mjs": {
+    "/tmp/prstuck-q1Ex2t/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-m7L3DS/gh.mjs": {
+    "/tmp/prstuck-qj4hPk/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-sMZDsv/gh.mjs": {
+    "/tmp/prstuck-tvXgm2/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-tIrkhl/gh.mjs": {
+    "/tmp/prstuck-tylsTT/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-tSVary/gh.mjs": {
+    "/tmp/prstuck-xCvQzp/gh.mjs": {
+      "wrote": []
+    },
+    "/tmp/prstuck-y0EKeZ/gh.mjs": {
       "wrote": []
     },
     "generators/ao_export.py": {
@@ -2816,6 +2823,9 @@
     "tools/measure_west_division_module.py": {
       "wrote": []
     },
+    "tools/measure_west_division_spacing.py": {
+      "wrote": []
+    },
     "tools/measure_west_division_streets.py": {
       "wrote": []
     },
@@ -3042,6 +3052,9 @@
       "wrote": []
     },
     "tools/reconstruct_garrison_1835.py": {
+      "wrote": []
+    },
+    "tools/reconstruct_institutional_households.py": {
       "wrote": []
     },
     "tools/reconstruct_modelled_families.py": {
@@ -3281,7 +3294,7 @@
         "site/4d/walk/js/changelog.js"
       ],
       "wrote_by": [
-        "/home/runner/work/polecat-platform/polecat-platform/custom-repo/chicago/4d/tools/stamp-changelog.mjs --write-mirrors"
+        "/home/user/wt-t1531/chicago/4d/tools/stamp-changelog.mjs --write-mirrors"
       ]
     },
     "tools/substitute_reconstruction.py": {
@@ -3405,7 +3418,18 @@
       "wrote": []
     },
     "tools/write_entry_pages.mjs": {
-      "wrote": []
+      "wrote": [
+        "site/4d/1812",
+        "site/4d/1812/index.html",
+        "site/4d/1835",
+        "site/4d/1835/index.html",
+        "site/4d/1880",
+        "site/4d/1880/index.html",
+        "site/4d/index.html"
+      ],
+      "wrote_by": [
+        "/home/user/wt-t1531/chicago/4d/tools/write_entry_pages.mjs ../../site/4d"
+      ]
     },
     "{\"1242\":\"dirty\",\"1315\":\"blocked\",\"1316\":\"blocked\",\"1319\":\"clean\"}": {
       "wrote": []

@@ -14,9 +14,9 @@
       "civic": 4,
       "druggist": 4,
       "iron_foundry": 2,
-      "lawyer": 20,
+      "lawyer": 19,
       "not_stated": 5,
-      "other": 120,
+      "other": 121,
       "physician": 9,
       "printing_office": 3,
       "school": 7,
@@ -29,8 +29,8 @@
     },
     "by_location_kind": {
       "anchored": 27,
-      "premises": 52,
-      "street_only": 90,
+      "premises": 53,
+      "street_only": 89,
       "unplaceable": 108
     },
     "named_people": 406,
@@ -44,8 +44,8 @@
     },
     "by_where_kind": {
       "anchored": 27,
-      "premises": 51,
-      "street_only": 90,
+      "premises": 52,
+      "street_only": 89,
       "unplaceable": 104
     },
     "by_street": {
@@ -59,7 +59,7 @@
       "Monroe Street": 1,
       "North Water Street": 5,
       "Randolph Street": 2,
-      "South Water Street": 43
+      "South Water Street": 42
     },
     "by_proprietor_community": {
       "british": 11,
@@ -70,8 +70,8 @@
       "new_york": 50,
       "other": 11,
       "southern": 9,
-      "unknown": 100,
-      "yankee": 73
+      "unknown": 101,
+      "yankee": 72
     }
   },
   "_vocabulary_doc": "THE CLOSED VOCABULARY, and it is the resident layer's — data/residents/community_rules.json, one list for people and for the houses they kept. The rows with a zero count are the point and are shipped anyway: a term nobody carries is a measurement of this layer, not a gap in this file. The Businesses view offers a pill only where the count is above zero.",
@@ -115,7 +115,7 @@
       {
         "value": "yankee",
         "label": "New England",
-        "count": 73
+        "count": 72
       },
       {
         "value": "new_york",
@@ -150,7 +150,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 100
+        "count": 101
       }
     ]
   },
@@ -15227,26 +15227,24 @@
       "liberties": []
     },
     {
-      "id": "rcb_parmelee_lawyer",
-      "file": "rcb_parmelee_lawyer.json",
-      "name": "R. Parmelee, attorney and counsellor at law, and solicitor in chancery",
+      "id": "rcb_pelletier_boarding_house",
+      "file": "rcb_pelletier_boarding_house.json",
+      "name": "Victoire Pelletier's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
-        "lawyer"
+        "other"
       ],
       "present_at_scene_date": true,
       "grade": "reconstructed",
-      "trade": "attorney and counsellor at law",
-      "occupation": "attorney",
-      "goods": [
-        "attorney and counsellor at law, and solicitor in chancery"
-      ],
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
       "firm_styles": [],
       "people": [
         {
-          "name": "Reuben Parmelee",
-          "person_id": "rc_parmelee_reuben",
+          "name": "Victoire Pelletier",
+          "person_id": "rc_pelletier_victoire",
           "role": "proprietor",
           "tier": "reconstructed",
           "from": null,
@@ -15255,22 +15253,22 @@
         }
       ],
       "where": {
-        "kind": "street_only",
-        "structure_id": null,
+        "kind": "premises",
+        "structure_id": "recon_1835_west_035",
         "anchor": null,
-        "street_id": "south_water",
-        "street": "South Water Street",
+        "street_id": null,
+        "street": null,
         "tier": "reconstructed",
         "from": null,
         "to": null,
-        "limit_reason": "No source places this house, because no source names it: it exists because the December 1835 State census counts more of its class than the register holds. The street is the reconstruction's own deal and stops there."
+        "limit_reason": null
       },
       "locations": 1,
       "opened": null,
       "closed": null,
       "dates_tier": "reconstructed",
-      "proprietor_community": "yankee",
-      "proprietor_community_tier": "reconstructed",
+      "proprietor_community": "unknown",
+      "proprietor_community_tier": null,
       "review_required": false,
       "liberties": []
     },

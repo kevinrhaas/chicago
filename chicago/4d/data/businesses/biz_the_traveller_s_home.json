@@ -10,6 +10,21 @@
   "occupation": "tavern_keeper",
   "goods": [],
   "firm_styles": [],
+  "notice": {
+    "reads": "the Traveller's Home",
+    "trade": "tavern",
+    "goods": [],
+    "names_a_keeper": false,
+    "from": "1834-01-28",
+    "to": "1834-05-21",
+    "tier": "attested",
+    "basis": "The advertisement is anonymous: the paper printed the trade and no proprietor, so no person of this record can carry the reading it was compiled from. What is attested here is what the notice itself set in type — “tavern” — and nothing beyond it: no keeper is claimed, and the premises and dates of this record stay on their own blocks at the tier the placement policy left them. Bounded by the printing window (printed 1834-01-28 to 1834-05-21), which dates the notice and not the house.",
+    "source_id": "chicago_newspapers_1833_1835",
+    "claim_ids": [
+      "chicago_democrat_1834_01_28#c009",
+      "chicago_democrat_1834_05_21#c002"
+    ]
+  },
   "proprietors": [],
   "partners": [],
   "staff": [

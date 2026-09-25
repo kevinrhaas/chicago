@@ -12,9 +12,9 @@
     "lodging_river_and_transport": {
       "ticket": "T-1187",
       "title": "lodging, the river and transport",
-      "records": 10,
+      "records": 11,
       "by_class": {
-        "other": 10
+        "other": 11
       },
       "by_street": {
         "Canal Street": 1,
@@ -27,7 +27,8 @@
         "recon_1835_north_h2_028": 1,
         "recon_1835_north_h2_030": 1,
         "recon_1835_north_h2_045": 1,
-        "recon_1835_west_006": 1
+        "recon_1835_west_006": 1,
+        "recon_1835_west_035": 1
       },
       "ids": [
         "rcb_bardwell_boarding_house",
@@ -39,6 +40,7 @@
         "rcb_hubbard_lumber_yard",
         "rcb_leland_livery_stable",
         "rcb_newell_boarding_house",
+        "rcb_pelletier_boarding_house",
         "rcb_woodruff_lumber_yard"
       ],
       "proprietors_adopted": [
@@ -51,6 +53,7 @@
         "rc_hubbard_asa",
         "rc_leland_warren",
         "rc_newell_lydia",
+        "rc_pelletier_victoire",
         "rc_woodruff_calvin"
       ]
     },
@@ -79,9 +82,9 @@
     "professions_and_services": {
       "ticket": "T-1418",
       "title": "the professions and the services",
-      "records": 18,
+      "records": 17,
       "by_class": {
-        "lawyer": 2,
+        "lawyer": 1,
         "other": 15,
         "physician": 1
       },
@@ -91,7 +94,7 @@
         "Kinzie Street": 3,
         "Lake Street": 4,
         "North Water Street": 2,
-        "South Water Street": 3
+        "South Water Street": 2
       },
       "by_roof": {},
       "ids": [
@@ -105,7 +108,6 @@
         "rcb_mcguire_physician",
         "rcb_metcalf_land_office",
         "rcb_murphy_land_office",
-        "rcb_parmelee_lawyer",
         "rcb_quinn_millinery",
         "rcb_robillard_lawyer",
         "rcb_sawyer_dress_making_shop",
@@ -125,7 +127,6 @@
         "rc_mcguire_john",
         "rc_metcalf_hiram",
         "rc_murphy_hugh",
-        "rc_parmelee_reuben",
         "rc_quinn_honora",
         "rc_robillard_baptiste",
         "rc_sawyer_almira",
@@ -159,7 +160,7 @@
   },
   "lodging": {
     "_doc": "BEDS AGAINST KEEPERS. Every place data/reconstruction/1835_lodging_model.json stands, and the house of trade behind it. `kept_by` is null where there is none, and `why_not` says which kind of absence it is.",
-    "places": 16,
+    "places": 17,
     "reconstructed_roofs_this_programme_owes_a_firm": 0,
     "rows": [
       {
@@ -184,7 +185,7 @@
         "class": "boarding_house",
         "standing": "reconstructed",
         "beds_ordinary": 7,
-        "beds_crowded": 17,
+        "beds_crowded": 16,
         "keeper_person": "rc_bardwell_esther",
         "firm": "rcb_bardwell_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
@@ -197,7 +198,7 @@
         "class": "boarding_house",
         "standing": "reconstructed",
         "beds_ordinary": 10,
-        "beds_crowded": 23,
+        "beds_crowded": 22,
         "keeper_person": "rc_barnes_ezra",
         "firm": "rcb_barnes_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
@@ -209,8 +210,8 @@
         "name": "Reconstructed H2 medium boarding house #028",
         "class": "boarding_house",
         "standing": "reconstructed",
-        "beds_ordinary": 12,
-        "beds_crowded": 27,
+        "beds_ordinary": 11,
+        "beds_crowded": 26,
         "keeper_person": "rc_cavanagh_johanna",
         "firm": "rcb_cavanagh_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
@@ -223,7 +224,7 @@
         "class": "boarding_house",
         "standing": "reconstructed",
         "beds_ordinary": 10,
-        "beds_crowded": 24,
+        "beds_crowded": 23,
         "keeper_person": "rc_newell_lydia",
         "firm": "rcb_newell_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
@@ -236,7 +237,7 @@
         "class": "boarding_house",
         "standing": "reconstructed",
         "beds_ordinary": 11,
-        "beds_crowded": 27,
+        "beds_crowded": 25,
         "keeper_person": "rc_gilbert_benjamin",
         "firm": "rcb_gilbert_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
@@ -248,10 +249,23 @@
         "name": "Reconstructed H1 small boarding house #005",
         "class": "boarding_house",
         "standing": "reconstructed",
-        "beds_ordinary": 8,
+        "beds_ordinary": 7,
         "beds_crowded": 17,
         "keeper_person": "rc_fitzgerald_martin",
         "firm": "rcb_fitzgerald_boarding_house",
+        "businesses_in_the_register_at_this_roof": [],
+        "kept_by": "this programme",
+        "why_not": null
+      },
+      {
+        "place": "recon_1835_west_035",
+        "name": "Reconstructed H2 medium boarding house #035",
+        "class": "boarding_house",
+        "standing": "reconstructed",
+        "beds_ordinary": 11,
+        "beds_crowded": 27,
+        "keeper_person": "rc_pelletier_victoire",
+        "firm": "rcb_pelletier_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
         "kept_by": "this programme",
         "why_not": null
@@ -657,7 +671,7 @@
             "name": "Reuben Parmelee",
             "division": "south",
             "head_slot": "trade_households:persons/male/20_29/south/family/trade:attorney:001",
-            "firm": "rcb_parmelee_lawyer"
+            "firm": null
           },
           {
             "person_id": "rc_dickinson_george",

@@ -558,18 +558,18 @@
       "measured": "2026-09-18",
       "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
     },
+    "measure_block_gating.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-09-18",
+      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+    },
     "measure_block_redeal_remedies.py": {
       "placement": "pending",
       "write_mode": "--build",
       "measured": "2026-09-21",
       "finding": "Reproduces: ran `--build` on a clean tree in 4s, wrote its two outputs and changed no committed byte.",
       "placed": "not yet — measured to reproduce, but it reads the roof redeal ledger, the platted-block recipe and the placement policy, and the first two are written by stages whose slot in the manifest's order is itself a measured question. It also reports on a ticket blocked on the owner: the day the six verdicts are carried out or withdrawn, this tool's outputs change or stop existing, and placing it before that is settled would order a step that may not be there."
-    },
-    "measure_block_gating.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
     },
     "measure_canal_control_spread.py": {
       "placement": "not_a_writer",
@@ -608,6 +608,13 @@
       "measured": "2026-09-21",
       "finding": "Reproduces, and the perturbation test tells reproduction from inertia. On a clean tree `--build` rewrote docs/RESEARCH/1835_roof_id_migration.md and nothing else, and `git status --porcelain` came back to the same single entry it started at. The measurement was then bent — the header's \"26 moving id(s)\" to 999 — a bare run went red (\"DRIFT: ... is not what a re-measurement produces\"), `--build` re-derived the file, and the tree came back clean. Its ONLY output is that one document; it reads the roof id reference list and the 75 files that name a moving id, and writes none of them.",
       "placed": "not yet — measured to reproduce, and it is a pure reader: every input it touches is a committed file some other stage owns, so it has no ordering hazard of its own. Its slot is the ordering pass's call, not this ticket's."
+    },
+    "measure_west_division_spacing.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-09-24",
+      "finding": "Reproduces: ran `--write` on a clean tree in under 1s, wrote its output, changed no committed byte.",
+      "placed": "by layer, 2026-09-24 — reasoned, not derived. It reads tools/generate_plat_lots.py's output (the West Division's blocks, their lot cuts and their `bounded_by` lines) and is placed immediately after tools/measure_west_grid_migration.py, which reads the same file for the same ticket family; run earlier it would measure a stale grid. Nothing reads what it writes, so nothing constrains it from below."
     },
     "measure_west_grid_migration.py": {
       "placement": "manifest",
@@ -1011,6 +1018,13 @@
       "measured": "2026-09-19",
       "finding": "Reproduces: `--build` on a settled tree wrote its own outputs and changed no committed byte, and `--check` re-derives all 11 cards, 125 people and the return in data/reconstruction/1835_garrison.json from their seeds. In the manifest directly after `women_and_children`.",
       "placed": "by stage order, 2026-09-19 — its invented names must step past that stage's, and measured in the other order 43 of that stage's cards redraw"
+    },
+    "reconstruct_institutional_households.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-24",
+      "finding": "Reproduces: `--build` run on the tree it had already built wrote its own outputs and changed no committed byte — `git status --porcelain` is identical before and after. Measured, not read (T-1531).",
+      "placed": "Waiting on nothing but its own slot being proved stable. It IS in the resident layer's rebuild order as `stage_institutional_households`, after `transients` and before `converge`, which is the programme's own stage order, and its three back edges into data/residents are declared in `the_cycle.edges` (resident_index, scene_sidecars, town_census). What has to be settled before it joins derived_manifest.json's dependency order is the same thing #1452 had to settle for three reconstruction stages that oscillated: that one pass of the manifest's order reaches a fixed point with it in place. `converge_resident_layer.py --run` reaches one today; the manifest's own order is a separate measured pass and is not claimed here."
     },
     "reconstruct_modelled_families.py": {
       "placement": "manifest",

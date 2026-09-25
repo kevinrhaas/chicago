@@ -42,6 +42,13 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
 # cloned at tickets/. Fetched first because the publish below builds tickets.json from
 # them and `ticket.mjs check` gates them; a missing clone fails that check loudly rather
 # than letting an empty queue read as a clean one.
+# T-1548. Before anything else: are this clone's merge drivers registered? They live
+# in .git/config, so they cannot be committed and a fresh clone starts without them.
+# Unregistered they cost a hand-resolved changelog conflict per branch — four of them
+# in one session on 2026-09-24 — and nothing anywhere says so. This says so.
+step "the merge drivers this clone needs are registered (T-1548)" \
+  bash tools/check-merge-drivers.sh
+
 step "the tickets are here (kevinrhaas/chicago-tickets, cloned at tickets/)" \
   bash tools/tickets.sh
 check_flush   # the publish below reads the clone; never race it under CHECK_JOBS>1
@@ -944,6 +951,28 @@ step "the West Division re-cut of blocks 28 and 45 is still refused by the commi
 
 selftest "…and both halves of that refusal, the seating it would strand and the unanswered first question still fire" \
   python3 tools/measure_west_grid_migration.py --self-test
+
+# T-1540. The precondition BEHIND that refusal, which for three days pointed a reader at
+# a ticket already done: Clinton to Canal stands at 367.9 ft against the plat's 458 ft,
+# T-0444 reported it and T-0445 closed without moving a centreline. The owner ruled on
+# 2026-09-21 that the successor must own the whole question rather than the one number —
+# so this pair gates the WHOLE question. What is worth naming: the gap is on every
+# interval of the West Division grid, not on Clinton to Canal alone, and the assertion
+# that carries the finding is a COUNT rather than a metric — three intervals are short
+# and a centreline moved reaches two, so no single street move closes it, and that
+# holds whatever the datum residual is. The residual is gated both ways on purpose: at
+# least one interval must be short by more than 17.5 m (or the whole gap is inside the
+# georeferencing and there is nothing to repair) and at least one must sit inside it (or
+# the measurement is not discriminating and any interval could be called a defect). And
+# the sharpest one is the quotation: the sheet reading must still say `documented` "does
+# not grade any position", because that sentence is the only reason the plat cannot be a
+# position control — the day it changes, "the plat wins" becomes a move this project
+# could actually make, and the ruling in this file has to be rewritten rather than reused.
+step "the West Division's north-south lines are still seated on the survey, not on the plat's module" \
+  python3 tools/measure_west_division_spacing.py --check
+
+selftest "…and the gap on every interval, the datum test cutting both ways, the count no residual touches and both anchors' price still fire" \
+  python3 tools/measure_west_division_spacing.py --self-test
 
 # The band the two halves of that plat leave between them (T-0419). Since the owner ruled
 # on 2026-08-29 that a corridor is derived from the street CONTROL, south_water's corridor
@@ -2215,6 +2244,15 @@ step "changelog contract" \
 step "ticket queue" \
   node tools/ticket.mjs check
 
+# T-1548. `done` refuses to close a ticket a committed file still records as live work
+# — the shape that turned dev red three times running (T-1507 as #7, T-1540 as #25,
+# T-1299 as #26), each found hours later by a different run from a red gate. The
+# scanner is a gate, so it is proved by breaking it, on fixtures rather than on the
+# data, and it asserts BOTH directions: the two shapes are caught, and the three ways
+# a ticket id appears innocently are not.
+selftest "…and the tripwire scanner behind `done` still fires, and still ignores prose" \
+  node tools/ticket.mjs tripwire-self-test
+
 # The link between the two: the shipped derivative against the master it was
 # compressed from. `--stale` gates data -> master and check_published.mjs gates
 # assets/web -> the mirror, and NOTHING gated the step in between, which is the one
@@ -2808,6 +2846,24 @@ step "every trade household re-derives, and every bucket the book ordered is fil
 
 selftest "...and a seniority rule, an over-ceiling trade and a borrowed name are refused" \
   python3 tools/reconstruct_trade_households.py --self-test
+
+# T-1531, stage `institutional_households`. The household quota apportions the town's
+# houses across the roof groups by ROOF COUNT, which is right for a group whose roofs are
+# houses and wrong for the one group whose roofs are a church, a jail, a council house and
+# a light tower: the nine standing `institutional_public` roofs drew TWELVE households.
+# `data/reconstruction/1835_institutional_lodging.json` asks each of the nine the question
+# nobody had asked — does this project's own record of it put a household under it? — and
+# two answer yes: the Watkins house, whose function is domestic, and the light, whose
+# keepership is recorded at $350 a year WITH QUARTERS. `build_order_book_1835.py` weights
+# the institutional cells on that file, so the book orders two, and this stage mints two.
+# What the gate holds: that both cards re-derive from their seeds, that the order never
+# exceeds what the adjudication admits, that both cells are discharged, and that no
+# occupation outside the controlled vocabulary reaches a person.
+step "the institutional households re-derive, and the book orders no more than the nine roofs admit" \
+  python3 tools/reconstruct_institutional_households.py --check
+
+selftest "...and an admitted roof with no card rule, a drifted tally and an invented age are refused" \
+  python3 tools/reconstruct_institutional_households.py --self-test
 
 # T-1353, stage `transients` of the same programme, and the only stage of it that writes
 # people who are NOT residents. T-1352 bounded the summer crowd of 1 July 1835 at 192 to

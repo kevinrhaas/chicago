@@ -1,0 +1,359 @@
+{
+  "id": "recon_1835_west_035",
+  "phase": "inferred_1835",
+  "name": "Reconstructed H2 medium boarding house #035",
+  "aka": [],
+  "archetype": "frame_tavern",
+  "asset": "gltf/recon_1835_west_035__inferred_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1835-01-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
+  },
+  "change_note": "Reconstructed anonymous July 1835 West Division infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total.",
+  "placement": {
+    "local_e": -373.107,
+    "local_n": -273.306,
+    "rotation_deg": 1.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "Interpretive placement within the reviewed West Division cluster w3_jefferson_lake_residential. The recipe coordinate is a production-layout control, not a recovered lot. Set back 1.8 m from the recipe coordinate, which placed it inside a platted street corridor; the move is well inside the ±20 m uncertainty the recipe states for its own layout controls.",
+    "symbolic_location": "Anonymous reconstructed roof on the West Division approaches",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        8.534,
+        0
+      ],
+      [
+        8.534,
+        11.582
+      ],
+      [
+        0,
+        11.582
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "A 28 × 38 ft rectangle assigned by the reconstruction recipe within the H2 family band; no individual dimensions are documented."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+    },
+    "wall_height_m": {
+      "value": 5.797,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+    },
+    "roof_pitch_deg": {
+      "value": 34.9,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+    },
+    "gallery": {
+      "value": false,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the H2 family's key geometry parameters do not speak to a gallery, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous West Division instance."
+    },
+    "chimneys": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+    },
+    "siding_exposure_m": {
+      "value": 0.114,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 4.5 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+    },
+    "function": {
+      "value": "medium_boarding_house",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the H2 family to satisfy the aggregate West Division mix; no occupant or individual use is known."
+    }
+  },
+  "residents": [
+    {
+      "household": "hh_brown_jesse_b",
+      "name": "Jesse B Brown",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Jesse B Brown",
+          "relationship": "boarder",
+          "grade": "attested",
+          "occupation": "",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_glaumbake_frank",
+      "name": "Frank Glaumbake",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Frank Glaumbake",
+          "relationship": "boarder",
+          "grade": "inferred",
+          "occupation": "",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_laird_william",
+      "name": "William Laird",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "William Laird",
+          "relationship": "boarder",
+          "grade": "attested",
+          "occupation": "",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_lodging_recon_1835_west_035",
+      "name": "The lodgers of Reconstructed H2 medium boarding house #035",
+      "division": "west",
+      "relation": "lodged here",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 11 people in this house on an ordinary night and 27 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "sources": [],
+      "basis": "BEDS, AND ONE FAMILY. 5 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 1 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper.",
+      "persons": [
+        {
+          "name": "Victoire Pelletier",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "boarding_house_keeper",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This roof is itself a reconstruction of the 1835 building programme, raised as a lodging place, and a lodging place with no keeper is not one. The whole of what is claimed is that: an adult of this sex and band kept this invented house. A NAMED house is never given a keeper this way — see the tool's refusals. The family this keeper is owed is not drawn here; `household_owed` says which ticket owes it. No figure is drawn (L1)."
+        },
+        {
+          "name": "Catherine Trottier",
+          "relationship": "boarder",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Maria Bardwell",
+          "relationship": "boarder",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Asa Hastings",
+          "relationship": "boarder",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Baptiste Bourassa",
+          "relationship": "boarder",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Charles Pelletier",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 3 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 19 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    },
+    {
+      "household": "hh_owen_j_v",
+      "name": "J V Owen",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "J V Owen",
+          "relationship": "boarder",
+          "grade": "attested",
+          "occupation": "",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_rc_mccarthy_ellen",
+      "name": "Ellen McCarthy",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at domestic in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Ellen McCarthy",
+          "relationship": "boarder",
+          "grade": "reconstructed",
+          "occupation": "domestic",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_thompson_o_i",
+      "name": "O I Thompson",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "O I Thompson",
+          "relationship": "boarder",
+          "grade": "attested",
+          "occupation": "",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+      "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
+      "url": "",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "A 665-roof production target with independently reconcilable group, district, level, and construction totals.",
+        "Thirty-five architectural family definitions with dimensional and massing bands.",
+        "District character, spacing, variation, finish, and chronology constraints for a July 1835 reconstruction.",
+        "A required distinction between named documentary landmarks and anonymous inferred infill."
+      ],
+      "what_it_does_not_supply": [
+        "A surviving July 1835 building census or parcel-by-parcel roof register.",
+        "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
+        "Authority to replace stronger building-specific evidence already represented in the dataset."
+      ]
+    }
+  ],
+  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Aggregate mix follows the supplied specification; exact presence, position, footprint, finish and instance-level form are interpretive. H2 boarding-house massing currently uses a generic rectangular frame block because no boarding-house generator is implemented.",
+  "research_doc": "docs/RESEARCH/inferred_infill_1835.md",
+  "review_required": false,
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "H2",
+    "district": "west",
+    "inventory_class": "principal_functional",
+    "programme_phase": "phase2_west_wolf_point_approaches",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "sequence": 35,
+    "finish_key": "fresh_timber",
+    "roof_condition": "darkened",
+    "age_state": "established"
+  },
+  "lodging": {
+    "class": "boarding_house",
+    "beds_ordinary": 11,
+    "beds_crowded": 27,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": false,
+    "enclosed_floor_m2": 197.68,
+    "confidence": "reconstructed",
+    "note": "The town model puts a boarding house at 9 people on an ordinary night and 21 when full, from the 1840 household tail (p90 and p99 of 964 Chicago households). This building takes the share of its class's total that its 198 m² of enclosed floor (99 m² × 2 storeys) is of the class's floor area.",
+    "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
+    "occupancy": {
+      "people": 11,
+      "beds_ordinary": 11,
+      "empty": 0,
+      "statement": "11 on this card against an ordinary night's 11 beds: 6 seated here from elsewhere in the layer, where no source gives them a roof, 4 drawn against the order book's lodging buckets for beds that were standing empty, a keeper drawn for a roof this programme raised.",
+      "empty_note": "",
+      "keeper_persons": 2,
+      "keeper_owed": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 1 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
+    }
+  }
+}

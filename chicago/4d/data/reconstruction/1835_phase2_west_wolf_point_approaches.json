@@ -187,19 +187,25 @@
     "precision_warning": "Decimal coordinates are machine-readable layout controls, not historical precision. Every instance position is conjectural and the 1834 map georeference itself carries about 20 m working uncertainty."
   },
   "terrain_and_hydrology_gate": {
-    "boundary_hold": {
-      "block": "Do not emit a structure record or mesh for the placements listed below. The corporate boundary of 7 November 1833 resolves its west leg on Jefferson Street, and tools/measure_corporation_limits.py must carry that leg 1188.8 m past the end of its own committed centreline to reach Ohio Street. Each of these placements stands closer to the extended leg than the leg's own drift, so the EXTRAPOLATION rather than the ordinance would decide whether the roof stood inside the town limits or outside them. The reconstruction leaves that side unstated by not building the roof.",
-      "imposed_by": "T-1444, 2026-09-20",
-      "measured_by": "tools/measure_corporation_limits.py --gate, 2026-09-20",
-      "lifted_when": "Jefferson Street is traced north to Ohio from a committed source, at which point the leg is no longer an extrapolation and its drift falls to the trace tolerance. The held slots keep their ids, their families and their dealt sequence numbers, and instantiate unchanged. T-1490 owns it.",
+    "corridor_hold": {
+      "block": "Do not emit a structure record or mesh for the placements listed below. Each stands inside the platted corridor of Jefferson Street as data/streets/1835.json#jefferson draws it - a 24.384 m corridor, so 12.192 m either side of the centreline - and an invented placement has no business in the roadway at all (tools/plat_corridors.py states that bar). The reconstruction does not put a roof in a street it has drawn, and it does not move a conjectural building sideways to make room for itself either, so the roof is not built.",
+      "imposed_by": "T-1490, 2026-09-24",
+      "measured_by": "footprint-corner distance to data/streets/1835.json#jefferson against its own corridor_width_m, 2026-09-24; tools/plat_corridors.py does not yet carry this street because data/traces/street_control.json has no jefferson control entry, which is why the generator's own corridor check does not see it",
+      "lifted_when": "The two placements are re-dealt off the Jefferson corridor by the recipe that seated them - not field-edited - or the corridor is refused in writing with the reading that refuses it. Either way the parcel's family mix and dealt sequence numbers are what must survive it.",
       "slots": {
-        "west_rec_027": {"clearance_m": 12.9, "drift_m": 23.8},
-        "west_rec_029": {"clearance_m": 19.2, "drift_m": 23.2},
-        "west_rec_032": {"clearance_m": 22.6, "drift_m": 22.7},
-        "west_rec_035": {"clearance_m": 6.9, "drift_m": 22.0},
-        "west_rec_037": {"clearance_m": 7.4, "drift_m": 22.4}
+        "west_rec_027": {
+          "centreline_clearance_m": 0.17,
+          "corridor_half_width_m": 12.192,
+          "intrusion_m": 12.02
+        },
+        "west_rec_037": {
+          "centreline_clearance_m": 2.68,
+          "corridor_half_width_m": 12.192,
+          "intrusion_m": 9.51
+        }
       },
-      "next_roof_out": "recon_1835_west_033 clears the leg at 24.8 m against 22.7 m of drift, and is decided."
+      "supersedes": "T-1444's boundary_hold, which held five slots because the corporate boundary's west leg was carried 1,188.8 m past the end of jefferson_school_section and three of those five stood inside its drift. T-1490 carried the West Division's own Jefferson north to local north +381.887 on surviving control and made the leg walk it, so the leg no longer reaches these slots at all and nothing stands beside its remaining 288.3 m extension. west_rec_029, west_rec_032 and west_rec_035 are released by that and instantiate unchanged, on their own ids, families and dealt sequence numbers. The other two were never a boundary question: they stand in the street, which the boundary hold had been hiding.",
+      "next_roof_out": "recon_1835_west_035 clears the Jefferson corridor by 9.85 m and is built; recon_1835_west_037 is the deepest in, at 9.51 m inside it."
     },
     "current_terrain_box_local_enu_m": {"e": [-705.0, 1700.0], "n": [-3800.0, 1120.0]},
     "required_west_box_local_enu_m": {"e": [-700.0, 1700.0], "n": [-400.0, 400.0]},

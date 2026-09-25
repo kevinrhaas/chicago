@@ -227,13 +227,13 @@ def west_held_back(recipe: dict) -> int:
     if gate.get("instantiation_block"):
         held += sum(1 for p in recipe["placements"]
                     if p["center_local_enu_m"][0] < WEST_INSTANTIATION_BLOCK_E)
-    # T-1444. The terrain block is retired and a second one took its place, on a question
-    # terrain cannot answer: five slots stand inside the drift band of the corporate
-    # boundary's extrapolated west leg, so which side of the 1833 town limits they were on
-    # is not knowable until Jefferson Street is traced north (T-1490). A hold is a hold —
-    # the schedule counts what the parcel still owes, not why it owes it — and the count
-    # is read off the recipe rather than retyped here.
-    held += len((gate.get("boundary_hold") or {}).get("slots") or {})
+    # T-1444, re-cut by T-1490. The terrain block is retired and a second hold took its
+    # place; T-1490 traced Jefferson north and released three of its five slots, and the
+    # two that remain are held on a question the boundary was hiding — they stand inside
+    # the platted Jefferson corridor. A hold is a hold — the schedule counts what the
+    # parcel still owes, not why it owes it — and the count is read off the recipe rather
+    # than retyped here.
+    held += len((gate.get("corridor_hold") or {}).get("slots") or {})
     return held
 
 # What the balance of each district is waiting on. The West entry is the street control
@@ -315,10 +315,19 @@ def deal(counts: dict[str, int]) -> list[str]:
 # ---- the business-front term (T-0213) --------------------------------------------
 #
 # The schedule apportions families by DISTRICT and has no notion of a street. Measured on
-# the committed record, that is wrong in one particular: the DOCUMENTED trade share is
-# monotone in the committed street hierarchy — 0.7778 of the documented buildings standing
-# nearest a `principal` street carry a trade family, 0.4545 on an `ordinary` street and
-# 0.0000 on a `light` one (`tools/measure_frontage_fabric.py --trade`, 68 records). So a
+# the committed record, that is wrong in one particular: the DOCUMENTED trade share
+# differs by the committed street hierarchy, and the business front carries the most of
+# it — 0.6500 of the documented buildings FRONTING a `principal` street carry a trade
+# family against 0.4167 on an `ordinary` one (`--trade`, 58 records). It was read as
+# monotone across all three classes at T-0213, off a town whose north bank had no
+# corridors and whose census had no frontage reach; the `light` class has since risen to
+# 0.6429 on fourteen records and the ordering is no longer a ladder. The term does not
+# rest on one — a block's weight is the mean of its faces' class shares whatever order
+# those shares fall in — and the principal class being the highest of the three is what
+# it is for. THE PRINCIPAL SHARE READ 0.3846 UNTIL T-1511, the LOWEST of the three, and
+# that was an artefact: nineteen roofs that front no street, seventeen of them inside the
+# Fort Dearborn reservation, were being counted in the class off a Lake Street line 270 m
+# to 429 m away. Two of the nineteen carried a trade family. So a
 # block dealt a South Water face should be likelier to be dealt C, F and W than a block two
 # streets back, and until this term it was not: `blk_south_water_franklin` and
 # `blk_south_water_lasalle` between them held twelve of the business front's roofs and not
@@ -1457,15 +1466,24 @@ def programme_document():
             "business_front": {
                 "what": "Which of a district's principal roofs land on which platted "
                         "block is weighted by what the block FRONTS, because the "
-                        "documented trade share is monotone in the committed street "
-                        "hierarchy. It is a permutation of the families the district deal "
-                        "already placed, among the same blocks, so no total moves: not the "
+                        "documented trade share differs by the committed street "
+                        "hierarchy — highest on the principal class. It is a permutation "
+                        "of the families the district deal already placed, among the same "
+                        "blocks, so no total moves: not the "
                         "target, not a district, not a family, not any block's roof count.",
                 "measured": "tools/measure_frontage_fabric.py --trade — the share of "
                             "DOCUMENTED buildings carrying a trade family (C stores, F "
                             "warehouses, W workshops), by the traffic class of the street "
-                            "they stand nearest. The research layer only: weighting the "
-                            "schedule by what the schedule invented would ratchet.",
+                            "they FRONT. The research layer only: weighting the "
+                            "schedule by what the schedule invented would ratchet. Since "
+                            "T-1511 a building beyond the census's frontage reach fronts "
+                            "no street and votes in no class: nineteen roofs left the "
+                            "principal class, seventeen of them inside the Fort Dearborn "
+                            "reservation and only two of the nineteen carrying a trade "
+                            "family, and the principal share went from 0.3846 (15 of 39) "
+                            "to 0.6500 (13 of 20). The weight ordering of the four South "
+                            "Water blocks is unchanged by it and the same eight trade "
+                            "roofs are re-dealt to the same quota.",
                 "weight": "A block's weight is the mean of its four faces' class shares, "
                           "read off data/streets/1835.json. Re-class a street there and "
                           "every block on it re-weights in the same commit.",

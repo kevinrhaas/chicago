@@ -4379,9 +4379,10 @@
    "as_printed": "¥..B Northrop",
    "extracted_as": "[?] B. Northrop",
    "ruled_by_identity": {
-    "ruling": "refused: not joined to printed line 113",
+    "ruling": "one person with printed line 113",
     "line": 113,
-    "refused_because": "Line 113 is set 'F. B. Northrop' at the page image and the 1834-01-28 transcription carries '[?] B. Northrop', whose first initial is a glyph nobody could read. An unread initial is a POSITION, NOT AN ABSENCE (T-0397): '[?] B.' reads against 'F. B.' and the two refuse, exactly as '[?]. Beegle' refuses 'A. Beegle'. Whether that refusal is right is the open policy question T-0392 puts to the owner; until it is answered the conservative reading stands. Nothing is duplicated by the refusal — the town already holds Francis B. Northrop and the minting pass turns both of these away on the surname. T-1011."
+    "held_as": "F. B. Northrop",
+    "ticket": "T-0392"
    },
    "why": "the list carries this surname and no line's forename agrees with this reading of it",
    "lines_carrying_the_surname": [

@@ -28,7 +28,7 @@
   {
    "what": "letter-list and newspaper persons",
    "path": "data/research/newspapers/gazetteer.json",
-   "n": 2640
+   "n": 2623
   },
   {
    "what": "1840 heads of household read in this repo",
@@ -48,7 +48,7 @@
   "voters_surname_only_refused": 86,
   "letter_list_matched_one_entry": 195,
   "letter_list_ambiguous": 64,
-  "letter_list_surname_only_refused": 545,
+  "letter_list_surname_only_refused": 542,
   "heads_1840_matched_one_entry": 86,
   "heads_1840_ambiguous": 21,
   "heads_1840_surname_only_refused": 205
@@ -16032,24 +16032,9 @@
     "rule": "The surname 'Warren' stands in the 1837 poll and no man under it carries the initial '-' of '[?] Warren'. A surname-only agreement is a refusal."
    },
    {
-    "name": "[?]. Fisher",
-    "candidates_under_that_surname": 1,
-    "rule": "The surname 'Fisher' stands in the 1837 poll and no man under it carries the initial '-' of '[?]. Fisher'. A surname-only agreement is a refusal."
-   },
-   {
     "name": "[?]. Smith",
     "candidates_under_that_surname": 11,
     "rule": "The surname 'Smith' stands in the 1837 poll and no man under it carries the initial '-' of '[?]. Smith'. A surname-only agreement is a refusal."
-   },
-   {
-    "name": "[?]. [H]. Scott",
-    "candidates_under_that_surname": 2,
-    "rule": "The surname 'Scott' stands in the 1837 poll and no man under it carries the initial 'H' of '[?]. [H]. Scott'. A surname-only agreement is a refusal."
-   },
-   {
-    "name": "[?]kiler Brown",
-    "candidates_under_that_surname": 7,
-    "rule": "The surname 'Brown' stands in the 1837 poll and no man under it carries the initial 'K' of '[?]kiler Brown'. A surname-only agreement is a refusal."
    },
    {
     "name": "[C]handler Fi[s]her",

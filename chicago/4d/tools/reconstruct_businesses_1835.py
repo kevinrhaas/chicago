@@ -963,6 +963,49 @@ def order_book_buckets(ticket, book=None):
     return [b for b in family["buckets"] if b.get("owning_ticket") == ticket]
 
 
+# The one refusal cause that is an INSTRUCTION to the filler rather than a ruling over it.
+SHRUNK_BY_A_READING = "a_documented_reading_shrank_the_order"
+
+
+def order_for(bucket, book):
+    """How many houses this group builds for a bucket — the book's order, except where
+    the book is HOLDING a shrunk one open for this group to retire itself (T-1506).
+
+    THE BOOK REFUSES TO SHRINK A TARGET UNDER WORK ALREADY DRAWN, and that is the owner's
+    ruling of 2026-09-20 (T-1459). It refuses for two different reasons, and only one of
+    them is addressed to the filler:
+
+      `the_re_cut_reached_work_already_drawn` — a re-cut of the PERSON buckets would have
+      put an order under the people drawn against it. Nothing already drawn moves, full
+      stop, and this tool reads the held order and builds to it.
+
+      `a_documented_reading_shrank_the_order` — the town READ a practitioner it can name,
+      `known` rose, and the order fell under the records already drawn. The refusal's own
+      `why` says what happens next: "the surplus is retired by the ticket that owns the
+      bucket rather than by this one." This tool IS that ticket, for every bucket
+      `order_book_buckets` hands it, so here the held number is a message and not a quota.
+
+    WITHOUT THIS THE SURPLUS COULD NEVER BE RETIRED, and the deadlock is exact: the book
+    holds `to_reconstruct` at `filled` because the surplus stands, and the filler builds to
+    `to_reconstruct`, so it rebuilds the record whose existence is the only reason the book
+    is holding. `businesses/lawyer` sat that way from T-1299 — 16 lawyers against a target
+    of 15, fourteen the town can name and two it invented. The retirement is a deliberate
+    act by the bucket's owner, which is what T-1459 asked for; what it is not is the book
+    shrinking a target in silence, which is what T-1459 refused.
+
+    THE ORDER IS ALL THAT MOVES. `build_group` takes candidates in `slot` order, so an
+    order of 1 keeps the first and drops the second — the drop is re-derived, never a file
+    deleted by hand, and `build` refuses to unlink a record another layer has adopted.
+    """
+    if not bucket.get("recut_refused"):
+        return bucket["to_reconstruct"]
+    refusal = next((r for r in book.get("recut_refusals") or []
+                    if r.get("bucket") == bucket["key"]), None)
+    if not refusal or refusal.get("cause") != SHRUNK_BY_A_READING:
+        return bucket["to_reconstruct"]
+    return refusal["the_re_cut_would_have_ordered"]
+
+
 def trade_heads(root=None):
     """Every reconstructed trade head the resident band drew, by trade, in slot order."""
     root = Path(root or TRADE_HOUSEHOLDS)
@@ -1694,12 +1737,18 @@ def build_group(group, communities=None, streets=None, heads=None, book=None):
     streets = streets if streets is not None else {
         s["id"]: s.get("name_1835") or s["id"] for s in load_json(STREETS)["streets"]}
     heads = heads if heads is not None else trade_heads()
+    book = book if book is not None else load_json(ORDER_BOOK)
     records, shortfalls = [], []
     taken = set()
     for bucket in order_book_buckets(GROUPS[group]["ticket"], book):
-        owed = bucket["to_reconstruct"]
+        owed = order_for(bucket, book)
         if owed <= 0:
             continue
+        # The record's own basis prints the order it was drawn against, so a bucket the
+        # book is holding open for a retirement prints the RE-CUT order rather than the
+        # held one: the note is the reason this house stands, and 2 would be the reason
+        # the other one no longer does.
+        bucket = dict(bucket, to_reconstruct=owed)
         cls = bucket["axes"]["class"]
         if cls not in TRADE_CLASS or cls not in STYLES:
             raise SystemExit(
@@ -1993,6 +2042,35 @@ def built_groups():
     return sorted(live)
 
 
+# THE FILES A RETIRED RECORD IS ALLOWED TO BE NAMED BY, and they are the two this build
+# rewrites for itself: the compiled index, which `tools/compile_businesses.py` re-derives
+# from `authored/` after every build, and this programme's own ledger. Anything else is a
+# layer that adopted the record BY NAME — a premises, a staff seat, an employment join, a
+# coverage answer — and a retirement that leaves the name behind is T-1503's fault again.
+RETIREMENT_MAY_NAME = (
+    Path("data") / "businesses" / "index.json",
+    Path("data") / "reconstruction" / "1835_business_reconstruction.json",
+)
+
+
+def adopted_elsewhere(record_id, data_dir=None):
+    """Every file outside this build's own products that names a record by id."""
+    root = Path(data_dir or DATA)
+    allowed = {ROOT / p for p in RETIREMENT_MAY_NAME}
+    allowed.add(AUTHORED / ("%s.json" % record_id))
+    needle = record_id.encode("utf-8")
+    held = []
+    for path in sorted(root.rglob("*.json")):
+        if path in allowed:
+            continue
+        try:
+            if needle in path.read_bytes():
+                held.append(str(path.relative_to(ROOT)))
+        except OSError:
+            continue
+    return held
+
+
 def build(groups):
     built = {}
     for group in groups:
@@ -2009,6 +2087,16 @@ def build(groups):
         block = load_json(path).get("reconstruction") or {}
         if block.get("group") in built and path.stem not in {
                 r["id"] for r in built[block["group"]]}:
+            adopters = adopted_elsewhere(path.stem)
+            if adopters:
+                raise SystemExit(
+                    "the retirement of %s is refused: %s name%s it, and an invented record "
+                    "another layer has adopted BY NAME is not silently re-dealable "
+                    "(T-1503).\n%s\nRetire it there first, or in the same pass, and say "
+                    "which layer held it."
+                    % (path.stem, "one layer" if len(adopters) == 1 else "%d layers"
+                       % len(adopters), "s" if len(adopters) == 1 else "",
+                       "\n".join("  " + a for a in adopters)))
             path.unlink()
     # THE LEDGER IS THE WHOLE LAYER, NOT THIS RUN. A --build takes one group, because a
     # group is one ticket's quota — but the ledger counts every reconstructed house the
@@ -2323,10 +2411,51 @@ def self_test():
             failures.append("%s orders houses on a trade quota and no table adjudicates it"
                             % group)
 
+    # 19. A BUCKET THE BOOK IS HOLDING OPEN FOR A RETIREMENT BUILDS TO THE RE-CUT ORDER,
+    #     and only for the cause that asks this tool to retire something (T-1506). Both
+    #     directions, because the whole value of the distinction is that one refusal moves
+    #     the filler and the other one must not.
+    held = json.loads(json.dumps(book))
+    family = next(f for f in held["bucket_families"] if f["key"] == "businesses")
+    target = next(b for b in family["buckets"] if b["key"] == "businesses/druggist")
+    was = target["to_reconstruct"]
+    target["to_reconstruct"] = was + 1
+    target["recut_refused"] = True
+    held.setdefault("recut_refusals", []).append({
+        "bucket": "businesses/druggist", "cause": SHRUNK_BY_A_READING,
+        "quota_it_was_drawn_against": was + 1, "the_re_cut_would_have_ordered": was,
+        "already_drawn": was + 1, "held_at": was + 1})
+    if order_for(target, held) != was:
+        failures.append("a bucket held open by a documented reading did not build to the "
+                        "re-cut order")
+    held["recut_refusals"][-1]["cause"] = "the_re_cut_reached_work_already_drawn"
+    if order_for(target, held) != was + 1:
+        failures.append("a bucket held by T-1459's person-bucket ruling was shrunk anyway")
+    plain = next(b for b in next(
+        f for f in book["bucket_families"] if f["key"] == "businesses")["buckets"]
+        if b["key"] == "businesses/druggist")
+    if order_for(plain, book) != plain["to_reconstruct"]:
+        failures.append("a bucket the book is not holding did not build to its own order")
+
+    # 20. AND A RETIREMENT IS REFUSED WHERE ANOTHER LAYER HAS ADOPTED THE RECORD BY NAME.
+    #     T-1503's lesson, asserted on a record that certainly is adopted: every
+    #     reconstructed house names its own proprietor, and the resident layer holds that
+    #     person's card, so a house id that appears in the residents tree is the shape this
+    #     guard exists to catch. Asserted here on a real id rather than a fixture, because
+    #     the guard reads the committed tree and a fixture would not prove it can.
+    ghost = adopted_elsewhere("rcb_a_house_this_town_has_never_carried")
+    if ghost:
+        failures.append("the retirement guard named a layer for an id nothing carries: %s"
+                        % ", ".join(ghost))
+    probe = next((h["person_id"] for _, rows in sorted(heads.items()) for h in rows), None)
+    if probe and not adopted_elsewhere(probe):
+        failures.append("the retirement guard found no file naming %s, so it is not reading "
+                        "the layers a retirement has to clear" % probe)
+
     if failures:
         print("\n".join(["self-test FAILED:"] + ["  " + f for f in failures]))
         return 1
-    print("OK: 19 assertions of the business reconstruction still fire")
+    print("OK: 21 assertions of the business reconstruction still fire")
     return 0
 
 

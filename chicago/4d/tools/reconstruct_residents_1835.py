@@ -1140,6 +1140,16 @@ def _check_lodgers() -> int:
     return seat_lodgers_1835.check()
 
 
+def _build_institutional_households() -> int:
+    import reconstruct_institutional_households
+    return reconstruct_institutional_households.build()
+
+
+def _check_institutional_households() -> int:
+    import reconstruct_institutional_households
+    return reconstruct_institutional_households.check()
+
+
 def _build_transients() -> int:
     import reconstruct_transients_1835
     return reconstruct_transients_1835.build()
@@ -1196,7 +1206,8 @@ def _check_garrison() -> int:
     return reconstruct_garrison_1835.check()
 
 
-STAGE_BUILDERS = {"attribute_fill_sex_age": _build_attribute_fill_sex_age,
+STAGE_BUILDERS = {"institutional_households": _build_institutional_households,
+                  "attribute_fill_sex_age": _build_attribute_fill_sex_age,
                   ARRIVAL_STAGE: _build_attribute_fill_arrival,
                   "modelled_families": _build_modelled_families,
                   "readmissions": _build_readmissions,
@@ -1206,7 +1217,8 @@ STAGE_BUILDERS = {"attribute_fill_sex_age": _build_attribute_fill_sex_age,
                   "lodgers": _build_lodgers,
                   "transients": _build_transients,
                   UNDERDOCUMENTED_STAGE: _build_underdocumented}
-STAGE_CHECKERS = {"attribute_fill_sex_age": _check_attribute_fill_sex_age,
+STAGE_CHECKERS = {"institutional_households": _check_institutional_households,
+                  "attribute_fill_sex_age": _check_attribute_fill_sex_age,
                   "modelled_families": _check_modelled_families,
                   "readmissions": _check_readmissions,
                   "trade_households": _check_trade_households,
