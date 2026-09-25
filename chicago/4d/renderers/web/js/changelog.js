@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'Two houses that were left out for standing in the street', kind: 'add', ts: '',
+  { v: 1114, title: 'Two houses that were left out for standing in the street', kind: 'add', ts: '2026-09-25T21:24:48.971Z', date: 'Sep 25, 2026, 4:24 PM CT',
     items: [
       'Two buildings arrive on the West Side, on the Jefferson Street frontage between Lake and Randolph: a log dwelling and a small outbuilding behind one of its neighbours. They are the last two of the fifty-five roofs this parcel of the town was laid out to hold, and they are the only two that had never been built.',
       'They were left out for a good reason. The layout that placed them was drawn before this project had drawn Jefferson Street, and when the street arrived it went straight through them — one of the two stood almost exactly on the centre line, 12 m into a 24 m roadway. A building in the middle of a street is the one thing everyone can see is wrong, so rather than put a made-up house in a road, the project put up neither and wrote down why.',

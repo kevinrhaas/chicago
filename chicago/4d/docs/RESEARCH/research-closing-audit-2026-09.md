@@ -116,12 +116,12 @@ An unresolved unit is research that has been read and not yet spent. The ledger'
 
 | Owner | Units | State | Live |
 | --- | ---: | ---: | ---: |
-| T-1189 | 12 | split | **NO** |
 | T-1198 | 272 | split_live | yes |
 | T-1315 | 3 | open | yes |
 | T-1335 | 169 | open | yes |
 | T-1543 | 1 | open | yes |
 | T-1552 | 26 | open | yes |
+| T-1569 | 12 | open | yes |
 
 The rest defer to no ticket, and that is the second legitimate shape rather than a gap (T-1423): a name the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, whose open question is whether the person was in the town on 1 July 1835. No ticket can answer that — only a document can — so each states the document instead. The pointer that used to stand here was renamed four times as the ticket it named kept closing, and no source came any nearer.
 
@@ -145,6 +145,6 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 
 ## 8. Closing
 
-Unclassified registered research units: **0**. Dead asserted targets: **0**. Unresolved units deferred to work that is not live: **12**.
+Unclassified registered research units: **0**. Dead asserted targets: **0**. Unresolved units deferred to work that is not live: **0**.
 
 The closed ledger is therefore complete in its own terms, and section 7 names the five places where the research stopped and the ticket that carries each one. This audit makes no GO/NO-GO judgement about reconstruction: that is T-1157's signature, and this is the evidence under it.
