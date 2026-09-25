@@ -12,8 +12,8 @@ Registered reading units: **23,693**, as of 2026-09-15. Unclassified: **0**. Ass
 | asserted | 1,348 |
 | later_only | 12,580 |
 | outside_chicago | 109 |
-| refused | 8,722 |
-| unresolved | 723 |
+| refused | 8,720 |
+| unresolved | 725 |
 
 Every asserted unit names the record and field it wrote to. Grouped by the layer that file belongs to:
 
@@ -39,7 +39,7 @@ Reproduce: `python3 tools/measure_research_spend.py --ledger-build` then `python
 | Persons graded `inferred` | 992 |
 | Persons graded `reconstructed` | 979 |
 | Letter-list-only names | 736 |
-| Projected residents | 721 |
+| Projected residents | 722 |
 | Merged away | 67 |
 
 Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.json'))['counts'])"`.
@@ -57,8 +57,8 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 | Presence on 1 July 1835 | Households |
 | --- | ---: |
 | absent | 2 |
-| present | 575 |
-| uncertain | 935 |
+| present | 574 |
+| uncertain | 936 |
 
 | Division | Households |
 | --- | ---: |
@@ -121,6 +121,7 @@ An unresolved unit is research that has been read and not yet spent. The ledger'
 | T-1315 | 3 | open | yes |
 | T-1335 | 169 | open | yes |
 | T-1543 | 1 | open | yes |
+| T-1551 | 2 | open | yes |
 
 The rest defer to no ticket, and that is the second legitimate shape rather than a gap (T-1423): a name the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, whose open question is whether the person was in the town on 1 July 1835. No ticket can answer that — only a document can — so each states the document instead. The pointer that used to stand here was renamed four times as the ticket it named kept closing, and no source came any nearer.
 

@@ -35,8 +35,8 @@ Reproduce: `python3 tools/report_research_signoff.py --check`.
 | asserted | 1,348 |
 | later_only | 12,580 |
 | outside_chicago | 109 |
-| refused | 8,722 |
-| unresolved | 723 |
+| refused | 8,720 |
+| unresolved | 725 |
 
 Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,348 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
 
@@ -48,9 +48,10 @@ An `unresolved` unit is research read and not yet spent, and it is only legitima
 | T-1335 | 169 | open | yes |
 | T-1189 | 12 | split_live | yes |
 | T-1315 | 3 | open | yes |
+| T-1551 | 2 | open | yes |
 | T-1543 | 1 | open | yes |
 
-Not one of those owners asks for another READING. The heaviest are T-1198 (272), T-1335 (169), T-1189 (12), T-1315 (3), T-1543 (1) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
+Not one of those owners asks for another READING. The heaviest are T-1198 (272), T-1335 (169), T-1189 (12), T-1315 (3), T-1551 (2) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
 
 **266** further unresolved unit(s) name no ticket at all, because no ticket can settle them: they are names the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, and what is open is whether the person was in the town on 1 July 1835. Each states the document that would reopen it (T-1423):
 
@@ -70,7 +71,7 @@ Not one of those owners asks for another READING. The heaviest are T-1198 (272),
 | Persons graded `inferred` | 992 |
 | Persons graded `reconstructed` | 979 |
 | Letter-list-only names | 736 |
-| Carrying the PROJECTED RESIDENT qualifier | 721 |
+| Carrying the PROJECTED RESIDENT qualifier | 722 |
 
 Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/synthesize_resident_research.py --drift` · `python3 tools/report_research_closing_audit.py --check`.
 
@@ -81,29 +82,29 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | Measure | Count |
 | --- | ---: |
 | Persons in the layer | 2,383 |
-| Carrying at least one dated role | 327 |
-| Carrying two or more | 183 |
-| Role rows in total | 734 |
+| Carrying at least one dated role | 328 |
+| Carrying two or more | 185 |
+| Role rows in total | 738 |
 | Persons whose roles reach 1835-07-01 | 138 |
-| Persons whose every role is dated away from it | 189 |
-| Persons carrying no dated role at all | 2,056 |
+| Persons whose every role is dated away from it | 190 |
+| Persons carrying no dated role at all | 2,055 |
 
 | Role kind | Rows |
 | --- | ---: |
 | `employment` | 1 |
 | `office` | 52 |
 | `profession` | 84 |
-| `trade` | 597 |
+| `trade` | 601 |
 
 | Dating | Rows |
 | --- | ---: |
-| dated away from it | 574 |
+| dated away from it | 578 |
 | reaches 1 July 1835 | 160 |
 
 | Confidence | Rows |
 | --- | ---: |
 | `attested` | 127 |
-| `inferred` | 607 |
+| `inferred` | 611 |
 
 Of the rows that reach the scene date, every one names a source that describes it (C5) — 127 by `source_describes_date`, 33 by `stated_date`.
 
@@ -176,24 +177,24 @@ Home and work first, read off the household records:
 | `division` | 176 |
 | `face` | 0 |
 | `lot` | 0 |
-| `none` | 1,186 |
+| `none` | 1,305 |
 | `structure` | 31 |
 
-Then every location claim the research makes, reconciled: **1,840** rows, each carrying a disposition, a date precision and — where it stops short — the clause that stops it.
+Then every location claim the research makes, reconciled: **1,962** rows, each carrying a disposition, a date precision and — where it stops short — the clause that stops it.
 
 | Claim kind | Rows |
 | --- | ---: |
 | `business_location` | 179 |
-| `home` | 1,393 |
+| `home` | 1,512 |
 | `later_home_address` | 56 |
-| `later_workplace_address` | 162 |
+| `later_workplace_address` | 165 |
 | `workplace` | 50 |
 
 | Disposition | Rows |
 | --- | ---: |
 | `limited` | 299 |
-| `no_claim` | 1,186 |
-| `refused` | 185 |
+| `no_claim` | 1,305 |
+| `refused` | 188 |
 | `resolved` | 170 |
 
 Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. Rows called resolved that resolve onto nothing: **0** (C7). This is the answer to *how many attested location facts sit in prose with no structured target*: none — every claim in the corpus is a row here, and a row that could not be placed says so with its reason rather than being dropped or guessed past.
@@ -223,20 +224,20 @@ Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. 
 
 | Roles naming a printed place | Rows |
 | --- | ---: |
-| dated away from it | 274 |
+| dated away from it | 279 |
 
 Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/compile_agencies.py --check`.
 
 ## 5. Withheld is legible
 
-**21,622** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
+**21,620** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
 
 | Withheld as | Units |
 | --- | ---: |
 | `aggregate_only` | 211 |
 | `later_only` | 12,580 |
 | `outside_chicago` | 109 |
-| `refused` | 8,722 |
+| `refused` | 8,720 |
 
 The same rule over the gate itself: of **180** tools carrying a `--check`, **173** are run by `tools/check.sh` and **7** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 
@@ -273,8 +274,8 @@ None of these is a condition above, and that is a judgement rather than an overs
 
 1. **28 of the 179 firms standing on 1835-07-01 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits it; T-1189 staffs it.
 2. **61 firms reach a street and 62 reach nowhere.** Those limits are preserved refusals; T-1198 seats what can be seated and the rest stay limits.
-3. **1,481 of 1,512 households have no `lives_at`, and 1,186 sit in no seating class.** Most are post-office-list names whose whole evidence is that a letter waited for them. T-1172 rules on their re-admission; T-1199 seats them.
-4. **2,056 of 2,383 persons carry no dated role, and 189 carry only roles dated away from the scene date.** The town's trades come from newspapers, directories and registers, and those name the men who advertised. T-1173 reconstructs the trade households the occupation model still wants.
+3. **1,481 of 1,512 households have no `lives_at`, and 1,305 sit in no seating class.** Most are post-office-list names whose whole evidence is that a letter waited for them. T-1172 rules on their re-admission; T-1199 seats them.
+4. **2,055 of 2,383 persons carry no dated role, and 190 carry only roles dated away from the scene date.** The town's trades come from newspapers, directories and registers, and those name the men who advertised. T-1173 reconstructs the trade households the occupation model still wants.
 5. **Only 81 `associated_with` rows exist.** The plural, dated location row is the agreed shape (T-1147) and the renderer already reads it, but the migration off the singular `lives_at`/`works_at` pair has barely begun: T-1273 writes the committed reconciliations as association rows, T-1274 retires the pair. Until then the reconciliation table above, not the card, is where a person's second address is legible — which is why C7 measures the table.
 6. **One resident derivation cannot be gated on byte identity.** `tools/mint_letter_list_residents.py` is not the last writer of the files it derives, so re-running it over the committed tree would revert the synthesis and upgrade grades this project holds down; T-0662 read that and T-0691 owns the contract that compares only what the pass owns. It is declared on the gate baseline with that reason (C9) and `--gate` and `--self-test` are run in check.sh, which prove different things. This is a tooling contract, not an unspent reading: it cannot cause a reconstruction band to invent over a source, which is why it is listed here and not above.
 

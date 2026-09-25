@@ -33,7 +33,7 @@
   "derived_refusals": 1915,
   "declared_merges": 476,
   "appearances_moved_by_a_landed_adjudication": 181,
-  "declared_refusals": 2281,
+  "declared_refusals": 2280,
   "appearances_taken_off_a_card_by_a_conflation_ruling": 3,
   "appearances_refused_as_out_of_town": 122,
   "identities_carrying_an_out_of_town_reading": 118
@@ -11604,7 +11604,6 @@
   {"a":"ROSS JOHN","b":"Niles Ross","rule":"D2","declared_in":"land_sales/resident_crosswalk.json#refusals","evidence":["data/residents/index.json"]},
   {"a":"TAYLOR WILLIAM","b":"7 residents named Taylor","rule":"D2","declared_in":"land_sales/resident_crosswalk.json#refusals","evidence":["data/residents/index.json"]},
   {"a":"TULLER JONATHON","b":"Elam Tuller","rule":"D2","declared_in":"land_sales/resident_crosswalk.json#refusals","evidence":["data/residents/index.json"]},
-  {"a":"BEAUBIEN J B","b":"18 residents named Beaubien","rule":"D2","declared_in":"land_sales/resident_crosswalk.json#refusals","evidence":["data/residents/index.json"]},
   {"a":"BICKEIDEKE RICH JR","b":"0 residents named Bickeideke","rule":"D2","declared_in":"land_sales/resident_crosswalk.json#refusals","evidence":["data/residents/index.json"]},
   {"a":"BICKEIDEKE RICH SEN","b":"0 residents named Bickeideke","rule":"D2","declared_in":"land_sales/resident_crosswalk.json#refusals","evidence":["data/residents/index.json"]},
   {"a":"BICKERDIKE RICHARD J","b":"0 residents named Bickerdike","rule":"D2","declared_in":"land_sales/resident_crosswalk.json#refusals","evidence":["data/residents/index.json"]},

@@ -604,8 +604,15 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
             # owns what is left of the role migration.
             return {"disposition": "unresolved", "ticket": "T-1254",
                     "reason": "The dated plural-role migration owns this temporal role ruling."}
+        # AND THE REMAINDER POINTER HAS GONE THE SAME WAY AS T-1145's ABOVE. T-1298
+        # closed on its own corpus and the four sites below still named it, so a unit
+        # arriving today cites a ticket this gate cannot resolve. T-1525 is what made one
+        # arrive: minting the register's 120 documented residents changes which units are
+        # unasserted, and a Second Presbyterian roll entry reached it. A closed ticket
+        # cannot own an unresolved unit, so the pointer moves to T-1552 — the same rule
+        # this module has already applied to T-1145, and EPIC_PIECES to T-1297.
         if name == "letter_list_reading_suspicions.json":
-            return {"disposition": "unresolved", "ticket": "T-1298",
+            return {"disposition": "unresolved", "ticket": "T-1552",
                     "reason": "The remainder piece of the epic owns this surviving name suspicion."}
         finding = resident_finding(root, unit)
         if finding:
@@ -614,7 +621,7 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
                 return {"disposition": "refused", "rule": outcome,
                         "evidence": finding.get("summary") or finding["default_summary"]}
             if not finding.get("completed"):
-                return {"disposition": "unresolved", "ticket": "T-1298",
+                return {"disposition": "unresolved", "ticket": "T-1552",
                         "reason": "The resident research pass has not completed this reserved person."}
         # The pilot is a reservation without a committed findings file; positive
         # pass findings that have no exact structured target also remain owned here.
@@ -623,7 +630,7 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
             if not unit["source_ids"] or set(unit["source_ids"]) & set(target["sources"]):
                 target = {k: v for k, v in target.items() if k != "sources"}
                 return {"disposition": "asserted", "target": target}
-        return {"disposition": "unresolved", "ticket": "T-1298",
+        return {"disposition": "unresolved", "ticket": "T-1552",
                 "reason": "No exact source-bearing structured resident field is named yet."}
 
     if domain == "newberry_index":
@@ -658,7 +665,7 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
         owner, reason = PLACE_AND_ENTERPRISE[kind]
         return {"disposition": "unresolved", "ticket": owner, "reason": reason}
     owner, reason = EPIC_PIECES.get(
-        domain, ("T-1298", "The remainder piece of the epic owns this unasserted unit."))
+        domain, ("T-1552", "The remainder piece of the epic owns this unasserted unit."))
     return {"disposition": "unresolved", "ticket": owner, "reason": reason}
 
 

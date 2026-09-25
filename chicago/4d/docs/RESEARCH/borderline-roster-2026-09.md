@@ -10,7 +10,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 | | count |
 |---|---:|
-| rows | 15341 |
+| rows | 15342 |
 | ledger units considered (every non-`asserted` unit) | 23693 |
 | of those, units naming no person | 9384 |
 
@@ -18,7 +18,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 | class | rows | who | what reconstruction may do |
 |---|---:|---|---|
-| `R1_in_window_uncertain` | 901 | A card exists, its source is inside the window, and its presence on 1 July 1835 is `uncertain`. | Fix presence `present` at tier `reconstructed`, basis = the dated appearance plus the population model's persistence rate. |
+| `R1_in_window_uncertain` | 902 | A card exists, its source is inside the window, and its presence on 1 July 1835 is `uncertain`. | Fix presence `present` at tier `reconstructed`, basis = the dated appearance plus the population model's persistence rate. |
 | `R2_in_window_single_source` | 207 | One appearance inside the window, no card, the ledger withheld it as a single source or on insufficient identity. | Mint a reconstructed resident under the read name. |
 | `R3_1834_return_or_muster` | 28 | A name on the 1 April 1834 post-office return (T-1153) or the 1832 Black Hawk muster enrolled at Chicago, with no 1835 corroboration and no card. | Mint reconstructed, presence bounded by the persistence rate. |
 | `R4_surname_only_census` | 436 | A census reading that gives a surname this town already holds and no person of its own — the 1830 surname-only refusals and the 1840 heads. | May supply a FAMILY (spouse and child bands) to an existing head at `reconstructed`. Never a new head. |
@@ -30,7 +30,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 | class | domain | rows |
 |---|---|---:|
-| `R1_in_window_uncertain` | `residents_layer` | 901 |
+| `R1_in_window_uncertain` | `residents_layer` | 902 |
 | `R2_in_window_single_source` | `books` | 28 |
 | `R2_in_window_single_source` | `church` | 34 |
 | `R2_in_window_single_source` | `land_sales` | 145 |
@@ -60,8 +60,8 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 | class / rule | rows |
 |---|---:|
-| `R0_ineligible/already_carried_as_present` | 1068 |
-| `R0_ineligible/carried_by_the_cards_own_row` | 1241 |
+| `R0_ineligible/already_carried_as_present` | 1067 |
+| `R0_ineligible/carried_by_the_cards_own_row` | 1242 |
 | `R0_ineligible/carried_under_a_crosswalk_merged_name` | 161 |
 | `R0_ineligible/earlier_than_the_window` | 146 |
 | `R0_ineligible/forename_printed_surname_lost` | 1 |
@@ -81,7 +81,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 | `R0_ineligible/single_name_parent_of_a_named_child` | 3 |
 | `R0_ineligible/surname_only_and_unmatched` | 250 |
 | `R0_ineligible/undated_reading` | 257 |
-| `R1_in_window_uncertain/card_presence_is_uncertain` | 901 |
+| `R1_in_window_uncertain/card_presence_is_uncertain` | 902 |
 | `R2_in_window_single_source/in_window_read_and_withheld` | 79 |
 | `R2_in_window_single_source/in_window_unspent_inside_an_asserted_claim` | 128 |
 | `R3_1834_return_or_muster/blackhawk_muster_1832_at_chicago` | 28 |
@@ -97,7 +97,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 Five rows of each class, in the roster's own order, with the reason each name was withheld from the town. These are the rows a reader should check the rules against.
 
-### `R1_in_window_uncertain` — 901 rows
+### `R1_in_window_uncertain` — 902 rows
 
 | name as read | dated | source | why it was withheld |
 |---|---|---|---|

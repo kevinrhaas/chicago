@@ -81,7 +81,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import research_spend_ledger as L  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
-TICKET = "T-1298"
+# T-1525. THE POINTER MOVED, AND THIS FILE FOLLOWS IT. T-1298 closed on the corpus it
+# could reach; the units it could not reach are still unasserted, and a unit arriving
+# after the closure cannot be owned by a closed ticket -- `ticket_liveness` below is the
+# assertion that says so. Minting the register's 120 documented residents made new units
+# arrive, so `research_spend_ledger.natural_disposition` re-pointed the remainder to
+# T-1552, the open ticket that owns what T-1298 left behind. This constant is the same
+# pointer read from the other end: it selects which units this register rules, so leaving
+# it on T-1298 empties three of the five documents rather than re-homing them. The rows
+# and the rules do not change -- only the ticket that owns the work they hand on to. The
+# precedent is T-1145 -> T-1254 in the ledger, and T-1297 -> T-1551 in EPIC_PIECES.
+TICKET = "T-1552"
 # T-1509. THE BUSINESS REMAINDER IS THE SECOND CORPUS THIS TOOL OWNS. T-1508 taught the
 # ledger to reach the business layer, and 485 units landed there; 100 did not, and they
 # stood `unresolved` behind the routing pointer T-1468 with nothing said about any one
@@ -1099,6 +1109,12 @@ CHURCH_CROSSWALKS = (
 )
 CHURCH_OUTCOME_RULES = {
     "merged": None,                       # spent on a card by T-1337; see below
+    # T-1525. SPENT, AND NOT BY A MATCH. The crosswalk says the residents card whose
+    # name folds identically to this reading cites this very record id -- the mint read
+    # this row and wrote the person from it. The reading is therefore already on a card,
+    # verbatim, with its locator; there is nothing for this register to rule and a ruling
+    # would read as work done. `church_appearance_rule` states where it went instead.
+    "minted_from_this_reading": None,
     "no_candidate": "the_register_appearance_names_nobody_this_town_holds",
     "unmatched": "the_register_appearance_names_nobody_this_town_holds",
     "refused": "the_register_appearance_identity_was_refused_in_the_crosswalk",
@@ -1136,8 +1152,19 @@ def church_identification(record_id: str, cache: dict) -> dict | None:
 def church_appearance_rule(row: dict, where: str, seen: str,
                            entry: dict) -> tuple[str, str]:
     """What an appearance's own crosswalk already decided about the identity."""
-    rule = CHURCH_OUTCOME_RULES[str(entry.get("outcome"))]
-    told = f"{entry['crosswalk'].rsplit('/', 1)[-1]} rules it {entry.get('outcome')!r}"
+    outcome = str(entry.get("outcome"))
+    rule = CHURCH_OUTCOME_RULES[outcome]
+    told = f"{entry['crosswalk'].rsplit('/', 1)[-1]} rules it {outcome!r}"
+    if outcome == "minted_from_this_reading":
+        # SPENT, NOT RULED (T-1337), and spent by the mint rather than by a merge: the
+        # card names this record id in its own church_evidence, so the reading is on it
+        # as read and this register states nothing about it.
+        minted = entry.get("resident_minted_from_this_reading") or []
+        into = clip(", ".join(minted), 120) or entry.get("name")
+        return None, (
+            f"{where}: {seen}. {told}: tools/mint_civic_residents.py read this row and "
+            f"wrote {into!r} from it, and the card carries the reading as read with this "
+            f"record id — the appearance is on a card already.")
     if rule is None:
         # SPENT, NOT RULED (T-1337). tools/spend_appearance_bounds.py has written this
         # appearance onto the card the crosswalk merges it into, so it closes `asserted`

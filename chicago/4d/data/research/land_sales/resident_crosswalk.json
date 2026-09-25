@@ -6,14 +6,14 @@
   "note": "PROPOSALS, not identities. Nothing here mints a resident, regrades one, or writes to data/residents/. T-0514 and T-0515 spend this file. A match carrying a `ruling` block has been ADJUDICATED (T-0700, resident_rulings.json); one carrying `ruling: null` is still only what the mechanical rule proposed, and a refused proposal is in refusals[] with the ruling as its rule.",
   "ruled": {
     "upheld": 134,
-    "named": 1,
+    "named": 2,
     "refused": 68,
     "unruled": 6
   },
   "counts": {
     "purchasers": 647,
-    "matched": 141,
-    "refused": 506,
+    "matched": 142,
+    "refused": 505,
     "firms": 2,
     "bodies": 3
   },
@@ -3185,6 +3185,211 @@
         "reasoning": "The MIDDLE INITIAL on both sides with the middle name printed in full behind it, and the Residence column reading COOK with a town-side partner to check it against. Fergus 1839 prints 'Harmon, Dr. Elijah D.' and Fergus 1843 'Harmon, Elijah Dewey, physician, bds C. L. Harmon [died January 3, 1869, aged 80]' — the whole middle name, the trade the card holds, and an age that puts birth about 1788, which agrees with Andreas's Bennington, Vermont, 20 August 1782 to within a printer's rounding of a death notice. The layer holds no second Elijah Harmon and the register no second Elijah. One of the two rows of 2 October 1834 states COOK, and cohort B's rule for that column — it needs a town-side partner — is met by the directories' printing of the same initial. Andreas has him pre-empting one hundred and forty acres with a northern boundary near Sixteenth Street, which is the same physician buying ground south of the town that the register's SWFR of section 22 is."
       },
       "what_it_evidences": "The register states this purchaser's residence as COOK, so the sale is contemporary evidence that a man of this name lived in Cook County on the date of sale. It is not evidence that he lived in the town."
+    },
+    {
+      "purchaser_as_read": "BEAUBIEN J B",
+      "record_ids": [
+        "ls0454",
+        "ls0455",
+        "ls0456",
+        "ls0457",
+        "ls0959",
+        "ls0960",
+        "ls0961",
+        "ls0962",
+        "ls0963",
+        "ls0964",
+        "ls0965",
+        "ls0966",
+        "ls0967"
+      ],
+      "resident_id": "beaubien_jean_baptiste",
+      "resident_name": "Col. Jean Baptiste Beaubien",
+      "household_id": "hh_beaubien_jean_baptiste",
+      "match": "named_by_ruling",
+      "rule": "NAMED, NOT UPHELD — AND THE JUDGEMENT IS THE ONE T-0990 MADE, NOT A NEW ONE (T-1525). It stood as `upheld` while the mechanical forename rule reached Col. Jean Baptiste Beaubien on its own and this file only had to confirm it. T-1525 minted the Catholic town St Mary's baptismal register names, and the layer's Beaubiens went from eight to eighteen; one of the new cards is a Joseph Beaubien, so the reading's J now stands for two of them and R3 — a reading is named onto exactly one or onto none — refuses the proposal the ruling used to adjudicate. A ruling on a refusal is a ruling on nothing, so the SAME finding is recorded in the direction that can carry it: `named`, under the guards this file states — the surname gathered rivals, the forename failed to choose among them, and the ruling names one of those rivals. NOTHING BELOW HAS CHANGED. UPHELD on the initials as the town itself prints them, and on a date only one Beaubien can reach. The town's record of this man does not hold a forename it has to have expanded for it: Andreas's 1833 roster prints 'J. B. Beaubien, merchant' and Fergus 1839 prints 'Beaubien, John B., Michigan ave., bet. Lake and So. Water sts' — J. B. is the form the town used, and the register's BEAUBIEN J B is that form. The layer holds ten Beaubiens and the sale is dated 29 September 1830: this card's arrival is attested at 1812 from Andreas — 'he came to Chicago and bought the cabin and cultivated field south of the old fort in 1812' — and it is the only Beaubien in the layer the record puts at Chicago that early. Four canal rows in section 29 of T39N R14E, two of them the register's own voided duplicates of the other two, carried at 212.61 acres and $1,063.20 net. TWO THINGS THIS DOES NOT DO: it does not touch the Fort Dearborn reservation claim, which this project holds no record of and makes no finding on, and it does not make the 1830 purchase evidence of residence — the Residence column reads ILLINOIS on the voided pair and UNKNOWN on the pair that stood, and neither names a town. AND WHY THE NEW RIVAL IS NOT THE MAN: the register prints BEAUBIEN J B, two initials, and Col. Jean Baptiste is the only candidate of the eighteen whose own middle initial is attested B — the town prints him 'J. B. Beaubien' in Andreas's 1833 roster and 'Beaubien, John B.' in Fergus 1839. Joseph Beaubien's card carries no middle initial at all: it is a person minted from a single baptismal entry, with no forename expansion, no middle name, no date before 1833 and nothing that reaches a tract entered on 29 September 1830. He is a rival the rule must count and not a candidate the record supports, and this ruling does not merge the two cards or say anything about him.",
+      "rivals": [
+        {
+          "key": "beaubien_alexander",
+          "name": "Alexander Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_alexandre",
+          "name": "Alexandre Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_archange",
+          "name": "Archange Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_b",
+          "name": "B Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_caroline",
+          "name": "Caroline Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_charles",
+          "name": "Charles Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_charles_h",
+          "name": "Charles H Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "H",
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_elonore",
+          "name": "Elonore Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_george",
+          "name": "George Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_jean_baptiste",
+          "name": "Col. Jean Baptiste Beaubien",
+          "forename_agrees": true,
+          "why": "an initial standing for the forename (M2)",
+          "middle_initial": "B",
+          "reading_middle_initial": "B",
+          "outcome": "survives"
+        },
+        {
+          "key": "beaubien_josette",
+          "name": "Josette LaFramboise Beaubien",
+          "forename_agrees": true,
+          "why": "the forenames agree and the middle initials do not — B against L (rule 2)",
+          "middle_initial": "L",
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_middle_initial"
+        },
+        {
+          "key": "beaubien_john_s",
+          "name": "John S Beaubien",
+          "forename_agrees": true,
+          "why": "the forenames agree and the middle initials do not — B against S (rule 2)",
+          "middle_initial": "S",
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_middle_initial"
+        },
+        {
+          "key": "beaubien_joseph",
+          "name": "Joseph Beaubien",
+          "forename_agrees": true,
+          "why": "an initial standing for the forename (M2)",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "survives"
+        },
+        {
+          "key": "beaubien_madore",
+          "name": "Madore Benjamin Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "B",
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_mark",
+          "name": "Mark Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_monique",
+          "name": "Monique Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_robert_jerome",
+          "name": "Robert Jerome Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "J",
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_susan",
+          "name": "Susan Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        }
+      ],
+      "residence_column": "ILLINOIS, UNKNOWN",
+      "evidence_grade": "inferred",
+      "ruling": {
+        "ruling": "named",
+        "ruled_on": "2026-09-25",
+        "ticket": "T-1525",
+        "checked_against": [
+          "andreas_1884_v1",
+          "chicago_voter_lists_1833_1835_irad",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "isa_public_domain_land_tract_sales",
+          "st_marys_baptismal_register_1833_1835"
+        ],
+        "reasoning": "NAMED, NOT UPHELD — AND THE JUDGEMENT IS THE ONE T-0990 MADE, NOT A NEW ONE (T-1525). It stood as `upheld` while the mechanical forename rule reached Col. Jean Baptiste Beaubien on its own and this file only had to confirm it. T-1525 minted the Catholic town St Mary's baptismal register names, and the layer's Beaubiens went from eight to eighteen; one of the new cards is a Joseph Beaubien, so the reading's J now stands for two of them and R3 — a reading is named onto exactly one or onto none — refuses the proposal the ruling used to adjudicate. A ruling on a refusal is a ruling on nothing, so the SAME finding is recorded in the direction that can carry it: `named`, under the guards this file states — the surname gathered rivals, the forename failed to choose among them, and the ruling names one of those rivals. NOTHING BELOW HAS CHANGED. UPHELD on the initials as the town itself prints them, and on a date only one Beaubien can reach. The town's record of this man does not hold a forename it has to have expanded for it: Andreas's 1833 roster prints 'J. B. Beaubien, merchant' and Fergus 1839 prints 'Beaubien, John B., Michigan ave., bet. Lake and So. Water sts' — J. B. is the form the town used, and the register's BEAUBIEN J B is that form. The layer holds ten Beaubiens and the sale is dated 29 September 1830: this card's arrival is attested at 1812 from Andreas — 'he came to Chicago and bought the cabin and cultivated field south of the old fort in 1812' — and it is the only Beaubien in the layer the record puts at Chicago that early. Four canal rows in section 29 of T39N R14E, two of them the register's own voided duplicates of the other two, carried at 212.61 acres and $1,063.20 net. TWO THINGS THIS DOES NOT DO: it does not touch the Fort Dearborn reservation claim, which this project holds no record of and makes no finding on, and it does not make the 1830 purchase evidence of residence — the Residence column reads ILLINOIS on the voided pair and UNKNOWN on the pair that stood, and neither names a town. AND WHY THE NEW RIVAL IS NOT THE MAN: the register prints BEAUBIEN J B, two initials, and Col. Jean Baptiste is the only candidate of the eighteen whose own middle initial is attested B — the town prints him 'J. B. Beaubien' in Andreas's 1833 roster and 'Beaubien, John B.' in Fergus 1839. Joseph Beaubien's card carries no middle initial at all: it is a person minted from a single baptismal entry, with no forename expansion, no middle name, no date before 1833 and nothing that reaches a tract entered on 29 September 1830. He is a rival the rule must count and not a candidate the record supports, and this ruling does not merge the two cards or say anything about him."
+      },
+      "was_refused_as": "BEAUBIEN J B is refused against 18 residents named Beaubien: the forename names 2 of the 18 people of this surname, and a reading is named onto exactly one or onto none (R3).",
+      "what_it_evidences": "A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints."
     },
     {
       "purchaser_as_read": "HEACOCK RUSSELL E",
@@ -10427,193 +10632,6 @@
       ],
       "record_ids": [
         "ls0453"
-      ],
-      "evidence": [
-        "data/residents/index.json"
-      ]
-    },
-    {
-      "a": "BEAUBIEN J B",
-      "b": "18 residents named Beaubien",
-      "rule": "BEAUBIEN J B is refused against 18 residents named Beaubien: the forename names 2 of the 18 people of this surname, and a reading is named onto exactly one or onto none (R3).",
-      "rivals": [
-        {
-          "key": "beaubien_alexander",
-          "name": "Alexander Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_alexandre",
-          "name": "Alexandre Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_archange",
-          "name": "Archange Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_b",
-          "name": "B Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_caroline",
-          "name": "Caroline Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_charles",
-          "name": "Charles Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_charles_h",
-          "name": "Charles H Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": "H",
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_elonore",
-          "name": "Elonore Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_george",
-          "name": "George Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_jean_baptiste",
-          "name": "Col. Jean Baptiste Beaubien",
-          "forename_agrees": true,
-          "why": "an initial standing for the forename (M2)",
-          "middle_initial": "B",
-          "reading_middle_initial": "B",
-          "outcome": "survives"
-        },
-        {
-          "key": "beaubien_josette",
-          "name": "Josette LaFramboise Beaubien",
-          "forename_agrees": true,
-          "why": "the forenames agree and the middle initials do not — B against L (rule 2)",
-          "middle_initial": "L",
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_middle_initial"
-        },
-        {
-          "key": "beaubien_john_s",
-          "name": "John S Beaubien",
-          "forename_agrees": true,
-          "why": "the forenames agree and the middle initials do not — B against S (rule 2)",
-          "middle_initial": "S",
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_middle_initial"
-        },
-        {
-          "key": "beaubien_joseph",
-          "name": "Joseph Beaubien",
-          "forename_agrees": true,
-          "why": "an initial standing for the forename (M2)",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "survives"
-        },
-        {
-          "key": "beaubien_madore",
-          "name": "Madore Benjamin Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": "B",
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_mark",
-          "name": "Mark Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_monique",
-          "name": "Monique Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_robert_jerome",
-          "name": "Robert Jerome Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": "J",
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_susan",
-          "name": "Susan Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        }
-      ],
-      "record_ids": [
-        "ls0454",
-        "ls0455",
-        "ls0456",
-        "ls0457",
-        "ls0959",
-        "ls0960",
-        "ls0961",
-        "ls0962",
-        "ls0963",
-        "ls0964",
-        "ls0965",
-        "ls0966",
-        "ls0967"
       ],
       "evidence": [
         "data/residents/index.json"

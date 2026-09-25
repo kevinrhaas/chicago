@@ -356,6 +356,12 @@
        "A LATER ADDRESS, READ BACKWARDS 4 YEARS"
       ],
       [
+       "hh_choulet_michel_alexandre",
+       "directories.people[].residence_back_projection",
+       "Dearborn Street",
+       "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS"
+      ],
+      [
        "hh_cohen_peter",
        "directories.people[].back_projection",
        "South Water Street",
@@ -2144,6 +2150,12 @@
        "A LATER ADDRESS, READ BACKWARDS 4 YEARS"
       ],
       [
+       "hh_stone_henry",
+       "directories.people[].residence_back_projection",
+       "Michigan Street",
+       "A LATER HOME ADDRESS, READ BACKWARDS 9 YEARS"
+      ],
+      [
        "hh_wright_john",
        "directories.people[].back_projection",
        "North Water Street",
@@ -2155,7 +2167,7 @@
    ],
    "notes": [
     "THE TABLE ABOVE IS THE STRICTEST READING AND IT IS NOT THE POPULATION (T-1386). 936 of these households stand `uncertain` on the card because no record follows the person to 1 July 1835 — unadjudicated, never disputed. Every one of them has attested or inferred evidence of living in this town and none has evidence of being elsewhere that day, so all 945 of their people are ruled into the town, each at the tier its own readings reach. Exactly 2 cards are out on evidence of absence. The ruling is data/reconstruction/1835_presence_rulings.json; the cards keep the inferred `uncertain` the research wrote.",
-    "No PERSON carries the `reconstructed` grade (979) and this ticket does not move that: reconstruction begins at T-1167 under its own programme. But 302 ATTRIBUTE values already do, and a person-grade count hides them — which is the whole reason T-1158 puts a tier on the field rather than on the card."
+    "No PERSON carries the `reconstructed` grade (979) and this ticket does not move that: reconstruction begins at T-1167 under its own programme. But 304 ATTRIBUTE values already do, and a person-grade count hides them — which is the whole reason T-1158 puts a tier on the field rather than on the card."
    ]
   },
   {
@@ -4689,7 +4701,7 @@
       [
        "The Abbott household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -4707,7 +4719,7 @@
       [
        "The Abrams household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -4725,7 +4737,7 @@
       [
        "The Adams household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -4737,7 +4749,7 @@
       [
        "The Adams household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -4767,7 +4779,7 @@
       [
        "The Albyn household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -4923,7 +4935,7 @@
       [
        "The Arrowsmith household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -4941,12 +4953,6 @@
       [
        "The Aspam household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
-       "reconstructed"
-      ],
-      [
-       "The Aspam household — a name the town's own records carry",
-       "season_not_apportioned",
        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
@@ -4959,13 +4965,19 @@
       [
        "The Aspam household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "reconstructed"
+      ],
+      [
+       "The Aspam household — a name the town's own records carry",
+       "season_not_apportioned",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Austin household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -4977,7 +4989,7 @@
       [
        "The Ayers household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -4995,13 +5007,13 @@
       [
        "The Babeu household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Babeue household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -5025,19 +5037,19 @@
       [
        "The Bailly household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Baily household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Baines household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -5061,7 +5073,7 @@
       [
        "The Ballard household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -5109,7 +5121,7 @@
       [
        "The Barbour household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -5163,13 +5175,13 @@
       [
        "The Barry household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Barry household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -5223,13 +5235,13 @@
       [
        "The Beaubien household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Beaubien household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -5247,6 +5259,18 @@
       [
        "The Beaubien household — a name the town's own records carry",
        "season_not_apportioned",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "reconstructed"
+      ],
+      [
+       "The Beaubien household — a name the town's own records carry",
+       "season_not_apportioned",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "reconstructed"
+      ],
+      [
+       "The Beaubien household — a name the town's own records carry",
+       "season_not_apportioned",
        "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
@@ -5259,18 +5283,6 @@
       [
        "The Beaubien household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
-       "reconstructed"
-      ],
-      [
-       "The Beaubien household — a name the town's own records carry",
-       "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
-       "reconstructed"
-      ],
-      [
-       "The Beaubien household — a name the town's own records carry",
-       "season_not_apportioned",
        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
@@ -5289,7 +5301,7 @@
       [
        "The Beaubien household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -5349,7 +5361,7 @@
       [
        "The Bell household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -5391,13 +5403,13 @@
       [
        "The Bennett household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Bently household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -5451,13 +5463,13 @@
       [
        "The Bickerdyke household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Bigelow household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -5493,13 +5505,13 @@
       [
        "The Blakesley household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Blanchard household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -5517,7 +5529,7 @@
       [
        "The Blodget household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -5565,7 +5577,7 @@
       [
        "The Boilvin household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -5601,7 +5613,7 @@
       [
        "The Borland household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -5619,19 +5631,19 @@
       [
        "The Bouchard household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Bouchard household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Boucher household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -5709,13 +5721,13 @@
       [
        "The Bradford household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Bradford household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -5751,7 +5763,7 @@
       [
        "The Breed household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -5793,13 +5805,13 @@
       [
        "The Brink household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Bristol household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -5853,7 +5865,7 @@
       [
        "The Brown household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -5865,13 +5877,13 @@
       [
        "The Brown household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Brownson household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -5883,7 +5895,7 @@
       [
        "The Brundage household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -5943,7 +5955,7 @@
       [
        "The Burdick household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -5955,7 +5967,7 @@
       [
        "The Burke household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -5973,7 +5985,7 @@
       [
        "The Burnet household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -6021,7 +6033,7 @@
       [
        "The Byram household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6045,7 +6057,7 @@
       [
        "The Calhoun household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -6069,13 +6081,13 @@
       [
        "The Carley household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Carli household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6141,7 +6153,7 @@
       [
        "The Catran household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6177,7 +6189,7 @@
       [
        "The Chandler household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -6201,7 +6213,7 @@
       [
        "The Chapman household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6225,7 +6237,7 @@
       [
        "The Chark household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6249,13 +6261,13 @@
       [
        "The Chattin household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Chauncy household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6291,13 +6303,13 @@
       [
        "The Chevallier household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Chevallier household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -6327,7 +6339,7 @@
       [
        "The Choulet household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -6351,7 +6363,7 @@
       [
        "The Chrouch household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6375,7 +6387,7 @@
       [
        "The Clark household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -6387,7 +6399,7 @@
       [
        "The Clark household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -6411,13 +6423,13 @@
       [
        "The Cleaveland household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Cleland household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6447,13 +6459,13 @@
       [
        "The Cloud household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Clybourn household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -6471,19 +6483,19 @@
       [
        "The Cole household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Coleman household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Colewell household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -6549,7 +6561,7 @@
       [
        "The Cook household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6567,7 +6579,7 @@
       [
        "The Coslet household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -6615,7 +6627,7 @@
       [
        "The Crisey household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6633,7 +6645,7 @@
       [
        "The Curry household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6705,7 +6717,7 @@
       [
        "The Daniel household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6753,12 +6765,6 @@
       [
        "The David household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
-       "reconstructed"
-      ],
-      [
-       "The Davis household — a name the town's own records carry",
-       "season_not_apportioned",
        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
@@ -6766,12 +6772,18 @@
        "The Davis household — a name the town's own records carry",
        "season_not_apportioned",
        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "reconstructed"
+      ],
+      [
+       "The Davis household — a name the town's own records carry",
+       "season_not_apportioned",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Davison household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6789,7 +6801,7 @@
       [
        "The Debogart household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6801,13 +6813,13 @@
       [
        "The Delano household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Dell household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -6837,7 +6849,7 @@
       [
        "The Devoe household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -6855,13 +6867,13 @@
       [
        "The Dickson household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Diggins household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -6879,13 +6891,13 @@
       [
        "The Dimmick household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Dird household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6951,13 +6963,13 @@
       [
        "The Doty household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Doud household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6975,7 +6987,7 @@
       [
        "The Douglass household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -6993,25 +7005,25 @@
       [
        "The Downer household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Downer household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Downing household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Drake household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -7035,7 +7047,7 @@
       [
        "The Duggan household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -7113,7 +7125,7 @@
       [
        "The Eberiden household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7167,7 +7179,7 @@
       [
        "The Enor household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -7257,7 +7269,7 @@
       [
        "The Fay household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -7293,7 +7305,7 @@
       [
        "The Filer household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7317,7 +7329,7 @@
       [
        "The Finley household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -7335,7 +7347,7 @@
       [
        "The Fisher household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -7353,7 +7365,7 @@
       [
        "The Fitzsimmons household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7365,7 +7377,7 @@
       [
        "The Flint household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -7389,7 +7401,7 @@
       [
        "The Foote household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -7431,7 +7443,7 @@
       [
        "The Forster household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -7449,13 +7461,13 @@
       [
        "The Forsythe household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Foster household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -7479,7 +7491,7 @@
       [
        "The Franchere household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7539,7 +7551,7 @@
       [
        "The Gagnier household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7599,7 +7611,7 @@
       [
        "The Gilbert household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7653,19 +7665,19 @@
       [
        "The Goodrich household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Goodrich household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Goodrich household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7707,7 +7719,7 @@
       [
        "The Granger household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -7737,7 +7749,7 @@
       [
        "The Gridley household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -7761,7 +7773,7 @@
       [
        "The Guisin household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7779,7 +7791,7 @@
       [
        "The Haddock household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7815,19 +7827,19 @@
       [
        "The Handy household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Hanford household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Hapgood household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7845,7 +7857,7 @@
       [
        "The Harmon household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -7893,7 +7905,7 @@
       [
        "The Hartzell household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7917,7 +7929,7 @@
       [
        "The Hathaway household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -7935,7 +7947,7 @@
       [
        "The Hays household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -7947,7 +7959,7 @@
       [
        "The Heere household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8031,7 +8043,7 @@
       [
        "The Hogan household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8133,7 +8145,7 @@
       [
        "The Hovey household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -8163,13 +8175,13 @@
       [
        "The Howland household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Howley household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -8235,7 +8247,7 @@
       [
        "The Hunter household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -8247,13 +8259,13 @@
       [
        "The Hunter household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Hunter household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -8277,7 +8289,7 @@
       [
        "The Hussy household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8331,7 +8343,7 @@
       [
        "The Ives household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -8433,7 +8445,7 @@
       [
        "The Jolly household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8469,7 +8481,7 @@
       [
        "The Jones household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8511,31 +8523,31 @@
       [
        "The Juneau household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Juneau household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Keeney household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Kendall household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Kennedy household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8547,7 +8559,7 @@
       [
        "The Kennicott household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8595,13 +8607,13 @@
       [
        "The Kilpatrick household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Kimbal household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8613,13 +8625,13 @@
       [
        "The Kimberly household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Kimberly household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8643,12 +8655,6 @@
       [
        "The King household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
-       "reconstructed"
-      ],
-      [
-       "The King household — a name the town's own records carry",
-       "season_not_apportioned",
        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
@@ -8656,6 +8662,12 @@
        "The King household — a name the town's own records carry",
        "season_not_apportioned",
        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "reconstructed"
+      ],
+      [
+       "The King household — a name the town's own records carry",
+       "season_not_apportioned",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8673,13 +8685,13 @@
       [
        "The Kingstone household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Kinsey household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -8709,7 +8721,7 @@
       [
        "The Knapp household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8727,7 +8739,7 @@
       [
        "The Knight household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -8745,7 +8757,7 @@
       [
        "The Knox household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -8757,7 +8769,7 @@
       [
        "The Kripes household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8817,7 +8829,7 @@
       [
        "The Laframboise household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -8829,7 +8841,7 @@
       [
        "The Lafton household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -8841,13 +8853,13 @@
       [
        "The Laird household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Lake household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -8865,7 +8877,7 @@
       [
        "The Lansing household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -8895,13 +8907,13 @@
       [
        "The Laughton household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Lauretta household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8943,13 +8955,13 @@
       [
        "The Legrand household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Leonard household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8985,7 +8997,7 @@
       [
        "The Lilley household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -9009,7 +9021,7 @@
       [
        "The Liton household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -9027,13 +9039,13 @@
       [
        "The Lloyd household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Loner household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -9051,7 +9063,7 @@
       [
        "The Loose household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -9081,7 +9093,7 @@
       [
        "The Loveland household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -9117,13 +9129,13 @@
       [
        "The Ltendre household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Lucas household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -9195,13 +9207,13 @@
       [
        "The Makepiece household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Makio household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -9237,7 +9249,7 @@
       [
        "The Marksall household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -9309,13 +9321,13 @@
       [
        "The Mayo household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Mayo household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -9333,7 +9345,7 @@
       [
        "The Mcfadden household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -9345,7 +9357,7 @@
       [
        "The Mclintock household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -9357,7 +9369,7 @@
       [
        "The Mdolold household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -9417,7 +9429,7 @@
       [
        "The Mgregor household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -9501,7 +9513,7 @@
       [
        "The Misner household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -9573,7 +9585,7 @@
       [
        "The Morin household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -9621,31 +9633,31 @@
       [
        "The Morrison household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Morrison household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Morrow household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Morse household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Mosely household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -9681,7 +9693,7 @@
       [
        "The Murphy household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -9735,13 +9747,13 @@
       [
        "The Myrick household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Nadeau household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -9753,7 +9765,7 @@
       [
        "The Neff household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -9795,25 +9807,25 @@
       [
        "The Night household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
-       "reconstructed"
-      ],
-      [
-       "The Noble household — a name the town's own records carry",
-       "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
-       "reconstructed"
-      ],
-      [
-       "The Noble household — a name the town's own records carry",
-       "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
-       "reconstructed"
-      ],
-      [
-       "The Noble household — a name the town's own records carry",
-       "season_not_apportioned",
        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "reconstructed"
+      ],
+      [
+       "The Noble household — a name the town's own records carry",
+       "season_not_apportioned",
+       "The trading post, the fort and the country trade — the town before the boom",
+       "reconstructed"
+      ],
+      [
+       "The Noble household — a name the town's own records carry",
+       "season_not_apportioned",
+       "The trading post, the fort and the country trade — the town before the boom",
+       "reconstructed"
+      ],
+      [
+       "The Noble household — a name the town's own records carry",
+       "season_not_apportioned",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -9843,7 +9855,7 @@
       [
        "The Nowland household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -9867,13 +9879,13 @@
       [
        "The Ogleby household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Olingar household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -9915,7 +9927,7 @@
       [
        "The Ostrum household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -9927,7 +9939,7 @@
       [
        "The Ouilmette household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -9981,7 +9993,7 @@
       [
        "The Pallet household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10011,7 +10023,7 @@
       [
        "The Parcell household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -10035,7 +10047,7 @@
       [
        "The Parsalls household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -10047,7 +10059,7 @@
       [
        "The Parsons household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -10071,25 +10083,25 @@
       [
        "The Payne household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Peacock household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Pearce household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Pease household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -10101,13 +10113,13 @@
       [
        "The Pennington household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Perring household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -10119,7 +10131,7 @@
       [
        "The Perry household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10185,19 +10197,19 @@
       [
        "The Plimpton household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Plumer household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Poke household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10209,7 +10221,7 @@
       [
        "The Poor household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -10239,7 +10251,7 @@
       [
        "The Powell household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10251,7 +10263,7 @@
       [
        "The Power household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -10335,7 +10347,7 @@
       [
        "The Reed household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -10359,7 +10371,7 @@
       [
        "The Reel household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -10371,7 +10383,7 @@
       [
        "The Reid household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -10401,7 +10413,7 @@
       [
        "The Rice household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -10425,13 +10437,13 @@
       [
        "The Rider household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Rider household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -10443,7 +10455,7 @@
       [
        "The Rinhart household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -10497,7 +10509,7 @@
       [
        "The Robian household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10551,7 +10563,7 @@
       [
        "The Rollins household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -10611,7 +10623,7 @@
       [
        "The Rutherford household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10629,13 +10641,13 @@
       [
        "The Sackett household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Salle household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10653,13 +10665,13 @@
       [
        "The Sanderlin household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Sanderson household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10713,13 +10725,13 @@
       [
        "The Saymore household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Scarrett household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -10743,7 +10755,7 @@
       [
        "The Schindler household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10797,7 +10809,7 @@
       [
        "The Seymour household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -10833,7 +10845,7 @@
       [
        "The Shedicer household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -10845,7 +10857,7 @@
       [
        "The Shepherd household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10857,7 +10869,7 @@
       [
        "The Sherman household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10953,7 +10965,7 @@
       [
        "The Skinner household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -10965,7 +10977,7 @@
       [
        "The Sloat household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -10977,7 +10989,7 @@
       [
        "The Smith household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -10989,7 +11001,7 @@
       [
        "The Smith household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11019,7 +11031,7 @@
       [
        "The Smith household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11031,7 +11043,7 @@
       [
        "The Snow household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11049,13 +11061,13 @@
       [
        "The South household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Spalding household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11103,7 +11115,7 @@
       [
        "The Squar household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11115,7 +11127,7 @@
       [
        "The Stafford household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11145,7 +11157,7 @@
       [
        "The Starr household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11175,13 +11187,13 @@
       [
        "The Stephens household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Stephenson household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11193,7 +11205,7 @@
       [
        "The Stevens household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11223,7 +11235,7 @@
       [
        "The Stith household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11265,19 +11277,19 @@
       [
        "The Stout household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Stowell household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Stringer household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -11295,7 +11307,7 @@
       [
        "The Stuart household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11325,7 +11337,7 @@
       [
        "The Sweet household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11355,7 +11367,7 @@
       [
        "The Teal household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11391,7 +11403,7 @@
       [
        "The Thompson household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -11427,7 +11439,7 @@
       [
        "The Toby household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11481,13 +11493,13 @@
       [
        "The Trimble household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Troutman household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -11529,7 +11541,7 @@
       [
        "The Turner household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11589,7 +11601,7 @@
       [
        "The Vardon household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11613,7 +11625,7 @@
       [
        "The Vaughan household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11631,7 +11643,7 @@
       [
        "The Vaughn household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11661,7 +11673,7 @@
       [
        "The Vieau household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -11703,7 +11715,7 @@
       [
        "The Walford household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11733,7 +11745,7 @@
       [
        "The Walton household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -11751,7 +11763,7 @@
       [
        "The Ward household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11823,25 +11835,25 @@
       [
        "The Wells household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Wells household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Welsh household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Welsh household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11865,7 +11877,7 @@
       [
        "The Wescott household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -11877,7 +11889,7 @@
       [
        "The Wesencraft household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -11889,7 +11901,7 @@
       [
        "The West household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11901,13 +11913,13 @@
       [
        "The Wheeler household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Wheldon household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11919,7 +11931,7 @@
       [
        "The Whistler household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11943,19 +11955,19 @@
       [
        "The Wickham household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Wight household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Wilcox household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -11985,7 +11997,7 @@
       [
        "The Williams household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -12033,7 +12045,7 @@
       [
        "The Winn household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -12045,19 +12057,19 @@
       [
        "The Winson household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
        "The Winsor household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Winters household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -12075,7 +12087,7 @@
       [
        "The Wode household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -12105,7 +12117,7 @@
       [
        "The Woodruff household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
@@ -12117,7 +12129,7 @@
       [
        "The Woodworth household — a name the town's own records carry",
        "season_not_apportioned",
-       "The trading post, the fort and the country trade — the town before the boom",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -12129,13 +12141,13 @@
       [
        "The Wooley household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
        "The Worden household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The trading post, the fort and the country trade — the town before the boom",
        "reconstructed"
       ],
       [
@@ -12177,13 +12189,13 @@
       [
        "The Young household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
        "reconstructed"
       ],
       [
        "The Young household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [

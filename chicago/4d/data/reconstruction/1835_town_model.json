@@ -148,9 +148,9 @@
           ]
         },
         "known_by_presence": {
-          "present": 2701,
-          "absent": 66,
-          "uncertain": 215
+          "present": 2756,
+          "absent": 72,
+          "uncertain": 154
         }
       }
     },
@@ -217,10 +217,10 @@
         {
           "figure": "people_the_layer_gives_a_trade",
           "low": 138,
-          "high": 327,
+          "high": 328,
           "point": null,
           "is_a_count": false,
-          "method": "138 people carry a role that reaches 1 July 1835; 327 carry any role at all, and 189 carry only roles dated off the scene. The gap between this and the employed-persons figure above is what the reconstruction bands have to fill.",
+          "method": "138 people carry a role that reaches 1 July 1835; 328 carry any role at all, and 190 carry only roles dated off the scene. The gap between this and the employed-persons figure above is what the reconstruction bands have to fill.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -919,13 +919,13 @@
             },
             {
               "year": 1832,
-              "people": 40,
-              "share": 0.0165
+              "people": 41,
+              "share": 0.0169
             },
             {
               "year": 1833,
-              "people": 266,
-              "share": 0.1098
+              "people": 264,
+              "share": 0.109
             },
             {
               "year": 1834,
@@ -934,8 +934,8 @@
             },
             {
               "year": 1835,
-              "people": 1382,
-              "share": 0.5706
+              "people": 1383,
+              "share": 0.571
             }
           ]
         },

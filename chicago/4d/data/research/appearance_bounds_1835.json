@@ -13,27 +13,27 @@
  ],
  "writes": "data/residents/households/*.json — persons[].appearance_bounds[]",
  "counts": {
-  "bounds_written": 27,
-  "people_written": 21,
-  "households_touched": 20,
+  "bounds_written": 29,
+  "people_written": 23,
+  "households_touched": 22,
   "grades_changed": 0,
   "identities_changed": 0,
   "persons_minted": 0,
   "per_corpus": {
-   "census_1830": 14,
+   "census_1830": 16,
    "st_marys_baptisms": 13
   },
   "per_kind": {
-   "district_presence": 14,
+   "district_presence": 16,
    "presence": 13
   },
   "per_side_of_scene_date": {
-   "earlier": 24,
+   "earlier": 26,
    "later": 3
   },
   "census_1830_surname_variant_candidates": 1,
-  "census_1830_surname_only_refused": 63,
-  "census_1830_no_surname_in_town": 121,
+  "census_1830_surname_only_refused": 64,
+  "census_1830_no_surname_in_town": 118,
   "st_marys_rulings": 275,
   "st_marys_merged_rulings": 22
  },
@@ -41,17 +41,17 @@
   {
    "rule": "A1",
    "why": "an 1830 row carries `here_by: null`. The division is Peoria & Putnam and everything hung off them, the schedule never writes the word Chicago, and a district is not the town",
-   "rows": 14
+   "rows": 16
   },
   {
    "rule": "A2",
    "why": "no row reaches `attested`. Every identification written here is a name agreement a crosswalk declared and none of them is an identification a source makes, so the bound is inferred however documented the page under it is",
-   "rows": 27
+   "rows": 29
   },
   {
    "rule": "A3",
    "why": "no row covers the scene date. An earlier source corroborates and dates and never promotes, and a later one does not promote either",
-   "rows": 27
+   "rows": 29
   },
   {
    "rule": "A4",
@@ -337,6 +337,62 @@
      "identity_rule": "data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'Mark Beaubien' into the residents layer's 'Mark Beaubien' under a written rule naming both spellings verbatim; the rule is read there and is not copied here.",
      "identity_rule_source": "data/research/church/st_marys_baptisms_crosswalk.json — merges[] into 'Mark Beaubien'",
      "note": "A BOUND ON PRESENCE AT CHICAGO, AND NOTHING FURTHER. The entry is dated 1833-08 at Chicago, Cook County, Illinois and this person stood at the font as godfather, so the register places a body in the town no later than 1833-08-31. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The entry is read scan_verified off the page image at `documented` confidence. What no source states is that the sponsor the register names is the person on this card: data/research/church/st_marys_baptisms_crosswalk.json merges the register's 'Mark Beaubien' into the residents layer's 'Mark Beaubien' under a written rule, and a bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ]
+  },
+  {
+   "household_id": "hh_laframboise_joseph",
+   "person_id": "laframboise_joseph",
+   "bounds": [
+    {
+     "bound_kind": "district_presence",
+     "corpus": "census_1830",
+     "source_title": "Fifth census of the United States, 1830 — the division headed 'Peoria & Putnam Counties & Territory attached'",
+     "record_id": "census1830_n580_029",
+     "as_read": "Joseph LaFramboy",
+     "role": "head_of_family",
+     "locator": "leaf n580 entry 29, peoria_putnam_1830_leaves_580_582.txt line 48",
+     "describes_date": "1830",
+     "date_confidence": "documented",
+     "precision": "year",
+     "reaches": "1830-12-31",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "census_1830_peoria_county_chicago_precinct"
+     ],
+     "identity_rule": "Surname and given name both agree between the 1830 reading 'Joseph LaFramboy' and the town person 'Joseph Laframboise' in household hh_laframboise_joseph. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own.",
+     "note": "A BOUND ON PRESENCE IN A DISTRICT, AND NOT AT CHICAGO. The division is headed 'Peoria & Putnam Counties & Territory attached' and the schedule never writes the word Chicago — the Fox River and Du Page settlements are inside it — so this row bounds presence in that district in the summer of 1830 and puts no body in the town, which is why `here_by` is null. The record's own note says it first: 'Presence in that district in the summer of 1830; not a Chicago residence, and never an 1835 one'. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the leaf is read scan_verified off the federal schedule, and what no source states is that the head of family on it is the person on this card. data/research/census_1830/resident_crosswalk.json joins them on a name agreement and says in terms that it grades nothing on its own. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ]
+  },
+  {
+   "household_id": "hh_laframboise_claude",
+   "person_id": "laframboise_claude",
+   "bounds": [
+    {
+     "bound_kind": "district_presence",
+     "corpus": "census_1830",
+     "source_title": "Fifth census of the United States, 1830 — the division headed 'Peoria & Putnam Counties & Territory attached'",
+     "record_id": "census1830_n580_030",
+     "as_read": "Clouded L Framboy",
+     "role": "head_of_family",
+     "locator": "leaf n580 entry 30, peoria_putnam_1830_leaves_580_582.txt line 49",
+     "describes_date": "1830",
+     "date_confidence": "inferred",
+     "precision": "year",
+     "reaches": "1830-12-31",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "census_1830_peoria_county_chicago_precinct"
+     ],
+     "identity_rule": "Surname and given name both agree between the 1830 reading 'Clouded L Framboy' and the town person 'Claude Laframboise' in household hh_laframboise_claude. The 1830 line is carried as EARLIER EVIDENCE for that person and grades nothing on its own.",
+     "note": "A BOUND ON PRESENCE IN A DISTRICT, AND NOT AT CHICAGO. The division is headed 'Peoria & Putnam Counties & Territory attached' and the schedule never writes the word Chicago — the Fox River and Du Page settlements are inside it — so this row bounds presence in that district in the summer of 1830 and puts no body in the town, which is why `here_by` is null. The record's own note says it first: 'Presence in that district in the summer of 1830; not a Chicago residence, and never an 1835 one'. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the leaf is read scan_verified off the federal schedule, and what no source states is that the head of family on it is the person on this card. data/research/census_1830/resident_crosswalk.json joins them on a name agreement and says in terms that it grades nothing on its own. No grade moves here and the identity is neither reopened nor hardened."
     }
    ]
   },

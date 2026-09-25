@@ -26,12 +26,12 @@
   },
   "counts": {
     "cards": 1512,
-    "blocks": 19549,
+    "blocks": 19551,
     "tiers_written_on_the_card": 8714,
     "by_tier": {
       "attested": 592,
       "inferred": 3558,
-      "reconstructed": 8898,
+      "reconstructed": 8900,
       "unknown": 6501
     },
     "by_attribute": {
@@ -68,7 +68,7 @@
       "directories.people[].residence_back_projection": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 10,
+        "reconstructed": 12,
         "unknown": 0
       },
       "kin[]": {
@@ -174,7 +174,7 @@
       "arrival_earliest_year_forced": 138,
       "inferred_household_hypothesis": 129,
       "origin_uncited_literature": 1,
-      "residence_back_projection": 10
+      "residence_back_projection": 12
     }
   },
   "reconstructed": [
@@ -249,6 +249,32 @@
       "replaceable_by": {
         "kind": "person",
         "match": "an 1835-window source that gives this person a Chicago work address"
+      }
+    },
+    {
+      "card": "hh_choulet_michel_alexandre",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "Dearborn Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1843,
+      "read_back_years": 8,
+      "placement": "face",
+      "sources": [
+        "fergus_chicago_directory_1843"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 8 YEARS. The street is not an 1835 reading: Fergus's Chicago directory of 1843 printed where this person lived in 1843, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Dearborn Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 8 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
       }
     },
     {
@@ -5735,6 +5761,32 @@
       }
     },
     {
+      "card": "hh_stone_henry",
+      "attribute": "directories.people[].residence_back_projection",
+      "outcome": "placed",
+      "clause": "R4 and R5",
+      "kind": "resides",
+      "value": "Michigan Street",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "describes_date": 1844,
+      "read_back_years": 9,
+      "placement": "face",
+      "sources": [
+        "norris_directory_1844"
+      ],
+      "note": "A LATER HOME ADDRESS, READ BACKWARDS 9 YEARS. The street is not an 1835 reading: Norris's Chicago directory of 1844 printed where this person lived in 1844, and this pass carries it back to the scene date because nothing in the 1835 corpus says where the house stood. What is claimed is the street FACE and nothing narrower — no lot, no roof, no door count, and no corner even where the volume prints one — and the grade is `reconstructed`, this dataset's word for a figure the reconstruction supplies rather than a source. Michigan Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. The volume narrows it further — it names Dearborn Street and Wolcott Street — and clause R5 declines to take the point: a corner or a run between two crossings is a fact about the numbered grid of the 1840s, and a house moves more than a shopfront does. So the placement is the FACE and nothing narrower, and no roof is dealt. A home is carried back on a weaker argument than a shop is: a shopfront is capital sunk into one street's trade and a lodging is a month's rent, which is why this policy claims less than docs/ADDRESS-BACK-PROJECTION.md does from the same volume. The rule is docs/RESIDENCE-BACK-PROJECTION.md and the liberty is L223; a reader who thinks 9 years is too far to carry a house should read the grade as the disagreement being invited.",
+      "basis": {
+        "kind": "rule",
+        "id": "residence_back_projection",
+        "note": "The home address is a later directory's, carried back to the scene window under docs/RESIDENCE-BACK-PROJECTION.md (liberty L223) rather than read from an 1835 source. What is claimed is the street face and nothing narrower."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "an 1835-window source that gives this person a Chicago home address"
+      }
+    },
+    {
       "card": "hh_wright_john",
       "attribute": "directories.people[].back_projection",
       "outcome": "placed",
@@ -5774,19 +5826,18 @@
       },
       "values": 1428,
       "by_value": {
-        "1834": 575,
+        "1834": 586,
         "1835": 422,
-        "1833": 322,
-        "1832": 46,
-        "1831": 33,
+        "1833": 294,
+        "1832": 57,
+        "1831": 34,
+        "1824": 8,
         "1830": 7,
-        "1824": 6,
+        "1826": 6,
         "1812": 5,
-        "1818": 4,
-        "1826": 3,
-        "1820": 2,
-        "1816": 1,
-        "1823": 1,
+        "1818": 5,
+        "1816": 2,
+        "1820": 1,
         "1827": 1
       },
       "a_seed": "hh_abbot_8_g:arrival_year",
@@ -7004,10 +7055,10 @@
       },
       "values": 1357,
       "by_value": {
-        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 547,
+        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 555,
         "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 403,
-        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 305,
-        "The trading post, the fort and the country trade — the town before the boom": 102
+        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 278,
+        "The trading post, the fort and the country trade — the town before the boom": 121
       },
       "a_seed": null,
       "a_card": "hh_abbot_8_g"

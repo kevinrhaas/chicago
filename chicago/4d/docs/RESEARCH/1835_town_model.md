@@ -40,9 +40,9 @@ It is an adjudication over committed derived files — no page of any source is 
 
 ### known by presence
 
-- **present** — 2701
-- **absent** — 66
-- **uncertain** — 215
+- **present** — 2756
+- **absent** — 72
+- **uncertain** — 154
 
 **Open questions.** These are recorded here and do not become tickets.
 
@@ -59,7 +59,7 @@ It is an adjudication over committed derived files — no page of any source is 
 | `establishments_in_the_compared_classes` | **118 – 130** | The register holds 130 records at the scene date across the compared classes and the census counted 118 two to five months later. The low end is what the town can name and the high end is what the census counted, and the difference is growth plus what no notice advertised. |
 | `classes_short_of_the_census` | **9** | 9 compared classes hold fewer records than the census counted, 19 establishments short in total — of which 2 are houses the register names with an opening announced AFTER the scene date, so that much of the gap is already accounted for; 6 hold more, which is the register counting NOTICES where the census counted houses. |
 | `employed_persons` | **425 – 588** | The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster. |
-| `people_the_layer_gives_a_trade` | **138 – 327** | 138 people carry a role that reaches 1 July 1835; 327 carry any role at all, and 189 carry only roles dated off the scene. The gap between this and the employed-persons figure above is what the reconstruction bands have to fill. |
+| `people_the_layer_gives_a_trade` | **138 – 328** | 138 people carry a role that reaches 1 July 1835; 328 carry any role at all, and 190 carry only roles dated off the scene. The gap between this and the employed-persons figure above is what the reconstruction bands have to fill. |
 
 **Not claiming.** This section does not claim a trade for any named man, and a class that stands short of the census stays short rather than being filled with invented practitioners.
 
@@ -224,10 +224,10 @@ It is an adjudication over committed derived files — no page of any source is 
 | 1827 | 2 | 0.0008 |
 | 1830 | 5 | 0.0021 |
 | 1831 | 22 | 0.0091 |
-| 1832 | 40 | 0.0165 |
-| 1833 | 266 | 0.1098 |
+| 1832 | 41 | 0.0169 |
+| 1833 | 264 | 0.109 |
 | 1834 | 685 | 0.2828 |
-| 1835 | 1382 | 0.5706 |
+| 1835 | 1383 | 0.571 |
 - **not the figures denominator** — The FIGURES above divide by the named layer alone; this table does not, and the two are different populations on purpose (T-1364).
 - **rows total** — 2422
 - **unit** — people in the WHOLE compiled layer — named and reconstructed together — by the arrival year each one records, out of the 2,422 who record one at all

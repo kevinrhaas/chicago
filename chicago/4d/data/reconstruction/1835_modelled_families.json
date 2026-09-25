@@ -15,17 +15,17 @@
   "a source already names, counts or rules on this household's family": 147,
   "a woman heading her own household is the age pyramid's, T-1174": 31,
   "an evidence-only container holds read evidence and not a household to draw a family into": 5,
-  "presence on the scene date is not settled (T-1172's roster holds it)": 3,
+  "presence on the scene date is not settled (T-1172's roster holds it)": 2,
   "the fort and the country outside the town are not this stage's": 3,
   "the head is not a person the sources name": 11,
   "the head is not an adult the household model seats as a husband": 71,
   "the head's own trade says he kept no wife": 1,
   "the household carries a standing review, and only T-1177's stage may reconstruct within one": 4,
-  "the order book has no woman left in this house's cell": 367
+  "the order book has no woman left in this house's cell": 368
  },
  "refused_by_the_order_book": {
   "persons/female/20_29/north/family/none": 68,
-  "persons/female/20_29/south/family/none": 178,
+  "persons/female/20_29/south/family/none": 179,
   "persons/female/20_29/west/family/none": 56,
   "persons/female/30_39/north/family/none": 16,
   "persons/female/30_39/south/family/none": 31,
@@ -39,13 +39,13 @@
   "persons/male/under_10/north/family/none": 1,
   "persons/male/under_10/south/family/none": 1
  },
- "houses_the_book_refused": 367,
+ "houses_the_book_refused": 368,
  "size_drawn_histogram": {
   "1": 42,
   "2": 76,
   "3": 97,
   "4": 87,
-  "5": 67,
+  "5": 68,
   "6": 64,
   "7": 37,
   "8": 23
@@ -54,7 +54,7 @@
   "2": 64,
   "3": 81,
   "4": 74,
-  "5": 54,
+  "5": 55,
   "6": 48,
   "7": 28,
   "8": 18
@@ -732,14 +732,14 @@
  },
  "measurement": {
   "the_town_the_book_counts": "present households only",
-  "people_before_this_stage": 2085,
-  "people_after_this_stage": 2380,
+  "people_before_this_stage": 2086,
+  "people_after_this_stage": 2381,
   "adults_after_this_stage": {
-   "male": 1253,
+   "male": 1254,
    "female": 288
   },
-  "adult_sex_ratio_before": 614.2,
-  "adult_sex_ratio_after": 435.1,
+  "adult_sex_ratio_before": 614.7,
+  "adult_sex_ratio_after": 435.4,
   "the_model_s_range": [
    120.9,
    150.0
@@ -749,7 +749,7 @@
   "age_pyramid_after": {
    "10_19": 380,
    "20_29": 844,
-   "30_39": 468,
+   "30_39": 469,
    "40_49": 145,
    "50_plus": 84,
    "under_10": 449
@@ -765,15 +765,15 @@
    "8": 0.0487
   },
   "household_size_drawn_share": {
-   "1": 0.0852,
-   "2": 0.1542,
-   "3": 0.1968,
-   "4": 0.1765,
-   "5": 0.1359,
-   "6": 0.1298,
-   "7": 0.0751,
-   "8": 0.0467
+   "1": 0.085,
+   "2": 0.1538,
+   "3": 0.1964,
+   "4": 0.1761,
+   "5": 0.1377,
+   "6": 0.1296,
+   "7": 0.0749,
+   "8": 0.0466
   },
-  "largest_share_gap": 0.0286
+  "largest_share_gap": 0.0268
  }
 }
