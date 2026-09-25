@@ -1098,6 +1098,13 @@
       "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on a clean tree ran in 1.9s, wrote data/reconstruction/1835_roof_redeal.json and docs/RESEARCH/1835_anonymous_roof_redeal.md and changed no committed byte; the perturbation test tells idempotence from inertia — the record's retire count was bent from 0 to 7 and one verdict flipped to `retire`, `--check` went red (\"no longer re-derives from its inputs\"), `--build` re-derived both files, and `git status` came back empty.",
       "placed": "not yet — measured to reproduce, but it reads the structure layer, the order book and the placement policy, all of which earlier reconstruction stages write, so its place in the manifest's dependency order is that pass's to settle."
     },
+    "refamily_moves_1835.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-25",
+      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on the committed tree rewrote data/reconstruction/1835_reconstruction_order_book.json (and the report the book's own --build writes) and changed no committed byte; the perturbation test says that is idempotence rather than inertia — `re_family_ledger.moves` was emptied by hand, `--check` went red on it (\"the book's re-family ledger is not what the cards carry\"), `--build` restored all 19 rows, and `git status` came back empty.",
+      "placed": "not yet — measured to reproduce, and it wants the same second-pass ordering model_refamily_rule.py does. This tool reads the residents layer's cards and writes the order book; the mints that carry a move onto a card read the rule, which reads the book. So the manifest order is book, rule, mint, this, book — and whether the manifest can express a second pass over a tool it has already run is the same open question the rule's own row states, and is not this ticket's to decide."
+    },
     "refuse_reconstructed_grade.py": {
       "placement": "not_a_writer",
       "write_mode": null,

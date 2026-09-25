@@ -5110,6 +5110,30 @@ step "the re-familying programme's report re-derives, and the ledger's moves are
 selftest "…and its own assertions still fire when broken" \
   python3 tools/report_refamily_programme.py --self-test
 
+# T-1563 (of T-1559, of T-1556). THE MOVES THEMSELVES, SPENT — AND THE ONE ORDERING THAT
+# MAKES THEM CHECKABLE. A re-family is two statements about the same head: the household
+# card says which cell he is counted in, and the order book's ledger says it in the book's
+# own arithmetic. Only one of them can be the original, and it is the CARD — C1 is a rung
+# about the card ("the cell is written on an invented card that took it from the bucket"),
+# and the card is where a reader meets the person. So the mint carries the move INSIDE its
+# own derivation, where the seed, the name and the id are already fixed off the slot the
+# head was dealt in, and `tools/refamily_moves_1835.py --build` writes a ledger row only
+# where the card it names already carries the same move, field for field.
+#
+# WHAT THAT ORDERING FORBIDS, AND WHY IT IS A GATE. The book cannot claim a move the
+# residents layer has not made: a row typed into the ledger by hand names a card, the card
+# does not agree, and this step goes red. The converse is gated too — a `refamilied` block
+# standing on a card the rule yields no move for is a fault rather than a dropped row,
+# because a silently dropped row is how a ledger and a layer drift apart while both look
+# green. The step also prints what is still OWED: 19 of the rule's 73 are the trade
+# households' and are spent; the other 54 are `reconstruct_women_children.py`'s and are
+# T-1564's.
+step "every re-family move in the order book stands on a card that says the same thing, and no card claims one the rule does not yield (T-1563)" \
+  python3 tools/refamily_moves_1835.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/refamily_moves_1835.py --self-test
+
 # T-1370, piece 1 of T-1175. HOW MANY BEDS EACH LODGING PLACE HELD. The town model
 # states a bed bracket for the whole town and says in as many words that it "seats
 # nobody in any lodging place and gives no boarding house a capacity of its own";
