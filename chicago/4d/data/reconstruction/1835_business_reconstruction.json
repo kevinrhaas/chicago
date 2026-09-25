@@ -434,7 +434,7 @@
           {
             "person_id": "rc_robillard_michel",
             "name": "Michel Robillard",
-            "division": "south",
+            "division": "west",
             "head_slot": "trade_households:persons/male/30_39/south/family/trade:boatman:005",
             "firm": null
           }
@@ -567,7 +567,7 @@
           {
             "person_id": "rc_newell_hiram",
             "name": "Hiram Newell",
-            "division": "south",
+            "division": "north",
             "head_slot": "trade_households:persons/male/40_49/south/family/trade:seaman:009",
             "firm": null
           }
@@ -944,7 +944,7 @@
           {
             "person_id": "rc_newell_amanda",
             "name": "Amanda Newell",
-            "division": "west",
+            "division": "north",
             "head_slot": "trade_households:persons/female/20_29/west/family/trade:domestic:011",
             "firm": null
           },
@@ -1042,7 +1042,7 @@
           {
             "person_id": "rc_sullivan_johanna",
             "name": "Johanna Sullivan",
-            "division": "west",
+            "division": "north",
             "head_slot": "trade_households:persons/female/30_39/west/family/trade:domestic:005",
             "firm": null
           },
@@ -1077,14 +1077,14 @@
           {
             "person_id": "rc_kelly_catherine",
             "name": "Catherine Kelly",
-            "division": "south",
+            "division": "west",
             "head_slot": "trade_households:persons/female/40_49/south/family/trade:domestic:005",
             "firm": null
           },
           {
             "person_id": "rc_reilly_johanna",
             "name": "Johanna Reilly",
-            "division": "west",
+            "division": "north",
             "head_slot": "trade_households:persons/female/40_49/west/family/trade:domestic:002",
             "firm": null
           },
@@ -1098,7 +1098,7 @@
           {
             "person_id": "rc_duffy_bridget",
             "name": "Bridget Duffy",
-            "division": "south",
+            "division": "west",
             "head_slot": "trade_households:persons/female/50_plus/south/family/trade:domestic:002",
             "firm": null
           },
@@ -1119,7 +1119,7 @@
           {
             "person_id": "rc_nash_eli",
             "name": "Eli Nash",
-            "division": "north",
+            "division": "south",
             "head_slot": "trade_households:persons/male/40_49/north/family/trade:domestic:002",
             "firm": null
           }
@@ -1188,7 +1188,7 @@
           {
             "person_id": "rc_gallagher_catherine",
             "name": "Catherine Gallagher",
-            "division": "west",
+            "division": "north",
             "head_slot": "trade_households:persons/female/50_plus/west/family/trade:laundress:002",
             "firm": null
           }
@@ -1283,7 +1283,7 @@
           {
             "person_id": "rc_newell_seth",
             "name": "Seth Newell",
-            "division": "south",
+            "division": "north",
             "head_slot": "trade_households:persons/male/50_plus/south/family/trade:music_teacher:004",
             "firm": null
           }

@@ -156,9 +156,17 @@ def derive() -> dict:
         raise Fault(f"{made} moves made and {len(pending)} outstanding is not the {yields} "
                     f"the rule yields")
     still_held = sum(r["surplus_when_the_programme_is_spent"] for r in rows)
-    if held["people_held"] - yields != still_held:
-        raise Fault(f"{held['people_held']} held less {yields} moved is not the {still_held} "
-                    f"the buckets are left holding")
+    # THE BOOK'S `people_held` IS WHAT IS HELD NOW, not what was held when the owner ruled
+    # (T-1563): every move T-1559 spends takes its head out of a refused bucket's
+    # `already_drawn`, so the book's figure falls by one per move made. Subtracting every
+    # move the rule yields from it counts the spent moves twice. The figure at the ruling
+    # is today's plus what has already moved; today's less what is still outstanding is
+    # the same end state reached the other way, and both have to agree.
+    ruled = held["people_held"] + made
+    if ruled - yields != still_held or held["people_held"] - len(pending) != still_held:
+        raise Fault(f"{ruled} held at the ruling less {yields} moved is not the {still_held} "
+                    f"the buckets are left holding ({held['people_held']} held today, "
+                    f"{len(pending)} moves outstanding)")
     converge = rule["what_the_town_converges_to"]
     settled = {"T-1557": True, "T-1558": bool(ledger["who_chooses_who_moves"]["settled"]),
                "T-1559": bool(ledger["who_makes_the_moves"]["settled"]),
@@ -182,11 +190,11 @@ def derive() -> dict:
         "what_a_move_is_not": ledger["what_a_move_is_not"],
         "the_pieces": [{"ticket": t, "owns": owns, "settled": settled[t]} for t, owns in PIECES],
         "the_programme_in_four_numbers": {
-            "held_when_the_ruling_was_made": held["people_held"],
+            "held_when_the_ruling_was_made": ruled,
             "moves_T_1556_named": rule["the_ceilings"]["the_number_T_1556_named"],
             "moves_the_rule_yields": yields,
             "people_still_held_when_it_is_spent": still_held,
-            "the_remedy_reaches": round(yields / held["people_held"], 4),
+            "the_remedy_reaches": round(yields / ruled, 4),
         },
         "where_the_programme_stands": {
             "moves_made": made,
@@ -216,7 +224,7 @@ def derive() -> dict:
         "what_the_town_converges_to": {
             "still_owed_now": ledger["what_it_would_converge_to"]["still_owed_now"],
             "still_owed_when_the_programme_is_spent":
-                ledger["what_it_would_converge_to"]["still_owed_now"] - yields,
+                ledger["what_it_would_converge_to"]["still_owed_now"] - len(pending),
             "persons_standing_in_the_layer": converge["persons_standing_in_the_layer"],
             "converges_to_now": converge["converges_to_now"],
             "converges_to_when_the_programme_is_spent": converge["converges_to_if_the_rule_is_spent"],
@@ -402,12 +410,17 @@ def cmd_self_test() -> int:
     # 2. A MOVE MUST LEAVE A HELD BUCKET AND REACH AN OPEN ORDER. Moving the surplus
     # from one refused bucket into another would satisfy every count in this file and
     # remedy nothing whatever, so both directions are refused by name.
+    # The fixtures bend the first move still OUTSTANDING: a move already spent is not
+    # re-read here (T-1563 spends the first ones), so bending it would prove nothing.
+    made = {m["person"] for m in book["re_family_ledger"]["moves"]}
+    first = next(i for i, m in enumerate(rule["the_moves_the_rule_yields"])
+                 if m["person"] not in made)
     sideways = json.loads(json.dumps(rule))
-    sideways["the_moves_the_rule_yields"][0]["to_bucket"] = book["recut_refusals"][0]["bucket"]
+    sideways["the_moves_the_rule_yields"][first]["to_bucket"] = book["recut_refusals"][0]["bucket"]
     fires("a move landing in a bucket that is itself refused",
           lambda: end_state(book, sideways))
     nowhere = json.loads(json.dumps(rule))
-    nowhere["the_moves_the_rule_yields"][0]["from_bucket"] = "persons/male/20_29/south/family/none"
+    nowhere["the_moves_the_rule_yields"][first]["from_bucket"] = "persons/male/20_29/south/family/none"
     fires("a move leaving a bucket the book does not refuse",
           lambda: end_state(book, nowhere))
 
@@ -430,9 +443,16 @@ def cmd_self_test() -> int:
         == four["people_still_held_when_it_is_spent"], "the family rollup loses people"
     assert four["moves_the_rule_yields"] < four["moves_T_1556_named"], \
         "the rule now yields what T-1556 named — this report's finding has gone away"
+    stands = doc["where_the_programme_stands"]
     assert doc["what_the_town_converges_to"]["still_owed_when_the_programme_is_spent"] == \
-        doc["what_the_town_converges_to"]["still_owed_now"] - four["moves_the_rule_yields"], \
-        "what is still owed does not fall by what is moved"
+        doc["what_the_town_converges_to"]["still_owed_now"] - stands["moves_outstanding"], \
+        "what is still owed does not fall by what is still to move"
+    # A SPENT MOVE IS COUNTED ONCE (T-1563): what was held at the ruling is today's
+    # surplus plus what has already moved, and the moves made and outstanding add up
+    # to what the rule yields.
+    assert four["held_when_the_ruling_was_made"] == \
+        stands["surplus_still_held_today"] + stands["moves_made"], "a spent move is lost"
+    assert stands["moves_made"] + stands["moves_outstanding"] == four["moves_the_rule_yields"]
 
     print(f"OK: {fired} refusal(s) fired as intended, and the arithmetic closes both ways")
     return 0

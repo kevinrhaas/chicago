@@ -1927,6 +1927,10 @@ def refamily_rule() -> dict | None:
         "one_line": (doc.get("the_rule") or {}).get("one_line"),
         "rungs": [r["id"] for r in ladder],
         "movable": [r["id"] for r in ladder if r.get("tier") == "movable"],
+        # HOW MANY THE RULE YIELDS, so the ledger below can say whether it is SPENT
+        # without a number being typed beside it. T-1558 found 73 where the aggregate
+        # had suggested 265, and the two can only be told apart by reading the list.
+        "yields": len(doc.get("the_moves_the_rule_yields") or []),
     }
 
 
@@ -2032,7 +2036,24 @@ def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int
                    "ticket's. Every row must NAME the rule that chose its head, so a move "
                    "made before the rule exists cannot be written without saying so.",
         }),
-        "who_makes_the_moves": {"ticket": "T-1559", "settled": False},
+        "who_makes_the_moves": {
+            "ticket": "T-1559",
+            "settled": bool(rule) and len(moves) >= rule["yields"],
+            "the_rule_yields": rule["yields"] if rule else None,
+            "spent": len(moves),
+            "still_to_spend": (max(0, rule["yields"] - len(moves)) if rule else None),
+            "spent_by": sorted({(m.get("carried_by") or {}).get("ticket")
+                                for m in moves if (m.get("carried_by") or {}).get("ticket")}),
+            "how_a_move_is_spent": "on the CARD first, and in this ledger second. The mint "
+                                   "that derives a held head carries the move inside its "
+                                   "own derivation — where the seed, the name and the id "
+                                   "are already fixed, so a moved card re-derives byte for "
+                                   "byte — and `tools/refamily_moves_1835.py --build` "
+                                   "writes a row here ONLY where the card it names already "
+                                   "says the same thing. So this ledger cannot claim a "
+                                   "move the residents layer has not made, and a row typed "
+                                   "into it by hand does not survive a --build.",
+        },
         # THE PROGRAMME ITSELF IS A STEP, and `settled` is arithmetic rather than
         # opinion: it finishes when nobody is held, and only then. Every step here
         # carrying `settled: false` is a forward-looking work order, and
