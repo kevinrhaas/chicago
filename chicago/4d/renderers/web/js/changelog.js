@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1100, title: 'The shops are short of hands \u2014 now you can price it', kind: 'fix', ts: '2026-09-25T11:22:42.773Z', date: 'Sep 25, 2026, 6:22 AM CT',
+    items: [
+      'The town\u2019s shops and offices want more hired hands than the sources name. This project keeps a ledger of that shortfall: what every counting house, smithy and store still wants, set against the order book \u2014 the quota of people the reconstruction is allowed to invent. Today the shops want 130 hands and the book can pay for 32.',
+      'The ledger had gone stale in a way worth owning. It argued from a book that was re-cut last week, and it was still saying, in three places, that there was no slot at all for an apprentice or a shop boy. There are 33. The re-cut opened that band; it refused to make the remaining town more male than the evidence says; and so the shortfall stayed. Every sentence in the ledger now counts what it claims, and its self-test fails if the wording and the figure part company.',
+      'The file also promised something it never delivered. It said each row carried the staffing model\u2019s LOW estimate beside its typical one, \u201cso a reader can price the other two answers\u201d \u2014 and the low figure was not there. So the one answer arithmetic could settle was the one nobody could read.',
+      'It is there now, and it is the news: staffed to the low band rather than the typical one, the shops want 47 hands instead of 130, and the book pays for 26 of them. That is a choice about what this town is, and it is the owner\u2019s to make. It is now a choice with numbers on it.',
+    ] },
   { v: 1099, title: 'The Catholic town the poll books never wrote down', kind: 'add', ts: '2026-09-25T00:14:51.212Z', date: 'Sep 24, 2026, 7:14 PM CT',
     items: [
       'The last entry ruled that Father St Cyr\u2019s parish register is evidence about the people in it. This is the entry where those people arrive: 120 households \u2014 French, M\u00e9tis, Irish and German Catholic families the voters\u2019 lists, the tax roll and the muster rolls never once recorded \u2014 now stand in the town with cards of their own, and 150 of the cards this pass wrote cite the register as their evidence.',
