@@ -18,7 +18,15 @@
     "sex": "female",
     "age_band": "10_19",
     "trade": "none",
-    "to_reconstruct": 6
+    "to_reconstruct": 2
+   },
+   {
+    "bucket": "persons/female/10_19/north/lodging/trade",
+    "division": "north",
+    "sex": "female",
+    "age_band": "10_19",
+    "trade": "trade",
+    "to_reconstruct": 3
    },
    {
     "bucket": "persons/female/20_29/north/lodging/none",
@@ -26,7 +34,7 @@
     "sex": "female",
     "age_band": "20_29",
     "trade": "none",
-    "to_reconstruct": 6
+    "to_reconstruct": 5
    },
    {
     "bucket": "persons/female/20_29/north/lodging/trade",
@@ -90,7 +98,7 @@
     "sex": "female",
     "age_band": "under_10",
     "trade": "none",
-    "to_reconstruct": 9
+    "to_reconstruct": 8
    },
    {
     "bucket": "persons/male/10_19/north/lodging/none",
@@ -98,7 +106,15 @@
     "sex": "male",
     "age_band": "10_19",
     "trade": "none",
-    "to_reconstruct": 7
+    "to_reconstruct": 3
+   },
+   {
+    "bucket": "persons/male/10_19/north/lodging/trade",
+    "division": "north",
+    "sex": "male",
+    "age_band": "10_19",
+    "trade": "trade",
+    "to_reconstruct": 3
    },
    {
     "bucket": "persons/male/20_29/north/lodging/none",
@@ -106,7 +122,7 @@
     "sex": "male",
     "age_band": "20_29",
     "trade": "none",
-    "to_reconstruct": 10
+    "to_reconstruct": 12
    },
    {
     "bucket": "persons/male/20_29/north/lodging/trade",
@@ -114,7 +130,7 @@
     "sex": "male",
     "age_band": "20_29",
     "trade": "trade",
-    "to_reconstruct": 5
+    "to_reconstruct": 2
    },
    {
     "bucket": "persons/male/30_39/north/lodging/none",
@@ -122,7 +138,7 @@
     "sex": "male",
     "age_band": "30_39",
     "trade": "none",
-    "to_reconstruct": 7
+    "to_reconstruct": 6
    },
    {
     "bucket": "persons/male/30_39/north/lodging/trade",
@@ -170,7 +186,7 @@
     "sex": "male",
     "age_band": "under_10",
     "trade": "none",
-    "to_reconstruct": 11
+    "to_reconstruct": 10
    },
    {
     "bucket": "persons/female/10_19/south/lodging/none",
@@ -178,7 +194,15 @@
     "sex": "female",
     "age_band": "10_19",
     "trade": "none",
-    "to_reconstruct": 13
+    "to_reconstruct": 4
+   },
+   {
+    "bucket": "persons/female/10_19/south/lodging/trade",
+    "division": "south",
+    "sex": "female",
+    "age_band": "10_19",
+    "trade": "trade",
+    "to_reconstruct": 8
    },
    {
     "bucket": "persons/female/20_29/south/lodging/none",
@@ -186,7 +210,7 @@
     "sex": "female",
     "age_band": "20_29",
     "trade": "none",
-    "to_reconstruct": 14
+    "to_reconstruct": 18
    },
    {
     "bucket": "persons/female/20_29/south/lodging/trade",
@@ -194,7 +218,7 @@
     "sex": "female",
     "age_band": "20_29",
     "trade": "trade",
-    "to_reconstruct": 7
+    "to_reconstruct": 1
    },
    {
     "bucket": "persons/female/30_39/south/lodging/none",
@@ -202,7 +226,7 @@
     "sex": "female",
     "age_band": "30_39",
     "trade": "none",
-    "to_reconstruct": 7
+    "to_reconstruct": 9
    },
    {
     "bucket": "persons/female/30_39/south/lodging/trade",
@@ -210,7 +234,7 @@
     "sex": "female",
     "age_band": "30_39",
     "trade": "trade",
-    "to_reconstruct": 3
+    "to_reconstruct": 0
    },
    {
     "bucket": "persons/female/40_49/south/lodging/none",
@@ -218,7 +242,7 @@
     "sex": "female",
     "age_band": "40_49",
     "trade": "none",
-    "to_reconstruct": 3
+    "to_reconstruct": 4
    },
    {
     "bucket": "persons/female/40_49/south/lodging/trade",
@@ -226,7 +250,7 @@
     "sex": "female",
     "age_band": "40_49",
     "trade": "trade",
-    "to_reconstruct": 1
+    "to_reconstruct": 0
    },
    {
     "bucket": "persons/female/50_plus/south/lodging/none",
@@ -234,7 +258,7 @@
     "sex": "female",
     "age_band": "50_plus",
     "trade": "none",
-    "to_reconstruct": 2
+    "to_reconstruct": 1
    },
    {
     "bucket": "persons/female/50_plus/south/lodging/trade",
@@ -250,7 +274,7 @@
     "sex": "female",
     "age_band": "under_10",
     "trade": "none",
-    "to_reconstruct": 22
+    "to_reconstruct": 20
    },
    {
     "bucket": "persons/male/10_19/south/lodging/none",
@@ -258,7 +282,15 @@
     "sex": "male",
     "age_band": "10_19",
     "trade": "none",
-    "to_reconstruct": 14
+    "to_reconstruct": 4
+   },
+   {
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "division": "south",
+    "sex": "male",
+    "age_band": "10_19",
+    "trade": "trade",
+    "to_reconstruct": 9
    },
    {
     "bucket": "persons/male/20_29/south/lodging/none",
@@ -266,7 +298,7 @@
     "sex": "male",
     "age_band": "20_29",
     "trade": "none",
-    "to_reconstruct": 24
+    "to_reconstruct": 32
    },
    {
     "bucket": "persons/male/20_29/south/lodging/trade",
@@ -274,7 +306,7 @@
     "sex": "male",
     "age_band": "20_29",
     "trade": "trade",
-    "to_reconstruct": 12
+    "to_reconstruct": 1
    },
    {
     "bucket": "persons/male/30_39/south/lodging/none",
@@ -282,7 +314,7 @@
     "sex": "male",
     "age_band": "30_39",
     "trade": "none",
-    "to_reconstruct": 14
+    "to_reconstruct": 17
    },
    {
     "bucket": "persons/male/30_39/south/lodging/trade",
@@ -290,7 +322,7 @@
     "sex": "male",
     "age_band": "30_39",
     "trade": "trade",
-    "to_reconstruct": 7
+    "to_reconstruct": 2
    },
    {
     "bucket": "persons/male/40_49/south/lodging/none",
@@ -298,7 +330,7 @@
     "sex": "male",
     "age_band": "40_49",
     "trade": "none",
-    "to_reconstruct": 4
+    "to_reconstruct": 3
    },
    {
     "bucket": "persons/male/40_49/south/lodging/trade",
@@ -330,7 +362,7 @@
     "sex": "male",
     "age_band": "under_10",
     "trade": "none",
-    "to_reconstruct": 25
+    "to_reconstruct": 22
    },
    {
     "bucket": "persons/female/10_19/west/lodging/none",
@@ -338,7 +370,15 @@
     "sex": "female",
     "age_band": "10_19",
     "trade": "none",
-    "to_reconstruct": 5
+    "to_reconstruct": 1
+   },
+   {
+    "bucket": "persons/female/10_19/west/lodging/trade",
+    "division": "west",
+    "sex": "female",
+    "age_band": "10_19",
+    "trade": "trade",
+    "to_reconstruct": 4
    },
    {
     "bucket": "persons/female/20_29/west/lodging/none",
@@ -346,7 +386,7 @@
     "sex": "female",
     "age_band": "20_29",
     "trade": "none",
-    "to_reconstruct": 6
+    "to_reconstruct": 5
    },
    {
     "bucket": "persons/female/20_29/west/lodging/trade",
@@ -362,7 +402,7 @@
     "sex": "female",
     "age_band": "30_39",
     "trade": "none",
-    "to_reconstruct": 3
+    "to_reconstruct": 4
    },
    {
     "bucket": "persons/female/30_39/west/lodging/trade",
@@ -370,7 +410,7 @@
     "sex": "female",
     "age_band": "30_39",
     "trade": "trade",
-    "to_reconstruct": 1
+    "to_reconstruct": 0
    },
    {
     "bucket": "persons/female/40_49/west/lodging/none",
@@ -410,7 +450,7 @@
     "sex": "female",
     "age_band": "under_10",
     "trade": "none",
-    "to_reconstruct": 9
+    "to_reconstruct": 8
    },
    {
     "bucket": "persons/male/10_19/west/lodging/none",
@@ -418,7 +458,15 @@
     "sex": "male",
     "age_band": "10_19",
     "trade": "none",
-    "to_reconstruct": 6
+    "to_reconstruct": 1
+   },
+   {
+    "bucket": "persons/male/10_19/west/lodging/trade",
+    "division": "west",
+    "sex": "male",
+    "age_band": "10_19",
+    "trade": "trade",
+    "to_reconstruct": 4
    },
    {
     "bucket": "persons/male/20_29/west/lodging/none",
@@ -426,7 +474,7 @@
     "sex": "male",
     "age_band": "20_29",
     "trade": "none",
-    "to_reconstruct": 9
+    "to_reconstruct": 12
    },
    {
     "bucket": "persons/male/20_29/west/lodging/trade",
@@ -434,7 +482,7 @@
     "sex": "male",
     "age_band": "20_29",
     "trade": "trade",
-    "to_reconstruct": 5
+    "to_reconstruct": 1
    },
    {
     "bucket": "persons/male/30_39/west/lodging/none",
@@ -442,7 +490,7 @@
     "sex": "male",
     "age_band": "30_39",
     "trade": "none",
-    "to_reconstruct": 6
+    "to_reconstruct": 5
    },
    {
     "bucket": "persons/male/30_39/west/lodging/trade",
@@ -490,7 +538,7 @@
     "sex": "male",
     "age_band": "under_10",
     "trade": "none",
-    "to_reconstruct": 10
+    "to_reconstruct": 9
    }
   ],
   "re_cut_since": {
@@ -498,184 +546,92 @@
    "the_book_moved": [
     {
      "bucket": "persons/female/10_19/north/lodging/none",
-     "the_deal_was_dealt_against": 6,
-     "the_book_orders_now": 2
-    },
-    {
-     "bucket": "persons/female/20_29/north/lodging/none",
-     "the_deal_was_dealt_against": 6,
-     "the_book_orders_now": 5
-    },
-    {
-     "bucket": "persons/female/under_10/north/lodging/none",
-     "the_deal_was_dealt_against": 9,
-     "the_book_orders_now": 8
-    },
-    {
-     "bucket": "persons/male/10_19/north/lodging/none",
-     "the_deal_was_dealt_against": 7,
-     "the_book_orders_now": 3
-    },
-    {
-     "bucket": "persons/male/20_29/north/lodging/none",
-     "the_deal_was_dealt_against": 10,
-     "the_book_orders_now": 12
-    },
-    {
-     "bucket": "persons/male/20_29/north/lodging/trade",
-     "the_deal_was_dealt_against": 5,
-     "the_book_orders_now": 2
-    },
-    {
-     "bucket": "persons/male/30_39/north/lodging/none",
-     "the_deal_was_dealt_against": 7,
-     "the_book_orders_now": 6
-    },
-    {
-     "bucket": "persons/male/under_10/north/lodging/none",
-     "the_deal_was_dealt_against": 11,
-     "the_book_orders_now": 10
-    },
-    {
-     "bucket": "persons/female/10_19/south/lodging/none",
-     "the_deal_was_dealt_against": 13,
-     "the_book_orders_now": 4
-    },
-    {
-     "bucket": "persons/female/20_29/south/lodging/none",
-     "the_deal_was_dealt_against": 14,
-     "the_book_orders_now": 18
-    },
-    {
-     "bucket": "persons/female/20_29/south/lodging/trade",
-     "the_deal_was_dealt_against": 7,
-     "the_book_orders_now": 1
-    },
-    {
-     "bucket": "persons/female/30_39/south/lodging/none",
-     "the_deal_was_dealt_against": 7,
-     "the_book_orders_now": 9
-    },
-    {
-     "bucket": "persons/female/30_39/south/lodging/trade",
-     "the_deal_was_dealt_against": 3,
-     "the_book_orders_now": 0
-    },
-    {
-     "bucket": "persons/female/40_49/south/lodging/none",
-     "the_deal_was_dealt_against": 3,
-     "the_book_orders_now": 4
-    },
-    {
-     "bucket": "persons/female/40_49/south/lodging/trade",
-     "the_deal_was_dealt_against": 1,
-     "the_book_orders_now": 0
-    },
-    {
-     "bucket": "persons/female/50_plus/south/lodging/none",
      "the_deal_was_dealt_against": 2,
      "the_book_orders_now": 1
     },
     {
-     "bucket": "persons/female/under_10/south/lodging/none",
-     "the_deal_was_dealt_against": 22,
-     "the_book_orders_now": 20
-    },
-    {
-     "bucket": "persons/male/10_19/south/lodging/none",
-     "the_deal_was_dealt_against": 14,
-     "the_book_orders_now": 4
-    },
-    {
-     "bucket": "persons/male/20_29/south/lodging/none",
-     "the_deal_was_dealt_against": 24,
-     "the_book_orders_now": 32
-    },
-    {
-     "bucket": "persons/male/20_29/south/lodging/trade",
-     "the_deal_was_dealt_against": 12,
-     "the_book_orders_now": 1
-    },
-    {
-     "bucket": "persons/male/30_39/south/lodging/none",
-     "the_deal_was_dealt_against": 14,
-     "the_book_orders_now": 17
-    },
-    {
-     "bucket": "persons/male/30_39/south/lodging/trade",
-     "the_deal_was_dealt_against": 7,
-     "the_book_orders_now": 2
-    },
-    {
-     "bucket": "persons/male/40_49/south/lodging/none",
-     "the_deal_was_dealt_against": 4,
-     "the_book_orders_now": 3
-    },
-    {
-     "bucket": "persons/male/under_10/south/lodging/none",
-     "the_deal_was_dealt_against": 25,
-     "the_book_orders_now": 22
-    },
-    {
-     "bucket": "persons/female/10_19/west/lodging/none",
-     "the_deal_was_dealt_against": 5,
-     "the_book_orders_now": 1
-    },
-    {
-     "bucket": "persons/female/20_29/west/lodging/none",
-     "the_deal_was_dealt_against": 6,
-     "the_book_orders_now": 5
-    },
-    {
-     "bucket": "persons/female/30_39/west/lodging/none",
+     "bucket": "persons/female/10_19/north/lodging/trade",
      "the_deal_was_dealt_against": 3,
      "the_book_orders_now": 4
     },
     {
-     "bucket": "persons/female/30_39/west/lodging/trade",
+     "bucket": "persons/female/30_39/north/lodging/trade",
+     "the_deal_was_dealt_against": 2,
+     "the_book_orders_now": 1
+    },
+    {
+     "bucket": "persons/male/10_19/north/lodging/none",
+     "the_deal_was_dealt_against": 3,
+     "the_book_orders_now": 2
+    },
+    {
+     "bucket": "persons/male/10_19/north/lodging/trade",
+     "the_deal_was_dealt_against": 3,
+     "the_book_orders_now": 4
+    },
+    {
+     "bucket": "persons/male/20_29/north/lodging/none",
+     "the_deal_was_dealt_against": 12,
+     "the_book_orders_now": 13
+    },
+    {
+     "bucket": "persons/male/20_29/north/lodging/trade",
+     "the_deal_was_dealt_against": 2,
+     "the_book_orders_now": 1
+    },
+    {
+     "bucket": "persons/female/20_29/south/lodging/none",
+     "the_deal_was_dealt_against": 18,
+     "the_book_orders_now": 19
+    },
+    {
+     "bucket": "persons/female/20_29/south/lodging/trade",
      "the_deal_was_dealt_against": 1,
      "the_book_orders_now": 0
     },
     {
-     "bucket": "persons/female/under_10/west/lodging/none",
-     "the_deal_was_dealt_against": 9,
-     "the_book_orders_now": 8
-    },
-    {
-     "bucket": "persons/male/10_19/west/lodging/none",
-     "the_deal_was_dealt_against": 6,
+     "bucket": "persons/male/10_19/south/lodging/none",
+     "the_deal_was_dealt_against": 4,
      "the_book_orders_now": 1
     },
     {
-     "bucket": "persons/male/20_29/west/lodging/none",
+     "bucket": "persons/male/10_19/south/lodging/trade",
      "the_deal_was_dealt_against": 9,
      "the_book_orders_now": 12
     },
     {
-     "bucket": "persons/male/20_29/west/lodging/trade",
-     "the_deal_was_dealt_against": 5,
+     "bucket": "persons/male/20_29/south/lodging/none",
+     "the_deal_was_dealt_against": 32,
+     "the_book_orders_now": 33
+    },
+    {
+     "bucket": "persons/male/20_29/south/lodging/trade",
+     "the_deal_was_dealt_against": 1,
+     "the_book_orders_now": 0
+    },
+    {
+     "bucket": "persons/male/30_39/south/lodging/none",
+     "the_deal_was_dealt_against": 17,
+     "the_book_orders_now": 18
+    },
+    {
+     "bucket": "persons/male/30_39/south/lodging/trade",
+     "the_deal_was_dealt_against": 2,
      "the_book_orders_now": 1
     },
     {
-     "bucket": "persons/male/30_39/west/lodging/none",
-     "the_deal_was_dealt_against": 6,
-     "the_book_orders_now": 5
+     "bucket": "persons/male/20_29/west/lodging/none",
+     "the_deal_was_dealt_against": 12,
+     "the_book_orders_now": 13
     },
     {
-     "bucket": "persons/male/under_10/west/lodging/none",
-     "the_deal_was_dealt_against": 10,
-     "the_book_orders_now": 9
+     "bucket": "persons/male/20_29/west/lodging/trade",
+     "the_deal_was_dealt_against": 1,
+     "the_book_orders_now": 0
     }
    ],
    "gone_from_the_book": [],
-   "new_since_the_deal": [
-    "persons/female/10_19/north/lodging/trade",
-    "persons/female/10_19/south/lodging/trade",
-    "persons/female/10_19/west/lodging/trade",
-    "persons/male/10_19/north/lodging/trade",
-    "persons/male/10_19/south/lodging/trade",
-    "persons/male/10_19/west/lodging/trade"
-   ],
+   "new_since_the_deal": [],
    "note": "`new_since_the_deal` is deliberately OUTSIDE the room. A cell the re-cut re-opened is work for the stage that asked for it — T-1448's shop boys — and letting it back into these weights would re-deal this stage's own draw, which is the fault T-1503 fixed."
   }
  },
@@ -838,7 +794,7 @@
    ],
    "minted_keeper": "rc_bardwell_esther",
    "minted_lodgers": 2,
-   "minted_children": 1,
+   "minted_children": 3,
    "occupancy_after": 7,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -1013,7 +969,7 @@
    ],
    "minted_keeper": "rc_pelletier_victoire",
    "minted_lodgers": 3,
-   "minted_children": 1,
+   "minted_children": 2,
    "occupancy_after": 11,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -2363,7 +2319,7 @@
    "id": "hh_lodging_recon_1835_north_h1_007",
    "file": "lodgers/hh_lodging_recon_1835_north_h1_007.json",
    "place": "recon_1835_north_h1_007",
-   "persons": 4
+   "persons": 6
   },
   {
    "id": "hh_lodging_recon_1835_north_h2_022",
@@ -2399,7 +2355,7 @@
    "id": "hh_lodging_recon_1835_west_035",
    "file": "lodgers/hh_lodging_recon_1835_west_035.json",
    "place": "recon_1835_west_035",
-   "persons": 5
+   "persons": 6
   },
   {
    "id": "hh_lodging_sauganash_hotel",
@@ -2433,34 +2389,34 @@
   }
  ],
  "fills": {
-  "persons/female/10_19/north/lodging/none": 2,
-  "persons/female/10_19/south/lodging/none": 4,
-  "persons/female/10_19/west/lodging/none": 1,
-  "persons/female/20_29/north/lodging/none": 2,
-  "persons/female/20_29/north/lodging/trade": 1,
-  "persons/female/20_29/south/lodging/none": 7,
-  "persons/female/20_29/west/lodging/none": 2,
-  "persons/female/30_39/north/lodging/trade": 2,
-  "persons/female/30_39/south/lodging/none": 4,
+  "persons/female/10_19/north/lodging/none": 1,
+  "persons/female/10_19/north/lodging/trade": 1,
+  "persons/female/10_19/south/lodging/none": 1,
+  "persons/female/20_29/north/lodging/none": 3,
+  "persons/female/20_29/north/lodging/trade": 2,
+  "persons/female/20_29/south/lodging/none": 8,
+  "persons/female/20_29/west/lodging/none": 3,
+  "persons/female/20_29/west/lodging/trade": 1,
+  "persons/female/30_39/north/lodging/none": 1,
+  "persons/female/30_39/south/lodging/none": 5,
+  "persons/female/30_39/west/lodging/none": 1,
   "persons/female/40_49/south/lodging/none": 1,
-  "persons/female/50_plus/west/lodging/trade": 1,
-  "persons/male/10_19/north/lodging/none": 3,
-  "persons/male/10_19/south/lodging/none": 4,
-  "persons/male/10_19/west/lodging/none": 1,
+  "persons/male/10_19/north/lodging/none": 1,
+  "persons/male/10_19/north/lodging/trade": 1,
+  "persons/male/10_19/south/lodging/none": 1,
+  "persons/male/10_19/west/lodging/trade": 1,
   "persons/male/20_29/north/lodging/none": 6,
-  "persons/male/20_29/north/lodging/trade": 2,
-  "persons/male/20_29/south/lodging/none": 10,
+  "persons/male/20_29/north/lodging/trade": 1,
+  "persons/male/20_29/south/lodging/none": 14,
   "persons/male/20_29/west/lodging/none": 3,
-  "persons/male/20_29/west/lodging/trade": 1,
-  "persons/male/30_39/north/lodging/none": 3,
-  "persons/male/30_39/south/lodging/none": 6,
-  "persons/male/30_39/west/lodging/none": 2,
-  "persons/male/40_49/south/lodging/none": 1
+  "persons/male/30_39/north/lodging/none": 4,
+  "persons/male/30_39/south/lodging/none": 7,
+  "persons/male/30_39/west/lodging/none": 2
  },
  "child_fills": {
   "persons/female/under_10/north/lodging/none": 5,
-  "persons/male/under_10/north/lodging/none": 5,
-  "persons/male/under_10/west/lodging/none": 2
+  "persons/male/under_10/north/lodging/none": 7,
+  "persons/male/under_10/west/lodging/none": 3
  },
  "household_fills": {
   "statement": "One fill per lodging household record this stage writes, keyed on the order book's own household cell. A card written is a house filled.",
@@ -2491,24 +2447,13 @@
     "household_size_drawn": 4,
     "seed": "lodgers:recon_1835_north_h1_007:household_size",
     "children_the_model_wants": 3,
-    "children_drawn": 1,
+    "children_drawn": 3,
     "children": [
-     "rc_bardwell_nancy"
+     "rc_bardwell_david",
+     "rc_bardwell_nancy",
+     "rc_bardwell_henry"
     ],
-    "refused": [
-     {
-      "child": 1,
-      "refusal": "the band the model drew is not this stage's to fill",
-      "band": "10_19",
-      "note": "The household model drew this child into adolescence. The book's six `10_19/*/lodging/none` cells are discharged — the boarders stage filled 16 of 16 — so there is no order left to draw them against, and re-banding a child downward to reach a cell that is open would be dealing to the quota rather than from the model."
-     },
-     {
-      "child": 3,
-      "refusal": "the band the model drew is not this stage's to fill",
-      "band": "10_19",
-      "note": "The household model drew this child into adolescence. The book's six `10_19/*/lodging/none` cells are discharged — the boarders stage filled 16 of 16 — so there is no order left to draw them against, and re-banding a child downward to reach a cell that is open would be dealing to the quota rather than from the model."
-     }
-    ],
+    "refused": [],
     "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/north/lodging/none."
    },
    {
@@ -2602,18 +2547,12 @@
     "household_size_drawn": 3,
     "seed": "lodgers:recon_1835_west_035:household_size",
     "children_the_model_wants": 2,
-    "children_drawn": 1,
+    "children_drawn": 2,
     "children": [
-     "rc_pelletier_charles"
+     "rc_pelletier_charles",
+     "rc_pelletier_alexis"
     ],
-    "refused": [
-     {
-      "child": 2,
-      "refusal": "the band the model drew is not this stage's to fill",
-      "band": "10_19",
-      "note": "The household model drew this child into adolescence. The book's six `10_19/*/lodging/none` cells are discharged — the boarders stage filled 16 of 16 — so there is no order left to draw them against, and re-banding a child downward to reach a cell that is open would be dealing to the quota rather than from the model."
-     }
-    ],
+    "refused": [],
     "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/west/lodging/none."
    }
   ]
@@ -2658,8 +2597,8 @@
    "place": "recon_1835_north_h1_007",
    "name": "Reconstructed H1 small boarding house #007",
    "keeper": "rc_bardwell_esther",
-   "persons_on_the_keeper_s_card": 2,
-   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 1 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
+   "persons_on_the_keeper_s_card": 4,
+   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 3 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
    "place": "recon_1835_north_h2_022",
@@ -2700,8 +2639,8 @@
    "place": "recon_1835_west_035",
    "name": "Reconstructed H2 medium boarding house #035",
    "keeper": "rc_pelletier_victoire",
-   "persons_on_the_keeper_s_card": 2,
-   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 1 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
+   "persons_on_the_keeper_s_card": 3,
+   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 2 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
    "place": "sauganash_hotel",
@@ -2768,10 +2707,10 @@
   "seated_from_the_layer": 54,
   "minted_here": 69,
   "minted_keepers": 7,
-  "keeper_children_minted": 12,
+  "keeper_children_minted": 15,
   "keeper_children_the_model_wanted": 16,
-  "keeper_children_refused": 4,
-  "people_on_the_cards": 81,
+  "keeper_children_refused": 1,
+  "people_on_the_cards": 84,
   "occupied_after_this_stage": 153,
   "ordinary_night_beds_still_empty": 0,
   "houses_at_their_ordinary_night_figure": 17,
@@ -2805,6 +2744,6 @@
   },
   "child_buckets_filled": 3,
   "every_child_is_kin_of_a_named_keeper": true,
-  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 69 of them into beds and 12 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children of houses this stage does not keep."
+  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 69 of them into beds and 15 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), the trades this stage does not deal, and the children of houses this stage does not keep."
  }
 }

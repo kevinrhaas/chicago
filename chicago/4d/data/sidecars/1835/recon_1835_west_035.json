@@ -214,7 +214,7 @@
       "relation": "lodged here",
       "why": "THE BED IS THE CLAIM. The lodging model puts 11 people in this house on an ordinary night and 27 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
       "sources": [],
-      "basis": "BEDS, AND ONE FAMILY. 4 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 1 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper.",
+      "basis": "BEDS, AND ONE FAMILY. 4 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 2 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper.",
       "persons": [
         {
           "name": "Victoire Pelletier",
@@ -224,21 +224,21 @@
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This roof is itself a reconstruction of the 1835 building programme, raised as a lodging place, and a lodging place with no keeper is not one. The whole of what is claimed is that: an adult of this sex and band kept this invented house. A NAMED house is never given a keeper this way — see the tool's refusals. The family this keeper is owed is not drawn here; `household_owed` says which ticket owes it. No figure is drawn (L1)."
         },
         {
-          "name": "Catherine Trottier",
+          "name": "Nancy Wadsworth",
           "relationship": "boarder",
           "grade": "reconstructed",
           "occupation": "",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
-          "name": "Alvah Hale",
+          "name": "Clarissa Hubbard",
           "relationship": "boarder",
           "grade": "reconstructed",
           "occupation": "",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 11 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
-          "name": "Otis Barnes",
+          "name": "Asa Hastings",
           "relationship": "boarder",
           "grade": "reconstructed",
           "occupation": "",
@@ -249,7 +249,14 @@
           "relationship": "son",
           "grade": "reconstructed",
           "occupation": "",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 3 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 19 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 3 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Alexis Pelletier",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 3 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         }
       ],
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
@@ -364,8 +371,8 @@
       "empty": 0,
       "statement": "11 on this card against an ordinary night's 11 beds: 7 seated here from elsewhere in the layer, where no source gives them a roof, 3 drawn against the order book's lodging buckets for beds that were standing empty, a keeper drawn for a roof this programme raised.",
       "empty_note": "",
-      "keeper_persons": 2,
-      "keeper_owed": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 1 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
+      "keeper_persons": 3,
+      "keeper_owed": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 2 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
     }
   }
 }

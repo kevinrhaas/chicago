@@ -183,9 +183,9 @@
   },
   "what_the_book_can_pay": {
     "what_it_is": "The order book's `.../trade` person buckets with slots left. Every one of them is a `lodging/trade` bucket and every one is owned by T-1532, the working lodgers — so a mint that spends them spends another stage's quota, which is itself part of the question above. T-1532 because T-1175, which held these buckets when this sentence was written, split and left them ordered by nobody; T-1420 swept the book onto the live placeholder T-1500 on 2026-09-21, and T-1500 cut the bed buckets three ways on 2026-09-24, the `lodging/trade` third of them to T-1532. The stage is the same stage throughout.",
-    "slots_outstanding": 57,
+    "slots_outstanding": 56,
     "by_sex": {
-      "female": 25,
+      "female": 24,
       "male": 32
     },
     "owning_tickets": [
@@ -225,15 +225,6 @@
         "age_band": "20_29",
         "division": "north",
         "household_type": "lodging",
-        "outstanding": 2,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/female/20_29/south/lodging/trade",
-        "sex": "female",
-        "age_band": "20_29",
-        "division": "south",
-        "household_type": "lodging",
         "outstanding": 1,
         "owning_ticket": "T-1532"
       },
@@ -243,7 +234,16 @@
         "age_band": "20_29",
         "division": "west",
         "household_type": "lodging",
-        "outstanding": 3,
+        "outstanding": 2,
+        "owning_ticket": "T-1532"
+      },
+      {
+        "bucket": "persons/female/30_39/north/lodging/trade",
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "north",
+        "household_type": "lodging",
+        "outstanding": 1,
         "owning_ticket": "T-1532"
       },
       {
@@ -283,6 +283,15 @@
         "owning_ticket": "T-1532"
       },
       {
+        "bucket": "persons/female/50_plus/west/lodging/trade",
+        "sex": "female",
+        "age_band": "50_plus",
+        "division": "west",
+        "household_type": "lodging",
+        "outstanding": 1,
+        "owning_ticket": "T-1532"
+      },
+      {
         "bucket": "persons/male/10_19/north/lodging/trade",
         "sex": "male",
         "age_band": "10_19",
@@ -297,7 +306,7 @@
         "age_band": "10_19",
         "division": "south",
         "household_type": "lodging",
-        "outstanding": 9,
+        "outstanding": 12,
         "owning_ticket": "T-1532"
       },
       {
@@ -306,16 +315,7 @@
         "age_band": "10_19",
         "division": "west",
         "household_type": "lodging",
-        "outstanding": 4,
-        "owning_ticket": "T-1532"
-      },
-      {
-        "bucket": "persons/male/20_29/south/lodging/trade",
-        "sex": "male",
-        "age_band": "20_29",
-        "division": "south",
-        "household_type": "lodging",
-        "outstanding": 1,
+        "outstanding": 3,
         "owning_ticket": "T-1532"
       },
       {
@@ -333,7 +333,7 @@
         "age_band": "30_39",
         "division": "south",
         "household_type": "lodging",
-        "outstanding": 2,
+        "outstanding": 1,
         "owning_ticket": "T-1532"
       },
       {
@@ -404,17 +404,17 @@
   "the_collision": {
     "on_the_count": {
       "hands_wanted": 130,
-      "slots_outstanding": 57,
-      "short_by": 73
+      "slots_outstanding": 56,
+      "short_by": 74
     },
     "on_the_sex": {
       "hands_wanted_that_may_be_paid_from_a_woman_s_slot": 0,
-      "women_s_slots_outstanding": 25,
+      "women_s_slots_outstanding": 24,
       "reads_as": "Every hand the shops want is a man or a role the model calls predominantly male, and the book's remaining slots are two fifths women's. Those slots cannot be spent here at all."
     },
     "on_the_age": {
       "boys_wanted_12_to_18": 24,
-      "slots_outstanding_in_a_band_that_reaches_them": 31,
+      "slots_outstanding_in_a_band_that_reaches_them": 33,
       "reads_as": "The apprentice and the shop boy are a fifth of the demand. The book's 10-19 trade buckets are drawn out, so there is no slot a boy could be minted into without re-cutting."
     },
     "what_the_book_could_pay_for_today": 32,
@@ -423,13 +423,14 @@
       "persons/female/10_19/north/lodging/trade": 3,
       "persons/female/10_19/south/lodging/trade": 8,
       "persons/female/10_19/west/lodging/trade": 4,
-      "persons/female/20_29/north/lodging/trade": 2,
-      "persons/female/20_29/south/lodging/trade": 1,
-      "persons/female/20_29/west/lodging/trade": 3,
+      "persons/female/20_29/north/lodging/trade": 1,
+      "persons/female/20_29/west/lodging/trade": 2,
+      "persons/female/30_39/north/lodging/trade": 1,
       "persons/female/40_49/north/lodging/trade": 1,
       "persons/female/40_49/west/lodging/trade": 1,
       "persons/female/50_plus/north/lodging/trade": 1,
-      "persons/female/50_plus/south/lodging/trade": 1
+      "persons/female/50_plus/south/lodging/trade": 1,
+      "persons/female/50_plus/west/lodging/trade": 1
     }
   },
   "rows": [
@@ -750,7 +751,7 @@
       "note": "27 shoemakers in 1839 against 8 shops here.",
       "paid_from": [
         {
-          "bucket": "persons/male/10_19/west/lodging/trade",
+          "bucket": "persons/male/10_19/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -777,7 +778,7 @@
       "note": "The building trades are the largest in the 1839 list — 133 carpenters and 54 builders — and a master's shop is where they stood.",
       "paid_from": [
         {
-          "bucket": "persons/male/10_19/west/lodging/trade",
+          "bucket": "persons/male/10_19/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -804,7 +805,7 @@
       "note": "Analogue: the journeyman row above.",
       "paid_from": [
         {
-          "bucket": "persons/male/10_19/west/lodging/trade",
+          "bucket": "persons/male/10_19/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -858,7 +859,7 @@
       "note": "The counting-house clerk is the one role the directory counts in bulk — 152 of them, the largest single trade in the 1839 list after the carpenters — and the printed forms name their houses outright ('clerk stiles burton'). A young man boarding with his employer or over the store is the ordinary arrangement; half is this model's reading of 'often', and it is a reading.",
       "paid_from": [
         {
-          "bucket": "persons/male/20_29/south/lodging/trade",
+          "bucket": "persons/male/10_19/west/lodging/trade",
           "hands": 1
         }
       ],
@@ -883,9 +884,14 @@
       "short_by": 1,
       "basis": "directory_1839",
       "note": "Counted with the commerce clerks; the trade is a store whatever it sells.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1
+      "paid_from": [
+        {
+          "bucket": "persons/male/10_19/west/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid": 1,
+      "unpaid": 0
     },
     {
       "business_id": "biz_chicago_democrat_printing_office",
@@ -1076,12 +1082,8 @@
       "note": "12 founders in 1839. A furnace is the largest hand-count of any shop in town.",
       "paid_from": [
         {
-          "bucket": "persons/male/30_39/south/lodging/trade",
-          "hands": 1
-        },
-        {
           "bucket": "persons/male/30_39/west/lodging/trade",
-          "hands": 1
+          "hands": 2
         }
       ],
       "paid": 2,
@@ -1156,11 +1158,11 @@
       "note": "A yard is piled and loaded by hand. Analogue: the forwarding houses above, whose warehouse labour this model prices the same way.",
       "paid_from": [
         {
-          "bucket": "persons/male/30_39/west/lodging/trade",
+          "bucket": "persons/male/40_49/north/lodging/trade",
           "hands": 1
         },
         {
-          "bucket": "persons/male/40_49/north/lodging/trade",
+          "bucket": "persons/male/40_49/south/lodging/trade",
           "hands": 1
         }
       ],
@@ -1258,7 +1260,7 @@
       "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
       "paid_from": [
         {
-          "bucket": "persons/male/40_49/south/lodging/trade",
+          "bucket": "persons/male/40_49/west/lodging/trade",
           "hands": 1
         }
       ],
@@ -1285,77 +1287,6 @@
       "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
       "paid_from": [
         {
-          "bucket": "persons/male/40_49/west/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid": 1,
-      "unpaid": 0
-    },
-    {
-      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
-      "business_name": "E. Wentworth's tavern, Flag Creek",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "domestic",
-      "role_row": 2,
-      "occupation_term": "domestic",
-      "household_relationship": "servant",
-      "sex_rule": "male",
-      "age_band": "youth_12_18",
-      "lives_on_premises": 1.0,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "basis": "period_convention",
-      "note": "The boy — boots, errands, the yard. Analogue: as above.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1
-    },
-    {
-      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
-      "business_name": "E. Wentworth's tavern, Flag Creek",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "labourer",
-      "role_row": 0,
-      "occupation_term": "labourer",
-      "household_relationship": "household_member",
-      "sex_rule": "male",
-      "age_band": "adult_18_45",
-      "lives_on_premises": 0.7,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "basis": "period_convention",
-      "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
-      "paid_from": [],
-      "paid": 0,
-      "unpaid": 1
-    },
-    {
-      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
-      "business_name": "E. Wentworth's tavern, Flag Creek",
-      "establishment_class": "tavern_or_hotel",
-      "reads_as": "a tavern or hotel",
-      "role": "tavern_keeper",
-      "role_row": 0,
-      "occupation_term": "tavern_keeper",
-      "household_relationship": "household_member",
-      "sex_rule": "predominantly_male",
-      "age_band": "adult_any",
-      "lives_on_premises": 1.0,
-      "count_typical": 1,
-      "count_high": 1,
-      "standing_today": 0,
-      "short_by": 1,
-      "basis": "period_convention",
-      "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
-      "paid_from": [
-        {
           "bucket": "persons/male/50_plus/north/lodging/trade",
           "hands": 1
         }
@@ -1364,8 +1295,8 @@
       "unpaid": 0
     },
     {
-      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
-      "business_name": "E. Wentworth's tavern on Flag Creek",
+      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
+      "business_name": "E. Wentworth's tavern, Flag Creek",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "domestic",
@@ -1386,8 +1317,8 @@
       "unpaid": 1
     },
     {
-      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
-      "business_name": "E. Wentworth's tavern on Flag Creek",
+      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
+      "business_name": "E. Wentworth's tavern, Flag Creek",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "labourer",
@@ -1408,8 +1339,8 @@
       "unpaid": 1
     },
     {
-      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
-      "business_name": "E. Wentworth's tavern on Flag Creek",
+      "business_id": "biz_e_wentworth_s_tavern_flag_creek",
+      "business_name": "E. Wentworth's tavern, Flag Creek",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "tavern_keeper",
@@ -1435,6 +1366,77 @@
       "unpaid": 0
     },
     {
+      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
+      "business_name": "E. Wentworth's tavern on Flag Creek",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "domestic",
+      "role_row": 2,
+      "occupation_term": "domestic",
+      "household_relationship": "servant",
+      "sex_rule": "male",
+      "age_band": "youth_12_18",
+      "lives_on_premises": 1.0,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "basis": "period_convention",
+      "note": "The boy — boots, errands, the yard. Analogue: as above.",
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1
+    },
+    {
+      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
+      "business_name": "E. Wentworth's tavern on Flag Creek",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "labourer",
+      "role_row": 0,
+      "occupation_term": "labourer",
+      "household_relationship": "household_member",
+      "sex_rule": "male",
+      "age_band": "adult_18_45",
+      "lives_on_premises": 0.7,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "basis": "period_convention",
+      "note": "The hostler, who is a house's stable. `hostler` is outside the vocabulary. Analogue: the livery stables below, and the 1839 list's silence.",
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1
+    },
+    {
+      "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
+      "business_name": "E. Wentworth's tavern on Flag Creek",
+      "establishment_class": "tavern_or_hotel",
+      "reads_as": "a tavern or hotel",
+      "role": "tavern_keeper",
+      "role_row": 0,
+      "occupation_term": "tavern_keeper",
+      "household_relationship": "household_member",
+      "sex_rule": "predominantly_male",
+      "age_band": "adult_any",
+      "lives_on_premises": 1.0,
+      "count_typical": 1,
+      "count_high": 1,
+      "standing_today": 0,
+      "short_by": 1,
+      "basis": "period_convention",
+      "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
+      "paid_from": [
+        {
+          "bucket": "persons/male/50_plus/west/lodging/trade",
+          "hands": 1
+        }
+      ],
+      "paid": 1,
+      "unpaid": 0
+    },
+    {
       "business_id": "biz_eagle_tavern",
       "business_name": "Eagle Tavern",
       "establishment_class": "tavern_or_hotel",
@@ -1496,14 +1498,9 @@
       "short_by": 1,
       "basis": "period_convention",
       "note": "The bar-keeper. `bar_keeper` is NOT in the residents occupation vocabulary and is carried here under the nearest term it does hold; see `vocabulary_gaps`. Analogue: the 1839 list's two bar-keepers against 50 keepers of houses — a floor, and the clearest evidence in this file that the directory did not canvass service.",
-      "paid_from": [
-        {
-          "bucket": "persons/male/50_plus/west/lodging/trade",
-          "hands": 1
-        }
-      ],
-      "paid": 1,
-      "unpaid": 0
+      "paid_from": [],
+      "paid": 0,
+      "unpaid": 1
     },
     {
       "business_id": "biz_everson_co",

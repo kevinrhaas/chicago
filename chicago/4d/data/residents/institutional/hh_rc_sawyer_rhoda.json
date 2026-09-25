@@ -1,8 +1,8 @@
 {
- "id": "hh_rc_sawyer_amanda",
+ "id": "hh_rc_sawyer_rhoda",
  "name": "The household of the Michigan Street house Watkins taught in",
  "division": "north",
- "head": "rc_sawyer_amanda",
+ "head": "rc_sawyer_rhoda",
  "source_pass": "reconstructed_institutional_household",
  "institutional_household": {
   "ticket": "T-1531",
@@ -75,8 +75,8 @@
  },
  "persons": [
   {
-   "id": "rc_sawyer_amanda",
-   "name": "Amanda Sawyer",
+   "id": "rc_sawyer_rhoda",
+   "name": "Rhoda Sawyer",
    "relationship": "head",
    "grade": "reconstructed",
    "sex": "female",
@@ -112,7 +112,7 @@
     }
    },
    "name_basis": {
-    "value": "Amanda Sawyer",
+    "value": "Rhoda Sawyer",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {

@@ -214,16 +214,6 @@
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
-      "bucket": "persons/female/30_39/north/lodging/trade",
-      "owning_ticket": "T-1532",
-      "cause": "the_re_cut_reached_work_already_drawn",
-      "quota_it_was_drawn_against": 3,
-      "the_re_cut_would_have_ordered": 1,
-      "already_drawn": 2,
-      "held_at": 2,
-      "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
-    },
-    {
       "bucket": "persons/female/30_39/south/family/trade",
       "owning_ticket": "T-1347",
       "cause": "the_re_cut_reached_work_already_drawn",
@@ -597,10 +587,10 @@
   "trade_re_cut": {
     "ruling": "the owner's ruling of 2026-09-20 on T-1448's three answers: re-cut the book (option 1), and re-cut JUST THE REMAINDER",
     "ticket": "T-1459",
-    "what_moved": 31,
+    "what_moved": 36,
     "the_re_cut_wanted": 36,
-    "the_younger_bands_had_undrawn": 31,
-    "the_adult_cells_had_undrawn": 35,
+    "the_younger_bands_had_undrawn": 42,
+    "the_adult_cells_had_undrawn": 37,
     "bands_reopened": [
       "10_19"
     ],
@@ -651,22 +641,22 @@
       "the_sex_argument_is_refused": "130 of the 137 are men. That is not a licence to cut the trade remainder male: the sources that print an occupation — notices, poll lists, the trade census, the directories — print PROPRIETORS and heads of household, and a record of who advertised is not a record of who worked. The town model's own occupations section says the same thing from the other side: the 1840 schedule's seven columns have no row for domestic service, 'which a port with this adult sex ratio certainly had', and the trade split understates household labour 'by an amount this model cannot bound'. Both arguments point one way and neither bounds a number, so the SEX of the trade remainder is NOT re-cut. The book keeps the population's own split, and the hands a shop wants that only a man can fill stand short with the reason said out loud."
     },
     "into": {
-      "persons/female/10_19/north/lodging": 3,
+      "persons/female/10_19/north/lodging": 4,
       "persons/female/10_19/south/lodging": 8,
       "persons/female/10_19/west/lodging": 4,
-      "persons/male/10_19/north/lodging": 3,
-      "persons/male/10_19/south/lodging": 9,
+      "persons/male/10_19/north/lodging": 4,
+      "persons/male/10_19/south/lodging": 12,
       "persons/male/10_19/west/lodging": 4
     },
     "out_of": {
-      "persons/female/20_29/south/lodging": 5,
+      "persons/female/20_29/south/lodging": 6,
       "persons/female/30_39/south/lodging": 3,
       "persons/female/30_39/west/lodging": 1,
       "persons/female/40_49/south/lodging": 1,
-      "persons/male/20_29/north/lodging": 3,
-      "persons/male/20_29/south/lodging": 10,
-      "persons/male/20_29/west/lodging": 4,
-      "persons/male/30_39/south/lodging": 4
+      "persons/male/20_29/north/lodging": 4,
+      "persons/male/20_29/south/lodging": 11,
+      "persons/male/20_29/west/lodging": 5,
+      "persons/male/30_39/south/lodging": 5
     },
     "refusals": [
       {
@@ -948,7 +938,7 @@
         "why": "the re-cut wanted more out of this cell than it has undrawn, or than a stage not yet stable under a quota change will let go. It is held where it stands, and the slots it could not give up were sought from cells with a remainder to spend."
       }
     ],
-    "why_it_stopped": "The remainder could not pay for the re-cut in full. Every cell that could not take or give its share is named below with the ticket that spent there.",
+    "why_it_stopped": "The remainder paid for the re-cut in full: the book's employed total is unchanged, no cell's population changed, and nothing a stage has drawn against was touched.",
     "remainder_stable_stages": {
       "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in data/reconstruction/1835_lodgers_seated.json (T-1503)"
     },
@@ -1134,33 +1124,33 @@
         "households/inn_tavern/south",
         "households/inn_tavern/west",
         "persons/female/10_19/north/lodging/none",
+        "persons/female/10_19/north/lodging/trade",
         "persons/female/10_19/south/lodging/none",
-        "persons/female/10_19/west/lodging/none",
         "persons/female/20_29/north/lodging/none",
         "persons/female/20_29/north/lodging/trade",
         "persons/female/20_29/south/lodging/none",
         "persons/female/20_29/west/lodging/none",
-        "persons/female/30_39/north/lodging/trade",
+        "persons/female/20_29/west/lodging/trade",
+        "persons/female/30_39/north/lodging/none",
         "persons/female/30_39/south/lodging/none",
+        "persons/female/30_39/west/lodging/none",
         "persons/female/40_49/south/lodging/none",
-        "persons/female/50_plus/west/lodging/trade",
         "persons/male/10_19/north/lodging/none",
+        "persons/male/10_19/north/lodging/trade",
         "persons/male/10_19/south/lodging/none",
-        "persons/male/10_19/west/lodging/none",
+        "persons/male/10_19/west/lodging/trade",
         "persons/male/20_29/north/lodging/none",
         "persons/male/20_29/north/lodging/trade",
         "persons/male/20_29/south/lodging/none",
         "persons/male/20_29/west/lodging/none",
-        "persons/male/20_29/west/lodging/trade",
         "persons/male/30_39/north/lodging/none",
         "persons/male/30_39/south/lodging/none",
-        "persons/male/30_39/west/lodging/none",
-        "persons/male/40_49/south/lodging/none"
+        "persons/male/30_39/west/lodging/none"
       ]
     },
     {
       "ticket": "T-1533",
-      "records": 12,
+      "records": 15,
       "buckets": [
         "persons/female/under_10/north/lodging/none",
         "persons/male/under_10/north/lodging/none",
@@ -1220,7 +1210,7 @@
   "totals": {
     "persons_target": 2543,
     "persons_known": 1402,
-    "persons_to_reconstruct": 1671,
+    "persons_to_reconstruct": 1670,
     "households_target": 644,
     "households_known": 82,
     "households_known_records": 1375,
@@ -1233,8 +1223,8 @@
     "roofs_standing": 417,
     "roofs_to_build": 264,
     "persons_standing": 2381,
-    "persons_still_owed": 431,
-    "persons_when_the_book_is_filled": 2812,
+    "persons_still_owed": 427,
+    "persons_when_the_book_is_filled": 2808,
     "persons_target_range": [
       2362,
       3265
@@ -1258,14 +1248,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2381,
-      "persons_still_owed": 431,
-      "converges_to": 2812,
+      "persons_still_owed": 427,
+      "converges_to": 2808,
       "model_point": 2543,
       "model_range": [
         2362,
         3265
       ],
-      "measured": "2,381 standing plus 431 still owed is 2,812, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 269 above the model's 2,543 point, and that surplus is the 524 people drawn into 49 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,381 standing plus 427 still owed is 2,808, inside the model's 2,362-3,265. Before the re-cut the same sum was 2,381 + 843 = 3,224, and the book was ordering a replacement for 826 people already in the layer. It is 265 above the model's 2,543 point, and that surplus is the 523 people drawn into 48 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -1358,11 +1348,11 @@
             "household_type": "lodging",
             "trade": "trade"
           },
-          "target": 3,
+          "target": 4,
           "known_attested": 0,
           "known_inferred": 0,
-          "to_reconstruct": 3,
-          "filled": 0,
+          "to_reconstruct": 4,
+          "filled": 1,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 1,
@@ -1377,11 +1367,11 @@
             "household_type": "lodging",
             "trade": "none"
           },
-          "target": 8,
+          "target": 7,
           "known_attested": 2,
           "known_inferred": 4,
-          "to_reconstruct": 2,
-          "filled": 2,
+          "to_reconstruct": 1,
+          "filled": 1,
           "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
@@ -1435,7 +1425,7 @@
           "known_attested": 4,
           "known_inferred": 11,
           "to_reconstruct": 4,
-          "filled": 4,
+          "filled": 1,
           "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
@@ -1489,7 +1479,7 @@
           "known_attested": 1,
           "known_inferred": 4,
           "to_reconstruct": 1,
-          "filled": 1,
+          "filled": 0,
           "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
@@ -1543,7 +1533,7 @@
           "known_attested": 1,
           "known_inferred": 2,
           "to_reconstruct": 3,
-          "filled": 1,
+          "filled": 2,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 6
@@ -1561,7 +1551,7 @@
           "known_attested": 2,
           "known_inferred": 5,
           "to_reconstruct": 5,
-          "filled": 2,
+          "filled": 3,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -1611,10 +1601,10 @@
             "household_type": "lodging",
             "trade": "trade"
           },
-          "target": 10,
+          "target": 9,
           "known_attested": 3,
           "known_inferred": 6,
-          "to_reconstruct": 1,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
@@ -1629,11 +1619,11 @@
             "household_type": "lodging",
             "trade": "none"
           },
-          "target": 34,
+          "target": 35,
           "known_attested": 5,
           "known_inferred": 11,
-          "to_reconstruct": 18,
-          "filled": 7,
+          "to_reconstruct": 19,
+          "filled": 8,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -1687,7 +1677,7 @@
           "known_attested": 1,
           "known_inferred": 1,
           "to_reconstruct": 3,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 5
@@ -1705,7 +1695,7 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 5,
-          "filled": 2,
+          "filled": 3,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -1758,12 +1748,11 @@
           "target": 3,
           "known_attested": 1,
           "known_inferred": 1,
-          "to_reconstruct": 2,
-          "filled": 2,
+          "to_reconstruct": 1,
+          "filled": 0,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
-          "recut_wants": 3,
-          "recut_refused": true
+          "recut_wants": 3
         },
         {
           "key": "persons/female/30_39/north/lodging/none",
@@ -1778,7 +1767,7 @@
           "known_attested": 1,
           "known_inferred": 1,
           "to_reconstruct": 3,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -1850,7 +1839,7 @@
           "known_attested": 2,
           "known_inferred": 5,
           "to_reconstruct": 9,
-          "filled": 4,
+          "filled": 5,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -1922,7 +1911,7 @@
           "known_attested": 1,
           "known_inferred": 1,
           "to_reconstruct": 4,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -2336,7 +2325,7 @@
           "known_attested": 0,
           "known_inferred": 0,
           "to_reconstruct": 1,
-          "filled": 1,
+          "filled": 0,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 1
@@ -2490,11 +2479,11 @@
             "household_type": "lodging",
             "trade": "trade"
           },
-          "target": 3,
+          "target": 4,
           "known_attested": 0,
           "known_inferred": 0,
-          "to_reconstruct": 3,
-          "filled": 0,
+          "to_reconstruct": 4,
+          "filled": 1,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 1,
@@ -2509,11 +2498,11 @@
             "household_type": "lodging",
             "trade": "none"
           },
-          "target": 10,
+          "target": 9,
           "known_attested": 2,
           "known_inferred": 5,
-          "to_reconstruct": 3,
-          "filled": 3,
+          "to_reconstruct": 2,
+          "filled": 1,
           "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
@@ -2544,10 +2533,10 @@
             "household_type": "lodging",
             "trade": "trade"
           },
-          "target": 9,
+          "target": 12,
           "known_attested": 0,
           "known_inferred": 0,
-          "to_reconstruct": 9,
+          "to_reconstruct": 12,
           "filled": 0,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
@@ -2563,11 +2552,11 @@
             "household_type": "lodging",
             "trade": "none"
           },
-          "target": 22,
+          "target": 19,
           "known_attested": 5,
           "known_inferred": 13,
-          "to_reconstruct": 4,
-          "filled": 4,
+          "to_reconstruct": 1,
+          "filled": 1,
           "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
@@ -2602,7 +2591,7 @@
           "known_attested": 0,
           "known_inferred": 0,
           "to_reconstruct": 4,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 1,
@@ -2621,7 +2610,7 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 1,
-          "filled": 1,
+          "filled": 0,
           "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
@@ -2670,11 +2659,11 @@
             "household_type": "lodging",
             "trade": "trade"
           },
-          "target": 8,
+          "target": 7,
           "known_attested": 2,
           "known_inferred": 4,
-          "to_reconstruct": 2,
-          "filled": 2,
+          "to_reconstruct": 1,
+          "filled": 1,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 10
@@ -2688,10 +2677,10 @@
             "household_type": "lodging",
             "trade": "none"
           },
-          "target": 23,
+          "target": 24,
           "known_attested": 3,
           "known_inferred": 8,
-          "to_reconstruct": 12,
+          "to_reconstruct": 13,
           "filled": 6,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
@@ -2741,10 +2730,10 @@
             "household_type": "lodging",
             "trade": "trade"
           },
-          "target": 16,
+          "target": 15,
           "known_attested": 4,
           "known_inferred": 11,
-          "to_reconstruct": 1,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
@@ -2759,11 +2748,11 @@
             "household_type": "lodging",
             "trade": "none"
           },
-          "target": 59,
+          "target": 60,
           "known_attested": 8,
           "known_inferred": 19,
-          "to_reconstruct": 32,
-          "filled": 10,
+          "to_reconstruct": 33,
+          "filled": 14,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -2812,11 +2801,11 @@
             "household_type": "lodging",
             "trade": "trade"
           },
-          "target": 6,
+          "target": 5,
           "known_attested": 1,
           "known_inferred": 4,
-          "to_reconstruct": 1,
-          "filled": 1,
+          "to_reconstruct": 0,
+          "filled": 0,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 9
@@ -2830,10 +2819,10 @@
             "household_type": "lodging",
             "trade": "none"
           },
-          "target": 22,
+          "target": 23,
           "known_attested": 3,
           "known_inferred": 7,
-          "to_reconstruct": 12,
+          "to_reconstruct": 13,
           "filled": 3,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
@@ -2905,7 +2894,7 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 6,
-          "filled": 3,
+          "filled": 4,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -2954,10 +2943,10 @@
             "household_type": "lodging",
             "trade": "trade"
           },
-          "target": 11,
+          "target": 10,
           "known_attested": 3,
           "known_inferred": 6,
-          "to_reconstruct": 2,
+          "to_reconstruct": 1,
           "filled": 0,
           "owning_ticket": "T-1532",
           "basis": "a working lodger, a bed rather than a household",
@@ -2972,11 +2961,11 @@
             "household_type": "lodging",
             "trade": "none"
           },
-          "target": 33,
+          "target": 34,
           "known_attested": 5,
           "known_inferred": 11,
-          "to_reconstruct": 17,
-          "filled": 6,
+          "to_reconstruct": 18,
+          "filled": 7,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -3189,7 +3178,7 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 3,
-          "filled": 1,
+          "filled": 0,
           "owning_ticket": "T-1538",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -3508,7 +3497,7 @@
           "known_attested": 4,
           "known_inferred": 8,
           "to_reconstruct": 10,
-          "filled": 5,
+          "filled": 7,
           "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
@@ -3578,7 +3567,7 @@
           "known_attested": 3,
           "known_inferred": 7,
           "to_reconstruct": 9,
-          "filled": 2,
+          "filled": 3,
           "owning_ticket": "T-1536",
           "basis": "a child of the house, a bed rather than a household"
         },
@@ -5319,21 +5308,49 @@
   ],
   "fills": [
     {
+      "bucket": "businesses/brewery",
+      "ticket": "T-1185",
+      "stage": "mechanics_shops",
+      "records": 1,
+      "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
+      "bucket": "businesses/silversmith_jeweller",
+      "ticket": "T-1185",
+      "stage": "mechanics_shops",
+      "records": 1,
+      "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
+      "bucket": "businesses/lawyer",
+      "ticket": "T-1418",
+      "stage": "professions_and_services",
+      "records": 1,
+      "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
+      "bucket": "businesses/druggist",
+      "ticket": "T-1184",
+      "stage": "stores_and_provisions",
+      "records": 2,
+      "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
       "bucket": "persons/female/10_19/north/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 2,
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/10_19/north/lodging/trade",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
       "bucket": "persons/female/10_19/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 4,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/female/10_19/west/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
       "records": 1,
@@ -5343,42 +5360,56 @@
       "bucket": "persons/female/20_29/north/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 2,
+      "records": 3,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
       "bucket": "persons/female/20_29/north/lodging/trade",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 1,
+      "records": 2,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
       "bucket": "persons/female/20_29/south/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 7,
+      "records": 8,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
       "bucket": "persons/female/20_29/west/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 2,
+      "records": 3,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
-      "bucket": "persons/female/30_39/north/lodging/trade",
+      "bucket": "persons/female/20_29/west/lodging/trade",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 2,
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/north/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
       "bucket": "persons/female/30_39/south/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 4,
+      "records": 5,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/30_39/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -5389,28 +5420,28 @@
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
-      "bucket": "persons/female/50_plus/west/lodging/trade",
+      "bucket": "persons/male/10_19/north/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
       "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
-      "bucket": "persons/male/10_19/north/lodging/none",
+      "bucket": "persons/male/10_19/north/lodging/trade",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 3,
+      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
       "bucket": "persons/male/10_19/south/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 4,
+      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
-      "bucket": "persons/male/10_19/west/lodging/none",
+      "bucket": "persons/male/10_19/west/lodging/trade",
       "ticket": "T-1371",
       "stage": "lodgers",
       "records": 1,
@@ -5427,14 +5458,14 @@
       "bucket": "persons/male/20_29/north/lodging/trade",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 2,
+      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
       "bucket": "persons/male/20_29/south/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 10,
+      "records": 14,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -5445,24 +5476,17 @@
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
-      "bucket": "persons/male/20_29/west/lodging/trade",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
       "bucket": "persons/male/30_39/north/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 3,
+      "records": 4,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
       "bucket": "persons/male/30_39/south/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 6,
+      "records": 7,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -5470,13 +5494,6 @@
       "ticket": "T-1371",
       "stage": "lodgers",
       "records": 2,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "persons/male/40_49/south/lodging/none",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -5490,14 +5507,14 @@
       "bucket": "persons/male/under_10/north/lodging/none",
       "ticket": "T-1533",
       "stage": "lodgers",
-      "records": 5,
+      "records": 7,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
       "bucket": "persons/male/under_10/west/lodging/none",
       "ticket": "T-1533",
       "stage": "lodgers",
-      "records": 2,
+      "records": 3,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -5541,48 +5558,6 @@
       "stage": "lodgers",
       "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "businesses/brewery",
-      "ticket": "T-1185",
-      "stage": "mechanics_shops",
-      "records": 1,
-      "by": "tools/reconstruct_businesses_1835.py --build"
-    },
-    {
-      "bucket": "businesses/silversmith_jeweller",
-      "ticket": "T-1185",
-      "stage": "mechanics_shops",
-      "records": 1,
-      "by": "tools/reconstruct_businesses_1835.py --build"
-    },
-    {
-      "bucket": "businesses/lawyer",
-      "ticket": "T-1418",
-      "stage": "professions_and_services",
-      "records": 1,
-      "by": "tools/reconstruct_businesses_1835.py --build"
-    },
-    {
-      "bucket": "businesses/druggist",
-      "ticket": "T-1184",
-      "stage": "stores_and_provisions",
-      "records": 2,
-      "by": "tools/reconstruct_businesses_1835.py --build"
-    },
-    {
-      "bucket": "households/institutional/north",
-      "ticket": "T-1531",
-      "stage": "institutional_households",
-      "records": 1,
-      "by": "tools/reconstruct_institutional_households.py --build"
-    },
-    {
-      "bucket": "households/institutional/south",
-      "ticket": "T-1531",
-      "stage": "institutional_households",
-      "records": 1,
-      "by": "tools/reconstruct_institutional_households.py --build"
     },
     {
       "bucket": "persons/female/10_19/north/family/none",
@@ -6073,6 +6048,20 @@
       "stage": "trade_households",
       "records": 2,
       "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "households/institutional/north",
+      "ticket": "T-1531",
+      "stage": "institutional_households",
+      "records": 1,
+      "by": "tools/reconstruct_institutional_households.py --build"
+    },
+    {
+      "bucket": "households/institutional/south",
+      "ticket": "T-1531",
+      "stage": "institutional_households",
+      "records": 1,
+      "by": "tools/reconstruct_institutional_households.py --build"
     }
   ]
 }

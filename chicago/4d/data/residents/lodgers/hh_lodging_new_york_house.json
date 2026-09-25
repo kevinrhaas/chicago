@@ -135,23 +135,23 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_hale_eliza",
-   "name": "Eliza Hale",
+   "id": "rc_chapin_nancy",
+   "name": "Nancy Chapin",
    "relationship": "lodger",
    "grade": "reconstructed",
    "sex": "female",
    "age_band": {
-    "value": "30-39",
-    "low": 30,
-    "high": 39,
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:new_york_house:female:30_39:002:age_band",
+    "seed": "lodgers:new_york_house:female:20_29:002:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -159,7 +159,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Eliza Hale",
+    "value": "Nancy Chapin",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -167,7 +167,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:new_york_house:female:30_39:002:forename",
+    "seed": "lodgers:new_york_house:female:20_29:002:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -177,9 +177,9 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "note": "The book's bucket persons/female/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is new_york_house's, from the lodging model's ordinary-night figure of 8."
+    "note": "The book's bucket persons/female/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is new_york_house's, from the lodging model's ordinary-night figure of 8."
    },
-   "seed": "lodgers:new_york_house:female:30_39:002:forename",
+   "seed": "lodgers:new_york_house:female:20_29:002:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -199,23 +199,23 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_sawyer_rhoda",
-   "name": "Rhoda Sawyer",
+   "id": "rc_lecuyer_angelique",
+   "name": "Angelique Lecuyer",
    "relationship": "lodger",
    "grade": "reconstructed",
    "sex": "female",
    "age_band": {
-    "value": "40-49",
-    "low": 40,
-    "high": 49,
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 40_49; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:new_york_house:female:40_49:003:age_band",
+    "seed": "lodgers:new_york_house:female:30_39:003:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -223,15 +223,15 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Rhoda Sawyer",
+    "value": "Angelique Lecuyer",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_invented_name_pools",
-     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
+     "note": "Both parts are drawn from the french_colonial pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:new_york_house:female:40_49:003:forename",
+    "seed": "lodgers:new_york_house:female:30_39:003:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -241,9 +241,9 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "note": "The book's bucket persons/female/40_49/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is new_york_house's, from the lodging model's ordinary-night figure of 8."
+    "note": "The book's bucket persons/female/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is new_york_house's, from the lodging model's ordinary-night figure of 8."
    },
-   "seed": "lodgers:new_york_house:female:40_49:003:forename",
+   "seed": "lodgers:new_york_house:female:30_39:003:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -251,7 +251,7 @@
    "reconstruction": {
     "stage": "lodgers",
     "programme": "chicago_1835_resident_reconstruction",
-    "community": "yankee",
+    "community": "french_colonial",
     "review_required": false
    },
    "resident_subtype": "reconstructed_lodger",
@@ -391,23 +391,23 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_pratt_warren",
-   "name": "Warren Pratt",
+   "id": "rc_fisk_levi",
+   "name": "Levi Fisk",
    "relationship": "lodger",
    "grade": "reconstructed",
    "sex": "male",
    "age_band": {
-    "value": "30-39",
-    "low": 30,
-    "high": 39,
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:new_york_house:male:30_39:006:age_band",
+    "seed": "lodgers:new_york_house:male:20_29:006:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -415,7 +415,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Warren Pratt",
+    "value": "Levi Fisk",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -423,7 +423,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:new_york_house:male:30_39:006:forename",
+    "seed": "lodgers:new_york_house:male:20_29:006:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -433,9 +433,9 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is new_york_house's, from the lodging model's ordinary-night figure of 8."
+    "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is new_york_house's, from the lodging model's ordinary-night figure of 8."
    },
-   "seed": "lodgers:new_york_house:male:30_39:006:forename",
+   "seed": "lodgers:new_york_house:male:20_29:006:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -455,23 +455,23 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_hubbard_alvah",
-   "name": "Alvah Hubbard",
+   "id": "rc_duffy_bryan",
+   "name": "Bryan Duffy",
    "relationship": "lodger",
    "grade": "reconstructed",
    "sex": "male",
    "age_band": {
-    "value": "40-49",
-    "low": 40,
-    "high": 49,
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 40_49; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+     "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:new_york_house:male:40_49:007:age_band",
+    "seed": "lodgers:new_york_house:male:30_39:007:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -479,15 +479,15 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Alvah Hubbard",
+    "value": "Bryan Duffy",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_invented_name_pools",
-     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
+     "note": "Both parts are drawn from the irish pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:new_york_house:male:40_49:007:forename",
+    "seed": "lodgers:new_york_house:male:30_39:007:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -497,9 +497,9 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
-    "note": "The book's bucket persons/male/40_49/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is new_york_house's, from the lodging model's ordinary-night figure of 8."
+    "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is new_york_house's, from the lodging model's ordinary-night figure of 8."
    },
-   "seed": "lodgers:new_york_house:male:40_49:007:forename",
+   "seed": "lodgers:new_york_house:male:30_39:007:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -507,7 +507,7 @@
    "reconstruction": {
     "stage": "lodgers",
     "programme": "chicago_1835_resident_reconstruction",
-    "community": "yankee",
+    "community": "irish",
     "review_required": false
    },
    "resident_subtype": "reconstructed_lodger",
