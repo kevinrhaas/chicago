@@ -832,23 +832,35 @@ function prTicketIds(title) {
  * check, and the cure is that the fixture and the API arrive by one road.
  *
  * `labels` is flattened to names, which is how `inflight` says `hold` out loud.
+ *
+ * `body`, `updated_at` and `html_url` joined it for T-1576, which reads the reason a
+ * pull request is parked out of the body the run wrote it in. They are here and not
+ * behind an option for the reason the whole function is here: a field the fixture has
+ * and production does not is the T-1427 fault, and an option is just a slower way of
+ * arranging one. The cost is bounded — `recentPulls` holds at most six pages, and a
+ * body is a few kilobytes against the tens of megabytes of nested user/head/base/links
+ * objects this projection was written to drop.
  */
 function normalizePull(p) {
   return {
     number: p?.number, title: p?.title,
     state: p?.state ?? null,
     merged_at: p?.merged_at ?? null, created_at: p?.created_at ?? null,
+    updated_at: p?.updated_at ?? null,
+    html_url: p?.html_url ?? null,
+    body: typeof p?.body === 'string' ? p.body : null,
     labels: Array.isArray(p?.labels)
       ? p.labels.map((l) => (typeof l === 'string' ? l : l?.name)).filter(Boolean) : [],
     head: { ref: p?.head?.ref ?? null },
   };
 }
 
-/** A REST GET that returns parsed JSON, or null — `gh api` if the runner has it
- *  authenticated, else plain `curl`. Both synchronous, both time-boxed, both silent
- *  on failure. REST only: the GraphQL bucket is a separate hourly quota the fleet
- *  exhausts, and `gh pr`/`gh issue` spend it. */
-function restGet(pathAndQuery) {
+/** A REST GET of a JSON ARRAY, unprojected, or null — the transport half of
+ *  `restGet`. Split out for T-1576, which reads a pull request's comments: those are
+ *  not pull requests and must not go through `normalizePull`, but they want the same
+ *  two transports, the same timeout and the same refusal to read a rate-limit object
+ *  as a page of zero results. */
+function restGetArray(pathAndQuery) {
   const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
   const attempts = [
     ['gh', ['api', '-H', 'Accept: application/vnd.github+json', pathAndQuery]],
@@ -868,10 +880,21 @@ function restGet(pathAndQuery) {
       // A rate-limit answer is a well-formed OBJECT, not the array we asked for.
       // Treating it as zero results would report "nothing landed" from a refusal.
       if (!Array.isArray(body)) continue;
-      return body.map(normalizePull);
+      return body;
     } catch { /* not JSON — try the next transport */ }
   }
   return null;
+}
+
+/** A page of pull requests, projected — `gh api` if the runner has it authenticated,
+ *  else plain `curl`. REST only: the GraphQL bucket is a separate hourly quota the
+ *  fleet exhausts, and `gh pr`/`gh issue` spend it.
+ *
+ *  THE PROJECTION IS THE POINT and is why this wrapper exists rather than callers
+ *  mapping for themselves — see `normalizePull` on T-1427. */
+function restGet(pathAndQuery) {
+  const body = restGetArray(pathAndQuery);
+  return body === null ? null : body.map(normalizePull);
 }
 
 /**
@@ -1391,9 +1414,199 @@ function queueHeader() {
     + `# Reorder by moving lines. Everything after the ticket id on a line is a label, not data.\n\n`;
 }
 
+/* ------------------------------------------------- parked pull requests */
+
+/**
+ * THE TWO LABELS A PULL REQUEST CAN BE PARKED UNDER, and the board shows both
+ * (T-1571, split to T-1574, split to T-1576).
+ *
+ *   `hold`   — the owner's park switch. His, and no run applies it.
+ *   `resume` — a run could not finish: work the loop still owes, for a later run.
+ *
+ * WHY THE BOARD HAS TO CARRY THEM. Every automated pass in this repository skips a
+ * parked PR on purpose — the lap, `merge-ready.sh` and `pr-stuck.sh` all read labels
+ * before they read state — so a parked PR is, by design, the one kind nothing is
+ * coming back for. Until now the only place its reason was written was the PR body,
+ * and the owner's words on 2026-09-25, finding three of them at once, were *"that
+ * seems like a bad move because i am not aware of why they are held"*. A park that
+ * nobody can see is indistinguishable from work that was dropped.
+ */
+const PARK_LABELS = ['hold', 'resume'];
+
+/** `2026-09-25T17:59:26Z` → `4h`, `35m`, `3d 4h` — HOW LONG AGO an instant was.
+ *  (`ageWords` and `sinceWords` above are its elder twins and take a number of HOURS;
+ *  this one takes the ISO timestamp GitHub actually hands back.) Null for anything it will not
+ *  vouch for: an age printed from an unreadable date is the `to_epoch` fault
+ *  `pr-stuck.sh` documents at length, arriving in a different file. */
+export function elapsedWords(iso, now = Date.now()) {
+  const at = iso ? Date.parse(iso) : NaN;
+  if (!Number.isFinite(at)) return null;
+  const mins = Math.max(0, Math.round((now - at) / 60_000));
+  if (mins < 60) return `${mins}m`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 48) return `${hours}h`;
+  return `${Math.floor(hours / 24)}d ${hours % 24}h`;
+}
+
+/**
+ * The reason a pull request is parked, READ AND NEVER COMPOSED. Three roads, tried
+ * in the order of how deliberately the reason was written, and a fourth answer that
+ * says plainly there is none:
+ *
+ *   1. The structured line T-1573 asks a run to leave —
+ *      `resume: <reason> · waits on: <ticket or "nothing">` — in a PR COMMENT.
+ *      Newest wins: a PR re-parked on a second head has a second line, and the
+ *      stale one is not the state of play.
+ *   2. The same structured line in the PR BODY, for a run that wrote it there.
+ *   3. The section a PR body already carries today — `### Why this is on `hold`,
+ *      and what lifts it` (#41 on 2026-09-25, and #39 and #42 in the same shape).
+ *      Its first paragraph, verbatim. This is the road that makes the board useful
+ *      BEFORE any run has learned to write road 1.
+ *   4. Nothing. Answered as null and printed as "no reason written on the PR",
+ *      which is a true and useful statement about a parked PR and is the one thing
+ *      that must never be papered over with a guess.
+ *
+ * `waits_on` comes only from road 1, where the run named it. A `T-NNNN` scraped out
+ * of prose is an inference, and inferring what a park is blocked on is exactly the
+ * kind of invention this project files under provenance.
+ */
+export function parkReasonOf(pr, comments = []) {
+  const structured = (text) => {
+    const m = /^[ \t>*_-]*(?:\*\*)?(hold|resume)(?:\*\*)?:[ \t]*(.+)$/im.exec(String(text ?? ''));
+    if (!m) return null;
+    const rest = m[2].trim().replace(/\s*[·|]\s*$/, '');
+    const w = /^(.*?)\s*·\s*waits on:\s*(.+?)\s*$/i.exec(rest);
+    return {
+      reason: (w ? w[1] : rest).trim(),
+      waits_on: w ? w[2].trim().replace(/^[`"']|[`"']$/g, '') : null,
+    };
+  };
+
+  const byNewest = [...(comments ?? [])].sort((a, b) =>
+    String(b?.created_at ?? '').localeCompare(String(a?.created_at ?? '')));
+  for (const c of byNewest) {
+    const hit = structured(c?.body);
+    if (hit) return { ...hit, from: 'comment' };
+  }
+  const inBody = structured(pr?.body);
+  if (inBody) return { ...inBody, from: 'body' };
+
+  // Road 3. The heading has to MENTION one of the labels, so an unrelated `## Why`
+  // in a long PR body cannot be mistaken for the park's reason.
+  const body = String(pr?.body ?? '');
+  const heading = new RegExp(`^#{2,4}[ \\t]*.*\\b(?:${PARK_LABELS.join('|')}|parked)\\b.*$`, 'im');
+  const at = heading.exec(body);
+  if (at) {
+    // THE FIRST PARAGRAPH IS USUALLY THE REASON, AND SOMETIMES ONLY ITS FIRST HALF.
+    // Measured on #42, 2026-09-25: its section opens "`./tools/check.sh` is red on
+    // `dev` itself, for reasons this branch does not touch. Four steps:" and the list
+    // that answers the colon is the next block. A reason that stops on a colon has
+    // been cut off mid-thought, so paragraphs are taken while the text so far is
+    // still plainly unfinished — and never past the next heading, which is a
+    // different subject by definition.
+    // A FENCED BLOCK ENDS THE PROSE as firmly as a heading does. #42's colon is
+    // answered by a four-item code fence, and a fence flattened onto one board line
+    // is unreadable where the two sentences before it were the whole point. So the
+    // section stops at whichever comes first, and a reason left dangling on its colon
+    // is marked `…` — the board links the PR, and that is where the list lives.
+    const after = body.slice(at.index + at[0].length);
+    const stop = /\n(?:#{1,6}[ \t]|```|~~~)/.exec(after);
+    const section = stop ? after.slice(0, stop.index) : after;
+    const paras = section.split(/\n[ \t]*\n/).map((x) => x.trim()).filter(Boolean);
+    const unfinished = (x) => x === '' || /[:;,]$/.test(x) || x.length < 80;
+    let reason = '';
+    for (const para of paras) {
+      if (reason && !unfinished(reason)) break;
+      reason = `${reason}${reason ? ' ' : ''}${para}`;
+      if (reason.length > 600) break;
+    }
+    reason = reason.replace(/\s*\n\s*/g, ' ').replace(/\s{2,}/g, ' ').trim();
+    if (reason.length > 600) reason = `${reason.slice(0, 600).replace(/\s+\S*$/, '')} …`;
+    if (/[:;,]$/.test(reason)) reason = `${reason} …`;
+    if (reason) return { reason, waits_on: null, from: 'body-section' };
+  }
+  return { reason: null, waits_on: null, from: null };
+}
+
+/**
+ * Every OPEN pull request on the code repo carrying `hold` or `resume`, with the
+ * reason it was parked for and how long it has been sitting there.
+ *
+ * IT REPORTS ITS OWN BLINDNESS. `{ ok: false, why }` when the list could not be
+ * read, and the board prints that instead of the section — because a parked-PR
+ * section that is empty because the call failed reads exactly like a queue with
+ * nothing parked in it, and this whole reading exists to end a silence.
+ *
+ * `fixture` is the offline demonstration, the device `landed --pr-json` and
+ * `inflight --branches-json` both use and for the same reason: the right answer
+ * against the live repository changes by the hour, so the gate asserts the READING.
+ * It goes through `normalizePull` like the API's own answer does (T-1427).
+ */
+export function collectParked({ fixture = null, now = Date.now() } = {}) {
+  const UNREADABLE = { ok: false, why: 'the open pull-request list could not be read', rows: [] };
+  let pulls;
+  if (fixture) {
+    // `{ pulls: null }` IS A FIXTURE AND NOT A MISSING KEY. It is how the gate reaches
+    // the one branch below that has no other way in: `restGet` answers null on a rate
+    // limit, a 404 or no network at all, and that answer must not read as an empty
+    // queue. A fixture that could only ever produce `ok: true` would leave the reading
+    // this ticket exists for as the single untested line in the file.
+    const raw = Array.isArray(fixture) ? fixture : fixture.pulls;
+    if (raw === null || raw === undefined) return UNREADABLE;
+    pulls = raw.map(normalizePull);
+  } else {
+    pulls = restGet(`repos/${REPO}/pulls?state=open&per_page=100`);
+    if (pulls === null) return UNREADABLE;
+  }
+
+  const commentsOf = (pr) => {
+    if (fixture) {
+      const byNumber = Array.isArray(fixture) ? {} : (fixture.comments ?? {});
+      return byNumber[String(pr.number)] ?? byNumber[pr.number] ?? [];
+    }
+    // ONE CALL PER PARKED PR, and only for parked ones — four on 2026-09-25, and the
+    // label filter is what keeps it four rather than one per open pull request.
+    return restGetArray(`repos/${REPO}/issues/${pr.number}/comments?per_page=100`) ?? [];
+  };
+
+  const rows = pulls
+    .filter((pr) => pr.state !== 'closed' && !pr.merged_at)
+    .map((pr) => ({ pr, label: PARK_LABELS.find((l) => pr.labels.includes(l)) ?? null }))
+    .filter((r) => r.label)
+    .map(({ pr, label }) => {
+      const { reason, waits_on, from } = parkReasonOf(pr, commentsOf(pr));
+      return {
+        number: pr.number,
+        title: pr.title ?? null,
+        url: pr.html_url ?? `${REPO_URL}/pull/${pr.number}`,
+        branch: pr.head?.ref ?? null,
+        // THE TITLE FIRST, and `prTicketIds` for it — the convention is `T-NNNN: …`
+        // and that function is the one place this repo has agreed what an id in a
+        // title means (see its header on the three false accusations). The branch is
+        // the fallback, read the way `branchCarries` reads one.
+        ticket: prTicketIds(pr.title)[0]
+          ?? (/(?:^|[^0-9a-z])t-?0*(\d{1,4})(?![0-9])/i.exec(pr.head?.ref ?? '')
+            ? idOf(Number(/(?:^|[^0-9a-z])t-?0*(\d{1,4})(?![0-9])/i.exec(pr.head.ref)[1])) : null),
+        label,
+        reason,
+        reason_from: from,
+        waits_on,
+        opened_at: pr.created_at ?? null,
+        updated_at: pr.updated_at ?? null,
+        age: elapsedWords(pr.created_at, now),
+        idle: elapsedWords(pr.updated_at, now),
+      };
+    })
+    // Oldest first: the one that has been parked longest is the one the owner has
+    // been unable to see for longest, and it goes at the top of his section.
+    .sort((a, b) => String(a.opened_at ?? '').localeCompare(String(b.opened_at ?? '')));
+
+  return { ok: true, why: null, rows };
+}
+
 /* ----------------------------------------------------------------- board */
 
-function generateBoard(tickets) {
+function generateBoard(tickets, parked = null) {
   const at = ctFmt(new Date());
   const order = queueIds();
   const rank = (t) => { const i = order.indexOf(t.id); return i < 0 ? 9999 : i; };
@@ -1425,7 +1638,33 @@ function generateBoard(tickets) {
   const finished = tickets.filter((t) => t.state === 'done').sort(byFinish);
   const shown = finished.slice(0, 100);
 
+  // PARKED PULL REQUESTS GO FIRST, above the queue, because they are the only rows
+  // here that no automation is coming back for (T-1576). A section that is absent
+  // when nothing asked for the list, a section that says so when the list could not
+  // be read, and a section with the rows in it otherwise — the middle one is the
+  // whole point: an empty section and a failed call print identically, and that
+  // silence is the fault this reading exists to end.
+  const parkedMd = parked === null ? ''
+    : !parked.ok
+      ? `## ⏸ Parked pull requests — NOT READ\n\n`
+        + `- This board could not read the open pull requests (${parked.why}), so it cannot`
+        + ` say whether anything is parked. **This is not "nothing is parked".**\n\n`
+      : parked.rows.length === 0
+        ? `## ⏸ Parked pull requests (0)\n\nNothing is parked: no open pull request on`
+          + ` [${REPO}](${REPO_URL}/pulls) carries \`hold\` or \`resume\`.\n\n`
+        : `## ⏸ Parked pull requests — nothing automated will move these (${parked.rows.length})\n\n`
+          + parked.rows.map((r) => `- **[#${r.number}](${r.url})** \`${r.label}\``
+            + `${r.ticket ? ` · ${r.ticket}` : ''}`
+            + ` · open ${r.age ?? 'for an unreadable time'}`
+            + `${r.idle ? `, last touched ${r.idle} ago` : ''}`
+            + `${r.label === 'hold' ? ' · **the owner\u2019s own park**' : ' · work the loop still owes'}`
+            + `\n  - ${r.title ?? '(untitled)'}`
+            + `\n  - **why:** ${r.reason ?? '_no reason written on the PR_'}`
+            + `${r.waits_on ? `\n  - **waits on:** ${r.waits_on}` : ''}`).join('\n')
+          + '\n\n';
+
   const md = `# BOARD — generated by \`tools/ticket.mjs board\`, ${at} CT. Do not edit.\n\n`
+    + parkedMd
     + sec('Claimed — being worked now', working, (t) => `${row(t)}`
       + `${t.claimed_by ? ` · ${t.claimed_by}` : ''}`
       + `${t.claimed_run ? ` · [the run](${t.claimed_run})` : ''}`)
@@ -1461,8 +1700,14 @@ function generateBoard(tickets) {
     pr_url: rest.pr ? prUrl(rest) : null,
     ...(rest.decision === 'pending' ? decisionOf(body) : {}),
   }));
+  // `parked` is an ADDITIONAL top-level key and never replaces or reshapes `tickets`:
+  // Manager's 4D Board reads this file and a reader that has not been taught about
+  // parked pull requests must go on working unchanged. Absent when nothing asked for
+  // the list, so the file's shape still says whether the question was even put.
   const wrote = settle(JSON_OUT, JSON.stringify({ project: 'chicago-4d',
-    generated_ct: at, tickets: strip }, null, 2) + '\n');
+    generated_ct: at, tickets: strip,
+    ...(parked === null ? {} : { parked: { ok: parked.ok, why: parked.why, pulls: parked.rows } }) },
+  null, 2) + '\n');
   // T-0154: this tool is the WRITER of tickets.json, so it carries the file to
   // the one published path publish.sh copies it to. Only on a real rewrite —
   // see MIRROR's note on why a blanket refresh would weaken check_published.
@@ -2518,7 +2763,33 @@ switch (cmd) {
     for (const r of restored) console.log(`  ${r}`);
     break;
   }
-  case 'board': generateBoard(tickets); console.log(`BOARD.md + tickets.json regenerated (${tickets.length} tickets)`); break;
+  case 'board': {
+    // THE PARKED-PR READ IS OPT-IN (`--parked`), and that is deliberate. `board` is
+    // run by `publish.sh`, by `pr-lap.sh` and by the merge driver — all of them
+    // offline-safe, all of them on the hot path of a gate — and a network call on
+    // that path buys a slow, flaky publish for a section nobody reads there. The
+    // `board` branch the settle workflow force-pushes is what Manager's 4D Board
+    // and the owner actually read, and settle.yml asks for it there.
+    //
+    // `--pr-json <file>` is the offline demonstration, the same device
+    // `landed --pr-json` and `inflight --branches-json` use, and for the same
+    // reason: against the live repository the right answer changes by the hour, so
+    // the gate asserts the READING. It never reaches the network.
+    const prFixture = flag('pr-json');
+    const parked = typeof prFixture === 'string'
+      ? collectParked({ fixture: JSON.parse(readFileSync(prFixture, 'utf8')) })
+      : has('parked') ? collectParked() : null;
+    generateBoard(tickets, parked);
+    console.log(`BOARD.md + tickets.json regenerated (${tickets.length} tickets)`);
+    if (parked) {
+      console.log(parked.ok
+        ? `   parked pull requests: ${parked.rows.length}`
+          + `${parked.rows.length ? ` — ${parked.rows.map((r) => `#${r.number} ${r.label}`).join(', ')}` : ''}`
+        : `   parked pull requests: NOT READ — ${parked.why}`);
+    }
+    if (has('json')) console.log(JSON.stringify(parked, null, 2));
+    break;
+  }
   /**
    * WHAT IS BEING WORKED ON RIGHT NOW — the one question the files cannot answer.
    *
