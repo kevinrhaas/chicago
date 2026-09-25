@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'The town’s checks could no longer be run to the end', kind: 'fix', ts: '',
+  { v: 1114, title: 'The town’s checks could no longer be run to the end', kind: 'fix', ts: '2026-09-25T21:28:23.141Z', date: 'Sep 25, 2026, 4:28 PM CT',
     items: [
       'Nothing you can see in the town changed. This is about the 624 checks every change here has to pass before it is allowed to reach the town — and about the fact that, for a while, most of the machines working on this project could not get an answer out of them.',
       'The checks ran one at a time. When they were written that took seconds, which was the whole point: a gate that is slow gets skipped. There are a great many more of them now, and by this week the full set took about ten minutes. The automatic workers that do most of the building here are allowed ten minutes for any single command. So a worker asking the checks for a verdict got no verdict at all — not a pass, not a failure, just a run cut off about two-thirds of the way through and killed. For a change whose only cover is those checks, nothing was checking it.',
