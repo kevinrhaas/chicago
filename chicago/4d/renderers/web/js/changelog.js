@@ -1,10 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1110, title: 'Work parked for the owner stops being invisible to him', kind: 'change', ts: '2026-09-25T19:05:32.576Z', date: 'Sep 25, 2026, 2:05 PM CT',
+  { v: null, title: 'Work parked for the owner stops being invisible to him', kind: 'change', ts: '',
     items: [
       'Nothing you can see in the town changed. This is about how this project tells its owner that a piece of work has stopped and is waiting on him.',
       'Changes reach the town through pull requests, and every automatic pass over them — the one that catches a branch up, the one that merges a green change, the one that shouts when nothing can move a change at all — deliberately steps over any that has been PARKED. That is correct: a park means somebody wanted a person to look. But the reason it was parked was written only on the pull request itself, which is not a page anybody reads. So parked work was, by design, the one kind nothing was coming back for, and the only kind nobody was told about. The owner found three parked at once this week and said so: he had no idea why.',
       'The project board now opens with them. Every parked change is listed above the queue with the job it belongs to, how long it has been sitting, when it was last touched, and — read straight off the pull request, never composed — why it was parked and what it is waiting on. A change parked with no reason written anywhere is listed saying exactly that, because that is the true and useful thing to say about it.',
       'And if the board cannot read the list of changes at all, it says so in those words rather than showing an empty section. An empty list and a failed question look identical otherwise, and mistaking the second for the first is the silence this was all filed against.',
+    ] },
+  { v: 1111, title: 'When the queue job cannot pick up a change, it now says why', kind: 'fix', ts: '2026-09-25T19:36:58.576Z', date: 'Sep 25, 2026, 2:36 PM CT',
+    items: [
+      'The housekeeping job that brings waiting changes up to date starts each one by fetching it and switching to it. When either of those two steps failed, it said only ‘fetch failed’ or ‘checkout failed’ and threw away git’s own explanation, so a stuck change left a report with no reason in it.',
+      'It now says which of the two steps failed, repeats git’s own words, and tells apart the usual causes: a branch that was deleted, one it was never told to fetch, and a working copy left untidy by the change before.',
+      'Nothing about the town itself changed. This is the road the work travels on.',
+    ] },
+  { v: 1110, title: 'Three finished changes could not reach the town, and nothing said so', kind: 'fix', ts: '2026-09-25T18:50:58.289Z', date: 'Sep 25, 2026, 1:50 PM CT',
+    items: [
+      'Finished work gets into this town through a queue: a change is written, checked, and then a housekeeping job walks the queue every few minutes, brings each waiting change up to date with everything that landed before it, and lets it through. On 21 September three changes reached the front of that queue, passed every check, and stopped. They stayed stopped. The job reported success each time it ran.',
+      'The cause is one step out of order. Part of the checking rebuilds a set of summary figures, and the last of those figures counts the residents as the published site actually carries them. The published site is not kept in the project’s files — it is rebuilt from them on demand — so on a fresh machine it is not there yet, and that step refuses to write a count it did not take. Refusing is right; it is the rule that keeps a made-up number out of a report. But the housekeeping job never built the site before asking, so the refusal fell on every single pass, and a change stuck behind it was stuck for ever rather than waiting its turn.',
+      'From outside those two look the same, which is why nobody caught it for a day: a change the job cannot finish and a change the job has not reached yet both read as ‘in the queue’.',
+      'It now builds the site first, before anything reads it — which is what the project’s own checking has always done, for exactly this reason. The job’s habit of naming the step that failed and why is what made this findable at all, and that half is untouched.',
+      'A test holds it shut, and the test is run twice: once against the job as it now stands, which must let the change through, and once against a copy with the fix removed, which must get stuck. A regression test that cannot see the regression is decoration.',
+      'Nothing about the town itself changed today. This is the road the work travels on.',
     ] },
   { v: 1109, title: 'A ticket closed somewhere else, and the town\u2019s checks went red', kind: 'fix', ts: '2026-09-25T18:23:28.921Z', date: 'Sep 25, 2026, 1:23 PM CT',
     items: [
