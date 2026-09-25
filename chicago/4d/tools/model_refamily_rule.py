@@ -418,6 +418,27 @@ def every_refused_bucket_is_accounted_for(doc: dict, rows: list) -> str:
 
 # ----------------------------------------------------------------- the ceilings --
 
+def already_made(doc: dict) -> dict:
+    """{person: the ledger row} for every move the order book has already SPENT.
+
+    THE RULE IS DERIVED OFF A BOOK THAT THE SPENDING CHANGES, so without this it is not
+    stable under its own success. A spent move fills its destination's order and takes a
+    head off its source's `surplus_still_held`, so a plain re-derivation over the new
+    state would deal the freed capacity to somebody else and quietly drop the person who
+    already moved — 12 of the first 19 vanished from the list that way on 2026-09-25, and
+    7 of them were offered a SECOND move, which `build_order_book_1835.refamily_shape`
+    forbids by name.
+
+    So the ledger's rows are re-emitted here, in the book's own order, ahead of whatever
+    the remainder yields; they consume no room and no surplus, because the book has
+    already taken both off the figures this model reads. The list a reader compares
+    against the ledger is then the whole programme — what has been done and what is left
+    — and spending a move moves a row from the second half to the first without
+    disturbing the rest."""
+    return {m["person"]: m for m in
+            (doc.get("re_family_ledger") or {}).get("moves") or []}
+
+
 def open_orders(doc: dict) -> dict:
     """{bucket: slots open} over the person family. A refused bucket is never open."""
     out = {}
@@ -500,7 +521,11 @@ def yields(doc: dict, rows: list) -> tuple:
     refused = {r["bucket"]: r for r in doc["recut_refusals"]}
     room = dict(open_orders(doc))
     out_of = Counter()
-    moves, stuck = [], []
+    # THE MOVES ALREADY SPENT COME FIRST AND ARE NOT RE-DEALT. `open_orders` and
+    # `surplus_still_held` are both already net of them, so they consume nothing here.
+    made = already_made(doc)
+    moves, stuck = [dict(m) for m in made.values()], []
+    rows = [r for r in rows if r["person"] not in made]
 
     def destinations(source, rung):
         return sorted((k for k in room if room[k] > 0 and reachable(source, k, rung)),
@@ -955,9 +980,37 @@ def cmd_self_test() -> int:
     assert not [m for m in moves if m["to_bucket"] in held], \
         "a move lands in a bucket the re-cut itself refuses"
     out_of = Counter(m["from_bucket"] for m in moves)
+    # THE CAP IS THE SURPLUS THE BUCKET EVER HELD, not the surplus it holds now. The
+    # yield carries the moves already spent as well as the ones still to spend, and the
+    # book has already taken every spent one off `surplus_still_held` — so measuring the
+    # whole list against the remainder would fail the moment the first move landed. A
+    # bucket re-familied all the way down leaves `recut_refusals` altogether, and what it
+    # ever held is then exactly what walked out of it.
+    ever_held = {r["bucket"]: r["surplus_still_held"] + r.get("refamilied_out", 0)
+                 for r in doc["recut_refusals"]}
+    spent_out = Counter(m["from_bucket"] for m in already_made(doc).values())
     for key, n in out_of.items():
-        cap = surplus[key]
+        cap = ever_held.get(key, spent_out.get(key, 0))
         assert n <= cap, f"{key} moves out {n} of a surplus of {cap}"
+
+    # 5b. AND THE RULE IS STABLE UNDER ITS OWN SPENDING (T-1563). Every move the book has
+    # already made is re-emitted here, exactly as the ledger holds it, and nobody who has
+    # moved is offered a second move — which `build_order_book_1835.refamily_shape`
+    # forbids by name and which a plain re-derivation over the spent book would have
+    # produced. Without this the list and the ledger drift apart the moment the programme
+    # starts: on 2026-09-25, with the first 19 spent, a re-derivation dropped 12 of them
+    # and offered 7 of them again.
+    made = already_made(doc)
+    if made:
+        head = moves[:len(made)]
+        assert [m["person"] for m in head] == list(made), \
+            "the spent moves are not carried at the head of the yield, in the ledger's order"
+        assert all(m == made[m["person"]] for m in head), \
+            "a spent move is re-emitted as something other than what the ledger holds"
+        assert not [m for m in moves[len(made):] if m["person"] in made], \
+            "somebody the book has already moved is offered a second move"
+        assert not [r for r in stuck if r["person"] in made], \
+            "somebody the book has already moved is reported as unable to move"
     assert all(m["rule"] in LADDER_IDS for m in moves), "a move names no rung of the ladder"
     assert all(m["rule"] in MOVABLE_IDS for m in moves), "a move is made on a refused rung"
     assert stuck, "nobody is stuck, which cannot be true while the ceilings bind"

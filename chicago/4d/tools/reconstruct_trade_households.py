@@ -97,6 +97,7 @@ POOLS = ROOT / "data" / "reconstruction" / "1835_invented_name_pools.json"
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 TRADE_TABLE = ROOT / "data" / "research" / "directories" / "fergus_1839_trade_table.json"
 LEDGER = ROOT / "data" / "reconstruction" / "1835_trade_households.json"
+REFAMILY_RULE = ROOT / "data" / "reconstruction" / "1835_refamily_rule.json"
 
 STAGE = "trade_households"
 TICKET = "T-1347"
@@ -107,6 +108,75 @@ SCENE_YEAR = 1835
 RECONSTRUCTED = "reconstructed"
 PREFIX = "rc_"
 SOURCE_PASS = "reconstructed_trade_household"
+REFAMILY_TICKET = "T-1563"
+REFAMILY_RULING = ("the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the "
+                   "surplus the re-cut holds is RE-FAMILIED rather than retired")
+
+
+def refamily_moves() -> dict:
+    """The moves T-1558's rule yields, by household id (T-1563, of T-1559).
+
+    THE CARD IS WHERE A MOVE BECOMES TRUE, AND THIS IS THE ONLY WAY IT GETS THERE. The
+    rule at `data/reconstruction/1835_refamily_rule.json` says WHICH held heads may be
+    counted in a different cell; C1 — the only rung that reaches an open order — says
+    the statement a move rewrites is the invented card's own division, "which it derived
+    from this bucket in the first place". So the move is applied HERE, inside the
+    derivation, rather than edited onto a committed card afterwards: the seed, the name,
+    the id and the size are all drawn off the slot the head was DEALT in, which the move
+    never touches, so `--check` re-derives a moved card byte for byte exactly as it
+    re-derives an unmoved one, and a hand-written re-family cannot survive a rebuild.
+
+    The rule names heads of two stages. This one reads the whole file and keys by
+    household id; the ids are unique across the layer, so the 19 rows that answer to a
+    card this stage derives are its own and the rest belong to its sibling piece.
+    """
+    if not REFAMILY_RULE.exists():
+        return {}
+    doc = json.loads(REFAMILY_RULE.read_text(encoding="utf-8"))
+    moves: dict = {}
+    seen = set()
+    for row in doc.get("the_moves_the_rule_yields") or []:
+        hid, person = row.get("household"), row.get("person")
+        if not hid or not person:
+            raise SystemExit("FAIL a re-family move in the rule names no household "
+                             "or no person")
+        if person in seen:
+            raise SystemExit("FAIL %s is re-familied twice by the rule" % person)
+        seen.add(person)
+        moves.setdefault(hid, []).append(row)
+    return moves
+
+
+def refamily_block(move: dict, bucket: str) -> dict:
+    """What the card says about its own move, and what it may not be read as saying."""
+    return {
+        "ticket": REFAMILY_TICKET,
+        "parent_ticket": "T-1559",
+        "ruling": REFAMILY_RULING,
+        "rule": move["rule"],
+        "rule_read_from": "data/reconstruction/1835_refamily_rule.json"
+                          "#the_moves_the_rule_yields",
+        "drawn_in_bucket": bucket,
+        "counted_in_bucket": move["to_bucket"],
+        "changed": list(move.get("changes") or []),
+        "what_moved": "WHICH CELL OF THE BOOK'S LADDER THIS HEAD IS COUNTED IN, and "
+                      "nothing else. The draw above is not un-written: the bucket he was "
+                      "dealt in keeps it and names him in `refamilied_out`, the bucket he "
+                      "is counted in now fills one of its own orders with a person the "
+                      "town already holds, and his id, his name, his trade, his sex, his "
+                      "age band and every seed on this card are the ones the deal gave "
+                      "him. T-1557 built that accounting; this is one of its rows.",
+        "what_it_re_casts": "an invented family house as a boarding-house family — this "
+                            "head boards at his trade rather than keeping a house of his "
+                            "own. The kind of house this was, was invented with it, so "
+                            "re-casting it is a reconstruction decision about invented "
+                            "people at the `reconstructed` tier, made and recorded here "
+                            "rather than refused. No attested household is touched by it.",
+        "withdrawn_if": "the rule no longer yields this move; the re-family runs through "
+                        "--build, never by hand",
+    }
+
+
 
 # The residual trade of each sex — the work the record cannot see. See the docstring.
 RESIDUAL = {"male": "labourer", "female": "domestic"}
@@ -501,7 +571,8 @@ def band_block(band: str, seed: str) -> dict:
     }
 
 
-def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set) -> dict:
+def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set,
+             moves: dict | None = None) -> dict:
     bucket, sex, band, division, trade, index = slot
     slot_id = f"{STAGE}:{bucket}:{trade}:{index:03d}"
     community = community_for(trade, slot_id, pool)
@@ -539,6 +610,35 @@ def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set) -> dict:
         pid = f"{base}_{suffix}"
     taken_ids.add(pid)
     taken_names.add(name.lower())
+
+    # THE RE-FAMILY, RESOLVED THE MOMENT THE ID IS FIXED AND NOT ONE LINE BEFORE IT. The
+    # rule names the head by the id this deal gives him, and everything above — the pool,
+    # the surname, the forename, the id — is seeded on the slot he was DEALT in. So the
+    # move is looked up here: after the draw, which it may not disturb, and before the
+    # prose, which is the whole of what it changes. A row whose `from_bucket` is not the
+    # bucket this card was dealt in is a fault rather than a move: it would mean the rule
+    # and the deal disagree about where this head stood, and then neither the source
+    # bucket's `refamilied_out` nor the destination's `refamilied_in` would be true.
+    hid = f"hh_{pid}"
+    rows = (moves or {}).get(hid) or []
+    # A HOUSE MOVES WHOLE OR NOT AT ALL, and this stage's houses hold one person: the
+    # head. Two rows against one card would mean the rule thinks somebody else lives
+    # here, which is a disagreement about the layer rather than a move.
+    if len(rows) > 1:
+        raise SystemExit("FAIL the rule re-families %d people out of %s, which holds "
+                         "one head" % (len(rows), hid))
+    move = rows[0] if rows else None
+    if move is not None and move.get("person") != pid:
+        raise SystemExit("FAIL the rule re-families %s out of %s, whose head is %s"
+                         % (move.get("person"), hid, pid))
+    if move is not None and move.get("from_bucket") != bucket:
+        raise SystemExit("FAIL the rule re-families %s out of %s, and this stage dealt "
+                         "him in %s" % (hid, move.get("from_bucket"), bucket))
+    # The division the card STATES. Unmoved, it is the bucket's, as it always was; moved,
+    # it is the bucket he is counted in now — C1's "the statement moves with the bucket
+    # rather than contradicting it". The deal's own sentences below keep the division he
+    # was dealt in, because that is what happened.
+    seats_in = move["to_bucket"].split("/")[3] if move else division
 
     size = pick(f"{slot_id}:household_size", sizes)
     ceiling = caps.get(trade)
@@ -621,17 +721,16 @@ def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set) -> dict:
         "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person "
                 "exists because the town model says the town of 1 July 1835 employed more "
                 "people than its rosters print, and the whole of what is claimed is that: "
-                f"an adult of this sex and band, in the {division} division, at {trade}. "
+                f"an adult of this sex and band, in the {seats_in} division, at {trade}. "
                 "The trade is dealt from the 1839 directory's shares and the person is "
                 "reproducible from the seeds printed above. A real name retires them. No "
                 "figure is drawn (L1).",
     }
 
-    hid = f"hh_{pid}"
-    return {
+    card = {
         "id": hid,
         "name": f"The {surname} household — a trade the rosters never printed",
-        "division": division,
+        "division": seats_in,
         "head": pid,
         "source_pass": SOURCE_PASS,
         "trade_household": {
@@ -649,6 +748,7 @@ def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set) -> dict:
                             "or a re-cut of the order book that no longer orders this "
                             "bucket; the retirement runs through --build, never by hand",
         },
+        "refamilied": refamily_block(move, bucket) if move else None,
         "household_owed": {
             "size_drawn": size,
             "kin_seated": 1,
@@ -715,6 +815,38 @@ def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set) -> dict:
                          "overlaid onto the scene by tools/compile_scene.py. "
                          "docs/LIBERTIES.md carries the invention.",
     }
+    if move is None:
+        # An unmoved card is the card that stood before this stage learned the word, to
+        # the byte. The slot is only written where there is something in it.
+        del card["refamilied"]
+        return card
+    # WHAT THE MOVE RE-STATES, and what it deliberately leaves alone. The size the
+    # histogram drew stays printed — it is what was drawn, and un-printing it would be
+    # the un-writing T-1459 forbids, in miniature — but it stops being a family this head
+    # is OWED, because a head counted in the lodging band boards rather than keeps a
+    # house. The number is also read by `tools/seat_lodgers_1835.py`, which takes a trade
+    # head as a lodging candidate only where it is 1; leaving it be keeps that stage's
+    # input exactly what it was, so this move re-casts a house without re-seating anybody.
+    card["household_owed"] = {
+        "size_drawn": card["household_owed"]["size_drawn"],
+        "kin_seated": card["household_owed"]["kin_seated"],
+        "seed": card["household_owed"]["seed"],
+        "seated_by": "nobody — the re-family above makes this head a boarder, and a "
+                     "boarder is owed no household",
+        "note": "NO FAMILY IS OWED HERE ANY MORE, AND THE DRAW THAT ORDERED ONE IS LEFT "
+                "PRINTED. The 1840 size histogram drew this house at %d people while it "
+                "stood in the book's `%s` bucket. The re-family recorded above counts "
+                "this head in `%s` instead, where he boards at his trade, and a lodging "
+                "head keeps no house for kin to be seated in. The drawn size stays on "
+                "the card because it is what was drawn; what changed is what is owed "
+                "against it, which is now nothing." % (
+                    card["household_owed"]["size_drawn"], bucket, move["to_bucket"]),
+    }
+    card["lives_at"] = dict(card["lives_at"], note=(
+        "Not seated. T-1199 seats the reconstructed households on the lot grid by the "
+        "placement policy; the division above is the bucket this head was RE-FAMILIED "
+        "INTO, not the one he was dealt in, and `refamilied` above names both."))
+    return card
 
 
 def fill() -> tuple:
@@ -724,6 +856,7 @@ def fill() -> tuple:
     caps = ceilings()
     plan = trade_plan()
     taken_names, _real, taken_ids = layer()
+    moves = refamily_moves()
 
     cards = {}
     by_trade = Counter()
@@ -734,7 +867,7 @@ def fill() -> tuple:
     sizes_owed = Counter()
 
     for slot in deal():
-        card = card_for(slot, pool, sizes, caps, taken_names, taken_ids)
+        card = card_for(slot, pool, sizes, caps, taken_names, taken_ids, moves)
         cards[card["id"]] = card
         by_trade[slot[4]] += 1
         by_division[slot[3]] += 1
@@ -744,6 +877,25 @@ def fill() -> tuple:
         sizes_owed[card["household_owed"]["size_drawn"]] += 1
 
     ordered = sum(capacity for _k, _s, _b, _d, capacity in buckets())
+
+    # EVERY MOVE THIS STAGE OWES IS A MOVE THIS STAGE MADE. The rule names heads of two
+    # stages and this one keys by household id, so a row whose id it never mints would
+    # simply not be found — which is the silence a typo in the rule, or a head retired
+    # out from under it, would take. Every `family/trade` bucket in the book is dealt
+    # HERE, so a row leaving one is this stage's by construction and must have landed on
+    # a card. The sibling rows leave `family/none` buckets and belong to T-1564.
+    applied = {hid for hid, card in cards.items() if card.get("refamilied")}
+    owed = {hid for hid, rows in moves.items()
+            if any(str(r.get("from_bucket") or "").endswith("/family/trade")
+                   for r in rows)}
+    if owed != applied:
+        raise SystemExit("FAIL the rule re-families %d head(s) out of this stage's "
+                         "buckets and %d card(s) carry a move: %s"
+                         % (len(owed), len(applied),
+                            sorted(owed.symmetric_difference(applied))[:6]))
+    into = Counter(moves[hid][0]["to_bucket"] for hid in sorted(applied))
+    out_of = Counter(cards[hid]["trade_household"]["bucket"] for hid in sorted(applied))
+
     ledger = {
         "_doc": "DERIVED — regenerate with tools/reconstruct_trade_households.py --build. "
                 "What this stage drew, against the model rows it drew from. Do not "
@@ -789,6 +941,27 @@ def fill() -> tuple:
                     "division": cards[hid]["division"]}
                    for hid in sorted(cards)],
         "fills": dict(sorted(fills.items())),
+        "re_familied": {
+            "ticket": REFAMILY_TICKET,
+            "parent_ticket": "T-1559",
+            "ruling": REFAMILY_RULING,
+            "read_from": "data/reconstruction/1835_refamily_rule.json"
+                         "#the_moves_the_rule_yields",
+            "heads_moved": len(applied),
+            "out_of": dict(sorted(out_of.items())),
+            "into": dict(sorted(into.items())),
+            "what_it_did_not_change": "the fills above. A move is recorded on both ends "
+                                      "by the order book (T-1557): the bucket a head was "
+                                      "dealt in keeps its draw and names him in "
+                                      "`refamilied_out`, and the bucket he is counted in "
+                                      "now names him in `refamilied_in`. If this stage "
+                                      "had re-pointed its own fills instead, the same "
+                                      "head would have been counted out of one bucket "
+                                      "twice and the draw would have been un-written.",
+            "who_writes_the_book_s_ledger": "tools/refamily_moves_1835.py --build, which "
+                                            "carries a move into the order book only "
+                                            "where the card already says the same thing.",
+        },
     }
     # T-1489. THE SEAT ANOTHER PASS DREW FOR THESE PEOPLE, CARRIED THROUGH THE REBUILD.
     # `tools/seat_reconstructed_trades_1835.py` points a reconstructed trade-holder with

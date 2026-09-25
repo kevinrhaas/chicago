@@ -560,16 +560,6 @@
      "the_book_orders_now": 1
     },
     {
-     "bucket": "persons/male/10_19/north/lodging/none",
-     "the_deal_was_dealt_against": 3,
-     "the_book_orders_now": 2
-    },
-    {
-     "bucket": "persons/male/10_19/north/lodging/trade",
-     "the_deal_was_dealt_against": 3,
-     "the_book_orders_now": 4
-    },
-    {
      "bucket": "persons/male/20_29/north/lodging/none",
      "the_deal_was_dealt_against": 12,
      "the_book_orders_now": 13
@@ -578,6 +568,16 @@
      "bucket": "persons/male/20_29/north/lodging/trade",
      "the_deal_was_dealt_against": 2,
      "the_book_orders_now": 1
+    },
+    {
+     "bucket": "persons/female/10_19/south/lodging/none",
+     "the_deal_was_dealt_against": 4,
+     "the_book_orders_now": 5
+    },
+    {
+     "bucket": "persons/female/10_19/south/lodging/trade",
+     "the_deal_was_dealt_against": 8,
+     "the_book_orders_now": 7
     },
     {
      "bucket": "persons/female/20_29/south/lodging/none",
@@ -592,12 +592,12 @@
     {
      "bucket": "persons/male/10_19/south/lodging/none",
      "the_deal_was_dealt_against": 4,
-     "the_book_orders_now": 1
+     "the_book_orders_now": 3
     },
     {
      "bucket": "persons/male/10_19/south/lodging/trade",
      "the_deal_was_dealt_against": 9,
-     "the_book_orders_now": 12
+     "the_book_orders_now": 10
     },
     {
      "bucket": "persons/male/20_29/south/lodging/none",
@@ -612,12 +612,22 @@
     {
      "bucket": "persons/male/30_39/south/lodging/none",
      "the_deal_was_dealt_against": 17,
-     "the_book_orders_now": 18
+     "the_book_orders_now": 13
     },
     {
      "bucket": "persons/male/30_39/south/lodging/trade",
      "the_deal_was_dealt_against": 2,
-     "the_book_orders_now": 1
+     "the_book_orders_now": 6
+    },
+    {
+     "bucket": "persons/male/10_19/west/lodging/none",
+     "the_deal_was_dealt_against": 1,
+     "the_book_orders_now": 2
+    },
+    {
+     "bucket": "persons/male/10_19/west/lodging/trade",
+     "the_deal_was_dealt_against": 4,
+     "the_book_orders_now": 3
     },
     {
      "bucket": "persons/male/20_29/west/lodging/none",
