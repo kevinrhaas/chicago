@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1111, title: 'When the queue job cannot pick up a change, it now says why', kind: 'fix', ts: '2026-09-25T19:36:58.576Z', date: 'Sep 25, 2026, 2:36 PM CT',
+    items: [
+      'The housekeeping job that brings waiting changes up to date starts each one by fetching it and switching to it. When either of those two steps failed, it said only ‘fetch failed’ or ‘checkout failed’ and threw away git’s own explanation, so a stuck change left a report with no reason in it.',
+      'It now says which of the two steps failed, repeats git’s own words, and tells apart the usual causes: a branch that was deleted, one it was never told to fetch, and a working copy left untidy by the change before.',
+      'Nothing about the town itself changed. This is the road the work travels on.',
+    ] },
   { v: 1110, title: 'Three finished changes could not reach the town, and nothing said so', kind: 'fix', ts: '2026-09-25T18:50:58.289Z', date: 'Sep 25, 2026, 1:50 PM CT',
     items: [
       'Finished work gets into this town through a queue: a change is written, checked, and then a housekeeping job walks the queue every few minutes, brings each waiting change up to date with everything that landed before it, and lets it through. On 21 September three changes reached the front of that queue, passed every check, and stopped. They stayed stopped. The job reported success each time it ran.',
