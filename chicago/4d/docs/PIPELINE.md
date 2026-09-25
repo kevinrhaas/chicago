@@ -140,6 +140,62 @@ back-merges main into dev *first* — otherwise it would silently revert the hot
 
 ---
 
+## Merging into `dev`: auto-merge is OFF here, so the merge reads the gate itself
+
+**`allow_auto_merge` is not enabled on `kevinrhaas/chicago`.** That one repository setting
+changes what `bash "$GHREST" pr-automerge kevinrhaas/chicago <N> squash "<title>"` does, and
+the steward's own description of that call — *"it ARMS GitHub's auto-merge and returns, so the
+PR lands the moment its required checks go green"* — is **false here**. A run had no way to
+find that out except by merging.
+
+**Measured 2026-09-25 on PR #43** (chicago-tickets T-1572). The call printed
+
+```
+gh-rest: pr-automerge: could not arm ({"errors":[{"type":"UNPROCESSABLE",
+  "message":"Auto merge is not allowed for this repository"}]}) — merging directly instead
+7107fcaac32ca7271f9cde7e3a76da2a1d212f9e
+```
+
+and the PR was merged into `dev` in that same call, about one second after it was opened —
+onto a `dev` whose four research steps were already red for a reason #43 neither caused nor
+touched. The arming mutation comes back `UNPROCESSABLE` **every** time on this repo, so the
+documented fallback was not a fallback: it was the only path the call ever took, and every
+slice reaching for it merged with no gate consulted at all.
+
+**What it does now** (polecat-platform `.github/steward/gh-rest.sh`, same date). When it
+cannot arm, it does by hand what arming would have done:
+
+| the PR's check runs | what happens |
+|---|---|
+| all green (or `neutral` / `skipped`) | merged |
+| any `failure`, `timed_out`, `cancelled`, `action_required` | **refused** |
+| still `queued` / `in_progress` | waited on, up to `GH_REST_GATE_WAIT_SECONDS` (420), then **refused** |
+| none at all | merged — a PR with no gate is not a red one |
+| unreadable (a REST blip) | merged — one guarded merge is not worth stalling the fleet |
+
+A refusal prints `refused`, **exits 3**, labels the PR `hold` and comments which check it
+refused on. That is already the outcome the steward rules ask for when a run cannot merge
+safely, so **exit 3 finishes your unit cleanly** — say so in the summary and stop. Do not
+re-merge past it.
+
+**Three consequences for a run working here.**
+
+1. **Budget one foreground call of up to ~7 minutes for the merge.** You cannot arm and walk
+   away on this repo; the wait is yours to make. It is bounded on purpose — a slice is
+   capped, and an unbounded wait would spend the cap on watching.
+2. **Merge as the LAST thing you do, on a `dev` you have just rebased onto.** The gate you
+   are about to read belongs to your head commit; anything you push after it starts is not in
+   it.
+3. **`GH_REST_MERGE_BLIND=1` restores the old unconditional merge.** Reach for it only when
+   you have gated the merge yourself and know the red check is irrelevant — and say in the PR
+   why you did.
+
+**This is a workaround, not the fix.** Enabling auto-merge on the repository (with a required
+check on `dev`) would let a slice genuinely arm and return, and that is a repository setting
+and the owner's call. Until he makes it, the table above is the behaviour.
+
+---
+
 ## The changelog, which the pipeline does not stamp for you
 
 **Stamp before merging to `dev`. Nothing stamps later.** Prepend one entry to
@@ -263,8 +319,11 @@ git switch -c steward/<topic>
 #   … one coherent unit of work …
 ./tools/check.sh && node tools/smoke_renderer.mjs      # both, foreground
 ./tools/preflight.sh                                   # the questions CI asks only on the PR
-gh pr create --base dev
-#   merge when the dev gate is green → /4d/dev/ updates
+bash "$GHREST" pr-create  kevinrhaas/chicago steward/<topic> dev "<title>" body.md
+bash "$GHREST" pr-automerge kevinrhaas/chicago <N> squash "<title>"
+#   auto-merge is OFF on this repo, so that call READS the gate and blocks for up to
+#   ~7 min; exit 3 means it refused on a red or pending check and labelled the PR
+#   `hold` — see § Merging into dev above. Green → merged → /4d/dev/ updates.
 
 # production, owner only
 gh workflow run chicago-4d-promote-to-prod.yml -f dry_run=true   # what would move
