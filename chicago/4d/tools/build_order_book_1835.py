@@ -2577,9 +2577,23 @@ def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | Non
                 elif state in DEAD_TICKET_STATES:
                     holes.append(f"{bucket['key']} has {left} left and is ordered by "
                                  f"{ticket}, which is {state}")
-    def live_pieces_of(ticket):
-        return [k for k in (children.get(ticket) or [])
-                if states.get(k) and states.get(k) not in DEAD_TICKET_STATES]
+    def live_pieces_of(ticket, seen=()):
+        # A PIECE THAT HAS ITSELF SPLIT IS LIVE THROUGH ITS OWN PIECES (T-1575). T-1556
+        # split into T-1557..T-1560, and T-1559 split in turn into T-1563 and T-1564; when
+        # T-1560 closed on 2026-09-25 a one-level read saw three `done` and one `split`
+        # and called the programme ended while T-1564 — 54 of its moves — stood open two
+        # levels down. A split is a grouping record at every depth, so the walk goes
+        # through it to the runs that discharge it, and a closed piece still ends the walk.
+        found = []
+        for k in children.get(ticket) or []:
+            if k in seen:
+                continue
+            state = states.get(k)
+            if state == "split":
+                found += live_pieces_of(k, seen + (ticket,))
+            elif state and state not in DEAD_TICKET_STATES:
+                found.append(k)
+        return found
 
     steps, carried = [], []
     for name, step in sorted((doc.get("re_family_ledger") or {}).items()):
@@ -3568,6 +3582,15 @@ def cmd_self_test() -> int:
                                "T-9002": "withdrawn"}, kin))
     fires("a split re-family programme with no pieces at all",
           lambda: gate(split, {**states, "T-9000": "split"}))
+    # AND A SPLIT PIECE IS LIVE THROUGH ITS OWN PIECES (T-1575): the programme's only
+    # live work two levels down keeps it owned, and closing that last grandchild ends it.
+    deep = {"T-9000": ["T-9001", "T-9002"], "T-9002": ["T-9004", "T-9005"]}
+    gate(split, {**states, "T-9000": "split", "T-9001": "done", "T-9002": "split",
+                 "T-9004": "review", "T-9005": "open"}, deep)
+    fires("a split re-family programme whose split piece's pieces have all closed",
+          lambda: gate(split, {**states, "T-9000": "split", "T-9001": "done",
+                               "T-9002": "split", "T-9004": "done",
+                               "T-9005": "withdrawn"}, deep))
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "
