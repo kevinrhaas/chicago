@@ -118,6 +118,43 @@ def ticket_states(root: Path = ROOT) -> dict[str, str]:
             return states
 
 
+def ticket_parents(root: Path = ROOT) -> dict[str, str]:
+    """Child -> parent, from the same scan `ticket_states` reads."""
+    parents = {}
+    for path in sorted((root / "tickets").rglob("T-*.md")):
+        text = path.read_text(encoding="utf-8", errors="replace")
+        tid = re.search(r"(?m)^id:\s*(T-\d+)\s*$", text)
+        parent = re.search(r"(?m)^parent:\s*(T-\d+)\s*$", text)
+        if tid and parent:
+            parents[tid.group(1)] = parent.group(1)
+    return parents
+
+
+# A DEAD POINTER SHOULD SAY WHAT KILLED IT (T-1567/T-1568). The fault below used to read
+# `unresolved ticket 'T-1189' is missing or not open` and stop there, and that sentence is
+# true of four different situations a reader has to tell apart: a typo, a ticket that was
+# withdrawn, one that finished, and — the one that actually happens here — a `split` parent
+# whose whole chain has since closed. The difference matters because only the last kind is
+# nobody's fault: nothing in the tree moved, a ticket somewhere else closed, and the run
+# whose gate went red has no diff to blame. On 2026-09-25 that cost PR #42 its run, which
+# parked on `hold` for a red it could not attribute, and it cost two tickets to diagnose
+# what one sentence can say. The phrase `is missing or not open` is kept intact — it is what
+# the self-tests hold this gate to — and the cause is appended to it.
+def dead_pointer_reason(ticket: str, states: dict[str, str], root: Path = ROOT) -> str:
+    state = states.get(ticket)
+    if state is None:
+        return "no ticket file carries that id"
+    if state != "split":
+        return f"its state is {state!r}"
+    children = sorted(tid for tid, parent in ticket_parents(root).items() if parent == ticket)
+    if not children:
+        return "it is `split` and no child of it can be found"
+    listed = ", ".join(children)
+    return (f"it was `split` and every leaf of its chain has since closed "
+            f"(children: {listed}) — so the work it stood for has stopped, and this unit "
+            f"has to be repointed at the live ticket that owns its question, or one filed")
+
+
 def declared_containers(doc: dict) -> list[str]:
     out = ["records", "claims"]
     if isinstance(doc.get("units_in"), str) and doc["units_in"].strip():
@@ -1067,7 +1104,8 @@ def validate_document(doc: dict, root: Path = ROOT,
             elif not str(row.get("awaiting_evidence") or "").strip():
                 ticket = row.get("ticket")
                 if states.get(ticket) not in OPEN_TICKET_STATES:
-                    faults.append(f"{where}: unresolved ticket {ticket!r} is missing or not open")
+                    faults.append(f"{where}: unresolved ticket {ticket!r} is missing or not open"
+                                  f" — {dead_pointer_reason(ticket, states, root)}")
             if not str(row.get("reason") or "").strip():
                 faults.append(f"{where}: unresolved row gives no reason")
         elif disposition == "refused":
@@ -1171,6 +1209,56 @@ def check(legacy_rows: list[dict], root: Path = ROOT) -> list[str]:
     if not report.exists() or report.read_text(encoding="utf-8") != report_text(expected, legacy_rows):
         faults.append("research-spend report is stale — run --ledger-build")
     return faults
+
+
+# THE NEXT ONE, BEFORE IT LANDS (T-1567/T-1568). The rule above is strict and right — a unit
+# may only defer to work that is still going to happen — and `split_live` is what keeps it
+# from firing on work that was merely re-filed. But `split_live` is a property of OTHER
+# tickets: a chain lifted by a single live leaf is one merge away from stranding every unit
+# beneath it, and the run that finds out is a run with no diff to blame. T-1189 spent five
+# days in exactly that state and nothing said so; T-1448 merged, and four gate steps went red
+# on twelve records nobody had touched.
+#
+# So the gate now says which pointers are one close away. It is a NOTE and not a fault, on
+# purpose: a single-leaf chain is not wrong, and failing on it would make closing the last
+# piece of a split impossible. What it buys is that the repointing can be done by the run
+# that closes the leaf, beside the work, instead of by the next run to gate.
+def _descends_from(tid: str, ancestor: str, parents: dict[str, str]) -> bool:
+    seen = set()
+    while tid in parents and tid not in seen:
+        seen.add(tid)
+        tid = parents[tid]
+        if tid == ancestor:
+            return True
+    return False
+
+
+def fragile_pointers(root: Path = ROOT) -> list[str]:
+    """Split chains held live by ONE leaf, and how many units ride on them.
+
+    Read off the COMMITTED ledger rather than a fresh build: the same step has already
+    faulted if that file is stale, and re-deriving the whole corpus a third time to print
+    a note is how a one-second gate becomes a ten-second one.
+    """
+    doc = read_ledger(root / LEDGER.relative_to(ROOT)) or {}
+    states = ticket_states(root)
+    parents = ticket_parents(root)
+    counts = Counter(str(row.get("ticket") or "")
+                     for row in (doc.get("units") or [])
+                     if isinstance(row, dict) and row.get("disposition") == "unresolved")
+    notes = []
+    for ticket, n in sorted(counts.items()):
+        if not ticket or states.get(ticket) != "split_live":
+            continue
+        leaves = sorted(tid for tid, state in states.items()
+                        if state in ("open", "claimed", "review", "in-progress")
+                        and _descends_from(tid, ticket, parents))
+        if len(leaves) == 1:
+            notes.append(
+                f"{n:,} unresolved unit(s) defer to {ticket}, a split parent held live by ONE "
+                f"leaf ({leaves[0]}); when that closes, this gate goes red on all of them — "
+                f"repoint them at the live ticket that owns the question, or file one")
+    return notes
 
 
 AWAITING = {"good": "A document naming this person at Chicago on or about 1 July 1835."}
@@ -1308,6 +1396,31 @@ def self_test() -> int:
             failures.append("a spent chain still reported itself live: %r" % states)
         else:
             print("  fires: a chain whose leaves have all closed reports plain split")
+        # T-1567/T-1568. The fault says WHY the pointer is dead, and the note says which
+        # pointer is one close away from becoming one. Both are held here, on the same
+        # fixture chain: spent, then lifted again by a single leaf.
+        reason = dead_pointer_reason("T-9001", states, root)
+        if "every leaf of its chain has since closed" not in reason or "T-9002" not in reason:
+            failures.append("a spent split chain did not say so: %r" % reason)
+        else:
+            print("  holds: a dead pointer names the spent chain that killed it")
+        if dead_pointer_reason("T-9404", {}, root) != "no ticket file carries that id":
+            failures.append("a pointer at no ticket at all was not named as such")
+        else:
+            print("  holds: a pointer at no ticket at all says so")
+        ticket("T-9003", "open", "T-9002")
+        write_ledger(root / LEDGER.relative_to(ROOT), {"units": [
+            {"unit_id": "civic:r1", "disposition": "unresolved", "ticket": "T-9001"}]})
+        notes = fragile_pointers(root)
+        if not any("T-9001" in note and "T-9003" in note for note in notes):
+            failures.append("a split chain held live by one leaf raised no note: %r" % notes)
+        else:
+            print("  fires: a pointer one ticket-close away from stranding is named")
+        ticket("T-9004", "open", "T-9002")
+        if fragile_pointers(root):
+            failures.append("a chain with two live leaves was called fragile")
+        else:
+            print("  holds: a chain with more than one live leaf is not fragile")
         for stale in chain.glob("T-90*-fixture.md"):
             stale.unlink()
 

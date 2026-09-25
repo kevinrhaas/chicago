@@ -1993,6 +1993,37 @@
         ]
       },
       "source": "/tmp/smoke_d1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 77,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 335,
+      "takenAt": "2026-09-25T17:49:48.215Z",
+      "ref": "steward/t1560-refamily-liberties-report",
+      "commit": "c49ced4aa1f4",
+      "devCommit": "a49570d71f81",
+      "treeHash": "sha256:8599c9712cbe5bc6",
+      "treeDirty": false,
+      "changelogHash": "sha256:7a9879ab9258e2e6",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.5,
+          3.4,
+          1.8
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
     }
   ]
 }
