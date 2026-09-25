@@ -1,1514 +1,1521 @@
 {
-  "_doc": "T-1302. EVERY TOOL check.sh GATES WITH --check, AND WHAT MEASURING IT FOUND. This file exists because no pattern over SOURCE can classify these tools, which was the finding rather than the assumption. Three ways a regex is wrong, each measured 2026-09-18: the original anchored pattern saw 0 of them because it only matched a tool reading argv directly; widening it bluntly saw 59 but 8 of those declare no write mode at all and matched a string in their PROSE; and a pattern that looks only for a DECLARED flag misses read_fergus_1839.py, which has no --build and WRITES BY DEFAULT when the argument is neither --check nor --self-test. Behaviour is the only honest test, so each row here is a measurement with a date, not a guess.",
-  "_placement": {
-    "manifest": "listed in tools/derived_manifest.json — rederive.mjs --run rebuilds it",
-    "pending": "measured to reproduce; not yet placed in the manifest's dependency order, AND CARRYING A `placed` FIELD that says what has to be settled first — which stages write what it reads, or which pass owns its slot. Ordering is its own measured pass: on #1452 three reconstruction stages OSCILLATED until they sat in the right slot, so these cannot be appended blind. `reproduces` is the OUTCOME of measuring a tool and is NOT a placement; the placement that follows from it is this one (T-1453, after three rows carried the outcome word here and were counted by no bucket while the summary read OK).",
-    "not_derivable": "re-running it does not reproduce its committed output, or it cannot run — with the measurement that says so",
-    "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
+ "_doc": "T-1302. EVERY TOOL check.sh GATES WITH --check, AND WHAT MEASURING IT FOUND. This file exists because no pattern over SOURCE can classify these tools, which was the finding rather than the assumption. Three ways a regex is wrong, each measured 2026-09-18: the original anchored pattern saw 0 of them because it only matched a tool reading argv directly; widening it bluntly saw 59 but 8 of those declare no write mode at all and matched a string in their PROSE; and a pattern that looks only for a DECLARED flag misses read_fergus_1839.py, which has no --build and WRITES BY DEFAULT when the argument is neither --check nor --self-test. Behaviour is the only honest test, so each row here is a measurement with a date, not a guess.",
+ "_placement": {
+  "manifest": "listed in tools/derived_manifest.json — rederive.mjs --run rebuilds it",
+  "pending": "measured to reproduce; not yet placed in the manifest's dependency order, AND CARRYING A `placed` FIELD that says what has to be settled first — which stages write what it reads, or which pass owns its slot. Ordering is its own measured pass: on #1452 three reconstruction stages OSCILLATED until they sat in the right slot, so these cannot be appended blind. `reproduces` is the OUTCOME of measuring a tool and is NOT a placement; the placement that follows from it is this one (T-1453, after three rows carried the outcome word here and were counted by no bucket while the summary read OK).",
+  "not_derivable": "re-running it does not reproduce its committed output, or it cannot run — with the measurement that says so",
+  "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
+ },
+ "tools": {
+  "adjudicate_wright_na_fit.py": {
+   "placement": "not_derivable",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Does NOT reproduce: `--write` rewrote 1 committed file(s) on a tree the gate called clean."
   },
-  "tools": {
-    "adjudicate_wright_na_fit.py": {
-      "placement": "not_derivable",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Does NOT reproduce: `--write` rewrote 1 committed file(s) on a tree the gate called clean."
-    },
-    "adopt_street_faces.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "apply_census_1840_bridges.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 2s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "associations.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "audit_businesses.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: ran `--write` on a clean tree, wrote its report and changed no committed byte.",
-      "placed": "by layer, 2026-09-19 — after compile_businesses.py, whose output it reads"
-    },
-    "audit_scene_window_trades.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "audit_wright_watercourses.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "back_project_addresses.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "back_project_residences.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "build_book_page_index.py": {
-      "placement": "not_derivable",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Cannot rebuild: --build raises on a clean tree (traceback, exit 1)."
-    },
-    "build_lodging_model_1835.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: ran `--build` on a staged tree in 0s, wrote its two outputs and changed no committed byte.",
-      "placed": "not yet — measured to reproduce, but the manifest's order is its own measured pass and this tool reads data/structures/, which several reconstruction stages write"
-    },
-    "build_order_book_1835.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "build_staffing_model_1835.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: `--build` on a clean tree rewrote its own two outputs and `git status` reported nothing moved. T-1183; listed in tools/derived_manifest.json after the order book."
-    },
-    "build_survey_tracts.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 15s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "build_trade_table_1839.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: `--build` on a clean tree rewrote its own output, data/research/directories/fergus_1839_trade_table.json, byte for byte and moved nothing else.",
-      "placed": "not yet — measured to reproduce. It writes data/research/directories/fergus_1839_trade_table.json, read by manifest steps tools/build_staffing_model_1835.py and tools/reconstruct_trade_households.py, so a slot for it sits upstream of both; its own input is the committed Fergus 1839 reading and no stage writes that, so it has no ordering hazard behind it. The manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "carry_kinzie_west.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "carry_stage_blocks.py": {
-      "placement": "not_derivable",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Cannot rebuild: declares only --check and --self-test; the blunt pattern matched `--build` in a MESSAGE about what a later build would do."
-    },
-    "carry_west_tiers_west.py": {
-      "placement": "pending",
-      "write_mode": "--write",
-      "measured": "2026-09-20",
-      "finding": "Reproduces: `--write` on a clean tree rewrote its own two outputs (data/streets/1835.json, data/traces/west_tiers_west_reach.json) byte for byte and changed no committed byte.",
-      "placed": "not yet — measured to reproduce. It writes data/streets/1835.json, which many manifest steps read, so a slot for it has to sit ahead of the street-reading layer; tools/carry_kinzie_west.py, the tool beside it and the same kind of carry, is placed by layer at that head and is the precedent to follow. Its other output, data/traces/west_tiers_west_reach.json, is read by nothing else. The manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "census_1840_composition.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "census_1840_fingerprint.py": {
-      "placement": "not_derivable",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Does NOT reproduce: `--build` rewrote 1 committed file(s) on a tree the gate called clean."
-    },
-    "check_household_derivations.py": {
-      "placement": "not_derivable",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Cannot rebuild: run bare it exits 2 (usage) — it is a checker, not a writer."
-    },
-    "check_unique_ids.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "check_wright_nara_registration.py": {
-      "placement": "not_derivable",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Cannot rebuild: run bare it exits 2 (usage) — a checker."
-    },
-    "compare_norris_1844_readings.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 2s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "compile_agencies.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "compile_businesses.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "compile_gazetteer.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "compile_liberties.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "compile_register.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "complete_inwindow_trades.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Wrote its own outputs and changed no committed byte on a tree the gate called clean.",
-      "placed": "not yet, AND ITS ORDER IS KNOWN, because three red gates on #1560 paid for it (T-1453): RUN IT BEFORE `rederive.mjs --run` AND NEVER AFTER. It reads data/research/books/trade_census_1835_crosswalk.json, which manifest step tools/trade_census_1835.py writes, and it writes business records under data/businesses/authored/ plus data/research/residents/inwindow_trade_workplaces.json — and manifest step tools/compile_businesses.py reads that authored directory. Run it after the manifest and every step reading what it just wrote goes stale, which is how the roof programme went red; the order that measured green was this tool, then the manifest, then tools/reprogramme_roofs_1835.py. Standing on both sides of the manifest is exactly why it is not a blind append: the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "complete_resident_research_pass_14.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "concord_letter_list_1834_01_01.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "concord_letter_list_1834_04_01.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "consolidate_resident_evidence.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "consolidate_town_cards.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "converge_resident_layer.py": {
-      "placement": "not_a_writer",
-      "write_mode": "--run, which writes no byte of its own",
-      "measured": "2026-09-19",
-      "finding": "Measured on dev at 3845cb41c, at its fixed point. `--check` and `--self-test` write nothing and read only tools/check.sh and the order file. `--run` is a write mode only by proxy: it executes the thirteen build commands the order names, every one of which already has a row here, and writes nothing itself. Run on that clean tree it reached the fixed point in one pass in 43 s and git reported no committed byte moved, which is the measurement — the order is idempotent where the tree already satisfies it. Recorded not_a_writer so the audit stops reporting it; it is a driver, and the bytes belong to the rows it drives."
-    },
-    "crosswalk_census_1840_heads.py": {
-      "placement": "not_derivable",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Does NOT reproduce: `--build` rewrote 2 committed file(s) on a tree the gate called clean."
-    },
-    "crosswalk_fergus_1839.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "crosswalk_fergus_1839_election.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "crosswalk_fergus_1839_lots.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "crosswalk_fergus_1839_register.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "crosswalk_fergus_1843.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "crosswalk_norris_1844.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "crosswalk_norris_1844_advertiser.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "cut_north_division_tier.py": {
-      "placement": "pending",
-      "write_mode": "bare",
-      "measured": "2026-09-20",
-      "finding": "Reproduces, and the perturbation test tells idempotence from inertia. Run BARE on a clean tree it rewrote data/traces/vectors/north_division_tier_lots.json and `git status` came back empty; block 1's committed depth was then bent from 131.33 m to 999, `--check` went red (\"STALE ... not what tools/cut_north_division_tier.py re-derives\"), a bare run re-derived the file and `git status` came back empty again. Its only output is that one file; it reads data/traces/thompson_north_division_streets.json, data/streets/1835.json, data/traces/street_control.json and the committed heightfield, and writes none of them.",
-      "placed": "not yet — measured to reproduce, and its inputs are all committed readings rather than anything a later stage writes, so it has no ordering hazard of its own; placing it is still the ordering pass's call and not this ticket's."
-    },
-    "cut_school_section_tier.py": {
-      "placement": "pending",
-      "write_mode": "bare",
-      "measured": "2026-09-20",
-      "finding": "Reproduces, and the perturbation test tells idempotence from inertia. Run BARE on a clean tree it rewrote data/traces/vectors/school_section_tier_lots.json and `git status` came back empty; block 24's first lot frontage was then bent from 30.14 m to 999, `--check` went red (\"STALE ... not what tools/cut_school_section_tier.py re-derives\"), a bare run re-derived the file and `git status` came back empty again. Its only output is that one file; it reads data/traces/vectors/school_section_blocks_1834.json, data/research/land_sales/entries.json, data/traces/vectors/school_section_tier_skew_1834.json and the committed heightfield, and writes none of them.",
-      "placed": "not yet — measured to reproduce, and every input it reads is a committed reading rather than anything a later stage writes, so it has no ordering hazard of its own; placing it is the ordering pass's call and not this ticket's."
-    },
-    "date_norris_1844_businesses.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "deal_siding_stock.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "derive_hay_limits.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "derive_person_community.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-19 — after the card writers that may change an `origin` and before compile_scene, which builds the People view out of its output; see the manifest step"
-    },
-    "derive_presence_evidence_leg.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces, write-if-changed: wrote nothing on a clean tree, so it was PERTURBED — perturbed one card's leg; --check caught it, --write restored it, tree clean.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "derive_resident_roles.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "derive_shore_1812.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "derive_timber_belt.py": {
-      "placement": "not_derivable",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Does NOT reproduce: `--write` rewrote 1 committed file(s) on a tree the gate called clean."
-    },
-    "employment_coverage_1835.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-25",
-      "finding": "Reproduces, measured twice. 2026-09-20 (T-1461): '--build' on a clean tree rewrote data/residents/employment_coverage.json and nothing else, and 'git status --porcelain' was identical before and after — not one committed byte moved, no person card was touched, no trade was supplied and no business record was written to. RE-MEASURED 2026-09-25 (T-1555) on clean dev before placing it: --check green on all 3,305 people, --build rewrote the join (mtime 1790347317 -> 1790347480) and left the porcelain empty, so _must_reproduce and _must_actually_write are both satisfied for its step. PLACED at manifest step 153, below the last step that writes a person card and above the reports at the foot — see that step's own 'why'."
-    },
-    "execute_roof_redeal.py": {
-      "placement": "pending",
-      "write_mode": "--apply",
-      "measured": "2026-09-20",
-      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--apply` on a clean tree ran in 5.1 s, rewrote data/reconstruction/1835_phase2_west_wolf_point_approaches.json, data/exclusions.json and docs/RESEARCH/1835_roof_redeal_execution.md and changed no committed byte. The perturbation test tells idempotence from inertia and was run from both sides, because this tool holds two files to each other: the recipe's `redealt` record was bent D4 -> D9 and `--check` went red (\"was re-dealt to D9 and stands as D4\"); the PLACEMENT was then bent D4 -> W1 instead and `--check` went red the other way (\"was re-dealt to D4 and stands as W1\"); `--apply` restored it and `git status` came back empty.",
-      "placed": "not yet — measured to reproduce, but it reads the redeal ledger, which tools/redeal_anonymous_roofs.py writes and which is itself `pending` for the same reason: both sit downstream of the reconstruction stages that write the structure layer, and their place in the manifest's dependency order is that pass's to settle."
-    },
-    "exhaust_tax_1833.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "export_borderline_roster.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "export_resident_audit.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "export_resident_research_package.py": {
-      "placement": "manifest",
-      "write_mode": "--index",
-      "measured": "2026-09-18",
-      "finding": "Reproduces, write-if-changed: wrote nothing on a clean tree, so it was PERTURBED — its --build takes a cohort; --index maintains the committed index and reproduces.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "fergus_1839_street_faces.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_block_infill.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 10s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_business_signboards.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_dooryard_pickets.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_dooryard_plantings.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 15s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_fort_apron.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_fort_trees.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_frontage_works.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 5s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_inferred_households.py": {
-      "placement": "not_derivable",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Cannot rebuild: run bare it exits 2 (usage); its build needs arguments this audit did not supply."
-    },
-    "generate_inferred_infill.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_inferred_names.py": {
-      "placement": "not_derivable",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Does NOT reproduce: `(bare)` rewrote 2 committed file(s) on a tree the gate called clean."
-    },
-    "generate_lot_building_material.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_lot_line_fences.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_north_infill.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_planted_rows.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_plat_lots.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_river_wharves.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_school_section_grid.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_west_infill.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "generate_yard_goods.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 22s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "lift_letter_list_1834_unread.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "location_reconciliation.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "location_spend.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "lot_addresses.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "measure_block_gating.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "measure_block_redeal_remedies.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-21",
-      "finding": "Reproduces: ran `--build` on a clean tree in 4s, wrote its two outputs and changed no committed byte.",
-      "placed": "not yet — measured to reproduce, but it reads the roof redeal ledger, the platted-block recipe and the placement policy, and the first two are written by stages whose slot in the manifest's order is itself a measured question. It also reports on a ticket blocked on the owner: the day the six verdicts are carried out or withdrawn, this tool's outputs change or stop existing, and placing it before that is settled would order a step that may not be there."
-    },
-    "measure_canal_control_spread.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "measure_frontage_declaration.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "measure_north_branch_banks.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces, write-if-changed: wrote nothing on a clean tree, so it was PERTURBED — perturbed the committed baseline; --check caught it, --write restored it, tree clean.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "measure_placement_silence.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "measure_research_spend.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "measure_roof_id_migration.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-21",
-      "finding": "Reproduces, and the perturbation test tells reproduction from inertia. On a clean tree `--build` rewrote docs/RESEARCH/1835_roof_id_migration.md and nothing else, and `git status --porcelain` came back to the same single entry it started at. The measurement was then bent — the header's \"26 moving id(s)\" to 999 — a bare run went red (\"DRIFT: ... is not what a re-measurement produces\"), `--build` re-derived the file, and the tree came back clean. Its ONLY output is that one document; it reads the roof id reference list and the 75 files that name a moving id, and writes none of them.",
-      "placed": "not yet — measured to reproduce, and it is a pure reader: every input it touches is a committed file some other stage owns, so it has no ordering hazard of its own. Its slot is the ordering pass's call, not this ticket's."
-    },
-    "measure_west_division_spacing.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-24",
-      "finding": "Reproduces: ran `--write` on a clean tree in under 1s, wrote its output, changed no committed byte.",
-      "placed": "by layer, 2026-09-24 — reasoned, not derived. It reads tools/generate_plat_lots.py's output (the West Division's blocks, their lot cuts and their `bounded_by` lines) and is placed immediately after tools/measure_west_grid_migration.py, which reads the same file for the same ticket family; run earlier it would measure a stale grid. Nothing reads what it writes, so nothing constrains it from below."
-    },
-    "measure_west_grid_migration.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-21",
-      "finding": "Reproduces: ran `--write` on a clean tree in 1s, wrote its output, changed no committed byte.",
-      "placed": "by layer, 2026-09-21 — reasoned, not derived. It reads tools/generate_plat_lots.py's output (the block and lot grid, and the omissions carrying `already_derived_as`) and is placed immediately after it; run earlier it would measure a stale pair. Nothing reads what it writes, so nothing constrains it from below."
-    },
-    "measure_wright_lighthouse.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "migrate_attribute_tiers.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "migrate_roof_ids.py": {
-      "placement": "not_derivable",
-      "write_mode": "--apply",
-      "measured": "2026-09-21",
-      "finding": "Does NOT reproduce, and by design: `--apply` is a one-shot migration, not a re-derivation. Run on the committed tree it wrote nothing in 0s and said so — the adjudication it reads is itself re-derived, so a verdict carried out returns `keep` and the work list is empty. Perturbed (the recipe and the eleven records reverted to their pre-migration state) it rewrote the committed output exactly, which is what T-1494 shipped. It is kept out of the manifest deliberately: rederive.mjs re-running a migration every lap is the one thing this tool must never be asked to do. tools/migrate_roof_ids.py --check is what holds its output, and it is gated."
-    },
-    "mint_civic_residents.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "mint_documented_residents.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "mint_placed_residents.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "model_refamily_rule.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-25",
-      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on the committed tree rewrote data/reconstruction/1835_refamily_rule.json and docs/RESEARCH/1835_refamily_rule.md and changed no committed byte; the perturbation test says that is idempotence rather than inertia — the JSON was deleted, `--check` went red on it (\"the re-family rule is missing — run --build\"), `--build` restored it, and `git status` came back empty.",
-      "placed": "not yet — measured to reproduce, and the ordering is the thing to settle. This tool reads the order book, and build_order_book_1835.py then reads the rung ids and the rule's one line back out of it, so the pair wants TWO passes in the manifest's order (book, rule, book) rather than one slot. Only literals travel back — the ladder's ids and the rule's one-line sentence, both constants in model_refamily_rule.py — so the two cannot oscillate; what has to be settled is whether the manifest can express a second pass over a tool it has already run, which is not this ticket's to decide."
-    },
-    "report_refamily_programme.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-25",
-      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on the committed tree rewrote data/reconstruction/1835_refamily_programme.json and docs/RESEARCH/1835_refamily_programme.md and changed no committed byte; the perturbation test says that is idempotence rather than inertia — the JSON was deleted, `--check` went red on it (\"the re-familying programme report is missing — run --build\"), `--build` restored it, and `git status` came back empty.",
-      "placed": "not yet — measured to reproduce, and its slot is the one model_refamily_rule.py is waiting on. This tool reads BOTH the order book and the rule, so it can only run after the pair has settled, and that pair is the thing the row above says the manifest cannot yet express: build_order_book_1835.py reads the rung ids back out of the rule, so book/rule wants two passes rather than one slot. Nothing reads this report back, so it is a pure leaf and adds no new ordering question of its own — it inherits the one already open."
-    },
-    "model_town_1835.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "model_transients_1835.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: `--build` on a tree the gate called clean rewrote its own two outputs and changed no committed byte."
-    },
-    "newspaper_corpus.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 2s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "normalise_structure_function.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces, write-if-changed: wrote nothing on a clean tree, so it was PERTURBED — perturbed `blacksmith_shop` to `blacksmith shop`; --check caught it, --build restored it.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "old_settlers.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "person_associations.py": {
-      "placement": "pending",
-      "write_mode": "--write",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: `--write` on a clean tree rewrote the 70 person cards it owns rows on and data/research/residents/person_associations.json, and moved no committed byte (git reported 0 changed paths). Left `pending` rather than appended to the derived manifest: it writes INTO data/residents/households/*.json, which several reconstruction stages also re-derive, so its slot in the dependency order is its own measured pass — it has to run after every stage that settles a person's key order and before the coverage count.",
-      "placed": "not yet — measured to reproduce. T-1405 per its header: `--write` puts association rows ONTO the person records as well as into data/research/residents/person_associations.json, and those records are rewritten by the resident reconstruction stages, so it follows the last of them. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "pinned_sources.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-19",
-      "finding": "Run bare it exits 0, prints the register's roll-up and writes nothing — measured on the working tree, byte-identical before and after. It declares no write flag: the only bytes it ever puts on disk are a region cache under /tmp, written by fetch_pinned AFTER the sha256 pin has passed, and never inside the repository. Gated with --check; a checker."
-    },
-    "placement_policy_1835.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: `--build` on a clean tree rewrote data/reconstruction/1835_placement_policy.json and moved no committed byte (git reported 0 changed paths). Left `pending` rather than appended to the derived manifest: it reads the structure census, the street classes and the roof reconciliation, so its slot in the dependency order is its own measured pass.",
-      "placed": "not yet — measured to reproduce. It writes data/reconstruction/1835_placement_policy.json, which the reconstruction stages that raise roofs read, so it sits ahead of them — and those stages are themselves unplaced, so its slot cannot be fixed before theirs is. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "profile_population_1835.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "qualify_later_trades.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "read_blackhawk_war.py": {
-      "placement": "not_derivable",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Does NOT reproduce: `--build` rewrote 1 committed file(s) on a tree the gate called clean."
-    },
-    "read_census_1830.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_fergus_1839.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_fergus_1839_election.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_fergus_1839_lots.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "read_fergus_1839_register.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_fergus_1843.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_fergus_1843_civic.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_fergus_obits.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "read_genealogytrails.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "read_kinzie_addition_numerals.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_kinzie_addition_streets.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 2s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_kinzie_addition_water_lots.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 3s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_kinzie_block_name.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 2s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_land_sales.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "read_letter_list_1834_04_01_image.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "read_letter_list_1834_image.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "read_michigan_st_tract.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 3s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_newberry_index.py": {
-      "placement": "not_derivable",
-      "write_mode": null,
-      "measured": "2026-09-14",
-      "finding": "Needs OCR shards from outside the repository. Invoked bare it prints its usage and exits 0, writing nothing."
-    },
-    "read_norris_1844.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_norris_1844_advertiser.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: run bare on a clean tree in 1s it wrote its output and changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_north_branch_bank_wash.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 16s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_north_division_numerals.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "read_north_side_slough_na.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_school_section_numerals.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_second_presbyterian.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "read_st_cyr_register.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "read_st_marys_baptisms.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_voter_lists.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_wabansia_block_numerals.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_wabansia_streets.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_wabansia_water_lots.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_washington_madison_numerals.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_west_division_lots.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "read_west_division_numerals.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "read_wolf_point_numerals.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "read_wright_legend_swatches.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 16s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "readmit_borderline_roster.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: ran `--build` on a clean tree in 22s, wrote its outputs, changed no committed byte.",
-      "placed": "not yet — it reads the borderline roster and is read by everything that COUNTS people, so its slot is a measured pass rather than an append (T-1302's note above)."
-    },
-    "rebuild_closing_set.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: `--build` rewrote docs/RESEARCH/closing-convergence-2026-09.md byte-for-byte and moved nothing else, on a tree the gate called clean. `--rebuild` is the heavier mode — it runs the five closing-set members out of the manifest first — and is not what the lap calls."
-    },
-    "rebuild_resident_index.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "reconcile_665.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 12s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "reconstruct_businesses_1835.py": {
-      "placement": "pending",
-      "write_mode": "--group <group> --build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: ran `--group stores_and_provisions --build` on a clean tree in 1s, wrote its records, its ledger and the order book's fill, and changed no committed byte.",
-      "placed": "not yet — measured to reproduce. Its header states that the quota lives in the reconstruction order book and nothing about it lives in the tool, so any ticket that re-cuts the book moves this stage with it; it writes the order book's fill as well as its own records. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "reconstruct_free_black.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: ran `--build` on a clean tree in under 1s, rewrote its 7 household cards, its 2 authored firm records and its ledger, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool, which reports both gated commands writing nothing in-tree.",
-      "placed": "not yet — measured to reproduce. Stage `underdocumented`, sub-stage `free_black` (T-1377, of T-1177). Its header records that it SHARES data/residents/underdocumented/ with tools/reconstruct_underdocumented.py, each sweeping its own id prefix out of it — `hh_fb_` here, `hh_um_` there — so the two have an order against each other that no file yet states. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "reconstruct_garrison_1835.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: `--build` on a settled tree wrote its own outputs and changed no committed byte, and `--check` re-derives all 11 cards, 125 people and the return in data/reconstruction/1835_garrison.json from their seeds. In the manifest directly after `women_and_children`.",
-      "placed": "by stage order, 2026-09-19 — its invented names must step past that stage's, and measured in the other order 43 of that stage's cards redraw"
-    },
-    "reconstruct_institutional_households.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-24",
-      "finding": "Reproduces: `--build` run on the tree it had already built wrote its own outputs and changed no committed byte — `git status --porcelain` is identical before and after. Measured, not read (T-1531).",
-      "placed": "Waiting on nothing but its own slot being proved stable. It IS in the resident layer's rebuild order as `stage_institutional_households`, after `transients` and before `converge`, which is the programme's own stage order, and its three back edges into data/residents are declared in `the_cycle.edges` (resident_index, scene_sidecars, town_census). What has to be settled before it joins derived_manifest.json's dependency order is the same thing #1452 had to settle for three reconstruction stages that oscillated: that one pass of the manifest's order reaches a fixed point with it in place. `converge_resident_layer.py --run` reaches one today; the manifest's own order is a separate measured pass and is not claimed here."
-    },
-    "reconstruct_modelled_families.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "reconstruct_residents_1835.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "reconstruct_sex_age.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "reconstruct_trade_households.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: `--build` on a tree the gate called clean rewrote its 308 cards and its ledger and changed no committed byte."
-    },
-    "reconstruct_transients_1835.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: ran `--build` on a clean tree in under 1s, rewrote its 83 household cards and its ledger, changed no committed byte.",
-      "placed": "not yet — measured to reproduce. Stage `transients` (T-1353): it draws against the lodging model and writes data/reconstruction/1835_transient_cohort.json, and the lodging model is itself an unplaced `pending` row (tools/build_lodging_model_1835.py), so the two are placed together or not at all. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "reconstruct_underdocumented.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: ran `--build` on a clean tree in under 1s, rewrote its 87 household cards and its ledger, changed no committed byte.",
-      "placed": "not yet — measured to reproduce. Stage `underdocumented`, sub-stage `native_and_metis` (T-1376, of T-1177), sharing data/residents/underdocumented/ with tools/reconstruct_free_black.py on the prefix `hh_um_`; it also reads the borderline roster, which an earlier stage writes. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "reconstruct_women_children.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: `--build` on a settled tree wrote its own outputs and changed no committed byte, and `--check` re-derives all 124 cards and 556 people from their seeds. In the manifest directly after `modelled_families`, which fills the same order-book buckets and has to go first.",
-      "placed": "by stage order, 2026-09-19 — it draws against the quota the stage above it spends"
-    },
-    "record_lot_seating.py": {
-      "placement": "pending",
-      "write_mode": "--write",
-      "measured": "2026-09-20",
-      "finding": "Reproduces, and the perturbation test tells reproduction from inertia: on a clean tree --write is a no-op and a no-op proves nothing. cobweb_castle's stands_on_lot block was dropped outright and goss_cobb_saddlery's lot_number bent to 99; --check went red naming both records, --write restored both, and the tree came back to the same nine files and 144 lines it started at. It writes only the stands_on_lot key of data/structures/*.json, in each file's own indent, and refuses a record carrying a key its order does not name rather than reformatting it.",
-      "placed": "not yet — measured to reproduce, but it reads the lot layers and every committed footprint and must run before compile_scene.py carries the seat onto the card, so its slot is the ordering pass's call and not this ticket's."
-    },
-    "redeal_anonymous_roofs.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-20",
-      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on a clean tree ran in 1.9s, wrote data/reconstruction/1835_roof_redeal.json and docs/RESEARCH/1835_anonymous_roof_redeal.md and changed no committed byte; the perturbation test tells idempotence from inertia — the record's retire count was bent from 0 to 7 and one verdict flipped to `retire`, `--check` went red (\"no longer re-derives from its inputs\"), `--build` re-derived both files, and `git status` came back empty.",
-      "placed": "not yet — measured to reproduce, but it reads the structure layer, the order book and the placement policy, all of which earlier reconstruction stages write, so its place in the manifest's dependency order is that pass's to settle."
-    },
-    "refuse_reconstructed_grade.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "register_letter_list_suspicions.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "repair_ocr_turkish_alphabet.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "replace_invented_residents.py": {
-      "placement": "not_derivable",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Does NOT reproduce: `(bare)` rewrote 5 committed file(s) on a tree the gate called clean."
-    },
-    "report_census_1840_residue.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "report_convergence_coverage.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "report_letter_list_collisions.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "report_research_closing_audit.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "report_research_signoff.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "reprogramme_roofs_1835.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-20",
-      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on a clean tree ran in 0s, wrote its record and its report and changed no committed byte; the perturbation test tells idempotence from inertia — A5's target_roofs was put back to the 14 it had drifted to, `--check` went red naming the three fields (\"A5 (priority_rank, remaining_roofs, target_roofs)\"), `--build` re-derived them, and `git status` came back empty.",
-      "placed": "not yet — measured to reproduce, but this tool reads the order book and the lodging model, both of which later reconstruction stages write, so its place in the manifest's order is that pass's to settle. It edits only the five count fields of 1835_family_archetype_crosswalk.json, in place, and refuses a layout it cannot edit rather than reformatting the file."
-    },
-    "research_domains.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "resolve_land_tracts.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 6s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "resolve_place_vocabulary.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "roof_id_pins.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-21",
-      "finding": "Run bare it prints the pin list, exits 0 and moves no committed byte (measured on a clean tree, T-1499). It declares no write flag; --check and --self-test are its only other modes. A checker."
-    },
-    "rule_fuzzy_card_pairs.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "rule_newberry_leads.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "rule_presence_1835.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces: `--build` re-derives data/reconstruction/1835_presence_rulings.json byte-for-byte from the household directory and T-1172's persistence model, and `--check` is a gate in tools/check.sh.",
-      "placed": "by layer, 2026-09-19 — after every writer that can move a card's presence or its evidence blocks, before everything that counts the town; see the manifest step"
-    },
-    "school_section_sale.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "seat_kinzie_addition_streets.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "seat_known_1835.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-20",
-      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on a clean tree ran in 1s, rewrote data/reconstruction/1835_address_book.json and changed no committed byte; the perturbation test says that is idempotence rather than inertia — the file was deleted, `--check` went red on it (\"is missing or unreadable — run --build\"), `--build` restored it, and `git status` came back clean.",
-      "placed": "not yet — measured to reproduce, but the manifest's order is its own measured pass and this tool reads data/residents/households/, which several reconstruction stages write, as well as data/research/location_spend.json and data/structures/. It has to sit after all of them."
-    },
-    "seat_lodgers_1835.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-19",
-      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on the branch tree rewrote its twelve cards, its ledger and the order book's fills and changed no committed byte; the perturbation test says that is idempotence rather than inertia — hh_lodging_tremont_house_1.json was deleted, `--check` went red on it (\"data/residents/lodgers/ is not what this stage derives\"), `--build` restored it, and `git status` came back to exactly the lines it started on.",
-      "placed": "not yet — measured to reproduce, but the manifest's order is its own measured pass and this tool reads data/structures/ through the lodging model AND data/residents/, which several reconstruction stages write. It has to sit after build_lodging_model_1835.py, which is pending for the same reason."
-    },
-    "seat_michigan_st_tract.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "seat_reconstructed_trades_1835.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-21",
-      "finding": "Reproduces: `--build` on a clean tree rewrote data/residents/reconstructed_seating.json and the 123 person cards that hold a seat, and `git status --porcelain` was identical before and after — not one committed byte moved. T-1433, and T-1489 for the card leg: until then this pass wrote NO person card, and the previous measurement here said so. It writes `persons[].employment` now, on the card of every person a row seats and on no other card in the layer; it still mints nobody and raises no business. The four reconstruction stages that derive a resident directory whole carry that key through their own re-derivations via tools/resident_mint_carry.py, which is why their byte-for-byte --check stays green beside it.",
-      "placed": "not yet — measured to reproduce. T-1433, piece 2 of 3 of T-1189: it writes persons[].employment for the residents this project reconstructed, so it follows every stage that mints a reconstructed person and precedes the coverage join that reads the result. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "seat_wabansia_streets.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "sort_land_sales_onto_tracts.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "spend_appearance_bounds.py": {
-      "placement": "pending",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces, and it is a REAL writer rather than a silent no-op — the `_must_actually_write` trap batch 1 caught four tools in. It declares no write flag at all (--check, --report, --self-test only) and writes on its BARE run, which is the read_fergus_1839.py shape: a write mode that is the default branch. Measured by perturbation, not by a content diff: `_t1336_probe` was added to data/research/appearance_bounds_1835.json, `--check` went red on it (\"does not re-derive\"), the bare run restored the file, and git came back to the renumber alone.",
-      "placed": "NOT PLACED. It reproduces, so it is pending rather than not_derivable, and it is counted out loud on every run instead of sitting silently outside the layer — which is the mechanism T-1302 batch 1 exists for. Placing it is a measured pass of its own; this branch has no evidence about its slot."
-    },
-    "spend_book_kin.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Measured on a clean tree the day it landed: `--build` wrote its rows and changed no committed byte, so it reproduces. The build appends a note only when the sentence is not already on the row and sorts `sources` and `book_kin`, which is what makes it idempotent. In the manifest beside the other card writers, so `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate from here on."
-    },
-    "spend_census_1840_heads.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "spend_civic_roll_bounds.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "spend_civic_voter_lists.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "spend_departure_rulings.py": {
-      "placement": "pending",
-      "write_mode": "--write",
-      "measured": "2026-09-21",
-      "finding": "Reproduces: ran `--write` on a clean tree in 0s, rewrote data/research/residents/departure_rulings.json and changed no committed byte.",
-      "placed": "not yet — measured to reproduce, but the manifest's order is its own measured pass and this tool reads the resident cards and data/research/residents/spend_rulings.json, which tools/spend_remainder_rulings.py writes and which is itself unplaced"
-    },
-    "spend_directories.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "spend_enrichment_arrivals.py": {
-      "placement": "pending",
-      "write_mode": "--write",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: `--write` on the clean tree wrote 0 card(s) and moved no committed byte, and the perturbation test says that is idempotence rather than inertia — hh_peck_philip.json's origin was put back to the drawn block the arrival stage owned, `--write` rewrote 1 card, and `git status` came back empty. Not yet placed in the manifest's dependency order: it must run after tools/spend_remainder_rulings.py, whose register it reads to know which units it owns, and before every reader of the resident layer.",
-      "placed": "not yet — measured to reproduce. T-1330: `--write` spends thirty corroborated_enrichment units ONTO the cards they name, so it follows the pass that writes those cards and cannot sit ahead of it. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "spend_fergus_1839_later_lists.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "spend_fergus_1839_lot_sale.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "spend_ladder_rungs.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "spend_land_sale_bounds.py": {
-      "placement": "pending",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "T-1332 landed after T-1302 batch 2 placed its layer; placement in the manifest dependency order is that pass's to make, not this one's"
-    },
-    "spend_land_sales.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "spend_land_sales_rulings.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "spend_name_on_a_roll_rulings.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "spend_old_settlers.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
-    },
-    "spend_person_facts.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "spend_person_sex_age.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "spend_press_bounds.py": {
-      "placement": "pending",
-      "write_mode": "(bare)",
-      "measured": "2026-09-19",
-      "finding": "Reproduces, and it is a REAL writer rather than a silent no-op. It declares no write flag at all (--check, --report, --self-test only) and writes on its BARE run, which is the shape of its sibling spend_appearance_bounds.py. Measured by perturbation, not by a content diff: `_t1343_probe` was added to data/research/press_bounds_1835.json, `--check` went red on it (\"does not re-derive\"), the bare run restored the file, and git came back clean.",
-      "placed": "NOT PLACED. It reproduces, so it is pending rather than not_derivable, and it is counted out loud on every run instead of sitting silently outside the layer — the mechanism T-1302 batch 1 exists for. Placing it is a measured pass of its own; this branch has no evidence about its slot."
-    },
-    "spend_remainder_rulings.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "spend_second_presbyterian_roll.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "spend_stated_families.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "spend_trade_premises.py": {
-      "placement": "manifest",
-      "write_mode": "--write",
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "staff_businesses_1835.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-20",
-      "finding": "Reproduces: `--build` on a clean tree rewrote persons[].workplaces across 109 household records and data/reconstruction/1835_staffing_join.json, and `git status --porcelain` was identical before and after — not one committed byte moved. T-1432. PENDING rather than manifest because its slot is an ordering question this run did not measure: it reads the compiled business layer and writes INTO the resident layer, so it has to sit after compile_businesses.py and after every mint, and the manifest's dependency order is a measured pass of its own.",
-      "placed": "not yet — measured to reproduce. T-1432, piece 1 of 3 of T-1189: it writes persons[].workplaces across the household records for the rows the business layer names, so it follows the business-layer compile and precedes the coverage join. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "staff_the_houses_1835.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-20",
-      "finding": "Reproduces: `--build` on a clean tree rewrote data/reconstruction/1835_business_staff_overlay.json and nothing else, and `git status --porcelain` was identical before and after — not one committed byte moved, no person was written, no business was raised and no seat was invented. T-1462. PENDING rather than manifest for the reason its three siblings staff_businesses_1835.py, seat_reconstructed_trades_1835.py and staffing_mint_order_1835.py are: it reads the reconstructed seating, the staffing model and T-1422's ruling and writes an overlay beside them, so its slot in the re-derivation order is a question a measured pass of the manifest owns rather than this one. What is already known about that slot: it has to run BEFORE compile_businesses.py, which reads what it writes.",
-      "placed": "not yet — measured to reproduce. T-1462, piece 2 of 2 of T-1449. Its header states the ordering constraint itself: data/businesses/*.json is DERIVED and the compiler rewrites each record whole, which is why this tool writes an OVERLAY — so a slot for it sits after manifest step tools/compile_businesses.py and after the seating pass it reads. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "staffing_mint_order_1835.py": {
-      "placement": "pending",
-      "write_mode": "--build",
-      "measured": "2026-09-20",
-      "finding": "Reproduces: `--build` on a clean tree rewrote data/reconstruction/1835_staffing_mint_order.json and nothing else, and `git status --porcelain` was otherwise identical before and after — not one committed byte moved, no person card was touched and no bucket's `filled` changed. T-1448. PENDING rather than manifest for the reason its two siblings staff_businesses_1835.py and seat_reconstructed_trades_1835.py are: it reads the compiled business layer, the staffing model and the order book and writes an adjudication beside them, so its slot in the re-derivation order is a question a measured pass of the manifest owns rather than this one.",
-      "placed": "not yet — measured to reproduce. T-1448, of T-1434, of T-1189: it mints nobody and only sets the staffing model beside the reconstruction order book and counts, so it follows whichever of those two is written later — and the order book is re-cut by open tickets. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
-    },
-    "substitute_reconstruction.py": {
-      "placement": "not_a_writer",
-      "write_mode": "(none declared)",
-      "measured": "2026-09-20",
-      "finding": "Not a writer, and deliberately cannot become one: it reads what a new attested record would retire and prints the plan. Run BARE it printed the substitutable population and the liberty re-count, exited 0, and `git status --porcelain` was identical before and after — not one byte moved. There is no write mode to measure because there is no --build beside the dry run: a retirement runs through the retired record's OWN generator (reconstruct_businesses_1835.py, reconstruct_trade_households.py), which re-derives a whole population from the order book, and a second tool deleting one record would put the layer off the fixed point this gate holds it to. T-1441."
-    },
-    "supersede_arrival.py": {
-      "placement": "not_a_writer",
-      "write_mode": "(none declared)",
-      "measured": "2026-09-19",
-      "finding": "Not a writer: it is a module the four resident mints import, plus --check, --report and --self-test. Run BARE it printed its usage, exited 2 and moved no byte at all — `git status --porcelain` identical before and after. The writing it causes is the mints' own, through `supersede(carry(doc))`, and their rows here already answer for it."
-    },
-    "survey_stated_kin.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "synthesize_resident_research.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "town_census.py": {
-      "placement": "manifest",
-      "write_mode": null,
-      "measured": "continuously",
-      "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
-    },
-    "trace_lake_shore_rees_1849.py": {
-      "placement": "not_derivable",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Cannot rebuild: run bare it exits 1 — needs inputs or arguments not supplied."
-    },
-    "trace_north_branch.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 14s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "trace_river.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 15s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "trace_south_branch.py": {
-      "placement": "manifest",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `(bare)` on a clean tree in 11s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "trace_south_branch_rees_1849.py": {
-      "placement": "not_derivable",
-      "write_mode": "(bare)",
-      "measured": "2026-09-18",
-      "finding": "Cannot rebuild: run bare it exits 1 — needs inputs or arguments not supplied."
-    },
-    "trade_census_1835.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "trade_census_spend_1835.py": {
-      "placement": "manifest",
-      "write_mode": "--build",
-      "measured": "2026-09-18",
-      "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    }
+  "adopt_street_faces.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "apply_census_1840_bridges.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 2s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "associations.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "audit_businesses.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: ran `--write` on a clean tree, wrote its report and changed no committed byte.",
+   "placed": "by layer, 2026-09-19 — after compile_businesses.py, whose output it reads"
+  },
+  "audit_scene_window_trades.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "audit_wright_watercourses.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "back_project_addresses.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "back_project_residences.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "build_book_page_index.py": {
+   "placement": "not_derivable",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Cannot rebuild: --build raises on a clean tree (traceback, exit 1)."
+  },
+  "build_lodging_model_1835.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: ran `--build` on a staged tree in 0s, wrote its two outputs and changed no committed byte.",
+   "placed": "not yet — measured to reproduce, but the manifest's order is its own measured pass and this tool reads data/structures/, which several reconstruction stages write"
+  },
+  "build_order_book_1835.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "build_staffing_model_1835.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: `--build` on a clean tree rewrote its own two outputs and `git status` reported nothing moved. T-1183; listed in tools/derived_manifest.json after the order book."
+  },
+  "build_survey_tracts.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 15s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "build_trade_table_1839.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: `--build` on a clean tree rewrote its own output, data/research/directories/fergus_1839_trade_table.json, byte for byte and moved nothing else.",
+   "placed": "not yet — measured to reproduce. It writes data/research/directories/fergus_1839_trade_table.json, read by manifest steps tools/build_staffing_model_1835.py and tools/reconstruct_trade_households.py, so a slot for it sits upstream of both; its own input is the committed Fergus 1839 reading and no stage writes that, so it has no ordering hazard behind it. The manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "carry_kinzie_west.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "carry_policy_only_division.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-25",
+   "placed": "after seat_known_1835.py --build, which writes the address book this reads, and before rebuild_resident_index.py, which denormalises the block's value into the manifest. Both edges are real and neither is in the manifest's order yet — seat_known_1835.py is not in derived_manifest.json at all — so placing this one means placing that one first. T-1523 measured the reproduction and left the ordering to its own pass.",
+   "finding": "Ran --build on the committed tree: wrote 0 card(s) and git reports no byte moved, so the 1,305 division_reconstructed blocks on disk are exactly what it derives from the address book's rung-5 rows. Its own --check asserts the same field for field, in both directions."
+  },
+  "carry_stage_blocks.py": {
+   "placement": "not_derivable",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Cannot rebuild: declares only --check and --self-test; the blunt pattern matched `--build` in a MESSAGE about what a later build would do."
+  },
+  "carry_west_tiers_west.py": {
+   "placement": "pending",
+   "write_mode": "--write",
+   "measured": "2026-09-20",
+   "finding": "Reproduces: `--write` on a clean tree rewrote its own two outputs (data/streets/1835.json, data/traces/west_tiers_west_reach.json) byte for byte and changed no committed byte.",
+   "placed": "not yet — measured to reproduce. It writes data/streets/1835.json, which many manifest steps read, so a slot for it has to sit ahead of the street-reading layer; tools/carry_kinzie_west.py, the tool beside it and the same kind of carry, is placed by layer at that head and is the precedent to follow. Its other output, data/traces/west_tiers_west_reach.json, is read by nothing else. The manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "census_1840_composition.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "census_1840_fingerprint.py": {
+   "placement": "not_derivable",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Does NOT reproduce: `--build` rewrote 1 committed file(s) on a tree the gate called clean."
+  },
+  "check_household_derivations.py": {
+   "placement": "not_derivable",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Cannot rebuild: run bare it exits 2 (usage) — it is a checker, not a writer."
+  },
+  "check_unique_ids.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "check_wright_nara_registration.py": {
+   "placement": "not_derivable",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Cannot rebuild: run bare it exits 2 (usage) — a checker."
+  },
+  "compare_norris_1844_readings.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 2s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "compile_agencies.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "compile_businesses.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "compile_gazetteer.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "compile_liberties.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "compile_register.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "complete_inwindow_trades.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Wrote its own outputs and changed no committed byte on a tree the gate called clean.",
+   "placed": "not yet, AND ITS ORDER IS KNOWN, because three red gates on #1560 paid for it (T-1453): RUN IT BEFORE `rederive.mjs --run` AND NEVER AFTER. It reads data/research/books/trade_census_1835_crosswalk.json, which manifest step tools/trade_census_1835.py writes, and it writes business records under data/businesses/authored/ plus data/research/residents/inwindow_trade_workplaces.json — and manifest step tools/compile_businesses.py reads that authored directory. Run it after the manifest and every step reading what it just wrote goes stale, which is how the roof programme went red; the order that measured green was this tool, then the manifest, then tools/reprogramme_roofs_1835.py. Standing on both sides of the manifest is exactly why it is not a blind append: the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "complete_resident_research_pass_14.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "concord_letter_list_1834_01_01.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "concord_letter_list_1834_04_01.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "consolidate_resident_evidence.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "consolidate_town_cards.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "converge_resident_layer.py": {
+   "placement": "not_a_writer",
+   "write_mode": "--run, which writes no byte of its own",
+   "measured": "2026-09-19",
+   "finding": "Measured on dev at 3845cb41c, at its fixed point. `--check` and `--self-test` write nothing and read only tools/check.sh and the order file. `--run` is a write mode only by proxy: it executes the thirteen build commands the order names, every one of which already has a row here, and writes nothing itself. Run on that clean tree it reached the fixed point in one pass in 43 s and git reported no committed byte moved, which is the measurement — the order is idempotent where the tree already satisfies it. Recorded not_a_writer so the audit stops reporting it; it is a driver, and the bytes belong to the rows it drives."
+  },
+  "crosswalk_census_1840_heads.py": {
+   "placement": "not_derivable",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Does NOT reproduce: `--build` rewrote 2 committed file(s) on a tree the gate called clean."
+  },
+  "crosswalk_fergus_1839.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "crosswalk_fergus_1839_election.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "crosswalk_fergus_1839_lots.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "crosswalk_fergus_1839_register.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "crosswalk_fergus_1843.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "crosswalk_norris_1844.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "crosswalk_norris_1844_advertiser.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "cut_north_division_tier.py": {
+   "placement": "pending",
+   "write_mode": "bare",
+   "measured": "2026-09-20",
+   "finding": "Reproduces, and the perturbation test tells idempotence from inertia. Run BARE on a clean tree it rewrote data/traces/vectors/north_division_tier_lots.json and `git status` came back empty; block 1's committed depth was then bent from 131.33 m to 999, `--check` went red (\"STALE ... not what tools/cut_north_division_tier.py re-derives\"), a bare run re-derived the file and `git status` came back empty again. Its only output is that one file; it reads data/traces/thompson_north_division_streets.json, data/streets/1835.json, data/traces/street_control.json and the committed heightfield, and writes none of them.",
+   "placed": "not yet — measured to reproduce, and its inputs are all committed readings rather than anything a later stage writes, so it has no ordering hazard of its own; placing it is still the ordering pass's call and not this ticket's."
+  },
+  "cut_school_section_tier.py": {
+   "placement": "pending",
+   "write_mode": "bare",
+   "measured": "2026-09-20",
+   "finding": "Reproduces, and the perturbation test tells idempotence from inertia. Run BARE on a clean tree it rewrote data/traces/vectors/school_section_tier_lots.json and `git status` came back empty; block 24's first lot frontage was then bent from 30.14 m to 999, `--check` went red (\"STALE ... not what tools/cut_school_section_tier.py re-derives\"), a bare run re-derived the file and `git status` came back empty again. Its only output is that one file; it reads data/traces/vectors/school_section_blocks_1834.json, data/research/land_sales/entries.json, data/traces/vectors/school_section_tier_skew_1834.json and the committed heightfield, and writes none of them.",
+   "placed": "not yet — measured to reproduce, and every input it reads is a committed reading rather than anything a later stage writes, so it has no ordering hazard of its own; placing it is the ordering pass's call and not this ticket's."
+  },
+  "date_norris_1844_businesses.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "deal_siding_stock.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "derive_hay_limits.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "derive_person_community.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-19 — after the card writers that may change an `origin` and before compile_scene, which builds the People view out of its output; see the manifest step"
+  },
+  "derive_presence_evidence_leg.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces, write-if-changed: wrote nothing on a clean tree, so it was PERTURBED — perturbed one card's leg; --check caught it, --write restored it, tree clean.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "derive_resident_roles.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "derive_shore_1812.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "derive_timber_belt.py": {
+   "placement": "not_derivable",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Does NOT reproduce: `--write` rewrote 1 committed file(s) on a tree the gate called clean."
+  },
+  "employment_coverage_1835.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-25",
+   "finding": "Reproduces, measured twice. 2026-09-20 (T-1461): '--build' on a clean tree rewrote data/residents/employment_coverage.json and nothing else, and 'git status --porcelain' was identical before and after — not one committed byte moved, no person card was touched, no trade was supplied and no business record was written to. RE-MEASURED 2026-09-25 (T-1555) on clean dev before placing it: --check green on all 3,305 people, --build rewrote the join (mtime 1790347317 -> 1790347480) and left the porcelain empty, so _must_reproduce and _must_actually_write are both satisfied for its step. PLACED at manifest step 153, below the last step that writes a person card and above the reports at the foot — see that step's own 'why'."
+  },
+  "execute_roof_redeal.py": {
+   "placement": "pending",
+   "write_mode": "--apply",
+   "measured": "2026-09-20",
+   "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--apply` on a clean tree ran in 5.1 s, rewrote data/reconstruction/1835_phase2_west_wolf_point_approaches.json, data/exclusions.json and docs/RESEARCH/1835_roof_redeal_execution.md and changed no committed byte. The perturbation test tells idempotence from inertia and was run from both sides, because this tool holds two files to each other: the recipe's `redealt` record was bent D4 -> D9 and `--check` went red (\"was re-dealt to D9 and stands as D4\"); the PLACEMENT was then bent D4 -> W1 instead and `--check` went red the other way (\"was re-dealt to D4 and stands as W1\"); `--apply` restored it and `git status` came back empty.",
+   "placed": "not yet — measured to reproduce, but it reads the redeal ledger, which tools/redeal_anonymous_roofs.py writes and which is itself `pending` for the same reason: both sit downstream of the reconstruction stages that write the structure layer, and their place in the manifest's dependency order is that pass's to settle."
+  },
+  "exhaust_tax_1833.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "export_borderline_roster.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "export_resident_audit.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "export_resident_research_package.py": {
+   "placement": "manifest",
+   "write_mode": "--index",
+   "measured": "2026-09-18",
+   "finding": "Reproduces, write-if-changed: wrote nothing on a clean tree, so it was PERTURBED — its --build takes a cohort; --index maintains the committed index and reproduces.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "fergus_1839_street_faces.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_block_infill.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 10s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_business_signboards.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_dooryard_pickets.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_dooryard_plantings.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 15s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_fort_apron.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_fort_trees.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_frontage_works.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 5s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_inferred_households.py": {
+   "placement": "not_derivable",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Cannot rebuild: run bare it exits 2 (usage); its build needs arguments this audit did not supply."
+  },
+  "generate_inferred_infill.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_inferred_names.py": {
+   "placement": "not_derivable",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Does NOT reproduce: `(bare)` rewrote 2 committed file(s) on a tree the gate called clean."
+  },
+  "generate_lot_building_material.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_lot_line_fences.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_north_infill.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_planted_rows.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_plat_lots.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_river_wharves.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_school_section_grid.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_west_infill.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "generate_yard_goods.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 22s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "lift_letter_list_1834_unread.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "location_reconciliation.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "location_spend.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "lot_addresses.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "measure_block_gating.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "measure_block_redeal_remedies.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-21",
+   "finding": "Reproduces: ran `--build` on a clean tree in 4s, wrote its two outputs and changed no committed byte.",
+   "placed": "not yet — measured to reproduce, but it reads the roof redeal ledger, the platted-block recipe and the placement policy, and the first two are written by stages whose slot in the manifest's order is itself a measured question. It also reports on a ticket blocked on the owner: the day the six verdicts are carried out or withdrawn, this tool's outputs change or stop existing, and placing it before that is settled would order a step that may not be there."
+  },
+  "measure_canal_control_spread.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "measure_frontage_declaration.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "measure_north_branch_banks.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces, write-if-changed: wrote nothing on a clean tree, so it was PERTURBED — perturbed the committed baseline; --check caught it, --write restored it, tree clean.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "measure_placement_silence.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "measure_research_spend.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "measure_roof_id_migration.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-21",
+   "finding": "Reproduces, and the perturbation test tells reproduction from inertia. On a clean tree `--build` rewrote docs/RESEARCH/1835_roof_id_migration.md and nothing else, and `git status --porcelain` came back to the same single entry it started at. The measurement was then bent — the header's \"26 moving id(s)\" to 999 — a bare run went red (\"DRIFT: ... is not what a re-measurement produces\"), `--build` re-derived the file, and the tree came back clean. Its ONLY output is that one document; it reads the roof id reference list and the 75 files that name a moving id, and writes none of them.",
+   "placed": "not yet — measured to reproduce, and it is a pure reader: every input it touches is a committed file some other stage owns, so it has no ordering hazard of its own. Its slot is the ordering pass's call, not this ticket's."
+  },
+  "measure_west_division_spacing.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-24",
+   "finding": "Reproduces: ran `--write` on a clean tree in under 1s, wrote its output, changed no committed byte.",
+   "placed": "by layer, 2026-09-24 — reasoned, not derived. It reads tools/generate_plat_lots.py's output (the West Division's blocks, their lot cuts and their `bounded_by` lines) and is placed immediately after tools/measure_west_grid_migration.py, which reads the same file for the same ticket family; run earlier it would measure a stale grid. Nothing reads what it writes, so nothing constrains it from below."
+  },
+  "measure_west_grid_migration.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-21",
+   "finding": "Reproduces: ran `--write` on a clean tree in 1s, wrote its output, changed no committed byte.",
+   "placed": "by layer, 2026-09-21 — reasoned, not derived. It reads tools/generate_plat_lots.py's output (the block and lot grid, and the omissions carrying `already_derived_as`) and is placed immediately after it; run earlier it would measure a stale pair. Nothing reads what it writes, so nothing constrains it from below."
+  },
+  "measure_wright_lighthouse.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "migrate_attribute_tiers.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "migrate_roof_ids.py": {
+   "placement": "not_derivable",
+   "write_mode": "--apply",
+   "measured": "2026-09-21",
+   "finding": "Does NOT reproduce, and by design: `--apply` is a one-shot migration, not a re-derivation. Run on the committed tree it wrote nothing in 0s and said so — the adjudication it reads is itself re-derived, so a verdict carried out returns `keep` and the work list is empty. Perturbed (the recipe and the eleven records reverted to their pre-migration state) it rewrote the committed output exactly, which is what T-1494 shipped. It is kept out of the manifest deliberately: rederive.mjs re-running a migration every lap is the one thing this tool must never be asked to do. tools/migrate_roof_ids.py --check is what holds its output, and it is gated."
+  },
+  "mint_civic_residents.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "mint_documented_residents.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "mint_placed_residents.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "model_refamily_rule.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-25",
+   "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on the committed tree rewrote data/reconstruction/1835_refamily_rule.json and docs/RESEARCH/1835_refamily_rule.md and changed no committed byte; the perturbation test says that is idempotence rather than inertia — the JSON was deleted, `--check` went red on it (\"the re-family rule is missing — run --build\"), `--build` restored it, and `git status` came back empty.",
+   "placed": "not yet — measured to reproduce, and the ordering is the thing to settle. This tool reads the order book, and build_order_book_1835.py then reads the rung ids and the rule's one line back out of it, so the pair wants TWO passes in the manifest's order (book, rule, book) rather than one slot. Only literals travel back — the ladder's ids and the rule's one-line sentence, both constants in model_refamily_rule.py — so the two cannot oscillate; what has to be settled is whether the manifest can express a second pass over a tool it has already run, which is not this ticket's to decide."
+  },
+  "model_town_1835.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "model_transients_1835.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: `--build` on a tree the gate called clean rewrote its own two outputs and changed no committed byte."
+  },
+  "newspaper_corpus.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 2s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "normalise_structure_function.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces, write-if-changed: wrote nothing on a clean tree, so it was PERTURBED — perturbed `blacksmith_shop` to `blacksmith shop`; --check caught it, --build restored it.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "old_settlers.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "person_associations.py": {
+   "placement": "pending",
+   "write_mode": "--write",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: `--write` on a clean tree rewrote the 70 person cards it owns rows on and data/research/residents/person_associations.json, and moved no committed byte (git reported 0 changed paths). Left `pending` rather than appended to the derived manifest: it writes INTO data/residents/households/*.json, which several reconstruction stages also re-derive, so its slot in the dependency order is its own measured pass — it has to run after every stage that settles a person's key order and before the coverage count.",
+   "placed": "not yet — measured to reproduce. T-1405 per its header: `--write` puts association rows ONTO the person records as well as into data/research/residents/person_associations.json, and those records are rewritten by the resident reconstruction stages, so it follows the last of them. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "pinned_sources.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-19",
+   "finding": "Run bare it exits 0, prints the register's roll-up and writes nothing — measured on the working tree, byte-identical before and after. It declares no write flag: the only bytes it ever puts on disk are a region cache under /tmp, written by fetch_pinned AFTER the sha256 pin has passed, and never inside the repository. Gated with --check; a checker."
+  },
+  "placement_policy_1835.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: `--build` on a clean tree rewrote data/reconstruction/1835_placement_policy.json and moved no committed byte (git reported 0 changed paths). Left `pending` rather than appended to the derived manifest: it reads the structure census, the street classes and the roof reconciliation, so its slot in the dependency order is its own measured pass.",
+   "placed": "not yet — measured to reproduce. It writes data/reconstruction/1835_placement_policy.json, which the reconstruction stages that raise roofs read, so it sits ahead of them — and those stages are themselves unplaced, so its slot cannot be fixed before theirs is. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "profile_population_1835.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "qualify_later_trades.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "read_blackhawk_war.py": {
+   "placement": "not_derivable",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Does NOT reproduce: `--build` rewrote 1 committed file(s) on a tree the gate called clean."
+  },
+  "read_census_1830.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_fergus_1839.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_fergus_1839_election.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_fergus_1839_lots.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "read_fergus_1839_register.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_fergus_1843.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_fergus_1843_civic.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_fergus_obits.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "read_genealogytrails.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "read_kinzie_addition_numerals.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_kinzie_addition_streets.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 2s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_kinzie_addition_water_lots.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 3s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_kinzie_block_name.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 2s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_land_sales.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "read_letter_list_1834_04_01_image.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "read_letter_list_1834_image.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "read_michigan_st_tract.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 3s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_newberry_index.py": {
+   "placement": "not_derivable",
+   "write_mode": null,
+   "measured": "2026-09-14",
+   "finding": "Needs OCR shards from outside the repository. Invoked bare it prints its usage and exits 0, writing nothing."
+  },
+  "read_norris_1844.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_norris_1844_advertiser.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: run bare on a clean tree in 1s it wrote its output and changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_north_branch_bank_wash.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 16s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_north_division_numerals.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "read_north_side_slough_na.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_school_section_numerals.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_second_presbyterian.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "read_st_cyr_register.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "read_st_marys_baptisms.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_voter_lists.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_wabansia_block_numerals.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_wabansia_streets.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_wabansia_water_lots.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_washington_madison_numerals.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_west_division_lots.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "read_west_division_numerals.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "read_wolf_point_numerals.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "read_wright_legend_swatches.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 16s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "readmit_borderline_roster.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: ran `--build` on a clean tree in 22s, wrote its outputs, changed no committed byte.",
+   "placed": "not yet — it reads the borderline roster and is read by everything that COUNTS people, so its slot is a measured pass rather than an append (T-1302's note above)."
+  },
+  "rebuild_closing_set.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: `--build` rewrote docs/RESEARCH/closing-convergence-2026-09.md byte-for-byte and moved nothing else, on a tree the gate called clean. `--rebuild` is the heavier mode — it runs the five closing-set members out of the manifest first — and is not what the lap calls."
+  },
+  "rebuild_resident_index.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "reconcile_665.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 12s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "reconstruct_businesses_1835.py": {
+   "placement": "pending",
+   "write_mode": "--group <group> --build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: ran `--group stores_and_provisions --build` on a clean tree in 1s, wrote its records, its ledger and the order book's fill, and changed no committed byte.",
+   "placed": "not yet — measured to reproduce. Its header states that the quota lives in the reconstruction order book and nothing about it lives in the tool, so any ticket that re-cuts the book moves this stage with it; it writes the order book's fill as well as its own records. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "reconstruct_free_black.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: ran `--build` on a clean tree in under 1s, rewrote its 7 household cards, its 2 authored firm records and its ledger, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool, which reports both gated commands writing nothing in-tree.",
+   "placed": "not yet — measured to reproduce. Stage `underdocumented`, sub-stage `free_black` (T-1377, of T-1177). Its header records that it SHARES data/residents/underdocumented/ with tools/reconstruct_underdocumented.py, each sweeping its own id prefix out of it — `hh_fb_` here, `hh_um_` there — so the two have an order against each other that no file yet states. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "reconstruct_garrison_1835.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: `--build` on a settled tree wrote its own outputs and changed no committed byte, and `--check` re-derives all 11 cards, 125 people and the return in data/reconstruction/1835_garrison.json from their seeds. In the manifest directly after `women_and_children`.",
+   "placed": "by stage order, 2026-09-19 — its invented names must step past that stage's, and measured in the other order 43 of that stage's cards redraw"
+  },
+  "reconstruct_institutional_households.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-24",
+   "finding": "Reproduces: `--build` run on the tree it had already built wrote its own outputs and changed no committed byte — `git status --porcelain` is identical before and after. Measured, not read (T-1531).",
+   "placed": "Waiting on nothing but its own slot being proved stable. It IS in the resident layer's rebuild order as `stage_institutional_households`, after `transients` and before `converge`, which is the programme's own stage order, and its three back edges into data/residents are declared in `the_cycle.edges` (resident_index, scene_sidecars, town_census). What has to be settled before it joins derived_manifest.json's dependency order is the same thing #1452 had to settle for three reconstruction stages that oscillated: that one pass of the manifest's order reaches a fixed point with it in place. `converge_resident_layer.py --run` reaches one today; the manifest's own order is a separate measured pass and is not claimed here."
+  },
+  "reconstruct_modelled_families.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "reconstruct_residents_1835.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "reconstruct_sex_age.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "reconstruct_trade_households.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: `--build` on a tree the gate called clean rewrote its 308 cards and its ledger and changed no committed byte."
+  },
+  "reconstruct_transients_1835.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: ran `--build` on a clean tree in under 1s, rewrote its 83 household cards and its ledger, changed no committed byte.",
+   "placed": "not yet — measured to reproduce. Stage `transients` (T-1353): it draws against the lodging model and writes data/reconstruction/1835_transient_cohort.json, and the lodging model is itself an unplaced `pending` row (tools/build_lodging_model_1835.py), so the two are placed together or not at all. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "reconstruct_underdocumented.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: ran `--build` on a clean tree in under 1s, rewrote its 87 household cards and its ledger, changed no committed byte.",
+   "placed": "not yet — measured to reproduce. Stage `underdocumented`, sub-stage `native_and_metis` (T-1376, of T-1177), sharing data/residents/underdocumented/ with tools/reconstruct_free_black.py on the prefix `hh_um_`; it also reads the borderline roster, which an earlier stage writes. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "reconstruct_women_children.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: `--build` on a settled tree wrote its own outputs and changed no committed byte, and `--check` re-derives all 124 cards and 556 people from their seeds. In the manifest directly after `modelled_families`, which fills the same order-book buckets and has to go first.",
+   "placed": "by stage order, 2026-09-19 — it draws against the quota the stage above it spends"
+  },
+  "record_lot_seating.py": {
+   "placement": "pending",
+   "write_mode": "--write",
+   "measured": "2026-09-20",
+   "finding": "Reproduces, and the perturbation test tells reproduction from inertia: on a clean tree --write is a no-op and a no-op proves nothing. cobweb_castle's stands_on_lot block was dropped outright and goss_cobb_saddlery's lot_number bent to 99; --check went red naming both records, --write restored both, and the tree came back to the same nine files and 144 lines it started at. It writes only the stands_on_lot key of data/structures/*.json, in each file's own indent, and refuses a record carrying a key its order does not name rather than reformatting it.",
+   "placed": "not yet — measured to reproduce, but it reads the lot layers and every committed footprint and must run before compile_scene.py carries the seat onto the card, so its slot is the ordering pass's call and not this ticket's."
+  },
+  "redeal_anonymous_roofs.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-20",
+   "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on a clean tree ran in 1.9s, wrote data/reconstruction/1835_roof_redeal.json and docs/RESEARCH/1835_anonymous_roof_redeal.md and changed no committed byte; the perturbation test tells idempotence from inertia — the record's retire count was bent from 0 to 7 and one verdict flipped to `retire`, `--check` went red (\"no longer re-derives from its inputs\"), `--build` re-derived both files, and `git status` came back empty.",
+   "placed": "not yet — measured to reproduce, but it reads the structure layer, the order book and the placement policy, all of which earlier reconstruction stages write, so its place in the manifest's dependency order is that pass's to settle."
+  },
+  "refuse_reconstructed_grade.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "register_letter_list_suspicions.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "repair_ocr_turkish_alphabet.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "replace_invented_residents.py": {
+   "placement": "not_derivable",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Does NOT reproduce: `(bare)` rewrote 5 committed file(s) on a tree the gate called clean."
+  },
+  "report_census_1840_residue.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "report_convergence_coverage.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "report_letter_list_collisions.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "report_refamily_programme.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-25",
+   "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on the committed tree rewrote data/reconstruction/1835_refamily_programme.json and docs/RESEARCH/1835_refamily_programme.md and changed no committed byte; the perturbation test says that is idempotence rather than inertia — the JSON was deleted, `--check` went red on it (\"the re-familying programme report is missing — run --build\"), `--build` restored it, and `git status` came back empty.",
+   "placed": "not yet — measured to reproduce, and its slot is the one model_refamily_rule.py is waiting on. This tool reads BOTH the order book and the rule, so it can only run after the pair has settled, and that pair is the thing the row above says the manifest cannot yet express: build_order_book_1835.py reads the rung ids back out of the rule, so book/rule wants two passes rather than one slot. Nothing reads this report back, so it is a pure leaf and adds no new ordering question of its own — it inherits the one already open."
+  },
+  "report_research_closing_audit.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "report_research_signoff.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "reprogramme_roofs_1835.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-20",
+   "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on a clean tree ran in 0s, wrote its record and its report and changed no committed byte; the perturbation test tells idempotence from inertia — A5's target_roofs was put back to the 14 it had drifted to, `--check` went red naming the three fields (\"A5 (priority_rank, remaining_roofs, target_roofs)\"), `--build` re-derived them, and `git status` came back empty.",
+   "placed": "not yet — measured to reproduce, but this tool reads the order book and the lodging model, both of which later reconstruction stages write, so its place in the manifest's order is that pass's to settle. It edits only the five count fields of 1835_family_archetype_crosswalk.json, in place, and refuses a layout it cannot edit rather than reformatting the file."
+  },
+  "research_domains.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "resolve_land_tracts.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 6s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "resolve_place_vocabulary.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "roof_id_pins.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-21",
+   "finding": "Run bare it prints the pin list, exits 0 and moves no committed byte (measured on a clean tree, T-1499). It declares no write flag; --check and --self-test are its only other modes. A checker."
+  },
+  "rule_fuzzy_card_pairs.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "rule_newberry_leads.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "rule_presence_1835.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces: `--build` re-derives data/reconstruction/1835_presence_rulings.json byte-for-byte from the household directory and T-1172's persistence model, and `--check` is a gate in tools/check.sh.",
+   "placed": "by layer, 2026-09-19 — after every writer that can move a card's presence or its evidence blocks, before everything that counts the town; see the manifest step"
+  },
+  "school_section_sale.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "seat_kinzie_addition_streets.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "seat_known_1835.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-20",
+   "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on a clean tree ran in 1s, rewrote data/reconstruction/1835_address_book.json and changed no committed byte; the perturbation test says that is idempotence rather than inertia — the file was deleted, `--check` went red on it (\"is missing or unreadable — run --build\"), `--build` restored it, and `git status` came back clean.",
+   "placed": "not yet — measured to reproduce, but the manifest's order is its own measured pass and this tool reads data/residents/households/, which several reconstruction stages write, as well as data/research/location_spend.json and data/structures/. It has to sit after all of them."
+  },
+  "seat_lodgers_1835.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-19",
+   "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on the branch tree rewrote its twelve cards, its ledger and the order book's fills and changed no committed byte; the perturbation test says that is idempotence rather than inertia — hh_lodging_tremont_house_1.json was deleted, `--check` went red on it (\"data/residents/lodgers/ is not what this stage derives\"), `--build` restored it, and `git status` came back to exactly the lines it started on.",
+   "placed": "not yet — measured to reproduce, but the manifest's order is its own measured pass and this tool reads data/structures/ through the lodging model AND data/residents/, which several reconstruction stages write. It has to sit after build_lodging_model_1835.py, which is pending for the same reason."
+  },
+  "seat_michigan_st_tract.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "seat_reconstructed_trades_1835.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-21",
+   "finding": "Reproduces: `--build` on a clean tree rewrote data/residents/reconstructed_seating.json and the 123 person cards that hold a seat, and `git status --porcelain` was identical before and after — not one committed byte moved. T-1433, and T-1489 for the card leg: until then this pass wrote NO person card, and the previous measurement here said so. It writes `persons[].employment` now, on the card of every person a row seats and on no other card in the layer; it still mints nobody and raises no business. The four reconstruction stages that derive a resident directory whole carry that key through their own re-derivations via tools/resident_mint_carry.py, which is why their byte-for-byte --check stays green beside it.",
+   "placed": "not yet — measured to reproduce. T-1433, piece 2 of 3 of T-1189: it writes persons[].employment for the residents this project reconstructed, so it follows every stage that mints a reconstructed person and precedes the coverage join that reads the result. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "seat_wabansia_streets.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "sort_land_sales_onto_tracts.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "spend_appearance_bounds.py": {
+   "placement": "pending",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces, and it is a REAL writer rather than a silent no-op — the `_must_actually_write` trap batch 1 caught four tools in. It declares no write flag at all (--check, --report, --self-test only) and writes on its BARE run, which is the read_fergus_1839.py shape: a write mode that is the default branch. Measured by perturbation, not by a content diff: `_t1336_probe` was added to data/research/appearance_bounds_1835.json, `--check` went red on it (\"does not re-derive\"), the bare run restored the file, and git came back to the renumber alone.",
+   "placed": "NOT PLACED. It reproduces, so it is pending rather than not_derivable, and it is counted out loud on every run instead of sitting silently outside the layer — which is the mechanism T-1302 batch 1 exists for. Placing it is a measured pass of its own; this branch has no evidence about its slot."
+  },
+  "spend_book_kin.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Measured on a clean tree the day it landed: `--build` wrote its rows and changed no committed byte, so it reproduces. The build appends a note only when the sentence is not already on the row and sorts `sources` and `book_kin`, which is what makes it idempotent. In the manifest beside the other card writers, so `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate from here on."
+  },
+  "spend_census_1840_heads.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "spend_civic_roll_bounds.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "spend_civic_voter_lists.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "spend_departure_rulings.py": {
+   "placement": "pending",
+   "write_mode": "--write",
+   "measured": "2026-09-21",
+   "finding": "Reproduces: ran `--write` on a clean tree in 0s, rewrote data/research/residents/departure_rulings.json and changed no committed byte.",
+   "placed": "not yet — measured to reproduce, but the manifest's order is its own measured pass and this tool reads the resident cards and data/research/residents/spend_rulings.json, which tools/spend_remainder_rulings.py writes and which is itself unplaced"
+  },
+  "spend_directories.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "spend_enrichment_arrivals.py": {
+   "placement": "pending",
+   "write_mode": "--write",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: `--write` on the clean tree wrote 0 card(s) and moved no committed byte, and the perturbation test says that is idempotence rather than inertia — hh_peck_philip.json's origin was put back to the drawn block the arrival stage owned, `--write` rewrote 1 card, and `git status` came back empty. Not yet placed in the manifest's dependency order: it must run after tools/spend_remainder_rulings.py, whose register it reads to know which units it owns, and before every reader of the resident layer.",
+   "placed": "not yet — measured to reproduce. T-1330: `--write` spends thirty corroborated_enrichment units ONTO the cards they name, so it follows the pass that writes those cards and cannot sit ahead of it. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "spend_fergus_1839_later_lists.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "spend_fergus_1839_lot_sale.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "spend_ladder_rungs.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "spend_land_sale_bounds.py": {
+   "placement": "pending",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "T-1332 landed after T-1302 batch 2 placed its layer; placement in the manifest dependency order is that pass's to make, not this one's"
+  },
+  "spend_land_sales.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "spend_land_sales_rulings.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "spend_name_on_a_roll_rulings.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "spend_old_settlers.py": {
+   "placement": "not_a_writer",
+   "write_mode": null,
+   "measured": "2026-09-18",
+   "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+  },
+  "spend_person_facts.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "spend_person_sex_age.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "spend_press_bounds.py": {
+   "placement": "pending",
+   "write_mode": "(bare)",
+   "measured": "2026-09-19",
+   "finding": "Reproduces, and it is a REAL writer rather than a silent no-op. It declares no write flag at all (--check, --report, --self-test only) and writes on its BARE run, which is the shape of its sibling spend_appearance_bounds.py. Measured by perturbation, not by a content diff: `_t1343_probe` was added to data/research/press_bounds_1835.json, `--check` went red on it (\"does not re-derive\"), the bare run restored the file, and git came back clean.",
+   "placed": "NOT PLACED. It reproduces, so it is pending rather than not_derivable, and it is counted out loud on every run instead of sitting silently outside the layer — the mechanism T-1302 batch 1 exists for. Placing it is a measured pass of its own; this branch has no evidence about its slot."
+  },
+  "spend_remainder_rulings.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "spend_second_presbyterian_roll.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "spend_stated_families.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "spend_trade_premises.py": {
+   "placement": "manifest",
+   "write_mode": "--write",
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "staff_businesses_1835.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-20",
+   "finding": "Reproduces: `--build` on a clean tree rewrote persons[].workplaces across 109 household records and data/reconstruction/1835_staffing_join.json, and `git status --porcelain` was identical before and after — not one committed byte moved. T-1432. PENDING rather than manifest because its slot is an ordering question this run did not measure: it reads the compiled business layer and writes INTO the resident layer, so it has to sit after compile_businesses.py and after every mint, and the manifest's dependency order is a measured pass of its own.",
+   "placed": "not yet — measured to reproduce. T-1432, piece 1 of 3 of T-1189: it writes persons[].workplaces across the household records for the rows the business layer names, so it follows the business-layer compile and precedes the coverage join. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "staff_the_houses_1835.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-20",
+   "finding": "Reproduces: `--build` on a clean tree rewrote data/reconstruction/1835_business_staff_overlay.json and nothing else, and `git status --porcelain` was identical before and after — not one committed byte moved, no person was written, no business was raised and no seat was invented. T-1462. PENDING rather than manifest for the reason its three siblings staff_businesses_1835.py, seat_reconstructed_trades_1835.py and staffing_mint_order_1835.py are: it reads the reconstructed seating, the staffing model and T-1422's ruling and writes an overlay beside them, so its slot in the re-derivation order is a question a measured pass of the manifest owns rather than this one. What is already known about that slot: it has to run BEFORE compile_businesses.py, which reads what it writes.",
+   "placed": "not yet — measured to reproduce. T-1462, piece 2 of 2 of T-1449. Its header states the ordering constraint itself: data/businesses/*.json is DERIVED and the compiler rewrites each record whole, which is why this tool writes an OVERLAY — so a slot for it sits after manifest step tools/compile_businesses.py and after the seating pass it reads. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "staffing_mint_order_1835.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-20",
+   "finding": "Reproduces: `--build` on a clean tree rewrote data/reconstruction/1835_staffing_mint_order.json and nothing else, and `git status --porcelain` was otherwise identical before and after — not one committed byte moved, no person card was touched and no bucket's `filled` changed. T-1448. PENDING rather than manifest for the reason its two siblings staff_businesses_1835.py and seat_reconstructed_trades_1835.py are: it reads the compiled business layer, the staffing model and the order book and writes an adjudication beside them, so its slot in the re-derivation order is a question a measured pass of the manifest owns rather than this one.",
+   "placed": "not yet — measured to reproduce. T-1448, of T-1434, of T-1189: it mints nobody and only sets the staffing model beside the reconstruction order book and counts, so it follows whichever of those two is written later — and the order book is re-cut by open tickets. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+  },
+  "substitute_reconstruction.py": {
+   "placement": "not_a_writer",
+   "write_mode": "(none declared)",
+   "measured": "2026-09-20",
+   "finding": "Not a writer, and deliberately cannot become one: it reads what a new attested record would retire and prints the plan. Run BARE it printed the substitutable population and the liberty re-count, exited 0, and `git status --porcelain` was identical before and after — not one byte moved. There is no write mode to measure because there is no --build beside the dry run: a retirement runs through the retired record's OWN generator (reconstruct_businesses_1835.py, reconstruct_trade_households.py), which re-derives a whole population from the order book, and a second tool deleting one record would put the layer off the fixed point this gate holds it to. T-1441."
+  },
+  "supersede_arrival.py": {
+   "placement": "not_a_writer",
+   "write_mode": "(none declared)",
+   "measured": "2026-09-19",
+   "finding": "Not a writer: it is a module the four resident mints import, plus --check, --report and --self-test. Run BARE it printed its usage, exited 2 and moved no byte at all — `git status --porcelain` identical before and after. The writing it causes is the mints' own, through `supersede(carry(doc))`, and their rows here already answer for it."
+  },
+  "survey_stated_kin.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "synthesize_resident_research.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "town_census.py": {
+   "placement": "manifest",
+   "write_mode": null,
+   "measured": "continuously",
+   "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+  },
+  "trace_lake_shore_rees_1849.py": {
+   "placement": "not_derivable",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Cannot rebuild: run bare it exits 1 — needs inputs or arguments not supplied."
+  },
+  "trace_north_branch.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 14s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "trace_river.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 15s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "trace_south_branch.py": {
+   "placement": "manifest",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `(bare)` on a clean tree in 11s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "trace_south_branch_rees_1849.py": {
+   "placement": "not_derivable",
+   "write_mode": "(bare)",
+   "measured": "2026-09-18",
+   "finding": "Cannot rebuild: run bare it exits 1 — needs inputs or arguments not supplied."
+  },
+  "trade_census_1835.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+  },
+  "trade_census_spend_1835.py": {
+   "placement": "manifest",
+   "write_mode": "--build",
+   "measured": "2026-09-18",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+   "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
   }
+ }
 }

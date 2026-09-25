@@ -26,12 +26,12 @@
   },
   "counts": {
     "cards": 1512,
-    "blocks": 19551,
-    "tiers_written_on_the_card": 8714,
+    "blocks": 20856,
+    "tiers_written_on_the_card": 10019,
     "by_tier": {
       "attested": 592,
       "inferred": 3558,
-      "reconstructed": 8900,
+      "reconstructed": 10205,
       "unknown": 6501
     },
     "by_attribute": {
@@ -69,6 +69,12 @@
         "attested": 0,
         "inferred": 0,
         "reconstructed": 12,
+        "unknown": 0
+      },
+      "division_reconstructed": {
+        "attested": 0,
+        "inferred": 0,
+        "reconstructed": 1305,
         "unknown": 0
       },
       "kin[]": {
@@ -5841,6 +5847,25 @@
         "1827": 1
       },
       "a_seed": "hh_abbot_8_g:arrival_year",
+      "a_card": "hh_abbot_8_g"
+    },
+    {
+      "attribute": "division_reconstructed",
+      "basis": {
+        "kind": "model",
+        "id": "policy_only_deal"
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "any source that places this household in a division or nearer"
+      },
+      "values": 1305,
+      "by_value": {
+        "south": 744,
+        "north": 294,
+        "west": 267
+      },
+      "a_seed": "hh_abbot_8_g|T-1522|division:d885452788c3|class:611ac327f05d",
       "a_card": "hh_abbot_8_g"
     },
     {
