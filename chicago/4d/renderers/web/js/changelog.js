@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1106, title: 'The 523 held people can no longer be owed to nobody', kind: 'change', ts: '2026-09-25T15:16:40.298Z', date: 'Sep 25, 2026, 10:16 AM CT',
+    items: [
+      'Nothing you can see changed in the town today. What changed is a way this project had of losing work quietly, and it had already lost this particular work for four days.',
+      'The town is reconstructed against an order book, and the book refuses to delete anybody: where reading real people showed it had already invented too many in some cohort, it keeps them and writes down both numbers. That leaves 523 invented people standing past any order, and the owner has ruled they are re-familied into the cohorts the same re-count GREW rather than retired. Somebody has to actually do that.',
+      'Who that somebody was lived in a sentence. The sentence named three pieces of work, all three of which had finished, so the 523 were owed to nobody at all \u2014 and every check this project runs stayed green through it, because a cohort held at what was drawn reads as having nothing left to do. The ledger written yesterday replaced the sentence, and its own steps can close the same way.',
+      'So the checks now read it. Each unfinished step of the re-familying has to name work somebody can still pick up, and the gate goes red the moment the last one closes with people still held. A programme split into pieces counts as live while one piece is \u2014 and only then.',
+    ] },
   { v: 1105, title: 'One list, printed three times, is still one sighting', kind: 'fix', ts: '2026-09-25T14:50:48.031Z', date: 'Sep 25, 2026, 9:50 AM CT',
     items: [
       'Samuel Toby became one man last week. This is the housekeeping that follows, and it moves a date on his card: the last day this project can still see him is now 2 July 1834, not the 9th.',
