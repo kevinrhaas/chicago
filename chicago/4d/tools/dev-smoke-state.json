@@ -3,6 +3,37 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 77,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 335,
+      "takenAt": "2026-09-25T17:49:48.215Z",
+      "ref": "steward/t1560-refamily-liberties-report",
+      "commit": "c49ced4aa1f4",
+      "devCommit": "a49570d71f81",
+      "treeHash": "sha256:8599c9712cbe5bc6",
+      "treeDirty": false,
+      "changelogHash": "sha256:7a9879ab9258e2e6",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.5,
+          3.4,
+          1.8
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "12",
       "parts": [
         12
@@ -1383,38 +1414,6 @@
         ]
       },
       "source": "/tmp/s2-d1.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "11-12",
-      "parts": [
-        11,
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 93,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 184,
-      "takenAt": "2026-09-21T08:19:14.299Z",
-      "ref": "steward/t-1383-mononym-forename-eligibility",
-      "commit": "3cbc779c2b70",
-      "devCommit": "0b14a6cb0b68",
-      "treeHash": "sha256:340ac2fcf1e891e1",
-      "treeDirty": false,
-      "changelogHash": "sha256:4477f4dd531c5312",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.7,
-          4.2,
-          3.3
-        ]
-      },
-      "source": "/tmp/s2-m1112.log"
     },
     {
       "viewport": "desktop",

@@ -1,10 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1108, title: 'A ticket closed somewhere else, and the town\u2019s checks went red', kind: 'fix', ts: '2026-09-25T17:11:29.530Z', date: 'Sep 25, 2026, 12:11 PM CT',
+  { v: 1109, title: 'A ticket closed somewhere else, and the town\u2019s checks went red', kind: 'fix', ts: '2026-09-25T18:23:28.921Z', date: 'Sep 25, 2026, 1:23 PM CT',
     items: [
       'Nothing you can see changed in the town. Every check this project runs went red yesterday afternoon, on twelve resident cards nobody had touched, and they are green again.',
       'The cause was a piece of bookkeeping. Twelve people \u2014 the county clerk, a corporate trustee, a coroner, two priests\u2019 and two schoolmistresses\u2019 posts among them \u2014 carry a real, sourced fact this project has read and not yet written onto their cards: an office, a ministry, a school kept. Each one names the piece of work that owes it. That work finished, so the twelve were owed to nobody, and the rule that says a person may only be waiting on work that is still going to happen did exactly what it is for.',
       'They now name a job that exists, filed for them: write those twelve posts onto the cards, or refuse each one in writing. Nothing about what the sources say moved, and no confidence was raised.',
       'The checks also say more than they did. A dead pointer now names what killed it instead of leaving the next reader to find out \u2014 and, more useful, the gate now says out loud which of these pointers is ONE closure away from the same red. It found another the moment it was asked: 272 waiting people hang on a single unfinished job.',
+    ] },
+  { v: 1108, title: 'The remedy for 523 invented people reaches 73 of them', kind: 'change', ts: '2026-09-25T17:30:40.176Z', date: 'Sep 25, 2026, 12:30 PM CT',
+    items: [
+      'This town invents residents against an order book \u2014 a ledger of how many people the sources cannot name but the 1840 census says were here. Where a later reading showed the book had already invented too many in some cohort, it keeps them and prints both numbers. That leaves 523 invented people standing past any order, and the owner ruled in September that they are moved into cohorts with room rather than deleted.',
+      'Three pieces of work have built that remedy: what a move is, who may be moved, and the moves themselves. Nobody had subtracted one from the other. This entry does, and the answer is unwelcome: the rule can move 73 people. When the whole programme has been spent, 450 of the 523 are still standing where they were, in 43 of the 48 crowded cohorts.',
+      'They cannot be moved because of who they are. The open places are overwhelmingly for grown men; the surplus is 150 children under ten, 100 teenagers and 119 women. Nothing in the plan was going to change that, and no run is going to be able to fix it either \u2014 it wants boarding houses that have not been built and cohorts nobody has ordered.',
+      'So the report says it plainly and the liberties file admits it: the reconstructed population settles at 2,735 rather than the 2,543 the model expects, inside the range it allows, and 450 of that excess is known surplus this project cannot place. A check now fails the build if the two ends of the arithmetic ever stop agreeing.',
+      'Nothing you can see in the town changed today, and nobody was invented, moved or deleted.',
     ] },
   { v: 1107, title: 'Twenty-six hands were ruled for, and no bed to put them in', kind: 'change', ts: '2026-09-25T15:57:06.537Z', date: 'Sep 25, 2026, 10:57 AM CT',
     items: [
