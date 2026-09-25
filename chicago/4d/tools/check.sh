@@ -2426,6 +2426,17 @@ step "a claim is a lock on the remote, and two runs cannot hold one ticket" \
 step "a lap that could not ask never reports that it found nothing" \
   node tools/test_pr_lap_list.mjs
 
+# ...AND WHEN IT CAN ASK BUT CANNOT CHECK OUT, IT HAS TO SAY WHY (T-1565). The
+# lap's two entry guards said four near-identical words each — `fetch failed`,
+# `checkout failed` — with git's stderr sent to /dev/null, so #1629's failure on
+# 2026-09-21 left a run summary with no reason in it at all: not which of the two
+# failed, not git's message, not the ref it could not resolve. Every other refusal
+# in the lap names its step and tails its log, which is how T-1521 was found.
+# This one runs the REAL script against a REAL bare remote with REAL git — the
+# faults live in git's own refusal messages, so a fake git would test the fake.
+step "a lap that cannot check out a branch says which step failed, and why" \
+  node tools/test_pr_lap_checkout.mjs
+
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
 # fleet janitor said the lap plus auto-merge did it, while excluding `custom`
