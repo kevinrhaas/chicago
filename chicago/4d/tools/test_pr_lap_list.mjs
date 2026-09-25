@@ -206,5 +206,31 @@ console.log('pr-lap.sh — a lap that could not ask never reports that it found 
         loop === -1 ? 'loop head not found' : `reset@${reset} set@${set}`);
 }
 
+/* 8. THE LABEL FILTER NAMES EXACTLY ONE LABEL, AND IT IS `hold` (T-1573).
+ *
+ * A SOURCE assertion rather than a behaviour run, and deliberately so: the filter
+ * is a `--jq` expression evaluated inside the real `gh`, which the fakes above
+ * stand in for — a behaviour case would be asserting about the fake's list, not
+ * about the filter. What it pins is the one edit that would undo T-1573 while
+ * looking like housekeeping.
+ *
+ * `resume` marks a run's OWN unfinished work: the branch carries it, the run ran
+ * out of clock or budget or green, and lapping it — merging `dev` in, rebuilding the derived
+ * layer, pushing — is the FIRST thing that has to happen to it. It reads
+ * exactly like a label belonging in this filter beside `hold`, and putting it
+ * there would rebuild the fault T-1571 measured — three PRs on 2026-09-25 (#39,
+ * #41, #42), none needing an owner's ruling, all three skipped by every pass
+ * because the only label a run could apply was one every pass skips. `hold` is the
+ * owner's park switch and stays the only exclusion.
+ */
+{
+  const src = readFileSync(LAP, 'utf8')
+    .split('\n').filter((l) => !l.trim().startsWith('#')).join('\n');
+  const filtered = [...src.matchAll(/index\("([^"]+)"\)\s*\|\s*not/g)].map((m) => m[1]);
+  check('the label filter excludes `hold` and nothing else',
+        filtered.length === 1 && filtered[0] === 'hold',
+        filtered.length ? `filters ${filtered.join(', ')}` : 'no label filter found at all');
+}
+
 console.log(failures ? `\n${failures} FAILED` : '\nall passed');
 process.exit(failures ? 1 : 0);

@@ -279,8 +279,10 @@ is the contract. The short form:
   only live view of work the merged files cannot show yet. It reads each branch as
   **live**, **held**, **open_pr**, **recoverable** or **cold**. A branch under
   **open_pr** has a pull request up right now and is printed with its number and labels
-  — `hold` there means a run parked that work for the owner on purpose, so do not
-  rebuild it, do not take the ticket and do not delete the branch (T-1427). `held` is the
+  — `hold` there means THE OWNER is deciding, so do not rebuild it, do not take the ticket
+  and do not delete the branch (T-1427); `resume` there means a RUN could not finish and
+  the work is waiting for one that can, so do not rebuild it either — **finish it**
+  (§ the two labels). `held` is the
   other one to read carefully: the branch is
   older than a run but the ticket's claim lock still stands, so it is either a run reading
   sources for hours or a run that died after its merge. Check its PR before you take it —
@@ -339,7 +341,8 @@ is the contract. The short form:
   starts. This is not optional bookkeeping; an owner request going untracked for days is
   the exact failure this system exists to close.
 - **Finish your PR inside the run that opened it** — merge on a green gate, or `block`, or
-  label it `hold` with the reason. **A claim is only real once its PR merges**: the state
+  hand it to the next run with `.github/steward/pr-rest.sh resume <N> --why "…"`
+  (§ the two labels). `hold` is not yours to apply. **A claim is only real once its PR merges**: the state
   lives in the ticket file, so an abandoned open PR leaves the ticket reading `open` at the
   top of the queue and the next run rebuilds the same work. It cost about seventy minutes
   on 2026-08-19 (run 943's PR #258 left open, run 944 redoing T-0062 as #259). `claim` now
@@ -390,8 +393,56 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
 `docs/PIPELINE.md`; ours is the two-tier form of it.
 
 - **Branch `steward/<topic>` off `dev`. PR into `dev`. Merge when the dev gate is green.**
-  Never push to `dev` or `main` directly. Ambiguous or unverified work stays an open PR
-  with the `hold` label and a written explanation.
+  Never push to `dev` or `main` directly. Unfinished work stays an open PR labelled
+  `resume`, with its reason in a line a machine can read (§ the two labels).
+- <a id="the-two-labels"></a>**THE TWO LABELS, AND THEY MEAN DIFFERENT THINGS** (T-1573;
+  owner, 2026-09-25, on finding three PRs parked on `hold` whose reasons he had not seen:
+  *"that seems like a bad move because i am not aware of why they are held"*).
+
+  | label | means | who applies it | what comes for it |
+  |---|---|---|---|
+  | `hold` | **the owner is deciding** | the owner, never a run | nothing, until he says so |
+  | `resume` | **a run could not finish** | the run, with its reason | the lap, the merger, the next run |
+
+  `hold` was the only label a run had, so it was applied to both — and because every
+  automated pass in this repository skips a held PR on purpose (a park a robot can
+  overrule is not a park), work that needed nobody's decision had nothing coming for it
+  either. Measured on the three PRs open at 17:35Z on 2026-09-25: #39's stated reason
+  ("this run's clock ran out") was already stale — CI had passed all 620 steps — and it
+  had drifted into conflict with `dev` while held; #41 and #42 were both COMPLETE and
+  held only because `dev`'s own gate was red. Not one needed a ruling. Each needed a
+  machine to lap it, re-gate it and merge it, and each got a person instead.
+
+  So, concretely:
+
+  - **A run never applies `hold`.** If the thing in your way is genuinely the owner's —
+    rights, the depiction of people, money, what the project IS — that is `ticket.mjs
+    ask`, on the ticket, with options, so it reaches his board with a one-click answer.
+    A label is not a question.
+  - **A run that cannot finish applies `resume`, with its reason**, in one call:
+
+        .github/steward/pr-rest.sh resume <N> --why "dev's gate is red on T-1567" --waits-on T-1567
+
+    which writes `resume: <reason> · waits on: <T-NNNN|nothing>` as the first line of a
+    PR comment, applies the label, and takes `hold` off if a run left one there. The
+    reason goes on BEFORE the label, so a labelled PR never exists without it.
+  - **A later run works resumable PRs before it takes new queue work.** Merge `dev` in,
+    re-derive, fix what is red, gate, merge — it is the same endgame as any unit, on a
+    branch that is already most of the way there. **Skip one whose `waits on` ticket is
+    still open** and say so in your summary: it cannot go green yet, and re-gating it
+    would spend a run proving that.
+  - **What each pass does with the two**, stated so nobody has to read three scripts:
+    `pr-lap.sh` laps a `resume` PR like any other and skips `hold`; `merge-ready.sh`
+    merges a `resume` PR the moment GitHub calls it `clean` (which IS the resume, for one
+    REST call) and skips `hold`; `pr-stuck.sh` sees both, reports a resumable PR WITH its
+    reason and never labels it, and leaves a held one in silence. `waits on` gates only
+    the agentic pickup, never a machine merge of an already-green PR.
+  - **The tickets repo's settle workflow reads neither label.** It follows the PR's
+    merged/closed state alone: a ticket goes `done` when its PR merges and back to `open`
+    if the PR closes unmerged. So a `resume` PR's ticket sits at `review` with its PR
+    number until the work actually lands — which is the behaviour wanted, and is why
+    `ticket.mjs done --pr N` is still called when the PR is opened and not when it merges.
+
 - **A `steward/*` PR THAT CANNOT MERGE IS NOT OPEN — IT IS ROTTING.** Its ticket still
   reads `open` at the top of the queue, so the next slice picks the same row and rebuilds
   the same work. Measured 2026-09-13 (T-0809): **all five** open steward PRs on `dev`
@@ -402,7 +453,8 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
   them, five past saving. Two things follow, and both are now true:
   - the janitor **gates the merge, not the bare branch, and comments once naming the
     conflicting paths** on any PR it cannot merge (polecat-platform#161). If your PR is
-    rotting you will be told inside one sweep; rebase it on `dev` or label it `hold`.
+    rotting you will be told inside one sweep; rebase it on `dev`, or hand it on with
+    `pr-rest.sh resume` so the next run does (§ the two labels).
   - those three files conflict on nearly every landing BY DESIGN — the root
     `.gitattributes` refuses to union-merge the changelog because union silently
     corrupted it on five consecutive merges in one day. So expect to rebase, and **finish
