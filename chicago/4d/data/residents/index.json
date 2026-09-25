@@ -415,7 +415,7 @@
    "reconstructed": 979
   },
   "letter_list_only": 736,
-  "projected_residents": 722,
+  "projected_residents": 723,
   "census_1840_linked": 3,
   "reconstructed_removed_in_2026_09_02_synthesis": 108,
   "civic_mint": 511,
@@ -21813,7 +21813,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "projected_resident": true
   },
   {
    "id": "hh_todd_hugh",

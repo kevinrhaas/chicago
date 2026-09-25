@@ -12,7 +12,7 @@ T-0487 → T-0490 synthesis of the completed newspaper/letter-list sweep, reside
 | Inferred | 25 | 992 |
 | Reconstructed | 108 | 979 |
 | Letter-list-only flag | 727 | 736 |
-| Projected residents | 0 | 722 |
+| Projected residents | 0 | 723 |
 | Linked to named 1840 census household | 0 | 3 |
 
 **108 reconstructed people were retired** and 96 empty household containers removed. 5 evidence-based people/households formerly seated by the reconstructed programme were retained but made unplaced. Reconstructed building stock was abandoned as unassigned rather than deleted.

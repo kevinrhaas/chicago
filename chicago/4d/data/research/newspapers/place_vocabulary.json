@@ -1038,7 +1038,7 @@
     }
   ],
   "counts": {
-    "persons": 2668,
+    "persons": 2667,
     "persons_with_a_place": 1285,
     "distinct_places": 128,
     "readings": 1395,
@@ -1057,7 +1057,7 @@
       "outside": 141,
       "undecided": 24
     },
-    "persons_without_a_place": 1383,
+    "persons_without_a_place": 1382,
     "strings_by_basis": {
       "bare_town": 1,
       "street": 20,

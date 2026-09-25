@@ -67,15 +67,15 @@
    "attested": 386
   },
   "by_subtype": {
-   "None": 5311,
-   "projected_resident": 1641
+   "None": 5310,
+   "projected_resident": 1642
   },
   "by_rule": {
    "G5": 43,
    "G0": 4500,
-   "G3": 1640,
+   "G3": 1641,
    "G1b": 306,
-   "G2e": 148,
+   "G2e": 147,
    "G2b": 30,
    "G1a": 51,
    "G1c": 29,
@@ -6318,7 +6318,7 @@
   {"identity":"id_tngrahain_harrison","name":"Harrison Tngrahain","canonical_person_id":null,"rule":"G3","grade":"inferred","resident_subtype":"projected_resident","evidence":["newspapers:person_tngrahain_harrison"],"evidence_classes":["newspaper_letter_list"]},
   {"identity":"id_tobey_orville_hurd","name":"Orville Hurd Tobey","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["old_settlers:fdn0669"],"evidence_classes":["death_notice"]},
   {"identity":"id_tobin_robert","name":"Robert Tobin","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["census_1840:33S7-9YYJ-9K3:16"],"evidence_classes":["census_1840"]},
-  {"identity":"id_toby_samuel_e","name":"Samuel E Toby","canonical_person_id":"toby_samuel","rule":"G2e","grade":"inferred","resident_subtype":null,"evidence":["newspapers:person_samuel_e_toby","newspapers:person_samuel_toby"],"evidence_classes":["newspaper_letter_list","town_layer"]},
+  {"identity":"id_toby_samuel_e","name":"Samuel E Toby","canonical_person_id":"toby_samuel","rule":"G3","grade":"inferred","resident_subtype":"projected_resident","evidence":["newspapers:person_samuel_e_toby"],"evidence_classes":["newspaper_letter_list","town_layer"]},
   {"identity":"id_todd_hugh","name":"Hugh Todd","canonical_person_id":"todd_hugh","rule":"G3","grade":"inferred","resident_subtype":"projected_resident","evidence":["newspapers:person_hugh_todd"],"evidence_classes":["newspaper_letter_list","town_layer"]},
   {"identity":"id_todd_lewis_h","name":"Lewis H Todd","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["directories:f1843_e2452","directories:n1844_e1778"],"evidence_classes":["directory_1843","directory_1844"]},
   {"identity":"id_ton_wa_wa_ya","name":"Wa Wa Ya Ton","canonical_person_id":null,"rule":"G3","grade":"inferred","resident_subtype":"projected_resident","evidence":["civic:blackhawk_1832_115"],"evidence_classes":["muster_1832"]},

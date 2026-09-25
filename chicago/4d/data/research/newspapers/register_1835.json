@@ -6,7 +6,7 @@
   "compiled_from": {
     "gazetteer": {
       "claims": 1189,
-      "persons": 2668,
+      "persons": 2667,
       "businesses": 196
     },
     "structures": 417,
@@ -46,13 +46,13 @@
       "dissolved_after_scene_date": 1
     },
     "persons": {
-      "total": 2668,
+      "total": 2667,
       "by_action": {
-        "enrich": 1367,
+        "enrich": 1366,
         "new_resident": 1278,
         "replace_invented": 23
       },
-      "letter_list_only": 1953
+      "letter_list_only": 1952
     },
     "invented_residents": {
       "households_by_trade": {
@@ -31787,17 +31787,6 @@
       "action": "enrich",
       "action_target": "stuart_samuel",
       "action_note": "data/residents/ already holds this person as stuart_samuel (hh_stuart_samuel, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
-    },
-    {
-      "id": "person_samuel_toby",
-      "name": "Samuel. Toby",
-      "occupation": null,
-      "letter_list_only": true,
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "action": "enrich",
-      "action_target": "toby_samuel",
-      "action_note": "data/residents/ already holds this person as toby_samuel (hh_toby_samuel, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_samuel_townsend",
