@@ -114,7 +114,7 @@ the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the r
 
 **0 move(s) have been made**, carrying 0 adoption(s) out of 0 bucket(s) and into 0. The book is owed 427 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
 
-Which heads move is T-1558's (not settled): the rule is modelled against the adoption layers and is not this ticket's. Every row must NAME the rule that chose its head, so a move made before the rule exists cannot be written without saying so. The moves themselves are T-1559's.
+Which heads move is T-1558's (settled): T-1558 modelled it against the adoption layers and published the cost ladder there, with the tier of every held person and the ceilings the axes impose. `refamily_shape` above refuses a move whose `rule` is not one of the movable rungs, so the naming T-1557 required is now checked rather than trusted. The moves themselves are T-1559's.
 
 
 ## The trade cut, re-cut on its remainder

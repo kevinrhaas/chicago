@@ -5003,6 +5003,34 @@ step "the 1835 reconstruction order book re-derives, no bucket is overfilled, an
 selftest "…and its own assertions still fire when broken" \
   python3 tools/build_order_book_1835.py --self-test
 
+# T-1558, piece 2 of 4 of T-1556. WHICH OF THE HELD PEOPLE MAY BE RE-FAMILIED, AND WHAT
+# EACH MOVE WOULD REWRITE. T-1557 built the word for a move and moved nobody; the owner's
+# objection to retiring the surplus was about WHO it would have fallen on — "the men the
+# town lost would be chosen by which of them failed to get a job, which is not a modelled
+# criterion" — so the rule that picks them is a thing this project has to be able to show.
+#
+# WHY IT IS A GATE AND NOT A ONE-OFF READING. The model names, person by person, the 1,159
+# reconstructed people standing in the 48 refused buckets, and `--check` re-derives the
+# whole of it off the cards and the book. Two things can therefore never drift apart in
+# silence: the roster and the book's own `drawn_here` per bucket (the book counts people
+# and never names them, so this is the only place the two can be reconciled at all), and
+# the cost ladder and the moves that stand on it — `build_order_book_1835.py` refuses a
+# re-family whose `rule` is not a MOVABLE rung this file publishes, which is how T-1557's
+# "every row must NAME the rule" became checked rather than trusted.
+#
+# ITS FINDING IS THE REASON TO RUN IT OFTEN. The held surplus and the open orders are
+# disjoint on every axis: no refused bucket has a single open slot in its own (sex, age
+# band, household kind, trade) class in any division. So a move that changes only the
+# DIVISION yields nought, the 265 moves T-1556 § 3 named cannot be made by any rule that
+# keeps a person's sex and age band, and the rule's own yield is 73. Those numbers move the
+# moment the lodging band orders more people, and a stale copy of them would quietly
+# mis-price T-1559.
+step "the re-family rule re-derives, its roster reconciles with the order book, and every move stands on a published rung (T-1558)" \
+  python3 tools/model_refamily_rule.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/model_refamily_rule.py --self-test
+
 # T-1370, piece 1 of T-1175. HOW MANY BEDS EACH LODGING PLACE HELD. The town model
 # states a bed bracket for the whole town and says in as many words that it "seats
 # nobody in any lodging place and gives no boarding house a capacity of its own";
