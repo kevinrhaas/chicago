@@ -23,10 +23,9 @@ invariant refuses a stage that draws past it.
 Set the two side by side and they do not agree, and the disagreement is not small:
 
   * the shops want more hands than the book has slots left,
-  * every hand the shops want is a man, and two fifths of the book's remaining
+  * every hand the shops want is a man, and a large share of the book's remaining
     slots are women's,
-  * and the shops want boys of twelve to eighteen, in a band where the book has
-    no outstanding slot at all.
+  * and every slot that could pay is owned by another stage.
 
 So the mint cannot simply run. Either the book is re-cut — the town's remaining
 working people are younger and more male than a cut shaped by the 1840 schedule
@@ -35,6 +34,24 @@ short and the town says why. That is a ruling about what the town IS, not a deta
 how a tool draws, and T-1166 owns the book. This file is the adjudication that makes
 the ruling askable: every number in it re-derives from committed files, and `--check`
 refuses a byte that has drifted since.
+
+THE FIRST ANSWER HAS SINCE BEEN RULED AND SPENT, and this file says so from the book
+rather than from memory. The owner ruled the re-cut on 2026-09-20; it ran, it opened
+the 10-19 band the apprentices and shop boys stand in, and it REFUSED the sex axis on
+the evidence — so it did not make the mint payable to the typical band. The prose in
+`the_question` and `the_collision` used to be literal strings written against the book
+as it stood before that, and by 2026-09-25 three of them were flatly false: they went
+on calling a band drawn out that carries outstanding slots. Every clause that names a
+quantity is now DERIVED from the same `rows` and `slots` the numbers beside it come
+from, and the self-test fires on the wording as well as on the figure. An adjudication
+that narrates a state it no longer measures is worse than no adjudication at all.
+
+And the second answer is now PRICED. `the_demand` had always promised that `count_low`
+was "carried on every row so a reader can price the other two answers"; it was not
+carried at all, so the one answer arithmetic could settle was the one nobody could
+read. Every row now carries `count_low` and `short_by_at_the_low_band`, and
+`the_collision.at_the_model_s_low_band` pays that smaller demand from the same purse
+in the same order.
 
 WHAT IT IS NOT. It is not a roster. No name is drawn, no card is written, no bucket's
 `filled` is incremented and no `fills` row is added — an order is not a fill, and the
@@ -164,6 +181,18 @@ def demand(businesses: list, model: dict, seating: dict) -> list:
             by_role.setdefault(role["role"], []).append(role)
         for name, role_rows in sorted(by_role.items()):
             pool = standing.get((business["id"], name), 0)
+            # The same allotment again at the model's LOW band, on its own pool, so the
+            # second of the three answers can be priced row by row rather than from a
+            # pair of totals. It has to be a separate pass: a hand that fills the first
+            # row to its TYPICAL count may only be owed to the low one, and the hands
+            # left for the second row differ accordingly.
+            low_pool = pool
+            low_short = []
+            for role in role_rows:
+                low = int(role.get("count_low") or 0)
+                taken_low = min(low_pool, low)
+                low_pool -= taken_low
+                low_short.append(low - taken_low)
             for index, role in enumerate(role_rows):
                 typical = int(role.get("count_typical") or 0)
                 taken = min(pool, typical)
@@ -183,10 +212,12 @@ def demand(businesses: list, model: dict, seating: dict) -> list:
                     "sex_rule": role.get("sex_rule"),
                     "age_band": role.get("age_band"),
                     "lives_on_premises": role.get("lives_on_premises"),
+                    "count_low": int(role.get("count_low") or 0),
                     "count_typical": typical,
                     "count_high": int(role.get("count_high") or 0),
                     "standing_today": taken,
                     "short_by": short,
+                    "short_by_at_the_low_band": low_short[index],
                     "basis": role.get("basis"),
                     "note": role.get("note"),
                 })
@@ -298,6 +329,62 @@ def order(data: dict) -> dict:
     youth_slots = sum(slot["outstanding"] for slot in slots
                       if bands_overlap("youth_12_18", slot["age_band"]))
     youth_wanted = sum(row["short_by"] for row in rows if row["age_band"] == "youth_12_18")
+    youth_slots_by_sex: dict = {}
+    for slot in slots:
+        if bands_overlap("youth_12_18", slot["age_band"]):
+            youth_slots_by_sex[slot["sex"]] = (youth_slots_by_sex.get(slot["sex"], 0)
+                                               + slot["outstanding"])
+    payable_from_a_woman = sum(row["short_by"] for row in rows
+                               if "female" in SEX_RULE_PAYS_FROM.get(row["sex_rule"], []))
+    slots_outstanding = sum(slot["outstanding"] for slot in slots)
+    payable = wanted - unpaid
+    recut = data["book"].get("trade_re_cut") or {}
+
+    # THE SECOND ANSWER, PRICED. `the_demand` has always claimed that `count_low` is
+    # carried on every row "so a reader can price the other two answers", and until
+    # 2026-09-25 it was not carried at all — so the one answer the arithmetic could
+    # actually settle was the one nobody could read. Coming down to the model's low
+    # band is a smaller demand against the SAME purse, so it is paid the same way.
+    low_rows = [{**row, "short_by": row["short_by_at_the_low_band"]}
+                for row in rows if row["short_by_at_the_low_band"] > 0]
+    low_paid = pay_the_demand(low_rows, slots)
+    low_wanted = sum(row["short_by"] for row in low_rows)
+    low_unpaid = sum(row["unpaid"] for row in low_paid["rows"])
+
+    # THE SENTENCES BELOW ARE DERIVED, NOT WRITTEN. Three of them used to be literals,
+    # and by 2026-09-25 all three were false: the re-cut this file asked for had run
+    # (T-1459, T-1503, T-1525) and opened the very band they said was drawn out, so the
+    # adjudication was arguing from a book that had moved under it. A file whose whole
+    # job is to make a ruling askable may not narrate a state it no longer measures, so
+    # every clause that names a quantity now reads that quantity off `slots`/`rows` and
+    # the assertions below fire on the wording as well as on the number.
+    if payable_from_a_woman == 0:
+        on_the_sex_reads_as = (
+            f"Every one of the {wanted} hands the shops want is a man or a role the "
+            f"model calls predominantly male — not one of them could be paid from a "
+            f"woman's slot. "
+            f"{purse_by_sex.get('female', 0)} of the book's {slots_outstanding} "
+            f"outstanding slots are women's, and they cannot be spent here at all.")
+    else:
+        on_the_sex_reads_as = (
+            f"{payable_from_a_woman} of the {wanted} hands wanted may be paid from a "
+            f"woman's slot, against {purse_by_sex.get('female', 0)} women's slots of "
+            f"the book's {slots_outstanding} outstanding. The other "
+            f"{wanted - payable_from_a_woman} are men's, or roles the model calls "
+            f"predominantly male, and the women's slots cannot be spent on them.")
+    if youth_slots == 0:
+        on_the_age_reads_as = (
+            f"The apprentice and the shop boy are {youth_wanted} of the {wanted} hands "
+            f"wanted. The book's 10-19 trade buckets are drawn out, so there is no slot "
+            f"a boy could be minted into without re-cutting.")
+    else:
+        on_the_age_reads_as = (
+            f"The apprentice and the shop boy are {youth_wanted} of the {wanted} hands "
+            f"wanted, and the band that reaches them is NO LONGER DRAWN OUT: "
+            f"{youth_slots} slot(s) stand outstanding in it, "
+            f"{youth_slots_by_sex.get('male', 0)} of them men's and so spendable on a "
+            f"boy, {youth_slots_by_sex.get('female', 0)} of them women's and so not. "
+            f"The age bar this file was written against is paid for; the sex bar is not.")
 
     return {
         "$schema_note": "DERIVED — regenerate with tools/staffing_mint_order_1835.py "
@@ -323,27 +410,54 @@ def order(data: dict) -> dict:
             "data/reconstruction/1835_reconstruction_order_book.json",
             "data/residents/reconstructed_seating.json",
         ],
+        "what_the_re_cut_returned": {
+            "what_it_is": "The first of the answers below was RULED by the owner and "
+                          "has since been SPENT: the book was re-cut. These are the "
+                          "re-cut's own words and figures, read from "
+                          "data/reconstruction/1835_reconstruction_order_book.json, so "
+                          "that this file cannot go on arguing from a book that has "
+                          "moved under it.",
+            "ruling": recut.get("ruling"),
+            "ticket": recut.get("ticket"),
+            "slots_the_re_cut_wanted": recut.get("the_re_cut_wanted"),
+            "slots_that_moved": recut.get("what_moved"),
+            "why_it_stopped": recut.get("why_it_stopped"),
+            "the_sex_axis": recut.get("the_sex_axis"),
+            "and_the_mint_is_still_short": (
+                f"After the re-cut, {payable} of the {wanted} hands are payable and "
+                f"{unpaid} are not. The re-cut opened the band the shop boys stand in "
+                f"— {youth_slots} slot(s) outstanding in it now — and refused the sex "
+                f"axis on the evidence. The sex bar is what the {unpaid} stand behind, "
+                f"and re-cutting again cannot move it."),
+        },
         "the_question": {
             "for": "the owner, and T-1166 which owns the order book",
-            "asked": "The shops want more hands than the book has slots left, they are "
-                     "all men, and a fifth of them are boys in a band where the book "
-                     "has nothing outstanding at all. Which gives way?",
-            "the_three_answers_as_this_project_sees_them": [
-                "RE-CUT THE BOOK (T-1166). The town's remaining working people are "
-                "younger and more male than a cut shaped by the 1840 schedule's bands "
-                "makes them. This is the answer that lets the mint run to the typical "
-                "band, and it moves a quota five other stages draw against.",
-                "COME DOWN OFF THE TYPICAL BAND. Staff every house to what the book can "
-                "pay for and record the rest as a town owed more working men than it "
-                "holds. The staffing model's `count_low` is 65 hands against the "
-                "typical 202, so a low-band town is within the model's own range.",
+            "asked": f"The shops want {wanted} hands and the book has "
+                     f"{slots_outstanding} outstanding trade slots, of which "
+                     f"{purse_by_sex.get('female', 0)} are women's and cannot be spent "
+                     f"on them. Spent greedily in the stated order the book pays for "
+                     f"{payable} and leaves {unpaid} with nowhere to come from — and "
+                     f"every payable slot belongs to another stage. Which gives way?",
+            "the_answers_as_this_project_sees_them": [
+                "RE-CUT THE BOOK (T-1166) — RULED, RUN AND SPENT; see "
+                "`what_the_re_cut_returned` above. It opened the band the shop boys "
+                "stand in and it refused the sex axis on the evidence, so it did not "
+                "make the mint payable to the typical band. This answer is no longer "
+                "on the table, and the two below are.",
+                f"COME DOWN OFF THE TYPICAL BAND. Staff every house to the model's own "
+                f"`count_low` instead and the demand falls from {wanted} hands to "
+                f"{low_wanted}, of which the book pays for {low_wanted - low_unpaid} "
+                f"and leaves {low_unpaid} short. `count_low` and "
+                f"`short_by_at_the_low_band` are carried on every row below, so this "
+                f"answer prices house by house and not only in totals. A low-band town "
+                f"is inside the staffing model's own stated range.",
                 "LET THE HOUSES STAND SHORT AND SAY SO. Mint nothing, and let the "
                 "business card print the shortfall as the honest state of the evidence. "
                 "It costs the layer nothing and it is the only answer that invents "
                 "nobody.",
             ],
-            "what_this_tool_will_not_do": "Choose. Every one of the three changes what "
-                                          "the town IS, and this file exists to make the "
+            "what_this_tool_will_not_do": "Choose. Every one of them changes what the "
+                                          "town IS, and this file exists to make the "
                                           "choice askable with numbers rather than to "
                                           "make it quietly by running.",
         },
@@ -387,21 +501,27 @@ def order(data: dict) -> dict:
                     row["short_by"] for row in rows
                     if "female" in SEX_RULE_PAYS_FROM.get(row["sex_rule"], [])),
                 "women_s_slots_outstanding": purse_by_sex.get("female", 0),
-                "reads_as": "Every hand the shops want is a man or a role the model "
-                            "calls predominantly male, and the book's remaining slots "
-                            "are two fifths women's. Those slots cannot be spent here "
-                            "at all.",
+                "reads_as": on_the_sex_reads_as,
             },
             "on_the_age": {
                 "boys_wanted_12_to_18": youth_wanted,
                 "slots_outstanding_in_a_band_that_reaches_them": youth_slots,
-                "reads_as": "The apprentice and the shop boy are a fifth of the demand. "
-                            "The book's 10-19 trade buckets are drawn out, so there is "
-                            "no slot a boy could be minted into without re-cutting.",
+                "slots_in_that_band_by_sex": dict(sorted(youth_slots_by_sex.items())),
+                "reads_as": on_the_age_reads_as,
             },
             "what_the_book_could_pay_for_today": wanted - unpaid,
             "what_would_go_unpaid": unpaid,
             "slots_that_would_be_left": paid["purse_left"],
+            "at_the_model_s_low_band": {
+                "what_it_is": "The same arithmetic against the second answer — every "
+                              "house staffed to `count_low` rather than to the typical "
+                              "band, paid from the same purse in the same order.",
+                "hands_wanted": low_wanted,
+                "houses_short": len({row["business_id"] for row in low_rows}),
+                "what_the_book_could_pay_for": low_wanted - low_unpaid,
+                "what_would_go_unpaid": low_unpaid,
+                "slots_that_would_be_left": low_paid["purse_left"],
+            },
         },
         "rows": paid["rows"],
         "how_the_two_vocabularies_were_matched": {
@@ -483,7 +603,7 @@ def cmd_check() -> int:
 
 
 def cmd_self_test() -> int:
-    """Six assertions, fired on the real data by breaking it on a copy."""
+    """Ten assertions, fired on the real data by breaking it on a copy."""
     data = build_data()
     doc = order(data)
     failures = []
@@ -549,6 +669,43 @@ def cmd_self_test() -> int:
     empty["book"] = book
     if order(empty)["the_collision"]["what_the_book_could_pay_for_today"] != 0:
         failures.append("a drawn-out book still paid for hands")
+
+    # 8. THE PROSE TRACKS THE COUNT. The sentence under `on_the_age` may only say the
+    #    boys' band is drawn out when it is: the literal it replaced went on saying so
+    #    for four days after the re-cut had opened it. Fired both ways — on the real
+    #    book, which has slots in that band, and on the drawn-out copy from 7.
+    live_age = doc["the_collision"]["on_the_age"]
+    if live_age["slots_outstanding_in_a_band_that_reaches_them"] > 0 \
+            and "drawn out" in live_age["reads_as"].lower() \
+            and "no longer drawn out" not in live_age["reads_as"].lower():
+        failures.append("the age sentence calls the boys' band drawn out while its own "
+                        "count says slots stand in it")
+    empty_age = order(empty)["the_collision"]["on_the_age"]
+    if empty_age["slots_outstanding_in_a_band_that_reaches_them"] == 0 \
+            and "no longer drawn out" in empty_age["reads_as"].lower():
+        failures.append("the age sentence called a drawn-out band open")
+
+    # 9. THE LOW BAND IS A REAL SECOND PASS, not the typical demand scaled. Every role
+    #    the model states low at or below typical, and the low-band demand is therefore
+    #    never the larger of the two.
+    for row in doc["rows"]:
+        if row["count_low"] > row["count_typical"]:
+            failures.append(f"{row['business_id']}/{row['role']} states a low band above "
+                            "its typical one, so the low-band pricing is not bounded")
+            break
+    if doc["the_collision"]["at_the_model_s_low_band"]["hands_wanted"] > \
+            doc["the_demand"]["hands_wanted"]:
+        failures.append("the low band wants more hands than the typical band")
+
+    # 10. The re-cut block is the BOOK's words, not this file's. Change the book's and
+    #     the order must change with it.
+    moved = dict(data)
+    book_moved = json.loads(json.dumps(data["book"]))
+    book_moved["trade_re_cut"]["why_it_stopped"] = "a sentence this file did not write"
+    moved["book"] = book_moved
+    if order(moved)["what_the_re_cut_returned"]["why_it_stopped"] \
+            == doc["what_the_re_cut_returned"]["why_it_stopped"]:
+        failures.append("the re-cut block does not follow the order book's own words")
 
     for failure in failures:
         print(f"  FAILED: {failure}", file=sys.stderr)
