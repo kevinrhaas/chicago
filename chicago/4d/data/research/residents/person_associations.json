@@ -14,12 +14,12 @@
     "persons_gaining_rows": 0,
     "rows_proposed": 0,
     "rows_by_kind": {},
-    "refusals": 161,
+    "refusals": 329,
     "refusals_by_kind": {
       "agency_held": 2,
-      "church": 16,
+      "church": 183,
       "civic_seat": 46,
-      "land_purchased": 90,
+      "land_purchased": 91,
       "school": 7
     },
     "rows_already_held": 76
@@ -1013,10 +1013,262 @@
     },
     {
       "kind": "church",
+      "person_id": "ann_cierno",
+      "household_id": "hh_ann_cierno",
+      "record_id": "st_marys_bapt_1835_07_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "arquette_joseph",
+      "household_id": "hh_arquette_joseph",
+      "record_id": "st_marys_bapt_1835_05_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "arquette_michel",
+      "household_id": "hh_arquette_michel",
+      "record_id": "st_marys_bapt_1835_05_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "aspam_antoine",
+      "household_id": "hh_aspam_antoine",
+      "record_id": "st_marys_bapt_1833_14_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "aspam_antoine",
+      "household_id": "hh_aspam_antoine",
+      "record_id": "st_marys_bapt_1833_17_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "aspam_jean_baptiste",
+      "household_id": "hh_aspam_jean_baptiste",
+      "record_id": "st_marys_bapt_1833_14_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "aspam_josette",
+      "household_id": "hh_aspam_josette",
+      "record_id": "st_marys_bapt_1833_16_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "aspam_josette",
+      "household_id": "hh_aspam_josette",
+      "record_id": "st_marys_bapt_1833_17_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "aspam_josette",
+      "household_id": "hh_aspam_josette",
+      "record_id": "st_marys_bapt_1835_06_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "aspam_magdeleine",
+      "household_id": "hh_aspam_magdeleine",
+      "record_id": "st_marys_bapt_1833_17_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bailly_esther",
+      "household_id": "hh_bailly_esther",
+      "record_id": "st_marys_bapt_1833_04_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
       "person_id": "baptist_john",
       "household_id": "hh_baptist_john",
       "record_id": "st_cyr_death_05_1",
       "why": "The register dates this act 1835-07-02, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_alexander",
+      "household_id": "hh_beaubien_alexander",
+      "record_id": "st_marys_bapt_1834_14_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_archange",
+      "household_id": "hh_beaubien_archange",
+      "record_id": "st_marys_bapt_1833_01_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_archange",
+      "household_id": "hh_beaubien_archange",
+      "record_id": "st_marys_bapt_1833_02_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_archange",
+      "household_id": "hh_beaubien_archange",
+      "record_id": "st_marys_bapt_1834_19_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_caroline",
+      "household_id": "hh_beaubien_caroline",
+      "record_id": "st_marys_bapt_1833_04_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_charles",
+      "household_id": "hh_beaubien_charles",
+      "record_id": "st_marys_bapt_1834_21_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_elonore",
+      "household_id": "hh_beaubien_elonore",
+      "record_id": "st_marys_bapt_1834_19_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_george",
+      "household_id": "hh_beaubien_george",
+      "record_id": "st_marys_bapt_1833_01_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_joseph",
+      "household_id": "hh_beaubien_joseph",
+      "record_id": "st_marys_bapt_1833_18_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_monique",
+      "household_id": "hh_beaubien_monique",
+      "record_id": "st_marys_bapt_1833_16_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_robert_jerome",
+      "household_id": "hh_beaubien_robert_jerome",
+      "record_id": "st_marys_bapt_1834_22_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "beaubien_susan",
+      "household_id": "hh_beaubien_susan",
+      "record_id": "st_marys_bapt_1834_21_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "blanchemontagne_alexis_thomas",
+      "household_id": "hh_blanchemontagne_alexis_thomas",
+      "record_id": "st_marys_bapt_1835_11_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bonn_augustin",
+      "household_id": "hh_bonn_augustin",
+      "record_id": "st_marys_bapt_1833_03_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bonn_augustin",
+      "household_id": "hh_bonn_augustin",
+      "record_id": "st_marys_bapt_1833_11_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bonn_augustin",
+      "household_id": "hh_bonn_augustin",
+      "record_id": "st_marys_bapt_1833_12_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bonn_augustin",
+      "household_id": "hh_bonn_augustin",
+      "record_id": "st_marys_bapt_1833_14_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bonn_augustin",
+      "household_id": "hh_bonn_augustin",
+      "record_id": "st_marys_bapt_1833_15_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bouchard_adelaide",
+      "household_id": "hh_bouchard_adelaide",
+      "record_id": "st_marys_bapt_1833_11_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bouchard_adelaide",
+      "household_id": "hh_bouchard_adelaide",
+      "record_id": "st_marys_bapt_1833_12_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bouchard_louis",
+      "household_id": "hh_bouchard_louis",
+      "record_id": "st_marys_bapt_1833_11_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bourassa_jean_baptiste",
+      "household_id": "hh_bourassa_jean_baptiste",
+      "record_id": "st_marys_bapt_1835_04_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bourassa_lon",
+      "household_id": "hh_bourassa_lon",
+      "record_id": "st_marys_bapt_1834_23_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bourassa_lon",
+      "household_id": "hh_bourassa_lon",
+      "record_id": "st_marys_bapt_1835_04_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bourassa_noel",
+      "household_id": "hh_bourassa_noel",
+      "record_id": "st_marys_bapt_1834_23_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
     },
     {
       "kind": "church",
@@ -1027,10 +1279,262 @@
     },
     {
       "kind": "church",
+      "person_id": "bousque_bernard",
+      "household_id": "hh_bousque_bernard",
+      "record_id": "st_marys_bapt_1835_02_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bousque_catherine_henrietta",
+      "household_id": "hh_bousque_catherine_henrietta",
+      "record_id": "st_marys_bapt_1835_02_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "brenin_mary",
+      "household_id": "hh_brenin_mary",
+      "record_id": "st_marys_bapt_1835_09_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bruno_anne_franoise_apolline",
+      "household_id": "hh_bruno_anne_franoise_apolline",
+      "record_id": "st_marys_bapt_1835_10_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bruno_anne_franoise_apolline",
+      "household_id": "hh_bruno_anne_franoise_apolline",
+      "record_id": "st_marys_bapt_1835_11_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "bruno_jean_baptiste",
+      "household_id": "hh_bruno_jean_baptiste",
+      "record_id": "st_marys_bapt_1835_10_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "carroll_patrick",
+      "household_id": "hh_carroll_patrick",
+      "record_id": "st_marys_bapt_1835_01_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "casy_honora",
+      "household_id": "hh_casy_honora",
+      "record_id": "st_marys_bapt_1835_14_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "chandler_catherine",
+      "household_id": "hh_chandler_catherine",
+      "record_id": "st_marys_bapt_1835_13_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "chevalier_joseph",
+      "household_id": "hh_chevalier_joseph",
+      "record_id": "st_marys_bapt_1833_19_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "chevalier_josette",
+      "household_id": "hh_chevalier_josette",
+      "record_id": "st_marys_bapt_1833_11_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "chevalier_josette",
+      "household_id": "hh_chevalier_josette",
+      "record_id": "st_marys_bapt_1833_12_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "chevalier_josette",
+      "household_id": "hh_chevalier_josette",
+      "record_id": "st_marys_bapt_1834_12_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "chevalier_louis_p",
+      "household_id": "hh_chevalier_louis_p",
+      "record_id": "st_marys_bapt_1835_03_3_witness",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "choulet_claudia_pierrette",
+      "household_id": "hh_choulet_claudia_pierrette",
+      "record_id": "st_marys_bapt_1834_17_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "choulet_louise_caroline",
+      "household_id": "hh_choulet_louise_caroline",
+      "record_id": "st_marys_bapt_1834_16_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "choulet_louise_caroline",
+      "household_id": "hh_choulet_louise_caroline",
+      "record_id": "st_marys_bapt_1835_04_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "choulet_michel_alexandre",
+      "household_id": "hh_choulet_michel_alexandre",
+      "record_id": "st_marys_bapt_1835_06_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "coslet_elisabeth",
+      "household_id": "hh_coslet_elisabeth",
+      "record_id": "st_marys_bapt_1834_20_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "coslet_godfrey",
+      "household_id": "hh_coslet_godfrey",
+      "record_id": "st_marys_bapt_1834_20_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "daly_edward",
+      "household_id": "hh_daly_edward",
+      "record_id": "st_marys_bapt_1835_14_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "daniel_frederick",
+      "household_id": "hh_daniel_frederick",
+      "record_id": "st_marys_bapt_1835_12_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "derocher_jean_baptiste",
+      "household_id": "hh_derocher_jean_baptiste",
+      "record_id": "st_marys_bapt_1835_04_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "dird_john_david",
+      "household_id": "hh_dird_john_david",
+      "record_id": "st_marys_bapt_1833_06_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "duggan_mary",
+      "household_id": "hh_duggan_mary",
+      "record_id": "st_marys_bapt_1834_18_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "duplas_catherine",
+      "household_id": "hh_duplas_catherine",
+      "record_id": "st_marys_bapt_1835_12_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "duplas_joseph",
+      "household_id": "hh_duplas_joseph",
+      "record_id": "st_marys_bapt_1835_12_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "eberling_marian",
+      "household_id": "hh_eberling_marian",
+      "record_id": "st_marys_bapt_1834_20_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "egan_william_b",
+      "household_id": "hh_egan_william_b",
+      "record_id": "st_marys_bapt_1834_18_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "finegan_bridget",
+      "household_id": "hh_finegan_bridget",
+      "record_id": "st_marys_bapt_1835_01_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
       "person_id": "fitzgerald_thos",
       "household_id": "hh_fitzgerald_thos",
       "record_id": "st_cyr_marriage_065_3",
       "why": "The register dates this act 1837-12-14, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "forester_mary_elisabeth",
+      "household_id": "hh_forester_mary_elisabeth",
+      "record_id": "st_marys_bapt_1835_01_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "forester_thomas",
+      "household_id": "hh_forester_thomas",
+      "record_id": "st_marys_bapt_1835_01_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "forster_bridget",
+      "household_id": "hh_forster_bridget",
+      "record_id": "st_marys_bapt_1835_14_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "franchre_louis",
+      "household_id": "hh_franchre_louis",
+      "record_id": "st_marys_bapt_1833_05_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "gagnier_alexis",
+      "household_id": "hh_gagnier_alexis",
+      "record_id": "st_marys_bapt_1833_15_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "gagnier_catherine",
+      "household_id": "hh_gagnier_catherine",
+      "record_id": "st_marys_bapt_1833_15_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
     },
     {
       "kind": "church",
@@ -1041,10 +1545,178 @@
     },
     {
       "kind": "church",
+      "person_id": "guy_josphine",
+      "household_id": "hh_guy_josphine",
+      "record_id": "st_marys_bapt_1835_10_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "harrington_catherine",
+      "household_id": "hh_harrington_catherine",
+      "record_id": "st_marys_bapt_1833_09_6_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "jolly_jacob",
+      "household_id": "hh_jolly_jacob",
+      "record_id": "st_marys_bapt_1833_09_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "judar_barbery",
+      "household_id": "hh_judar_barbery",
+      "record_id": "st_marys_bapt_1835_12_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "judar_barbery",
+      "household_id": "hh_judar_barbery",
+      "record_id": "st_marys_bapt_1835_13_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "juneau_marguerite",
+      "household_id": "hh_juneau_marguerite",
+      "record_id": "st_marys_bapt_1833_05_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "juneau_solomon",
+      "household_id": "hh_juneau_solomon",
+      "record_id": "st_marys_bapt_1833_05_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "juneau_solomon",
+      "household_id": "hh_juneau_solomon",
+      "record_id": "st_marys_bapt_1833_08_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "juneau_solomon",
+      "household_id": "hh_juneau_solomon",
+      "record_id": "st_marys_bapt_1833_10_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "juneau_solomon",
+      "household_id": "hh_juneau_solomon",
+      "record_id": "st_marys_bapt_1834_17_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "kennedy_lucy",
+      "household_id": "hh_kennedy_lucy",
+      "record_id": "st_marys_bapt_1834_21_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
       "person_id": "kulozjcky_john",
       "household_id": "hh_kulozjcky_john",
       "record_id": "st_cyr_marriage_009_4",
       "why": "The register dates this act 1835-10-01, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_ccile",
+      "household_id": "hh_laframboise_ccile",
+      "record_id": "st_marys_bapt_1834_24_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_claude",
+      "household_id": "hh_laframboise_claude",
+      "record_id": "st_marys_bapt_1834_24_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_franois",
+      "household_id": "hh_laframboise_franois",
+      "record_id": "st_marys_bapt_1833_13_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_joseph",
+      "household_id": "hh_laframboise_joseph",
+      "record_id": "st_marys_bapt_1833_02_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_joseph",
+      "household_id": "hh_laframboise_joseph",
+      "record_id": "st_marys_bapt_1833_13_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_joseph",
+      "household_id": "hh_laframboise_joseph",
+      "record_id": "st_marys_bapt_1834_15_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_josette",
+      "household_id": "hh_laframboise_josette",
+      "record_id": "st_marys_bapt_1833_04_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_josette",
+      "household_id": "hh_laframboise_josette",
+      "record_id": "st_marys_bapt_1833_13_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_josette",
+      "household_id": "hh_laframboise_josette",
+      "record_id": "st_marys_bapt_1834_14_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_josette",
+      "household_id": "hh_laframboise_josette",
+      "record_id": "st_marys_bapt_1834_22_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_marguerite",
+      "household_id": "hh_laframboise_marguerite",
+      "record_id": "st_marys_bapt_1834_23_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_marguerite",
+      "household_id": "hh_laframboise_marguerite",
+      "record_id": "st_marys_bapt_1835_04_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "laframboise_thrse",
+      "household_id": "hh_laframboise_thrse",
+      "record_id": "st_marys_bapt_1834_15_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
     },
     {
       "kind": "church",
@@ -1055,6 +1727,20 @@
     },
     {
       "kind": "church",
+      "person_id": "lavigne_jean_baptiste",
+      "household_id": "hh_lavigne_jean_baptiste",
+      "record_id": "st_marys_bapt_1833_16_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "lavigne_jean_baptiste",
+      "household_id": "hh_lavigne_jean_baptiste",
+      "record_id": "st_marys_bapt_1833_17_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
       "person_id": "lee_george",
       "household_id": "hh_lee_george",
       "record_id": "st_cyr_marriage_009_3",
@@ -1062,10 +1748,185 @@
     },
     {
       "kind": "church",
+      "person_id": "ltendre_baptiste",
+      "household_id": "hh_ltendre_baptiste",
+      "record_id": "st_marys_bapt_1833_10_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "ltendre_joseph",
+      "household_id": "hh_ltendre_joseph",
+      "record_id": "st_marys_bapt_1833_10_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "madera_victoire",
+      "household_id": "hh_madera_victoire",
+      "record_id": "st_marys_bapt_1833_03_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "madera_victoire",
+      "household_id": "hh_madera_victoire",
+      "record_id": "st_marys_bapt_1834_12_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "mallet_marie_louise",
+      "household_id": "hh_mallet_marie_louise",
+      "record_id": "st_marys_bapt_1835_11_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "mayo_joseph",
+      "household_id": "hh_mayo_joseph",
+      "record_id": "st_marys_bapt_1833_02_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "mayo_michel",
+      "household_id": "hh_mayo_michel",
+      "record_id": "st_marys_bapt_1833_02_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "medera_genevive",
+      "household_id": "hh_medera_genevive",
+      "record_id": "st_marys_bapt_1835_03_1_subject",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "miller_catherine",
+      "household_id": "hh_miller_catherine",
+      "record_id": "st_marys_bapt_1835_12_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "molony_denis",
+      "household_id": "hh_molony_denis",
+      "record_id": "st_marys_bapt_1835_14_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "molony_john",
+      "household_id": "hh_molony_john",
+      "record_id": "st_marys_bapt_1835_14_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
       "person_id": "morris_potily",
       "household_id": "hh_morris_potily",
       "record_id": "st_cyr_marriage_009_2",
       "why": "The register dates this act 1835-10-01, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "murphy_mary",
+      "household_id": "hh_murphy_mary",
+      "record_id": "st_marys_bapt_1835_01_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "murphy_mary",
+      "household_id": "hh_murphy_mary",
+      "record_id": "st_cyr_marriage_073_2",
+      "why": "The register dates this act 1838-02-01, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "murray_catherine",
+      "household_id": "hh_murray_catherine",
+      "record_id": "st_marys_bapt_1835_09_4_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "murray_john",
+      "household_id": "hh_murray_john",
+      "record_id": "st_marys_bapt_1835_09_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "murray_john",
+      "household_id": "hh_murray_john",
+      "record_id": "st_cyr_marriage_066_3",
+      "why": "The register dates this act 1837-12-01, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "murray_martha",
+      "household_id": "hh_murray_martha",
+      "record_id": "st_marys_bapt_1835_09_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "nadeau_monique",
+      "household_id": "hh_nadeau_monique",
+      "record_id": "st_marys_bapt_1833_01_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "nadeau_monique",
+      "household_id": "hh_nadeau_monique",
+      "record_id": "st_marys_bapt_1833_03_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "nadeau_monique",
+      "household_id": "hh_nadeau_monique",
+      "record_id": "st_marys_bapt_1833_08_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "nadeau_monique",
+      "household_id": "hh_nadeau_monique",
+      "record_id": "st_marys_bapt_1833_14_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "nadeau_monique",
+      "household_id": "hh_nadeau_monique",
+      "record_id": "st_marys_bapt_1833_15_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "nadeau_monique",
+      "household_id": "hh_nadeau_monique",
+      "record_id": "st_marys_bapt_1833_18_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "nadeau_monique",
+      "household_id": "hh_nadeau_monique",
+      "record_id": "st_marys_bapt_1834_19_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "nadeau_monique",
+      "household_id": "hh_nadeau_monique",
+      "record_id": "st_marys_bapt_1834_21_5_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
     },
     {
       "kind": "church",
@@ -1083,10 +1944,164 @@
     },
     {
       "kind": "church",
+      "person_id": "omarra_bridget",
+      "household_id": "hh_omarra_bridget",
+      "record_id": "st_marys_bapt_1835_07_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "omarra_james",
+      "household_id": "hh_omarra_james",
+      "record_id": "st_marys_bapt_1835_07_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "ouilmette_marie_louise",
+      "household_id": "hh_ouilmette_marie_louise",
+      "record_id": "st_marys_bapt_1834_16_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "ouilmette_marie_louise",
+      "household_id": "hh_ouilmette_marie_louise",
+      "record_id": "st_marys_bapt_1834_17_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
       "person_id": "owen_thomas_jv",
       "household_id": "hh_owen_thomas_jv",
       "record_id": "st_cyr_death_07_1",
       "why": "The register dates this act 1835-10-15, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "pallet_joseph",
+      "household_id": "hh_pallet_joseph",
+      "record_id": "st_marys_bapt_1834_12_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "peltier_jacquette",
+      "household_id": "hh_peltier_jacquette",
+      "record_id": "st_marys_bapt_1833_13_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "peltier_jacquette",
+      "household_id": "hh_peltier_jacquette",
+      "record_id": "st_marys_bapt_1834_15_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "peltier_jacquette",
+      "household_id": "hh_peltier_jacquette",
+      "record_id": "st_marys_bapt_1834_23_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "peltier_jacquette",
+      "household_id": "hh_peltier_jacquette",
+      "record_id": "st_marys_bapt_1834_24_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "pottier_augustin",
+      "household_id": "hh_pottier_augustin",
+      "record_id": "st_marys_bapt_1833_03_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "pottier_jean",
+      "household_id": "hh_pottier_jean",
+      "record_id": "st_marys_bapt_1833_03_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "pottier_jean",
+      "household_id": "hh_pottier_jean",
+      "record_id": "st_marys_bapt_1834_12_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "pottier_joseph",
+      "household_id": "hh_pottier_joseph",
+      "record_id": "st_marys_bapt_1834_12_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "preman_catherine",
+      "household_id": "hh_preman_catherine",
+      "record_id": "st_marys_bapt_1835_02_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "riffe_pierre",
+      "household_id": "hh_riffe_pierre",
+      "record_id": "st_marys_bapt_1835_08_4_godfather",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "robi_marguerite",
+      "household_id": "hh_robi_marguerite",
+      "record_id": "st_marys_bapt_1835_05_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "roi_anne_franoise_virginie",
+      "household_id": "hh_roi_anne_franoise_virginie",
+      "record_id": "st_marys_bapt_1835_11_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "roi_george_david",
+      "household_id": "hh_roi_george_david",
+      "record_id": "st_marys_bapt_1835_10_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "roi_george_david",
+      "household_id": "hh_roi_george_david",
+      "record_id": "st_marys_bapt_1835_11_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "roi_joseph_claude",
+      "household_id": "hh_roi_joseph_claude",
+      "record_id": "st_marys_bapt_1835_10_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "schwartz_adam",
+      "household_id": "hh_schwartz_adam",
+      "record_id": "st_marys_bapt_1835_08_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "schwartz_pierre_adam",
+      "household_id": "hh_schwartz_pierre_adam",
+      "record_id": "st_marys_bapt_1835_08_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
     },
     {
       "kind": "church",
@@ -1097,10 +2112,129 @@
     },
     {
       "kind": "church",
+      "person_id": "smith_mathias",
+      "household_id": "hh_smith_mathias",
+      "record_id": "st_marys_bapt_1833_06_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "stone_henry",
+      "household_id": "hh_stone_henry",
+      "record_id": "st_marys_bapt_1835_02_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "tony_jacob",
+      "household_id": "hh_tony_jacob",
+      "record_id": "st_marys_bapt_1835_13_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "tony_louisa",
+      "household_id": "hh_tony_louisa",
+      "record_id": "st_marys_bapt_1835_13_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "tranche_marguerite",
+      "household_id": "hh_tranche_marguerite",
+      "record_id": "st_marys_bapt_1835_06_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "tranche_susanne",
+      "household_id": "hh_tranche_susanne",
+      "record_id": "st_marys_bapt_1833_16_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "vieau_jacob",
+      "household_id": "hh_vieau_jacob",
+      "record_id": "st_marys_bapt_1833_08_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "vieau_josette",
+      "household_id": "hh_vieau_josette",
+      "record_id": "st_marys_bapt_1833_05_3_mother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "vieau_josette",
+      "household_id": "hh_vieau_josette",
+      "record_id": "st_marys_bapt_1833_10_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "vieau_marie_josette",
+      "household_id": "hh_vieau_marie_josette",
+      "record_id": "st_marys_bapt_1833_08_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "vieau_paul",
+      "household_id": "hh_vieau_paul",
+      "record_id": "st_marys_bapt_1833_18_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "vieaux_susanne",
+      "household_id": "hh_vieaux_susanne",
+      "record_id": "st_marys_bapt_1833_18_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "wagon_cicely",
+      "household_id": "hh_wagon_cicely",
+      "record_id": "st_marys_bapt_1834_18_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
       "person_id": "wellmaker_john",
       "household_id": "hh_wellmaker_john",
       "record_id": "st_cyr_marriage_011_6",
       "why": "The register dates this act 1836-04-04, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "welsh_catharine",
+      "household_id": "hh_welsh_catharine",
+      "record_id": "st_marys_bapt_1834_17_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "welsh_john",
+      "household_id": "hh_welsh_john",
+      "record_id": "st_marys_bapt_1834_16_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "welsh_john",
+      "household_id": "hh_welsh_john",
+      "record_id": "st_marys_bapt_1834_17_2_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "welsh_joseph",
+      "household_id": "hh_welsh_joseph",
+      "record_id": "st_marys_bapt_1834_16_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
     },
     {
       "kind": "church",
@@ -1115,6 +2249,41 @@
       "household_id": "hh_welsh_t",
       "record_id": "st_cyr_marriage_010_4",
       "why": "The register dates this act 1835-10-27, after the scene date of 1835-07-01. A relationship that had not started is not in this scene, and an earlier date may not be borrowed for it: a man buried by the parish in July was very likely of it in June, and 'very likely' is not a date."
+    },
+    {
+      "kind": "church",
+      "person_id": "whistler_gwinthlean",
+      "household_id": "hh_whistler_gwinthlean",
+      "record_id": "st_marys_bapt_1834_22_5_godmother",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "whistler_john_harrison",
+      "household_id": "hh_whistler_john_harrison",
+      "record_id": "st_marys_bapt_1833_04_4_sponsor",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "wode_catherine",
+      "household_id": "hh_wode_catherine",
+      "record_id": "st_marys_bapt_1833_09_2_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "wode_john",
+      "household_id": "hh_wode_john",
+      "record_id": "st_marys_bapt_1833_09_3_father",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
+    },
+    {
+      "kind": "church",
+      "person_id": "wode_mary",
+      "household_id": "hh_wode_mary",
+      "record_id": "st_marys_bapt_1833_09_1_child",
+      "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
     },
     {
       "kind": "agency_held",
@@ -1175,7 +2344,7 @@
       "kind": "land_purchased",
       "person_id": "beaubien_jean_baptiste",
       "purchaser_as_read": "BEAUBIEN J B",
-      "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
+      "why": "The crosswalk's match is named, and that file says of itself: 'PROPOSALS, not identities. Nothing here mints a resident'. Only an ADJUDICATED match may reach a card."
     },
     {
       "kind": "land_purchased",
@@ -1605,6 +2774,12 @@
     },
     {
       "kind": "land_purchased",
+      "person_id": "stone_henry",
+      "purchaser_as_read": "STONE H O",
+      "why": "The crosswalk's match is unruled, and that file says of itself: 'PROPOSALS, not identities. Nothing here mints a resident'. Only an ADJUDICATED match may reach a card."
+    },
+    {
+      "kind": "land_purchased",
       "person_id": "taylor_augustine",
       "purchaser_as_read": "TAYLOR A D",
       "why": "No register row of this purchaser is both sorted onto a tract and dated on or before the scene date. The tract sort's own `refusals` block says which rows it would not place \u2014 town plat lots, ground outside the modelled extent, descriptions not read, and rows with neither a ring nor a citation."
@@ -1666,7 +2841,7 @@
     {
       "kind": "land_purchased",
       "person_id": null,
-      "why": "379 register row(s) of upheld purchasers are not in the tract sort's `sorted` list at all, so this module has no ground to name for them. The reasons are that file's own: `refusals.town_plat_lots`, `refusals.outside_the_modelled_ground`, `refusals.description_not_read` and `refusals.no_ring_and_no_citation`."
+      "why": "366 register row(s) of upheld purchasers are not in the tract sort's `sorted` list at all, so this module has no ground to name for them. The reasons are that file's own: `refusals.town_plat_lots`, `refusals.outside_the_modelled_ground`, `refusals.description_not_read` and `refusals.no_ring_and_no_citation`."
     },
     {
       "kind": "school",

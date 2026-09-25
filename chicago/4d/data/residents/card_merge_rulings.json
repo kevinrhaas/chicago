@@ -507,6 +507,24 @@
       ]
     },
     {
+      "id": "chevalier-chevallier",
+      "surname": "chevalier",
+      "rulings": [
+        {
+          "state": "distinct",
+          "rule": "D9",
+          "ticket": "T-1525",
+          "on": "2026-09-25",
+          "members": [
+            "chevalier_louis_p",
+            "chevallier_louis_p"
+          ],
+          "for_merge": "'Louis P.' against 'Louis P.' — the forename AND the middle initial agree on every printing, so nothing but one doubled L in a nine-letter French surname stands between the cards. Neither stem is otherwise populated by this pair's bearer: the town holds one Chevallier of this forename and one Chevalier of it. Both readings are the Chicago Democrat inside the window.",
+          "against_merge": "ONE CORPUS ID, TWO PRINTINGS SIXTEEN MONTHS APART, AND NEITHER SETS BOTH. Both cards cite `chicago_newspapers_1833_1835`, so a grep over the corpus finds both spellings — but that id is three years of two papers, and the printings are identified: 'Louis P. Chevallier' is the Democrat of 21 January 1834 (#c006) and 'Louis P. Chevalier' the Democrat of 20 May 1835 (#c013). No single issue is caught setting both spellings for one man, so C9's demonstration is absent; no roll enters both as separate entries either, so D5 is unavailable; and because both cards cite one source id, D7's 'the two bodies of evidence do not touch' is literally false and that refusal is not available as written. This is the gap D9 exists to close, measured at the PRINTING rather than at the source id. Neither card is an anchor. The Chevalier side carries a third reading — 'L. Chevalier', a witness in St Mary's on 6 June 1835 — which the Chevallier side has nothing to meet. D9."
+        }
+      ]
+    },
+    {
       "id": "clark-john",
       "surname": "clark",
       "rulings": [
@@ -848,6 +866,25 @@
           "note": "Of the six refusals this is the one a scan read could overturn fastest: the IRAD originals are two clerks' hands and the transcription is one typist's, so a reading of the 1834 poll's own page may find the terminal E is the transcriber's and not the clerk's.",
           "ticket": "T-1134",
           "on": "2026-09-15"
+        }
+      ]
+    },
+    {
+      "id": "franchere",
+      "surname": "franchere",
+      "rulings": [
+        {
+          "state": "undecided",
+          "referred_to": "T-1554",
+          "rule": "U1",
+          "ticket": "T-1525",
+          "on": "2026-09-25",
+          "members": [
+            "franchere_l",
+            "franchre_louis"
+          ],
+          "for_merge": "One man is the likely reading and both cards stand on FATHER ST CYR'S OWN HAND. 'L. Franchere' is a witness in the St Cyr register (ICHR v4) in 1834; 'Louis Franchère' is a sponsor in St Mary's baptismal register on 5 June 1833. L agrees with Louis as an initial stands for a forename, the surname is one name — Franchère — and the apparent one-letter gap is this project's own transcription, one source printing the grave accent and the other not. Neither stem is otherwise populated: one card each, and Franchere is set three times in three texts while Franchre is set nowhere at all, because it is not a spelling anybody used.",
+          "against_merge": "NO RULE IN THIS FILE REACHES IT, AND THE ANSWER IS ON A PAGE. C9 asks that the FORENAME agree on every printing and an initial against a full given name is not that agreement; C10 asks that the SURNAME agree letter for letter and the accent means it does not; so neither demonstration rule is available, and D7 and D8 exist only for pairs that fail the demonstration alone. D10 does not fire either — L and Louis do not DISAGREE, which is the whole of what D10 refuses. Nor is this U2's ambiguity that no evidence can settle: the 1834 marriage entry names its witness, and reading that entry for a full forename settles it either way. So the cluster is WEIGHED and filed rather than guessed, and T-1554 owns the reading. U1."
         }
       ]
     },
@@ -1359,6 +1396,24 @@
       ]
     },
     {
+      "id": "laframboise-leframboise",
+      "surname": "laframboise",
+      "rulings": [
+        {
+          "state": "distinct",
+          "rule": "D7",
+          "ticket": "T-1525",
+          "on": "2026-09-25",
+          "members": [
+            "laframboise_joseph",
+            "leframboise_joseph"
+          ],
+          "for_merge": "'Joseph' against 'Joseph', identical, and one vowel at the head of a surname the fur trade spelled every way it could: La Framboise, Laframboise, Le Framboise. The corpus was searched and the asymmetry is the shape a mis-set card usually takes — 'leframboise' is set NOWHERE in the deposited texts, not once, while Laframboise is set 30 times across ten of them and 'Joseph Laframboise' 7 times across four. Within the town the Le- stem holds exactly one card and the La- stem seven.",
+          "against_merge": "THE TWO BODIES OF EVIDENCE DO NOT TOUCH, AND NO TITLE SETS BOTH SPELLINGS. Every Laframboise reading is a muster or a parish register — 'LAFRAMBOISE, JOSEPH' on the Black Hawk War enrollments of 1832, and 'Joseph Laframboise' as sponsor on 26 May 1833 and as father in August 1833 and on 28 June 1834 in St Mary's. 'Le Framboise, Joseph' is the tax list of 1833 and nothing else: one roll, one instrument, which none of the Laframboise readings is on. So there is no single roll whose silence could be weighed either way, and no printing is caught setting both spellings for one man. Only one card cites `chicago_voter_lists_1833_1835_irad`, so D9's measurement at the roll does not apply here — the instruments are genuinely different, which is D7's general case rather than D6's serial-roll one. THIS IS NOT A CLAIM THAT THE TOWN HELD TWO JOSEPHS OF THIS NAME, and the `for_merge` is kept verbatim so a page that sets both reopens it. D7."
+        }
+      ]
+    },
+    {
       "id": "lewie-lewin",
       "surname": "lewin",
       "rulings": [
@@ -1785,6 +1840,24 @@
           ],
           "for_merge": "L expands to Lawrence and no other Smith forename in the cluster begins with L.",
           "against_merge": "Neither card documents the man: one is a poll-list line graded G3, the other a groom in the St Cyr marriage register graded G2c, in different domains eleven months apart with no shared source, no trade and no address. Smith is the commonest surname in the dataset and a bare expansion on it is exactly what T-0696 was opened to give a second discriminator for. Refused by rule."
+        }
+      ]
+    },
+    {
+      "id": "smith-mathias-matthias",
+      "surname": "smith",
+      "rulings": [
+        {
+          "state": "distinct",
+          "rule": "D8",
+          "ticket": "T-1525",
+          "on": "2026-09-25",
+          "members": [
+            "smith_mathias",
+            "smith_matthias"
+          ],
+          "for_merge": "Mathias and Matthias ARE two spellings of one name, not two given names — this is D8's shape and not the stronger refusal it reserves for Mark against Mary. The surname agrees letter for letter, neither card carries a middle initial, so nothing but one doubled t stands between them, and the town holds exactly one bearer of each spelling.",
+          "against_merge": "NO PRINTING SETS BOTH, AND SMITH IS THE WORST SURNAME IN THE CORPUS TO FOLD ON A RESEMBLANCE. The corpus and the reading index were searched: 'Matthias Smith' is set 7 times across four texts and stands on the poll of 1833; 'Mathias Smith' is set NOWHERE in the deposited corpus and stands on one reading, a St Mary's sponsor of 5 June 1833. A poll book against a parish register — two instruments that do not touch — and no single issue, roll or directory entry is caught setting both spellings for one man. Against the corpus silence stands the surname itself: Smith is set 1,107 times across 93 texts and the layer already carries ten Smith cards, so this stem has abundant independent life and the silence around one forename spelling proves nothing about identity. The reading index holds 75 identities of each spelling. D8."
         }
       ]
     },

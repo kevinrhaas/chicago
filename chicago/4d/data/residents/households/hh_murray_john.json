@@ -134,6 +134,31 @@
     "st_cyr_register_ichr_v4",
     "st_marys_baptismal_register_1833_1835"
    ],
+   "dated_bounds": [
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago American",
+     "record_id": "chicago_american_1835_06_20#c011",
+     "claim_kind": "event",
+     "as_printed": "James li Murray",
+     "role": "passenger",
+     "locator": "chicago_american_1835_06_20 page 3 column 5",
+     "describes_date": "1835-06-20",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-20",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_american_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_james_h_murray, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago American of 1835-06-20 names 'James li Murray' in the claim read as chicago_american_1835_06_20#c011, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
    "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835, church_after_1835, directory_1843, directory_1844. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 25 September 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason. No figure is drawn (L1).",
    "church_evidence": [
     {

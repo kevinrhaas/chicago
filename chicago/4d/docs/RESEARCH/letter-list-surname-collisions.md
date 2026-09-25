@@ -26,7 +26,7 @@ rows they were, read now off what the pass says rather than off who it drops.
 
 ## The two readings, over the same pool
 
-* the pool the register offers this pass: **1860** candidates
+* the pool the register offers this pass: **1857** candidates
 * accepted under the pre-T-0638 reading: **769**
 * accepted under the corrected reading: **789**
 * standing records a mint-time refusal lands on, corrected reading: **79**; pre-T-0638 reading: **70**
