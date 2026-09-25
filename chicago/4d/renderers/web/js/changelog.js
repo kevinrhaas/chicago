@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1108, title: 'A ticket closed somewhere else, and the town\u2019s checks went red', kind: 'fix', ts: '2026-09-25T17:11:29.530Z', date: 'Sep 25, 2026, 12:11 PM CT',
+    items: [
+      'Nothing you can see changed in the town. Every check this project runs went red yesterday afternoon, on twelve resident cards nobody had touched, and they are green again.',
+      'The cause was a piece of bookkeeping. Twelve people \u2014 the county clerk, a corporate trustee, a coroner, two priests\u2019 and two schoolmistresses\u2019 posts among them \u2014 carry a real, sourced fact this project has read and not yet written onto their cards: an office, a ministry, a school kept. Each one names the piece of work that owes it. That work finished, so the twelve were owed to nobody, and the rule that says a person may only be waiting on work that is still going to happen did exactly what it is for.',
+      'They now name a job that exists, filed for them: write those twelve posts onto the cards, or refuse each one in writing. Nothing about what the sources say moved, and no confidence was raised.',
+      'The checks also say more than they did. A dead pointer now names what killed it instead of leaving the next reader to find out \u2014 and, more useful, the gate now says out loud which of these pointers is ONE closure away from the same red. It found another the moment it was asked: 272 waiting people hang on a single unfinished job.',
+    ] },
   { v: 1107, title: 'Twenty-six hands were ruled for, and no bed to put them in', kind: 'change', ts: '2026-09-25T15:57:06.537Z', date: 'Sep 25, 2026, 10:57 AM CT',
     items: [
       'The last entry put a question to the owner: the shops of 1835 are short of clerks, journeymen and apprentices, and the ledger this project invents people against cannot pay for all of them. He has ruled \u2014 staff every house to the lower of the staffing model\u2019s two bands, invent the hands the ledger can pay for, and let the houses it cannot reach print their shortfall. At that band the shops want 47 hands across 44 houses and the ledger pays for 26. Working out which 26 turned up two things nothing had checked.',
