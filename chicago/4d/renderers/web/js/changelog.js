@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1103, title: 'The 523 held people can no longer be owed to nobody', kind: 'change', ts: '2026-09-25T13:12:36.507Z', date: 'Sep 25, 2026, 8:12 AM CT',
+    items: [
+      'Nothing you can see changed in the town today. What changed is a way this project had of losing work quietly, and it had already lost this particular work for four days.',
+      'The town is reconstructed against an order book, and the book refuses to delete anybody: where reading real people showed it had already invented too many in some cohort, it keeps them and writes down both numbers. That leaves 523 invented people standing past any order, and the owner has ruled they are re-familied into the cohorts the same re-count GREW rather than retired. Somebody has to actually do that.',
+      'Who that somebody was lived in a sentence. The sentence named three pieces of work, all three of which had finished, so the 523 were owed to nobody at all \u2014 and every check this project runs stayed green through it, because a cohort held at what was drawn reads as having nothing left to do. The ledger written yesterday replaced the sentence, and its own steps can close the same way.',
+      'So the checks now read it. Each unfinished step of the re-familying has to name work somebody can still pick up, and the gate goes red the moment the last one closes with people still held. A programme split into pieces counts as live while one piece is \u2014 and only then.',
+    ] },
   { v: 1102, title: 'Samuel Toby was two men because one printing dropped a letter', kind: 'change', ts: '2026-09-25T12:55:43.339Z', date: 'Sep 25, 2026, 7:55 AM CT',
     items: [
       'The Chicago Democrat printed the post office\u2019s list of unclaimed letters for 1 July 1834 three times. Two of those printings set \u2018Samuel E. Toby\u2019. The third set \u2018Samuel. Toby\u2019 \u2014 same list, 219th name down in both of the two settings that can be counted against each other \u2014 and on that one missing E this project carried him as two people. He is one now, and the second card is gone.',

@@ -6222,6 +6222,10 @@
       "ticket": "T-1559",
       "settled": false
     },
+    "the_programme": {
+      "ticket": "T-1556",
+      "settled": false
+    },
     "moves": [],
     "counts": {
       "moves": 0,
@@ -6233,6 +6237,7 @@
     "the_held_surplus": {
       "buckets_refused": 48,
       "people_held": 523,
+      "people_still_held": 523,
       "open_headroom_in_person_buckets": 427,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
