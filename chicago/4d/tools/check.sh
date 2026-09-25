@@ -2534,6 +2534,22 @@ step "a split keeps its claim, and the queue drops only finished work and regain
 step "the tickets repo: claim is a pushed lock, done waits on the merge, ask stays in the queue" \
   node tools/test_ticket_repo_mode.mjs
 
+# A PARKED PULL REQUEST IS THE ONE KIND NOTHING IS COMING BACK FOR (T-1576). The lap,
+# `merge-ready.sh` and `pr-stuck.sh` all read labels before state and all skip `hold` on
+# purpose, so a held PR is invisible by design — and the only place its reason was
+# written was the PR body. The owner, 2026-09-25, finding three at once: "that seems
+# like a bad move because i am not aware of why they are held". `board --parked` puts
+# every open `hold`/`resume` PR on the board with its reason and its age.
+#
+# THE READING THIS STEP EXISTS FOR IS THE BLIND ONE. An empty section and a section
+# whose PR list could not be read print identically unless something makes them differ,
+# and the second dressed as the first is the same silence one level up. The fixture is
+# a constructed PR list for the reason `landed --pr-json` takes one: against the live
+# repository the right answer changes by the hour, so what a gate can hold is the
+# READING. It reaches no network.
+step "every held or resumable pull request reaches the board with its reason, and an unread list says so" \
+  node tools/test_ticket_parked.mjs
+
 # A GATED WRITER BELONGS IN THE MANIFEST (T-1282, owner 2026-09-18). A tool this gate runs
 # with --check, and that can also write, produces DERIVED content by definition — so if
 # derived_manifest.json has never heard of it, rederive.mjs never runs it, the lap leaves

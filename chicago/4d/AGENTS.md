@@ -289,6 +289,25 @@ is the contract. The short form:
   records WHICH Actions run holds the ticket (`claimed_run`) and `done` records the
   INSTANT it finished (`closed_at`), so BOARD.md can show what is being worked now and
   what finished in the order it finished. Neither is ever hand-written.
+- **A PARKED PULL REQUEST IS ON THE BOARD, WITH THE REASON IT WAS PARKED FOR** (T-1576).
+  The lap, `merge-ready.sh` and `pr-stuck.sh` all read labels before they read state and
+  all skip `hold` on purpose, so a parked PR is by construction the one kind nothing is
+  coming back for — and until now its reason lived only in the PR body. The owner, on
+  2026-09-25, finding three at once: *"that seems like a bad move because i am not aware
+  of why they are held"*. So `ticket.mjs board --parked` reads the open pull requests and
+  puts every one carrying `hold` or `resume` at the TOP of BOARD.md with its ticket, its
+  age, how long since it was last touched, and its reason. The settle workflow passes
+  `--parked`; `publish.sh`, `pr-lap.sh` and the merge driver do not, and stay offline.
+  * **The reason is read, never composed.** T-1573's structured line
+    (`resume: <reason> · waits on: <ticket or "nothing">`) in a PR comment first —
+    newest wins — then the same line in the body, then the body's own
+    `### Why this is on \`hold\`` section. A PR that wrote none is listed saying
+    **no reason written on the PR**, which is a true statement about it and is not
+    papered over with a guess. `waits on` is carried only where a run named it.
+  * **An unread list is not an empty one.** When the PR list cannot be read — a rate
+    limit, a 404, no network — the section says **NOT READ** in those words. An empty
+    section and a failed call print identically otherwise, and that silence is the
+    fault the whole reading was filed against. `tools/test_ticket_parked.mjs` holds it.
 - **A CLAIM IS A LOCK, AND IT IS TAKEN ON THE REMOTE** (owner, 2026-09-11: *"can you
   prevent duplicate claiming going forward?"*). `claim` pushes a marker branch
   `claim/t-NNNN` before you do any work, and the push is a compare-and-swap the GitHub
