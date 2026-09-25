@@ -2463,6 +2463,22 @@ step "the merger merges what GitHub calls clean, and nothing else" \
 step "a pull request nothing can move is reported, and nothing else is touched" \
   node tools/test_pr_stuck.mjs
 
+# AND THE OTHER LABEL — the one a RUN applies to its own unfinished work (T-1573).
+# `hold` is the owner's park switch and every pass above skips it on purpose,
+# which is right; what was wrong is that the steward prompt told a run to apply
+# that same label whenever it merely could not FINISH, so work needing nobody's
+# decision had nothing coming for it either. Owner, 2026-09-25, on the three PRs
+# parked that way: "that seems like a bad move because i am not aware of why they
+# are held" — and he was right twice over, because #39's stated reason was already
+# stale (CI had passed all 620 steps) while #41 and #42 were simply COMPLETE.
+# `pr-rest.sh resume` is the replacement, and its whole value is one machine-
+# readable line — `resume: <reason> · waits on: <T-NNNN|nothing>` — that pr-stuck
+# reads back into every sweep. A reason lost to a stray newline, or a label applied
+# before the reason is written, rebuilds the silence exactly. This runs the REAL
+# script against a faked `gh` and holds it to the order as well as the content.
+step "a run that cannot finish hands its PR on, and says why in a line a script can read" \
+  node tools/test_pr_resume.mjs
+
 # AND THE QUESTION THE LOCK CANNOT ANSWER: has this ticket's PR already MERGED?
 # Everything here squash-merges, so a merged branch never becomes an ancestor of
 # `dev`; `inflight` is honest about that and falls back on branch AGE, which makes a

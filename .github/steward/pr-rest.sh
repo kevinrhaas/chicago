@@ -6,6 +6,7 @@
 #   pr-rest.sh view N [--jq EXPR]                            # default '.mergeable_state'
 #   pr-rest.sh comment N --body P
 #   pr-rest.sh merge N [--method squash|merge|rebase]
+#   pr-rest.sh resume N --why R [--waits-on T-NNNN|nothing]  # hand an unfinished PR to the next run
 #   pr-rest.sh meter                                         # both buckets, one line
 #
 # WHY, measured 2026-08-27 (steward run 1140): GitHub meters GraphQL and REST as
@@ -31,7 +32,7 @@
 # stderr, because "pushed, gated, no PR" must never be silent.
 set -euo pipefail
 
-[ $# -ge 1 ] || { echo "usage: $0 create|list|view|comment|merge|meter ..." >&2; exit 2; }
+[ $# -ge 1 ] || { echo "usage: $0 create|list|view|comment|merge|resume|meter ..." >&2; exit 2; }
 cmd=$1; shift
 
 repo="${GITHUB_REPOSITORY:?GITHUB_REPOSITORY is not set}"
@@ -115,8 +116,99 @@ case "$cmd" in
     meter_line
     ;;
 
+  # THE HANDOFF, AND WHY IT IS NOT `hold` (T-1573; owner, 2026-09-25, on finding
+  # three PRs parked on `hold` whose reasons he had not seen: *"that seems like a
+  # bad move because i am not aware of why they are held"*).
+  #
+  # `hold` is THE OWNER'S PARK SWITCH. Every automated pass in this repository
+  # skips it on purpose — the lap, merge-ready, the stuck reporter — because a park
+  # a robot can overrule is not a park. But the steward prompt told a run to apply
+  # that same label whenever it merely COULD NOT FINISH: verification unrun, the
+  # turn budget low, `dev` moving faster than it could rebase, or `dev`'s own gate
+  # red. So a label meaning "a person is deciding" was mostly worn by work needing
+  # no decision at all, only a later run — and because every pass skipped it,
+  # nothing ever came. Measured on the three PRs open at 17:35Z on 2026-09-25:
+  #
+  #   #39 (T-1563)  "this run's clock ran out" — CI then passed all 620 steps, so
+  #                 the stated reason was already stale, and it drifted into
+  #                 conflict with `dev` while held.
+  #   #41 (T-1521)  complete; held only because `dev`'s gate was red (T-1567).
+  #   #42 (T-1565)  the same.
+  #
+  # Not one needed a ruling. Each needed a machine to lap it, re-gate it and merge
+  # it, and each got a person instead.
+  #
+  # So an unfinished run says `resume` and says WHY, in a line a machine can read:
+  #
+  #   resume: <reason> · waits on: <T-NNNN | nothing>
+  #
+  # `waits on` is the difference between "come back to this" and "come back to this
+  # AFTER that lands", and it is a ticket id or the word `nothing` — never prose,
+  # because the reader is a script.
+  resume)
+    n=${1:?PR number}; shift
+    why= waits=nothing
+    while [ $# -gt 0 ]; do
+      case "$1" in
+        --why)      why=$2; shift 2 ;;
+        --waits-on) waits=${2:-nothing}; shift 2 ;;
+        *) echo "$0 resume: unknown argument $1" >&2; exit 2 ;;
+      esac
+    done
+    # A HANDOFF WITH NO REASON IS THE FAULT THIS VERB EXISTS TO END, so it is a
+    # usage error and not a default. The three PRs above each had a reason; it was
+    # in the PR body, which is the one place nobody reads.
+    [ -n "$why" ] || { echo "$0 resume: --why is required — a handoff whose reason is not written down is the fault this verb exists to end" >&2; exit 2; }
+    # ONE LINE, ALWAYS. A newline in the reason would push the machine-readable
+    # part off the first line and every reader below would see a handoff with no
+    # reason — the same silence, wearing a new label.
+    why=$(printf '%s' "$why" | tr '\n\r\t' '   ')
+    [ -n "$waits" ] || waits=nothing
+    case "$waits" in
+      nothing|T-[0-9][0-9][0-9][0-9]) ;;
+      *) echo "$0 resume: --waits-on takes a ticket id like T-1567, or the word 'nothing' — got '$waits'" >&2; exit 2 ;;
+    esac
+    # The label vocabulary, created once and idempotently. Adding a label that does
+    # not exist is a 422 on the issues endpoint, so the first handoff in a fresh
+    # clone would otherwise leave the comment and no label — visible to a person
+    # and invisible to every script.
+    gh api -X POST "repos/${repo}/labels" \
+      -f name=resume -f color=0E8A16 \
+      -f description="A run could not finish this; the next one picks it up — reason in the resume: comment" \
+      >/dev/null 2>&1 || true
+    # THE REASON GOES ON BEFORE THE LABEL, and the order is the point: a labelled
+    # PR must never exist without its reason beside it. If the comment fails, the
+    # label is never applied and the run is told — better an unlabelled PR with a
+    # loud failure than a labelled one nobody can interpret.
+    {
+      printf 'resume: %s · waits on: %s\n\n' "$why" "$waits"
+      printf 'This pull request is the loop'"'"'s own unfinished work, and it is NOT parked.\n'
+      printf 'The run that opened it could not finish inside its own budget; the branch\n'
+      printf 'carries the work. A later run picks it up before it takes new queue work:\n'
+      printf 'merge `%s` in, re-derive, fix what is red, gate, merge.\n\n' "${PR_BASE:-dev}"
+      if [ "$waits" != "nothing" ]; then
+        printf 'It waits on **%s**. Until that ticket closes this PR cannot go green, so a\n' "$waits"
+        printf 'run that finds it says so and takes the next row rather than re-gating it.\n\n'
+      fi
+      printf '`hold` is the owner'"'"'s park switch and no run applies it — see\n'
+      printf '`chicago/4d/AGENTS.md` § the two labels.\n\n'
+      printf -- '---\n_Generated by [Claude Code](https://claude.ai/code)_\n'
+    } | jq -Rs '{body: .}' \
+      | gh api -X POST "repos/${repo}/issues/${n}/comments" --input - >/dev/null
+    gh api -X POST "repos/${repo}/issues/${n}/labels" -f 'labels[]=resume' >/dev/null
+    # AND `hold` COMES OFF. A run that reaches for this verb is declaring the work
+    # unfinished, not parked; leaving both on would leave every pass skipping it,
+    # which is exactly the state being fixed. A PR that never had `hold` answers
+    # 404 here and that is not a failure.
+    if gh api -X DELETE "repos/${repo}/issues/${n}/labels/hold" >/dev/null 2>&1; then
+      echo "  hold removed — hold is the owner's switch and no run applies it"
+    fi
+    echo "resume: #${n} handed off · waits on: ${waits}"
+    ;;
+
   *)
     echo "$0: unknown command $cmd" >&2
+    echo "usage: $0 create|list|view|comment|merge|resume|meter ..." >&2
     exit 2
     ;;
 esac

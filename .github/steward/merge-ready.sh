@@ -40,6 +40,17 @@
 #
 # WHAT IT WILL NOT TOUCH. Drafts, and anything labelled `hold` — `hold` is the
 # owner's park mechanism and a park that a robot can overrule is not a park.
+#
+# WHAT IT EXPLICITLY DOES TOUCH, since T-1573: a PR labelled `resume`. That label
+# says a RUN could not finish, not that a person is deciding, and merging such a PR
+# the moment GitHub calls it `clean` IS the resume — done by machine, with no run
+# spent on it. `clean` is GitHub's own verdict that the branch merges and every
+# required check passed, so a `clean` resumable PR has nothing left to wait for:
+# whatever its `resume:` line says it waits on, the gate it was waiting for is
+# green. The `waits on` field gates only the AGENTIC pickup, which costs a whole
+# run; it never gates a merge that costs one REST call. This was the hole T-1571
+# measured — #41 and #42 were both complete and both sat labelled, waiting on a
+# person, because the only label a run could apply was one every pass skipped.
 set -uo pipefail
 
 REPO="${GITHUB_REPOSITORY:-kevinrhaas/chicago}"
