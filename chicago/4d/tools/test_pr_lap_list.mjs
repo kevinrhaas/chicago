@@ -192,9 +192,21 @@ console.log('pr-lap.sh — a lap that could not ask never reports that it found 
 
   // The unconditional site is the one this case is about: guarded by the
   // already-done flag rather than by `$REAL`, so a clean merge reaches it too.
+  // The window is generous because T-1521 put the mirror publish between the two
+  // — what is asserted is the GUARD, not the number of lines under it.
   check('…on a path a CLEAN merge reaches, not only inside the conflict branch',
-        /if \[ -z "\$\{REDERIVED:-\}" \][\s\S]{0,200}?rederive\.mjs --run/.test(src),
+        /if \[ -z "\$\{REDERIVED:-\}" \][\s\S]{0,600}?rederive\.mjs --run/.test(src),
         'guarded by REDERIVED, not by $REAL');
+
+  // AND THE PUBLISH IS AHEAD OF IT (T-1521). `site/4d/` is untracked, so the
+  // lap's checkout has no mirror, and step 156 of the manifest reads the
+  // published residents and refuses rather than count nothing — which failed the
+  // whole rebuild and left #1629, #1630 and #1631 alone on every lap, for ever.
+  // The behaviour is held by tools/test_pr_lap_publish.mjs; this is the ORDER,
+  // which is the only part of it visible in the source.
+  check('…with the mirror published BEFORE the rebuild that reads it',
+        /lap_publish_mirror[\s\S]{0,400}?rederive\.mjs --run/.test(src),
+        'publish then rebuild');
 
   // A flag set mid-body outlives the iteration unless it is reset at the top —
   // and a stale one would skip the rebuild for the NEXT PR, silently.

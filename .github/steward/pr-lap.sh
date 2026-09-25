@@ -96,6 +96,35 @@ site/4d/tickets.json
 
 say() { printf '%s\n' "$*"; }
 
+# --- the mirror, published BEFORE anything re-derives against it -------------
+#
+# `site/4d/` is GENERATED and untracked (T-0938), so the lap's checkout has no
+# mirror at all — and one step of the derived layer READS it.
+# `tools/rebuild_closing_set.py --build` is step 156 of 156, it takes the
+# published-resident count out of `site/4d/data/residents/`, and rather than
+# write a number it did not take it REFUSES:
+#
+#   REFUSED to write docs/RESEARCH/closing-convergence-2026-09.md: the mirror
+#   is not published, so the published-resident count was not taken.
+#
+# That refusal is right, and it failed the whole rebuild, so the PR was
+# `left alone` — on EVERY lap, for ever, because the next lap reaches the same
+# step and cannot finish either. From outside that is indistinguishable from a
+# queue the lap has not got to yet, which is how three PRs with GREEN gates came
+# to sit unmergeable on 2026-09-21 (#1629, #1630, #1631) while lap 35624254338
+# reported success (T-1521).
+#
+# `tools/check.sh` publishes first, before anything reads the mirror, for exactly
+# this reason (its step 1). The lap never learned it; this is that lesson.
+# A REAL publish, not a `--dry-run`, so publish.sh's own refusals still apply,
+# and about a second on a warm tree. The regeneration block below publishes
+# AGAIN once the queue and the scene have been rebuilt — that one produces the
+# mirror the PR ships; this one only makes it readable. publish.sh is idempotent,
+# so running it twice costs those seconds and nothing else.
+lap_publish_mirror() {
+  ( cd chicago/4d && bash tools/publish.sh ) >/tmp/lap-publish.log 2>&1
+}
+
 # --- dev's drivers, registered by absolute path so any branch can use them
 git fetch origin "$BASE" -q
 for f in merge-queue.mjs merge-changelog.mjs merge-generated.mjs merge-smoke-state.mjs; do
@@ -296,6 +325,10 @@ while IFS=$'\t' read -r N BR; do
        && node chicago/4d/tools/rederive.mjs --resolvable $REAL >/tmp/lap-rederive.log 2>&1; then
       say "  $(echo "$REAL" | grep -c .) conflict(s) in the derived research layer — rebuilding from source"
       git checkout --ours $REAL >/dev/null 2>&1; git add $REAL
+      if ! lap_publish_mirror; then
+        say "  the publish the rebuild reads failed — left alone:"; tail -6 /tmp/lap-publish.log | sed 's/^/    /'
+        git merge --abort 2>/dev/null; SKIPPED=$((SKIPPED+1)); continue
+      fi
       if ! ( cd chicago/4d && node tools/rederive.mjs --run ) >>/tmp/lap-rederive.log 2>&1; then
         say "  the rebuild itself failed — left alone:"; tail -6 /tmp/lap-rederive.log | sed 's/^/    /'
         git merge --abort 2>/dev/null; SKIPPED=$((SKIPPED+1)); continue
@@ -416,7 +449,11 @@ while IFS=$'\t' read -r N BR; do
   # `$REDERIVED` is set by the conflict path above, which has already run exactly
   # this. Running it twice would only cost the same seconds again.
   if [ -z "${REDERIVED:-}" ] && [ -f chicago/4d/tools/rederive.mjs ]; then
-    say "  rebuilding the derived layer against the merged inputs"
+    say "  publishing the mirror, then rebuilding the derived layer against the merged inputs"
+    lap_publish_mirror || {
+      say "  the publish the derived-layer rebuild reads failed — left alone:"
+      tail -6 /tmp/lap-publish.log | sed 's/^/    /'
+      git merge --abort 2>/dev/null; SKIPPED=$((SKIPPED+1)); continue; }
     ( cd chicago/4d && node tools/rederive.mjs --run ) >>/tmp/lap-rederive.log 2>&1 || {
       say "  the derived-layer rebuild failed — left alone:"
       tail -6 /tmp/lap-rederive.log | sed 's/^/    /'
