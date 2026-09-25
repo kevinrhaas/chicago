@@ -1586,10 +1586,15 @@ def main() -> int:
         return 1 if faults else 0
     if args.check:
         from research_spend_ledger import check as check_ledger
+        from research_spend_ledger import fragile_pointers
         old = gate(quiet=True)
         faults = check_ledger(measure())
         for fault in faults:
             print("   FAIL: " + fault)
+        # T-1567/T-1568: a pointer one ticket-close away from stranding. Printed even under
+        # --quiet, because the whole point is that the gate says it BEFORE it is a fault.
+        for note in fragile_pointers():
+            print("   NOTE: " + note)
         if not old and not faults and not args.quiet:
             print("OK: historical research ratchet and closed ledger")
         return 1 if old or faults else 0

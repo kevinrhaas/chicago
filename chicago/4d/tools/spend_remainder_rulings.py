@@ -321,7 +321,25 @@ RULES = {
     },
     "the_enrichment_names_a_civic_church_or_school_post_no_field_carries": {
         "disposition": "unresolved",
-        "ticket": "T-1189",
+        # AND T-1189 IS SPENT SINCE 2026-09-25, so the pointer moves a third time. This is
+        # the T-1237 rule again and it arrived the way that rule always arrives: nothing in
+        # the tree moved, a ticket closed. T-1189 has been `split` since 2026-09-20 and was
+        # held live by ONE leaf of one chain the whole time — T-1189 -> T-1434 -> T-1448 —
+        # and T-1448 merged as #40 at 16:13Z on 2026-09-25 and settled to `done`. T-1432,
+        # T-1433, T-1461 and T-1462 had already closed, so the chain now reads spent and
+        # these twelve units were deferred to finished work; `check.sh` on dev went red on
+        # exactly them (T-1567 filed it from `--ledger-build`, T-1568 from the gate).
+        #
+        # THE PIECES OF T-1189 DO NOT COVER THEM, which is why this is not a per-person deal
+        # among T-1432, T-1433 and T-1434. Those three ran the staffing JOIN: T-1432 wrote
+        # `staff[]` on every business a source staffs, T-1433 seated reconstructed residents
+        # with a trade and no workplace, and T-1434's chain minted the shortfall and printed
+        # the coverage. Not one of them walked the RESIDENT LAYER'S ENRICHMENTS against the
+        # establishments T-1188's children raised — a post found in a volume, on a card this
+        # town already holds. That walk is what these twelve still need, and it now has its
+        # own ticket rather than a pointer at a chain that has stopped: T-1569, filed beside
+        # T-1315 and T-1335, which are the same shape for the dated births and the kin.
+        "ticket": "T-1569",
         "statement": (
             "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a "
             "person this town holds -- a trade, an address, an origin, a kinship, a date -- that "
@@ -342,7 +360,8 @@ RULES = {
             "open ticket that puts real persons into them -- every working person a workplace and "
             "every workplace its people. The three closed children raised the houses and named the "
             "officers their own sources printed; they did not walk the resident layer's enrichments "
-            "against them, and that walk is what a post found in a volume still needs."),
+            "against them, and that walk is what a post found in a volume still needs."
+            " AND THE HAND-OFF IS T-1569 SINCE 2026-09-25: T-1189's own chain is spent — T-1432 and T-1433 done, T-1434 split to T-1448 (done, #40) and T-1449, whose pieces T-1461 and T-1462 are done — so the ticket that was going to do the walk has stopped without doing it. T-1569 is that walk, and it is a SPEND rather than a routing: the join those pieces built is what gives these twelve a field to be written into."),
     },
     "the_enrichment_names_a_landholding_no_field_carries": {
         "disposition": "unresolved",

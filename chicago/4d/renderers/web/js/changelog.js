@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1109, title: 'A ticket closed somewhere else, and the town\u2019s checks went red', kind: 'fix', ts: '2026-09-25T18:23:28.921Z', date: 'Sep 25, 2026, 1:23 PM CT',
+    items: [
+      'Nothing you can see changed in the town. Every check this project runs went red yesterday afternoon, on twelve resident cards nobody had touched, and they are green again.',
+      'The cause was a piece of bookkeeping. Twelve people \u2014 the county clerk, a corporate trustee, a coroner, two priests\u2019 and two schoolmistresses\u2019 posts among them \u2014 carry a real, sourced fact this project has read and not yet written onto their cards: an office, a ministry, a school kept. Each one names the piece of work that owes it. That work finished, so the twelve were owed to nobody, and the rule that says a person may only be waiting on work that is still going to happen did exactly what it is for.',
+      'They now name a job that exists, filed for them: write those twelve posts onto the cards, or refuse each one in writing. Nothing about what the sources say moved, and no confidence was raised.',
+      'The checks also say more than they did. A dead pointer now names what killed it instead of leaving the next reader to find out \u2014 and, more useful, the gate now says out loud which of these pointers is ONE closure away from the same red. It found another the moment it was asked: 272 waiting people hang on a single unfinished job.',
+    ] },
   { v: 1108, title: 'The remedy for 523 invented people reaches 73 of them', kind: 'change', ts: '2026-09-25T17:30:40.176Z', date: 'Sep 25, 2026, 12:30 PM CT',
     items: [
       'This town invents residents against an order book \u2014 a ledger of how many people the sources cannot name but the 1840 census says were here. Where a later reading showed the book had already invented too many in some cohort, it keeps them and prints both numbers. That leaves 523 invented people standing past any order, and the owner ruled in September that they are moved into cohorts with room rather than deleted.',
