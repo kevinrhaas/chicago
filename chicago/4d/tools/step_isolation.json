@@ -3180,6 +3180,9 @@
     "tools/report_letter_list_collisions.py": {
       "wrote": []
     },
+    "tools/report_refamily_programme.py": {
+      "wrote": []
+    },
     "tools/report_research_closing_audit.py": {
       "wrote": []
     },
@@ -3405,7 +3408,13 @@
     "tools/test_pr_lap_list.mjs": {
       "wrote": []
     },
+    "tools/test_pr_lap_publish.mjs": {
+      "wrote": []
+    },
     "tools/test_pr_reconciliation.py": {
+      "wrote": []
+    },
+    "tools/test_pr_resume.mjs": {
       "wrote": []
     },
     "tools/test_pr_stuck.mjs": {

@@ -2426,6 +2426,21 @@ step "a claim is a lock on the remote, and two runs cannot hold one ticket" \
 step "a lap that could not ask never reports that it found nothing" \
   node tools/test_pr_lap_list.mjs
 
+# AND THE LAP MUST BE ABLE TO FINISH A REBUILD IT STARTS (T-1521). `site/4d/` is
+# generated and untracked (T-0938), so the lap's checkout has no mirror — and step
+# 156 of 156, `rebuild_closing_set.py --build`, reads the published residents and
+# REFUSES rather than write a count it did not take. The lap ran `rederive.mjs`
+# without publishing, so every lap over such a PR failed at the same step and left
+# it alone FOR EVER, which from outside looks exactly like a queue the lap has not
+# got to. Measured 2026-09-21, lap run 35624254338: #1629, #1630 and #1631 sat
+# unmergeable with GREEN gates while the lap reported success. This gate publishes
+# first for the same reason (its step 1); the lap now does too. The suite runs the
+# REAL script over a REAL bare remote with stub tools, and then runs it AGAIN with
+# the publish neutered and requires that to fail — a regression test that cannot
+# see the regression is decoration.
+step "the lap publishes the mirror before the rebuild that reads it" \
+  node tools/test_pr_lap_publish.mjs
+
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
 # fleet janitor said the lap plus auto-merge did it, while excluding `custom`
@@ -2462,6 +2477,22 @@ step "the merger merges what GitHub calls clean, and nothing else" \
 # hours old and would have had the reporter declaring PRs stuck on no evidence.
 step "a pull request nothing can move is reported, and nothing else is touched" \
   node tools/test_pr_stuck.mjs
+
+# AND THE OTHER LABEL — the one a RUN applies to its own unfinished work (T-1573).
+# `hold` is the owner's park switch and every pass above skips it on purpose,
+# which is right; what was wrong is that the steward prompt told a run to apply
+# that same label whenever it merely could not FINISH, so work needing nobody's
+# decision had nothing coming for it either. Owner, 2026-09-25, on the three PRs
+# parked that way: "that seems like a bad move because i am not aware of why they
+# are held" — and he was right twice over, because #39's stated reason was already
+# stale (CI had passed all 620 steps) while #41 and #42 were simply COMPLETE.
+# `pr-rest.sh resume` is the replacement, and its whole value is one machine-
+# readable line — `resume: <reason> · waits on: <T-NNNN|nothing>` — that pr-stuck
+# reads back into every sweep. A reason lost to a stray newline, or a label applied
+# before the reason is written, rebuilds the silence exactly. This runs the REAL
+# script against a faked `gh` and holds it to the order as well as the content.
+step "a run that cannot finish hands its PR on, and says why in a line a script can read" \
+  node tools/test_pr_resume.mjs
 
 # AND THE QUESTION THE LOCK CANNOT ANSWER: has this ticket's PR already MERGED?
 # Everything here squash-merges, so a merged branch never becomes an ancestor of
@@ -5030,6 +5061,27 @@ step "the re-family rule re-derives, its roster reconciles with the order book, 
 
 selftest "…and its own assertions still fire when broken" \
   python3 tools/model_refamily_rule.py --self-test
+
+# T-1560, piece 4 of 4 of T-1556. WHAT THE RULING REACHES, WHICH IS ONE SUBTRACTION
+# NOTHING ELSE PERFORMS. The order book states the surplus the re-cut holds (523 across
+# 48 buckets); the rule states the moves the programme can make (73); no file subtracted
+# one from the other, so the number a reader of either would want — what the town is
+# STILL HOLDING when the owner's remedy has been spent in full — existed nowhere. It is
+# 450 people in 43 of the 48 buckets, and docs/LIBERTIES.md L268 is the admission.
+#
+# WHY IT IS A GATE. The report is a subtraction across two derived files that different
+# tools build, and T-1559 is spending the moves into one of them stage by stage. So the
+# thing that can drift is the JOIN: the gate re-derives it by PERSON and refuses a ledger
+# move the rule never yielded, a person moved twice, a move that lands in a bucket which
+# is itself refused (which would move the surplus sideways and remedy nothing), and a
+# bucket sending out more people than it holds. The end state it predicts must not move
+# as the stages land — only the spent/outstanding split may — and that is what re-deriving
+# on every commit asserts.
+step "the re-familying programme's report re-derives, and the ledger's moves are the ones the rule yields (T-1560)" \
+  python3 tools/report_refamily_programme.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/report_refamily_programme.py --self-test
 
 # T-1563 (of T-1559, of T-1556). THE MOVES THEMSELVES, SPENT — AND THE ONE ORDERING THAT
 # MAKES THEM CHECKABLE. A re-family is two statements about the same head: the household

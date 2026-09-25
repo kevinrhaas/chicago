@@ -525,5 +525,86 @@ const redGated = (over = {}) => ({
         'an unfiltered push trigger double-gates every open PR');
 }
 
+/* ------------------------------------------------------------------ T-1573
+ * THE OTHER LABEL. `resume` is a RUN'S unfinished handoff, and until T-1573 it
+ * did not exist: a run that could not finish applied `hold`, which every pass in
+ * this repository skips on purpose, so work needing nobody's decision had nothing
+ * coming for it either. Measured on the three PRs open at 17:35Z on 2026-09-25 —
+ * #39, #41 and #42 — none of which needed a ruling and all three of which needed
+ * a machine to lap, re-gate and merge them.
+ *
+ * This reporter's part is small and is the part the owner asked for: a resumable
+ * PR is NOT stuck (the next run is coming for it) and must not be labelled — but
+ * its reason must be SAID, because "the reason lived only in the PR body and I
+ * never saw it" is the whole complaint. A held PR stays the only silent one.
+ */
+const resumable = (over = {}) => ({
+  n: 41, branch: 'steward/t-1521-lap-publish-before-rebuild', sha: SHA,
+  labels: ['resume'], state: 'dirty', headAgeMin: 600, checks: 0, ...over,
+});
+
+/* 16. The shape: said, with its reason, and never labelled. */
+{
+  const r = run({ prs: [resumable()],
+                  comments: { 41: ["resume: dev's gate is red on T-1567 · waits on: T-1567\n\nbody"] } });
+  check('a `resume` PR is not called stuck — something is coming for it',
+        !/STUCK/.test(r.out), (r.out.match(/^#41.*$/m) || [''])[0]);
+  check('…and nothing at all was written to it',
+        r.acted.replace(/ensure-label\n/g, '') === '', r.acted.trim());
+  check('…and it is COUNTED, not merely absent', /resumable=1/.test(r.out));
+  check('…and its REASON is in the log, which is the whole of what the owner asked for',
+        /the loop owes this work: dev's gate is red on T-1567/.test(r.out),
+        (r.out.match(/^#41.*$/m) || ['nothing said'])[0]);
+  check('…including what it waits on, so a later run knows to skip or to take it',
+        /waits on: T-1567/.test(r.out));
+}
+
+/* 17. …and a `resume` label with no `resume:` line is itself worth saying. A
+ *     label applied by hand carries no reason, which is the fault wearing the new
+ *     label instead of the old one. */
+{
+  const r = run({ prs: [resumable({ n: 39 })], comments: {} });
+  check('a resumable PR with no reason line is still not called stuck',
+        !/STUCK/.test(r.out) && /resumable=1/.test(r.out));
+  check('…and the missing reason is reported rather than passed over',
+        /NO `resume:` line says why/.test(r.out));
+  check('…naming the one call that writes one', /pr-rest\.sh resume/.test(r.out));
+}
+
+/* 18. A `stuck` label that outlived its reason. This branch `continue`s before
+ *     the general unlabel path, so without its own the label would stick for ever
+ *     on a PR the loop has since taken back. */
+{
+  const r = run({ prs: [resumable({ labels: ['stuck', 'resume'] })],
+                  comments: { 41: ['resume: the run ran out of clock · waits on: nothing'] } });
+  check('a resumable PR loses a stale `stuck` label',
+        /^unlabel 41 stuck$/m.test(r.acted), r.acted.trim() || 'nothing');
+  check('…and the summary counts it', /unlabelled=1/.test(r.out));
+  check('…and it is still never labelled stuck again',
+        !/^label 41 stuck$/m.test(r.acted));
+}
+
+/* 19. `hold` AND `resume` ARE NOT INTERCHANGEABLE, and the order matters: `hold`
+ *     is read first, so a PR carrying both is the owner's. A run should never
+ *     leave both on (`pr-rest.sh resume` removes `hold`), but a hand can. */
+{
+  const r = run({ prs: [resumable({ labels: ['resume', 'hold'] })] });
+  check('a PR carrying both is treated as the owner’s park, not as the loop’s',
+        /#41 {2}held/.test(r.out) && /held=1/.test(r.out) && /resumable=0/.test(r.out));
+  check('…and stays silent, because that silence is the owner’s to break',
+        r.acted.replace(/ensure-label\n/g, '') === '', r.acted.trim());
+}
+
+/* 20. DRIFT GUARD: this reporter must never WRITE `resume`. It is the run's word
+ *     about its own work; a reporter that applied it would be declaring somebody
+ *     else's PR unfinished on no evidence. */
+{
+  const src = readFileSync(SH, 'utf8')
+    .split('\n').filter((l) => !l.trim().startsWith('#')).join('\n');
+  check('pr-stuck.sh reads `resume` and never applies it',
+        !/labels\[\]=resume|labels\[\]=\$RESUME_LABEL/.test(src),
+        'the reporter reports; the run hands off');
+}
+
 console.log(failures ? `\n${failures} failure(s)` : '\nall good');
 process.exit(failures ? 1 : 0);
