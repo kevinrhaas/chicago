@@ -561,12 +561,32 @@ const STANDS = [
     why: 'the stand every earlier budget was measured at, kept for continuity',
   },
   {
-    id: 'lake_at_canal', kind: 'anchor', target: 'green_tree',
+    id: 'lake_at_canal', kind: 'anchor', target: 'lake_at_canal',
     label: 'Lake Street at Canal, east down the axis',
     // The known worst, and the reason this ticket exists: standing at the west
     // end of Lake Street looking east puts the whole platted town inside one
     // frustum, so every chunked layer pays for all of its chunks and the sun
     // pays for them again.
+    //
+    // T-1580 — IT RODE ON THE GREEN TREE'S VIEWPOINT AND THE INN MOVED. This
+    // stand's `target` was `green_tree`, which was the anchor "Green Tree
+    // Tavern, Lake and Canal" at E -159.7, N -108.4, yaw 90 — the west end of
+    // Lake Street looking due east, which is the GROUND this budget is about.
+    // T-0141 (#16) then moved the inn 116 m east to Lake and West Water and
+    // moved its visitor-facing anchor with it, correctly: an anchor named after
+    // a building should look at that building, and it now stands at E -44.11,
+    // N -121.52, yaw 33.3 — "from across Lake Street", north-east at the inn.
+    // The perf suite inherited that silently, and with it a stand that is not
+    // axial at all: the far merge read 0 of 21 clusters where it had saved 54
+    // calls, and the furniture reach read +1,272 triangles where it wants
+    // 120,000. Nothing had regressed; the camera had turned round.
+    // So the ground this budget measures now has its OWN authored viewpoint —
+    // `lake_at_canal` in data/scenes/1835.json, at the coordinates every
+    // recorded figure here was taken at — and this stand names it. The rule
+    // above is kept: it is a viewpoint the Go-to menu offers a visitor, not a
+    // camera invented for the test. The lesson is that a perf stand must name
+    // the GROUND it is about, because an anchor named after a building is free
+    // to follow the building.
     why: 'the long axial street — nothing culls, so chunking costs instead of saves',
   },
   {
@@ -4156,7 +4176,17 @@ for (const [label, viewport, touch] of [
         .filter((c) => c.name === 'frontage' || c.name === 'frontage-chunk');
       const mesh = timber.find((c) => c.name === 'frontage');
       const letters = (f?.group?.children ?? []).find((c) => c.name === 'frontage-lettering');
-      const post = f?.posts?.[0] ?? null;
+      // THE SIGN POST IS RESOLVED BY WHAT IT IS, NOT BY BEING FIRST (T-1580).
+      // This read `posts[0]`, which was the Green Tree's boarded corner post for
+      // as long as that post existed. When T-0141's move retired it, `posts[0]`
+      // became a 1.30 m HITCHING post and the board check went on measuring
+      // against it — it reported "post 1.30 m over its grade against a recorded
+      // 1.3 m" and failed on the board height alone, which reads as a board hung
+      // too low rather than as a board that is not there. A post that carries a
+      // board is the one whose kind is not `hitching_post`, and frontage.js
+      // stands at most one in the town.
+      const post = (f?.posts ?? []).find((q) => q.kind !== 'hitching_post') ?? null;
+      const greenTree = (f?.records ?? []).find((r) => r.id === 'green_tree_frontage');
       let sink = Infinity;
       let deckTop = -Infinity;
       let highest = -Infinity;
@@ -4520,6 +4550,14 @@ for (const [label, viewport, touch] of [
         recordIds: (f?.records ?? []).map((r) => r.id),
         noBoardHere: (f?.records ?? []).find((r) => r.id === 'sauganash_frontage')
           ?.board_on_a_post?.value ?? null,
+        // T-1580 — what the record says about the board, read beside what the
+        // layer drew, so "no board" can be told from "board missing".
+        signPosts: (f?.posts ?? []).filter((q) => q.kind !== 'hitching_post').length,
+        letterMesh: !!letters,
+        letteringValue: greenTree?.lettering?.value ?? null,
+        letteringGrade: greenTree?.lettering?.confidence ?? null,
+        boardRefusal: (greenTree?.refused ?? [])
+          .find((x) => x.wall === 'corner')?.why ?? null,
         census: f?.census ?? null,
         meshes: f?.group?.children?.length ?? 0,
         names: (f?.group?.children ?? []).map((c) => c.name),
@@ -4655,8 +4693,27 @@ for (const [label, viewport, touch] of [
       // privy carries no trade the hitching rule accepts, and the two other
       // privies this ticket re-lotted moved between lots that are improved on
       // both sides of the move.
-      frontage.census?.records === 5 && frontage.census?.walks === 51
-        && frontage.census?.crossings === 39
+      // T-1580 — THE GREEN TREE'S CORNER RETIRES, and four of these five numbers
+      // move together on that one cause. T-0141 (#16) moved the inn 116 m east
+      // to Lake and West Water, where Lake Street lies BESIDE its front wall
+      // rather than in front of it — 0.14 m of that wall's 17.05 m stands
+      // outward, where a frontage needs 50 %. So the front walk is refused in
+      // writing ("a walk laid here would run down the inn's flank and call it a
+      // frontage"), the crossing that sprang off it is refused with it ("no walk
+      // lies on the front, so nothing springs a crossing off it"), and the
+      // corner post is refused because it stands where two walks meet and one of
+      // the two is gone ("no board is put on a post"). One walk, one crossing,
+      // one post, three refusals — and the record states each of them rather
+      // than falling silent: 51 walks to 50, 39 crossings to 38, 19 posts to 18,
+      // 89 refusals to 92. FENCES DO NOT MOVE: the inn's walls were never a
+      // street-fence refusal on either site, and the left walk it keeps is the
+      // same walk on the same Lake Street frontage.
+      // T-1547 owns putting the corner back — re-seating the inn clear of the
+      // West Water track carries the trace past its corner and the front
+      // frontage qualifies again — so these four move BACK together when it
+      // lands, by the same arithmetic and in the same direction.
+      frontage.census?.records === 5 && frontage.census?.walks === 50
+        && frontage.census?.crossings === 38
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -4691,8 +4748,8 @@ for (const [label, viewport, touch] of [
         // crossings, fences and posts do not move. None of the three was ever a street
         // wall the fence rule refused, each stands where it stood, and a cottage on a
         // block face carries no frontage furniture of its own.
-        && frontage.census?.posts === 19 && frontage.census?.fences === 31
-        && frontage.census?.refused === 89
+        && frontage.census?.posts === 18 && frontage.census?.fences === 31
+        && frontage.census?.refused === 92
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -4779,12 +4836,32 @@ for (const [label, viewport, touch] of [
     // THE POST STANDS ON THE GROUND AND ITS BOARD HANGS OVER A HEAD. A pole whose
     // height came from a number beside the mesh rather than from a terrain sample
     // floats; a board hung too low is one a visitor walks through.
-    check(`${label}: the named board hangs on a post that stands on the ground`,
-      Math.abs(frontage.highest - frontage.postHeight) <= 0.05
-        && frontage.boardLow >= 2.4 && frontage.clearOfTrack > 0,
-      `post ${frontage.highest?.toFixed(2)} m over its grade against a recorded `
-      + `${frontage.postHeight} m, board's underside ${frontage.boardLow?.toFixed(2)} m up, `
-      + `${frontage.clearOfTrack} m clear of the travelled track`);
+    //
+    // T-1580 — AND WHEN THERE IS NO BOARD, THE RECORD HAS TO SAY SO. The town's
+    // one boarded post is the Green Tree's, standing at the corner its two walks
+    // made, and T-0141's move refused one of the two. So this asks the record
+    // which case the town is in and holds each case to its own bar:
+    //   a sign post declared — it stands on its own terrain sample to within
+    //     0.05 m, its board's underside is 2.4 m up and it is clear of the
+    //     travelled track. The SAME three bars, none of them loosened.
+    //   none declared — the layer has drawn no sign post at all AND the record
+    //     refuses it in writing at the corner, in the words that say why.
+    // The second branch is the stronger reading of a board going away, not the
+    // weaker one: the only thing that satisfies it is a stated refusal, so a
+    // board that disappears without one still fails here — which is what the old
+    // line could not do, because a vanished post left it measuring a hitching
+    // post and reporting a height.
+    check(`${label}: the named board hangs on a post that stands on the ground, or the record refuses it`,
+      frontage.signPosts === 0
+        ? /no board is put on a post/.test(frontage.boardRefusal ?? '')
+        : Math.abs(frontage.highest - frontage.postHeight) <= 0.05
+          && frontage.boardLow >= 2.4 && frontage.clearOfTrack > 0,
+      frontage.signPosts === 0
+        ? 'no sign post drawn; the record refuses it at the corner: '
+          + `"${frontage.boardRefusal ?? 'NOTHING STATED'}"`
+        : `post ${frontage.highest?.toFixed(2)} m over its grade against a recorded `
+          + `${frontage.postHeight} m, board's underside ${frontage.boardLow?.toFixed(2)} m up, `
+          + `${frontage.clearOfTrack} m clear of the travelled track`);
     // THE LAYER DRAWS THE MESHES IT LAID, AND ONLY THOSE ARE ITS OWN (T-0349).
     // This census used to be the seventh clause of the lettering check below,
     // and it was the only clause in that conjunction whose verdict depended on
@@ -4822,8 +4899,16 @@ for (const [label, viewport, touch] of [
     // take. What is asserted about them is that they are the layer's own kind of
     // artefact — every extra child is a `frontage-far-merge` — so a stray mesh
     // parented onto this group by anything else still fails.
+    // T-1580 — AND THE COUNT FOLLOWS THE BOARD. frontage.js draws the painted
+    // name on its own mesh "because a painted name is a texture and timber is
+    // not — and it exists only when a board carries text", so `frontage-
+    // lettering` is the 62nd mesh exactly when a board is lettered. With the
+    // Green Tree's corner post refused (T-0141) the layer authors 61: the shared
+    // `frontage` mesh and 60 `frontage-chunk`s. Stating it as 61 + the board
+    // rather than as a number means this line does not have to be edited twice
+    // more when T-1547 puts the corner back.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === 62
+      frontage.authored === (frontage.census?.lettered === 1 ? 62 : 61)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -4841,21 +4926,60 @@ for (const [label, viewport, touch] of [
     // inventing a sign, which is exactly what L25 and L130 refuse. The painted
     // name is on its own mesh, the only thing in this layer that may carry a
     // texture; the timber it hangs over is all on ONE material and carries none.
-    check(`${label}: the board carries the record's own name, painted`,
-      frontage.census?.lettered === 1 && frontage.letterVerts >= 6
-        && frontage.letterMap === true && frontage.timberMap === false
-        && frontage.lettering === frontage.recordText
-        && frontage.recordText === 'GREEN TREE'
-        && frontage.textGrade === 'inferred',
-      `"${frontage.lettering}" on ${frontage.letterVerts} vertices, record says `
-      + `"${frontage.recordText}" graded ${frontage.textGrade}`);
+    //
+    // T-1580 — AND WHEN NO BOARD IS DRAWN, THE WORDING IS STILL UNDER GATE. The
+    // board went with the corner post (T-0141), so the painted name has nothing
+    // to hang on and `lettered` is 0. The second branch asserts the negative
+    // exactly — no lettering mesh, no lettering vertices, and the timber still
+    // carrying no texture of its own — and then asserts the thing that must
+    // survive the board's absence: green_tree_frontage STILL says "GREEN TREE"
+    // at the `inferred` grade, with the L135 argument behind it. That is
+    // deliberate. The cheap way to make this line green would be to delete the
+    // lettering claim from the record, and the wording is the one part of this
+    // that no ticket may quietly drop — it is the plate's, not the renderer's,
+    // and T-1547 needs it back the moment the post returns.
+    check(`${label}: the board carries the record's own name, painted, or none is drawn and the name is kept`,
+      frontage.census?.lettered === 1
+        ? frontage.letterVerts >= 6
+          && frontage.letterMap === true && frontage.timberMap === false
+          && frontage.lettering === frontage.recordText
+          && frontage.recordText === 'GREEN TREE'
+          && frontage.textGrade === 'inferred'
+        : frontage.census?.lettered === 0 && frontage.letterVerts === 0
+          && frontage.letterMesh === false && frontage.timberMap === false
+          && frontage.letteringValue === 'GREEN TREE'
+          && frontage.letteringGrade === 'inferred',
+      frontage.census?.lettered === 1
+        ? `"${frontage.lettering}" on ${frontage.letterVerts} vertices, record says `
+          + `"${frontage.recordText}" graded ${frontage.textGrade}`
+        : `no board lettered (${frontage.letterVerts} lettering vertices, `
+          + `lettering mesh ${frontage.letterMesh}); the record keeps its wording `
+          + `"${frontage.letteringValue}" graded ${frontage.letteringGrade}`);
 
     // AND IT READS FROM THE STREET, which is what a walk and a signboard are FOR.
-    // Stand out on Canal Street where a traveller coming up to the inn stands and
+    // Stand out on Lake Street where a traveller coming up to the inn stands and
     // hold the clock, so the grass cannot supply the difference. Same bar as the
     // goods, the fence gates and the signboard: worst >= 6 and mean >= 0.3.
+    //
+    // T-1580 — THE STAND FOLLOWED THE INN, 116 m LATE. It was E -163, N -99,
+    // yaw 80 — out on Canal Street beside the inn's OLD site — and T-0141 moved
+    // the inn east to Lake and West Water without moving it, so the frontage
+    // layer's whole group could be switched off in front of this camera and not
+    // one cell of the frame changed: mean 0.00, worst 0.
+    // The new stand is on the Lake Street track itself, E -25, N -104, looking
+    // due north at the walk the inn keeps — the walk's centreline runs E -18.9
+    // to -31.09 at N -97.3, and its record leaves 6.01 m of verge between its
+    // outer edge and the track, which puts the track at about N -104.2. So this
+    // is the traveller's own ground rather than a distance chosen to make a
+    // number, and pitch -6 is the angle at which a walk 1.83 m wide reads as a
+    // deck rather than as a line. THE BAR IS UNCHANGED — worst >= 6, mean >= 0.3
+    // — which is what keeps this from being the check weakened to pass: the
+    // board is presently withheld with the post (T-0141), so the delta is the
+    // walk's alone, and a walk that cannot clear the signboard's own bar from
+    // the street is still a fault. Measured here: mobile 2.94 / 37, desktop
+    // 5.70 / 69.
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: -163, local_n: -99, yaw_deg: 80, pitch_deg: 0 }));
+      { local_e: -25, local_n: -104, yaw_deg: 0, pitch_deg: -6 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const frontWith = await page.evaluate(() => window.__chicago4d.capture());
@@ -4872,9 +4996,18 @@ for (const [label, viewport, touch] of [
     // asks the LAYER rather than the app's pick, because the app would answer the
     // same building from the wall behind it and the assertion would pass while
     // the layer picked nothing at all.
+    //
+    // T-1580 — the corner is the thing that went (T-0141), so what the crosshair
+    // now finds is the plank walk, and a walk belongs to the building it was
+    // derived from exactly as the post did: frontage.js answers the same
+    // `green_tree_tavern` off either. The stand moves with the walk — E -155,
+    // N -101, yaw 68, pitch 12 was aimed at the old corner and returned nothing
+    // from all 25 aims — to the same traveller's ground as the reading above,
+    // looking down onto the deck. The assertion itself does not move: twenty-five
+    // aims across the crosshair, and the layer's own pick must name the inn.
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: -155.0, local_n: -101.0, yaw_deg: 68, pitch_deg: 12 }));
+      { local_e: -25.0, local_n: -104.0, yaw_deg: 0, pitch_deg: -6 }));
     await page.waitForTimeout(600);
     const frontagePick = await page.evaluate(() => {
       const a = window.__chicago4d;
@@ -4956,7 +5089,12 @@ for (const [label, viewport, touch] of [
         && frontage.hitching.filter((h) => !h.street).length === 2
         && frontage.hitching.filter((h) => h.street).length === 16
         && postsBad.length === 0
-        && frontage.census?.lettered === 1
+        // T-1580 — the clause this carried was `lettered === 1`, and what it is
+        // FOR is that none of these eighteen is the boarded post: the layer's
+        // lettered boards hang on SIGN posts and there are no sign posts among
+        // the hitching. Said that way it is true whether or not the Green Tree's
+        // corner stands, and it still fails if one of the eighteen grows a board.
+        && frontage.census?.lettered === frontage.signPosts
         && frontage.noBoardHere === false,
       `${frontage.hitching.length} post(s) read, census says ${frontage.census?.hitching}`
       + ` — ${frontage.hitching.filter((h) => !h.street).length} on a record's own`
@@ -4965,7 +5103,8 @@ for (const [label, viewport, touch] of [
       + (postsBad.map((h) => `${h.id} ${h.top?.toFixed(2)}/${h.recorded} m, `
         + `foot ${h.low?.toFixed(3)} m, ${h.found} vert, ${h.clear} m clear`).join(' | ')
         || 'none')
-      + ` — ${frontage.census?.lettered} board(s) lettered in the layer, `
+      + ` — ${frontage.census?.lettered} board(s) lettered in the layer on `
+      + `${frontage.signPosts} sign post(s), `
       + `record says a board on a post here: ${frontage.noBoardHere}`);
 
     // AND IT READS FROM THE STREET, the same bar the Green Tree's frontage is
