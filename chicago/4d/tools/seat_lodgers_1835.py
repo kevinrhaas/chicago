@@ -110,6 +110,22 @@ The quota this stage deals against is therefore recorded once, in `quota_basis` 
 own ledger, and carried: the book may be re-cut underneath it and not one card moves.
 `committed_basis()` states the whole argument, `refuse_a_recut_under_the_draw()` is the
 floor under it, and the `--self-test` proves it by re-cutting a copy of the book.
+
+AND FOR TWO TICKETS THAT PROOF WAS TRUE BY ARITHMETIC AND NOT BY CONSTRUCTION (T-1525).
+T-1535 gave the deal a second, LIVE ceiling so that houses dealt against a shrunken cell
+could not over-draw it, and that ceiling put the live book back inside the draw by the
+side door: it decided which cells entered the proportional split, so a cell the book had
+emptied since the deal left the split and moved every other cell's share by rounding —
+with nobody over-dealt and nothing shed. The demonstration still passed, because on the
+tree of the day no house's allocation sat on one of those boundaries. T-1525's re-cut of
+the order book moved the numbers off that spot and the demonstration failed, which is
+exactly what it is for. The ceiling now reads the frozen room instead, so the book can be
+re-cut to any shape and this stage cannot see it; `refuse()` remains the floor, and a
+re-cut that falls below what the stage drew now STOPS THE BUILD and asks for a deliberate
+re-freeze rather than being absorbed. The re-freeze that went with this one re-dealt the
+lodger population against a book that orders 273 of them where the frozen basis still
+ordered 334 — 32 slots retired, 35 opened, 7 re-banded. None of them is a person any
+source names.
 """
 
 from __future__ import annotations
@@ -254,12 +270,18 @@ def allocate_within(total: int, weights: list, capacity: dict) -> tuple:
     """`allocate()`, but no cell is dealt more than the room it actually has left.
 
     T-1535. The deal above is proportional and knows nothing about capacity, which is
-    fine where the room is large against the deal and wrong where it is not: the two
-    houses T-1535 brings in are dealt against what the BOOK has left today rather than
-    against this stage's frozen basis, and two of the south cells they weigh on have four
-    slots and no more. Over-dealing one of them is refused by `refuse()` — correctly, as
-    "a re-cut has taken the order out from under people already standing" — so the deal
-    has to respect the ceiling itself.
+    fine where the room is large against the deal and wrong where it is not: a cell can
+    be weighed on for more people than it has left, and over-dealing one is refused by
+    `refuse()` — correctly, as "a re-cut has taken the order out from under people
+    already standing" — so the deal has to respect the ceiling itself.
+
+    THE CAPACITY THIS IS GIVEN IS THE FROZEN ROOM'S OWN REMAINDER (T-1525), not the live
+    book's. It was the live book's until the caller was changed, and the comment there
+    says why that had to stop: a live ceiling decides POOL MEMBERSHIP below, so a cell the
+    book had emptied since the deal was dealt left the proportional split and moved every
+    other cell's share by rounding — without one person ever being over-dealt. Capacity
+    still caps and still sheds, and the shed surplus is still re-dealt over the cells that
+    have room; what it no longer does is change with a book nobody has re-frozen against.
 
     Largest remainder is kept, and the surplus a clamped cell sheds is re-dealt over the
     cells that still have room, until the total is spent or the room is. Returns the deal
@@ -1398,15 +1420,31 @@ def fill() -> tuple:
                 needed -= 1
         weights = [((sex, band), n) for (div, sex, band, axis), (_, n) in sorted(room.items())
                    if div == house["division"] and axis == "none" and band in ADULT_BANDS and n > 0]
-        # The ceiling is the BOOK'S OWN, live, less whatever this build has already drawn
-        # out of the cell. It binds only where the frozen basis is more generous than the
-        # book is today (T-1535's houses are dealt against the remainder, and two of the
-        # south cells they weigh on have four slots left and no more); everywhere else
-        # `room`'s figure is the smaller of the two and the deal is unchanged.
-        capacity = {(sex, band): min(n, live_room.get((house["division"], sex, band, "none"),
-                                                      (None, 0))[1]
-                                     - fills[room[(house["division"], sex, band, "none")][0]])
-                    for (sex, band), n in weights}
+        # THE CEILING IS THE FROZEN ROOM, AND NOTHING LIVE (T-1525). It was the BOOK'S
+        # OWN live figure less this build's draws, which is what T-1535 needed while the
+        # frozen basis stood ABOVE what the book orders today: without it those houses
+        # over-drew a shrunken cell and `refuse()` failed the build, correctly.
+        #
+        # READING THE LIVE BOOK HERE IS WHAT BROKE T-1503's GUARANTEE, and the failure is
+        # worth stating because it is not the obvious one. Nothing was ever over-dealt:
+        # the clamp never binds on the committed deal — measured, 16 calls, not one cell
+        # shed a single person. What it did was decide POOL MEMBERSHIP inside
+        # `allocate_within`: a cell whose live ceiling had fallen to zero was dropped
+        # before the proportional split, so every OTHER cell's share moved under
+        # largest-remainder rounding. A cell that was dealt nobody either way changed who
+        # stood in the next house along. That is how a re-cut that removed only UNDRAWN
+        # slots moved a bed in the Sauganash from a woman of 30-39 to a man of 20-29, and
+        # why the guarantee held on dev by arithmetic luck rather than by construction.
+        #
+        # So the deal now reads the basis and only the basis, and the guarantee is
+        # structural: the book can be re-cut to any shape and this loop cannot see it.
+        # The SAFETY the clamp was providing does not go with it — `refuse()` still fails
+        # the build if the book's live figure for a bucket has fallen below what this
+        # stage drew out of it. What changes is that such a re-cut now stops the build and
+        # asks for a deliberate re-freeze of the basis, instead of being absorbed by
+        # silently re-dealing people who were already standing. That is the right way
+        # round: moving an invented lodger is a decision, not a rounding step.
+        capacity = {(sex, band): n for (sex, band), n in weights}
         deal, undealt = allocate_within(needed, weights, capacity) if needed > 0 else ({}, 0)
         if undealt:
             refusals.append({
