@@ -2826,6 +2826,23 @@ step "every mint that re-derives a household carries the blocks it does not own"
 selftest "...and its own assertions still fire when broken" \
   python3 tools/carry_stage_blocks.py --self-test
 
+# T-1523, the first thing to use that slot for anything but an arrival. T-1522 dealt a
+# division to the 1,305 households no source places anywhere and wrote it in the address
+# book ALONE, so the card and the manifest both still read `unplaced` and the People
+# view's division filter was short of 1,526 people. This carries the dealt value onto the
+# card as `division_reconstructed` — marked `reconstructed`, carrying the digest that
+# placed it — and holds the two halves against each other in both directions: a dealt row
+# whose card does not carry it is the invisibility T-1522 left, and a carried card the
+# book deals nothing for is a block nothing re-derives. It also holds the scalar
+# `division` at `unplaced`, which is the whole point of the block: rung 5 IS the
+# households whose record places them nowhere, and `a_stated_division` would otherwise
+# turn every one of them into a house.
+step "the policy-only rung's dealt division is on the card the town shows" \
+  python3 tools/carry_policy_only_division.py --check
+
+selftest "...and every limit on that carry fires when broken" \
+  python3 tools/carry_policy_only_division.py --self-test
+
 # T-1350, the other half of that ownership and the opposite failure. A mint derives
 # `arrival` as a not_later_than BOUND off its register, which is right until a reading
 # says more than the register can — Moses and Kirkland's list of the spring of 1833

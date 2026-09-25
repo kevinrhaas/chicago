@@ -114,6 +114,13 @@
       "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "carry_policy_only_division.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-25",
+      "placed": "after seat_known_1835.py --build, which writes the address book this reads, and before rebuild_resident_index.py, which denormalises the block's value into the manifest. Both edges are real and neither is in the manifest's order yet — seat_known_1835.py is not in derived_manifest.json at all — so placing this one means placing that one first. T-1523 measured the reproduction and left the ordering to its own pass.",
+      "finding": "Ran --build on the committed tree: wrote 0 card(s) and git reports no byte moved, so the 1,305 division_reconstructed blocks on disk are exactly what it derives from the address book's rung-5 rows. Its own --check asserts the same field for field, in both directions."
+    },
     "carry_stage_blocks.py": {
       "placement": "not_derivable",
       "write_mode": "--build",

@@ -49,7 +49,10 @@ MARKER = "written_by_stage"
 # Where a carried block is seated when the re-derived record has no key for it, so a
 # mint's output and the stage's output agree on field order and the byte comparison
 # above stays meaningful. A key not named here is appended.
-AFTER = {"arrival_year": "arrival"}
+AFTER = {"arrival_year": "arrival",
+         # T-1523. The policy-only rung's dealt division, which reads beside the
+         # scalar the mints own and never into it.
+         "division_reconstructed": "division"}
 
 # The mints that must carry. Named rather than discovered, on the same reasoning
 # `refuse_reconstructed_grade.WIRED_WRITERS` is: a writer that quietly stops carrying
