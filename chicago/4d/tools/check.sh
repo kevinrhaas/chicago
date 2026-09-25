@@ -5166,7 +5166,7 @@ selftest "…and each of its seven assertions still fires when broken" \
 step "the 1835 staffing mint order re-derives, and spends no bucket it cannot reach" \
   python3 tools/staffing_mint_order_1835.py --check
 
-selftest "…and each of its seven assertions still fires when broken" \
+selftest "…and each of its ten assertions still fires when broken" \
   python3 tools/staffing_mint_order_1835.py --self-test
 
 # T-1371, piece 2 of T-1175 and stage `lodgers` of the resident reconstruction programme.
