@@ -3321,6 +3321,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_028"
     },
+    "recon_1835_west_029__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 24840,
+      "inputs_sha256": "990cdcaab2be0bce8497e76176ae6666b57241dd3166264eca333ecf91df6ad8",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_west_029"
+    },
     "recon_1835_west_030__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
@@ -3339,6 +3348,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_031"
     },
+    "recon_1835_west_032__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 25776,
+      "inputs_sha256": "7097236e97ba8de96081ca3e67bad3cb2d0b9054da7f6df47655ae9622d89871",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_west_032"
+    },
     "recon_1835_west_033__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
@@ -3356,6 +3374,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_034"
+    },
+    "recon_1835_west_035__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 25764,
+      "inputs_sha256": "83045f846703de38609d9e1061598e6cf4e5e78393cac21d69dfb23ae952fc2b",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_west_035"
     },
     "recon_1835_west_036__inferred_1835.glb": {
       "archetype": "outbuilding",

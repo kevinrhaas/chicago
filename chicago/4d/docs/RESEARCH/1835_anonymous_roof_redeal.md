@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **315** anonymous roofs
-- keep: **301** (3 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
+- audited: **318** anonymous roofs
+- keep: **304** (3 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
 - refamily: **14** (10 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 401 stand, so the town is 267 roofs short before this audit and 267 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 404 stand, so the town is 264 roofs short before this audit and 264 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -27,10 +27,10 @@ The programme wants 668 roofs and 401 stand, so the town is 267 roofs short befo
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | 3 | 0 |
 | `structures/larger_boarding_houses/south` | 28 | 9 | 8 | 19 | 9 | 19 |
-| `structures/larger_boarding_houses/west` | 6 | 1 | 1 | 5 | 2 | 4 |
+| `structures/larger_boarding_houses/west` | 6 | 2 | 2 | 4 | 3 | 3 |
 | `structures/larger_boarding_houses/north` | 8 | 6 | 5 | 2 | 6 | 2 |
 | `structures/ordinary_dwellings/south` | 176 | 118 | 110 | 58 | 124 | 52 |
-| `structures/ordinary_dwellings/west` | 75 | 48 | 45 | 27 | 50 | 25 |
+| `structures/ordinary_dwellings/west` | 75 | 50 | 47 | 25 | 52 | 23 |
 | `structures/ordinary_dwellings/north` | 84 | 46 | 44 | 38 | 46 | 38 |
 | `structures/small_outbuildings/south` | 48 | 25 | 25 | 23 | 23 | 25 |
 | `structures/small_outbuildings/west` | 14 | 4 | 4 | 10 | 3 | 11 |

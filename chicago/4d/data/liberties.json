@@ -5159,10 +5159,13 @@
         "recon_1835_west_025",
         "recon_1835_west_026",
         "recon_1835_west_028",
+        "recon_1835_west_029",
         "recon_1835_west_030",
         "recon_1835_west_031",
+        "recon_1835_west_032",
         "recon_1835_west_033",
         "recon_1835_west_034",
+        "recon_1835_west_035",
         "recon_1835_west_036",
         "recon_1835_west_038",
         "recon_1835_west_039",
@@ -5672,6 +5675,24 @@
         },
         {
           "domain": "structure",
+          "structure": "recon_1835_west_029",
+          "phase": "inferred_1835",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_west_029",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_west_029",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
           "structure": "recon_1835_west_030",
           "phase": "inferred_1835",
           "aspect": "documented_range"
@@ -5708,6 +5729,24 @@
         },
         {
           "domain": "structure",
+          "structure": "recon_1835_west_032",
+          "phase": "inferred_1835",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_west_032",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_west_032",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
           "structure": "recon_1835_west_033",
           "phase": "inferred_1835",
           "aspect": "documented_range"
@@ -5739,6 +5778,24 @@
         {
           "domain": "structure",
           "structure": "recon_1835_west_034",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_west_035",
+          "phase": "inferred_1835",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_west_035",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_west_035",
           "phase": "inferred_1835",
           "aspect": "position"
         },
@@ -6102,7 +6159,7 @@
         },
         {
           "label": "Covers",
-          "text": "`recon_1835_west_001.inferred_1835.documented_range`, `recon_1835_west_001.inferred_1835.position`, `recon_1835_west_001.inferred_1835.footprint`, `recon_1835_west_002.inferred_1835.documented_range`, `recon_1835_west_002.inferred_1835.position`, `recon_1835_west_002.inferred_1835.footprint`, `recon_1835_west_003.inferred_1835.documented_range`, `recon_1835_west_003.inferred_1835.position`, `recon_1835_west_003.inferred_1835.footprint`, `recon_1835_west_004.inferred_1835.documented_range`, `recon_1835_west_004.inferred_1835.position`, `recon_1835_west_004.inferred_1835.footprint`, `recon_1835_west_005.inferred_1835.documented_range`, `recon_1835_west_005.inferred_1835.position`, `recon_1835_west_005.inferred_1835.footprint`, `recon_1835_west_006.inferred_1835.documented_range`, `recon_1835_west_006.inferred_1835.position`, `recon_1835_west_006.inferred_1835.footprint`, `recon_1835_west_007.inferred_1835.documented_range`, `recon_1835_west_007.inferred_1835.position`, `recon_1835_west_007.inferred_1835.footprint`, `recon_1835_west_008.inferred_1835.documented_range`, `recon_1835_west_008.inferred_1835.position`, `recon_1835_west_008.inferred_1835.footprint`, `recon_1835_west_009.inferred_1835.documented_range`, `recon_1835_west_009.inferred_1835.position`, `recon_1835_west_009.inferred_1835.footprint`, `recon_1835_west_010.inferred_1835.documented_range`, `recon_1835_west_010.inferred_1835.position`, `recon_1835_west_010.inferred_1835.footprint`, `recon_1835_west_011.inferred_1835.documented_range`, `recon_1835_west_011.inferred_1835.position`, `recon_1835_west_011.inferred_1835.footprint`, `recon_1835_west_012.inferred_1835.documented_range`, `recon_1835_west_012.inferred_1835.position`, `recon_1835_west_012.inferred_1835.footprint`, `recon_1835_west_013.inferred_1835.documented_range`, `recon_1835_west_013.inferred_1835.position`, `recon_1835_west_013.inferred_1835.footprint`, `recon_1835_west_014.inferred_1835.documented_range`, `recon_1835_west_014.inferred_1835.position`, `recon_1835_west_014.inferred_1835.footprint`, `recon_1835_west_015.inferred_1835.documented_range`, `recon_1835_west_015.inferred_1835.position`, `recon_1835_west_015.inferred_1835.footprint`, `recon_1835_west_016.inferred_1835.documented_range`, `recon_1835_west_016.inferred_1835.position`, `recon_1835_west_016.inferred_1835.footprint`, `recon_1835_west_017.inferred_1835.documented_range`, `recon_1835_west_017.inferred_1835.position`, `recon_1835_west_017.inferred_1835.footprint`, `recon_1835_west_018.inferred_1835.documented_range`, `recon_1835_west_018.inferred_1835.position`, `recon_1835_west_018.inferred_1835.footprint`, `recon_1835_west_019.inferred_1835.documented_range`, `recon_1835_west_019.inferred_1835.position`, `recon_1835_west_019.inferred_1835.footprint`, `recon_1835_west_020.inferred_1835.documented_range`, `recon_1835_west_020.inferred_1835.position`, `recon_1835_west_020.inferred_1835.footprint`, `recon_1835_west_021.inferred_1835.documented_range`, `recon_1835_west_021.inferred_1835.position`, `recon_1835_west_021.inferred_1835.footprint`, `recon_1835_west_022.inferred_1835.documented_range`, `recon_1835_west_022.inferred_1835.position`, `recon_1835_west_022.inferred_1835.footprint`, `recon_1835_west_023.inferred_1835.documented_range`, `recon_1835_west_023.inferred_1835.position`, `recon_1835_west_023.inferred_1835.footprint`, `recon_1835_west_024.inferred_1835.documented_range`, `recon_1835_west_024.inferred_1835.position`, `recon_1835_west_024.inferred_1835.footprint`, `recon_1835_west_025.inferred_1835.documented_range`, `recon_1835_west_025.inferred_1835.position`, `recon_1835_west_025.inferred_1835.footprint`, `recon_1835_west_026.inferred_1835.documented_range`, `recon_1835_west_026.inferred_1835.position`, `recon_1835_west_026.inferred_1835.footprint`, `recon_1835_west_028.inferred_1835.documented_range`, `recon_1835_west_028.inferred_1835.position`, `recon_1835_west_028.inferred_1835.footprint`, `recon_1835_west_030.inferred_1835.documented_range`, `recon_1835_west_030.inferred_1835.position`, `recon_1835_west_030.inferred_1835.footprint`, `recon_1835_west_031.inferred_1835.documented_range`, `recon_1835_west_031.inferred_1835.position`, `recon_1835_west_031.inferred_1835.footprint`, `recon_1835_west_033.inferred_1835.documented_range`, `recon_1835_west_033.inferred_1835.position`, `recon_1835_west_033.inferred_1835.footprint`, `recon_1835_west_034.inferred_1835.documented_range`, `recon_1835_west_034.inferred_1835.position`, `recon_1835_west_034.inferred_1835.footprint`, `recon_1835_west_036.inferred_1835.documented_range`, `recon_1835_west_036.inferred_1835.position`, `recon_1835_west_036.inferred_1835.footprint`, `recon_1835_west_038.inferred_1835.documented_range`, `recon_1835_west_038.inferred_1835.position`, `recon_1835_west_038.inferred_1835.footprint`, `recon_1835_west_039.inferred_1835.documented_range`, `recon_1835_west_039.inferred_1835.position`, `recon_1835_west_039.inferred_1835.footprint`, `recon_1835_west_040.inferred_1835.documented_range`, `recon_1835_west_040.inferred_1835.position`, `recon_1835_west_040.inferred_1835.footprint`, `recon_1835_west_041.inferred_1835.documented_range`, `recon_1835_west_041.inferred_1835.position`, `recon_1835_west_041.inferred_1835.footprint`, `recon_1835_west_042.inferred_1835.documented_range`, `recon_1835_west_042.inferred_1835.position`, `recon_1835_west_042.inferred_1835.footprint`, `recon_1835_west_043.inferred_1835.documented_range`, `recon_1835_west_043.inferred_1835.position`, `recon_1835_west_043.inferred_1835.footprint`, `recon_1835_west_044.inferred_1835.documented_range`, `recon_1835_west_044.inferred_1835.position`, `recon_1835_west_044.inferred_1835.footprint`, `recon_1835_west_045.inferred_1835.documented_range`, `recon_1835_west_045.inferred_1835.position`, `recon_1835_west_045.inferred_1835.footprint`, `recon_1835_west_046.inferred_1835.documented_range`, `recon_1835_west_046.inferred_1835.position`, `recon_1835_west_046.inferred_1835.footprint`, `recon_1835_west_047.inferred_1835.documented_range`, `recon_1835_west_047.inferred_1835.position`, `recon_1835_west_047.inferred_1835.footprint`, `recon_1835_west_048.inferred_1835.documented_range`, `recon_1835_west_048.inferred_1835.position`, `recon_1835_west_048.inferred_1835.footprint`, `recon_1835_west_049.inferred_1835.documented_range`, `recon_1835_west_049.inferred_1835.position`, `recon_1835_west_049.inferred_1835.footprint`, `recon_1835_west_050.inferred_1835.documented_range`, `recon_1835_west_050.inferred_1835.position`, `recon_1835_west_050.inferred_1835.footprint`, `recon_1835_west_051.inferred_1835.documented_range`, `recon_1835_west_051.inferred_1835.position`, `recon_1835_west_051.inferred_1835.footprint`, `recon_1835_west_052.inferred_1835.documented_range`, `recon_1835_west_052.inferred_1835.position`, `recon_1835_west_052.inferred_1835.footprint`, `recon_1835_west_053.inferred_1835.documented_range`, `recon_1835_west_053.inferred_1835.position`, `recon_1835_west_053.inferred_1835.footprint`, `recon_1835_west_054.inferred_1835.documented_range`, `recon_1835_west_054.inferred_1835.position`, `recon_1835_west_054.inferred_1835.footprint`, `recon_1835_west_055.inferred_1835.documented_range`, `recon_1835_west_055.inferred_1835.position`, `recon_1835_west_055.inferred_1835.footprint`"
+          "text": "`recon_1835_west_001.inferred_1835.documented_range`, `recon_1835_west_001.inferred_1835.position`, `recon_1835_west_001.inferred_1835.footprint`, `recon_1835_west_002.inferred_1835.documented_range`, `recon_1835_west_002.inferred_1835.position`, `recon_1835_west_002.inferred_1835.footprint`, `recon_1835_west_003.inferred_1835.documented_range`, `recon_1835_west_003.inferred_1835.position`, `recon_1835_west_003.inferred_1835.footprint`, `recon_1835_west_004.inferred_1835.documented_range`, `recon_1835_west_004.inferred_1835.position`, `recon_1835_west_004.inferred_1835.footprint`, `recon_1835_west_005.inferred_1835.documented_range`, `recon_1835_west_005.inferred_1835.position`, `recon_1835_west_005.inferred_1835.footprint`, `recon_1835_west_006.inferred_1835.documented_range`, `recon_1835_west_006.inferred_1835.position`, `recon_1835_west_006.inferred_1835.footprint`, `recon_1835_west_007.inferred_1835.documented_range`, `recon_1835_west_007.inferred_1835.position`, `recon_1835_west_007.inferred_1835.footprint`, `recon_1835_west_008.inferred_1835.documented_range`, `recon_1835_west_008.inferred_1835.position`, `recon_1835_west_008.inferred_1835.footprint`, `recon_1835_west_009.inferred_1835.documented_range`, `recon_1835_west_009.inferred_1835.position`, `recon_1835_west_009.inferred_1835.footprint`, `recon_1835_west_010.inferred_1835.documented_range`, `recon_1835_west_010.inferred_1835.position`, `recon_1835_west_010.inferred_1835.footprint`, `recon_1835_west_011.inferred_1835.documented_range`, `recon_1835_west_011.inferred_1835.position`, `recon_1835_west_011.inferred_1835.footprint`, `recon_1835_west_012.inferred_1835.documented_range`, `recon_1835_west_012.inferred_1835.position`, `recon_1835_west_012.inferred_1835.footprint`, `recon_1835_west_013.inferred_1835.documented_range`, `recon_1835_west_013.inferred_1835.position`, `recon_1835_west_013.inferred_1835.footprint`, `recon_1835_west_014.inferred_1835.documented_range`, `recon_1835_west_014.inferred_1835.position`, `recon_1835_west_014.inferred_1835.footprint`, `recon_1835_west_015.inferred_1835.documented_range`, `recon_1835_west_015.inferred_1835.position`, `recon_1835_west_015.inferred_1835.footprint`, `recon_1835_west_016.inferred_1835.documented_range`, `recon_1835_west_016.inferred_1835.position`, `recon_1835_west_016.inferred_1835.footprint`, `recon_1835_west_017.inferred_1835.documented_range`, `recon_1835_west_017.inferred_1835.position`, `recon_1835_west_017.inferred_1835.footprint`, `recon_1835_west_018.inferred_1835.documented_range`, `recon_1835_west_018.inferred_1835.position`, `recon_1835_west_018.inferred_1835.footprint`, `recon_1835_west_019.inferred_1835.documented_range`, `recon_1835_west_019.inferred_1835.position`, `recon_1835_west_019.inferred_1835.footprint`, `recon_1835_west_020.inferred_1835.documented_range`, `recon_1835_west_020.inferred_1835.position`, `recon_1835_west_020.inferred_1835.footprint`, `recon_1835_west_021.inferred_1835.documented_range`, `recon_1835_west_021.inferred_1835.position`, `recon_1835_west_021.inferred_1835.footprint`, `recon_1835_west_022.inferred_1835.documented_range`, `recon_1835_west_022.inferred_1835.position`, `recon_1835_west_022.inferred_1835.footprint`, `recon_1835_west_023.inferred_1835.documented_range`, `recon_1835_west_023.inferred_1835.position`, `recon_1835_west_023.inferred_1835.footprint`, `recon_1835_west_024.inferred_1835.documented_range`, `recon_1835_west_024.inferred_1835.position`, `recon_1835_west_024.inferred_1835.footprint`, `recon_1835_west_025.inferred_1835.documented_range`, `recon_1835_west_025.inferred_1835.position`, `recon_1835_west_025.inferred_1835.footprint`, `recon_1835_west_026.inferred_1835.documented_range`, `recon_1835_west_026.inferred_1835.position`, `recon_1835_west_026.inferred_1835.footprint`, `recon_1835_west_028.inferred_1835.documented_range`, `recon_1835_west_028.inferred_1835.position`, `recon_1835_west_028.inferred_1835.footprint`, `recon_1835_west_029.inferred_1835.documented_range`, `recon_1835_west_029.inferred_1835.position`, `recon_1835_west_029.inferred_1835.footprint`, `recon_1835_west_030.inferred_1835.documented_range`, `recon_1835_west_030.inferred_1835.position`, `recon_1835_west_030.inferred_1835.footprint`, `recon_1835_west_031.inferred_1835.documented_range`, `recon_1835_west_031.inferred_1835.position`, `recon_1835_west_031.inferred_1835.footprint`, `recon_1835_west_032.inferred_1835.documented_range`, `recon_1835_west_032.inferred_1835.position`, `recon_1835_west_032.inferred_1835.footprint`, `recon_1835_west_033.inferred_1835.documented_range`, `recon_1835_west_033.inferred_1835.position`, `recon_1835_west_033.inferred_1835.footprint`, `recon_1835_west_034.inferred_1835.documented_range`, `recon_1835_west_034.inferred_1835.position`, `recon_1835_west_034.inferred_1835.footprint`, `recon_1835_west_035.inferred_1835.documented_range`, `recon_1835_west_035.inferred_1835.position`, `recon_1835_west_035.inferred_1835.footprint`, `recon_1835_west_036.inferred_1835.documented_range`, `recon_1835_west_036.inferred_1835.position`, `recon_1835_west_036.inferred_1835.footprint`, `recon_1835_west_038.inferred_1835.documented_range`, `recon_1835_west_038.inferred_1835.position`, `recon_1835_west_038.inferred_1835.footprint`, `recon_1835_west_039.inferred_1835.documented_range`, `recon_1835_west_039.inferred_1835.position`, `recon_1835_west_039.inferred_1835.footprint`, `recon_1835_west_040.inferred_1835.documented_range`, `recon_1835_west_040.inferred_1835.position`, `recon_1835_west_040.inferred_1835.footprint`, `recon_1835_west_041.inferred_1835.documented_range`, `recon_1835_west_041.inferred_1835.position`, `recon_1835_west_041.inferred_1835.footprint`, `recon_1835_west_042.inferred_1835.documented_range`, `recon_1835_west_042.inferred_1835.position`, `recon_1835_west_042.inferred_1835.footprint`, `recon_1835_west_043.inferred_1835.documented_range`, `recon_1835_west_043.inferred_1835.position`, `recon_1835_west_043.inferred_1835.footprint`, `recon_1835_west_044.inferred_1835.documented_range`, `recon_1835_west_044.inferred_1835.position`, `recon_1835_west_044.inferred_1835.footprint`, `recon_1835_west_045.inferred_1835.documented_range`, `recon_1835_west_045.inferred_1835.position`, `recon_1835_west_045.inferred_1835.footprint`, `recon_1835_west_046.inferred_1835.documented_range`, `recon_1835_west_046.inferred_1835.position`, `recon_1835_west_046.inferred_1835.footprint`, `recon_1835_west_047.inferred_1835.documented_range`, `recon_1835_west_047.inferred_1835.position`, `recon_1835_west_047.inferred_1835.footprint`, `recon_1835_west_048.inferred_1835.documented_range`, `recon_1835_west_048.inferred_1835.position`, `recon_1835_west_048.inferred_1835.footprint`, `recon_1835_west_049.inferred_1835.documented_range`, `recon_1835_west_049.inferred_1835.position`, `recon_1835_west_049.inferred_1835.footprint`, `recon_1835_west_050.inferred_1835.documented_range`, `recon_1835_west_050.inferred_1835.position`, `recon_1835_west_050.inferred_1835.footprint`, `recon_1835_west_051.inferred_1835.documented_range`, `recon_1835_west_051.inferred_1835.position`, `recon_1835_west_051.inferred_1835.footprint`, `recon_1835_west_052.inferred_1835.documented_range`, `recon_1835_west_052.inferred_1835.position`, `recon_1835_west_052.inferred_1835.footprint`, `recon_1835_west_053.inferred_1835.documented_range`, `recon_1835_west_053.inferred_1835.position`, `recon_1835_west_053.inferred_1835.footprint`, `recon_1835_west_054.inferred_1835.documented_range`, `recon_1835_west_054.inferred_1835.position`, `recon_1835_west_054.inferred_1835.footprint`, `recon_1835_west_055.inferred_1835.documented_range`, `recon_1835_west_055.inferred_1835.position`, `recon_1835_west_055.inferred_1835.footprint`"
         },
         {
           "label": "Recorded",
@@ -15759,12 +15816,13 @@
         "recon_1835_north_h2_022",
         "recon_1835_north_h2_028",
         "recon_1835_north_h2_045",
+        "recon_1835_west_035",
         "sauganash_hotel"
       ],
       "covers": [],
       "scope": {
         "enumeration": "residents.persons[lodgers]",
-        "count": 77
+        "count": 87
       },
       "recorded": "2026-09-19",
       "revised": null,
@@ -15775,7 +15833,7 @@
         },
         {
           "label": "Scope",
-          "text": "`residents.persons[lodgers]` — 77 people in 15 lodging-household cards, re-derivable from `tools/seat_lodgers_1835.py --check` (47 seats come from the layer; these 77 are the mint on top of them). **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — \"a child does not take a bed at a tavern on their own account\" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **The liberty SHRANK on 2026-09-20, and the reason is worth keeping (T-1171).** It stood at 75 minted against 17 seated. `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated in `data/reconstruction/1835_presence_rulings.json`; once this stage reads that file the model draws 30 more of the town's own named men as living alone, and `seat_lodgers_1835.py` puts THEM in the beds it would otherwise have invented somebody for. Twenty-eight invented people are gone and twenty-eight real ones sleep in their place. The beds did not move — 94 of 135 ordinary-night beds are filled either way — only the question of who is in them, and this is the direction that question is supposed to travel."
+          "text": "`residents.persons[lodgers]` — 87 people in 16 lodging-household cards, re-derivable from `tools/seat_lodgers_1835.py --check` (47 seats come from the layer; these 87 are the mint on top of them). **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — \"a child does not take a bed at a tavern on their own account\" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **The liberty SHRANK on 2026-09-20, and the reason is worth keeping (T-1171).** It stood at 75 minted against 17 seated. `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated in `data/reconstruction/1835_presence_rulings.json`; once this stage reads that file the model draws 30 more of the town's own named men as living alone, and `seat_lodgers_1835.py` puts THEM in the beds it would otherwise have invented somebody for. Twenty-eight invented people are gone and twenty-eight real ones sleep in their place. The beds did not move — 94 of 135 ordinary-night beds are filled either way — only the question of who is in them, and this is the direction that question is supposed to travel."
         },
         {
           "label": "Why",
@@ -15822,14 +15880,14 @@
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-19",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, six are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards and fifteen are **L262**'s services, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total"
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, seven are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards and fifteen are **L262**'s services, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total"
         },
         {
           "label": "Decision",
@@ -15912,19 +15970,20 @@
       "title": "Six boarding houses become houses of trade because the buildings were already standing and nothing in the business layer could see them",
       "section": "per_subject",
       "subjects": [
-        "new_york_house"
+        "new_york_house",
+        "recon_1835_west_035"
       ],
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-19",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade, of which SIX are this entry's. The other twenty-seven are **L254**'s apothecaries, **L255**'s Black-owned firms, **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber yards and **L262**'s services; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-two are its own."
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade, of which SEVEN are this entry's. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other twenty-seven are **L254**'s apothecaries, **L255**'s Black-owned firms, **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber yards and **L262**'s services; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-two are its own."
         },
         {
           "label": "Decision",
@@ -15944,14 +16003,14 @@
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-19",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade. TWO are this entry's, the mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, six **L257**'s boarding houses, two **L259**'s professions, four **L260**'s liveries and lumber yards and fifteen **L262**'s services. The selector reads the whole layer, so the count is restated here rather than narrowed, and the register keeps saying how many reconstructed houses of trade the town carries in total"
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade. TWO are this entry's, the mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, six **L257**'s boarding houses, two **L259**'s professions, four **L260**'s liveries and lumber yards and fifteen **L262**'s services. The selector reads the whole layer, so the count is restated here rather than narrowed, and the register keeps saying how many reconstructed houses of trade the town carries in total"
         },
         {
           "label": "Decision",
@@ -15975,14 +16034,14 @@
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade, of which TWO are this entry's: one law office and one physician's room. The other thirty-one are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L260**'s liveries and lumber yards and **L262**'s services — the other half of this entry's own group, and the half no census line reaches; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed."
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade, of which TWO are this entry's: one law office and one physician's room. The other thirty-one are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L260**'s liveries and lumber yards and **L262**'s services — the other half of this entry's own group, and the half no census line reaches; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed."
         },
         {
           "label": "Decision",
@@ -16024,14 +16083,14 @@
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade, of which FOUR are this entry's. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and **L262**'s services, which take this entry's own fourth form into four more trades; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-two are its own."
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade, of which FOUR are this entry's. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and **L262**'s services, which take this entry's own fourth form into four more trades; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-two are its own."
         },
         {
           "label": "Decision",
@@ -16093,14 +16152,14 @@
       "covers": [],
       "scope": {
         "enumeration": "businesses.records[reconstructed]",
-        "count": 33
+        "count": 34
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`businesses.records[reconstructed]` — 33 houses of trade, of which FIFTEEN are this entry's: nine millineries, four land offices, one dress making shop and one barber's shop. The other eighteen are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and **L260**'s liveries and lumber yards; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-three are its own."
+          "text": "`businesses.records[reconstructed]` — 34 houses of trade, of which FIFTEEN are this entry's: nine millineries, four land offices, one dress making shop and one barber's shop. The other eighteen are **L254**'s apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and **L260**'s liveries and lumber yards; the selector reads the whole reconstructed layer, so the count is restated here rather than narrowed, and each entry says which of the thirty-three are its own."
         },
         {
           "label": "Decision",
@@ -16126,14 +16185,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 394
+        "count": 397
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 394 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 397 phases. Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Decision",
@@ -16145,7 +16204,7 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-09-20. **The count moved to 394 on 2026-09-21 (T-1444).** It read 364 when this liberty was taken. The West Division release instantiated its held slots and every one of the thirty states a roof type, so the exposure this entry commits is drawn on thirty more roofs. The commitment itself is unchanged — 0.14 m of exposure on a 4.48 m tile — and the scope is counted off the records' own `roof_type` so that a release restates it rather than leaving the entry claiming a population it no longer has."
+          "text": "2026-09-20. **The count moved to 394 on 2026-09-21 (T-1444) and to 397 on 2026-09-24 (T-1490).** It read 364 when this liberty was taken. The West Division release instantiated its held slots and every one of the thirty states a roof type; T-1490 then traced Jefferson Street north, which freed three of the five that release had held back, and those three state one too. The commitment itself is unchanged — 0.14 m of exposure on a 4.48 m tile — and the scope is counted off the records' own `roof_type` so that a release restates it rather than leaving the entry claiming a population it no longer has."
         }
       ]
     },

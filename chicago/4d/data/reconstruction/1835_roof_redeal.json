@@ -24,8 +24,8 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 315,
-    "keep": 301,
+    "audited": 318,
+    "keep": 304,
     "refamily": 14,
     "retire": 0,
     "kept_occupied": 3,
@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 10,
     "roof_target": 668,
-    "standing_before": 401,
-    "standing_after": 401,
-    "short_of_the_programme_before": 267,
-    "short_of_the_programme_after": 267
+    "standing_before": 404,
+    "standing_after": 404,
+    "short_of_the_programme_before": 264,
+    "short_of_the_programme_after": 264
   },
   "ledger": [
     {
@@ -177,11 +177,11 @@
       "group": "larger_boarding_houses",
       "division": "west",
       "target": 6,
-      "standing": 1,
-      "anonymous": 1,
-      "head_before": 5,
-      "standing_after": 2,
-      "head_after": 4
+      "standing": 2,
+      "anonymous": 2,
+      "head_before": 4,
+      "standing_after": 3,
+      "head_after": 3
     },
     {
       "bucket": "structures/larger_boarding_houses/north",
@@ -210,11 +210,11 @@
       "group": "ordinary_dwellings",
       "division": "west",
       "target": 75,
-      "standing": 48,
-      "anonymous": 45,
-      "head_before": 27,
-      "standing_after": 50,
-      "head_after": 25
+      "standing": 50,
+      "anonymous": 47,
+      "head_before": 25,
+      "standing_after": 52,
+      "head_after": 23
     },
     {
       "bucket": "structures/ordinary_dwellings/north",
@@ -5801,6 +5801,24 @@
       "reason": "the order book has an occupant class for a D2 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_west_029",
+      "division": "west",
+      "family": "D3",
+      "group": "ordinary_dwellings",
+      "programme_phase": "phase2_west_wolf_point_approaches",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 432.0,
+      "street": "lake",
+      "street_class": "principal",
+      "setback_m": 0.09,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/ordinary_dwellings/west",
+      "reason": "the order book has an occupant class for a D3 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_west_030",
       "division": "west",
       "family": "D3",
@@ -5831,6 +5849,24 @@
       "street_class": "principal",
       "setback_m": 0.0,
       "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/ordinary_dwellings/west",
+      "reason": "the order book has an occupant class for a D4 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_west_032",
+      "division": "west",
+      "family": "D4",
+      "group": "ordinary_dwellings",
+      "programme_phase": "phase2_west_wolf_point_approaches",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 616.0,
+      "street": "randolph",
+      "street_class": "ordinary",
+      "setback_m": 41.08,
+      "on_the_street_line": false,
       "conforms": true,
       "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/west",
@@ -5871,6 +5907,24 @@
       "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/west",
       "reason": "the order book has an occupant class for a D6 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_west_035",
+      "division": "west",
+      "family": "H2",
+      "group": "larger_boarding_houses",
+      "programme_phase": "phase2_west_wolf_point_approaches",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 1063.9,
+      "street": "randolph",
+      "street_class": "ordinary",
+      "setback_m": 0.06,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/larger_boarding_houses/west",
+      "reason": "the order book has an occupant class for a H2 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_west_036",

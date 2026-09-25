@@ -36,7 +36,7 @@
       "from": null,
       "to": null,
       "tier": "reconstructed",
-      "basis": "THE ROOF IS THE PREMISES, and it is the one thing here that was not dealt. This firm exists because recon_1835_north_h2_028 stands in data/structures/ with 12 ordinary-night beds in it; the building came first and the house of trade is what the building was missing. No street is claimed beyond the one the roof already stands on, and no coordinate is written here at all.",
+      "basis": "THE ROOF IS THE PREMISES, and it is the one thing here that was not dealt. This firm exists because recon_1835_north_h2_028 stands in data/structures/ with 11 ordinary-night beds in it; the building came first and the house of trade is what the building was missing. No street is claimed beyond the one the roof already stands on, and no coordinate is written here at all.",
       "limit_reason": null
     }
   ],
@@ -82,10 +82,10 @@
     "roof": {
       "structure_id": "recon_1835_north_h2_028",
       "class": "boarding_house",
-      "beds_ordinary": 12,
+      "beds_ordinary": 11,
       "keeper_person_id": "rc_cavanagh_johanna",
       "keeper_household_id": "hh_lodging_recon_1835_north_h2_028",
-      "note": "A STANDING ROOF, NOT A SHORTFALL. The December 1835 State census enumerates taverns and never boarding houses, so the order book holds no bucket of this class to point at and no count of it is short. What is committed is the building: recon_1835_north_h2_028 stands, the lodging model apportioned it 12 ordinary-night beds out of a bracket the town model owns, and the lodgers stage put people in them and named Johanna Cavanagh their keeper. The firm is what was missing, and it is withdrawn with the roof."
+      "note": "A STANDING ROOF, NOT A SHORTFALL. The December 1835 State census enumerates taverns and never boarding houses, so the order book holds no bucket of this class to point at and no count of it is short. What is committed is the building: recon_1835_north_h2_028 stands, the lodging model apportioned it 11 ordinary-night beds out of a bracket the town model owns, and the lodgers stage put people in them and named Johanna Cavanagh their keeper. The firm is what was missing, and it is withdrawn with the roof."
     },
     "seed": "lodging_river_and_transport:lodging/boarding_house/north:003",
     "basis": {

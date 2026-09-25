@@ -159,8 +159,8 @@
       "research_note": ""
     },
     {
-      "household": "hh_glaumbake_frank",
-      "name": "Frank Glaumbake",
+      "household": "hh_goodrich_john",
+      "name": "John Goodrich",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -168,7 +168,7 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Frank Glaumbake",
+          "name": "John Goodrich",
           "relationship": "boarder",
           "grade": "inferred",
           "occupation": "",
@@ -178,8 +178,8 @@
       "research_note": ""
     },
     {
-      "household": "hh_hunter_david",
-      "name": "David Hunter",
+      "household": "hh_latzky_john",
+      "name": "John Latzky",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -187,7 +187,7 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "David Hunter",
+          "name": "John Latzky",
           "relationship": "boarder",
           "grade": "inferred",
           "occupation": "",
@@ -201,7 +201,7 @@
       "name": "The lodgers of Reconstructed H2 medium boarding house #022",
       "division": "north",
       "relation": "lodged here",
-      "why": "THE BED IS THE CLAIM. The lodging model puts 10 people in this house on an ordinary night and 23 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 10 people in this house on an ordinary night and 22 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
       "sources": [],
       "basis": "BEDS, AND ONE FAMILY. 4 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 3 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper.",
       "persons": [
@@ -258,8 +258,27 @@
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
     },
     {
-      "household": "hh_owen_j_v",
-      "name": "J V Owen",
+      "household": "hh_rc_stiles_abigail",
+      "name": "Abigail Stiles",
+      "division": "",
+      "relation": "lodged here",
+      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at domestic in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Abigail Stiles",
+          "relationship": "boarder",
+          "grade": "reconstructed",
+          "occupation": "domestic",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_roberts_edmund",
+      "name": "Edmund Roberts",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -267,9 +286,9 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "J V Owen",
+          "name": "Edmund Roberts",
           "relationship": "boarder",
-          "grade": "attested",
+          "grade": "inferred",
           "occupation": "",
           "note": ""
         }
@@ -277,27 +296,8 @@
       "research_note": ""
     },
     {
-      "household": "hh_rc_flynn_owen",
-      "name": "Owen Flynn",
-      "division": "",
-      "relation": "lodged here",
-      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at labourer in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
-      "sources": [],
-      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Owen Flynn",
-          "relationship": "boarder",
-          "grade": "reconstructed",
-          "occupation": "labourer",
-          "note": ""
-        }
-      ],
-      "research_note": ""
-    },
-    {
-      "household": "hh_smith_william",
-      "name": "William Smith",
+      "household": "hh_ulrich_nicholas",
+      "name": "Nicholas Ulrich",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -305,9 +305,9 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "William Smith",
+          "name": "Nicholas Ulrich",
           "relationship": "boarder",
-          "grade": "attested",
+          "grade": "inferred",
           "occupation": "",
           "note": ""
         }
@@ -362,7 +362,7 @@
   "lodging": {
     "class": "boarding_house",
     "beds_ordinary": 10,
-    "beds_crowded": 23,
+    "beds_crowded": 22,
     "ceiling": 35,
     "clamped_at_1840_maximum": false,
     "enclosed_floor_m2": 165.26,

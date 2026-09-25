@@ -165,13 +165,20 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # and pier_crib reaches stay at 2 each. The five held slots add nothing here for the same
 # reason blocks B and C above add nothing: measured, dealt, and deliberately not built.
 #
+# 414 -> 417 and 412 -> 415 on 2026-09-24 (T-1490): Jefferson Street is carried north on its
+# own surviving control and the corporate boundary's west leg walks it instead of being
+# extrapolated 1,188.8 m across the West Division, so three of those five — `recon_1835_west_029`,
+# `_032` and `_035` — are decided by the ordinance and are built. Three new structure assets.
+# The remaining two are still not built and still add nothing: they stand inside the platted
+# Jefferson corridor, which is a different refusal and is stated in the parcel's own recipe.
+#
 STATED = {
-    "assets": 414,
+    "assets": 417,
     "restales": {
-        "generators/common/*.py": 414,
+        "generators/common/*.py": 417,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/build.py": 412,
+        "generators/build.py": 415,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
     },

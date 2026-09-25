@@ -19,10 +19,10 @@
     "data/structures/*.json"
   ],
   "counts": {
-    "people_in_scope": 525,
+    "people_in_scope": 526,
     "by_kind": {
       "class_held_no_house": 71,
-      "keeps_their_own_house": 164,
+      "keeps_their_own_house": 165,
       "no_employer_named": 162,
       "no_ruling": 5,
       "seated": 123
@@ -523,7 +523,7 @@
     "nearest": 0,
     "seeded_draw": 123,
     "why_division_is_inert": "No business record carries a division. The order book says why in its own words — 'EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY ... assigning premises to a division is T-1182's audit and T-1198's seating' — and this tool reads the field rather than deriving one, because deriving one is that audit done without a licence for it. Business records stating a division today: 0.",
-    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 30 of 196 business records name a structure this project holds, and 46 of 2138 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
+    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 30 of 196 business records name a structure this project holds, and 47 of 2139 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
   },
   "by_trade": {
     "attorney": {
@@ -564,9 +564,9 @@
       }
     },
     "boarding_house_keeper": {
-      "people": 44,
+      "people": 45,
       "kinds": {
-        "keeps_their_own_house": 44
+        "keeps_their_own_house": 45
       }
     },
     "boatman": {
@@ -11169,6 +11169,33 @@
         "kind": "rule",
         "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
         "note": "The premises ruling: a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+      },
+      "chosen_by": []
+    },
+    {
+      "person_id": "rc_pelletier_victoire",
+      "person_name": "Victoire Pelletier",
+      "household_id": "hh_lodging_recon_1835_west_035",
+      "kind": "keeps_their_own_house",
+      "trade": "boarding_house_keeper",
+      "premises": "own_premises",
+      "division_of_the_person": "west",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_pelletier_victoire:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "classes": [],
+      "basis": {
+        "kind": "rule",
+        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
       },
       "replaceable_by": {
         "kind": "business",
