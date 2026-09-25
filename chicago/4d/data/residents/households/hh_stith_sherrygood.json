@@ -2,6 +2,25 @@
  "id": "hh_stith_sherrygood",
  "name": "The Stith household — a name from the post office's letter lists",
  "division": "unplaced",
+ "division_reconstructed": {
+  "value": "west",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "band": "west/labourer_dwellings",
+  "clause": "labourer_dwellings",
+  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the west division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's labourer_dwellings clause. Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+  "basis": {
+   "kind": "model",
+   "id": "policy_only_deal",
+   "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
+  },
+  "seed": "hh_stith_sherrygood|T-1522|division:d64d169f48ad|class:3f111492352c",
+  "replaceable_by": {
+   "kind": "household",
+   "match": "any source that places this household in a division or nearer"
+  },
+  "written_by_stage": "policy_only_division"
+ },
  "head": "stith_sherrygood",
  "source_pass": "letter_list",
  "arrival": {

@@ -609,11 +609,22 @@ export async function mountPeople({
     return COMMUNITY_LABEL.get(r.community) || words(r.community);
   }
 
+  // T-1523. The division a row is shown under. For the 1,305 households no source
+  // places anywhere it is DEALT — off the order book's own household shape — so it is
+  // marked here rather than printed as though a source said it. The filter holds both
+  // kinds; this is how a visitor tells them apart without opening the card.
+  function divisionText(r) {
+    if (!r.division) return '';
+    if (r.division === 'unplaced') return words(r.division);
+    const dealt = r.division_tier === 'reconstructed' ? ' (dealt)' : '';
+    return `${words(r.division)} division${dealt}`;
+  }
+
   function rowHtml(r) {
     const sub = [
       tradeText(r),
       communityText(r),
-      r.division ? `${words(r.division)}${r.division === 'unplaced' ? '' : ' division'}` : '',
+      divisionText(r),
       arrivalText(r),
     ].filter(Boolean).join(' · ');
     const mark = r.how_known !== 'documented'
@@ -819,7 +830,11 @@ export async function mountPeople({
           escapeHtml(r.how_known === 'documented' ? 'documented' : KNOWN_LABEL[r.how_known])}</span>${
         r.occupation ? ` · ${escapeHtml(words(r.occupation))}` : ''}
         <br><span class="people-card-hh">${escapeHtml(words(r.relationship))} of <b>${escapeHtml(r.household_name)}</b>${
-          r.division && r.division !== 'unplaced' ? `, ${escapeHtml(words(r.division))} division` : ''}</span>
+          r.division && r.division !== 'unplaced'
+            ? `, ${escapeHtml(words(r.division))} division${r.division_tier === 'reconstructed'
+              ? ' <span class="person-mark mark-reconstructed" title="No source places this household anywhere. The division is dealt from the reconstruction order book\u2019s own household target by division, seeded on the household\u2019s id \u2014 not read from a source.">dealt</span>'
+              : ''}`
+            : ''}</span>
       </p>
       <div class="people-card-actions">${actionsHtml(r)}</div>
       <p class="people-card-what">${escapeHtml(knownTitle)}.</p>
