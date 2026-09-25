@@ -10,7 +10,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 | | count |
 |---|---:|
-| rows | 15342 |
+| rows | 15341 |
 | ledger units considered (every non-`asserted` unit) | 23693 |
 | of those, units naming no person | 9384 |
 
@@ -18,24 +18,24 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 | class | rows | who | what reconstruction may do |
 |---|---:|---|---|
-| `R1_in_window_uncertain` | 902 | A card exists, its source is inside the window, and its presence on 1 July 1835 is `uncertain`. | Fix presence `present` at tier `reconstructed`, basis = the dated appearance plus the population model's persistence rate. |
+| `R1_in_window_uncertain` | 901 | A card exists, its source is inside the window, and its presence on 1 July 1835 is `uncertain`. | Fix presence `present` at tier `reconstructed`, basis = the dated appearance plus the population model's persistence rate. |
 | `R2_in_window_single_source` | 207 | One appearance inside the window, no card, the ledger withheld it as a single source or on insufficient identity. | Mint a reconstructed resident under the read name. |
 | `R3_1834_return_or_muster` | 28 | A name on the 1 April 1834 post-office return (T-1153) or the 1832 Black Hawk muster enrolled at Chicago, with no 1835 corroboration and no card. | Mint reconstructed, presence bounded by the persistence rate. |
-| `R4_surname_only_census` | 435 | A census reading that gives a surname this town already holds and no person of its own — the 1830 surname-only refusals and the 1840 heads. | May supply a FAMILY (spouse and child bands) to an existing head at `reconstructed`. Never a new head. |
+| `R4_surname_only_census` | 436 | A census reading that gives a surname this town already holds and no person of its own — the 1830 surname-only refusals and the 1840 heads. | May supply a FAMILY (spouse and child bands) to an existing head at `reconstructed`. Never a new head. |
 | `R5_later_only_backprojectable` | 53 | A later-only name — the 1839 directory, the 1840 census, the old-settler rolls — whose own biography dates an arrival before 1 July 1835. | Mint reconstructed with arrival at the biography's date. |
 | `R6_native_metis_black` | 161 | A Native, Métis or free Black person a source names in or near the town inside the window, whatever the ledger disposition. | Mint at the ladder's grade the evidence allows, else `reconstructed`. Always `review_required` for Native and Métis rows; `community` set. Owned by T-1177. |
-| `R0_ineligible` | 13556 | Outside Chicago, the Bear Creek marriages (T-1129), the declared `researched_not_resident` names, post-scene arrivals with nothing to back-project from, and names this town already carries. | Never. |
+| `R0_ineligible` | 13555 | Outside Chicago, the Bear Creek marriages (T-1129), the declared `researched_not_resident` names, post-scene arrivals with nothing to back-project from, and names this town already carries. | Never. |
 
 ## By class and domain
 
 | class | domain | rows |
 |---|---|---:|
-| `R1_in_window_uncertain` | `residents_layer` | 902 |
+| `R1_in_window_uncertain` | `residents_layer` | 901 |
 | `R2_in_window_single_source` | `books` | 28 |
 | `R2_in_window_single_source` | `church` | 34 |
 | `R2_in_window_single_source` | `land_sales` | 145 |
 | `R3_1834_return_or_muster` | `civic` | 28 |
-| `R4_surname_only_census` | `census_1830` | 63 |
+| `R4_surname_only_census` | `census_1830` | 64 |
 | `R4_surname_only_census` | `census_1840` | 372 |
 | `R5_later_only_backprojectable` | `old_settlers` | 53 |
 | `R6_native_metis_black` | `books` | 12 |
@@ -46,7 +46,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 | `R6_native_metis_black` | `old_settlers` | 7 |
 | `R6_native_metis_black` | `residents_layer` | 34 |
 | `R0_ineligible` | `books` | 135 |
-| `R0_ineligible` | `census_1830` | 136 |
+| `R0_ineligible` | `census_1830` | 135 |
 | `R0_ineligible` | `census_1840` | 658 |
 | `R0_ineligible` | `church` | 1711 |
 | `R0_ineligible` | `civic` | 358 |
@@ -60,10 +60,10 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 | class / rule | rows |
 |---|---:|
-| `R0_ineligible/already_carried_as_present` | 1069 |
-| `R0_ineligible/carried_by_the_cards_own_row` | 1242 |
-| `R0_ineligible/carried_under_a_crosswalk_merged_name` | 159 |
-| `R0_ineligible/earlier_than_the_window` | 147 |
+| `R0_ineligible/already_carried_as_present` | 1068 |
+| `R0_ineligible/carried_by_the_cards_own_row` | 1241 |
+| `R0_ineligible/carried_under_a_crosswalk_merged_name` | 161 |
+| `R0_ineligible/earlier_than_the_window` | 146 |
 | `R0_ineligible/forename_printed_surname_lost` | 1 |
 | `R0_ineligible/later_only_and_not_backprojectable` | 9808 |
 | `R0_ineligible/ledger_a_sale_is_never_a_residence` | 413 |
@@ -81,11 +81,11 @@ The research spend was, correctly, conservative. This page does not overturn one
 | `R0_ineligible/single_name_parent_of_a_named_child` | 3 |
 | `R0_ineligible/surname_only_and_unmatched` | 250 |
 | `R0_ineligible/undated_reading` | 257 |
-| `R1_in_window_uncertain/card_presence_is_uncertain` | 902 |
+| `R1_in_window_uncertain/card_presence_is_uncertain` | 901 |
 | `R2_in_window_single_source/in_window_read_and_withheld` | 79 |
 | `R2_in_window_single_source/in_window_unspent_inside_an_asserted_claim` | 128 |
 | `R3_1834_return_or_muster/blackhawk_muster_1832_at_chicago` | 28 |
-| `R4_surname_only_census/census_1830_crosswalk_refused_on_surname_only` | 63 |
+| `R4_surname_only_census/census_1830_crosswalk_refused_on_surname_only` | 64 |
 | `R4_surname_only_census/census_1840_head_surname_matches` | 343 |
 | `R4_surname_only_census/census_surname_matches_a_held_head` | 29 |
 | `R5_later_only_backprojectable/own_biography_dates_the_arrival` | 53 |
@@ -97,7 +97,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 Five rows of each class, in the roster's own order, with the reason each name was withheld from the town. These are the rows a reader should check the rules against.
 
-### `R1_in_window_uncertain` — 902 rows
+### `R1_in_window_uncertain` — 901 rows
 
 | name as read | dated | source | why it was withheld |
 |---|---|---|---|
@@ -127,15 +127,15 @@ Five rows of each class, in the roster's own order, with the reason each name wa
 | SHEDAKER, CHRISTOPHER | 1832 | `blackhawk_1832_100` | Enrolled at Chicago in the 1832 muster, with no 1835 corroboration and no card; presence is bounded by the persistence rate. |
 | LAFROMBOISE, CLAUDE | 1832 | `blackhawk_1832_051` | Enrolled at Chicago in the 1832 muster, with no 1835 corroboration and no card; presence is bounded by the persistence rate. |
 
-### `R4_surname_only_census` — 435 rows
+### `R4_surname_only_census` — 436 rows
 
 | name as read | dated | source | why it was withheld |
 |---|---|---|---|
 | Aaron Friend | — | `hh_friend_charles` | The 1830 crosswalk weighed this head against the town and REFUSED the join on a surname match alone, which is exactly a surname this town holds attached to a person it does not. It may shape a family for the head it matched, and never a… |
 | Abner Young | — | `hh_young_gideon` | The 1830 crosswalk weighed this head against the town and REFUSED the join on a surname match alone, which is exactly a surname this town holds attached to a person it does not. It may shape a family for the head it matched, and never a… |
 | Amos Leonard | — | `hh_leonard_anson` | The 1830 crosswalk weighed this head against the town and REFUSED the join on a surname match alone, which is exactly a surname this town holds attached to a person it does not. It may shape a family for the head it matched, and never a… |
+| Antoine Uilmet | — | `hh_ouilmette_marie_louise` | The 1830 crosswalk weighed this head against the town and REFUSED the join on a surname match alone, which is exactly a surname this town holds attached to a person it does not. It may shape a family for the head it matched, and never a… |
 | Ashbell Merrill | — | `hh_merrill_george_w` | The 1830 crosswalk weighed this head against the town and REFUSED the join on a surname match alone, which is exactly a surname this town holds attached to a person it does not. It may shape a family for the head it matched, and never a… |
-| Bailey Hobson | — | `hh_hobson_jesse` | The 1830 crosswalk weighed this head against the town and REFUSED the join on a surname match alone, which is exactly a surname this town holds attached to a person it does not. It may shape a family for the head it matched, and never a… |
 
 ## What this page does NOT claim
 

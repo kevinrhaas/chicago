@@ -5,118 +5,654 @@
   "domain": "church",
   "source_id": "st_marys_baptismal_register_1833_1835",
   "pass": "T-0503",
-  "what": "Every ADULT named in the eleven page images — parents, godparents, sponsors, witnesses, spouses and the officiant — held against the 1285 people data/residents/ holds today. That count is DERIVED and it moves: the layer stood at 849 when T-0503 wrote this pass, and a crosswalk built against a layer that has since grown is stale rather than wrong — which is what T-1110 found and why --check now says which of the three it is.",
+  "what": "Every ADULT named in the eleven page images — parents, godparents, sponsors, witnesses, spouses and the officiant — held against the 1404 people data/residents/ holds today. That count is DERIVED and it moves: the layer stood at 849 when T-0503 wrote this pass, and a crosswalk built against a layer that has since grown is stale rather than wrong — which is what T-1110 found and why --check now says which of the three it is.",
   "the_rule": "A merge needs a written rule naming BOTH spellings verbatim; a surname-only merge is always a refusal; an EXACT name with no written rule is neither, and is held in exact_name_unruled[] rather than filed under a refusal whose stated ground is untrue of it; a refusal is declared as explicitly as a merge. Nothing here mints or regrades a resident — T-0514 and T-0515 spend this file.",
   "counts": {
     "adult_readings": 211,
     "distinct_adult_names": 143,
-    "residents_examined": 1285,
+    "residents_examined": 1404,
     "all_places": {
       "merged": 9,
       "refused": 20,
-      "exact_name_unruled": 0,
-      "refused_surname_only": 8,
-      "no_candidate": 106
+      "exact_name_unruled": 52,
+      "refused_surname_only": 15,
+      "no_candidate": 47
     },
     "chicago_entries_only": {
       "merged": 9,
       "refused": 19,
-      "exact_name_unruled": 0,
-      "refused_surname_only": 4,
-      "no_candidate": 79
+      "exact_name_unruled": 52,
+      "refused_surname_only": 11,
+      "no_candidate": 20
     },
-    "chicago_adults_present_nowhere_else": 79
+    "chicago_adults_present_nowhere_else": 20
   },
-  "the_finding": "Of the 111 distinct adults the register names in its CHICAGO entries, 79 reach no surname in the residents layer at all. They are the French, Métis, Irish and German Catholic town that the poll books (which recorded only men who voted) and the post office's letter lists do not reach — and they are what the owner's ask was for.",
+  "the_finding": "Of the 111 distinct adults the register names in its CHICAGO entries, 20 reach no surname in the residents layer at all. They are the French, Métis, Irish and German Catholic town that the poll books (which recorded only men who voted) and the post office's letter lists do not reach — and they are what the owner's ask was for.",
   "chicago_adults_present_nowhere_else": [
-    "Adam Schwartz",
-    "Adelaide Bouchard",
-    "Alexis Gagnier",
-    "Alexis Thomas Blanchemontagne",
-    "Andrew Bouchard",
-    "Angélique Aspam",
-    "Anne Françoise Apolline Bruno",
-    "Antoine Aspam",
     "Augustin Bonné",
     "Baptiste Létendre",
-    "Barbery Judar",
-    "Bernard Bousque",
-    "Bridget Finegan",
     "Catherine Debert",
-    "Catherine Harrington",
-    "Catherine Preman",
-    "Cierno Ann",
-    "Claude Laframboise",
-    "Claudia Pierrette Choulet",
-    "Edward Daly",
-    "François Tranche",
-    "Geneviève Medera",
-    "George David Roi",
-    "Godfrey Coslet",
-    "Gwinthlean Whistler",
-    "Henry Stone",
-    "Honora Casy",
-    "Jacob Jolly",
-    "Jacob Tony",
-    "Jacob Vieau",
-    "Jacquette Peltier",
     "Jaespquaa",
     "James O'Marra",
-    "Jean Baptiste Bruno",
-    "Jean Baptiste Derocher",
-    "Jean Baptiste Lavigne",
-    "Jean Pottier",
-    "John Molony",
-    "John Whistler",
-    "John Wode",
-    "Joseph Duplas",
-    "Joseph Laframboise",
-    "Joseph Pallet",
-    "Josette Aspam",
-    "Josette Laframboise",
-    "Josette Vieau",
-    "Joséphine Guy",
     "Lieu",
     "Louis Franchère",
     "Louis Trombere",
-    "Louise Caroline Choulet",
-    "Lucy Kennedy",
     "M. Rowe",
     "Manqua Masqua",
-    "Marguerite Laframboise",
     "Marguerite Malore",
-    "Marguerite Robi",
-    "Marian Eberling",
     "Marian Mouch",
     "Mariana Kamenwith",
     "Marianne",
     "Marie Dalbau",
     "Marie Delacher",
-    "Marie Louise Mallet",
-    "Mary Brenin",
-    "Mary Duggan",
     "Matanacqua",
-    "Michel Arquette",
-    "Michel Choulet",
-    "Michel Mayo",
     "Miranda",
     "N. Thob",
-    "O'Waichiquoi",
-    "Patrick Wagon",
-    "Paul Vieau",
-    "Pierre Riffe",
-    "Thomas Forester",
-    "Victoire Madera",
-    "William Dird"
+    "O'Waichiquoi"
   ],
-  "exact_name_unruled": [],
+  "exact_name_unruled": [
+    {
+      "register_name": "Adam Schwartz",
+      "resident_names": [
+        "Adam Schwartz"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/8"
+      ]
+    },
+    {
+      "register_name": "Adelaide Bouchard",
+      "resident_names": [
+        "Adelaide Bouchard"
+      ],
+      "readings": 2,
+      "at_chicago": true,
+      "entries": [
+        "1833/11",
+        "1833/12"
+      ]
+    },
+    {
+      "register_name": "Alexis Gagnier",
+      "resident_names": [
+        "Alexis Gagnier"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1833/15"
+      ]
+    },
+    {
+      "register_name": "Alexis Thomas Blanchemontagne",
+      "resident_names": [
+        "Alexis Thomas Blanchemontagne"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/11"
+      ]
+    },
+    {
+      "register_name": "Antoine Aspam",
+      "resident_names": [
+        "Antoine Aspam"
+      ],
+      "readings": 2,
+      "at_chicago": true,
+      "entries": [
+        "1833/14",
+        "1833/17"
+      ]
+    },
+    {
+      "register_name": "Barbery Judar",
+      "resident_names": [
+        "Barbery Judar"
+      ],
+      "readings": 2,
+      "at_chicago": true,
+      "entries": [
+        "1835/12",
+        "1835/13"
+      ]
+    },
+    {
+      "register_name": "Bernard Bousque",
+      "resident_names": [
+        "Bernard Bousque"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/2"
+      ]
+    },
+    {
+      "register_name": "Bridget Finegan",
+      "resident_names": [
+        "Bridget Finegan"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/1"
+      ]
+    },
+    {
+      "register_name": "Catherine Harrington",
+      "resident_names": [
+        "Catherine Harrington"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1833/9"
+      ]
+    },
+    {
+      "register_name": "Catherine Preman",
+      "resident_names": [
+        "Catherine Preman"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/2"
+      ]
+    },
+    {
+      "register_name": "Cierno Ann",
+      "resident_names": [
+        "Cierno Ann"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/7"
+      ]
+    },
+    {
+      "register_name": "Claude Laframboise",
+      "resident_names": [
+        "Claude Laframboise"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1834/24"
+      ]
+    },
+    {
+      "register_name": "Claudia Pierrette Choulet",
+      "resident_names": [
+        "Claudia Pierrette Choulet"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1834/17"
+      ]
+    },
+    {
+      "register_name": "Edward Daly",
+      "resident_names": [
+        "Edward Daly"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/14"
+      ]
+    },
+    {
+      "register_name": "Frederick Daniel",
+      "resident_names": [
+        "Frederick Daniel"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/12"
+      ]
+    },
+    {
+      "register_name": "George David Roi",
+      "resident_names": [
+        "George David Roi"
+      ],
+      "readings": 2,
+      "at_chicago": true,
+      "entries": [
+        "1835/10",
+        "1835/11"
+      ]
+    },
+    {
+      "register_name": "Godfrey Coslet",
+      "resident_names": [
+        "Godfrey Coslet"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1834/20"
+      ]
+    },
+    {
+      "register_name": "Gwinthlean Whistler",
+      "resident_names": [
+        "Gwinthlean Whistler"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1834/22"
+      ]
+    },
+    {
+      "register_name": "Henry Stone",
+      "resident_names": [
+        "Henry Stone"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/2"
+      ]
+    },
+    {
+      "register_name": "Honora Casy",
+      "resident_names": [
+        "Honora Casy"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/14"
+      ]
+    },
+    {
+      "register_name": "Jacob Jolly",
+      "resident_names": [
+        "Jacob Jolly"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1833/9"
+      ]
+    },
+    {
+      "register_name": "Jacob Tony",
+      "resident_names": [
+        "Jacob Tony"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/13"
+      ]
+    },
+    {
+      "register_name": "Jacob Vieau",
+      "resident_names": [
+        "Jacob Vieau"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1833/8"
+      ]
+    },
+    {
+      "register_name": "Jacquette Peltier",
+      "resident_names": [
+        "Jacquette Peltier"
+      ],
+      "readings": 4,
+      "at_chicago": true,
+      "entries": [
+        "1833/13",
+        "1834/15",
+        "1834/23",
+        "1834/24"
+      ]
+    },
+    {
+      "register_name": "Jean Baptiste Bruno",
+      "resident_names": [
+        "Jean Baptiste Bruno"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/10"
+      ]
+    },
+    {
+      "register_name": "Jean Baptiste Derocher",
+      "resident_names": [
+        "Jean Baptiste Derocher"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/4"
+      ]
+    },
+    {
+      "register_name": "Jean Baptiste Lavigne",
+      "resident_names": [
+        "Jean Baptiste Lavigne"
+      ],
+      "readings": 2,
+      "at_chicago": true,
+      "entries": [
+        "1833/16",
+        "1833/17"
+      ]
+    },
+    {
+      "register_name": "Jean Pottier",
+      "resident_names": [
+        "Jean Pottier"
+      ],
+      "readings": 2,
+      "at_chicago": true,
+      "entries": [
+        "1833/3",
+        "1834/12"
+      ]
+    },
+    {
+      "register_name": "John Molony",
+      "resident_names": [
+        "John Molony"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/14"
+      ]
+    },
+    {
+      "register_name": "John Welsh",
+      "resident_names": [
+        "John Welsh"
+      ],
+      "readings": 2,
+      "at_chicago": true,
+      "entries": [
+        "1834/16",
+        "1834/17"
+      ]
+    },
+    {
+      "register_name": "John Wode",
+      "resident_names": [
+        "John Wode"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1833/9"
+      ]
+    },
+    {
+      "register_name": "Joseph Duplas",
+      "resident_names": [
+        "Joseph Duplas"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/12"
+      ]
+    },
+    {
+      "register_name": "Joseph Laframboise",
+      "resident_names": [
+        "Joseph Laframboise"
+      ],
+      "readings": 3,
+      "at_chicago": true,
+      "entries": [
+        "1833/13",
+        "1833/2",
+        "1834/15"
+      ]
+    },
+    {
+      "register_name": "Joseph Pallet",
+      "resident_names": [
+        "Joseph Pallet"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1834/12"
+      ]
+    },
+    {
+      "register_name": "Josette Aspam",
+      "resident_names": [
+        "Josette Aspam"
+      ],
+      "readings": 3,
+      "at_chicago": true,
+      "entries": [
+        "1833/16",
+        "1833/17",
+        "1835/6"
+      ]
+    },
+    {
+      "register_name": "Josette Laframboise",
+      "resident_names": [
+        "Josette Laframboise"
+      ],
+      "readings": 4,
+      "at_chicago": true,
+      "entries": [
+        "1833/13",
+        "1833/4",
+        "1834/14",
+        "1834/22"
+      ]
+    },
+    {
+      "register_name": "Josette Vieau",
+      "resident_names": [
+        "Josette Vieau"
+      ],
+      "readings": 2,
+      "at_chicago": true,
+      "entries": [
+        "1833/10",
+        "1833/5"
+      ]
+    },
+    {
+      "register_name": "Louise Caroline Choulet",
+      "resident_names": [
+        "Louise Caroline Choulet"
+      ],
+      "readings": 2,
+      "at_chicago": true,
+      "entries": [
+        "1834/16",
+        "1835/4"
+      ]
+    },
+    {
+      "register_name": "Lucy Kennedy",
+      "resident_names": [
+        "Lucy Kennedy"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1834/21"
+      ]
+    },
+    {
+      "register_name": "Marguerite Laframboise",
+      "resident_names": [
+        "Marguerite Laframboise"
+      ],
+      "readings": 2,
+      "at_chicago": true,
+      "entries": [
+        "1834/23",
+        "1835/4"
+      ]
+    },
+    {
+      "register_name": "Marguerite Robi",
+      "resident_names": [
+        "Marguerite Robi"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/5"
+      ]
+    },
+    {
+      "register_name": "Marian Eberling",
+      "resident_names": [
+        "Marian Eberling"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1834/20"
+      ]
+    },
+    {
+      "register_name": "Marie Louise Mallet",
+      "resident_names": [
+        "Marie Louise Mallet"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/11"
+      ]
+    },
+    {
+      "register_name": "Mary Brenin",
+      "resident_names": [
+        "Mary Brenin"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/9"
+      ]
+    },
+    {
+      "register_name": "Mary Duggan",
+      "resident_names": [
+        "Mary Duggan"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1834/18"
+      ]
+    },
+    {
+      "register_name": "Michel Arquette",
+      "resident_names": [
+        "Michel Arquette"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/5"
+      ]
+    },
+    {
+      "register_name": "Michel Mayo",
+      "resident_names": [
+        "Michel Mayo"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1833/2"
+      ]
+    },
+    {
+      "register_name": "Monique Beaubien",
+      "resident_names": [
+        "Monique Beaubien"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1833/16"
+      ]
+    },
+    {
+      "register_name": "Paul Vieau",
+      "resident_names": [
+        "Paul Vieau"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1833/18"
+      ]
+    },
+    {
+      "register_name": "Pierre Riffe",
+      "resident_names": [
+        "Pierre Riffe"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/8"
+      ]
+    },
+    {
+      "register_name": "Thomas Forester",
+      "resident_names": [
+        "Thomas Forester"
+      ],
+      "readings": 1,
+      "at_chicago": true,
+      "entries": [
+        "1835/1"
+      ]
+    },
+    {
+      "register_name": "Victoire Madera",
+      "resident_names": [
+        "Victoire Madera"
+      ],
+      "readings": 2,
+      "at_chicago": true,
+      "entries": [
+        "1833/3",
+        "1834/12"
+      ]
+    }
+  ],
   "counts_by_ruling": {
     "child_not_crosswalked": 56,
+    "exact_name_unruled": 73,
     "merged": 22,
-    "no_candidate": 146,
+    "no_candidate": 64,
     "not_a_person": 8,
     "refused": 33,
-    "refused_surname_only": 10
+    "refused_surname_only": 19
   },
   "merges": [
     {
@@ -402,9 +938,14 @@
       "entries": [
         "1835/8"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Adam Schwartz",
+        "Pierre Adam Schwartz"
+      ],
+      "resident_exact_name_matches": [
+        "Adam Schwartz"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Adelaide Bouchard",
@@ -417,9 +958,14 @@
         "1833/11",
         "1833/12"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Adelaide Bouchard",
+        "Louis Bouchard"
+      ],
+      "resident_exact_name_matches": [
+        "Adelaide Bouchard"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Alexis Gagnier",
@@ -431,9 +977,14 @@
       "entries": [
         "1833/15"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Alexis Gagnier",
+        "Catherine Gagnier"
+      ],
+      "resident_exact_name_matches": [
+        "Alexis Gagnier"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Alexis Thomas Blanchemontagne",
@@ -445,9 +996,13 @@
       "entries": [
         "1835/11"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Alexis Thomas Blanchemontagne"
+      ],
+      "resident_exact_name_matches": [
+        "Alexis Thomas Blanchemontagne"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Ana Cery",
@@ -474,9 +1029,12 @@
         "1833/11",
         "1833/12"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Adelaide Bouchard",
+        "Louis Bouchard"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Angélique Aspam",
@@ -488,9 +1046,14 @@
       "entries": [
         "1833/15"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Antoine Aspam",
+        "Jean Baptiste Aspam",
+        "Josette Aspam",
+        "Magdeleine Aspam"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Ann Durbin",
@@ -531,9 +1094,12 @@
         "1835/10",
         "1835/11"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Anne Franoise Apolline Bruno",
+        "Jean Baptiste Bruno"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Antoine Aspam",
@@ -546,9 +1112,16 @@
         "1833/14",
         "1833/17"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Antoine Aspam",
+        "Jean Baptiste Aspam",
+        "Josette Aspam",
+        "Magdeleine Aspam"
+      ],
+      "resident_exact_name_matches": [
+        "Antoine Aspam"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Archange Beaubien",
@@ -564,16 +1137,28 @@
         "1834/19"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Archange Beaubien"
+      ],
       "adjudication": "refused"
     },
     {
@@ -622,9 +1207,13 @@
         "1835/12",
         "1835/13"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Barbery Judar"
+      ],
+      "resident_exact_name_matches": [
+        "Barbery Judar"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Bernard Bousque",
@@ -636,9 +1225,14 @@
       "entries": [
         "1835/2"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Bernard Bousque",
+        "Catherine Henrietta Bousque"
+      ],
+      "resident_exact_name_matches": [
+        "Bernard Bousque"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Bourrasso",
@@ -664,9 +1258,13 @@
       "entries": [
         "1835/1"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Bridget Finegan"
+      ],
+      "resident_exact_name_matches": [
+        "Bridget Finegan"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Bridget Forster",
@@ -679,9 +1277,12 @@
         "1835/14"
       ],
       "resident_surname_candidates": [
+        "Bridget Forster",
         "Jane Forster"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Bridget Forster"
+      ],
       "adjudication": "refused"
     },
     {
@@ -697,6 +1298,7 @@
       "resident_surname_candidates": [
         "John Murphy",
         "Harriet Murphy",
+        "Mary Murphy",
         "N Murphy"
       ],
       "resident_exact_name_matches": [],
@@ -713,9 +1315,12 @@
         "1835/13"
       ],
       "resident_surname_candidates": [
+        "Catherine Chandler",
         "Joseph Chandler"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Catherine Chandler"
+      ],
       "adjudication": "refused"
     },
     {
@@ -742,9 +1347,13 @@
       "entries": [
         "1833/9"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Catherine Harrington"
+      ],
+      "resident_exact_name_matches": [
+        "Catherine Harrington"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Catherine Miller",
@@ -757,11 +1366,14 @@
         "1835/12"
       ],
       "resident_surname_candidates": [
+        "Catherine Miller",
         "George Miller",
         "John Miller",
         "Samuel Miller"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Catherine Miller"
+      ],
       "adjudication": "refused"
     },
     {
@@ -776,9 +1388,14 @@
       ],
       "resident_surname_candidates": [
         "Alonzo Murray",
+        "Catherine Murray",
+        "John Murray",
+        "Martha Murray",
         "Patrick Murray"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Catherine Murray"
+      ],
       "adjudication": "refused"
     },
     {
@@ -791,9 +1408,13 @@
       "entries": [
         "1835/2"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Catherine Preman"
+      ],
+      "resident_exact_name_matches": [
+        "Catherine Preman"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Catherine Trewin",
@@ -820,16 +1441,28 @@
         "1834/21"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Charles Beaubien"
+      ],
       "adjudication": "refused"
     },
     {
@@ -857,9 +1490,13 @@
       "entries": [
         "1835/7"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Cierno Ann"
+      ],
+      "resident_exact_name_matches": [
+        "Cierno Ann"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Claude Laframboise",
@@ -871,9 +1508,19 @@
       "entries": [
         "1834/24"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Ccile Laframboise",
+        "Claude Laframboise",
+        "Franois Laframboise",
+        "Joseph Laframboise",
+        "Josette Laframboise",
+        "Marguerite Laframboise",
+        "Thrse Laframboise"
+      ],
+      "resident_exact_name_matches": [
+        "Claude Laframboise"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Claudia Pierrette Choulet",
@@ -885,9 +1532,15 @@
       "entries": [
         "1834/17"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Claudia Pierrette Choulet",
+        "Louise Caroline Choulet",
+        "Michel Alexandre Choulet"
+      ],
+      "resident_exact_name_matches": [
+        "Claudia Pierrette Choulet"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Doctor Egan",
@@ -916,9 +1569,13 @@
       "entries": [
         "1835/14"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Edward Daly"
+      ],
+      "resident_exact_name_matches": [
+        "Edward Daly"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Elisabeth Durbin",
@@ -963,6 +1620,7 @@
         "1833/5"
       ],
       "resident_surname_candidates": [
+        "Esther Bailly",
         "Joseph Bailly"
       ],
       "resident_exact_name_matches": [],
@@ -993,9 +1651,12 @@
         "1833/4"
       ],
       "resident_surname_candidates": [
+        "Esther Bailly",
         "Joseph Bailly"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Esther Bailly"
+      ],
       "adjudication": "refused"
     },
     {
@@ -1023,9 +1684,12 @@
         "1833/16",
         "1835/6"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Marguerite Tranche",
+        "Susanne Tranche"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Frederick Daniel",
@@ -1038,10 +1702,13 @@
         "1835/12"
       ],
       "resident_surname_candidates": [
-        "B. Clevinger [?] Daniel"
+        "B. Clevinger [?] Daniel",
+        "Frederick Daniel"
       ],
-      "resident_exact_name_matches": [],
-      "adjudication": "refused_surname_only"
+      "resident_exact_name_matches": [
+        "Frederick Daniel"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Geneviève Medera",
@@ -1053,9 +1720,11 @@
       "entries": [
         "1835/3"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Genevive Medera"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "George David Roi",
@@ -1068,9 +1737,15 @@
         "1835/10",
         "1835/11"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Anne Franoise Virginie Roi",
+        "George David Roi",
+        "Joseph Claude Roi"
+      ],
+      "resident_exact_name_matches": [
+        "George David Roi"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Godfrey Coslet",
@@ -1082,9 +1757,14 @@
       "entries": [
         "1834/20"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Elisabeth Coslet",
+        "Godfrey Coslet"
+      ],
+      "resident_exact_name_matches": [
+        "Godfrey Coslet"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Gwinthlean Whistler",
@@ -1096,9 +1776,14 @@
       "entries": [
         "1834/22"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Gwinthlean Whistler",
+        "John Harrison Whistler"
+      ],
+      "resident_exact_name_matches": [
+        "Gwinthlean Whistler"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Henry Kinkie",
@@ -1126,9 +1811,13 @@
       "entries": [
         "1835/2"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Henry Stone"
+      ],
+      "resident_exact_name_matches": [
+        "Henry Stone"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Honora Casy",
@@ -1140,9 +1829,13 @@
       "entries": [
         "1835/14"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Honora Casy"
+      ],
+      "resident_exact_name_matches": [
+        "Honora Casy"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Jacob Jolly",
@@ -1154,9 +1847,13 @@
       "entries": [
         "1833/9"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacob Jolly"
+      ],
+      "resident_exact_name_matches": [
+        "Jacob Jolly"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Jacob Tony",
@@ -1168,9 +1865,14 @@
       "entries": [
         "1835/13"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacob Tony",
+        "Louisa Tony"
+      ],
+      "resident_exact_name_matches": [
+        "Jacob Tony"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Jacob Vieau",
@@ -1182,9 +1884,16 @@
       "entries": [
         "1833/8"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacob Vieau",
+        "Josette Vieau",
+        "Marie Josette Vieau",
+        "Paul Vieau"
+      ],
+      "resident_exact_name_matches": [
+        "Jacob Vieau"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Jacquette Peltier",
@@ -1200,9 +1909,13 @@
         "1834/23",
         "1834/24"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacquette Peltier"
+      ],
+      "resident_exact_name_matches": [
+        "Jacquette Peltier"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Jaespquaa",
@@ -1261,14 +1974,24 @@
         "1834/22"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
       "resident_exact_name_matches": [],
       "adjudication": "merged"
@@ -1283,9 +2006,14 @@
       "entries": [
         "1835/10"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Anne Franoise Apolline Bruno",
+        "Jean Baptiste Bruno"
+      ],
+      "resident_exact_name_matches": [
+        "Jean Baptiste Bruno"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Jean Baptiste Derocher",
@@ -1297,9 +2025,13 @@
       "entries": [
         "1835/4"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jean Baptiste Derocher"
+      ],
+      "resident_exact_name_matches": [
+        "Jean Baptiste Derocher"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Jean Baptiste Lavigne",
@@ -1312,9 +2044,13 @@
         "1833/16",
         "1833/17"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jean Baptiste Lavigne"
+      ],
+      "resident_exact_name_matches": [
+        "Jean Baptiste Lavigne"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Jean Pottier",
@@ -1327,9 +2063,15 @@
         "1833/3",
         "1834/12"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Augustin Pottier",
+        "Jean Pottier",
+        "Joseph Pottier"
+      ],
+      "resident_exact_name_matches": [
+        "Jean Pottier"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "John Durbin",
@@ -1424,9 +2166,14 @@
       "entries": [
         "1835/14"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Denis Molony",
+        "John Molony"
+      ],
+      "resident_exact_name_matches": [
+        "John Molony"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "John Murphy",
@@ -1441,6 +2188,7 @@
       "resident_surname_candidates": [
         "John Murphy",
         "Harriet Murphy",
+        "Mary Murphy",
         "N Murphy"
       ],
       "resident_exact_name_matches": [
@@ -1460,9 +2208,14 @@
       ],
       "resident_surname_candidates": [
         "Alonzo Murray",
+        "Catherine Murray",
+        "John Murray",
+        "Martha Murray",
         "Patrick Murray"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "John Murray"
+      ],
       "adjudication": "refused"
     },
     {
@@ -1477,11 +2230,16 @@
         "1834/17"
       ],
       "resident_surname_candidates": [
+        "Catharine Welsh",
+        "John Welsh",
+        "Joseph Welsh",
         "Mary Welsh",
         "T Welsh"
       ],
-      "resident_exact_name_matches": [],
-      "adjudication": "refused_surname_only"
+      "resident_exact_name_matches": [
+        "John Welsh"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "John Whistler",
@@ -1493,9 +2251,12 @@
       "entries": [
         "1833/4"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Gwinthlean Whistler",
+        "John Harrison Whistler"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "John Wode",
@@ -1507,9 +2268,15 @@
       "entries": [
         "1833/9"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Catherine Wode",
+        "John Wode",
+        "Mary Wode"
+      ],
+      "resident_exact_name_matches": [
+        "John Wode"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Joseph Beaubien",
@@ -1522,16 +2289,28 @@
         "1833/18"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Joseph Beaubien"
+      ],
       "adjudication": "refused"
     },
     {
@@ -1545,6 +2324,7 @@
         "1835/13"
       ],
       "resident_surname_candidates": [
+        "Catherine Chandler",
         "Joseph Chandler"
       ],
       "resident_exact_name_matches": [
@@ -1562,9 +2342,14 @@
       "entries": [
         "1835/12"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Catherine Duplas",
+        "Joseph Duplas"
+      ],
+      "resident_exact_name_matches": [
+        "Joseph Duplas"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Joseph Laframboise",
@@ -1579,9 +2364,19 @@
         "1833/2",
         "1834/15"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Ccile Laframboise",
+        "Claude Laframboise",
+        "Franois Laframboise",
+        "Joseph Laframboise",
+        "Josette Laframboise",
+        "Marguerite Laframboise",
+        "Thrse Laframboise"
+      ],
+      "resident_exact_name_matches": [
+        "Joseph Laframboise"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Joseph Pallet",
@@ -1593,9 +2388,13 @@
       "entries": [
         "1834/12"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Joseph Pallet"
+      ],
+      "resident_exact_name_matches": [
+        "Joseph Pallet"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Josette Ashkam",
@@ -1624,9 +2423,16 @@
         "1833/17",
         "1835/6"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Antoine Aspam",
+        "Jean Baptiste Aspam",
+        "Josette Aspam",
+        "Magdeleine Aspam"
+      ],
+      "resident_exact_name_matches": [
+        "Josette Aspam"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Josette Chevalier",
@@ -1642,7 +2448,9 @@
         "1834/12"
       ],
       "resident_surname_candidates": [
-        "Josette Chevalier"
+        "Joseph Chevalier",
+        "Josette Chevalier",
+        "Louis P Chevalier"
       ],
       "resident_exact_name_matches": [
         "Josette Chevalier"
@@ -1663,9 +2471,19 @@
         "1834/14",
         "1834/22"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Ccile Laframboise",
+        "Claude Laframboise",
+        "Franois Laframboise",
+        "Joseph Laframboise",
+        "Josette Laframboise",
+        "Marguerite Laframboise",
+        "Thrse Laframboise"
+      ],
+      "resident_exact_name_matches": [
+        "Josette Laframboise"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Josette Laframboise Beaubien",
@@ -1680,14 +2498,24 @@
         "1834/18"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
       "resident_exact_name_matches": [
         "Josette LaFramboise Beaubien"
@@ -1706,9 +2534,16 @@
         "1833/10",
         "1833/5"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacob Vieau",
+        "Josette Vieau",
+        "Marie Josette Vieau",
+        "Paul Vieau"
+      ],
+      "resident_exact_name_matches": [
+        "Josette Vieau"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Joséphine Guy",
@@ -1720,9 +2555,11 @@
       "entries": [
         "1835/10"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Josphine Guy"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "L. Chevalier",
@@ -1735,7 +2572,9 @@
         "1835/3"
       ],
       "resident_surname_candidates": [
-        "Josette Chevalier"
+        "Joseph Chevalier",
+        "Josette Chevalier",
+        "Louis P Chevalier"
       ],
       "resident_exact_name_matches": [],
       "adjudication": "refused"
@@ -1809,9 +2648,15 @@
         "1834/16",
         "1835/4"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Claudia Pierrette Choulet",
+        "Louise Caroline Choulet",
+        "Michel Alexandre Choulet"
+      ],
+      "resident_exact_name_matches": [
+        "Louise Caroline Choulet"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Lucy Kennedy",
@@ -1823,9 +2668,13 @@
       "entries": [
         "1834/21"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Lucy Kennedy"
+      ],
+      "resident_exact_name_matches": [
+        "Lucy Kennedy"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Léon Bourassa",
@@ -1839,7 +2688,10 @@
         "1835/4"
       ],
       "resident_surname_candidates": [
-        "Mark Bourassa"
+        "Jean Baptiste Bourassa",
+        "Lon Bourassa",
+        "Mark Bourassa",
+        "Noel Bourassa"
       ],
       "resident_exact_name_matches": [],
       "adjudication": "refused_surname_only"
@@ -1914,9 +2766,19 @@
         "1834/23",
         "1835/4"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Ccile Laframboise",
+        "Claude Laframboise",
+        "Franois Laframboise",
+        "Joseph Laframboise",
+        "Josette Laframboise",
+        "Marguerite Laframboise",
+        "Thrse Laframboise"
+      ],
+      "resident_exact_name_matches": [
+        "Marguerite Laframboise"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Marguerite Malore",
@@ -1942,9 +2804,13 @@
       "entries": [
         "1835/5"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Marguerite Robi"
+      ],
+      "resident_exact_name_matches": [
+        "Marguerite Robi"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Marian Eberling",
@@ -1956,9 +2822,13 @@
       "entries": [
         "1834/20"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Marian Eberling"
+      ],
+      "resident_exact_name_matches": [
+        "Marian Eberling"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Marian Mouch",
@@ -2041,9 +2911,13 @@
       "entries": [
         "1835/11"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Marie Louise Mallet"
+      ],
+      "resident_exact_name_matches": [
+        "Marie Louise Mallet"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Marie Louise Ouilmette",
@@ -2056,8 +2930,12 @@
         "1834/16",
         "1834/17"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
+      "resident_surname_candidates": [
+        "Marie Louise Ouilmette"
+      ],
+      "resident_exact_name_matches": [
+        "Marie Louise Ouilmette"
+      ],
       "adjudication": "refused"
     },
     {
@@ -2074,14 +2952,24 @@
         "1834/19"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
       "resident_exact_name_matches": [
         "Mark Beaubien"
@@ -2098,9 +2986,13 @@
       "entries": [
         "1835/9"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Mary Brenin"
+      ],
+      "resident_exact_name_matches": [
+        "Mary Brenin"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Mary Duggan",
@@ -2112,9 +3004,13 @@
       "entries": [
         "1834/18"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Mary Duggan"
+      ],
+      "resident_exact_name_matches": [
+        "Mary Duggan"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Mary Durbin",
@@ -2143,9 +3039,12 @@
       "resident_surname_candidates": [
         "John Murphy",
         "Harriet Murphy",
+        "Mary Murphy",
         "N Murphy"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Mary Murphy"
+      ],
       "adjudication": "refused"
     },
     {
@@ -2179,11 +3078,14 @@
         "Jeremiah Smith",
         "L W Smith",
         "Lawrence Smith",
+        "Mathias Smith",
         "Matthias Smith",
         "William Smith",
         "William V Smith"
       ],
-      "resident_exact_name_matches": [],
+      "resident_exact_name_matches": [
+        "Mathias Smith"
+      ],
       "adjudication": "refused"
     },
     {
@@ -2224,9 +3126,14 @@
       "entries": [
         "1835/5"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Joseph Arquette",
+        "Michel Arquette"
+      ],
+      "resident_exact_name_matches": [
+        "Michel Arquette"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Michel Choulet",
@@ -2238,9 +3145,13 @@
       "entries": [
         "1835/6"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Claudia Pierrette Choulet",
+        "Louise Caroline Choulet",
+        "Michel Alexandre Choulet"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Michel Mayo",
@@ -2252,9 +3163,14 @@
       "entries": [
         "1833/2"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Joseph Mayo",
+        "Michel Mayo"
+      ],
+      "resident_exact_name_matches": [
+        "Michel Mayo"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Miranda",
@@ -2281,17 +3197,29 @@
         "1833/16"
       ],
       "resident_surname_candidates": [
+        "Alexander Beaubien",
         "Alexandre Beaubien",
+        "Archange Beaubien",
         "B Beaubien",
+        "Caroline Beaubien",
+        "Charles Beaubien",
         "Charles H Beaubien",
+        "Elonore Beaubien",
+        "George Beaubien",
         "Col. Jean Baptiste Beaubien",
         "Josette LaFramboise Beaubien",
         "John S Beaubien",
+        "Joseph Beaubien",
         "Madore Benjamin Beaubien",
-        "Mark Beaubien"
+        "Mark Beaubien",
+        "Monique Beaubien",
+        "Robert Jerome Beaubien",
+        "Susan Beaubien"
       ],
-      "resident_exact_name_matches": [],
-      "adjudication": "refused_surname_only"
+      "resident_exact_name_matches": [
+        "Monique Beaubien"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Monique Nadeau",
@@ -2313,8 +3241,12 @@
         "1834/19",
         "1834/21"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
+      "resident_surname_candidates": [
+        "Monique Nadeau"
+      ],
+      "resident_exact_name_matches": [
+        "Monique Nadeau"
+      ],
       "adjudication": "refused"
     },
     {
@@ -2387,9 +3319,11 @@
       "entries": [
         "1834/18"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "Cicely Wagon"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "Paul Vieau",
@@ -2401,9 +3335,16 @@
       "entries": [
         "1833/18"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Jacob Vieau",
+        "Josette Vieau",
+        "Marie Josette Vieau",
+        "Paul Vieau"
+      ],
+      "resident_exact_name_matches": [
+        "Paul Vieau"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Philipp Durbin",
@@ -2432,9 +3373,13 @@
       "entries": [
         "1835/8"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Pierre Riffe"
+      ],
+      "resident_exact_name_matches": [
+        "Pierre Riffe"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Robert Allen Kinzie",
@@ -2503,6 +3448,7 @@
         "1834/17"
       ],
       "resident_surname_candidates": [
+        "Marguerite Juneau",
         "Solomon Juneau"
       ],
       "resident_exact_name_matches": [
@@ -2567,9 +3513,14 @@
       "entries": [
         "1835/1"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Mary Elisabeth Forester",
+        "Thomas Forester"
+      ],
+      "resident_exact_name_matches": [
+        "Thomas Forester"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "Thomas Potts",
@@ -2596,9 +3547,13 @@
         "1833/3",
         "1834/12"
       ],
-      "resident_surname_candidates": [],
-      "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "resident_surname_candidates": [
+        "Victoire Madera"
+      ],
+      "resident_exact_name_matches": [
+        "Victoire Madera"
+      ],
+      "adjudication": "exact_name_unruled"
     },
     {
       "name": "William Alvey",
@@ -2628,9 +3583,11 @@
       "entries": [
         "1833/6"
       ],
-      "resident_surname_candidates": [],
+      "resident_surname_candidates": [
+        "John David Dird"
+      ],
       "resident_exact_name_matches": [],
-      "adjudication": "no_candidate"
+      "adjudication": "refused_surname_only"
     },
     {
       "name": "William Durbin",
@@ -2701,8 +3658,8 @@
       "name": "Michel Mayo",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_02_3_mother",
@@ -2717,8 +3674,8 @@
       "name": "Joseph Laframboise",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_02_5_sponsor",
@@ -2741,16 +3698,16 @@
       "name": "Jean Pottier",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_03_3_mother",
       "name": "Victoire Madera",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_03_4_godfather",
@@ -2789,16 +3746,16 @@
       "name": "Josette Laframboise",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_04_4_sponsor",
       "name": "John Whistler",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_04_5_sponsor",
@@ -2829,8 +3786,8 @@
       "name": "Josette Vieau",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_05_4_sponsor",
@@ -2861,8 +3818,8 @@
       "name": "William Dird",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_06_3_mother",
@@ -2933,8 +3890,8 @@
       "name": "Jacob Vieau",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_08_3_mother",
@@ -2981,8 +3938,8 @@
       "name": "John Wode",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_09_4_mother",
@@ -2997,16 +3954,16 @@
       "name": "Jacob Jolly",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_09_6_sponsor",
       "name": "Catherine Harrington",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_10_1_child",
@@ -3045,8 +4002,8 @@
       "name": "Josette Vieau",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_11_1_child",
@@ -3061,16 +4018,16 @@
       "name": "Andrew Bouchard",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_11_3_mother",
       "name": "Adelaide Bouchard",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_11_4_sponsor",
@@ -3101,16 +4058,16 @@
       "name": "Andrew Bouchard",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_12_3_mother",
       "name": "Adelaide Bouchard",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_12_4_sponsor",
@@ -3141,16 +4098,16 @@
       "name": "Joseph Laframboise",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_13_3_mother",
       "name": "Jacquette Peltier",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_13_4_godfather",
@@ -3165,8 +4122,8 @@
       "name": "Josette Laframboise",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_14_1_child",
@@ -3181,8 +4138,8 @@
       "name": "Antoine Aspam",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_14_3_mother",
@@ -3221,16 +4178,16 @@
       "name": "Alexis Gagnier",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_15_3_mother",
       "name": "Angélique Aspam",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_15_4_sponsor",
@@ -3261,32 +4218,32 @@
       "name": "François Tranche",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1833_16_3_mother",
       "name": "Josette Aspam",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_16_4_godfather",
       "name": "Jean Baptiste Lavigne",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_16_5_godmother",
       "name": "Monique Beaubien",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "refused_surname_only",
-      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_17_1_child",
@@ -3301,8 +4258,8 @@
       "name": "Antoine Aspam",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_17_3_mother",
@@ -3317,16 +4274,16 @@
       "name": "Jean Baptiste Lavigne",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_17_5_godmother",
       "name": "Josette Aspam",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_18_1_child",
@@ -3341,8 +4298,8 @@
       "name": "Paul Vieau",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1833_18_3_mother",
@@ -3805,24 +4762,24 @@
       "name": "Jean Pottier",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_12_3_mother",
       "name": "Victoire Madera",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_12_4_godfather",
       "name": "Joseph Pallet",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_12_5_godmother",
@@ -3869,8 +4826,8 @@
       "name": "Josette Laframboise",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_15_1_child",
@@ -3885,16 +4842,16 @@
       "name": "Joseph Laframboise",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_15_3_mother",
       "name": "Jacquette Peltier",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_16_1_child",
@@ -3909,8 +4866,8 @@
       "name": "John Welsh",
       "role": "father",
       "at_chicago": true,
-      "outcome": "refused_surname_only",
-      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_16_3_mother",
@@ -3933,8 +4890,8 @@
       "name": "Louise Caroline Choulet",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_17_1_child",
@@ -3949,8 +4906,8 @@
       "name": "John Welsh",
       "role": "father",
       "at_chicago": true,
-      "outcome": "refused_surname_only",
-      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_17_3_mother",
@@ -3973,8 +4930,8 @@
       "name": "Claudia Pierrette Choulet",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_18_1_child",
@@ -3989,16 +4946,16 @@
       "name": "Patrick Wagon",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1834_18_3_mother",
       "name": "Mary Duggan",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_18_4_sponsor",
@@ -4069,16 +5026,16 @@
       "name": "Godfrey Coslet",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_20_3_mother",
       "name": "Marian Eberling",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_20_4_godmother",
@@ -4109,8 +5066,8 @@
       "name": "Lucy Kennedy",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_21_4_sponsor",
@@ -4149,8 +5106,8 @@
       "name": "Josette Laframboise",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_22_4_godfather",
@@ -4165,8 +5122,8 @@
       "name": "Gwinthlean Whistler",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_23_1_child",
@@ -4189,8 +5146,8 @@
       "name": "Marguerite Laframboise",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_23_4_godfather",
@@ -4205,8 +5162,8 @@
       "name": "Jacquette Peltier",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_24_1_child",
@@ -4221,8 +5178,8 @@
       "name": "Claude Laframboise",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1834_24_3_mother",
@@ -4245,8 +5202,8 @@
       "name": "Jacquette Peltier",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_01_1_child",
@@ -4261,16 +5218,16 @@
       "name": "Thomas Forester",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_01_3_mother",
       "name": "Bridget Finegan",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_01_4_sponsor",
@@ -4301,24 +5258,24 @@
       "name": "Bernard Bousque",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_02_3_mother",
       "name": "Catherine Preman",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_02_4_sponsor",
       "name": "Henry Stone",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_02_5_sponsor",
@@ -4333,8 +5290,8 @@
       "name": "Geneviève Medera",
       "role": "subject",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_03_2_father",
@@ -4381,24 +5338,24 @@
       "name": "Marguerite Laframboise",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_04_4_godfather",
       "name": "Jean Baptiste Derocher",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_04_5_godmother",
       "name": "Louise Caroline Choulet",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_05_1_child",
@@ -4413,16 +5370,16 @@
       "name": "Michel Arquette",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_05_3_mother",
       "name": "Marguerite Robi",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_05_4_godfather",
@@ -4445,24 +5402,24 @@
       "name": "François Tranche",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_06_3_mother",
       "name": "Josette Aspam",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_06_4_godfather",
       "name": "Michel Choulet",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_07_1_child",
@@ -4485,8 +5442,8 @@
       "name": "Cierno Ann",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_07_4_sponsor",
@@ -4517,8 +5474,8 @@
       "name": "Adam Schwartz",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_08_3_mother",
@@ -4533,8 +5490,8 @@
       "name": "Pierre Riffe",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_08_5_godmother",
@@ -4565,8 +5522,8 @@
       "name": "Mary Brenin",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_09_4_godmother",
@@ -4597,32 +5554,32 @@
       "name": "George David Roi",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_10_3_mother",
       "name": "Anne Françoise Apolline Bruno",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_10_4_godfather",
       "name": "Jean Baptiste Bruno",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_10_5_godmother",
       "name": "Joséphine Guy",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_11_1_child",
@@ -4637,32 +5594,32 @@
       "name": "George David Roi",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_11_3_mother",
       "name": "Anne Françoise Apolline Bruno",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "refused_surname_only",
+      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
       "record_id": "st_marys_bapt_1835_11_4_godfather",
       "name": "Alexis Thomas Blanchemontagne",
       "role": "godfather",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_11_5_godmother",
       "name": "Marie Louise Mallet",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_12_1_child",
@@ -4677,8 +5634,8 @@
       "name": "Joseph Duplas",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_12_3_mother",
@@ -4693,16 +5650,16 @@
       "name": "Frederick Daniel",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "refused_surname_only",
-      "rule": "REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_12_5_sponsor",
       "name": "Barbery Judar",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_13_1_child",
@@ -4717,8 +5674,8 @@
       "name": "Jacob Tony",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_13_3_mother",
@@ -4741,8 +5698,8 @@
       "name": "Barbery Judar",
       "role": "godmother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_14_1_child",
@@ -4757,24 +5714,24 @@
       "name": "John Molony",
       "role": "father",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_14_3_mother",
       "name": "Honora Casy",
       "role": "mother",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_14_4_sponsor",
       "name": "Edward Daly",
       "role": "sponsor",
       "at_chicago": true,
-      "outcome": "no_candidate",
-      "rule": "NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
+      "outcome": "exact_name_unruled",
+      "rule": "AN EXACT NAME, AND NOBODY HAS RULED ON IT. The residents layer holds a person whose name folds identically to this one, and neither merges[] nor refusals[] names the pair. It is NOT the standing surname-only refusal, whose ground is that no forename agrees — here one does. It is not merged either: a merge needs a written rule naming both spellings, and there is none. The pair is listed in exact_name_unruled[] for the pass that rules on it; until then this reading is crosswalked to nobody."
     },
     {
       "record_id": "st_marys_bapt_1835_14_5_sponsor",

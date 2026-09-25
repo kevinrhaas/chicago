@@ -532,8 +532,19 @@ EPIC_PIECES = {
                         "a trade the town ran that no business record carries."
                         " T-1182 WAS SPLIT on 2026-09-19 into T-1401..T-1405 and all five are DONE, so the pointer moves again rather than going quiet with the ticket. T-1190 since 2026-09-20 (owner's call): the business layer's convergence is what is left to reconcile a trade or a premises against the layer once the audit is spent."
                         " AND T-1190 IS SPENT SINCE 2026-09-20, its three pieces T-1440, T-1441 and T-1442 all closed; the pointer moves once more, to T-1468, which owns the reconciliation itself rather than the convergence that has now finished."),
-    "census_1830": ("T-1297", "The name-on-a-roll piece owns this unasserted unit."),
-    "directories": ("T-1297", "The name-on-a-roll piece owns this unasserted unit."),
+    # AND THE NAME-ON-A-ROLL POINTER HAS GONE THE SAME WAY, for the same reason and caught
+    # the same way. T-1297 closed on 2026-09-17 and nothing noticed, because on the day it
+    # closed no unit of either domain reached it. T-1525 is what made one reach it: minting
+    # the register's 120 documented residents changes WHICH units are unasserted, and the
+    # one that arrives is `census1830_n580_030` — "Clouded L Framboy" on image n580 of the
+    # 1830 Peoria & Putnam schedule, normalised CLAUDE LAFRAMBOISE, a head of family one
+    # line below Joseph. That is precisely the corpus T-1525 found the register carries as
+    # real people, which is why it is reachable now and was not before.
+    # A closed ticket cannot own an unresolved unit, so the pointer moves to live work
+    # rather than going quiet with the ticket — the rule this table has already applied
+    # twice to `civic`.
+    "census_1830": ("T-1551", "The 1830 census and directory residue T-1297 left behind."),
+    "directories": ("T-1551", "The 1830 census and directory residue T-1297 left behind."),
 }
 
 # T-1241 ENDED T-1147, AND THE SAME ROUTING RULE APPLIES A THIRD TIME. The place and

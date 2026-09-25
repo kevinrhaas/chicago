@@ -26,7 +26,7 @@
   {
    "what": "residents layer, persons",
    "path": "data/residents/households/",
-   "n": 1283
+   "n": 1402
   },
   {
    "what": "voter, poll and tax list entries (T-0493)",
@@ -47,8 +47,8 @@
  "counts": {
   "residents_matched_one_entry": 164,
   "residents_ambiguous": 11,
-  "residents_contested": 4,
-  "residents_surname_only_refused": 263,
+  "residents_contested": 6,
+  "residents_surname_only_refused": 283,
   "voters_matched_one_entry": 122,
   "voters_ambiguous": 39,
   "voters_surname_only_refused": 75,
@@ -60,9 +60,9 @@
   "heads_1840_surname_only_refused": 223,
   "residents_further_initial_disagreed_refused": 6,
   "residents_that_further_initial_refusal_reaches": 6,
-  "residents_initial_agreed_forenames_disagreed_refused": 66,
+  "residents_initial_agreed_forenames_disagreed_refused": 72,
   "of_those_a_garbled_printed_forename": 0,
-  "residents_left_with_no_entry_by_that_refusal": 36,
+  "residents_left_with_no_entry_by_that_refusal": 41,
   "residents_letter_list_bucket_refused": 1,
   "residents_that_refusal_reaches": 1,
   "residents_entries_the_whole_name_refused": 16,
@@ -75,7 +75,7 @@
   "of_those_contested": 0,
   "of_those_ambiguous": 2,
   "residents_narrowings_withdrawn_as_a_collision": 0,
-  "residents_ties_left_standing": 13,
+  "residents_ties_left_standing": 15,
   "residents_could_carry_occupation": 91,
   "residents_could_carry_street": 102
  },
@@ -604,32 +604,6 @@
     ],
     "person_id": "avery_charles",
     "household_id": "hh_avery_charles",
-    "grade_1835": "inferred",
-    "occupation_1835": "none_recorded",
-    "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
-    "lives_at_1835": null,
-    "could_carry": [
-     "occupation"
-    ],
-    "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
-   },
-   {
-    "name": "Charles H Beaubien",
-    "rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C.",
-    "entries_1839": [
-     {
-      "claim": "f1839_e0081",
-      "as_printed": "Beaubien, Charles IT, violinist",
-      "printed_page": 6,
-      "occupation_1839": "violinist",
-      "address_1839": null,
-      "streets_1839": [],
-      "address_is_street_only": false
-     }
-    ],
-    "person_id": "beaubien_charles_h",
-    "household_id": "hh_beaubien_charles_h",
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
@@ -3304,6 +3278,32 @@
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
    },
    {
+    "name": "Michel Alexandre Choulet",
+    "rule": "Surname 'Choulet' folds to the same string as the 1839 entry's, and the given name of both begins M.",
+    "entries_1839": [
+     {
+      "claim": "f1839_e0272",
+      "as_printed": "Choulet, Michael, carpenter, Alex. Loyd",
+      "printed_page": 10,
+      "occupation_1839": "carpenter, Alex. Loyd",
+      "address_1839": null,
+      "streets_1839": [],
+      "address_is_street_only": false
+     }
+    ],
+    "person_id": "choulet_michel_alexandre",
+    "household_id": "hh_choulet_michel_alexandre",
+    "grade_1835": "inferred",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "occupation_1835_promoted": false,
+    "lives_at_1835": null,
+    "could_carry": [
+     "occupation"
+    ],
+    "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
+   },
+   {
     "name": "Nathan Christy",
     "rule": "Surname 'Christy' folds to the same string as the 1839 entry's, and the given name of both begins N.",
     "entries_1839": [
@@ -4674,6 +4674,98 @@
   ],
   "contested": [
    {
+    "name": "Charles Beaubien",
+    "rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C. CONTESTED: 2 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made.",
+    "entries_1839": [
+     {
+      "claim": "f1839_e0081",
+      "as_printed": "Beaubien, Charles IT, violinist",
+      "printed_page": 6,
+      "occupation_1839": "violinist",
+      "address_1839": null,
+      "streets_1839": [],
+      "address_is_street_only": false
+     }
+    ],
+    "person_id": "beaubien_charles",
+    "household_id": "hh_beaubien_charles",
+    "grade_1835": "inferred",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "occupation_1835_promoted": false,
+    "lives_at_1835": null,
+    "could_carry": [
+     "occupation"
+    ],
+    "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only.",
+    "contested_with": [
+     "Charles H Beaubien"
+    ],
+    "discriminator": {
+     "kind": "trade",
+     "named": null,
+     "why": "the trade names 0 of the 2 sides, and a discriminator fires only when it names exactly one",
+     "sides": [
+      {
+       "key": "beaubien_charles",
+       "agrees": false,
+       "why": "no trade on one side"
+      },
+      {
+       "key": "beaubien_charles_h",
+       "agrees": false,
+       "why": "no trade on one side"
+      }
+     ]
+    }
+   },
+   {
+    "name": "Charles H Beaubien",
+    "rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C. CONTESTED: 2 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made.",
+    "entries_1839": [
+     {
+      "claim": "f1839_e0081",
+      "as_printed": "Beaubien, Charles IT, violinist",
+      "printed_page": 6,
+      "occupation_1839": "violinist",
+      "address_1839": null,
+      "streets_1839": [],
+      "address_is_street_only": false
+     }
+    ],
+    "person_id": "beaubien_charles_h",
+    "household_id": "hh_beaubien_charles_h",
+    "grade_1835": "inferred",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "occupation_1835_promoted": false,
+    "lives_at_1835": null,
+    "could_carry": [
+     "occupation"
+    ],
+    "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only.",
+    "contested_with": [
+     "Charles Beaubien"
+    ],
+    "discriminator": {
+     "kind": "trade",
+     "named": null,
+     "why": "the trade names 0 of the 2 sides, and a discriminator fires only when it names exactly one",
+     "sides": [
+      {
+       "key": "beaubien_charles",
+       "agrees": false,
+       "why": "no trade on one side"
+      },
+      {
+       "key": "beaubien_charles_h",
+       "agrees": false,
+       "why": "no trade on one side"
+      }
+     ]
+    }
+   },
+   {
     "name": "John A Clark",
     "rule": "Surname 'Clark' folds to the same string as the 1839 entry's, and the given name of both begins J. CONTESTED: 2 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made.",
     "entries_1839": [
@@ -5492,6 +5584,11 @@
     "rule": "The surname 'Kent' is in Fergus 1839 and no entry under it carries the initial 'A' of 'Alex. M. Kent'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Alexander Beaubien",
+    "candidates_under_that_surname": 4,
+    "rule": "The surname 'Beaubien' is in Fergus 1839 and no entry under it carries the initial 'A' of 'Alexander Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Alexandre Beaubien",
     "candidates_under_that_surname": 4,
     "rule": "The surname 'Beaubien' is in Fergus 1839 and no entry under it carries the initial 'A' of 'Alexandre Beaubien'. A surname-only agreement is a refusal."
@@ -5545,6 +5642,16 @@
     "name": "Ann Airs. Day",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Day' is in Fergus 1839 and no entry under it carries the initial 'A' of 'Ann Airs. Day'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Anne Franoise Virginie Roi",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Roi' is in Fergus 1839 and no entry under it carries the initial 'A' of 'Anne Franoise Virginie Roi'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Archange Beaubien",
+    "candidates_under_that_surname": 4,
+    "rule": "The surname 'Beaubien' is in Fergus 1839 and no entry under it carries the initial 'A' of 'Archange Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "Archibald Knox",
@@ -5622,9 +5729,29 @@
     "rule": "The surname 'Perry' is in Fergus 1839 and no entry under it carries the initial 'C' of 'Calvin Perry'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Catherine Chandler",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Chandler' is in Fergus 1839 and no entry under it carries the initial 'C' of 'Catherine Chandler'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Catherine Chevalier Robinson",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Robinson' is in Fergus 1839 and no entry under it carries the initial 'C' of 'Catherine Chevalier Robinson'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Catherine Harrington",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Harrington' is in Fergus 1839 and no entry under it carries the initial 'C' of 'Catherine Harrington'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Catherine Miller",
+    "candidates_under_that_surname": 7,
+    "rule": "The surname 'Miller' is in Fergus 1839 and no entry under it carries the initial 'C' of 'Catherine Miller'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Catherine Murray",
+    "candidates_under_that_surname": 2,
+    "rule": "The surname 'Murray' is in Fergus 1839 and no entry under it carries the initial 'C' of 'Catherine Murray'. A surname-only agreement is a refusal."
    },
    {
     "name": "Charles C. Williams",
@@ -5665,6 +5792,11 @@
     "name": "Clark Knight",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Knight' is in Fergus 1839 and no entry under it carries the initial 'C' of 'Clark Knight'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Claudia Pierrette Choulet",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Choulet' is in Fergus 1839 and no entry under it carries the initial 'C' of 'Claudia Pierrette Choulet'. A surname-only agreement is a refusal."
    },
    {
     "name": "Constant Abbott",
@@ -5772,6 +5904,11 @@
     "rule": "The surname 'Burton' is in Fergus 1839 and no entry under it carries the initial 'E' of 'Edward Burton'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Edward Daly",
+    "candidates_under_that_surname": 3,
+    "rule": "The surname 'Daly' is in Fergus 1839 and no entry under it carries the initial 'E' of 'Edward Daly'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Edward T. Hooker",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Hooker' is in Fergus 1839 and no entry under it carries the initial 'E' of 'Edward T. Hooker'. A surname-only agreement is a refusal."
@@ -5825,6 +5962,11 @@
     "name": "Ellen Hamilton",
     "candidates_under_that_surname": 5,
     "rule": "The surname 'Hamilton' is in Fergus 1839 and no entry under it carries the initial 'E' of 'Ellen Hamilton'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Elonore Beaubien",
+    "candidates_under_that_surname": 4,
+    "rule": "The surname 'Beaubien' is in Fergus 1839 and no entry under it carries the initial 'E' of 'Elonore Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "Emeline Egan",
@@ -5885,6 +6027,16 @@
     "name": "Geor Ballantine",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Ballantine' is in Fergus 1839 and no entry under it carries the initial 'G' of 'Geor Ballantine'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "George Beaubien",
+    "candidates_under_that_surname": 4,
+    "rule": "The surname 'Beaubien' is in Fergus 1839 and no entry under it carries the initial 'G' of 'George Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "George David Roi",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Roi' is in Fergus 1839 and no entry under it carries the initial 'G' of 'George David Roi'. A surname-only agreement is a refusal."
    },
    {
     "name": "George Dyer",
@@ -6147,6 +6299,11 @@
     "rule": "The surname 'Nelson' is in Fergus 1839 and no entry under it carries the initial 'J' of 'John M. Nelson'. A surname-only agreement is a refusal."
    },
    {
+    "name": "John Murray",
+    "candidates_under_that_surname": 2,
+    "rule": "The surname 'Murray' is in Fergus 1839 and no entry under it carries the initial 'J' of 'John Murray'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "John Thompson",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Thompson' is in Fergus 1839 and no entry under it carries the initial 'J' of 'John Thompson'. A surname-only agreement is a refusal."
@@ -6160,6 +6317,11 @@
     "name": "Joseph Bradley",
     "candidates_under_that_surname": 5,
     "rule": "The surname 'Bradley' is in Fergus 1839 and no entry under it carries the initial 'J' of 'Joseph Bradley'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Joseph Claude Roi",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Roi' is in Fergus 1839 and no entry under it carries the initial 'J' of 'Joseph Claude Roi'. A surname-only agreement is a refusal."
    },
    {
     "name": "Joseph Reynolds",
@@ -6247,6 +6409,16 @@
     "rule": "The surname 'Downing' is in Fergus 1839 and no entry under it carries the initial 'L' of 'Lorenzo Downing'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Louise Caroline Choulet",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Choulet' is in Fergus 1839 and no entry under it carries the initial 'L' of 'Louise Caroline Choulet'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Lucy Kennedy",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Kennedy' is in Fergus 1839 and no entry under it carries the initial 'L' of 'Lucy Kennedy'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Luther Hatch",
     "candidates_under_that_surname": 4,
     "rule": "The surname 'Hatch' is in Fergus 1839 and no entry under it carries the initial 'L' of 'Luther Hatch'. A surname-only agreement is a refusal."
@@ -6282,6 +6454,11 @@
     "rule": "The surname 'Parker' is in Fergus 1839 and no entry under it carries the initial 'M' of 'Manson Parker'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Martha Murray",
+    "candidates_under_that_surname": 2,
+    "rule": "The surname 'Murray' is in Fergus 1839 and no entry under it carries the initial 'M' of 'Martha Murray'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Mary Green",
     "candidates_under_that_surname": 4,
     "rule": "The surname 'Green' is in Fergus 1839 and no entry under it carries the initial 'M' of 'Mary Green'. A surname-only agreement is a refusal."
@@ -6290,6 +6467,11 @@
     "name": "Mary Hogan",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Hogan' is in Fergus 1839 and no entry under it carries the initial 'M' of 'Mary Hogan'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Mary Murphy",
+    "candidates_under_that_surname": 4,
+    "rule": "The surname 'Murphy' is in Fergus 1839 and no entry under it carries the initial 'M' of 'Mary Murphy'. A surname-only agreement is a refusal."
    },
    {
     "name": "Matthias Mason",
@@ -6492,6 +6674,11 @@
     "rule": "The surname 'Hunter' is in Fergus 1839 and no entry under it carries the initial 'R' of 'Robert Hunter'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Robert Jerome Beaubien",
+    "candidates_under_that_surname": 4,
+    "rule": "The surname 'Beaubien' is in Fergus 1839 and no entry under it carries the initial 'R' of 'Robert Jerome Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Rowland I!. Cook",
     "candidates_under_that_surname": 7,
     "rule": "The surname 'Cook' is in Fergus 1839 and no entry under it carries the initial 'R' of 'Rowland I!. Cook'. A surname-only agreement is a refusal."
@@ -6585,6 +6772,11 @@
     "name": "Stephen II. Preston",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Preston' is in Fergus 1839 and no entry under it carries the initial 'S' of 'Stephen II. Preston'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Susan Beaubien",
+    "candidates_under_that_surname": 4,
+    "rule": "The surname 'Beaubien' is in Fergus 1839 and no entry under it carries the initial 'S' of 'Susan Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "T. Johnston",
@@ -7094,6 +7286,29 @@
     "lives_at_1835": null
    },
    {
+    "name": "Caroline Beaubien",
+    "entry_1839": {
+     "claim": "f1839_e0081",
+     "as_printed": "Beaubien, Charles IT, violinist",
+     "printed_page": 6,
+     "occupation_1839": "violinist",
+     "address_1839": null,
+     "streets_1839": [],
+     "address_is_street_only": false,
+     "forename_1835": "Caroline",
+     "forename_printed": "Charles",
+     "garbled_reading": false,
+     "rule": "Both readings print a full forename and the two disagree: 'Caroline' against 'Charles'. An initial standing against a full name is a match; two full names that differ are not."
+    },
+    "person_id": "beaubien_caroline",
+    "household_id": "hh_beaubien_caroline",
+    "grade_1835": "inferred",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "occupation_1835_promoted": false,
+    "lives_at_1835": null
+   },
+   {
     "name": "Charles L Bristol",
     "entry_1839": {
      "claim": "f1839_e0168",
@@ -7452,6 +7667,31 @@
     "person_id": "mitchell_henry",
     "household_id": "hh_mitchell_henry",
     "grade_1835": "attested",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "occupation_1835_promoted": false,
+    "lives_at_1835": null
+   },
+   {
+    "name": "Henry Stone",
+    "entry_1839": {
+     "claim": "f1839_e1420",
+     "as_printed": "Stone, Horatio O., groceries and provisions, South Water street",
+     "printed_page": 32,
+     "occupation_1839": "groceries and provisions",
+     "address_1839": "South Water street",
+     "streets_1839": [
+      "South Water street"
+     ],
+     "address_is_street_only": false,
+     "forename_1835": "Henry",
+     "forename_printed": "Horatio",
+     "garbled_reading": false,
+     "rule": "Both readings print a full forename and the two disagree: 'Henry' against 'Horatio'. An initial standing against a full name is a match; two full names that differ are not."
+    },
+    "person_id": "stone_henry",
+    "household_id": "hh_stone_henry",
+    "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
     "occupation_1835_promoted": false,
@@ -8053,6 +8293,32 @@
     "lives_at_1835": null
    },
    {
+    "name": "Joseph Beaubien",
+    "entry_1839": {
+     "claim": "f1839_e0082",
+     "as_printed": "Beaubien, John B., Michigan ave., bet. Lake and So. Water sts",
+     "printed_page": 6,
+     "occupation_1839": null,
+     "address_1839": "Michigan ave., bet. Lake and So. Water sts",
+     "streets_1839": [
+      "Michigan ave",
+      "So. Water sts"
+     ],
+     "address_is_street_only": false,
+     "forename_1835": "Joseph",
+     "forename_printed": "John",
+     "garbled_reading": false,
+     "rule": "Both readings print a full forename and the two disagree: 'Joseph' against 'John'. An initial standing against a full name is a match; two full names that differ are not."
+    },
+    "person_id": "beaubien_joseph",
+    "household_id": "hh_beaubien_joseph",
+    "grade_1835": "inferred",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "occupation_1835_promoted": false,
+    "lives_at_1835": null
+   },
+   {
     "name": "Josette LaFramboise Beaubien",
     "entry_1839": {
      "claim": "f1839_e0082",
@@ -8321,6 +8587,29 @@
     "lives_at_1835": null
    },
    {
+    "name": "Mathias Smith",
+    "entry_1839": {
+     "claim": "f1839_e1372",
+     "as_printed": "Smith, Marcellus B., clerk,",
+     "printed_page": 31,
+     "occupation_1839": "clerk",
+     "address_1839": null,
+     "streets_1839": [],
+     "address_is_street_only": false,
+     "forename_1835": "Mathias",
+     "forename_printed": "Marcellus",
+     "garbled_reading": false,
+     "rule": "Both readings print a full forename and the two disagree: 'Mathias' against 'Marcellus'. An initial standing against a full name is a match; two full names that differ are not."
+    },
+    "person_id": "smith_mathias",
+    "household_id": "hh_smith_mathias",
+    "grade_1835": "inferred",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "occupation_1835_promoted": false,
+    "lives_at_1835": null
+   },
+   {
     "name": "Matthias Smith",
     "entry_1839": {
      "claim": "f1839_e1372",
@@ -8337,6 +8626,56 @@
     },
     "person_id": "smith_matthias",
     "household_id": "hh_smith_matthias",
+    "grade_1835": "inferred",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "occupation_1835_promoted": false,
+    "lives_at_1835": null
+   },
+   {
+    "name": "Monique Beaubien",
+    "entry_1839": {
+     "claim": "f1839_e0083",
+     "as_printed": "Beaubien, Mark, hotel-keeper, Lake st",
+     "printed_page": 6,
+     "occupation_1839": "hotel-keeper",
+     "address_1839": "Lake st",
+     "streets_1839": [
+      "Lake st"
+     ],
+     "address_is_street_only": false,
+     "forename_1835": "Monique",
+     "forename_printed": "Mark",
+     "garbled_reading": false,
+     "rule": "Both readings print a full forename and the two disagree: 'Monique' against 'Mark'. An initial standing against a full name is a match; two full names that differ are not."
+    },
+    "person_id": "beaubien_monique",
+    "household_id": "hh_beaubien_monique",
+    "grade_1835": "inferred",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "occupation_1835_promoted": false,
+    "lives_at_1835": null
+   },
+   {
+    "name": "Monique Beaubien",
+    "entry_1839": {
+     "claim": "f1839_e0084",
+     "as_printed": "Beaubien, Medard B. , merchant, South Water street",
+     "printed_page": 6,
+     "occupation_1839": "merchant",
+     "address_1839": "South Water street",
+     "streets_1839": [
+      "South Water street"
+     ],
+     "address_is_street_only": false,
+     "forename_1835": "Monique",
+     "forename_printed": "Medard",
+     "garbled_reading": false,
+     "rule": "Both readings print a full forename and the two disagree: 'Monique' against 'Medard'. An initial standing against a full name is a match; two full names that differ are not."
+    },
+    "person_id": "beaubien_monique",
+    "household_id": "hh_beaubien_monique",
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",

@@ -17,11 +17,11 @@
   "proprietor_names_printed": 204,
   "proprietors_with_a_given_name_or_initial": 157,
   "proprietors_printed_as_a_surname_alone_unmatchable": 47,
-  "residents_considered": 1403,
+  "residents_considered": 1402,
   "matched_one_card": 20,
   "matched_more_than_one_ambiguous": 3,
   "one_printed_proprietor_contested_by_two_residents": 6,
-  "surname_present_initial_absent_refused": 134,
+  "surname_present_initial_absent_refused": 133,
   "letter_list_bucket_refused": 1,
   "residents_that_refusal_reaches": 1,
   "cards_the_whole_name_refused": 0,
@@ -1130,13 +1130,6 @@
    "surname_on_a_card": "Hamilton",
    "cards_under_that_surname": 2,
    "rule": "The surname 'Hamilton' stands on an 1844 advertising card and no proprietor under it carries the initial 'D' of 'Diana Hamilton'. A surname-only agreement is a refusal."
-  },
-  {
-   "resident": "Doctor Egan",
-   "person_id": "egan_doctor",
-   "surname_on_a_card": "Egan",
-   "cards_under_that_surname": 1,
-   "rule": "The surname 'Egan' stands on an 1844 advertising card and no proprietor under it carries the initial '-' of 'Doctor Egan'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Dr Elijah Dewey Harmon",

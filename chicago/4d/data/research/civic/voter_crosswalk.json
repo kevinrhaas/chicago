@@ -5,7 +5,7 @@
   "source_id": "chicago_voter_lists_1833_1835_irad",
   "publication_source_id": "chicago_genealogist_1993_voter_lists",
   "crosswalk_target": "data/residents/households/*.json",
-  "residents_compared": 1405,
+  "residents_compared": 1404,
   "counts": {
     "entries": 345,
     "matched": 292,
@@ -795,7 +795,7 @@
       "discriminator": "forenames agree initial for initial: entry 'William Bradshaw Egan' against resident 'Dr William Bradshaw Egan'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Egan' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Egan' agrees with the entry's forenames; 2 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_029",
@@ -2437,7 +2437,7 @@
       "discriminator": "forenames agree initial for initial: entry 'William Bradshaw Egan' against resident 'Dr William Bradshaw Egan'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Egan' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Egan' agrees with the entry's forenames; 2 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_039",

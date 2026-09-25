@@ -4,7 +4,7 @@
   "ticket": "T-1296",
   "generated_by": "tools/spend_land_sales_rulings.py",
   "counts": {
-    "a_sale_is_never_a_residence": 566,
+    "a_sale_is_never_a_residence": 579,
     "the_cook_residence_names_a_withheld_person": 40,
     "the_purchase_is_later_than_the_scene_date": 570,
     "the_purchaser_is_a_corporate_body": 27,
@@ -18,7 +18,7 @@
       "generator": "tools/spend_land_sale_bounds.py",
       "where": "data/residents/households/*.json — persons[].dated_bounds[]",
       "statement": "The tract was entered on or before 1 July 1835 and the crosswalk's adjudication under T-0700 / T-0850 UPHELD the join between this purchaser and a person this town holds a card for. A purchase is never a residence, but a dated entry by a named person is a dated appearance, and T-1332 writes it onto the card as one: `bound_kind` `appearance`, or `residence_in_cook` for the eighteen rows whose Residence column states COOK, and `here_by` null on every one of them because this register never puts a body in the town. No grade moved, no arrival was written and no identity was reopened.",
-      "units": 313
+      "units": 300
     }
   },
   "rules": {
@@ -77,6 +77,51 @@
       "unit": "land_sales:data/research/land_sales/records/entries_cook_town_lots_through_1836.json#records/ls0958",
       "rule": "the_purchase_is_later_than_the_scene_date",
       "note": "The register enters 'BALSTIER J M' read as J M Balstier at purchase 0378899, volume L5A page 022, lot 6 block 56 of CHIOT on 1836-06-24, which is after the 1 July 1835 scene date; the residence column reads UNKNOWN. The row may date this name later and may not put it in the 1835 town."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_cook_town_lots_through_1836.json#records/ls0959",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0362468, volume L5A page 013, lot 4 block 36 of CHIOT on 1830-09-27, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_cook_town_lots_through_1836.json#records/ls0960",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0362469, volume L5A page 013, lot 6 block 35 of CHIOT on 1830-09-27, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_cook_town_lots_through_1836.json#records/ls0961",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0362470, volume L5A page 013, lot 3 block 36 of CHIOT on 1830-09-27, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_cook_town_lots_through_1836.json#records/ls0962",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0362471, volume L5A page 005, lot 2 block 17 of CHIOT on 1830-09-27, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_cook_town_lots_through_1836.json#records/ls0963",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0362472, volume L5A page 005, lot 1 block 17 of CHIOT on 1830-09-27, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_cook_town_lots_through_1836.json#records/ls0964",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0362473, volume L5A page 005, lot 7 block 16 of CHIOT on 1830-09-27, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_cook_town_lots_through_1836.json#records/ls0965",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0362474, volume L5A page 006, lot 7 block 17 of CHIOT on 1830-09-27, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_cook_town_lots_through_1836.json#records/ls0966",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0362475, volume L5A page 006, lot 1 block 18 of CHIOT on 1830-09-27, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_cook_town_lots_through_1836.json#records/ls0967",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0362476, volume L5A page 006, lot 8 block 17 of CHIOT on 1830-09-27, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
     },
     {
       "unit": "land_sales:data/research/land_sales/records/entries_cook_town_lots_through_1836.json#records/ls0968",
@@ -5902,6 +5947,26 @@
       "unit": "land_sales:data/research/land_sales/records/entries_t39n_t40n_r14e_through_1836.json#records/ls0453",
       "rule": "a_sale_is_never_a_residence",
       "note": "The register enters 'TULLER JONATHON' read as Jonathon Tuller at purchase 0003718, volume 687 page 268, section 28, T39N R14E on 1835-05-29, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_t39n_t40n_r14e_through_1836.json#records/ls0454",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0082315, volume R13 page 005, section 29, T39N R14E on 1830-09-29, with the residence column reading ILLINOIS. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_t39n_t40n_r14e_through_1836.json#records/ls0455",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0082316, volume R13 page 005, section 29, T39N R14E on 1830-09-29, with the residence column reading ILLINOIS. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_t39n_t40n_r14e_through_1836.json#records/ls0456",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0378978, volume L5A page 140, section 29, T39N R14E on 1830-09-29, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
+    },
+    {
+      "unit": "land_sales:data/research/land_sales/records/entries_t39n_t40n_r14e_through_1836.json#records/ls0457",
+      "rule": "a_sale_is_never_a_residence",
+      "note": "The register enters 'BEAUBIEN J B' read as J B Beaubien at purchase 0378979, volume L5A page 140, section 29, T39N R14E on 1830-09-29, with the residence column reading UNKNOWN. The crosswalk weighed a candidate of this name and refused it. What the row documents is that this name entered this tract on this day."
     },
     {
       "unit": "land_sales:data/research/land_sales/records/entries_t39n_t40n_r14e_through_1836.json#records/ls0458",

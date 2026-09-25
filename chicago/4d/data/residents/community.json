@@ -15,13 +15,13 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 2916,
-  "households": 2036,
-  "known": 2779,
+  "persons": 2914,
+  "households": 2035,
+  "known": 2777,
   "unknown": 137,
   "by_community": {
-   "yankee": 1279,
-   "new_york": 544,
+   "yankee": 1278,
+   "new_york": 543,
    "irish": 399,
    "french_canadian": 146,
    "unknown": 137,
@@ -33,14 +33,14 @@
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 2720,
+   "reconstructed": 2718,
    "null": 137,
    "inferred": 56,
    "attested": 3
   },
   "by_rule": {
-   "reconstruction_community": 1390,
-   "origin_region": 1364,
+   "reconstruction_community": 1389,
+   "origin_region": 1363,
    "no_origin_recorded": 121,
    "stated_community": 25,
    "origin_does_not_speak_for_this_person": 12,
@@ -48,7 +48,7 @@
   },
   "households_by_community": {
    "yankee": 733,
-   "new_york": 543,
+   "new_york": 542,
    "irish": 163,
    "other": 132,
    "unknown": 124,
@@ -2505,11 +2505,6 @@
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
-  },
-  "egan_doctor": {
-   "value": "new_york",
-   "tier": "reconstructed",
-   "rule": "origin_region"
   },
   "egan_emeline": {
    "value": "irish",
@@ -7841,21 +7836,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_egan_doctor_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_egan_doctor_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_egan_doctor_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_eldridge_john_w_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -11426,21 +11406,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_smith_matthias_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_smith_matthias_child_3": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_smith_matthias_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_spring_giles_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -11612,6 +11577,31 @@
    "rule": "reconstruction_community"
   },
   "rc_stiles_william": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_stone_henry_child_1": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_stone_henry_child_2": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_stone_henry_child_3": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_stone_henry_child_4": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_stone_henry_wife": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -12261,7 +12251,7 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_wesencraft_charles_child_3": {
+  "rc_wesencraft_charles_child_4": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -12312,11 +12302,6 @@
    "rule": "reconstruction_community"
   },
   "rc_whitcomb_seth": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_whitlock_james_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -12487,6 +12472,11 @@
    "rule": "reconstruction_community"
   },
   "rc_wilcox_sophronia_5": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_williams_eli_b_wife": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -17946,13 +17936,6 @@
    "rule": "no_origin_recorded",
    "head": "edward_manierre",
    "file": "readmitted/hh_edward_manierre.json"
-  },
-  "hh_egan_doctor": {
-   "value": "new_york",
-   "tier": "reconstructed",
-   "rule": "origin_region",
-   "head": "egan_doctor",
-   "file": "households/hh_egan_doctor.json"
   },
   "hh_egan_william_b": {
    "value": "irish",

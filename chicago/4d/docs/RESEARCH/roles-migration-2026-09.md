@@ -40,11 +40,11 @@ carry is a controlled word, and it may not fill the 1835 view without one.
 | --- | ---: | ---: | ---: | ---: | ---: |
 | `fergus_1839_directory` | 151 | 19 | 11 | 8 | 113 |
 | `fergus_1839_register` | 18 | 0 | 5 | 13 | 0 |
-| `fergus_1843_directory` | 125 | 19 | 11 | 12 | 83 |
+| `fergus_1843_directory` | 126 | 20 | 12 | 12 | 82 |
 | `newspaper_gazetteer` | 213 | 88 | 81 | 44 | 0 |
-| `norris_1844_directory` | 100 | 22 | 14 | 8 | 56 |
+| `norris_1844_directory` | 103 | 23 | 15 | 8 | 57 |
 | `retrospective_prose` | 1 | 0 | 1 | 0 | 0 |
-| **total** | **608** | **148** | **123** | **85** | **252** |
+| **total** | **612** | **150** | **125** | **85** | **252** |
 
 `10` further row(s) were SYNONYM-FOLDED INTO EACH OTHER: one
 source printing two wordings for one controlled role over one bound asserts that
@@ -52,7 +52,7 @@ role once, and the survivor names the other wording in its note.
 
 ## What the roles now carry
 
-- `183` people carry two or more roles, listed below.
+- `185` people carry two or more roles, listed below.
 - `115` of their roles reach 1835-07-01, of which `114` stand in the 1835 compatibility view.
 - The `1` that reach the day WITHOUT filling the
   field are the migration's open question, and they are held open on purpose. Four
@@ -65,7 +65,7 @@ role once, and the survivor names the other wording in its note.
   lawyer no practitioner ruling held. T-1296 makes the four agree; until it does,
   the rows say plainly that the evidence reaches the day and the field does not
   carry it, which is a state that can be read and argued with.
-- `252` carry a stated `place` and `58` a stated
+- `256` carry a stated `place` and `58` a stated
   `employer_or_body`. Both default to `not_stated`, which is an assertion:
   the record does not say. Places come from the directories' own address and
   place-of-business columns and bodies from the register's `body` column and the
@@ -133,6 +133,7 @@ least one source in common, with corroborators beside it.
 | `casey_edward_w` | 2 | 1 | attorney; clerk, Stanton & Black |
 | `caton_john_dean` | 4 | 1 | attorney; attorney at law; laborer |
 | `chapman_chas_h` | 2 | 0 | merchant; real estate dealer |
+| `choulet_michel_alexandre` | 3 | 0 | carpenter; carpenter, Alex. Loyd |
 | `christy_nathan` | 3 | 0 | fisherman; laborer |
 | `church_thomas` | 4 | 1 | dry goods and groceries; dry goods and groceries, 111 Lake; grocery and provision store, hi; merchant |
 | `clarke_h_b` | 3 | 1 | farmer, Michigan ave, n.e; farmer, lake shore, below Michigan avenue; hardware_merchant |
@@ -229,6 +230,7 @@ least one source in common, with corroborators beside it.
 | `morrison_orsemus` | 3 | 0 | carpenter; street com., collector, coroner |
 | `mulford_james_h` | 9 | 3 | & Edward; jeweller; merchant; shopkeeper; silversmith; watchmaker; watchmaker and jeweller |
 | `murphy_john` | 3 | 1 | United States Hotel, West Water cor. Randolph; alderman; tavern_keeper |
+| `murray_john` | 2 | 0 | laborer |
 | `myers_frederick` | 4 | 1 | clerk; laborer; saloon |
 | `newberry_walter_loomis` | 2 | 0 | (N. & Burch); att'yand real est., office Newberry & Dole |
 | `norton_nelson_r` | 2 | 1 | bridge-builder, n.-w. cor. N. State and; ship_carpenter |

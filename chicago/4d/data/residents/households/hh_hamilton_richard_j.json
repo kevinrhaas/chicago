@@ -639,6 +639,24 @@
     "relation": "daughter",
     "as_read": "Mrs Ellen Hamilton Keenon",
     "read_from": "hh_hamilton_richard_j"
+   },
+   "age_band": {
+    "value": "5-9",
+    "low": 5,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 5 under 10', one of its female bands, conditioned on `dependent_child_under_15` because the church register calls the person an infant or a baptised child, or the household record calls them a son, a daughter or a child."
+    },
+    "seed": "hamilton_ellen:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('hamilton_ellen:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: nothing beyond what the record already says: the band is drawn from the schedule's child bands because the record calls them a child. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
    }
   }
  ],

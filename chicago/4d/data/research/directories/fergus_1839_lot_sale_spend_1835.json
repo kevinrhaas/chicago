@@ -12,26 +12,26 @@
  "carry_rule": "What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds.",
  "what_the_sale_does_not_give": "No trade, no address in the town of 1835, no household and no house. The block and lot are the only location on the page, they are ground platted in 1839 out of the garrison's reservation, and they place nobody in the town of 1835.",
  "counts": {
-  "matched_rulings": 18,
-  "people_written": 18,
-  "households_touched": 18,
+  "matched_rulings": 19,
+  "people_written": 19,
+  "households_touched": 19,
   "grades_changed": 0,
-  "lots_carried": 50,
-  "dollars_carried": 19719.0,
+  "lots_carried": 51,
+  "dollars_carried": 20019.0,
   "lot_rows_bidder_dittoed": 24,
   "lot_rows_bidder_braced": 0,
-  "lot_rows_block_carried": 49
+  "lot_rows_block_carried": 50
  },
  "not_written": [
   {
    "rule": "F1",
    "why": "a `contested` or `ambiguous` row is a rival still standing: the crosswalk did not choose between the bearers of the name, and a card that cited the volume anyway would print an undecided identity as a decided one",
-   "rulings": 10
+   "rulings": 11
   },
   {
    "rule": "F2",
    "why": "a surname-only agreement is a refusal in this crosswalk's own rule — the directory lists forty-one Smiths — and refusals are not spent",
-   "rulings": 83
+   "rulings": 93
   },
   {
    "rule": "F3",
@@ -390,6 +390,31 @@
     }
    ],
    "written": "FERGUS 1839'S FORT DEARBORN ADDITION LOT SALE — JUNE 1839 EVIDENCE, NEVER AN 1835 FACT. This person bid at the sale of the Fort Dearborn Addition, 10-24 June 1839, printed in Fergus' Chicago Directory for 1839 at pages 47-49. The bidder is printed as “George S. Smith”. 1 lot row, $1,509 in all: block 2 lot 7 at $1,509 (f1839_lot0009, printed page 47). The sale table's own shorthand, recorded and not flattened: 1 carries the block number forward from the last row that printed one. What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds. No trade, no address in the town of 1835, no household and no house. The block and lot are the only location on the page, they are ground platted in 1839 out of the garrison's reservation, and they place nobody in the town of 1835. Identity by the crosswalk's own rule: Surname 'Smith' folds to the same string as the bidder's, and the given name of both begins G. (data/research/directories/fergus_1839_lots_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a lot sale four years after the scene date is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+  },
+  {
+   "household_id": "hh_stone_henry",
+   "person_id": "stone_henry",
+   "name": "Henry Stone",
+   "source_id": "fergus_chicago_directory_1839",
+   "grade_1835": "inferred",
+   "rule": "Surname 'Stone' folds to the same string as the bidder's, and the given name of both begins H.",
+   "total_usd": 300,
+   "entries": [
+    {
+     "claim_id": "f1839_lot0257",
+     "list": "ft_dearborn_addition_lot_sale_1839",
+     "bidder_as_printed": "H. O. Stone",
+     "block": 15,
+     "lot": 4,
+     "amount_usd": 300,
+     "printed_page": 49,
+     "describes_date": "1839-06",
+     "bidder_ditto": false,
+     "bidder_braced": false,
+     "block_carried": true
+    }
+   ],
+   "written": "FERGUS 1839'S FORT DEARBORN ADDITION LOT SALE — JUNE 1839 EVIDENCE, NEVER AN 1835 FACT. This person bid at the sale of the Fort Dearborn Addition, 10-24 June 1839, printed in Fergus' Chicago Directory for 1839 at pages 47-49. The bidder is printed as “H. O. Stone”. 1 lot row, $300 in all: block 15 lot 4 at $300 (f1839_lot0257, printed page 49). The sale table's own shorthand, recorded and not flattened: 1 carries the block number forward from the last row that printed one. What a match may carry, and it is short: that the man was in Chicago between the 10th and the 24th of June 1839 and bid at the Fort Dearborn Addition sale. It is written as 1839 evidence with describes_date 1839-06, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a land sale four years after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. THE LOT IS NOT A LOCATION FOR 1835: the Fort Dearborn Addition is the Beaubien, or Reservation, lands, which in July 1835 were the garrison's ground and were not platted into lots at all. It places no house, no shop and no household in the town this project builds. No trade, no address in the town of 1835, no household and no house. The block and lot are the only location on the page, they are ground platted in 1839 out of the garrison's reservation, and they place nobody in the town of 1835. Identity by the crosswalk's own rule: Surname 'Stone' folds to the same string as the bidder's, and the given name of both begins H. (data/research/directories/fergus_1839_lots_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a lot sale four years after the scene date is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
   },
   {
    "household_id": "hh_collins_j_h",

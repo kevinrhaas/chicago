@@ -71,9 +71,9 @@
  },
  "counts": {
   "offered": {
-   "R1_in_window_uncertain": 902,
-   "R2_in_window_single_source": 207,
-   "R3_1834_return_or_muster": 28,
+   "R1_in_window_uncertain": 804,
+   "R2_in_window_single_source": 309,
+   "R3_1834_return_or_muster": 29,
    "R5_later_only_backprojectable": 53
   },
   "readmitted": {
@@ -83,9 +83,9 @@
    "R5_later_only_backprojectable": 39
   },
   "withheld": {
-   "R1_in_window_uncertain": 177,
-   "R2_in_window_single_source": 145,
-   "R3_1834_return_or_muster": 8,
+   "R1_in_window_uncertain": 79,
+   "R2_in_window_single_source": 247,
+   "R3_1834_return_or_muster": 9,
    "R5_later_only_backprojectable": 14
   },
   "presence_ruled_present": 689,
@@ -23008,13 +23008,6 @@
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_ann_cierno",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Cierno Ann",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_archer_william_b",
    "class": "R1_in_window_uncertain",
    "name_as_read": "William B Archer",
@@ -23027,48 +23020,6 @@
    "name_as_read": "Levi F. Arnold",
    "reason": "the_evidence_pins_no_day_before_the_scene",
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_arquette_joseph",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Joseph Arquette",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_arquette_michel",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Michel Arquette",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_aspam_antoine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Antoine Aspam",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_aspam_jean_baptiste",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Jean Baptiste Aspam",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_aspam_magdeleine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Magdeleine Aspam",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_bailly_esther",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Esther Bailly",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_baptist_john",
@@ -23092,81 +23043,11 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_beaubien_alexander",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Alexander Beaubien",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_beaubien_archange",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Archange Beaubien",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_beaubien_b",
    "class": "R1_in_window_uncertain",
    "name_as_read": "B Beaubien",
    "reason": "undated_reading",
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_beaubien_caroline",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Caroline Beaubien",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_beaubien_charles",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Charles Beaubien",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_beaubien_elonore",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Elonore Beaubien",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_beaubien_george",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "George Beaubien",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_beaubien_joseph",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Joseph Beaubien",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_beaubien_monique",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Monique Beaubien",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_beaubien_robert_jerome",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Robert Jerome Beaubien",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_beaubien_susan",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Susan Beaubien",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_bennett_h_c",
@@ -23183,25 +23064,11 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_blanchemontagne_alexis_thomas",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Alexis Thomas Blanchemontagne",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_blanshard_g",
    "class": "R1_in_window_uncertain",
    "name_as_read": "G. Blanshard",
    "reason": "the_evidence_pins_no_day_before_the_scene",
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_bonn_augustin",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Augustin Bonn",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_botsford_j_k",
@@ -23211,39 +23078,11 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_bouchard_adelaide",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Adelaide Bouchard",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_bouchard_louis",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Louis Bouchard",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_bourrassa_leon",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Leon Bourrassa",
    "reason": "undated_reading",
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_bousque_bernard",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Bernard Bousque",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_bousque_catherine_henrietta",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Catherine Henrietta Bousque",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_brackett_e_c",
@@ -23260,13 +23099,6 @@
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_brenin_mary",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Mary Brenin",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_bristol_charles_l",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Charles L Bristol",
@@ -23281,20 +23113,6 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_bruno_anne_franoise_apolline",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Anne Franoise Apolline Bruno",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_bruno_jean_baptiste",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Jean Baptiste Bruno",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_burton_edward",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Edward Burton",
@@ -23307,41 +23125,6 @@
    "name_as_read": "David Carver",
    "reason": "the_evidence_pins_no_day_before_the_scene",
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_casy_honora",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Honora Casy",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_chandler_catherine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Catherine Chandler",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_choulet_claudia_pierrette",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Claudia Pierrette Choulet",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_choulet_louise_caroline",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Louise Caroline Choulet",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_choulet_michel_alexandre",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Michel Alexandre Choulet",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_church_thomas",
@@ -23379,46 +23162,11 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_coslet_elisabeth",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Elisabeth Coslet",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_coslet_godfrey",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Godfrey Coslet",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_daly_edward",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Edward Daly",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_daniel_frederick",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Frederick Daniel",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_democrat_printers",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Oscar Pratt",
    "reason": "the_evidence_pins_no_day_before_the_scene",
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_derocher_jean_baptiste",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Jean Baptiste Derocher",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_dewey_d_s",
@@ -23435,13 +23183,6 @@
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_dird_john_david",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "John David Dird",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_dixon_robert",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Robert Dixon",
@@ -23449,46 +23190,11 @@
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_duggan_mary",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Mary Duggan",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_duplas_catherine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Catherine Duplas",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_duplas_joseph",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Joseph Duplas",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_eberling_marian",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Marian Eberling",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_everts_hiram",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Hiram Everts",
    "reason": "undated_reading",
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_finegan_bridget",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Bridget Finegan",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_foot_s",
@@ -23505,39 +23211,11 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_forester_mary_elisabeth",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Mary Elisabeth Forester",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_forester_thomas",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Thomas Forester",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_forster_bridget",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Bridget Forster",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_fowler_elmira",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Elmira Fowler",
    "reason": "the_evidence_pins_no_day_before_the_scene",
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_franchre_louis",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Louis Franchre",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_galaher_thomas",
@@ -23575,13 +23253,6 @@
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_guy_josphine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Josphine Guy",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_hall_george",
    "class": "R1_in_window_uncertain",
    "name_as_read": "George Hall",
@@ -23594,13 +23265,6 @@
    "name_as_read": "Major Handy",
    "reason": "the_evidence_pins_no_day_before_the_scene",
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_harrington_catherine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Catherine Harrington",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_hinton_isaac_t",
@@ -23652,39 +23316,11 @@
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_jolly_jacob",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Jacob Jolly",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_judar_barbery",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Barbery Judar",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_juneau_marguerite",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Marguerite Juneau",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_keeney_g_w",
    "class": "R1_in_window_uncertain",
    "name_as_read": "G. W. Keeney",
    "reason": "the_evidence_pins_no_day_before_the_scene",
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_kennedy_lucy",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Lucy Kennedy",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_kulozjcky_john",
@@ -23701,46 +23337,11 @@
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_lavigne_jean_baptiste",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Jean Baptiste Lavigne",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_ltendre_baptiste",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Baptiste Ltendre",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_ltendre_joseph",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Joseph Ltendre",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_lyon_william_f",
    "class": "R1_in_window_uncertain",
    "name_as_read": "William F Lyon",
    "reason": "undated_reading",
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_madera_victoire",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Victoire Madera",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_mallet_marie_louise",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Marie Louise Mallet",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_marsh_silvester",
@@ -23757,53 +23358,11 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_mayo_joseph",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Joseph Mayo",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_mayo_michel",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Michel Mayo",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_medera_genevive",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Genevive Medera",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_meeker_joseph",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Joseph Meeker",
    "reason": "the_evidence_pins_no_day_before_the_scene",
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_miller_catherine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Catherine Miller",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_molony_denis",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Denis Molony",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_molony_john",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "John Molony",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_montgomery_l_w",
@@ -23834,69 +23393,6 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_murray_catherine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Catherine Murray",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_murray_john",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "John Murray",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_murray_martha",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Martha Murray",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_nadeau_monique",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Monique Nadeau",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_omarra_bridget",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Bridget Omarra",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_omarra_james",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "James Omarra",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_ouilmette_marie_louise",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Marie Louise Ouilmette",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_pallet_joseph",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Joseph Pallet",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_peltier_jacquette",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Jacquette Peltier",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_pettit_c",
    "class": "R1_in_window_uncertain",
    "name_as_read": "C Pettit",
@@ -23911,69 +23407,6 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_pottier_augustin",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Augustin Pottier",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_pottier_jean",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Jean Pottier",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_pottier_joseph",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Joseph Pottier",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_preman_catherine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Catherine Preman",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_riffe_pierre",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Pierre Riffe",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_robi_marguerite",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Marguerite Robi",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_roi_anne_franoise_virginie",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Anne Franoise Virginie Roi",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_roi_george_david",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "George David Roi",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_roi_joseph_claude",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Joseph Claude Roi",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_russell_aaron",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Aaron Russell",
@@ -23986,20 +23419,6 @@
    "name_as_read": "Wm. Sabine",
    "reason": "the_evidence_pins_no_day_before_the_scene",
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_schwartz_adam",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Adam Schwartz",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_schwartz_pierre_adam",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Pierre Adam Schwartz",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_sherman_h",
@@ -24030,13 +23449,6 @@
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_smith_mathias",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Mathias Smith",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_steele_ashbel",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Ashbel Steele",
@@ -24049,13 +23461,6 @@
    "name_as_read": "R. Stewart",
    "reason": "the_evidence_pins_no_day_before_the_scene",
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_stone_henry",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Henry Stone",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_story_j_n",
@@ -24093,34 +23498,6 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_tony_jacob",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Jacob Tony",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_tony_louisa",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Louisa Tony",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_tranche_marguerite",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Marguerite Tranche",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_tranche_susanne",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Susanne Tranche",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_tuttle_j_b",
    "class": "R1_in_window_uncertain",
    "name_as_read": "J. B. Tuttle",
@@ -24133,20 +23510,6 @@
    "name_as_read": "John Vale",
    "reason": "undated_reading",
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_vieaux_susanne",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Susanne Vieaux",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_wagon_cicely",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Cicely Wagon",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_walker_james",
@@ -24163,27 +23526,6 @@
    "why": "the far end of a cited source's span, which is not a sighting, and its window covers the scene date, so it pins no day before it So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_welsh_catharine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Catharine Welsh",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_welsh_john",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "John Welsh",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_welsh_joseph",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Joseph Welsh",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_welsh_mary",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Mary Welsh",
@@ -24196,34 +23538,6 @@
    "name_as_read": "T Welsh",
    "reason": "undated_reading",
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_whistler_gwinthlean",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Gwinthlean Whistler",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_wode_catherine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Catherine Wode",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_wode_john",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "John Wode",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_wode_mary",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Mary Wode",
-   "reason": "undated_reading",
-   "why": "the card carries no derived presence leg So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
    "row_id": "card:hh_wright_j",
@@ -24240,9 +23554,128 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/claims/st_marys_baptisms_town_findings.json#claims/st_marys_town_08#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Paul Vieau",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "George Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Monique Nadeau",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Archange Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Michel Mayo",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_4_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_5_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Archange Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Augustin Pottier",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Potier",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Victoire Madera",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_4_godfather#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Augustin Bonné",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Monique Nadeau",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Caroline",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Josette Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_4_sponsor#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "John Whistler",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_5_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Esther Bailly",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_05_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Marguerit",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24254,9 +23687,100 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "John David",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_4_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Mathias Smith",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_08_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Marie Josette",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_08_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jacob Vieau",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_08_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Monique Nadeau",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Mary",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_2_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Catherine",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_3_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "John Wode",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_5_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jacob Jolly",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_6_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Catherine Harrington",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Louis",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_2_father#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Andrew [Bouchard]",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Adelaide Bouchard",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_4_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Augustin Bonné",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24268,9 +23792,86 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Adelaide Bouchard",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_4_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Augustin Bonné",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_1_child#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "François Lafambise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jacquet Peltier",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Josette Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Baptiste",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Antoine Aspam",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_4_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Augustin Bonné",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_5_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Monique Nodeau",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Catherine",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Alexis Gagnier",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24282,9 +23883,240 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_4_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Augustin Bonné",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_5_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Monique Nodeau",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Susanne",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Josette Aspam",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_4_godfather#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Baptiste Lavigne",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Monique Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Magdelene",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Antoine Aspam",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_4_godfather#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Baptiste Lavigne",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Josette Aspam",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Susanne",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Paul Vieaux",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_4_godfather#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Monique Nadeau",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_19_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph Chevalier",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_12_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph Pottier",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_12_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Pottier",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_12_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Victoire Medero",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_12_4_godfather#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph Pallet",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_14_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Alexander",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_14_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Josette Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_15_1_child#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Thérèse",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_15_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_15_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Thérèse Jacquet Peltier",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "John Welsh",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Marie Louise Wimette",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Louise Caroline Choulet",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_17_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Cattarine",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_17_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "John Welsh",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_17_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Mary Louis Wimette",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_17_5_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Claudia Pierrette Choulet",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_18_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Cicely",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_18_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Mary Duggan",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24296,9 +24128,114 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_19_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Monique Nodou",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_19_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Archange Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Elisabeth",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Godfrey Coslet",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Marian Eberling",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Susan",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Charles Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Lucy Kennedy",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_5_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Monique Nadeau Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_22_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Robert Jerome Beaubien",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_22_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Josette Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_22_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Gwinthlean Whistler",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Noel Bourassa",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_2_father#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Léon Bourassa",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Marguerite Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Thérèse Peltier Laframboise",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24310,9 +24247,72 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_24_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Claude Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_24_4_godfather#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "M. Rowe[?]",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_24_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Thérèse Laframboise",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Mary Elisabeth",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Thomas Forester",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Brigitt Finegan",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Catherine Henrietta Bousque",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Bernard Bousque",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Catherine Preman",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_4_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Henry Stone",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24331,9 +24331,37 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Baptiste",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_2_father#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Léon Bourrasso",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_3_mother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Marguerite",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_4_godfather#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Jean Baptiste Derocher",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_5_godmother#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Louise Caroline Choutet",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
@@ -24376,6 +24404,13 @@
    "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_033#0",
    "class": "R3_1834_return_or_muster",
    "name_as_read": "HARMON, ISAAC D",
+   "reason": "a_card_of_that_name_already_stands",
+   "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_050#0",
+   "class": "R3_1834_return_or_muster",
+   "name_as_read": "LAFRAMBOISE, JOSEPH",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },

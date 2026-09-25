@@ -89,20 +89,20 @@
  "buckets_left_short": {},
  "measurement": {
   "the_town_the_book_counts": "present households only",
-  "people_before_this_stage": 882,
-  "people_after_this_stage": 1438,
-  "households_before_this_stage": 451,
-  "households_after_this_stage": 575,
+  "people_before_this_stage": 880,
+  "people_after_this_stage": 1436,
+  "households_before_this_stage": 450,
+  "households_after_this_stage": 574,
   "female_headed_households_after": 148,
-  "female_headed_share_after": 0.2574,
+  "female_headed_share_after": 0.2578,
   "female_headed_share_1840": "not carried: the committed 1840 extract tallies a household's members by sex and age and records no sex for its head, so no measured share exists to compare this one against",
   "why_the_shares_are_not_yet_in_bracket": "THE COUNTS ARE MET AND THE SHARES ARE NOT, and that is a reading of a town half built rather than a defect of this stage. Every one of this stage's 24 buckets is filled to the number the order book asked for - `this_stage_s_buckets_left_short` is 0 - and those numbers were cut against the model's WHOLE town of 2,535 people. The layer this stage hands on holds about half of it, because the boarders, lodgers, hotel guests and crews (T-1175), the garrison (T-1349), the under-documented cohorts (T-1177) and the transients (T-1178) are not written yet and they are overwhelmingly adult and overwhelmingly male. So the children this stage seated are a larger share of a smaller town than they will be of the finished one, and the adult sex ratio is nearer the model than it was (340.2 -> 161.4) without reaching it. Reporting either as met here would be the invention this programme exists to refuse; T-1179 converges the layer and re-runs the profile.",
   "adults_after_this_stage": {
-   "male": 476,
+   "male": 475,
    "female": 242
   },
-  "adult_sex_ratio_before": 403.4,
-  "adult_sex_ratio_after": 196.7,
+  "adult_sex_ratio_before": 402.5,
+  "adult_sex_ratio_after": 196.3,
   "the_model_s_range": [
    120.9,
    150.0
@@ -111,12 +111,12 @@
   "age_pyramid_after": {
    "10_19": 300,
    "20_29": 384,
-   "30_39": 233,
+   "30_39": 232,
    "40_49": 64,
    "50_plus": 37,
    "under_10": 411
   },
-  "share_under_ten_after": 0.2876,
+  "share_under_ten_after": 0.2878,
   "share_under_ten_model": [
    0.2,
    0.2702

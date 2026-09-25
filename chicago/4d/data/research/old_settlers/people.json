@@ -1403,7 +1403,7 @@
     "rule": "OS3",
     "outcome": "refused",
     "person_id": null,
-    "why": "the residents layer has 3 bearer(s) of 'egan', none with the forename initial 'w'; same surname, different forename initial never merges"
+    "why": "the residents layer has 2 bearer(s) of 'egan', none with the forename initial 'w'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",
@@ -6391,7 +6391,7 @@
     "rule": "OS3",
     "outcome": "refused",
     "person_id": null,
-    "why": "the residents layer has 3 bearer(s) of 'egan', none with the forename initial 'w'; same surname, different forename initial never merges"
+    "why": "the residents layer has 2 bearer(s) of 'egan', none with the forename initial 'w'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",

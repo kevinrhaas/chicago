@@ -28,11 +28,11 @@
   "lines_the_1_april_transcription_drops": 30,
   "of_those_carried_by_another_impression": 28,
   "of_those_carried_by_no_claim_at_all": 2,
-  "reaches_a_card": 89,
+  "reaches_a_card": 88,
   "by_outcome": {
    "minted": 66,
-   "refused": 102,
-   "held_already": 23,
+   "refused": 103,
+   "held_already": 22,
    "unread": 2
   },
   "lines_whose_reading_the_page_disagrees_with": 28,
@@ -462,10 +462,12 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "held_already",
     "person": "person_uncertain_leon_bourassa",
-    "reason": "garbled",
-    "by": "tools/mint_letter_list_residents.py"
+    "resident": "bourassa_lon",
+    "household": "hh_bourassa_lon",
+    "card_name": "Lon Bourassa",
+    "action": "enrich"
    }
   },
   {
@@ -2970,12 +2972,10 @@
     }
    ],
    "reaches": {
-    "kind": "held_already",
+    "kind": "refused",
     "person": "person_mason_b_smith",
-    "resident": "smith_matthias",
-    "household": "hh_smith_matthias",
-    "card_name": "Matthias Smith",
-    "action": "enrich"
+    "reason": "the town already names a Smith",
+    "by": "tools/mint_letter_list_residents.py"
    }
   },
   {
@@ -2991,12 +2991,10 @@
     }
    ],
    "reaches": {
-    "kind": "held_already",
+    "kind": "refused",
     "person": "person_mr_smith",
-    "resident": "smith_matthias",
-    "household": "hh_smith_matthias",
-    "card_name": "Matthias Smith",
-    "action": "enrich"
+    "reason": "a surname and nothing else",
+    "by": "tools/mint_letter_list_residents.py"
    }
   },
   {
@@ -4056,7 +4054,7 @@
     "chicago_democrat_1834_04_16#c017"
    ],
    "rule": "dropped by the 1 April transcription and carried by another impression's claim, so it enters the mint's pool through that claim and is minted or refused there",
-   "reaches": "held_already"
+   "reaches": "refused"
   },
   {
    "n": 158,

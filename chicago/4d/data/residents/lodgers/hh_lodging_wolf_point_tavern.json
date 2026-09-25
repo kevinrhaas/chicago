@@ -69,8 +69,8 @@
  },
  "persons": [
   {
-   "id": "rc_vieau_catherine",
-   "name": "Catherine Vieau",
+   "id": "rc_vieau_archange",
+   "name": "Archange Vieau",
    "relationship": "lodger",
    "grade": "reconstructed",
    "sex": "female",
@@ -93,7 +93,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Catherine Vieau",
+    "value": "Archange Vieau",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {

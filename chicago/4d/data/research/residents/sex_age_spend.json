@@ -5,7 +5,7 @@
  "_doc": "T-1303. What the first two tiers of the profile could reach, counted before and after. DERIVED — `--check` refuses a hand-edit. The remainder is T-1304's: the population model's sex and age band, seeded by person id, for everybody the evidence here is silent about.",
  "scene_date": "1835-07-01",
  "counts": {
-  "persons": 1405,
+  "persons": 1404,
   "sex_before": 102,
   "sex_after": 692,
   "birth_year_before": 10,
@@ -15,7 +15,7 @@
    "forename": 558
   },
   "sex_not_written_by_reason": {
-   "already_recorded": 809,
+   "already_recorded": 808,
    "no_forename": 6
   },
   "birth_year_from_the_calumet_registry": 24,
@@ -35,13 +35,13 @@
    "smith_jeremiah",
    "wolcott_alexander"
   ],
-  "still_without_a_sex": 713,
-  "still_without_a_birth_year": 1344
+  "still_without_a_sex": 712,
+  "still_without_a_birth_year": 1343
  },
  "the_table": {
   "male": 91,
   "female": 41,
   "refused": 5
  },
- "what_is_left_for_the_model": "713 people without a sex and 1344 without a birth year. The 0 known only as an initial are the letter lists' cohort and the ticket asks for them to be sexed at the model's measured adult-male rate; the rest bear a forename this project has no evidence about. Neither is this pass's to decide."
+ "what_is_left_for_the_model": "712 people without a sex and 1343 without a birth year. The 0 known only as an initial are the letter lists' cohort and the ticket asks for them to be sexed at the model's measured adult-male rate; the rest bear a forename this project has no evidence about. Neither is this pass's to decide."
 }

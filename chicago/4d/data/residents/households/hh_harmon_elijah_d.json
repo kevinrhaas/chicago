@@ -258,6 +258,12 @@
     "relation": "daughter",
     "as_read": "Mrs A. G. Burley",
     "read_from": "hh_harmon_elijah_d"
+   },
+   "age_band": {
+    "value": null,
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "NO BAND IS DRAWN, AND THE REASON IS THIS CARD'S OWN. A household seats this person as its child and the same record names them in a married style, printed by a source later than the scene. A KINSHIP WORD IS NOT AN AGE (T-1179) and a married style is not one either: neither is dated to 1 July 1835, and they cannot both be read as a band. None of this pass's three conditionings fits, and a band drawn from the schedule's child columns would make a married woman a child under fifteen. This row names ONE person, which is why it does not carry the collective refusal it used to: the refusal is T-1395's and the reason is the card's."
    }
   },
   {
@@ -282,6 +288,24 @@
     "relation": "spouse",
     "as_read": "Welthyan Loomis",
     "read_from": ".persons[0].note"
+   },
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 30 under 40', one of its female bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "harmon_welthyan:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('harmon_welthyan:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
    }
   }
  ],

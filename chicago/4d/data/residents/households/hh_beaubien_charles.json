@@ -128,6 +128,20 @@
      "rule": "G2c"
     }
    ],
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "undecided",
+     "rule": "U1",
+     "cluster": "beaubien_charles",
+     "weighed_against": [
+      "beaubien_charles_h"
+     ],
+     "referred_to": "T-1550",
+     "for_merge": "One forename, one surname, one window. `beaubien_charles_h` stands on the 1833-1835 voter lists and Fergus 1839 prints him a VIOLINIST; `beaubien_charles` stands on the St Mary's baptismal register of 1833-1835. A middle initial present on one printing and absent on the other is the commonest shape in this file, and nothing the two cards carry contradicts the other.",
+     "against_merge": "THE BEAUBIENS ARE THE ONE FAMILY IN THIS TOWN WHERE A SHARED FORENAME PROVES NOTHING. The layer already holds Jean Baptiste and Mark, and the family is large, French-speaking and heavily represented in exactly the two sources these two cards stand on — a parish register and a voter list. Neither card is an ANCHOR in C3's sense: one is a roll, the other a register entry, and the violinist trade is an 1839 reading that says nothing about which Charles stood at the font in 1834. C4 cannot fire because no middle initial is contradicted, only absent, and R4's want of a second discriminator is precisely the gap here. This wants the page and not a rule."
+    }
+   ],
    "sex": "male",
    "sex_basis": {
     "value": "male",
@@ -167,5 +181,16 @@
  ],
  "touches_removal": false,
  "review_required": false,
- "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+ "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213.",
+ "directories": {
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. beaubien_charles, Fergus's Chicago directory of 1839 — f1839_e0081 (contested, so nothing crossed).",
+  "sources": [
+   "fergus_chicago_directory_1839"
+  ],
+  "people": [
+   {
+    "person_id": "beaubien_charles"
+   }
+  ]
+ }
 }

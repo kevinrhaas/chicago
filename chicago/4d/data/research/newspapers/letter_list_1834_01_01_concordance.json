@@ -32,13 +32,13 @@
   },
   "reaches": {
    "minted": 92,
-   "refused": 67,
-   "held_already": 11
+   "refused": 66,
+   "held_already": 12
   },
-  "reaches_a_card": 103,
+  "reaches_a_card": 104,
   "refused_by_reason": {
    "surname already minted": 26,
-   "the town already names that family": 28,
+   "the town already names that family": 27,
    "garbled": 12,
    "a firm, not a person": 1
   },
@@ -2303,10 +2303,12 @@
     }
    ],
    "reaches": {
-    "kind": "refused",
+    "kind": "held_already",
     "person": "person_chas_miller",
-    "reason": "the town already names a Miller",
-    "by": "tools/mint_letter_list_residents.py"
+    "resident": "miller_catherine",
+    "household": "hh_miller_catherine",
+    "card_name": "Catherine Miller",
+    "action": "enrich"
    }
   },
   {

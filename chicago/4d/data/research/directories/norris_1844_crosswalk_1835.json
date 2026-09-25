@@ -12,13 +12,13 @@
  "whole_name_rule": ". A printed forename and a reading of 1835 are THE SAME NAME when\nthey set the SAME NUMBER of words and agree word by word — each pair either\nletter for letter, or one of them the single initial the other begins with.\nWhere exactly ONE candidate is the same name in that sense, the page names\nthat one and no other. Where none is, or more than one is, nothing happens\nand the tie stands with the reason filed.",
  "wife_rule": "— the second clause, and it is R6 arriving where it\nwas always true. `tools/consolidate_resident_evidence.py` holds `Mrs Rufus\nBrown` apart from `Rufus Brown` (R6, T-0723) because the honorific strip leaves\nthe husband's forename tokens on both readings and folds a wife onto him. The\ncrosswalks strip titles the same way and had no such rule, so the town layer's\ntwo people met `Brown, Rufus B., warehouseman` together and were filed as a\nCONTEST — a man contesting a printed line with his own wife. Where one\ncandidate of 1835 carries a female honorific, its forename tokens are exactly\nthose of another candidate carried WITHOUT one, and the printed entry sets no\nfemale honorific of its own, the entry is the husband's and she is not named by\nit. The proof is the same proof R6 asks for and it is in the contest itself:\nthe town layer prints both readings, which is what put them here together.",
  "counts": {
-  "residents_considered": 1403,
+  "residents_considered": 1402,
   "1844_entries_read": 2073,
   "1844_entries_set_aside_for_want_of_a_surname": 1,
   "matched_one_1844_entry": 115,
   "matched_more_than_one_ambiguous": 9,
   "one_1844_entry_contested_by_two_residents": 2,
-  "surname_present_initial_absent_refused": 329,
+  "surname_present_initial_absent_refused": 328,
   "letter_list_bucket_refused": 2,
   "residents_that_refusal_reaches": 2,
   "further_initial_disagreed_refused": 14,
@@ -4283,13 +4283,6 @@
    "surname_in_1844": "Hamilton",
    "candidates": 6,
    "rule": "The surname 'Hamilton' is in Norris 1844 and no entry under it carries the initial 'D' of 'Diana Hamilton'. A surname-only agreement is a refusal."
-  },
-  {
-   "resident": "Doctor Egan",
-   "person_id": "egan_doctor",
-   "surname_in_1844": "Egan",
-   "candidates": 1,
-   "rule": "'Doctor Egan' carries no forename — a rank or a suffix stands where the given name would be — so there is no initial to carry the surname 'Egan' to. Norris 1844 prints 1 entry under that surname and the rule cannot choose between them."
   },
   {
    "resident": "DorCinrk Clement",
