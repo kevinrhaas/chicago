@@ -98,7 +98,7 @@ Reproduce: `python3 tools/compile_register.py --check`.
 
 | Measure | Count |
 | --- | ---: |
-| Structure records | 417 |
+| Structure records | 419 |
 | Carrying occupants | 124 |
 | Flagged `review_required` | 9 |
 
@@ -106,7 +106,7 @@ Reproduce: `python3 tools/compile_register.py --check`.
 | --- | ---: |
 | `attested` | 16 |
 | `inferred` | 164 |
-| `reconstructed` | 1,074 |
+| `reconstructed` | 1,080 |
 
 Reproduce: `python3 tools/audit_confidence.py --strict`.
 
@@ -116,7 +116,7 @@ An unresolved unit is research that has been read and not yet spent. The ledger'
 
 | Owner | Units | State | Live |
 | --- | ---: | ---: | ---: |
-| T-1189 | 12 | split_live | yes |
+| T-1189 | 12 | split | **NO** |
 | T-1198 | 272 | split_live | yes |
 | T-1315 | 3 | open | yes |
 | T-1335 | 169 | open | yes |
@@ -141,10 +141,10 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 2. **28 of the 179 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
 3. **62 firms are unplaceable and 61 reach a street and no further.** Those 123 are the location limits the research preserved rather than guessed past; T-1198 seats what can be seated and the rest stay limits.
 4. **1,481 of 1,512 households have no `lives_at`.** Most are letter-list-only names (736) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
-5. **1,074 structure attributes are `reconstructed` against 16 attested and 164 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
+5. **1,080 structure attributes are `reconstructed` against 16 attested and 164 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
 
 ## 8. Closing
 
-Unclassified registered research units: **0**. Dead asserted targets: **0**. Unresolved units deferred to work that is not live: **0**.
+Unclassified registered research units: **0**. Dead asserted targets: **0**. Unresolved units deferred to work that is not live: **12**.
 
 The closed ledger is therefore complete in its own terms, and section 7 names the five places where the research stopped and the ticket that carries each one. This audit makes no GO/NO-GO judgement about reconstruction: that is T-1157's signature, and this is the evidence under it.
