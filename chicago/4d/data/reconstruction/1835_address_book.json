@@ -74,8 +74,9 @@
    "division": "T-1522/policy_only/division",
    "class": "T-1522/policy_only/class"
   },
-  "still_owed_to": "T-1523",
-  "what_is_still_owed": "the dealt division lives in this file and nowhere else. It is not carried onto the household card or onto data/residents/index.json, so both still read `unplaced` for these 1,186 and the People view's division filter is still short of them. That carry-back is T-1523."
+  "still_owed_to": null,
+  "carried_back_by": "T-1523",
+  "what_was_carried_back": "the dealt division no longer lives in this file alone. tools/carry_policy_only_division.py writes it onto every rung-5 household card as the block `division_reconstructed` — through the same carry slot the mint stages use, so the four mints that re-derive a household record cannot delete it — and rebuild_resident_index.py denormalises the value into data/residents/index.json beside `division`. compile_scene.py shows it in the People view, marked `reconstructed`, so the division filter now holds these households instead of being short of them. THE CARD'S OWN `division` STILL READS `unplaced` AND MUST: it is what a source states, rung 5 is defined as the households where that is `unplaced` (assertion 13), and rebuild_resident_index's `a_stated_division` dwelling clause would otherwise count every one of these as a HOUSE this deal claims no roof for."
  },
  "bands": {
   "what_a_band_is": "an adjudication over data/reconstruction/1835_placement_policy.json — the division the household's own card carries, and the policy clause its head's trade falls under. A band claims no lot, no roof and no coordinate; it says which ground inside a division the policy puts a household of this kind on.",
