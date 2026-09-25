@@ -950,8 +950,15 @@ def self_test() -> int:
     fires("an evidenced absence is refused however it was ruled",
           eligibility(card(present_on_scene_date={"value": "absent"}),
                       frozenset({"hh_x"}))[0] is False)
+    # T-1525 RESTATED THIS FROM 820 TO 936, AND THE NUMBER IS THE POINT OF THE GUARD.
+    # `1835_presence_rulings.json` is DERIVED, so it re-derives over whatever layer it is
+    # run against; a literal here is what makes a population change arrive as a decision
+    # instead of as a silent re-count. Minting the 120 households St Mary's baptismal
+    # register names put 116 more households through the same adjudication, every one of
+    # them ruled `present` — the file still carries no other verdict, which is the half of
+    # this assertion that is not the count.
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 820)
+          len(ruled_present()) == 936)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",

@@ -29,7 +29,7 @@ Of 2,383 people in 1,512 households.
 
 **Roles.** 738 dated role rows across the layer; 160 reach 1 July 1835. By kind: `employment` 1, `office` 52, `profession` 84, `trade` 601.
 
-**Places.** 3,155 location rows reach a person; 465 of them reach the scene date. By claim kind: `business_location` 153, `home` 2,383, `later_home_address` 119, `later_workplace_address` 369, `workplace` 131.
+**Places.** 3,163 location rows reach a person; 465 of them reach the scene date. By claim kind: `business_location` 153, `home` 2,383, `later_home_address` 127, `later_workplace_address` 369, `workplace` 131.
 
 A person inherits his household's `home` and `workplace` rows — the claim is made about the roof, not about the man — and inherits a `business_location` row from every firm that names him as proprietor, partner or staff. That is why the location row count above is larger than the reconciliation's own: the same roof is carried to each of the people living under it.
 

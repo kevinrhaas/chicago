@@ -13,9 +13,9 @@
  "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
  "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record.",
  "counts": {
-  "matched_rulings": 63,
-  "people_written": 63,
-  "households_touched": 63,
+  "matched_rulings": 64,
+  "people_written": 64,
+  "households_touched": 64,
   "grades_changed": 0,
   "carrying_a_date_of_death": 57,
   "carrying_a_birth_interval": 42,
@@ -36,7 +36,7 @@
  "not_written": [
   {
    "group": "contested",
-   "rulings": 16,
+   "rulings": 20,
    "why": "two 1835 people meet one entry and the crosswalk chose neither; a card citing the entry anyway would print an undecided identity as a decided one"
   },
   {
@@ -46,7 +46,7 @@
   },
   {
    "group": "refusals",
-   "rulings": 244,
+   "rulings": 264,
    "why": "the surname agrees and the given initial does not, or is absent — a surname-only agreement is a refusal however good it looks"
   },
   {
@@ -131,15 +131,6 @@
    "death_date": "1885-01-17",
    "birth_year_earliest": 1795,
    "birth_year_latest": 1795,
-   "matched_on_initial_only": false
-  },
-  {
-   "household_id": "hh_beaubien_charles_h",
-   "person_id": "beaubien_charles_h",
-   "record_id": "fdn0029",
-   "death_date": "1858",
-   "birth_year_earliest": 1806,
-   "birth_year_latest": 1807,
    "matched_on_initial_only": false
   },
   {
@@ -386,6 +377,15 @@
    "matched_on_initial_only": true
   },
   {
+   "household_id": "hh_laframboise_franois",
+   "person_id": "laframboise_franois",
+   "record_id": "fdn0376",
+   "death_date": null,
+   "birth_year_earliest": null,
+   "birth_year_latest": null,
+   "matched_on_initial_only": false
+  },
+  {
    "household_id": "hh_marshall_j_a",
    "person_id": "marshall_j_a",
    "record_id": "fdn0444",
@@ -590,6 +590,15 @@
    "death_date": null,
    "birth_year_earliest": null,
    "birth_year_latest": null,
+   "matched_on_initial_only": false
+  },
+  {
+   "household_id": "hh_whistler_john_harrison",
+   "person_id": "whistler_john_harrison",
+   "record_id": "fdn0728",
+   "death_date": "1873-10-23",
+   "birth_year_earliest": 1806,
+   "birth_year_latest": 1807,
    "matched_on_initial_only": false
   },
   {
