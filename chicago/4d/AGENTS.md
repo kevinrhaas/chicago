@@ -48,9 +48,15 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    disagreement — declares `not_a_reading: "<what it is instead>"` at the top, or measuring
    your own work reads the meter up and the domain looks further behind for having checked
    itself. Both are printed by the report; neither is ever a silent zero.
-9. **`tools/check.sh` passes before every commit.** It takes seconds and needs no Blender.
-   **Read its last four lines, not its middle.** 115 of its 304 steps are self-tests that
-   prove a gate by breaking it, so a GREEN run prints fourteen `FAIL` lines on purpose.
+9. **`tools/check.sh` passes before every commit.** About four minutes on four cores, and
+   no Blender. It runs its steps in a pool sized to the machine (`CHECK_JOBS`, on by
+   default since T-1578 — it was serial everywhere but CI, where a 620 s gate no longer
+   fit the 600 s a run's single foreground command gets, so a run got no verdict at all).
+   `CHECK_JOBS=1` is the serial escape hatch, for reproducing one step's red on a quiet
+   tree. **It has to keep fitting that ceiling**: the next step that costs a minute is
+   made cheaper, moved to `tools/bake.sh`, or argued for in check.sh's header.
+   **Read its last four lines, not its middle.** 264 of its 628 steps are self-tests that
+   prove a gate by breaking it, so a GREEN run prints `FAIL` lines on purpose.
    Those are tagged — every line of a self-test's transcript starts `   self-test | ` —
    and the steps that actually failed are listed once, by label, under `CHECK FAIL` at
    the end. An untagged `FAIL` is the only kind worth chasing. Three tickets were filed

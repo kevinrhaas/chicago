@@ -30,18 +30,43 @@ CHECK_SELFTEST_MARK='self-test |'
 CHECK_SELFTEST_TAG="   ${CHECK_SELFTEST_MARK} "
 
 # T-1289. WHERE THE GATE'S TIME GOES, recorded rather than guessed. Set
-# CHECK_TIMINGS to a path and every step appends "<seconds>\t<kind>\t<label>" to it.
-# Off by default: no file, no cost beyond two clock reads a step. The gate's duration
-# is the window in which `dev` can move under an open pull request, so it is the
-# number that decides how much a merge round costs — and nothing here measured it.
+# CHECK_TIMINGS to a path and every step appends
+# "<seconds>\t<kind>\t<command>\t<label>" to it. Off by default: no file, no cost
+# beyond two clock reads a step. The gate's duration is the window in which `dev`
+# can move under an open pull request, so it is the number that decides how much a
+# merge round costs — and nothing here measured it.
 CHECK_TIMINGS="${CHECK_TIMINGS:-}"
 
-_check_now() { date +%s.%N; }
+# T-1578. THE INSTRUMENT MAY NOT TOUCH THE TRANSCRIPT IT MEASURES, and for three
+# months it did. This was one `awk` per step, handed its values with `-v`:
+#
+#     awk -v c="$5" 'BEGIN { printf "%.3f\t…", e - s, k, c, l }'
+#
+# `-v` PROCESSES ESCAPE SEQUENCES in the value. The command string reaching `$5`
+# on the pooled path is %q-quoted by _check_enqueue, so `sh -c echo\ one` made awk
+# print `warning: escape sequence `\ ' treated as plain ` '` — on STDERR, which in
+# a backgrounded _check_worker is the GATE'S OWN STDERR, from up to CHECK_JOBS awks
+# at once. Measured 2026-09-25: six such lines, two of them spliced mid-word by
+# concurrent writers (`awk: awk: warning:`), landing in the transcript that
+# test_check_harness.sh holds byte-comparable against the serial path. So the one
+# thing you had to set to find out why the gate was slow was also the thing that
+# turned it red — 21 of 22 assertions, and the ticket's own second measurement ran
+# that way. It ate the backslashes out of the recorded command, too, so the column
+# this exists to write was lossy as well.
+#
+# The remedy is to stop shelling out at all. `date +%s%N` is an integer count of
+# nanoseconds (19 digits, an order of magnitude inside bash's signed 64-bit range
+# until the year 2262), so the subtraction and the three-decimal format are plain
+# shell arithmetic: no subprocess, no escape processing, no stderr to leak, and the
+# header's claim of "no cost beyond two clock reads a step" becomes true.
+_check_now() { date +%s%N; }
 
 _check_time() {
   [ -n "$CHECK_TIMINGS" ] || return 0
-  awk -v s="$1" -v e="$2" -v k="$3" -v l="$4" \
-      -v c="$5" 'BEGIN { printf "%.3f\t%s\t%s\t%s\n", e - s, k, c, l }' >> "$CHECK_TIMINGS"
+  local ns=$(( $2 - $1 ))
+  printf '%d.%03d\t%s\t%s\t%s\n' \
+    "$(( ns / 1000000000 ))" "$(( (ns % 1000000000) / 1000000 ))" \
+    "$3" "$5" "$4" >> "$CHECK_TIMINGS"
 }
 
 # ---------------------------------------------------------------------------
@@ -74,7 +99,35 @@ _check_time() {
 # CHECK_JOBS=1 keeps the old path exactly: run, print, move on. Nothing is queued and
 # no temporary file is made. That is the escape hatch for any step that turns out to
 # share state with another, and the control in the before/after measurement.
-CHECK_JOBS="${CHECK_JOBS:-1}"
+#
+# T-1578. THE DEFAULT IS THE MACHINE'S CORES, because the sandbox that most needed
+# the pool was the one place it was never on. T-1289 built this and left the default
+# at 1, then switched it on in ONE caller — chicago-4d-check.yml, with `nproc`. So CI
+# took the gate in about 250 s and every agent sandbox still took it serially, which
+# by 2026-09-25 meant it could not take it AT ALL: measured twice in a steward run,
+# whose single foreground command is capped at 600 s, the gate reached 322 and 326 of
+# its step headings and was killed. Not a red verdict and not a green one — no verdict,
+# on the only gate that covers a prose or docs diff. Same tree, four cores, this
+# default: 453 s and `CHECK PASS`, 624 steps, no step red in the pool and green alone.
+#
+# The number is read from the machine rather than written down, for the reason CI gives
+# for using `nproc` there: the runner decides. It is floored at 1 for a box that will
+# not say, and capped at 8 because the pool's win is bounded by the heavy tail — the
+# slowest twenty steps are half the clock and no count of workers makes the longest
+# one shorter — while every worker is a python process holding a raster.
+#
+# AND THE ESCAPE HATCH IS NOW THE THING TO REACH FOR, not the status quo: a red step
+# worth reproducing quietly is CHECK_JOBS=1, which is what check_summary's race report
+# tells you to do, and what tools/measure_step_isolation.mjs already sets.
+_check_default_jobs() {
+  local n
+  n="$(nproc 2>/dev/null || getconf _NPROCESSORS_ONLN 2>/dev/null || echo 1)"
+  case "$n" in ''|*[!0-9]*) n=1 ;; esac
+  [ "$n" -lt 1 ] && n=1
+  [ "$n" -gt 8 ] && n=8
+  printf '%s' "$n"
+}
+CHECK_JOBS="${CHECK_JOBS:-$(_check_default_jobs)}"
 
 _CHECK_Q_KIND=()
 _CHECK_Q_LABEL=()
