@@ -5031,6 +5031,27 @@ step "the re-family rule re-derives, its roster reconciles with the order book, 
 selftest "…and its own assertions still fire when broken" \
   python3 tools/model_refamily_rule.py --self-test
 
+# T-1560, piece 4 of 4 of T-1556. WHAT THE RULING REACHES, WHICH IS ONE SUBTRACTION
+# NOTHING ELSE PERFORMS. The order book states the surplus the re-cut holds (523 across
+# 48 buckets); the rule states the moves the programme can make (73); no file subtracted
+# one from the other, so the number a reader of either would want — what the town is
+# STILL HOLDING when the owner's remedy has been spent in full — existed nowhere. It is
+# 450 people in 43 of the 48 buckets, and docs/LIBERTIES.md L268 is the admission.
+#
+# WHY IT IS A GATE. The report is a subtraction across two derived files that different
+# tools build, and T-1559 is spending the moves into one of them stage by stage. So the
+# thing that can drift is the JOIN: the gate re-derives it by PERSON and refuses a ledger
+# move the rule never yielded, a person moved twice, a move that lands in a bucket which
+# is itself refused (which would move the surplus sideways and remedy nothing), and a
+# bucket sending out more people than it holds. The end state it predicts must not move
+# as the stages land — only the spent/outstanding split may — and that is what re-deriving
+# on every commit asserts.
+step "the re-familying programme's report re-derives, and the ledger's moves are the ones the rule yields (T-1560)" \
+  python3 tools/report_refamily_programme.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/report_refamily_programme.py --self-test
+
 # T-1370, piece 1 of T-1175. HOW MANY BEDS EACH LODGING PLACE HELD. The town model
 # states a bed bracket for the whole town and says in as many words that it "seats
 # nobody in any lodging place and gives no boarding house a capacity of its own";
