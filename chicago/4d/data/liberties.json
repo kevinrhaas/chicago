@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 269,
+  "count": 270,
   "liberties": [
     {
       "id": "L1",
@@ -16357,6 +16357,41 @@
         {
           "label": "Recorded",
           "text": "2026-09-24."
+        }
+      ]
+    },
+    {
+      "id": "L268",
+      "title": "450 of the 523 invented people the order book holds past its own order cannot be moved anywhere, and the book goes on naming both numbers for them",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-09-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the re-familying programme (T-1556, the owner's ruling of 2026-09-24) moves **73** of the 523 reconstructed people the order book's re-cut holds past what it would now order. The other **450**, standing in **43 of the 48 refused buckets**, stay exactly where they were written: counted in a cell the sources have since shown the town did not need that many of. `docs/RESEARCH/1835_refamily_programme.md` is the arithmetic, re-derivable from `tools/report_refamily_programme.py --check`, and each of those 43 buckets keeps its `held_at` and its `the_re_cut_would_have_ordered` side by side in `data/reconstruction/1835_reconstruction_order_book.json` rather than being quietly clamped to one figure."
+        },
+        {
+          "label": "Why",
+          "text": "because every other way out of it is worse, and the owner has ruled on two of them. Reading the Catholic parish register in September 2026 named real people in cells the book had already invented people into — the reading arrived after the invention. **T-1459**, 2026-09-20, refused clamping: a bucket's order may not fall below what was drawn against it, and the refusal is *named with both numbers*. **T-1556**, 2026-09-24, refused retiring: 34 of the 60 trade heads are adopted by name elsewhere in the layer, so deleting the surplus would have chosen the people the town lost by which of them failed to get a job — \"not a modelled criterion\", in the owner's own words. What is left is to move them, and moving them is what the 73 are."
+        },
+        {
+          "label": "What is invented, exactly",
+          "text": "nothing new here at all — that is the point of the entry. These 450 people were invented by the reconstruction stages that drew them (**L83** is the programme, **L248** the trade heads, **L262** the service houses), each with its own card, seed and confidence, and none of that moves. What this entry admits is an ARITHMETIC liberty on top of them: the town's reconstructed population converges on 2,735 rather than the model's 2,543 point once the programme is spent, and 450 of that 192-person excess is known surplus that no rule in this project can place. It is inside the model's 2,362–3,265 range, and it is not the number the model expects. **Why they cannot be moved, and it is measured rather than asserted:** T-1558 tiered all 1,159 people in the 48 refused buckets against the adoption layers and found the held surplus and the open orders **disjoint on every axis**. Not one refused bucket has a single open slot for its own (sex, age band, household kind, trade) class in any division. A move that changes only which side of the river somebody is counted on — the one axis that is a bare ledger allocation and therefore free — yields nought. The open orders are 285 adult-male slots; the remainder is 150 children under ten, 100 in their teens and 119 women. Keeping a person's sex and age band caps the programme at 233, keeping the trade too at 123, and keeping an invented household whole — one record states one division, so splitting it would put a mother on one bank and her children on the other — brings it to 73. **What this deliberately does NOT do.** No card is deleted, no id is reused, no confidence moves, no citation is dropped, and no bucket is clamped. Nobody is re-sexed, re-aged or re-employed to make the sums close: T-1558 records that folding the trade in would have bought 110 more moves by quietly giving people different jobs, and it was refused. And the book does not stop reporting the gap — a reader of any of the 43 buckets can still see the figure the re-cut would have ordered next to the figure standing."
+        },
+        {
+          "label": "What would discharge it",
+          "text": "an order book that wants women and children somewhere else. Three named levers, all outside this programme: more orders in those cells, which the lodging band (T-1532, T-1536, T-1538) and the boarding houses T-1209 raises would create directly; a ruling that an employment seat may be RE-SEATED at an equivalent house in the destination division, which would let the 283 people carrying an adoption travel instead of being refused; and T-1199's placement policy re-seating the 22 whose roof already stands. Short of those, a source naming a real person in one of the 43 cells retires an invented card there and closes the gap by one the honest way."
+        },
+        {
+          "label": "Related",
+          "text": "**L83** (the inferred-residents programme this is the accounting of), **L248** (the trade heads), **L262** (the service houses), **L246** (the withheld names re-admitted), T-1560 (this entry), T-1556 (the ruling), T-1557 (the ledger), T-1558 (the rule and the ceilings), T-1559 (the moves), T-1459 (held rather than clamped)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-25."
         }
       ]
     },

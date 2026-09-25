@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1108, title: 'The remedy for 523 invented people reaches 73 of them', kind: 'change', ts: '2026-09-25T17:30:40.176Z', date: 'Sep 25, 2026, 12:30 PM CT',
+    items: [
+      'This town invents residents against an order book \u2014 a ledger of how many people the sources cannot name but the 1840 census says were here. Where a later reading showed the book had already invented too many in some cohort, it keeps them and prints both numbers. That leaves 523 invented people standing past any order, and the owner ruled in September that they are moved into cohorts with room rather than deleted.',
+      'Three pieces of work have built that remedy: what a move is, who may be moved, and the moves themselves. Nobody had subtracted one from the other. This entry does, and the answer is unwelcome: the rule can move 73 people. When the whole programme has been spent, 450 of the 523 are still standing where they were, in 43 of the 48 crowded cohorts.',
+      'They cannot be moved because of who they are. The open places are overwhelmingly for grown men; the surplus is 150 children under ten, 100 teenagers and 119 women. Nothing in the plan was going to change that, and no run is going to be able to fix it either \u2014 it wants boarding houses that have not been built and cohorts nobody has ordered.',
+      'So the report says it plainly and the liberties file admits it: the reconstructed population settles at 2,735 rather than the 2,543 the model expects, inside the range it allows, and 450 of that excess is known surplus this project cannot place. A check now fails the build if the two ends of the arithmetic ever stop agreeing.',
+      'Nothing you can see in the town changed today, and nobody was invented, moved or deleted.',
+    ] },
   { v: 1107, title: 'Twenty-six hands were ruled for, and no bed to put them in', kind: 'change', ts: '2026-09-25T15:57:06.537Z', date: 'Sep 25, 2026, 10:57 AM CT',
     items: [
       'The last entry put a question to the owner: the shops of 1835 are short of clerks, journeymen and apprentices, and the ledger this project invents people against cannot pay for all of them. He has ruled \u2014 staff every house to the lower of the staffing model\u2019s two bands, invent the hands the ledger can pay for, and let the houses it cannot reach print their shortfall. At that band the shops want 47 hands across 44 houses and the ledger pays for 26. Working out which 26 turned up two things nothing had checked.',
