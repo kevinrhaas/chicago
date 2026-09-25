@@ -1875,13 +1875,149 @@ def presence_agrees(known: dict, before: dict, rulings: dict) -> None:
             f"where the rulings rule {households}")
 
 
+# ------------------------------------------------------ the re-family ledger --
+#
+# THE OWNER'S RULING OF 2026-09-24 (T-1556, answering T-1530). The re-cut holds 523
+# reconstructed people across 48 person buckets that it would no longer order. They
+# are not retired: "the surplus heads move into the buckets the re-cut GREW instead
+# of being un-written". A move is therefore neither a retirement nor a fresh draw,
+# and the book had no third word for it — every count it keeps is a DRAW, written by
+# a stage into `fills`, and the only way a bucket's `filled` could ever fall was for
+# somebody to be un-written. T-1459's ruling of 2026-09-20 forbids exactly that.
+#
+# So a move is recorded as a MOVE, ON BOTH ENDS. The person keeps his card, his id,
+# his `residence_grade` and every citation on him; what changes is which cell of the
+# ladder he is counted in. The bucket he left keeps `drawn_here` — the draw is never
+# un-written — and says what left it in `refamilied_out`; the bucket he entered says
+# `refamilied_in`, and its order is filled by a person the town already holds rather
+# than by a stranger. `filled` is the arithmetic of the three, and it is what every
+# quota, refusal and overfill gate below already reads, so they all stay true without
+# being taught a new word.
+#
+# THIS LEDGER MOVES NOBODY. T-1557 builds the accounting and leaves `moves` empty on
+# purpose: WHICH heads move is a modelled rule and is T-1558's, and the moves
+# themselves are T-1559's. What is built here is the thing both of those need to be
+# checkable — every row names the person, the bucket he left, the bucket he entered,
+# the order he filled, the rule that chose him and the adoptions travelling with him,
+# and `--check` re-derives the whole book, so a hand-written row cannot survive.
+REFAMILY_REQUIRED = ("person", "from_bucket", "to_bucket", "ticket", "rule")
+
+
+def refamily_shape(moves: list | None) -> list:
+    """The checks a move row can be given before the buckets are cut."""
+    rows = list(moves or [])
+    seen = set()
+    for m in rows:
+        if not isinstance(m, dict):
+            raise Fault("a row in the re-family ledger is not a record")
+        missing = [f for f in REFAMILY_REQUIRED if not m.get(f)]
+        if missing:
+            raise Fault(f"a re-family move names no {', no '.join(missing)}")
+        if m["from_bucket"] == m["to_bucket"]:
+            raise Fault(f"the re-family move of {m['person']} leaves and enters "
+                        f"{m['from_bucket']}, which is not a move")
+        # THE ADOPTIONS TRAVEL WITH HIM OR HE DOES NOT MOVE (T-1556 § 8). An adopted
+        # head — one holding an employment seat, named on a business card or on a
+        # lodging roll — carries those adoptions across, and the row says so out loud
+        # even when the list is empty. A missing field is a row that never considered
+        # the question, which is the defect the owner named.
+        if not isinstance(m.get("adoptions_carried"), list):
+            raise Fault(f"the re-family move of {m['person']} does not say which "
+                        f"adoptions travel with him")
+        if m["person"] in seen:
+            raise Fault(f"{m['person']} is re-familied twice; a person has one bucket")
+        seen.add(m["person"])
+    return rows
+
+
+def refamily_against_buckets(moves: list, buckets: list, drawn: Counter) -> None:
+    """The checks that need the cut ladder: both ends real, the same person, room to land."""
+    by_key = {b["key"]: b for b in buckets}
+    out = Counter()
+    for m in moves:
+        for end in ("from_bucket", "to_bucket"):
+            if m[end] not in by_key:
+                raise Fault(f"the re-family move of {m['person']} names {m[end]}, "
+                            f"which is not a person bucket in this book")
+        src, dst = by_key[m["from_bucket"]], by_key[m["to_bucket"]]
+        # A MOVE MAY NOT RE-SEX ANYBODY, NOR RE-AGE HIM. Division, household kind and
+        # trade are what the reconstruction chose for him and may be re-chosen; sex and
+        # age band are what he IS, and a book that moved them would be inventing a
+        # different person under the same id.
+        for axis in ("sex", "age_band"):
+            if src["axes"].get(axis) != dst["axes"].get(axis):
+                raise Fault(
+                    f"the re-family move of {m['person']} would change his {axis} from "
+                    f"{src['axes'].get(axis)} to {dst['axes'].get(axis)}")
+        out[m["from_bucket"]] += 1
+        if out[m["from_bucket"]] > drawn.get(m["from_bucket"], 0):
+            raise Fault(f"{m['from_bucket']} re-families out more people than were "
+                        f"ever drawn there")
+
+
+def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int) -> dict:
+    """The book's account of what has moved, what is still held, and where it could land."""
+    held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
+    headroom = sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in buckets)
+    moved_from = sorted({m["from_bucket"] for m in moves})
+    moved_into = sorted({m["to_bucket"] for m in moves})
+    return {
+        "ticket": "T-1557",
+        "ruling": "the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the "
+                  "surplus the re-cut holds is RE-FAMILIED rather than retired — the heads "
+                  "move into the buckets the re-cut grew instead of being un-written",
+        "what_a_move_is": "one reconstructed person counted in a different cell of the same "
+                          "ladder. His card, his id, his residence_grade and every citation "
+                          "on him are untouched; his sex and age band may not change; the "
+                          "bucket he left keeps its `drawn_here` and names him in "
+                          "`refamilied_out`, and the bucket he entered fills one of its "
+                          "orders with a person the town already holds.",
+        "what_a_move_is_not": "a retirement (nobody is un-written, which is T-1459's ruling "
+                              "of 2026-09-20) and a draw (no stranger enters the town, so "
+                              "the population does not move — only what is still OWED does).",
+        "who_chooses_who_moves": {
+            "ticket": "T-1558",
+            "settled": False,
+            "why": "the rule is modelled against the adoption layers and is not this "
+                   "ticket's. Every row must NAME the rule that chose its head, so a move "
+                   "made before the rule exists cannot be written without saying so.",
+        },
+        "who_makes_the_moves": {"ticket": "T-1559", "settled": False},
+        "moves": moves,
+        "counts": {
+            "moves": len(moves),
+            "people_moved": len({m["person"] for m in moves}),
+            "buckets_moved_out_of": len(moved_from),
+            "buckets_moved_into": len(moved_into),
+            "adoptions_carried": sum(len(m.get("adoptions_carried") or []) for m in moves),
+        },
+        "the_held_surplus": {
+            "buckets_refused": len(refusals),
+            "people_held": held,
+            "open_headroom_in_person_buckets": headroom,
+            "why_the_headroom_matters": "a held head moved into an open order fills that "
+                                        "order without drawing a stranger, so each move "
+                                        "takes one person off what is still owed rather "
+                                        "than out of the town.",
+        },
+        "what_it_would_converge_to": {
+            "still_owed_now": totals_owed,
+            "still_owed_if_every_held_head_moved": max(0, totals_owed - min(held, headroom)),
+            "note": "the model's point is what decides HOW MANY move, and that number is "
+                    "T-1559's to spend; this book states the two ends of the range.",
+        },
+    }
+
+
 # ----------------------------------------------------------------- the build --
 
-def build(data: dict, fills: list | None = None, occupancy: dict | None = None) -> dict:
+def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
+          moves: list | None = None) -> dict:
     fills = list(fills or [])
     for fill in fills:
         if not isinstance(fill, dict) or not fill.get("ticket") or not fill.get("bucket"):
             raise Fault("a fill in the ledger names no ticket or no bucket")
+    moves = refamily_shape(moves)
     known = known_layer(data["residents"], data["presence_rulings"])
     before = known_layer(data["residents"])
     presence_agrees(known, before, data["presence_rulings"])
@@ -1940,6 +2076,12 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
         counted[fill["bucket"]] += int(fill.get("records") or 0)
         if int(fill.get("records") or 0):
             drawn_by.setdefault(fill["bucket"], set()).add(fill.get("ticket") or "")
+    # WHO LEFT AND WHO ARRIVED. A re-family is recorded on both ends, so the two
+    # counters are built together and neither can exist without the other.
+    moved_out, moved_in = Counter(), Counter()
+    for m in moves:
+        moved_out[m["from_bucket"]] += 1
+        moved_in[m["to_bucket"]] += 1
     families = []
     for key, title, lead, payload in (
         ("persons", "Persons", "Who the town still has to be given, by sex, age, division, "
@@ -1953,7 +2095,21 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
     ):
         buckets = payload.pop("buckets")
         for b in buckets:
-            b["filled"] = counted.get(b["key"], 0)
+            # DRAWN, MOVED OUT, MOVED IN — and `filled` is the arithmetic of the three.
+            # `drawn_here` is never lowered by a move, because a move un-writes nobody
+            # (T-1459's ruling); the two move counters are what make a `filled` below the
+            # draw READABLE rather than a bucket quietly losing people. They are written
+            # only where they are non-zero, so a book with an empty re-family ledger is
+            # byte-identical to the book before T-1557.
+            drawn = counted.get(b["key"], 0)
+            out, into = moved_out.get(b["key"], 0), moved_in.get(b["key"], 0)
+            b["filled"] = drawn - out + into
+            if out or into:
+                b["drawn_here"] = drawn
+                if out:
+                    b["refamilied_out"] = out
+                if into:
+                    b["refamilied_in"] = into
         families.append({"key": key, "title": title, "lead": lead,
                          "summary": payload, "buckets": buckets})
 
@@ -1963,6 +2119,21 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
     # after the check either. A bucket the re-cut GROWS is not overfilled by a counter that
     # sat inside its new order.
     trade_re_cut = recut_trade_remainder(families[0]["buckets"], participation, drawn_by)
+
+    # THE RE-FAMILY LEDGER IS ADJUDICATED AGAINST THE CUT LADDER, not against the raw
+    # axes: both ends have to be real person buckets, the two ends have to be the same
+    # person, a bucket cannot move out more people than were ever drawn in it, and a
+    # head may only land where an order is actually open. That last one is the check
+    # the overfill gate below CANNOT make on its own — a destination which is itself
+    # held by the re-cut would swallow an arrival inside its own refusal and read as
+    # though the move had filled something.
+    refamily_against_buckets(moves, families[0]["buckets"], counted)
+    for b in families[0]["buckets"]:
+        if b.get("refamilied_in") and b["filled"] > (b["to_reconstruct"] or 0):
+            raise Fault(
+                f"the re-family ledger lands {b['refamilied_in']} head(s) in {b['key']}, "
+                f"which orders {b['to_reconstruct']} and already holds "
+                f"{b.get('drawn_here', b['filled'])}: a move needs an open order to fill")
 
     for family in families:
         for b in family["buckets"]:
@@ -1999,6 +2170,15 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
                         "the_re_cut_would_have_ordered": todo,
                         "already_drawn": b["filled"],
                         "held_at": b["filled"],
+                        # WHAT HAS LEFT THIS BUCKET ALREADY (T-1557). A refusal names the
+                        # draw it still carries AND the heads the re-family ledger has
+                        # moved out of it, so the surplus can be read shrinking. A bucket
+                        # re-familied all the way down to the re-cut's order stops being a
+                        # refusal at all — `filled > todo` is simply no longer true — which
+                        # is how the 48 rows retire themselves one head at a time.
+                        "drawn_here": b.get("drawn_here", b["filled"]),
+                        "refamilied_out": b.get("refamilied_out", 0),
+                        "surplus_still_held": b["filled"] - todo,
                         "why": ("the re-cut would put this bucket's order under the people "
                                 "already drawn against it."
                                 if cause == "the_re_cut_reached_work_already_drawn" else
@@ -2180,6 +2360,14 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
         "invariants": invariants(known, persons, households, structures,
                                  families[2]["buckets"]),
         "fills": fills,
+        # THE RE-FAMILY LEDGER (T-1557), the third word the book needed: a person moved
+        # between cells is neither retired nor drawn, and this is where each move is
+        # recorded on both ends. Empty by design — T-1558 models WHICH heads move and
+        # T-1559 spends them.
+        "re_family_ledger": refamily_ledger(
+            moves, families[0]["buckets"], recut_refusals,
+            sum(max(0, (b["to_reconstruct"] or 0) - b["filled"])
+                for b in families[0]["buckets"])),
     }
     if len(doc["bucket_families"]) != 5:
         raise Fault("the order book is five bucket families; fewer is a book with a hole in it")
@@ -2477,15 +2665,50 @@ def report_text(doc: dict) -> str:
             f"{len(refusals)} bucket{'' if len(refusals) == 1 else 's'} would have had "
             "their order cut below the people already drawn against them. The owner's ruling "
             "of 2026-09-20 refuses that by name rather than clamping it: each is held at what "
-            "was drawn, and the surplus is retired or re-familied by T-1196, T-1197 and T-1179.", ""]
+            "was drawn. The three tickets this paragraph used to hand the surplus to — "
+            "T-1196, T-1197 and T-1179 — are all closed; the owner's ruling of 2026-09-24 "
+            "(T-1556) hands it to the re-family programme below, where the held heads move "
+            "into the buckets the re-cut grew instead of being un-written.", ""]
     if refusals:
         out += ["| bucket | ticket | cause | quota it was drawn against | the re-cut would "
-                "order | drawn |", "|---|---|---|---:|---:|---:|"]
+                "order | drawn | re-familied out | still held |",
+                "|---|---|---|---:|---:|---:|---:|---:|"]
         for r in refusals:
             out.append(f"| `{r['bucket']}` | {r['owning_ticket']} | "
                        f"{r.get('cause', 'the_re_cut_reached_work_already_drawn')} | "
                        f"{r['quota_it_was_drawn_against']:,} | "
-                       f"{r['the_re_cut_would_have_ordered']:,} | {r['already_drawn']:,} |")
+                       f"{r['the_re_cut_would_have_ordered']:,} | {r['already_drawn']:,} | "
+                       f"{r.get('refamilied_out', 0):,} | {r.get('surplus_still_held', 0):,} |")
+    rf = doc.get("re_family_ledger") or {}
+    if rf:
+        h, c = rf["the_held_surplus"], rf["counts"]
+        conv = rf["what_it_would_converge_to"]
+        out += ["", "## The re-family ledger", "",
+                rf["ruling"] + ".", "",
+                f"**A move is** {rf['what_a_move_is']}", "",
+                f"**A move is not** {rf['what_a_move_is_not']}", "",
+                f"{h['people_held']:,} held head(s) stand across {h['buckets_refused']:,} "
+                f"refused bucket(s), and {h['open_headroom_in_person_buckets']:,} slot(s) of "
+                f"order stand open elsewhere in the persons ladder. "
+                f"{h['why_the_headroom_matters'][0].upper()}"
+                f"{h['why_the_headroom_matters'][1:]}", "",
+                f"**{c['moves']:,} move(s) have been made**, carrying "
+                f"{c['adoptions_carried']:,} adoption(s) out of {c['buckets_moved_out_of']:,} "
+                f"bucket(s) and into {c['buckets_moved_into']:,}. The book is owed "
+                f"{conv['still_owed_now']:,} people now, and would be owed "
+                f"{conv['still_owed_if_every_held_head_moved']:,} if every held head moved. "
+                f"{conv['note'][0].upper()}{conv['note'][1:]}", "",
+                f"Which heads move is {rf['who_chooses_who_moves']['ticket']}'s "
+                f"({'settled' if rf['who_chooses_who_moves']['settled'] else 'not settled'}): "
+                f"{rf['who_chooses_who_moves']['why']} The moves themselves are "
+                f"{rf['who_makes_the_moves']['ticket']}'s.", ""]
+        if rf["moves"]:
+            out += ["| person | out of | into | order filled | rule | ticket | adoptions |",
+                    "|---|---|---|---|---|---|---:|"]
+            for m in rf["moves"]:
+                out.append(f"| `{m['person']}` | `{m['from_bucket']}` | `{m['to_bucket']}` | "
+                           f"{m.get('order_filled', '')} | {m['rule']} | {m['ticket']} | "
+                           f"{len(m.get('adoptions_carried') or []):,} |")
     rc = doc.get("trade_re_cut") or {}
     if rc:
         pt = rc["participation"]
@@ -2611,8 +2834,19 @@ def _fills_on_disk() -> list:
         raise Fault(f"the committed order book is not JSON: {exc}") from exc
 
 
+def _moves_on_disk() -> list:
+    """The re-family ledger carries forward off the committed book, exactly as `fills` do."""
+    if not BOOK.exists():
+        return []
+    try:
+        book = json.loads(BOOK.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise Fault(f"the committed order book is not JSON: {exc}") from exc
+    return (book.get("re_family_ledger") or {}).get("moves", [])
+
+
 def cmd_build() -> int:
-    doc = build(load(), _fills_on_disk())
+    doc = build(load(), _fills_on_disk(), moves=_moves_on_disk())
     lands = converges_inside_the_model(doc)
     owners = every_work_order_names_a_live_ticket(doc)
     BOOK.parent.mkdir(parents=True, exist_ok=True)
@@ -2633,7 +2867,7 @@ def cmd_check() -> int:
     if not BOOK.exists():
         print("FAIL: the 1835 reconstruction order book is missing — run --build", file=sys.stderr)
         return 1
-    expected = build(load(), _fills_on_disk())
+    expected = build(load(), _fills_on_disk(), moves=_moves_on_disk())
     if json.loads(BOOK.read_text(encoding="utf-8")) != expected:
         faults.append("the 1835 reconstruction order book is stale — run --build")
     if not REPORT.exists():
@@ -2783,6 +3017,91 @@ def cmd_self_test() -> int:
                  if x["key"] == r["bucket"])
         assert b["to_reconstruct"] == b["filled"] and b["recut_refused"], b
     assert shipped["totals"]["persons_known"] == shipped["population_ruled_in"]["persons_known_now"]
+
+    # ---- THE RE-FAMILY LEDGER (T-1557) ---------------------------------------------
+    # The owner's ruling of 2026-09-24 (T-1556) turns the 48 refused buckets' surplus from
+    # something retired into something MOVED, and these guards are the whole difference:
+    # a move that cannot be read on both ends is a retirement wearing a different word.
+    # The fixtures move ONE head between two real person buckets of the same sex and age
+    # band, because that is the only move the ruling permits.
+    people = shipped["bucket_families"][0]["buckets"]
+    held = next(b for b in people if b.get("recut_refused"))
+    twin = next(b for b in people
+                if b["key"] != held["key"]
+                and b["axes"].get("sex") == held["axes"].get("sex")
+                and b["axes"].get("age_band") == held["axes"].get("age_band")
+                and (b["to_reconstruct"] or 0) > b["filled"])
+    other_sex = next((b for b in people
+                      if b["axes"].get("age_band") == held["axes"].get("age_band")
+                      and b["axes"].get("sex") != held["axes"].get("sex")
+                      and (b["to_reconstruct"] or 0) > b["filled"]), None)
+
+    def move(**over):
+        row = {"person": "res_self_test_head", "from_bucket": held["key"],
+               "to_bucket": twin["key"], "order_filled": twin.get("owning_ticket"),
+               "rule": "the_self_test", "ticket": "T-1557", "adoptions_carried": []}
+        row.update(over)
+        return row
+
+    # THE SHIPPED BOOK MOVES NOBODY, and says so rather than staying silent about it.
+    ledger = shipped["re_family_ledger"]
+    assert ledger["moves"] == [] and ledger["counts"]["moves"] == 0, ledger["counts"]
+    # …AND ITS ACCOUNT OF THE SURPLUS IS THE REFUSAL TABLE'S OWN ARITHMETIC, not a
+    # number typed beside it.
+    assert ledger["the_held_surplus"]["people_held"] == sum(
+        r["surplus_still_held"] for r in shipped["recut_refusals"])
+    assert ledger["the_held_surplus"]["buckets_refused"] == len(shipped["recut_refusals"])
+    assert (ledger["what_it_would_converge_to"]["still_owed_now"]
+            == shipped["totals"]["persons_still_owed"])
+    # AN EMPTY LEDGER CHANGES NOTHING. The book with no moves in it is the book that
+    # stood before this ledger existed, bucket for bucket.
+    assert [b["filled"] for b in people] == [
+        b["filled"] for b in build(data, _fills_on_disk(), occ, [])["bucket_families"][0]["buckets"]]
+
+    # A MOVE IS RECORDED ON BOTH ENDS, and `filled` is the arithmetic of the three
+    # numbers rather than a count that quietly fell.
+    moved = build(data, _fills_on_disk(), occ, [move()])
+    src = row(moved, held["key"])
+    dst = row(moved, twin["key"])
+    assert src["drawn_here"] == held["filled"] and src["refamilied_out"] == 1, src
+    assert src["filled"] == held["filled"] - 1, src
+    assert dst["refamilied_in"] == 1 and dst["filled"] == twin["filled"] + 1, dst
+    # …and the bucket it left stops claiming the surplus that walked out of it.
+    left = next(r for r in moved["recut_refusals"] if r["bucket"] == held["key"])
+    was = next(r for r in shipped["recut_refusals"] if r["bucket"] == held["key"])
+    assert left["refamilied_out"] == 1 and left["surplus_still_held"] == was["surplus_still_held"] - 1, left
+    # …and one order is filled without a stranger entering the town: the people
+    # standing do not move, what is still OWED falls by one.
+    assert moved["totals"]["persons_standing"] == shipped["totals"]["persons_standing"]
+    assert moved["totals"]["persons_still_owed"] == shipped["totals"]["persons_still_owed"] - 1
+
+    fires("a re-family move that names no person",
+          lambda: build(data, _fills_on_disk(), occ, [move(person=None)]))
+    fires("a re-family move that names no rule that chose the head",
+          lambda: build(data, _fills_on_disk(), occ, [move(rule=None)]))
+    fires("a re-family move that does not say which adoptions travel with the head",
+          lambda: build(data, _fills_on_disk(), occ, [move(adoptions_carried=None)]))
+    fires("a re-family move that leaves and enters the same bucket",
+          lambda: build(data, _fills_on_disk(), occ, [move(to_bucket=held["key"])]))
+    fires("a re-family move into a bucket that is not in this book",
+          lambda: build(data, _fills_on_disk(), occ, [move(to_bucket="persons/no/such/cell")]))
+    fires("one person re-familied twice",
+          lambda: build(data, _fills_on_disk(), occ, [move(), move()]))
+    fires("a bucket re-familying out more heads than were ever drawn in it",
+          lambda: build(data, _fills_on_disk(), occ,
+                        [move(person=f"res_self_test_{n}") for n in range(held["filled"] + 1)]))
+    if other_sex is not None:
+        fires("a re-family move that would re-sex the head",
+              lambda: build(data, _fills_on_disk(), occ, [move(to_bucket=other_sex["key"])]))
+    # AND A HEAD MAY ONLY LAND WHERE AN ORDER IS OPEN. A destination which is itself
+    # held by the re-cut would otherwise swallow the arrival inside its own refusal.
+    full = next((b for b in people
+                 if b["key"] != held["key"] and b.get("recut_refused")
+                 and b["axes"].get("sex") == held["axes"].get("sex")
+                 and b["axes"].get("age_band") == held["axes"].get("age_band")), None)
+    if full is not None:
+        fires("a re-family move into a bucket with no order left to fill",
+              lambda: build(data, _fills_on_disk(), occ, [move(to_bucket=full["key"])]))
 
     # ---- THE TRADE RE-CUT (T-1459) -------------------------------------------------
     # The ruling has two halves and both are guarded: the cut changes, and nothing already
