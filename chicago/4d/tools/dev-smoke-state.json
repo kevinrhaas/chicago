@@ -3,6 +3,68 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 92,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 383,
+      "takenAt": "2026-09-25T20:11:12.459Z",
+      "ref": "steward/t1576-parked-prs-on-the-board",
+      "commit": "7fe771726e99",
+      "devCommit": "7468fd8d1180",
+      "treeHash": "sha256:905956f25b44b035",
+      "treeDirty": false,
+      "changelogHash": "sha256:057e9ee4662838a8",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.1,
+          3.8,
+          2.4
+        ]
+      },
+      "source": "/tmp/smoke-d12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 92,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 192,
+      "takenAt": "2026-09-25T20:11:12.381Z",
+      "ref": "steward/t1576-parked-prs-on-the-board",
+      "commit": "7fe771726e99",
+      "devCommit": "7468fd8d1180",
+      "treeHash": "sha256:905956f25b44b035",
+      "treeDirty": false,
+      "changelogHash": "sha256:057e9ee4662838a8",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.1,
+          3.8,
+          2.4
+        ]
+      },
+      "source": "/tmp/smoke-m12.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "1",
       "parts": [
         1
@@ -1351,69 +1413,6 @@
         ]
       },
       "source": "/tmp/smoke_d12.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 162,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 345,
-      "takenAt": "2026-09-21T12:04:05.014Z",
-      "ref": "steward/t-1429-frontage-bank-test",
-      "commit": "368582c8199b",
-      "devCommit": "f358b82451ad",
-      "treeHash": "sha256:8ed9ca1523cb19f1",
-      "treeDirty": false,
-      "changelogHash": "sha256:7873b9859911dbd2",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.8,
-          4.2,
-          3.8
-        ]
-      },
-      "source": "/tmp/smoke_m12.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 85,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 168,
-      "takenAt": "2026-09-21T08:19:14.369Z",
-      "ref": "steward/t-1383-mononym-forename-eligibility",
-      "commit": "3cbc779c2b70",
-      "devCommit": "0b14a6cb0b68",
-      "treeHash": "sha256:340ac2fcf1e891e1",
-      "treeDirty": false,
-      "changelogHash": "sha256:4477f4dd531c5312",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.7,
-          4.2,
-          3.3
-        ]
-      },
-      "source": "/tmp/s2-d1.log"
     },
     {
       "viewport": "desktop",
