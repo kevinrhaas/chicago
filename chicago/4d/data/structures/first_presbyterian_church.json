@@ -159,9 +159,11 @@
     "value": "church",
     "confidence": "attested",
     "sources": [
-      "andreas_1884_v1"
+      "andreas_1884_v1",
+      "chicago_american_1835",
+      "chicago_democrat_1833_1835"
     ],
-    "note": "Built for worship and in continuous use as the Presbyterian meeting house across the scene window. It was also the town's largest single room, and the project's dossier reports Eliza Chappel's infant school moving into it during 1834 - see the chappel_infant_school record, where that move is what makes the school's own building's 1835 use unattested. The school claim is carried in the dossier from summaries with no source record in data/sources/, so it is stated here as reported rather than cited."
+    "note": "Built for worship and in continuous use as the Presbyterian meeting house across the scene window. It was also the town's largest single room, and the project's dossier reports Eliza Chappel's infant school moving into it during 1834 - see the chappel_infant_school record, where that move is what makes the school's own building's 1835 use unattested. The school claim is carried in the dossier from summaries with no source record in data/sources/, so it is stated here as reported rather than cited.\n\nTHE SCENE-YEAR PRESS PUTS THE BUILDING IN CIVIC USE, three times in three weeks, and it is the only contemporary attestation of this church the project holds. School District No. 4 called its inhabitants to meet 'in the P[r]e[sby]t[erian] Church' at 6 o'clock on the evening of Tuesday 7 July 1835, to consider measures for building a school house and to elect a trustee. Three printings, one notice: the Chicago Democrat of 17 June 1835, page 3 column 3, claim chicago_democrat_1835_06_17#c006, signed by Byram King as the district's clerk; the Chicago American of 20 June 1835, page 3 column 6, claim chicago_american_1835_06_20#c016; and the Democrat again on 1 July 1835, page 3 column 5, claim chicago_democrat_1835_07_01#c012, whose right-hand line ends are read out of the adjoining column. WHAT THE PRESS ADDS IS NOT THE CHURCH — Andreas has that — BUT THE USE: on 1835-07-01 this was the room a school district without a building of its own met in, which is what the town's largest single interior was for, and it is dated to the week. THE SCHOOL HOUSE IN THE SAME NOTICE IS A NEGATIVE AND IS NOT BUILT: the district is meeting to CONSIDER building one, so none stood on the scene date, and the three readings are refused on that half in data/research/spend_rulings.json under the_building_is_not_standing_at_the_scene_date."
   },
   "occupants": {
     "value": "First Presbyterian Church of Chicago",
