@@ -30,6 +30,35 @@ what it was made of, how big it was, or how many storeys it had.
 Murphy tenancy with a documented date on either side of it, which makes this **the best-attested
 occupancy in the parcel**.
 
+### The advertisement that looked like a conflict, and the ruling on it (T-1604, 2026-09-26)
+
+Russell E. Heacock's standing advertisement in the *Chicago Democrat* ends with an address, and the
+surviving type of the 8 July 1835 printing reads:
+
+> [Office in the 2d st]ory, opposite the Ex[cha]n[ge], [corne]r of Lake and Franklin-sts.
+
+Read as putting **this house** at the corner of Lake and Franklin, that is one block west of the
+corner Andreas gives twice, and on 2026-09-25 it was written onto the record as a source conflict
+(T-1600). **It is not one.** The corner in the notice is the address of the *office being
+advertised*; the Exchange appears as the landmark opposite it. The claim's own placement block says
+so — `class: corner`, `anchor: "the Exchange"` — and `data/businesses/biz_russell_e_heacock.json`
+already carries Heacock at the `franklin`+`lake` crossing with `structure_id: null`, the register's
+`new_building`. So the disagreement was between two readings of one advertisement, not between two
+sources about one building, and Andreas's north-west corner of Wells and Lake is unopposed.
+
+Two smaller things the ruling fixes. The page prints **"the Ex[cha]n[ge]"**, not "the Exchange
+Coffee House": the longer form was the reader's expansion and had been quoted back as the paper's
+words. And the anchor the paper actually prints, *the Exchange*, resolves to no building in this
+town, because the register matches an anchor by whole-set equality of identity-bearing words
+(T-0406) and {exchange} is not {exchange, coffee, house}. That is filed as its own job.
+
+**What the ruling leaves open, because the notice does not say it.** "Opposite" has to carry about
+one block of Lake Street to reach this corner. It does if Heacock's second story stood on the
+**south** side of Lake at Franklin — the block face across Lake from there runs Franklin to Wells
+and this house holds its east end. On the north side it is the loose usage for the way across the
+street. Nothing states which side, so nothing here chooses; the position is unmoved on either
+reading and stays `inferred`.
+
 ## 2. The stage office — the project has been a year generous, and this record corrects it
 
 `data/exclusions.json` excludes a separate Frink & Walker stage office on the ground that "in
@@ -106,6 +135,10 @@ reached the record.
 | bare | 1835-07-08 `#c012` | Heacock, same standing advertisement reset: "the Exchange" |
 | bare | 1834-11-19 `#c004` | Marshall's dancing school: "one door north of the Exchange" |
 | bare | 1835-08-05 `#c021`, 1835-08-19 `#c014` | Kennicott, dentist: "OFFICE OPPOSITE THE EXCHENGE, LAKF-STRYE" |
+
+T-1604 reached the same reading of `#c012` from the other side, and ruled that the fuller
+name there was a reader's expansion and must not be quoted as the paper's words. It is the
+May setting, `#c007`, that prints "Coffee House" — damaged, but the words are on the page.
 
 **Heacock's two settings are the proof.** One advertiser, one office, one advertisement,
 reset six weeks apart with the name long in May and short in July. Nothing has to be
