@@ -2522,6 +2522,9 @@
     "tools/compile_scene.py": {
       "wrote": []
     },
+    "tools/compile_source_use.py": {
+      "wrote": []
+    },
     "tools/complete_inwindow_trades.py": {
       "wrote": []
     },
@@ -3429,6 +3432,9 @@
       "wrote": []
     },
     "tools/test_changelog_mirror.mjs": {
+      "wrote": []
+    },
+    "tools/test_compile_source_use.py": {
       "wrote": []
     },
     "tools/test_dev_preview.mjs": {

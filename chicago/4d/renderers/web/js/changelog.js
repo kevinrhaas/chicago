@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1153, title: 'Tracing the sources behind the reconstruction', kind: 'change', ts: '2026-09-26T19:46:25.823Z', date: 'Sep 26, 2026, 2:46 PM CT',
+    items: [
+      'Nothing visible in the town changes. A source index now links the registered sources to the buildings, people, businesses and other reconstruction claims that use them, and distinguishes unused sources.',
+      'This supplies the data needed for the forthcoming loading-screen source cards and Sources browser. Newspaper links retain their issue dates and page or column details where recorded.',
+    ] },
   { v: 1152, title: 'The haze stops painting the prairie the colour of water', kind: 'fix', ts: '2026-09-26T19:32:38.162Z', date: 'Sep 26, 2026, 2:32 PM CT',
     items: [
       'Fly north over the town at six hundred feet and the world looked flooded. Past the last blocks the ground turned a flat pale blue-grey, the far woods stood up out of it like trees in a lake, and a hard bright band filled the horizon. The owner reported it from the air this week.',
