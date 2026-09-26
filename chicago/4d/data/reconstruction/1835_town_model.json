@@ -77,7 +77,7 @@
           "high": 1404,
           "point": null,
           "is_a_count": true,
-          "method": "The resident layer carries 1,404 people — 412 attested, 992 inferred, 1,581 reconstructed. A count of the layer, not of the town.",
+          "method": "The resident layer carries 1,404 people — 412 attested, 992 inferred, 1,583 reconstructed. A count of the layer, not of the town.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -148,8 +148,8 @@
           ]
         },
         "known_by_presence": {
-          "present": 2759,
-          "absent": 72,
+          "present": 2760,
+          "absent": 73,
           "uncertain": 154
         }
       }
@@ -492,11 +492,11 @@
         },
         {
           "figure": "household_records_the_layer_carries",
-          "low": 2046,
-          "high": 2046,
+          "low": 2048,
+          "high": 2048,
           "point": null,
           "is_a_count": true,
-          "method": "2,046 household records for 1,404 people — 0.69 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families.",
+          "method": "2,048 household records for 1,404 people — 0.69 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
