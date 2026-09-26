@@ -2308,8 +2308,8 @@
    "evidence_street": "Lake Street",
    "model_seat": "recon_1835_blk_lake_clark_d3_02",
    "seat_is_substitutable": true,
-   "register_action": "street_only",
-   "register_action_target": "lake",
+   "register_action": "new_building",
+   "register_action_target": "exchange_coffee_house",
    "printed_place": "OFFICE OPPOSITE THE EXCHENGE, LAKF-STRYE",
    "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d3_02', which is housing and not a reading: substitutable, no lot, no anchor."
   },
