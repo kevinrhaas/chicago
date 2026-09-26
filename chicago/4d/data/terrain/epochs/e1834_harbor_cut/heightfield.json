@@ -27,7 +27,7 @@
  "water_surface_m": 0.0,
  "water_fraction": 0.1606,
  "relief_ft": {
-  "land_min": -1.978,
+  "land_min": -3.556,
   "land_max": 12.285,
   "channel_min": -17.405
  },
@@ -49,7 +49,7 @@
   "plain_block_mean": 0.084,
   "passes": true,
   "plain_cell_roughness_max": 55.913,
-  "shore_and_swale_cell_max": 215.233,
+  "shore_and_swale_cell_max": 224.231,
   "relief_zones_ft_per_300ft": {
    "approach_dearborn_north": {
     "cells": 23,
@@ -76,12 +76,12 @@
     "cell_max": 158.047
    },
    "approach_slough_east": {
-    "cells": 15,
-    "cell_max": 100.711
+    "cells": 14,
+    "cell_max": 99.226
    },
    "approach_slough_west": {
-    "cells": 6,
-    "cell_max": 65.932
+    "cells": 16,
+    "cell_max": 146.883
    },
    "approach_south_branch_east": {
     "cells": 37,
@@ -93,7 +93,7 @@
    },
    "bank_face": {
     "cells": 91156,
-    "cell_max": 215.233
+    "cell_max": 224.231
    },
    "fort_dearborn_mound": {
     "cells": 2251,
@@ -117,11 +117,11 @@
    },
    "state_street_break": {
     "cells": 75041,
-    "cell_max": 116.863
+    "cell_max": 224.231
    },
    "swales": {
-    "cells": 22121,
-    "cell_max": 158.047
+    "cells": 22143,
+    "cell_max": 224.231
    }
   },
   "rule": "docs/research/01-terrain-hydrology.md modelling rule 1: outside the zones that earn relief, hold local gradients under 0.5 ft per 300 ft"
@@ -136,5 +136,5 @@
   "ground": "gltf/terrain__e1834_harbor_cut.glb",
   "water": "gltf/water__e1834_harbor_cut.glb"
  },
- "inputs_sha256": "069089ea282fc250fa9e4f832fab9e8ea2fc191a1e8a0240a1ae58e0860cc878"
+ "inputs_sha256": "9402a1f530f614139d62033cc0aaf5b83434a3e03d1664fc4805daf60889744e"
 }

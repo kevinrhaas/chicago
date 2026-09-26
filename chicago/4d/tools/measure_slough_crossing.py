@@ -77,7 +77,7 @@ SCENE = "1835"
 CROSSINGS = [
     {"bridge": "slough_log_bridge", "watercourse": "state_slough_mouth",
      "downstream": "north",
-     "label": "The Slough Log Bridge, Water Street"},
+     "label": "The Slough Log Bridge, State Street"},
     {"bridge": "lasalle_slough_crossing", "watercourse": "lasalle_slough_lower",
      "downstream": "north",
      "label": "The La Salle Slough Crossing, South Water Street"},
@@ -157,9 +157,18 @@ def deck_geometry(sidecar: dict) -> dict:
     rot = math.radians(float(place.get("rotation_deg", 0.0)))
     cos_r, sin_r = math.cos(rot), math.sin(rot)
 
+    # ROTATION IS A COMPASS BEARING, CLOCKWISE FROM NORTH, and this file had it
+    # anticlockwise until T-1629. It never showed, because every crossing this
+    # file read was laid at rotation 0 and the two conventions agree there; the
+    # State Street re-seating is the first deck in the set with a bearing, and
+    # under the old signs this tool measured a rectangle mirrored about the
+    # placement corner - ground 8 m from the deck. The convention that counts is
+    # the one the walker stands on (renderers/web/js/walker.js: "Compass-bearing
+    # rotation, matching bearingToYaw(): clockwise from north") and the one
+    # tools/validate.py builds its ground-contact outline with. This matches both.
     def to_world(u: float, v: float) -> tuple[float, float]:
-        return (float(place["local_e"]) + u * cos_r - v * sin_r,
-                float(place["local_n"]) + u * sin_r + v * cos_r)
+        return (float(place["local_e"]) + u * cos_r + v * sin_r,
+                float(place["local_n"]) - u * sin_r + v * cos_r)
 
     return {
         "span_m": span,

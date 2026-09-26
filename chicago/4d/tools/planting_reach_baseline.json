@@ -32,8 +32,8 @@
   },
   "ground": {
     "dry_floor_m": 0.2,
-    "nodes_above_floor": 1588469,
-    "inside_planter": 1581170,
+    "nodes_above_floor": 1588470,
+    "inside_planter": 1581171,
     "outside_planter": 7299,
     "inside_pct": 99.54,
     "outside_ha": 4.6,
@@ -46,7 +46,7 @@
       1120.0
     ],
     "east_limit_m": 825.8,
-    "reached_east_of_limit": 438466,
+    "reached_east_of_limit": 438442,
     "reached_east_of_limit_ha": 274.0
   },
   "zone_boxes": {
