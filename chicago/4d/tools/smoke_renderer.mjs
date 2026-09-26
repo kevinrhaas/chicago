@@ -4784,7 +4784,18 @@ for (const [label, viewport, touch] of [
       // West Water track carries the trace past its corner and the front
       // frontage qualifies again — so these four move BACK together when it
       // lands, by the same arithmetic and in the same direction.
-      frontage.census?.records === 5 && frontage.census?.walks === 50
+      // T-1628 CLOSED THE GROUND BREAK THE COMMENT BELOW CALLS "the ground break
+      // that still cuts it". The owner ruled the La Salle slough back to Wright's
+      // depiction, so `lasalle_slough_upper` is gone and `lasalle_slough_lower`
+      // stops 15.95 m inside block 50's South Water lot. The channel used to cross
+      // BOTH faces of blk_south_water_lasalle and split each one's walk in two; each
+      // is one run again — `blk_lake_lasalle_north_1` and
+      // `blk_south_water_lasalle_south_1` absorb their own `_2` — so 50 walks to 48,
+      // and the town gains 31.2 m of board (3193.4 -> 3224.6 m) while LOSING two
+      // runs. CROSSINGS, POSTS, FENCES AND REFUSALS DO NOT MOVE: a break in the
+      // middle of a face never sprang a corner crossing, and nothing about a wall,
+      // a trade or a setback changed on either block.
+      frontage.census?.records === 5 && frontage.census?.walks === 48
         && frontage.census?.crossings === 39
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
@@ -4995,8 +5006,15 @@ for (const [label, viewport, touch] of [
     // `frontage` mesh and 60 `frontage-chunk`s. Stating it as 61 + the board
     // rather than as a number means this line does not have to be edited twice
     // more when T-1547 puts the corner back.
+    // T-1628 — AND THE CHUNK COUNT FOLLOWS THE WALK COUNT, one mesh per run. The
+    // La Salle slough no longer breaks either face of blk_south_water_lasalle, so
+    // the two faces that carried two runs each carry one: 60 `frontage-chunk`s to
+    // 58, and 61 authored to 59 beside the shared `frontage` mesh. See the walk
+    // census above for the arithmetic; this line holds the same event one level
+    // down, and it is the "ground break that still cuts it" named above finally
+    // being gone.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 62 : 61)
+      frontage.authored === (frontage.census?.lettered === 1 ? 60 : 59)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
