@@ -218,9 +218,10 @@
       "sources": [
         "kinzie_waubun_1856",
         "chicagology_prefire273",
-        "drloih_hotels"
+        "drloih_hotels",
+        "chicago_democrat_1833_1835"
       ],
-      "note": "A tavern from 1829 and a hotel from 1831; the social centre of the settlement in the target window. Chicago's first billiard table in a public house stood here."
+      "note": "A tavern from 1829 and a hotel from 1831; the social centre of the settlement in the target window. Chicago's first billiard table in a public house stood here.\n\nTHE HOUSE IS OPEN, AND FRESHLY DONE UP, THREE WEEKS BEFORE THE SCENE DATE. Reviewing the town's public houses against Detroit's new American Hotel, the Chicago Democrat of 10 June 1835, page 2 column 5, claim chicago_democrat_1835_06_10#c001, reports that 'The Sauganash has been re[paired,] fitted up and furnished with neatness and [taste,] and so far as it goes, will[, we have no doubt,] be found just the thing'. That is the only dated statement of this building's CONDITION the corpus holds, and it bears on how the scene should read it: on 1835-07-01 the Sauganash is a working, recently refitted public house and not the shabby survivor its 1829 log origins invite. 'so far as it goes' is the editor's qualification and it means small — his complaint in the same paragraph is that no establishment in Chicago is 'sufficiently extensive'. The refit is recorded here rather than in the form block below because nothing in it names a fabric, a storey or a colour, and inventing one from 'fitted up' is exactly the supply this project refuses."
     },
     "occupants": {
       "value": "a Mr. Davis, proprietor",
@@ -338,6 +339,34 @@
       "archived_url": "",
       "tier": 3,
       "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
     },
     {
       "source_id": "chicago_landmark_sauganash",

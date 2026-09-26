@@ -456,13 +456,47 @@ def business_target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
     return found
 
 
-def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
-    """Index source-bearing structured assertions by the unit keys they name.
+# T-1600. THE STRUCTURE LAYER IS THE THIRD TARGET SURFACE, and until this it was not.
+# The ledger indexed the residents layer and, since T-1508, the business layer, so a
+# reading whose whole content is a BUILDING -- a church standing and meeting in June
+# 1835, an auction room on Dearborn large enough to hold a land sale and a fair, a hotel
+# going up in Kinzie's Addition and not yet named -- had nowhere to land. It could not
+# reach a person (a meeting notice names a clerk, not an occupant) and it could not reach
+# a firm (a congregation is not a business), and the record that WOULD carry it already
+# existed under its own name in data/structures/. T-1598 read 34 such notices, found ten
+# of them naming a building the town already holds, and had to hand all ten to a ticket
+# because asserting them was an edit to a layer this index could not see.
+#
+# It is indexed on the RESIDENTS walk and not the business layer's stricter one, because
+# a structure record has no `claim_ids` list: the corpus's own citation style, written
+# long before this index reached it, is the claim key in the block's `note` beside the
+# newspaper in its `sources` -- new_york_house has carried two that way since T-1508.
+# THE LOOSE READING WAS MEASURED BEFORE IT WAS ADOPTED: on the day this landed, exactly
+# 16 claim keys were reached by a source-bearing confident block anywhere under
+# data/structures/, and all 16 were already `asserted` off a resident card or a business
+# block. So nothing flipped that this ticket did not write, which is the number to
+# re-take if the walk is ever suspected of over-reaching.
+STRUCTURE_LAYER = ("data", "structures")
 
-    The residents layer first, then the business layer, so a reading a resident card
-    already carries keeps the target it had and a reading only the business layer carries
-    reaches the block that carries it (T-1508).
-    """
+# AND ONE KEY OF THE STRUCTURE LAYER IS BLINDED, FOR TOKEN_BLIND_KEYS' REASON AND NOT
+# FOR A NEW ONE. `land_owner.entries` on 69 records is a list of land-sale register rows
+# -- five ids, ls0053 and ls0056 through ls0059 -- naming the purchase the tract under a
+# building was entered on. Three of the five are already `asserted` off a resident card.
+# The other two are `refused` by the DERIVED land-sale register (T-1296), which rules on
+# all 1,572 of its rows, so reading the cross-reference as a spend would assert them here
+# AND leave two rulings in that register that never fire, which `ruling_coverage_faults`
+# fails. That is the gate saying a question has two answers, and picking one of them is
+# the land-sale corpus's business rather than a building-reading ticket's: T-1605 owns it.
+# Everything else on a structure record is read, which is where the ten newspaper claims
+# T-1600 wrote onto six buildings are found -- in the `note` of the block they bear on,
+# beside the newspaper in its `sources`, which is the citation style the corpus already
+# had (new_york_house has carried two that way since T-1508).
+STRUCTURE_BLIND_KEYS = frozenset({"entries"})
+
+
+def prose_target_index(paths, root: Path, keys: set[str], kind: str,
+                       blind: frozenset = frozenset()) -> dict[str, list[dict]]:
+    """Index source-bearing confident blocks by the unit keys their prose names."""
     found = defaultdict(list)
 
     def walk(node, parts, root_id, rel):
@@ -471,7 +505,8 @@ def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
             sources_here = cited_sources(node) if confidence in STRUCTURED_CONFIDENCE else set()
             if sources_here:
                 tokens = set()
-                for value in naming_strings(node):
+                for value in naming_strings(
+                        {k: v for k, v in node.items() if k not in blind}):
                     if value in keys:
                         tokens.add(value)
                     for token in UNIT_TOKEN.findall(value):
@@ -480,7 +515,7 @@ def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
                         tokens.update(part for part in token.split("#") if part in keys)
                 for key in tokens:
                     found[key].append({
-                        "kind": "resident_record",
+                        "kind": kind,
                         "id": root_id,
                         "file": rel,
                         "field_path": "".join("/" + pointer_part(p) for p in parts),
@@ -492,13 +527,32 @@ def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
             for index, value in enumerate(node):
                 walk(value, parts + [index], root_id, rel)
 
-    for path in town_records((root / "data" / "residents")):
+    for path in paths:
         doc = read_json(path)
         if not isinstance(doc, dict) or not doc.get("id"):
             continue
         walk(doc, [], str(doc["id"]), path.relative_to(root).as_posix())
+    return found
+
+
+def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
+    """Index source-bearing structured assertions by the unit keys they name.
+
+    The residents layer first, then the business layer, then the structure layer, so a
+    reading a resident card already carries keeps the target it had, a reading only the
+    business layer carries reaches the block that carries it (T-1508), and a reading
+    whose subject is a building reaches the building (T-1600).
+    """
+    found = prose_target_index(
+        town_records(root / "data" / "residents"), root, keys, "resident_record")
     for key, rows in business_target_index(root, keys).items():
         found[key].extend(rows)
+    structures = root.joinpath(*STRUCTURE_LAYER)
+    if structures.is_dir():
+        for key, rows in prose_target_index(
+                sorted(structures.rglob("*.json")), root, keys, "structure_record",
+                STRUCTURE_BLIND_KEYS).items():
+            found[key].extend(rows)
     return found
 
 
