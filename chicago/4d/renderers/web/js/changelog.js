@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1142, title: 'How many of the town\u2019s people have an address yet', kind: 'change', ts: '2026-09-26T13:40:47.440Z', date: 'Sep 26, 2026, 8:40 AM CT',
+    items: [
+      'Open \u201cReconstructing the town\u201d in the Evidence tab and there is a new section at the top of it. The card has always said what the town still owes \u2014 how many people, households, shops and roofs the models say were here and the sources cannot name. It has never said how far the work of housing them has actually got.',
+      'It does now, in one line: 178 of the 1,480 households waiting for an address have one, and 1,302 do not. The last two releases did that work and there was nowhere on the site to see it.',
+      'Underneath, the arithmetic it stands on. 172 of those households moved into houses that already stand \u2014 so of the 419 roofs in the town today, 172 now have somebody in them and 247 are still empty. Six households needed a house that does not exist yet, and those six are listed by name with the block and lot they are waiting on.',
+      'The two passes that dealt the ground are shown as a pair, because the second only ever saw what the first handed on: the plat seated 106 of 1,480 and passed 1,374 along; the ground outside the plat seated 72 of those and passed 1,302 to the building work.',
+      'No figure on the panel is typed into it. Every one is derived from the two files the seating wrote, and the check that runs on every change re-derives them and fails if any of the three counts stop adding up.',
+    ] },
   { v: 1141, title: 'Eighty-eight building notices from before the scene, each one ruled', kind: 'change', ts: '2026-09-26T13:08:52.161Z', date: 'Sep 26, 2026, 8:08 AM CT',
     items: [
       'Nothing you can see in the town has changed. This is the reading ledger: 88 notices about BUILDINGS, printed in the Chicago Democrat in 1833 and 1834, that had been read off the page years ago and never ruled on. Each now carries a written answer.',

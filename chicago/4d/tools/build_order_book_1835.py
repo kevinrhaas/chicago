@@ -504,6 +504,13 @@ def load(root: Path = ROOT) -> dict:
         "residents": root / "data" / "residents" / "index.json",
         "register": root / "data" / "research" / "newspapers" / "register_1835.json",
         "presence_rulings": root / "data" / "reconstruction" / "1835_presence_rulings.json",
+        # THE TWO SEATING PASSES (T-1620). The book has always been able to say how many
+        # households the town still owes; it could not say how many of them now have
+        # GROUND. T-1613 dealt the committed plat and T-1614 the ground the plat does not
+        # draw, and both files are derived and re-derived by their own tools — so the book
+        # reads them and adds nothing to them.
+        "platted_seats": root / "data" / "reconstruction" / "1835_platted_seats.json",
+        "off_plat_seats": root / "data" / "reconstruction" / "1835_off_plat_seats.json",
     }
     out = {}
     for key, path in paths.items():
@@ -2123,6 +2130,132 @@ def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int
 
 # ----------------------------------------------------------------- the build --
 
+
+# --------------------------------------------------------------------------- seats
+#
+# WHERE THE HOUSEHOLDS THE BOOK ORDERED ARE STANDING (T-1620, the second piece of
+# T-1615 off T-1199).
+#
+# The book has always been able to say how many households the town still owes.
+# It could not say how many of them now have GROUND, and that is the number the
+# 5C build tickets are actually waiting on: a household with a lot is a roof
+# somebody can raise, and a household without one is still an entry in a ledger.
+#
+# Two committed passes answer it, in order, and the order is the whole arithmetic:
+# T-1613 offered every banded household the committed plat's 226 lots, and T-1614
+# offered the 1,374 it handed on the ground the plat does not draw. So the second
+# pass's `rows_in_scope` IS the first pass's `owed`, and a chain that does not join
+# is a file that moved under this one — refused by name below rather than summed
+# into a total that looks right.
+#
+# EVERY FIGURE HERE IS READ, NONE IS COMPUTED TWICE. Both seat files carry their
+# own `counts`, derived and re-derived by their own tools and gated in check.sh;
+# this reads those counts and the six slot rows, joins them, and adds nothing. A
+# seat is either an ADOPTION — a household put under a roof that already stands —
+# or a SLOT, a request the build tickets fulfil. Nothing here raises a roof.
+SEAT_PASSES = (
+    ("platted", "platted_seats", "T-1613",
+     "The committed plat",
+     "the 226 lots of the Thompson plat the lot ledger enumerates",
+     "lots_taken", "lots"),
+    ("off_plat", "off_plat_seats", "T-1614",
+     "The ground the plat does not draw",
+     "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp "
+     "grounds the off-plat ledger enumerates",
+     "parcels_taken", "parcels"),
+)
+
+
+def seats_against_roofs(data: dict, structures: dict) -> dict:
+    """The two seating passes, joined, against the roofs the town already has."""
+    passes, chain = [], None
+    for key, input_key, ticket, title, ground, taken_key, taken_word in SEAT_PASSES:
+        doc = data[input_key]
+        c = doc.get("counts") or {}
+        if not c:
+            raise Fault(f"the {key} seats file carries no counts — the book cannot read it")
+        scope = int(c.get("rows_in_scope") or 0)
+        seated = int(c.get("seated") or 0)
+        owed = int(c.get("owed") or 0)
+        adopted = int(c.get("roofs_adopted") or 0)
+        slots = int(c.get("slots_requested") or 0)
+        if seated + owed != scope:
+            raise Fault(f"the {key} seating pass seats {seated} and owes {owed} of "
+                        f"{scope} rows — its own arithmetic does not close")
+        if adopted + slots != seated:
+            raise Fault(f"the {key} seating pass seats {seated} but adopts {adopted} and "
+                        f"requests {slots} — a seat is an adoption or a slot and nothing else")
+        if chain is not None and scope != chain:
+            raise Fault(f"the {key} seating pass was offered {scope} rows and the pass "
+                        f"before it handed on {chain} — the two files have moved apart")
+        chain = owed
+        passes.append({
+            "key": key, "ticket": ticket, "title": title, "ground": ground,
+            "generated_by": doc.get("generated_by"),
+            "rows_offered": scope, "seated": seated, "handed_on": owed,
+            "roofs_adopted": adopted, "slots_requested": slots,
+            "roofs_offered_for_adoption": int(c.get("roofs_offered_for_adoption") or 0),
+            "roofs_held_back": int(c.get("roofs_held_back") or 0),
+            "ground_taken": int(c.get(taken_key) or 0), "ground_taken_unit": taken_word,
+            "by_district": dict(sorted((c.get("by_district") or {}).items())),
+            "by_clause": dict(sorted((c.get("by_clause") or {}).items())),
+        })
+    # THE SIX SLOTS, NAMED. A slot is the only forward-looking thing either pass wrote:
+    # the plat had headroom of the right family on a block and no standing roof to adopt,
+    # so it asked for one. They are carried whole — household, block, lot and family —
+    # because a request nobody can read is a request nobody fulfils.
+    slots = [{
+        "household_id": s.get("id"), "name": s.get("name"), "district": s.get("district"),
+        "clause": s.get("clause"), "block_id": s.get("block_id"), "lot_id": s.get("lot_id"),
+        "family": s.get("family"), "why": s.get("why"),
+    } for s in (data["platted_seats"].get("seats") or []) if s.get("how") == "slot"]
+    slots += [{
+        "household_id": s.get("id"), "name": s.get("name"), "district": s.get("district"),
+        "clause": s.get("clause"), "block_id": s.get("block_id"), "lot_id": s.get("lot_id"),
+        "family": s.get("family"), "why": s.get("why"),
+    } for s in (data["off_plat_seats"].get("seats") or []) if s.get("how") == "slot"]
+    asked = sum(p["slots_requested"] for p in passes)
+    if len(slots) != asked:
+        raise Fault(f"the seating passes count {asked} slot(s) and carry {len(slots)} slot "
+                    f"row(s) — the count and the rows disagree")
+    seated = sum(p["seated"] for p in passes)
+    adopted = sum(p["roofs_adopted"] for p in passes)
+    standing = int(structures.get("standing_records") or 0)
+    blocks = sorted({s["block_id"] for s in slots if s.get("block_id")})
+    return {
+        "statement": (
+            "Two committed passes have offered every banded household ground: the plat "
+            "first, then the ground the plat does not draw. This is what they seated, "
+            "against the roofs the town already has. A seat is an ADOPTION — a household "
+            "put under a roof that already stands — or a SLOT, a request the build "
+            "tickets fulfil. Neither pass raises a roof, and nothing here is a claim "
+            "about 1835: it is the reconstruction's own progress, read off two derived "
+            "files and joined."),
+        "inputs": [p["generated_by"] for p in passes],
+        "rows_offered": passes[0]["rows_offered"],
+        "seated": seated,
+        "still_owed": passes[-1]["handed_on"],
+        "roofs_adopted": adopted,
+        "slots_requested": len(slots),
+        "roofs_standing": standing,
+        "roofs_standing_unseated": max(0, standing - adopted),
+        "share_of_standing_roofs_seated": (round(adopted / standing, 4) if standing else None),
+        "passes": passes,
+        "requested_slots": slots,
+        "slot_blocks": blocks,
+        "what_the_slots_wait_on": (
+            f"{len(slots)} slot(s) on {len(blocks)} block(s) — {', '.join(blocks)}. A slot "
+            f"is headroom the block's own committed plan still holds, so the recipe that "
+            f"deals that block is where it is spent." if slots else
+            "no slot was requested: every seat is an adoption of a roof already standing."),
+        "what_is_left": (
+            f"{passes[-1]['handed_on']:,} of the {passes[0]['rows_offered']:,} banded "
+            f"households are still on no ground at all. The reasons are written row by "
+            f"row in both files' `owed`, and the clause each one waits on is carried "
+            f"there rather than summarised away."),
+    }
+
+
 def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
           moves: list | None = None) -> dict:
     fills = list(fills or [])
@@ -2472,6 +2605,12 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
             "households_still_owed": sum(
                 max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in families[1]["buckets"]),
         },
+        # WHERE THE ORDERED HOUSEHOLDS ARE STANDING (T-1620). The totals above say how
+        # many households the town still owes; this says how many of them now have
+        # GROUND, which is the number the 5C build tickets are waiting on. Read off
+        # T-1613's and T-1614's own derived counts and joined — nothing is recomputed
+        # here and no seat is dealt here.
+        "seats_against_roofs": seats_against_roofs(data, structures),
         # WHAT THE RE-CUT FOUND, written into the book rather than into a report nobody
         # re-derives (T-1463). Two of these are adjudications the ticket asked for out
         # loud, and the third is a collision this run declines to rule on.
@@ -2964,6 +3103,28 @@ def report_text(doc: dict) -> str:
             "| class | offered | ticket |", "|---|---:|---|"]
     for cls, n in doc["roster_offered"]["by_class"].items():
         out.append(f"| `{cls}` | {n:,} | {doc['roster_offered']['tickets'][cls]} |")
+
+    sr = doc["seats_against_roofs"]
+    out += ["", "## Where the ordered households are standing", "", sr["statement"], "",
+            f"- offered ground: {sr['rows_offered']:,}",
+            f"- seated: {sr['seated']:,} — {sr['roofs_adopted']:,} by adopting a roof that "
+            f"already stands, {sr['slots_requested']:,} by asking for one",
+            f"- still on no ground at all: {sr['still_owed']:,}",
+            f"- of the {sr['roofs_standing']:,} roofs the town already has, "
+            f"{sr['roofs_adopted']:,} now carry a reconstructed household",
+            "", "| pass | ticket | offered | seated | adopted | slots | handed on |",
+            "|---|---|---:|---:|---:|---:|---:|"]
+    for pass_ in sr["passes"]:
+        out.append(f"| {pass_['title']} | {pass_['ticket']} | {pass_['rows_offered']:,} | "
+                   f"{pass_['seated']:,} | {pass_['roofs_adopted']:,} | "
+                   f"{pass_['slots_requested']:,} | {pass_['handed_on']:,} |")
+    out += ["", sr["what_the_slots_wait_on"], ""]
+    if sr["requested_slots"]:
+        out += ["| household | block | lot | family | clause |", "|---|---|---|---|---|"]
+        for slot in sr["requested_slots"]:
+            out.append(f"| `{slot['household_id']}` | `{slot['block_id']}` | "
+                       f"`{slot['lot_id']}` | {slot['family']} | `{slot['clause']}` |")
+    out += ["", sr["what_is_left"]]
 
     for family in doc["bucket_families"]:
         out += ["", f"## {family['title']}", "", family["lead"], ""]
@@ -3632,6 +3793,36 @@ def cmd_self_test() -> int:
           lambda: gate(split, {**states, "T-9000": "split", "T-9001": "done",
                                "T-9002": "split", "T-9004": "done",
                                "T-9005": "withdrawn"}, deep))
+
+    # THE SEATING JOIN'S FOUR REFUSALS (T-1620). The book reads two files it does not
+    # write, and every one of its seat figures is a sum across them — so a file that
+    # moves under it must be RED here rather than quietly re-summed into a total that
+    # still looks right. The four are: a pass whose own seated-plus-owed misses its
+    # scope; a pass whose adoptions and slots miss its seated; a second pass offered a
+    # different number of rows from the one the first handed on; and a slot count that
+    # disagrees with the slot rows carried beside it. None of them can be repaired here,
+    # because the repair is re-deriving the file that moved.
+    def seats_with(pass_key, **counts):
+        bent = copy.deepcopy(data)
+        bent[pass_key]["counts"].update(counts)
+        return lambda: seats_against_roofs(bent, structure_buckets(
+            bent["inventory"], bent["programme"], occ))
+
+    assert seats_against_roofs(data, structure_buckets(
+        data["inventory"], data["programme"], occ))["seated"] == 178
+    fires("a seating pass whose seated and owed miss its own scope",
+          seats_with("platted_seats", owed=1))
+    fires("a seating pass whose adoptions and slots miss its own seated count",
+          seats_with("platted_seats", roofs_adopted=99))
+    fires("a second seating pass offered rows the first did not hand on",
+          seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
+    fires("a slot count that disagrees with the slot rows carried beside it",
+          seats_with("platted_seats", slots_requested=0, seated=100))
+    dropped = copy.deepcopy(data)
+    dropped["platted_seats"]["counts"] = {}
+    fires("a seats file with no counts at all",
+          lambda: seats_against_roofs(dropped, structure_buckets(
+              dropped["inventory"], dropped["programme"], occ)))
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "
