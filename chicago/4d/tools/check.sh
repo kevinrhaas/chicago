@@ -2270,6 +2270,34 @@ step "ticket queue" \
 selftest "…and the tripwire scanner behind `done` still fires, and still ignores prose" \
   node tools/ticket.mjs tripwire-self-test
 
+# T-1581, AND THE HALF T-1548 COULD NOT SEE. That scanner matches the closing ticket's
+# OWN id; all three of the closes that turned dev red on 2026-09-25 stranded an
+# ANCESTOR instead — a pointer named a `split` parent, and the close took its last live
+# descendant. #40 (T-1448) left twelve cohort units on T-1189 two levels up, red for
+# 2.5h; #43 (T-1560) ended the re-family programme on T-1556 while T-1564 stood open
+# under the split T-1559; #49 (T-1523) would have left 272 landholding units on T-1198.
+#
+# THE WALK IS ONE DEFINITION NOW (tools/ticket_liveness.py): the research ledger's
+# `split_live`, the order book's `live_pieces_of` and ticket.mjs all read it, and the
+# self-test holds the three shapes above plus the one that must NOT fire — a split with
+# a live descendant two levels down.
+selftest "…and the split walk all three of them read still holds, on all four shapes" \
+  python3 tools/ticket_liveness.py --selftest
+
+# AND THE QUESTION ASKED OF THIS BRANCH, NOT OF THE WORLD. `done --pr` sets `review`,
+# and the tickets repo settles it to `done` when the PR MERGES — so the state that
+# breaks dev arrives after this gate has already passed it. This step asks it early:
+# the ledger's and the order book's ownership gates, re-run against a queue in which
+# the tickets THIS BRANCH NAMES are already `done`.
+#
+# SCOPED TO THE BRANCH, and the scope is the point. Reading every `review` ticket in
+# the shared queue would turn this PR red for a close somebody else is making, which
+# is precisely the fault T-1593 is filed about; on `dev` and `main` it says so and
+# does nothing. An ancestor that is ALREADY dead is not this branch's either — the
+# step reports only what is NEW with the close.
+step "closing this branch's tickets strands nobody above them" \
+  python3 tools/ticket_liveness.py
+
 # The link between the two: the shipped derivative against the master it was
 # compressed from. `--stale` gates data -> master and check_published.mjs gates
 # assets/web -> the mirror, and NOTHING gated the step in between, which is the one
