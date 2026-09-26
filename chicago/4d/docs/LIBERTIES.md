@@ -1722,6 +1722,35 @@ brighter than the sky behind it, which is what a distant treeline never is. It i
 **The cap this entry exists to confess is untouched at 0.82**, and so is the compression it
 buys: the argument for it is still EVIDENCE and nothing else.
 
+**Revised 2026-09-26 (T-1631) — "four levels below the horizon sky" was true in one direction
+out of thirty-six.** This entry has now written the same symptom up as physics three times, and
+the third correction is the interesting one, because nothing above it is arithmetically wrong.
+L 161.7 is the horizon sky of the BAR PHOTOGRAPH and of this scene's sky *toward the sun*. It
+is not this scene's horizon sky in any other direction: `HORIZON_RESTORE` is an azimuth-blind
+fit and its own note records the render at 1° above the NORTH horizon as (104,132,166), L 128.
+Sampled all the way round at 1° — 36 bearings, off the shader itself — this sky runs L 122 due
+north to L 148 due south. So a fog pinned at L 159.4 was *brighter than the sky it converges
+on at every azimuth on the compass*, by 11 luminance toward the sun and by 37 away from it, and
+the cheerful "which is exactly what airlight should do" above held only where it was measured.
+
+What that bought a visitor is what the owner reported: flying north at 600 ft, the ground past
+the drawn town converged on a flat sheet 31 luminance brighter than the sky above it, with a
+hard step where they met — and a bright flat blue-grey sheet with trees standing out of it
+reads as a lake. Measured at that pose, the pixel below the step read (136,163,192) against
+(103,131,165) above it; with the fog switched off the same pixel read (109,125,84), GREEN. The
+ground was drawn the whole time and the reach was never the fault. The haze was painting land
+the colour of water.
+
+The fix takes no liberty and so retires this part of the entry rather than extending it: the
+fog is no longer a constant at all. `world.js` samples its own sky at the horizon at boot and
+points the haze at the bearing the visitor is looking along, so distance converges on the air
+that is actually there. Nothing is fitted, no second photograph is guessed at, and the sky is
+unchanged — `HORIZON_RESTORE`'s refusal to invent an azimuth term stands untouched, because
+sampling a shader is not fitting a model. **The cap remains 0.82 and the density remains
+0.00125**; what the scene's air is thick ENOUGH to hide is unchanged, and the residual reported
+under T-1631 — that past about 1.2 km the plain is still a featureless band because the haze is
+90 % there by design — is the density's business and not this entry's.
+
 **Also revised: the third point's measurement is half answered.** The band was additionally
 being *deleted* rather than merely dim — the crown/gap modulation cuts a bearing to as little
 as 2 % of its height to open sky through a stand, which is texture at four hundred metres and

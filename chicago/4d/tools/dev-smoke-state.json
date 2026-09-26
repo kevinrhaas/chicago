@@ -1922,6 +1922,575 @@
         ]
       },
       "source": "/tmp/smoke_d34.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 342,
+      "takenAt": "2026-09-26T19:30:27.136Z",
+      "ref": "steward/t-1631-haze-follows-sky",
+      "commit": "43f997afbeb8",
+      "devCommit": "c2dd2ea19bcf",
+      "treeHash": "sha256:ab06611410394217",
+      "treeDirty": false,
+      "changelogHash": "sha256:4db554e3b964ae53",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.5,
+          4.3,
+          4.1
+        ]
+      },
+      "source": "/tmp/t1631/smoke-d1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 198,
+      "takenAt": "2026-09-26T19:30:27.042Z",
+      "ref": "steward/t-1631-haze-follows-sky",
+      "commit": "43f997afbeb8",
+      "devCommit": "c2dd2ea19bcf",
+      "treeHash": "sha256:ab06611410394217",
+      "treeDirty": false,
+      "changelogHash": "sha256:4db554e3b964ae53",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.5,
+          4.3,
+          4.1
+        ]
+      },
+      "source": "/tmp/t1631/smoke-m1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 94,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 207,
+      "takenAt": "2026-09-26T19:30:26.946Z",
+      "ref": "steward/t-1631-haze-follows-sky",
+      "commit": "43f997afbeb8",
+      "devCommit": "c2dd2ea19bcf",
+      "treeHash": "sha256:ab06611410394217",
+      "treeDirty": false,
+      "changelogHash": "sha256:4db554e3b964ae53",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.5,
+          4.3,
+          4.1
+        ]
+      },
+      "source": "/tmp/t1631/smoke-d3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "10",
+      "parts": [
+        10
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 422,
+      "takenAt": "2026-09-26T19:30:26.850Z",
+      "ref": "steward/t-1631-haze-follows-sky",
+      "commit": "43f997afbeb8",
+      "devCommit": "c2dd2ea19bcf",
+      "treeHash": "sha256:ab06611410394217",
+      "treeDirty": false,
+      "changelogHash": "sha256:4db554e3b964ae53",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.5,
+          4.3,
+          4.1
+        ]
+      },
+      "source": "/tmp/t1631/smoke-d10.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "5-6",
+      "parts": [
+        5,
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 32,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 192,
+      "takenAt": "2026-09-26T00:20:59.628Z",
+      "ref": "steward/t1580-mobile-frontage-farmerge",
+      "commit": "bbac700280b9",
+      "devCommit": "2892a7b3714e",
+      "treeHash": "sha256:fef33ca3b7e966de",
+      "treeDirty": false,
+      "changelogHash": "sha256:d1dd5514ee794f4c",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.8,
+          3.7,
+          3.3
+        ]
+      },
+      "source": "/tmp/m56_final.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "8-9",
+      "parts": [
+        8,
+        9
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 32,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 206,
+      "takenAt": "2026-09-21T00:26:20.834Z",
+      "ref": "steward/t-1488-roof-relief-maps",
+      "commit": "1dd3e191092b",
+      "devCommit": "d4cdbbd29da6",
+      "treeHash": "sha256:c462acd31bb56bda",
+      "treeDirty": true,
+      "changelogHash": "sha256:699aee697406c96e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.6,
+          4.1,
+          3.4
+        ]
+      },
+      "source": "/tmp/smoke-m89b.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "all",
+      "parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 533,
+      "failed": 6,
+      "failures": [
+        "desktop 1280x800: nothing was drawn into an evidence-only household — 1 reconstructed people on hh_inf_cooper_north_04, name_basis present: true",
+        "desktop 1280x800: the placeholder label agrees with the asset it describes — {\"real\":false,\"realFlag\":false,\"recommended\":false,\"placeholderFlag\":false,\"grade\":\"reconstructed\",\"reconstructionFlag\":true,\"flagNamesTheGrade\":true}",
+        "desktop 1280x800: the light tier draws inside its 90-call floor at the worst stand — 94 calls at light, worst stand the open aerial — floor 90, set by the owner 2026-08-28 against a measured 85 at Lake and Market (was 80, the pre-2026-08 count restored by T-0147; the ruling is recorded at the definition site and on T-0247)",
+        "desktop 1280x800: the People directory lists the town, and its count is the file's and the manifest's — {\"rows\":80,\"api\":3228,\"file\":3228,\"stated\":3228,\"manifest\":2269,\"readmitted\":182,\"trades\":308,\"transients\":307,\"residents\":2921,\"countText\":\"3,228 people in 1,982 households\\n        · 736 known only from the letter lists\\n        · 359 with a known address\"}",
+        "desktop 1280x800: the Trade row offers the documented trades AND the town's commonest — 13 pill(s): [attorney, tavern_keeper, merchant, schoolteacher, carpenter, physician, blacksmith, hotel_keeper, soldier, domestic, boarding_house_keeper, laundress, clerk]",
+        "desktop 1280x800: zero page errors — console.error: THREE.PointerLockControls: Unable to use Pointer Lock API | pageerror: The root document of this element is not valid for pointer lock. | console.error: THREE.PointerLockControls: Unable to use Pointer Lock API | pageerror: The root document of this element is not valid for pointer lock."
+      ],
+      "wallSeconds": 883,
+      "takenAt": "2026-09-20T18:24:24.816Z",
+      "ref": "steward/t-1246-boot-phases",
+      "commit": "c8c11eabe9fc",
+      "devCommit": "c8c11eabe9fc",
+      "treeHash": "sha256:55db2b2243e59288",
+      "treeDirty": true,
+      "changelogHash": "sha256:99eb629d79bfa287",
+      "host": {
+        "kind": "local",
+        "cpus": 18,
+        "memGB": 48,
+        "loadavg": [
+          14.9,
+          20.4,
+          17.7
+        ]
+      },
+      "source": "/Users/khaas/Chicago4D/t1246/smoke-desktop.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "all",
+      "parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 538,
+      "failed": 4,
+      "failures": [
+        "mobile 390x780: nothing was drawn into an evidence-only household — 1 reconstructed people on hh_inf_cooper_north_04, name_basis present: true",
+        "mobile 390x780: the placeholder label agrees with the asset it describes — {\"real\":false,\"realFlag\":false,\"recommended\":false,\"placeholderFlag\":false,\"grade\":\"reconstructed\",\"reconstructionFlag\":true,\"flagNamesTheGrade\":true}",
+        "mobile 390x780: the People directory lists the town, and its count is the file's and the manifest's — {\"rows\":80,\"api\":3228,\"file\":3228,\"stated\":3228,\"manifest\":2269,\"readmitted\":182,\"trades\":308,\"transients\":307,\"residents\":2921,\"countText\":\"3,228 people in 1,982 households\\n        · 736 known only from the letter lists\\n        · 359 with a known address\"}",
+        "mobile 390x780: the Trade row offers the documented trades AND the town's commonest — 13 pill(s): [attorney, tavern_keeper, merchant, schoolteacher, carpenter, physician, blacksmith, hotel_keeper, soldier, domestic, boarding_house_keeper, laundress, clerk]"
+      ],
+      "wallSeconds": 598,
+      "takenAt": "2026-09-20T18:20:28.866Z",
+      "ref": "steward/t-1246-boot-phases",
+      "commit": "c8c11eabe9fc",
+      "devCommit": "c8c11eabe9fc",
+      "treeHash": "sha256:55db2b2243e59288",
+      "treeDirty": true,
+      "changelogHash": "sha256:99eb629d79bfa287",
+      "host": {
+        "kind": "local",
+        "cpus": 18,
+        "memGB": 48,
+        "loadavg": [
+          20.3,
+          25.2,
+          18
+        ]
+      },
+      "source": "/Users/khaas/Chicago4D/t1246/smoke-mobile.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 236,
+      "takenAt": "2026-09-20T13:44:00.108Z",
+      "ref": "steward/t-1431-west-tier-lines",
+      "commit": "757953d55276",
+      "devCommit": "75014eb2efb4",
+      "treeHash": "sha256:0bfe8b0009c61474",
+      "treeDirty": false,
+      "changelogHash": "sha256:87061540a422f9cc",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          5.1,
+          4.5,
+          3
+        ]
+      },
+      "source": "/tmp/smoke_m7b.txt"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3,10",
+      "parts": [
+        3,
+        10
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 113,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 448,
+      "takenAt": "2026-09-17T06:24:43.609Z",
+      "ref": "steward/t-1129-bear-creek-only-residents",
+      "commit": "e185ea3aa599",
+      "devCommit": "07238aaa8240",
+      "treeHash": "sha256:98a4915243f82fe5",
+      "treeDirty": false,
+      "changelogHash": "sha256:847aee43777b8026",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.1,
+          4.3,
+          4.1
+        ]
+      },
+      "source": "/tmp/smoke_m310.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 25,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 295,
+      "takenAt": "2026-08-30T08:43:06.794Z",
+      "ref": "steward/t-0379-letter-list-scale",
+      "commit": "b8a7d540d43d",
+      "devCommit": "afa7c2f6e1da",
+      "treeHash": "sha256:f04d3ae0d12a9edb",
+      "treeDirty": true,
+      "changelogHash": "sha256:e90cede42bb20ab1",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          0.6,
+          2.5,
+          3.6
+        ]
+      },
+      "source": "/tmp/s_d5.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 92,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 337,
+      "takenAt": "2026-09-26T07:45:56.854Z",
+      "ref": "steward/t-1605-land-sale-entries-spent-by-the-ground",
+      "commit": "0818fbff6e52",
+      "devCommit": "08ef85df8905",
+      "treeHash": "sha256:9fe445acc6dd6ad3",
+      "treeDirty": false,
+      "changelogHash": "sha256:994471f4edf0b83e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.7,
+          4,
+          3.5
+        ]
+      },
+      "source": "/tmp/smoke_d12.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 92,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 337,
+      "takenAt": "2026-09-26T07:45:56.854Z",
+      "ref": "steward/t-1605-land-sale-entries-spent-by-the-ground",
+      "commit": "0818fbff6e52",
+      "devCommit": "08ef85df8905",
+      "treeHash": "sha256:9fe445acc6dd6ad3",
+      "treeDirty": false,
+      "changelogHash": "sha256:994471f4edf0b83e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.7,
+          4,
+          3.5
+        ]
+      },
+      "source": "/tmp/smoke_d12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12-13",
+      "parts": [
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 196,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 350,
+      "takenAt": "2026-09-26T07:45:56.779Z",
+      "ref": "steward/t-1605-land-sale-entries-spent-by-the-ground",
+      "commit": "0818fbff6e52",
+      "devCommit": "08ef85df8905",
+      "treeHash": "sha256:9fe445acc6dd6ad3",
+      "treeDirty": false,
+      "changelogHash": "sha256:994471f4edf0b83e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.7,
+          4,
+          3.5
+        ]
+      },
+      "source": "/tmp/smoke_m1213.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12-13",
+      "parts": [
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 196,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 350,
+      "takenAt": "2026-09-26T07:45:56.779Z",
+      "ref": "steward/t-1605-land-sale-entries-spent-by-the-ground",
+      "commit": "0818fbff6e52",
+      "devCommit": "08ef85df8905",
+      "treeHash": "sha256:9fe445acc6dd6ad3",
+      "treeDirty": false,
+      "changelogHash": "sha256:994471f4edf0b83e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.7,
+          4,
+          3.5
+        ]
+      },
+      "source": "/tmp/smoke_m1213.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 92,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 482,
+      "takenAt": "2026-09-26T07:38:11.958Z",
+      "ref": "steward/t1444-release-west-infill",
+      "commit": "5d6bb9bb05dd",
+      "devCommit": "08ef85df8905",
+      "treeHash": "sha256:9f987ba6ba0bd319",
+      "treeDirty": false,
+      "changelogHash": "sha256:ea14b02929924da0",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4.1,
+          3.3
+        ]
+      },
+      "source": "/tmp/smoke_d12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 114,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 124,
+      "takenAt": "2026-09-26T04:25:46.505Z",
+      "ref": "steward/t1600-named-building-corroborations",
+      "commit": "83b2ac8d65c0",
+      "devCommit": "a68273f74aa3",
+      "treeHash": "sha256:e2c3d2d4793b4b71",
+      "treeDirty": false,
+      "changelogHash": "sha256:191f4d4c6edc483b",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.8,
+          4.3,
+          4
+        ]
+      },
+      "source": "/tmp/smoke_m34.log"
     }
   ]
 }
