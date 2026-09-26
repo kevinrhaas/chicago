@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1151, title: 'Arrive in 1835 as the town is assembled', kind: 'change', ts: '2026-09-26T18:30:51.494Z', date: 'Sep 26, 2026, 1:30 PM CT',
+    items: [
+      'The loading screen is now an arrival: the year rolls backward from the present toward 1835 as real reconstruction phases finish.',
+      'The year never reaches 1835 before the town is ready; long phases ease rather than pretending to be complete, and a fast warm load does not add an artificial delay.',
+      'Reduced-motion visitors get a short stepped year change instead of flip animation, and a failed essential load stops the clock and offers Retry.',
+      'The arrival styling is a restrained instrument panel with split-flap numerals, a live phase line and room for the richer source-status library coming next.',
+    ] },
   { v: 1150, title: 'The bulge in the river turns out to be Wright\u2019s own', kind: 'fix', ts: '2026-09-26T18:10:03.863Z', date: 'Sep 26, 2026, 1:10 PM CT',
     items: [
       'Nothing you can see in the town has changed, and this release is about why. The owner flew the river front and reported that the south bank swells out into the channel between the bend at the forks and the slough by LaSalle Street, where the other 1834 map draws it even \u2014 and asked for it brought in to the bank the 1834 survey actually drew.',
