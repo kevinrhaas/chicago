@@ -180,19 +180,44 @@ def as_traced_bank(rec):
     return out
 
 
+def recut_stations():
+    """Every vertex of the recut reach as the two committed files hold it, by easting.
+
+    Read off the GeoJSON rather than off `committed_bank()`: that function splices the two
+    windows at JOIN_E and drops the forks run's easternmost vertex, which is one of the
+    nine the rule moves. A vertex the gate cannot see is a vertex a hand edit can move.
+    """
+    oe, on = _datum()
+    lo, hi = RECUT_SHIFT_ANCHORS[0][0], RECUT_SHIFT_ANCHORS[-1][0]
+    out = {}
+    for path in (RIVER, SHORELINE):
+        for f in json.loads(path.read_text())["features"]:
+            g = f["geometry"]
+            rings = ([g["coordinates"]] if g["type"] == "LineString"
+                     else g["coordinates"] if g["type"] == "Polygon" else [])
+            for ring in rings:
+                for c in ring:
+                    e, n = round(c[0] - oe, 2), round(c[1] - on, 2)
+                    if lo <= e <= hi and recut_shift(e) > 0.0 and 12.0 <= n <= 80.0:
+                        out.setdefault(e, []).append(n)
+    return out
+
+
 def recut_check(rec):
     """Is the committed bank exactly the recut of the set-aside bank? Returns the worst
-    vertex error in metres, and the count of vertices the rule moved."""
+    vertex error in metres, and the count of stations the rule moved."""
     aside = {round(e, 2): n for e, n in _recut_vertices(rec)}
+    got = recut_stations()
     worst, moved = 0.0, 0
-    for e, n in committed_bank():
-        k = round(e, 2)
-        if k not in aside:
-            continue
-        want = aside[k] - recut_shift(e)
-        worst = max(worst, abs(want - n))
-        if abs(aside[k] - n) > RECUT_VERTEX_TOL_M:
-            moved += 1
+    # A station the record sets aside but the files no longer carry, or the other way
+    # round, is a full-scale error rather than a near miss: neither list may go quiet.
+    for e in set(aside) | set(got):
+        if e not in aside or e not in got:
+            return 999.0, len(got)
+        want = aside[e] - recut_shift(e)
+        for n in got[e]:
+            worst = max(worst, abs(want - n))
+        moved += 1
     return round(worst, 3), moved
 
 
@@ -372,8 +397,10 @@ def self_test():
          "the median ink distance"),
         (lambda r: r["wright_1834_nara_hup"]["south_water_ground"]["19"]
          .__setitem__("bank_local_n_m", 0.0), "a block's bank northing"),
-        (lambda r: r["recut"]["wright_bank_as_traced"][3].__setitem__(1, 0.0),
+        (lambda r: r["recut"]["wright_bank_as_traced"][0].__setitem__(1, 0.0),
          "a set-aside vertex, so the recut no longer re-derives"),
+        (lambda r: r["recut"]["wright_bank_as_traced"].pop(0),
+         "a set-aside station, so one the files carry is unaccounted for"),
         (lambda r: r["measured"]["recut"].__setitem__("vertices_moved", 0),
          "the count of vertices the recut moved"),
     ):
