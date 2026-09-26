@@ -224,7 +224,7 @@ making and now it is the bank Wright drew.
 **One building stands on it** — `south_bank_shed_dearborn_e1`, the westernmost of the ten, a
 18 × 32 ft plank freight shed between the fort road and the water with 0.273 m of relief under
 it and 1.23 m of clear ground between its wall and the road's wheel line. It is graded
-`reconstructed` on every line and `docs/LIBERTIES.md` L273 owns it. It is the south-bank half
+`reconstructed` on every line and `docs/LIBERTIES.md` L274 owns it. It is the south-bank half
 of L164's four north-bank sheds, and it is placed by the same kind of rule: an offset from a
 committed travelled way, at the westernmost easting two committed corridors leave free, held
 to the relief clause the infill generators hold themselves to.
@@ -242,5 +242,5 @@ way**, and the two widest strips. A change in any of them is the question re-ope
 in-the-road count is gated because the two ways it can move are both things this page would
 want to know: the fort road moved, or the ground under it did.
 
-**Added links:** T-1636 (this re-read) · T-1629 (the fill) · `docs/LIBERTIES.md` L273 ·
+**Added links:** T-1636 (this re-read) · T-1629 (the fill) · `docs/LIBERTIES.md` L274 ·
 `data/structures/south_bank_shed_dearborn_e1.json`.

@@ -977,6 +977,51 @@ more conservative of the two labels, exactly as it did before.
 
 **WHAT IT DOES NOT CLAIM, AND THIS HALF IS THE HARDER OF THE TWO.** For the river T-1150 could argue the fourteen years away: a natural planform, and every work that straightened that reach is later than the sheet. A SHORE CANNOT BE ARGUED AWAY. `docs/research/01-terrain-hydrology.md` § 4 states the mechanism and the size — net littoral drift runs south, the 1833–35 piers trapped it and starved this coast, the 1836 canal commissioners' map put the shore about **400 ft** east of Michigan Avenue and by the 1850s it had cut back to within about **50 ft** of it, roughly **107 m** of shore lost. So the trace was checked against Wright's own run over the 860 m where the two sheets overlap, after the trace was made and with T-1150's fit untouched: the 1849 line reads **WEST at every station**, 134 m at N −1300 tapering to 50 m at N −2000, **mean 93 m against 107 m documented**. The taper is the signature of erosion downdrift of a barrier — worst against the structure, dying away with distance — and it is why the committed reach, which begins further south again, carries the smaller bound. The trace is therefore a **LOWER BOUND** on the 1835 shore's easting: the 1835 water's edge stood at or east of this line, and the bound tightens southward. **THE SEAM IS NOT A PASS AND IS NOT DRESSED AS ONE.** At N −2159.9 Wright stands the edge at E +1347.5 and this sheet at E +1298.9 — a **49 m step**, outside the fit's own 25.0 m RMS, which is the erosion measured at the one row where the two sources touch. It is left in the data rather than blended out, because a blend would be geometry from neither survey. Nothing is upgraded: every vertex is `inferred`, never `documented`, and `evidence_limit` still writes every vertex below N −2149.4 `CONF_CONJECTURAL` regardless. What remains open about this ground is not a held easting but a **date question** — which shoreline state belongs to which epoch — and that is **T-1152**, which this entry does not pretend to settle.
 
+### L150 — Terrain: the La Salle slough's inland course and terminus rest on a 1933 reconstruction
+**Decision:** the watercourse Wright 1834 draws dropping south off the main stem just east of
+La Salle Street is carried inland as two swale entries (`lasalle_slough_lower`,
+`lasalle_slough_upper` in `terrain_spec.json`), both `reconstructed`: a wet lower reach
+(3.2 ft cut, standing backwater to about N −95, short of the Lake Street corridor, which
+stays dry) grading WITHOUT A STEP into a dry upper swale (1.8 ft through its middle reaches)
+that terminates just north of Randolph Street, the cut feathering to zero over its last
+~40 m so the ground closes over the head. The invented alignment MEANDERS — swings of 7–10 m
+about its drift, crossing the ground at an angle — instead of ruling the straight N–S line
+first built (amended by T-0118: the owner, against an 1830s engraving, read the ruled line as
+wrong for a prairie drain, and read the 3.2→1.8 ft step at the entries' join — where water
+is drawn only below datum — as a dry sill of land sitting across a continuous watercourse).
+**Why:** the mouth and the stream's existence are Wright's, drawn on the sheet this terrain is
+fitted to, and carrying the channel further south than Wright washes it was refused when the
+mouth was traced ("inventing a bank where the draughtsman stopped"). This entry is the
+research thread that refusal left open, done in the form it prescribed: a centreline argued
+from Conley/Stelzer — which draws the course up the west half of the La Salle–Clark block,
+water-washed to about Lake Street and a dark drain beyond, ending just north of Randolph —
+never a traced boundary. The terminus is a position from a 1933 pictorial reconstruction at
+`orientation` ceiling, read at 20–30 m tolerance; the width (8 m overall, inside the
+north-side slough's measured 7.1 m band), both depths, the meander's exact swings (bent
+between the fixed readings, threading the committed roofs — old_bank_building cleared by
+2.4 m at the nearest pass) and the depth grading are invented outright, and the channel
+starts one cell south of the South Water corridor because Wright draws the stream stopping
+at the street line — the street's crossing (fill or culvert) is attested by that drawing and
+described by nothing. THE SILL WAS RESOLVED BY GRADING, NOT BY DEEPENING: the dossier's own
+thalweg for these inland courses sits ABOVE datum ("wet mouths, damp inland courses" was
+chosen deliberately), so the join was not cut below water; the depth profile instead shallows
+the bed continuously from the wet reach (−0.5 m at the mouth) up through the join (+0.15 m)
+and on, so the water simply ENDS at a tapering edge like a pond's, with no wall of land
+across the channel. The water's edge pulls back from about N −105 to about N −95 in the
+bargain — still "open water to about Lake Street" within the source's own read tolerance,
+and the platted corridor now stays dry with margin rather than by luck.
+**Consequence:** the second of the three Main Branch sloughs reads as ONE continuous
+watercourse from the traced mouth to a feathered head; its whole inland geometry says
+`conjectural` in the confidence channel while its mouth remains the traced, documented
+re-entrant. If Conley erred — he demonstrably errs elsewhere — the inland course is his error
+carried at the grade that admits it.
+**How to resolve:** any period document locating the stream — a lot survey, a grading record,
+a bridge or culvert order for South Water Street west of Clark; see
+docs/RESEARCH/main_branch_sloughs_1833.md.
+**Covers:** `terrain.e1834_harbor_cut.swales.lasalle_slough_lower`.
+**Recorded:** 2026-08-20. **Amended:** 2026-08-20 (T-0118). **Struck:** 2026-09-26 (T-1628) — the second `Covers:` token, `terrain.e1834_harbor_cut.swales.lasalle_slough_upper`, is removed because the block it names is deleted, and a token pointing at nothing admits to nothing a visitor reads (`validate.py`: "that epoch's spec makes no graded claim"). The prose above is otherwise verbatim, and the deletion is what the **Resolved:** line below is about — nothing is hidden by the strike.
+**Resolved:** 2026-09-26 (T-1628), by the owner's ruling, and the entry is kept verbatim above because it was an honest account of a course that no longer stands. He flew the reach and compared it with Wright 1834 and Hathaway 1834: *"when you look down on the river, there is a bulge and then a slough just east of lasalle that goes very deep, the slough goes all the way to lake. that is not how it is depicted in the wright or hathaway map. i think its ok to depict the slough like the wright map, so it seems it should come in, just a bit past south water and then into the lot, but not deeper"*. **`lasalle_slough_upper` is deleted and `lasalle_slough_lower` is truncated**, so the 1933 reconstruction no longer carries any terminus at all: the position at `orientation` ceiling that this entry admits to inventing is simply not in the terrain any more, and the invention it was recorded for is withdrawn rather than corrected. What survives is Wright's traced mouth plus 16.35 m of channel inside block 50's lot, which is a different and much smaller liberty, recorded as **L273** in the per-subject register below. Conley/Stelzer is set aside rather than refuted — the reading is kept in `docs/RESEARCH/main_branch_sloughs_1833.md` § 6 with the date it was set aside and why — and T-0795's finding that the NA/HUP sheet draws no inland course here, which this entry already carried, is now what the terrain says as well as what the note says.
+
 ---
 
 ## Per-subject liberties
@@ -1281,6 +1326,40 @@ horizon, nothing outside the box modelled, sampled or claimed, and the walker's 
 answering its fallback out there. What has not changed: the heightfield is byte-identical, every
 surviving apron vertex outside the bar's 85 m carries its old height exactly, and the ring is still
 the same ring — it gains one more, at 2 256 vertices, which is what the taper is drawn with.
+
+**Revised 2026-09-26 — this entry's standing condition is now a GATE, and the air it asks for has
+been re-solved against the apron this entry actually has (T-1635).** Every version of the text above
+leans on one sentence — "the scene's fog is total by 1500 m" — and that sentence was the argument for
+`renderers/web/js/world.js`'s haze density, 0.00125, whose air goes total at **1,883 m**. Meanwhile
+this entry's own apron has been re-derived three times and stands at **2,659.84 m**. The condition
+therefore held only in the safe direction, by **776.7 m of air nobody had a reason for**, and that
+surplus is what the owner reported from 600 ft: past about 1.2 km the plain was a featureless band
+with the far timber standing in it, because only a tenth of the prairie's own colour survived the
+trip to the eye.
+
+The density is now SOLVED from this apron rather than set beside it: 0.00089, the thinnest air for
+which the haze is still total inside `heightfield.json`'s published `skirt.margin_m`, going total
+14.9 m short of the apron's outer edge. At 1,200 m the prairie's own colour now survives at 32 %
+against 10.5 %, and at 1,500 m at 16.8 % against 3.0 %.
+
+**What is claimed out there has not changed by one metre, and that is the whole reason this is a
+revision and not a weakening.** The apron is the same apron, the same 2 256 vertices, the same
+boundary heights carried outward, the same fallback from the walker's sampler, and the heightfield
+is byte-identical. More of it is legible; none of it is asserted. What this entry has always
+promised is that the apron's outer EDGE is never seen, because an edge reads as a landform — and
+that promise is now kept by `tools/check_haze_reach.mjs` on every commit, against every epoch's own
+published margin, instead of by a prose sentence that three box extensions had already made stale.
+A future box that shrinks the apron under the air, or a hand that thins the air past the apron,
+turns the gate red rather than quietly displaying ground nobody built.
+
+**The liberty this leaves standing, stated plainly.** No source reached describes visibility over
+the July prairie in 1835, and none is cited: the air in this scene is as clear as the modelled world
+allows and no clearer. Read as meteorological visibility — the 2 % contrast distance — it is 2.2 km,
+up from 1.6 km, which is mist rather than a clear summer day. That figure is a fact about how much
+ground has been built, not a claim about the weather, and the way to improve it is to build ground.
+
+**Related:** **L35** (the far timber's exemption from this air, whose compromise this makes 423 m
+smaller without touching its cap).
 
 ### L18 — Sauganash Hotel: the 1829 cabin's height and its roof are placeholders
 **Decision:** the `log_1829` phase is built 2.4 m to the plate under a gable roof, both tagged
@@ -1750,6 +1829,29 @@ sampling a shader is not fitting a model. **The cap remains 0.82 and the density
 0.00125**; what the scene's air is thick ENOUGH to hide is unchanged, and the residual reported
 under T-1631 — that past about 1.2 km the plain is still a featureless band because the haze is
 90 % there by design — is the density's business and not this entry's.
+
+**Revised 2026-09-26 (T-1635) — the density's business has now been done, and it makes this
+entry's compromise 423 m smaller without touching its cap.** The residual T-1631 handed on was
+spent: the haze density is no longer 0.00125 but **0.00089**, solved from the width of the
+ground apron L17 asks it to close over rather than from L17's long-retired "total by 1500 m"
+(the apron stands at 2,659.84 m; the air was still built for 1,883 m). Two of this entry's own
+figures move with it, and both move the way this entry has always wanted:
+
+- the sentence above that "every other distant thing" is hazed by a fog "deliberately total by
+  1500 m" is retired. The shared fog is total at **2,644.9 m**, and what makes that the figure is
+  the apron and not a preference;
+- the band's own law now reaches the 0.82 cap at **1,471 m** instead of about 1,048 m. So the
+  band follows the scene's real air 423 m further out before this constant takes over, and the
+  compression the first consequence above confesses starts 423 m further out with it.
+
+**`HAZE_MAX` is unchanged at 0.82, deliberately.** It is the figure this entry argues for, the
+dossier's three-, four- and six-mile timber is the argument, and nothing in T-1635's reading
+bears on it — the exemption is smaller, not resolved. The **"How to resolve"** below is also
+unchanged, and one line of it is now half true in a way worth naming: the second route it offers
+is that "replacing the skirt with real terrain removes L17's need for a closed horizon". L17's
+need is not removed, but it is now *priced*, and the price is published — the haze may be thinned
+exactly as far as the apron is pushed out by ground someone actually builds, and
+`tools/check_haze_reach.mjs` is what will let the next thinning through.
 
 **Also revised: the third point's measurement is half answered.** The band was additionally
 being *deleted* rather than merely dim — the crown/gap modulation cuts a bearing to as little
@@ -8098,50 +8200,6 @@ one, and a sourced course for the last 60 m would replace the reach this ruling 
 see docs/RESEARCH/main_branch_sloughs_1833.md section 8.
 **Covers:** `terrain.e1834_harbor_cut.swales.state_slough_course`, `terrain.e1834_harbor_cut.swales.state_slough_mouth`.
 **Recorded:** 2026-08-20. **Amended:** 2026-08-20 (T-0118), 2026-09-26 (T-1629).
-
-### L150 — Terrain: the La Salle slough's inland course and terminus rest on a 1933 reconstruction
-**Decision:** the watercourse Wright 1834 draws dropping south off the main stem just east of
-La Salle Street is carried inland as two swale entries (`lasalle_slough_lower`,
-`lasalle_slough_upper` in `terrain_spec.json`), both `reconstructed`: a wet lower reach
-(3.2 ft cut, standing backwater to about N −95, short of the Lake Street corridor, which
-stays dry) grading WITHOUT A STEP into a dry upper swale (1.8 ft through its middle reaches)
-that terminates just north of Randolph Street, the cut feathering to zero over its last
-~40 m so the ground closes over the head. The invented alignment MEANDERS — swings of 7–10 m
-about its drift, crossing the ground at an angle — instead of ruling the straight N–S line
-first built (amended by T-0118: the owner, against an 1830s engraving, read the ruled line as
-wrong for a prairie drain, and read the 3.2→1.8 ft step at the entries' join — where water
-is drawn only below datum — as a dry sill of land sitting across a continuous watercourse).
-**Why:** the mouth and the stream's existence are Wright's, drawn on the sheet this terrain is
-fitted to, and carrying the channel further south than Wright washes it was refused when the
-mouth was traced ("inventing a bank where the draughtsman stopped"). This entry is the
-research thread that refusal left open, done in the form it prescribed: a centreline argued
-from Conley/Stelzer — which draws the course up the west half of the La Salle–Clark block,
-water-washed to about Lake Street and a dark drain beyond, ending just north of Randolph —
-never a traced boundary. The terminus is a position from a 1933 pictorial reconstruction at
-`orientation` ceiling, read at 20–30 m tolerance; the width (8 m overall, inside the
-north-side slough's measured 7.1 m band), both depths, the meander's exact swings (bent
-between the fixed readings, threading the committed roofs — old_bank_building cleared by
-2.4 m at the nearest pass) and the depth grading are invented outright, and the channel
-starts one cell south of the South Water corridor because Wright draws the stream stopping
-at the street line — the street's crossing (fill or culvert) is attested by that drawing and
-described by nothing. THE SILL WAS RESOLVED BY GRADING, NOT BY DEEPENING: the dossier's own
-thalweg for these inland courses sits ABOVE datum ("wet mouths, damp inland courses" was
-chosen deliberately), so the join was not cut below water; the depth profile instead shallows
-the bed continuously from the wet reach (−0.5 m at the mouth) up through the join (+0.15 m)
-and on, so the water simply ENDS at a tapering edge like a pond's, with no wall of land
-across the channel. The water's edge pulls back from about N −105 to about N −95 in the
-bargain — still "open water to about Lake Street" within the source's own read tolerance,
-and the platted corridor now stays dry with margin rather than by luck.
-**Consequence:** the second of the three Main Branch sloughs reads as ONE continuous
-watercourse from the traced mouth to a feathered head; its whole inland geometry says
-`conjectural` in the confidence channel while its mouth remains the traced, documented
-re-entrant. If Conley erred — he demonstrably errs elsewhere — the inland course is his error
-carried at the grade that admits it.
-**How to resolve:** any period document locating the stream — a lot survey, a grading record,
-a bridge or culvert order for South Water Street west of Clark; see
-docs/RESEARCH/main_branch_sloughs_1833.md.
-**Covers:** `terrain.e1834_harbor_cut.swales.lasalle_slough_lower`, `terrain.e1834_harbor_cut.swales.lasalle_slough_upper`.
-**Recorded:** 2026-08-20. **Amended:** 2026-08-20 (T-0118).
 
 ### L151 — Dooryard trees and bushes at 61 houses, every stem of them dealt
 **Decision:** `data/flora/plantings/town_dooryard_plantings.json` states 66 dooryard trees
@@ -14750,7 +14808,45 @@ adjudication **T-1445**, the id-migration surface **T-1483**, the parent **T-145
 question and its remedies **T-1482**, the clause **T-1610**, this execution **T-1611**.
 **Recorded:** 2026-09-26.
 
-### L273 — One freight shed on the south bank at the Dearborn reach, on ground a filled channel gave back
+### L273 — Terrain: the La Salle slough's surviving inland stub, 16 m of channel on a ruling
+**Decision:** `lasalle_slough_lower` runs 30.74 m from Wright's traced south-shore re-entrant at
+(466, +10) to a head at (472.7, −20.0), and stops. The first 14.39 m of it — the whole platted
+South Water Street corridor, and the ground under `lasalle_slough_crossing` — is cut at the full
+3.2 ft and the full 4.0 m half-width. The remaining **16.35 m stands inside block 50's South Water
+lot**: the cut holds 3.2 ft to 17.0 m along, 2.6 m past the committed block face, then grades
+2.2, 1.0 and 0.0 ft over its last 13.7 m so the ground closes over the head. Stated as a
+lot-depth figure off the committed block face, which is what T-1628 asked for: the platted south
+edge of the corridor crosses this line at N −4.05, the head vertex is **15.95 m south of it**, and
+that is **34.7 per cent of block 50's 45.91 m lot depth** — the mid-block alley is at 45.91 m and
+is nowhere near it. Open water ends about 7.5 m inside the lot; the damp hollow dies out by 16 m.
+**Why:** the owner's ruling of 2026-09-26 (quoted in full at **L150**, which this entry replaces)
+is that the slough is depicted as Wright depicts it: in from the river, just past South Water, into
+the lot, no deeper. Wright draws a mouth and no inland course — T-0795 walked the whole NA/HUP
+sheet to establish that — so **everything inland of the waterline is invented, and this entry is
+the admission that shrinking a liberty is not the same as discharging one.** What is invented:
+that the drain entered the river at all rather than stopping at the street line where Wright's
+trace stops (T-0129's ruling, kept); the width; the depth; the feather; and the 16.35 m the
+channel reaches into the lot, which is a reading of the words *"just a bit past south water and
+then into the lot"* and of nothing on any sheet. What is NOT invented and did not move: the mouth,
+the junction vertex bent 2.5 m east by T-0129 to keep `blk_south_water_lasalle`'s north-west corner
+out of the water, and the head's bearing — (472.7, −20.0) sits on the committed Conley alignment,
+8 mm off the bearing of the segment it truncates, so the stub is the old course cut back rather
+than a new course drawn.
+**Consequence:** the reach reads from the river as a drain entering the bank and closing in the
+first third of the lot behind it. The Lake Street and Randolph corridors, which the old course
+crossed and ran past, are level prairie again, and the ground the old channel held is released to
+the lot layer — so roofs the water refused may now be dealt there.
+**How to resolve:** the same evidence L150 asked for and did not get — a lot survey, a grading
+record, or a culvert order for South Water Street west of Clark. A period document that put the
+head anywhere would replace the ruling with a reading; see
+docs/RESEARCH/main_branch_sloughs_1833.md § 6.
+**Covers:** `terrain.e1834_harbor_cut.swales.lasalle_slough_lower`.
+**Related:** **L150** (the course this replaces, now resolved), **L195** (the crossing over the
+reach that survives), the ruling **T-1628**, the mouth **T-0129**, the meander and the feather
+**T-0118**, the sheet reading **T-0795**.
+**Recorded:** 2026-09-26.
+
+### L274 — One freight shed on the south bank at the Dearborn reach, on ground a filled channel gave back
 
 **Covers:** `south_bank_shed_dearborn_e1.function`, `south_bank_shed_dearborn_e1.shed_1835.documented_range`, `south_bank_shed_dearborn_e1.shed_1835.footprint`, `south_bank_shed_dearborn_e1.shed_1835.form.construction`, `south_bank_shed_dearborn_e1.shed_1835.form.door`, `south_bank_shed_dearborn_e1.shed_1835.form.door_side`, `south_bank_shed_dearborn_e1.shed_1835.form.paint`, `south_bank_shed_dearborn_e1.shed_1835.form.roof_pitch_deg`, `south_bank_shed_dearborn_e1.shed_1835.form.roof_type`, `south_bank_shed_dearborn_e1.shed_1835.form.wall_height_m`, `south_bank_shed_dearborn_e1.shed_1835.position`.
 

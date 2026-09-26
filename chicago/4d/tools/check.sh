@@ -136,6 +136,16 @@ step "the scene-detail ceilings are a ladder, and each rung says what it protect
 selftest "…and the seal still clamps, marks and shouts a rung typed too high (T-0135)" \
   node tools/check_detail_ladder.mjs --self-test
 
+# The other renderer constant that a DATA change can silently invalidate. L17's apron
+# is re-derived from the terrain box by generators/terrain_gen.py, so extending the box
+# moves the distance the haze has to close over — and the haze is a literal in two
+# renderer files. This holds the one against the other, both ways. See T-1635.
+step "the haze closes before L17's ground apron ends, and both its literals agree (T-1635)" \
+  node tools/check_haze_reach.mjs
+
+selftest "…and it refuses a thinned air, a shrunk apron and the two literals drifting apart (T-1635)" \
+  node tools/check_haze_reach.mjs --self-test
+
 step "dataset (schema, provenance, date gates, licenses, staleness, publish)" \
   python3 tools/validate.py --all $STRICT
 
@@ -2233,6 +2243,12 @@ selftest "…and its own assertions still fire when broken" \
 # a failure here rather than a discovery on the deployed site.
 step "sidecars derived from data/" \
   python3 tools/compile_scene.py --all --check
+
+step "Source-use backlinks match authored claims (T-1248)" \
+  python3 tools/compile_source_use.py --check
+
+step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
+  python3 tools/test_compile_source_use.py
 
 # Every building card offers a link to the write-up behind the building, and on
 # the deployed site all 332 of them were a 404: publish.sh leaves docs/ out of

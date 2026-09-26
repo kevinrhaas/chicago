@@ -67,7 +67,8 @@ const WATER_BARRIER_Y = 4.0;
  *  visibility reach. At 5 × 8, however, a tile was about 1.3 km wide: its near
  *  corner kept a million-triangle field submitted long after most of that tile
  *  was haze. T-1245 measures the rule in metres instead. A tile side is at most
- *  240 m — about one eighth of the 1,883 m haze reach — so the reach can reject
+ *  240 m — about a tenth of the 2,644.9 m haze reach, an eighth of it when
+ *  T-1245 set the figure against a thicker air — so the reach can reject
  *  ground with bounded edge overdraw as the modelled box changes again. */
 /** The grid the last ground build actually used, for the harness to read back.
  *  Written by tileGround(); read by `groundTiling()` and by nothing in the scene. */
@@ -76,9 +77,15 @@ let lastGroundTiling = null;
 /** The culling grid the ground currently stands on, or null before one is built. */
 export function groundTiling() { return lastGroundTiling; }
 
-// A reach can only reject whole tiles. Hold each side to roughly one eighth of
-// the 1,883 m haze reach so a boundary tile cannot buy hundreds of metres of
-// detailed ground merely because one corner remains visible (T-1245).
+// A reach can only reject whole tiles. Hold each side to a small fraction of
+// the haze reach so a boundary tile cannot buy hundreds of metres of detailed
+// ground merely because one corner remains visible (T-1245). 240 m was "roughly
+// one eighth" of the 1,883 m reach that density gave; T-1635 thinned the air to
+// the apron it has to close over and the reach is 2,644.9 m, so the same 240 m
+// is now about a TENTH of it — finer than the rule asks, which is the safe
+// direction, and the tile count is unchanged at 217. It is left alone
+// deliberately: re-cutting the grid is a draw-call bargain T-1595 measured in
+// its own right, and nothing in T-1635's reading asks for it.
 const GROUND_TILE_TARGET_M = 240;
 /**
  * …AND A TILE TOO THIN TO BE WORTH A DRAW CALL IS NOT A TILE (T-1595).
@@ -163,18 +170,33 @@ const GROUND_DETAIL_REACH_M = 600;
  * at distance d is exp(-(d * density)^2). Beyond the distance where that falls
  * under one part in `steps`, the surface cannot move an 8-bit channel: it is
  * already the horizon haze, to the last representable step. Solve it and the
- * reach is sqrt(ln steps) / density — 1,883 m at the scene's 0.00125, against a
- * fog the lighting note already calls "total by 1500 m" and a far plane at
- * 3,000. So this is not a cheapening of a tier a visitor chose: it is the
- * distance past which the ground is provably not drawn even when it is drawn,
- * and it is why the reach is applied at EVERY tier and not only at `light`.
+ * reach is sqrt(ln steps) / density — 2,644.9 m at the scene's 0.00089, against
+ * a far plane at 3,000. So this is not a cheapening of a tier a visitor chose:
+ * it is the distance past which the ground is provably not drawn even when it is
+ * drawn, and it is why the reach is applied at EVERY tier and not only at
+ * `light`.
+ *
+ * **THE DENSITY MOVED ONCE, AND THIS REACH MOVED 761.7 m WITH IT FOR NOTHING
+ * (T-1635).** It read 1,883 m at the old 0.00125, which `world.js` had set
+ * against L17's since-retired "total by 1500 m"; the density is now derived from
+ * the ground apron's own published width and the reach is 2,644.9 m. Measured on
+ * the published mirror at desktop 1280x800, before and after, at T-0135's five
+ * stands and all three sealed tiers: every one of the fifteen triangle and
+ * draw-call readings is IDENTICAL, and so is the owner's own aerial pose (30 of
+ * 217 tiles drawn either way). What lies between the two reaches at those stands
+ * is apron, and T-1595's sliver merge already submits the whole apron as one
+ * always-drawn mesh of 2,489 triangles. So this rule is cheaper than it looks to
+ * loosen — but it is still a rule, and the density that sets it is gated against
+ * the apron by `tools/check_haze_reach.mjs`.
  *
  * WHAT IT IS NOT. Nothing is un-built, re-graded or moved. The detailed ground
  * remains within 600 m and a continuous 15 m-sampled rendition of the same
  * heightfield carries the distance beyond it. `surfaceHeight` and
  * `walkableHeight` read the original 2.5 m field and never either mesh, so
  * footing, water, flora roots and every anchored record are untouched. Beyond
- * the outer haze reach even the skirt is withheld, exactly as T-1238 measured.
+ * the outer haze reach even the skirt is withheld, exactly as T-1238 measured —
+ * and since T-1635 the reach and the skirt's outer edge stand 14.9 m apart, so
+ * what is withheld out there is a sliver of the apron rather than most of it.
  *
  * @param {number} density  the scene fog's `FogExp2` density
  * @param {number} steps    how many representable steps the channel has
