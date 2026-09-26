@@ -4795,7 +4795,17 @@ for (const [label, viewport, touch] of [
       // runs. CROSSINGS, POSTS, FENCES AND REFUSALS DO NOT MOVE: a break in the
       // middle of a face never sprang a corner crossing, and nothing about a wall,
       // a trade or a setback changed on either block.
-      frontage.census?.records === 5 && frontage.census?.walks === 48
+      // T-1630 TAKES ONE MORE, AND IT IS A DIFFERENT KIND OF BREAK. The south bank
+      // below the bend came in to Hathaway's line on the owner's ruling (L274), so the
+      // outer plank walk no longer has to swing north round a point: the wharf reach is
+      // re-authored as ONE straight segment from the La Salle crossing to Jones's
+      // landing, and on that line Philo Carpenter's landing — which the old curve ran
+      // straight through, and which cut 8.6 m of boards out of the middle of it — is
+      // 4 m clear to the north. So the reach is one run where it was two: 48 walks to
+      // 47, and the two refusals on this record fall to one (Jones's, at the terminus,
+      // which the walk still runs INTO by design). Crossings, posts, fences and
+      // refusals elsewhere do not move.
+      frontage.census?.records === 5 && frontage.census?.walks === 47
         && frontage.census?.crossings === 39
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
@@ -4848,7 +4858,9 @@ for (const [label, viewport, touch] of [
         // the 3.0 m a street fence needs — that lot-6 refusal stands, with its number
         // corrected from -1.90 m to 1.50 m.
         && frontage.census?.posts === 18 && frontage.census?.fences === 31
-        && frontage.census?.refused === 91
+        // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
+        // walk, because the straight reach passes 4 m south of it. Jones's remains.
+        && frontage.census?.refused === 90
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5013,8 +5025,18 @@ for (const [label, viewport, touch] of [
     // census above for the arithmetic; this line holds the same event one level
     // down, and it is the "ground break that still cuts it" named above finally
     // being gone.
+    // T-1630 — the same event one level down, and it takes FIVE meshes rather than one,
+    // for a reason worth writing down. `frontage.js` chunks an unnamed walk ONE MESH PER
+    // SEGMENT, and only when the line has more than two points. The old wharf reach was
+    // six authored knots cut into two runs by Carpenter's landing, so it carried five
+    // per-segment chunks; the straight reach is a single two-point segment, which is
+    // below that threshold and lays into the shared `frontage` mesh instead. So 58
+    // `frontage-chunk`s to 53 and 59 authored to 54. The boards did not go anywhere —
+    // the walk is 4.7 m LONGER than the two runs it replaces — they stopped being five
+    // separately cullable draw calls and became part of the one that is never culled,
+    // which for a 95 m run inside the town is the cheaper of the two.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 60 : 59)
+      frontage.authored === (frontage.census?.lettered === 1 ? 55 : 54)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
