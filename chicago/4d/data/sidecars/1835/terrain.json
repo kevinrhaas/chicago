@@ -19,7 +19,7 @@
     },
     {
       "label": "Measured relief",
-      "text": "Land in the modelled box runs -1.978 to 12.285 ft above the water surface, and the channel floor reaches -17.405 ft below it. Measured from the committed heightfield, not asserted."
+      "text": "Land in the modelled box runs -3.556 to 12.285 ft above the water surface, and the channel floor reaches -17.405 ft below it. Measured from the committed heightfield, not asserted."
     },
     {
       "label": "Where the ground stops on the south",
@@ -993,11 +993,11 @@
       "fields": [
         {
           "key": "half_width_m",
-          "value": 3.0
+          "value": 3.5
         },
         {
           "key": "depth_ft",
-          "value": 7.0
+          "value": 9.0
         },
         {
           "key": "dossier_zone",

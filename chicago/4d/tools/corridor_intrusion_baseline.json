@@ -76,7 +76,7 @@
     },
     "first_presbyterian_church:frame_1834": {
       "anchor_in": [],
-      "anchor_offset_m": 22.46,
+      "anchor_offset_m": 22.47,
       "body_toward_street": true,
       "category": "building",
       "centroid_in": [],
@@ -266,6 +266,23 @@
       "street": "lake",
       "structure": "sauganash_hotel"
     },
+    "slough_log_bridge:log_1833": {
+      "anchor_in": [
+        "state"
+      ],
+      "anchor_offset_m": 1.52,
+      "body_toward_street": true,
+      "category": "furniture",
+      "centroid_in": [
+        "state"
+      ],
+      "depth_m": 12.17,
+      "layer": "research",
+      "phase": "log_1833",
+      "position_confidence": "inferred",
+      "street": "state",
+      "structure": "slough_log_bridge"
+    },
     "st_marys_church:frame_1833": {
       "anchor_in": [],
       "anchor_offset_m": 18.89,
@@ -327,8 +344,8 @@
       "structure": "western_hotel"
     }
   },
-  "measured": "2026-09-19",
-  "placed_phases": 384,
+  "measured": "2026-09-26",
+  "placed_phases": 421,
   "refused": {
     "harmon_loomis_store:frame_1833": {
       "depth_m": 0.21,
