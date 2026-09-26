@@ -1,9 +1,10 @@
 export const CHANGELOG = [ // newest first
-  { v: 1150, title: 'The loading screen now arrives in 1835', kind: 'change', ts: '2026-09-26T18:04:12.000Z', date: 'Sep 26, 2026, 1:04 PM CT',
+  { v: 1150, title: 'Arrive in 1835 as the town is assembled', kind: 'change', ts: '2026-09-26T18:13:17.743Z', date: 'Sep 26, 2026, 1:13 PM CT',
     items: [
-      'Loading is now the journey into the reconstruction: the year rolls back from the present and never reaches 1835 until the town is actually ready.',
-      'The arrival panel uses a restrained split-flap instrument, real reconstruction phases and a quiet source card rather than a theatrical timer.',
-      'Reduced-motion and fast warm loads settle immediately, while a failed essential phase stops the year and offers Retry instead of claiming you arrived.',
+      'The loading screen is now an arrival: the year rolls backward from the present toward 1835 as real reconstruction phases finish.',
+      'The year never reaches 1835 before the town is ready; long phases ease rather than pretending to be complete, and a fast warm load does not add an artificial delay.',
+      'Reduced-motion visitors get a short stepped year change instead of flip animation, and a failed essential load stops the clock and offers Retry.',
+      'The arrival styling is a restrained instrument panel with split-flap numerals, a live phase line and room for the richer source-status library coming next.',
     ] },
   { v: 1149, title: 'Explore Prairie Avenue in 1904', kind: 'change', ts: '2026-09-26T17:49:41.580Z', date: 'Sep 26, 2026, 12:49 PM CT',
     items: [
