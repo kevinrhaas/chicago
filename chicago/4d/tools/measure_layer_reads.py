@@ -839,6 +839,12 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "modelled_family.kin_seated": ("shown", "escapeHtml(String(block.kin_seated))"),
     "modelled_family.seed": ("shown", "escapeHtml(String(block.seed))"),
     "modelled_family.note": ("shown", "escapeHtml(String(block.note || ''))"),
+    # T-1564. THE ONE FIGURE OF THE RE-FAMILY BLOCK A RENDERER ALREADY REACHES. The
+    # household card's `refamilied` block records the move a held head was counted into,
+    # and `businessBlockHtml` prints the `withdrawn_if` of any block it is handed — so
+    # this key is READ where the rest of the block is banked unread. Declared rather than
+    # banked, because a figure that drives what a reader sees may not be counted unread.
+    "refamilied.withdrawn_if": ("shown", "escapeHtml(block.withdrawn_if)"),
     # T-1171. A RECONSTRUCTED PERSON IS THE DRAWN THING, so the disclosure the attribute
     # tiers hang off a value is printed about the person instead: the stage that wrote
     # them, the model row, the seed a reader can retype and what would retire them.

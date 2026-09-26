@@ -111,6 +111,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/10_19/north/lodging/none",
     "note": "The book's bucket persons/female/10_19/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is steamboat_hotel's, from the lodging model's ordinary-night figure of 11."
    },
    "seed": "lodgers:steamboat_hotel:female:10_19:001:forename",
@@ -175,6 +176,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/20_29/north/lodging/none",
     "note": "The book's bucket persons/male/20_29/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is steamboat_hotel's, from the lodging model's ordinary-night figure of 11."
    },
    "seed": "lodgers:steamboat_hotel:male:20_29:002:forename",
@@ -239,6 +241,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/30_39/north/lodging/none",
     "note": "The book's bucket persons/male/30_39/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is steamboat_hotel's, from the lodging model's ordinary-night figure of 11."
    },
    "seed": "lodgers:steamboat_hotel:male:30_39:003:forename",
