@@ -2289,7 +2289,7 @@ step "a filing fault is refused at the prompt, and a queue fault no diff carries
 # scanner is a gate, so it is proved by breaking it, on fixtures rather than on the
 # data, and it asserts BOTH directions: the two shapes are caught, and the three ways
 # a ticket id appears innocently are not.
-selftest "…and the tripwire scanner behind `done` still fires, and still ignores prose" \
+selftest "…and the tripwire scanner behind \`done\` still fires, and still ignores prose" \
   node tools/ticket.mjs tripwire-self-test
 
 # T-1581, AND THE HALF T-1548 COULD NOT SEE. That scanner matches the closing ticket's

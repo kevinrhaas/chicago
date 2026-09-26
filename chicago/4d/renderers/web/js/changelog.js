@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1121, title: 'Work filed too big turned every waiting change red', kind: 'fix', ts: '2026-09-26T02:11:34.798Z', date: 'Sep 25, 2026, 9:11 PM CT',
+  { v: null, title: 'Work filed too big turned every waiting change red', kind: 'fix', ts: '',
     items: [
       'Nothing you can see in the town changed. This is about the checking between finished work and the town, and a way it could blame the wrong piece of work.',
       'The list of jobs this project has left to do lives in a separate place from the town itself, and every job on it carries a size, measured in sittings. A job marked as more than one sitting is refused: nobody who picks it up can finish it, so it would leave half-done work and a queue line that lies. Refusing it is right, and that part has not changed.',
@@ -7,6 +7,12 @@ export const CHANGELOG = [ // newest first
       'Two repairs, and neither weakens the rule. Writing a job down as more than one sitting is now refused as it is written, by the person who has it in their head, with the two commands that file it as pieces instead. Nothing is created and no number taken: the queue never holds the bad line.',
       'And the checking now says whose red it is. A fault in the work under review still fails it, exactly as before. A fault in the separate list of jobs is reported instead \u2014 naming which job, who wrote it down and when, and the single command that clears it for every waiting change at once \u2014 and the work under review is allowed through, because nothing it could do would help. Asked directly, by a person or by the list\u2019s own checking, it is as strict as it ever was. It also refuses to make excuses for the run it is talking to: if that run has itself changed the list and not yet shared the change, the fault is its own and still fails.',
       'Fifteen tests hold this shut, run against a real copy of the list and against the exact state that failed on Thursday. Ten were first run against the old tools, to confirm they could see the problem they are there to catch.',
+    ] },
+  { v: 1121, title: 'The checks complained about themselves on every run', kind: 'fix', ts: '2026-09-26T02:10:51.511Z', date: 'Sep 25, 2026, 9:10 PM CT',
+    items: [
+      'Nothing you can see in the town changed. This is about the 630 checks every change here has to pass, and two lines of complaint they have printed about their own wording since 9 September.',
+      'One check is named after the word it watches, and the name was written with the word marked out the way a programmer marks it. The shell that runs the checks read those marks as an instruction and tried to obey them: it failed, said so twice, and then dropped the word. So every single run began with two error messages that belonged to nothing, and the check went on to announce itself by a name with a hole where its subject should be. The verdict was never affected — but the checks are the one thing a machine working here is told to read, and they opened by crying wolf.',
+      'The word is now marked in a way the shell leaves alone, so the name is printed whole and the run starts silent. And a new check reads every one of the 630 names and refuses any that would be read as an instruction again, proved first against the wording as it stood.',
     ] },
   { v: 1120, title: 'The invented women and children move house too, and the programme finishes', kind: 'change', ts: '2026-09-26T01:57:44.130Z', date: 'Sep 25, 2026, 8:57 PM CT',
     items: [

@@ -125,6 +125,62 @@ else
   printf '%s\n' "$offenders" | sed 's/^/        /'
 fi
 
+# T-1594. A LABEL IS A DOUBLE-QUOTED STRING, SO BASH READS ITS BACKTICKS. T-1548's
+# step label quoted a verb name in backticks inside the double quotes, and bash took
+# them for a command substitution: it tried to run `done`, printed two untagged
+# syntax-error lines to the gate's own stderr on EVERY run, and substituted the empty
+# string — so the label the gate printed and recorded read "…the tripwire scanner
+# behind  still fires", naming a step by a label that is not the one in the file. It
+# survived seventeen days because the substitution fails harmlessly: the step still
+# runs and the verdict is right. It is noise in the one output a run is told to read,
+# and it is untagged, which the harness's whole contract is against.
+#
+# The scan reads label lines, which is where every occurrence of the class has been —
+# a backtick reaches bash there whatever follows it. An escaped \` is left alone: that
+# is the fix, and it is how a label names a verb without running it.
+scan_labels() { # <file> -> offending "line: reason" rows on stdout
+  awk '
+    /^step "/ || /^selftest "/ {
+      for (i = 1; i <= length($0); i++) {
+        c = substr($0, i, 1)
+        if (c == "\\") { i++; continue }
+        if (c == "`") {
+          printf "%d: an unescaped backtick makes bash run the quoted word and drop it from the label:%s\n", NR, $0
+          break
+        }
+      }
+    }
+  ' "$1"
+}
+
+if [ "${1:-}" = "--self-test" ]; then
+  printf '\n-- self-test: the label scan is shown a gate that breaks the rule --\n'
+  ltmp="$(mktemp)"
+  cat > "$ltmp" <<'BROKEN'
+selftest "…and the tripwire scanner behind `done` still fires" \
+  node tools/ticket.mjs tripwire-self-test
+BROKEN
+  want "$(scan_labels "$ltmp" | wc -l | tr -d ' ')" "1" \
+       "a label whose backticks bash would expand is refused"
+  cat > "$ltmp" <<'FIXED'
+selftest "…and the tripwire scanner behind \`done\` still fires" \
+  node tools/ticket.mjs tripwire-self-test
+step "ticket queue" \
+  node tools/ticket.mjs check
+FIXED
+  want "$(scan_labels "$ltmp" | wc -l | tr -d ' ')" "0" \
+       "…and an escaped backtick, which is the fix, is not"
+  rm -f "$ltmp"
+fi
+
+backticks="$(scan_labels tools/check.sh)"
+if [ -z "$backticks" ]; then
+  ok "no step label in check.sh carries a backtick bash would expand"
+else
+  bad "check.sh has $(printf '%s\n' "$backticks" | wc -l | tr -d ' ') label(s) bash expands:"
+  printf '%s\n' "$backticks" | sed 's/^/        /'
+fi
+
 selftests="$(grep -c '^selftest "' tools/check.sh || true)"
 if [ "$selftests" -ge 100 ]; then
   ok "$selftests self-test steps are tagged"
