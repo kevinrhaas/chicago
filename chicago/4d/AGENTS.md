@@ -395,15 +395,28 @@ is the contract. The short form:
   on 2026-08-19 (run 943's PR #258 left open, run 944 redoing T-0062 as #259). `claim` now
   checks `git ls-remote` for a rival branch carrying the ticket's number and refuses with a
   `--force` escape — but that only protects the NEXT run; finishing the PR is your half.
-- **Size in RUNS before you claim.** `XS` part of a run · `S` one run · `M` one run,
-  tight (or one run plus a bake) · `L` **more than one run, and `claim` refuses it**.
-  The test is the acceptance clause: *if it needs more than one demonstration, it is
-  more than one ticket.* Split with `ticket.mjs split T-NNNN "piece" "piece"` — the
+- **Size in RUNS before you FILE, not before you claim.** `XS` part of a run · `S` one
+  run · `M` one run, tight (or one run plus a bake) · `L` **more than one run, which
+  `new` now REFUSES at the prompt and `claim` refuses after** (T-1593). The test is the
+  acceptance clause: *if it needs more than one demonstration, it is more than one
+  ticket.* File the pieces as their own tickets, `--after` the work they serve; an L
+  already in the queue is cut with `ticket.mjs split T-NNNN "piece" "piece"` — the
   children inherit the parent's exact place in QUEUE, so a split never re-prioritises.
   If a run discovers mid-flight that its ticket is bigger than one demonstration, it
-  splits rather than shipping a self-invented "(1/2)".
+  splits rather than shipping a self-invented "(1/2)". `--anyway` is the ticket
+  *budget's* override and cannot reach an L: the queue gate refuses one unconditionally,
+  so filing one anyway only chooses whose pull request goes red for it.
 - `tools/check.sh` runs `ticket.mjs check`: duplicate ids, queue drift, stale BOARD, a
-  block with no stated question, an `L` in the queue — all merge-refusing.
+  block with no stated question, an `L` in the queue.
+- **…and it says WHOSE red it is** (T-1593). The tickets are a separate repository, so
+  nothing that step reads is in the diff under review — which on 2026-09-25 made the two
+  L filings above turn `ticket queue` red on #51, a pull request of AGENTS.md and three
+  files under `tools/`, 37 minutes later. check.sh passes `--inherited-warn`: a fault in
+  *this* repository's files still fails the gate, and a fault in the tickets repository
+  is reported as a WARN naming the filing and the one command that clears it for every
+  open PR at once. **Run `node tools/ticket.mjs check` bare and it is strict** — by hand
+  and in the tickets repository's own CI, which is where the rule keeps its teeth. The
+  flag softens nothing your run caused: a dirty or unpushed tickets clone still fails.
 
 **`docs/ROADMAP.md` is no longer the backlog.** It remains the *reasoning archive* — the
 parcel boxes hold measurements, refutations and acceptance clauses that tickets link into,
