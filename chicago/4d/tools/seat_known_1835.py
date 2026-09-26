@@ -1680,8 +1680,14 @@ def self_test() -> int:
         a_dealt_row(d)["dealt_roof"]["structure_id"] = row["seat"]["id"]
 
     def a_slot_forgets_who_builds_it(d):
-        next(r for r in d["rows"] if r.get("dealt_roof")
-             and not r["dealt_roof"]["structure_id"])["dealt_roof"]["owed_to"] = None
+        # The slot is SYNTHESISED and not looked for. Both seating passes ask for no slot
+        # at all once the recipes catch up — T-1622 built the last two and T-1623 refused
+        # the last four — and a guard that can only be fired while an unbuilt request
+        # happens to exist is a guard that quietly stops being tested at the moment the
+        # data is cleanest. So: take a dealt row, turn its deal back into the request it
+        # was, and forget who raises it.
+        deal = a_dealt_row(d)["dealt_roof"]
+        deal["structure_id"], deal["how"], deal["owed_to"] = None, "slot", None
 
     def the_book_falls_behind_the_deal(d):
         a_dealt_row(d)["dealt_roof"] = None

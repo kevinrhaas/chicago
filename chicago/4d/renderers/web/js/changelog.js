@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1148, title: 'The four houses with nowhere to stand are now refused in writing', kind: 'change', ts: '2026-09-26T17:31:46.182Z', date: 'Sep 26, 2026, 12:31 PM CT',
+    items: [
+      'Earlier today this town settled that a house built because a family asked for one belongs to that family. Four more such houses were still on the request list, and they had nowhere to stand. This release says so out loud instead of leaving them waiting.',
+      'The four \u2014 two on the Dearborn block of South Water Street, two on the Wells block \u2014 could only ever have stood on one particular lot: the single lot each of those two blocks still has genuinely empty.',
+      'That empty lot is not spare room. The building programme deliberately sizes every block at one lot less than it has, so a block is never built out completely \u2014 an 1835 block with no gap left in it is a claim about the town the evidence does not support. Building the four would have meant spending that reserve and then re-labelling a lot that already carries two documented stores as the empty one: the Chicago American\u2019s office and Holbrook\u2019s store on the Dearborn block, H. Jones\u2019s store on the Wells block. There is 2.84 m, 2.28 m and 4.46 m of street face left beside them respectively, which will not hold a house.',
+      'So the request is refused on each household\u2019s own row, in a sentence that says why, and the household is owed to the building work instead of holding a request that could never be filled. Open \u201cReconstructing the town\u201d in the Evidence tab and the card says so: no houses are requested now, where it said four an hour ago and six this morning.',
+      'The rule is enforced rather than remembered. The seating pass will not ask for a house on the last empty lot of a block, and will not add one beside a documented store on a free lot either \u2014 stretching a row of buildings along a street face is a claim about how much frontage is left, and this pass measures none. A check fires on every change if either ever happens again.',
+      'Nothing was built, nothing moved and no confidence was raised. The plat now seats 108 of the town\u2019s 1,480 households whose records give no address, all of them under houses that already stand, and 1,372 are handed on to the ground the plat does not draw.',
+    ] },
   { v: 1147, title: 'A test that followed the wrong roof', kind: 'fix', ts: '2026-09-26T17:06:32.284Z', date: 'Sep 26, 2026, 12:06 PM CT',
     items: [
       'Nothing you can see in the town has changed. A check that guards the buildings\u2019 cards had gone red, and it was the check that was wrong, not the town.',

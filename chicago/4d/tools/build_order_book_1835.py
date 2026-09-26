@@ -3808,22 +3808,28 @@ def cmd_self_test() -> int:
         return lambda: seats_against_roofs(bent, structure_buckets(
             bent["inventory"], bent["programme"], occ))
 
-    # 182 = the platted pass's 110 plus the off-plat pass's 72, both read off the
-    # committed files. It was 176 until T-1611 re-dealt six platted-block yard buildings
-    # into rear cottages: six roofs the platted deal had been obliged to refuse as
-    # ancillary became free dwellings, and the deal adopted them. The number is pinned
-    # here on purpose — a seating file that moves under this join must be RED, not
-    # quietly re-summed — so restate it whenever it moves, against the files.
+    # The literal is a tripwire and not a target: it moves when a seating pass rules
+    # differently, and the ruling is what has to be argued for. A seating file that moves
+    # under this join must be RED, not quietly re-summed, so restate it against the files
+    # whenever it moves. It was 176; T-1611 re-dealt six platted-block yard buildings into
+    # rear cottages, which the deal adopted, taking it to 182; T-1622 lost two of those to
+    # the street-face adoption policy and T-1626 gave them back to the households that had
+    # asked, holding it at 184; then T-1623 refused the four slots the platted deal still
+    # asked for on the lots the schedule's own sizing keeps open, taking it to 180 — the
+    # platted pass's 108 plus the off-plat pass's 72, both read off the committed files.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 184
+        data["inventory"], data["programme"], occ))["seated"] == 180
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
           seats_with("platted_seats", roofs_adopted=99))
     fires("a second seating pass offered rows the first did not hand on",
           seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
+    # The fixture bends the count AWAY from the rows, in whichever direction the files
+    # currently sit: the platted pass asked for no slot at all once T-1623 refused the
+    # last four, so claiming one it does not carry is the disagreement to fire on.
     fires("a slot count that disagrees with the slot rows carried beside it",
-          seats_with("platted_seats", slots_requested=0, seated=100))
+          seats_with("platted_seats", slots_requested=1, roofs_adopted=99))
     dropped = copy.deepcopy(data)
     dropped["platted_seats"]["counts"] = {}
     fires("a seats file with no counts at all",

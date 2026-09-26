@@ -69,10 +69,20 @@ trade family the clause admits. Three refusals are deliberate:
 
 **Where a slot may be raised.** Only on a block the 665-roof programme's schedule marks
 `open`, only inside that block's committed `families` plan, only up to its `headroom`,
-and only onto a lot that is under its own multi-building rule. The schedule marks three
-blocks open and holds 12 roofs of headroom against 262 remaining — its own coverage
-statement says 250 of those 262 "have nowhere to go until street control, terrain and
-hydrology reach them" — and this pass does not argue with that number. It spends what
+and only onto a lot that is under its own multi-building rule. **And never onto the one
+lot the schedule's own sizing keeps open** (T-1623): `lot_ceiling_principal` is
+`free_lots - 1` for exactly that reason, so a free lot takes a slot only while the
+block's occupied free lots are still under that ceiling, and a free lot carrying a
+STANDING roof takes none at all — extending that run is a claim about the face left
+between documented stores, which this pass does not measure. A lot this pass has itself
+dealt a slot to does take another, up to the lot's own ceiling: that run is the one the
+successor recipe names. Four roofs were refused by this on 2026-09-26 —
+blk_south_water_dearborn's and blk_south_water_wells's last two each, after T-1622 built
+blk_south_water_franklin's — and the owner ruled that they are refused in writing and the
+households owed, rather than left standing unfulfillable. The schedule marks two
+blocks open and holds 6 roofs of headroom against the remainder — its own coverage
+statement says the great majority of those remaining "have nowhere to go until street
+control, terrain and hydrology reach them" — and this pass does not argue with it. It spends what
 the schedule offers and says what it could not spend.
 
 **Everything else is OWED, in writing.** Three of the address book's bands name ground
@@ -401,10 +411,27 @@ def slot_plan(data: dict) -> dict[str, dict]:
             continue
         families = {letter: count for letter, count in (row.get("families") or {}).items()
                     if letter not in ANCILLARY_LETTERS}
+        # T-1623. `principal_room` is PARTY-LINE UNITS and this pass deals whole LOTS,
+        # so the block's own lot-granularity ceiling comes along with it. The schedule
+        # states it as `lot_ceiling_principal` and reconcile_665 derives it as
+        # `free_lots - 1` — "less the one it keeps open". A block that reaches this pass
+        # with neither is a block whose sizing cannot be read, and a gate may not count
+        # a skip as a pass.
+        ceiling = row.get("lot_ceiling_principal")
+        if ceiling is None:
+            free_lots = row.get("free_lots")
+            if free_lots is None:
+                raise Fault(
+                    f"{block_id} is marked open and offers "
+                    f"{sum(families.values())} principal roof(s) with neither "
+                    "`lot_ceiling_principal` nor `free_lots` in its schedule row, so "
+                    "the lot the sizing keeps open cannot be named (T-1623)")
+            ceiling = max(0, int(free_lots) - 1)
         plan[block_id] = {
             "district": row["district"],
             "families": families,
             "headroom": int(row.get("principal_room") or 0),
+            "lot_ceiling": int(ceiling),
             "dealt": 0,
         }
     return plan
@@ -422,6 +449,13 @@ def deal(data: dict, lots: list[dict]) -> dict:
     taken: set[str] = set()
     plan = slot_plan(data)
     slots_on_lot: dict[str, int] = {}
+    # T-1623. The block(s) whose last open lot this pass declined to spend, the lot it
+    # held open, and the family letters that refusal actually cost — so both the written
+    # refusal and the plan left unclaimed can say which of the two things happened. A
+    # letter no clause admits is left unclaimed for the OTHER reason, and saying the
+    # reserve cost it would be a false statement about the deal.
+    held_open: dict[str, str] = {}
+    reserve_cost: dict[str, set[str]] = {}
 
     rows = in_scope(data)
     seats: list[dict] = []
@@ -487,6 +521,7 @@ def deal(data: dict, lots: list[dict]) -> dict:
             continue
 
         raised = None
+        reserved_open: list[str] = []
         for block_id, block in sorted(plan.items()):
             if block["district"] != district or block["dealt"] >= block["headroom"]:
                 continue
@@ -494,23 +529,62 @@ def deal(data: dict, lots: list[dict]) -> dict:
                              if count > 0 and letter in admitted)
             if not letters:
                 continue
-            # WHICH LOTS OF AN OPEN BLOCK MAY TAKE A SLOT, and two gates this does NOT
-            # apply. `exclusive_lots` is the committed map "a schedule or a generator
-            # asks before it deals a lot a roof", so a lot that bars another roof is
-            # out — but a lot already carrying a principal roof UNDER its own ceiling is
-            # in, because on a principal street that is the density standard rather than
-            # a conflict. And the block's ground reading is not read here: it is a
-            # BLOCK-level sample, the coverage decision at lot granularity is the
-            # schedule's own `state`, and using both would refuse ground the 665-roof
-            # programme has already accepted (blk_south_water_dearborn, 2 samples below
-            # datum over a whole block, one free lot).
-            room = [
-                lot for lot in lots
-                if lot["block_id"] == block_id and not lot["bars_another_roof"]
-                and (lot["principal_roofs_standing"]
-                     + slots_on_lot.get(lot["lot_id"], 0)) < lot["principal_roofs_max"]
-            ]
+            # WHICH LOTS OF AN OPEN BLOCK MAY TAKE A SLOT. `exclusive_lots` is the
+            # committed map "a schedule or a generator asks before it deals a lot a
+            # roof", so a lot that bars another roof is out. And the block's ground
+            # reading is not read here: it is a BLOCK-level sample, the coverage
+            # decision at lot granularity is the schedule's own `state`, and using both
+            # would refuse ground the 665-roof programme has already accepted
+            # (blk_south_water_dearborn, 2 samples below datum over a whole block, one
+            # free lot).
+            free = [lot for lot in lots
+                    if lot["block_id"] == block_id and not lot["bars_another_roof"]]
+            # T-1623 — THE ONE LOT THE SCHEDULE'S OWN SIZING KEEPS OPEN, and the run a
+            # slot may not name. `principal_room` is party-line units; the schedule's
+            # lot-granularity ceiling is `lot_ceiling_principal = free_lots - 1`, and
+            # reconcile_665 says why in its own words: "less the one it keeps open",
+            # precisely so a block is never dealt out of its open lot. Party-line
+            # density above one roof per free lot is reachable only along a frontage run
+            # a RECIPE NAMES, and this pass names none — so:
+            #   * an unoccupied free lot may take a slot only while the block's occupied
+            #     free lots are still UNDER its ceiling; the last one stays open.
+            #   * a free lot already carrying a STANDING roof takes no slot. Extending
+            #     that run is a claim about face this pass has not measured, and on
+            #     2026-09-26 the two blocks where it would have fired had 2.84 m, 2.28 m
+            #     and 4.46 m of face left between documented stores — not a roof between
+            #     them.
+            #   * a lot THIS PASS has already dealt a slot to does take another, up to
+            #     the lot's own multi-building ceiling: that run is the one the successor
+            #     recipe names, and it is how blk_south_water_franklin's two roofs were
+            #     asked for together on one lot while its other lot stayed open — the
+            #     request T-1622 then built.
+            # The owner ruled on 2026-09-26 that the four roofs this refuses — the last
+            # two blk_south_water_dearborn plans and the last two blk_south_water_wells
+            # plans — are REFUSED IN WRITING and the households owed, rather than left
+            # standing unfulfillable or answered by moving a block's `open` declaration
+            # onto a lot that carries two documented stores.
+            occupied = {lot["lot_id"] for lot in free
+                        if lot["principal_roofs_standing"] > 0
+                        or slots_on_lot.get(lot["lot_id"], 0) > 0}
+            room = []
+            for lot in free:
+                if (lot["principal_roofs_standing"]
+                        + slots_on_lot.get(lot["lot_id"], 0)) >= lot["principal_roofs_max"]:
+                    continue
+                if slots_on_lot.get(lot["lot_id"], 0) > 0:
+                    room.append(lot)                     # this pass's own run
+                elif lot["principal_roofs_standing"] > 0:
+                    continue                             # a run only a recipe may name
+                elif len(occupied) < block["lot_ceiling"]:
+                    room.append(lot)                     # a free lot under the ceiling
             if not room:
+                if len(occupied) >= block["lot_ceiling"]:
+                    still_open = sorted(lot["lot_id"] for lot in free
+                                        if lot["lot_id"] not in occupied)
+                    if still_open:
+                        held_open[block_id] = still_open[0]
+                        reserve_cost.setdefault(block_id, set()).update(letters)
+                        reserved_open.append(f"{block_id} ({still_open[0]})")
                 continue
             lot = max(room, key=lambda l: (score(l, clause), l["lot_id"]))
             raised = (block_id, block, letters[0], lot)
@@ -542,19 +616,40 @@ def deal(data: dict, lots: list[dict]) -> dict:
             })
             continue
 
+        if reserved_open:
+            # THE PLAN HAD HEADROOM AND THE GROUND DID NOT. Saying "no open block's plan
+            # has headroom" here would be a false statement about the schedule, so the
+            # refusal names the blocks whose last open lot it declined to spend.
+            why = ("no standing roof of an admitted family was free in this division, "
+                   "and every open block that still plans one has a single lot left, "
+                   "which is the lot the schedule's own sizing keeps open "
+                   "(`lot_ceiling_principal` = free lots less one): "
+                   + ", ".join(reserved_open)
+                   + ". The owner ruled on 2026-09-26 (T-1623) that a block is not "
+                     "dealt out of its open lot, so the request is refused here rather "
+                     "than left standing unfulfillable")
+        else:
+            why = ("the plat holds no free roof of a family this clause admits in this "
+                   "division, and no open block's plan has headroom for one")
         owed.append({
             "id": row["id"], "kind": row["kind"], "band": seat["id"],
             "clause": clause_id, "district": district,
-            "why": "the plat holds no free roof of a family this clause admits in this "
-                   "division, and no open block's plan has headroom for one",
+            "why": why,
             "handed_to": SUCCESSOR,
         })
 
     unclaimed = [
         {"block_id": block_id, "family": letter, "roofs": count,
          "district": block["district"],
-         "why": "the plan offers this family and no banded row of this division is "
-                "admitted by a clause that takes it"}
+         # T-1623. Two different reasons, and reading the second as the first is what
+         # made the four refused roofs look like a plan nobody wanted.
+         "why": ("a banded row of this division IS admitted by a clause that takes this "
+                 f"family, and the only lot left on the block is {held_open[block_id]}, "
+                 "the one the schedule's own sizing keeps open: the roof is refused "
+                 "here (T-1623) and the household is owed"
+                 if letter in reserve_cost.get(block_id, ()) else
+                 "the plan offers this family and no banded row of this division is "
+                 "admitted by a clause that takes it")}
         for block_id, block in plan.items()
         for letter, count in block["families"].items() if count > 0
     ]
@@ -625,6 +720,36 @@ def assert_the_deal_is_honest(data: dict, lots: list[dict], dealt: dict) -> None
                     f"{lot['principal_roofs_standing'] + slots[seat['lot_id']]} principal "
                     f"roofs and its {lot['multi_building_rule']} rule allows "
                     f"{lot['principal_roofs_max']}")
+
+    # T-1623 — NO BLOCK IS DEALT OUT OF ITS OPEN LOT. The schedule sizes a block's
+    # room at `lot_ceiling_principal` free lots, "less the one it keeps open", and a
+    # slot is dealt at lot granularity. So after the deal, the free lots of a block
+    # this pass drew on may carry a roof on no more than that many of them — which is
+    # the same statement as "one free lot is still carrying nothing". A pass that could
+    # spend the reserve is a pass that moves a block's `open` declaration onto a lot
+    # carrying documented stores, and the owner refused that on 2026-09-26.
+    free_by_block: dict[str, list[dict]] = {}
+    for lot in lots:
+        if not lot["bars_another_roof"]:
+            free_by_block.setdefault(lot["block_id"], []).append(lot)
+    for block_id in sorted({seat["block_id"] for seat in dealt["seats"]
+                            if seat["how"] == "slot"}):
+        row = data["schedule"].get(block_id) or {}
+        ceiling = row.get("lot_ceiling_principal")
+        if ceiling is None:
+            free_lots = row.get("free_lots")
+            if free_lots is None:
+                raise Fault(f"{block_id} takes a slot and its schedule row states "
+                            "neither `lot_ceiling_principal` nor `free_lots`, so the "
+                            "lot its sizing keeps open cannot be named (T-1623)")
+            ceiling = max(0, int(free_lots) - 1)
+        occupied = sorted(
+            lot["lot_id"] for lot in free_by_block.get(block_id, ())
+            if lot["principal_roofs_standing"] > 0 or slots.get(lot["lot_id"], 0) > 0)
+        if len(occupied) > int(ceiling):
+            raise Fault(f"{block_id} would carry a roof on {len(occupied)} of its free "
+                        f"lots ({', '.join(occupied)}) and the schedule sizes it at "
+                        f"{ceiling} — the block keeps one lot open (T-1623)")
 
     # THE ORDER BOOK IS NOT EXCEEDED. Every slot draws on one open block's committed
     # family plan, and the draws per block may not pass that block's own headroom.
@@ -876,10 +1001,17 @@ def cmd_report() -> int:
     return 0
 
 
-def _fires(what: str, thunk) -> None:
+def _fires(what: str, thunk, expect: str | None = None) -> None:
+    """Fire a guard on a bent copy of the real deal, and refuse a pass for the wrong reason.
+
+    `expect` is a phrase the refusal has to say. A fixture that trips SOME other
+    assertion looks green and proves nothing, so a guard worth a self-test names itself.
+    """
     try:
         thunk()
-    except Fault:
+    except Fault as fault:
+        if expect is not None and expect not in str(fault):
+            raise Fault(f"the guard against {what} fired on the wrong rule: {fault}")
         return
     raise Fault(f"the guard against {what} did not fire")
 
@@ -913,6 +1045,50 @@ def cmd_self_test() -> int:
         assert_the_deal_is_honest(data, lots, bent)
     _fires("a household seated across a division line", a_household_of_another_division)
     print("   a household seated in another division              refused")
+
+    def a_block_dealt_out_of_its_open_lot():
+        # The fixture is built from the LEDGER rather than from a slot the deal happens
+        # to hold, because the deal holds none the moment the recipes catch up — which is
+        # exactly when a guard against spending the reserve stops being testable and
+        # starts being load-bearing. So: an open block whose free lots are already at the
+        # schedule's ceiling, and one synthetic slot on the lot it keeps open.
+        target = None
+        for block_id in sorted({lot["block_id"] for lot in lots
+                                if lot["block_state"] == "open"}):
+            free = [lot for lot in lots if lot["block_id"] == block_id
+                    and not lot["bars_another_roof"]]
+            row = data["schedule"].get(block_id) or {}
+            ceiling = row.get("lot_ceiling_principal")
+            if ceiling is None:
+                continue
+            occupied = [lot for lot in free if lot["principal_roofs_standing"] > 0]
+            vacant = [lot for lot in free if lot["principal_roofs_standing"] == 0]
+            if len(occupied) >= int(ceiling) and vacant:
+                target = min(vacant, key=lambda l: l["lot_id"])
+                break
+        if target is None:
+            raise Fault("fixture needs an open block already at its lot ceiling")
+        template = next((s for s in dealt["seats"]
+                         if s["district"] == target["district"]), None)
+        if template is None:
+            raise Fault(f"fixture needs a seat of the {target['district']} division")
+        bent = json.loads(json.dumps(dealt))
+        slot = json.loads(json.dumps(template))
+        slot.update({
+            "id": f"{template['id']}__fixture", "how": "slot", "structure_id": None,
+            "lot_id": target["lot_id"], "block_id": target["block_id"],
+            "lot_index": target["lot_index"], "fronts": target["fronts"],
+            "street_class": target["street_class"], "corner": target["corner"],
+            "multi_building_rule": target["multi_building_rule"],
+            "order_book_draw": {"block_id": target["block_id"],
+                                "family": template["family"],
+                                "district": target["district"]},
+        })
+        bent["seats"].append(slot)
+        assert_the_deal_is_honest(data, lots, bent)
+    _fires("a block dealt out of its open lot", a_block_dealt_out_of_its_open_lot,
+           expect="the block keeps one lot open")
+    print("   a slot on the last open lot of an open block         refused")
 
     def an_adoption_that_also_spends_the_order_book():
         bent = json.loads(json.dumps(dealt))
