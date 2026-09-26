@@ -4785,7 +4785,7 @@ for (const [label, viewport, touch] of [
       // frontage qualifies again — so these four move BACK together when it
       // lands, by the same arithmetic and in the same direction.
       frontage.census?.records === 5 && frontage.census?.walks === 50
-        && frontage.census?.crossings === 38
+        && frontage.census?.crossings === 39
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -4820,8 +4820,24 @@ for (const [label, viewport, touch] of [
         // crossings, fences and posts do not move. None of the three was ever a street
         // wall the fence rule refused, each stands where it stood, and a cottage on a
         // block face carries no frontage furniture of its own.
+        // T-0251 — THE FOURTH LAKE STREET RECORD IS RECONCILED, and it is T-0246's
+        // pattern exactly. The owner ruled on 2026-09-21 that where an ATTESTED
+        // placement and an INFERRED one collide on a lot the attested one stands, so
+        // first_presbyterian_church took the 3.395 m off the modern kerb it was placed
+        // from and physicians_office gave way. THE WALK COUNT DOES NOT MOVE: the two
+        // steps the church had refused, 88.6 to 99.0 m along blk_lake_lasalle's north
+        // face, extend an existing run to the full face rather than opening a new one.
+        // But a walk that stopped short of its corner had refused the corner CROSSING
+        // with it, and that one is now laid — 38 crossings to 39, and the refusal that
+        // named it retires, 92 to 91. Those two move together and only together, which
+        // is the check that a walk reached its corner rather than a crossing being
+        // invented. POSTS AND FENCES DO NOT MOVE: the church carries no trade the
+        // hitching rule accepts, physicians_office's is reconstructed and was already
+        // refused for it, and a wall 1.50 m back from the frontage line is still inside
+        // the 3.0 m a street fence needs — that lot-6 refusal stands, with its number
+        // corrected from -1.90 m to 1.50 m.
         && frontage.census?.posts === 18 && frontage.census?.fences === 31
-        && frontage.census?.refused === 92
+        && frontage.census?.refused === 91
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'

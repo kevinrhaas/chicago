@@ -14320,3 +14320,81 @@ programme), tickets **T-1504** (this entry), **T-1177** (the stage), **T-1383** 
 that put these rows in front of it), **T-1335** (the family pass the kinship is handed to),
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
+
+### L270 — The plat's 226 lots are enumerated from records this project already held, and then 106 of the town's households are dealt onto them by a policy and not by a source
+
+**Scope:** `platted_seats.seats[dealt]` — 106 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,374
+written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
+`--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 226 lots
+the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
+fields is read off a committed record and the entry below says which.
+
+**The ledger invents nothing.** Which lot exists is `data/traces/vectors/thompson_lots.json`
+(T-0221, T-1194). Which street a lot's face fronts is that block's own `bounded_by`, and that
+street's traffic class is `data/streets/1835.json`. What stands on a lot is
+`tools/plat_occupancy.py`, measured, not asserted — a footprint's lot is the one it has the
+most area on and only if it reaches that lot's buildable inset. How many principal roofs the
+lot may carry is the placement policy's own `multi_building_lot` rule, selected by the street
+class: three party-line units on a principal street, one anywhere else. A lot's corner is its
+position on its own face. Six lookups, joined in one place for the first time, and the
+liberties they stand on are already recorded — **L90** for the anonymous roofs, the plat
+entries for the grid.
+
+**Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
+BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
+policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
+roof of a family its clause admits, on a lot of its own division; 100 of the 106 seats are
+that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
+on a block the 665-roof programme marks `open`, only inside that block's own committed family
+plan, and only up to its headroom; 6 of the 106 are that. **Which lot a household takes is
+this project's invention**, argued from the clause's stated preferences — the street class it
+prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
+places any of these 106 households anywhere; each one's own address-book row says so in its
+`words`, and that refusal is carried forward here rather than quietly replaced.
+
+**An adoption raises no roof and spends no order.** This is the part that keeps the invention
+small. 100 of the 106 seats put a household under a roof that already stands, was already
+gated and was already paid for in the 665-roof programme — so the order book is not drawn on
+at all, and nothing is baked. The 6 slots are requests, not buildings: T-1200 through T-1214
+raise them, and until one does, the seat is a household with an address and no walls.
+
+**Three kinds of roof are refused on purpose, and the refusals are the entry's substance.**
+A DOCUMENTED building is never re-tenanted — 34 of the roofs standing on these lots are the
+research layer's, and an invented household under Pruyne & Kimball's drugstore would be the
+reconstruction reading back as a fact. A roof whose own record STATES its occupancy is left
+alone, including the 15 that read `Anonymous stock; no occupant is claimed` (T-0516): that
+sentence is a committed claim about the town, 54 roofs carry one, and overturning it silently
+is the one move a seating pass must not make. And an ANCILLARY family — A1 through A5, the
+barns, stables, privies and woodsheds — is not a dwelling; 48 of the 151 unoccupied roofs on
+the plat are ancillary and no household is seated in one.
+
+**Which way it is wrong if it is wrong.** Toward a plat holding too FEW of the town's
+households. 1,374 of the 1,480 banded rows get no lot here, and they are not refused — they
+are handed to **T-1614**, which owns the ground the committed grid does not draw: the farms
+and country seats (204 rows, off the plat by their clause's own terms), the additions' small
+lots, the fringes and the branches. The binding constraint is the one the 665-roof programme
+states about itself: *"12 of the 262 remaining roofs stand on ground this project has already
+surveyed, platted and modelled… the binding constraint is coverage, not recipes."* This pass
+spends what that schedule offers and says out loud what it could not spend — 3 commercial
+roofs of plan (C1, C2, C3) stand unclaimed on South Water Street because every business the
+address book can place is already at a street face or a structure, and none is left at a band
+to take them.
+
+**The density standard is measured here rather than asserted.** 30 of the plat's 68
+principal-street lots carry more than one principal roof today, against a rule that permits
+three. That is a reading of the committed town, and the parcel schedule's own words are why it
+is not a target: *"A block at capacity is a claim about 1835 that the evidence does not
+support; the schedule's capacity is a ceiling."*
+
+**How to resolve:** any source placing one of these households — a lot and block, a corner
+ordinal, a street address, a building — retires its seat, because a read placement outranks a
+dealt one and the address book already carries the field that says so. The retirement runs
+through `--build`, never by hand.
+
+**Related:** **L90** (the anonymous roofs this pass adopts), **L83** (the inferred-residents
+programme), **L268** (the invented people the order book cannot move), tickets **T-1613**
+(this entry), **T-1199** (the parent ask), **T-1198** (the address book and its bands),
+**T-1195** (the placement policy), **T-1614** (the ground this pass hands on), **T-0516**
+(the anonymous-stock statement it refuses to overturn).
+**Recorded:** 2026-09-26.

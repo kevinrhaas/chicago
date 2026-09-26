@@ -96,6 +96,113 @@ a table that is already a ladder passes through untouched and silent; a rung typ
 one above it runs clamped under it, marked and shouted; equal rungs are pushed strictly under;
 a level in the order and not in the table throws. No structure record, no GLB and no scene data
 moved, so no bake.
+## The plat is enumerated, and it holds 106 of 1,480 banded households — T-1613, 2026-09-26
+
+T-1199 asked for every reconstructed household and business seated onto the extended lot
+grid. It is split (T-1613 / T-1614 / T-1615) because it is not one run's demonstration, and
+this is the first piece: the ledger the seating deals from, and the platted ground seated on
+it.
+
+**What was missing was a list.** The 226 lots have been drawn since T-0221 and T-1194. Which
+street a lot fronts, that street's traffic class, whether the lot turns a corner, what stands
+on it and how many principal roofs the policy lets it carry were all READABLE and written down
+nowhere — six lookups in six files, so anything wanting them re-derived them or guessed.
+`data/reconstruction/1835_lot_ledger.json` is that list, and it claims nothing: every column is
+copied off a committed record.
+
+**The unflattering number is 106 of 1,480.** The address book leaves 1,480 households at a band
+— a division and a policy clause, no lot, no roof, no coordinate. The committed plat seats 106
+of them: 100 adopt a standing anonymous roof of an admitted family, 6 ask for a slot inside an
+open block's own committed plan. 1,374 are handed to T-1614 in writing, one reason each. That
+is not a shortfall this pass invented — 204 of them are outside the plat by their clause's own
+terms, and the 665-roof programme already says of itself that 250 of its 262 remaining roofs
+"have nowhere to go until street control, terrain and hydrology reach them". The binding
+constraint is coverage, and it still is.
+
+**Three commercial roofs of plan stand unclaimed** on South Water Street (C1, C2, C3), because
+every business the address book can place is already at a street face or a structure and none
+is left at a band to take them. The plat deal turned out to be a HOUSEHOLD deal; that was not
+the expectation going in.
+
+**What this does not do.** It writes no structure record, raises no roof and bakes nothing: an
+adoption is a pointer at a roof that already stands and a slot is a request T-1200 through
+T-1214 fulfil. The People and Businesses views do not read it yet and the infill recipes are
+not regenerated from it — both are T-1615. So today 106 households have an address that
+nothing in the walkthrough will show you.
+
+Gated by `tools/seat_platted_ground_1835.py --check` and its six-refusal `--self-test` in
+`check.sh`; the invention is `docs/LIBERTIES.md` L270, counted by the register's own scope gate.
+
+## The attested placement stands and the inferred one moves — T-0251, 2026-09-26
+
+**What a visitor sees:** the plank walk on Lake Street's south side runs the full length of
+`blk_lake_lasalle`'s frontage instead of stopping 10.4 m short of Clark, and the board crossing
+over Lake Street at Clark — refused because a walk that stops short of its corner takes the
+corner with it — is laid. First Presbyterian's meeting house is off the roadway and on its line.
+
+**The fault, and it was a rule rather than a metre.** `first_presbyterian_church` reached the
+scene the way eleven South Water records and three other Lake Street records did: its
+cross-street coordinate came off a modern OpenStreetMap kerb instead of this project's own
+committed Lake Street centreline. Measured against that line its north wall stood **1.90 m out
+past the `blk_lake_lasalle` frontage line**, in the platted roadway, and
+`tools/generate_frontage_works.py`'s march refused two steps of the walk for it. The standard
+repair — translate 3.395 m along the face's inward normal — was measured under T-0196 and
+**refused**, because `physicians_office` stood 3.15 m behind it on the same lot: moved 0.2 m the
+pair are inside the 3.0 m separation gate, moved 3.2 m the footprints overlap. No translation
+along that normal both clears the walk and leaves the pair apart.
+
+**The owner ruled on 2026-09-21, and he ruled it generally.** *Where an ATTESTED placement and an
+INFERRED placement collide on one lot, the attested one stands and the inferred one moves or is
+withdrawn.* He refused the alternative in terms: narrowing both footprints to make 3.395 m and
+3.15 m fit would leave "two buildings sized to each other rather than to their evidence".
+
+**The rule is written down where a machine reads it**, at
+`tools/plat_occupancy.attested_precedence()`, with the ruling's three conditions as its contract:
+which record is attested is read off the record and never off its name; re-seating comes before
+withdrawal; and no footprint is narrowed and no gate weakened. It refuses a collision inside one
+layer rather than answering it — two invented roofs three metres apart are the separation gate's
+question — and it refuses an id the dataset does not hold rather than reading it as a yield.
+`measure_corridor_intrusion.py --self-test` holds it on this collision and proves the reach:
+**read from their NAMES both records stand**, so the rule could not have decided this at all, and
+`physicians_office` — which carries no `recon_` or `inf_` prefix and is nonetheless a product of
+the inferred-household programme — is the record that fault was found on.
+
+**Applied, both halves, measured.** The church took the 3.395 m every other Lake Street record
+took: dE −0.028 m, dN −3.395 m, so E 447625.34 N 4637263.61 becomes **E 447625.312 N
+4637260.215**, leaving its north wall **1.50 m back** from the committed line — the margin
+`tools/generate_block_infill.py` gives every reconstructed unit on this face. `physicians_office`
+**gave way and was re-seated, not withdrawn**, which the ruling asks for first, and on its own
+evidence: it keeps its Lake Street frontage band, its face and this same lot 6, moving 12.99 m
+west along the face and 7.40 m forward onto the street line. Forward is its own clause's answer —
+`tools/placement_policy_1835.py` seats a C1 at `street_line` and this roof had stood 8.90 m back
+in the depth of its lot since it was raised. It is written as a **face placement** rather than a
+centre, the T-0182 repair: it now takes its line, bearing and outward offset from the committed
+plat instead of a hand-typed centre at bearing 0 on a face that runs at 0.469.
+
+**What the walk did, measured rather than asserted.**
+
+| | before | after |
+|---|---:|---:|
+| `blk_lake_lasalle` north walk | 31.3 → 88.6 m | 31.3 → **99.0 m** |
+| its walking decks | 4 | **5** |
+| board crossings in the town | 36 (857.5 m) | **37 (881.9 m)** |
+| walk in the town | 3182.9 m | **3193.4 m** |
+| street-edge refusals | 81 | **80** |
+
+The one refusal that stays on this lot is the street FENCE, and its number is now right: it read
+"`first_presbyterian_church` stands −1.90 m from this lot's frontage line" and reads 1.50 m. The
+building is the street wall here and a fence in front of it would be a second one.
+
+**Nothing was weakened and nothing was upgraded.** The 3.0 m separation gate is untouched and
+neither footprint was narrowed: measured after both moves the nearest committed footprint to the
+church is `physicians_office` at **3.101 m** and the next is `recon_1835_south_d6_012` at 7.78 m,
+and no footprint in the town overlaps another by a square centimetre. Both records keep their
+confidence grade — re-deriving a coordinate from better geometry is not new evidence — the church
+keeps every uncertainty it states, including the one-directional lot-depth error toward the south,
+and the office's placement is still `reconstructed` with a `not_derivable` derivation. Its card
+carries what displaced it and why, so the move is legible rather than a silent disappearance.
+`tools/location_spend.py`'s T-0251 retention is re-stated as the **ruling** it became: the guard
+now measures the reconciliation, so putting the church back out in the roadway fails the build.
 
 ## Rule 9 says what is true of each row it refuses — T-1505, 2026-09-24
 

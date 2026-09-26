@@ -1772,6 +1772,27 @@ step "the placement policy still re-derives, and nothing re-typed its constants"
 selftest "…and its five assertions still fire when broken" \
   python3 tools/placement_policy_1835.py --self-test
 
+# T-1613, the first piece of T-1199. The policy above says which GROUND a household of a
+# kind belongs on; this says which LOT, and it could not be written until the lots were
+# enumerated. `1835_lot_ledger.json` is that enumeration — 226 committed lots, each with
+# the street its face fronts, that street's traffic class, whether it turns a corner, what
+# stands on it and how many principal roofs the policy's multi-building rule lets it
+# carry — every field a join over a record this project already committed.
+# `1835_platted_seats.json` is the adjudication on top of it: every household the address
+# book leaves at a band, offered the plat in the policy's own clause order, adopting a
+# standing anonymous roof before ever asking for a new one, and handed to T-1614 in
+# writing where the plat has nothing for it. Six assertions: no seat on a lot the ledger
+# does not draw; no roof adopted twice; no household seated across a division line; no
+# adopted roof also drawn off the order book (that would spend one roof twice); no row in
+# scope left unanswered; and no owed row with a blank where its reason should be. Nothing
+# is raised and nothing is baked — an adoption points at a roof that already stands and a
+# slot is a request the 5C build tickets fulfil.
+step "the lot ledger and the platted seats still re-derive" \
+  python3 tools/seat_platted_ground_1835.py --check
+
+selftest "…and the deal's six refusals still fire when broken" \
+  python3 tools/seat_platted_ground_1835.py --self-test
+
 # A dwelling nobody named is a count-unit toward a documented aggregate; a PUBLIC
 # building nobody named is the claim that an institution stood here and left no record
 # at all. ROADMAP T-I3 enumerated them: on 1835-07-01 the town's public buildings with a
