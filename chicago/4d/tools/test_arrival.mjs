@@ -1,4 +1,7 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   bootProgress, easeInOut, reducedProgress, settleDurationMs, yearForProgress,
 } from '../renderers/web/js/arrival.js';
@@ -41,3 +44,13 @@ const reduced = new Set([0, .1, .24, .26, .49, .51, .74, .9, .999].map(reducedPr
 assert.ok(reduced.size <= 4, `reduced motion produced ${reduced.size} pre-ready updates`);
 
 console.log('ARRIVAL PASS — monotone, bounded, honest readiness and reduced-motion pacing');
+
+const here = path.dirname(fileURLToPath(import.meta.url));
+const index = readFileSync(path.join(here, '../renderers/web/index.html'), 'utf8');
+assert.match(index, /id="arrival-year"[^>]*aria-hidden="true"/,
+  'the changing year must stay out of the accessibility tree');
+assert.match(index, /id="gate-sub"[^>]*aria-live="polite"/,
+  'the phase/arrival line is the gate\'s one live announcement');
+assert.match(index, /id="arrival-card"/, 'the source/status card slot must exist');
+
+console.log('ARRIVAL A11Y PASS — year hidden, phase line polite, card slot present');
