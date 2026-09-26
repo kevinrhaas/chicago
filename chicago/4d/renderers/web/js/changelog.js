@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1124, title: 'Seven free Black households the town held and never showed', kind: 'add', ts: '2026-09-26T03:19:54.705Z', date: 'Sep 25, 2026, 10:19 PM CT',
+    items: [
+      'Fifteen people arrive in the directory today, and not one of them is new. The seven free Black households at the floor of the 1835 bracket were reconstructed and carded weeks ago \u2014 the barber, the cook, the waiter, the drayman, the labourer, the whitewasher, the sawyer and their families. They have been sitting in this project\u2019s own files ever since, and the directory did not show a single one of them. The filter for them read zero.',
+      'It was one missing line. The directory builds this part of the town by reading a list of the passes that made it, and the free Black pass was written without being added to that list. Nothing complained, because nothing was broken: the cards passed every check a card has to pass. They were simply never asked for.',
+      'So the town now holds 3,309 people instead of 3,294, and 3,002 of them are residents. The count of these under-documented households goes from 89 to 96, and the people on them from 89 to 104. The directory’s own tally of who made them now prints all three passes and not one \u2014 87 from the 1832 militia roll, 2 from the baptismal register, 15 from this one \u2014 and is refused if the parts stop summing to the whole.',
+      'One thing on the new rows is corrected in the same breath. Every row of this part of the town used to be stamped as touching the removal of 1835, which was true of the only two passes that could reach the directory and is not true of this one; these seven cards say so themselves. The stamp is now read off each card rather than assumed, so the removal is not written onto seven households no source connects to it.',
+      'And a card written into this part of the town without being listed is now a build failure that names the card, the pass it belongs to and the line that fixes it. A person this project holds and does not show should not be something somebody has to notice.',
+    ] },
   { v: 1123, title: 'Work filed too big turned every waiting change red', kind: 'fix', ts: '2026-09-26T03:01:27.610Z', date: 'Sep 25, 2026, 10:01 PM CT',
     items: [
       'Nothing you can see in the town changed. This is about the checking between finished work and the town, and a way it could blame the wrong piece of work.',
