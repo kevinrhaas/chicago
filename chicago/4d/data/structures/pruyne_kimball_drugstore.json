@@ -86,9 +86,9 @@
           "note": "Not attested. One is the minimum for a shop kept through Chicago winters, and compounding needs heat. The COUNT is the inference; the stack's position, size and material are the archetype's, per docs/LIBERTIES.md L26."
         },
         "siding_exposure_m": {
-          "value": 0.14,
+          "value": 0.127,
           "confidence": "reconstructed",
-          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5.5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 5 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
         }
       },
       "change_note": "The drug store of Pruyne and Kimball on South Water Street — the town's second or third druggist's, after Philo Carpenter's. Andreas records the partnership and the street and nothing else, so this record is a business placed on the right street rather than a building placed on a lot."

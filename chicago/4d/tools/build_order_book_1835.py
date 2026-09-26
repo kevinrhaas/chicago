@@ -3808,8 +3808,14 @@ def cmd_self_test() -> int:
         return lambda: seats_against_roofs(bent, structure_buckets(
             bent["inventory"], bent["programme"], occ))
 
+    # 182 = the platted pass's 110 plus the off-plat pass's 72, both read off the
+    # committed files. It was 176 until T-1611 re-dealt six platted-block yard buildings
+    # into rear cottages: six roofs the platted deal had been obliged to refuse as
+    # ancillary became free dwellings, and the deal adopted them. The number is pinned
+    # here on purpose — a seating file that moves under this join must be RED, not
+    # quietly re-summed — so restate it whenever it moves, against the files.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 176
+        data["inventory"], data["programme"], occ))["seated"] == 182
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

@@ -362,25 +362,25 @@ The roster offers 1,787 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,480
-- seated: 176 — 172 by adopting a roof that already stands, 4 by asking for one
-- still on no ground at all: 1,304
-- of the 421 roofs the town already has, 172 now carry a reconstructed household
+- seated: 182 — 178 by adopting a roof that already stands, 4 by asking for one
+- still on no ground at all: 1,298
+- of the 421 roofs the town already has, 178 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,480 | 104 | 100 | 4 | 1,376 |
-| The ground the plat does not draw | T-1614 | 1,376 | 72 | 72 | 0 | 1,304 |
+| The committed plat | T-1613 | 1,480 | 110 | 106 | 4 | 1,370 |
+| The ground the plat does not draw | T-1614 | 1,370 | 72 | 72 | 0 | 1,298 |
 
 4 slot(s) on 2 block(s) — blk_south_water_dearborn, blk_south_water_wells. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
 | household | block | lot | family | clause |
 |---|---|---|---|---|
-| `hh_brown_lemuel` | `blk_south_water_dearborn` | `blk_south_water_dearborn#07` | D5 | `tradesman_dwellings` |
-| `hh_bryant_j_r_m` | `blk_south_water_dearborn` | `blk_south_water_dearborn#07` | D6 | `tradesman_dwellings` |
-| `hh_burbee_jonathan` | `blk_south_water_wells` | `blk_south_water_wells#01` | D3 | `tradesman_dwellings` |
-| `hh_burk_james` | `blk_south_water_wells` | `blk_south_water_wells#01` | D4 | `tradesman_dwellings` |
+| `hh_burk_james` | `blk_south_water_dearborn` | `blk_south_water_dearborn#07` | D5 | `tradesman_dwellings` |
+| `hh_burke_james` | `blk_south_water_dearborn` | `blk_south_water_dearborn#07` | D6 | `tradesman_dwellings` |
+| `hh_byam_seth` | `blk_south_water_wells` | `blk_south_water_wells#01` | D3 | `tradesman_dwellings` |
+| `hh_byram_thomas` | `blk_south_water_wells` | `blk_south_water_wells#01` | D4 | `tradesman_dwellings` |
 
-1,304 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,298 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -599,7 +599,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
-| `structures/barns_stables/south` | 35 | 20 | 15 | 0 | T-1212 |
+| `structures/barns_stables/south` | 35 | 16 | 19 | 0 | T-1212 |
 | `structures/barns_stables/west` | 20 | 12 | 8 | 0 | T-1212 |
 | `structures/barns_stables/north` | 17 | 8 | 9 | 0 | T-1212 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | T-1204 |
@@ -613,10 +613,10 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/larger_boarding_houses/south` | 28 | 9 | 19 | 0 | T-1209 |
 | `structures/larger_boarding_houses/west` | 6 | 2 | 4 | 0 | T-1209 |
 | `structures/larger_boarding_houses/north` | 8 | 6 | 2 | 0 | T-1209 |
-| `structures/ordinary_dwellings/south` | 176 | 120 | 56 | 0 | T-1203 |
+| `structures/ordinary_dwellings/south` | 176 | 126 | 50 | 0 | T-1203 |
 | `structures/ordinary_dwellings/west` | 75 | 51 | 24 | 0 | T-1208 |
 | `structures/ordinary_dwellings/north` | 84 | 46 | 38 | 0 | T-1206 |
-| `structures/small_outbuildings/south` | 48 | 25 | 23 | 0 | T-1212 |
+| `structures/small_outbuildings/south` | 48 | 23 | 25 | 0 | T-1212 |
 | `structures/small_outbuildings/west` | 14 | 4 | 10 | 0 | T-1212 |
 | `structures/small_outbuildings/north` | 20 | 9 | 11 | 0 | T-1212 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |
