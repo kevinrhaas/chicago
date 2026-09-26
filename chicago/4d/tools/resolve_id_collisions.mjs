@@ -74,7 +74,7 @@
  * is the form `tools/preflight.sh` runs before a PR is opened. With no flags it
  * repairs, which is the form the lap runs after it merges the base in.
  */
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, existsSync, realpathSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 
@@ -336,7 +336,43 @@ function restoreQueueLine(id, title, top) {
 
 /* ---------------------------------------------------------------- the repair */
 
+/**
+ * NOT THIS TOOL'S QUESTION ANY MORE, WHERE THE TICKETS LIVE IN THEIR OWN REPOSITORY.
+ * Since 2026-09-23 `tickets/` is a clone of kevinrhaas/chicago-tickets, gitignored
+ * here. `ticket.mjs` commits every change straight to that repository's `main`, and
+ * it renumbers a colliding id as it pushes (`renumberCollisions`), so a code branch
+ * carries no ticket file and cannot mint a duplicate. There is nothing for this
+ * tool to attribute or move.
+ *
+ * It used to find that out by crashing. The PR lap's checkout has no `tickets/` at
+ * all, `ticketsOnDisk` read it without asking, and the lap reported the ENOENT as
+ * "TICKET ID COLLISION it would not resolve — left alone". So a green PR that
+ * merged dev cleanly was never lapped: #45 sat `stuck` on 2026-09-25 for exactly
+ * that. A clone that does hold `tickets/` holds it as its own repository, in
+ * chunk folders this flat reader never saw, so "no collision" there was true only
+ * by accident.
+ *
+ * Returns why the question does not apply, or null when it does (the old in-tree
+ * layout, which the self-test below still builds).
+ */
+function ticketsLiveElsewhere(cwd = APP) {
+  const dir = path.join(cwd, 'tickets');
+  if (!existsSync(dir)) return 'this checkout has no tickets/ directory';
+  const top = gitOr(['-C', dir, 'rev-parse', '--show-toplevel'], null)?.trim();
+  if (top && realpathSync(top) === realpathSync(dir)) {
+    return 'tickets/ is a repository of its own (kevinrhaas/chicago-tickets)';
+  }
+  return null;
+}
+
 function run() {
+  const elsewhere = ticketsLiveElsewhere();
+  if (elsewhere) {
+    console.log(`ticket ids: not applicable — ${elsewhere}. Ids are allocated on the tickets `
+      + 'repository\'s main by ticket.mjs, which renumbers a collision as it pushes; a code '
+      + 'branch carries no ticket file, so there is nothing here to renumber.');
+    return 0;
+  }
   const tickets = ticketsOnDisk();
   const onBase = namesOnBase();
   const found = collisions(tickets, onBase);
@@ -595,6 +631,42 @@ ${title}.
       && idOfFile(path.join(T, 'T-0003-b.md')) === 'T-0003');
   } finally {
     rmSync(tmp, { recursive: true, force: true });
+  }
+
+  // WHERE THE TICKETS LIVE ELSEWHERE, THE QUESTION DOES NOT ARISE — and it must be
+  // answered, not crashed on. The PR lap's checkout has no tickets/ at all, and a
+  // clone holds it as a repository of its own; both have to exit 0 and say why,
+  // in every mode the lap and the gate call it in.
+  console.log('\n  where the tickets live in their own repository');
+  const tmp2 = mkdtempSync(path.join(tmpdir(), 'c4d-collide-elsewhere-'));
+  const APPY = path.join(tmp2, 'chicago', '4d');
+  try {
+    mkdirSync(path.join(APPY, 'tools'), { recursive: true });
+    cpSync(path.join(APP, 'tools', 'resolve_id_collisions.mjs'),
+      path.join(APPY, 'tools', 'resolve_id_collisions.mjs'));
+    execFileSync('git', ['init', '-q', '-b', 'main'], { cwd: tmp2 });
+    const ask = (...a) => {
+      try {
+        return { code: 0, out: execFileSync('node',
+          [path.join(APPY, 'tools', 'resolve_id_collisions.mjs'), '--base', 'main', ...a],
+          { cwd: APPY, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }) };
+      } catch (e) { return { code: e.status, out: `${e.stdout}${e.stderr}` }; }
+    };
+    for (const mode of [[], ['--check']]) {
+      const r = ask(...mode);
+      check(`no tickets/ at all (the lap's checkout) exits 0 and says why ${mode.join(' ') || '(repair)'}`,
+        r.code === 0 && /not applicable/.test(r.out) && /no tickets\/ directory/.test(r.out),
+        r.out.trim());
+    }
+    mkdirSync(path.join(APPY, 'tickets', 'T-0000-0249'), { recursive: true });
+    execFileSync('git', ['init', '-q', '-b', 'main'], { cwd: path.join(APPY, 'tickets') });
+    for (const mode of [[], ['--check']]) {
+      const r = ask(...mode);
+      check(`tickets/ as a repository of its own exits 0 and says so ${mode.join(' ') || '(repair)'}`,
+        r.code === 0 && /repository of its own/.test(r.out), r.out.trim());
+    }
+  } finally {
+    rmSync(tmp2, { recursive: true, force: true });
   }
 
   console.log(`\n${failures === 0 ? 'id-collision self-test: all pass'
