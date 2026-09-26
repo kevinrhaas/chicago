@@ -4611,10 +4611,10 @@
       "summary": {
         "roof_target": 668,
         "standing_records": 419,
-        "standing_with_an_occupant": 124,
-        "standing_without_an_occupant": 295,
+        "standing_with_an_occupant": 123,
+        "standing_without_an_occupant": 296,
         "to_build_total": 262,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 295 of the 419 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 296 of the 419 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5560,7 +5560,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "295 of 419 standing records carry no occupants block."
+      "measured_now": "296 of 419 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

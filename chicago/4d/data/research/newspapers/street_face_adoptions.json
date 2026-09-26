@@ -32,10 +32,10 @@
      "lot front"
     ],
     "in_force": false,
-    "would_seat": 30,
-    "would_seat_on_distinct_roofs": 30,
+    "would_seat": 29,
+    "would_seat_on_distinct_roofs": 29,
     "deals_a_roof_twice": {},
-    "per_face_ledger_would_seat": 30,
+    "per_face_ledger_would_seat": 29,
     "per_face_ledger_would_deal_twice": {},
     "against_the_reading_in_force": -10,
     "seats_that_the_reading_in_force_does_not": [],
@@ -66,10 +66,10 @@
      "corner side"
     ],
     "in_force": true,
-    "would_seat": 40,
-    "would_seat_on_distinct_roofs": 40,
+    "would_seat": 39,
+    "would_seat_on_distinct_roofs": 39,
     "deals_a_roof_twice": {},
-    "per_face_ledger_would_seat": 41,
+    "per_face_ledger_would_seat": 40,
     "per_face_ledger_would_deal_twice": {
      "recon_1835_blk_south_water_lasalle_d1_08": [
       "business_james_grant",
@@ -99,10 +99,10 @@
      "centreline band"
     ],
     "in_force": false,
-    "would_seat": 40,
-    "would_seat_on_distinct_roofs": 40,
+    "would_seat": 39,
+    "would_seat_on_distinct_roofs": 39,
     "deals_a_roof_twice": {},
-    "per_face_ledger_would_seat": 41,
+    "per_face_ledger_would_seat": 40,
     "per_face_ledger_would_deal_twice": {
      "recon_1835_blk_south_water_lasalle_d1_08": [
       "business_james_grant",
@@ -128,8 +128,8 @@
   }
  },
  "counts": {
-  "street_only_in_register": 61,
-  "adopted": 40,
+  "street_only_in_register": 60,
+  "adopted": 39,
   "refused": 21,
   "refused_by_reason": {
    "not present at the scene date": 0,
@@ -169,8 +169,8 @@
    },
    "lake": {
     "street_name": "Lake Street",
-    "businesses_naming_it": 8,
-    "adopted": 8,
+    "businesses_naming_it": 7,
+    "adopted": 7,
     "roofs_lot_front": 51,
     "roofs_corner_side": 0,
     "roofs_on_the_adopted_face": 51,
@@ -374,7 +374,7 @@
    "first_issue": "1835-06-24",
    "last_issue": "1835-06-24",
    "mentions": 1,
-   "structure_id": "recon_1835_blk_south_water_clark_d4_02",
+   "structure_id": "recon_1835_blk_lake_market_d5_01",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "lot": null,
@@ -635,7 +635,7 @@
    "first_issue": "1835-08-08",
    "last_issue": "1835-08-12",
    "mentions": 2,
-   "structure_id": "recon_1835_blk_lake_franklin_d1_02",
+   "structure_id": "recon_1835_blk_lake_clark_d5_03",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "lot": null,
@@ -734,7 +734,7 @@
    "first_issue": "1834-10-08",
    "last_issue": "1834-11-12",
    "mentions": 2,
-   "structure_id": "recon_1835_blk_lake_clark_d5_03",
+   "structure_id": "recon_1835_blk_lake_clark_d3_02",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "lot": null,
@@ -1488,7 +1488,7 @@
    "first_issue": "1835-08-19",
    "last_issue": "1835-08-22",
    "mentions": 2,
-   "structure_id": "recon_1835_blk_lake_franklin_d5_01",
+   "structure_id": "recon_1835_blk_lake_franklin_d1_02",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "lot": null,
@@ -1572,7 +1572,7 @@
    "first_issue": "1834-07-09",
    "last_issue": "1834-07-09",
    "mentions": 1,
-   "structure_id": "recon_1835_blk_lake_market_d5_01",
+   "structure_id": "recon_1835_blk_lake_market_d4_02",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "lot": null,
@@ -1687,41 +1687,7 @@
    "first_issue": "1834-06-04",
    "last_issue": "1834-06-04",
    "mentions": 1,
-   "structure_id": "recon_1835_blk_lake_market_d4_02",
-   "face": "lot front",
-   "roof_confidence": "reconstructed",
-   "lot": null,
-   "claims_lot": false,
-   "order_is_a_claim": false,
-   "note": "The advertisement names Lake Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit whose platted lot faces Lake Street; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
-  },
-  {
-   "business_id": "business_wm_h_kennicott_surgeon_dentist",
-   "business_name": "Wm. H. Kennicott, Surgeon Dentist",
-   "trade": "dentistry",
-   "proprietors": [
-    "Kennicott, Wm. H."
-   ],
-   "partners": [
-    "Kennicott, Wm. H."
-   ],
-   "firm_styles": [],
-   "surnames": [
-    "kennicott"
-   ],
-   "street_id": "lake",
-   "street_name": "Lake Street",
-   "street_text": "Lake Street",
-   "placement_class": "relative",
-   "cites": [
-    "chicago_democrat_1835_06_24#c007",
-    "chicago_democrat_1835_08_05#c021",
-    "chicago_democrat_1835_08_19#c014"
-   ],
-   "first_issue": "1835-06-24",
-   "last_issue": "1835-08-19",
-   "mentions": 3,
-   "structure_id": "recon_1835_blk_lake_clark_d3_02",
+   "structure_id": "recon_1835_blk_lake_franklin_d5_01",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "lot": null,

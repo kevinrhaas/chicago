@@ -26,8 +26,8 @@ The register's four actions collapse onto three limits: `enrich_existing` and `n
 
 | limit | businesses | what the paper reached |
 |---|---:|---|
-| structure | 56 | an anchor that resolves to a roof |
-| street_only | 61 | a platted street and nothing narrower |
+| structure | 57 | an anchor that resolves to a roof |
+| street_only | 60 | a platted street and nothing narrower |
 | unplaceable | 62 | no street the model holds |
 
 The 61 street-only and 62 unplaceable businesses are the **location limits T-1147 asks to preserve**, not missing buildings. They may fall only when a new source or reading names a stronger anchor.
@@ -44,10 +44,10 @@ The 61 street-only and 62 unplaceable businesses are the **location limits T-114
 
 | disposition | rows |
 |---|---:|
-| limited | 299 |
+| limited | 298 |
 | no_claim | 1305 |
 | refused | 189 |
-| resolved | 172 |
+| resolved | 173 |
 
 `no_claim` is a row deliberately kept: a home row exists for every household, including the 1,185 the sources place nowhere, because the seating-class axis is defined over the whole layer and `none` is one of its classes. A workplace has no such axis, so an absent workplace is an absent row.
 
@@ -90,8 +90,8 @@ The 83 `issue_range` rows are why the pair exists. `describes_date` used to publ
 
 | ledger | rows |
 |---|---:|
-| `data/research/newspapers/register_1835.json` | 118 |
-| `data/research/newspapers/street_face_adoptions.json` | 61 |
+| `data/research/newspapers/register_1835.json` | 119 |
+| `data/research/newspapers/street_face_adoptions.json` | 60 |
 | `households` | 1786 |
 
 `households` is the per-household file `data/residents/households/<id>.json`, which carries both the `lives_at`/`works_at` claim and the back-projection ruling on a later address. A street-only business is adjudicated by `street_face_adoptions.json` and not by the register: the register says the paper reached a street and stopped, and the adoption file is what then dealt a roof or refused the face.

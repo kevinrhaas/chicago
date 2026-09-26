@@ -24,8 +24,8 @@
       },
       "by_action": {
         "enrich_existing": 30,
-        "new_building": 26,
-        "street_only": 61,
+        "new_building": 27,
+        "street_only": 60,
         "unplaceable": 79
       },
       "by_placement_class": {
@@ -36,8 +36,8 @@
       },
       "present_by_action": {
         "enrich_existing": 30,
-        "new_building": 26,
-        "street_only": 61,
+        "new_building": 27,
+        "street_only": 60,
         "unplaceable": 62
       },
       "outside_the_plat": 5,
@@ -8923,19 +8923,19 @@
       "survival_liberty_required": false,
       "backdating_liberty_required": false,
       "anchor": {
-        "kind": "unresolved",
-        "target": null,
+        "kind": "structure",
+        "target": "exchange_coffee_house",
         "streets": null,
         "via": null,
-        "note": "The anchor 'the Exchange' names nothing the committed town holds."
+        "note": "The landmark is the committed structure exchange_coffee_house."
       },
       "anchor_change": null,
       "outside_plat": null,
-      "action": "street_only",
-      "action_target": "lake",
+      "action": "new_building",
+      "action_target": "exchange_coffee_house",
       "match_tier": null,
       "match_evidence": null,
-      "action_note": "The paper names Lake Street and nothing narrower; the anchor 'the Exchange' names nothing the committed town holds."
+      "action_note": "Placeable against the committed town. The landmark is the committed structure exchange_coffee_house."
     },
     {
       "id": "business_wm_h_taylor",
