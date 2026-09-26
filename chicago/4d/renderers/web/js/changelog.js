@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'The LaSalle slough no longer runs inland to Randolph', kind: 'fix', ts: '',
+  { v: 1155, title: 'The LaSalle slough no longer runs inland to Randolph', kind: 'fix', ts: '2026-09-26T20:45:43.264Z', date: 'Sep 26, 2026, 3:45 PM CT',
     items: [
       'Fly over the river front just east of LaSalle Street and there was a ditch running inland from the water, under South Water Street, across Lake Street and on nearly to Randolph. It is gone. The drain now comes in from the river, crosses the street under its plank crossing, reaches about sixteen metres into the lot behind, and the ground closes over it.',
       'The owner spotted it from the air and checked it against the two 1834 surveys the town is fitted to \u2014 Wright\u2019s and Hathaway\u2019s. Neither draws an inland course here at all. They draw a notch in the bank and nothing above it, which is what this project\u2019s own reading of Wright\u2019s whole sheet had already found and written down.',
