@@ -144,41 +144,10 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D4 family to satisfy the block's scheduled mix; no occupant or individual use is known."
-    },
-    "occupants": {
-      "value": "a new auction and commission room, South Water Street — auction and commission",
-      "confidence": "reconstructed",
-      "sources": [
-        "chicago_american_1835"
-      ],
-      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on South Water Street AND NOTHING NARROWER — 5 printings, 1835-06-27 to 1835-07-25, claims chicago_american_1835_06_27#c008, chicago_american_1835_07_04#c012, chicago_american_1835_07_11#c003, chicago_american_1835_07_18#c003, chicago_american_1835_07_25#c003 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES South Water Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
     }
   },
   "residents": [],
   "citations": [
-    {
-      "source_id": "chicago_american_1835",
-      "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
-      "url": "",
-      "archived_url": "",
-      "tier": 1,
-      "tier_label": "period/eyewitness",
-      "what_it_supplies": [
-        "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
-        "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
-        "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
-        "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
-        "the paper's own correction of its first masthead date"
-      ],
-      "what_it_does_not_supply": [
-        "any building's form, material, storey count, fenestration or dimensions",
-        "a reliable reading of a dense body column — this run had no reconciled second pass",
-        "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
-        "identification by volume and number: No. 12 is printed on two different issues",
-        "anything at all from an engraving — the cuts are the printer's stock",
-        "a citation without an issue page and column"
-      ]
-    },
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
       "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",

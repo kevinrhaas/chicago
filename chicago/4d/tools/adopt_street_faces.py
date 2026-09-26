@@ -177,6 +177,77 @@ THE REFUSALS, AND WHY EACH ONE IS THERE.
                                         declared `not_joined` refusal — one door, one
                                         trade, and no printing that sets both spellings.
 
+  7. `the roof was raised to answer a household's slot request` — the third refusal of
+                                        a ROOF, and the one T-1626 added. The platted
+                                        seating (T-1613) walks the banded households over
+                                        the plat, and where it can find no standing roof
+                                        for one it does not give up: it draws on the
+                                        block's own committed family plan and writes a
+                                        SLOT — a request, with the block and the family
+                                        named, that the 5C build tickets fulfil. A roof
+                                        raised in answer to such a request is not free
+                                        supply, and until 2026-09-26 this pass took it.
+                                        T-1622 built the D3 and D4 that
+                                        blk_south_water_franklin was asked for and this
+                                        pass handed both to documented firms before the
+                                        seating could return: business adoptions went 39
+                                        to 41 and the town's platted seats went 106 to
+                                        104. The two households did not merely miss their
+                                        roof, they lost the REQUEST — the block's headroom
+                                        had been spent — and dropped back to `owed`. So
+                                        the two roofs the build raised seated nobody new
+                                        and cost the town two seats. See "THE PRECEDENCE
+                                        T-1626 SETTLED" below.
+
+THE PRECEDENCE T-1626 SETTLED, AND WHY IT IS NOT THE OWNER'S TO RULE ON.
+
+Refusal 7 looks like it prefers an invented household to a printed advertisement, and it
+does not. **The precedence here was never documented-beats-reconstructed.** Refusal 4 has
+subordinated this pass to the INFERRED household layer since 2026-08-30 — a hypothesis
+from the town's arithmetic that names nobody — and says in its own words that the
+invention makes the case stronger rather than weaker. A platted seat is the same kind of
+claim as an inferred household. The only reason it lost was that it was recorded as a
+REQUEST rather than as an occupancy, and a request is invisible to a pass that reads
+`occupants`. That is an ordering accident, not a policy: this pass runs first, so it takes
+the roof in the window between the roof being raised and the household being seated in it.
+
+What actually decides it is limit 3, which this file has stated from the first day.
+**WHICH roof on a face a business is given is an allocation and "a statement about
+nothing."** A business is roof-INDIFFERENT: any free roof on the face serves it equally,
+and refusal 3 is the pre-existing, honest answer when the face runs out. A slot request is
+roof-SPECIFIC: the roof exists because a named household asked this block for that family,
+and `data/reconstruction/1835_platted_block_parcels.json` records the request beside the
+deal that answered it. Giving the indifferent claim priority over the specific one is what
+produced a build that seated nobody. So the reservation costs the register nothing it had:
+the refused business falls back to refusal 3, which is exactly the refusal it carried
+before the roof was built, and the reconstruction did not add supply for it.
+
+It is therefore an allocation precedence between two of this project's own passes, with no
+source read on either side and no claim about 1835 either way — not rights, not the
+depiction of people, not money, not what the project is. A run settles it and writes down
+why, which is this.
+
+**THE RESERVATION DOES NOT EXPIRE, AND THAT IS DELIBERATE.** A roof carries it because of
+how it came to be raised, and that does not stop being true if the seating pass later
+deals the roof to some OTHER household than the one that asked — which roof a household
+takes is the seating pass's allocation, exactly as which roof a business takes is this
+one's. Measured on the tree this shipped against: with refusal 7 in force the platted deal seats
+112 households against 110 without it, and it gives the two franklin roofs to
+hh_beeson_william and hh_bench_reuben rather than to Brown and Bryant who asked. Both are
+household seats, which is what the reservation is for; neither is this pass's to pick.
+(T-1622 measured the same pair at 106 against 104; T-1611 has since seated six more, and
+the DIFFERENCE the refusal makes is the two roofs either way.)
+
+The cost of never releasing it is a roof the household layer declines to fill and this
+pass may not take, so the table carries the count — but note WHAT IT READS. `reserved_
+without_a_committed_occupancy` counts reserved roofs whose own STRUCTURE RECORD states no
+occupant, and that is 2 today for both franklin roofs, because the platted deal is an
+adjudication in `1835_platted_seats.json` and does not write `occupants` onto a record
+(its own words: "no structure record is touched"). Reading that file here would close the
+cycle `requested_roofs()` exists to avoid. So the number is an upper bound on the cost,
+not the cost: it is the roofs no COMMITTED occupancy holds, and on today's tree the
+seating adjudication holds both of them.
+
 WHAT THIS FILE WILL NOT DO. It will not raise a structure, move one, promote one, or
 write a lot. It writes ONE derived table and nothing else; spending it — a card, a
 signboard, a frontage — is T-0263's and the seeding tickets'. It will not invent a
@@ -206,6 +277,7 @@ OUT = DATA / "research" / "newspapers" / "street_face_adoptions.json"
 STRUCTURES = DATA / "structures"
 HOUSEHOLDS = DATA / "residents" / "households"
 PROGRAMME = DATA / "reconstruction" / "1835_inferred_household_programme.json"
+PARCELS = DATA / "reconstruction" / "1835_platted_block_parcels.json"
 
 SCENE_DATE = "1835-07-01"
 FRONT = "lot front"          # tools/fronting_street.FRONT
@@ -370,7 +442,66 @@ def dwellings() -> dict[str, list[str]]:
     return out
 
 
-EMPTY_FACE = {FRONT: [], SIDE: [], BAND: [], "free": [], "homes": [], "yards": []}
+def requested_roofs() -> dict[str, dict]:
+    """structure id -> the platted seat whose slot request raised it. Refusal 7's test.
+
+    The link is DATA, and it is upstream of both passes, which is what keeps this
+    derivation acyclic. `tools/seat_platted_ground_1835.py` writes a `slot` when it can
+    find no standing roof for a banded household, naming the block and the family it drew
+    on; the build ticket that answers one records the request it answered in
+    `1835_platted_block_parcels.json` § `dealt_against_a_request`, beside the deal. This
+    reads that recipe — an AUTHORED file neither pass derives — and matches each request
+    to a roof of its family raised by that deal, in id order, one roof per request. A deal
+    that raised fewer roofs of a family than it was asked for reserves fewer; nothing here
+    invents a reservation the recipe does not carry.
+
+    It could not read `1835_platted_seats.json` instead. That file is derived from the
+    structure records, and this pass's own allocation is spent into them by
+    `tools/inferred_occupancy.py`, so reading the seats here would close a cycle and make
+    `check.sh`'s re-derivation depend on which of the two ran last.
+    """
+    if not PARCELS.exists():
+        return {}
+    by_phase: dict[str, list[str]] = {}
+    family_of: dict[str, str] = {}
+    for path in sorted(STRUCTURES.glob("recon_*.json")):
+        doc = load(path)
+        recon = doc.get("reconstruction") or {}
+        phase = recon.get("programme_phase")
+        if not phase or recon.get("inventory_class") != "principal_functional":
+            continue
+        by_phase.setdefault(phase, []).append(doc["id"])
+        family_of[doc["id"]] = recon.get("family")
+    out: dict[str, dict] = {}
+    for block in load(PARCELS).get("blocks", []):
+        dealt = block.get("dealt_against_a_request")
+        if not dealt:
+            continue
+        raised = sorted(by_phase.get(block.get("programme_phase")) or [])
+        for request in dealt.get("requests") or []:
+            for structure_id in raised:
+                if structure_id in out:
+                    continue
+                if family_of.get(structure_id) != request.get("family"):
+                    continue
+                out[structure_id] = {
+                    "structure_id": structure_id,
+                    "block_id": block.get("block_id"),
+                    "programme_phase": block.get("programme_phase"),
+                    "family": request.get("family"),
+                    "requested_by_seat": request.get("seat"),
+                    "order_book_draw": request.get("order_book_draw"),
+                    "dealt_by_ticket": dealt.get("ticket"),
+                    "why": "raised in answer to this seat's slot request, so it is the "
+                           "household layer's roof and not supply for an adoption "
+                           "(refusal 7, T-1626)",
+                }
+                break
+    return dict(sorted(out.items()))
+
+
+EMPTY_FACE = {FRONT: [], SIDE: [], BAND: [], "free": [], "homes": [], "yards": [],
+              "requested": []}
 
 # The order a pass deals a face's roofs when it is allowed to read more than one of
 # them: the plat first, then the corner sides, then the band. It is the order of
@@ -381,20 +512,23 @@ READING_ORDER = (FRONT, SIDE, BAND)
 
 
 def free_under(face: dict, readings: tuple[str, ...], homes: dict,
-               yards: set[str]) -> list[str]:
+               yards: set[str], requested: dict | None = None) -> list[str]:
     """The roofs a pass adopting `readings` could take, in READING_ORDER then id order.
 
-    Refusals 5 and 6 are applied here rather than by the caller, because they are
+    Refusals 4, 5 and 7 are applied here rather than by the caller, because they are
     refusals of a ROOF and hold under any reading of "face": a named household's home is
-    that household's home whichever street the roof shows, and a privy is a privy.
-    `free_under(face, (FRONT,), ...)` is exactly `face["free"]`, which is what keeps the
-    committed allocation byte-identical.
+    that household's home whichever street the roof shows, a privy is a privy, and a roof
+    raised to answer a slot request was commissioned by the household layer whichever
+    street it ends up showing. `free_under(face, (FRONT,), ...)` is exactly
+    `face["free"]`, which is what keeps the committed allocation byte-identical.
     """
+    requested = requested or {}
     out: list[str] = []
     for how in READING_ORDER:
         if how not in readings:
             continue
-        out += [sid for sid in face[how] if sid not in homes and sid not in yards]
+        out += [sid for sid in face[how]
+                if sid not in homes and sid not in yards and sid not in requested]
     return out
 
 
@@ -407,17 +541,19 @@ def reading_of(face: dict, structure_id: str) -> str:
 
 
 def supply(roofs: dict[str, str], homes: dict[str, list[str]],
-           yards: set[str]) -> dict:
+           yards: set[str], requested: dict | None = None) -> dict:
     """Per street: the roofs that show it a face, under each reading, and the free ones.
 
-    A roof standing on this street under an ADOPTED reading lands in exactly one of three
+    A roof standing on this street under an ADOPTED reading lands in exactly one of four
     buckets, and only `free` is supply: a named household's home (refusal 4), a yard
-    building (refusal 5), or a roof a business may take. The bucketing spans the adopted
+    building (refusal 5), a roof raised to answer a household's slot request (refusal 7),
+    or a roof a business may take. The bucketing spans the adopted
     readings rather than `lot front` alone, because refusals 4 and 5 refuse a ROOF and hold
     whichever way it shows the street — a privy is a privy seen end-on. Roofs that reach
     the street only by the DECLINED reading are counted under their own key and are not
     supply at all.
     """
+    requested = requested or {}
     out: dict[str, dict] = {}
     for structure_id in sorted(roofs):
         for street_id, how in fronting_street.fronting(structure_id):
@@ -429,6 +565,8 @@ def supply(roofs: dict[str, str], homes: dict[str, list[str]],
                     face["homes"].append(structure_id)
                 elif structure_id in yards:
                     face["yards"].append(structure_id)
+                elif structure_id in requested:
+                    face["requested"].append(structure_id)
                 else:
                     face["free"].append(structure_id)
     return out
@@ -558,7 +696,8 @@ PER_FACE_LEDGER = "per face"
 def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
              yards: set[str], readings: tuple[str, ...],
              ruled_two_houses: set[tuple[str, ...]],
-             ledger: str = TOWN_LEDGER) -> tuple[list, list]:
+             ledger: str = TOWN_LEDGER,
+             requested: dict | None = None) -> tuple[list, list]:
     """Deal the ranked pool onto the faces, reading "face" as `readings` says.
 
     The pass this file writes calls it with `ADOPTED_READINGS` and nothing else, and
@@ -575,6 +714,7 @@ def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
     shopfronts, on nothing. `limits()` would have caught it after the fact and failed the
     gate; refusing it here means the table is never written that way in the first place.
     """
+    requested = requested or {}
     taken: set[str] = set()
     spent_on_face: dict[str, set[str]] = {}
 
@@ -603,7 +743,7 @@ def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
             continue
         face = faces.get(street_id) or {key: list(value)
                                         for key, value in EMPTY_FACE.items()}
-        free = [sid for sid in free_under(face, readings, homes, yards)
+        free = [sid for sid in free_under(face, readings, homes, yards, requested)
                 if sid not in spoken_for(street_id)]
         if not any(face[how] for how in readings):
             refusals.append(dict(
@@ -636,11 +776,13 @@ def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
                 common, refusal=REFUSALS[3],
                 detail="%d roof(s) stand on this street: %d are a household's "
                        "dwelling under one layer or the other, %d are yard buildings the "
-                       "parcels dealt behind a lot, and %d are already adopted by a "
+                       "parcels dealt behind a lot, %d were raised to answer a "
+                       "household's slot request, and %d are already adopted by a "
                        "better-evidenced business."
                        % (len(on_face),
                           len([sid for sid in on_face if sid in homes]),
                           len([sid for sid in on_face if sid in yards]),
+                          len([sid for sid in on_face if sid in requested]),
                           len([sid for sid in on_face
                                if sid in spoken_for(street_id)]))))
             continue
@@ -726,7 +868,8 @@ def dealt_twice(rows: list) -> dict[str, list[str]]:
 
 def costed(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
            yards: set[str], adoptions: list,
-           ruled_two_houses: set[tuple[str, ...]]) -> dict:
+           ruled_two_houses: set[tuple[str, ...]],
+           requested: dict | None = None) -> dict:
     """What each reading of "face" actually SEATS, dealt rather than estimated.
 
     `widened_reading_would_reach` counts the businesses refused for want of a face —
@@ -742,14 +885,14 @@ def costed(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
     out: dict[str, dict] = {}
     for label, readings in COSTED_READINGS:
         would, refused = allocate(pool, gaz, faces, roofs, homes, yards, readings,
-                                  ruled_two_houses, TOWN_LEDGER)
+                                  ruled_two_houses, TOWN_LEDGER, requested)
         # T-0422. The same reading dealt under the ledger this pass kept until the
         # corner-side widening: one roof, one business PER FACE. It is derived here, on
         # every rebuild, so the difference between the two ledgers is a measured number in
         # the document rather than an argument in a ticket — and so `limits()` has
         # something to re-assert. Nothing below is ever written as an adoption.
         per_face, _ = allocate(pool, gaz, faces, roofs, homes, yards, readings,
-                               ruled_two_houses, PER_FACE_LEDGER)
+                               ruled_two_houses, PER_FACE_LEDGER, requested)
         seated = {row["business_id"]: row for row in would}
         gained = sorted(set(seated) - set(today))
         # A wider reading is not automatically a superset. Roofs are dealt to the pool in
@@ -793,14 +936,16 @@ def derive() -> dict:
     named = named_dwellings()
     homes = dwellings()
     yards = yard_roofs()
-    faces = supply(roofs, homes, yards)
+    requested = requested_roofs()
+    faces = supply(roofs, homes, yards, requested)
 
     ruled_two_houses = two_house_surnames(register)
     pool = [b for b in register["businesses"] if b["action"] == "street_only"]
     pool.sort(key=lambda entry: rank_key(entry, gaz))
 
     adoptions, refusals = allocate(pool, gaz, faces, roofs, homes, yards,
-                                   ADOPTED_READINGS, ruled_two_houses)
+                                   ADOPTED_READINGS, ruled_two_houses,
+                                   TOWN_LEDGER, requested)
 
     unplaceable = [b for b in register["businesses"]
                    if b["action"] == "unplaceable" and b.get("present_at_scene_date")]
@@ -826,12 +971,13 @@ def derive() -> dict:
             "roofs_home_inferred": len([sid for sid in face["homes"]
                                         if sid not in named]),
             "roofs_yard": len(face["yards"]),
+            "roofs_requested_by_a_seat": len(face["requested"]),
             "roofs_in_centreline_band_declined": len(face[BAND]),
         }
 
     eligible = sum(1 for row in refusals if row["refusal"] == REFUSALS[1])
     costed_readings = costed(pool, gaz, faces, roofs, homes, yards, adoptions,
-                             ruled_two_houses)
+                             ruled_two_houses, requested)
 
     # THE BAND, CONSIDERED AND DECLINED — recorded here rather than left to a document,
     # so a later run reads the refusal off the same file it reads the adoption off and
@@ -849,6 +995,15 @@ def derive() -> dict:
         "it_would_have_cost": len(band["loses_against_the_reading_in_force"]),
         "it_would_have_cost_ids": band["loses_against_the_reading_in_force"],
     }
+    # REFUSAL 7's OWN LEDGER (T-1626). Written out rather than left implicit in a
+    # smaller `roofs_free`, because a reservation nobody can see is a reservation that
+    # gets quietly re-opened. `occupied_by_a_household` reads the roof's committed record:
+    # a reserved roof the household layer has since filled is refusal 4's now and this
+    # entry is only its history, while a reserved roof standing empty is the cost of
+    # never releasing the reservation, and that is the number to watch.
+    reserved = []
+    for structure_id, row in requested.items():
+        reserved.append(dict(row, held_by_a_committed_occupancy=structure_id in homes))
     return {
         "schema": 1,
         "generated_by": "tools/adopt_street_faces.py",
@@ -891,8 +1046,27 @@ def derive() -> dict:
                                               if row["refusal"] == reason)
                                   for reason in REFUSALS},
             "unplaceable_present_at_scene_date": len(unplaceable),
+            "roofs_reserved_for_a_slot_request": len(reserved),
+            "reserved_and_held_by_a_committed_occupancy":
+                sum(1 for row in reserved if row["held_by_a_committed_occupancy"]),
+            "reserved_without_a_committed_occupancy":
+                sum(1 for row in reserved
+                    if not row["held_by_a_committed_occupancy"]),
             "by_street": by_street,
         },
+        "reserved_for_a_slot_request": reserved,
+        "reserved_for_a_slot_request_note":
+            "REFUSAL 7, T-1626. A roof raised in answer to a household's slot request is "
+            "the household layer's and this pass may not take it. The link is "
+            "data/reconstruction/1835_platted_block_parcels.json § "
+            "dealt_against_a_request, which the build ticket writes beside the deal that "
+            "answered the request; it is an authored recipe upstream of both passes, so "
+            "reading it here closes no cycle. Which household finally occupies the roof "
+            "is the seating pass's allocation and is not claimed here. "
+            "`held_by_a_committed_occupancy` reads the roof's own structure record and "
+            "nothing else: the platted deal writes no `occupants`, so a roof it has "
+            "seated still reads false here, and the false count is an upper bound on "
+            "what the reservation costs rather than the cost.",
         "adoptions": adoptions,
         "refusals": refusals,
     }
@@ -963,6 +1137,17 @@ def limits(doc: dict) -> list[str]:
     for structure_id in sorted(seen & yard_roofs()):
         bad.append("%s is a yard building — a privy, a stable or a woodshed standing "
                    "behind a lot — and a business cannot be seated in one" % structure_id)
+    # REFUSAL 7, T-1626. Asserted against the committed table for the same reason 4 and 5
+    # are: the allocation refuses these roofs when it deals, and this is what says the
+    # committed document still obeys the refusal after any hand or merge touches it.
+    reserved_now = requested_roofs()
+    for structure_id in sorted(seen & set(reserved_now)):
+        bad.append("%s was raised to answer %s's slot request (%s, %s) and cannot also "
+                   "be adopted — refusal 7 reserves it for the household layer"
+                   % (structure_id,
+                      reserved_now[structure_id].get("requested_by_seat"),
+                      reserved_now[structure_id].get("block_id"),
+                      reserved_now[structure_id].get("dealt_by_ticket")))
 
     # LIMIT 1 HOLDS OVER THE COUNTERFACTUALS TOO — T-0422. Every check above reads the
     # SHIPPED table, which is the reading in force; the other two rows of
@@ -1007,6 +1192,12 @@ def check() -> int:
           % (counts["street_only_in_register"], counts["adopted"], counts["refused"]))
     print("  ok    %d unplaceable business(es) stand outside this policy (T-0354 half two)"
           % counts["unplaceable_present_at_scene_date"])
+    print("  ok    %d roof(s) raised to answer a household's slot request are reserved "
+          "from the deal; %d carry a committed occupancy, %d do not yet (refusal 7, "
+          "T-1626 — the platted deal writes none, so that is an upper bound)"
+          % (counts["roofs_reserved_for_a_slot_request"],
+             counts["reserved_and_held_by_a_committed_occupancy"],
+             counts["reserved_without_a_committed_occupancy"]))
     return 0
 
 
@@ -1021,15 +1212,23 @@ def report() -> int:
     for reason, n in counts["refused_by_reason"].items():
         print("      %-40s %s" % (reason, n))
     print("  %-28s %s" % ("unplaceable, still open", counts["unplaceable_present_at_scene_date"]))
+    print("  %-28s %s" % ("reserved by a slot request", counts["roofs_reserved_for_a_slot_request"]))
+    for row in doc["reserved_for_a_slot_request"]:
+        print("      %-52s %s %s, for %s%s"
+              % (row["structure_id"], row["block_id"], row["family"],
+                 row["requested_by_seat"],
+                 "" if row["held_by_a_committed_occupancy"]
+                 else "  <-- no committed occupancy yet"))
     print("\n  BY STREET FACE — `front` and `side` are both adopted faces; `band` is not")
-    print("  %-20s %5s %5s %6s %5s %5s %5s"
-          % ("street", "ads", "took", "front", "side", "free", "band"))
+    print("  %-20s %5s %5s %6s %5s %5s %5s %5s"
+          % ("street", "ads", "took", "front", "side", "free", "band", "asked"))
     for street_id, row in sorted(counts["by_street"].items(),
                                  key=lambda kv: (-kv[1]["businesses_naming_it"], kv[0])):
-        print("  %-20s %5d %5d %6d %5d %5d %5d"
+        print("  %-20s %5d %5d %6d %5d %5d %5d %5d"
               % (row["street_name"], row["businesses_naming_it"], row["adopted"],
                  row["roofs_lot_front"], row["roofs_corner_side"], row["roofs_free"],
-                 row["roofs_in_centreline_band_declined"]))
+                 row["roofs_in_centreline_band_declined"],
+                 row["roofs_requested_by_a_seat"]))
     print("\n  EVERY READING COSTED, because the reader is owed the disagreement the")
     print("  decisions were made about. Eligible is not seated: refusals 3 and 4 still")
     print("  hold, and the supply a wider reading adds is already net of a household's")
@@ -1206,6 +1405,29 @@ def self_test() -> int:
              lambda b: first(b).update(structure_id=inferred_only[0]),
              "inferred household's dwelling")
 
+    # REFUSAL 7's live half (T-1626). The case that would have caught T-1622: seat the
+    # first business on a roof the platted seating asked a block for, and the limits must
+    # say so. The reservation has to be REAL for this to test anything, so a town holding
+    # none fails loudly rather than skipping quietly.
+    reserved_for_test = sorted(requested_roofs())
+    if not reserved_for_test:
+        print("  FAIL  no roof stands against a slot request, so refusal 7 cannot be "
+              "tested")
+        failed = 1
+    else:
+        on_a_face = [(sid, street) for sid in reserved_for_test
+                     for street, how in fronting_street.fronting(sid)
+                     if how in ADOPTED_READINGS]
+        if not on_a_face:
+            print("  FAIL  no reserved roof stands on an adopted face, so refusal 7 "
+                  "cannot be tested")
+            failed = 1
+        else:
+            case("a business seated in a roof raised to answer a slot request",
+                 lambda b: first(b).update(structure_id=on_a_face[0][0],
+                                           street_id=on_a_face[0][1]),
+                 "refusal 7 reserves it for the household layer")
+
     # Limit 2's live half: a roof promoted out of `reconstructed` must fail. It cannot be
     # faked by mutating the table — the confidence is read from the structure — so this
     # asserts the reader that limit 2 depends on actually distinguishes the grades.
@@ -1227,7 +1449,9 @@ def self_test() -> int:
     roofs_for_ledger = reconstructed_roofs()
     homes_for_ledger = dwellings()
     yards_for_ledger = yard_roofs()
-    faces_for_ledger = supply(roofs_for_ledger, homes_for_ledger, yards_for_ledger)
+    requested_for_ledger = requested_roofs()
+    faces_for_ledger = supply(roofs_for_ledger, homes_for_ledger, yards_for_ledger,
+                              requested_for_ledger)
     ruled_for_ledger = two_house_surnames(register_for_ledger)
     pool_for_ledger = [b for b in register_for_ledger["businesses"]
                        if b["action"] == "street_only"]
@@ -1238,7 +1462,8 @@ def self_test() -> int:
         for ledger in (TOWN_LEDGER, PER_FACE_LEDGER):
             rows, _ = allocate(pool_for_ledger, gaz_for_ledger, faces_for_ledger,
                                roofs_for_ledger, homes_for_ledger, yards_for_ledger,
-                               readings, ruled_for_ledger, ledger)
+                               readings, ruled_for_ledger, ledger,
+                               requested_for_ledger)
             under[ledger] = rows
         twice = dealt_twice(under[TOWN_LEDGER])
         if twice:
@@ -1301,8 +1526,9 @@ def self_test() -> int:
     if failed:
         print("SELF-TEST FAIL")
         return 1
-    print("SELF-TEST PASS — all four limits, both halves of both roof "
-          "refusals, both edges of the 2026-08-30 face ruling and both readings of the "
+    print("SELF-TEST PASS — all four limits, all three roof refusals (both halves of "
+          "the household one, the yard building, and the roof raised to answer a slot "
+          "request), both edges of the 2026-08-30 face ruling and both readings of the "
           "one-roof-one-business ledger fire when broken, and refusal 3 still obeys "
           "identity.json's two_houses rulings (20 cases)")
     return 0

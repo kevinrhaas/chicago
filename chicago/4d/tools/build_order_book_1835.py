@@ -3815,7 +3815,7 @@ def cmd_self_test() -> int:
     # here on purpose — a seating file that moves under this join must be RED, not
     # quietly re-summed — so restate it whenever it moves, against the files.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 182
+        data["inventory"], data["programme"], occ))["seated"] == 184
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
