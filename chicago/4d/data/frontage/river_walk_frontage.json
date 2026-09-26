@@ -58,7 +58,6 @@
       "belongs_to": "river_plank_walk",
       "kind": "plank_walk",
       "confidence": "reconstructed",
-      "rides": "slough_log_bridge",
       "centreline_local_enu_m": [
         [
           803.6,
@@ -74,26 +73,7 @@
       "plank_run": "across",
       "plank_pitch_m": 0.26,
       "plank_thickness_m": 0.055,
-      "deck_m": 0.83,
-      "deck_span_local_enu_m": [
-        [
-          805.3,
-          13.23
-        ],
-        [
-          813.3,
-          13.23
-        ],
-        [
-          813.3,
-          15.17
-        ],
-        [
-          805.3,
-          15.17
-        ]
-      ],
-      "note": "THE PLANK FOOTWAY OVER THE SLOUGH MOUTH — what a person walking Water Street actually crosses the drain on. The Slough Log Bridge is the committed structure (its record carries the crossing's evidence); this footway is the pedestrian surface the owner asked for on 2026-08-20, laid along the deck's own centre. WHERE is derived, not authored: the run is the committed deck's extent (E 805.3..813.3) plus 1.7 m onto each graded approach, and `deck_m` is the deck surface the sidecar already states (`walk_surface_m` over a water anchor), so the boards ride the same number the walker's deck registry reads. Over the carved channel the boards lie on the deck; on the approaches they take the ground, exactly as every other walk this layer lays. docs/LIBERTIES.md L153."
+      "note": "THE WALK'S EAST END — and until T-1629 (2026-09-26) this was the plank FOOTWAY over the State slough's mouth, riding the Slough Log Bridge's committed deck. THE ID IS KEPT AND IS NOW HISTORICAL: ids in this dataset are stable, and renaming one to tidy up a sentence would cost every reader who has followed it. WHAT CHANGED: the owner ruled on 2026-09-26, against Wright 1834 and Hathaway 1834, that there is ONE slough at the foot of State and its mouth is the notch the sheets draw just EAST of State — the mouth built west of State, under this walk, was the invention. So `state_slough_mouth` was re-routed, the carve under these boards is FILLED back to the bank line, and the deck these boards used to ride went with the water onto State Street about 35 m inland. There is no drain to cross here any more, so these boards lie on ground, like every other board in this record, and every station of the run is now asked of the committed heightfield instead of being exempted as decked. The run itself does not move: E 803.6..815.0 at N 14.2, the same extent the walk published before, because the change is about the drain and not about where a person could walk. docs/LIBERTIES.md L153."
     },
     {
       "id": "river_plank_walk_dearborn_crossing",
