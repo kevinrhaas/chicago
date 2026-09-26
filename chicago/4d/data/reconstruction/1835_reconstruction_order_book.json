@@ -1422,10 +1422,10 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1480,
-    "seated": 184,
-    "still_owed": 1296,
+    "seated": 180,
+    "still_owed": 1300,
     "roofs_adopted": 180,
-    "slots_requested": 4,
+    "slots_requested": 0,
     "roofs_standing": 421,
     "roofs_standing_unseated": 241,
     "share_of_standing_roofs_seated": 0.4276,
@@ -1437,22 +1437,22 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1480,
-        "seated": 112,
-        "handed_on": 1368,
+        "seated": 108,
+        "handed_on": 1372,
         "roofs_adopted": 108,
-        "slots_requested": 4,
+        "slots_requested": 0,
         "roofs_offered_for_adoption": 111,
         "roofs_held_back": 54,
-        "ground_taken": 92,
+        "ground_taken": 90,
         "ground_taken_unit": "lots",
         "by_district": {
-          "south": 96,
+          "south": 92,
           "west": 16
         },
         "by_clause": {
           "labourer_dwellings": 34,
           "merchant_and_professional_dwellings": 9,
-          "tradesman_dwellings": 69
+          "tradesman_dwellings": 65
         }
       },
       {
@@ -1461,9 +1461,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1368,
+        "rows_offered": 1372,
         "seated": 72,
-        "handed_on": 1296,
+        "handed_on": 1300,
         "roofs_adopted": 72,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 74,
@@ -1482,54 +1482,10 @@
         }
       }
     ],
-    "requested_slots": [
-      {
-        "household_id": "hh_byam_seth",
-        "name": "The Byam household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_south_water_dearborn",
-        "lot_id": "blk_south_water_dearborn#07",
-        "family": "D5",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_byram_thomas",
-        "name": "The Byram household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_south_water_dearborn",
-        "lot_id": "blk_south_water_dearborn#07",
-        "family": "D6",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_cady_levi",
-        "name": "The Cady household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_south_water_wells",
-        "lot_id": "blk_south_water_wells#01",
-        "family": "D3",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_calhoun_alvin",
-        "name": "The Calhoun household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_south_water_wells",
-        "lot_id": "blk_south_water_wells#01",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      }
-    ],
-    "slot_blocks": [
-      "blk_south_water_dearborn",
-      "blk_south_water_wells"
-    ],
-    "what_the_slots_wait_on": "4 slot(s) on 2 block(s) — blk_south_water_dearborn, blk_south_water_wells. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,296 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "requested_slots": [],
+    "slot_blocks": [],
+    "what_the_slots_wait_on": "no slot was requested: every seat is an adoption of a roof already standing.",
+    "what_is_left": "1,300 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
