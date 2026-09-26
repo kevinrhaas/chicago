@@ -71,9 +71,31 @@ that before a floor moves. This change moves no floor — `light` stays at 825,0
 above is 56,513 under it — so the question the ruling guards is not reached. The day that rung
 rises, it is reached.
 
-**Verified in the foreground on the branch.** `./tools/check.sh` PASS (the dev gate). Smoke, the
-parts `tools/smoke_budget.mjs --for-diff` named for this diff, on the published mirror. No
-structure record, no GLB and no scene data moved, so no bake.
+**Verified in the foreground on the branch.** `./tools/check.sh` **PASS — 637 steps, none red**,
+which is the dev gate (docs/PIPELINE.md) and now carries the two steps above; no gate step
+reported a missing module, so nothing here stands on a banked reading. Smoke on the published
+mirror, the four legs `tools/smoke_budget.mjs --for-diff` prices for this diff:
+
+| leg | result |
+|---|---|
+| desktop 1280×800 part 1 | **80 passed, 0 failed** — the three new ladder checks among them |
+| desktop 1280×800 part 5 | 25 passed, **1 failed** — T-1595, inherited |
+| desktop 1280×800 part 12 | **92 passed, 0 failed** — the part that reads the release notes |
+| mobile 390×780 parts 1-3 | **240 passed, 0 failed** |
+
+**The one red is not this branch's and the record says so rather than the branch claiming it.**
+`node tools/dev-smoke-state.mjs ask --viewport desktop --stage 5` has dev standing red at part 5
+since 2026-09-26T00:09Z with the same single failure and the same number — 99 calls at light,
+the open aerial, against the 90-call floor. That is T-1595. Every other assertion in part 5
+passes, the ladder's behavioural half included ("turning scene detail down actually draws less,
+at every stand" and "draw calls under budget at the town's WORST frame"). All four readings are
+filed with `dev-smoke-state.mjs record`.
+
+`sealLadder` itself is proven by breaking it, in `tools/check_detail_ladder.mjs --self-test`:
+a table that is already a ladder passes through untouched and silent; a rung typed above the
+one above it runs clamped under it, marked and shouted; equal rungs are pushed strictly under;
+a level in the order and not in the table throws. No structure record, no GLB and no scene data
+moved, so no bake.
 
 ## Rule 9 says what is true of each row it refuses — T-1505, 2026-09-24
 
