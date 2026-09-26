@@ -2234,6 +2234,12 @@ selftest "…and its own assertions still fire when broken" \
 step "sidecars derived from data/" \
   python3 tools/compile_scene.py --all --check
 
+step "Source-use backlinks match authored claims (T-1248)" \
+  python3 tools/compile_source_use.py --check
+
+step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
+  python3 tools/test_compile_source_use.py
+
 # Every building card offers a link to the write-up behind the building, and on
 # the deployed site all 332 of them were a 404: publish.sh leaves docs/ out of
 # the payload by design, so the link resolved in the source tree and nowhere a

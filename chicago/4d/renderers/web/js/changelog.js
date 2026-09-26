@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1154, title: 'The LaSalle slough no longer runs inland to Randolph', kind: 'fix', ts: '2026-09-26T20:27:53.178Z', date: 'Sep 26, 2026, 3:27 PM CT',
+  { v: null, title: 'The LaSalle slough no longer runs inland to Randolph', kind: 'fix', ts: '',
     items: [
       'Fly over the river front just east of LaSalle Street and there was a ditch running inland from the water, under South Water Street, across Lake Street and on nearly to Randolph. It is gone. The drain now comes in from the river, crosses the street under its plank crossing, reaches about sixteen metres into the lot behind, and the ground closes over it.',
       'The owner spotted it from the air and checked it against the two 1834 surveys the town is fitted to \u2014 Wright\u2019s and Hathaway\u2019s. Neither draws an inland course here at all. They draw a notch in the bank and nothing above it, which is what this project\u2019s own reading of Wright\u2019s whole sheet had already found and written down.',
@@ -7,6 +7,11 @@ export const CHANGELOG = [ // newest first
       'The mouth did not move a centimetre. It is the notch Wright drew, confirmed against the original sheet to within twelve metres on a survey fit whose own error is sixteen. Nor did the plank crossing on South Water Street: the water under its deck is as deep and as wide as it was.',
       'Two blocks got their prairie back. Lake Street and Randolph Street read as level ground again, and the ground the ditch held is released to the lots behind South Water Street, where houses may now be dealt. The measurable side of that: the roughest patch of supposedly level plain in the whole model falls by two fifths, from 55.9 to 33.2, because the inland ditch was the worst of it.',
       'The plank sidewalk on the north side of Lake Street is one walk again. The ditch used to break it in two \u2014 the town laid two separate runs between LaSalle and Clark to get round it \u2014 and the town now carries 39 runs of sidewalk where it carried 41, with 31 more metres of board underfoot. The lot behind South Water Street stands drier too: of 400 ground samples taken across it, 16 used to fall below the waterline and 2 do now.',
+    ] },
+  { v: 1154, title: 'Tracing the sources behind the reconstruction', kind: 'change', ts: '2026-09-26T20:00:41.962Z', date: 'Sep 26, 2026, 3:00 PM CT',
+    items: [
+      'Nothing visible in the town changes. A source index now links the registered sources to the buildings, people, businesses and other reconstruction claims that use them, and distinguishes unused sources.',
+      'This supplies the data needed for the forthcoming loading-screen source cards and Sources browser. Newspaper links retain their issue dates and page or column details where recorded.',
     ] },
   { v: 1153, title: 'One slough at the foot of State, where the maps draw it', kind: 'change', ts: '2026-09-26T19:48:19.264Z', date: 'Sep 26, 2026, 2:48 PM CT',
     items: [

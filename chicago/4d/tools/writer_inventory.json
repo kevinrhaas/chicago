@@ -1551,6 +1551,13 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "compile_source_use.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-09-26",
+      "finding": "Reproduces: ran bare after staging all 294 generated JSON files and the coverage report; git diff --exit-code over those outputs reported no changed byte. Two independent in-memory builds also matched byte-for-byte.",
+      "placed": "after compile_scene.py, whose current-scene membership and cited-structure sidecars it reads (T-1248)"
     }
   }
 }
