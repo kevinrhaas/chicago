@@ -25,10 +25,10 @@
       "washington"
     ],
     "faces_laid": 36,
-    "walk_m": 3193.4,
+    "walk_m": 3224.6,
     "crossing_m": 881.9,
-    "fence_m": 1623.8,
-    "walking_decks": 253,
+    "fence_m": 1630.4,
+    "walking_decks": 255,
     "hitching_posts": 16
   },
   "card": {
@@ -44,13 +44,13 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 3193.4,
+        "value": 3224.6,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "41 run(s) of sidewalk on 36 platted block face(s), plus 881.9 m of board crossing at 37 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
+        "note": "39 run(s) of sidewalk on 36 platted block face(s), plus 881.9 m of board crossing at 37 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
-        "value": 1623.8,
+        "value": 1630.4,
         "confidence": "reconstructed",
         "sources": [],
         "note": "31 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
@@ -1385,7 +1385,7 @@
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
-      "chunk": "blk_lake_lasalle_north_2",
+      "chunk": "blk_lake_lasalle_north_1",
       "centreline_local_enu_m": [
         [
           562.96,
@@ -1466,8 +1466,8 @@
           -124.48
         ],
         [
-          479.56,
-          -124.6
+          562.96,
+          -125.29
         ]
       ],
       "width_m": 1.83,
@@ -1501,38 +1501,29 @@
             ]
           ],
           "ground_roll_m": 0.005
-        }
-      ],
-      "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_lake_lasalle's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 0.0 m to 15.6 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_lake_lasalle_north_walk_2",
-      "belongs_to": "town_street_edge",
-      "kind": "plank_walk",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_lake_lasalle_north_2",
-      "centreline_local_enu_m": [
-        [
-          495.2,
-          -124.73
-        ],
-        [
-          562.96,
-          -125.29
-        ]
-      ],
-      "width_m": 1.83,
-      "rise_m": 0.11,
-      "plank_run": "across",
-      "plank_pitch_m": 0.32,
-      "plank_thickness_m": 0.055,
-      "plank_underside": false,
-      "stringer_pitch_m": 2.08,
-      "lot_line_offset_m": 1.17,
-      "verge_to_track_m": 4.86,
-      "footway_decks": [
+        },
+        {
+          "y": 0.895,
+          "pts": [
+            [
+              479.47,
+              -125.52
+            ],
+            [
+              495.27,
+              -125.65
+            ],
+            [
+              495.28,
+              -123.82
+            ],
+            [
+              479.48,
+              -123.69
+            ]
+          ],
+          "ground_roll_m": 0.005
+        },
         {
           "y": 0.9,
           "pts": [
@@ -1644,7 +1635,7 @@
           "ground_roll_m": 0.002
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_lake_lasalle's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 31.3 m to 99.0 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+      "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_lake_lasalle's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 0.0 m to 99.0 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_lasalle_south_crossing_blk_lake_clark_south",
@@ -7253,7 +7244,7 @@
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
-      "chunk": "blk_south_water_lasalle_south_2",
+      "chunk": "blk_south_water_lasalle_south_1",
       "centreline_local_enu_m": [
         [
           563.09,
@@ -7408,8 +7399,8 @@
           -102.42
         ],
         [
-          474.47,
-          -102.51
+          563.09,
+          -103.23
         ]
       ],
       "width_m": 1.83,
@@ -7430,12 +7421,12 @@
               -101.51
             ],
             [
-              474.55,
-              -101.6
+              479.77,
+              -101.64
             ],
             [
-              474.54,
-              -103.43
+              479.75,
+              -103.47
             ],
             [
               463.95,
@@ -7443,56 +7434,113 @@
             ]
           ],
           "ground_roll_m": 0.0
-        }
-      ],
-      "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_south_water_lasalle's south face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 0.0 m to 10.4 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
-    },
-    {
-      "id": "blk_south_water_lasalle_south_walk_2",
-      "belongs_to": "town_street_edge",
-      "kind": "plank_walk",
-      "confidence": "reconstructed",
-      "street": "lake",
-      "street_name": "Lake Street",
-      "chunk": "blk_south_water_lasalle_south_2",
-      "centreline_local_enu_m": [
-        [
-          490.11,
-          -102.64
-        ],
-        [
-          563.09,
-          -103.23
-        ]
-      ],
-      "width_m": 1.83,
-      "rise_m": 0.11,
-      "plank_run": "across",
-      "plank_pitch_m": 0.32,
-      "plank_thickness_m": 0.055,
-      "plank_underside": false,
-      "stringer_pitch_m": 2.08,
-      "lot_line_offset_m": 1.17,
-      "verge_to_track_m": 4.86,
-      "footway_decks": [
+        },
+        {
+          "y": 0.895,
+          "pts": [
+            [
+              479.61,
+              -101.64
+            ],
+            [
+              495.41,
+              -101.77
+            ],
+            [
+              495.39,
+              -103.6
+            ],
+            [
+              479.59,
+              -103.47
+            ]
+          ],
+          "ground_roll_m": 0.005
+        },
         {
           "y": 0.9,
           "pts": [
             [
-              490.03,
-              -101.72
+              495.25,
+              -101.77
             ],
             [
-              505.83,
-              -101.85
+              511.05,
+              -101.89
             ],
             [
-              505.82,
-              -103.68
+              511.03,
+              -103.72
             ],
             [
-              490.02,
-              -103.55
+              495.23,
+              -103.6
+            ]
+          ],
+          "ground_roll_m": 0.005
+        },
+        {
+          "y": 0.908,
+          "pts": [
+            [
+              510.89,
+              -101.89
+            ],
+            [
+              526.69,
+              -102.02
+            ],
+            [
+              526.67,
+              -103.85
+            ],
+            [
+              510.87,
+              -103.72
+            ]
+          ],
+          "ground_roll_m": 0.008
+        },
+        {
+          "y": 0.91,
+          "pts": [
+            [
+              526.53,
+              -102.02
+            ],
+            [
+              542.33,
+              -102.15
+            ],
+            [
+              542.31,
+              -103.98
+            ],
+            [
+              526.51,
+              -103.85
+            ]
+          ],
+          "ground_roll_m": 0.002
+        },
+        {
+          "y": 0.91,
+          "pts": [
+            [
+              542.17,
+              -102.15
+            ],
+            [
+              557.96,
+              -102.28
+            ],
+            [
+              557.95,
+              -104.11
+            ],
+            [
+              542.15,
+              -103.98
             ]
           ],
           "ground_roll_m": 0.005
@@ -7501,74 +7549,8 @@
           "y": 0.905,
           "pts": [
             [
-              505.67,
-              -101.85
-            ],
-            [
-              521.47,
-              -101.98
-            ],
-            [
-              521.46,
-              -103.81
-            ],
-            [
-              505.66,
-              -103.68
-            ]
-          ],
-          "ground_roll_m": 0.005
-        },
-        {
-          "y": 0.91,
-          "pts": [
-            [
-              521.31,
-              -101.98
-            ],
-            [
-              537.11,
-              -102.11
-            ],
-            [
-              537.1,
-              -103.94
-            ],
-            [
-              521.3,
-              -103.81
-            ]
-          ],
-          "ground_roll_m": 0.005
-        },
-        {
-          "y": 0.91,
-          "pts": [
-            [
-              536.95,
-              -102.11
-            ],
-            [
-              552.75,
-              -102.24
-            ],
-            [
-              552.74,
-              -104.07
-            ],
-            [
-              536.94,
-              -103.94
-            ]
-          ],
-          "ground_roll_m": 0.003
-        },
-        {
-          "y": 0.91,
-          "pts": [
-            [
-              552.59,
-              -102.23
+              557.8,
+              -102.28
             ],
             [
               563.18,
@@ -7579,14 +7561,14 @@
               -104.15
             ],
             [
-              552.58,
-              -104.06
+              557.79,
+              -104.11
             ]
           ],
-          "ground_roll_m": 0.005
+          "ground_roll_m": 0.0
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_south_water_lasalle's south face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 26.1 m to 99.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+      "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_south_water_lasalle's south face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 0.0 m to 99.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_wells_north_walk_1",
@@ -8183,11 +8165,11 @@
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
-      "chunk": "blk_lake_lasalle_north_2",
+      "chunk": "blk_lake_lasalle_north_1",
       "path_local_enu_m": [
         [
-          495.19,
-          -125.9
+          488.67,
+          -125.84
         ],
         [
           538.29,
@@ -8205,7 +8187,7 @@
         4
       ],
       "least_setback_m": 16.14,
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_lasalle's own platted frontage line from 31.3 m to 74.4 m along the north face, covering lot(s) 2, 4 — every one of them improved by a committed building whose nearest wall stands 16.14 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_lake_lasalle's own platted frontage line from 24.8 m to 74.4 m along the north face, covering lot(s) 2, 4 — every one of them improved by a committed building whose nearest wall stands 16.14 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_lasalle_south_fence_12",
@@ -8932,7 +8914,7 @@
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
-      "chunk": "blk_south_water_lasalle_south_2",
+      "chunk": "blk_south_water_lasalle_south_1",
       "path_local_enu_m": [
         [
           538.25,
@@ -9271,7 +9253,7 @@
       "confidence": "reconstructed",
       "street": "lake",
       "street_name": "Lake Street",
-      "chunk": "blk_south_water_lasalle_south_2",
+      "chunk": "blk_south_water_lasalle_south_1",
       "stands_at": "thomas_church_store",
       "trade": "store",
       "trade_confidence": "attested",
