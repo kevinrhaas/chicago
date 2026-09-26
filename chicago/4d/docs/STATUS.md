@@ -1,5 +1,75 @@
 # STATUS
 
+## The scene-detail ladder is sealed, and every rung says what it protects — T-0135, 2026-09-26
+
+**What a visitor sees:** nothing. No geometry, no reach, no cull and no ceiling value moves.
+`full` still carries 1,460,000 triangles, `balanced` 1,280,000, `light` 825,000, and the
+draw-call budget is still 215.
+
+**What closes T-0135.** The ticket's first three items shipped on 2026-08-22 — the budget is
+read at five named stands and gated on the WORST of them, each stand's reason is written where
+the set is defined, and the run prints the spread. What kept the ticket open is the owner's
+ruling of 2026-09-21, which asked for something the re-basing did not do:
+
+> the whole ladder is re-derived from the measured worst stand, **monotonic by construction**,
+> with each rung stating what it is FOR … and what measurement set it. A rung that cannot say
+> what it protects is the next version of this ticket.
+
+**The defect the ruling names is real and it is not hypothetical.** `DETAIL` in
+`renderers/web/js/main.js` was three independent literals with nothing between them. The
+ruling's own proposed numbers — `light` 992,617 against a `full` of 1,320,377 — would have
+INVERTED the bottom two rungs in the act of raising them, and no check in this project could
+have seen it. Five raises and one return are recorded in that table's comments; not one of
+them was constrained to keep the order.
+
+**Monotonic by construction, and the construction is a running minimum.** `sealLadder()` builds
+`DETAIL` from the declared table down `DETAIL_ORDER`, taking `min(declared, the rung above − 1)`.
+A rung can be typed too high; it cannot BE too high. That is the form the ruling asks for and an
+assertion is not: an assertion is deleted by the same edit that breaks what it asserts, and a
+`throw` here would turn a mistyped ceiling into a white screen for a visitor — a worse failure
+than the one being guarded. Today nothing clamps (1,460,000 > 1,280,000 > 825,000) and the
+running minimum is the identity.
+
+**A clamp nobody can see is the other failure, so it is reported, not swallowed.** A clamped rung
+carries `declared` and `clamped: true` on `__chicago4d.detailLevels`, `console.error` says so at
+boot, and three checks in **PART 1** of `tools/smoke_renderer.mjs` gate it: the DECLARED ceilings
+descend on their own, no rung is running clamped, and every rung states `protects` and `measured`.
+They are in part 1 and not part 5 deliberately — part 5 is the six-minute sweep, and a structural
+fault only a six-minute part can see is a fault that ships.
+
+**Re-read before any of it was written**, `tools/measure_detail_ceilings.mjs --only desktop`,
+published mirror, dev @ `50de0e10`, 1280 × 800, T-0135's five stands:
+
+| tier | ceiling | worst triangles | at | clear | worst calls |
+|---|---:|---:|---|---:|---:|
+| `full` | 1,460,000 | 1,378,519 | the forks, from Wolf Point | 81,481 (5.6 %) | 183 |
+| `balanced` | 1,280,000 | 1,228,859 | the forks, from Wolf Point | 51,141 (4.0 %) | 175 |
+| `light` | 825,000 | 768,487 | the open aerial | 56,513 (6.9 %) | **99** |
+
+Two things in that table are worth saying out loud. **The worst stand has moved** — it is the
+forks at `full` and `balanced` and the open aerial at `light`, not Lake Street at Canal, which is
+the stand the ceilings were argued at and the one the code's comments still name as "the known
+worst". Gating the worst OF A SET rather than a chosen stand is exactly what T-0135 built, and
+this is the set earning its keep. **And `light`'s draw-call floor is RED**: 99 calls at the open
+aerial against a floor of 90. That is **T-1595**, already open, and it is recorded here rather
+than adjusted — item 4 of this ticket says so in as many words ("Do NOT weaken anything to make
+the worst stand pass"), and nothing in this change touches that floor.
+
+**What each rung now says, at its definition site:** `full` — the machine this project targets, a
+desktop with a real GPU at 1280 × 800. `balanced` — the median visitor, integrated graphics on an
+ordinary laptop. `light` — the weak-machine floor, the only rung that is a promise to a person
+rather than a budget for a parcel. Each carries the reading that set it and the re-read above.
+The ceilings' own archaeology is untouched beneath; it is how the numbers got here.
+
+**The weak-machine floor was not re-measured on the machine it names**, and the ruling asks for
+that before a floor moves. This change moves no floor — `light` stays at 825,000, and the reading
+above is 56,513 under it — so the question the ruling guards is not reached. The day that rung
+rises, it is reached.
+
+**Verified in the foreground on the branch.** `./tools/check.sh` PASS (the dev gate). Smoke, the
+parts `tools/smoke_budget.mjs --for-diff` named for this diff, on the published mirror. No
+structure record, no GLB and no scene data moved, so no bake.
+
 ## Rule 9 says what is true of each row it refuses — T-1505, 2026-09-24
 
 **What a visitor sees:** nothing. No row changes class; every class count in

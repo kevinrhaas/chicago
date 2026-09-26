@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1135, title: 'Three numbers that were supposed to be a ladder', kind: 'change', ts: '2026-09-26T08:57:48.244Z', date: 'Sep 26, 2026, 3:57 AM CT',
+    items: [
+      'Nothing you can see in the town has changed. This is about the setting that lets a slower machine walk the town at all, and a way it could have quietly stopped working.',
+      'There are three quality settings — full, balanced and light — and each one carries a limit on how much the town is allowed to draw at it. The three are meant to be a ladder: full the machine we build for, balanced an ordinary laptop, light the floor, the tier a phone or a machine with no graphics card boots into. Turn it down, get less.',
+      'They were three numbers typed one under the other, and nothing anywhere made them descend. That is not a theoretical worry. When these limits were last raised, the raise as first written would have put the light setting ABOVE what full carried at the time — the bottom rung higher than the top one — and there was nothing in the project that could have noticed.',
+      'Now the bottom rung cannot be higher than the one above it, because the town no longer reads the number typed beside it — it reads the smaller of that number and the rung above. A rung can be mistyped; it cannot take effect. And a mistake that is silently corrected is its own problem, so the check that runs on every change also reads the written table and fails if the three do not descend on their own.',
+      'Each of the three now also says, where it is set, what it is FOR and what measurement put it there — so the next person asked to raise one has something written down to argue against. That was the whole complaint behind this: a limit with no stated purpose is a limit somebody raises.',
+      'The three were re-read today against the five viewpoints the project measures at, and all three are inside their limits, with between 4 and 7 per cent to spare. One related promise is NOT met and is recorded rather than quietly adjusted: at the light setting, the view from above issues more separate drawing commands than that tier is allowed. It has its own open item.',
+    ] },
   { v: 1134, title: 'The back yard may hold a cottage, and six were waiting', kind: 'change', ts: '2026-09-26T08:23:04.420Z', date: 'Sep 26, 2026, 3:23 AM CT',
     items: [
       'Nothing you can see in the town has changed yet. This is a rule about back yards, and it unblocks six small houses that have been stuck for six days \u2014 they go up in the next release.',
