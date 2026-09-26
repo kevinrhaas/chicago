@@ -410,9 +410,17 @@ def cmd_self_test() -> int:
     # 2. A MOVE MUST LEAVE A HELD BUCKET AND REACH AN OPEN ORDER. Moving the surplus
     # from one refused bucket into another would satisfy every count in this file and
     # remedy nothing whatever, so both directions are refused by name.
-    # The fixtures bend the first move still OUTSTANDING: a move already spent is not
-    # re-read here (T-1563 spends the first ones), so bending it would prove nothing.
+    # The fixtures bend a move still OUTSTANDING: a move already spent is not re-read
+    # here, so bending a spent one would prove nothing. Since T-1564 the programme is
+    # SETTLED — every move the rule yields is spent — so there is no outstanding move to
+    # bend and one is made by taking the last spent move back out of the book's ledger.
+    # That is the same fixture it always was, and it goes on holding when the rule yields
+    # a fresh round that nobody has spent yet.
+    book = json.loads(json.dumps(book))
     made = {m["person"] for m in book["re_family_ledger"]["moves"]}
+    if len(made) >= len(rule["the_moves_the_rule_yields"]):
+        put_back = book["re_family_ledger"]["moves"].pop()
+        made.discard(put_back["person"])
     first = next(i for i, m in enumerate(rule["the_moves_the_rule_yields"])
                  if m["person"] not in made)
     sideways = json.loads(json.dumps(rule))
@@ -427,8 +435,14 @@ def cmd_self_test() -> int:
     # 3. A BUCKET CANNOT SEND OUT MORE THAN IT HOLDS. The per-bucket subtraction is the
     # point of this report — the aggregate is what T-1556 § 3 read, and it is how 265
     # moves came to be named for a ladder that yields 73.
+    # BENT ON THE BUCKET THE OUTSTANDING MOVE ACTUALLY LEAVES, which since T-1564 is not
+    # `recut_refusals[0]`: a spent move is not re-read, so emptying any other bucket's
+    # surplus is a change nothing looks at.
     overdrawn = json.loads(json.dumps(book))
-    overdrawn["recut_refusals"][0]["surplus_still_held"] = 0
+    leaves = rule["the_moves_the_rule_yields"][first]["from_bucket"]
+    for refusal in overdrawn["recut_refusals"]:
+        if refusal["bucket"] == leaves:
+            refusal["surplus_still_held"] = 0
     fires("a bucket sending out more people than it still holds",
           lambda: end_state(overdrawn, rule))
 

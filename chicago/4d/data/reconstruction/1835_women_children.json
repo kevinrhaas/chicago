@@ -86,6 +86,18 @@
   "persons/male/under_10/south/family/none": 81,
   "persons/male/under_10/west/family/none": 23
  },
+ "refamilied_people": 90,
+ "refamilied_households": 25,
+ "refamilied_by_division": {
+  "north -> north": 7,
+  "north -> south": 14,
+  "south -> north": 6,
+  "south -> south": 15,
+  "south -> west": 18,
+  "west -> north": 2,
+  "west -> south": 20,
+  "west -> west": 8
+ },
  "buckets_left_short": {},
  "measurement": {
   "the_town_the_book_counts": "present households only",

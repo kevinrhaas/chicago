@@ -861,6 +861,14 @@ def person_card(slot_id: str, sex: str, band: str, bucket_key: str, place: dict,
         "basis": {
             "kind": "model",
             "id": "1835_reconstruction_order_book",
+            # THE BUCKET, IN A FIELD AND NOT ONLY IN THE SENTENCE BELOW (T-1564). The order
+            # book's re-cut can refuse a bucket this stage has drawn into, and when it does
+            # `tools/model_refamily_rule.py` has to name the people standing there — person
+            # by person, or its `every_refused_bucket_is_accounted_for` is wrong. Every
+            # other stage the model reads writes its bucket down; this one only said it in
+            # prose, so the model could not name a lodger and the first refused lodging
+            # bucket went unaccounted. It is the same string the note prints.
+            "bucket": bucket_key,
             "note": f"The book's bucket {bucket_key} ordered this person: the town "
                     f"model's lodging share, cut by sex, age band and division, less "
                     f"everyone the sources already name there. The bed is "
