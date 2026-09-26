@@ -14330,10 +14330,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 226 lots are enumerated from records this project already held, and then 104 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 226 lots are enumerated from records this project already held, and then 110 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 104 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,376
+**Scope:** `platted_seats.seats[dealt]` — 110 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,370
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 226 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14353,17 +14353,17 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 100 of the 104 seats are
+roof of a family its clause admits, on a lot of its own division; 106 of the 110 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
-plan, and only up to its headroom; 4 of the 104 are that. **Which lot a household takes is
+plan, and only up to its headroom; 4 of the 110 are that. **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
 prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
-places any of these 104 households anywhere; each one's own address-book row says so in its
+places any of these 110 households anywhere; each one's own address-book row says so in its
 `words`, and that refusal is carried forward here rather than quietly replaced.
 
 **An adoption raises no roof and spends no order.** This is the part that keeps the invention
-small. 100 of the 104 seats put a household under a roof that already stands, was already
+small. 106 of the 110 seats put a household under a roof that already stands, was already
 gated and was already paid for in the 665-roof programme — so the order book is not drawn on
 at all, and nothing is baked. The 4 slots are requests, not buildings: T-1200 through T-1214
 raise them, and until one does, the seat is a household with an address and no walls.
@@ -14385,17 +14385,17 @@ carries to the owner the question of whether blk_south_water_dearborn and
 blk_south_water_wells may be dealt out of their open lot to house them.
 
 **Three kinds of roof are refused on purpose, and the refusals are the entry's substance.**
-A DOCUMENTED building is never re-tenanted — 34 of the roofs standing on these lots are the
+A DOCUMENTED building is never re-tenanted — 35 of the roofs standing on these lots are the
 research layer's, and an invented household under Pruyne & Kimball's drugstore would be the
 reconstruction reading back as a fact. A roof whose own record STATES its occupancy is left
 alone, including the 15 that read `Anonymous stock; no occupant is claimed` (T-0516): that
 sentence is a committed claim about the town, 56 roofs carry one, and overturning it silently
 is the one move a seating pass must not make. And an ANCILLARY family — A1 through A5, the
-barns, stables, privies and woodsheds — is not a dwelling; 48 of the 151 unoccupied roofs on
+barns, stables, privies and woodsheds — is not a dwelling; 43 of the 152 unoccupied roofs on
 the plat are ancillary and no household is seated in one.
 
 **Which way it is wrong if it is wrong.** Toward a plat holding too FEW of the town's
-households. 1,376 of the 1,480 banded rows get no lot here, and they are not refused — they
+households. 1,370 of the 1,480 banded rows get no lot here, and they are not refused — they
 are handed to **T-1614**, which owns the ground the committed grid does not draw: the farms
 and country seats (204 rows, off the plat by their clause's own terms), the additions' small
 lots, the fringes and the branches. The binding constraint is the one the 665-roof programme
@@ -14406,11 +14406,26 @@ roofs of plan (a C1 and a C2) stand unclaimed on South Water Street because ever
 address book can place is already at a street face or a structure, and none is left at a band
 to take them.
 
-**The density standard is measured here rather than asserted.** 30 of the plat's 68
+**The density standard is measured here rather than asserted.** 33 of the plat's 68
 principal-street lots carry more than one principal roof today, against a rule that permits
 three. That is a reading of the committed town, and the parcel schedule's own words are why it
 is not a target: *"A block at capacity is a claim about 1835 that the evidence does not
 support; the schedule's capacity is a ceiling."*
+
+**RESTATED 2026-09-26, and the reason is worth more than the numbers (T-1611).** Every
+count above was first written on a town whose three platted blocks still carried six
+invented yard buildings in their back lots. **L272** re-dealt those six into rear cottages,
+so six roofs this deal had been obliged to refuse as ancillary became dwellings standing
+free on lots of this very ledger, and the deal — re-derived, never hand-edited — took them:
+the seats rise from 104 to **110** and the adoptions from 100 to **106**, the rows handed to
+**T-1614** fall from 1,376 to **1,370**, and the four slots are the same four. Nothing about
+the policy, the clause order or the ranking changed; a liberty whose population moves under
+it is restated rather than left reading well. Two figures in the refusal paragraph moved with
+the six and are re-read here off the committed lot ledger and this file's own
+`roofs_held_back` — 35 documented roofs standing on these lots (was 34) and 43 ancillary of
+152 unoccupied (was 48 of 151) — and the two counts the six could not touch are unmoved: 56
+roofs whose own record states an occupancy, 15 of them reading `Anonymous stock; no occupant
+is claimed`.
 
 **How to resolve:** any source placing one of these households — a lot and block, a corner
 ordinal, a street address, a building — retires its seat, because a read placement outranks a
@@ -14428,7 +14443,7 @@ programme), **L268** (the invented people the order book cannot move), tickets *
 
 **Scope:** `off_plat_seats.seats[dealt]` — 72 households given a parcel of the committed
 ground the plat's own lot ledger does not draw, in
-`data/reconstruction/1835_off_plat_seats.json` beside the 1,302 written refusals,
+`data/reconstruction/1835_off_plat_seats.json` beside the 1,298 written refusals,
 re-derived by `tools/seat_off_plat_ground_1835.py --build` and gated by its `--check`.
 The companion `data/reconstruction/1835_off_plat_ledger.json` enumerates the 177 parcels
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not
@@ -14448,7 +14463,7 @@ and this one may not author one on its behalf. Which parcel a standing roof fall
 is a centroid test against those committed polygons, finest line first, so a roof inside a
 tier lot is reported on that lot and not on the tract the tier sits in.
 
-**Decision:** answer the 1,374 rows T-1613 handed on, in the placement policy's own clause
+**Decision:** answer the 1,370 rows T-1613 handed on, in the placement policy's own clause
 order — *the order the committed policy file lists them in, not an order this pass chose* —
 by offering each household a standing anonymous roof of a family its clause admits, off the
 plat and in its own division. All 72 seats are adoptions. **Which parcel a household takes
@@ -14478,18 +14493,23 @@ plat.
 FEW of the town's households. The sharpest reading of that is the South Division, where not
 one free reconstruction roof stands off the plat at all — every South Division roof this
 project raised is on a lot of the committed plat, and T-1613 dealt what was free of them.
-All 762 South Division rows handed on here are owed for a shortage of roofs, not a shortage
+All 758 South Division rows handed on here are owed for a shortage of roofs, not a shortage
 of clauses.
+
+**Restated 2026-09-26 (T-1611).** The four rows are the four **L270** gained: this pass is
+handed 1,370 instead of 1,374 and hands 1,298 instead of 1,302, its own 72 adoptions unmoved
+because **L272**'s six cottages all stand on the committed plat and none of them is ground
+this entry deals.
 
 **How to resolve:** any source placing one of these households retires its seat, exactly as
 L270 says of its own; and a lot rule read for Kinzie's Addition, or a schedule row for the
 tiers and the tracts, turns the owed rows into slots rather than refusals. The retirement
 and the re-deal both run through `--build`, never by hand.
 
-**Related:** **L270** (the plat's own ledger and deal, whose 1,374 owed rows are this
+**Related:** **L270** (the plat's own ledger and deal, whose 1,370 owed rows are this
 entry's scope), **L90** (the anonymous roofs this pass adopts), **L1** (a camp never becomes
 a figure), tickets **T-1614** (this entry), **T-1199** (the parent ask), **T-1613** (the
-predecessor), **T-1615** (the successor these 1,302 are handed to), **T-1214** (the camp
+predecessor), **T-1615** (the successor these 1,298 are handed to), **T-1214** (the camp
 grounds carried here by name), **T-1457** and **T-1466** (the two tiers), **T-0516** (the
 anonymous-stock statement it refuses to overturn).
 **Recorded:** 2026-09-26.
