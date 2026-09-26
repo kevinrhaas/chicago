@@ -238,6 +238,17 @@ const HORIZON_HAZE = 0x88a3c0;
  * curve: a fully-fogged pixel is exactly sRGB (136,163,192), L 159.4 — four
  * levels BELOW the horizon sky, which is what airlight is supposed to do.
  *
+ * **T-1631: that last clause was true toward the sun and false everywhere
+ * else, and this file could not have known it.** L 161.7 is the SOLAR-side
+ * horizon sky. `world.js`'s own azimuth-blind sky fit leaves the anti-sun
+ * horizon at L 128, so a fog pinned at L 159.4 sat ABOVE the sky it converges
+ * on at every bearing — 31 luminance above it due north, which is where the
+ * owner was flying when he reported the world looking flooded. The haze is
+ * therefore no longer a constant: `world.js` samples its own sky at the
+ * horizon and turns the fog with the view. The hex below is still what the
+ * band starts at and still what it falls back to, and `update()` is what
+ * keeps it on whatever the fog is now — see the `hazeNow` argument.
+ *
  * The L 170 came from `hazeDisplayLinear()` below, which USED TO run
  * HORIZON_HAZE through ACES to derive this band's display colour. That was
  * arithmetically correct and answered a question the renderer never asks. The
@@ -3104,7 +3115,16 @@ uniform float uEyeY;
   group.add(horizon);
   disposables.push(hGeo, farMat);
 
+  // The band's hazed end, in the renderer's linear working space. NOT a const
+  // since T-1631: `world.js` turns the scene's haze with the view, and this
+  // band is authored to land exactly where the fogged ground lands — the
+  // release smoke asserts the two are one colour — so it has to be able to
+  // follow. `update()` refreshes it from `scene.fog.color` and re-solves when
+  // it has moved. The fixed derivation is still what it starts at, so a
+  // renderer that never passes a haze in draws exactly what it drew before.
   const haze = hazeDisplayLinear();
+  let hazeHex = new THREE.Color().setRGB(haze[0], haze[1], haze[2])
+    .getHex(THREE.SRGBColorSpace);
   const timber = linear(TIMBER_SRGB);
 
   // The stand of the LIVE solve, so `horizonCensus()` can re-run exactly the
@@ -3506,10 +3526,30 @@ uniform float uEyeY;
       return c.getHex(THREE.SRGBColorSpace);
     },
 
-    update(dt, camera) {
+    /**
+     * @param {number} dt              seconds since the last frame
+     * @param {THREE.Camera} camera    the camera about to render
+     * @param {THREE.Color} [hazeNow]  the scene fog's live colour (T-1631)
+     */
+    update(dt, camera, hazeNow) {
       wind += (dt || 0);
       uWind.value = wind;
       if (!camera) return;
+      // T-1631. A turn in place moves the haze and moves nothing else, so the
+      // band's own re-solve trigger — which is distance walked — would never
+      // fire and the band would sit at the colour of a bearing the visitor has
+      // stopped looking at. Compare the DISPLAYED hex rather than the floats:
+      // that is the quantity the gate compares and the only one a visitor can
+      // see, so a difference too small to show is not paid for with a re-solve.
+      let hazeMoved = false;
+      if (hazeNow) {
+        const nowHex = hazeNow.getHex(THREE.SRGBColorSpace);
+        if (nowHex !== hazeHex) {
+          hazeHex = nowHex;
+          haze[0] = hazeNow.r; haze[1] = hazeNow.g; haze[2] = hazeNow.b;
+          hazeMoved = true;
+        }
+      }
       const p = camera.position;
       horizon.position.set(p.x, p.y, p.z);
       // T-0120: the eye-height term of every vertex is finished in the vertex
@@ -3526,7 +3566,7 @@ uniform float uEyeY;
       // reason to re-solve exactly as walking is. 2 % keeps a drag-resize from
       // re-solving every frame.
       const pxNow = readPxPerRad();
-      if (Math.abs(e - lastE) > RING_REBUILD_M || Math.abs(n - lastN) > RING_REBUILD_M
+      if (hazeMoved || Math.abs(e - lastE) > RING_REBUILD_M || Math.abs(n - lastN) > RING_REBUILD_M
         || Math.abs(p.y - lastY) > 0.30 || Math.abs(pxNow - pxPerRad) > pxPerRad * 0.02) {
         lastE = e; lastN = n; lastY = p.y;
         solveHorizon(e, n, p.y);
