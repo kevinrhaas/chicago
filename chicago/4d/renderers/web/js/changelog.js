@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1145, title: 'The four houses with nowhere to stand are now refused in writing', kind: 'change', ts: '2026-09-26T15:49:14.023Z', date: 'Sep 26, 2026, 10:49 AM CT',
+    items: [
+      'An earlier release today built two of the six houses reconstructed households had asked for on South Water Street, and said the other four were not going to be quietly built. This is that refusal, written down and enforced.',
+      'Those four \u2014 two on the Dearborn block, two on the Wells block \u2014 could only ever have stood on one particular lot: the single lot each of those two blocks still has genuinely empty.',
+      'That empty lot is not spare room. The building programme deliberately sizes every block at one lot less than it has, so a block is never built out completely \u2014 an 1835 block with no gap left in it is a claim about the town the evidence does not support. Building the four would have meant spending that reserve and then re-labelling a lot that already carries two documented stores as the empty one: the Chicago American\u2019s office and Holbrook\u2019s store on the Dearborn block, H. Jones\u2019s store on the Wells block. There is 2.84 m, 2.28 m and 4.46 m of street face left beside them respectively, which will not hold a house.',
+      'So the request is refused on each household\u2019s own row, in a sentence that says why, and the household is owed to the building work instead of holding a request that could never be filled. Open \u201cReconstructing the town\u201d in the Evidence tab and the card says so: no houses are requested now, where it said six this morning.',
+      'The rule is enforced rather than remembered. The seating pass will not ask for a house on the last empty lot of a block, and will not add one beside a documented store either \u2014 stretching a row of buildings along a street face is a claim about how much frontage is left, and this pass measures none. A check fires on every change if either ever happens again.',
+    ] },
   { v: 1144, title: 'The last building readings, and what a memoir cannot prove', kind: 'change', ts: '2026-09-26T14:44:13.239Z', date: 'Sep 26, 2026, 9:44 AM CT',
     items: [
       'Nothing you can see in the town has changed. This finishes the reading ledger\u2019s building work: the last 35 unruled readings about buildings, from Hubbard\u2019s memoir, Hurlbut, Fergus, Moses and Kirkland, Norris\u2019s 1844 sketch, Andreas and the St Mary\u2019s baptism register. Each now carries a written answer.',
