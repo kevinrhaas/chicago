@@ -11997,6 +11997,12 @@
       "asset": "gltf/slough_log_bridge__log_1833.glb"
     },
     {
+      "id": "south_bank_shed_dearborn_e1",
+      "name": "The freight shed on the south bank below the Dearborn draw",
+      "sidecar": "sidecars/1835/south_bank_shed_dearborn_e1.json",
+      "asset": "gltf/south_bank_shed_dearborn_e1__shed_1835.glb"
+    },
+    {
       "id": "south_branch_raft_bridge",
       "name": "South Branch Bridge",
       "sidecar": "sidecars/1835/south_branch_raft_bridge.json",

@@ -188,13 +188,20 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # HOUSEHOLD asked for rather than the schedule's district remainder, and the reach moves for
 # the same reason it always does: two more committed meshes, nothing about the debt itself.
 #
+# 421 -> 422 and 419 -> 420 on 2026-09-26 (T-1636): `south_bank_shed_dearborn_e1`, the
+# south-bank half of the plate T-0133 built the north bank of, on ground T-1629's fill of the
+# old slough mouth opened. One new structure asset, so one more mesh a change to the shared
+# generator modules or to build.py would re-stale; the terrain and pier_crib reaches stay at 2
+# each. It is the first roof this row has taken for a REFUSAL being re-read rather than for a
+# slot being dealt: T-0134 refused this bank on a measurement, and the measurement moved.
+#
 STATED = {
-    "assets": 421,
+    "assets": 422,
     "restales": {
-        "generators/common/*.py": 421,
+        "generators/common/*.py": 422,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/build.py": 419,
+        "generators/build.py": 420,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
     },
