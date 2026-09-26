@@ -485,13 +485,90 @@ STRUCTURE_LAYER = ("data", "structures")
 # The other two are `refused` by the DERIVED land-sale register (T-1296), which rules on
 # all 1,572 of its rows, so reading the cross-reference as a spend would assert them here
 # AND leave two rulings in that register that never fire, which `ruling_coverage_faults`
-# fails. That is the gate saying a question has two answers, and picking one of them is
-# the land-sale corpus's business rather than a building-reading ticket's: T-1605 owns it.
+# fails. That is the gate saying a question has two answers, and T-1600 handed the choice
+# to the land-sale corpus rather than taking it from a building-reading ticket.
+#
+# T-1605 IS THAT CHOICE, AND THE BLIND STAYS. The cross-reference is a CITATION of the
+# row and not a spend of it, for one reason: the unit is a PERSON unit and `land_owner`
+# asserts no person. Every consumer of a land_sales unit reads it as a purchaser -- the
+# crosswalk joins it to a card or refuses it, the borderline roster offers or withholds the
+# read name, `spend_land_sale_bounds.py` writes it onto a card as a dated appearance -- and
+# `resolve_land_tracts.py` says in its own docstring what its block does NOT claim, the
+# second of the three being that the entryman "lived there or ever stood on it (the domain
+# README's first discipline: a sale is not a resident)". A block that states a tract
+# contains a footprint, and says of itself that it places nobody, cannot be what spent a
+# purchaser. The refusal in T-1296's register is the right answer and it stands.
+#
+# WHAT THE BLIND COSTS AND WHAT REMOVING IT COSTS, both measured rather than argued, since
+# T-1600 asked for the number to be re-taken if the walk were ever suspected. Unblinding
+# reaches exactly three keys the blind hides -- ls0057, ls0058 and ls0059 -- and no fourth:
+# ls0053 and ls0056 stay out of reach because every block naming them is `reconstructed`,
+# which is not in STRUCTURED_CONFIDENCE, and ls0059 is reached but does not move, because
+# the residents walk runs first in `target_index` and its card already carries it (T-1332).
+# So unblinding would assert two units. THEN IT DOES NOT STOP AT THIS LEDGER. A land_sales
+# unit that turns `asserted` leaves the borderline roster's step 5 -- which is keyed on the
+# ledger's RULE name, so the standing refusal stops being repeated the moment the register
+# stops ruling the row -- and lands in `R2_in_window_single_source` under T-1367's
+# `in_window_unspent_inside_an_asserted_claim`, a class whose licence is to mint. Run it
+# through and `readmit_borderline_roster.py` writes `data/residents/readmitted/`
+# hh_john_baptist_baubian.json: a reconstructed household for "BAUBIAN JOHN BAPTIST", off
+# ls0057, which is John Baptist Beaubien's Fort Dearborn pre-emption of 28 May 1835 -- a
+# man this town already holds twice over, as hh_beaubien_j_b and hh_beaubien_john_b. The
+# mint's own `withdrawn_if` names the fault it would be filed under: "a ruling that this
+# name is a duplicate of a card the town already holds". A bookkeeping ruling about GROUND
+# would have invented a person, and the crosswalk had refused that very name against the
+# residents layer. That is the measurement that settles the question.
+#
+# `entries_are_blinded_faults` below holds this ruling so a later pass cannot quietly undo
+# it: removing the key from this set turns the gate red and says what it would cost.
 # Everything else on a structure record is read, which is where the ten newspaper claims
 # T-1600 wrote onto six buildings are found -- in the `note` of the block they bear on,
 # beside the newspaper in its `sources`, which is the citation style the corpus already
 # had (new_york_house has carried two that way since T-1508).
 STRUCTURE_BLIND_KEYS = frozenset({"entries"})
+
+# The land-sale rows the ruling above is about, and the two facts that make it a ruling
+# rather than a preference: the structure layer names them at a confidence this walk reads,
+# and the crosswalk refuses both names against the residents layer. Stated here so the
+# gate checks the ruling's premises and not merely its outcome.
+LAND_OWNER_CITED_ROWS = ("ls0057", "ls0058")
+LAND_OWNER_REFUSED_NAMES = ("BAUBIAN JOHN BAPTIST", "KENZIE ROBERT A")
+
+
+def entries_are_blinded_faults(root: Path = ROOT) -> list[str]:
+    """T-1605's ruling, held over the committed layer: the citation is not a spend."""
+    faults = []
+    if "entries" not in STRUCTURE_BLIND_KEYS:
+        faults.append(
+            "land_owner.entries is no longer blinded, so this ledger now spends a "
+            "land-sale purchaser onto a BUILDING. T-1605 ruled that it must not: the "
+            "block asserts no person, and asserting the row carries ls0057 into the "
+            "borderline roster's mintable class and invents a second John Baptist "
+            "Beaubien. Re-read STRUCTURE_BLIND_KEYS before removing this.")
+    crosswalk = root / "data" / "research" / "land_sales" / "resident_crosswalk.json"
+    if not crosswalk.is_file():
+        return faults + [f"{crosswalk} is missing; T-1605's premise cannot be checked"]
+    refused = {
+        str(row.get("a")): row
+        for row in read_json(crosswalk).get("refusals") or []
+    }
+    for name in LAND_OWNER_REFUSED_NAMES:
+        if name not in refused:
+            faults.append(
+                f"the crosswalk no longer refuses {name!r}. T-1605's ruling stands on "
+                "that refusal, so the blind is owed a re-reading rather than a re-run.")
+    cited = set()
+    structures = root.joinpath(*STRUCTURE_LAYER)
+    for path in sorted(structures.rglob("*.json")) if structures.is_dir() else []:
+        block = read_json(path).get("land_owner")
+        if isinstance(block, dict) and block.get("confidence") in STRUCTURED_CONFIDENCE:
+            cited.update(e for e in block.get("entries") or [] if isinstance(e, str))
+    for row_id in LAND_OWNER_CITED_ROWS:
+        if row_id not in cited:
+            faults.append(
+                f"no read-confidence land_owner block names {row_id} any more, so the "
+                "collision T-1605 ruled on has moved; re-take the measurement.")
+    return faults
 
 
 def prose_target_index(paths, root: Path, keys: set[str], kind: str,
@@ -1086,6 +1163,8 @@ def build_document(root: Path = ROOT) -> tuple[dict, list[str]]:
         return {}, ["data/research/domains.json is missing or unreadable"]
     units, faults = extract_units(root, registry)
     faults.extend(record_id_scope_faults(units, registry))
+    # T-1605's ruling is a premise of the walk below, so it is checked before the walk.
+    faults.extend(entries_are_blinded_faults(root))
     targets = target_index(root, {unit["record_key"] for unit in units})
     rulings, ruling_faults = read_rulings(root)
     faults.extend(ruling_faults)
