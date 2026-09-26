@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1152, title: 'Tracing the sources behind the reconstruction', kind: 'change', ts: '2026-09-26T19:22:59.230Z', date: 'Sep 26, 2026, 2:22 PM CT',
+    items: [
+      'Nothing visible in the town changes. A source index now links the registered sources to the buildings, people, businesses and other reconstruction claims that use them, and distinguishes unused sources.',
+      'This supplies the data needed for the forthcoming loading-screen source cards and Sources browser. Newspaper links retain their issue dates and page or column details where recorded.',
+    ] },
   { v: 1151, title: 'Arrive in 1835 as the town is assembled', kind: 'change', ts: '2026-09-26T18:30:51.494Z', date: 'Sep 26, 2026, 1:30 PM CT',
     items: [
       'The loading screen is now an arrival: the year rolls backward from the present toward 1835 as real reconstruction phases finish.',

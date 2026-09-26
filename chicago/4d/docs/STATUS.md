@@ -1,5 +1,16 @@
 # STATUS
 
+## Source-use backlinks compiled — T-1248, 2026-09-26
+
+The deterministic compiler reads the authored reconstruction and records typed
+source-to-claim edges, including newspaper issue locators. All 293 registered
+sources remain represented, including 33 with no mapped use. The compact index
+is 100,053 bytes; full public citations and edges are separate lazy files.
+No visitor-facing surface or boot fetch is added. This unblocks T-1275 and T-1276
+(visible-progress exemption 3). The generated [coverage report](measurements/source_use_coverage.md)
+names the unsupported narrative/decision families; it does not claim exhaustive
+parsing of research prose. Validation receipts are recorded in the PR.
+
 ## Arrival rolls the year back to summer 1835 — T-1247, 2026-09-26
 
 The loading gate now presents a restrained split-flap year, driven by the measured
