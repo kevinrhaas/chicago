@@ -12844,7 +12844,7 @@ programme licensed to write a Native or Métis person. Every card carries
 `review_required: true` and `touches_removal: true` with the sentence that says why, the
 `community` value **`native`** and **no nation at all**, and `origin: null`.
 
-**Scope:** `residents.persons[underdocumented]` — 102 people in 94 cards, of which **87** are this entry's and 15 are **L255**'s `free_black` sub-stage. The total is restated rather than the selector narrowed, for the reason the four reconstructed-business entries restate theirs: the stage is the unit the programme declares and the register says how large the whole of it is. Re-derivable from `tools/reconstruct_underdocumented.py --check` and `tools/reconstruct_free_black.py --check` together.
+**Scope:** `residents.persons[underdocumented]` — 104 people in 96 cards, of which **87** are this entry's, 15 are **L255**'s `free_black` sub-stage and 2 are **L269**'s `church_register` sub-stage. The total is restated rather than the selector narrowed, for the reason the four reconstructed-business entries restate theirs: the stage is the unit the programme declares and the register says how large the whole of it is. Re-derivable from `tools/reconstruct_underdocumented.py --check`, `tools/reconstruct_free_black.py --check` and `tools/reconstruct_church_register.py --check` together.
 
 **Why:** because the same page had already been half spent. The roll prints 134 men in two
 companies — forty under `G KERCHEVAL` and ninety-four under `INDIAN` — and T-1172 carded
@@ -13208,7 +13208,7 @@ T-1376's `native_and_metis`. Cards in `data/residents/underdocumented/hh_fb_*.js
 this is not the removal, and borrowing that flag would borrow the weight of a subject this
 stage is not about.
 
-**Scope:** `residents.persons[underdocumented]` — 102 people in 94 cards, of which **15** are this entry's and 87 are **L250**'s `native_and_metis` sub-stage. Restated whole for the reason L250 gives.
+**Scope:** `residents.persons[underdocumented]` — 104 people in 96 cards, of which **15** are this entry's, 87 are **L250**'s `native_and_metis` sub-stage and 2 are **L269**'s `church_register` sub-stage. Restated whole for the reason L250 gives.
 
 **Why:** T-1375 gave every person in the layer a community and printed one row reading
 `free_black` — **0**. That is a finding about this project and not about 1835 Chicago. The
@@ -14192,4 +14192,76 @@ honest way.
 trade heads), **L262** (the service houses), **L246** (the withheld names re-admitted),
 T-1560 (this entry), T-1556 (the ruling), T-1557 (the ledger), T-1558 (the rule and the
 ceilings), T-1559 (the moves), T-1459 (held rather than clamped).
+**Recorded:** 2026-09-25.
+
+### L269 — Two women of St Mary's baptismal register are carded off one parenthesis apiece, and the presence of each is a draw
+
+**Decision:** `tools/reconstruct_church_register.py` (T-1504, of T-1177) writes **2**
+reconstructed cards into `data/residents/underdocumented/` — `hh_cr_marianne` and
+`hh_cr_jaespquaa` — the `church_register` sub-stage of stage `underdocumented`, beside
+T-1376's `native_and_metis` and T-1377's `free_black`. The derived record is
+`data/reconstruction/1835_church_register.json`. Both carry `review_required: true` and
+`touches_removal: true` with the sentence that says why, the `community` value **`native`**
+and **no nation at all**.
+
+**Scope:** `residents.persons[underdocumented]` — 104 people in 96 cards, of which **2** are this entry's, 87 are **L250**'s `native_and_metis` sub-stage and 15 are **L255**'s `free_black` sub-stage. Restated whole for the reason L250 gives.
+
+**Why:** `data/research/church/records/st_marys_baptisms_1833_1835.json` is the only source
+this project holds in which a CONTEMPORARY states an Indigenous identity for a named person
+at Chicago — Father Saint Cyr's own parenthesis on the page, not a term in a later
+biography. Since T-1383 the borderline roster reads it: four rows reach
+`R6_native_metis_black` on the rule `community_term_written_onto_the_name`, which fires only
+where the term follows the row's own name. T-1376's stage then withheld all four, honestly
+and at a dead end — *the only book it reads is the 1832 muster roll*. Meanwhile the town
+carried everybody else off those same entries: Antoine Aspam and both his children off
+entries 14 and 17, Paul Vieau and his daughter Susanne off entry 18. The only thing
+separating the two mothers from their own husbands and children was the word the priest
+wrote beside their names, and the stage that could spend it read a different book.
+
+**What is invented, exactly:** one thing. That a woman named at a font at Chicago in
+October 1833 was still here on 1 July 1835, at the odds the persistence model gives for a
+lag of about one year and nine months — the same model, the same arithmetic and the same
+seeded draw that priced Kercheval's twenty and the ninety-four of the company the 1832 roll
+heads INDIAN. Marianne reads `present` and Jaespquaa reads `absent`, each with the seed a
+reader can retype. The draw is priced off the LAST entry that names her, not the first,
+because a later printing is the last day this project can still see her.
+
+**What this deliberately does NOT do.** It writes **no surname**: the register gives each
+woman a forename and the priest's parenthesis, and her husband's surname is his. It writes
+**no nation**: `sauvage` names none, and `community: native` is this vocabulary's term for
+*the source says so and says nothing further*. It writes **no kin tie** — not to the
+husband, not to the children, not to the sponsors. The father named on the same line is
+read once, as a discriminator that tells two printings of one woman from two women (entries
+14 and 17 name the same Marianne and the same Antoine Aspam, so they are one card), and for
+nothing else; the kinship itself is handed to **T-1335**, the family pass, which the
+roster's own ledger reason already names on every one of these rows. It asserts **no
+residence, no address, no occupation and no arrival**: a baptism documents a person at a
+font on a day. And it draws **no remainder** off the book, for the reason L250 refused the
+same thing for the muster — a bracket needs a count, and a register of sacraments is not a
+census.
+
+**One origin is carried and it is a place.** Entry 18 reads `sauvage de Green Bay`, the only
+origin St Mary's register ever gives anyone. `Green Bay` goes onto Jaespquaa's card as an
+origin at the register reader's own grade for that row — `inferred`, because an Indigenous
+name written phonetically by a French speaker has middle letters nobody can be sure of — and
+a card never grades above the reading it stands on. No people is read off it:
+`data/residents/community_rules.json` files Green Bay as an **unreadable origin**, because
+the Menominee, the Ho-Chunk, the Potawatomi and the Ottawa country all met at that bay, and
+so did the French trade and the métis families it made.
+
+**The review AGENTS.md commits to has not been held.** Both cards carry `review_required`,
+which blocks any scene carrying them from being marked `released`, and each says in its own
+prose that it is a record of a Native woman at Chicago in the three years of the removal. No
+figure is drawn, for anybody (L1).
+
+**How to resolve:** any second independent source naming either woman at Chicago inside the
+window, or any source stating her nation, band, village or family name, carries the card
+past what one parenthesis in one register can hold — each record says so in its
+`replaceable_by`, and the retirement runs through `--build`, never by hand.
+
+**Related:** **L250** (the muster cohort of the same stage, whose refusal this entry
+answers), **L255** (the free Black cohort beside it), **L83** (the inferred-residents
+programme), tickets **T-1504** (this entry), **T-1177** (the stage), **T-1383** (the reading
+that put these rows in front of it), **T-1335** (the family pass the kinship is handed to),
+**T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.

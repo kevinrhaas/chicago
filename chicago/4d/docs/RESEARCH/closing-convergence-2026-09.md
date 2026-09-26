@@ -54,12 +54,12 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 | persons graded `inferred` | 875 | 992 | +117 |
 | persons graded `reconstructed` | 3 | 979 | +976 |
 | 1835 sidecar files | 391 | 426 | +35 |
-| people in the 1835 people sidecar | 1288 | 3292 | +2004 |
+| people in the 1835 people sidecar | 1288 | 3294 | +2006 |
 | buildings standing in the town census | 371 | 406 | +35 |
 | people housed in the town census | 34 | 181 | +147 |
 | households housed in the town census | 20 | 31 | +11 |
 | rows in the final resident audit | 1288 | 2383 | +1095 |
-| published resident files in the mirror | 1336 | 2219 | +883 |
+| published resident files in the mirror | 1336 | 2221 | +885 |
 
 ## 4. T-1144's banked acceptances, as deltas
 

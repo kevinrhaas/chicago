@@ -1,0 +1,470 @@
+{
+ "$schema_note": "DERIVED — regenerate with tools/reconstruct_church_register.py --build; tools/check.sh re-derives it. Do not hand-edit: every card under data/residents/underdocumented/ carrying the `hh_cr_` prefix is a function of the borderline roster row named on it.",
+ "schema": 1,
+ "id": "chicago_july_1835_church_register",
+ "ticket": "T-1504",
+ "parent": "T-1177",
+ "stage": "underdocumented",
+ "sub_stage": "church_register",
+ "target_date": "1835-07-01",
+ "generated_by": "tools/reconstruct_church_register.py --build",
+ "reads": [
+  "data/reconstruction/1835_borderline_roster.json",
+  "data/research/church/records/st_marys_baptisms_1833_1835.json"
+ ],
+ "writes": "data/residents/underdocumented/hh_cr_*.json",
+ "the_owners_ruling": {
+  "date": "2026-09-17",
+  "recorded_in": "AGENTS.md § Standing constraint — 1835 and Indigenous history",
+  "quote": "i think it is fair, in fact required to Reconstruct Native or Métis people as part of this.",
+  "what_it_does_not_change": "L1 — no human figure is drawn, for anybody; no staging of the August 1835 gathering; no invented dialogue, ceremony or depiction. A card, and nothing that is looked at."
+ },
+ "the_review_still_owed": "Review by Native scholars or community organisations, which AGENTS.md commits to and which has not been held. Every record this stage writes carries `review_required: true`, which blocks a scene from being marked `released`. The flag is the project's own promise held open, not a formality.",
+ "the_count_that_made_this_stage_necessary": {
+  "register": "data/research/church/records/st_marys_baptisms_1833_1835.json",
+  "source": "st_marys_baptismal_register_1833_1835",
+  "the_entries_the_priest_wrote_the_term_on": [
+   {
+    "entry": 14,
+    "year_series": 1833,
+    "the_name_the_term_was_written_onto": "Marianne (sauvage)",
+    "the_town_carried_this_name_before_this_stage": false,
+    "everybody_else_the_entry_names": [
+     {
+      "as_read": "Jean Baptiste",
+      "role": "child",
+      "the_town_carried_this_name_before_this_stage": true
+     },
+     {
+      "as_read": "Antoine Aspam",
+      "role": "father",
+      "the_town_carried_this_name_before_this_stage": true
+     },
+     {
+      "as_read": "Augustin Bonné",
+      "role": "sponsor",
+      "the_town_carried_this_name_before_this_stage": false
+     },
+     {
+      "as_read": "Monique Nodeau",
+      "role": "sponsor",
+      "the_town_carried_this_name_before_this_stage": true
+     }
+    ]
+   },
+   {
+    "entry": 17,
+    "year_series": 1833,
+    "the_name_the_term_was_written_onto": "Marianne (sauvage)",
+    "the_town_carried_this_name_before_this_stage": false,
+    "everybody_else_the_entry_names": [
+     {
+      "as_read": "Magdelene",
+      "role": "child",
+      "the_town_carried_this_name_before_this_stage": true
+     },
+     {
+      "as_read": "Antoine Aspam",
+      "role": "father",
+      "the_town_carried_this_name_before_this_stage": true
+     },
+     {
+      "as_read": "Jean Baptiste Lavigne",
+      "role": "godfather",
+      "the_town_carried_this_name_before_this_stage": true
+     },
+     {
+      "as_read": "Josette Aspam",
+      "role": "godmother",
+      "the_town_carried_this_name_before_this_stage": true
+     }
+    ]
+   },
+   {
+    "entry": 18,
+    "year_series": 1833,
+    "the_name_the_term_was_written_onto": "Jaespquaa (sauvage de Green Bay)",
+    "the_town_carried_this_name_before_this_stage": false,
+    "everybody_else_the_entry_names": [
+     {
+      "as_read": "Susanne",
+      "role": "child",
+      "the_town_carried_this_name_before_this_stage": true
+     },
+     {
+      "as_read": "Paul Vieaux",
+      "role": "father",
+      "the_town_carried_this_name_before_this_stage": true
+     },
+     {
+      "as_read": "Joseph Beaubien",
+      "role": "godfather",
+      "the_town_carried_this_name_before_this_stage": true
+     },
+     {
+      "as_read": "Monique Nadeau",
+      "role": "godmother",
+      "the_town_carried_this_name_before_this_stage": true
+     }
+    ]
+   }
+  ],
+  "others_on_those_entries_the_town_already_carried": 11,
+  "the_named_the_town_already_carried_before_this_stage": 0,
+  "what_separated_them": "Not the evidence — one book, one clerk, one page apiece, and the same entry naming all of them. The borderline roster's class rule put a reading carrying a community term into R6 and everything else into R3; the R3 rows were spent and R6's owner (T-1177) was split into workable tickets only in September, and the sub-stage that could spend these particular rows read the 1832 muster roll and not this book. So the town carried the husbands and the children off these entries and not the women the priest wrote the term onto."
+ },
+ "rules": {
+  "licence": {
+   "id": "underdocumented_r6_the_priest_writes_the_term_onto_the_name",
+   "borrowed_from": "R3_1834_return_or_muster",
+   "r3_sentence": "A name on the 1 April 1834 post-office return or the 1832 Black Hawk muster enrolled at Chicago, with no 1835 corroboration and no card. Licence: Mint reconstructed, presence bounded by the persistence rate.",
+   "this_sentence": "Named in St Mary's baptismal register at Chicago in 1833, with the priest's own word for an Indigenous woman written onto her name and onto no other name on the line. No 1835 corroboration and no card. The licence is R3's — a dated appearance inside the window, priced against the persistence model — and the husband and the children named on the same entries the town already carries."
+  },
+  "a_baptism_is_not_a_residence": "A baptism documents a person at a font on a day. It is not a residence, an address, an occupation or an arrival, and this card asserts none of them. What the dated appearance bounds is that she was at Chicago on that day; what it does not bound is where she slept, whose roof it was, or whether she was still here on 1 July 1835 — that last is what the persistence draw prices and says out loud.",
+  "the_mononym_is_carried_as_read": "The register gives these women a forename and the priest's parenthesis and nothing else. No surname is invented and no given/family split is imposed; her husband's surname is his. The surname-and-initial key the sibling stages collide on is EMPTY for a one-word name and can say nothing here, so the collision test is the whole folded reading against every name the layer holds, and the spouse the entry names beside her tells two printings of one woman from two women.",
+  "the_spouse_is_a_discriminator_and_not_a_tie": "The father named on the same line is read once, to tell one woman from another, and for nothing else. No kin tie is written onto any card. The kinship the register states is T-1335's field, every one of these rows names it in its ledger reason, and each card carries `handed_to_the_family_pass` naming who else the entry names.",
+  "no_nation_is_written_and_one_place_is": "`sauvage` names no nation, band or village, so `community` is `native` — this vocabulary's term for *the source says so and says nothing further*. Entry 18 of 1833 adds `de Green Bay`, the one origin the book ever gives anyone; it is a PLACE and is carried as one, and no people is read off it.",
+  "a_card_never_grades_above_the_reading": "Each attribute taken off the page is graded at the register reader's own grade for that row and never above it. Jaespquaa's name is `inferred` because an Indigenous name written phonetically by a French speaker has middle letters nobody can be sure of, and her origin is carried at that same grade rather than at the grade the legible words would carry.",
+  "the_sex_is_read_and_not_drawn": "The register's `role` column puts each of these people in the MOTHER's place of a baptism and names the father separately. That is the document's own structure; no age band is drawn beside it, because the same document settles nothing about that."
+ },
+ "persistence_model": {
+  "id": "persistence_1835",
+  "form": "persistence(L) = exp(-lambda * L), L in years before 1835-07-01",
+  "lambda_per_year": 0.063541,
+  "one_year_persistence": 0.9384,
+  "measured_on": [
+   {
+    "volume": "Fergus 1839, the first ward-by-ward list after the scene",
+    "crosswalk": "data/research/directories/fergus_1839_crosswalk_1835.json",
+    "counts_key": "counts.residents_matched_one_entry",
+    "dated": "1839-07-01",
+    "years_after_the_scene": 4.0001,
+    "of_the_layer_still_named": 164
+   },
+   {
+    "volume": "Fergus 1843",
+    "crosswalk": "data/research/directories/fergus_1843_crosswalk_1835.json",
+    "counts_key": "counts.matched_one_1843_entry",
+    "dated": "1843-07-01",
+    "years_after_the_scene": 8.0002,
+    "of_the_layer_still_named": 137
+   },
+   {
+    "volume": "Norris 1844",
+    "crosswalk": "data/research/directories/norris_1844_crosswalk_1835.json",
+    "counts_key": "counts.matched_one_1844_entry",
+    "dated": "1844-07-01",
+    "years_after_the_scene": 9.0022,
+    "of_the_layer_still_named": 115
+   }
+  ],
+  "why_the_slope_and_not_the_level": "Each volume names only a part of the town, and what part is unknown. That unknown coverage multiplies all three counts alike, so it cancels out of the SLOPE of ln(matched) against time and does not cancel out of any one level. The slope is therefore the rate at which the layer's people stop being found in Chicago; the level is mostly a fact about directories.",
+  "what_bounds_it": "Three points, an assumption that directory coverage is roughly steady across 1839-1844, and an exponential form. Nothing here is measured at the short lags the roster actually needs (0-3.5 years), so the rate is carried back to them.",
+  "which_way_it_is_wrong_if_it_is_wrong": "The steady-coverage assumption is the load-bearing one and it is the one most likely to fail: Fergus 1839 is a list first set up from memory in 1839 and completed in 1876, and the 1843 and 1844 volumes are ordinary printed directories. If coverage GREW across the three, the observed fall is shallower than the real one, this lambda is too small, and the stage re-admits too many people rather than too few. Published persistence studies of frontier towns read nearer 0.15-0.25 a year than 0.068. That is stated here rather than corrected for, because correcting it would mean choosing a number instead of measuring one; the ruling it would change is which side of the draw a card whose evidence stops early falls on, and the seed makes that re-runnable the day a measured rate lands.",
+  "what_would_retire_it": "A measured out-migration or persistence rate for Chicago in the 1830s, or a fourth horizon that bends this line.",
+  "tier": "reconstructed"
+ },
+ "counts": {
+  "r6_rows_citing_the_register": 24,
+  "already_on_a_card": 20,
+  "cards_minted": 2,
+  "minted_present": 1,
+  "minted_absent": 1,
+  "withheld": 2,
+  "withheld_by_reason": {
+   "the_crosswalk_ruled_this_row_not_a_person": 1,
+   "the_register_prints_this_woman_twice": 1
+  }
+ },
+ "what_is_handed_to_the_family_pass": {
+  "ticket": "T-1335",
+  "what": "The kinship every one of these entries states on one dated line — the child, the father, the mother and the two sponsors — is handed on whole and joined nowhere here. The roster's own ledger reason hands these rows to T-1335 and this stage does not take the tie off it; what it takes is the community term and the dated appearance.",
+  "by_card": {
+   "hh_cr_marianne": [
+    {
+     "record_id": "st_marys_bapt_1833_14_1_child",
+     "role": "child",
+     "as_read": "Jean Baptiste",
+     "normalised": "Jean Baptiste Aspam"
+    },
+    {
+     "record_id": "st_marys_bapt_1833_14_2_father",
+     "role": "father",
+     "as_read": "Antoine Aspam",
+     "normalised": "Antoine Aspam"
+    },
+    {
+     "record_id": "st_marys_bapt_1833_14_4_sponsor",
+     "role": "sponsor",
+     "as_read": "Augustin Bonné",
+     "normalised": "Augustin Bonné"
+    },
+    {
+     "record_id": "st_marys_bapt_1833_14_5_sponsor",
+     "role": "sponsor",
+     "as_read": "Monique Nodeau",
+     "normalised": "Monique Nadeau"
+    }
+   ],
+   "hh_cr_jaespquaa": [
+    {
+     "record_id": "st_marys_bapt_1833_18_1_child",
+     "role": "child",
+     "as_read": "Susanne",
+     "normalised": "Susanne Vieaux"
+    },
+    {
+     "record_id": "st_marys_bapt_1833_18_2_father",
+     "role": "father",
+     "as_read": "Paul Vieaux",
+     "normalised": "Paul Vieau"
+    },
+    {
+     "record_id": "st_marys_bapt_1833_18_4_godfather",
+     "role": "godfather",
+     "as_read": "Joseph Beaubien",
+     "normalised": "Joseph Beaubien"
+    },
+    {
+     "record_id": "st_marys_bapt_1833_18_5_godmother",
+     "role": "godmother",
+     "as_read": "Monique Nadeau",
+     "normalised": "Monique Nadeau"
+    }
+   ]
+  }
+ },
+ "what_is_still_not_carded_from_this_book": "Everything else in the register. This stage spends the R6 rows and no others: the fifty-seven entries name 267 people and the rest of them are the mints' and T-1335's business, not this one's. And the book counts nobody — it is a record of sacraments administered, not a census — so no remainder is drawn off it here, for the reason T-1376 refused the same thing for the muster: a bracket needs a count, and this corpus holds no count of the Native and Metis people at Chicago on 1 July 1835.",
+ "minted": [
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_3_mother#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_the_priest_writes_the_term_onto_the_name",
+   "household_id": "hh_cr_jaespquaa",
+   "person_id": "jaespquaa",
+   "name_as_read": "Jaespquaa (sauvage de Green Bay)",
+   "name": "Jaespquaa",
+   "file": "underdocumented/hh_cr_jaespquaa.json",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "spouse_on_the_line_as_read": "Paul Vieaux",
+   "dated_evidence": "1833-10-10",
+   "dated_evidence_read_as": "1833-10-10",
+   "present_on_scene_date": {
+    "value": "absent",
+    "persistence": 0.8963,
+    "years_before_the_scene": 1.7221,
+    "seed": "hh_cr_jaespquaa:persistence"
+   }
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_3_mother#0",
+   "class": "R6_native_metis_black",
+   "rule": "underdocumented_r6_the_priest_writes_the_term_onto_the_name",
+   "household_id": "hh_cr_marianne",
+   "person_id": "marianne",
+   "name_as_read": "Marianne (sauvage)",
+   "name": "Marianne",
+   "file": "underdocumented/hh_cr_marianne.json",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "community": "native",
+   "review_required": true,
+   "touches_removal": true,
+   "spouse_on_the_line_as_read": "Antoine Aspam",
+   "dated_evidence": "1833-10-08",
+   "dated_evidence_read_as": "1833-10-08",
+   "present_on_scene_date": {
+    "value": "present",
+    "persistence": 0.896,
+    "years_before_the_scene": 1.7276,
+    "seed": "hh_cr_marianne:persistence"
+   }
+  }
+ ],
+ "already_on_a_card": [
+  {
+   "row_id": "card:hh_bourassa_jean_baptiste",
+   "name_as_read": "Jean Baptiste Bourassa",
+   "household_id": "hh_bourassa_jean_baptiste",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_bourassa_lon",
+   "name_as_read": "Lon Bourassa",
+   "household_id": "hh_bourassa_lon",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_bourassa_noel",
+   "name_as_read": "Noel Bourassa",
+   "household_id": "hh_bourassa_noel",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_carroll_patrick",
+   "name_as_read": "Patrick Carroll",
+   "household_id": "hh_carroll_patrick",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_chevalier_joseph",
+   "name_as_read": "Joseph Chevalier",
+   "household_id": "hh_chevalier_joseph",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_chevalier_josette",
+   "name_as_read": "Josette Chevalier",
+   "household_id": "hh_chevalier_josette",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_chevalier_louis_p",
+   "name_as_read": "Louis P Chevalier",
+   "household_id": "hh_chevalier_louis_p",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_gagnier_alexis",
+   "name_as_read": "Alexis Gagnier",
+   "household_id": "hh_gagnier_alexis",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_gagnier_catherine",
+   "name_as_read": "Catherine Gagnier",
+   "household_id": "hh_gagnier_catherine",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_laframboise_ccile",
+   "name_as_read": "Ccile Laframboise",
+   "household_id": "hh_laframboise_ccile",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_laframboise_claude",
+   "name_as_read": "Claude Laframboise",
+   "household_id": "hh_laframboise_claude",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_laframboise_franois",
+   "name_as_read": "Franois Laframboise",
+   "household_id": "hh_laframboise_franois",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_laframboise_joseph",
+   "name_as_read": "Joseph Laframboise",
+   "household_id": "hh_laframboise_joseph",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_laframboise_josette",
+   "name_as_read": "Josette Laframboise",
+   "household_id": "hh_laframboise_josette",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_laframboise_marguerite",
+   "name_as_read": "Marguerite Laframboise",
+   "household_id": "hh_laframboise_marguerite",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_laframboise_thrse",
+   "name_as_read": "Thrse Laframboise",
+   "household_id": "hh_laframboise_thrse",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_vieau_jacob",
+   "name_as_read": "Jacob Vieau",
+   "household_id": "hh_vieau_jacob",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_vieau_josette",
+   "name_as_read": "Josette Vieau",
+   "household_id": "hh_vieau_josette",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_vieau_marie_josette",
+   "name_as_read": "Marie Josette Vieau",
+   "household_id": "hh_vieau_marie_josette",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_vieau_paul",
+   "name_as_read": "Paul Vieau",
+   "household_id": "hh_vieau_paul",
+   "community_term": "metis",
+   "rule": "community_term_on_the_card",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  }
+ ],
+ "withheld": [
+  {
+   "row_id": "church:data/research/church/claims/st_marys_baptisms_town_findings.json#claims/st_marys_town_08#1",
+   "name_as_read": "Jaespquaa",
+   "domain": "church",
+   "describes_date": "1833-10-10",
+   "reason": "the_crosswalk_ruled_this_row_not_a_person",
+   "why": "The register's own crosswalk rules this row `not_a_person`: it is a TOWN FINDING — a line of prose that bounds the book rather than populating it — and there is nobody in it for a card to receive. It is not refused for being false and it is not out of the window. The person the finding describes is carded here from the entry the finding quotes, so nothing is lost by refusing the finding itself; carding both would double one woman out of one page."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_3_mother#0",
+   "name_as_read": "Marianne (sauvage)",
+   "domain": "church",
+   "describes_date": "1833-10-08",
+   "reason": "the_register_prints_this_woman_twice",
+   "why": "The same woman is named on a second entry of the same book, in the same year, with the same spouse written beside her on the line. Two printings of one reading are not two people — the shape T-1562 settled for the three printings of Samuel Toby — so one card is written and this row is refused. The spouse's name is read here as a DISCRIMINATOR on the page and for nothing else: no kin tie is written onto any card, and the family pass that owns the tie is named on the card instead. She is carded as `hh_cr_marianne` off entry 14 of 1833, and the spouse both entries name is `Antoine Aspam`."
+  }
+ ]
+}

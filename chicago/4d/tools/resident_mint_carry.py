@@ -40,10 +40,12 @@ OLD_SETTLER_MARKERS = ("OLD SETTLERS, 1882", "OLD SETTLERS, 1879")
 #: The reconstruction STAGES that derive a resident directory whole and therefore have
 #: to carry `employment` through it (T-1489). They are not mints and do not take the
 #: per-card route above: they call ``carry_seats`` once, on the set they are about to
-#: write or compare. Four directories and four stages, because `underdocumented/` is
-#: shared by two of them on an id prefix and `households/` is where this stage's own
-#: `hh_rc_*` cards stand beside the four mints' cards.
+#: write or compare. Four directories and five stages, because `underdocumented/` is
+#: shared by THREE of them on an id prefix — `hh_um_`, `hh_fb_` and `hh_cr_` — and
+#: `households/` is where this stage's own `hh_rc_*` cards stand beside the four mints'
+#: cards.
 SEAT_CARRIERS = (
+    "reconstruct_church_register.py",
     "reconstruct_free_black.py",
     "reconstruct_trade_households.py",
     "reconstruct_underdocumented.py",

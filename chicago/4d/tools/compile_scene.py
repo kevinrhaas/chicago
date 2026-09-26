@@ -855,9 +855,27 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     # the town's OWN people — the country was theirs — and the town carried twenty men of
     # the other company on that page and none of these. Every row is review_required and
     # touches_removal and the card says so in its own words.
-    underdocumented_path = DATA / "reconstruction" / "1835_native_and_metis.json"
-    underdocumented_doc = load(underdocumented_path) if underdocumented_path.exists() else {}
-    underdocumented_rows_minted = underdocumented_doc.get("minted", [])
+    #
+    # ONE STAGE, A LIST OF SUB-STAGE REPORTS (T-1504). `underdocumented` is built a cohort
+    # at a time — the programme's own note says so — and each cohort writes its own report
+    # beside its own id prefix in data/residents/underdocumented/. Reading a single file
+    # here made the People view a function of which cohort happened to be written first,
+    # which is why `underdocumented_by_sub_stage` below has always been able to count more
+    # sub-stages than this block could ever feed it. The list is the fix, and the order in
+    # it is the order the cohorts were built.
+    #
+    # T-1377's free Black cohort is NOT in the list yet and its seven cards do not reach
+    # the town: that is a defect of its own, found while wiring this one and filed as
+    # T-1579, and adding it is a line in that ticket rather than a passenger on this one —
+    # seven people arriving in the People view is a change that owes its own gate.
+    underdocumented_reports = [
+        DATA / "reconstruction" / "1835_native_and_metis.json",   # T-1376, hh_um_
+        DATA / "reconstruction" / "1835_church_register.json",    # T-1504, hh_cr_
+    ]
+    underdocumented_rows_minted = []
+    for path in underdocumented_reports:
+        if path.exists():
+            underdocumented_rows_minted.extend(load(path).get("minted", []))
 
     transients_path = DATA / "reconstruction" / "1835_transient_persons.json"
     transients_doc = load(transients_path) if transients_path.exists() else {}
