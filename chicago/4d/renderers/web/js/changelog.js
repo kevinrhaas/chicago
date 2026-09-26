@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1141, title: 'Eighty-eight building notices from before the scene, each one ruled', kind: 'change', ts: '2026-09-26T13:08:52.161Z', date: 'Sep 26, 2026, 8:08 AM CT',
+    items: [
+      'Nothing you can see in the town has changed. This is the reading ledger: 88 notices about BUILDINGS, printed in the Chicago Democrat in 1833 and 1834, that had been read off the page years ago and never ruled on. Each now carries a written answer.',
+      'They are the harder half of that job, because the scene is 1 July 1835 and every one of these is earlier. A store advertised to let in March 1834 is a fact about March 1834; it does not say the same building stood fifteen months later, or which of the town\u2019s roofs it became. So a good reading can be true and still not place anything.',
+      'Eleven of them turned out to be spent already, on a shelf this ledger cannot see: the building is in the town, raised or dated from that very notice \u2014 John Wright\u2019s two buildings to let, the Presbyterian church\u2019s dedication, the Baptist meeting house, Eliza Chappel\u2019s infant school, the 16-by-30-foot house at LaSalle and Lake, the newspaper\u2019s own office at South Water and Clark. Each answer names the record, so anyone can check it.',
+      'Thirty-six describe a real building and cannot say where it stood \u2014 no street, or a street with nothing on it to measure from. Thirteen carry no building at all but the town around one: the count of seven or eight raisings in a week, the 122 building lots for sale, the fire ordinance\u2019s rule that a stove pipe must stand eighteen inches above the roof. Five are placed by survey and placed off our ground: a log house thirteen miles out, a steam saw mill up the North Branch, a tavern that turns out to be Springfield\u2019s.',
+      'Twenty-three do reach the plat \u2014 a lot and a block, a named corner, a doorway measured from a building we already hold \u2014 and they are handed on rather than spent, because carrying one to 1835 means deciding whether it survived, and that is a separate piece of work with the plat in front of it.',
+      'No building was placed, moved or invented here, and no confidence was raised.',
+    ] },
   { v: 1140, title: 'The ground\u2019s outer apron was 130 drawings of nothing', kind: 'fix', ts: '2026-09-26T12:37:16.112Z', date: 'Sep 26, 2026, 7:37 AM CT',
     items: [
       'Nothing you can see in the town has changed \u2014 the picture is the same one, drawn the same way. What changed is how much work a machine does to draw it, and this fixes the promise the last release said was broken.',
