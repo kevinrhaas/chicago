@@ -80,6 +80,59 @@ export function groundTiling() { return lastGroundTiling; }
 // the 1,883 m haze reach so a boundary tile cannot buy hundreds of metres of
 // detailed ground merely because one corner remains visible (T-1245).
 const GROUND_TILE_TARGET_M = 240;
+/**
+ * …AND A TILE TOO THIN TO BE WORTH A DRAW CALL IS NOT A TILE (T-1595).
+ *
+ * The ground mesh is not all ground. Every epoch's `heightfield.json`
+ * gives it a SKIRT: an apron 2,659.84 m wide on all four sides that
+ * carries each boundary vertex outward at its own height, so the modelled box
+ * does not end in a cliff at the horizon. It is a rim of long quads and it is
+ * nearly free — the whole apron of the committed field is **2,489 triangles**.
+ *
+ * The tiling above cut it on the same 240 m grid as the modelled ground, which
+ * gave it 130 tiles of about NINETEEN TRIANGLES EACH, every one its own draw
+ * call. Measured on dev @ 13662e62, published mirror, desktop 1280x800, at the
+ * `light` tier — the tier whose 90-call floor this ticket is about:
+ *
+ *              tiles   triangles   visible   of the frame's calls
+ *   modelled     230   1,101,477       6-9   the ground the town stands on
+ *   apron        130       2,489        66   about 30 at the open aerial,
+ *                                            17 at Lake and Market
+ *
+ * Thirty draw calls, at the stand that was reading 99 against a floor of 90,
+ * for one thousand three hundred triangles. `far-merge.js` states the general
+ * form of this: chunking is a price paid in calls for what the frustum can
+ * then reject, and it is only worth paying while something is bought with it.
+ * Nineteen triangles buy nothing — the apron is flat, it is at the horizon,
+ * and a visitor cannot tell which part of it was skipped.
+ *
+ * So a bucket that cannot hold a 16 x 16 patch of the 2.5 m field is not a
+ * patch of ground; it is a sliver of the apron, and every one of them is
+ * submitted as ONE mesh instead. The threshold sits three orders of magnitude
+ * away from both populations above — 13x the apron's per-tile count, 19x under
+ * the modelled ground's — so it is not a number tuned between two neighbours.
+ *
+ * This is a change of BATCHING and nothing else, and the same three things are
+ * true of it that are true of the far merge: no vertex is moved, dropped or
+ * re-typed, the material is the ground's own, and the confidence attribute
+ * rides along in the merged buffer. Nothing a visitor can see changes at any
+ * tier.
+ *
+ * WHAT IT BOUGHT AND WHAT IT COST, re-read on the published mirror with
+ * `tools/measure_detail_ceilings.mjs` at T-0135's five stands:
+ *
+ *                     light worst calls          full worst calls
+ *   desktop 1280x800   99 -> 82 (Lake & Market)   183 -> 156 (the forks)
+ *   mobile   390x780         74 (Lake & Market)         155 (Lake at Canal)
+ *
+ * The cost is that the remainder is one bounding box wrapped round the whole
+ * scene and so is never frustum-culled: its 2,489 triangles are now drawn in
+ * every frame, and every stand reads about 3,600 triangles heavier. That is
+ * why the threshold is only ever allowed to hold slivers — a remainder made of
+ * real ground would be a worse bargain than the calls it saves, which is the
+ * same test `far-merge.js` puts its own merge to.
+ */
+const GROUND_TILE_MIN_TRIS = 256;
 // The continuous low-detail field beneath the detailed tiles: 6 heightfield
 // cells = 15 m on the committed field. It carries the terrain beyond the detail
 // reach without carrying the expanded field's million triangles with it.
@@ -656,9 +709,28 @@ function tileGround(mesh, grid) {
   }
   if (buckets.size < 2) return null;
 
+  // THE SLIVERS COME OUT FIRST (T-1595). A bucket under GROUND_TILE_MIN_TRIS
+  // is the apron, not the ground, and it is folded into one remainder bucket
+  // before any mesh is built — so the merge costs a pass over the keys rather
+  // than a second copy of any vertex. The remainder keeps the key `thin` so it
+  // is nameable in a probe, and it is left out of the sort above precisely
+  // because it belongs to no cell.
+  const thin = [];
+  for (const [key, verts] of [...buckets.entries()]) {
+    if (verts.length / 3 >= GROUND_TILE_MIN_TRIS) continue;
+    for (const v of verts) thin.push(v);
+    buckets.delete(key);
+  }
+  // A ground whose every cell is thin is a ground too coarse to tile at all,
+  // which is the case the guard above already names — say so the same way
+  // rather than returning one mesh that pretends to be a tiling.
+  if (buckets.size < 2) return null;
+
   const names = Object.keys(geo.attributes);
   const tiles = [];
-  for (const [key, verts] of [...buckets.entries()].sort((x, y) => x[0] - y[0])) {
+  const built = [...buckets.entries()].sort((x, y) => x[0] - y[0]);
+  if (thin.length) built.push(['thin', thin]);
+  for (const [key, verts] of built) {
     const tileGeo = new THREE.BufferGeometry();
     for (const name of names) {
       const src = geo.attributes[name];
@@ -678,6 +750,13 @@ function tileGround(mesh, grid) {
     tile.frustumCulled = true;
     tiles.push(tile);
   }
+  // Reported rather than swallowed, the way the far merge's state is: `built`
+  // is how many meshes the grid actually came to and `thinTriangles` how many
+  // the remainder holds, so `?debug=1` and the measurement harness can see the
+  // coalescing happen instead of reading a tile count that no longer matches
+  // cols x rows (T-1595).
+  lastGroundTiling.built = tiles.length;
+  lastGroundTiling.thinTriangles = thin.length / 3;
   return tiles;
 }
 

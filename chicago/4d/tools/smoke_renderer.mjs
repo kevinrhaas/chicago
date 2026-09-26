@@ -8554,6 +8554,32 @@ for (const [label, viewport, touch] of [
     // spare calls reaches it honestly. When THIS one goes red, same rule:
     // a trim or an argued re-budget, never a quiet weakening.
     //
+    // IT WENT RED, AND THIS TIME THE ANSWER WAS THE TRIM — T-1595, 2026-09-26.
+    // Red at 94 on dev on 2026-09-20 (the banked dev-smoke reading) and at 99
+    // six days later, worst stand the open aerial. 90 HAS NOT MOVED and is not
+    // asked to: `tools/measure_stand_budget.mjs --stand from_above --tiers
+    // light` priced the frame layer by layer for the first time and the ground
+    // was 45 of the 99 calls, nearly half, against 28 % of the triangles. Of
+    // its 360 tiles, 130 were the heightfield's SKIRT — the apron outside the
+    // modelled box — cut on the same 240 m grid and holding 2,489 triangles
+    // BETWEEN THEM, nineteen apiece, each its own draw. `terrain.js` now gives
+    // every bucket under GROUND_TILE_MIN_TRIS one mesh between them, which is
+    // a change of batching and of nothing else.
+    //
+    // Re-read afterwards on the published mirror with
+    // `tools/measure_detail_ceilings.mjs`, the instrument that reproduces this
+    // sweep to the draw call, at both viewports:
+    //
+    //                     light worst calls        full worst calls
+    //   desktop 1280x800   99 -> 82 (Lake & Market)  183 -> 156 (the forks)
+    //   mobile   390x780         74 (Lake & Market)        155 (Lake at Canal)
+    //
+    // Eight calls of room under the floor where there were none, and the town
+    // budget of 215 gains 27 at its own worst frame. WHAT IT COST, said plainly:
+    // the merged remainder is one bounding box round the whole scene, so its
+    // 2,489 triangles can no longer be frustum-culled and every stand reads
+    // about 3,600 triangles heavier. Both figures are in `DETAIL`'s rungs.
+    //
     // The ratio is KEPT underneath rather than replaced: the count is the
     // promise to a weak machine, the ratio is the claim that the scene-detail
     // control is not decoration, and a reading can break either without the
