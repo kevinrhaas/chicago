@@ -14042,7 +14042,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 401 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 402 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
@@ -14844,4 +14844,63 @@ docs/RESEARCH/main_branch_sloughs_1833.md § 6.
 **Related:** **L150** (the course this replaces, now resolved), **L195** (the crossing over the
 reach that survives), the ruling **T-1628**, the mouth **T-0129**, the meander and the feather
 **T-0118**, the sheet reading **T-0795**.
+**Recorded:** 2026-09-26.
+
+### L274 — One freight shed on the south bank at the Dearborn reach, on ground a filled channel gave back
+
+**Covers:** `south_bank_shed_dearborn_e1.function`, `south_bank_shed_dearborn_e1.shed_1835.documented_range`, `south_bank_shed_dearborn_e1.shed_1835.footprint`, `south_bank_shed_dearborn_e1.shed_1835.form.construction`, `south_bank_shed_dearborn_e1.shed_1835.form.door`, `south_bank_shed_dearborn_e1.shed_1835.form.door_side`, `south_bank_shed_dearborn_e1.shed_1835.form.paint`, `south_bank_shed_dearborn_e1.shed_1835.form.roof_pitch_deg`, `south_bank_shed_dearborn_e1.shed_1835.form.roof_type`, `south_bank_shed_dearborn_e1.shed_1835.form.wall_height_m`, `south_bank_shed_dearborn_e1.shed_1835.position`.
+
+**Decision:** the south bank of the main stem below the Dearborn drawbridge carries **one low
+freight shed** where it carried nothing — on the last town ground east of South Water Street's
+platted corridor and west of State Street's, standing between the fort road and the river with
+its wagon door to the road. **It is not attested.** Every value on the record is graded
+`reconstructed`, including the fact that a building stood there at all, and it disappears with
+the rest of the reconstructed tier when a visitor turns it off. It is the south-bank half of
+**L164**, which built the four north-bank sheds of the same plate and said in writing that this
+bank could not be built.
+
+**What bounded the invention, and it is three measurements rather than a judgement.** (1) The
+EASTING is the westernmost station between the two platted corridors at which the whole rectangle
+stands on free ground — local E 806.5; half a metre west of it the west corner enters South
+Water's corridor. (2) The NORTHING and BEARING come off the fort road's drawn travelled way
+(`track_width_m` 5.5): the front wall stands 1.25 m back from its north edge, squared to the
+road's own bearing there, and over the whole footprint the building's nearest point is 3.98 m from
+the centreline — 1.23 m of clear ground between its wall and the wheel line. (3) The committed
+heightfield holds the 252-point lattice under it between 1.027 m and 1.300 m above the water
+surface, 0.273 m of relief, inside the 0.30 m the infill generators allow. The size is the FLOOR
+of family F1, 18 x 32 ft, because it is the only size the 9.5 m window between the two corridors
+takes at this bearing.
+
+**The setback is the thing that gave way, and it is stated rather than smoothed.** The north bank
+keeps 2.00 m from North Water Street's travelled edge. At 2.00 m here the back wall stands half a
+metre further down the bank and the rectangle's relief reaches 0.353 m, past the clause, so the
+setback came in to 1.25 m and the clause held. A reader who thinks 1.25 m is too close to the
+road's wheels is reading the right number.
+
+**What it stands inside, said plainly.** The fort road's own RECONSTRUCTED 12 m corridor. That
+corridor reserves nothing — `fort_road` carries `geometry_confidence: reconstructed`, nobody
+traced the road and no source names it — so there is no platted width here to lap, and
+`tools/measure_corridor_intrusion.py` reads the building clear of all 33 platted corridors. The
+project's refusal of a building inside a PLATTED corridor is untouched by this and the frontage
+that refusal was written about is still empty: beside the platted street the reading is zero at
+every relief clause it is reported at, and one clause harder than when T-0134 wrote it.
+
+**Why the ground exists at all, because that is the part a reader should distrust first.** It is
+ground **T-1629 made** three hours before this shed was placed, by re-tracing the town slough's
+mouth to Wright's own re-entrant east of State Street and filling the mouth this project had cut
+west of it. The channel that stood here was this reconstruction's, not the town's; the fill put
+the bank back to the line Wright drew. So the building is an invention on corrected ground rather
+than on invented ground — but the correction is recent, and if it is ever undone this shed goes
+back under water and must go with it. `tools/measure_south_bank_ground.py --gate` is what would
+say so: it holds the reach's fit counts, and a change in them is the question re-opening.
+
+**How to resolve:** a lot record on the river side of South Water Street, a forwarding merchant's
+advertisement giving an address on this reach, or a contemporary — not retrospective — view of the
+south bank below the draw. Any of the three would replace an invention with a building.
+
+**Related:** **L164** (the four north-bank sheds of the same plate), **L79** (the travelled tracks
+inside the 80 ft corridors), the refusal this spends **T-0134**, its parent **T-0071** and sibling
+**T-0133**, the fill that opened the ground **T-1629**, this re-read **T-1636**,
+`docs/RESEARCH/south_bank_dearborn_ground.md`, `data/exclusions.json` →
+`south_bank_warehouses_dearborn_reach`.
 **Recorded:** 2026-09-26.

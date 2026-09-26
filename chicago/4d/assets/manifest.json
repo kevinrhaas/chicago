@@ -3627,6 +3627,15 @@
       "phase_id": "log_1833",
       "structure_id": "slough_log_bridge"
     },
+    "south_bank_shed_dearborn_e1__shed_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 124716,
+      "inputs_sha256": "f3a7d1398762c16f290539e63c8e0226005040e8314b5f4c59a860dcd6bb9b88",
+      "kind": "generated",
+      "phase_id": "shed_1835",
+      "structure_id": "south_bank_shed_dearborn_e1"
+    },
     "south_branch_raft_bridge__log_1833.glb": {
       "archetype": "bridge_timber",
       "baked_ao": false,

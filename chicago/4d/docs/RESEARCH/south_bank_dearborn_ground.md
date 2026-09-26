@@ -4,6 +4,13 @@
 the committed heightfield. The answer is no, and the reason is not the one the refusal
 was originally written on.**
 
+**RE-READ 2026-09-26 BY T-1636, ON GROUND THAT MOVED, AND THE ANSWER IS NOW TWO ANSWERS.**
+T-1629 filled the town slough's mouth this project had cut west of State Street, and the
+reading below fired: 91 positions appeared where there had been none. On the frontage this
+note is about the refusal HOLDS, and one clause harder than when it was written. East of
+that frontage there is now buildable ground, and there is one building on it. Read § The
+re-read at the end before quoting any number from the middle of this page.
+
 ## The question
 
 Image 3 of the owner's brief of 2026-08-18
@@ -135,3 +142,105 @@ extended, the plat is re-derived or the waterline is re-traced.
 
 **Links:** T-0134 · T-0133 · T-0071 · T-0009 · T-0059 · T-0195 · `docs/LIBERTIES.md` L79,
 L164 · `data/exclusions.json` → `south_bank_warehouses_dearborn_reach`.
+
+---
+
+## The re-read, 2026-09-26 (T-1636)
+
+`tools/measure_south_bank_ground.py --gate` is the assertion this note ends on: *"It is the
+assertion that fires the day the terrain is extended, the plat is re-derived or the waterline
+is re-traced."* On 2026-09-26 the waterline was re-traced and it fired. T-1629 moved the town
+slough's mouth to Wright's own re-entrant east of State Street and **filled the mouth this
+project had cut west of it** — the old channel and its two approach cuts came up about a metre
+above the water and dead flat — and the count went from 0 positions at 0.30 m of relief to
+**91**. That PR banked the new figures into `tools/south_bank_ground_baseline.json` without
+re-reading the finding, which the baseline's own note forbids; T-1636 is the re-read.
+
+### 1. The instrument was wrong, and it was wrong in the town's only road to the fort
+
+`plat_corridors.corridors()` carries the **platted** grid — 33 streets off James Thompson's
+plat and its additions. It is the right module for "is this in a platted street" and it was
+the wrong one for the question this reading asks, because **a road that is not on the plat is
+still a road.** On this reach that road is `fort_road`: South Water Street stops at the United
+States Reservation, so the way from the town's east end to the fort gate was never platted,
+and it runs from local (805, 4) east-north-east across exactly the ground the fill opened.
+
+Of the 91 positions the fill appeared to open, **81 stand in the fort road's own travelled
+way** — every one of them, at every relief clause, because the road runs along the flattest
+line of the new ground. A reading that reports them as free would have been spent building in
+the road. `measure_south_bank_ground.py` now masks the travelled way of every committed street
+`plat_corridors` does not carry, and reports what the same roads' reconstructed corridors
+would additionally refuse beside it rather than gating on that. The mask is the **travelled
+way** (`track_width_m`) and not the corridor, because every bound in this reading is the
+permissive one and the corridor of an unplatted road is an invention twice over.
+
+### 2. The reading, after the fill and with the road in it
+
+    the south bank from dearborn_street_drawbridge (E 699.2) east to the
+    Reservation's west line (E 842.0)
+    126 of 143 stations carry ANY dry ground outside a platted corridor
+    the widest such strip is 26.50 m, at E 813.2 (N 0.0 to 26.0, 1.30 m of relief)
+    positions the smallest F1 footprint would stand at, at any bearing:
+       relief <= 0.30 m      10        (was 0 before the fill)
+       relief <= 0.35 m      15        (was 0)
+       relief <= 1.00 m      81        (was 6)
+       no relief clause     152        (was 26)
+    BESIDE THE PLATTED STREET — west of South Water's own east end (E 805.0),
+    which is the frontage the plate draws:
+       the widest free strip is 8.00 m, at E 804.2
+       relief <= 0.30 m       0        (was 0)
+       relief <= 0.35 m       0        (was 0)
+       relief <= 1.00 m       0        (was 3)
+       no relief clause       3        (was 3)
+    REFUSED FOR STANDING IN AN UNPLATTED TRAVELLED WAY — fort_road (5.5 m):
+       81 at every relief clause, because the road holds the flattest line of the
+       new ground
+    and of the 10/15/81/152 above, those the fort road's RECONSTRUCTED 12 m
+    corridor would also refuse (reported, not gated):
+       10 / 15 / 32 / 32
+
+### 3. What holds, and it is the finding this page was written for
+
+**The plate's own frontage is still refused, and the refusal is one clause harder.** West of
+South Water Street's east end the count is zero at 0.30 m, zero at 0.35 m and — new since the
+fill — **zero at a full metre**, where the first reading found three. The three positions that
+used to stand on the 8 m strip at E 804 are gone: the fill raised the ground inland of them and
+steepened the strip's own fall to the water from 0.86 m to 1.05 m of relief. So paragraph 1 of
+§ What it says above is unchanged and paragraph 2's correction — that width was never the
+problem, slope was — is now more true than it was. **The question § What is still open puts to
+this project is untouched:** whether an invented building may stand on the river margin of a
+platted street corridor is still undecided, and nothing on this page has decided it.
+
+### 4. What is new, and it is east of the frontage
+
+The ten surviving positions run **E 806.2 to E 814.2, N 8 to N 17** — the window between South
+Water Street's platted corridor, which ends at E 805.0, and State Street's, which begins at
+E 814.5. That is 9.5 m of town ground with the fort road through the middle of it, and § What
+it says paragraph 3 already said what it is: *"ground there answers a different question from
+the one the plate asks."* It still does. What changed is that the different question now has
+an answer, because before the fill this ground was a channel of this reconstruction's own
+making and now it is the bank Wright drew.
+
+**One building stands on it** — `south_bank_shed_dearborn_e1`, the westernmost of the ten, a
+18 × 32 ft plank freight shed between the fort road and the water with 0.273 m of relief under
+it and 1.23 m of clear ground between its wall and the road's wheel line. It is graded
+`reconstructed` on every line and `docs/LIBERTIES.md` L274 owns it. It is the south-bank half
+of L164's four north-bank sheds, and it is placed by the same kind of rule: an offset from a
+committed travelled way, at the westernmost easting two committed corridors leave free, held
+to the relief clause the infill generators hold themselves to.
+
+**Which way this is wrong if it is wrong.** Toward a building on ground whose dryness is three
+hours old. The fill is a correction rather than an invention — the channel was this project's,
+the bank is Wright's — but it is recent, and if it is ever undone the shed goes back under
+water and must go with it. The gate below is what would say so.
+
+### 5. The gate, restated
+
+`tools/measure_south_bank_ground.py --gate` now holds four readings rather than three: the
+reach's fits, the fits beside the platted street, **the fits standing in an unplatted travelled
+way**, and the two widest strips. A change in any of them is the question re-opening. The
+in-the-road count is gated because the two ways it can move are both things this page would
+want to know: the fort road moved, or the ground under it did.
+
+**Added links:** T-1636 (this re-read) · T-1629 (the fill) · `docs/LIBERTIES.md` L274 ·
+`data/structures/south_bank_shed_dearborn_e1.json`.

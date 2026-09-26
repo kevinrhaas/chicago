@@ -20,10 +20,10 @@
  "free_stations": 126,
  "stations": 143,
  "fits": {
-  "0.30": 91,
-  "0.35": 96,
-  "1.00": 162,
-  "none": 233
+  "0.30": 10,
+  "0.35": 15,
+  "1.00": 81,
+  "none": 152
  },
  "platted_end_m": 805.0,
  "widest_free_strip_beside_the_street": {
@@ -39,5 +39,24 @@
   "1.00": 0,
   "none": 3
  },
- "$note": "T-0134. The reading this project's refusal of the plate's south-bank warehouses stands on. Written by tools/measure_south_bank_ground.py --write-baseline, and only when the finding has been re-read: a fit appearing on this reach is the question re-opening, not a number to bank."
+ "unplatted_tracks_masked": [
+  {
+   "id": "fort_road",
+   "track_width_m": 5.5,
+   "corridor_width_m": 12.0
+  }
+ ],
+ "fits_in_an_unplatted_track": {
+  "0.30": 81,
+  "0.35": 81,
+  "1.00": 81,
+  "none": 81
+ },
+ "fits_in_an_unplatted_corridor": {
+  "0.30": 10,
+  "0.35": 15,
+  "1.00": 32,
+  "none": 32
+ },
+ "$note": "T-0134, re-read 2026-09-26 by T-1636. The reading this project's refusal of the plate's south-bank warehouses stands on. Written by tools/measure_south_bank_ground.py --write-baseline, and only when the finding has been re-read: a fit appearing on this reach is the question re-opening, not a number to bank. THESE FIGURES ARE THE RE-READ, not the fill's raw output. T-1629 filled the slough mouth this project had cut west of State Street and 91 flat positions appeared; 81 of them stood in the fort road, which plat_corridors cannot see because that road was never platted. `fits` now counts only positions clear of an unplatted travelled way, and `fits_in_an_unplatted_track` counts the ones the road takes, so both halves of the correction are held rather than one. `fits_beside_the_street` \u2014 the frontage the plate draws \u2014 is still zero at every clause and is one clause harder than when the refusal was written. See docs/RESEARCH/south_bank_dearborn_ground.md \u00a7 The re-read."
 }
