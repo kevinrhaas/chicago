@@ -121,6 +121,18 @@ step "the steward surfaces spend the REST bucket, not GraphQL (T-0234)" \
 selftest "…and a reintroduced gh pr draw is refused (T-0234)" \
   node tools/check_gh_rest.mjs --self-test
 
+# T-0135. The three scene-detail ceilings are a LADDER and nothing made them one.
+# `sealLadder()` in main.js takes the running minimum down the tier order, so a rung
+# typed too high cannot take effect; this is the gate beside that construction. It
+# is here and not only in the renderer smoke because the dev gate is check.sh and
+# nothing else (docs/PIPELINE.md) — a fault only a six-minute smoke part can see is
+# a fault that reaches the dev preview. It reads the committed source, sliced.
+step "the scene-detail ceilings are a ladder, and each rung says what it protects (T-0135)" \
+  node tools/check_detail_ladder.mjs
+
+selftest "…and the seal still clamps, marks and shouts a rung typed too high (T-0135)" \
+  node tools/check_detail_ladder.mjs --self-test
+
 step "dataset (schema, provenance, date gates, licenses, staleness, publish)" \
   python3 tools/validate.py --all $STRICT
 
