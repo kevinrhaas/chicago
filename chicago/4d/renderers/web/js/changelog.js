@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1134, title: 'The back yard may hold a cottage, and six were waiting', kind: 'change', ts: '2026-09-26T08:23:04.420Z', date: 'Sep 26, 2026, 3:23 AM CT',
+    items: [
+      'Nothing you can see in the town has changed yet. This is a rule about back yards, and it unblocks six small houses that have been stuck for six days \u2014 they go up in the next release.',
+      'Behind the houses on three of the town\u2019s platted blocks stand small buildings off the alley: stables, privies, woodsheds. Last week a review of the town\u2019s 285 anonymous roofs decided that six of them are not sheds at all but little dwellings \u2014 a cottage in somebody\u2019s back yard, which is how a crowded town of 3,265 people housed the people who did not have a lot of their own.',
+      'The reconstruction could not accept that. It sorted buildings into two kinds \u2014 the main building on a lot, and the yard buildings behind it \u2014 and it decided which by asking what KIND of building it was. A dwelling was always a main building. So calling one of these six a cottage made it a second main house on a lot that already had one, and every one of the six was refused.',
+      'What was wrong is the question. Whether a building is the main one on its lot is about WHERE IT STANDS, not what it is: a cottage twenty metres back, off the alley, behind the house that fronts the street, is plainly not that lot\u2019s main house. The reconstruction now asks both \u2014 what the building is, and where it stands.',
+      'This is the owner\u2019s decision, not a measurement, and it is written down as one: a lot may carry a main house plus a rear dwelling. No source in this town shows such a cottage, so the rule cites none and is marked as reasoning rather than evidence, at L256 in the liberties.',
+      'One thing follows that a visitor will notice later. A stable cannot have a family living in it, and the reconstruction refused to put anybody in a yard building for that reason \u2014 which was right about stables and wrong about cottages. A rear cottage can now hold a household; a privy still cannot.',
+    ] },
   { v: 1133, title: 'A finished job that still owned nine of the town\u2019s work orders', kind: 'fix', ts: '2026-09-26T08:10:16.495Z', date: 'Sep 26, 2026, 3:10 AM CT',
     items: [
       'Nothing you can see in the town changed. This is about a job the project had already finished and could not put down.',

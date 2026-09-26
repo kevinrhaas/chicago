@@ -1320,21 +1320,29 @@ step "the migrated roof ids re-derive, and nothing still names an old one" \
 selftest "…and the migration's own refusals still fire on a moved recipe" \
   python3 tools/migrate_roof_ids.py --self-test
 
-# T-1482, and the step that says why the last six of the 32 refamily verdicts are still
-# outstanding. The two migrations above carried 20 of them out; these six are yard
-# buildings standing off a block alley behind the principal roof on their own lot, and
-# the adjudication moves every one into a dwelling family. `generate_block_infill` reads
-# a roof's inventory class from its group, so that promotion makes each one a SECOND
-# principal roof on an occupied lot, which the parcel gate refuses and the committed
-# `multi_building_lot` rule admits only on a principal-street lot in a party-line run.
-# A report that could be read as "somebody forgot" is the failure this guards against:
-# it holds the refusal, the 36 offered families that all land in the same class, the two
-# open lots the three blocks have between them, and the clause's own evidence — three of
-# whose four documented stables stand exactly where the six were refused for standing.
-step "the platted blocks' six outstanding verdicts still have nowhere to be carried to" \
+# T-1482, and the step that holds the last six of the 32 refamily verdicts to what was
+# ruled about them. The two migrations above carried 20 out; these six are yard buildings
+# standing off a block alley behind the principal roof on their own lot, and the
+# adjudication moves every one into a dwelling family. The inventory class was read off
+# the GROUP alone, so that promotion made each one a SECOND principal roof on an occupied
+# lot — refused by the parcel gate, over `lot_ceiling_principal`, and not fixable inside
+# the verdict, because all 36 offered families are ordinary dwellings. This tool measured
+# that and the owner ruled on 2026-09-23 (option (a)): a rear cottage is ANCILLARY, so a
+# lot may carry a main house plus a rear dwelling.
+#
+# T-1610 carried the ruling into `reconcile_665.inventory_class`, which now reads the
+# position as well as the group, and into the placement policy as
+# `rear_dwelling_behind_its_own_roof`. SO THIS STEP IS NOW THE GUARD ON THE RULING: it
+# re-derives the six against the same committed files and refuses a report in which any
+# of them is refused again, or in which the class moves — a non-zero count here means the
+# clause has been lost out of the policy or out of the derivation, and T-1611 cannot run.
+# It still carries the two open lots, the 36 offered families and the clause's own
+# evidence, three of whose four documented stables stand exactly where the six were
+# refused for standing. The six are NOT yet re-dealt; that is T-1611.
+step "the platted blocks' six verdicts are still free to be carried out, and the rear-cottage ruling is still in force" \
   python3 tools/measure_block_redeal_remedies.py --check
 
-selftest "…and it would say so the moment a re-deal had somewhere to go" \
+selftest "…and the derivation, both gates and the ruling's own record still fire when broken" \
   python3 tools/measure_block_redeal_remedies.py --self-test
 
 # T-1499, and the silence it closes. Two tools sweep that same surface — the
@@ -1737,7 +1745,11 @@ selftest "…and its own assertions still fire when broken" \
 # worked where, each with its tier and the documented records behind it, and the five
 # numbers in one place that the four modules now import. The clause text is authored in
 # the module; every count, street class and setback printed beside a clause is re-read
-# from the committed tree on every run, which is what --check compares. Five assertions:
+# from the committed tree on every run, which is what --check compares. THIRTEEN clauses
+# since T-1610, the thirteenth being `rear_dwelling_behind_its_own_roof` — the owner's
+# rear-cottage ruling of 2026-09-23, tier `inferred` and citing no record, because this
+# town holds no documented roof standing as a dwelling in another roof's yard. It removes
+# no outlier: all seven documented D roofs conformed already. Five assertions:
 # no clause cites a record this tree does not hold; a `documented` clause has evidence
 # and an inferred one has its reasoning; every outlier is explained AND every explanation
 # still has its outlier; no family letter is left without a seat rule; and no module has

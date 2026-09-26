@@ -161,7 +161,9 @@ CONSTANTS = [
 #
 # `multi_building_lot_rule`:
 #   party_line_run        the density standard's party-line units, up to three per lot
-#   principal_plus_ancillary   one principal roof and its yard buildings
+#   principal_plus_ancillary   one principal roof and the yard buildings behind it —
+#                         which since the owner's ruling of 2026-09-23 (T-1482, T-1610)
+#                         may include a rear DWELLING, not only a stable or a privy
 #   one_principal_roof    one roof, and the lot is not subdivided
 #   not_applicable        the record is not seated on a platted lot
 
@@ -334,6 +336,36 @@ CLAUSES = [
              "the roof they serve. This predates the face rule and is a rule about the "
              "LOT, which is why A is not one of the face rule's letters."},
 
+    {"id": "rear_dwelling_behind_its_own_roof",
+     "applies_to": ["D1", "D2", "D3", "D4", "D5", "D6"],
+     "prefers": ["lot:mid"],
+     "avoids": [],
+     "multi_building_lot_rule": "principal_plus_ancillary",
+     "setback_class": "yard",
+     "tier": "inferred",
+     "evidence": [],
+     "note": "THE REAR COTTAGE, and it is an owner ruling rather than a reading. A "
+             "cottage may stand in the yard off the block alley behind the principal "
+             "roof on its own lot, and it is ANCILLARY there — the lot carries a main "
+             "house plus a rear dwelling. Owner, 2026-09-23, on T-1482's question, "
+             "option (a): 'Treat a rear cottage as ancillary, so a lot may carry a main "
+             "house plus a rear dwelling.' The question arose because T-1445 refamilies "
+             "six A-family yard buildings on three platted blocks into dwelling "
+             "families, and no clause covered a dwelling in a yard: "
+             "`ancillary_behind_its_own_roof` is A1-A5 only, so the six became second "
+             "PRINCIPAL roofs on occupied lots and the parcel gate refused all six. "
+             "THIS CLAUSE CITES NO RECORD AND CLAIMS NONE: the town holds no documented "
+             "roof standing as a dwelling in another roof's yard, so the tier is "
+             "`inferred` and the reasoning is the ruling, the six verdicts that needed "
+             "it, and the fact that the clause which refused them refuses three of its "
+             "own four evidence records read against the same term (T-1482, and "
+             "`tools/measure_block_redeal_remedies.py` re-derives that count). IT "
+             "AVOIDS NOTHING ON PURPOSE, and that is the whole difference from the A "
+             "clause: a rear cottage stands BEHIND, off the alley, so the traffic class "
+             "of the street its lot fronts is not a fact about its position — and "
+             "`class:principal` in the A clause's `avoids` is precisely the term that "
+             "produced the six refusals. Recorded as a liberty at L256."},
+
     {"id": "garrison_reservation",
      "applies_to": ["M1"],
      "prefers": ["ground:unplatted", "division:south"],
@@ -374,7 +406,10 @@ MULTI_BUILDING_LOT = {
                  "dooryard, and the lot is not subdivided.",
         "evidence": [],
         "note": "Stated as the complement of the principal-street rule. No documented "
-                "back-street lot in this town carries two principal roofs.",
+                "back-street lot in this town carries two principal roofs. The rear "
+                "cottage the owner admitted on 2026-09-23 does not raise this maximum: "
+                "`rear_dwelling_behind_its_own_roof` seats a dwelling in the yard as "
+                "ANCILLARY, and this number counts principal roofs.",
     },
 }
 
