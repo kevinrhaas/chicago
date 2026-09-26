@@ -1166,15 +1166,19 @@ def _build_underdocumented() -> int:
     way to build it however many cohorts it grows."""
     import reconstruct_underdocumented
     import reconstruct_free_black
+    import reconstruct_church_register
     return (reconstruct_underdocumented.build()
-            or reconstruct_free_black.build())
+            or reconstruct_free_black.build()
+            or reconstruct_church_register.build())
 
 
 def _check_underdocumented() -> int:
     import reconstruct_underdocumented
     import reconstruct_free_black
+    import reconstruct_church_register
     return (reconstruct_underdocumented.check()
-            or reconstruct_free_black.check())
+            or reconstruct_free_black.check()
+            or reconstruct_church_register.check())
 
 
 def _build_women_and_children() -> int:
