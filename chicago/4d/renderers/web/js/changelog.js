@@ -1,6 +1,5 @@
 export const CHANGELOG = [ // newest first
-<<<<<<< HEAD
-  { v: 1149, title: 'One slough at the foot of State, where the maps draw it', kind: 'change', ts: '2026-09-26T18:33:07.987Z', date: 'Sep 26, 2026, 1:33 PM CT',
+  { v: 1152, title: 'One slough at the foot of State, where the maps draw it', kind: 'change', ts: '2026-09-26T19:40:49.939Z', date: 'Sep 26, 2026, 2:40 PM CT',
     items: [
       'Fly the river front by the fort and there were two notches cut into the south bank within forty metres of each other, both of them the same drain reaching the water. Wright and Hathaway, surveying in 1834, draw one, and they draw it just east of State Street. This release removes the other.',
       'The one that went was ours. It entered the river west of State, under the east end of the riverside plank walk, and it was put there so it would run straight under the log bridge the town built over the drain. The notch east of State is on both 1834 sheets and was traced off one of them; it is evidence, and it is what the drain empties into now.',
@@ -8,7 +7,7 @@ export const CHANGELOG = [ // newest first
       'The old mouth is filled back to the bank line — ground that stood half a metre under water now stands a metre above it — so the plank walk’s east end carries on along the bank instead of crossing a bridge, and from the river or the air there is one notch in that bank between Clark Street and the fort where there were two.',
       'The log bridge moved with the water and changed streets doing it. It carries State Street over the drain now, thirty-five metres inland, its eight-metre span laid north and south. South Water Street stops at the United States Reservation, so the drain no longer crosses it — and the source for this crossing is a sentence saying a log bridge was needed where WATER Street crossed it. That half is a loss and is written down as one on the bridge’s record. What the source still supports is the rest: the town bridged this drain in log where its graded street met it, and it was needed after 1840.',
       'The cost is stated in figures. The new reach crosses the sand rise between State Street and the fort, so the channel is cut nine feet deep against the old six, and the bridge sits 0.72 m below the terrace with a graded cut 8.7 m long at each end, against 0.35 to 0.49 m before. The register of things we made up says so. Under the deck the drain holds 4.8 m of open water across an 8 m span, 0.93 m deep, dry footing at both ends.',
-=======
+    ] },
   { v: 1151, title: 'Arrive in 1835 as the town is assembled', kind: 'change', ts: '2026-09-26T18:30:51.494Z', date: 'Sep 26, 2026, 1:30 PM CT',
     items: [
       'The loading screen is now an arrival: the year rolls backward from the present toward 1835 as real reconstruction phases finish.',
@@ -30,7 +29,6 @@ export const CHANGELOG = [ // newest first
       'Browse the six Glessner measured drawings and survey report, compare 1911 frontage evidence with the 1904 target, and inspect source dates and unresolved questions.',
       'The pre-fire library now has an 1834 shortcut for the Wright map. Its map menu lists every dated reference and moves the timeline to your selection.',
       'This is a research library for the planned reconstruction. The 1835 town and the unfinished Prairie 3D scene are unchanged.',
->>>>>>> origin/dev
     ] },
   { v: 1148, title: 'The four houses with nowhere to stand are now refused in writing', kind: 'change', ts: '2026-09-26T17:31:46.182Z', date: 'Sep 26, 2026, 12:31 PM CT',
     items: [
