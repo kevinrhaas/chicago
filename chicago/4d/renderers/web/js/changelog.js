@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'One slough at the foot of State, where the maps draw it', kind: 'change', ts: '',
+  { v: 1153, title: 'One slough at the foot of State, where the maps draw it', kind: 'change', ts: '2026-09-26T19:48:19.264Z', date: 'Sep 26, 2026, 2:48 PM CT',
     items: [
       'Fly the river front by the fort and there were two notches cut into the south bank within forty metres of each other, both of them the same drain reaching the water. Wright and Hathaway, surveying in 1834, draw one, and they draw it just east of State Street. This release removes the other.',
       'The one that went was ours. It entered the river west of State, under the east end of the riverside plank walk, and it was put there so it would run straight under the log bridge the town built over the drain. The notch east of State is on both 1834 sheets and was traced off one of them; it is evidence, and it is what the drain empties into now.',
