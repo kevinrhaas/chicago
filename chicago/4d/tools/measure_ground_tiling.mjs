@@ -188,7 +188,7 @@ if (process.argv.includes('--self-test') || process.argv.includes('--check')) {
 // ---------------------------------------------------------------- measurement //
 
 const DOWNTOWN = [
-  { id: 'lake_at_canal', kind: 'anchor', target: 'green_tree',
+  { id: 'lake_at_canal', kind: 'anchor', target: 'lake_at_canal',
     label: 'Lake Street at Canal, east down the axis' },
   { id: 'the_forks', kind: 'anchor', target: 'forks', label: 'the forks, from Wolf Point' },
   { id: 'lake_and_market', kind: 'anchor', target: 'lake_market', label: 'Lake and Market' },
