@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1138, title: 'The ground\u2019s outer apron was 130 drawings of nothing', kind: 'fix', ts: '2026-09-26T12:00:55.232Z', date: 'Sep 26, 2026, 7:00 AM CT',
+    items: [
+      'Nothing you can see in the town has changed \u2014 the picture is the same one, drawn the same way. What changed is how much work a machine does to draw it, and this fixes the promise the last release said was broken.',
+      'The town stands on a modelled square of ground about 2.4 by 4.9 kilometres. Outside it is an apron that carries the ground on out to the horizon so the world does not end in a cliff. The apron is flat and nearly free: the whole of it is 2,489 triangles, about one building\u2019s worth.',
+      'The ground is cut into 240-metre tiles so the machine can skip the parts behind you. That is worth doing for real ground. It was being done to the apron too \u2014 130 tiles of about nineteen triangles each, and every one of them is a separate instruction to the graphics card. From the view above the town, sixty-six of those instructions were being issued to draw a little over a thousand triangles between them.',
+      'The apron is now one instruction. At the light setting \u2014 the one a phone and a machine with no graphics card start on \u2014 the worst view fell from 99 of those instructions to 82, against a limit of 90 that it had been over for at least six days. At the full setting the worst view fell from 183 to 156.',
+      'The limit was not moved to meet the number, which was the other way this could have been closed and the wrong one: that setting is the floor, and a floor that moves when something bumps into it is not a floor.',
+      'One honest cost. The apron is now one shape wrapped round everything, so the machine can no longer skip the half of it that is behind you: every view draws about 3,600 triangles more than it did. That is a few thousand triangles to save up to twenty-seven instructions, and it is recorded where the limits are set.',
+    ] },
   { v: 1137, title: 'Three numbers that were supposed to be a ladder', kind: 'change', ts: '2026-09-26T10:23:38.310Z', date: 'Sep 26, 2026, 5:23 AM CT',
     items: [
       'Nothing you can see in the town has changed. This is about the setting that lets a slower machine walk the town at all, and a way it could have quietly stopped working.',
