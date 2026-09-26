@@ -278,6 +278,54 @@ def order_book_holes(states: dict[str, str], parents: dict[str, str],
 
 # ------------------------------------------------------------------- the question
 
+def ticket_ids_in(name: str) -> list[str]:
+    """The ticket ids a branch name carries, padded and separator-optional.
+
+    The same convention `ticket.mjs inflight` reads — `steward/t1581-…`,
+    `steward/t-0062-…` — and the reason it is its own function is that it is the one
+    place this gate can fail SILENTLY: a name it cannot parse answers `[]`, which reads
+    exactly like a branch that closes nothing. So it is held by fixtures below.
+    """
+    if name.rsplit("/", 1)[-1] in ("dev", "main", "HEAD", ""):
+        return []
+    return sorted({f"T-{m.group(1)}"
+                   for m in re.finditer(r"(?i)(?:^|[^0-9a-z])t-?(\d{4})(?![0-9])", name)})
+
+
+def order_book_pointers(root: Path = ROOT) -> dict[str, list[str]]:
+    """Ticket -> the work orders in the committed order book that name it.
+
+    The forward-looking ids only — a bucket's `owning_ticket`/`owning_tickets`/
+    `ground_waits_on` and an unsettled re-family step's `ticket`. Everything else the
+    book stamps with a ticket is provenance and must never move; that distinction is
+    written out on `every_work_order_names_a_live_ticket` and is copied, not re-decided.
+    """
+    import json
+    path = root / "data/reconstruction/1835_reconstruction_order_book.json"
+    if not path.is_file():
+        return {}
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    out: dict[str, list[str]] = {}
+    for family in doc.get("bucket_families") or []:
+        for bucket in family.get("buckets") or []:
+            owed = bucket.get("to_reconstruct")
+            if owed is None:
+                owed = bucket.get("to_build")
+            if owed is None:
+                owed = bucket.get("roofs_gated")
+            if max(0, (owed or 0) - (bucket.get("filled") or 0)) <= 0:
+                continue
+            named = [bucket.get("owning_ticket")] + list(bucket.get("owning_tickets") or [])
+            named += list(bucket.get("ground_waits_on") or [])
+            for ticket in named:
+                if ticket:
+                    out.setdefault(ticket, []).append(f"the {bucket['key']} bucket")
+    for name, step in sorted((doc.get("re_family_ledger") or {}).items()):
+        if isinstance(step, dict) and step.get("settled") is False and step.get("ticket"):
+            out.setdefault(step["ticket"], []).append(f"the re-family programme's {name}")
+    return out
+
+
 def branch_tickets(root: Path = ROOT) -> list[str]:
     """The ticket ids this branch carries, read off its name.
 
@@ -286,16 +334,22 @@ def branch_tickets(root: Path = ROOT) -> list[str]:
     contract — `--closing` overrides it, and `dev`/`main` carry none, which is what
     keeps this step quiet where there is nothing being closed.
     """
-    name = os.environ.get("GITHUB_HEAD_REF") or os.environ.get("GITHUB_REF_NAME") or ""
-    if not name:
-        try:
-            name = subprocess.run(["git", "-C", str(root), "rev-parse", "--abbrev-ref", "HEAD"],
-                                  capture_output=True, text=True, check=True).stdout.strip()
-        except Exception:                                     # pragma: no cover
-            name = ""
-    if name in ("dev", "main", "HEAD", ""):
-        return []
-    return sorted({f"T-{m.group(1)}" for m in re.finditer(r"(?i)\bt-?(\d{4})\b", name)})
+    # GIT FIRST, AND THE ENVIRONMENT ONLY WHERE GIT CANNOT SAY. The tree being gated is
+    # whatever is checked out, and `git` is the one thing that always knows. The env
+    # vars are a fallback for a CI checkout left on a detached HEAD — and they are not
+    # to be trusted ahead of git, because this gate also runs from inside ANOTHER
+    # repository's workflow (the fleet steward's), where `GITHUB_REF_NAME` names that
+    # workflow's branch and answered `main` for a branch called `steward/t1581-…`.
+    name = ""
+    try:
+        name = subprocess.run(["git", "-C", str(root), "rev-parse", "--abbrev-ref", "HEAD"],
+                              capture_output=True, text=True, check=True).stdout.strip()
+    except Exception:                                         # pragma: no cover
+        name = ""
+    if name in ("", "HEAD"):
+        name = (os.environ.get("GITHUB_HEAD_REF")
+                or os.environ.get("GITHUB_REF_NAME") or "")
+    return ticket_ids_in(name)
 
 
 def would_strand(closing: list[str], root: Path = ROOT) -> tuple[list[str], list[str]]:
@@ -351,9 +405,22 @@ def fragile(root: Path = ROOT) -> list[str]:
         leaves = live_pieces_of(ancestor, states, children, LEDGER_ALIVE)
         if len(leaves) != 1:
             continue
-        riders = pointers_at({ancestor}, root)
-        for line in riders:
+        for line in pointers_at({ancestor}, root):
             out.append(f"{line} — held live by ONE leaf, {leaves[0]}")
+
+    # AND THE ORDER BOOK'S SIDE OF IT, which the ledger's own note cannot see. Its leaf
+    # set is the book's — a blocked ticket is live there — so the reading is taken
+    # twice rather than borrowed.
+    named = order_book_pointers(root)
+    for ancestor, orders in sorted(named.items()):
+        if states.get(ancestor) != "split":
+            continue
+        leaves = live_pieces_of(ancestor, states, children, ORDER_BOOK_ALIVE)
+        if len(leaves) != 1:
+            continue
+        out.append(f"{len(orders)} work order(s) in the 1835 order book are ordered by "
+                   f"{ancestor} ({'; '.join(sorted(orders)[:3])}) — held live by ONE "
+                   f"leaf, {leaves[0]}")
     return out
 
 
@@ -435,6 +502,22 @@ def self_test() -> int:
                         f"flat {flat_leaves}, derived {derived_leaves}")
     else:
         print("  holds: the walk descends `split_live` exactly as it descends `split`")
+
+    # 9. THE BRANCH NAME, which is the one input that can make this gate answer
+    #    nothing and look like a pass. `steward/t-0062-more-docks` is a real branch
+    #    from this repository's history and so is `steward/t1581-…`; `chore/bake-2026`
+    #    must not read as T-2026, and `dev` and `main` close nothing by design.
+    for name, want in (("steward/t1581-strand-gate", ["T-1581"]),
+                       ("steward/t-0062-more-docks", ["T-0062"]),
+                       ("origin/steward/t1564-women-children-refamily", ["T-1564"]),
+                       ("steward/t1581-and-t1593", ["T-1581", "T-1593"]),
+                       ("chore/bake-2026", []),
+                       ("dev", []), ("main", []), ("HEAD", []), ("", [])):
+        got = ticket_ids_in(name)
+        if got != want:
+            failures.append(f"branch {name!r}: expected {want}, got {got}")
+    else:
+        print("  holds: a branch name is read for the tickets it carries, and only those")
 
     # 7. ONE DEFINITION, ASSERTED AND NOT ASSUMED. The two callers keep their own
     #    leaf sets on purpose, and the walk is shared — so what this holds is that
