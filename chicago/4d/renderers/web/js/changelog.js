@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'Seven free Black households the town held and never showed', kind: 'add', ts: '',
+  { v: 1125, title: 'Seven free Black households the town held and never showed', kind: 'add', ts: '2026-09-26T04:00:59.861Z', date: 'Sep 25, 2026, 11:00 PM CT',
     items: [
       'Fifteen people arrive in the directory today, and not one of them is new. The seven free Black households at the floor of the 1835 bracket were reconstructed and carded weeks ago \u2014 the barber, the cook, the waiter, the drayman, the labourer, the whitewasher, the sawyer and their families. They have been sitting in this project\u2019s own files ever since, and the directory did not show a single one of them. The filter for them read zero.',
       'It was one missing line. The directory builds this part of the town by reading a list of the passes that made it, and the free Black pass was written without being added to that list. Nothing complained, because nothing was broken: the cards passed every check a card has to pass. They were simply never asked for.',
