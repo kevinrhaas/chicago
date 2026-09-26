@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1135, title: 'The church came out of the road; Lake Street got its walk', kind: 'change', ts: '2026-09-26T09:19:53.824Z', date: 'Sep 26, 2026, 4:19 AM CT',
+    items: [
+      'Walk east along the south side of Lake Street and the plank sidewalk used to give up 10 metres short of Clark, and the board crossing over Lake at that corner was missing with it. Both are there now. The reason they were missing was First Presbyterian’s meeting house, standing out in the roadway.',
+      'The church is documented at the south-west corner of Lake and Clark, but the coordinate for it was taken off a modern kerb line rather than off this project’s own 1830 street line, which put its north wall 1.9 metres out into the platted street. Fourteen other buildings had the same fault and were quietly nudged back onto the line. This one could not be: 3.4 metres back was exactly where a reconstructed physician’s office was standing, and buildings here are not allowed to stand within three metres of each other.',
+      'So it waited for a decision, because the question was not which building is 3 metres from which. It was which KIND of building gives way — one the sources put on a street, or one this project invented to fill the town out. The answer, now written as a general rule rather than a one-off: the documented building stands, and the invented one moves.',
+      'The physician’s office moved, and it was not deleted. It keeps the street and the lot it was given, shifts 13 metres west along the same frontage, and comes forward onto the street line — where a shop of its kind is supposed to sit anyway, instead of 9 metres back in a yard. Its own page says what displaced it and why, so the move is on the record rather than a building quietly vanishing.',
+      'Nothing was shaved to make the two fit. That was the tempting third option and it is refused: a building trimmed to clear its neighbour is no longer the size the evidence says it was. The three-metre rule was not relaxed either — after both moves the two stand 3.1 metres apart.',
+    ] },
   { v: 1134, title: 'The back yard may hold a cottage, and six were waiting', kind: 'change', ts: '2026-09-26T08:23:04.420Z', date: 'Sep 26, 2026, 3:23 AM CT',
     items: [
       'Nothing you can see in the town has changed yet. This is a rule about back yards, and it unblocks six small houses that have been stuck for six days \u2014 they go up in the next release.',
