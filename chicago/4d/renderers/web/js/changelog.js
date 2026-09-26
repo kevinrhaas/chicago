@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'The checks complained about themselves on every run', kind: 'fix', ts: '',
+  { v: 1122, title: 'The checks complained about themselves on every run', kind: 'fix', ts: '2026-09-26T02:37:15.916Z', date: 'Sep 25, 2026, 9:37 PM CT',
     items: [
       'Nothing you can see in the town changed. This is about the 630 checks every change here has to pass, and two lines of complaint they have printed about their own wording since 9 September.',
       'One check is named after the word it watches, and the name was written with the word marked out the way a programmer marks it. The shell that runs the checks read those marks as an instruction and tried to obey them: it failed, said so twice, and then dropped the word. So every single run began with two error messages that belonged to nothing, and the check went on to announce itself by a name with a hole where its subject should be. The verdict was never affected — but the checks are the one thing a machine working here is told to read, and they opened by crying wolf.',
