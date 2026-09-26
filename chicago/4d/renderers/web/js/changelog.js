@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'The haze stops painting the prairie the colour of water', kind: 'fix', ts: '',
+  { v: 1152, title: 'The haze stops painting the prairie the colour of water', kind: 'fix', ts: '2026-09-26T19:32:38.162Z', date: 'Sep 26, 2026, 2:32 PM CT',
     items: [
       'Fly north over the town at six hundred feet and the world looked flooded. Past the last blocks the ground turned a flat pale blue-grey, the far woods stood up out of it like trees in a lake, and a hard bright band filled the horizon. The owner reported it from the air this week.',
       'The ground was there the whole time. Switch the distance haze off at the same spot and the very pixel that read as open water reads as green prairie — so nothing was missing, nothing had been culled, and the reach that decides how far the ground is drawn was never the fault. What was wrong was the colour distance fades TO.',
