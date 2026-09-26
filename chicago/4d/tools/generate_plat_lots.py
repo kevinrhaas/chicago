@@ -57,6 +57,15 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
 from exact_sums import consistent_reading  # noqa: E402  (same directory)
+
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "drawn"
+CORRIDOR_LINE_WHY = (
+    "this module IS the block grid: `block_edges` offsets the drawn line, and the roofs it checks "
+    "stand on the lots it cuts"
+)
 DATA = ROOT / "data"
 OUT_PATH = DATA / "traces" / "vectors" / "thompson_lots.json"
 SIDECARS = DATA / "sidecars" / "1835"

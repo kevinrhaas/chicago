@@ -57,6 +57,16 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from plat_corridors import corridors, intrusion  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "both"
+CORRIDOR_LINE_WHY = (
+    "where an invented north-bank roof may stand is a question about the DRAWN street it would block; "
+    "it clears the control line too so a roof it moves cannot be back in a corridor the day the plat "
+    "question is reopened"
+)
+
 DATA = ROOT / "data"
 RECIPE = DATA / "reconstruction" / "1835_north_division_initial_parcel.json"
 STRUCTURES = DATA / "structures"
