@@ -5089,7 +5089,10 @@
           "to_build": 6,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1200",
+          "owning_tickets": [
+            "T-1639",
+            "T-1640"
+          ],
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 11; the 668-roof programme leaves 6 of them to build"
         },
