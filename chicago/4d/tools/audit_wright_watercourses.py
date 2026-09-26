@@ -69,8 +69,9 @@ PICKS = {
 # tests.
 WRIGHT_CLAIMS = {
     "north_side_slough": "existence AND course",
-    "lasalle_slough_lower": "existence and mouth only (the course inland is Conley/Stelzer)",
-    "lasalle_slough_upper": "nothing — inherits its parent's mouth",
+    "lasalle_slough_lower": "existence and mouth only (the 16 m inland stub is the owner's "
+                             "2026-09-26 ruling on a Conley/Stelzer alignment; T-1628 deleted "
+                             "lasalle_slough_upper, which used to inherit this mouth)",
     "state_slough_course": "nothing — chicagology and Conley/Stelzer",
     "state_slough_mouth": "the traced re-entrant only",
     "west_prairie_swale_a": "nothing — no source at all",

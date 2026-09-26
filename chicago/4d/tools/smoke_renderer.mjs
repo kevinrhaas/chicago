@@ -4784,7 +4784,18 @@ for (const [label, viewport, touch] of [
       // West Water track carries the trace past its corner and the front
       // frontage qualifies again — so these four move BACK together when it
       // lands, by the same arithmetic and in the same direction.
-      frontage.census?.records === 5 && frontage.census?.walks === 50
+      // T-1628 CLOSED THE GROUND BREAK THE COMMENT BELOW CALLS "the ground break
+      // that still cuts it". The owner ruled the La Salle slough back to Wright's
+      // depiction, so `lasalle_slough_upper` is gone and `lasalle_slough_lower`
+      // stops 15.95 m inside block 50's South Water lot. The channel used to cross
+      // BOTH faces of blk_south_water_lasalle and split each one's walk in two; each
+      // is one run again — `blk_lake_lasalle_north_1` and
+      // `blk_south_water_lasalle_south_1` absorb their own `_2` — so 50 walks to 48,
+      // and the town gains 31.2 m of board (3193.4 -> 3224.6 m) while LOSING two
+      // runs. CROSSINGS, POSTS, FENCES AND REFUSALS DO NOT MOVE: a break in the
+      // middle of a face never sprang a corner crossing, and nothing about a wall,
+      // a trade or a setback changed on either block.
+      frontage.census?.records === 5 && frontage.census?.walks === 48
         && frontage.census?.crossings === 39
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
@@ -4995,8 +5006,15 @@ for (const [label, viewport, touch] of [
     // `frontage` mesh and 60 `frontage-chunk`s. Stating it as 61 + the board
     // rather than as a number means this line does not have to be edited twice
     // more when T-1547 puts the corner back.
+    // T-1628 — AND THE CHUNK COUNT FOLLOWS THE WALK COUNT, one mesh per run. The
+    // La Salle slough no longer breaks either face of blk_south_water_lasalle, so
+    // the two faces that carried two runs each carry one: 60 `frontage-chunk`s to
+    // 58, and 61 authored to 59 beside the shared `frontage` mesh. See the walk
+    // census above for the arithmetic; this line holds the same event one level
+    // down, and it is the "ground break that still cuts it" named above finally
+    // being gone.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 62 : 61)
+      frontage.authored === (frontage.census?.lettered === 1 ? 60 : 59)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5235,25 +5253,29 @@ for (const [label, viewport, touch] of [
       saugPick.includes('sauganash_hotel'),
       `25 aims returned [${[...new Set(saugPick)].join(', ') || 'nothing'}]`);
 
-    // --- and the river plank walk (T-0119) --------------------------------
+    // --- and the river plank walk (T-0119, re-read by T-1629) -------------
     //
-    // The first frontage record that is not a building's frontage: the plank
-    // footway over the State slough's mouth on the Slough Log Bridge's
-    // committed deck, and the riverside walk from it along the south bank to
-    // Jones's landing. Its failure modes are its own, and none is visible to a
-    // dataset gate: the footway must be a surface the walker STANDS ON over
-    // water (a deck registered from the walk record, T-0045's machinery), the
-    // planks must actually be under the boot at the mouth, and the whole run
-    // must publish its floor to the planting block-list.
+    // The first frontage record that is not a building's frontage: the riverside
+    // walk along the south bank of the main stem to Jones's landing. Until
+    // 2026-09-26 its east end was a footway riding the Slough Log Bridge over the
+    // State slough's MOUTH, and these checks asked whether a visitor stood on
+    // planks over water there. The owner ruled that the mouth is Wright's traced
+    // re-entrant just EAST of State and the mouth built west of State — under
+    // these very boards — was the invention. So the carve is filled, the deck
+    // went with the water onto State Street, and what has to be true here is the
+    // opposite of what it was: the walk's east end stands on GROUND, the old
+    // mouth is dry, and the only water at the foot of State is at the notch.
+    // None of it is visible to a dataset gate: the ground under a board and the
+    // walker's own deck registry are decided at load.
     const river = await page.evaluate(() => {
       const a = window.__chicago4d;
       const f = a?.frontage;
       const rec = (f?.records ?? []).find((r) => r.id === 'river_walk_frontage');
       const footway = (f?.walks ?? []).find((w) => w.id === 'river_plank_walk_crossing_footway');
-      const deck = (a.decks ?? []).find((d) => d.id === 'river_plank_walk_crossing_footway__footway');
+      const ridden = (a.decks ?? []).find((d) => d.id === 'river_plank_walk_crossing_footway__footway');
       const keepOut = (f?.keepOut ?? []).filter((k) => k.id === 'river_plank_walk__walk').length;
-      // Planks under the boot at the mouth: timber vertices inside the deck
-      // span, at the footway's own plank band and no other height.
+      // Boards still under the boot at the walk's east end — timber vertices in
+      // the run's own band, standing over the FILLED ground rather than a deck.
       let boardVerts = 0;
       for (const t of f?.group?.children ?? []) {
         if (t.name !== 'frontage' && t.name !== 'frontage-chunk') continue;
@@ -5263,20 +5285,27 @@ for (const [label, viewport, touch] of [
           const e = pos.getX(i);
           const n = -pos.getZ(i);
           if (e < 805.4 || e > 813.2 || n < 13.1 || n > 15.3) continue;
-          const y = pos.getY(i);
-          if (deck && y > deck.y - 0.06 && y <= deck.y + 1e-6) boardVerts += 1;
+          if (pos.getY(i) > 0.9) boardVerts += 1;
         }
       }
-      // Stand mid-deck, over the water: the planks, not the wading barrier,
-      // hold the walker up — the exact-equality contract the bridge decks keep.
+      // THE OLD MOUTH IS FILLED. Stand where the deck used to be: dry ground,
+      // and the walker on it rather than on a registered deck over water.
       a.walker.teleport({ local_e: 809.4, local_n: 14.2, yaw_deg: 270 });
       const stood = {
         groundY: a.walker.state.groundY,
         wet: a.terrain.isWater(809.4, 14.2),
-        barrier: a.terrain.walkHeight(809.4, 14.2),
+        terrain: a.terrain.walkHeight(809.4, 14.2),
       };
-      // And the crossing is walkable END TO END: west off the deck onto the
-      // graded bank, no step refusal, ground continuous under every stride.
+      // AND THERE IS EXACTLY ONE MOUTH, east of State: the notch is open water,
+      // the re-seated deck on State Street stands over water, and the bank west
+      // of State — where the second notch used to be — is land all the way.
+      const mouths = {
+        notch: a.terrain.isWater(852.0, 11.0),
+        underDeck: a.terrain.isWater(826.9, -8.4),
+        bankWestOfState: [806, 810, 814, 818].map((e) => a.terrain.isWater(e, 20.0)),
+      };
+      // And the east end is walkable END TO END: west along the bank, no step
+      // refusal, ground continuous under every stride.
       let worstStride = 0;
       let prevY = a.walker.state.groundY;
       let blocked = 0;
@@ -5292,33 +5321,40 @@ for (const [label, viewport, touch] of [
         hasRecord: !!rec,
         cardId: rec?.card?.id ?? null,
         footwayDeckM: footway?.deck_m ?? null,
-        deckY: deck?.y ?? null,
+        footwayRides: footway?.rides ?? null,
+        riddenDeck: ridden?.id ?? null,
         walkRise: footway?.rise_m ?? null,
         keepOut,
         boardVerts,
         stood,
+        mouths,
         walkedToE: a.walker.state.e,
         worstStride,
         blocked,
       };
     });
-    check(`${label}: the river walk publishes its floor and registers its crossing deck`,
+    check(`${label}: the river walk publishes its floor and rides no deck at its east end`,
       river.hasRecord && river.cardId === 'river_plank_walk'
         && river.keepOut >= 15
-        && river.deckY !== null && river.footwayDeckM !== null
-        && Math.abs(river.deckY - (river.footwayDeckM + river.walkRise)) < 1e-9,
+        && river.footwayRides === null && river.footwayDeckM === null
+        && river.riddenDeck === null,
       `record ${river.hasRecord}, card ${river.cardId}, ${river.keepOut} keep-out `
-      + `rect(s), walker deck at ${river.deckY} m against deck_m ${river.footwayDeckM} `
-      + `+ rise ${river.walkRise}`);
-    check(`${label}: the walker stands on the planks over the water at the mouth`,
-      river.stood.wet === true && river.stood.groundY === river.deckY
-        && river.stood.barrier > river.deckY + 1,
-      `stood at ${river.stood.groundY} m over water=${river.stood.wet}, deck `
-      + `${river.deckY} m, barrier ${river.stood.barrier} m`);
-    check(`${label}: the crossing reads as planks underfoot, and walks off onto the bank`,
+      + `rect(s), rides ${river.footwayRides}, deck_m ${river.footwayDeckM}, `
+      + `registered deck ${river.riddenDeck}`);
+    check(`${label}: the old mouth west of State is filled and the walker stands on it`,
+      river.stood.wet === false && river.stood.groundY > 0.9
+        && river.stood.terrain > 0.9,
+      `stood at ${river.stood.groundY} m over water=${river.stood.wet}, terrain `
+      + `${river.stood.terrain} m`);
+    check(`${label}: exactly one slough mouth at the foot of State, and it is the notch`,
+      river.mouths.notch === true && river.mouths.underDeck === true
+        && river.mouths.bankWestOfState.every((w) => w === false),
+      `notch wet=${river.mouths.notch}, under the deck wet=${river.mouths.underDeck}, `
+      + `bank west of State wet=[${river.mouths.bankWestOfState.join(', ')}]`);
+    check(`${label}: the east end reads as planks underfoot, and walks on along the bank`,
       river.boardVerts >= 100 && river.walkedToE < 802 && river.blocked === 0
         && river.worstStride <= 0.35,
-      `${river.boardVerts} plank vertice(s) in the footway band, walked west to `
+      `${river.boardVerts} plank vertice(s) in the east end's band, walked west to `
       + `E ${river.walkedToE?.toFixed(1)}, ${river.blocked} blocked stride(s), worst `
       + `step ${river.worstStride?.toFixed(2)} m`);
 
