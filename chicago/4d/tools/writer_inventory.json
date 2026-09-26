@@ -1264,6 +1264,13 @@
       "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "seat_off_plat_ground_1835.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-26",
+      "finding": "Reproduces: `--build` on a clean tree rewrote its own two outputs \u2014 data/reconstruction/1835_off_plat_ledger.json and data/reconstruction/1835_off_plat_seats.json \u2014 twice in succession, `--check` passed against both, and `git status --porcelain` named nothing but those two files. It writes no structure record and no person card: every seat it deals is an ADOPTION of a roof that already stands, it raises no slot at all, and so it draws nothing off the order book. Measured again through tools/measure_step_isolation.mjs --tool, which reports both gated commands \u2014 --check and --self-test \u2014 writing nothing in-tree.",
+      "placed": "not yet \u2014 measured to reproduce. T-1614, piece 2 of 3 of T-1199, and it sits DOWNSTREAM of seat_platted_ground_1835.py: its scope is that tool's own `owed` list, so a manifest slot for this one has to fall after a slot for that one, which is itself still pending behind seat_known_1835.py. Three tools deep and none of them in derived_manifest.json, so this cannot be appended blind \u2014 the manifest's order is its own measured pass (on #1452 three reconstruction stages oscillated until they sat in the right slot)."
+    },
     "seat_platted_ground_1835.py": {
       "placement": "pending",
       "write_mode": "--build",

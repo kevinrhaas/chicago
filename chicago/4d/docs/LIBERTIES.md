@@ -14398,3 +14398,73 @@ programme), **L268** (the invented people the order book cannot move), tickets *
 **T-1195** (the placement policy), **T-1614** (the ground this pass hands on), **T-0516**
 (the anonymous-stock statement it refuses to overturn).
 **Recorded:** 2026-09-26.
+
+### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
+
+**Scope:** `off_plat_seats.seats[dealt]` — 72 households given a parcel of the committed
+ground the plat's own lot ledger does not draw, in
+`data/reconstruction/1835_off_plat_seats.json` beside the 1,302 written refusals,
+re-derived by `tools/seat_off_plat_ground_1835.py --build` and gated by its `--check`.
+The companion `data/reconstruction/1835_off_plat_ledger.json` enumerates the 177 parcels
+the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not
+claimed as one, for the reason **L270** gives about its own: every field is read off a
+committed record.
+
+**The ledger invents nothing, and it invents no line finer than the one it was given.**
+The 136 tier lots are `north_division_tier_lots.json` (T-1457) and
+`school_section_tier_lots.json` (T-1466), both written after the Thompson lot grid was
+closed, which is why neither is among L270's 226. The 27 Kinzie's Addition blocks are
+carried at BLOCK granularity and not lot, because that plat's own grid withholds its
+subdivision in as many words — no lot rule has been read for it, and carrying the
+Original Town's four-to-a-face module across the river would be a guess dressed as
+arithmetic. The 7 survey tracts are the placed chips of the 1834 colour key. The 5 camp
+grounds are carried by NAME and no polygon, because T-1214's own file authors no vertex
+and this one may not author one on its behalf. Which parcel a standing roof falls inside
+is a centroid test against those committed polygons, finest line first, so a roof inside a
+tier lot is reported on that lot and not on the tract the tier sits in.
+
+**Decision:** answer the 1,374 rows T-1613 handed on, in the placement policy's own clause
+order — *the order the committed policy file lists them in, not an order this pass chose* —
+by offering each household a standing anonymous roof of a family its clause admits, off the
+plat and in its own division. All 72 seats are adoptions. **Which parcel a household takes
+is this project's invention**, argued from the clause's stated preferences and nothing else;
+no source places any of these 72 households anywhere. **The policy vocabulary's `ground:`
+terms are spent here**, which is the part L270 deferred: `outside_plat` on every parcel in
+the file by construction, `unplatted` where no lot line is drawn, `wet` where the parcel's
+own committed ground sample reports metres below the datum. Two of the five — `branch` and
+`river_frontage` — are NOT scored, because no committed off-plat parcel record answers them;
+the ledger's `unscored_ground_terms` says so rather than guessing, and that is a gap for a
+later ticket and not a silence.
+
+**NOT ONE SLOT IS RAISED, and that is the finding rather than an omission.** A slot may be
+raised only on a block the 665-roof programme's schedule marks `open`, inside its committed
+family plan and up to its headroom. 150 of these 177 parcels have no row in that schedule of
+any kind — committed, surveyed, drawn ground the building programme does not carry — and the
+27 it does carry are Kinzie's Addition, every one marked `unsubdivided` with no headroom,
+waiting on that plat's own lot rule. So a household with no standing roof free in its own
+division has nowhere at all to be put, and its refusal says which of the two gates stopped
+it: no roof of an admitted family off the plat in that division, or one that a clause the
+policy ranks ABOVE its own had already taken. The 204 farms-and-country-seats rows are the
+second case, and the clause that took their D1 cabins is `labourer_dwellings` — whose own
+documented witness is Clybourn's cabins and Robinson and Caldwell's, both well outside the
+plat.
+
+**Which way it is wrong if it is wrong.** The same way L270 is: toward ground holding too
+FEW of the town's households. The sharpest reading of that is the South Division, where not
+one free reconstruction roof stands off the plat at all — every South Division roof this
+project raised is on a lot of the committed plat, and T-1613 dealt what was free of them.
+All 762 South Division rows handed on here are owed for a shortage of roofs, not a shortage
+of clauses.
+
+**How to resolve:** any source placing one of these households retires its seat, exactly as
+L270 says of its own; and a lot rule read for Kinzie's Addition, or a schedule row for the
+tiers and the tracts, turns the owed rows into slots rather than refusals. The retirement
+and the re-deal both run through `--build`, never by hand.
+
+**Related:** **L270** (the plat's own ledger and deal, whose 1,374 owed rows are this
+entry's scope), **L90** (the anonymous roofs this pass adopts), **L1** (a camp never becomes
+a figure), tickets **T-1614** (this entry), **T-1199** (the parent ask), **T-1613** (the
+predecessor), **T-1615** (the successor these 1,302 are handed to), **T-1214** (the camp
+grounds carried here by name), **T-1457** and **T-1466** (the two tiers), **T-0516** (the
+anonymous-stock statement it refuses to overturn).
+**Recorded:** 2026-09-26.

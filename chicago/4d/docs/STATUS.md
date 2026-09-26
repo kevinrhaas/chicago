@@ -1,5 +1,53 @@
 # STATUS
 
+## The ground off the plat is enumerated, and it holds 72 more — T-1614, 2026-09-26
+
+The second piece of T-1199, and it answers the 1,374 households the first piece handed on.
+`data/reconstruction/1835_off_plat_ledger.json` enumerates the ground the committed plat's
+own lot ledger does not draw: 136 tier lots (the North Division tier under Kinzie, the
+School Section tier between Madison and Monroe — both files written after the Thompson lot
+grid was closed), 2 School Section blocks left whole, Kinzie's Addition's 27 blocks, the 7
+placed chips of the 1834 survey colour key, and the 5 camp grounds. 177 parcels.
+
+**It is carried at the granularity the records actually hold.** Kinzie's Addition is a
+BLOCK and not a lot, because its own grid withholds the subdivision in as many words: no
+lot rule has been read for that plat, and carrying the Original Town's four-to-a-face
+module across the river would be a guess dressed as arithmetic. The camp grounds are a
+NAME and not a polygon, because T-1214's file authors no vertex and this one may not author
+one for it.
+
+**The unflattering number is 72 of 1,374, and every one of the 72 is an adoption.** Not one
+slot is raised, and that is the finding rather than an omission: 150 of the 177 parcels have
+no row in the 665-roof programme's schedule at all — committed, surveyed, drawn ground the
+building programme does not carry — and the 27 it does carry are Kinzie's Addition, marked
+`unsubdivided` with no headroom. So a household with no standing roof free in its own
+division has nowhere at all to be put, and 1,302 rows say which of the two gates stopped
+them.
+
+**The sharpest reading is the South Division: it has no free off-plat roof at all.** Every
+South Division roof this project raised stands on a lot of the committed plat, and T-1613
+dealt what was free of them. All 762 South Division rows handed on here are owed for a
+shortage of roofs, not a shortage of clauses. The 204 farms-and-country-seats rows are the
+other case — the D1 cabins their clause admits were taken by `labourer_dwellings`, which the
+placement policy's own order ranks above it, and whose documented witness is Clybourn's
+cabins and Robinson and Caldwell's, both well outside the plat.
+
+**What this pass spends that its predecessor could not.** T-1613 scored a clause's
+`class:`, `street:` and `lot:` preferences and said plainly that the policy vocabulary's
+`ground:` terms "are about unplatted ground and are the successor ticket's". They are scored
+now — `outside_plat`, `unplatted` and `wet`, each off a committed field. Two of the five,
+`branch` and `river_frontage`, are NOT scored, because no committed off-plat parcel record
+answers them; the ledger's `unscored_ground_terms` says so rather than guessing.
+
+**What this does not do.** It writes no structure record, raises no roof and bakes nothing.
+The People and Businesses views still do not read either seating file and the infill recipes
+are still not regenerated from them — both are T-1615. So today 178 households have an
+address that nothing in the walkthrough will show you.
+
+Gated by `tools/seat_off_plat_ground_1835.py --check` and its seven-refusal `--self-test` in
+`check.sh`; the invention is `docs/LIBERTIES.md` L271, counted by the register's own scope
+gate.
+
 ## The scene-detail ladder is sealed, and every rung says what it protects — T-0135, 2026-09-26
 
 **What a visitor sees:** nothing. No geometry, no reach, no cull and no ceiling value moves.

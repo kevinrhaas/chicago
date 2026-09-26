@@ -501,6 +501,20 @@ def _redealt_roof_count() -> int:
 
 
 PLATTED_SEATS = ROOT / "data" / "reconstruction" / "1835_platted_seats.json"
+OFF_PLAT_SEATS = ROOT / "data" / "reconstruction" / "1835_off_plat_seats.json"
+
+
+def _off_plat_seat_count() -> int:
+    """Households the placement policy deals onto the ground the plat does not draw.
+
+    Counted off `seats` for the reason `_platted_seat_count` gives — a liberty that read
+    the summary would be checking the summary writer. Every one of the 72 is an ADOPTION:
+    no parcel of the off-plat ledger is open ground in the 665-roof programme's schedule,
+    so this pass raises no slot and draws nothing off the order book.
+    """
+    if not OFF_PLAT_SEATS.exists():
+        return 0
+    return len(json.loads(OFF_PLAT_SEATS.read_text()).get("seats") or [])
 
 
 def _platted_seat_count() -> int:
@@ -519,6 +533,10 @@ def _platted_seat_count() -> int:
 
 
 SCOPE_SOURCES = {
+    "off_plat_seats.seats[dealt]": (
+        _off_plat_seat_count,
+        "data/reconstruction/1835_off_plat_seats.json, itself re-derived by "
+        "tools/seat_off_plat_ground_1835.py --check"),
     "platted_seats.seats[dealt]": (
         _platted_seat_count,
         "data/reconstruction/1835_platted_seats.json, itself re-derived by "
