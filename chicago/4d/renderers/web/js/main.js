@@ -484,8 +484,11 @@ const DETAIL_DECLARED = {
               measured: '1,460,000 set 2026-09-03 (the sixth re-basing, on the '
                 + "owner's \u201craise all 3\u201d, to carry PR #432's heightfield). "
                 + 'Re-read on dev 2026-09-26, published mirror, desktop 1280x800, '
-                + "T-0135's five stands: worst 1,378,519 at the forks from Wolf "
-                + 'Point \u2014 81,481 clear, 5.6 %' },
+                + "T-0135's five stands, after T-1595 gave the apron's 130 sliver "
+                + 'tiles one draw between them: worst 1,383,428 at the forks from '
+                + 'Wolf Point \u2014 76,572 clear, 5.2 %. The apron is 2,489 '
+                + 'triangles that the frustum used to be able to reject and now '
+                + 'cannot, and that is the whole of the rise' },
   // RE-BUDGETED 2026-08-21, 800000 -> 900000, on the owner's ruling that a
   // ceiling is a number this project chose rather than a claim about 1835.
   // Four parcels landed the same day - the street edge, the lot-line fences,
@@ -578,8 +581,8 @@ const DETAIL_DECLARED = {
               measured: '1,280,000 set 2026-09-03 in the same re-basing and by the '
                 + 'same rule (keep at least the absolute headroom carried that day, '
                 + 'rounded up to 5,000). Re-read on dev 2026-09-26, published mirror, '
-                + 'desktop 1280x800: worst 1,228,859 at the forks from Wolf Point '
-                + '\u2014 51,141 clear, 4.0 %' },
+                + 'desktop 1280x800, after T-1595: worst 1,233,768 at the forks '
+                + 'from Wolf Point \u2014 46,232 clear, 3.6 %' },
   // -- T-0147, 2026-08-27 -- AND THE FLOOR IS WON BACK: 1,050,000 -> 785,000 --
   //
   // The third and last piece of T-0149, whose whole complaint is the sentence
@@ -639,10 +642,13 @@ const DETAIL_DECLARED = {
                 + 'promise to a person rather than a budget for a parcel',
               measured: '825,000 set 2026-09-03, the one raise of this rung ever '
                 + 'taken and taken only on a second explicit ruling. Re-read on dev '
-                + '2026-09-26, published mirror, desktop 1280x800: worst 768,487 at '
-                + 'the open aerial \u2014 56,513 clear, 6.9 %. Its DRAW-CALL floor is '
-                + 'a separate promise and it is RED at that same stand, 99 calls '
-                + 'against 90 (T-1595); it is recorded here and not weakened' },
+                + '2026-09-26, published mirror, after T-1595: worst 772,025 at the '
+                + 'open aerial \u2014 52,975 clear, 6.4 % \u2014 at 1280x800, and '
+                + '698,550 at the same stand at 390x780. Its DRAW-CALL floor is a '
+                + 'separate promise and it was RED at 99 against 90 until T-1595 '
+                + "gave the ground's apron one draw call instead of 130; it is GREEN "
+                + 'at 82 (Lake and Market) on desktop and 74 on mobile, and it was '
+                + 'won by a trim and not by moving the number' },
 };
 const DETAIL_ORDER = ['full', 'balanced', 'light'];
 /**
