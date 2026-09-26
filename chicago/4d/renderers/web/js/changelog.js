@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1154, title: 'Tracing the sources behind the reconstruction', kind: 'change', ts: '2026-09-26T20:00:41.962Z', date: 'Sep 26, 2026, 3:00 PM CT',
+    items: [
+      'Nothing visible in the town changes. A source index now links the registered sources to the buildings, people, businesses and other reconstruction claims that use them, and distinguishes unused sources.',
+      'This supplies the data needed for the forthcoming loading-screen source cards and Sources browser. Newspaper links retain their issue dates and page or column details where recorded.',
+    ] },
   { v: 1153, title: 'One slough at the foot of State, where the maps draw it', kind: 'change', ts: '2026-09-26T19:48:19.264Z', date: 'Sep 26, 2026, 2:48 PM CT',
     items: [
       'Fly the river front by the fort and there were two notches cut into the south bank within forty metres of each other, both of them the same drain reaching the water. Wright and Hathaway, surveying in 1834, draw one, and they draw it just east of State Street. This release removes the other.',

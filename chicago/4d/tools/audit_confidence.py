@@ -86,10 +86,27 @@ def graded_blocks(doc):
 
 def audit():
     errors, warnings, counts = [], [], Counter()
+    source_use = None
     for path, doc in load_sidecars():
         rel = path.relative_to(ROOT)
         if "__unparseable__" in doc:
             errors.append(f"{rel}: will not parse — {doc['__unparseable__']}")
+            continue
+        if path.parent == ROOT / "data/sidecars/1835/sources":
+            # T-1248 edges point to already graded claims; they do not repeat the
+            # claims' reasoning. Validate their ENTIRE derived value instead of
+            # treating each backlink as a new, unattributed assertion. A changed
+            # confidence, missing edge, extra file or forged citation still fails.
+            if source_use is None:
+                from compile_source_use import compile_outputs
+                try:
+                    source_use, _ = compile_outputs(ROOT)
+                except (ValueError, KeyError) as exc:
+                    errors.append(f"source-use derivation: {exc}")
+                    source_use = {}
+            expected = source_use.get(path.name)
+            if expected is None or doc != json.loads(expected):
+                errors.append(f"{rel}: source-use backlink differs from its authored claim")
             continue
         sid = doc.get("id") or doc.get("structure_id") or rel.stem
         invented = bool(INVENTED_ID.match(sid))
