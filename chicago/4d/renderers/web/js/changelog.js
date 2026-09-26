@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1121, title: 'The checks complained about themselves on every run', kind: 'fix', ts: '2026-09-26T02:10:51.511Z', date: 'Sep 25, 2026, 9:10 PM CT',
+    items: [
+      'Nothing you can see in the town changed. This is about the 630 checks every change here has to pass, and two lines of complaint they have printed about their own wording since 9 September.',
+      'One check is named after the word it watches, and the name was written with the word marked out the way a programmer marks it. The shell that runs the checks read those marks as an instruction and tried to obey them: it failed, said so twice, and then dropped the word. So every single run began with two error messages that belonged to nothing, and the check went on to announce itself by a name with a hole where its subject should be. The verdict was never affected — but the checks are the one thing a machine working here is told to read, and they opened by crying wolf.',
+      'The word is now marked in a way the shell leaves alone, so the name is printed whole and the run starts silent. And a new check reads every one of the 630 names and refuses any that would be read as an instruction again, proved first against the wording as it stood.',
+    ] },
   { v: 1120, title: 'The invented women and children move house too, and the programme finishes', kind: 'change', ts: '2026-09-26T01:57:44.130Z', date: 'Sep 25, 2026, 8:57 PM CT',
     items: [
       'Five hundred and twenty-four invented residents stand in cells of the order book that no longer want them, and the owner ruled they are moved rather than deleted. The last entry moved the first nineteen, all invented tradespeople heading their own houses. This entry moves the women and children, and with them the programme is finished: every move the rule allows has been made.',
