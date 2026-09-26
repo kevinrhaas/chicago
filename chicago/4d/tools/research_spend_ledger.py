@@ -617,9 +617,43 @@ PLACE_AND_ENTERPRISE = {
     # would name a ticket that is `split` and not live, and the gate would say so on the
     # unit rather than on the pointer — so the next reading that lands here is a ticket
     # of its own, not a rename.
-    "building": ("T-1198", "The seating pass owns this unasserted place claim."),
-    "street": ("T-1198", "The seating pass owns this unasserted place claim."),
-    "infrastructure": ("T-1198", "The seating pass owns this unasserted place claim."),
+    # AND THE PLACE HALF WENT THE SAME WAY ON 2026-09-25, exactly as the paragraph above
+    # predicted for the enterprise half — "the next reading that lands here is a ticket of
+    # its own, not a rename". T-1198 was SPLIT into T-1491, T-1492 and T-1493; T-1492 split
+    # again, and the last live leaf of the chain, T-1523, settled `done` at 22:35Z when PR
+    # #49 merged. 270 units that had not moved were suddenly deferring to finished work, and
+    # `check.sh` went red on four steps on a clean `origin/dev` and therefore on every open
+    # PR (T-1584; the shape is case 3 of T-1581).
+    #
+    # THE POINTER MOVES TO A SPEND AND NOT TO ANOTHER SEATING TICKET, because the REASON for
+    # the deferral has changed. These units were held here on the ground that there was "no
+    # seat on the ground to carry a place claim" — and T-1198's chain built exactly that:
+    # T-1491 wrote the address book, T-1492's chain seated the reach, T-1493 made a seat
+    # navigable. The seat EXISTS. What the readings still need is nobody's rename; it is
+    # somebody reading them against the layer one at a time, which is the argument T-1569
+    # makes for the twelve civic posts and T-1315 and T-1335 for the births and the kin.
+    #
+    # AND THEY DIVIDE BY WHAT THE READING NAMES, because three different layers receive
+    # them — a roof, a corridor, and the river works and town apparatus. Three sibling
+    # tickets, filed together and each owning one kind.
+    #
+    # TWO OF THE THREE ARE SPLIT PARENTS, WHICH IS THE SHAPE THAT JUST FAILED, so it is worth
+    # saying why it is right here and was wrong there. 159 building readings and 92
+    # infrastructure readings are more than one run's demonstration and the queue gate
+    # refuses an unsplit `L`, so T-1585 is cut by corpus into T-1589 + T-1590 and T-1586 into
+    # T-1591 + T-1592; a `split` parent with a live child reads `split_live`, which this
+    # module's own liveness pass treats as alive and climbs to a fixed point (T-1421).
+    # What went wrong with T-1198 was not that it was a parent. It was that its children
+    # spent a DIFFERENT corpus — they built the address book — so the chain could close with
+    # every one of these 270 units untouched. These four pieces spend exactly the units that
+    # point at their parent, so the last one cannot close while a unit still defers to it.
+    "building": ("T-1585", "The building-reading spend owns this unasserted place claim: "
+                           "159 units read against the address book and the structure layer."),
+    "street": ("T-1587", "The street-reading spend owns this unasserted place claim: "
+                         "19 units read against the street and corridor layers."),
+    "infrastructure": ("T-1586", "The infrastructure-reading spend owns this unasserted place "
+                                 "claim: 92 units read against the corridor, yard and "
+                                 "structure layers."),
 }
 
 

@@ -384,7 +384,9 @@ def render(model: dict) -> str:
                    f"{n(led['landed']['residents'] + led['landed']['households'])} asserted units "
                    f"land on residents and households, {n(led['landed']['businesses'])} on "
                    f"businesses and {n(led['landed']['structures'])} on structures. Closing it "
-                   f"means a seat on the ground (T-1198) for a claim to be asserted ONTO.")
+                   f"means a claim being READ onto the seat: T-1198's chain wrote the address "
+                   f"book (T-1491..T-1493), so the seat exists and T-1585..T-1587 spend the "
+                   f"place readings onto it.")
     else:
         out.append(f"1. **Every layer is reached at unit level.** "
                    f"{n(led['landed']['residents'] + led['landed']['households'])} asserted units "
@@ -395,8 +397,9 @@ def render(model: dict) -> str:
                f"The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.")
     out.append(f"3. **{n(unplaceable)} firms are unplaceable and {n(street_only)} reach a street and no "
                f"further.** Those {n(unplaceable + street_only)} are the location limits the research "
-               f"preserved rather than guessed past; T-1198 seats what can be seated and the rest stay "
-               f"limits.")
+               f"preserved rather than guessed past; the address book T-1198's chain wrote "
+               f"(T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed "
+               f"remainder, and the rest stay limits.")
     out.append(f"4. **{n(hh['records'] - hh['with_lives_at'])} of {n(hh['records'])} households have no "
                f"`lives_at`.** Most are letter-list-only names ({n(hh['letter_list_only'])}) whose whole "
                f"evidence is that a letter waited for them; where they live is T-1159's roster question, "

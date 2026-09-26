@@ -61,7 +61,7 @@ const YEAR = process.env.DETAIL_YEAR || '1835';
 // smoke, for the reason given there: the set is owned in one place and a stand
 // added there and not here makes this tool less complete, never wrong.
 const STANDS = [
-  { id: 'lake_at_canal', target: 'green_tree', label: 'Lake Street at Canal, east down the axis' },
+  { id: 'lake_at_canal', target: 'lake_at_canal', label: 'Lake Street at Canal, east down the axis' },
   { id: 'lake_and_market', target: 'lake_market', label: 'Lake and Market' },
   { id: 'the_forks', target: 'forks', label: 'the forks, from Wolf Point' },
   { id: 'from_above', target: 'from_above', label: 'the open aerial', aerial: true },
