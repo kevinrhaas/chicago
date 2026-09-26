@@ -58,8 +58,6 @@ console.log('ARRIVAL A11Y PASS — year hidden, phase line polite, card slot pre
 
 // Exercise the real event controller, including writes that the pure mapping
 // tests cannot see (failure followed by phaseend, and reduced phase announcements).
-const { createBoot } = await import('../renderers/web/js/boot-phases.js');
-const { createArrival } = await import('../renderers/web/js/arrival.js');
 function fixture(reducedMotion = false) {
   let clock = 0, id = 0, reloaded = false;
   const frames = new Map();
@@ -159,7 +157,7 @@ const integrated = createArrival({
   currentYear: 2026,
   now: () => clock,
   reducedMotion: false,
-  scheduleFrame(cb) { scheduled = cb; return ++frameId; },
+  requestFrame(cb) { scheduled = cb; return ++frameId; },
   cancelFrame() { scheduled = null; },
 });
 

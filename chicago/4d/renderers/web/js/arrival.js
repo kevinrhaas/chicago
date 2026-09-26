@@ -106,7 +106,6 @@ export function createArrival({
   let failed = false;
   let ready = false;
   let settleRaf = null;
-  let tickerRaf = null;
   let lastShown = null;
   let progress = 0;
   let displayedYear = Math.max(1836, currentYear);
