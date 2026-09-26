@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'The last building readings, and what a memoir cannot prove', kind: 'change', ts: '',
+  { v: 1144, title: 'The last building readings, and what a memoir cannot prove', kind: 'change', ts: '2026-09-26T14:44:13.239Z', date: 'Sep 26, 2026, 9:44 AM CT',
     items: [
       'Nothing you can see in the town has changed. This finishes the reading ledger\u2019s building work: the last 35 unruled readings about buildings, from Hubbard\u2019s memoir, Hurlbut, Fergus, Moses and Kirkland, Norris\u2019s 1844 sketch, Andreas and the St Mary\u2019s baptism register. Each now carries a written answer.',
       'These are recollections, not notices, and that changes what they are worth. A man writing in 1911 about the fort he slept in in 1818 is a wonderful witness to 1818 and none at all to 1 July 1835. The question asked was never \u201cis this true\u201d but \u201cdoes it reach the day we are showing\u201d, and for most the honest answer is no.',
