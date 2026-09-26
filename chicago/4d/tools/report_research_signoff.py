@@ -531,8 +531,24 @@ def render(model: dict) -> str:
                "while the ticket it defers to is still going to happen. Read the owners column "
                "carefully — it is the most informative table in this report:")
     out.append("")
-    out.extend(table(["Owner", "Units", "State", "Live"],
-                     [[r["ticket"], n(r["units"]), r["state"], "yes" if r["live"] else "**NO**"]
+    # T-1608. THE STATE WORD IS A CHECK INPUT AND IS NOT EMITTED. `ticket_states` says so of
+    # itself — "nothing the book EMITS may depend on what the queue happens to hold this
+    # morning, or two builds of the same data would differ and `--check` would be measuring
+    # the queue instead of the arithmetic" — and this table broke that rule in a document
+    # check.sh re-derives and gates. It costs more here than it would have in the book,
+    # because the queue moved to another repository (2026-09-23): `open` -> `claimed` ->
+    # `review` now lands there with no commit in this one at all. Measured 2026-09-26, the
+    # morning after: a sibling run claimed T-1603, one word changed in two tables, and dev's
+    # gate went red on two reports whose research had not moved a line — while a merge that
+    # touched neither file carried the blame.
+    #
+    # What this report asserts about these owners is C3, and C3 reads `live`, which turns
+    # only when a ticket genuinely CLOSES — a change these tables should and do go stale
+    # for. So Live stays and State goes. Which of them is being worked this minute is on the
+    # board, which is regenerated and untracked, and can therefore change without failing
+    # anything.
+    out.extend(table(["Owner", "Units", "Live"],
+                     [[r["ticket"], n(r["units"]), "yes" if r["live"] else "**NO**"]
                       for r in a1["owners"]]))
     out.append("")
     heaviest = ", ".join(f"{r['ticket']} ({n(r['units'])})" for r in a1["owners"][:5])
