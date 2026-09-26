@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1149, title: 'Explore Prairie Avenue in 1904', kind: 'change', ts: '2026-09-26T17:49:41.580Z', date: 'Sep 26, 2026, 12:49 PM CT',
+    items: [
+      'A new Prairie Avenue research browser brings together house histories, Sanborn maps, directory leads and a dedicated Glessner collection.',
+      'Browse the six Glessner measured drawings and survey report, compare 1911 frontage evidence with the 1904 target, and inspect source dates and unresolved questions.',
+      'The pre-fire library now has an 1834 shortcut for the Wright map. Its map menu lists every dated reference and moves the timeline to your selection.',
+      'This is a research library for the planned reconstruction. The 1835 town and the unfinished Prairie 3D scene are unchanged.',
+    ] },
   { v: 1148, title: 'The four houses with nowhere to stand are now refused in writing', kind: 'change', ts: '2026-09-26T17:31:46.182Z', date: 'Sep 26, 2026, 12:31 PM CT',
     items: [
       'Earlier today this town settled that a house built because a family asked for one belongs to that family. Four more such houses were still on the request list, and they had nowhere to stand. This release says so out loud instead of leaving them waiting.',
