@@ -500,6 +500,38 @@ def _redealt_roof_count() -> int:
     return len(recipe.get("redealt", {}).get("roofs", []))
 
 
+PLATTED_SEATS = ROOT / "data" / "reconstruction" / "1835_platted_seats.json"
+OFF_PLAT_SEATS = ROOT / "data" / "reconstruction" / "1835_off_plat_seats.json"
+
+
+def _off_plat_seat_count() -> int:
+    """Households the placement policy deals onto the ground the plat does not draw.
+
+    Counted off `seats` for the reason `_platted_seat_count` gives — a liberty that read
+    the summary would be checking the summary writer. Every one of the 72 is an ADOPTION:
+    no parcel of the off-plat ledger is open ground in the 665-roof programme's schedule,
+    so this pass raises no slot and draws nothing off the order book.
+    """
+    if not OFF_PLAT_SEATS.exists():
+        return 0
+    return len(json.loads(OFF_PLAT_SEATS.read_text()).get("seats") or [])
+
+
+def _platted_seat_count() -> int:
+    """Households the placement policy deals onto a named lot of the committed plat.
+
+    Counted off `seats` rather than off the record's own `counts.seated`, because a
+    liberty that read the summary would be checking the summary writer. A seat is a
+    household with a lot and nothing else: 100 of them adopt a roof that already stands,
+    6 ask for one the 5C build tickets raise, and none of them is a source's placement —
+    every row the deal touches came in at a band, which is what makes the lot an
+    invention and this entry its record.
+    """
+    if not PLATTED_SEATS.exists():
+        return 0
+    return len(json.loads(PLATTED_SEATS.read_text()).get("seats") or [])
+
+
 def _block_redealt_roof_count() -> int:
     """The platted blocks' re-dealt roofs, counted off the block recipe's own record.
 
@@ -513,6 +545,14 @@ def _block_redealt_roof_count() -> int:
 
 
 SCOPE_SOURCES = {
+    "off_plat_seats.seats[dealt]": (
+        _off_plat_seat_count,
+        "data/reconstruction/1835_off_plat_seats.json, itself re-derived by "
+        "tools/seat_off_plat_ground_1835.py --check"),
+    "platted_seats.seats[dealt]": (
+        _platted_seat_count,
+        "data/reconstruction/1835_platted_seats.json, itself re-derived by "
+        "tools/seat_platted_ground_1835.py --check"),
     "register_1835.businesses[survival_liberty_required]": (
         _register_survival_liberty_count,
         "data/research/newspapers/register_1835.json, itself re-derived by "

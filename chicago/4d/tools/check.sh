@@ -121,6 +121,18 @@ step "the steward surfaces spend the REST bucket, not GraphQL (T-0234)" \
 selftest "…and a reintroduced gh pr draw is refused (T-0234)" \
   node tools/check_gh_rest.mjs --self-test
 
+# T-0135. The three scene-detail ceilings are a LADDER and nothing made them one.
+# `sealLadder()` in main.js takes the running minimum down the tier order, so a rung
+# typed too high cannot take effect; this is the gate beside that construction. It
+# is here and not only in the renderer smoke because the dev gate is check.sh and
+# nothing else (docs/PIPELINE.md) — a fault only a six-minute smoke part can see is
+# a fault that reaches the dev preview. It reads the committed source, sliced.
+step "the scene-detail ceilings are a ladder, and each rung says what it protects (T-0135)" \
+  node tools/check_detail_ladder.mjs
+
+selftest "…and the seal still clamps, marks and shouts a rung typed too high (T-0135)" \
+  node tools/check_detail_ladder.mjs --self-test
+
 step "dataset (schema, provenance, date gates, licenses, staleness, publish)" \
   python3 tools/validate.py --all $STRICT
 
@@ -1776,6 +1788,49 @@ step "the placement policy still re-derives, and nothing re-typed its constants"
 
 selftest "…and its five assertions still fire when broken" \
   python3 tools/placement_policy_1835.py --self-test
+
+# T-1613, the first piece of T-1199. The policy above says which GROUND a household of a
+# kind belongs on; this says which LOT, and it could not be written until the lots were
+# enumerated. `1835_lot_ledger.json` is that enumeration — 226 committed lots, each with
+# the street its face fronts, that street's traffic class, whether it turns a corner, what
+# stands on it and how many principal roofs the policy's multi-building rule lets it
+# carry — every field a join over a record this project already committed.
+# `1835_platted_seats.json` is the adjudication on top of it: every household the address
+# book leaves at a band, offered the plat in the policy's own clause order, adopting a
+# standing anonymous roof before ever asking for a new one, and handed to T-1614 in
+# writing where the plat has nothing for it. Six assertions: no seat on a lot the ledger
+# does not draw; no roof adopted twice; no household seated across a division line; no
+# adopted roof also drawn off the order book (that would spend one roof twice); no row in
+# scope left unanswered; and no owed row with a blank where its reason should be. Nothing
+# is raised and nothing is baked — an adoption points at a roof that already stands and a
+# slot is a request the 5C build tickets fulfil.
+step "the lot ledger and the platted seats still re-derive" \
+  python3 tools/seat_platted_ground_1835.py --check
+
+selftest "…and the deal's six refusals still fire when broken" \
+  python3 tools/seat_platted_ground_1835.py --self-test
+
+# T-1614, the second piece of T-1199. The pass above enumerated the plat and handed 1,374
+# of the 1,480 banded households on with a written reason; this is the file that answers
+# them, on the ground the committed plat does not draw. `1835_off_plat_ledger.json`
+# enumerates it — 136 tier lots the Thompson grid was closed before either tier file was
+# written, the 2 School Section blocks left whole, Kinzie's Addition's 27 blocks with a
+# boundary and no lot rule, the 7 placed survey chips and the 5 camp grounds carried by
+# name because their own file authors no vertex. `1835_off_plat_seats.json` deals it in
+# the placement policy's own clause order. EVERY SEAT IS AN ADOPTION and no slot is
+# raised anywhere, because 150 of those 177 parcels have no row in the 665-roof
+# programme's schedule at all and the 27 that do are marked `unsubdivided` with no
+# headroom — which is the finding, not an omission. Seven assertions: no seat on a parcel
+# the ledger does not draw; no roof adopted twice; no household seated across a division
+# line, tested against the roof's own `reconstruction.district`; no roof adopted here that
+# T-1613 already adopted, which would seat two households in one roof across two files;
+# no order-book draw on ground the schedule does not open; no handed-on row left
+# unanswered; and no owed row with a blank where its reason should be.
+step "the off-plat ledger and its seats still re-derive" \
+  python3 tools/seat_off_plat_ground_1835.py --check
+
+selftest "…and the off-plat deal's seven refusals still fire when broken" \
+  python3 tools/seat_off_plat_ground_1835.py --self-test
 
 # A dwelling nobody named is a count-unit toward a documented aggregate; a PUBLIC
 # building nobody named is the claim that an institution stood here and left no record
