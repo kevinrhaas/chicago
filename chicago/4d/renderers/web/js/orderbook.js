@@ -53,6 +53,62 @@ function bucketRow(b) {
     + `<td>${escapeHtml(owner)}</td></tr>`;
 }
 
+/** WHERE THE ORDERED HOUSEHOLDS ARE STANDING (T-1620).
+ *
+ * The rest of this panel is the book's ORDER — what the town still owes, bucket by
+ * bucket. This one section is the town's ANSWER so far: of the 1,480 banded households
+ * the two seating passes were offered, how many now have ground under them, how many of
+ * the roofs already standing carry one, and how many households are still on no ground
+ * at all. It stands FIRST because it is the only thing on this card a visitor can check
+ * against the scene: a seated household is one the walk can be sent to.
+ *
+ * NO NUMBER IS TYPED HERE either. Every figure comes out of `seats_against_roofs`, which
+ * the builder derives from the two committed seat files and `--check` re-derives; the
+ * sentences it prints whole are the ones the book itself wrote.
+ */
+function seatsHtml(sr) {
+  if (!sr) return '';
+  const passes = sr.passes || [];
+  const slots = sr.requested_slots || [];
+  const passRows = passes.map((p) => `<tr><td>${escapeHtml(p.title)}</td>`
+    + `<td><code>${escapeHtml(p.ticket)}</code></td>`
+    + `<td class="num">${num(p.rows_offered)}</td><td class="num">${num(p.seated)}</td>`
+    + `<td class="num">${num(p.roofs_adopted)}</td><td class="num">${num(p.slots_requested)}</td>`
+    + `<td class="num">${num(p.handed_on)}</td></tr>`).join('');
+  const slotRows = slots.map((s) => `<tr><td>${escapeHtml(s.name || s.household_id)}</td>`
+    + `<td><code>${escapeHtml(s.block_id || '')}</code></td>`
+    + `<td><code>${escapeHtml(s.lot_id || '')}</code></td>`
+    + `<td>${escapeHtml(s.family || '')}</td></tr>`).join('');
+  return `<details class="lib pop ob">
+    <summary>
+      <span class="lib-title">Where the ordered households are standing</span>
+      <span class="lib-scope">${num(sr.seated)} of ${num(sr.rows_offered)} seated</span>
+    </summary>
+    <div class="lib-body">
+      <p class="pop-lead">${escapeHtml(sr.statement || '')}</p>
+      ${barHtml(sr.seated, sr.rows_offered)}
+      <p class="legend-note pop-note"><b>Seats against roofs</b> — of the
+        ${num(sr.roofs_standing)} roofs the town already has,
+        ${num(sr.roofs_adopted)} now carry a reconstructed household and
+        ${num(sr.roofs_standing_unseated)} do not.
+        ${num(sr.slots_requested)} more ${sr.slots_requested === 1 ? 'roof was' : 'roofs were'}
+        asked for rather than adopted.</p>
+      <figure class="pop-table"><div class="pop-scroll"><table>
+        <thead><tr><th>pass</th><th>ticket</th><th class="num">offered</th>
+          <th class="num">seated</th><th class="num">adopted</th><th class="num">slots</th>
+          <th class="num">handed on</th></tr></thead>
+        <tbody>${passRows}</tbody>
+      </table></div></figure>
+      <p class="legend-note pop-note">${escapeHtml(sr.what_the_slots_wait_on || '')}</p>
+      ${slotRows ? `<figure class="pop-table"><div class="pop-scroll"><table>
+        <thead><tr><th>household</th><th>block</th><th>lot</th><th>family</th></tr></thead>
+        <tbody>${slotRows}</tbody>
+      </table></div></figure>` : ''}
+      <p class="legend-note pop-note">${escapeHtml(sr.what_is_left || '')}</p>
+    </div>
+  </details>`;
+}
+
 /** One bucket family, collapsed — the same `<details>` shape as a liberty. */
 export function familyHtml(family) {
   const buckets = family.buckets || [];
@@ -132,6 +188,9 @@ export async function mountOrderBook({ mount, noteMount = null, dataBase, proble
     noteMount.removeAttribute('aria-busy');
   }
 
+  // Rendered once and counted once: a book with no seating section renders no seating
+  // panel, and the hub tile's count has to be the panels actually on the card.
+  const seats = seatsHtml(doc.seats_against_roofs);
   if (mount) {
     const families = (doc.bucket_families || []).map(familyHtml);
     // `programme groups` names what the programme side actually sums, and a row that reads
@@ -148,6 +207,9 @@ export async function mountOrderBook({ mount, noteMount = null, dataBase, proble
       + `<b>${escapeHtml(i.id.replace(/_/g, ' '))}</b> (${escapeHtml(i.owning_ticket)}) — `
       + `${escapeHtml(i.statement)} <i>Now: ${escapeHtml(i.measured_now)}</i></p>`);
     mount.innerHTML = [
+      // The seating section leads the card: it is the town's answer to the book's order,
+      // and the only part of this panel a visitor can go and look at.
+      seats,
       ...families,
       listHtml('Where the model and the roof programme disagree',
         `${deltas.length} delta${deltas.length === 1 ? '' : 's'}`,
@@ -161,7 +223,9 @@ export async function mountOrderBook({ mount, noteMount = null, dataBase, proble
     mount.removeAttribute('aria-busy');
   }
   return {
-    count: (doc.bucket_families || []).length + 2,
+    // The hub tile's count is the number of `<details>` this mount renders, and the smoke
+    // asserts the two against each other: families, the seating section, and the two lists.
+    count: (doc.bucket_families || []).length + 2 + (seats ? 1 : 0),
     families: doc.bucket_families || [],
     totals: t,
   };
