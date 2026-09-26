@@ -3,6 +3,37 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 93,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 116,
+      "takenAt": "2026-09-26T07:14:47.157Z",
+      "ref": "steward/t1607-exchange-anchor",
+      "commit": "1f1d9f29579e",
+      "devCommit": "08ef85df8905",
+      "treeHash": "sha256:778ee80f12dfab20",
+      "treeDirty": false,
+      "changelogHash": "sha256:d0be2f5827a4979c",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          3.8,
+          3.5
+        ]
+      },
+      "source": "/tmp/s2-d3.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "12",
       "parts": [
         12
@@ -1441,37 +1472,6 @@
         ]
       },
       "source": "/tmp/smoke-d12.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 92,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 192,
-      "takenAt": "2026-09-25T20:11:12.381Z",
-      "ref": "steward/t1576-parked-prs-on-the-board",
-      "commit": "7fe771726e99",
-      "devCommit": "7468fd8d1180",
-      "treeHash": "sha256:905956f25b44b035",
-      "treeDirty": false,
-      "changelogHash": "sha256:057e9ee4662838a8",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.1,
-          3.8,
-          2.4
-        ]
-      },
-      "source": "/tmp/smoke-m12.log"
     },
     {
       "viewport": "desktop",
