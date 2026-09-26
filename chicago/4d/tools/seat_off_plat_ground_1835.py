@@ -91,6 +91,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from collections import Counter
 from pathlib import Path
@@ -875,7 +876,7 @@ def ledger_document(data: dict, parcels: list[dict]) -> dict:
             "carrying_a_roof": sum(1 for row in parcels if row["standing"]),
             "principal_roofs_standing": sum(row["principal_roofs_standing"]
                                             for row in parcels),
-            "ground_m2": round(sum(row["area_m2"] for row in parcels), 1),
+            "ground_m2": round(math.fsum(row["area_m2"] for row in parcels), 1),
         },
         "what_the_roof_programme_does_not_carry": {
             "parcels": len(parcels) - len(scheduled),
