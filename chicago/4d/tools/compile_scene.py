@@ -864,18 +864,63 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     # sub-stages than this block could ever feed it. The list is the fix, and the order in
     # it is the order the cohorts were built.
     #
-    # T-1377's free Black cohort is NOT in the list yet and its seven cards do not reach
-    # the town: that is a defect of its own, found while wiring this one and filed as
-    # T-1579, and adding it is a line in that ticket rather than a passenger on this one —
-    # seven people arriving in the People view is a change that owes its own gate.
+    # T-1377, in the list since T-1579. The free Black households the 1833 certificate
+    # fee counts at the floor of the 1835 bracket. Their seven cards were written, gated
+    # and standing in data/residents/underdocumented/ from the day they were minted, and
+    # for as long as the list held two lines they reached the People view not at all:
+    # 0 of 15 people, and a `free_black` pill that read 0 beside a cohort that exists.
+    # AGENTS.md, 2026-09-17, is explicit that these are people the town must keep and
+    # show, so an unlisted cohort here is not a tidy-up — it is the record failing to
+    # carry what it holds. The gate below is why it cannot happen a third time.
     underdocumented_reports = [
         DATA / "reconstruction" / "1835_native_and_metis.json",   # T-1376, hh_um_
         DATA / "reconstruction" / "1835_church_register.json",    # T-1504, hh_cr_
+        DATA / "reconstruction" / "1835_free_black.json",         # T-1377, hh_fb_
     ]
     underdocumented_rows_minted = []
+    underdocumented_sub_stages = []
     for path in underdocumented_reports:
         if path.exists():
-            underdocumented_rows_minted.extend(load(path).get("minted", []))
+            doc = load(path)
+            underdocumented_rows_minted.extend(doc.get("minted", []))
+            if doc.get("sub_stage"):
+                underdocumented_sub_stages.append(doc["sub_stage"])
+
+    # A COHORT WRITTEN AND NOT LISTED GOES RED HERE (T-1579, acceptance 4). The fault this
+    # gate refuses is silence: the cards sit in the directory, validate.py holds them to
+    # every rule it holds a card to, and the only thing missing is a line in the list
+    # above — so nothing anywhere went red while seven households stood outside the town
+    # for as long as the list was short. What the directory holds and what the reports
+    # mint are now required to be the same set of files, prefix by prefix, and a card no
+    # listed report accounts for is a build failure rather than a discovery on the site.
+    ud_dir = DATA / "residents" / "underdocumented"
+    if ud_dir.is_dir():
+        on_disk = {f"underdocumented/{p.name}" for p in ud_dir.glob("*.json")}
+        minted_files = {m["file"] for m in underdocumented_rows_minted if m.get("file")}
+        unaccounted = sorted(on_disk - minted_files)
+        if unaccounted:
+            def prefix(rel: str) -> str:
+                stem = rel.split("/")[-1]
+                return "_".join(stem.split("_")[:2]) + "_"
+            by_prefix = {}
+            for rel in unaccounted:
+                by_prefix.setdefault(prefix(rel), []).append(rel)
+            told = "; ".join(f"{k} ({len(v)} card(s), e.g. {v[0]})"
+                             for k, v in sorted(by_prefix.items()))
+            raise SystemExit(
+                f"{len(unaccounted)} under-documented card(s) no listed report mints, so "
+                f"the town cannot see them: {told}. Either add the cohort's report to "
+                f"`underdocumented_reports` in {Path(__file__).name} — the way T-1579 "
+                f"added 1835_free_black.json — or say in that report why the card is "
+                f"written and refused. A card in data/residents/underdocumented/ that "
+                f"reaches no row in data/sidecars/1835/people.json is a person the "
+                f"project holds and does not show.")
+        stranded = sorted(minted_files - on_disk)
+        if stranded:
+            raise SystemExit(
+                f"{len(stranded)} under-documented report row(s) name a card that is not "
+                f"in data/residents/underdocumented/: {', '.join(stranded[:5])}"
+                f"{' …' if len(stranded) > 5 else ''}")
 
     transients_path = DATA / "reconstruction" / "1835_transient_persons.json"
     transients_doc = load(transients_path) if transients_path.exists() else {}
@@ -1069,8 +1114,17 @@ def compile_people(scene_id: str, outdir: Path) -> int:
                 "note": ((hh.get("present_on_scene_date") or {}).get("basis") or {}).get("note"),
                 "replaced_by": (person.get("replaceable_by") or {}).get("match"),
             }
-            row["review_required"] = True
-            row["touches_removal"] = True
+            # READ OFF THE CARD, NOT ASSERTED HERE (T-1579). Both flags used to be typed
+            # `True` for every row of this stage, which was true of the only two cohorts
+            # the list could reach: the 1832 company roll and the baptismal register are
+            # both records of people the removal of 1835-36 took. The free Black cohort is
+            # not, and its own cards say so — `touches_removal: false` on all seven. A
+            # row that carried `true` anyway would put the removal onto seven households
+            # no source connects to it, which is the misstatement this layer exists to
+            # refuse. `review_required` is still true on every card of the stage; it is
+            # read rather than typed for the same reason.
+            row["review_required"] = bool(hh.get("review_required"))
+            row["touches_removal"] = bool(hh.get("touches_removal"))
         elif transient is not None:
             tr = hh.get("transient") or {}
             lodged = (hh.get("lodged_at") or [{}])[0]
@@ -1255,6 +1309,27 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     transients = [r for r in rows if r.get("transient")]
     underdocumented = [r for r in rows if r.get("underdocumented")]
 
+    # THE TALLY IS HELD TO THE LIST IT COUNTS (T-1579, acceptance 3). `underdocumented_
+    # by_sub_stage` groups the rows by the key each card carries, so its key set can only
+    # ever be as wide as the reports the block above actually read — which is exactly how
+    # it printed one key for a year and never looked wrong. Two assertions close that:
+    # every listed report's own `sub_stage` must appear, and the parts must sum to the
+    # whole. A counter that cannot be short is a counter worth reading.
+    ud_by_sub_stage = {
+        k: sum(1 for r in underdocumented if r["underdocumented"]["sub_stage"] == k)
+        for k in sorted({r["underdocumented"]["sub_stage"] for r in underdocumented})}
+    missing_sub_stages = sorted(set(underdocumented_sub_stages) - set(ud_by_sub_stage))
+    if missing_sub_stages:
+        raise SystemExit(
+            f"underdocumented_by_sub_stage is missing {', '.join(missing_sub_stages)}: a "
+            f"report is in `underdocumented_reports` and not one of its rows reached the "
+            f"People view.")
+    if sum(ud_by_sub_stage.values()) != len(underdocumented):
+        raise SystemExit(
+            f"underdocumented_by_sub_stage sums to {sum(ud_by_sub_stage.values())} over "
+            f"{len(underdocumented)} under-documented rows: a row carries a sub_stage the "
+            f"tally does not group.")
+
     # T-1400. Counted over EVERY row rather than over the residents alone, because
     # `transients` is one of these keys: a stage tally that took the visitors out would
     # print 0 beside the pill that selects 307 of them. The resident/visitor partition
@@ -1345,18 +1420,18 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "reconstructed_trade_by_trade": {
                 t: sum(1 for r in trade_heads if r["reconstructed_trade"]["trade"] == t)
                 for t in sorted({r["reconstructed_trade"]["trade"] for r in trade_heads})},
-            # T-1376. The men of the company the 1832 roll heads INDIAN, carded under the
-            # same licence that put twenty men of the other company on that page into the
-            # town. Counted WITH the residents and not apart: unlike the summer crowd,
-            # these are not visitors. Every one is held for the review AGENTS.md commits
-            # to, which is what `review_required` counts.
+            # T-1376, T-1504, T-1377. Three cohorts the ordinary passes could not reach:
+            # the men of the company the 1832 roll heads INDIAN, the two women St Mary's
+            # baptismal register names, and the free Black households the 1833 certificate
+            # fee counts. Counted WITH the residents and not apart: unlike the summer
+            # crowd, these are not visitors. Every one is held for the review AGENTS.md
+            # commits to, which is what `review_required` counts. `touches_removal` is a
+            # narrower claim and is NOT counted here, because it is not true of all three.
             "underdocumented": len(underdocumented),
             "underdocumented_households": underdocumented_households,
             "underdocumented_review_required": sum(
                 1 for r in underdocumented if r.get("review_required")),
-            "underdocumented_by_sub_stage": {
-                k: sum(1 for r in underdocumented if r["underdocumented"]["sub_stage"] == k)
-                for k in sorted({r["underdocumented"]["sub_stage"] for r in underdocumented})},
+            "underdocumented_by_sub_stage": ud_by_sub_stage,
             # T-1353. The summer crowd, counted APART. Every other figure in this block
             # counts the town's own people; these three count the visitors, and the
             # difference is the whole distinction the Chicago American drew when it put
