@@ -91,8 +91,17 @@ GRADES = ("attested", "inferred", "reconstructed")
 # happened to mint the household. Every committed shape is a subset of this
 # order, so adopting it is a normalisation and not a reshuffle.
 ROW_KEYS = ("id", "file", "letter_list_only", "civic_mint", "head", "division",
-            "persons", "grades", "lives_at", "works_at", "present_on_scene_date",
-            "review_required", PROJECTED, "census_1840_linked", "dwelling_evidence")
+            "division_reconstructed", "persons", "grades", "lives_at", "works_at",
+            "present_on_scene_date", "review_required", PROJECTED,
+            "census_1840_linked", "dwelling_evidence")
+
+# T-1523. The policy-only rung's DEALT division, denormalised beside `division` and
+# never into it. `division` is what a source states and `unplaced` where none does —
+# which is what `a_stated_division` below reads to call a record a house — so the dealt
+# value needs a key of its own or the dwelling clause would count 1,305 houses the deal
+# claims no roof for. Absent on a record the deal does not reach, like every other
+# reconstruction on this row.
+DEALT_DIVISION = "division_reconstructed"
 
 # The count keys this derivation owns. Anything else in `counts` is authored and
 # is carried through untouched, in its committed position.
@@ -265,6 +274,13 @@ def row_for(path: Path, doc: dict) -> dict:
         "present_on_scene_date": _value(doc.get("present_on_scene_date")),
         "review_required": bool(doc.get("review_required")),
     }
+    # T-1523's dealt division, copied off the block `tools/carry_policy_only_division.py`
+    # owns. Only the VALUE is denormalised: the tier, the band, the seed and the words
+    # stay on the card, which is where a reader who wants to know how it was dealt goes.
+    dealt = doc.get(DEALT_DIVISION)
+    if isinstance(dealt, dict) and dealt.get("value"):
+        row[DEALT_DIVISION] = dealt["value"]
+
     # The evidence flags, each present only when true - the shape the manifest
     # already carries, and the shape the Evidence panel reads.
     if any(p.get("letter_list_only") for p in persons):

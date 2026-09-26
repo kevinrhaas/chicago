@@ -149,6 +149,8 @@
    "directories.people[].occupation_later.value",
    "directories.people[].residence_back_projection.note",
    "directories.people[].residence_back_projection.value",
+   "division_reconstructed.note",
+   "division_reconstructed.replaceable_by.match",
    "garrison.note",
    "garrison.regiment",
    "kin[].note",

@@ -142,7 +142,12 @@ TICKETS = ["T-1491", "T-1512", "T-1522"]
 # raised is owed to the district build tickets. Rung 5 is no longer owed to anybody: it is
 # dealt below, and the only thing still outstanding for those rows is the CARRY-BACK of
 # the dealt division onto the household record, which is T-1523 and is not a seat.
+# T-1523 CARRIED THE DEAL BACK, so this is no longer a debt: the constant names the
+# ticket that SPENT it, and assertion 15 below holds `still_owed_to` at None. It is
+# kept as a name rather than deleted because the `owed` rung still points business
+# rows at the ticket that owes them a seat, and two of the self-tests below use it.
 OWED_CARRY_BACK = "T-1523"
+CARRIED_BACK_BY = "T-1523"
 OWED_BUILD = "T-1200..T-1209"
 
 # The business grade -> (rung, reach, owed_to). A strict restatement of T-1239's
@@ -822,12 +827,22 @@ def build() -> dict:
                 "order by largest remainder. The dealt counts are therefore the "
                 "committed shape to the person, and a re-run gives the same answer."),
             "salts": {"division": DIVISION_SALT, "class": CLASS_SALT},
-            "still_owed_to": OWED_CARRY_BACK,
-            "what_is_still_owed": (
-                "the dealt division lives in this file and nowhere else. It is not "
-                "carried onto the household card or onto data/residents/index.json, so "
-                "both still read `unplaced` for these 1,186 and the People view's "
-                f"division filter is still short of them. That carry-back is {OWED_CARRY_BACK}."),
+            "still_owed_to": None,
+            "carried_back_by": CARRIED_BACK_BY,
+            "what_was_carried_back": (
+                "the dealt division no longer lives in this file alone. "
+                "tools/carry_policy_only_division.py writes it onto every rung-5 "
+                "household card as the block `division_reconstructed` — through the same "
+                "carry slot the mint stages use, so the four mints that re-derive a "
+                "household record cannot delete it — and rebuild_resident_index.py "
+                "denormalises the value into data/residents/index.json beside `division`. "
+                "compile_scene.py shows it in the People view, marked `reconstructed`, so "
+                "the division filter now holds these households instead of being short of "
+                "them. THE CARD'S OWN `division` STILL READS `unplaced` AND MUST: it is "
+                "what a source states, rung 5 is defined as the households where that is "
+                "`unplaced` (assertion 13), and rebuild_resident_index's "
+                "`a_stated_division` dwelling clause would otherwise count every one of "
+                "these as a HOUSE this deal claims no roof for."),
         },
         "bands": {
             "what_a_band_is": (
@@ -1155,9 +1170,12 @@ def assertions(doc: dict) -> None:
     if [r["column"] for r in record.get("class", {}).get("refused_columns") or []] \
             != [r["column"] for r in refusals]:
         raise Refused("the deal's record does not name the columns it refused")
-    if record.get("still_owed_to") != OWED_CARRY_BACK:
-        raise Refused("the deal must say the carry-back onto the household record is "
-                      "still owed, and to whom")
+    if record.get("still_owed_to") is not None:
+        raise Refused("the carry-back onto the household record was spent by "
+                      f"{CARRIED_BACK_BY}, so the deal may not still record it as owed")
+    if record.get("carried_back_by") != CARRIED_BACK_BY:
+        raise Refused("the deal must name the ticket that carried it onto the household "
+                      "card, or a reader cannot tell a spent deal from an unspent one")
 
     # 16 (T-1522). The deal is nothing but a shape borrowed from the order book. It
     # spends no bucket, so no bucket of the book may name this ticket as a filler.
@@ -1361,8 +1379,11 @@ def self_test() -> int:
     def the_record_misstates_the_shape(d):
         d["policy_only_deal"]["division"]["target_by_division"] = {"south": 1}
 
-    def the_record_forgets_the_carry_back(d):
-        d["policy_only_deal"]["still_owed_to"] = None
+    def the_record_forgets_who_carried_it_back(d):
+        d["policy_only_deal"]["carried_back_by"] = None
+
+    def the_record_calls_a_spent_carry_back_owed(d):
+        d["policy_only_deal"]["still_owed_to"] = OWED_CARRY_BACK
 
     def a_face_firm_moves_street(d):
         row = next(r for r in d["rows"]
@@ -1414,7 +1435,10 @@ def self_test() -> int:
           a_dealt_band_stops_saying_it_was_dealt)
     fires("a deal that drifts off the order book's shape", the_deal_drifts_off_the_book_shape)
     fires("a record that misstates the shape it dealt from", the_record_misstates_the_shape)
-    fires("a record that forgets the carry-back is owed", the_record_forgets_the_carry_back)
+    fires("a record that forgets who carried the deal back",
+          the_record_forgets_who_carried_it_back)
+    fires("a record that still calls the spent carry-back owed",
+          the_record_calls_a_spent_carry_back_owed)
 
     if faults:
         print("SELF-TEST FAILED — these assertions did not fire: " + ", ".join(faults))

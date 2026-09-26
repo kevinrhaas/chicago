@@ -922,6 +922,31 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     stage_title = {s.get("key"): s.get("title") for s in programme_stages if s.get("key")}
     stage_order = [s.get("key") for s in programme_stages if s.get("key")]
 
+    def division_row_view(hh) -> dict:
+        """The division this person's household is shown under, and where it came from.
+
+        T-1523. The card's own `division` is what a SOURCE states, and `unplaced` on the
+        1,305 households no source places anywhere. T-1522 dealt those a division off the
+        order book's household shape and `tools/carry_policy_only_division.py` carries it
+        onto the card as `division_reconstructed`; this is where it reaches a visitor, so
+        the People view's division filter holds the whole town instead of 39 % of it.
+
+        The dealt value is shown and MARKED, never merged: `division_tier` reads
+        `reconstructed` exactly when the division is dealt and is absent when a source
+        states it, the same shape `community`/`community_tier` already uses one line
+        below. A row a visitor filters to `south` can always be asked which kind of south
+        it is.
+        """
+        stated = hh.get("division") or "unplaced"
+        if stated != "unplaced":
+            return {"division": stated}
+        dealt = hh.get("division_reconstructed")
+        value = dealt.get("value") if isinstance(dealt, dict) else None
+        if not value:
+            return {"division": stated}
+        return {"division": value, "division_tier": "reconstructed",
+                "division_rule": "policy_only_deal"}
+
     def row_for(hh, person, rel, ruling=None, minted=None, trade=None, transient=None,
                 lodging=None, underdocumented=None, institutional=None):
         occ = person.get("occupation") or {}
@@ -944,7 +969,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "civic_mint": bool(person.get("civic_mint")),
             "resident_subtype": person.get("resident_subtype"),
             "how_known": how_known(person, transient=transient is not None),
-            "division": hh.get("division"),
+            **division_row_view(hh),
             "arrival_year": arrival_year(arrival.get("value")),
             "arrival_precision": arrival.get("precision"),
             "present": present,
