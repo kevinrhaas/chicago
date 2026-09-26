@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1158, ts: '2026-09-26T22:39:23.970Z', date: 'Sep 26, 2026, 5:39 PM CT', title: 'Sources and stories accompany the journey back', kind: 'change',
+    items: [
+      'As the year rolls back, the loading cards now draw from 160 source notes, building details and reconstruction messages. Maps and newspapers lead into buildings, prairie and arrival.',
+      'Fifty facts carry a source and an evidence link. Later recollections are labelled, and uncertain dimensions stay uncertain. A quick return keeps the cards brief; a slower first visit has more to read.',
+      'A very occasional joke may slip through, but never into an error or the final arrival. The cards stop when the town is ready.',
+    ] },
   { v: 1157, title: 'A freight shed on the south bank below the draw', kind: 'change', ts: '2026-09-26T22:00:03.429Z', date: 'Sep 26, 2026, 5:00 PM CT',
     items: [
       'Walk down the river from the Dearborn drawbridge and the engraving this town\u2019s river front was built from shows low warehouses on BOTH banks. The north bank has carried four of them for a month. The south bank has been empty, and a measurement said it had to be: not one position on the whole reach, at any angle, would take the smallest freight shed the reconstruction allows on ground flat enough to walk.',

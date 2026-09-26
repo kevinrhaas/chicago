@@ -278,7 +278,8 @@ STRUCTURE_TICKETS = {
     ("south", "larger_boarding_houses"): "T-1209",
     ("south", "inns_taverns"): "T-1201",
     ("south", "workshops"): "T-1201",
-    ("south", "warehouses_freight"): "T-1200",
+    # T-1200 split: T-1639 explicitly owns the F1–F3 warehouse variants.
+    ("south", "warehouses_freight"): "T-1639",
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",

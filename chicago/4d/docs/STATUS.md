@@ -1,5 +1,26 @@
 # STATUS
 
+## Source and reconstruction loading cards — T-1275, 2026-09-26
+
+The arrival draws from 160 authored entries: 20 source, 32 build, 50 fact,
+56 operational and 2 humor cards. Phase counts: assess 30, collect 35,
+prepare 42, resolve 25, land 28. Facts link specific compiled building attributes
+to their registered sources without promoting confidence. The source compiler
+exports decision/loading_fact backlinks. Land candidates remain authored context;
+readiness selects one canonical arrival line and never rotates.
+
+Twenty-four checked early entries precede the optional 41 KB library fetch.
+Phase bags preserve spent IDs when the library arrives. Ready/error stop timers;
+arrival is painted with 1835 by the existing settle controller. Successful
+same-build visits in this tab limit repeat boots to one loading card plus arrival;
+storage denial falls back to dwell-based rotation. The library describes previously
+researched evidence, not live archival research. Seeded simulation records humor
+in 52 of 10,000 sessions, at most once per session. Published Chromium checks passed at 390×780 and 1280×780: 39 and 5 cold
+cards, exactly 2 on each repeat visit, no page errors, and the final card once
+at 1835. All 160 cards fit two lines at 320 px without clipping.
+Receipts and stills: `docs/performance/loading-content/`. The PR records the
+full repository gate, smoke and payload results.
+
 ## Source-use backlinks compiled — T-1248, 2026-09-26
 
 The deterministic compiler reads the authored reconstruction and records typed

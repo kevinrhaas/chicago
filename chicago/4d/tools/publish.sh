@@ -353,6 +353,10 @@ if [ -d data/frontage ]; then
   cp -a data/frontage "$SITE/data/frontage"
 fi
 
+# T-1275: compact optional loading library, never research assets.
+mkdir -p "$SITE/data/loading"
+cp data/loading/statuses.json "$SITE/data/loading/statuses.json"
+
 if [ -d data/flora ]; then
   rm -rf "$SITE/data/flora"
   cp -a data/flora "$SITE/data/flora"
