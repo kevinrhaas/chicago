@@ -29,9 +29,10 @@ not agree; `--build` drops it and `--check` goes red. And the converse is checke
 `refamilied` block standing on a card that the rule does not yield a move for is a fault,
 so the two cannot drift apart in either direction.
 
-WHAT IS SPENT AND WHAT IS STILL OWED. The rule's 73 moves belong to two mints: 19 to
-`reconstruct_trade_households.py` (T-1563) and 54 to `reconstruct_women_children.py`
-(T-1564). This tool is indifferent to which — it spends what the layer says, counts what
+WHAT IS SPENT AND WHAT IS STILL OWED. The rule's moves belong to two mints:
+`reconstruct_trade_households.py` (T-1563) deals a head alone and
+`reconstruct_women_children.py` (T-1564) deals a woman with her children, whose house
+moves whole or not at all. This tool is indifferent to which — it spends what the layer says, counts what
 the rule still owes, and the book's `who_makes_the_moves` reads `settled` only when the
 two numbers meet. Nothing here decides who moves; that was T-1558's and is read, not
 re-derived.
@@ -55,7 +56,7 @@ RESIDENTS = ROOT / "data" / "residents"
 RULE = ROOT / "data" / "reconstruction" / "1835_refamily_rule.json"
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 
-TICKET = "T-1563"
+TICKETS = ("T-1563", "T-1564")
 PARENT = "T-1559"
 #: The block a mint writes onto a moved card, and the three fields of it that must agree
 #: with the rule's row before a move may be counted. They are the whole of the move: who
@@ -64,6 +65,15 @@ CARD_BLOCK = "refamilied"
 MUST_AGREE = (("drawn_in_bucket", "from_bucket"),
               ("counted_in_bucket", "to_bucket"),
               ("rule", "rule"))
+#: A HOUSE OF ONE STATES ITS MOVE ONCE; A HOUSE OF MANY STATES IT PERSON BY PERSON. The
+#: three fields above are read off the person's own bucket, and the two mints deal houses
+#: of different shapes: `reconstruct_trade_households.py` deals a head alone, so its block
+#: IS the statement, while `reconstruct_women_children.py` deals a woman and her children
+#: — whose bands differ, so their buckets differ, and one pair of fields cannot be true of
+#: all of them. A whole-house card therefore carries this roster beside the head's own
+#: fields, and the row is checked against the entry naming ITS person. Both shapes are the
+#: same contract: the card states the move, and this tool copies what the card states.
+HOUSE_ROSTER = "the_whole_house"
 
 
 class Fault(Exception):
@@ -108,6 +118,26 @@ def household_cards() -> dict:
     return found
 
 
+def statement_for(block: dict, hid: str, person: str) -> dict:
+    """What the CARD says about this person's move — the fields `MUST_AGREE` compares.
+
+    A card carrying `the_whole_house` states the move once per person, because a mother
+    and her children stand in different bands and so in different buckets; the entry
+    naming this person is then the statement, and a row naming somebody the roster leaves
+    out is a fault rather than a move. A card without the roster is a house of one, whose
+    block is itself the statement — which is every card T-1563 wrote, read exactly as it
+    was read before this function existed."""
+    roster = block.get(HOUSE_ROSTER)
+    if roster is None:
+        return block
+    if not isinstance(roster, list):
+        raise Fault(f"{hid} states its re-family as something other than a roster")
+    for entry in roster:
+        if isinstance(entry, dict) and entry.get("person") == person:
+            return entry
+    raise Fault(f"{hid} says the whole house moved and does not name {person} in it")
+
+
 def spent(rows: list, cards: dict) -> tuple[list, list]:
     """(the moves the cards carry, the moves still owed) — in the rule's own order."""
     made, owing = [], []
@@ -118,14 +148,15 @@ def spent(rows: list, cards: dict) -> tuple[list, list]:
         if not block:
             owing.append(row)
             continue
-        for on_card, in_rule in MUST_AGREE:
-            if block.get(on_card) != row.get(in_rule):
-                raise Fault(
-                    f"{hid} says it was re-familied {on_card}={block.get(on_card)!r} and "
-                    f"the rule says {in_rule}={row.get(in_rule)!r}")
         person = row.get("person")
         if person not in {p.get("id") for p in entry[1].get("persons") or []}:
             raise Fault(f"the rule re-families {person}, who is not on {hid}")
+        says = statement_for(block, hid, person)
+        for on_card, in_rule in MUST_AGREE:
+            if says.get(on_card) != row.get(in_rule):
+                raise Fault(
+                    f"{hid} says {person} was re-familied {on_card}={says.get(on_card)!r} "
+                    f"and the rule says {in_rule}={row.get(in_rule)!r}")
         if entry[1].get("division") != str(row["to_bucket"]).split("/")[3]:
             raise Fault(
                 f"{hid} is counted in {row['to_bucket']} and its card states the "
@@ -264,6 +295,29 @@ def cmd_self_test() -> int:
         bent[first["household"]][1][CARD_BLOCK][on_card] = "persons/nobody/at/all"
         fires("a card whose %s disagrees with the rule" % on_card,
               lambda b=bent: spent(rows, b))
+
+    # AND THE SAME FOR A HOUSE THAT MOVED WHOLE, which states its move once per person
+    # rather than once. The fixtures above bend the head's own fields, which a whole-house
+    # card also carries and which `MUST_AGREE` no longer reads for it — so without these
+    # two the roster could disagree with the rule in every row and still go green.
+    whole = [m for m in made if
+             isinstance(cards[m["household"]][1][CARD_BLOCK].get(HOUSE_ROSTER), list)]
+    if whole:
+        house = whole[0]
+        for on_card, _in_rule in MUST_AGREE:
+            bent = {hid: (path, json.loads(json.dumps(doc)))
+                    for hid, (path, doc) in cards.items()}
+            roster = bent[house["household"]][1][CARD_BLOCK][HOUSE_ROSTER]
+            next(e for e in roster if e["person"] == house["person"])[on_card] = "persons/x"
+            fires("a whole-house roster whose %s disagrees with the rule" % on_card,
+                  lambda b=bent: spent(rows, b))
+        short = {hid: (path, json.loads(json.dumps(doc)))
+                 for hid, (path, doc) in cards.items()}
+        block = short[house["household"]][1][CARD_BLOCK]
+        block[HOUSE_ROSTER] = [e for e in block[HOUSE_ROSTER]
+                               if e["person"] != house["person"]]
+        fires("a whole-house roster that leaves out somebody the rule moves",
+              lambda: spent(rows, short))
 
     # A CARD CLAIMING A MOVE THE RULE DOES NOT YIELD IS A FAULT. This is the hand-written
     # re-family, and it must not survive a --check.
