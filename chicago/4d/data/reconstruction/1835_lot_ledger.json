@@ -50,8 +50,8 @@
   "lots_with_a_roof": 135,
   "lots_barring_another_roof": 133,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 187,
-  "lots_over_their_own_rule": 12
+  "principal_roofs_standing": 193,
+  "lots_over_their_own_rule": 15
  },
  "the_density_standard": {
   "rule": {
@@ -75,8 +75,8 @@
   },
   "multi_building_lot_rate_on_the_principal_streets": {
    "principal_street_lots": 68,
-   "carrying_more_than_one_principal_roof": 31,
-   "rate": 0.4559,
+   "carrying_more_than_one_principal_roof": 33,
+   "rate": 0.4853,
    "standard": "three party-line units per lot where the rule fires — the schedule's capacity is a ceiling and not a target (1835_platted_block_parcels.json, `placement_rule.open_lots`)"
   }
  },
@@ -4012,17 +4012,17 @@
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
    "standing": [
-    "recon_1835_blk_randolph_market_a3_05",
+    "recon_1835_blk_randolph_market_d2_05",
     "recon_1835_blk_randolph_market_d5_01"
    ],
    "standing_families": {
-    "recon_1835_blk_randolph_market_a3_05": "A3",
+    "recon_1835_blk_randolph_market_d2_05": "D2",
     "recon_1835_blk_randolph_market_d5_01": "D5"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
    "state": "at_capacity"
   },
@@ -4047,18 +4047,18 @@
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
    "standing": [
-    "recon_1835_blk_randolph_market_a1_12",
     "recon_1835_blk_randolph_market_d1_10",
     "recon_1835_blk_randolph_market_d2_09",
+    "recon_1835_blk_randolph_market_d4_12",
     "recon_1835_blk_randolph_market_d5_11"
    ],
    "standing_families": {
-    "recon_1835_blk_randolph_market_a1_12": "A1",
     "recon_1835_blk_randolph_market_d1_10": "D1",
     "recon_1835_blk_randolph_market_d2_09": "D2",
+    "recon_1835_blk_randolph_market_d4_12": "D4",
     "recon_1835_blk_randolph_market_d5_11": "D5"
    },
-   "principal_roofs_standing": 3,
+   "principal_roofs_standing": 4,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": true,
@@ -4086,17 +4086,17 @@
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
    "standing": [
-    "recon_1835_blk_randolph_market_a4_06",
+    "recon_1835_blk_randolph_market_d2_06",
     "recon_1835_blk_randolph_market_d6_02"
    ],
    "standing_families": {
-    "recon_1835_blk_randolph_market_a4_06": "A4",
+    "recon_1835_blk_randolph_market_d2_06": "D2",
     "recon_1835_blk_randolph_market_d6_02": "D6"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
    "state": "at_capacity"
   },
@@ -4121,17 +4121,17 @@
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
    "standing": [
-    "recon_1835_blk_randolph_market_a1_07",
-    "recon_1835_blk_randolph_market_d4_03"
+    "recon_1835_blk_randolph_market_d4_03",
+    "recon_1835_blk_randolph_market_d4_07"
    ],
    "standing_families": {
-    "recon_1835_blk_randolph_market_a1_07": "A1",
-    "recon_1835_blk_randolph_market_d4_03": "D4"
+    "recon_1835_blk_randolph_market_d4_03": "D4",
+    "recon_1835_blk_randolph_market_d4_07": "D4"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
    "state": "at_capacity"
   },
@@ -5487,14 +5487,14 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "recon_1835_blk_south_water_lasalle_a1_06",
-    "recon_1835_blk_south_water_lasalle_d2_05"
+    "recon_1835_blk_south_water_lasalle_d2_05",
+    "recon_1835_blk_south_water_lasalle_d3_06"
    ],
    "standing_families": {
-    "recon_1835_blk_south_water_lasalle_a1_06": "A1",
-    "recon_1835_blk_south_water_lasalle_d2_05": "D2"
+    "recon_1835_blk_south_water_lasalle_d2_05": "D2",
+    "recon_1835_blk_south_water_lasalle_d3_06": "D3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
@@ -5757,14 +5757,14 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "recon_1835_blk_south_water_wells_a1_07",
+    "recon_1835_blk_south_water_wells_d1_07",
     "recon_1835_blk_south_water_wells_d2_06"
    ],
    "standing_families": {
-    "recon_1835_blk_south_water_wells_a1_07": "A1",
+    "recon_1835_blk_south_water_wells_d1_07": "D1",
     "recon_1835_blk_south_water_wells_d2_06": "D2"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,

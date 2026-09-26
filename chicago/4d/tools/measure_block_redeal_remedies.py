@@ -30,12 +30,20 @@ verdicts against the same committed files and finds NONE of them refused, and th
 no longer moves for any of them, which is why the block schedule's principal-roof counts
 do not move either.
 
-WHAT IS STILL NOT DONE, and this tool does not pretend otherwise: the six roofs have not
-been re-dealt. The recipe still stands them as A-family slots and no mesh has been rebaked.
-That is T-1611. NOTHING IS ADJUDICATED HERE AND NOTHING IS MOVED: no verdict is rewritten,
-no family is chosen, no recipe slot moves, no confidence changes and no record is written
-to. The three remedies stay in the report as what was asked and what each would have cost,
-with the one the owner took marked as taken.
+AND T-1611 HAS NOW RUN. `tools/execute_roof_redeal.py --redeal-blocks` carried all six out
+--- the slot family moved, the class was ASKED of the derivation rather than typed, the
+record ids moved with the family and every committed file that named one was carried across,
+and the meshes were rebaked. So the ordinary reading of this tool is now ZERO outstanding
+verdicts, and that is what a carried-out adjudication looks like from here: the ledger is
+re-derived over the town as it stands, the six conform where they stand, and the
+re-derivation returns `keep` for each. The permanent record of the move is the block
+recipe's own `redealt` block, which `execute_roof_redeal.py --check-blocks` holds to the
+slots and to the live adjudication. NOTHING IS ADJUDICATED HERE AND NOTHING IS MOVED: no
+verdict is rewritten, no family is chosen, no recipe slot moves, no confidence changes and
+no record is written to. The three remedies stay in the report as what was asked and what
+each would have cost, with the one the owner took marked as taken --- and the clause
+witness stays too, because the argument that won the ruling does not stop being the reason
+for it once it has been acted on.
 """
 
 from __future__ import annotations
@@ -327,8 +335,9 @@ def build() -> dict:
                 f"clause cites as its evidence FRONTS a principal street, which "
                 f"is the position the clause says it avoids and the one term the policy "
                 f"scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a "
-                f"principal street; `recon_1835_blk_randolph_market_a1_07` is an A1 "
-                f"standing 29.28 m from one. The test that refamilies the second "
+                f"principal street; the roof now standing as "
+                f"`recon_1835_blk_randolph_market_d4_07` WAS an A1 standing 29.28 m "
+                f"from one, until T-1611 re-dealt it. The test that refamilies the second "
                 f"refamilies the first. That is a question about the clause, and this "
                 f"tool does not answer it."
                 + (f" {len(streetless)} more front no street at all, out on the "
@@ -551,7 +560,7 @@ def check() -> int:
         return 1
     print(f"{doc['counts']['outstanding_verdicts']} outstanding platted-block verdict(s), "
           f"{doc['counts']['refused_by_the_parcel_gate']} refused by the parcel gate "
-          f"(the rear-cottage clause freed them; T-1611 carries them out), "
+          f"(the rear-cottage clause freed them and T-1611 carried them out), "
           f"{doc['counts']['ancillary_families_offered']} of "
           f"{doc['counts']['families_offered']} offered families would have left the "
           f"class alone by their letter, "

@@ -1302,6 +1302,21 @@ selftest "…and the executor's own refusals still fire on an unbuildable deal" 
 step "the redeal's migrated ids left nothing behind, and every migrated roof conforms" \
   python3 tools/execute_roof_redeal.py --check-migration
 
+# T-1611, and the LAST of the 32 refamily verdicts. Six yard buildings on three platted
+# blocks were re-dealt into dwelling families: the slot's family moved, its class was
+# ASKED of `reconcile_665.inventory_class` rather than typed over, the record ids moved
+# with the family and every committed file that named one was carried across. This step
+# asks four things the step above cannot, because a block is dealt more than once and its
+# schedule counts its own slots: that each re-dealt id still derives at its own sequence
+# in its own programme phase; that the class it stands as is still the class the
+# rear-cottage clause DERIVES for it, so losing that clause is red here rather than
+# quietly making six second principal roofs again; that the live adjudication now returns
+# `keep` for every one, which is the only thing a refamily is for; and that no committed
+# file — outside the dated receipts and the two sweeps' own fixtures, which it names — is
+# left pointing at one of the six ids that no longer exists.
+step "the platted blocks' six are re-dealt, still derive their class, and left nothing behind" \
+  python3 tools/execute_roof_redeal.py --check-blocks
+
 # T-1483, and the step that had to exist before the 26 outstanding verdicts could be
 # carried out at all. Their record ids encode the family, so executing them RENAMES a
 # roof some seventy files name — and a scripted rename over those files would pass every
@@ -1344,14 +1359,16 @@ selftest "…and the migration's own refusals still fire on a moved recipe" \
 #
 # T-1610 carried the ruling into `reconcile_665.inventory_class`, which now reads the
 # position as well as the group, and into the placement policy as
-# `rear_dwelling_behind_its_own_roof`. SO THIS STEP IS NOW THE GUARD ON THE RULING: it
-# re-derives the six against the same committed files and refuses a report in which any
-# of them is refused again, or in which the class moves — a non-zero count here means the
-# clause has been lost out of the policy or out of the derivation, and T-1611 cannot run.
-# It still carries the two open lots, the 36 offered families and the clause's own
-# evidence, three of whose four documented stables stand exactly where the six were
-# refused for standing. The six are NOT yet re-dealt; that is T-1611.
-step "the platted blocks' six verdicts are still free to be carried out, and the rear-cottage ruling is still in force" \
+# `rear_dwelling_behind_its_own_roof`. T-1611 then carried the six OUT, so this step's
+# ordinary reading is now ZERO outstanding verdicts — which is what a carried-out
+# adjudication looks like from here, because the ledger is re-derived over the town as
+# it stands and a roof that conforms returns `keep`. What the step still holds is the
+# re-derivation itself: the report must re-derive from the ledger, the block recipe and
+# the placement policy, and it carries the ruling, the three remedies as each was costed,
+# and the clause's own evidence — three of whose four documented stables stand exactly
+# where the six were refused for standing. The record of the MOVE is the block recipe's
+# `redealt` block, gated by the step below.
+step "the platted blocks' remedies report still re-derives, and the rear-cottage ruling is still on the record" \
   python3 tools/measure_block_redeal_remedies.py --check
 
 selftest "…and the derivation, both gates and the ruling's own record still fire when broken" \

@@ -4739,7 +4739,7 @@ for (const [label, viewport, touch] of [
       // street fence needs, so the building IS the street wall there. They are
       // blk_south_water_clark lot 7 (tremont_house_1, 2.40 m),
       // blk_lake_dearborn lot 2 (mason_blacksmith_shop, 0.55 m) and
-      // blk_south_water_lasalle lot 3 (recon_1835_blk_south_water_lasalle_a1_06,
+      // blk_south_water_lasalle lot 3 (recon_1835_blk_south_water_lasalle_d3_06,
       // 1.61 m). The first is what T-0461 was filed for: that fence stood
       // between the footway and the Tremont House's own goods.
       // REFUSED 83 to 85 — the two new setback refusals above that were not
