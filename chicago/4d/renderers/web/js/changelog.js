@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1129, title: 'The lawyer\u2019s advertisement placed the lawyer, not the coffee house', kind: 'fix', ts: '2026-09-26T05:49:28.147Z', date: 'Sep 26, 2026, 12:49 AM CT',
+    items: [
+      'Yesterday a disagreement was written onto the Exchange Coffee House. Andreas puts it at the north-west corner of Lake and Wells; an 1835 newspaper advertisement looked like it put it one block west, at Lake and Franklin. It is ruled today, and the house does not move.',
+      'The advertisement is a Chicago lawyer\u2019s, Russell E. Heacock, and it ends with an address \u2014 an office \u201cin the 2d story, opposite the Exchange, corner of Lake and Franklin-sts\u201d. That corner is HIS: it is the address the notice exists to give, and the coffee house stands in it as the landmark opposite. Read the other way round, the corner had been moved off the advertiser and onto his landmark.',
+      'This project had already read it the right way once. The reading\u2019s own placement records the corner as Heacock\u2019s with the Exchange as its anchor, and the town\u2019s register of businesses seats him at Lake and Franklin in no building the town holds. So this was never two sources disagreeing about one building. It was two readings of one advertisement disagreeing with each other.',
+      'Two smaller corrections travel with it. The page prints \u201cthe Exchange\u201d, not \u201cthe Exchange Coffee House\u201d \u2014 the fuller name was a reader\u2019s expansion being quoted back as the paper\u2019s words. And the note that first made the mistake, on another reading, is corrected where it lives and not only where it landed.',
+      'What the ruling does not settle is written down rather than tidied away. \u201cOpposite\u201d has to carry a block of Lake Street to reach the house. It does if the lawyer\u2019s second story stood on the south side of the street; on the north side it is loose talk for across the way. Nothing says which, so nothing here chooses \u2014 and the corner stays where Andreas put it either way, still marked inferred.',
+      'The coffee house\u2019s own page now carries a ruling where it carried an open question. One job falls out of it and is filed: the name the paper actually prints, \u201cthe Exchange\u201d, matches no building in this town under the town\u2019s own rule for matching names.',
+    ] },
   { v: 1128, title: 'A claim on one job could stop every other job merging', kind: 'fix', ts: '2026-09-26T05:21:52.987Z', date: 'Sep 26, 2026, 12:21 AM CT',
     items: [
       'Nothing you can see in the town changed. This is about a way the project could go red without anybody changing anything, and it stopped work for everyone while it lasted.',
