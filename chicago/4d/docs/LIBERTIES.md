@@ -14453,12 +14453,44 @@ ordinal, a street address, a building — retires its seat, because a read place
 dealt one and the address book already carries the field that says so. The retirement runs
 through `--build`, never by hand.
 
+**Revised:** 2026-09-26 (T-1626) — **the precedence reported above has been reversed, and
+the paragraph reporting it stands as written because it was true when written.** It asked
+whether a business the papers print should outrank a household for a roof RAISED IN ANSWER TO
+THAT HOUSEHOLD'S REQUEST, and the answer is no. The street-face adoption policy (**L212**)
+now carries a seventh refusal: a roof the platted deal asked a block for is the household
+layer's, and an adoption may not take it. The two franklin roofs come back to this file — the
+deal seats **112** against **110** without the refusal, the two roofs either way — and the two
+firms return to the refusal they carried the day before the roofs went up, *every roof on the
+face is spoken for*, South Water's count of it back to 10 from 8 and the adoptions back to 39
+from 41. Nothing was taken from the register: the reconstruction never added supply for it.
+(T-1622 measured the same pair at 106 against 104; T-1611 has since seated six more.)
+
+The reversal is narrow and it is not evidence yielding to invention. **L212** has stood aside
+for the inferred household layer since 2026-08-30, on the argument that the invention makes
+that refusal stronger rather than weaker, so the precedence was never documented-beats-dealt;
+it was first-past-the-post, and the adoption pass simply runs before the seating one. What
+decides it is L212's own third limit, that WHICH roof on a face a business takes is an
+allocation and a statement about nothing: a business is interchangeable between the free roofs
+of its face, and a slot request naming a block and a family is not. Left standing, the older
+precedence made the slot table unfulfillable in principle — every roof the build tickets raise
+on a face with a waiting business would be taken before its requester arrived — and T-1622
+measured that in practice: two roofs raised, and the town seated two households fewer than
+before it started.
+
+**And the two that asked still did not get them.** The deal is dealt in one order for the whole
+town, and on the re-derivation the two franklin roofs go to `hh_beeson_william` and
+`hh_bench_reuben` rather than to Brown and Bryant, who are seated elsewhere or owed. Which
+household takes which roof was never a claim about 1835 and is not one now; that a household
+and not a shop holds a roof raised for a household is the thing this revision fixes.
+
 **Related:** **L90** (the anonymous roofs this pass adopts), **L83** (the inferred-residents
-programme), **L268** (the invented people the order book cannot move), tickets **T-1613**
+programme), **L268** (the invented people the order book cannot move), **L212** (the
+street-face adoption policy, and the refusal T-1626 added to it), tickets **T-1613**
 (this entry), **T-1199** (the parent ask), **T-1198** (the address book and its bands),
 **T-1195** (the placement policy), **T-1614** (the ground this pass hands on), **T-0516**
-(the anonymous-stock statement it refuses to overturn).
-**Recorded:** 2026-09-26.
+(the anonymous-stock statement it refuses to overturn), **T-1622** (the build that found it),
+**T-1626** (the revision).
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26.
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
