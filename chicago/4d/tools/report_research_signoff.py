@@ -760,7 +760,9 @@ def render(model: dict) -> str:
                f"goods and not the man. T-1182 audits it; T-1189 staffs it.")
     out.append(f"2. **{n(a3['published_limits'].get('street_only', 0))} firms reach a street and "
                f"{n(a3['published_limits'].get('unplaceable', 0))} reach nowhere.** Those limits are "
-               f"preserved refusals; T-1198 seats what can be seated and the rest stay limits.")
+               f"preserved refusals; the address book T-1198's chain wrote (T-1491..T-1493) "
+               f"seats what can be seated, T-1199 seats the reconstructed remainder, and the "
+               f"rest stay limits.")
     out.append(f"3. **{n(a4['households'] - a4['with_lives_at'])} of {n(a4['households'])} households "
                f"have no `lives_at`, and {n(a4['seating_class'].get('none', 0))} sit in no seating "
                f"class.** Most are post-office-list names whose whole evidence is that a letter "

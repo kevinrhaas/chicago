@@ -2,6 +2,25 @@
  "id": "hh_lovel_kimball_or",
  "name": "The Lovel household — a name from the post office's letter lists",
  "division": "unplaced",
+ "division_reconstructed": {
+  "value": "south",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "band": "south/tradesman_dwellings",
+  "clause": "tradesman_dwellings",
+  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's tradesman_dwellings clause. The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+  "basis": {
+   "kind": "model",
+   "id": "policy_only_deal",
+   "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
+  },
+  "seed": "hh_lovel_kimball_or|T-1522|division:8a7e6c2a9e79|class:afe76176b701",
+  "replaceable_by": {
+   "kind": "household",
+   "match": "any source that places this household in a division or nearer"
+  },
+  "written_by_stage": "policy_only_division"
+ },
  "head": "lovel_kimball_or",
  "source_pass": "letter_list",
  "arrival": {

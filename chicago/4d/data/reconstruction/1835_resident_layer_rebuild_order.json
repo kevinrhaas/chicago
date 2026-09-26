@@ -1,428 +1,429 @@
 {
-  "_doc": "T-1398 — THE REBUILD ORDER OF THE 1835 RESIDENT LAYER, as data rather than as prose.\n\nThe layer is a cycle. `data/reconstruction/1835_town_model.json` is a COUNT OF THE LAYER, the reconstruction programme's stages DRAW from that model, and the stages write cards back into the layer the model counts. So there is no order of these tools in which every step's inputs are already current — a pass through them moves the inputs of the pass before it, and the only way to a fixed point is to run the whole order again until a pass writes nothing.\n\nThat is not a defect of this file; it is the shape of the problem, recorded on T-1179 (the T-1314 finding) and paid for three times in one evening on #1497 and #1502. What WAS a defect was the order living only in a ticket comment: three runs rebuilt 'the stale piece the check named', which never converges, because the check names the stage that is stale and the cycle runs through a stage it does not name.\n\nSo: the order is here, `tools/converge_resident_layer.py --run` executes it and iterates to the fixed point, and `--check` holds this file honest — every step gated, every declared path real, every back edge declared, and no new gated re-derivation over the layer left unclassified.",
-  "id": "chicago_1835_resident_layer_rebuild_order",
-  "ticket": "T-1398",
-  "written_by": "tools/converge_resident_layer.py",
-  "checked_by": "tools/check.sh",
-  "the_layer": [
+ "_doc": "T-1398 — THE REBUILD ORDER OF THE 1835 RESIDENT LAYER, as data rather than as prose.\n\nThe layer is a cycle. `data/reconstruction/1835_town_model.json` is a COUNT OF THE LAYER, the reconstruction programme's stages DRAW from that model, and the stages write cards back into the layer the model counts. So there is no order of these tools in which every step's inputs are already current — a pass through them moves the inputs of the pass before it, and the only way to a fixed point is to run the whole order again until a pass writes nothing.\n\nThat is not a defect of this file; it is the shape of the problem, recorded on T-1179 (the T-1314 finding) and paid for three times in one evening on #1497 and #1502. What WAS a defect was the order living only in a ticket comment: three runs rebuilt 'the stale piece the check named', which never converges, because the check names the stage that is stale and the cycle runs through a stage it does not name.\n\nSo: the order is here, `tools/converge_resident_layer.py --run` executes it and iterates to the fixed point, and `--check` holds this file honest — every step gated, every declared path real, every back edge declared, and no new gated re-derivation over the layer left unclassified.",
+ "id": "chicago_1835_resident_layer_rebuild_order",
+ "ticket": "T-1398",
+ "written_by": "tools/converge_resident_layer.py",
+ "checked_by": "tools/check.sh",
+ "the_layer": [
+  "data/residents"
+ ],
+ "max_passes": 4,
+ "the_method": [
+  "Run the whole order, top to bottom.",
+  "Run every step's own --check.",
+  "If any is red, run the WHOLE order again — never only the step the check named. A stage's --check cannot see that its own input is stale, so a green stage check is not evidence of a fixed point, and rebuilding only what the check names runs a 2-cycle forever (#1502, attempt 2).",
+  "Stop when a pass leaves every check green. Refuse after max_passes and name what still moved."
+ ],
+ "and_then": "A fixed point that `node tools/rederive.mjs --run` undoes is not a fixed point (T-1363). Verify with `rederive.mjs --check` AFTER this order, and treat a `--run` late in the procedure as a reason to start over.",
+ "steps": [
+  {
+   "key": "resident_index",
+   "build": [
+    "python3",
+    "tools/rebuild_resident_index.py",
+    "--write"
+   ],
+   "check": "python3 tools/rebuild_resident_index.py --check",
+   "writes": [
+    "data/residents/index.json"
+   ],
+   "reads": [
     "data/residents"
-  ],
-  "max_passes": 4,
-  "the_method": [
-    "Run the whole order, top to bottom.",
-    "Run every step's own --check.",
-    "If any is red, run the WHOLE order again — never only the step the check named. A stage's --check cannot see that its own input is stale, so a green stage check is not evidence of a fixed point, and rebuilding only what the check names runs a 2-cycle forever (#1502, attempt 2).",
-    "Stop when a pass leaves every check green. Refuse after max_passes and name what still moved."
-  ],
-  "and_then": "A fixed point that `node tools/rederive.mjs --run` undoes is not a fixed point (T-1363). Verify with `rederive.mjs --check` AFTER this order, and treat a `--run` late in the procedure as a reason to start over.",
-  "steps": [
-    {
-      "key": "resident_index",
-      "build": [
-        "python3",
-        "tools/rebuild_resident_index.py",
-        "--write"
-      ],
-      "check": "python3 tools/rebuild_resident_index.py --check",
-      "writes": [
-        "data/residents/index.json"
-      ],
-      "reads": [
-        "data/residents"
-      ],
-      "why": "The manifest of the layer. Everything that counts people counts it, so it is rebuilt before anything reads a count — and it was in NO version of the order recorded on T-1179, which listed the tools that re-derive FROM the count and not the count itself."
-    },
-    {
-      "key": "attribute_tiers",
-      "build": [
-        "python3",
-        "tools/migrate_attribute_tiers.py",
-        "--build"
-      ],
-      "check": "python3 tools/migrate_attribute_tiers.py --check",
-      "writes": [
-        "data/research/residents/attribute_tiers.json"
-      ],
-      "reads": [
-        "data/residents/households"
-      ],
-      "why": "The per-attribute tier table, derived from the cards. It sat LAST in the order recorded on T-1179, after the population profile — and `profile_population_1835.py` reads this table. So the profile was drawing tiers from a table that predated its own rebuild. Moved above the readers that consume it."
-    },
-    {
-      "key": "scene_sidecars",
-      "build": [
-        "python3",
-        "tools/compile_scene.py",
-        "--all"
-      ],
-      "check": "python3 tools/compile_scene.py --all --check",
-      "writes": [
-        "data/sidecars"
-      ],
-      "reads": [
-        "data/residents"
-      ],
-      "why": "`data/sidecars/1835/people.json` is the compiled layer, and it is what the town model COUNTS. It was in no recorded order either, so the model could be rebuilt from a sidecar the stages had already outrun."
-    },
-    {
-      "key": "town_census",
-      "build": [
-        "python3",
-        "tools/town_census.py"
-      ],
-      "check": "python3 tools/town_census.py --check",
-      "writes": [
-        "data/town_census.json"
-      ],
-      "reads": [
-        "data/residents"
-      ],
-      "why": "The gate screen's count, and the model's second input. Same reason as the sidecar: derived from the layer, read by the model."
-    },
-    {
-      "key": "town_model",
-      "build": [
-        "python3",
-        "tools/model_town_1835.py",
-        "--build"
-      ],
-      "check": "python3 tools/model_town_1835.py --check",
-      "writes": [
-        "data/reconstruction/1835_town_model.json",
-        "docs/RESEARCH/1835_town_model.md"
-      ],
-      "reads": [
-        "data/sidecars",
-        "data/town_census.json"
-      ],
-      "why": "THE MODEL THE STAGES DRAW FROM, and the reason the order has to start at the top rather than at the stage a check named. #1497's first pass never rebuilt it at all: every stage agreed with itself, five gate steps went red, and the cause was one stale file underneath all of them."
-    },
-    {
-      "key": "stage_attribute_fill_arrival",
-      "build": [
-        "python3",
-        "tools/reconstruct_residents_1835.py",
-        "--stage",
-        "attribute_fill_arrival",
-        "--build"
-      ],
-      "check": "python3 tools/reconstruct_residents_1835.py --check",
-      "writes": [
-        "data/residents/households"
-      ],
-      "reads": [
-        "data/reconstruction/1835_town_model.json"
-      ],
-      "why": "Programme stage. Draws arrival, origin and reason from the model's arrival table."
-    },
-    {
-      "key": "stage_readmissions",
-      "build": [
-        "python3",
-        "tools/reconstruct_residents_1835.py",
-        "--stage",
-        "readmissions",
-        "--build"
-      ],
-      "check": "python3 tools/reconstruct_residents_1835.py --check",
-      "writes": [
-        "data/residents/readmitted"
-      ],
-      "reads": [
-        "data/reconstruction/1835_town_model.json"
-      ],
-      "why": "Programme stage, in the programme's own stage order."
-    },
-    {
-      "key": "stage_women_and_children",
-      "build": [
-        "python3",
-        "tools/reconstruct_residents_1835.py",
-        "--stage",
-        "women_and_children",
-        "--build"
-      ],
-      "check": "python3 tools/reconstruct_residents_1835.py --check",
-      "writes": [
-        "data/residents/households"
-      ],
-      "reads": [
-        "data/reconstruction/1835_town_model.json"
-      ],
-      "why": "Programme stage. Draws over the name pools, which is why the stage below it can move it (T-1349)."
-    },
-    {
-      "key": "stage_garrison",
-      "build": [
-        "python3",
-        "tools/reconstruct_garrison_1835.py",
-        "--build"
-      ],
-      "check": "python3 tools/reconstruct_garrison_1835.py --check",
-      "writes": [
-        "data/residents/households",
-        "data/reconstruction/1835_garrison.json"
-      ],
-      "reads": [
-        "data/reconstruction/1835_town_model.json"
-      ],
-      "why": "Programme stage `garrison`, AFTER women_and_children — its position in the programme's own stages array. It draws 125 people over the same surname pools, which is how a stage below women_and_children redrew 43 of women_and_children's cards before T-1349's refusal."
-    },
-    {
-      "key": "population_profile",
-      "build": [
-        "python3",
-        "tools/profile_population_1835.py",
-        "--build"
-      ],
-      "check": "python3 tools/profile_population_1835.py --check",
-      "writes": [
-        "data/reconstruction/1835_population_profile.json",
-        "docs/RESEARCH/1835_population_profile.md"
-      ],
-      "reads": [
-        "data/residents/index.json",
-        "data/research/residents/attribute_tiers.json",
-        "data/town_census.json"
-      ],
-      "why": "The first pure reader: it writes no card and every input it has is written above it."
-    },
-    {
-      "key": "order_book",
-      "build": [
-        "python3",
-        "tools/build_order_book_1835.py",
-        "--build"
-      ],
-      "check": "python3 tools/build_order_book_1835.py --check",
-      "writes": [
-        "data/reconstruction/1835_reconstruction_order_book.json",
-        "docs/RESEARCH/1835_reconstruction_order_book.md"
-      ],
-      "reads": [
-        "data/reconstruction/1835_town_model.json",
-        "data/reconstruction/1835_population_profile.json",
-        "data/residents/index.json"
-      ],
-      "why": "The quota, subtracted from the model by what the profile says is already there. After the profile, because it reads it."
-    },
-    {
-      "key": "transient_cohort",
-      "build": [
-        "python3",
-        "tools/model_transients_1835.py",
-        "--build"
-      ],
-      "check": "python3 tools/model_transients_1835.py --check",
-      "writes": [
-        "data/reconstruction/1835_transient_cohort.json",
-        "docs/RESEARCH/1835_transient_cohort.md"
-      ],
-      "reads": [
-        "data/reconstruction/1835_town_model.json",
-        "data/residents/households"
-      ],
-      "why": "A reader of the layer that was in nobody's mental model of the set until #1502's third attempt went red on it."
-    },
-    {
-      "key": "stage_institutional_households",
-      "build": [
-        "python3",
-        "tools/reconstruct_institutional_households.py",
-        "--build"
-      ],
-      "check": "python3 tools/reconstruct_institutional_households.py --check",
-      "writes": [
-        "data/residents/institutional"
-      ],
-      "reads": [
-        "data/reconstruction/1835_town_model.json",
-        "data/reconstruction/1835_institutional_lodging.json",
-        "data/reconstruction/1835_reconstruction_order_book.json"
-      ],
-      "why": "Programme stage, in the programme's own stage order — after `transients` and before `converge`. It DERIVES from the layer rather than writing into it from a source, so it belongs in the order and not in `not_in_the_order`: the town model sets the household quota, the adjudication decides which of the nine institutional roofs holds one, and the book carries the fills."
-    },
-    {
-      "key": "resident_audit",
-      "build": [
-        "python3",
-        "tools/export_resident_audit.py",
-        "--build"
-      ],
-      "check": "python3 tools/export_resident_audit.py --check",
-      "writes": [
-        "chicago/reference/resident-research/final/audit"
-      ],
-      "reads": [
-        "data/residents",
-        "data/research/residents"
-      ],
-      "why": "The audit the owner reads. Last, because it reports and nothing reads it — and gated in both directions, so a stale one cannot reach dev."
-    }
-  ],
-  "the_cycle": {
-    "_doc": "The back edges: a step that reads a path a LATER step writes. Each one is why a single pass cannot converge, and each is declared so that a NEW one is red rather than discovered by a gate three passes in. `--check` recomputes this set from `steps` and refuses any edge not listed here.\n\nTHE CENTRAL CIRCLE IS NOT IN THIS LIST, and that is the list telling the truth. `town_model` reads the sidecar and the town census, and no stage writes either of those directly — the stages write cards, and `scene_sidecars` and `town_census` compile the cards into what the model counts. So the T-1314 circle reaches the model through TWO back edges above rather than one of its own, and a first draft of this file that asserted a direct town_model edge was refused by `--check` before it was ever committed. Which is the point of recomputing the set from the declarations instead of writing it out by hand.",
-    "edges": [
-      {
-        "reader": "resident_index",
-        "writer": "stage_attribute_fill_arrival",
-        "path": "data/residents",
-        "why": "The manifest counts the cards the stages write. Second pass carries it."
-      },
-      {
-        "reader": "resident_index",
-        "writer": "stage_readmissions",
-        "path": "data/residents",
-        "why": "Same edge through the readmitted directory."
-      },
-      {
-        "reader": "resident_index",
-        "writer": "stage_women_and_children",
-        "path": "data/residents",
-        "why": "Same edge."
-      },
-      {
-        "reader": "resident_index",
-        "writer": "stage_garrison",
-        "path": "data/residents",
-        "why": "Same edge."
-      },
-      {
-        "reader": "attribute_tiers",
-        "writer": "stage_attribute_fill_arrival",
-        "path": "data/residents/households",
-        "why": "Every card a stage writes carries attribute tiers the table re-derives."
-      },
-      {
-        "reader": "attribute_tiers",
-        "writer": "stage_women_and_children",
-        "path": "data/residents/households",
-        "why": "Same edge."
-      },
-      {
-        "reader": "attribute_tiers",
-        "writer": "stage_garrison",
-        "path": "data/residents/households",
-        "why": "Same edge."
-      },
-      {
-        "reader": "scene_sidecars",
-        "writer": "stage_attribute_fill_arrival",
-        "path": "data/residents",
-        "why": "The sidecar is the compiled layer; the stages write the layer."
-      },
-      {
-        "reader": "scene_sidecars",
-        "writer": "stage_readmissions",
-        "path": "data/residents",
-        "why": "Same edge."
-      },
-      {
-        "reader": "scene_sidecars",
-        "writer": "stage_women_and_children",
-        "path": "data/residents",
-        "why": "Same edge."
-      },
-      {
-        "reader": "scene_sidecars",
-        "writer": "stage_garrison",
-        "path": "data/residents",
-        "why": "Same edge."
-      },
-      {
-        "reader": "town_census",
-        "writer": "stage_attribute_fill_arrival",
-        "path": "data/residents",
-        "why": "The census counts the layer the stages write."
-      },
-      {
-        "reader": "town_census",
-        "writer": "stage_readmissions",
-        "path": "data/residents",
-        "why": "Same edge."
-      },
-      {
-        "reader": "town_census",
-        "writer": "stage_women_and_children",
-        "path": "data/residents",
-        "why": "Same edge."
-      },
-      {
-        "reader": "town_census",
-        "writer": "stage_garrison",
-        "path": "data/residents",
-        "why": "Same edge."
-      },
-      {
-        "reader": "resident_index",
-        "writer": "stage_institutional_households",
-        "path": "data/residents",
-        "why": "The manifest counts the cards the stages write, and this stage writes two into data/residents/institutional. Second pass carries it, exactly as the other stages' edges do."
-      },
-      {
-        "reader": "scene_sidecars",
-        "writer": "stage_institutional_households",
-        "path": "data/residents",
-        "why": "The sidecars are compiled from the cards, and these two are cards. Second pass carries it."
-      },
-      {
-        "reader": "town_census",
-        "writer": "stage_institutional_households",
-        "path": "data/residents",
-        "why": "The census counts the layer, and this stage adds two people to it. Second pass carries it."
-      }
-    ]
+   ],
+   "why": "The manifest of the layer. Everything that counts people counts it, so it is rebuilt before anything reads a count — and it was in NO version of the order recorded on T-1179, which listed the tools that re-derive FROM the count and not the count itself."
   },
-  "not_in_the_order": {
-    "_doc": "THE TRIPWIRE, not a classification. `--check` recomputes the set of tools that (a) `tools/check.sh` gates, (b) name `data/residents` in their source, and (c) carry BOTH a write mode and a `--check` — i.e. every gated re-derivation that stands next to the layer. Each name must appear either in `steps` above or in `names` below, so that a tool which JOINS that set is red until a run decides which it is.\n\nWhat this file does NOT claim: that the names below have each been read and found to belong outside the rebuild order. They have not. This run declared the thirteen steps it could demonstrate and enumerated the rest so the set cannot grow silently; most of these write INTO the layer from a source rather than deriving anything FROM it, which is the opposite direction and is why the order does not run them, but that is a reading of the set and not of each tool. Classifying them one at a time is recorded as a finding on T-1398.",
-    "classified": false,
-    "names": [
-      "apply_census_1840_bridges",
-      "back_project_addresses",
-      "build_staffing_model_1835",
-      "build_trade_table_1839",
-      "compile_businesses",
-      "compile_register",
-      "consolidate_resident_evidence",
-      "crosswalk_census_1840_heads",
-      "employment_coverage_1835",
-      "exhaust_tax_1833",
-      "export_resident_research_package",
-      "location_reconciliation",
-      "mint_civic_residents",
-      "old_settlers",
-      "person_associations",
-      "read_census_1830",
-      "read_fergus_obits",
-      "read_land_sales",
-      "read_st_cyr_register",
-      "read_st_marys_baptisms",
-      "read_voter_lists",
-      "readmit_borderline_roster",
-      "rebuild_closing_set",
-      "reconstruct_businesses_1835",
-      "reconstruct_free_black",
-      "reconstruct_modelled_families",
-      "reconstruct_trade_households",
-      "reconstruct_transients_1835",
-      "reconstruct_underdocumented",
-      "report_convergence_coverage",
-      "report_letter_list_collisions",
-      "report_research_closing_audit",
-      "rule_presence_1835",
-      "seat_known_1835",
-      "seat_lodgers_1835",
-      "seat_reconstructed_trades_1835",
-      "seat_wabansia_streets",
-      "spend_ladder_rungs",
-      "spend_stated_families",
-      "spend_trade_premises",
-      "staff_businesses_1835",
-      "staff_the_houses_1835",
-      "staffing_mint_order_1835",
-      "survey_stated_kin",
-      "trade_census_1835",
-      "trade_census_spend_1835"
-    ]
+  {
+   "key": "attribute_tiers",
+   "build": [
+    "python3",
+    "tools/migrate_attribute_tiers.py",
+    "--build"
+   ],
+   "check": "python3 tools/migrate_attribute_tiers.py --check",
+   "writes": [
+    "data/research/residents/attribute_tiers.json"
+   ],
+   "reads": [
+    "data/residents/households"
+   ],
+   "why": "The per-attribute tier table, derived from the cards. It sat LAST in the order recorded on T-1179, after the population profile — and `profile_population_1835.py` reads this table. So the profile was drawing tiers from a table that predated its own rebuild. Moved above the readers that consume it."
+  },
+  {
+   "key": "scene_sidecars",
+   "build": [
+    "python3",
+    "tools/compile_scene.py",
+    "--all"
+   ],
+   "check": "python3 tools/compile_scene.py --all --check",
+   "writes": [
+    "data/sidecars"
+   ],
+   "reads": [
+    "data/residents"
+   ],
+   "why": "`data/sidecars/1835/people.json` is the compiled layer, and it is what the town model COUNTS. It was in no recorded order either, so the model could be rebuilt from a sidecar the stages had already outrun."
+  },
+  {
+   "key": "town_census",
+   "build": [
+    "python3",
+    "tools/town_census.py"
+   ],
+   "check": "python3 tools/town_census.py --check",
+   "writes": [
+    "data/town_census.json"
+   ],
+   "reads": [
+    "data/residents"
+   ],
+   "why": "The gate screen's count, and the model's second input. Same reason as the sidecar: derived from the layer, read by the model."
+  },
+  {
+   "key": "town_model",
+   "build": [
+    "python3",
+    "tools/model_town_1835.py",
+    "--build"
+   ],
+   "check": "python3 tools/model_town_1835.py --check",
+   "writes": [
+    "data/reconstruction/1835_town_model.json",
+    "docs/RESEARCH/1835_town_model.md"
+   ],
+   "reads": [
+    "data/sidecars",
+    "data/town_census.json"
+   ],
+   "why": "THE MODEL THE STAGES DRAW FROM, and the reason the order has to start at the top rather than at the stage a check named. #1497's first pass never rebuilt it at all: every stage agreed with itself, five gate steps went red, and the cause was one stale file underneath all of them."
+  },
+  {
+   "key": "stage_attribute_fill_arrival",
+   "build": [
+    "python3",
+    "tools/reconstruct_residents_1835.py",
+    "--stage",
+    "attribute_fill_arrival",
+    "--build"
+   ],
+   "check": "python3 tools/reconstruct_residents_1835.py --check",
+   "writes": [
+    "data/residents/households"
+   ],
+   "reads": [
+    "data/reconstruction/1835_town_model.json"
+   ],
+   "why": "Programme stage. Draws arrival, origin and reason from the model's arrival table."
+  },
+  {
+   "key": "stage_readmissions",
+   "build": [
+    "python3",
+    "tools/reconstruct_residents_1835.py",
+    "--stage",
+    "readmissions",
+    "--build"
+   ],
+   "check": "python3 tools/reconstruct_residents_1835.py --check",
+   "writes": [
+    "data/residents/readmitted"
+   ],
+   "reads": [
+    "data/reconstruction/1835_town_model.json"
+   ],
+   "why": "Programme stage, in the programme's own stage order."
+  },
+  {
+   "key": "stage_women_and_children",
+   "build": [
+    "python3",
+    "tools/reconstruct_residents_1835.py",
+    "--stage",
+    "women_and_children",
+    "--build"
+   ],
+   "check": "python3 tools/reconstruct_residents_1835.py --check",
+   "writes": [
+    "data/residents/households"
+   ],
+   "reads": [
+    "data/reconstruction/1835_town_model.json"
+   ],
+   "why": "Programme stage. Draws over the name pools, which is why the stage below it can move it (T-1349)."
+  },
+  {
+   "key": "stage_garrison",
+   "build": [
+    "python3",
+    "tools/reconstruct_garrison_1835.py",
+    "--build"
+   ],
+   "check": "python3 tools/reconstruct_garrison_1835.py --check",
+   "writes": [
+    "data/residents/households",
+    "data/reconstruction/1835_garrison.json"
+   ],
+   "reads": [
+    "data/reconstruction/1835_town_model.json"
+   ],
+   "why": "Programme stage `garrison`, AFTER women_and_children — its position in the programme's own stages array. It draws 125 people over the same surname pools, which is how a stage below women_and_children redrew 43 of women_and_children's cards before T-1349's refusal."
+  },
+  {
+   "key": "population_profile",
+   "build": [
+    "python3",
+    "tools/profile_population_1835.py",
+    "--build"
+   ],
+   "check": "python3 tools/profile_population_1835.py --check",
+   "writes": [
+    "data/reconstruction/1835_population_profile.json",
+    "docs/RESEARCH/1835_population_profile.md"
+   ],
+   "reads": [
+    "data/residents/index.json",
+    "data/research/residents/attribute_tiers.json",
+    "data/town_census.json"
+   ],
+   "why": "The first pure reader: it writes no card and every input it has is written above it."
+  },
+  {
+   "key": "order_book",
+   "build": [
+    "python3",
+    "tools/build_order_book_1835.py",
+    "--build"
+   ],
+   "check": "python3 tools/build_order_book_1835.py --check",
+   "writes": [
+    "data/reconstruction/1835_reconstruction_order_book.json",
+    "docs/RESEARCH/1835_reconstruction_order_book.md"
+   ],
+   "reads": [
+    "data/reconstruction/1835_town_model.json",
+    "data/reconstruction/1835_population_profile.json",
+    "data/residents/index.json"
+   ],
+   "why": "The quota, subtracted from the model by what the profile says is already there. After the profile, because it reads it."
+  },
+  {
+   "key": "transient_cohort",
+   "build": [
+    "python3",
+    "tools/model_transients_1835.py",
+    "--build"
+   ],
+   "check": "python3 tools/model_transients_1835.py --check",
+   "writes": [
+    "data/reconstruction/1835_transient_cohort.json",
+    "docs/RESEARCH/1835_transient_cohort.md"
+   ],
+   "reads": [
+    "data/reconstruction/1835_town_model.json",
+    "data/residents/households"
+   ],
+   "why": "A reader of the layer that was in nobody's mental model of the set until #1502's third attempt went red on it."
+  },
+  {
+   "key": "stage_institutional_households",
+   "build": [
+    "python3",
+    "tools/reconstruct_institutional_households.py",
+    "--build"
+   ],
+   "check": "python3 tools/reconstruct_institutional_households.py --check",
+   "writes": [
+    "data/residents/institutional"
+   ],
+   "reads": [
+    "data/reconstruction/1835_town_model.json",
+    "data/reconstruction/1835_institutional_lodging.json",
+    "data/reconstruction/1835_reconstruction_order_book.json"
+   ],
+   "why": "Programme stage, in the programme's own stage order — after `transients` and before `converge`. It DERIVES from the layer rather than writing into it from a source, so it belongs in the order and not in `not_in_the_order`: the town model sets the household quota, the adjudication decides which of the nine institutional roofs holds one, and the book carries the fills."
+  },
+  {
+   "key": "resident_audit",
+   "build": [
+    "python3",
+    "tools/export_resident_audit.py",
+    "--build"
+   ],
+   "check": "python3 tools/export_resident_audit.py --check",
+   "writes": [
+    "chicago/reference/resident-research/final/audit"
+   ],
+   "reads": [
+    "data/residents",
+    "data/research/residents"
+   ],
+   "why": "The audit the owner reads. Last, because it reports and nothing reads it — and gated in both directions, so a stale one cannot reach dev."
   }
+ ],
+ "the_cycle": {
+  "_doc": "The back edges: a step that reads a path a LATER step writes. Each one is why a single pass cannot converge, and each is declared so that a NEW one is red rather than discovered by a gate three passes in. `--check` recomputes this set from `steps` and refuses any edge not listed here.\n\nTHE CENTRAL CIRCLE IS NOT IN THIS LIST, and that is the list telling the truth. `town_model` reads the sidecar and the town census, and no stage writes either of those directly — the stages write cards, and `scene_sidecars` and `town_census` compile the cards into what the model counts. So the T-1314 circle reaches the model through TWO back edges above rather than one of its own, and a first draft of this file that asserted a direct town_model edge was refused by `--check` before it was ever committed. Which is the point of recomputing the set from the declarations instead of writing it out by hand.",
+  "edges": [
+   {
+    "reader": "resident_index",
+    "writer": "stage_attribute_fill_arrival",
+    "path": "data/residents",
+    "why": "The manifest counts the cards the stages write. Second pass carries it."
+   },
+   {
+    "reader": "resident_index",
+    "writer": "stage_readmissions",
+    "path": "data/residents",
+    "why": "Same edge through the readmitted directory."
+   },
+   {
+    "reader": "resident_index",
+    "writer": "stage_women_and_children",
+    "path": "data/residents",
+    "why": "Same edge."
+   },
+   {
+    "reader": "resident_index",
+    "writer": "stage_garrison",
+    "path": "data/residents",
+    "why": "Same edge."
+   },
+   {
+    "reader": "attribute_tiers",
+    "writer": "stage_attribute_fill_arrival",
+    "path": "data/residents/households",
+    "why": "Every card a stage writes carries attribute tiers the table re-derives."
+   },
+   {
+    "reader": "attribute_tiers",
+    "writer": "stage_women_and_children",
+    "path": "data/residents/households",
+    "why": "Same edge."
+   },
+   {
+    "reader": "attribute_tiers",
+    "writer": "stage_garrison",
+    "path": "data/residents/households",
+    "why": "Same edge."
+   },
+   {
+    "reader": "scene_sidecars",
+    "writer": "stage_attribute_fill_arrival",
+    "path": "data/residents",
+    "why": "The sidecar is the compiled layer; the stages write the layer."
+   },
+   {
+    "reader": "scene_sidecars",
+    "writer": "stage_readmissions",
+    "path": "data/residents",
+    "why": "Same edge."
+   },
+   {
+    "reader": "scene_sidecars",
+    "writer": "stage_women_and_children",
+    "path": "data/residents",
+    "why": "Same edge."
+   },
+   {
+    "reader": "scene_sidecars",
+    "writer": "stage_garrison",
+    "path": "data/residents",
+    "why": "Same edge."
+   },
+   {
+    "reader": "town_census",
+    "writer": "stage_attribute_fill_arrival",
+    "path": "data/residents",
+    "why": "The census counts the layer the stages write."
+   },
+   {
+    "reader": "town_census",
+    "writer": "stage_readmissions",
+    "path": "data/residents",
+    "why": "Same edge."
+   },
+   {
+    "reader": "town_census",
+    "writer": "stage_women_and_children",
+    "path": "data/residents",
+    "why": "Same edge."
+   },
+   {
+    "reader": "town_census",
+    "writer": "stage_garrison",
+    "path": "data/residents",
+    "why": "Same edge."
+   },
+   {
+    "reader": "resident_index",
+    "writer": "stage_institutional_households",
+    "path": "data/residents",
+    "why": "The manifest counts the cards the stages write, and this stage writes two into data/residents/institutional. Second pass carries it, exactly as the other stages' edges do."
+   },
+   {
+    "reader": "scene_sidecars",
+    "writer": "stage_institutional_households",
+    "path": "data/residents",
+    "why": "The sidecars are compiled from the cards, and these two are cards. Second pass carries it."
+   },
+   {
+    "reader": "town_census",
+    "writer": "stage_institutional_households",
+    "path": "data/residents",
+    "why": "The census counts the layer, and this stage adds two people to it. Second pass carries it."
+   }
+  ]
+ },
+ "not_in_the_order": {
+  "_doc": "THE TRIPWIRE, not a classification. `--check` recomputes the set of tools that (a) `tools/check.sh` gates, (b) name `data/residents` in their source, and (c) carry BOTH a write mode and a `--check` — i.e. every gated re-derivation that stands next to the layer. Each name must appear either in `steps` above or in `names` below, so that a tool which JOINS that set is red until a run decides which it is.\n\nWhat this file does NOT claim: that the names below have each been read and found to belong outside the rebuild order. They have not. This run declared the thirteen steps it could demonstrate and enumerated the rest so the set cannot grow silently; most of these write INTO the layer from a source rather than deriving anything FROM it, which is the opposite direction and is why the order does not run them, but that is a reading of the set and not of each tool. Classifying them one at a time is recorded as a finding on T-1398.",
+  "classified": false,
+  "names": [
+   "apply_census_1840_bridges",
+   "back_project_addresses",
+   "build_staffing_model_1835",
+   "build_trade_table_1839",
+   "carry_policy_only_division",
+   "compile_businesses",
+   "compile_register",
+   "consolidate_resident_evidence",
+   "crosswalk_census_1840_heads",
+   "employment_coverage_1835",
+   "exhaust_tax_1833",
+   "export_resident_research_package",
+   "location_reconciliation",
+   "mint_civic_residents",
+   "old_settlers",
+   "person_associations",
+   "read_census_1830",
+   "read_fergus_obits",
+   "read_land_sales",
+   "read_st_cyr_register",
+   "read_st_marys_baptisms",
+   "read_voter_lists",
+   "readmit_borderline_roster",
+   "rebuild_closing_set",
+   "reconstruct_businesses_1835",
+   "reconstruct_free_black",
+   "reconstruct_modelled_families",
+   "reconstruct_trade_households",
+   "reconstruct_transients_1835",
+   "reconstruct_underdocumented",
+   "report_convergence_coverage",
+   "report_letter_list_collisions",
+   "report_research_closing_audit",
+   "rule_presence_1835",
+   "seat_known_1835",
+   "seat_lodgers_1835",
+   "seat_reconstructed_trades_1835",
+   "seat_wabansia_streets",
+   "spend_ladder_rungs",
+   "spend_stated_families",
+   "spend_trade_premises",
+   "staff_businesses_1835",
+   "staff_the_houses_1835",
+   "staffing_mint_order_1835",
+   "survey_stated_kin",
+   "trade_census_1835",
+   "trade_census_spend_1835"
+  ]
+ }
 }

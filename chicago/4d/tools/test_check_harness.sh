@@ -234,5 +234,68 @@ serial_race="$(CHECK_JOBS=1 bash -c '
 want "$(printf '%s\n' "$serial_race" | grep -o 'raced=[0-9]*')" "raced=0" \
      "CHECK_JOBS=1 reports no races, because it cannot have one"
 
+# T-1578. THE INSTRUMENT MUST NOT CHANGE THE TRANSCRIPT, AND THE POOL MUST BE ON.
+#
+# Everything above compares the pool against the serial path with CHECK_TIMINGS
+# unset, which is how the bug this answers survived: `_check_time`'s awk warned on
+# the %q-quoted command it was handed with `-v`, onto the gate's own stderr, from
+# four workers at once. That made the byte-comparability assertion above fail — but
+# only for somebody who had set CHECK_TIMINGS, i.e. only for somebody already
+# trying to find out why the gate was slow.
+#
+# So the comparison is made a second time with the instrument ON. Setting a
+# measurement's own switch may not change what is measured.
+timed_dir="$(mktemp -d)"
+trap 'rm -rf "$race_dir" "$timed_dir"' EXIT
+
+untimed_run="$(_pool_run 4)"
+timed_run="$(CHECK_TIMINGS="$timed_dir/t.tsv" _pool_run 4)"
+if [ "$untimed_run" = "$timed_run" ]; then
+  ok "CHECK_TIMINGS records the gate without appearing in it"
+else
+  bad "the timing instrument wrote into the transcript it measures (T-1578):"
+  diff <(printf '%s\n' "$untimed_run") <(printf '%s\n' "$timed_run") | sed 's/^/        /'
+fi
+want "$(CHECK_TIMINGS="$timed_dir/s.tsv" _pool_run 1)" "$untimed_run" \
+     "…and the serial path agrees with the pool under the instrument too"
+
+# The row it writes is four tab-separated fields, and the command is the third.
+# The %q-quoting is the point: awk's -v ate the backslashes out of it, so the one
+# column this file exists to record was lossy while it was also breaking the gate.
+if [ -s "$timed_dir/t.tsv" ]; then
+  ok "a timed run actually wrote rows ($(wc -l < "$timed_dir/t.tsv" | tr -d ' ') of them)"
+else
+  bad "CHECK_TIMINGS was set and nothing was recorded"
+fi
+want "$(awk -F'\t' 'NR==1 { print NF }' "$timed_dir/t.tsv")" "4" \
+     "each row is seconds, kind, command, label"
+if grep -q 'echo\\ one' "$timed_dir/t.tsv"; then
+  ok "the recorded command keeps its %q quoting, backslashes and all"
+else
+  bad "the recorded command was mangled — awk -v processing escapes is T-1578:"
+  sed 's/^/        /' "$timed_dir/t.tsv" | head -4
+fi
+# Three decimals of seconds, and a duration that is neither negative nor absurd.
+if awk -F'\t' '$1 !~ /^[0-9]+\.[0-9][0-9][0-9]$/ { bad = 1 } END { exit bad + 0 }' \
+     "$timed_dir/t.tsv"; then
+  ok "every duration is a non-negative number of seconds to three decimals"
+else
+  bad "a duration was not formatted as N.NNN — the integer-nanosecond arithmetic slipped:"
+  awk -F'\t' '$1 !~ /^[0-9]+\.[0-9][0-9][0-9]$/ { print "        " $0 }' "$timed_dir/t.tsv" | head -4
+
+fi
+
+# THE DEFAULT ITSELF. T-1289 built the pool and left it off, and for three months the
+# only caller that turned it on was CI — so the sandbox that could not afford a serial
+# gate was the one running one. A default back at 1 is that regression, silently.
+default_jobs="$(bash -c 'source tools/check_harness.sh; printf "%s" "$CHECK_JOBS"')"
+if [ "$default_jobs" -gt 1 ] 2>/dev/null; then
+  ok "the pool is on by default ($default_jobs jobs on $(nproc 2>/dev/null || echo '?') cores)"
+else
+  bad "CHECK_JOBS defaults to [$default_jobs] — a serial gate does not fit a 600 s run (T-1578)"
+fi
+want "$(CHECK_JOBS=1 bash -c 'source tools/check_harness.sh; printf "%s" "$CHECK_JOBS"')" "1" \
+     "…and an explicit CHECK_JOBS still wins, which is the escape hatch"
+
 printf '\n%d passed, %d failed\n' "$PASS" "$FAILN"
 [ "$FAILN" -eq 0 ]

@@ -116,12 +116,15 @@ An unresolved unit is research that has been read and not yet spent. The ledger'
 
 | Owner | Units | State | Live |
 | --- | ---: | ---: | ---: |
-| T-1198 | 272 | split_live | yes |
 | T-1315 | 3 | open | yes |
 | T-1335 | 169 | open | yes |
 | T-1543 | 1 | open | yes |
 | T-1552 | 26 | open | yes |
 | T-1569 | 12 | open | yes |
+| T-1585 | 159 | split_live | yes |
+| T-1586 | 92 | split_live | yes |
+| T-1587 | 19 | open | yes |
+| T-1588 | 2 | open | yes |
 
 The rest defer to no ticket, and that is the second legitimate shape rather than a gap (T-1423): a name the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, whose open question is whether the person was in the town on 1 July 1835. No ticket can answer that — only a document can — so each states the document instead. The pointer that used to stand here was renamed four times as the ticket it named kept closing, and no source came any nearer.
 
@@ -137,9 +140,9 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 
 ## 7. The gaps, stated
 
-1. **No unit-level ledger entry reaches the structures layer.** 809 asserted units land on residents and households, 541 on businesses and 0 on structures. Closing it means a seat on the ground (T-1198) for a claim to be asserted ONTO.
+1. **No unit-level ledger entry reaches the structures layer.** 809 asserted units land on residents and households, 541 on businesses and 0 on structures. Closing it means a claim being READ onto the seat: T-1198's chain wrote the address book (T-1491..T-1493), so the seat exists and T-1585..T-1587 spend the place readings onto it.
 2. **28 of the 179 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
-3. **62 firms are unplaceable and 61 reach a street and no further.** Those 123 are the location limits the research preserved rather than guessed past; T-1198 seats what can be seated and the rest stay limits.
+3. **62 firms are unplaceable and 61 reach a street and no further.** Those 123 are the location limits the research preserved rather than guessed past; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
 4. **1,481 of 1,512 households have no `lives_at`.** Most are letter-list-only names (736) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
 5. **1,080 structure attributes are `reconstructed` against 16 attested and 164 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
 

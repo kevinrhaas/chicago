@@ -81,7 +81,7 @@ const STAND_ID = argAt('--stand') || 'lake_at_canal';
 
 /** T-0135's stands, by the ids `tools/smoke_renderer.mjs` gives them. */
 const STANDS = {
-  lake_at_canal: { kind: 'anchor', target: 'green_tree',
+  lake_at_canal: { kind: 'anchor', target: 'lake_at_canal',
     label: 'Lake Street at Canal, east down the axis' },
   the_forks: { kind: 'anchor', target: 'forks', label: 'the forks, from Wolf Point' },
   from_above: { kind: 'anchor', target: 'from_above', label: 'the open aerial' },

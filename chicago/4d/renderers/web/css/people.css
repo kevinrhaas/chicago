@@ -233,6 +233,16 @@
    weaker version of the resident marks: it reads in the dim ink with a dashed edge, which
    says "here for a fortnight" without borrowing either of the colours above. */
 .mark-transient { border-style: dashed; border-color: color-mix(in srgb, var(--ink-dim) 70%, transparent); }
+/* T-1523. A division nobody's source states, dealt off the order book's household shape.
+   It takes the conjectural colour and a dashed edge for the same reason the transient
+   mark does: the pill says how thin the claim is, in both themes, before the card is
+   opened. The value itself is printed plainly beside it — the mark qualifies it, and
+   never replaces it. */
+.mark-reconstructed {
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--con) 60%, transparent);
+  color: var(--con);
+}
 
 .people-empty {
   margin: 0;

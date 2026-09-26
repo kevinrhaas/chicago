@@ -1,11 +1,28 @@
 #!/usr/bin/env bash
-# The per-commit gate. Seconds, no Blender, runs in every agent sandbox.
+# The per-commit gate. About four minutes on four cores, no Blender, runs in every
+# agent sandbox — and has to keep fitting the 600 s that is all a steward run's
+# single foreground command gets (T-1578).
 #
 # A gate that takes four minutes gets skipped, so this one deliberately does not
 # build geometry. Content builds live in tools/bake.sh and run on demand.
 #
+# THAT SENTENCE IS THE BUDGET, AND THE GATE HAS OUTGROWN IT ONCE ALREADY. It said
+# "Seconds" here until 2026-09-25, by which time 624 steps took about 620 s serially
+# — two and a half times the duration this file's own design note treats as the point
+# at which a gate stops being run, and past the 600 s ceiling, so a steward run got
+# NO verdict from it rather than a slow one. What bought the budget back was
+# tools/check_harness.sh's step pool, which CI had been using since T-1289 and no
+# other caller had: on by default now, 453 s on four cores, same verdict and the same
+# transcript in the same order. There is no third helping of that. The pool's ceiling
+# is its heavy tail — the slowest twenty steps are half the clock — so the next step
+# that costs a minute has to be made cheaper, or moved to tools/bake.sh, or the budget
+# has to be re-argued out loud here.
+#
 #   tools/check.sh            the gate
 #   tools/check.sh --strict   warnings are errors (used before a release)
+#
+#   CHECK_JOBS=1              serial, for reproducing a step's red on a quiet tree
+#   CHECK_TIMINGS=<path>      append "<seconds>\t<kind>\t<command>\t<label>" per step
 set -uo pipefail
 _check_tools="$(cd "$(dirname "$0")" && pwd)"
 cd "$_check_tools/.."
@@ -2825,6 +2842,23 @@ step "every mint that re-derives a household carries the blocks it does not own"
 
 selftest "...and its own assertions still fire when broken" \
   python3 tools/carry_stage_blocks.py --self-test
+
+# T-1523, the first thing to use that slot for anything but an arrival. T-1522 dealt a
+# division to the 1,305 households no source places anywhere and wrote it in the address
+# book ALONE, so the card and the manifest both still read `unplaced` and the People
+# view's division filter was short of 1,526 people. This carries the dealt value onto the
+# card as `division_reconstructed` — marked `reconstructed`, carrying the digest that
+# placed it — and holds the two halves against each other in both directions: a dealt row
+# whose card does not carry it is the invisibility T-1522 left, and a carried card the
+# book deals nothing for is a block nothing re-derives. It also holds the scalar
+# `division` at `unplaced`, which is the whole point of the block: rung 5 IS the
+# households whose record places them nowhere, and `a_stated_division` would otherwise
+# turn every one of them into a house.
+step "the policy-only rung's dealt division is on the card the town shows" \
+  python3 tools/carry_policy_only_division.py --check
+
+selftest "...and every limit on that carry fires when broken" \
+  python3 tools/carry_policy_only_division.py --self-test
 
 # T-1350, the other half of that ownership and the opposite failure. A mint derives
 # `arrival` as a not_later_than BOUND off its register, which is right until a reading
