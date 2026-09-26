@@ -17655,7 +17655,7 @@
    "id": "hh_rc_barnes_clarissa",
    "file": "households/hh_rc_barnes_clarissa.json",
    "head": "rc_barnes_clarissa",
-   "division": "west",
+   "division": "south",
    "persons": 1,
    "grades": {
     "reconstructed": 1
@@ -18060,7 +18060,7 @@
    "id": "hh_rc_duffy_margaret",
    "file": "households/hh_rc_duffy_margaret.json",
    "head": "rc_duffy_margaret",
-   "division": "south",
+   "division": "west",
    "persons": 2,
    "grades": {
     "reconstructed": 2
@@ -18090,7 +18090,7 @@
    "id": "hh_rc_dufresne_therese",
    "file": "households/hh_rc_dufresne_therese.json",
    "head": "rc_dufresne_therese",
-   "division": "north",
+   "division": "south",
    "persons": 2,
    "grades": {
     "reconstructed": 2
@@ -18240,7 +18240,7 @@
    "id": "hh_rc_fisk_esther",
    "file": "households/hh_rc_fisk_esther.json",
    "head": "rc_fisk_esther",
-   "division": "west",
+   "division": "south",
    "persons": 2,
    "grades": {
     "reconstructed": 2
@@ -18555,7 +18555,7 @@
    "id": "hh_rc_kelly_honora",
    "file": "households/hh_rc_kelly_honora.json",
    "head": "rc_kelly_honora",
-   "division": "north",
+   "division": "south",
    "persons": 3,
    "grades": {
     "reconstructed": 3
@@ -18690,7 +18690,7 @@
    "id": "hh_rc_mahoney_catherine",
    "file": "households/hh_rc_mahoney_catherine.json",
    "head": "rc_mahoney_catherine",
-   "division": "west",
+   "division": "south",
    "persons": 3,
    "grades": {
     "reconstructed": 3
@@ -18810,7 +18810,7 @@
    "id": "hh_rc_newell_hannah",
    "file": "households/hh_rc_newell_hannah.json",
    "head": "rc_newell_hannah",
-   "division": "west",
+   "division": "north",
    "persons": 1,
    "grades": {
     "reconstructed": 1
@@ -19050,7 +19050,7 @@
    "id": "hh_rc_ryan_ellen",
    "file": "households/hh_rc_ryan_ellen.json",
    "head": "rc_ryan_ellen",
-   "division": "south",
+   "division": "west",
    "persons": 4,
    "grades": {
     "reconstructed": 4
@@ -19335,7 +19335,7 @@
    "id": "hh_rc_thayer_sarah",
    "file": "households/hh_rc_thayer_sarah.json",
    "head": "rc_thayer_sarah",
-   "division": "south",
+   "division": "north",
    "persons": 3,
    "grades": {
     "reconstructed": 3
@@ -19395,7 +19395,7 @@
    "id": "hh_rc_walsh_johanna",
    "file": "households/hh_rc_walsh_johanna.json",
    "head": "rc_walsh_johanna",
-   "division": "south",
+   "division": "west",
    "persons": 6,
    "grades": {
     "reconstructed": 6
@@ -19440,7 +19440,7 @@
    "id": "hh_rc_whitcomb_sarah",
    "file": "households/hh_rc_whitcomb_sarah.json",
    "head": "rc_whitcomb_sarah",
-   "division": "south",
+   "division": "north",
    "persons": 3,
    "grades": {
     "reconstructed": 3
@@ -19470,7 +19470,7 @@
    "id": "hh_rc_wilcox_harriet",
    "file": "households/hh_rc_wilcox_harriet.json",
    "head": "rc_wilcox_harriet",
-   "division": "north",
+   "division": "south",
    "persons": 3,
    "grades": {
     "reconstructed": 3
@@ -19530,7 +19530,7 @@
    "id": "hh_rc_wilcox_sophronia",
    "file": "households/hh_rc_wilcox_sophronia.json",
    "head": "rc_wilcox_sophronia",
-   "division": "west",
+   "division": "south",
    "persons": 6,
    "grades": {
     "reconstructed": 6
@@ -19545,7 +19545,7 @@
    "id": "hh_rc_woodruff_eliza",
    "file": "households/hh_rc_woodruff_eliza.json",
    "head": "rc_woodruff_eliza",
-   "division": "north",
+   "division": "south",
    "persons": 6,
    "grades": {
     "reconstructed": 6
@@ -19560,7 +19560,7 @@
    "id": "hh_rc_woodruff_emily",
    "file": "households/hh_rc_woodruff_emily.json",
    "head": "rc_woodruff_emily",
-   "division": "west",
+   "division": "north",
    "persons": 1,
    "grades": {
     "reconstructed": 1
@@ -19575,7 +19575,7 @@
    "id": "hh_rc_woodruff_lucy",
    "file": "households/hh_rc_woodruff_lucy.json",
    "head": "rc_woodruff_lucy",
-   "division": "south",
+   "division": "west",
    "persons": 6,
    "grades": {
     "reconstructed": 6
@@ -19590,7 +19590,7 @@
    "id": "hh_rc_woodruff_ruth",
    "file": "households/hh_rc_woodruff_ruth.json",
    "head": "rc_woodruff_ruth",
-   "division": "west",
+   "division": "south",
    "persons": 8,
    "grades": {
     "reconstructed": 8

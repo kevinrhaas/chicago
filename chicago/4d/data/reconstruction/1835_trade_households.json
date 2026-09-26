@@ -663,7 +663,7 @@
    "file": "reconstructed_trades/hh_rc_doyle_alice.json",
    "bucket": "persons/female/20_29/west/family/trade",
    "trade": "domestic",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_doyle_edward",
@@ -1573,7 +1573,7 @@
    "file": "reconstructed_trades/hh_rc_nichols_eli.json",
    "bucket": "persons/male/20_29/west/family/trade",
    "trade": "surveyor",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_nichols_george",
@@ -1594,14 +1594,14 @@
    "file": "reconstructed_trades/hh_rc_nichols_rufus.json",
    "bucket": "persons/male/20_29/north/family/trade",
    "trade": "blacksmith",
-   "division": "north"
+   "division": "west"
   },
   {
    "id": "hh_rc_nichols_samuel",
    "file": "reconstructed_trades/hh_rc_nichols_samuel.json",
    "bucket": "persons/male/20_29/west/family/trade",
    "trade": "butcher",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_nichols_willard",
@@ -2126,7 +2126,7 @@
    "file": "reconstructed_trades/hh_rc_thayer_james.json",
    "bucket": "persons/male/20_29/west/family/trade",
    "trade": "farmer",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_thayer_orrin",
@@ -2210,7 +2210,7 @@
    "file": "reconstructed_trades/hh_rc_tuttle_rufus.json",
    "bucket": "persons/male/20_29/south/family/trade",
    "trade": "painter",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_tuttle_ruth",
@@ -2238,7 +2238,7 @@
    "file": "reconstructed_trades/hh_rc_vieau_louis.json",
    "bucket": "persons/male/20_29/north/family/trade",
    "trade": "mail_contractor",
-   "division": "north"
+   "division": "south"
   },
   {
    "id": "hh_rc_vieau_marie",
@@ -2287,7 +2287,7 @@
    "file": "reconstructed_trades/hh_rc_walsh_edward.json",
    "bucket": "persons/male/20_29/north/family/trade",
    "trade": "farmer",
-   "division": "north"
+   "division": "west"
   },
   {
    "id": "hh_rc_walsh_honora",
@@ -2426,14 +2426,18 @@
   "parent_ticket": "T-1559",
   "ruling": "the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the re-cut holds is RE-FAMILIED rather than retired",
   "read_from": "data/reconstruction/1835_refamily_rule.json#the_moves_the_rule_yields",
-  "heads_moved": 19,
+  "heads_moved": 39,
   "out_of": {
-   "persons/female/20_29/west/family/trade": 3,
+   "persons/female/20_29/south/family/trade": 5,
+   "persons/female/20_29/west/family/trade": 4,
    "persons/female/30_39/west/family/trade": 1,
    "persons/female/40_49/south/family/trade": 1,
    "persons/female/40_49/west/family/trade": 1,
    "persons/female/50_plus/south/family/trade": 2,
    "persons/female/50_plus/west/family/trade": 1,
+   "persons/male/20_29/north/family/trade": 3,
+   "persons/male/20_29/south/family/trade": 8,
+   "persons/male/20_29/west/family/trade": 3,
    "persons/male/30_39/south/family/trade": 3,
    "persons/male/30_39/west/family/trade": 2,
    "persons/male/40_49/north/family/trade": 1,
@@ -2443,6 +2447,7 @@
   },
   "into": {
    "persons/female/20_29/north/lodging/trade": 1,
+   "persons/female/20_29/south/lodging/trade": 6,
    "persons/female/20_29/west/lodging/trade": 2,
    "persons/female/30_39/north/lodging/trade": 1,
    "persons/female/40_49/north/lodging/trade": 1,
@@ -2450,6 +2455,8 @@
    "persons/female/50_plus/north/lodging/trade": 1,
    "persons/female/50_plus/south/lodging/trade": 1,
    "persons/female/50_plus/west/lodging/trade": 1,
+   "persons/male/20_29/south/lodging/trade": 11,
+   "persons/male/20_29/west/lodging/trade": 3,
    "persons/male/30_39/north/lodging/trade": 3,
    "persons/male/30_39/south/lodging/trade": 1,
    "persons/male/30_39/west/lodging/trade": 1,

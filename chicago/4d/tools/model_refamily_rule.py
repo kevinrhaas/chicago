@@ -56,6 +56,11 @@ OUT = ROOT / "data" / "reconstruction" / "1835_refamily_rule.json"
 REPORT = ROOT / "docs" / "RESEARCH" / "1835_refamily_rule.md"
 HOUSEHOLDS = ROOT / "data" / "residents" / "households"
 TRADES = ROOT / "data" / "residents" / "reconstructed_trades"
+# T-1564. The lodging stage's own cards, which stand in a third folder and hold the people
+# the re-cut refuses in the `lodging` buckets. They were outside this model until a
+# re-family landed in a lodging band and the re-cut then refused a lodging bucket whose
+# people nothing here could name.
+LODGING_CARDS = ROOT / "data" / "residents" / "lodgers"
 EMPLOYMENT = ROOT / "data" / "residents" / "employment_coverage.json"
 LODGERS = ROOT / "data" / "reconstruction" / "1835_lodgers_seated.json"
 BUSINESSES = ROOT / "data" / "businesses"
@@ -64,12 +69,15 @@ TICKET = "T-1558"
 PARENT = "T-1556"
 CIVIL = ("north", "south", "west", "fort", "country")
 INVENTED_PASSES = ("reconstructed_women_children", "reconstructed_trade_household")
-# The three stages whose people stand in the refused buckets, and the ticket each was
-# drawn by. `fills` in the order book carries the same pairing; it is restated here
-# because this tool reads the CARDS and has to agree with the book bucket for bucket.
+# The stages whose people stand in the refused buckets, and the ticket each was drawn by.
+# `fills` in the order book carries the same pairing; it is restated here because this
+# tool reads the CARDS and has to agree with the book bucket for bucket. The lodging stage
+# joined the list in T-1564: it draws into the `lodging` buckets, and the re-cut refuses
+# one of those the moment a re-family lands in the same band — see `held_roster`.
 STAGE_TICKET = {"modelled_families": "T-1171",
                 "women_and_children": "T-1174",
-                "trade_households": "T-1347"}
+                "trade_households": "T-1347",
+                "lodgers": "T-1371"}
 
 
 class Fault(Exception):
@@ -151,6 +159,20 @@ LADDER = [
                                           "members is adopted — 38 of the 187 invented "
                                           "households — because a C1 move is a move of the "
                                           "whole house.",
+    },
+    {
+        "id": "R_house_is_not_wholly_held",
+        "tier": "refused",
+        "may_change": [],
+        "label": "part of the house is held and part of it is not",
+        "rewrites": "nothing — the move is refused",
+        "says": "A C1 move is a move of the WHOLE house, and only the people standing in a "
+                "bucket the re-cut refused are held. Where a household has members the "
+                "book is not holding, moving the held ones would put a mother on one side "
+                "of the river and her child on the other — the split the rule's own "
+                "ceiling pays 46 moves to prevent. So the house does not move at all. "
+                "T-1564 named this rung, on finding the yield offering a move for 2 of the "
+                "3 people on `hh_rc_eastman_esther`.",
     },
     {
         "id": "R_seated",
@@ -236,7 +258,7 @@ def book() -> dict:
 def cards() -> dict:
     """Every household record that can hold a reconstructed person, by id."""
     out = {}
-    for folder in (HOUSEHOLDS, TRADES):
+    for folder in (HOUSEHOLDS, TRADES, LODGING_CARDS):
         for path in sorted(folder.glob("*.json")):
             doc = json.loads(path.read_text(encoding="utf-8"))
             out[doc["id"]] = doc
@@ -279,6 +301,15 @@ def modelled_families_division(hid: str, card: dict, which: str) -> str:
     return division
 
 
+def basis_bucket(person: dict) -> str | None:
+    """The order-book bucket a person's own card names, where their stage writes it down."""
+    basis = person.get("basis")
+    if not isinstance(basis, dict) or basis.get("id") != "1835_reconstruction_order_book":
+        return None
+    bucket = basis.get("bucket")
+    return bucket if isinstance(bucket, str) and bucket else None
+
+
 def held_roster(doc: dict, by_id: dict) -> list:
     """Every reconstructed person standing in a bucket, with the cell that counts him.
 
@@ -302,7 +333,30 @@ def held_roster(doc: dict, by_id: dict) -> list:
             elif stage == "trade_households":
                 key = card["trade_household"]["bucket"]
             elif card.get("source_pass") == "reconstructed_women_children":
-                key = f"persons/{person['sex']}/{band_of(int(low))}/{division}/family/none"
+                # THE DIVISION THIS HOUSE WAS DEALT IN, WHICH IS NOT ALWAYS THE ONE ITS
+                # CARD STATES. A spent C1 move rewrites the card's own `division` — that
+                # is the whole of what C1 changes — so reading it back here would derive
+                # the bucket a person was moved INTO as the bucket he was drawn in, and
+                # `every_refused_bucket_is_accounted_for` would then find the held roster
+                # and the book's `drawn_here` disagreeing the moment a move landed. The
+                # trade stage is immune because its bucket is written on the card; this
+                # stage's is not, so a moved card carries the division it was dealt in and
+                # it is read here. T-1564.
+                drawn_in = (card.get("refamilied") or {}).get("drawn_in_division")
+                key = (f"persons/{person['sex']}/{band_of(int(low))}/"
+                       f"{drawn_in or division}/family/none")
+            elif stage == "lodgers" and basis_bucket(person):
+                # THE BUCKET THIS STAGE WAS DEALT AGAINST, WRITTEN ON THE PERSON (T-1564).
+                # The lodging stage is the one stage here that deals against BOTH the
+                # `lodging/none` and the `lodging/trade` axes — a minted keeper carries a
+                # trade read off the building and a minted boarder carries none — so its
+                # key cannot be re-derived from the card's sex, band and division the way
+                # the three above can. It does not need to be: `seat_lodgers_1835.py`
+                # writes it down. These people are all `R_seated` (a lodger's card names
+                # the house they sleep in), so naming them adds nobody to the movable set;
+                # what it adds is the ability to ACCOUNT for a refused lodging bucket,
+                # which the re-cut produces as soon as a re-family lands in the band.
+                key = basis_bucket(person)
             else:
                 continue
             rows.append({
@@ -391,6 +445,20 @@ def tier_the_roster(doc: dict, by_id: dict) -> tuple:
     house = defaultdict(set)
     for row in rows:
         house[row["household"]].add(row["rung"])
+    # AND A MEMBER WHO IS NOT HELD AT ALL REFUSES IT JUST AS HARD (T-1564). The rows above
+    # are only the people standing in a REFUSED bucket; a member of the same house whose
+    # own bucket the re-cut did not refuse has no row here, and until this pass existed
+    # the house moved without them — `hh_rc_eastman_esther` was offered a move for 2 of
+    # its 3 people, which is precisely the family split across the river that the rule's
+    # own ceiling costs 46 moves to prevent. A move is only ever offered to a house every
+    # one of whose people the book is holding.
+    held_of = defaultdict(set)
+    for row in rows:
+        held_of[row["household"]].add(row["person"])
+    for hid, held in held_of.items():
+        on_card = {p["id"] for p in (by_id.get(hid, {}).get("persons") or [])}
+        if on_card - held:
+            house[hid].add("R_house_is_not_wholly_held")
     for row in rows:
         if row["rung"] != "C1":
             continue
@@ -961,21 +1029,36 @@ def cmd_self_test() -> int:
         assert row["rung"].startswith("R_"), "a house refused with its members must be refused"
         assert not row["adoptions"], "this row is refused for ANOTHER member's adoption"
 
-    # 4. THE CEILINGS ARE ORDERED, AND THE FIRST OF THEM IS ZERO. Loosening an axis can
-    # only ever raise a bound, and the finding this ticket turns on is that the
-    # division-only bound is nought.
+    # 4. THE CEILINGS ARE ORDERED, AND A DIVISION-ONLY MOVE YIELDS NOBODY. Loosening an
+    # axis can only ever raise a bound, and the finding this ticket turns on is that
+    # changing the division alone moves no one.
+    #
+    # IT IS ASSERTED ON THE YIELD AND NOT ON THE BOUND, and it was the other way round
+    # until T-1564. T-1558 measured the division-only BOUND at nought and the test froze
+    # that number; then the women-and-children moves landed in the `lodging` bands, the
+    # book's trade re-cut re-apportioned one of those bands away from its `trade` axis,
+    # and `persons/male/10_19/west/lodging/trade` became a refused bucket holding one
+    # person whose own class is open in another division. So the BOUND is 1. The FINDING
+    # is untouched: that person is a lodger whose card names the house they sleep in, so
+    # the rule refuses them on R_seated, and no move the rule yields changes the division
+    # and nothing else. A bound the book's own re-cut can move is not the thing worth
+    # freezing; what the ticket turns on is the yield, so that is what is measured here.
     surplus = {r["bucket"]: r["surplus_still_held"] for r in doc["recut_refusals"]}
     room = open_orders(doc)
     one = ceiling(surplus, room, ("division",))
     two = ceiling(surplus, room, ("division", "household"))
     three = ceiling(surplus, room, ("division", "household", "trade"))
-    assert one == 0, f"the division-only ceiling is {one}, not 0 — the finding has moved"
     assert one <= two <= three, f"the ceilings are not ordered: {one} {two} {three}"
     assert three < 265, f"the sex-and-band ceiling is {three}, so 265 is reachable after all"
 
     # 5. NO REFUSED BUCKET IS EVER A DESTINATION, and no bucket moves out more than its
     # surplus. Both are properties of the yield rather than of one row.
     moves, stuck, _ = yields(doc, rows)
+    division_only = [m for m in moves if list(m.get("changes") or []) == ["division"]]
+    assert not division_only, (
+        "the rule yields %d move(s) that change the division and nothing else — T-1558's "
+        "finding was that the held surplus and the open orders are disjoint on every "
+        "other axis, so the division alone moves nobody" % len(division_only))
     held = {r["bucket"] for r in doc["recut_refusals"]}
     assert not [m for m in moves if m["to_bucket"] in held], \
         "a move lands in a bucket the re-cut itself refuses"
@@ -1014,9 +1097,16 @@ def cmd_self_test() -> int:
     assert all(m["rule"] in LADDER_IDS for m in moves), "a move names no rung of the ladder"
     assert all(m["rule"] in MOVABLE_IDS for m in moves), "a move is made on a refused rung"
     assert stuck, "nobody is stuck, which cannot be true while the ceilings bind"
+    # THE BRACKET IS ON WHAT IS STILL TO SPEND, because both bounds are (T-1564). `two`
+    # and `split_bound` are read off `recut_refusals` and `open_orders`, and the book has
+    # already taken every spent move off both of them — a bucket re-familied all the way
+    # down leaves the refusals list altogether. So the list this compares has to be net of
+    # the ledger too, or the programme fails its own test by succeeding at it: with 87
+    # spent the whole yield stood at 108 against a remainder bound of 59.
     split_bound = bound_if_houses_could_split(doc, rows)
-    assert len(moves) <= split_bound <= two, \
-        f"the whole-house price is not bracketed: {len(moves)} {split_bound} {two}"
+    unspent = len(moves) - len(made)
+    assert unspent <= split_bound <= two, \
+        f"the whole-house price is not bracketed: {unspent} {split_bound} {two}"
 
     # 6. EMPLOYMENT IS NOT A SELECTOR. The proof is positive: the moves the rule yields
     # contain people the employment layer places at work — it cannot, because every such

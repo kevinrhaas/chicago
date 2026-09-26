@@ -377,6 +377,54 @@
     "residents/household:reason_for_coming.written_by_stage": {
       "records": 1487
     },
+    "residents/household:refamilied.changed": {
+      "records": 25
+    },
+    "residents/household:refamilied.counted_in_bucket": {
+      "records": 25
+    },
+    "residents/household:refamilied.drawn_in_bucket": {
+      "records": 25
+    },
+    "residents/household:refamilied.drawn_in_division": {
+      "records": 25
+    },
+    "residents/household:refamilied.parent_ticket": {
+      "records": 25
+    },
+    "residents/household:refamilied.rule": {
+      "records": 25
+    },
+    "residents/household:refamilied.rule_read_from": {
+      "records": 25
+    },
+    "residents/household:refamilied.ruling": {
+      "records": 25
+    },
+    "residents/household:refamilied.the_whole_house[].counted_in_bucket": {
+      "records": 90
+    },
+    "residents/household:refamilied.the_whole_house[].drawn_in_bucket": {
+      "records": 90
+    },
+    "residents/household:refamilied.the_whole_house[].person": {
+      "records": 90
+    },
+    "residents/household:refamilied.the_whole_house[].rule": {
+      "records": 90
+    },
+    "residents/household:refamilied.ticket": {
+      "records": 25
+    },
+    "residents/household:refamilied.what_it_re_casts": {
+      "records": 25
+    },
+    "residents/household:refamilied.what_moved": {
+      "records": 25
+    },
+    "residents/household:refamilied.why_the_whole_house": {
+      "records": 25
+    },
     "residents/household:source_pass": {
       "records": 1433,
       "refused_because": "T-0599/T-0604: provenance for the three mint tools' OWN bookkeeping — which pass (documented/placed/letter_list) minted this record, so a re-run can tell 'a household I minted' from a plain hand-authored one without an id prefix. Not a finding about the person: the evidence the panel already shows — grade, letter_list_only, sources — is what a visitor judges the record by, and which internal tool produced it is not part of that judgment. See data/residents/README.md."
