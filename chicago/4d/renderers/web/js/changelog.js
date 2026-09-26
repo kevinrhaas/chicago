@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'A finished job that still owned nine of the town\u2019s work orders', kind: 'fix', ts: '',
+  { v: 1133, title: 'A finished job that still owned nine of the town\u2019s work orders', kind: 'fix', ts: '2026-09-26T08:10:16.495Z', date: 'Sep 26, 2026, 3:10 AM CT',
     items: [
       'Nothing you can see in the town changed. This is about a job the project had already finished and could not put down.',
       'The job was to release 35 held West Division houses onto ground that had just been extended west. It was picked up on 20 September, the run carrying it died, and the mark saying somebody had it never came off. The work got done anyway, by the jobs either side of it: all 55 of that parcel\u2019s reviewed houses stand today and not one is held back. But for six days the top of the West Division\u2019s list read \u201ctaken\u201d \u2014 and the rule for picking work is to skip anything taken, so run after run walked past it.',
