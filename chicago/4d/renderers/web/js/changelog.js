@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'A coffee house we can name a street for, not a corner', kind: 'change', ts: '',
+  { v: 1128, title: 'A coffee house we can name a street for, not a corner', kind: 'change', ts: '2026-09-26T05:25:24.528Z', date: 'Sep 26, 2026, 12:25 AM CT',
     items: [
       'Nothing you can see in the town changed. This is the last of ten newspaper notices about named buildings, and the only one the town could not spend, because the building it names is not here.',
       'The Eagle Coffee House, kept by a man called Trowbridge, is where the town\u2019s Democrats met on Monday 29 June 1835 \u2014 two days before the day this town is modelled on. It is the third named public house of the year, and it is not in the reconstruction. The nine other notices were written onto buildings that already stood; this one had nothing to be written onto.',
