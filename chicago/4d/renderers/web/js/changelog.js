@@ -1,8 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1152, title: 'Tracing the sources behind the reconstruction', kind: 'change', ts: '2026-09-26T19:22:59.230Z', date: 'Sep 26, 2026, 2:22 PM CT',
+  { v: 1153, title: 'Tracing the sources behind the reconstruction', kind: 'change', ts: '2026-09-26T19:46:25.823Z', date: 'Sep 26, 2026, 2:46 PM CT',
     items: [
       'Nothing visible in the town changes. A source index now links the registered sources to the buildings, people, businesses and other reconstruction claims that use them, and distinguishes unused sources.',
       'This supplies the data needed for the forthcoming loading-screen source cards and Sources browser. Newspaper links retain their issue dates and page or column details where recorded.',
+    ] },
+  { v: 1152, title: 'The haze stops painting the prairie the colour of water', kind: 'fix', ts: '2026-09-26T19:32:38.162Z', date: 'Sep 26, 2026, 2:32 PM CT',
+    items: [
+      'Fly north over the town at six hundred feet and the world looked flooded. Past the last blocks the ground turned a flat pale blue-grey, the far woods stood up out of it like trees in a lake, and a hard bright band filled the horizon. The owner reported it from the air this week.',
+      'The ground was there the whole time. Switch the distance haze off at the same spot and the very pixel that read as open water reads as green prairie — so nothing was missing, nothing had been culled, and the reach that decides how far the ground is drawn was never the fault. What was wrong was the colour distance fades TO.',
+      'That colour was a single fixed blue, measured years ago from a photograph of a July prairie taken looking toward the sun. This scene’s own sky is not that colour in any other direction: look away from the sun and the sky at the horizon is far darker. So the haze was brighter than the sky it was supposed to be fading into — everywhere on the compass, and by a long way to the north. Distance could not recede into the air; it could only rise out of it as a bright sheet. A bright flat sheet under a darker sky, with trees in it, is what a lake looks like from above.',
+      'The haze is no longer a fixed colour. At startup the scene now reads its own sky, all the way round the horizon, and the air takes the colour of whatever sky the visitor is actually facing. Looking north it is thirty-six levels darker than before, looking south barely a step. Distance now settles below the horizon instead of standing out against it, and the bright band at the skyline is gone. The river and the far woods follow the same reading, so the water, the plain and the treeline still agree about what distance looks like.',
+      'Nothing was invented to do it and no ground was added. The sky itself is untouched — it is only being asked what colour it is, rather than being told. There are no new shapes in the scene, no extra ground, and the frame costs exactly what it cost before.',
+      'What this does not fix, said plainly: beyond about a kilometre and a quarter the plain is still a featureless band, because the air in this reconstruction is deliberately thick enough to swallow anything further than that. That is a separate decision about how far you can see here, and it is now written down as its own question rather than left inside this one.',
     ] },
   { v: 1151, title: 'Arrive in 1835 as the town is assembled', kind: 'change', ts: '2026-09-26T18:30:51.494Z', date: 'Sep 26, 2026, 1:30 PM CT',
     items: [

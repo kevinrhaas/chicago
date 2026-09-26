@@ -531,12 +531,41 @@ export async function createTerrain({
   let groundDrawn = groundBounds.length;
   let groundHeld = 0;
 
+  /** The haze the water has been ASKED for, which is not always the haze it has
+   *  been given: the `uSky` uniform does not exist until the material compiles,
+   *  a frame or two after this object does, and the view may not turn again for
+   *  minutes. So the wish is kept and re-offered every frame until it lands. */
+  let hazeWanted = null;
+  function applyHaze() {
+    const u = waterMat?.userData?.chiSkyUniform;
+    if (!u || !hazeWanted || u.value.equals(hazeWanted)) return false;
+    u.value.copy(hazeWanted);
+    return true;
+  }
+
   return {
     group,
     mesh: ground,
     water,
     material: groundMat,
     waterMaterial: waterMat,
+    /**
+     * Point the water at the same distance the air is pointing at — T-1631.
+     *
+     * The grazing-angle term mixes toward `world.js`'s haze, and that haze now
+     * follows the bearing the visitor is looking along, so a water surface left
+     * on the boot-time colour would read a different distance from the plain it
+     * lies in. The uniform does not exist until the material has compiled, which
+     * is a frame or two after this object does, so the write is guarded rather
+     * than assumed.
+     *
+     * @param {THREE.Color} colour the scene fog's colour, live
+     * @returns {boolean} whether a uniform was actually written
+     */
+    setHaze(colour) {
+      if (colour) hazeWanted = (hazeWanted ?? new THREE.Color()).copy(colour);
+      return applyHaze();
+    },
     heightfield,
     meta,
     epochId,
@@ -573,6 +602,9 @@ export async function createTerrain({
      *  finished. One subtraction and one comparison per tile, over the few dozen
      *  the grid comes to. */
     updateGroundReach(eye) {
+      // T-1631: the same per-frame moment, and the cheapest place to land a
+      // haze the material was not yet compiled to receive. A colour compare.
+      applyHaze();
       if (!groundBounds.length) return groundReachM;
       let drawn = 0;
       let held = 0;
@@ -1403,6 +1435,11 @@ function waterMaterial() {
     // olive: the far water read as a stain on the plain rather than as sky lying
     // on it, and the comment above it claimed the opposite in good faith.
     shader.uniforms.uSky = { value: new THREE.Color(HORIZON_HAZE) };
+    // T-1631: the haze is no longer one colour — `world.js`'s `aim()` turns it
+    // with the view — so the water's idea of distance has to be able to turn
+    // with it. Published on the material rather than closed over, because the
+    // material is what `setHaze` below is handed.
+    mat.userData.chiSkyUniform = shader.uniforms.uSky;
     shader.vertexShader = 'varying vec3 vChiWorld;\n' + shader.vertexShader.replace(
       '#include <begin_vertex>', '#include <begin_vertex>' + WORLD_POS_VERT,
     );

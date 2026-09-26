@@ -2445,6 +2445,11 @@ async function boot() {
     // the eye ended up this frame (R-BUG1, and the NEAR block above).
     setNearFor(walker.state.altitude);
     world.follow(camera.position);
+    // T-1631, at the same moment and for the same reason: the haze is a
+    // function of the bearing the eye ended up facing this frame. `aim` reports
+    // whether it actually moved, so the two surfaces that copy the haze are
+    // only rewritten on the frames the view crossed one of the ring's bearings.
+    if (world.aim(camera)) terrain.setHaze(scene3d.fog?.color);
     // After the camera has finished moving and before anything is submitted:
     // what the furniture's reach hides is a function of where the eye ended up
     // this frame (T-0150).
@@ -2454,7 +2459,7 @@ async function boot() {
     // frame (T-1154).
     terrain.updateGroundReach(camera.position);
     flora.update(dt, camera);
-    trees.update(dt, camera);
+    trees.update(dt, camera, scene3d.fog?.color);
 
     renderer.render(scene3d, camera);
     bootController.frameRendered();
@@ -2495,7 +2500,7 @@ async function boot() {
   }
   // Compile programs while the gate can still repaint, before the first draw.
   // The horizon creates its initial geometry on update, so include that too.
-  trees.update(0, camera);
+  trees.update(0, camera, scene3d.fog?.color);
   await yieldToPaint();
   for (const layer of scene3d.children) {
     if (layer.isLight) continue; // targetScene already supplies the lights
