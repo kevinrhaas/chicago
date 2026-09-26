@@ -111,6 +111,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/10_19/south/lodging/none",
     "note": "The book's bucket persons/female/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is exchange_coffee_house's, from the lodging model's ordinary-night figure of 11."
    },
    "seed": "lodgers:exchange_coffee_house:female:10_19:001:forename",
@@ -175,6 +176,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/20_29/south/lodging/none",
     "note": "The book's bucket persons/female/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is exchange_coffee_house's, from the lodging model's ordinary-night figure of 11."
    },
    "seed": "lodgers:exchange_coffee_house:female:20_29:002:forename",
@@ -239,6 +241,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/30_39/south/lodging/none",
     "note": "The book's bucket persons/female/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is exchange_coffee_house's, from the lodging model's ordinary-night figure of 11."
    },
    "seed": "lodgers:exchange_coffee_house:female:30_39:003:forename",
@@ -303,6 +306,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/20_29/south/lodging/none",
     "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is exchange_coffee_house's, from the lodging model's ordinary-night figure of 11."
    },
    "seed": "lodgers:exchange_coffee_house:male:20_29:004:forename",
@@ -367,6 +371,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/20_29/south/lodging/none",
     "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is exchange_coffee_house's, from the lodging model's ordinary-night figure of 11."
    },
    "seed": "lodgers:exchange_coffee_house:male:20_29:005:forename",
@@ -431,6 +436,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/20_29/south/lodging/none",
     "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is exchange_coffee_house's, from the lodging model's ordinary-night figure of 11."
    },
    "seed": "lodgers:exchange_coffee_house:male:20_29:006:forename",
@@ -495,6 +501,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/30_39/south/lodging/none",
     "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is exchange_coffee_house's, from the lodging model's ordinary-night figure of 11."
    },
    "seed": "lodgers:exchange_coffee_house:male:30_39:007:forename",

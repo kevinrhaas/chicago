@@ -118,6 +118,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/20_29/north/lodging/trade",
     "note": "The book's bucket persons/female/20_29/north/lodging/trade ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_north_h1_007's, from the lodging model's ordinary-night figure of 7."
    },
    "seed": "lodgers:recon_1835_north_h1_007:keeper:001:forename",
@@ -192,6 +193,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/20_29/north/lodging/none",
     "note": "The book's bucket persons/male/20_29/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_north_h1_007's, from the lodging model's ordinary-night figure of 7."
    },
    "seed": "lodgers:recon_1835_north_h1_007:male:20_29:001:forename",
@@ -256,6 +258,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/30_39/north/lodging/none",
     "note": "The book's bucket persons/male/30_39/north/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_north_h1_007's, from the lodging model's ordinary-night figure of 7."
    },
    "seed": "lodgers:recon_1835_north_h1_007:male:30_39:002:forename",
