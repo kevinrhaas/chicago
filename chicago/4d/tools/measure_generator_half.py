@@ -179,13 +179,22 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # would re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing is held back in this
 # parcel now, so this line is the last one it will move for a release.
 #
+# 419 -> 421 and 417 -> 419 on 2026-09-26 (T-1622): the third deal on
+# blk_south_water_franklin raises the D4 two-room cottage and the D3 one-room cottage the
+# platted seating asked that block for by name — `recon_1835_blk_south_water_franklin_d4_12`
+# and `_d3_13` — on lot 4, its last free business-front lot. Two new structure assets, so two
+# more meshes a change to the shared generator modules or to build.py would re-stale; the
+# terrain and pier_crib reaches stay at 2 each. This is the first release on this row that a
+# HOUSEHOLD asked for rather than the schedule's district remainder, and the reach moves for
+# the same reason it always does: two more committed meshes, nothing about the debt itself.
+#
 STATED = {
-    "assets": 419,
+    "assets": 421,
     "restales": {
-        "generators/common/*.py": 419,
+        "generators/common/*.py": 421,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/build.py": 417,
+        "generators/build.py": 419,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
     },

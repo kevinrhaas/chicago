@@ -117,36 +117,41 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D1 family to satisfy the block's scheduled mix; no occupant or individual use is known."
     },
     "occupants": {
-      "value": "Rockwell, cabinet furniture warehouse — cabinet furniture",
+      "value": "Hiram Pearsons — storage and commission merchant",
       "confidence": "reconstructed",
       "sources": [
-        "chicago_american_1835"
+        "chicago_democrat_1833_1835"
       ],
-      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on South Water Street AND NOTHING NARROWER — 4 printings, 1835-06-13 to 1835-07-04, claims chicago_american_1835_06_13#c017, chicago_american_1835_06_20#c008, chicago_american_1835_06_27#c002, chicago_american_1835_07_04#c004 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES South Water Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
+      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on South Water Street AND NOTHING NARROWER — 3 printings, 1834-02-25 to 1834-05-14, claims chicago_democrat_1834_02_25#c005, chicago_democrat_1834_03_04#c004, chicago_democrat_1834_05_14#c006 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES South Water Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
     }
   },
   "residents": [],
   "citations": [
     {
-      "source_id": "chicago_american_1835",
-      "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
       "url": "",
       "archived_url": "",
       "tier": 1,
       "tier_label": "period/eyewitness",
       "what_it_supplies": [
-        "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
-        "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
-        "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
-        "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
-        "the paper's own correction of its first masthead date"
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
       ],
       "what_it_does_not_supply": [
-        "any building's form, material, storey count, fenestration or dimensions",
-        "a reliable reading of a dense body column — this run had no reconciled second pass",
-        "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
-        "identification by volume and number: No. 12 is printed on two different issues",
-        "anything at all from an engraving — the cuts are the printer's stock",
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
         "a citation without an issue page and column"
       ]
     },

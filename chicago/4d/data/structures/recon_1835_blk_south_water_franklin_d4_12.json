@@ -1,6 +1,6 @@
 {
-  "id": "recon_1835_blk_south_water_franklin_d4_08",
-  "name": "Reconstructed D4 two-room frame cottage #08",
+  "id": "recon_1835_blk_south_water_franklin_d4_12",
+  "name": "Reconstructed D4 two-room frame cottage #12",
   "archetype": "frame_dwelling",
   "phases": [
     {
@@ -12,8 +12,8 @@
         "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
       },
       "position": {
-        "utm_e": 447334.247,
-        "utm_n": 4637380.872,
+        "utm_e": 447358.644,
+        "utm_n": 4637380.481,
         "rotation_deg": 359.48,
         "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by South Water, Wells, Lake and Franklin; standing ON the South Water Street frontage itself, one unit of the party-line row along it",
         "confidence": "reconstructed",
@@ -30,20 +30,20 @@
             0
           ],
           [
-            6.446,
+            6.465,
             0
           ],
           [
-            6.446,
-            7.611
+            6.465,
+            8.224
           ],
           [
             0,
-            7.611
+            8.224
           ]
         ],
         "confidence": "reconstructed",
-        "note": "A 6.45 × 7.61 m rectangle sampled deterministically inside the D4 family's authored footprint band; no individual dimensions are documented."
+        "note": "A 6.46 × 8.22 m rectangle sampled deterministically inside the D4 family's authored footprint band; no individual dimensions are documented."
       },
       "form": {
         "stories": {
@@ -55,7 +55,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "wall_height_m": {
-          "value": 2.92,
+          "value": 2.611,
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -71,7 +71,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "roof_pitch_deg": {
-          "value": 37.4,
+          "value": 31.1,
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -79,7 +79,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "construction": {
-          "value": "braced_frame",
+          "value": "balloon_frame",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -127,9 +127,9 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D4 family's key geometry parameters do not speak to a porch, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
         },
         "siding_exposure_m": {
-          "value": 0.127,
+          "value": 0.14,
           "confidence": "reconstructed",
-          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5.5 in — dealt in this building's own parcel recipe: drawn from the set on this record's stable key, then advanced so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
         }
       },
       "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
@@ -144,24 +144,24 @@
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D4 family to satisfy the block's scheduled mix; no occupant or individual use is known."
   },
   "occupants": {
-    "value": "Jones, King & Co. — hardware, cutlery, nails, iron, steel, stoves, stove furniture, iron ware and saw mill gearing, wholesale and retail",
+    "value": "a new auction and commission room, South Water Street — auction and commission",
     "confidence": "reconstructed",
     "sources": [
-      "chicago_democrat_1833_1835"
+      "chicago_american_1835"
     ],
-    "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on South Water Street AND NOTHING NARROWER — 5 printings, 1835-05-27 to 1835-08-05, claims chicago_democrat_1835_05_27#c005, chicago_democrat_1835_07_08#c009, chicago_democrat_1835_07_22#c009, chicago_democrat_1835_07_29#c012, chicago_democrat_1835_08_05#c008 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES South Water Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
+    "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on South Water Street AND NOTHING NARROWER — 5 printings, 1835-06-27 to 1835-07-25, claims chicago_american_1835_06_27#c008, chicago_american_1835_07_04#c012, chicago_american_1835_07_11#c003, chicago_american_1835_07_18#c003, chicago_american_1835_07_25#c003 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES South Water Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
   },
   "reconstruction": {
     "status": "inferred_anonymous",
     "family": "D4",
     "district": "south",
     "inventory_class": "principal_functional",
-    "programme_phase": "phase3_platted_block_south_water_franklin_second_deal",
+    "programme_phase": "phase3_platted_block_south_water_franklin_third_deal",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "block_id": "blk_south_water_franklin",
     "stands_on": "frontage",
     "fronts": "south_water",
-    "sequence": 8,
+    "sequence": 12,
     "finish_key": "fresh_timber",
     "roof_condition": "fresh",
     "age_state": "new",
@@ -170,7 +170,7 @@
       "face": "north",
       "setback_m": 1.5,
       "abuts": null,
-      "why": "T-0430, the second deal on this block, and the SECOND of the four South Water blocks T-0009's ruling unblocked — blk_south_water_lasalle took its own second deal first, on 2026-08-30 under T-0429, and the reading below is that run's reading applied to different ground rather than a new one. THE FACE IS NOT RE-ARGUED: this block's north face is South Water Street, the town's business front, and the committed hierarchy in data/streets/1835.json grades it `principal`. What was in doubt until that ruling is whether the LINE would move — T-0143 and T-0188 each refused to tighten a party-line row against a street line that might, and T-0317 inherited the refusal. T-0009 closed it: the corridor was re-derived from committed control (`recentred`, +8.58 m) and data/streets/1835.json was not touched, so the drawn line does not move. THE ROW STILL STANDS ON THE BLOCK FACE AND NOT ON THAT CORRIDOR, which is the distinction the two refusals were protecting: the face is committed geometry read from data/traces/vectors/thompson_lots.json, and the run takes its line, its bearing and the end it packs back from off that boundary. The 8.58 m the corridor moved is therefore not in this placement at all, and if the strip between the corridor and the block faces is later resolved (T-0419) these roofs do not move with it. THE LOT IS THE ONE THE SCHEDULE COUNTS FREE, AND IT TOOK A LEDGER REPAIR TO REACH IT. tools/reconcile_665.py derives this block at 11 standing roofs, 2 free lots and 4 of headroom; the free lots are 1 and 2, read by tools/plat_occupancy.py's `exclusive_lots` from what actually stands. Lot 1 is the Lake-and-Franklin corner on the back tier and stays open. Lot 2 is this block's one free lot of business frontage — and the first entry above had RESERVED it by naming lots 2, 4 and 6 as the frontage its run was dealt, when the run it built stands on lot 6 alone. That entry now names lots 4 and 6 — lot 4 because its own privy stands in that lot's yard, lot 6 because that is where its roofs are — and lot 2, which nothing it wrote has ever stood on, comes off the list. The correction moves no record and is set out in its own `why`. THE CORNER CLAUSE DOES NOT BIND HERE and is not invoked: lot 0 is the Franklin corner and lot 6 the Wells corner, both built on, so lot 2 is an interior lot of this face and there is no corner for a run to be built to. THE END RULE IS READ RATHER THAN ASSERTED — tools/measure_end_rule.py reads this face at a spread of 73.22 m and a unit step of 6.07 m under the walked criterion, which is above the 6.00 m floor, so a grading is admissible here; the walk from lot 2's frontage to the Dearborn drawbridge's south abutment is 453.19 m against lot 4's 428.78 m and lot 6's 404.36 m, so the better end of this face, and of this lot, is the EAST. The run is anchored there and packs west. NO COORDINATE IS AUTHORED: the line, its bearing, lot 2's own stretch of it and the end the run packs back from are all read from the committed block boundary, and the 1.5 m setback is the plat module's own lot margin rather than a measurement of this frontage. The row adopts the setback the three roofs already standing on this face were built to, so the street wall of blk_south_water_franklin stays one wall."
+      "why": "T-1622, the third deal on this block and the one that spends its last free business-front lot. THE FACE IS NOT RE-ARGUED: this block's north face is South Water Street, the town's business front, graded `principal` in the committed hierarchy, and the two runs already standing on this block — the first deal's on lot 6 and the second's on lot 2 — stand on its line at a 1.5 m setback. This run adopts the same setback, which is what puts its front wall on the line the block's other nine frontage roofs already stand on rather than on a line of its own. LOT 4 CAME OFF TWO OPEN-LOT LISTS TO BE DEALT THIS RUN, AND NEITHER OF THEM CALLED IT A RESERVED VACANCY. The first deal declared lots 4 and 6 as its frontage and stood its whole run on lot 6; T-1053 then listed lot 4 open, saying in its own words that it was held on the list \"only because this parcel's privy stood in its yard\" and that the privy had since moved to the lot it serves. The second deal repeated the listing with the same reason and added the only one it had of its own: \"this deal was dealt the roofs it has built and asks the block for no more ground, so the lot stays open.\" Neither is the end-rule reading that makes lot 1 the block's open lot; both are a parcel saying it had no roof to put there. This deal has two, and they are two the platted seating asked this block for by name. So lot 4 leaves both lists and is built on, and lot 1 — the remotest lot from the bridge and the one the schedule's sizing reserves — is still open, which is the standard the density rule actually states. THE GROUND WAS MEASURED BEFORE IT WAS DEALT. Lot 4 projects onto the north face between 47.06 m and 72.12 m, so with the plat module's 1.5 m side margin the run has 22.06 m of buildable face. The nearest roof west of it is the second deal's two-room cottage recon_1835_blk_south_water_franklin_d4_08, whose east wall reads 46.21 m; the nearest east is the first deal's log dwelling recon_1835_blk_south_water_franklin_d1_04 at 77.13 m. Neither is touched: the run is anchored at the EAST end of its own frontage at the 1.5 m margin and packs back west, which leaves 6.51 m to d1_04 and better than eleven metres to d4_08, against a three-metre separation gate."
     }
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
