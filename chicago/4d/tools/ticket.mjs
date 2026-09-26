@@ -671,6 +671,48 @@ function refuseIfATripwireNamesIt(t, becoming) {
   process.exit(1);
 }
 
+/**
+ * AND THE OTHER HALF OF THE SAME QUESTION: WHAT THIS CLOSE STRANDS ABOVE IT (T-1581).
+ *
+ * `refuseIfATripwireNamesIt` matches the closing ticket's OWN id, and all three of the
+ * closes that turned `dev` red on 2026-09-25 stranded an ANCESTOR instead: a pointer
+ * named a `split` parent, which is live exactly while some descendant of it is, and
+ * this close took the last one. #40 (T-1448) left twelve resident cohort units on
+ * T-1189 two levels up and cost 2.5 hours of red; #43 (T-1560) ended the re-family
+ * programme on T-1556 while T-1564 stood open under the split T-1559; #49 (T-1523)
+ * would have left 272 landholding units on T-1198 had a person not read a NOTE.
+ *
+ * The walk and the scan are `tools/ticket_liveness.py` — the same relation the research
+ * ledger's `split_live` and the order book's work-order gate read, which is the point
+ * of putting it in one file. It is asked HERE, where the PR is open and the run is
+ * still present, for the same reason T-1548's scanner is: after the merge the red is
+ * dev's and no diff owns it.
+ *
+ * A CHECK THAT COULD NOT RUN IS NOT A CHECK THAT PASSED. No python3, no ledger, a
+ * crash — each SAYS SO and lets the close through, because refusing every close on
+ * this runner's package list is worse than the fault it guards. `--anyway --why` is
+ * the deliberate override, as it is everywhere else here.
+ */
+function refuseIfClosingStrandsAnAncestor(t) {
+  const tool = path.join(ROOT, 'tools', 'ticket_liveness.py');
+  if (!existsSync(tool)) return;
+  const r = spawnSync('python3', [tool, '--closing', t.id, '--root', ROOT],
+    { cwd: ROOT, encoding: 'utf8', env: { ...process.env, CHICAGO_TICKETS_DIR: DIR } });
+  if (r.error || r.status === null) {
+    console.error(`  note: the strand check did not run (${r.error?.message ?? 'no exit status'})`);
+    console.error('        — NOT a pass; run it by hand before you merge:');
+    console.error(`        python3 tools/ticket_liveness.py --closing ${t.id}`);
+    return;
+  }
+  if (r.status === 0) return;
+  process.stderr.write(r.stdout ?? '');
+  process.stderr.write(r.stderr ?? '');
+  console.error(`If the ancestor is genuinely finished with, say so and it is written`);
+  console.error(`into the ticket:`);
+  console.error(`      node tools/ticket.mjs done ${t.id} --pr N --anyway --why "<reason>"\n`);
+  process.exit(1);
+}
+
 const HELD_STATES = ['claimed', 'review'];
 function inflightState(state, ageHours, locked = false) {
   if (['done', 'withdrawn', 'split'].includes(state)) return 'cold';
@@ -2403,7 +2445,7 @@ switch (cmd) {
       // T-1548. Checked HERE, while the PR is still open and the run is still present:
       // `review` is what settle turns into `done` on merge, and a tripwire this ticket
       // trips is fixable in this PR and nowhere cheaper.
-      if (!flag('anyway')) refuseIfATripwireNamesIt(t, 'review');
+      if (!flag('anyway')) { refuseIfATripwireNamesIt(t, 'review'); refuseIfClosingStrandsAnAncestor(t); }
       t.state = 'review'; t.pr = String(pr).replace(/^#/, '');
       writeTicket(t); generateBoard(loadAll());
       commitMessage = `${t.id}: review — PR #${t.pr}`;
@@ -2412,7 +2454,7 @@ switch (cmd) {
     }
     t.state = 'done'; t.closed = today(); t.closed_at = nowIso(); t.pr = flag('pr');
     if (!t.pr) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
-    if (!flag('anyway')) refuseIfATripwireNamesIt(t, 'done');   // T-1548
+    if (!flag('anyway')) { refuseIfATripwireNamesIt(t, 'done'); refuseIfClosingStrandsAnAncestor(t); }  // T-1548 / T-1581
     writeTicket(t); queueRemove(t.id); generateBoard(loadAll());
     // THE CLAIM IS KEPT, AND COLLECTED BY AGE (T-1351). This used to give the marker
     // back here. The reasoning left behind by T-1145 — which moved `split` off the

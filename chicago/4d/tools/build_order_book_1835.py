@@ -82,6 +82,10 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+# THE WALK OVER A SPLIT IS ONE DEFINITION AND NOT THREE (T-1581) — see that module.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import ticket_liveness  # noqa: E402
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 REPORT = ROOT / "docs" / "RESEARCH" / "1835_reconstruction_order_book.md"
 
@@ -2492,18 +2496,12 @@ def ticket_states(directory: Path = TICKETS) -> dict[str, str]:
     differ and `--check` would be measuring the queue instead of the arithmetic. So
     this is read by the gate below and by nothing else; the owner tables above stay
     hand-written, with their reasoning beside them, exactly as they were.
+
+    THE SCAN ITSELF IS SHARED (T-1581). It had been written out here and again in
+    `research_spend_ledger`, and a ticket whose front matter one of them parsed and
+    the other did not would have put the two gates on different queues.
     """
-    out = {}
-    if not directory.is_dir():
-        return out
-    for path in sorted(directory.rglob("T-*.md")):
-        head = path.read_text(encoding="utf-8").split("---")
-        if len(head) < 3:
-            continue
-        fields = dict(re.findall(r"^(\w+): (.*)$", head[1], re.M))
-        if fields.get("id"):
-            out[fields["id"].strip()] = fields.get("state", "").strip()
-    return out
+    return ticket_liveness.read_tree(tickets_dir=directory)[0]
 
 
 def ticket_children(directory: Path = TICKETS) -> dict[str, list[str]]:
@@ -2513,18 +2511,7 @@ def ticket_children(directory: Path = TICKETS) -> dict[str, list[str]]:
     it. Nothing the book EMITS may depend on this, for the reason written on
     `ticket_states`; the gate below reads it and nothing else does.
     """
-    out: dict[str, list[str]] = {}
-    if not directory.is_dir():
-        return out
-    for path in sorted(directory.rglob("T-*.md")):
-        head = path.read_text(encoding="utf-8").split("---")
-        if len(head) < 3:
-            continue
-        fields = dict(re.findall(r"^(\w+): (.*)$", head[1], re.M))
-        parent, tid = fields.get("parent", "").strip(), fields.get("id", "").strip()
-        if tid and parent and parent != "null":
-            out.setdefault(parent, []).append(tid)
-    return out
+    return ticket_liveness.children_of(ticket_liveness.read_tree(tickets_dir=directory)[1])
 
 
 def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | None = None,
@@ -2598,23 +2585,20 @@ def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | Non
                 elif state in DEAD_TICKET_STATES:
                     holes.append(f"{bucket['key']} has {left} left and is ordered by "
                                  f"{ticket}, which is {state}")
+    # A PIECE THAT HAS ITSELF SPLIT IS LIVE THROUGH ITS OWN PIECES (T-1575). T-1556
+    # split into T-1557..T-1560, and T-1559 split in turn into T-1563 and T-1564; when
+    # T-1560 closed on 2026-09-25 a one-level read saw three `done` and one `split`
+    # and called the programme ended while T-1564 — 54 of its moves — stood open two
+    # levels down. A split is a grouping record at every depth, so the walk goes
+    # through it to the runs that discharge it, and a closed piece still ends the walk.
+    #
+    # THE WALK IS `tools/ticket_liveness.py`'s NOW (T-1581), where the ledger's
+    # `split_live` and `ticket.mjs done` read the same relation. This gate's leaf set
+    # is the book's own — `ORDER_BOOK_ALIVE`, in which a BLOCKED ticket is live,
+    # because it is on the board, carries a `blocked_on` and unblocks.
     def live_pieces_of(ticket, seen=()):
-        # A PIECE THAT HAS ITSELF SPLIT IS LIVE THROUGH ITS OWN PIECES (T-1575). T-1556
-        # split into T-1557..T-1560, and T-1559 split in turn into T-1563 and T-1564; when
-        # T-1560 closed on 2026-09-25 a one-level read saw three `done` and one `split`
-        # and called the programme ended while T-1564 — 54 of its moves — stood open two
-        # levels down. A split is a grouping record at every depth, so the walk goes
-        # through it to the runs that discharge it, and a closed piece still ends the walk.
-        found = []
-        for k in children.get(ticket) or []:
-            if k in seen:
-                continue
-            state = states.get(k)
-            if state == "split":
-                found += live_pieces_of(k, seen + (ticket,))
-            elif state and state not in DEAD_TICKET_STATES:
-                found.append(k)
-        return found
+        return ticket_liveness.live_pieces_of(ticket, states, children,
+                                              ticket_liveness.ORDER_BOOK_ALIVE)
 
     steps, carried = [], []
     for name, step in sorted((doc.get("re_family_ledger") or {}).items()):
