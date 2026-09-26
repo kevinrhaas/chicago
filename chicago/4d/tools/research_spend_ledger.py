@@ -6,11 +6,20 @@ import copy
 import gzip
 import json
 import re
+import sys
 import tempfile
 from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+# THE WALK OVER A SPLIT IS ONE DEFINITION AND NOT THREE (T-1581). `split_live` below,
+# the order book's `live_pieces_of` and `ticket.mjs done` all read the same relation;
+# they had three implementations and T-1421's fix reached only this one. What stays
+# local is the LEAF SET — this gate wants an OPEN ticket, not merely a live one.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import ticket_liveness  # noqa: E402
+
 REGISTRY = ROOT / "data" / "research" / "domains.json"
 LEDGER = ROOT / "data" / "research" / "research_spend_ledger.json.gz"
 REPORT = ROOT / "docs" / "RESEARCH" / "research-spend-ledger-2026-09-15.md"
@@ -21,6 +30,9 @@ DISPOSITIONS = (
     "asserted", "later_only", "outside_chicago", "aggregate_only", "refused", "unresolved",
 )
 OPEN_TICKET_STATES = {"open", "claimed", "review", "in-progress", "split_live"}
+# The same set without the DERIVED member, which is what a walk over the tree is
+# asked with: `split_live` is an answer the walk produces, never an input to it.
+LEDGER_ALIVE_SET = frozenset(OPEN_TICKET_STATES - {"split_live"})
 STRUCTURED_CONFIDENCE = {"attested", "inferred", "documented"}
 NAME_FIELDS = ("normalized", "as_read", "quote")
 
@@ -87,35 +99,22 @@ def ticket_states(root: Path = ROOT) -> dict[str, str]:
     itself open, and plain `split` once every child has closed. The invariant is
     unchanged and is the strict one: a unit may only defer to work that is still going
     to happen. What changes is that re-filing work no longer reads as finishing it.
+
+    AND LIVENESS CLIMBS A CHAIN, NOT ONE STEP (T-1421). A split piece may itself be
+    split — T-1188 was cut into T-1410 and T-1411, and T-1411 into T-1421 and T-1422 —
+    and read one level deep the grandparent went back to plain `split` the moment its
+    last direct child stopped being `open`, so twelve units that had not moved read as
+    deferred to finished work and the sign-off went NO-GO on C3. The work had not
+    stopped; it had been cut finer.
+
+    THE WALK ITSELF NOW LIVES IN `tools/ticket_liveness.py` (T-1581), where the order
+    book and `ticket.mjs` read it too. `LEDGER_ALIVE` is what stays here: an unresolved
+    unit may only be owned by a ticket somebody can be working NOW, so a blocked leaf
+    does not hold a split parent live for this gate — it does for the order book's, and
+    that asymmetry is a ruling written out in that module.
     """
-    states, parents = {}, {}
-    for path in sorted((root / "tickets").rglob("T-*.md")):
-        text = path.read_text(encoding="utf-8", errors="replace")
-        tid = re.search(r"(?m)^id:\s*(T-\d+)\s*$", text)
-        state = re.search(r"(?m)^state:\s*([^\s#]+)", text)
-        parent = re.search(r"(?m)^parent:\s*(T-\d+)\s*$", text)
-        if tid and state:
-            states[tid.group(1)] = state.group(1)
-            if parent:
-                parents[tid.group(1)] = parent.group(1)
-    # AND LIVENESS CLIMBS A CHAIN, NOT ONE STEP (T-1421). A split piece may itself be
-    # split — T-1188 was cut into T-1410 and T-1411, and T-1411 into T-1421 and T-1422 —
-    # and read one level deep the grandparent went back to plain `split` the moment its
-    # last direct child stopped being `open`, so twelve units that had not moved read as
-    # deferred to finished work and the sign-off went NO-GO on C3. The work had not
-    # stopped; it had been cut finer. So the pass runs to a fixed point and a `split_live`
-    # parent is itself live for ITS parent. The invariant is untouched and still strict:
-    # a unit may only defer to work that is still going to happen, and a chain every one
-    # of whose leaves has closed still reports plain `split`.
-    alive = {"open", "claimed", "review", "in-progress", "split_live"}
-    while True:
-        promoted = False
-        for child, parent in parents.items():
-            if states.get(child) in alive and states.get(parent) == "split":
-                states[parent] = "split_live"
-                promoted = True
-        if not promoted:
-            return states
+    states, parents = ticket_liveness.read_tree(root)
+    return ticket_liveness.derived_states(states, parents, ticket_liveness.LEDGER_ALIVE)
 
 
 def ticket_parents(root: Path = ROOT) -> dict[str, str]:
@@ -618,9 +617,43 @@ PLACE_AND_ENTERPRISE = {
     # would name a ticket that is `split` and not live, and the gate would say so on the
     # unit rather than on the pointer — so the next reading that lands here is a ticket
     # of its own, not a rename.
-    "building": ("T-1198", "The seating pass owns this unasserted place claim."),
-    "street": ("T-1198", "The seating pass owns this unasserted place claim."),
-    "infrastructure": ("T-1198", "The seating pass owns this unasserted place claim."),
+    # AND THE PLACE HALF WENT THE SAME WAY ON 2026-09-25, exactly as the paragraph above
+    # predicted for the enterprise half — "the next reading that lands here is a ticket of
+    # its own, not a rename". T-1198 was SPLIT into T-1491, T-1492 and T-1493; T-1492 split
+    # again, and the last live leaf of the chain, T-1523, settled `done` at 22:35Z when PR
+    # #49 merged. 270 units that had not moved were suddenly deferring to finished work, and
+    # `check.sh` went red on four steps on a clean `origin/dev` and therefore on every open
+    # PR (T-1584; the shape is case 3 of T-1581).
+    #
+    # THE POINTER MOVES TO A SPEND AND NOT TO ANOTHER SEATING TICKET, because the REASON for
+    # the deferral has changed. These units were held here on the ground that there was "no
+    # seat on the ground to carry a place claim" — and T-1198's chain built exactly that:
+    # T-1491 wrote the address book, T-1492's chain seated the reach, T-1493 made a seat
+    # navigable. The seat EXISTS. What the readings still need is nobody's rename; it is
+    # somebody reading them against the layer one at a time, which is the argument T-1569
+    # makes for the twelve civic posts and T-1315 and T-1335 for the births and the kin.
+    #
+    # AND THEY DIVIDE BY WHAT THE READING NAMES, because three different layers receive
+    # them — a roof, a corridor, and the river works and town apparatus. Three sibling
+    # tickets, filed together and each owning one kind.
+    #
+    # TWO OF THE THREE ARE SPLIT PARENTS, WHICH IS THE SHAPE THAT JUST FAILED, so it is worth
+    # saying why it is right here and was wrong there. 159 building readings and 92
+    # infrastructure readings are more than one run's demonstration and the queue gate
+    # refuses an unsplit `L`, so T-1585 is cut by corpus into T-1589 + T-1590 and T-1586 into
+    # T-1591 + T-1592; a `split` parent with a live child reads `split_live`, which this
+    # module's own liveness pass treats as alive and climbs to a fixed point (T-1421).
+    # What went wrong with T-1198 was not that it was a parent. It was that its children
+    # spent a DIFFERENT corpus — they built the address book — so the chain could close with
+    # every one of these 270 units untouched. These four pieces spend exactly the units that
+    # point at their parent, so the last one cannot close while a unit still defers to it.
+    "building": ("T-1585", "The building-reading spend owns this unasserted place claim: "
+                           "159 units read against the address book and the structure layer."),
+    "street": ("T-1587", "The street-reading spend owns this unasserted place claim: "
+                         "19 units read against the street and corridor layers."),
+    "infrastructure": ("T-1586", "The infrastructure-reading spend owns this unasserted place "
+                                 "claim: 92 units read against the corridor, yard and "
+                                 "structure layers."),
 }
 
 
@@ -1247,12 +1280,14 @@ def fragile_pointers(root: Path = ROOT) -> list[str]:
                      for row in (doc.get("units") or [])
                      if isinstance(row, dict) and row.get("disposition") == "unresolved")
     notes = []
+    children = ticket_liveness.children_of(parents)
     for ticket, n in sorted(counts.items()):
         if not ticket or states.get(ticket) != "split_live":
             continue
-        leaves = sorted(tid for tid, state in states.items()
-                        if state in ("open", "claimed", "review", "in-progress")
-                        and _descends_from(tid, ticket, parents))
+        # THE SAME DESCENT THE GATE ABOVE USES (T-1581) rather than a fourth walk of
+        # its own — `_descends_from` is kept for the self-tests that assert the
+        # relation directly, and this note now cannot disagree with the gate.
+        leaves = ticket_liveness.live_pieces_of(ticket, states, children, LEDGER_ALIVE_SET)
         if len(leaves) == 1:
             notes.append(
                 f"{n:,} unresolved unit(s) defer to {ticket}, a split parent held live by ONE "

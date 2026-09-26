@@ -342,6 +342,28 @@ is the contract. The short form:
   (T-0154; before it, that order left the mirror gate red every time — and since
   T-0938 the mirror is not committed, so no order of operations can leave a stale one
   in a PR at all).
+- **`done` REFUSES TWO THINGS, and both are cheapest to fix where you are standing.**
+  A committed file that still records *this* ticket as live work (T-1548), and — since
+  T-1581 — a close that would strand an ANCESTOR of it. A job that was cut up stands as
+  a `split` heading over its pieces and is live exactly while some descendant is; take
+  its last one and every research unit, ruling and work order pointing at the heading is
+  waiting on nobody. That red always lands on the NEXT run, because `done --pr` only sets
+  `review` and the tickets repo settles it to `done` when your PR merges — so your own
+  gate read it as live. Three closes did it on 2026-09-25 (#40 on T-1189 two levels up,
+  #43 on the re-family programme, #49 on 272 landholdings). Ask it yourself at any time:
+
+      python3 tools/ticket_liveness.py --closing T-NNNN   # what this close would strand
+      python3 tools/ticket_liveness.py --report           # what is ONE closure away
+
+  `check.sh` asks it of the tickets **your branch name carries**, and of nobody else's —
+  a PR is never red for a close somebody else is making. Repoint the pointers in the
+  same PR, or say why not: `done T-NNNN --pr N --anyway --why "<reason>"`.
+- **The walk over a `split` is ONE definition** — `tools/ticket_liveness.py`. The
+  research ledger's `split_live`, the order book's `live_pieces_of` and `ticket.mjs` all
+  read it; what each keeps is its own LEAF SET, because the ledger wants an *open* owner
+  and the order book counts a blocked ticket as live. They had three copies and a fix
+  made to one in July had to be made again to another in September; a self-test now
+  fails if any of them starts keeping its own.
 - **The build products are GENERATED AND UNTRACKED, so there is nothing to stage**
   (T-0937 for the board, T-0938 for the rest). `tickets/BOARD.md`,
   `tickets/tickets.json` and the whole of `site/4d/` are .gitignored. They used to be the repository's worst conflict source, and for a reason
