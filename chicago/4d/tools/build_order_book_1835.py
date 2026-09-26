@@ -2066,7 +2066,18 @@ def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int
         # 523 people to T-1196, T-1197 and T-1179 for four days after all three had
         # closed, through every green gate — a refused bucket has `to_reconstruct` set
         # down to `filled`, so the bucket sweep reads 0 left and steps over it by design.
-        "the_programme": {"ticket": "T-1556", "settled": still == 0},
+        # SWEPT TO A LIVE SUCCESSOR ON 2026-09-25 (T-1564's own PR, by the rule above
+        # and T-1420's). T-1556 is the owner's ruling and it is SPLIT: T-1557, T-1558 and
+        # T-1560 closed, and T-1559's last piece is T-1564 — the 54 women and children —
+        # so the moment T-1564 settles, T-1556 has no live descendant and this order names
+        # nobody. It is the case T-1581's ticket_liveness.py was written for, and it fired
+        # on the PR that caused it rather than on the next branch to gate, which is the
+        # whole point of that step. The order is still LIVE and must stay live: `settled`
+        # is arithmetic, 395 people are still held across 44 refused buckets, and it is
+        # T-1597 that now owes them an answer. The ruling itself is unchanged and is still
+        # cited as T-1556 everywhere it is quoted below — what moves here is who OWES the
+        # remaining work, which is the only thing this field has ever meant.
+        "the_programme": {"ticket": "T-1597", "settled": still == 0},
         "moves": moves,
         "counts": {
             "moves": len(moves),

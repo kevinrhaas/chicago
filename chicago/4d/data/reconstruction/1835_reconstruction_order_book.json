@@ -6419,7 +6419,7 @@
       "how_a_move_is_spent": "on the CARD first, and in this ledger second. The mint that derives a held head carries the move inside its own derivation — where the seed, the name and the id are already fixed, so a moved card re-derives byte for byte — and `tools/refamily_moves_1835.py --build` writes a row here ONLY where the card it names already says the same thing. So this ledger cannot claim a move the residents layer has not made, and a row typed into it by hand does not survive a --build."
     },
     "the_programme": {
-      "ticket": "T-1556",
+      "ticket": "T-1597",
       "settled": false
     },
     "moves": [
