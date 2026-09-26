@@ -98,12 +98,31 @@ WHAT A ROW SAYS, AND WHY EACH FIELD IS THERE.
     words         the sentence the household card shows a visitor
     replaceable_by  what would move this row UP the ladder
     owed_to       the ticket that owes the seat, on an `owed` row
+    dealt_roof    where the PLACEMENT POLICY put them, or null. Not a rung, and it
+                  never touches one (T-1618): the ladder says what the evidence
+                  reaches and this says what this project decided, carried in from
+                  the two committed seats files T-1613 and T-1614 wrote. 178 rows
+                  carry one; 172 of those name a roof this scene raises, and the
+                  remaining six carry a slot the policy REQUESTED and name who
+                  builds it.
 
 `words` is the point of the whole file. Before it, 1,186 household cards said "No known
 address" and stopped, which reads as an absence in the town rather than an absence in the
 record. A visitor is owed the difference between "nobody wrote down where they lived",
 "the paper names their street and no more" and "the evidence puts them outside the town",
 and those are three different sentences.
+
+THE DEAL IS CARRIED, AND IT IS NOT A RUNG (T-1618).
+
+For a reconstructed household the ladder tops out at a band, by definition: no source
+names their roof, which is why they are reconstructed. So the button that takes a
+visitor to a card's seat could never fire for them, and 172 of them had a roof standing
+in the scene the whole time — dealt by T-1613 onto the plat's lots and by T-1614 onto
+the ground the plat does not draw. `dealt_roof` carries that deal onto the row so the
+card can offer it. Assertion 16 holds the separation: the rung, the seat, the tier and
+the words of the ladder are untouched, the roof is marked substitutable, and the verb
+on the button names the POLICY. Arriving somewhere must not be mistakable for the
+record having put the household there.
 
 THE RUNG-2 CLAIM IS MEASURED, NOT ASSUMED.
 
@@ -135,8 +154,8 @@ ORDER_BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.
 TOWN_MODEL = ROOT / "data" / "reconstruction" / "1835_town_model.json"
 
 SCENE_DATE = "1835-07-01"
-TICKET = "T-1522"
-TICKETS = ["T-1491", "T-1512", "T-1522"]
+TICKET = "T-1618"
+TICKETS = ["T-1491", "T-1512", "T-1522", "T-1618"]
 
 # Who owes the seat a row does not have. A roof the paper reaches but the town has not
 # raised is owed to the district build tickets. Rung 5 is no longer owed to anybody: it is
@@ -149,6 +168,43 @@ TICKETS = ["T-1491", "T-1512", "T-1522"]
 OWED_CARRY_BACK = "T-1523"
 CARRIED_BACK_BY = "T-1523"
 OWED_BUILD = "T-1200..T-1209"
+
+# ---- the dealt roof (T-1618) ---------------------------------------------- #
+#
+# THE LADDER SAYS WHERE THE EVIDENCE REACHES. IT HAS NEVER SAID WHERE THE POLICY PUT
+# THEM. T-1613 and T-1614 dealt the reconstructed households onto the ground — the
+# plat's 226 lots first, then the ground the plat does not draw — and wrote the deal
+# into two committed files. Until this pass it lived only there: 1,691 cards carried a
+# band, 172 of them had a roof standing under them in the scene, and not one of those
+# 172 could be walked to. The whole reason `seat.js` exists is that the weaker rungs
+# are the ones a visitor most needs SHOWN, and those 172 were the weakest rungs of all.
+#
+# SO THE DEAL IS CARRIED ONTO THE ROW, AND IT IS NOT A RUNG. `dealt_roof` sits BESIDE
+# `seat`; the rung, the seat, the tier and the words of the ladder are untouched and
+# assertion 16 refuses a pass that moves any of them. That separation is the whole
+# design: the row still says the record reaches nothing, and the card now also says
+# which roof the policy dealt them and offers to take you there. Arriving somewhere
+# must never be mistakable for the record having put the house there, which is why the
+# verb on the button names the POLICY and the words under it say the roof is
+# substitutable.
+#
+# A `slot` deal names no roof: the policy found the block's own committed plan had
+# headroom and REQUESTED one. Nobody can be taken to a building that is not built, so
+# a slot row carries the deal, says the roof is owed, and offers no button.
+PLATTED_SEATS = ROOT / "data" / "reconstruction" / "1835_platted_seats.json"
+OFF_PLAT_SEATS = ROOT / "data" / "reconstruction" / "1835_off_plat_seats.json"
+
+# The two files, and the ticket that dealt each. The ground word is the file's own:
+# a platted lot is a unit of Thompson's plan, an off-plat parcel is a tier lot, a
+# survey chip, a block of an addition or the open ground of a camp.
+DEALT_SEAT_FILES = (
+    (PLATTED_SEATS, "T-1613", "platted_lot"),
+    (OFF_PLAT_SEATS, "T-1614", "off_plat_parcel"),
+)
+
+# Who owes the six roofs the deal requested and did not find standing. The seats file
+# says it in its own words on every one of them; this is the same debt, named once.
+OWED_SLOT_BUILD = "T-1200..T-1214"
 
 # The business grade -> (rung, reach, owed_to). A strict restatement of T-1239's
 # adjudication; assertion 4 refuses any drift between this table and that file.
@@ -731,6 +787,61 @@ def business_row(placement: dict, names: dict[str, str]) -> dict:
 # ---- the file -------------------------------------------------------------- #
 
 
+def dealt_roofs() -> dict[str, dict]:
+    """The placement policy's deal, by row id — the roof it seated a household at, or
+    the slot it requested. Read from the two committed seats files and nothing else;
+    no roof, lot, parcel or reason is composed here that those files do not state.
+
+    `words` is the only sentence this function writes, and it is written to be
+    unmistakable: it names the deal as a deal, and it carries the seats file's own
+    `why` verbatim after it.
+    """
+    dealt: dict[str, dict] = {}
+    for path, ticket, ground in DEALT_SEAT_FILES:
+        doc = read_json(path)
+        for seat in doc["seats"]:
+            roof = seat.get("structure_id")
+            on = seat.get("lot_id") if ground == "platted_lot" else seat.get("parcel_id")
+            where = (f"on {on}" if on else "on no committed parcel of that ledger")
+            if roof:
+                words = (
+                    f"The placement policy seats this household at a roof already "
+                    f"standing — {roof}, a family {seat['family']} roof {where}. The "
+                    f"roof is the POLICY'S deal and not a reading about this household: "
+                    f"it is an anonymous roof of the reconstruction programme, adopted "
+                    f"under the policy's {seat['clause']} clause, and any other free "
+                    f"roof the clause admits would have done as well.")
+            else:
+                words = (
+                    f"The placement policy deals this household a place {where} under "
+                    f"its {seat['clause']} clause, and the roof is not built: the deal "
+                    f"REQUESTED a family {seat['family']} roof off that block's own "
+                    f"committed plan, and {OWED_SLOT_BUILD} raise it. So there is "
+                    f"nowhere yet to stand.")
+            dealt[seat["id"]] = {
+                "structure_id": roof,
+                "how": seat["how"],
+                "dealt_by": ticket,
+                "ground": ground,
+                "on": on,
+                "block_id": seat.get("block_id"),
+                "fronts": seat.get("fronts"),
+                "family": seat["family"],
+                "clause": seat["clause"],
+                "district": seat["district"],
+                "stands_on": seat["stands_on"],
+                "deal_seed": seat["seed"],
+                "why": seat["why"],
+                "owed_to": None if roof else OWED_SLOT_BUILD,
+                "substitutable": True,
+                # The seats file's own reason, verbatim and attributed, after the
+                # sentence this function writes — never blended into it, so a reader
+                # can tell the wording apart from the ruling.
+                "words": f"{words} Why this one: {seat['why'].strip().rstrip('.')}.",
+            }
+    return dealt
+
+
 def build() -> dict:
     committed = committed_structures()
     spend = read_json(SPEND)
@@ -738,6 +849,13 @@ def build() -> dict:
     clauses = policy_clauses()
     rows = [household_row(hh, committed, clauses) for hh in household_records()]
     rows += [business_row(p, names) for p in spend["placements"]]
+
+    # The policy's deal, carried onto the row BESIDE the ladder and never into it
+    # (T-1618). Every row carries the key so a reader never has to ask whether its
+    # absence means "not dealt" or "this book does not know about the deal".
+    dealt = dealt_roofs()
+    for row in rows:
+        row["dealt_roof"] = dealt.get(row["id"])
 
     by_rung: dict[str, int] = {}
     by_reach: dict[str, int] = {}
@@ -778,7 +896,11 @@ def build() -> dict:
             "model's own employment distribution, seeded and exact, every row saying so "
             "in its words. No coordinate, no lot and no roof is invented by this pass, "
             "no bucket of the order book is spent, and no household record is written "
-            "to."),
+            "to. T-1618 carries the PLACEMENT POLICY's own deal onto the row as "
+            "`dealt_roof` — read from the two committed seats files and restated, "
+            "not re-decided — and it is not a rung: every dealt row keeps the rung, "
+            "seat, tier and words its evidence earned, and the roof is substitutable "
+            "by construction."),
         "policy_only_deal": {
             "ticket": "T-1522",
             "households": len(policy_only),
@@ -844,6 +966,32 @@ def build() -> dict:
                 "`a_stated_division` dwelling clause would otherwise count every one of "
                 "these as a HOUSE this deal claims no roof for."),
         },
+        "dealt_roofs": {
+            "tickets": ["T-1613", "T-1614", "T-1618"],
+            "what_it_is": (
+                "where the placement policy PUT a household, carried onto its row from "
+                "the two committed seats files. It is not a rung and it does not touch "
+                "one: the ladder still says what the household's own record reaches, "
+                "which for every dealt row is a band and nothing narrower."),
+            "why_it_is_here": (
+                "the deal was written in T-1613 and T-1614 and read by nothing a "
+                "visitor opens. 172 reconstructed households stood under a roof this "
+                "scene actually raises and their cards could not offer to take anybody "
+                "to it, because the only seat the card could go to was one the "
+                "household's own record named — which, for a reconstructed household, "
+                "is by definition never there."),
+            "what_it_refuses": (
+                "it re-grades nothing. The row keeps its rung, its seat, its tier and "
+                "its words; the roof is marked substitutable, the button names the "
+                "POLICY rather than an address, and a `slot` deal — a roof the policy "
+                "requested and the programme has not built — offers no destination at "
+                "all and says who owes it."),
+            "from": [
+                "data/reconstruction/1835_platted_seats.json",
+                "data/reconstruction/1835_off_plat_seats.json",
+            ],
+            "slots_are_owed_to": OWED_SLOT_BUILD,
+        },
         "bands": {
             "what_a_band_is": (
                 "an adjudication over data/reconstruction/1835_placement_policy.json — "
@@ -868,6 +1016,8 @@ def build() -> dict:
             "data/research/newspapers/lot_addresses.json",
             "data/businesses/",
             "data/structures/",
+            "data/reconstruction/1835_platted_seats.json",
+            "data/reconstruction/1835_off_plat_seats.json",
         ],
         "vocabulary": {
             "rungs": [
@@ -935,6 +1085,17 @@ def build() -> dict:
                  if r["seat"] and r["seat"]["kind"] == "division_band"}.items())),
             "reconstructed_seats": sum(1 for r in rows
                                        if r["seat"] and r["tier"] == "reconstructed"),
+            "dealt_a_roof": sum(1 for r in rows if r["dealt_roof"]),
+            "dealt_a_standing_roof": sum(1 for r in rows if (r["dealt_roof"] or {}).get(
+                "structure_id")),
+            "dealt_a_slot_not_yet_built": sum(1 for r in rows if r["dealt_roof"]
+                                              and not r["dealt_roof"]["structure_id"]),
+            "dealt_by_ticket": dict(sorted(
+                {t: sum(1 for r in rows if (r["dealt_roof"] or {}).get("dealt_by") == t)
+                 for t in ("T-1613", "T-1614")}.items())),
+            "dealt_by_ground": dict(sorted(
+                {g: sum(1 for r in rows if (r["dealt_roof"] or {}).get("ground") == g)
+                 for g in ("platted_lot", "off_plat_parcel")}.items())),
         },
         "rows": rows,
     }
@@ -1196,6 +1357,89 @@ def assertions(doc: dict) -> None:
                 raise Refused(f"{row['id']}: a reconstructed seat has grown a "
                               f"{forbidden!r} — this pass invents no ground")
 
+    # 16 (T-1618). The dealt roof is the two seats files, restated — and it re-grades
+    # nothing. Six limits, because six different things could go wrong here and five of
+    # them would look like an improvement.
+    dealt_rows = {r["id"]: r for r in rows if r.get("dealt_roof")}
+    from_files: dict[str, dict] = {}
+    for path, ticket, _ground in DEALT_SEAT_FILES:
+        doc_seats = read_json(path)
+        for seat in doc_seats["seats"]:
+            if seat["id"] in from_files:
+                raise Refused(f"{seat['id']}: seated twice across the seats files — a "
+                              "household stands in one place")
+            from_files[seat["id"]] = {**seat, "_ticket": ticket}
+        stated = doc_seats["counts"]["seated"]
+        here = sum(1 for r in rows if (r.get("dealt_roof") or {}).get("dealt_by") == ticket)
+        if here != stated:
+            raise Refused(f"{path.name}: it seats {stated} and {here} row(s) carry that "
+                          "deal — the book has fallen behind the deal")
+    if set(dealt_rows) != set(from_files):
+        loose = sorted(set(dealt_rows) - set(from_files))[:3]
+        short = sorted(set(from_files) - set(dealt_rows))[:3]
+        raise Refused("the rows carrying a dealt roof are not the households the seats "
+                      f"files seat (invented {loose}, dropped {short})")
+    taken: dict[str, str] = {}
+    for row_id, row in dealt_rows.items():
+        deal = row["dealt_roof"]
+        if deal["structure_id"] and deal["structure_id"] not in committed:
+            raise Refused(f"{row_id}: dealt {deal['structure_id']}, which is not a "
+                          "committed structure — no roof may be invented here")
+        if deal["structure_id"]:
+            if deal["structure_id"] in taken:
+                raise Refused(f"{row_id}: dealt {deal['structure_id']}, which "
+                              f"{taken[deal['structure_id']]} already stands under")
+            taken[deal["structure_id"]] = row_id
+            if deal["owed_to"]:
+                raise Refused(f"{row_id}: its roof is standing and it still owes one")
+        elif deal["owed_to"] != OWED_SLOT_BUILD:
+            raise Refused(f"{row_id}: the deal requested a slot and does not say who "
+                          "raises it — nobody can be taken to a roof that is not built")
+        if deal["how"] not in ("adopted", "slot"):
+            raise Refused(f"{row_id}: {deal['how']!r} is not a way this policy deals a roof")
+        if not deal["substitutable"]:
+            raise Refused(f"{row_id}: a policy-dealt roof is substitutable by "
+                          "construction, and a row that stops saying so is claiming "
+                          "the record put the household there")
+        if not deal["words"]:
+            raise Refused(f"{row_id}: a dealt roof with nothing to say on a card")
+        # The one that matters most: the deal must not have climbed the ladder.
+        if row["rung"] not in ("division_band", "policy_only"):
+            raise Refused(f"{row_id}: rung {row['rung']!r} carries a policy deal. The "
+                          "deal is dealt to the rows the evidence does NOT place, and "
+                          "carrying it is not a rung.")
+        if not row["seat"] or row["seat"]["kind"] != "division_band":
+            raise Refused(f"{row_id}: the deal has moved its seat off the band. The "
+                          "seat is the ladder's and the deal never re-grades it.")
+        if row["tier"] != "reconstructed":
+            raise Refused(f"{row_id}: a dealt row that stops calling itself "
+                          "reconstruction")
+        # Asked LAST, so the limits above are the ones a broken row meets first and the
+        # self-test can reach every one of them. This is the restatement check: the deal
+        # on the row is the deal in the file, roof for roof and clause for clause.
+        seat = from_files[row_id]
+        for field, in_file in (("structure_id", seat.get("structure_id")),
+                               ("how", seat["how"]), ("family", seat["family"]),
+                               ("clause", seat["clause"]), ("district", seat["district"]),
+                               ("deal_seed", seat["seed"]), ("why", seat["why"])):
+            if deal[field] != in_file:
+                raise Refused(f"{row_id}: its dealt {field} is not the one "
+                              f"{deal['dealt_by']} dealt it")
+
+    # And a roof the record ALREADY seats somebody at is not the policy's to deal.
+    # THIS ONE IS NOT SELF-TESTABLE FROM A ROW, and it is kept anyway. Every way of
+    # breaking it by editing a row is caught first by the restatement check above, so
+    # `--self-test` reaches it through no mutation; what it actually guards is the two
+    # SEATS FILES, which are regenerated by T-1613 and T-1614 and could deal a roof
+    # somebody's own record already stands under. The self-test for it is that the
+    # seats files carry their own `roofs_held_back` list for exactly this reason.
+    by_record = {r["seat"]["id"] for r in rows
+                 if r["seat"] and r["seat"]["kind"] == "structure"}
+    clash = sorted(set(taken) & by_record)
+    if clash:
+        raise Refused(f"the policy dealt {clash[:3]}, which a household or firm already "
+                      "stands under on its own record's say-so")
+
     # 7b. The ledger that would fill rung 2 is re-read to say so.
     ledger = read_json(LOT_ADDRESSES)["addresses"]
     claimed = next(v for v in doc["vocabulary"]["rungs"] if v["rung"] == "lot")
@@ -1399,6 +1643,49 @@ def self_test() -> int:
         row = pick("household", "division_band")(d)
         row["seat"] = {**row["seat"], "lot": "blk_16_lot_7"}
 
+    def a_dealt_row(d):
+        return next(r for r in d["rows"] if r.get("dealt_roof"))
+
+    def a_dealt_roof_the_dataset_lacks(d):
+        a_dealt_row(d)["dealt_roof"]["structure_id"] = "a_building_nobody_holds"
+
+    def two_households_under_one_roof(d):
+        rows_ = [r for r in d["rows"] if (r.get("dealt_roof") or {}).get("structure_id")]
+        rows_[1]["dealt_roof"]["structure_id"] = rows_[0]["dealt_roof"]["structure_id"]
+
+    def a_deal_invented_from_nowhere(d):
+        row = next(r for r in d["rows"] if not r.get("dealt_roof")
+                   and r["rung"] == "policy_only")
+        row["dealt_roof"] = json.loads(json.dumps(a_dealt_row(d)["dealt_roof"]))
+
+    def a_dealt_row_climbs_the_ladder(d):
+        # The seat, and not the rung: assertion 6 already refuses a rung-1 household
+        # the records do not seat, so this breaks the limit 16 actually owns — the
+        # ladder's own seat quietly replaced by the roof the policy dealt.
+        row = a_dealt_row(d)
+        row["seat"] = {"kind": "structure", "id": row["dealt_roof"]["structure_id"]}
+
+    def a_dealt_roof_stops_being_substitutable(d):
+        a_dealt_row(d)["dealt_roof"]["substitutable"] = False
+
+    def a_dealt_roof_that_misquotes_the_file(d):
+        taken = {(r.get("dealt_roof") or {}).get("structure_id") for r in d["rows"]}
+        taken |= {(r["seat"] or {}).get("id") for r in d["rows"] if r["seat"]}
+        spare = next(x for x in sorted(committed_structures()) if x not in taken)
+        a_dealt_row(d)["dealt_roof"]["structure_id"] = spare
+
+    def a_deal_takes_a_roof_a_record_already_seats(d):
+        row = next(r for r in d["rows"]
+                   if r["seat"] and r["seat"]["kind"] == "structure")
+        a_dealt_row(d)["dealt_roof"]["structure_id"] = row["seat"]["id"]
+
+    def a_slot_forgets_who_builds_it(d):
+        next(r for r in d["rows"] if r.get("dealt_roof")
+             and not r["dealt_roof"]["structure_id"])["dealt_roof"]["owed_to"] = None
+
+    def the_book_falls_behind_the_deal(d):
+        a_dealt_row(d)["dealt_roof"] = None
+
     fires("a duplicated row", duplicate)
     fires("a household that loses its row", a_household_vanishes)
     fires("a firm that loses its row", a_firm_vanishes)
@@ -1439,6 +1726,19 @@ def self_test() -> int:
           the_record_forgets_who_carried_it_back)
     fires("a record that still calls the spent carry-back owed",
           the_record_calls_a_spent_carry_back_owed)
+    fires("a dealt roof the dataset does not hold", a_dealt_roof_the_dataset_lacks)
+    fires("two households dealt the same roof", two_households_under_one_roof)
+    fires("a deal on a row the seats files never seated", a_deal_invented_from_nowhere)
+    fires("a dealt row that climbs the ladder on the strength of the deal",
+          a_dealt_row_climbs_the_ladder)
+    fires("a dealt roof that stops calling itself substitutable",
+          a_dealt_roof_stops_being_substitutable)
+    fires("a dealt roof that stops restating the seats file",
+          a_dealt_roof_that_misquotes_the_file)
+    fires("a deal moved onto a roof a committed record already seats somebody at",
+          a_deal_takes_a_roof_a_record_already_seats)
+    fires("a requested slot that names nobody to build it", a_slot_forgets_who_builds_it)
+    fires("a book that has fallen behind the deal", the_book_falls_behind_the_deal)
 
     if faults:
         print("SELF-TEST FAILED — these assertions did not fire: " + ", ".join(faults))
