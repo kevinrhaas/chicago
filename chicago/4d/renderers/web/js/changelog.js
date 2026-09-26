@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'The invented women and children move house too, and the programme finishes', kind: 'change', ts: '',
+  { v: 1119, title: 'The invented women and children move house too, and the programme finishes', kind: 'change', ts: '2026-09-26T01:32:00.024Z', date: 'Sep 25, 2026, 8:32 PM CT',
     items: [
       'Five hundred and twenty-four invented residents stand in cells of the order book that no longer want them, and the owner ruled they are moved rather than deleted. The last entry moved the first nineteen, all invented tradespeople heading their own houses. This entry moves the women and children, and with them the programme is finished: every move the rule allows has been made.',
       'A tradesman moved alone. A woman did not: she has children. So a house here moves whole or not at all — a mother counted on one side of the river and her daughter on the other would be a worse record than the one we started with. Twenty-five invented households moved, everyone on the card together, and each card now names every person who made the move.',
