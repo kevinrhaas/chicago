@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'Thirty-four newspaper notices about buildings, each one ruled on at last', kind: 'change', ts: '',
+  { v: 1123, title: 'Thirty-four newspaper notices about buildings, each one ruled on at last', kind: 'change', ts: '2026-09-26T02:54:37.267Z', date: 'Sep 25, 2026, 9:54 PM CT',
     items: [
       'Nothing you can see in the town changed today. This is about a stack of readings that had been sitting unspent for weeks — notices from the Chicago Democrat and the Chicago American, printed in 1835, each one about a building — and about the fact that until now not one of them had been told what it was worth.',
       'A hundred and fifty-nine such readings were waiting on a job that finished last night, and they divide by year. These thirty-four are the ones printed in 1835 itself, the scene year, and they are now read one at a time against the town\u2019s address book and its list of standing buildings, and each is closed against a rule stated in writing.',
