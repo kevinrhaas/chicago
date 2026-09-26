@@ -109,6 +109,46 @@ declaration is read: such a record is not a HOLDER of the lot for the clause abo
 neither entitles the lot nor exhausts it. It is still counted by `occupied_lots`, still a
 roof of its block, and still bound by every physical gate. The function's own docstring
 carries the reasoning, including why the transparency deliberately runs one way only.
+
+## AND WHEN TWO OF THEM WANT ONE PIECE OF GROUND, THE EVIDENCE DECIDES WHICH ONE MOVES
+
+**Owner's ruling, 2026-09-21 (T-0251).** Reconciling `first_presbyterian_church` with the
+committed Lake Street line — the same modern-kerb repair eleven South Water records and
+three other Lake Street records took — needed 3.395 m of ground that `physicians_office`
+was standing on. There is no translation along that normal that both clears the walk and
+leaves the pair outside the three-metre separation gate: at 0.2 m they are inside it and
+at 3.2 m the footprints overlap. So the fork was not a metre, and it went to the owner.
+
+**Where an ATTESTED placement and an INFERRED placement collide on one lot, the attested
+one stands and the inferred one moves or is withdrawn.** He asked for it written generally
+rather than as a decision about those two, and gave the reason: *"A building the sources
+put on a street is the kind of thing this project exists to hold; a unit the
+reconstruction placed is a best guess, and a best guess that displaces a document has the
+method backwards."*
+
+`attested_precedence()` below is that rule, and three things about it are the ruling and
+not this module's gloss:
+
+1. **Which one is attested is read off the record, never off its name.** `layer_of_record`
+   is the one reading and `physicians_office` is exactly why — it carries no `recon_` or
+   `inf_` prefix and is nonetheless a product of the inferred-household programme. A
+   record whose invention is legible only in a filename is how a rule about documented
+   buildings gets crossed.
+2. **Moving is the first answer and withdrawal is the last.** *"Re-seating it elsewhere on
+   its own evidence is the first thing to try; withdrawing it is the answer only if
+   nowhere else will hold it."* And either way the yielding record's card says what
+   displaced it and why, *"so the move is legible rather than a silent disappearance"* —
+   which is a requirement on the record, not on a ticket.
+3. **Neither footprint is narrowed to make them fit, and the gate is never weakened.**
+   *"Two buildings sized to each other rather than to their evidence"* is not a
+   reconciliation; a dimension fitted to a neighbour has stopped being a reading of
+   anything. This clause moves a building. It moves no wall.
+
+**IT IS NOT A LICENCE TO DISPLACE.** The rule fires only where the ground is genuinely
+contested — where an attested record's own committed derivation, re-run, lands on ground a
+generated one holds. An attested record that merely stands near an invented one, or that
+would rather have a better lot, has no claim under this at all; the physical gates are
+unchanged and every one of them still binds both records.
 """
 
 from __future__ import annotations
@@ -407,6 +447,55 @@ def researched_ids() -> set[str]:
     `layer_of_record` for why that distinction has a record in it.
     """
     return {sid for sid, layer in layers().items() if layer == "research"}
+
+
+# The owner's 2026-09-21 ruling, as the two things a caller can be asking. `ATTESTED` is
+# the layer that stands; `YIELDS` are the layers that move or are withdrawn. They are
+# written as the layer names rather than as ids because the ruling is general — a second
+# collision on other ground is answered by the same two tuples, and a rule with a building
+# id in it would have to be edited to answer it.
+ATTESTED_LAYER = "research"
+YIELDING_LAYERS = ("inferred_household", "reconstruction")
+
+
+def attested_precedence(*record_ids: str) -> dict[str, str]:
+    """Which of a colliding group stands and which give way. See the module docstring.
+
+    {structure id: "stands" | "yields"} for the ids handed in, by the evidence layer each
+    record declares. An id the dataset does not hold is an error rather than a `yields`:
+    the rule decides between two committed records, and a typo that quietly reads as "this
+    one moves" is the failure mode worth refusing.
+
+    **It answers the question and does not act on it.** Nothing here moves a building,
+    withdraws one or writes a file — a re-seating is a change to the recipe that PLACED
+    the yielding record, made in that recipe by the run doing the work, with the rule and
+    the numbers written onto the record's own card. This function exists so that the two
+    halves of "which one moves" cannot drift apart, and so a future collision is answered
+    by the ruling rather than by whoever is reading the map that day.
+
+    A group entirely inside one layer gets no verdict at all, and that is not a gap: two
+    invented roofs three metres apart are the separation gate's question and two attested
+    ones disagreeing about a lot is a research question. Both raise, because a caller that
+    reached for the precedence rule for either of those has misread it.
+    """
+    if len(record_ids) < 2:
+        raise ValueError("precedence is a question about two or more records")
+    known = layers()
+    missing = [sid for sid in record_ids if sid not in known]
+    if missing:
+        raise ValueError(f"no committed structure record for {', '.join(sorted(missing))}; "
+                         f"precedence decides between committed records")
+    verdict = {sid: ("stands" if known[sid] == ATTESTED_LAYER else "yields")
+               for sid in record_ids}
+    if "stands" not in verdict.values():
+        raise ValueError(
+            f"{', '.join(sorted(record_ids))} are all generated records; a collision "
+            f"inside one layer is the separation gate's question, not this rule's")
+    if "yields" not in verdict.values():
+        raise ValueError(
+            f"{', '.join(sorted(record_ids))} are all attested records; two documents "
+            f"disagreeing about one lot is a reading to be argued, not a precedence")
+    return verdict
 
 
 def no_lot_claim_ids() -> set[str]:

@@ -293,11 +293,18 @@ def yard_roofs() -> set[str]:
     """The `recon_*` roofs the anonymous parcels dealt as YARD BUILDINGS.
 
     `reconstruction.inventory_class` is the parcels' own word for it: a
-    `principal_functional` roof is a building on the lot, an `ancillary` one is a privy, a
-    stable or a woodshed standing behind it. `tools/generate_block_infill.py` refuses to
-    write an `occupants` block onto an ancillary roof — "a yard building serves the lot it
-    stands behind, and an adoption is a claim about who lived or worked in a building" —
-    and that rule is older than this pass and outranks it.
+    `principal_functional` roof is a building on the lot and an `ancillary` one stands
+    behind it, off the block alley.
+
+    T-1610 SPLIT THAT WORD FROM "SHED", and this pass keeps refusing the whole of it
+    anyway, for its own reason. An ancillary roof used to be a privy, a stable or a
+    woodshed and nothing else; since the owner's rear-cottage ruling of 2026-09-23 it may
+    also be a DWELLING in the yard, which `generate_block_infill` will now let a household
+    into (it asks the family, not the class). A BUSINESS is a different question and gets
+    a different answer: every adoption here is a claim about a STREET FACE, made on an
+    advertisement that gives its address by one, and a roof off the alley has no street
+    face to be on. So the set is unchanged and only the reasoning narrows — a rear cottage
+    is refused for standing behind the frontage, not for being a shed.
     """
     out: set[str] = set()
     for path in sorted(STRUCTURES.glob("recon_*.json")):

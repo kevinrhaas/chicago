@@ -70,7 +70,7 @@
     "principal_roofs_max": 1,
     "basis": "the dwelling typology setback and the block parcels' own arrangement notes — a cottage on a side street keeps its front yard and its dooryard, and the lot is not subdivided.",
     "evidence": [],
-    "note": "Stated as the complement of the principal-street rule. No documented back-street lot in this town carries two principal roofs."
+    "note": "Stated as the complement of the principal-street rule. No documented back-street lot in this town carries two principal roofs. The rear cottage the owner admitted on 2026-09-23 does not raise this maximum: `rear_dwelling_behind_its_own_roof` seats a dwelling in the yard as ANCILLARY, and this number counts principal roofs."
    }
   },
   "multi_building_lot_rate_on_the_principal_streets": {

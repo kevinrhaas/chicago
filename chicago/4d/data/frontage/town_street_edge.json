@@ -25,10 +25,10 @@
       "washington"
     ],
     "faces_laid": 36,
-    "walk_m": 3182.9,
-    "crossing_m": 857.5,
+    "walk_m": 3193.4,
+    "crossing_m": 881.9,
     "fence_m": 1623.8,
-    "walking_decks": 250,
+    "walking_decks": 253,
     "hitching_posts": 16
   },
   "card": {
@@ -44,10 +44,10 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 3182.9,
+        "value": 3193.4,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "41 run(s) of sidewalk on 36 platted block face(s), plus 857.5 m of board crossing at 36 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
+        "note": "41 run(s) of sidewalk on 36 platted block face(s), plus 881.9 m of board crossing at 37 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
         "value": 1623.8,
@@ -1379,6 +1379,80 @@
       "note": "THE PLANK SIDEWALK ON THE RANDOLPH STREET FRONTAGE of blk_lake_franklin's south face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Randolph Street track. This run is the stretch from 0.0 m to 97.6 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
+      "id": "blk_lake_lasalle_north_crossing_blk_lake_clark_north",
+      "belongs_to": "town_street_edge",
+      "kind": "board_crossing",
+      "confidence": "reconstructed",
+      "street": "lake",
+      "street_name": "Lake Street",
+      "chunk": "blk_lake_lasalle_north_2",
+      "centreline_local_enu_m": [
+        [
+          562.96,
+          -125.29
+        ],
+        [
+          587.34,
+          -125.49
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.06,
+      "plank_run": "along",
+      "plank_count": 6,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "plank_step_m": 1.8,
+      "run_m": 24.38,
+      "footway_decks": [
+        {
+          "y": 0.85,
+          "pts": [
+            [
+              562.87,
+              -126.2
+            ],
+            [
+              575.22,
+              -126.3
+            ],
+            [
+              575.24,
+              -124.47
+            ],
+            [
+              562.89,
+              -124.37
+            ]
+          ],
+          "ground_roll_m": 0.0
+        },
+        {
+          "y": 0.85,
+          "pts": [
+            [
+              575.06,
+              -126.3
+            ],
+            [
+              587.41,
+              -126.4
+            ],
+            [
+              587.43,
+              -124.57
+            ],
+            [
+              575.08,
+              -124.47
+            ]
+          ],
+          "ground_roll_m": 0.004
+        }
+      ],
+      "note": "A BOARD CROSSING OVER LAKE STREET. Images 6 and 8 give plank sidewalks WITH board crossings at the town's two inns, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 24.4 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
+    },
+    {
       "id": "blk_lake_lasalle_north_walk_1",
       "belongs_to": "town_street_edge",
       "kind": "plank_walk",
@@ -1445,8 +1519,8 @@
           -124.73
         ],
         [
-          552.53,
-          -125.2
+          562.96,
+          -125.29
         ]
       ],
       "width_m": 1.83,
@@ -1533,22 +1607,44 @@
               -126.03
             ],
             [
-              552.61,
-              -126.12
+              557.82,
+              -126.16
             ],
             [
-              552.62,
-              -124.29
+              557.83,
+              -124.33
             ],
             [
               542.04,
               -124.2
             ]
           ],
+          "ground_roll_m": 0.007
+        },
+        {
+          "y": 0.902,
+          "pts": [
+            [
+              557.66,
+              -126.16
+            ],
+            [
+              563.03,
+              -126.2
+            ],
+            [
+              563.05,
+              -124.37
+            ],
+            [
+              557.67,
+              -124.33
+            ]
+          ],
           "ground_roll_m": 0.002
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_lake_lasalle's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 31.3 m to 88.6 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+      "note": "THE PLANK SIDEWALK ON THE LAKE STREET FRONTAGE of blk_lake_lasalle's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.86 m of verge between its outer edge and the Lake Street track. This run is the stretch from 31.3 m to 99.0 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_lake_lasalle_south_crossing_blk_lake_clark_south",
@@ -9373,12 +9469,7 @@
     {
       "structure_id": "blk_lake_lasalle_lot6",
       "wall": "blk_lake_lasalle north face, lot 6",
-      "why": "first_presbyterian_church stands -1.90 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
-    },
-    {
-      "structure_id": "blk_lake_lasalle_north_crossing_blk_lake_clark_north",
-      "wall": "corner crossing",
-      "why": "the two walks stop 34.8 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
+      "why": "first_presbyterian_church stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_lake_market_lot0",

@@ -1,13 +1,17 @@
-# The platted blocks' six refamily verdicts, and why none of them can be carried out — July 1835
+# The platted blocks' six refamily verdicts, and the clause that frees them — July 1835
 
 DERIVED — regenerate with `tools/measure_block_redeal_remedies.py --build`. T-1482.
 
-T-1445 adjudicated 285 anonymous roofs and returned 32 refamily verdicts. T-1451 carried out the six whose ids do not move; T-1480 migrated the North Division's nine and T-1494 the phase-one South parcel's eleven. These six are the remainder, and the rename is the easy half of them — it is not what stops them.
+T-1445 adjudicated 285 anonymous roofs and returned 32 refamily verdicts. T-1451 carried out the six whose ids do not move; T-1480 migrated the North Division's nine and T-1494 the phase-one South parcel's eleven. These six are the remainder, and the rename was never what stopped them.
 
-Each is an A-family yard building standing at a yard setback off its block alley, behind the principal roof on its own lot, and the adjudication moves every one into an `ordinary_dwellings` family. `generate_block_infill` reads a roof's inventory class from its group, so a dwelling family is `principal_functional` — and the parcel gate refuses a second principal roof on a lot that already carries one. The committed `multi_building_lot` rule admits a second principal roof only on a principal-street lot in a party-line run of shared side walls; these six stand off the alley at the back.
+Each is an A-family yard building standing at a yard setback off its block alley, behind the principal roof on its own lot, and the adjudication moves every one into an `ordinary_dwellings` family. The inventory class was read off the GROUP alone, so a dwelling family came out `principal_functional` wherever it stood — and the parcel gate refuses a second principal roof on a lot that already carries one. All six were refused, and the committed `multi_building_lot` rule admits a second principal roof only on a principal-street lot in a party-line run of shared side walls; these six stand off the alley at the back.
+
+**The owner ruled on 2026-09-23:** (a) Treat a rear cottage as ancillary, so a lot may carry a main house plus a rear dwelling. That ruling is now `rear_dwelling_behind_its_own_roof` in the placement policy and a position in `reconcile_665.inventory_class`: off the alley, on a lot whose principal roof is already dealt, a dwelling is ANCILLARY. The same six verdicts re-derived against the same committed files are no longer refused, and because they stay ancillary the blocks' principal-roof counts do not move either.
+
+**What is still not done:** The six are not re-dealt. The recipe stands them as A-family slots, no id has moved and no mesh has been rebaked — T-1611 does that, and this report is what says it now can be.
 
 - outstanding verdicts: **6**
-- refused by the parcel gate: **6**
+- refused by the parcel gate: **0**
 - offered families that would leave the inventory class alone: **0** of 36
 - open lots across the three blocks: **2**, against 6 roofs
 
@@ -15,14 +19,14 @@ Each is an A-family yard building standing at a yard setback off its block alley
 
 | roof | becomes | stands | was | now | the refusal |
 | --- | --- | --- | --- | --- | --- |
-| `recon_1835_blk_randolph_market_a1_07` | `recon_1835_blk_randolph_market_d4_07` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D4 (principal_functional) | blk_randolph_market: two principal roofs on one lot — lot 3 already carries recon_1835_blk_randolph_market_d4_03 |
-| `recon_1835_blk_randolph_market_a1_12` | `recon_1835_blk_randolph_market_d4_12` | lot 1, off the alley, 5.0 m | A1 (ancillary) | D4 (principal_functional) | blk_randolph_market: two principal roofs on one lot — lot 1 already carries the frontage run phase3_platted_block_randolph_market_second_deal was dealt |
-| `recon_1835_blk_randolph_market_a3_05` | `recon_1835_blk_randolph_market_d2_05` | lot 0, off the alley, 5.0 m | A3 (ancillary) | D2 (principal_functional) | blk_randolph_market: two principal roofs on one lot — lot 0 already carries recon_1835_blk_randolph_market_d5_01 |
-| `recon_1835_blk_randolph_market_a4_06` | `recon_1835_blk_randolph_market_d2_06` | lot 2, off the alley, 4.5 m | A4 (ancillary) | D2 (principal_functional) | blk_randolph_market: two principal roofs on one lot — lot 2 already carries recon_1835_blk_randolph_market_d6_02 |
-| `recon_1835_blk_south_water_lasalle_a1_06` | `recon_1835_blk_south_water_lasalle_d3_06` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D3 (principal_functional) | blk_south_water_lasalle: two principal roofs on one lot — lot 3 already carries recon_1835_blk_south_water_lasalle_d2_05 |
-| `recon_1835_blk_south_water_wells_a1_07` | `recon_1835_blk_south_water_wells_d1_07` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D1 (principal_functional) | blk_south_water_wells: two principal roofs on one lot — lot 3 already carries recon_1835_blk_south_water_wells_d2_06 |
+| `recon_1835_blk_randolph_market_a1_07` | `recon_1835_blk_randolph_market_d4_07` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D4 (ancillary) | None |
+| `recon_1835_blk_randolph_market_a1_12` | `recon_1835_blk_randolph_market_d4_12` | lot 1, off the alley, 5.0 m | A1 (ancillary) | D4 (ancillary) | None |
+| `recon_1835_blk_randolph_market_a3_05` | `recon_1835_blk_randolph_market_d2_05` | lot 0, off the alley, 5.0 m | A3 (ancillary) | D2 (ancillary) | None |
+| `recon_1835_blk_randolph_market_a4_06` | `recon_1835_blk_randolph_market_d2_06` | lot 2, off the alley, 4.5 m | A4 (ancillary) | D2 (ancillary) | None |
+| `recon_1835_blk_south_water_lasalle_a1_06` | `recon_1835_blk_south_water_lasalle_d3_06` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D3 (ancillary) | None |
+| `recon_1835_blk_south_water_wells_a1_07` | `recon_1835_blk_south_water_wells_d1_07` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D1 (ancillary) | None |
 
-Every one of the 36 families the adjudication offers across the six is an ordinary dwelling, so no offered family avoids the promotion. There is no re-deal inside the verdict.
+Every one of the 36 families the adjudication offers across the six is an ordinary dwelling, so no offered family avoided the promotion by its letter alone. There was no re-deal inside the verdict, which is why the question had to go to the owner rather than being solved here.
 
 ## The ground the other remedy would need
 
@@ -47,11 +51,13 @@ And each of those open lots is declared open in the recipe with a stated reason 
 
 ## The three remedies, and what each one changes
 
-### Admit a dwelling-family roof at a yard setback behind its lot's principal roof — a rear cottage — as ANCILLARY, and write the clause that covers it.
+All three change what the town IS, so this tool costed them and asked rather than choosing. The owner answered on 2026-09-23; the one he took is marked.
 
-The town gains a building class it has never stated. `ancillary_behind_its_own_roof` applies to A1–A5 only, so a D-family roof in the yard is covered by no clause, and `refusals_of` returns a family with no clause as its own refusal. The adoption gate would also have to rule on whether such a roof may house anybody: it refuses an ancillary roof today on the reasoning that a yard building is a shed.
+### Admit a dwelling-family roof at a yard setback behind its lot's principal roof — a rear cottage — as ANCILLARY, and write the clause that covers it. — **TAKEN**
 
-**Costs:** 6 roofs keep their position; one new policy clause; one ruling on adoption.
+The town gains a building class it had never stated. `ancillary_behind_its_own_roof` applies to A1–A5 only, so a D-family roof in the yard was covered by no clause at all. The adoption gate had to be ruled on too: it refused an ancillary roof an occupant on the reasoning that a yard building is a shed, and a rear cottage is not one.
+
+**Costs:** 6 roofs keep their position; one new policy clause, tier `inferred` and citing no record; one ruling on adoption. TAKEN by the owner on 2026-09-23.
 
 ### Deal the six onto free lots as principal roofs.
 
@@ -65,4 +71,10 @@ It re-opens T-1445's scoring for this clause, because the reason these six were 
 
 **Costs:** 0 roofs move; the adjudication's block verdicts are withdrawn and the clause is re-read.
 
-Blocked on the owner. All three change what the town IS, and this tool adjudicates nothing.
+## Where the ruling lives
+
+- data/reconstruction/1835_placement_policy.json — the clause `rear_dwelling_behind_its_own_roof`, tier `inferred`, citing no record because the town holds none
+- tools/reconcile_665.py — `inventory_class` reads the position as well as the group, and is the one derivation the generators deal by
+- tools/generate_block_infill.py — the adoption gate asks the GROUP, so a rear cottage may house a household and a privy still may not
+
+Because the six stay ancillary, the blocks' principal-roof counts are unchanged, so `lot_ceiling_principal` and `block_rooms` are untouched. A promotion to principal would have breached both.

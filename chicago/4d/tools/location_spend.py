@@ -222,25 +222,45 @@ def retentions(known) -> list[dict]:
     out = [
         {
             "ticket": "T-0251",
-            "state": "blocked-owner",
-            "owner": "the owner",
+            "state": "ruled",
+            "owner": "the owner — precedence between the evidence layers is his, and he "
+                     "ruled it generally",
             "question": "Does a documented building displace an inferred unit when the "
                         "plat repair puts them on the same lot? first_presbyterian_church "
                         "needs 3.395 m to come onto the Lake Street plat and "
                         "physicians_office stands 3.15 m behind it.",
-            "what_it_costs_today": "The church stands 1.90 m out in the platted roadway "
-                                   "and two steps of Lake Street's plank walk stay unlaid.",
-            "what_would_resolve_it": "The owner picking one of the three options the "
-                                     "ticket measured, or naming a fourth. Never by "
-                                     "weakening the 3.0 m separation gate.",
+            "what_it_costs_today": "Nothing. The owner ruled on 2026-09-21 that where an "
+                                   "ATTESTED placement and an INFERRED one collide on a "
+                                   "lot the attested one stands and the inferred one moves "
+                                   "or is withdrawn. The church took the 3.395 m and its "
+                                   "north wall is 1.50 m back from the committed frontage "
+                                   "line; physicians_office gave way and was re-seated on "
+                                   "its own Lake Street frontage band, 12.99 m west along "
+                                   "the same face and forward onto the street line, its "
+                                   "card carrying what displaced it. The two steps of "
+                                   "Lake Street's plank walk are laid.",
+            "what_would_resolve_it": "Resolved by the owner's ruling of 2026-09-21, "
+                                     "written generally at "
+                                     "`tools/plat_occupancy.attested_precedence` and "
+                                     "applied to both records. The guard below now holds "
+                                     "the RULING rather than the retention: put the church "
+                                     "back out in the roadway and this build fails. "
+                                     "Neither footprint was narrowed and the 3.0 m "
+                                     "separation gate was not weakened — the ruling "
+                                     "refuses both in terms.",
             "guard": {
                 "reads": "data/structures/first_presbyterian_church.json",
-                "expects": "the position note still carries the T-0251 refusal and its "
-                           "1.90 m measurement, and physicians_office is still committed",
+                "expects": "the church's position note carries the ruling and the 1.90 m "
+                           "measurement it repaired, its wall is reconciled onto the "
+                           "committed line, and physicians_office is still committed — "
+                           "re-seated rather than withdrawn",
                 "measured": {
                     "note_names_the_ticket": "T-0251" in church,
                     "note_carries_the_measurement": "1.90 m" in church,
                     "physicians_office_committed": "physicians_office" in known,
+                    "note_carries_the_ruling": "THE OWNER RULED ON 2026-09-21" in church,
+                    "church_reconciled_onto_the_committed_line":
+                        "1.50 m back from the committed frontage line" in church,
                 },
             },
         },
@@ -336,7 +356,8 @@ def retentions(known) -> list[dict]:
 
 EXPECTED_GUARDS = {
     "T-0251": {"note_names_the_ticket": True, "note_carries_the_measurement": True,
-               "physicians_office_committed": True},
+               "physicians_office_committed": True, "note_carries_the_ruling": True,
+               "church_reconciled_onto_the_committed_line": True},
     "T-0305": {"saddlery_on_the_watch_list": True},
     "T-0386": {"montgomery_entries": ["business_l_w_montgomery_boot_and_shoe_maker",
                                       "business_montgomery_auction_and_commission_house",
@@ -358,7 +379,7 @@ EXPECTED_GUARDS = {
 # someone puts Wabansia back on B4 this build fails exactly as it would have failed the
 # day the ruling landed unrecorded. `resolved` is not a way out of the gate; it is a
 # different thing for the gate to hold.
-RULED = {"T-1087": "2026-09-21"}
+RULED = {"T-0251": "2026-09-21", "T-1087": "2026-09-21"}
 
 
 def _guard_holds(item: dict) -> bool:

@@ -71,7 +71,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from generate_plat_lots import point_in_polygon, point_to_ring_m  # noqa: E402
 from measure_street_frontage import (  # noqa: E402
     LAYERS, layer_of, layer_of_record)
-from plat_occupancy import layers, researched_ids  # noqa: E402
+from plat_occupancy import attested_precedence, layers, researched_ids  # noqa: E402
 from plat_corridors import (  # noqa: E402
     control_offsets, corridors, intrusion, sampled)
 from plat_occupancy import world_polygon  # noqa: E402
@@ -984,6 +984,42 @@ def self_test() -> int:
         checks.append((f"…and every record lands in a named layer — {layer}",
                        all(v in LAYERS for v in committed.values()),
                        f"{sum(1 for v in committed.values() if v == layer)}"))
+
+    # 3b. AND THE OWNER'S PRECEDENCE RULE IS THE SAME READING, ASKED THE OTHER WAY
+    #     (T-0251, ruled 2026-09-21). Where an attested placement and an inferred one
+    #     collide on a lot the attested one stands; `plat_occupancy.attested_precedence`
+    #     decides it, and it decides it off `layer_of_record` rather than off a name. So
+    #     the fixture above is this rule's fixture too: read from its NAME,
+    #     `physicians_office` is research, and the rule would have had the INVENTED
+    #     building displace the documented church it actually gave way to. That is the
+    #     fault this module exists to hold, in the ruling's own terms.
+    verdict = attested_precedence("first_presbyterian_church", "physicians_office")
+    checks.append(("the precedence rule stands the attested church and yields the "
+                   "inferred office — the collision the owner ruled on",
+                   verdict == {"first_presbyterian_church": "stands",
+                               "physicians_office": "yields"},
+                   ", ".join(f"{k} {v}" for k, v in sorted(verdict.items()))))
+    by_name = {sid: ("stands" if _id_prefix_layer(sid) == "research" else "yields")
+               for sid in ("first_presbyterian_church", "physicians_office")}
+    checks.append(("…and read from their NAMES both stand, so the rule could not have "
+                   "decided this at all — the reach of the fix, again",
+                   by_name == {"first_presbyterian_church": "stands",
+                               "physicians_office": "stands"},
+                   ", ".join(f"{k} {v}" for k, v in sorted(by_name.items()))))
+    for group, why in ((("first_presbyterian_church", "st_marys_church"),
+                        "two attested records"),
+                       (("physicians_office", "recon_1835_south_d6_012"),
+                        "two generated records"),
+                       (("first_presbyterian_church",), "one record"),
+                       (("first_presbyterian_church", "no_such_record"),
+                        "an id the dataset does not hold")):
+        try:
+            attested_precedence(*group)
+            refused = False
+        except ValueError:
+            refused = True
+        checks.append((f"…and the rule refuses {why} rather than answering anyway",
+                       refused, "ValueError" if refused else "answered anyway"))
 
     # 4. an id with no record is refused rather than guessed at from its name
     try:

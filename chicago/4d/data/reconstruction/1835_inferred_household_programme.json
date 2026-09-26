@@ -1478,15 +1478,24 @@
       "archetype": "frame_storefront",
       "district": "south",
       "family": "C1",
-      "center_local_enu_m": [
-        560,
-        -139
-      ],
+      "frontage": {
+        "block": "blk_lake_lasalle",
+        "face": "north",
+        "setback_m": 1.5,
+        "west_wall_along_m": 80.74,
+        "why": "T-0251, the owner's ruling of 2026-09-21. This building gives way to first_presbyterian_church, whose plat reconciliation needs the ground it stood on, and is re-seated on its own Lake Street frontage band rather than withdrawn. Written as a face rather than as a centre for the same reason T-0182 rewrote the other two: a hand-typed centre at bearing 0 on a face that runs at 0.469 is arithmetic nobody re-derives, and the along-face figure is the one interpretive choice left - which part of Lake Street a made-up building occupies. See `displaced_by` for the rule and the numbers that refused every alternative.",
+        "along_why": ". IT IS NOT the position it already occupied: this building moved along the street, and the paragraph below says what moved it."
+      },
+      "displaced_by": {
+        "structure_id": "first_presbyterian_church",
+        "layer": "research",
+        "ruling": "owner 2026-09-21 (T-0251)",
+        "note": "DISPLACED BY AN ATTESTED PLACEMENT, ON THE OWNER'S RULING OF 2026-09-21 (T-0251), AND THE RULE IS GENERAL: where an ATTESTED placement and an INFERRED placement collide on one lot, the attested one stands and the inferred one moves or is withdrawn. first_presbyterian_church is documented at the south-west corner of Lake and Clark and reached the scene off a modern OpenStreetMap kerb, standing 1.90 m out past this block's committed Lake Street frontage line and in the platted roadway; the 3.395 m reconciliation the three Lake Street records beside it took would have set it down 0.243 m from this building, inside the 3.0 m separation gate, and moved 3.2 m the two footprints physically overlap. There is no translation along that normal that both clears the walk and leaves the pair standing apart, which is why the fork was a rule and not a metre. THE CHURCH TAKES THE GROUND AND THIS BUILDING MOVES. It is RE-SEATED RATHER THAN WITHDRAWN, which the ruling asks for first, and it is re-seated on its own evidence: its evidence is a Lake Street frontage-band assignment on ROADMAP K1's rule, and it keeps the band, the street, the face and the lot it was dealt - blk_lake_lasalle lot 6 - moving 12.99 m west along that face and 7.40 m forward onto the street line. FORWARD IS ITS OWN CLAUSE'S ANSWER rather than a convenience: tools/placement_policy_1835.py seats a C1 at `street_line`, and this building had stood 8.90 m back in the depth of its lot since it was raised, which is the clause's own outlier. The 1.50 m setback is this face's own line - what tools/generate_block_infill.py gives every reconstructed unit standing here, and the margin old_bank_building, dole_warehouse_south and st_marys_church were reconciled to. WHAT DID NOT HAPPEN: neither footprint was narrowed to make the two fit, which the ruling refuses in terms - a dimension fitted to a neighbour is no longer a reading of anything - and the separation gate was not weakened. Nothing here is upgraded either: the placement is still `reconstructed`, its derivation is still not_derivable, and standing clear of an attested building on a derived face is not standing on a recovered lot."
+      },
       "footprint_ft": [
         16,
         24
       ],
-      "rotation_deg": 0,
       "anchor_shift_steps": 0,
       "function": "physicians_office",
       "occupation": "physician",
