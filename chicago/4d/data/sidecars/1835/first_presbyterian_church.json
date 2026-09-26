@@ -157,9 +157,11 @@
       "value": "church",
       "confidence": "attested",
       "sources": [
-        "andreas_1884_v1"
+        "andreas_1884_v1",
+        "chicago_american_1835",
+        "chicago_democrat_1833_1835"
       ],
-      "note": "Built for worship and in continuous use as the Presbyterian meeting house across the scene window. It was also the town's largest single room, and the project's dossier reports Eliza Chappel's infant school moving into it during 1834 - see the chappel_infant_school record, where that move is what makes the school's own building's 1835 use unattested. The school claim is carried in the dossier from summaries with no source record in data/sources/, so it is stated here as reported rather than cited."
+      "note": "Built for worship and in continuous use as the Presbyterian meeting house across the scene window. It was also the town's largest single room, and the project's dossier reports Eliza Chappel's infant school moving into it during 1834 - see the chappel_infant_school record, where that move is what makes the school's own building's 1835 use unattested. The school claim is carried in the dossier from summaries with no source record in data/sources/, so it is stated here as reported rather than cited.\n\nTHE SCENE-YEAR PRESS PUTS THE BUILDING IN CIVIC USE, three times in three weeks, and it is the only contemporary attestation of this church the project holds. School District No. 4 called its inhabitants to meet 'in the P[r]e[sby]t[erian] Church' at 6 o'clock on the evening of Tuesday 7 July 1835, to consider measures for building a school house and to elect a trustee. Three printings, one notice: the Chicago Democrat of 17 June 1835, page 3 column 3, claim chicago_democrat_1835_06_17#c006, signed by Byram King as the district's clerk; the Chicago American of 20 June 1835, page 3 column 6, claim chicago_american_1835_06_20#c016; and the Democrat again on 1 July 1835, page 3 column 5, claim chicago_democrat_1835_07_01#c012, whose right-hand line ends are read out of the adjoining column. WHAT THE PRESS ADDS IS NOT THE CHURCH — Andreas has that — BUT THE USE: on 1835-07-01 this was the room a school district without a building of its own met in, which is what the town's largest single interior was for, and it is dated to the week. THE SCHOOL HOUSE IN THE SAME NOTICE IS A NEGATIVE AND IS NOT BUILT: the district is meeting to CONSIDER building one, so none stood on the scene date, and the three readings are refused on that half in data/research/spend_rulings.json under the_building_is_not_standing_at_the_scene_date."
     },
     "occupants": {
       "value": "First Presbyterian Church of Chicago",
@@ -208,6 +210,57 @@
       "archived_url": "",
       "tier": 3,
       "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_american_1835",
+      "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
+        "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
+        "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
+        "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
+        "the paper's own correction of its first masthead date"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions",
+        "a reliable reading of a dense body column — this run had no reconciled second pass",
+        "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
+        "identification by volume and number: No. 12 is printed on two different issues",
+        "anything at all from an engraving — the cuts are the printer's stock",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
     },
     {
       "source_id": "osm_streets_2026",
