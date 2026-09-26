@@ -1,4 +1,5 @@
 export const CHANGELOG = [ // newest first
+<<<<<<< HEAD
   { v: 1149, title: 'One slough at the foot of State, where the maps draw it', kind: 'change', ts: '2026-09-26T18:33:07.987Z', date: 'Sep 26, 2026, 1:33 PM CT',
     items: [
       'Fly the river front by the fort and there were two notches cut into the south bank within forty metres of each other, both of them the same drain reaching the water. Wright and Hathaway, surveying in 1834, draw one, and they draw it just east of State Street. This release removes the other.',
@@ -7,6 +8,29 @@ export const CHANGELOG = [ // newest first
       'The old mouth is filled back to the bank line — ground that stood half a metre under water now stands a metre above it — so the plank walk’s east end carries on along the bank instead of crossing a bridge, and from the river or the air there is one notch in that bank between Clark Street and the fort where there were two.',
       'The log bridge moved with the water and changed streets doing it. It carries State Street over the drain now, thirty-five metres inland, its eight-metre span laid north and south. South Water Street stops at the United States Reservation, so the drain no longer crosses it — and the source for this crossing is a sentence saying a log bridge was needed where WATER Street crossed it. That half is a loss and is written down as one on the bridge’s record. What the source still supports is the rest: the town bridged this drain in log where its graded street met it, and it was needed after 1840.',
       'The cost is stated in figures. The new reach crosses the sand rise between State Street and the fort, so the channel is cut nine feet deep against the old six, and the bridge sits 0.72 m below the terrace with a graded cut 8.7 m long at each end, against 0.35 to 0.49 m before. The register of things we made up says so. Under the deck the drain holds 4.8 m of open water across an 8 m span, 0.93 m deep, dry footing at both ends.',
+=======
+  { v: 1151, title: 'Arrive in 1835 as the town is assembled', kind: 'change', ts: '2026-09-26T18:30:51.494Z', date: 'Sep 26, 2026, 1:30 PM CT',
+    items: [
+      'The loading screen is now an arrival: the year rolls backward from the present toward 1835 as real reconstruction phases finish.',
+      'The year never reaches 1835 before the town is ready; long phases ease rather than pretending to be complete, and a fast warm load does not add an artificial delay.',
+      'Reduced-motion visitors get a short stepped year change instead of flip animation, and a failed essential load stops the clock and offers Retry.',
+      'The arrival styling is a restrained instrument panel with split-flap numerals, a live phase line and room for the richer source-status library coming next.',
+    ] },
+  { v: 1150, title: 'The bulge in the river turns out to be Wright\u2019s own', kind: 'fix', ts: '2026-09-26T18:10:03.863Z', date: 'Sep 26, 2026, 1:10 PM CT',
+    items: [
+      'Nothing you can see in the town has changed, and this release is about why. The owner flew the river front and reported that the south bank swells out into the channel between the bend at the forks and the slough by LaSalle Street, where the other 1834 map draws it even \u2014 and asked for it brought in to the bank the 1834 survey actually drew.',
+      'It is already on that bank. The waterline was traced years ago off one scan of that survey; it has now been measured against the surveyor\u2019s own ink on a DIFFERENT scan, registered independently, at 103 points five metres apart. Half of them sit within 1.9 metres of his line and nine in ten within 4 metres, against a trace that only ever claimed twenty. The notch where the slough comes in is his too, drawn between the same two blocks.',
+      'So the swell is not a tracing mistake. It is what the surveyor drew. The 1834 map the owner compared it against, Hathaway\u2019s, genuinely does draw the reach even \u2014 and the way to say that without either map\u2019s georeferencing getting in the way is to measure inside each sheet on its own: the ground each draughtsman puts between his own bank and his own block fronts. Wright gives 35, 39, 32 and 20 metres across the four blocks; Hathaway gives 29, 28, 24 and 21. The two surveys disagree by up to 11 metres, and that disagreement is the bulge.',
+      'The rendered ground was checked too, in case the scene was adding something the data does not have. It is not: the terrain\u2019s waterline follows the committed bank cell for cell along the whole reach.',
+      'Which leaves a question a measurement cannot answer, so it has gone to the owner rather than been taken: whether this reach should keep the survey the datum, the plat and every block in town are fitted to, or follow the second 1834 map instead. Until he rules, nothing moves \u2014 the bank, the plank walk and the landings stand where the survey put them.',
+    ] },
+  { v: 1149, title: 'Explore Prairie Avenue in 1904', kind: 'change', ts: '2026-09-26T17:49:41.580Z', date: 'Sep 26, 2026, 12:49 PM CT',
+    items: [
+      'A new Prairie Avenue research browser brings together house histories, Sanborn maps, directory leads and a dedicated Glessner collection.',
+      'Browse the six Glessner measured drawings and survey report, compare 1911 frontage evidence with the 1904 target, and inspect source dates and unresolved questions.',
+      'The pre-fire library now has an 1834 shortcut for the Wright map. Its map menu lists every dated reference and moves the timeline to your selection.',
+      'This is a research library for the planned reconstruction. The 1835 town and the unfinished Prairie 3D scene are unchanged.',
+>>>>>>> origin/dev
     ] },
   { v: 1148, title: 'The four houses with nowhere to stand are now refused in writing', kind: 'change', ts: '2026-09-26T17:31:46.182Z', date: 'Sep 26, 2026, 12:31 PM CT',
     items: [

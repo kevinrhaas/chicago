@@ -19,6 +19,7 @@ const H_FOV_DEG = 76;
 const DEG = Math.PI / 180;
 
 import { createBoot, createCheckpoint, yieldToPaint } from './boot-phases.js';
+import { createArrival } from './arrival.js';
 import { loadScene, resolveBases } from './scene-loader.js';
 import { createWorld } from './world.js';
 import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
@@ -879,20 +880,6 @@ const gateBtn = document.getElementById('gate-btn');
 const gateSub = document.getElementById('gate-sub');
 const gateBar = document.getElementById('gate-bar');
 
-/**
- * Loading progress, driven by the boot's REAL stages rather than by a timer.
- * A timer-driven bar tells a visitor nothing except that time is passing, which
- * they already know; this one only moves when something has actually finished,
- * so a bar that stops IS the diagnosis.
- */
-function progress(pct, label) {
-  if (gateSub && label) gateSub.textContent = label;
-  if (!gateBar) return;
-  const fill = gateBar.firstElementChild;
-  if (fill) fill.style.width = `${Math.max(0, Math.min(100, pct))}%`;
-  gateBar.setAttribute('aria-valuenow', String(Math.round(pct)));
-  if (pct >= 100) gateBar.classList.add('done');
-}
 const hudRoot = document.getElementById('hud');
 const popupRoot = document.getElementById('popup');
 
@@ -927,9 +914,18 @@ const bootController = createBoot({
   device: prefersTouch() ? 'mobile' : 'desktop',
   detail: DETAIL[readDetailPreference()] ? readDetailPreference() : (prefersTouch() ? 'light' : 'full'),
   build: document.getElementById('gate-build')?.textContent || VERSION,
-  storage: bootStorage, problems, present: progress,
+  storage: bootStorage, problems,
 });
 api.boot = bootController;
+const arrival = createArrival({
+  boot: bootController,
+  yearEl: document.getElementById('arrival-year'),
+  phaseEl: gateSub,
+  cardEl: document.getElementById('arrival-card'),
+  barEl: gateBar,
+  buttonEl: gateBtn,
+});
+api.arrival = arrival;
 const bootCheckpoint = createCheckpoint();
 
 boot().catch((err) => {
@@ -940,12 +936,11 @@ boot().catch((err) => {
   // A year with no scene yet (a door such as /4d/1812/ that is ahead of the data)
   // is not a broken build, and should not read like one.
   const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`);
-  if (gateSub) {
-    gateSub.textContent = unbuilt
+  arrival.fail(err, {
+    message: unbuilt
       ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.`
-      : `Could not load the scene — ${api.error}`;
-  }
-  if (gateBtn) gateBtn.textContent = 'Failed to load';
+      : `Could not load the scene — ${api.error}`,
+  });
   console.error('[4D Chicago] boot failed', err);
 });
 
@@ -2788,20 +2783,11 @@ async function boot() {
   // Optional census work may finish later; it cannot hold the street closed.
   await firstFrame;
   bootController.end('interaction');
-  if (gateBtn) { gateBtn.disabled = false; gateBtn.textContent = 'Tap to walk'; }
   api.ready = true;
   if (!bootController.finish()) {
     api.ready = false;
     if (gateBtn) gateBtn.disabled = true;
     throw new Error('Boot readiness barrier failed');
-  }
-  if (gateSub) {
-    // T-0782: the count that used to open this line was `registry.size` — every
-    // RECORD in the scene, bridges and the pier and the palisade and the parade
-    // ground included — so it read as a building count and contradicted the 359
-    // on the card three lines below it. The card counts the town; this line says
-    // when the town is.
-    gateSub.textContent = world.describe();
   }
 
   if (DEBUG) {

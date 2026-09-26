@@ -37,6 +37,9 @@ source "$_check_tools/check_harness.sh"
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
+step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
+  node tools/test_arrival.mjs
+
 # THE MIRROR IS BUILT FIRST, BECAUSE IT IS NOT IN THE REPOSITORY ANY MORE (T-0938).
 #
 # `site/4d/` used to be committed, so every step below could assume it was
@@ -318,6 +321,18 @@ selftest "…and that audit's assertions still fire when broken" \
 # and needs Pillow and numpy, which this gate does not have.
 step "the NA re-read of the north-side slough still lands on the committed centreline" \
   python3 tools/read_north_side_slough_na.py --check
+# T-1630. The same instrument on the South Division bank: the committed waterline from the
+# bend to past the La Salle mouth, measured against the bank Wright INKED on the NA/HUP
+# sheet, and the swell the owner reported measured inside each 1834 sheet separately so no
+# registration enters it. The master scan cannot be re-fetched (its pin refuses the bytes
+# BPL now serves), so this is the only check that record has. `--check` re-derives every
+# metre offline from the committed pixel stations; the raster half is `--build`. The step
+# also holds the reading's own VERDICT — if a later edit moves the committed bank off
+# Wright's ink, the prose here would still read correctly and only this would notice.
+step "the South Division bank still stands on Wright's inked bank" \
+  python3 tools/read_south_bank_swell_1834.py --check
+selftest "…and that reading’s gate still fires when its figures are broken" \
+  python3 tools/read_south_bank_swell_1834.py --self-test
 # T-1101. The nine chips, put on the ground. Seven of the nine tracts are polygons now —
 # every one of them re-derived here from geometry this project already committed, never
 # traced off a wash — and the two that name no tract are REFUSED, with the number that

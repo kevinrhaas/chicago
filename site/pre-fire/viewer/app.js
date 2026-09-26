@@ -69,12 +69,10 @@ function render() {
   $('yearOutput').textContent = year;
   $('yearNumber').value = year;
   const nearest = closestMap(year);
-  const variants = model.maps.filter(m => m.reference_year === nearest.reference_year);
   const variant = $('mapVariant');
-  const prior = variant.value;
-  variant.innerHTML = variants.map(m => `<option value="${escapeHtml(m.map_id)}">${escapeHtml(m.title)}</option>`).join('');
-  variant.value = variants.some(m => m.map_id === prior) ? prior : variants[0].map_id;
-  const map = variants.find(m => m.map_id === variant.value) || nearest;
+  const selected = model.maps.find(m => m.map_id === variant.value);
+  const map = selected?.reference_year === nearest.reference_year ? selected : nearest;
+  variant.value = map.map_id;
   $('mapTitle').textContent = map.title; $('mapYear').textContent = `shows ${map.reference_year}`;
   $('mapImage').src = `../${map.local_image_path.replace('maps/','maps/')}`;
   $('mapImage').alt = `${map.title}, reference year ${map.reference_year}`;
@@ -117,6 +115,9 @@ function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, c => ({'&'
 
 fetch('data.json?v=5').then(r => r.json()).then(data => {
   model = data;
+  $('mapVariant').innerHTML = [...model.maps]
+    .sort((a,b) => Number(a.reference_year) - Number(b.reference_year))
+    .map(m => `<option value="${escapeHtml(m.map_id)}">${escapeHtml(m.reference_year)} · ${escapeHtml(m.title)}</option>`).join('');
   model.namesByBuilding = (model.names || []).reduce((index, name) => {
     (index[name.building_id] ||= []).push(name);
     return index;
@@ -139,7 +140,11 @@ fetch('data.json?v=5').then(r => r.json()).then(data => {
     if (Number.isFinite(year)) { $('year').value = year; render(); }
   });
   $('search').addEventListener('input',render);
-  $('mapVariant').addEventListener('change',render);
+  $('mapVariant').addEventListener('change',() => {
+    const map = model.maps.find(m => m.map_id === $('mapVariant').value);
+    if (map) $('year').value = map.reference_year;
+    render();
+  });
   document.querySelectorAll('[data-year]').forEach(b => b.addEventListener('click',() => { $('year').value=b.dataset.year; render(); }));
   $('buildingRows').addEventListener('click', event => {
     const button = event.target.closest('[data-jump-year]');

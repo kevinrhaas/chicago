@@ -3089,6 +3089,9 @@
     "tools/read_second_presbyterian.py": {
       "wrote": []
     },
+    "tools/read_south_bank_swell_1834.py": {
+      "wrote": []
+    },
     "tools/read_st_cyr_register.py": {
       "wrote": []
     },
@@ -3414,6 +3417,9 @@
       "wrote": []
     },
     "tools/synthesize_resident_research.py": {
+      "wrote": []
+    },
+    "tools/test_arrival.mjs": {
       "wrote": []
     },
     "tools/test_boot_phases.mjs": {
