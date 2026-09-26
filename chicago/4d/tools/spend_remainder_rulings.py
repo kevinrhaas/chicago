@@ -365,7 +365,20 @@ RULES = {
     },
     "the_enrichment_names_a_landholding_no_field_carries": {
         "disposition": "unresolved",
-        "ticket": "T-1198",
+        # AND THE LANDHOLDING POINTER WENT THE WAY OF THE CIVIC ONE ABOVE, one day later and
+        # for the same reason (T-1584). T-1198 was split into T-1491, T-1492 and T-1493, and
+        # the chain's last live leaf T-1523 settled `done` at 22:35Z on 2026-09-25 — so these
+        # two units, which had not moved, were deferring to finished work and took four gate
+        # steps red with them on a clean `origin/dev`.
+        #
+        # T-1198's PIECES DO NOT COVER THEM. Those three built the address book, seated its
+        # reconstructed reach and made a seat navigable: they put HOUSEHOLDS on ground. What
+        # these two readings name is what a PERSON HELD — John S. Wright's Chicago purchases
+        # and original-town lots, Paul Kingston as a Chicago landholder — and a seat on the
+        # ground is not a field for that. So the hand-off is T-1588, filed beside T-1315,
+        # T-1335 and T-1569, which are this same shape for the dated births, the kin and the
+        # civic posts: a spend against the cards, with the field decided in writing first.
+        "ticket": "T-1588",
         "statement": (
             "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a "
             "person this town holds -- a trade, an address, an origin, a kinship, a date -- that "
@@ -376,8 +389,15 @@ RULES = {
             "one at a time and handed each to the OPEN ticket whose acceptance owns the kind of "
             "fact it names; this unit's own note says which field that is. This one names LAND "
             "rather than a trade or a roof -- a purchase, an original-town lot, a holding -- and "
-            "T-1198 is the pass that seats every attested and inferred household and business on "
-            "the ground its evidence allows, plural and dated, with no fabricated coordinates."),
+            "T-1198 was the pass that seats every attested and inferred household and business on "
+            "the ground its evidence allows, plural and dated, with no fabricated coordinates."
+            " AND THE HAND-OFF IS T-1588 SINCE 2026-09-25: T-1198 was split into T-1491, T-1492 "
+            "and T-1493 and the chain's last live leaf closed, so the ticket these two were "
+            "waiting on has stopped. Its pieces do not cover them either -- they built the "
+            "address book, seated its reconstructed reach and made a seat navigable, which puts "
+            "HOUSEHOLDS on ground and gives no field for what a PERSON HELD. T-1588 is that "
+            "spend, filed beside T-1315, T-1335 and T-1569 for the dated births, the kin and the "
+            "civic posts, and it decides the field in writing before writing anything into it."),
     },
     "the_later_volume_enriches_a_biography_and_names_no_1835_field": {
         "disposition": "later_only",

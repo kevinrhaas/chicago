@@ -44,14 +44,17 @@ An `unresolved` unit is research read and not yet spent, and it is only legitima
 
 | Owner | Units | State | Live |
 | --- | ---: | ---: | ---: |
-| T-1198 | 272 | split_live | yes |
 | T-1335 | 169 | open | yes |
+| T-1585 | 159 | split_live | yes |
+| T-1586 | 92 | split_live | yes |
 | T-1552 | 26 | open | yes |
+| T-1587 | 19 | open | yes |
 | T-1569 | 12 | open | yes |
 | T-1315 | 3 | open | yes |
+| T-1588 | 2 | open | yes |
 | T-1543 | 1 | open | yes |
 
-Not one of those owners asks for another READING. The heaviest are T-1198 (272), T-1335 (169), T-1552 (26), T-1569 (12), T-1315 (3) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
+Not one of those owners asks for another READING. The heaviest are T-1335 (169), T-1585 (159), T-1586 (92), T-1552 (26), T-1587 (19) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
 
 **266** further unresolved unit(s) name no ticket at all, because no ticket can settle them: they are names the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, and what is open is whether the person was in the town on 1 July 1835. Each states the document that would reopen it (T-1423):
 
@@ -273,7 +276,7 @@ Reproduce: `node --check renderers/web/js/residents.js` and read the card blocks
 None of these is a condition above, and that is a judgement rather than an oversight: each names something 1835 did not write down, or a contract question about a tool, and neither kind is closed by reading more of what this project already holds.
 
 1. **28 of the 179 firms standing on 1835-07-01 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits it; T-1189 staffs it.
-2. **61 firms reach a street and 62 reach nowhere.** Those limits are preserved refusals; T-1198 seats what can be seated and the rest stay limits.
+2. **61 firms reach a street and 62 reach nowhere.** Those limits are preserved refusals; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
 3. **1,481 of 1,512 households have no `lives_at`, and 1,305 sit in no seating class.** Most are post-office-list names whose whole evidence is that a letter waited for them. T-1172 rules on their re-admission; T-1199 seats them.
 4. **2,055 of 2,383 persons carry no dated role, and 190 carry only roles dated away from the scene date.** The town's trades come from newspapers, directories and registers, and those name the men who advertised. T-1173 reconstructs the trade households the occupation model still wants.
 5. **Only 81 `associated_with` rows exist.** The plural, dated location row is the agreed shape (T-1147) and the renderer already reads it, but the migration off the singular `lives_at`/`works_at` pair has barely begun: T-1273 writes the committed reconciliations as association rows, T-1274 retires the pair. Until then the reconciliation table above, not the card, is where a person's second address is legible — which is why C7 measures the table.
