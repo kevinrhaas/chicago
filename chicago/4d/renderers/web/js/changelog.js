@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'The lawyer\u2019s advertisement placed the lawyer, not the coffee house', kind: 'fix', ts: '',
+  { v: 1130, title: 'The lawyer\u2019s advertisement placed the lawyer, not the coffee house', kind: 'fix', ts: '2026-09-26T06:28:55.374Z', date: 'Sep 26, 2026, 1:28 AM CT',
     items: [
       'Yesterday a disagreement was written onto the Exchange Coffee House. Andreas puts it at the north-west corner of Lake and Wells; an 1835 newspaper advertisement looked like it put it one block west, at Lake and Franklin. It is ruled today, and the house does not move.',
       'The advertisement is a Chicago lawyer\u2019s, Russell E. Heacock, and it ends with an address \u2014 an office \u201cin the 2d story, opposite the Exchange, corner of Lake and Franklin-sts\u201d. That corner is HIS: it is the address the notice exists to give, and the coffee house stands in it as the landmark opposite. Read the other way round, the corner had been moved off the advertiser and onto his landmark.',
