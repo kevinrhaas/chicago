@@ -13344,6 +13344,61 @@ Related: **L93** (the institutional families refused to a block parcel by name),
 outliers, and the seating tickets **T-1198** and **T-1199**.
 **Recorded:** 2026-09-19.
 
+**Revised:** 2026-09-26, T-1610. **A THIRTEENTH CLAUSE, AND IT IS AN OWNER RULING RATHER
+THAN A READING — THE THINNEST IN THE FILE.** `rear_dwelling_behind_its_own_roof` admits a
+D-family cottage at a `yard` setback off the block alley, behind the principal roof on its
+own lot, and makes it **ANCILLARY** there: a lot may carry a main house plus a rear
+dwelling. So the count above becomes thirteen clauses, **five** of them `inferred`, and the
+five cover C1, H1, H2 and D1–D7.
+
+**Why it exists, and it was not invented to be tidy.** T-1445's adjudication refamilies six
+A-family yard buildings on three platted blocks (`blk_randolph_market`,
+`blk_south_water_lasalle`, `blk_south_water_wells`) into dwelling families. The inventory
+class was read off the family GROUP alone, so each of the six became a second PRINCIPAL
+roof on a lot that already had one: the parcel gate refused all six, and no re-deal inside
+the verdict avoided it, because all 36 families the adjudication offers across them are
+ordinary dwellings. The three blocks hold two open lots between them against six roofs, and
+both are declared open in the recipe with a stated reason. T-1482 measured that, costed the
+three ways out, and asked, because all three change what the town IS. The owner answered on
+**2026-09-23**: *"Treat a rear cottage as ancillary, so a lot may carry a main house plus a
+rear dwelling."*
+
+**WHAT IS TAKEN HERE, SAID PLAINLY.** This town holds **no documented roof standing as a
+dwelling in another roof's yard**. The clause therefore cites **no record** — `evidence` is
+empty and the tier is `inferred`, and the reasoning in its place is the ruling, the six
+verdicts that needed it, and one measurement: the clause that refused the six,
+`ancillary_behind_its_own_roof`, refuses **three of its own four** evidence records when
+they are read against the same scored term, `wolf_point_tavern_stable` standing 36.70 m off
+a principal street where the refused `recon_1835_blk_randolph_market_a1_07` stands 29.28 m
+off one. A scored term its own evidence breaches is either the wrong term or the wrong
+evidence. That is an argument for doubting the refusal; it is **not** evidence for the rear
+cottage, and this entry does not dress it up as any. It also avoids nothing on purpose —
+where the A clause avoids `class:principal`, a rear cottage stands behind, off the alley, so
+the traffic class of the street its lot fronts is not a fact about its position.
+
+**What is NOT taken.** No roof moved. The six are not re-dealt: the recipe still stands them
+as A-family slots, no id has changed, nothing was rebaked, and no confidence moved anywhere
+— **T-1611** carries them out. No outlier was removed by the new clause: all seven documented
+D roofs conformed under their existing clauses already, and the policy still reports 56
+conforming of 77 with 21 outliers, the same counts as before. And because a rear cottage is
+ancillary rather than principal, the blocks' principal-roof counts do not move, so
+`lot_ceiling_principal` and `block_rooms` are untouched — a promotion to principal would have
+breached both, which is the second reason the ruling was needed and not merely convenient.
+
+**Two gates now hold it, rather than a comment.** `reconcile_665.inventory_class` is the one
+derivation and reads the POSITION as well as the group, so the generator and the redeal
+executor cannot come to two opinions; `generate_block_infill.check_slot_inventory_classes`
+refuses any recipe slot whose declared class is not the derived one, which is what makes
+T-1611 a re-deal instead of a field edit. `tools/measure_block_redeal_remedies.py --check`
+re-derives the six on every run and refuses a report in which any of them is refused again.
+
+**And one consequence a visitor will meet.** The adoption gate asked the inventory class and
+now asks the FAMILY. Its reason was always that *"a household living in a privy is not a
+modest claim but a nonsensical one"* — which is true of a privy, not of a position — so a
+rear cottage may house a household and a stable still may not. A business is refused from a
+rear cottage for a different reason, stated in `adopt_street_faces.yard_roofs`: every
+adoption there claims a STREET FACE, and a roof off the alley has none.
+
 ### L257 — Six boarding houses become houses of trade because the buildings were already standing and nothing in the business layer could see them
 
 **Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which SEVEN are this

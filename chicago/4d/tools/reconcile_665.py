@@ -282,6 +282,55 @@ def group_of(family: str) -> str:
     return GROUP_OF_LETTER[family[0]]
 
 
+# THE INVENTORY CLASS READS THE POSITION AS WELL AS THE GROUP (T-1610).
+#
+# It read the group alone until now, and that is what stopped the platted blocks' six
+# refamily verdicts. All six are yard buildings standing at a `yard` setback off their
+# block alley, BEHIND the principal roof on their own lot, and T-1445 moves every one of
+# them into an `ordinary_dwellings` family. Under a group-only reading a dwelling family
+# is `principal_functional` wherever it stands, so each verdict made its roof a SECOND
+# principal roof on an occupied lot — refused by the parcel gate, and over
+# `lot_ceiling_principal` besides. T-1482 measured that and asked the owner, who ruled on
+# 2026-09-23 (option (a)): *treat a rear cottage as ancillary, so a lot may carry a main
+# house plus a rear dwelling*. `rear_dwelling_behind_its_own_roof` in the placement policy
+# is that ruling written as a clause; this is the same ruling written as the derivation
+# the generators deal by.
+#
+# THE POSITION IS COMMITTED DATA, not a judgement made here: a block recipe's slot says
+# `stands_on: "alley"` and names the `lot` it stands on, and the lots carrying a principal
+# roof are the ones the same deal already placed one on. So "behind the principal roof on
+# its own lot" is read off the recipe, and a caller who knows no position (the North
+# Division's placement rows, which carry none) gets the group-only answer it always got.
+def inventory_class(family: str, *, stands_on: str | None = None,
+                    lot_carries_a_principal_roof: bool = False) -> str:
+    """`ancillary` or `principal_functional`, from what a roof IS and where it STANDS.
+
+    A barn or a small outbuilding is ancillary by what it is, wherever it stands — that
+    half is unchanged and is the older rule. Anything else is ancillary when it stands in
+    the yard: off the alley, on a lot whose principal roof is already dealt.
+    """
+    if group_of(family) in ANCILLARY_GROUPS:
+        return "ancillary"
+    if stands_on == "alley" and lot_carries_a_principal_roof:
+        return "ancillary"
+    return "principal_functional"
+
+
+def houses_a_household(family: str) -> bool:
+    """Whether an occupant may be adopted onto this family's roof — by GROUP, not class.
+
+    `generate_block_infill` has refused an occupant on an ancillary roof since the
+    inferred-household programme, and L256's neighbour states the reason in the only
+    terms that ever justified it: *"a yard building serves the lot it stands behind, and a
+    household living in a privy is not a modest claim but a nonsensical one"*. What makes
+    that nonsensical is that the roof is a PRIVY, not that it is in the yard — so the
+    refusal belongs to the two ancillary groups and never to the position. Once a rear
+    cottage can be ancillary (T-1610), reading the class here would refuse a dwelling a
+    household for standing behind the house, which is what a rear cottage is for.
+    """
+    return group_of(family) not in ANCILLARY_GROUPS
+
+
 def apportion(total: int, weights: list[float]) -> list[int]:
     """Hamilton's method — proportional, integer, sums exactly, ties broken by position."""
     if total <= 0 or not weights:
