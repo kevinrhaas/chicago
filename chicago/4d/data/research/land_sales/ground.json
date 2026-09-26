@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 419,
+    "structures_placed": 421,
     "structures_reached": 69,
     "structures_reached_by_grade": {
       "inferred": 19,
       "reconstructed": 50
     },
     "structures_unreached_by_section": {
-      "09": 348,
+      "09": 350,
       "10": 1,
       "16": 1
     },
@@ -39692,8 +39692,10 @@
       "recon_1835_blk_south_water_franklin_d1_04",
       "recon_1835_blk_south_water_franklin_d2_05",
       "recon_1835_blk_south_water_franklin_d3_03",
+      "recon_1835_blk_south_water_franklin_d3_13",
       "recon_1835_blk_south_water_franklin_d4_02",
       "recon_1835_blk_south_water_franklin_d4_08",
+      "recon_1835_blk_south_water_franklin_d4_12",
       "recon_1835_blk_south_water_franklin_d5_01",
       "recon_1835_blk_south_water_franklin_d5_09",
       "recon_1835_blk_south_water_lasalle_a1_14",

@@ -10821,6 +10821,12 @@
       "asset": "gltf/recon_1835_blk_south_water_franklin_d3_03__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_south_water_franklin_d3_13",
+      "name": "Reconstructed D3 one-room frame cottage #13",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_d3_13.json",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_d3_13__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_south_water_franklin_d4_02",
       "name": "Reconstructed D4 two-room frame cottage #02",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_d4_02.json",
@@ -10831,6 +10837,12 @@
       "name": "Reconstructed D4 two-room frame cottage #08",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_d4_08.json",
       "asset": "gltf/recon_1835_blk_south_water_franklin_d4_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_d4_12",
+      "name": "Reconstructed D4 two-room frame cottage #12",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_d4_12.json",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_d4_12__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_franklin_d5_01",

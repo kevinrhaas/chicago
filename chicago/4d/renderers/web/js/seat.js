@@ -96,6 +96,59 @@ export function seatTarget(row) {
 }
 
 /**
+ * The roof the PLACEMENT POLICY dealt this row, or null (T-1618).
+ *
+ * This is not a rung and it is not the ladder's seat. `data/reconstruction/
+ * 1835_platted_seats.json` and its off-plat sibling deal every reconstructed
+ * household onto the ground, and the address book carries that deal on the row
+ * as `dealt_roof`. 172 of those deals adopt a roof this scene already raises;
+ * six request one the programme has not built, and a request is nowhere to
+ * stand, so this returns null for them and the words below say who owes it.
+ */
+export function dealtTarget(row) {
+  const deal = row?.dealt_roof;
+  if (!deal || !deal.structure_id) return null;
+  return { kind: 'structure', id: deal.structure_id };
+}
+
+/**
+ * What a card can actually offer to take a visitor to: the ladder's own seat
+ * first, and where the evidence reaches no seat at all, the roof the policy
+ * dealt. `from` says WHICH, because the two must never read alike — the first
+ * is where a record puts the household and the second is where this project
+ * put them.
+ */
+export function goTarget(row) {
+  const seat = seatTarget(row);
+  if (seat) return { ...seat, from: 'seat' };
+  const dealt = dealtTarget(row);
+  return dealt ? { ...dealt, from: 'dealt' } : null;
+}
+
+/** What the dealt button promises. It names the POLICY, never an address: the
+ *  household's own record reaches nothing, and arriving at this roof must not be
+ *  mistakable for the record having put them there. */
+export function dealtVerb(row) {
+  const ground = row?.dealt_roof?.ground;
+  if (ground === 'platted_lot') return 'Go to the roof the policy deals it, on the plat';
+  if (ground === 'off_plat_parcel') return 'Go to the roof the policy deals it, off the plat';
+  return 'Go to the roof the policy deals it';
+}
+
+/** The deal, said in words under the ladder's own. Printed whether or not there
+ *  is a button — a requested slot has no roof to stand at and the visitor is owed
+ *  the difference between "not dealt" and "dealt, and not built yet". */
+export function dealtHtml(row) {
+  const deal = row?.dealt_roof;
+  if (!deal) return '';
+  const owed = deal.owed_to
+    ? ` <span class="people-seat-owed">The roof is owed to ${escapeHtml(deal.owed_to)}.</span>`
+    : '';
+  return `<span class="people-seat-dealt" data-how="${escapeHtml(deal.how)}"
+      data-dealt-by="${escapeHtml(deal.dealt_by)}">${escapeHtml(deal.words)}${owed}</span>`;
+}
+
+/**
  * The seat block a card prints: the button where there is one, then the rung,
  * the words the seat was dealt in, and what would replace it.
  *
@@ -107,15 +160,21 @@ export function seatTarget(row) {
  */
 export function seatHtml(row, { title = null, goable = false, extraClass = '' } = {}) {
   if (!row) return '';
-  const target = seatTarget(row);
+  const target = goTarget(row);
+  const dealt = target?.from === 'dealt';
+  // A dealt roof is substitutable BY CONSTRUCTION — the generator asserts it — so it
+  // always carries the sub-line. A ladder seat carries it only where the row says so.
+  const substitutable = dealt || row.seat_is_substitutable;
   const button = target && goable
-    ? `<button type="button" class="people-go biz-go seat-go" data-go="seat"
+    ? `<button type="button" class="people-go biz-go seat-go${dealt ? ' seat-go-dealt' : ''}" data-go="seat"
         data-structure="${escapeHtml(target.id)}"
         title="${escapeHtml(row.replaceable_by ? `Would move it up the ladder: ${row.replaceable_by}` : '')}">
-        <span class="people-go-verb">${escapeHtml(seatVerb(row))}</span>
+        <span class="people-go-verb">${escapeHtml(dealt ? dealtVerb(row) : seatVerb(row))}</span>
         <span class="people-go-title">${escapeHtml(title || target.id)}</span>${
-  row.seat_is_substitutable
-    ? '<span class="seat-go-sub">housing, not a reading — substitutable</span>'
+  substitutable
+    ? `<span class="seat-go-sub">${dealt
+      ? 'the policy\u2019s deal, not a reading \u2014 substitutable'
+      : 'housing, not a reading \u2014 substitutable'}</span>`
     : ''}</button>`
     : '';
   const owed = row.owed_to
@@ -124,5 +183,6 @@ export function seatHtml(row, { title = null, goable = false, extraClass = '' } 
   return `${button}<p class="people-seat${extraClass ? ` ${extraClass}` : ''}" data-rung="${escapeHtml(row.rung)}">
       <span class="people-seat-rung">${escapeHtml(rungLabel(row))}</span>
       <span class="people-seat-words">${escapeHtml(row.words)} ${owed}</span>
-      <span class="people-seat-next">Would move it up the ladder: ${escapeHtml(row.replaceable_by)}.</span></p>`;
+      <span class="people-seat-next">Would move it up the ladder: ${escapeHtml(row.replaceable_by)}.</span>${
+  dealtHtml(row)}</p>`;
 }

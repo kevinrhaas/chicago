@@ -1863,6 +1863,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_franklin_d3_03"
     },
+    "recon_1835_blk_south_water_franklin_d3_13__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 26788,
+      "inputs_sha256": "d115194972d58724e7df9cd861cfdc666effe7643076bc837fab53e771f5872e",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_south_water_franklin_d3_13"
+    },
     "recon_1835_blk_south_water_franklin_d4_02__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
@@ -1881,11 +1890,20 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_franklin_d4_08"
     },
+    "recon_1835_blk_south_water_franklin_d4_12__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 27408,
+      "inputs_sha256": "15332ea97f379a90a81a8fd24f601bc2263205a4011532f9b7469dfdc72e6dfa",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_south_water_franklin_d4_12"
+    },
     "recon_1835_blk_south_water_franklin_d5_01__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 29280,
-      "inputs_sha256": "e3906fbd19a35fbc44fefaebd20d74adf4e54d323bbfa1491bb88a2072569170",
+      "bytes": 28344,
+      "inputs_sha256": "68901d593f9013e086e0cac906d8a216b061121c2efb63b4cf2cf34b45efe4ba",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_franklin_d5_01"

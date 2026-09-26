@@ -520,6 +520,24 @@ const shadowRigFor = (level, touch) => {
  *   the Sauganash at 26 m    121 calls     960,515 tris   <- the old sole stand
  *   Newberry & Dole's wharf   94 calls     812,603 tris
  *
+ * RE-READ 2026-09-26 (T-0135's close), same instrument, same viewport, dev @
+ * 50de0e10 — AND THE WORST STAND HAS MOVED. It is no longer Lake at Canal:
+ *
+ *   the forks, from Wolf Pt  183 calls   1,378,519 tris   <- worst at full and balanced
+ *   Lake at Canal, east      163 calls   1,323,964 tris
+ *   Lake and Market          164 calls   1,067,232 tris
+ *   the open aerial          147 calls   1,255,131 tris   <- worst at light, and 99 calls there
+ *   the Sauganash at 26 m    124 calls     936,123 tris
+ *
+ * Nothing regressed and nothing was tuned; the town filled in westward and the
+ * open-water view across the forks now draws more of it than the axial street
+ * does. That is the set doing the job it was built for — a single chosen stand,
+ * even the one honestly chosen as worst in August, would have been reading the
+ * second-worst frame for a month. It is also why the ceilings are argued against
+ * `worst-of-set` and not against a named camera, and why nothing below is
+ * re-ranked: membership is about the SHAPE of cost each stand covers, and every
+ * one of the five still covers its own.
+ *
  * South Water is NOT in the set: it is inside the set's worst on both axes and
  * its shape — an axial street down built frontage — is already carried by Lake
  * at Canal, so it would cost the gate a stand's worth of time and buy no
@@ -2102,6 +2120,60 @@ for (const [label, viewport, touch] of [
       multisample.asked === true && multisample.samples >= 2,
       `antialias=${multisample.asked} SAMPLES=${multisample.samples} `
       + `pointer:coarse=${multisample.coarse}`);
+
+    // --- the scene-detail ladder is a ladder, and every rung says what it is
+    // --- for (T-0135, the owner's ruling of 2026-09-21) ---------------------
+    //
+    // THIS IS THE CHEAP HALF OF THE LADDER GATE AND IT IS HERE ON PURPOSE. The
+    // other half — that turning the control down actually draws less, at every
+    // stand — is in PART 5 and costs six minutes of sweep to answer. This half
+    // asks nothing of the scene: it reads the declaration, and a declaration
+    // that is not a ladder is wrong on every branch whether or not anybody can
+    // afford to run the sweep on it. A structural fault that only a six-minute
+    // part can see is a fault that ships.
+    //
+    // Three things, and the ruling names all three:
+    //
+    //  1. THE DECLARED CEILINGS DESCEND ON THEIR OWN. `main.js` clamps them to
+    //     a running minimum so a mistyped rung cannot BE too high — but a clamp
+    //     firing means the table says something untrue, and the table is what a
+    //     person reads and argues with. The construction stops the visitor
+    //     seeing it; this stops it staying there.
+    //  2. NO RUNG IS RUNNING CLAMPED. `sealLadder` marks one that is. Without
+    //     this the clamp would be the quiet failure it was written not to be.
+    //  3. EVERY RUNG STATES WHAT IT PROTECTS AND WHAT MEASUREMENT SET IT.
+    //     Verbatim from the ruling: "A rung that cannot say what it protects is
+    //     the next version of this ticket." Gated rather than trusted, because
+    //     the rung most likely to lose its statement is the one somebody is in
+    //     the middle of raising.
+    const ladder = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const order = ['full', 'balanced', 'light'];
+      return order.map((level) => {
+        const r = a.detailLevels[level] || {};
+        return { level, ceiling: r.triangles, declared: r.declared, clamped: !!r.clamped,
+          protects: typeof r.protects === 'string' ? r.protects.trim() : '',
+          measured: typeof r.measured === 'string' ? r.measured.trim() : '' };
+      });
+    });
+    const notDescending = ladder.filter((r, i) => i > 0
+      && !(ladder[i - 1].declared > r.declared));
+    check(`${label}: the declared scene-detail ceilings descend — it is a ladder, not three numbers`,
+      notDescending.length === 0 && ladder.every((r) => Number.isFinite(r.declared)),
+      ladder.map((r) => `${r.level} ${(r.declared ?? NaN).toLocaleString('en-US')}`).join(' > ')
+      + (notDescending.length ? ` — ${notDescending.map((r) => r.level).join(', ')} does not sit under the rung above it` : ''));
+    const clamped = ladder.filter((r) => r.clamped);
+    check(`${label}: no scene-detail rung is running clamped — the table and the scene agree`,
+      clamped.length === 0,
+      clamped.length
+        ? clamped.map((r) => `${r.level} declared ${r.declared} running ${r.ceiling}`).join('; ')
+        : 'every rung carries the ceiling its table declares');
+    const unstated = ladder.filter((r) => !r.protects || !r.measured);
+    check(`${label}: every scene-detail rung says what it protects and what measurement set it`,
+      unstated.length === 0,
+      unstated.length
+        ? unstated.map((r) => `${r.level} is missing ${[!r.protects && 'protects', !r.measured && 'measured'].filter(Boolean).join(' and ')}`).join('; ')
+        : ladder.map((r) => `${r.level}: ${r.protects.split(':')[0]}`).join(' · '));
 
     // T-1292: the loader is an arrival screen, not a coverage dashboard. The census
     // mount no longer exists there, and no count, percentage or completeness bar may
@@ -8481,6 +8553,32 @@ for (const [label, viewport, touch] of [
     // not to wherever the reading was, and the next parcel to spend the five
     // spare calls reaches it honestly. When THIS one goes red, same rule:
     // a trim or an argued re-budget, never a quiet weakening.
+    //
+    // IT WENT RED, AND THIS TIME THE ANSWER WAS THE TRIM — T-1595, 2026-09-26.
+    // Red at 94 on dev on 2026-09-20 (the banked dev-smoke reading) and at 99
+    // six days later, worst stand the open aerial. 90 HAS NOT MOVED and is not
+    // asked to: `tools/measure_stand_budget.mjs --stand from_above --tiers
+    // light` priced the frame layer by layer for the first time and the ground
+    // was 45 of the 99 calls, nearly half, against 28 % of the triangles. Of
+    // its 360 tiles, 130 were the heightfield's SKIRT — the apron outside the
+    // modelled box — cut on the same 240 m grid and holding 2,489 triangles
+    // BETWEEN THEM, nineteen apiece, each its own draw. `terrain.js` now gives
+    // every bucket under GROUND_TILE_MIN_TRIS one mesh between them, which is
+    // a change of batching and of nothing else.
+    //
+    // Re-read afterwards on the published mirror with
+    // `tools/measure_detail_ceilings.mjs`, the instrument that reproduces this
+    // sweep to the draw call, at both viewports:
+    //
+    //                     light worst calls        full worst calls
+    //   desktop 1280x800   99 -> 82 (Lake & Market)  183 -> 156 (the forks)
+    //   mobile   390x780         74 (Lake & Market)        155 (Lake at Canal)
+    //
+    // Eight calls of room under the floor where there were none, and the town
+    // budget of 215 gains 27 at its own worst frame. WHAT IT COST, said plainly:
+    // the merged remainder is one bounding box round the whole scene, so its
+    // 2,489 triangles can no longer be frustum-culled and every stand reads
+    // about 3,600 triangles heavier. Both figures are in `DETAIL`'s rungs.
     //
     // The ratio is KEPT underneath rather than replaced: the count is the
     // promise to a weak machine, the ratio is the claim that the scene-detail
