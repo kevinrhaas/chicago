@@ -1732,8 +1732,22 @@ function mirrorTickets() {
 
 /* ----------------------------------------------------------------- check */
 
+/**
+ * Every fault this queue can be in. Returned as objects rather than strings since
+ * T-1593, because the CALLER has to be able to tell the two kinds apart:
+ *
+ *   scope 'tickets'  the fault is in kevinrhaas/chicago-tickets — a ticket's own
+ *                    front-matter, or QUEUE.md's ranking of it. A code pull request
+ *                    does not carry those files, so no change it makes can clear one.
+ *   scope 'code'     the fault is in THIS repository, in the diff under review, and
+ *                    is the pull request's own to fix.
+ *
+ * `problems` is the first kind and `codeProblems` the second; the split is here rather
+ * than at the twenty push sites because all but one of them is about a ticket.
+ */
 function check(tickets) {
   const problems = [];
+  const codeProblems = [];
   const seen = new Map();
   for (const t of tickets) {
     const at = path.basename(t.file);
@@ -1921,12 +1935,39 @@ function check(tickets) {
   // copy in publish.sh moves or goes away, this says so rather than letting the
   // two drift into silently mirroring different paths.
   if (existsSync(PUBLISH_SH) && !readFileSync(PUBLISH_SH, 'utf8').includes(PUBLISH_PIN)) {
-    problems.push(`tools/publish.sh no longer contains \`${PUBLISH_PIN}\`, which is the copy `
+    // …and this one is THIS repository's, in the diff under review: `tools/publish.sh`
+    // and `tools/ticket.mjs` are both files a code pull request changes, so it is the
+    // pull request's own to fix and fails its gate (T-1593).
+    codeProblems.push(`tools/publish.sh no longer contains \`${PUBLISH_PIN}\`, which is the copy `
       + 'this tool mirrors on its behalf (T-0154). Reconcile them: change MIRROR in '
       + 'tools/ticket.mjs to publish.sh\'s new destination, or drop the mirroring if '
       + 'publish.sh has stopped carrying tickets.json at all.');
   }
-  return problems;
+  return [
+    ...codeProblems.map((text) => ({ text, scope: 'code' })),
+    ...problems.map((text) => ({ text, scope: 'tickets' })),
+  ];
+}
+
+/**
+ * Who filed the ticket a fault is about, read off the ticket and off the tickets
+ * repository's own history — so a WARN about somebody else's filing names the filing
+ * (T-1593). Best-effort and message-only: the verdict never depends on it, so an
+ * unresolvable id or a clone with no history just omits the line.
+ */
+function filingOf(problem, tickets) {
+  const id = (/\bT-\d{4}\b/.exec(problem.text) ?? [])[0];
+  if (!id) return null;
+  const t = tickets.find((x) => x.id === id);
+  if (!t) return null;
+  const who = [t.opened ? `filed ${t.opened}` : null, t.requested_by ? `by ${t.requested_by}` : null]
+    .filter(Boolean).join(' ');
+  let commit = null;
+  if (inRepoMode() && t.file) {
+    const r = tgit(['log', '-1', '--format=%h %s', '--', path.relative(DIR, t.file)]);
+    if (r.status === 0) commit = (r.stdout || '').trim().split('\n')[0] || null;
+  }
+  return [who || null, commit ? `chicago-tickets ${commit}` : null].filter(Boolean).join(' · ') || null;
 }
 
 /* ----------------------------------------------- the tickets repository */
@@ -2127,6 +2168,53 @@ switch (cmd) {
     if (!title) { console.error('usage: ticket.mjs new "title" [--after T-NNNN] [--epic E] [--by owner|loop|steward] [--seen] [--needs-bake] [--effort M] [--legacy OLD-ID] [--anyway --why "<reason>"]\n'
       + '  --after T-NNNN  place the new line directly under that ticket, inside its band (a run\'s\n'
       + '                  filings go here — beside the work they serve, never at the foot)'); process.exit(1); }
+
+    /**
+     * THE FILING FAULT IS CAUGHT AT FILING (T-1593), because it is the only place one
+     * person can fix it in one command.
+     *
+     * `check` refuses an effort-L ticket in the queue and is right to: an L is MORE THAN
+     * ONE RUN, so whoever claims it cannot finish it, and saying so loudly is the point.
+     * But the state that step reads lives in the TICKETS repository, which is not in any
+     * code PR's diff — so the red belongs to every open pull request at once and to none
+     * of them in particular. Measured 2026-09-25: T-1585 and T-1586 were filed as L at
+     * 23:07Z, and the gate on #51 — a PR whose whole diff was AGENTS.md, a changelog entry
+     * and three files under tools/ — came back red on `ticket queue` at 23:44Z. Nothing
+     * #51 could do would clear it; it merged with GH_REST_MERGE_BLIND=1 and the reason
+     * written on the PR, which is the escape hatch working and not a thing to need.
+     *
+     * So the queue rule is not weakened, it is MOVED FORWARD: an unsplit L never enters
+     * QUEUE.md, and the person refused is the one who has the ticket in their head.
+     * `--anyway` cannot reach this — it overrides the ticket BUDGET, a judgement about
+     * whether a finding deserves a line, and there is no corresponding judgement here:
+     * the gate refuses an L unconditionally, so filing one anyway would only choose whose
+     * pull request goes red for it.
+     */
+    const effort = String(flag('effort') ?? 'M').toUpperCase();
+    const anchorFor = (flag('after') ?? 'T-NNNN');
+    if (!Object.keys(EFFORT).includes(effort)) {
+      console.error(`ticket.mjs new: REFUSED — effort "${flag('effort')}" is not one of `
+        + `${Object.keys(EFFORT).join('/')}.\n`);
+      console.error('Effort is measured in RUNS, and the gate reads it:');
+      for (const [k, v] of Object.entries(EFFORT)) console.error(`  ${k.padEnd(2)}  ${v}`);
+      console.error('\nA value the gate cannot read is the same fault as an L: it is written here,');
+      console.error('and reported hours later in the gate of a pull request that cannot fix it.');
+      process.exit(1);
+    }
+    if (effort === 'L') {
+      console.error(`ticket.mjs new: REFUSED — effort L is ${EFFORT.L}.\n`);
+      console.error('A queue line is a promise that whoever takes it can finish it. Size it before');
+      console.error('you file it: the pieces go in as their own tickets, beside the work they serve.\n');
+      console.error(`  node tools/ticket.mjs new "first piece"  --effort M --after ${anchorFor}`);
+      console.error(`  node tools/ticket.mjs new "second piece" --effort M --after ${anchorFor}\n`);
+      console.error('An L ALREADY in the queue is cut instead — the children keep its place:\n');
+      console.error('  node tools/ticket.mjs split T-NNNN "first piece" "second piece"\n');
+      console.error('`--anyway` cannot take this. It overrides the ticket BUDGET; the queue gate');
+      console.error('refuses an L unconditionally, and that state lives in the tickets repository —');
+      console.error('so an L filed anyway turns `ticket queue` red for every open pull request at');
+      console.error('once, and no code change in any of them can clear it (T-1593).');
+      process.exit(1);
+    }
     // The budget, measured against the base rather than guessed: the tickets THIS BRANCH
     // adds are the ones it is accountable for.
     const QUEUE_CEILING = 140;
@@ -2169,7 +2257,7 @@ switch (cmd) {
       id, title, state: 'open',
       epic: (flag('epic') ?? 'META').toUpperCase(),
       requested_by: flag('by') ?? 'steward',
-      seen: has('seen'), effort: flag('effort') ?? 'M',
+      seen: has('seen'), effort,
       legacy_id: flag('legacy') ?? null,
       opened: today(), closed: null, closed_at: null, pr: null,
       claimed_by: null, claimed_run: null, blocked_on: null,
@@ -3030,22 +3118,61 @@ switch (cmd) {
         + '  They live in kevinrhaas/chicago-tickets: `bash tools/tickets.sh` clones them into tickets/.');
       process.exit(1);
     }
+    let dirty = '';
+    let ahead = '';
     if (inRepoMode()) {
-      const dirty = tgit(['status', '--porcelain', '--untracked-files=all']).stdout?.trim();
-      const ahead = tgit(['rev-list', '--count', '@{u}..HEAD']).stdout?.trim();
+      dirty = tgit(['status', '--porcelain', '--untracked-files=all']).stdout?.trim() ?? '';
+      ahead = tgit(['rev-list', '--count', '@{u}..HEAD']).stdout?.trim() ?? '';
       if (dirty) console.error(`  WARNING: the tickets clone has changes nobody else can see yet:\n${dirty.split('\n').map((l) => `    ${l}`).join('\n')}\n  push them: node tools/ticket.mjs sync -m "what changed"`);
       if (ahead && ahead !== '0') console.error(`  WARNING: the tickets clone is ${ahead} commit(s) ahead of its remote — push: bash tools/tickets.sh --push`);
     }
     const problems = check(tickets);
-    if (problems.length) {
+    /**
+     * WHOSE RED IS IT? (T-1593.) `--inherited-warn` is how `tools/check.sh` asks, and it
+     * is the whole difference between a gate that says "your change is wrong" and one
+     * that says "the queue is wrong, here is who filed it and the one command that
+     * clears it". Three conditions, and all three have to hold:
+     *
+     *   the flag         only the code repository's gate passes it. Run bare — by hand,
+     *                    or by the tickets repository's own CI — `check` is strict, which
+     *                    is what keeps the rule enforced SOMEWHERE.
+     *   repo mode        in embedded mode the tickets sit inside this repo and ARE in the
+     *                    diff, so every fault is the branch's own. (Every sandbox test
+     *                    runs embedded, and is held to the old behaviour exactly.)
+     *   a clean clone    if the tickets clone is dirty or ahead of its remote, THIS RUN
+     *                    put it in that state, so whatever is wrong is this run's own and
+     *                    still fails. That is the honest half of the distinction: what a
+     *                    pull request cannot fix is what it did not cause.
+     *
+     * A fault of scope 'code' fails either way — it is in the diff under review.
+     */
+    const warnInherited = has('inherited-warn') && inRepoMode()
+      && !dirty && (!ahead || ahead === '0');
+    const fatal = problems.filter((x) => x.scope === 'code' || !warnInherited);
+    const warned = problems.filter((x) => !fatal.includes(x));
+    if (warned.length) {
+      console.error(`  WARN: ${warned.length} queue fault(s) this pull request cannot fix — they are the`);
+      console.error('  state of kevinrhaas/chicago-tickets, a different repository, which no code diff');
+      console.error('  carries (T-1593). Reported, not charged to this branch:');
+      for (const x of warned) {
+        console.error('    - ' + x.text);
+        const filing = filingOf(x, tickets);
+        if (filing) console.error(`      ↳ ${filing}`);
+      }
+      console.error('  Whoever runs the command above clears it for EVERY open pull request at once:');
+      console.error('  `bash tools/tickets.sh` for a clone, then run it there. If it is the owner\'s to');
+      console.error('  answer, `node tools/ticket.mjs ask T-NNNN --question "…"` puts it on his board.');
+    }
+    if (fatal.length) {
       console.error('ticket queue FAILED:');
-      for (const p of problems) console.error('  - ' + p);
+      for (const x of fatal) console.error('  - ' + x.text);
       process.exit(1);
     }
     const open = tickets.filter((t) => WORKABLE.includes(t.state)).length;
     // Waiting on the owner = parked as blocked-owner OR asked in the queue (`ask`).
     const blocked = tickets.filter((t) => t.state === 'blocked-owner' || t.decision === 'pending').length;
-    console.log(`ticket queue OK — ${tickets.length} tickets, ${open} in the queue, ${blocked} waiting on the owner`);
+    console.log(`ticket queue OK — ${tickets.length} tickets, ${open} in the queue, ${blocked} waiting on the owner`
+      + (warned.length ? ` — and ${warned.length} inherited fault(s) reported above as WARN, none of them this branch's` : ''));
     break;
   }
   case 'claims': {
