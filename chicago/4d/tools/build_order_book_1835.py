@@ -82,6 +82,10 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+# THE WALK OVER A SPLIT IS ONE DEFINITION AND NOT THREE (T-1581) — see that module.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import ticket_liveness  # noqa: E402
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 REPORT = ROOT / "docs" / "RESEARCH" / "1835_reconstruction_order_book.md"
 
@@ -143,16 +147,59 @@ HOUSEHOLD_TYPES = (
 PERSON_TICKET_RULES = (
     ("fort division", lambda a: a["division"] == "fort", "T-1176"),
     ("the transient cohort", lambda a: a["household_type"] == "transient", "T-1178"),
-    # T-1500 repointed this off its split parent on 2026-09-21 (T-1420), the same
-    # sweep and the same reason as T-1347's two lines below. T-1175 — fill the beds —
-    # split into T-1370 (the lodging model), T-1371 (seat the boarders) and T-1372,
-    # and every piece of that tree that fills a bed has since closed; its one live
-    # descendant, T-1407, is the crews and the harbour-works gang and nothing else.
-    # So the 278 persons these 59 buckets still order were ordered by nobody, which
-    # is the hole `every_work_order_names_a_live_ticket` refuses. T-1500 carries the
-    # remainder to the queue as a row the owner can rank. Who fills WHICH bed is a
-    # modelling decision and is not taken here.
-    ("a bed rather than a household", lambda a: a["household_type"] == "lodging", "T-1500"),
+    # THE BED BUCKETS, cut three ways by T-1500 on 2026-09-24.
+    #
+    # T-1420's sweep (2026-09-21) found these cells ordered by T-1175, which had split,
+    # and every piece of that tree that fills a bed had closed. It repointed them at
+    # T-1500 as ONE placeholder owner and said so: "Who fills WHICH bed is a modelling
+    # decision and is not taken here." T-1500 is that decision, and the answer is that
+    # the remainder is not one job. It is three, and the boarders stage
+    # (`tools/seat_lodgers_1835.py`) had already drawn the lines, in the three refusals
+    # it wrote against itself — so the cut below is quoted from the town's own work
+    # rather than picked, which is why it is a rule on the axes and not a table of cells.
+    #
+    # The stage's own summary of what it left: "the rest wait on the 37 unbuilt boarding
+    # houses, the crews and the works gang (T-1372), the trades this stage does not deal,
+    # and the children who are keepers' families rather than boarders."
+    #
+    #   refusal 2, NO TRADE IS DEALT      -> T-1532, the working lodgers
+    #   refusal 3, NO CHILDREN            -> T-1533, the minted keepers' own families
+    #                                        (shipped; its remainder is T-1536)
+    #   the 37 unbuilt boarding houses    -> T-1534, the boarders proper, bed-bound
+    #
+    # On the book as T-1500 read it, the 278 still owed divide 61 / 86 / 131 across the
+    # three, over 30 / 12 / 24 of the 66 cells. The order of the rules matters once: a
+    # 10-19-year-old AT A TRADE is an apprentice boarding where they work, so the trade
+    # rule takes those six cells before the under-twenty rule sees them. There is no
+    # `under_10` trade cell — children carry no trade — so nothing else turns on it.
+    #
+    # T-1407 (the crews and the harbour-works gang) stays the one live descendant of
+    # T-1175 and is NOT given cells here: a crew sleeps aboard rather than in a division's
+    # house, and the book has no axis that separates them. T-1534 carries that refusal.
+    ("a working lodger, a bed rather than a household",
+     lambda a: a["household_type"] == "lodging" and a["trade"] == "trade", "T-1532"),
+    # T-1536 succeeds T-1533 here, on the day T-1533 shipped. T-1533 drew the children of
+    # the six keepers the boarders stage MINTED — ten of the eighty-six — and the other
+    # seventy-six are not reachable from that stage at all: they are the children of
+    # DOCUMENTED keepers, whose families are T-1171's draw and T-1179's convergence, and
+    # the children of the 37 boarding houses the lodging model schedules and nobody has
+    # built, where there is no keeper to be kin to. A bucket must name who does what is
+    # LEFT, so it names the successor rather than the ticket whose fills stand in it.
+    ("a child of the house, a bed rather than a household",
+     lambda a: a["household_type"] == "lodging" and a["age_band"] in ("under_10", "10_19"),
+     "T-1536"),
+    # T-1534 split into T-1537 and T-1538 on 2026-09-24 and the cells follow the split,
+    # not the parent: a bucket whose owning ticket is a SPLIT parent names nobody who can
+    # act on it (T-1237), and this gate is what says so. T-1538 is the beds — "fill the
+    # 131 adult beds… as T-1209 raises the 36 unbuilt lodging roofs" — so the person cells
+    # are its. The HOUSEHOLD rows below are T-1538's too, and T-1537 was the wrong owner
+    # for them for the reason this gate exists: T-1537 is a RECONCILIATION, and it closes
+    # the moment it lands. What it reconciles is the COUNTER — the fifteen lodging
+    # households the boarders stage had already built and filed no fill for — and once
+    # those fifteen are counted, 49 are still ordered and every one of them waits on a
+    # roof. A row that still owes work may not name a ticket that is finished.
+    ("a boarder, a bed rather than a household",
+     lambda a: a["household_type"] == "lodging", "T-1538"),
     # T-1347 repointed this off its split parent. T-1173 was the epic; it split into
     # T-1346 (read the 1839 trade table) and T-1347 (draw the heads), and a bucket whose
     # owning ticket is a SPLIT parent names nobody who can act on it (T-1237).
@@ -178,21 +225,47 @@ ROSTER_TICKETS = {
 HOUSEHOLD_BUCKETS = (
     ("family_dwelling", "ordinary_dwellings", "T-1171"),
     ("store_residence", "stores_mixed_use", "T-1171"),
-    # Swept with the person rule above (T-1420 -> T-1500). Both of these rows are
-    # discharged — every boarding house and inn the model wants is standing — so the
-    # gate does not reach them; they move only so that one household type does not
-    # answer to two different tickets depending on which family you read.
-    ("boarding_house", "larger_boarding_houses", "T-1500"),
-    ("inn_tavern", "inns_taverns", "T-1500"),
+    # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 -> T-1537 on
+    # 2026-09-24, T-1534 having split the same day). Of
+    # T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD: the
+    # other two fill beds inside a house somebody else's ticket keeps.
+    #
+    # These two rows were DISCHARGED when the sweep moved them — every boarding house and
+    # inn the model wanted was standing, so the gate did not reach them and they moved
+    # only so that one household type would not answer to two tickets depending on which
+    # family you read. T-1476 ended that on 2026-09-24: separating a household RECORD
+    # from a household in the town model took the count from 124 to 563 and reopened 64
+    # lodging houses (boarding_house 51, inn_tavern 13). So the rows carry work again, the
+    # gate does reach them, and T-1534 — the roofs-and-beds piece — is the right owner for
+    # them for the same reason it owns the boarders: a house has to stand before it holds
+    # anybody.
+    #
+    # AND T-1537 SETTLED WHAT THE 64 ACTUALLY WERE. T-1534's acceptance asked for these
+    # two counts to be reconciled before either half of its order was minted, and the
+    # answer was that the boarders stage had built FIFTEEN of these households into
+    # `data/residents/lodgers/` and filed a fill for not one of them — so the book ordered
+    # all 64 a second time and the progress bars on "Reconstructing the town" read nought
+    # for a band that had run. The stage files them now; these rows carry the 49 that are
+    # left, and all 49 wait on a roof. So the owner is T-1538, not T-1537: every one of
+    # the town's 144 ordinary night beds is slept in and all 16 built lodging places hold a
+    # household, and T-1537 is a counter that closes when it lands.
+    ("boarding_house", "larger_boarding_houses", "T-1538"),
+    ("inn_tavern", "inns_taverns", "T-1538"),
     # T-1188 split (T-1410, T-1411); the institutional HOUSEHOLDS are the people who
     # lived at a church, a parsonage or a school. T-1410's three establishments — post
     # office, land office, county rooms — house nobody. T-1411 split in turn (T-1421,
     # T-1422) and both children closed WITHOUT writing a household: they wrote
     # establishments and the hands about them, which is a different thing from the people
-    # who slept there. So this bucket is undone work that lost its owner, and it goes to
-    # T-1189 — every working person a workplace and every workplace its people — which is
-    # the live ticket that puts real persons at these establishments (T-1422).
-    ("institutional", "institutional_public", "T-1189"),
+    # who slept there.
+    #
+    # It went to T-1189 next, "the live ticket that puts real persons at these
+    # establishments", and T-1189 has since split too — T-1432 and T-1433 done, T-1434
+    # split onto T-1448 and T-1449, and not one of that tree writes a HOUSEHOLD; they
+    # staff businesses. The row was quiet through all of it because the quota read 0
+    # owed, and T-1476's ruling is what made it speak: with the house count taken
+    # against houses rather than records, these three cells order 11 households and
+    # order them from a ticket nobody can claim. T-1531 is filed for them.
+    ("institutional", "institutional_public", "T-1531"),
     ("garrison", "fort_principal", "T-1176"),
 )
 
@@ -283,10 +356,26 @@ BUSINESS_TICKETS = {
     # T-1442 printed it, so this row follows the two above to T-1215.
     "school": "T-1215",
     # T-1186 was split on 2026-09-20 when the unit ruling below turned out to be a
-    # demonstration of its own; T-1418 is the piece that owns these two rows and T-1419
+    # demonstration of its own; T-1418 was the piece that owned these two rows and T-1419
     # the services, which the census enumerates nowhere and which therefore own no bucket.
+    #
+    # T-1418 CLOSED, AND ONE OF ITS TWO ROWS THEN GREW WORK AGAIN (T-1525, 2026-09-24).
+    # Both rows read filled the day it closed, so the id sat here as the record of who
+    # filled them and the work-order gate below stayed quiet — which is the rule that gate
+    # states in as many words: a bucket with nothing left keeps the id of the ticket that
+    # filled it. Then the parish register's 120 residents (T-0841) raised the town model's
+    # low end from 2,353 to 2,363, both professions scale with the population they serve,
+    # and `physician` went from ordering 9 to ordering 10 against 9 drawn. A row with work
+    # left and a `done` ticket on it is exactly the hole T-1420 was filed for, so it is
+    # swept — onto T-1529, filed for that tenth physician, because T-1418's whole tree is
+    # closed and there was no live successor to sweep it onto.
+    #
+    # `lawyer` STAYS ON T-1418 and that is deliberate. It orders 1 against 2 drawn, so it
+    # has nothing left, and its surplus is a different question from its order: T-1506
+    # owns retiring the second reconstructed lawyer. Moving this id would rewrite the
+    # record of who filled the row to keep a gate quiet that is not complaining.
     "lawyer": "T-1418",
-    "physician": "T-1418",
+    "physician": "T-1529",
     "lyceum_and_reading_room": "T-1182",
     "other": "T-1182",
     "not_stated": "T-1182",
@@ -309,10 +398,26 @@ BUSINESS_TICKETS = {
 #           river ARRIVED. Ground that has arrived is not a wait.
 #   T-1192  split; its live piece is T-1414, the West Division's and Wabansia's
 #           corridors and small lots. That is the successor T-1420 was filed for.
-#   T-1193  split; its live frontier is T-1444 (via T-1417 and T-1431), and all
+#   T-1193  split; its live frontier was T-1444 (via T-1417 and T-1431), and all
 #           three of those say West Division in their own titles. The north half of
 #           T-1193 — the field regenerated to N +760 so the North Division's second
 #           parcel has ground — closed with T-1416.
+#
+# T-1444 CLOSED, AND THE WEST ROW IS SWEPT AGAIN (2026-09-26). It was the last live
+# descendant of all three of T-1193, T-1417 and T-1431, so its close is the T-1237
+# failure above recurring on the row the 2026-09-21 sweep had just repaired: a ground
+# row naming a ticket nobody can claim. `ticket_liveness.py` said so on this branch
+# rather than on the next one to gate, which is what that step is for.
+#   What T-1444 owned ARRIVED. The committed heightfield spans E -705..1,700 m and
+# `generate_west_infill.py --check` re-derives all 55 of the recipe's reviewed
+# placements with 0 withheld, so the West Division's held slots have ground and are
+# standing on it. Ground that has arrived is not a wait — the same reading that
+# emptied T-1191's and T-1194's rows above, applied to the row they left behind.
+#   T-1414 STAYS, AND IS WHAT THE WEST ROW WAITS ON NOW: street control west of
+# Clinton and Canal is still owed and T-1414's own title owes it. The other half of
+# the row's `waiting_on` prose — no unified terrain, hydrology or map coverage past
+# local E -700 m — has no live owner, and by the rule below that silence is the
+# statement this table makes rather than a ticket invented to fill it.
 #
 # SOUTH AND NORTH ARE EMPTY, AND THAT IS NOT A CLAIM THAT THEIR GROUND IS WHOLE. It
 # is the narrower statement this table can make: no LIVE ticket owns what they still
@@ -323,7 +428,7 @@ BUSINESS_TICKETS = {
 # owner for either would be inventing one; naming a closed ticket was worse.
 GROUND_TICKETS = {
     "south": [],
-    "west": ["T-1414", "T-1444"],
+    "west": ["T-1414"],
     "north": [],
     "fort": [],
 }
@@ -399,6 +504,13 @@ def load(root: Path = ROOT) -> dict:
         "residents": root / "data" / "residents" / "index.json",
         "register": root / "data" / "research" / "newspapers" / "register_1835.json",
         "presence_rulings": root / "data" / "reconstruction" / "1835_presence_rulings.json",
+        # THE TWO SEATING PASSES (T-1620). The book has always been able to say how many
+        # households the town still owes; it could not say how many of them now have
+        # GROUND. T-1613 dealt the committed plat and T-1614 the ground the plat does not
+        # draw, and both files are derived and re-derived by their own tools — so the book
+        # reads them and adds nothing to them.
+        "platted_seats": root / "data" / "reconstruction" / "1835_platted_seats.json",
+        "off_plat_seats": root / "data" / "reconstruction" / "1835_off_plat_seats.json",
     }
     out = {}
     for key, path in paths.items():
@@ -658,6 +770,16 @@ def known_layer(residents: dict, rulings: dict | None = None) -> dict:
         "households_present_by_division": {d: 0 for d in DIVISIONS},
         "persons_present_unplaced": 0,
         "households_present_unplaced": 0,
+        # T-1476's second unit. `households_present` counts RECORDS present in the
+        # layer; `houses_present` counts the ones the owner's ruling of 2026-09-21
+        # lets stand as a HOUSE, which is what the model's 643 is a count of. The
+        # clause that decided each is on its own manifest row (`dwelling_evidence`,
+        # derived by rebuild_resident_index.DWELLING_CLAUSES) and is not re-read here.
+        "houses_present": 0,
+        "houses_present_by_division": {d: 0 for d in DIVISIONS},
+        "houses_present_unplaced": 0,
+        "records_awaiting_a_household": 0,
+        "houses_present_by_clause": {},
         "households_with_a_lives_at": 0,
         "households_with_a_works_at": 0,
     }
@@ -691,6 +813,14 @@ def known_layer(residents: dict, rulings: dict | None = None) -> dict:
             out["households_reconstructed"] += 1
             continue
         out["households_present"] += 1
+        clause = hh.get("dwelling_evidence")
+        a_house = bool(clause)
+        if a_house:
+            out["houses_present"] += 1
+            out["houses_present_by_clause"][clause] = (
+                out["houses_present_by_clause"].get(clause, 0) + 1)
+        else:
+            out["records_awaiting_a_household"] += 1
         if from_a_ruling:
             out["households_ruled_present"] += 1
             out["persons_ruled_present"] += named
@@ -701,13 +831,19 @@ def known_layer(residents: dict, rulings: dict | None = None) -> dict:
         if division in out["persons_present_by_division"]:
             out["persons_present_by_division"][division] += named
             out["households_present_by_division"][division] += 1
+            if a_house:
+                out["houses_present_by_division"][division] += 1
         else:
             out["persons_present_unplaced"] += named
             out["households_present_unplaced"] += 1
+            if a_house:
+                out["houses_present_unplaced"] += 1
         if hh.get("lives_at"):
             out["households_with_a_lives_at"] += 1
         if hh.get("works_at"):
             out["households_with_a_works_at"] += 1
+    out["houses_present_by_clause"] = dict(
+        sorted(out["houses_present_by_clause"].items(), key=lambda kv: (-kv[1], kv[0])))
     return out
 
 
@@ -1106,6 +1242,47 @@ def person_owner(axes: dict) -> tuple[str, str]:
     raise Fault(f"no ticket owns the person bucket {axes}")
 
 
+def institutional_lodging() -> dict:
+    """The adjudication of the nine standing institutional roofs (T-1531).
+
+    Hand-authored, because it is nine judgements about nine committed records and not a
+    derivation of anything. `tools/reconstruct_institutional_households.py` mints against
+    the same file, so the order and the mint cannot disagree about which roofs hold
+    anybody.
+    """
+    path = ROOT / "data" / "reconstruction" / "1835_institutional_lodging.json"
+    if not path.exists():
+        raise Fault("the institutional lodging adjudication is missing: the household "
+                    "quota cannot weight the institutional cells without it")
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    capable = doc.get("lodging_capable_by_division")
+    rows = doc.get("adjudication") or []
+    if not isinstance(capable, dict) or not rows:
+        raise Fault("the institutional lodging adjudication carries no roofs or no "
+                    "lodging_capable_by_division")
+    for division, n in sorted(capable.items()):
+        counted = sum(1 for r in rows
+                      if r.get("holds_a_household") and r.get("division") == division)
+        if int(n) != counted:
+            raise Fault(f"the institutional adjudication says {n} lodging-capable roof(s) "
+                        f"in the {division} division and admits {counted}")
+    return doc
+
+
+def _apportioned_on(htype: str) -> str:
+    """What a household bucket's order was apportioned on, in words.
+
+    Written out rather than inlined in the f-string it feeds: a conditional
+    spanning several lines inside an f-string expression is Python 3.12 syntax
+    (PEP 701) and this repository runs 3.11, where it does not parse at all.
+    The wording is unchanged.
+    """
+    if htype == "institutional":
+        return ("institutional roofs whose own record puts a household under them "
+                "(1835_institutional_lodging, T-1531)")
+    return f"inventory's own {htype} roof count"
+
+
 def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
     hh_fig = figure(model, "households_and_families", "households_on_1_july_1835")
     total, basis = point_of(hh_fig)
@@ -1113,24 +1290,52 @@ def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
     if not matrix:
         raise Fault("the building inventory carries no district/group matrix")
 
+    # A CHURCH IS NOT A DWELLING, AND THE WEIGHT NOW SAYS SO (T-1531). Every other row
+    # here weights its household type on the roofs of its group, which is right for a
+    # group whose roofs are houses: a dwelling holds a household, a store-residence holds
+    # a household, an inn holds several. `institutional_public` is the one group where
+    # that does not follow. Its nine standing roofs are four places of worship or meeting,
+    # two schools and three civic buildings, and weighting them like dwellings ordered
+    # TWELVE households onto them — more than one per roof, across a jail, a council house
+    # and a light tower. Nobody had asked the roofs the question; T-1476 made the quota
+    # speak and the twelve appeared, ordered from a ticket nobody could claim.
+    #
+    # `1835_institutional_lodging.json` is that question asked once of each of the nine,
+    # out of each committed record's own `function`, `occupants` and `research_note`. TWO
+    # hold a household — the Watkins house, whose own function is domestic, and the light,
+    # whose keepership is recorded at "$350 a year with quarters" — and the other seven
+    # are refused there by name, each with the sentence that refuses it. This is NOT a
+    # re-cut of the roof row: nine roofs stand and nine are still ordered. What moves is
+    # only how many HOUSEHOLDS hang on them.
+    capable = institutional_lodging()["lodging_capable_by_division"]
     weights: dict[str, float] = {}
     for htype, group, _ in HOUSEHOLD_BUCKETS:
         row = matrix.get(group)
         if row is None:
             raise Fault(f"the inventory's matrix has no row for {group}")
         for division in CIVIL_DIVISIONS:
-            roofs = float(row.get(division) or 0)
+            if htype == "institutional":
+                roofs = float(capable.get(division) or 0)
+            else:
+                roofs = float(row.get(division) or 0)
             if roofs > 0:
                 weights[f"{htype}/{division}"] = roofs
     targets = largest_remainder(total, weights)
 
-    resolved = {d: known["households_present_by_division"][d] for d in CIVIL_DIVISIONS}
+    # THE QUOTA IS AGAINST HOUSES, NOT RECORDS (T-1476, the owner's ruling of
+    # 2026-09-21). `households_present_by_division` counts every record the layer
+    # holds present, and 1,175 of the 1,393 are a name off a letter list or a
+    # parish entry with nothing in them about a dwelling. Subtracting those from a
+    # model of 643 HOUSES took the household quota to `0 owed`, which was never
+    # true and is the symptom T-1476 was raised about. The count that answers
+    # "how many houses does the town still owe" is the one that counts houses.
+    resolved = {d: known["houses_present_by_division"][d] for d in CIVIL_DIVISIONS}
     known_by_cell = {k: 0 for k in targets}
     for division in CIVIL_DIVISIONS:
         cells = {k: targets[k] for k in targets if k.endswith("/" + division)}
         for k, v in subtract_pro_rata(cells, resolved[division]).items():
             known_by_cell[k] += v
-    for k, v in subtract_pro_rata(targets, known["households_present_unplaced"]).items():
+    for k, v in subtract_pro_rata(targets, known["houses_present_unplaced"]).items():
         known_by_cell[k] += v
 
     owners = {h: t for h, _, t in HOUSEHOLD_BUCKETS}
@@ -1145,14 +1350,16 @@ def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
             "to_reconstruct": max(0, targets[key] - known_by_cell[key]),
             "filled": 0,
             "owning_ticket": owners[htype],
-            "basis": f"the model's {total:,} households apportioned on the inventory's own "
-                     f"{htype} roof count in the {division} division",
+            "basis": (
+                f"the model's {total:,} households apportioned on the "
+                f"{_apportioned_on(htype)} in the "
+                f"{division} division"),
         })
     buckets.append({
         "key": "households/garrison/fort",
         "axes": {"household_type": "garrison", "division": "fort"},
         "target": None,
-        "known": known["households_present_by_division"]["fort"],
+        "known": known["houses_present_by_division"]["fort"],
         "to_reconstruct": None,
         "filled": 0,
         "owning_ticket": "T-1176",
@@ -1162,7 +1369,11 @@ def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
         "households_target": total,
         "households_target_basis": basis,
         "households_target_range": [hh_fig["low"], hh_fig["high"]],
-        "known_present": known["households_present"],
+        "known_present": known["houses_present"],
+        # The other unit, carried beside it so the book never has to be asked which
+        # of the two a reader is looking at (T-1476).
+        "known_present_records": known["households_present"],
+        "known_present_awaiting_a_household": known["records_awaiting_a_household"],
         # WAS `known_uncertain_offered_to_T-1172`. They are not offered any more: T-1386
         # ruled them into the town and T-1463 counts them known, so the name would be a
         # label for work that has happened (the roster still offers the NAMES, which is a
@@ -1691,13 +1902,368 @@ def presence_agrees(known: dict, before: dict, rulings: dict) -> None:
             f"where the rulings rule {households}")
 
 
+# ------------------------------------------------------ the re-family ledger --
+#
+# THE OWNER'S RULING OF 2026-09-24 (T-1556, answering T-1530). The re-cut holds 523
+# reconstructed people across 48 person buckets that it would no longer order. They
+# are not retired: "the surplus heads move into the buckets the re-cut GREW instead
+# of being un-written". A move is therefore neither a retirement nor a fresh draw,
+# and the book had no third word for it — every count it keeps is a DRAW, written by
+# a stage into `fills`, and the only way a bucket's `filled` could ever fall was for
+# somebody to be un-written. T-1459's ruling of 2026-09-20 forbids exactly that.
+#
+# So a move is recorded as a MOVE, ON BOTH ENDS. The person keeps his card, his id,
+# his `residence_grade` and every citation on him; what changes is which cell of the
+# ladder he is counted in. The bucket he left keeps `drawn_here` — the draw is never
+# un-written — and says what left it in `refamilied_out`; the bucket he entered says
+# `refamilied_in`, and its order is filled by a person the town already holds rather
+# than by a stranger. `filled` is the arithmetic of the three, and it is what every
+# quota, refusal and overfill gate below already reads, so they all stay true without
+# being taught a new word.
+#
+# THIS LEDGER MOVES NOBODY. T-1557 builds the accounting and leaves `moves` empty on
+# purpose: WHICH heads move is a modelled rule and is T-1558's, and the moves
+# themselves are T-1559's. What is built here is the thing both of those need to be
+# checkable — every row names the person, the bucket he left, the bucket he entered,
+# the order he filled, the rule that chose him and the adoptions travelling with him,
+# and `--check` re-derives the whole book, so a hand-written row cannot survive.
+REFAMILY_REQUIRED = ("person", "from_bucket", "to_bucket", "ticket", "rule")
+# THE RULE A MOVE NAMES IS NOW A RUNG SOMEBODY PUBLISHED (T-1558). T-1557 required every
+# row to NAME the rule that chose its head and could not check the name, because no rule
+# existed yet; `data/reconstruction/1835_refamily_rule.json` publishes the cost ladder and
+# this book refuses a move whose `rule` is not one of its MOVABLE rungs. Build order: the
+# book first (the rule model reads it), then the rule, then the book again — the only thing
+# that travels back here is the rung ids and the rule's one line, both literals in
+# tools/model_refamily_rule.py, so the two cannot chase each other.
+REFAMILY_RULE = ROOT / "data" / "reconstruction" / "1835_refamily_rule.json"
+
+
+def refamily_rule() -> dict | None:
+    """The published rule, or None while T-1558's model has not been built yet."""
+    if not REFAMILY_RULE.exists():
+        return None
+    try:
+        doc = json.loads(REFAMILY_RULE.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise Fault(f"the re-family rule is not JSON: {exc}") from exc
+    ladder = (doc.get("the_rule") or {}).get("the_cost_ladder") or []
+    if not ladder:
+        raise Fault("the re-family rule publishes no cost ladder")
+    return {
+        "ticket": doc.get("ticket"),
+        "one_line": (doc.get("the_rule") or {}).get("one_line"),
+        "rungs": [r["id"] for r in ladder],
+        "movable": [r["id"] for r in ladder if r.get("tier") == "movable"],
+        # HOW MANY THE RULE YIELDS, so the ledger below can say whether it is SPENT
+        # without a number being typed beside it. T-1558 found 73 where the aggregate
+        # had suggested 265, and the two can only be told apart by reading the list.
+        "yields": len(doc.get("the_moves_the_rule_yields") or []),
+    }
+
+
+def refamily_shape(moves: list | None, rule: dict | None = None) -> list:
+    """The checks a move row can be given before the buckets are cut."""
+    rows = list(moves or [])
+    seen = set()
+    for m in rows:
+        if not isinstance(m, dict):
+            raise Fault("a row in the re-family ledger is not a record")
+        missing = [f for f in REFAMILY_REQUIRED if not m.get(f)]
+        if missing:
+            raise Fault(f"a re-family move names no {', no '.join(missing)}")
+        if m["from_bucket"] == m["to_bucket"]:
+            raise Fault(f"the re-family move of {m['person']} leaves and enters "
+                        f"{m['from_bucket']}, which is not a move")
+        # THE ADOPTIONS TRAVEL WITH HIM OR HE DOES NOT MOVE (T-1556 § 8). An adopted
+        # head — one holding an employment seat, named on a business card or on a
+        # lodging roll — carries those adoptions across, and the row says so out loud
+        # even when the list is empty. A missing field is a row that never considered
+        # the question, which is the defect the owner named.
+        if not isinstance(m.get("adoptions_carried"), list):
+            raise Fault(f"the re-family move of {m['person']} does not say which "
+                        f"adoptions travel with him")
+        # AND THE RULE IT NAMES IS A RUNG THE MODEL PUBLISHED, on a MOVABLE tier. A move
+        # standing on a refused rung is the rule contradicting itself, and a rung nobody
+        # published is the un-checkable string T-1557 had to accept.
+        if rule and m["rule"] not in rule["movable"]:
+            known = ", ".join(rule["movable"]) or "none"
+            raise Fault(f"the re-family move of {m['person']} names the rule "
+                        f"{m['rule']!r}, which is not a movable rung of "
+                        f"{rule['ticket']}'s cost ladder ({known})")
+        if m["person"] in seen:
+            raise Fault(f"{m['person']} is re-familied twice; a person has one bucket")
+        seen.add(m["person"])
+    return rows
+
+
+def refamily_against_buckets(moves: list, buckets: list, drawn: Counter) -> None:
+    """The checks that need the cut ladder: both ends real, the same person, room to land."""
+    by_key = {b["key"]: b for b in buckets}
+    out = Counter()
+    for m in moves:
+        for end in ("from_bucket", "to_bucket"):
+            if m[end] not in by_key:
+                raise Fault(f"the re-family move of {m['person']} names {m[end]}, "
+                            f"which is not a person bucket in this book")
+        src, dst = by_key[m["from_bucket"]], by_key[m["to_bucket"]]
+        # A MOVE MAY NOT RE-SEX ANYBODY, NOR RE-AGE HIM. Division, household kind and
+        # trade are what the reconstruction chose for him and may be re-chosen; sex and
+        # age band are what he IS, and a book that moved them would be inventing a
+        # different person under the same id.
+        for axis in ("sex", "age_band"):
+            if src["axes"].get(axis) != dst["axes"].get(axis):
+                raise Fault(
+                    f"the re-family move of {m['person']} would change his {axis} from "
+                    f"{src['axes'].get(axis)} to {dst['axes'].get(axis)}")
+        out[m["from_bucket"]] += 1
+        if out[m["from_bucket"]] > drawn.get(m["from_bucket"], 0):
+            raise Fault(f"{m['from_bucket']} re-families out more people than were "
+                        f"ever drawn there")
+
+
+def refamily_ledger(moves: list, buckets: list, refusals: list, totals_owed: int,
+                    rule: dict | None = None) -> dict:
+    """The book's account of what has moved, what is still held, and where it could land."""
+    held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
+    still = sum(r.get("surplus_still_held",
+                      r["already_drawn"] - r["the_re_cut_would_have_ordered"]) for r in refusals)
+    headroom = sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in buckets)
+    moved_from = sorted({m["from_bucket"] for m in moves})
+    moved_into = sorted({m["to_bucket"] for m in moves})
+    return {
+        "ticket": "T-1557",
+        "ruling": "the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the "
+                  "surplus the re-cut holds is RE-FAMILIED rather than retired — the heads "
+                  "move into the buckets the re-cut grew instead of being un-written",
+        "what_a_move_is": "one reconstructed person counted in a different cell of the same "
+                          "ladder. His card, his id, his residence_grade and every citation "
+                          "on him are untouched; his sex and age band may not change; the "
+                          "bucket he left keeps its `drawn_here` and names him in "
+                          "`refamilied_out`, and the bucket he entered fills one of its "
+                          "orders with a person the town already holds.",
+        "what_a_move_is_not": "a retirement (nobody is un-written, which is T-1459's ruling "
+                              "of 2026-09-20) and a draw (no stranger enters the town, so "
+                              "the population does not move — only what is still OWED does).",
+        "who_chooses_who_moves": ({
+            "ticket": rule["ticket"],
+            "settled": True,
+            "rule": rule["one_line"],
+            "the_rungs_a_move_may_name": rule["movable"],
+            "the_rungs_it_refuses_on": [r for r in rule["rungs"] if r not in rule["movable"]],
+            "read_from": "data/reconstruction/1835_refamily_rule.json",
+            "why": "T-1558 modelled it against the adoption layers and published the cost "
+                   "ladder there, with the tier of every held person and the ceilings the "
+                   "axes impose. `refamily_shape` above refuses a move whose `rule` is not "
+                   "one of the movable rungs, so the naming T-1557 required is now checked "
+                   "rather than trusted.",
+        } if rule else {
+            "ticket": "T-1558",
+            "settled": False,
+            "why": "the rule is modelled against the adoption layers and is not this "
+                   "ticket's. Every row must NAME the rule that chose its head, so a move "
+                   "made before the rule exists cannot be written without saying so.",
+        }),
+        "who_makes_the_moves": {
+            "ticket": "T-1559",
+            "settled": bool(rule) and len(moves) >= rule["yields"],
+            "the_rule_yields": rule["yields"] if rule else None,
+            "spent": len(moves),
+            "still_to_spend": (max(0, rule["yields"] - len(moves)) if rule else None),
+            "spent_by": sorted({(m.get("carried_by") or {}).get("ticket")
+                                for m in moves if (m.get("carried_by") or {}).get("ticket")}),
+            "how_a_move_is_spent": "on the CARD first, and in this ledger second. The mint "
+                                   "that derives a held head carries the move inside its "
+                                   "own derivation — where the seed, the name and the id "
+                                   "are already fixed, so a moved card re-derives byte for "
+                                   "byte — and `tools/refamily_moves_1835.py --build` "
+                                   "writes a row here ONLY where the card it names already "
+                                   "says the same thing. So this ledger cannot claim a "
+                                   "move the residents layer has not made, and a row typed "
+                                   "into it by hand does not survive a --build.",
+        },
+        # THE PROGRAMME ITSELF IS A STEP, and `settled` is arithmetic rather than
+        # opinion: it finishes when nobody is held, and only then. Every step here
+        # carrying `settled: false` is a forward-looking work order, and
+        # `every_work_order_names_a_live_ticket` refuses one whose ticket has closed
+        # (T-1530). It has to, because the prose this ledger replaced handed the same
+        # 523 people to T-1196, T-1197 and T-1179 for four days after all three had
+        # closed, through every green gate — a refused bucket has `to_reconstruct` set
+        # down to `filled`, so the bucket sweep reads 0 left and steps over it by design.
+        # SWEPT TO A LIVE SUCCESSOR ON 2026-09-25 (T-1564's own PR, by the rule above
+        # and T-1420's). T-1556 is the owner's ruling and it is SPLIT: T-1557, T-1558 and
+        # T-1560 closed, and T-1559's last piece is T-1564 — the 54 women and children —
+        # so the moment T-1564 settles, T-1556 has no live descendant and this order names
+        # nobody. It is the case T-1581's ticket_liveness.py was written for, and it fired
+        # on the PR that caused it rather than on the next branch to gate, which is the
+        # whole point of that step. The order is still LIVE and must stay live: `settled`
+        # is arithmetic, 395 people are still held across 44 refused buckets, and it is
+        # T-1597 that now owes them an answer. The ruling itself is unchanged and is still
+        # cited as T-1556 everywhere it is quoted below — what moves here is who OWES the
+        # remaining work, which is the only thing this field has ever meant.
+        "the_programme": {"ticket": "T-1597", "settled": still == 0},
+        "moves": moves,
+        "counts": {
+            "moves": len(moves),
+            "people_moved": len({m["person"] for m in moves}),
+            "buckets_moved_out_of": len(moved_from),
+            "buckets_moved_into": len(moved_into),
+            "adoptions_carried": sum(len(m.get("adoptions_carried") or []) for m in moves),
+        },
+        "the_held_surplus": {
+            "buckets_refused": len(refusals),
+            "people_held": held,
+            "people_still_held": still,
+            "open_headroom_in_person_buckets": headroom,
+            "why_the_headroom_matters": "a held head moved into an open order fills that "
+                                        "order without drawing a stranger, so each move "
+                                        "takes one person off what is still owed rather "
+                                        "than out of the town.",
+        },
+        "what_it_would_converge_to": {
+            "still_owed_now": totals_owed,
+            "still_owed_if_every_held_head_moved": max(0, totals_owed - min(held, headroom)),
+            "note": "the model's point is what decides HOW MANY move, and that number is "
+                    "T-1559's to spend; this book states the two ends of the range.",
+        },
+    }
+
+
 # ----------------------------------------------------------------- the build --
 
-def build(data: dict, fills: list | None = None, occupancy: dict | None = None) -> dict:
+
+# --------------------------------------------------------------------------- seats
+#
+# WHERE THE HOUSEHOLDS THE BOOK ORDERED ARE STANDING (T-1620, the second piece of
+# T-1615 off T-1199).
+#
+# The book has always been able to say how many households the town still owes.
+# It could not say how many of them now have GROUND, and that is the number the
+# 5C build tickets are actually waiting on: a household with a lot is a roof
+# somebody can raise, and a household without one is still an entry in a ledger.
+#
+# Two committed passes answer it, in order, and the order is the whole arithmetic:
+# T-1613 offered every banded household the committed plat's 226 lots, and T-1614
+# offered the 1,374 it handed on the ground the plat does not draw. So the second
+# pass's `rows_in_scope` IS the first pass's `owed`, and a chain that does not join
+# is a file that moved under this one — refused by name below rather than summed
+# into a total that looks right.
+#
+# EVERY FIGURE HERE IS READ, NONE IS COMPUTED TWICE. Both seat files carry their
+# own `counts`, derived and re-derived by their own tools and gated in check.sh;
+# this reads those counts and the six slot rows, joins them, and adds nothing. A
+# seat is either an ADOPTION — a household put under a roof that already stands —
+# or a SLOT, a request the build tickets fulfil. Nothing here raises a roof.
+SEAT_PASSES = (
+    ("platted", "platted_seats", "T-1613",
+     "The committed plat",
+     "the 226 lots of the Thompson plat the lot ledger enumerates",
+     "lots_taken", "lots"),
+    ("off_plat", "off_plat_seats", "T-1614",
+     "The ground the plat does not draw",
+     "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp "
+     "grounds the off-plat ledger enumerates",
+     "parcels_taken", "parcels"),
+)
+
+
+def seats_against_roofs(data: dict, structures: dict) -> dict:
+    """The two seating passes, joined, against the roofs the town already has."""
+    passes, chain = [], None
+    for key, input_key, ticket, title, ground, taken_key, taken_word in SEAT_PASSES:
+        doc = data[input_key]
+        c = doc.get("counts") or {}
+        if not c:
+            raise Fault(f"the {key} seats file carries no counts — the book cannot read it")
+        scope = int(c.get("rows_in_scope") or 0)
+        seated = int(c.get("seated") or 0)
+        owed = int(c.get("owed") or 0)
+        adopted = int(c.get("roofs_adopted") or 0)
+        slots = int(c.get("slots_requested") or 0)
+        if seated + owed != scope:
+            raise Fault(f"the {key} seating pass seats {seated} and owes {owed} of "
+                        f"{scope} rows — its own arithmetic does not close")
+        if adopted + slots != seated:
+            raise Fault(f"the {key} seating pass seats {seated} but adopts {adopted} and "
+                        f"requests {slots} — a seat is an adoption or a slot and nothing else")
+        if chain is not None and scope != chain:
+            raise Fault(f"the {key} seating pass was offered {scope} rows and the pass "
+                        f"before it handed on {chain} — the two files have moved apart")
+        chain = owed
+        passes.append({
+            "key": key, "ticket": ticket, "title": title, "ground": ground,
+            "generated_by": doc.get("generated_by"),
+            "rows_offered": scope, "seated": seated, "handed_on": owed,
+            "roofs_adopted": adopted, "slots_requested": slots,
+            "roofs_offered_for_adoption": int(c.get("roofs_offered_for_adoption") or 0),
+            "roofs_held_back": int(c.get("roofs_held_back") or 0),
+            "ground_taken": int(c.get(taken_key) or 0), "ground_taken_unit": taken_word,
+            "by_district": dict(sorted((c.get("by_district") or {}).items())),
+            "by_clause": dict(sorted((c.get("by_clause") or {}).items())),
+        })
+    # THE SIX SLOTS, NAMED. A slot is the only forward-looking thing either pass wrote:
+    # the plat had headroom of the right family on a block and no standing roof to adopt,
+    # so it asked for one. They are carried whole — household, block, lot and family —
+    # because a request nobody can read is a request nobody fulfils.
+    slots = [{
+        "household_id": s.get("id"), "name": s.get("name"), "district": s.get("district"),
+        "clause": s.get("clause"), "block_id": s.get("block_id"), "lot_id": s.get("lot_id"),
+        "family": s.get("family"), "why": s.get("why"),
+    } for s in (data["platted_seats"].get("seats") or []) if s.get("how") == "slot"]
+    slots += [{
+        "household_id": s.get("id"), "name": s.get("name"), "district": s.get("district"),
+        "clause": s.get("clause"), "block_id": s.get("block_id"), "lot_id": s.get("lot_id"),
+        "family": s.get("family"), "why": s.get("why"),
+    } for s in (data["off_plat_seats"].get("seats") or []) if s.get("how") == "slot"]
+    asked = sum(p["slots_requested"] for p in passes)
+    if len(slots) != asked:
+        raise Fault(f"the seating passes count {asked} slot(s) and carry {len(slots)} slot "
+                    f"row(s) — the count and the rows disagree")
+    seated = sum(p["seated"] for p in passes)
+    adopted = sum(p["roofs_adopted"] for p in passes)
+    standing = int(structures.get("standing_records") or 0)
+    blocks = sorted({s["block_id"] for s in slots if s.get("block_id")})
+    return {
+        "statement": (
+            "Two committed passes have offered every banded household ground: the plat "
+            "first, then the ground the plat does not draw. This is what they seated, "
+            "against the roofs the town already has. A seat is an ADOPTION — a household "
+            "put under a roof that already stands — or a SLOT, a request the build "
+            "tickets fulfil. Neither pass raises a roof, and nothing here is a claim "
+            "about 1835: it is the reconstruction's own progress, read off two derived "
+            "files and joined."),
+        "inputs": [p["generated_by"] for p in passes],
+        "rows_offered": passes[0]["rows_offered"],
+        "seated": seated,
+        "still_owed": passes[-1]["handed_on"],
+        "roofs_adopted": adopted,
+        "slots_requested": len(slots),
+        "roofs_standing": standing,
+        "roofs_standing_unseated": max(0, standing - adopted),
+        "share_of_standing_roofs_seated": (round(adopted / standing, 4) if standing else None),
+        "passes": passes,
+        "requested_slots": slots,
+        "slot_blocks": blocks,
+        "what_the_slots_wait_on": (
+            f"{len(slots)} slot(s) on {len(blocks)} block(s) — {', '.join(blocks)}. A slot "
+            f"is headroom the block's own committed plan still holds, so the recipe that "
+            f"deals that block is where it is spent." if slots else
+            "no slot was requested: every seat is an adoption of a roof already standing."),
+        "what_is_left": (
+            f"{passes[-1]['handed_on']:,} of the {passes[0]['rows_offered']:,} banded "
+            f"households are still on no ground at all. The reasons are written row by "
+            f"row in both files' `owed`, and the clause each one waits on is carried "
+            f"there rather than summarised away."),
+    }
+
+
+def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
+          moves: list | None = None) -> dict:
     fills = list(fills or [])
     for fill in fills:
         if not isinstance(fill, dict) or not fill.get("ticket") or not fill.get("bucket"):
             raise Fault("a fill in the ledger names no ticket or no bucket")
+    rule = refamily_rule()
+    moves = refamily_shape(moves, rule)
     known = known_layer(data["residents"], data["presence_rulings"])
     before = known_layer(data["residents"])
     presence_agrees(known, before, data["presence_rulings"])
@@ -1730,8 +2296,17 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
     # the book carried when the work was drawn: that is a filler bypassing the book.
     committed_order = {}
     if BOOK.exists():
+        # THE ORDER THE WORK WAS DRAWN AGAINST, AND NOT WHAT IS LEFT OF IT (T-1564). This
+        # is the committed book's word that a bucket's draw was legitimate when it was
+        # made, and a re-family LOWERS a bucket's standing order — the heads that walked
+        # out took it down with them. So a bucket that was ordered at 60, drew 60 and has
+        # since re-familied 8 of them away commits `to_reconstruct: 52`, and reading that
+        # back as the order the 60 were drawn against says the draw was never allowed. The
+        # book writes `drawn_here` on exactly the buckets a move touched, precisely so the
+        # draw stays readable underneath the move; it is preferred here. Found when the
+        # re-family programme settled and the order book could no longer rebuild itself.
         committed_order = {
-            b["key"]: b.get("to_reconstruct", b.get("to_build"))
+            b["key"]: b.get("drawn_here", b.get("to_reconstruct", b.get("to_build")))
             for fam in json.loads(BOOK.read_text(encoding="utf-8"))["bucket_families"]
             for b in fam["buckets"]}
     recut_refusals = []
@@ -1756,6 +2331,12 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
         counted[fill["bucket"]] += int(fill.get("records") or 0)
         if int(fill.get("records") or 0):
             drawn_by.setdefault(fill["bucket"], set()).add(fill.get("ticket") or "")
+    # WHO LEFT AND WHO ARRIVED. A re-family is recorded on both ends, so the two
+    # counters are built together and neither can exist without the other.
+    moved_out, moved_in = Counter(), Counter()
+    for m in moves:
+        moved_out[m["from_bucket"]] += 1
+        moved_in[m["to_bucket"]] += 1
     families = []
     for key, title, lead, payload in (
         ("persons", "Persons", "Who the town still has to be given, by sex, age, division, "
@@ -1769,7 +2350,21 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
     ):
         buckets = payload.pop("buckets")
         for b in buckets:
-            b["filled"] = counted.get(b["key"], 0)
+            # DRAWN, MOVED OUT, MOVED IN — and `filled` is the arithmetic of the three.
+            # `drawn_here` is never lowered by a move, because a move un-writes nobody
+            # (T-1459's ruling); the two move counters are what make a `filled` below the
+            # draw READABLE rather than a bucket quietly losing people. They are written
+            # only where they are non-zero, so a book with an empty re-family ledger is
+            # byte-identical to the book before T-1557.
+            drawn = counted.get(b["key"], 0)
+            out, into = moved_out.get(b["key"], 0), moved_in.get(b["key"], 0)
+            b["filled"] = drawn - out + into
+            if out or into:
+                b["drawn_here"] = drawn
+                if out:
+                    b["refamilied_out"] = out
+                if into:
+                    b["refamilied_in"] = into
         families.append({"key": key, "title": title, "lead": lead,
                          "summary": payload, "buckets": buckets})
 
@@ -1780,15 +2375,47 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
     # sat inside its new order.
     trade_re_cut = recut_trade_remainder(families[0]["buckets"], participation, drawn_by)
 
+    # THE RE-FAMILY LEDGER IS ADJUDICATED AGAINST THE CUT LADDER, not against the raw
+    # axes: both ends have to be real person buckets, the two ends have to be the same
+    # person, a bucket cannot move out more people than were ever drawn in it, and a
+    # head may only land where an order is actually open. That last one is the check
+    # the overfill gate below CANNOT make on its own — a destination which is itself
+    # held by the re-cut would swallow an arrival inside its own refusal and read as
+    # though the move had filled something.
+    refamily_against_buckets(moves, families[0]["buckets"], counted)
+    for b in families[0]["buckets"]:
+        if b.get("refamilied_in") and b["filled"] > (b["to_reconstruct"] or 0):
+            raise Fault(
+                f"the re-family ledger lands {b['refamilied_in']} head(s) in {b['key']}, "
+                f"which orders {b['to_reconstruct']} and already holds "
+                f"{b.get('drawn_here', b['filled'])}: a move needs an open order to fill")
+
     for family in families:
         for b in family["buckets"]:
             todo = b.get("to_reconstruct", b.get("to_build"))
             if todo is not None and b["filled"] > todo:
                 was = quota_before.get(b["key"])
                 cause = "the_re_cut_reached_work_already_drawn"
-                if was is None:
-                    was = committed_order.get(b["key"])
-                    cause = "a_documented_reading_shrank_the_order"
+                # AND A PERSON BUCKET'S ORDER FALLS THE SAME WAY A BUSINESS BUCKET'S DOES
+                # (T-0841). The pre-ruling cut is only the right yardstick while it is
+                # ABOVE what was drawn: it is computed from the residents layer as it
+                # stands, so the moment the town READS documented people into a cell, the
+                # pre-ruling quota falls too and the test above stops telling a re-cut
+                # apart from a filler — it calls both a filler. Measured reading St Mary's
+                # baptismal register into the ladder: 25 more documented men aged 20-29 in
+                # a south-side family trade, this cell's cut 60 -> 35, and its 60 drawn
+                # were every one of them drawn against the 60 THIS BOOK ORDERED. That is
+                # the T-1299 case exactly, one family over, and the owner's ruling of
+                # 2026-09-20 covers it: nothing already drawn moves. So the fallback the
+                # business families take is taken here too, and it is a fallback rather
+                # than a replacement — `filled` above even the order the work was drawn
+                # against is still a filler bypassing the book, and still a FAULT.
+                if was is None or was < b["filled"]:
+                    committed = committed_order.get(b["key"])
+                    if committed is not None and committed >= b["filled"]:
+                        was, cause = committed, "a_documented_reading_shrank_the_order"
+                    elif was is None:
+                        was, cause = committed, "a_documented_reading_shrank_the_order"
                 if was is not None and b["filled"] <= was:
                     recut_refusals.append({
                         "bucket": b["key"],
@@ -1798,6 +2425,15 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
                         "the_re_cut_would_have_ordered": todo,
                         "already_drawn": b["filled"],
                         "held_at": b["filled"],
+                        # WHAT HAS LEFT THIS BUCKET ALREADY (T-1557). A refusal names the
+                        # draw it still carries AND the heads the re-family ledger has
+                        # moved out of it, so the surplus can be read shrinking. A bucket
+                        # re-familied all the way down to the re-cut's order stops being a
+                        # refusal at all — `filled > todo` is simply no longer true — which
+                        # is how the 48 rows retire themselves one head at a time.
+                        "drawn_here": b.get("drawn_here", b["filled"]),
+                        "refamilied_out": b.get("refamilied_out", 0),
+                        "surplus_still_held": b["filled"] - todo,
                         "why": ("the re-cut would put this bucket's order under the people "
                                 "already drawn against it."
                                 if cause == "the_re_cut_reached_work_already_drawn" else
@@ -1945,7 +2581,9 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
             "persons_known": known["persons_present"],
             "persons_to_reconstruct": sum(b["to_reconstruct"] or 0 for b in families[0]["buckets"]),
             "households_target": households["households_target"],
-            "households_known": known["households_present"],
+            "households_known": known["houses_present"],
+            "households_known_records": known["households_present"],
+            "households_awaiting_a_household": known["records_awaiting_a_household"],
             "households_to_reconstruct": sum(b["to_reconstruct"] or 0 for b in families[1]["buckets"]),
             "businesses_target": sum(b["target"] for b in families[2]["buckets"]),
             "businesses_known": sum(b["known"] for b in families[2]["buckets"]),
@@ -1963,10 +2601,16 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
             "persons_when_the_book_is_filled": known["persons_standing"] + sum(
                 max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in families[0]["buckets"]),
             "persons_target_range": list(persons["town_target_range"]),
-            "households_standing": known["households_present"] + known["households_reconstructed"],
+            "households_standing": known["houses_present"] + known["households_reconstructed"],
             "households_still_owed": sum(
                 max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in families[1]["buckets"]),
         },
+        # WHERE THE ORDERED HOUSEHOLDS ARE STANDING (T-1620). The totals above say how
+        # many households the town still owes; this says how many of them now have
+        # GROUND, which is the number the 5C build tickets are waiting on. Read off
+        # T-1613's and T-1614's own derived counts and joined — nothing is recomputed
+        # here and no seat is dealt here.
+        "seats_against_roofs": seats_against_roofs(data, structures),
         # WHAT THE RE-CUT FOUND, written into the book rather than into a report nobody
         # re-derives (T-1463). Two of these are adjudications the ticket asked for out
         # loud, and the third is a collision this run declines to rule on.
@@ -1977,6 +2621,14 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None) 
         "invariants": invariants(known, persons, households, structures,
                                  families[2]["buckets"]),
         "fills": fills,
+        # THE RE-FAMILY LEDGER (T-1557), the third word the book needed: a person moved
+        # between cells is neither retired nor drawn, and this is where each move is
+        # recorded on both ends. Empty by design — T-1558 models WHICH heads move and
+        # T-1559 spends them.
+        "re_family_ledger": refamily_ledger(
+            moves, families[0]["buckets"], recut_refusals,
+            sum(max(0, (b["to_reconstruct"] or 0) - b["filled"])
+                for b in families[0]["buckets"]), rule),
     }
     if len(doc["bucket_families"]) != 5:
         raise Fault("the order book is five bucket families; fewer is a book with a hole in it")
@@ -2019,21 +2671,26 @@ def ticket_states(directory: Path = TICKETS) -> dict[str, str]:
     differ and `--check` would be measuring the queue instead of the arithmetic. So
     this is read by the gate below and by nothing else; the owner tables above stay
     hand-written, with their reasoning beside them, exactly as they were.
+
+    THE SCAN ITSELF IS SHARED (T-1581). It had been written out here and again in
+    `research_spend_ledger`, and a ticket whose front matter one of them parsed and
+    the other did not would have put the two gates on different queues.
     """
-    out = {}
-    if not directory.is_dir():
-        return out
-    for path in sorted(directory.rglob("T-*.md")):
-        head = path.read_text(encoding="utf-8").split("---")
-        if len(head) < 3:
-            continue
-        fields = dict(re.findall(r"^(\w+): (.*)$", head[1], re.M))
-        if fields.get("id"):
-            out[fields["id"].strip()] = fields.get("state", "").strip()
-    return out
+    return ticket_liveness.read_tree(tickets_dir=directory)[0]
 
 
-def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | None = None) -> str:
+def ticket_children(directory: Path = TICKETS) -> dict[str, list[str]]:
+    """Every ticket that has a parent, indexed by the parent — a CHECK INPUT only.
+
+    A `split` ticket is a grouping record and its children are the runs that discharge
+    it. Nothing the book EMITS may depend on this, for the reason written on
+    `ticket_states`; the gate below reads it and nothing else does.
+    """
+    return ticket_liveness.children_of(ticket_liveness.read_tree(tickets_dir=directory)[1])
+
+
+def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | None = None,
+                                         children: dict[str, list[str]] | None = None) -> str:
     """THE WORK-ORDER GATE (T-1420), asked on every --build and --check.
 
     THE FAILURE IT REMOVES. `ticket.mjs done` already prints a NOTE when a close
@@ -2063,8 +2720,24 @@ def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | Non
 
     A BLOCKED TICKET IS LIVE. `blocked-owner` and `blocked-tech` are on the board,
     carry a `blocked_on`, and unblock; `done`, `split` and `withdrawn` name nobody.
+
+    AND A BUCKET IS NOT THE ONLY PLACE WORK IS ORDERED FROM (T-1530). Every step of
+    `re_family_ledger` carrying `settled: false` is a forward-looking work order, and
+    it is the one class the bucket sweep above CANNOT reach: a refused bucket has
+    `to_reconstruct` set down to `filled`, so it reads 0 left and is skipped by design.
+    That is how 523 held people sat in prose naming T-1196, T-1197 and T-1179 — all
+    three closed — through four days of green gates, and how the ledger that replaced
+    the prose could go the same way as its own pieces close.
+
+    A SPLIT PROGRAMME IS LIVE WHILE ONE OF ITS PIECES IS, and only here. The asymmetry
+    with a bucket is the point: a bucket names the single run that owes it, so a split
+    leaves the next run guessing which child it is — the T-1192 stranding this sweep
+    exists for. The re-family programme is the opposite, because the owner ruled on
+    2026-09-24 that all 523 are ONE unit: the grouping ticket IS the owner and its
+    children are its runs. What must never go stale is that somebody is still on it.
     """
     states = ticket_states() if states is None else states
+    children = ticket_children() if children is None else children
     holes = []
     for family in doc.get("bucket_families", []):
         for bucket in family.get("buckets", []):
@@ -2087,6 +2760,44 @@ def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | Non
                 elif state in DEAD_TICKET_STATES:
                     holes.append(f"{bucket['key']} has {left} left and is ordered by "
                                  f"{ticket}, which is {state}")
+    # A PIECE THAT HAS ITSELF SPLIT IS LIVE THROUGH ITS OWN PIECES (T-1575). T-1556
+    # split into T-1557..T-1560, and T-1559 split in turn into T-1563 and T-1564; when
+    # T-1560 closed on 2026-09-25 a one-level read saw three `done` and one `split`
+    # and called the programme ended while T-1564 — 54 of its moves — stood open two
+    # levels down. A split is a grouping record at every depth, so the walk goes
+    # through it to the runs that discharge it, and a closed piece still ends the walk.
+    #
+    # THE WALK IS `tools/ticket_liveness.py`'s NOW (T-1581), where the ledger's
+    # `split_live` and `ticket.mjs done` read the same relation. This gate's leaf set
+    # is the book's own — `ORDER_BOOK_ALIVE`, in which a BLOCKED ticket is live,
+    # because it is on the board, carries a `blocked_on` and unblocks.
+    def live_pieces_of(ticket, seen=()):
+        return ticket_liveness.live_pieces_of(ticket, states, children,
+                                              ticket_liveness.ORDER_BOOK_ALIVE)
+
+    steps, carried = [], []
+    for name, step in sorted((doc.get("re_family_ledger") or {}).items()):
+        if not isinstance(step, dict) or step.get("settled") is not False:
+            continue
+        ticket = step.get("ticket")
+        state = states.get(ticket) if ticket else None
+        steps.append(name)
+        if not ticket:
+            holes.append(f"the re-family programme's {name} is ordered by nobody")
+        elif state is None:
+            holes.append(f"the re-family programme's {name} is ordered by {ticket}, "
+                         f"which is not a ticket")
+        elif state == "split":
+            pieces = live_pieces_of(ticket)
+            if pieces:
+                carried.append(f"{name} through {', '.join(sorted(pieces))}")
+            else:
+                holes.append(f"the re-family programme's {name} is ordered by {ticket}, "
+                             f"which is split and has no live piece left — the programme "
+                             f"ended with people still held")
+        elif state in DEAD_TICKET_STATES:
+            holes.append(f"the re-family programme's {name} is ordered by {ticket}, "
+                         f"which is {state}")
     if holes:
         raise Fault("the book orders work from tickets nobody can claim — sweep the owner "
                     "tables onto the live successors (T-1420): " + "; ".join(sorted(holes)[:8])
@@ -2094,11 +2805,23 @@ def every_work_order_names_a_live_ticket(doc: dict, states: dict[str, str] | Non
     if not states:
         return "the queue could not be read, so no work order was checked"
     ordered = sum(1 for f in doc.get("bucket_families", []) for b in f.get("buckets", []))
-    return f"every work order across {ordered} buckets names a ticket a run can still claim"
+    said = f"every work order across {ordered} buckets names a ticket a run can still claim"
+    if steps:
+        said += (f", and so do the re-family programme's {len(steps)} unsettled step(s)"
+                 + (f" ({'; '.join(carried)})" if carried else ""))
+    return said
 
 
 def recut_findings(known: dict, before: dict, families: list, refusals: list) -> list[dict]:
-    """The three things summing T-1386 into `known` made measurable (T-1463)."""
+    """What the re-cut made measurable — T-1463's three, and T-1525's fourth.
+
+    The fourth is the one a refusal cannot say on its own. `recut_refusals` records
+    every bucket the re-cut would have cut below what was already drawn, one row at a
+    time; the DOCUMENTED ones are a different fact from the rest, because they are not
+    a quota drifting under a draw but the town reading a person it can name and finding
+    it had already reconstructed a stranger in that place. Those are over-supplies with
+    a size, and the size is the thing a run retiring them has to know.
+    """
     def owed(fam, ticket=None):
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
@@ -2109,6 +2832,16 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
     low, high = persons["summary"]["town_target_range"]
     standing = known["persons_standing"]
     still = owed(persons)
+    shrank = [r for r in refusals
+              if r.get("cause") == "a_documented_reading_shrank_the_order"]
+    over = [{"bucket": r["bucket"],
+             "owning_ticket": r["owning_ticket"],
+             "already_drawn": r["already_drawn"],
+             "the_re_cut_would_have_ordered": r["the_re_cut_would_have_ordered"],
+             "over_supplied_by": r["already_drawn"] - r["the_re_cut_would_have_ordered"]}
+            for r in sorted(shrank, key=lambda r: -(r["already_drawn"]
+                                                    - r["the_re_cut_would_have_ordered"]))]
+    over_total = sum(b["over_supplied_by"] for b in over)
     return [
         {
             "id": "t_1171_adjudicated",
@@ -2144,23 +2877,67 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
         },
         {
             "id": "households_are_counted_in_two_different_units",
-            "asks": "The model wants 643 households and the layer now holds "
+            "asks": "The model wants 643 households and the layer holds "
                     f"{known['households_present'] + known['households_reconstructed']:,} records. "
                     "Are those the same thing?",
-            "the_answer_is": "NOT THIS RUN'S TO MAKE — reported, not acted on.",
+            "the_answer_is": "NO — RULED BY THE OWNER, 2026-09-21, and carried here (T-1476).",
+            "ruling": "A name on a post-office letter list is evidence that a man was at "
+                      "Chicago. It is not evidence that he kept a house. A record whose whole "
+                      "evidence says nothing about a dwelling is a PERSON AWAITING A "
+                      "HOUSEHOLD, so the record count and the house count are two units and "
+                      f"{known['households_present'] + known['households_reconstructed']:,} "
+                      "against 643 is a BACKLOG, not a contradiction.",
             "households_known_before_the_rulings": before["households_present"],
-            "households_known_now": known["households_present"],
+            "records_known_now": known["households_present"],
+            "houses_known_now": known["houses_present"],
+            "records_awaiting_a_household": known["records_awaiting_a_household"],
+            "houses_by_clause": dict(known["houses_present_by_clause"]),
             "model_target": households["summary"]["households_target"],
             "model_range": list(households["summary"]["households_target_range"]),
-            "measured": "814 of the 820 records T-1386 ruled present hold exactly ONE person, and "
-                        "424 of them are a single name off a post-office letter list. A letter-list "
-                        "name evidences a PERSON in the town; whether it evidences a HOUSEHOLD in "
-                        "the model's sense — the model's own average is 3.9 people to a house — is "
-                        "a modelling question, and the persons re-cut does not depend on the answer. "
-                        "The household quota therefore reads 0 owed today. That is arithmetic the "
-                        "ruling forces, not a finding that the town has all the houses it needs.",
-            "declined": "T-1463 says a run that finds a new modelling decision required is to stop "
-                        "and say so rather than invent it. This is that. Filed for the owner.",
+            "measured": f"Of the {known['households_present']:,} records the layer holds present, "
+                        f"{known['houses_present']:,} carry a reading about a dwelling and "
+                        f"{known['records_awaiting_a_household']:,} do not. The quota is taken "
+                        f"against the {known['houses_present']:,}, so it stops reading 0 owed — "
+                        "which was never true and was the symptom that raised this — and starts "
+                        "reading what the town still owes in houses.",
+            "the_test_is_the_evidence_not_the_head_count":
+                "A one-person record is not held out because it holds one person; a man may "
+                "well have lived alone. It is held out where its whole evidence is a name on "
+                "a list. The clause that lets a record stand as a house is written on its own "
+                "manifest row as `dwelling_evidence` and is tallied above — so which of the "
+                "records are which is readable off the layer and not asserted here.",
+            "what_this_does_not_do": "Nothing is retired, nothing is re-graded and nobody is "
+                                     "downgraded. Every record stays as it is, with its evidence "
+                                     "and its grade; what changes is which question it answers. "
+                                     "A record answers both the moment something seats him, and "
+                                     "the derivation picks that up on the next rebuild.",
+        },
+        {
+            "id": "a_documented_reading_shrank_an_order_the_town_had_drawn",
+            "asks": "The parish register's 120 documented residents (T-0841) land in buckets "
+                    "the town had already reconstructed strangers into. Where did reading a "
+                    "person the town can name put a bucket's order UNDER what was drawn "
+                    "against it, and by how many people?",
+            "the_answer_is": f"{len(over)} bucket(s), over-supplied by {over_total:,} in all.",
+            "buckets": over,
+            "over_supplied_by": over_total,
+            "measured": (
+                ("; ".join(
+                    f"`{b['bucket']}` holds {b['already_drawn']:,} drawn against an order of "
+                    f"{b['the_re_cut_would_have_ordered']:,} — over-supplied by "
+                    f"{b['over_supplied_by']:,}" for b in over)
+                 or "no bucket's order was shrunk by a documented reading")
+                + f". That is {over_total:,} reconstructed people standing where the sources "
+                  "now name someone else, and it is a different fault from the rest of "
+                  "`recut_refusals`: those are quotas drifting under a draw, this is the town "
+                  "learning it invented a person it did not need. Nothing here is clamped and "
+                  "nothing already drawn moves — T-1459 — so the book keeps ordering the "
+                  "larger figure and names the surplus instead."),
+            "declined": "RETIRING a reconstructed card is the bucket owner's work and not this "
+                        "book's: a book that deleted people to make its own arithmetic close "
+                        "would be reconstructing backwards. T-1347, which drew the trade band, "
+                        "has closed, so T-1530 is filed for the south-side 20-29 surplus and "
+                        "T-1506 owns the surplus lawyer.",
         },
     ]
 
@@ -2196,8 +2973,9 @@ def report_text(doc: dict) -> str:
         "",
         "## What the re-cut found",
         "",
-        "> T-1463 summed T-1386's presence rulings into `known`. These are the three things "
-        "that made measurable, carried in the book so they cannot go stale in a report.",
+        "> T-1463 summed T-1386's presence rulings into `known`, and T-1525 read the parish "
+        "register into it. These are the things that made measurable, carried in the book "
+        "so they cannot go stale in a report.",
         "",
     ]
     for f in doc.get("what_the_re_cut_found", []):
@@ -2211,15 +2989,50 @@ def report_text(doc: dict) -> str:
             f"{len(refusals)} bucket{'' if len(refusals) == 1 else 's'} would have had "
             "their order cut below the people already drawn against them. The owner's ruling "
             "of 2026-09-20 refuses that by name rather than clamping it: each is held at what "
-            "was drawn, and the surplus is retired or re-familied by T-1196, T-1197 and T-1179.", ""]
+            "was drawn. The three tickets this paragraph used to hand the surplus to — "
+            "T-1196, T-1197 and T-1179 — are all closed; the owner's ruling of 2026-09-24 "
+            "(T-1556) hands it to the re-family programme below, where the held heads move "
+            "into the buckets the re-cut grew instead of being un-written.", ""]
     if refusals:
         out += ["| bucket | ticket | cause | quota it was drawn against | the re-cut would "
-                "order | drawn |", "|---|---|---|---:|---:|---:|"]
+                "order | drawn | re-familied out | still held |",
+                "|---|---|---|---:|---:|---:|---:|---:|"]
         for r in refusals:
             out.append(f"| `{r['bucket']}` | {r['owning_ticket']} | "
                        f"{r.get('cause', 'the_re_cut_reached_work_already_drawn')} | "
                        f"{r['quota_it_was_drawn_against']:,} | "
-                       f"{r['the_re_cut_would_have_ordered']:,} | {r['already_drawn']:,} |")
+                       f"{r['the_re_cut_would_have_ordered']:,} | {r['already_drawn']:,} | "
+                       f"{r.get('refamilied_out', 0):,} | {r.get('surplus_still_held', 0):,} |")
+    rf = doc.get("re_family_ledger") or {}
+    if rf:
+        h, c = rf["the_held_surplus"], rf["counts"]
+        conv = rf["what_it_would_converge_to"]
+        out += ["", "## The re-family ledger", "",
+                rf["ruling"] + ".", "",
+                f"**A move is** {rf['what_a_move_is']}", "",
+                f"**A move is not** {rf['what_a_move_is_not']}", "",
+                f"{h['people_held']:,} held head(s) stand across {h['buckets_refused']:,} "
+                f"refused bucket(s), and {h['open_headroom_in_person_buckets']:,} slot(s) of "
+                f"order stand open elsewhere in the persons ladder. "
+                f"{h['why_the_headroom_matters'][0].upper()}"
+                f"{h['why_the_headroom_matters'][1:]}", "",
+                f"**{c['moves']:,} move(s) have been made**, carrying "
+                f"{c['adoptions_carried']:,} adoption(s) out of {c['buckets_moved_out_of']:,} "
+                f"bucket(s) and into {c['buckets_moved_into']:,}. The book is owed "
+                f"{conv['still_owed_now']:,} people now, and would be owed "
+                f"{conv['still_owed_if_every_held_head_moved']:,} if every held head moved. "
+                f"{conv['note'][0].upper()}{conv['note'][1:]}", "",
+                f"Which heads move is {rf['who_chooses_who_moves']['ticket']}'s "
+                f"({'settled' if rf['who_chooses_who_moves']['settled'] else 'not settled'}): "
+                f"{rf['who_chooses_who_moves']['why']} The moves themselves are "
+                f"{rf['who_makes_the_moves']['ticket']}'s.", ""]
+        if rf["moves"]:
+            out += ["| person | out of | into | order filled | rule | ticket | adoptions |",
+                    "|---|---|---|---|---|---|---:|"]
+            for m in rf["moves"]:
+                out.append(f"| `{m['person']}` | `{m['from_bucket']}` | `{m['to_bucket']}` | "
+                           f"{m.get('order_filled', '')} | {m['rule']} | {m['ticket']} | "
+                           f"{len(m.get('adoptions_carried') or []):,} |")
     rc = doc.get("trade_re_cut") or {}
     if rc:
         pt = rc["participation"]
@@ -2291,6 +3104,28 @@ def report_text(doc: dict) -> str:
     for cls, n in doc["roster_offered"]["by_class"].items():
         out.append(f"| `{cls}` | {n:,} | {doc['roster_offered']['tickets'][cls]} |")
 
+    sr = doc["seats_against_roofs"]
+    out += ["", "## Where the ordered households are standing", "", sr["statement"], "",
+            f"- offered ground: {sr['rows_offered']:,}",
+            f"- seated: {sr['seated']:,} — {sr['roofs_adopted']:,} by adopting a roof that "
+            f"already stands, {sr['slots_requested']:,} by asking for one",
+            f"- still on no ground at all: {sr['still_owed']:,}",
+            f"- of the {sr['roofs_standing']:,} roofs the town already has, "
+            f"{sr['roofs_adopted']:,} now carry a reconstructed household",
+            "", "| pass | ticket | offered | seated | adopted | slots | handed on |",
+            "|---|---|---:|---:|---:|---:|---:|"]
+    for pass_ in sr["passes"]:
+        out.append(f"| {pass_['title']} | {pass_['ticket']} | {pass_['rows_offered']:,} | "
+                   f"{pass_['seated']:,} | {pass_['roofs_adopted']:,} | "
+                   f"{pass_['slots_requested']:,} | {pass_['handed_on']:,} |")
+    out += ["", sr["what_the_slots_wait_on"], ""]
+    if sr["requested_slots"]:
+        out += ["| household | block | lot | family | clause |", "|---|---|---|---|---|"]
+        for slot in sr["requested_slots"]:
+            out.append(f"| `{slot['household_id']}` | `{slot['block_id']}` | "
+                       f"`{slot['lot_id']}` | {slot['family']} | `{slot['clause']}` |")
+    out += ["", sr["what_is_left"]]
+
     for family in doc["bucket_families"]:
         out += ["", f"## {family['title']}", "", family["lead"], ""]
         summary = family["summary"]
@@ -2345,8 +3180,19 @@ def _fills_on_disk() -> list:
         raise Fault(f"the committed order book is not JSON: {exc}") from exc
 
 
+def _moves_on_disk() -> list:
+    """The re-family ledger carries forward off the committed book, exactly as `fills` do."""
+    if not BOOK.exists():
+        return []
+    try:
+        book = json.loads(BOOK.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise Fault(f"the committed order book is not JSON: {exc}") from exc
+    return (book.get("re_family_ledger") or {}).get("moves", [])
+
+
 def cmd_build() -> int:
-    doc = build(load(), _fills_on_disk())
+    doc = build(load(), _fills_on_disk(), moves=_moves_on_disk())
     lands = converges_inside_the_model(doc)
     owners = every_work_order_names_a_live_ticket(doc)
     BOOK.parent.mkdir(parents=True, exist_ok=True)
@@ -2367,7 +3213,7 @@ def cmd_check() -> int:
     if not BOOK.exists():
         print("FAIL: the 1835 reconstruction order book is missing — run --build", file=sys.stderr)
         return 1
-    expected = build(load(), _fills_on_disk())
+    expected = build(load(), _fills_on_disk(), moves=_moves_on_disk())
     if json.loads(BOOK.read_text(encoding="utf-8")) != expected:
         faults.append("the 1835 reconstruction order book is stale — run --build")
     if not REPORT.exists():
@@ -2517,6 +3363,106 @@ def cmd_self_test() -> int:
                  if x["key"] == r["bucket"])
         assert b["to_reconstruct"] == b["filled"] and b["recut_refused"], b
     assert shipped["totals"]["persons_known"] == shipped["population_ruled_in"]["persons_known_now"]
+
+    # ---- THE RE-FAMILY LEDGER (T-1557) ---------------------------------------------
+    # The owner's ruling of 2026-09-24 (T-1556) turns the 48 refused buckets' surplus from
+    # something retired into something MOVED, and these guards are the whole difference:
+    # a move that cannot be read on both ends is a retirement wearing a different word.
+    # The fixtures move ONE head between two real person buckets of the same sex and age
+    # band, because that is the only move the ruling permits.
+    people = shipped["bucket_families"][0]["buckets"]
+    held = next(b for b in people if b.get("recut_refused"))
+    twin = next(b for b in people
+                if b["key"] != held["key"]
+                and b["axes"].get("sex") == held["axes"].get("sex")
+                and b["axes"].get("age_band") == held["axes"].get("age_band")
+                and (b["to_reconstruct"] or 0) > b["filled"])
+    other_sex = next((b for b in people
+                      if b["axes"].get("age_band") == held["axes"].get("age_band")
+                      and b["axes"].get("sex") != held["axes"].get("sex")
+                      and (b["to_reconstruct"] or 0) > b["filled"]), None)
+
+    def move(**over):
+        row = {"person": "res_self_test_head", "from_bucket": held["key"],
+               "to_bucket": twin["key"], "order_filled": twin.get("owning_ticket"),
+               # A RUNG THE MODEL PUBLISHES, since T-1558. The fixture used to name
+               # `the_self_test` here and the book could not tell: the string was
+               # un-checkable. It reads the ladder now, so this row stands or falls with
+               # the same gate a real move does.
+               "rule": (refamily_rule() or {}).get("movable", ["C1"])[-1],
+               "ticket": "T-1557", "adoptions_carried": []}
+        row.update(over)
+        return row
+
+    # THE SHIPPED BOOK MOVES NOBODY, and says so rather than staying silent about it.
+    ledger = shipped["re_family_ledger"]
+    assert ledger["moves"] == [] and ledger["counts"]["moves"] == 0, ledger["counts"]
+    # …AND ITS ACCOUNT OF THE SURPLUS IS THE REFUSAL TABLE'S OWN ARITHMETIC, not a
+    # number typed beside it.
+    assert ledger["the_held_surplus"]["people_held"] == sum(
+        r["surplus_still_held"] for r in shipped["recut_refusals"])
+    assert ledger["the_held_surplus"]["buckets_refused"] == len(shipped["recut_refusals"])
+    assert (ledger["what_it_would_converge_to"]["still_owed_now"]
+            == shipped["totals"]["persons_still_owed"])
+    # AN EMPTY LEDGER CHANGES NOTHING. The book with no moves in it is the book that
+    # stood before this ledger existed, bucket for bucket.
+    assert [b["filled"] for b in people] == [
+        b["filled"] for b in build(data, _fills_on_disk(), occ, [])["bucket_families"][0]["buckets"]]
+
+    # A MOVE IS RECORDED ON BOTH ENDS, and `filled` is the arithmetic of the three
+    # numbers rather than a count that quietly fell.
+    moved = build(data, _fills_on_disk(), occ, [move()])
+    src = row(moved, held["key"])
+    dst = row(moved, twin["key"])
+    assert src["drawn_here"] == held["filled"] and src["refamilied_out"] == 1, src
+    assert src["filled"] == held["filled"] - 1, src
+    assert dst["refamilied_in"] == 1 and dst["filled"] == twin["filled"] + 1, dst
+    # …and the bucket it left stops claiming the surplus that walked out of it.
+    left = next(r for r in moved["recut_refusals"] if r["bucket"] == held["key"])
+    was = next(r for r in shipped["recut_refusals"] if r["bucket"] == held["key"])
+    assert left["refamilied_out"] == 1 and left["surplus_still_held"] == was["surplus_still_held"] - 1, left
+    # …and one order is filled without a stranger entering the town: the people
+    # standing do not move, what is still OWED falls by one.
+    assert moved["totals"]["persons_standing"] == shipped["totals"]["persons_standing"]
+    assert moved["totals"]["persons_still_owed"] == shipped["totals"]["persons_still_owed"] - 1
+
+    fires("a re-family move that names no person",
+          lambda: build(data, _fills_on_disk(), occ, [move(person=None)]))
+    fires("a re-family move that names no rule that chose the head",
+          lambda: build(data, _fills_on_disk(), occ, [move(rule=None)]))
+    # AND A RULE NOBODY PUBLISHED, OR ONE PUBLISHED AS A REFUSAL (T-1558). The first was
+    # un-checkable until the cost ladder existed; the second is the rule contradicting
+    # itself — a move standing on the rung that refuses it.
+    if refamily_rule():
+        fires("a re-family move naming a rule that is not a rung of the cost ladder",
+              lambda: build(data, _fills_on_disk(), occ, [move(rule="whoever_lacked_a_job")]))
+        refusing = [r for r in refamily_rule()["rungs"]
+                    if r not in refamily_rule()["movable"]]
+        fires("a re-family move standing on a rung the rule refuses on",
+              lambda: build(data, _fills_on_disk(), occ, [move(rule=refusing[0])]))
+    fires("a re-family move that does not say which adoptions travel with the head",
+          lambda: build(data, _fills_on_disk(), occ, [move(adoptions_carried=None)]))
+    fires("a re-family move that leaves and enters the same bucket",
+          lambda: build(data, _fills_on_disk(), occ, [move(to_bucket=held["key"])]))
+    fires("a re-family move into a bucket that is not in this book",
+          lambda: build(data, _fills_on_disk(), occ, [move(to_bucket="persons/no/such/cell")]))
+    fires("one person re-familied twice",
+          lambda: build(data, _fills_on_disk(), occ, [move(), move()]))
+    fires("a bucket re-familying out more heads than were ever drawn in it",
+          lambda: build(data, _fills_on_disk(), occ,
+                        [move(person=f"res_self_test_{n}") for n in range(held["filled"] + 1)]))
+    if other_sex is not None:
+        fires("a re-family move that would re-sex the head",
+              lambda: build(data, _fills_on_disk(), occ, [move(to_bucket=other_sex["key"])]))
+    # AND A HEAD MAY ONLY LAND WHERE AN ORDER IS OPEN. A destination which is itself
+    # held by the re-cut would otherwise swallow the arrival inside its own refusal.
+    full = next((b for b in people
+                 if b["key"] != held["key"] and b.get("recut_refused")
+                 and b["axes"].get("sex") == held["axes"].get("sex")
+                 and b["axes"].get("age_band") == held["axes"].get("age_band")), None)
+    if full is not None:
+        fires("a re-family move into a bucket with no order left to fill",
+              lambda: build(data, _fills_on_disk(), occ, [move(to_bucket=full["key"])]))
 
     # ---- THE TRADE RE-CUT (T-1459) -------------------------------------------------
     # The ruling has two halves and both are guarded: the cut changes, and nothing already
@@ -2768,16 +3714,23 @@ def cmd_self_test() -> int:
 
     buckets = [b for f in doc["bucket_families"] for b in f["buckets"]]
     owed_by = next(b for b in buckets if left(b) > 0 and b.get("owning_ticket"))
+    # The shipped ledger's own unsettled steps are part of the fixture now: the gate
+    # reads them too, so a `states` built from the buckets alone would fail every case
+    # below for a reason none of them is about.
     states = {t: "open" for b in buckets for t in named(b)}
-    every_work_order_names_a_live_ticket(doc, states)
-    every_work_order_names_a_live_ticket(doc, {**states, owed_by["owning_ticket"]: "blocked-tech"})
+    states.update({step["ticket"]: "open"
+                   for step in (doc.get("re_family_ledger") or {}).values()
+                   if isinstance(step, dict) and step.get("ticket")})
+    every_work_order_names_a_live_ticket(doc, states, {})
+    every_work_order_names_a_live_ticket(
+        doc, {**states, owed_by["owning_ticket"]: "blocked-tech"}, {})
     for dead in ("done", "split", "withdrawn"):
         fires(f"a bucket with work left ordered by a {dead} ticket",
               lambda d=dead: every_work_order_names_a_live_ticket(
-                  doc, {**states, owed_by["owning_ticket"]: d}))
+                  doc, {**states, owed_by["owning_ticket"]: d}, {}))
     fires("a bucket ordered by an id that is not a ticket at all",
           lambda: every_work_order_names_a_live_ticket(
-              doc, {k: v for k, v in states.items() if k != owed_by["owning_ticket"]}))
+              doc, {k: v for k, v in states.items() if k != owed_by["owning_ticket"]}, {}))
     # A DONE TICKET ON A FULLY DISCHARGED BUCKET IS FINE — that is what this asserts.
     # It has to pick a ticket that owns NO bucket with work left, not merely A bucket
     # with none: the gate is asked per TICKET, so marking one done fails the moment it
@@ -2789,9 +3742,99 @@ def cmd_self_test() -> int:
     live_owners = {t for b in buckets if left(b) > 0 for t in named(b)}
     discharged = next(b for b in buckets if b.get("owning_ticket") and left(b) <= 0
                       and b["owning_ticket"] not in live_owners)
-    every_work_order_names_a_live_ticket(doc, {**states, discharged["owning_ticket"]: "done"})
+    every_work_order_names_a_live_ticket(doc, {**states, discharged["owning_ticket"]: "done"}, {})
     assert "T-1166" not in {t for b in buckets for t in named(b)}, \
         "the book's own authoring ticket is provenance and must not be a work order"
+
+    # AN UNSETTLED STEP OF THE RE-FAMILY PROGRAMME IS A WORK ORDER TOO (T-1530). Every
+    # case below is asserted against a MADE ledger rather than the shipped one, because
+    # what the queue holds this morning may not decide whether a gate is proven — and
+    # because a settled programme carries no unsettled step at all, which is the healthy
+    # state and can prove nothing. That is exactly how the prose hand-off this ledger
+    # replaced stayed green for four days.
+    def with_ledger(**steps):
+        return {**doc, "re_family_ledger": {
+            "ticket": "T-1557",
+            **{k: {"ticket": t, "settled": settled} for k, (t, settled) in steps.items()}}}
+
+    def gate(d, st, ch=None):
+        return every_work_order_names_a_live_ticket(d, st, ch or {})
+
+    live = with_ledger(the_programme=("T-9000", False), who_makes_the_moves=("T-9003", False))
+    gate(live, {**states, "T-9000": "open", "T-9003": "claimed"})
+    gate(live, {**states, "T-9000": "blocked-owner", "T-9003": "review"})
+    for dead in ("done", "withdrawn"):
+        fires(f"an unsettled re-family step ordered by a {dead} ticket",
+              lambda d=dead: gate(live, {**states, "T-9000": d, "T-9003": "open"}))
+    fires("an unsettled re-family step ordered by an id that is not a ticket at all",
+          lambda: gate(live, {**states, "T-9003": "open"}))
+    fires("an unsettled re-family step ordered by nobody at all",
+          lambda: gate(with_ledger(the_programme=(None, False)), states))
+    # A SETTLED STEP ORDERS NOBODY, so a closed ticket on one is not a hole — that is
+    # what finishing the programme looks like and the gate must not block it.
+    gate(with_ledger(the_programme=("T-9000", True)), {**states, "T-9000": "done"})
+    # A SPLIT PROGRAMME IS LIVE WHILE A PIECE OF IT IS, and dead the moment none is.
+    # Both halves are asserted: accepting `split` unconditionally would be the stranding
+    # the bucket sweep refuses, and refusing it would strand the programme.
+    split = with_ledger(the_programme=("T-9000", False))
+    kin = {"T-9000": ["T-9001", "T-9002"]}
+    gate(split, {**states, "T-9000": "split", "T-9001": "done", "T-9002": "claimed"}, kin)
+    fires("a split re-family programme whose every piece has closed",
+          lambda: gate(split, {**states, "T-9000": "split", "T-9001": "done",
+                               "T-9002": "withdrawn"}, kin))
+    fires("a split re-family programme with no pieces at all",
+          lambda: gate(split, {**states, "T-9000": "split"}))
+    # AND A SPLIT PIECE IS LIVE THROUGH ITS OWN PIECES (T-1575): the programme's only
+    # live work two levels down keeps it owned, and closing that last grandchild ends it.
+    deep = {"T-9000": ["T-9001", "T-9002"], "T-9002": ["T-9004", "T-9005"]}
+    gate(split, {**states, "T-9000": "split", "T-9001": "done", "T-9002": "split",
+                 "T-9004": "review", "T-9005": "open"}, deep)
+    fires("a split re-family programme whose split piece's pieces have all closed",
+          lambda: gate(split, {**states, "T-9000": "split", "T-9001": "done",
+                               "T-9002": "split", "T-9004": "done",
+                               "T-9005": "withdrawn"}, deep))
+
+    # THE SEATING JOIN'S FOUR REFUSALS (T-1620). The book reads two files it does not
+    # write, and every one of its seat figures is a sum across them — so a file that
+    # moves under it must be RED here rather than quietly re-summed into a total that
+    # still looks right. The four are: a pass whose own seated-plus-owed misses its
+    # scope; a pass whose adoptions and slots miss its seated; a second pass offered a
+    # different number of rows from the one the first handed on; and a slot count that
+    # disagrees with the slot rows carried beside it. None of them can be repaired here,
+    # because the repair is re-deriving the file that moved.
+    def seats_with(pass_key, **counts):
+        bent = copy.deepcopy(data)
+        bent[pass_key]["counts"].update(counts)
+        return lambda: seats_against_roofs(bent, structure_buckets(
+            bent["inventory"], bent["programme"], occ))
+
+    # The literal is a tripwire and not a target: it moves when a seating pass rules
+    # differently, and the ruling is what has to be argued for. A seating file that moves
+    # under this join must be RED, not quietly re-summed, so restate it against the files
+    # whenever it moves. It was 176; T-1611 re-dealt six platted-block yard buildings into
+    # rear cottages, which the deal adopted, taking it to 182; T-1622 lost two of those to
+    # the street-face adoption policy and T-1626 gave them back to the households that had
+    # asked, holding it at 184; then T-1623 refused the four slots the platted deal still
+    # asked for on the lots the schedule's own sizing keeps open, taking it to 180 — the
+    # platted pass's 108 plus the off-plat pass's 72, both read off the committed files.
+    assert seats_against_roofs(data, structure_buckets(
+        data["inventory"], data["programme"], occ))["seated"] == 180
+    fires("a seating pass whose seated and owed miss its own scope",
+          seats_with("platted_seats", owed=1))
+    fires("a seating pass whose adoptions and slots miss its own seated count",
+          seats_with("platted_seats", roofs_adopted=99))
+    fires("a second seating pass offered rows the first did not hand on",
+          seats_with("off_plat_seats", rows_in_scope=7, seated=7, owed=0))
+    # The fixture bends the count AWAY from the rows, in whichever direction the files
+    # currently sit: the platted pass asked for no slot at all once T-1623 refused the
+    # last four, so claiming one it does not carry is the disagreement to fire on.
+    fires("a slot count that disagrees with the slot rows carried beside it",
+          seats_with("platted_seats", slots_requested=1, roofs_adopted=99))
+    dropped = copy.deepcopy(data)
+    dropped["platted_seats"]["counts"] = {}
+    fires("a seats file with no counts at all",
+          lambda: seats_against_roofs(dropped, structure_buckets(
+              dropped["inventory"], dropped["programme"], occ)))
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "

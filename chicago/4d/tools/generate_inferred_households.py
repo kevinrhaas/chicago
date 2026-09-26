@@ -77,6 +77,15 @@ from family_bands import (eave_floor, eave_for_ridge, eave_limits,  # noqa: E402
                           families, pitch_deg, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "both"
+CORRIDOR_LINE_WHY = (
+    "it places roofs on the DRAWN line, and reports each one's depth into the control corridor as "
+    "well so an inferred placement is never defended by the choice of line"
+)
+
 
 def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
@@ -375,12 +384,23 @@ FACE_PLACEMENT_NOTE = (
     "set {setback} m back from that lot line, which is the one line every record on "
     "this face stands on, and its bearing is the face's own rather than the zero a "
     "hand-authored centre carried. What the programme still chooses is where along the "
-    "face it stands — {along} m from the face's west end, the position it already "
-    "occupied, so this repair moves no building along the street. WHAT IS INVENTED IS "
+    "face it stands — {along} m from the face's west end{along_why} WHAT IS INVENTED IS "
     "STILL EVERYTHING THAT MATTERS: that a building stood here at all, and that it was "
     "this trade's. The dataset's 20 m working georeference uncertainty applies on top "
     "of an already invented position, and standing on a derived block face is not "
     "standing on a recovered lot."
+)
+
+# T-0251. A FACE PLACEMENT DOES NOT BY ITSELF MOVE A BUILDING ALONG THE STREET, and for
+# the two T-0182 repaired it deliberately did not: the along-face figure was the one each
+# already occupied, so the repair was about the LINE and never about the address. That
+# sentence is not free. A placement that DOES move along the face has to say so in the
+# same breath, because a reader taught twice that this repair moves nothing has been
+# taught to skip the clause. So the clause belongs to the spec — `along_why` — and its
+# default is the held one, which is what the two T-0182 records carry.
+FACE_PLACEMENT_HELD = (
+    ", the position it already occupied, so this repair moves no building along the "
+    "street."
 )
 
 FACE_DERIVATION_REASON = (
@@ -846,7 +866,15 @@ def structure_record(b: dict, datum: dict, prose: dict, hh_by_building: dict) ->
             pos_note = FACE_PLACEMENT_NOTE.format(
                 role=role, face=spec["face"], block=spec["block"],
                 setback=f"{float(spec['setback_m']):.2f}",
-                along=f"{float(spec['west_wall_along_m']):.3f}")
+                along=f"{float(spec['west_wall_along_m']):.3f}",
+                along_why=spec.get("along_why") or FACE_PLACEMENT_HELD)
+        # T-0251: and a roof the PRECEDENCE RULE moved says WHAT displaced it and WHY, in
+        # its own words, on its own card — the owner's ruling of 2026-09-21 requires it in
+        # terms, "so the move is legible rather than a silent disappearance". A reader who
+        # has to find a ticket to learn that a building gave way has been told nothing.
+        displaced = b.get("displaced_by")
+        if displaced:
+            pos_note += " " + displaced["note"]
         # T-1227: and a roof the platted corridor moved says so, says by how much, and
         # says that the corridor is what moved it — in the record the generator owns,
         # because that is the only place a reader of this building will look.

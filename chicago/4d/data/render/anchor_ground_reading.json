@@ -5,7 +5,7 @@
   "epoch": "e1834_harbor_cut",
   "box_local_enu_m": {
     "e": [
-      -320,
+      -705,
       1700
     ],
     "n": [
@@ -95,7 +95,7 @@
       "inside_a_roof": null
     },
     {
-      "id": "green_tree",
+      "id": "lake_at_canal",
       "local_e": -159.7,
       "local_n": -108.4,
       "aerial": false,
@@ -105,6 +105,19 @@
       "stands_on": null,
       "deck_m": null,
       "margin_m": 115,
+      "inside_a_roof": null
+    },
+    {
+      "id": "green_tree",
+      "local_e": -44.11,
+      "local_n": -121.52,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 1.035,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 45,
       "inside_a_roof": null
     },
     {
@@ -239,7 +252,7 @@
     }
   ],
   "totals": {
-    "anchors": 17,
+    "anchors": 18,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,

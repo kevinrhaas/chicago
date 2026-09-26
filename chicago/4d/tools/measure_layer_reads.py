@@ -247,6 +247,17 @@ AMBIGUOUS_LEAVES = frozenset({
     # thing with the same word. A bare-name scan hands the card's reads to the vocabulary
     # row and calls it a phantom. Qualified by its data parent, like the four above.
     "age_band",
+    # T-1620's seating section on the order book card. `seated` is now a word
+    # `orderbook.js` prints off the RECONSTRUCTION ORDER BOOK — how many of the banded
+    # households each seating pass put on ground — and the household layer carries
+    # `garrison.seated` and `women_children.seated`, which are a modelled household's own
+    # tallies and nothing to do with it. A bare-name scan handed the card's reads to those
+    # two and called an unread figure a phantom. Same shape as `statement` directly above,
+    # which `orderbook.js` collided with in exactly this way, and the same narrowing rather
+    # than an exemption: qualified by its data parent, so the day a card really does print
+    # how many of the garrison's people were seated it declares the expression and never
+    # reaches here.
+    "seated",
 })
 
 # Unread leaves the reverse scan of assertion 3 cannot attribute, STATED rather
@@ -537,6 +548,16 @@ RESIDENTS_MANIFEST_READS: dict[str, tuple[str, str]] = {
     # everywhere; T-1314 put people back under the grade and `gradeChips` has always
     # drawn all three from one expression.
     "households[].grades.reconstructed": ("shown", "(grades || {})[g]"),
+    # T-1476, the owner's ruling of 2026-09-21: a record and a household are not the
+    # same unit. The count sentence gives both totals before anything is opened, and
+    # the row's own chip names the clause that made it a house — or says, in as many
+    # words, that it is a person still awaiting one. The clause is on the manifest
+    # row rather than derived in the browser for the same reason `letter_list_only`
+    # is: it is a RULING, and a renderer that re-derived it could disagree with the
+    # order book that takes the town's house quota against the same field.
+    "counts.houses": ("shown", "counts.houses"),
+    "counts.awaiting_a_household": ("shown", "counts.awaiting_a_household"),
+    "households[].dwelling_evidence": ("shown", "entry.dwelling_evidence"),
     # The finding the section was built to carry: a household with neither
     # residence nor workplace attested reaches no building sidecar, so these two
     # copies are what puts "on no building card" on the row.
@@ -829,6 +850,12 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "modelled_family.kin_seated": ("shown", "escapeHtml(String(block.kin_seated))"),
     "modelled_family.seed": ("shown", "escapeHtml(String(block.seed))"),
     "modelled_family.note": ("shown", "escapeHtml(String(block.note || ''))"),
+    # T-1564. THE ONE FIGURE OF THE RE-FAMILY BLOCK A RENDERER ALREADY REACHES. The
+    # household card's `refamilied` block records the move a held head was counted into,
+    # and `businessBlockHtml` prints the `withdrawn_if` of any block it is handed — so
+    # this key is READ where the rest of the block is banked unread. Declared rather than
+    # banked, because a figure that drives what a reader sees may not be counted unread.
+    "refamilied.withdrawn_if": ("shown", "escapeHtml(block.withdrawn_if)"),
     # T-1171. A RECONSTRUCTED PERSON IS THE DRAWN THING, so the disclosure the attribute
     # tiers hang off a value is printed about the person instead: the stage that wrote
     # them, the model row, the seed a reader can retype and what would retire them.
@@ -995,6 +1022,21 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].occupation.later_occupation.note": ("shown", "escapeHtml(later.note || '')"),
     "persons[].occupation.later_occupation.sources": (
         "shown", "(later.sources || []).map((id) => citationsById.get(id))"),
+    # T-0991's WITHDRAWAL, WHICH IS THE SAME POINTER FROM THE OTHER SIDE. A trade
+    # printed AFTER the scene gets the block above; a trade printed BEFORE it — six
+    # cards, all off the Chicago Democrat of 26 November 1833 — gets this one, written
+    # by `tools/derive_resident_roles.py` when the 1835 field gave the trade up. All
+    # three figures were banked unread until `withdrawnOccupationHtml` rendered them,
+    # which is what the owner's ruling of 2026-09-21 asked for in saying the trades are
+    # not lost: the card names the trade, the grade it was held at and the verdict that
+    # took it off. `ticket` stays banked — it is this project's bookkeeping and not a
+    # figure a visitor reads. THE DATE IS NOT DECLARED HERE because the block does not
+    # carry one: the preserved `roles[]` row does, and the renderer prints that row's
+    # bound so the two cannot drift.
+    "persons[].occupation.withdrawn_from_scene_date.value": (
+        "shown", "escapeHtml(words(withdrawn.value))"),
+    "persons[].occupation.withdrawn_from_scene_date.verdict": (
+        "shown", "words(withdrawn.verdict || 'unadjudicated')"),
     # The three that were reaching the card as `[object Object]` until the commit
     # this map arrived in. See the module docstring: they are graded claim blocks
     # like the household's own, and they go through `claimRow` now.

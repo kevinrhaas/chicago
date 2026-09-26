@@ -13,6 +13,8 @@ a research dataset with renderers attached. Live at
 | `/4d/?year=1835&debug=1` | query parameters sit on top of any door; further state (a structure to open, a camera) goes in more parameters, never more path |
 | [`/pre-fire/viewer/`](https://chicago.polecat.live/pre-fire/viewer/), [`/rebuilding-1870s/viewer/`](https://chicago.polecat.live/rebuilding-1870s/viewer/) | the Atlas's two map viewers |
 
+The Prairie Avenue 1904 research package is in [`chicago/prairie_1904_v1/`](chicago/prairie_1904_v1/README.md); its dev browser is `/4d/dev/prairie-1904/viewer/`.
+
 ## Where things are
 
 | path | what it is |

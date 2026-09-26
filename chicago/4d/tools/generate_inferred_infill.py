@@ -64,6 +64,15 @@ from block_faces import extent, face_frame as block_face, project  # noqa: E402
 # building's neighbours stand. See tools/siding_stock.py.
 from siding_stock import deal_records as deal_siding  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "drawn"
+CORRIDOR_LINE_WHY = (
+    "an explicitly conjectural roof has no business in the street it is drawn beside, which is the "
+    "drawn one"
+)
+
 OCCUPANCY = occupancy()
 # The crosswalk's per-family bands, read once. `family_bands` is the only reader of that
 # file, so this parcel and every gate that measures it see the same eave, roof and ridge

@@ -23,10 +23,9 @@ invariant refuses a stage that draws past it.
 Set the two side by side and they do not agree, and the disagreement is not small:
 
   * the shops want more hands than the book has slots left,
-  * every hand the shops want is a man, and two fifths of the book's remaining
+  * every hand the shops want is a man, and a large share of the book's remaining
     slots are women's,
-  * and the shops want boys of twelve to eighteen, in a band where the book has
-    no outstanding slot at all.
+  * and every slot that could pay is owned by another stage.
 
 So the mint cannot simply run. Either the book is re-cut — the town's remaining
 working people are younger and more male than a cut shaped by the 1840 schedule
@@ -35,6 +34,48 @@ short and the town says why. That is a ruling about what the town IS, not a deta
 how a tool draws, and T-1166 owns the book. This file is the adjudication that makes
 the ruling askable: every number in it re-derives from committed files, and `--check`
 refuses a byte that has drifted since.
+
+THE FIRST ANSWER HAS SINCE BEEN RULED AND SPENT, and this file says so from the book
+rather than from memory. The owner ruled the re-cut on 2026-09-20; it ran, it opened
+the 10-19 band the apprentices and shop boys stand in, and it REFUSED the sex axis on
+the evidence — so it did not make the mint payable to the typical band. The prose in
+`the_question` and `the_collision` used to be literal strings written against the book
+as it stood before that, and by 2026-09-25 three of them were flatly false: they went
+on calling a band drawn out that carries outstanding slots. Every clause that names a
+quantity is now DERIVED from the same `rows` and `slots` the numbers beside it come
+from, and the self-test fires on the wording as well as on the figure. An adjudication
+that narrates a state it no longer measures is worse than no adjudication at all.
+
+And the second answer is now PRICED. `the_demand` had always promised that `count_low`
+was "carried on every row so a reader can price the other two answers"; it was not
+carried at all, so the one answer arithmetic could settle was the one nobody could
+read. Every row now carries `count_low` and `short_by_at_the_low_band`, and
+`the_collision.at_the_model_s_low_band` pays that smaller demand from the same purse
+in the same order.
+
+AND THE OWNER HAS NOW RULED — option (a), the LOW band, on 2026-09-25. So this file's
+job changed: the question above is answered, and what an answered question needs is not
+another asking but a PRICE THE MINT CAN BE RUN FROM. `the_owner_s_ruling` is that price,
+and pricing it turned up two axes the payment had never looked at and a bound nothing had
+counted:
+
+  * THE HOUSEHOLD AXIS. `pay_the_demand` matches a hand to a slot on sex and age band
+    only. Every slot it can reach is a `lodging/trade` bucket — a person the book orders
+    into a lodging household — and the staffing model's OWN `the_shop_household_rule`
+    puts the on-premises share of these roles in the EMPLOYER'S household instead. A
+    tavern keeper the model states at `lives_on_premises: 1.0` is a household member at
+    every share of the role, and a lodging slot is the wrong household type for them.
+    The book's `family/trade` cells, which would be the right one, are drawn out.
+  * THE BED BOUND. A lodging slot is a quota, not a bed, and a lodger has to sleep in a
+    house that stands. `1835_lodgers_seated.json` is now an input for exactly that
+    reason: it is the committed bed accounting, and it says every ordinary-night bed in
+    every built lodging place is slept in and answers "may anything more be minted
+    here" with No. So the hands the ruling buys in slots cannot be seated in beds.
+
+Both are read off committed files, neither is asserted here, and the self-test fires on
+each. The ruling is not thereby refused — it stands, and `mintable_today` is what it can
+actually buy on the town as committed, which is the figure the mint stage needs and the
+one no earlier pass of this file could have printed.
 
 WHAT IT IS NOT. It is not a roster. No name is drawn, no card is written, no bucket's
 `filled` is incremented and no `fills` row is added — an order is not a fill, and the
@@ -53,6 +94,10 @@ BUSINESSES = ROOT / "data" / "businesses"
 MODEL = ROOT / "data" / "reconstruction" / "1835_business_staffing_model.json"
 ORDER_BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 SEATING = ROOT / "data" / "residents" / "reconstructed_seating.json"
+#: The committed bed accounting of the boarders stage (T-1371, of T-1175). A
+#: `lodging/trade` slot is a quota and a bed is a place to sleep; this file is the only
+#: committed statement of how many of the second there are.
+LODGERS_SEATED = ROOT / "data" / "reconstruction" / "1835_lodgers_seated.json"
 OUT = ROOT / "data" / "reconstruction" / "1835_staffing_mint_order.json"
 
 TICKET = "T-1448"
@@ -164,6 +209,18 @@ def demand(businesses: list, model: dict, seating: dict) -> list:
             by_role.setdefault(role["role"], []).append(role)
         for name, role_rows in sorted(by_role.items()):
             pool = standing.get((business["id"], name), 0)
+            # The same allotment again at the model's LOW band, on its own pool, so the
+            # second of the three answers can be priced row by row rather than from a
+            # pair of totals. It has to be a separate pass: a hand that fills the first
+            # row to its TYPICAL count may only be owed to the low one, and the hands
+            # left for the second row differ accordingly.
+            low_pool = pool
+            low_short = []
+            for role in role_rows:
+                low = int(role.get("count_low") or 0)
+                taken_low = min(low_pool, low)
+                low_pool -= taken_low
+                low_short.append(low - taken_low)
             for index, role in enumerate(role_rows):
                 typical = int(role.get("count_typical") or 0)
                 taken = min(pool, typical)
@@ -183,10 +240,12 @@ def demand(businesses: list, model: dict, seating: dict) -> list:
                     "sex_rule": role.get("sex_rule"),
                     "age_band": role.get("age_band"),
                     "lives_on_premises": role.get("lives_on_premises"),
+                    "count_low": int(role.get("count_low") or 0),
                     "count_typical": typical,
                     "count_high": int(role.get("count_high") or 0),
                     "standing_today": taken,
                     "short_by": short,
+                    "short_by_at_the_low_band": low_short[index],
                     "basis": role.get("basis"),
                     "note": role.get("note"),
                 })
@@ -271,6 +330,77 @@ def pay_the_demand(rows: list, slots: list) -> dict:
     }
 
 
+def lives_in_the_employer_s_household(model: dict) -> set:
+    """The `class/role/relationship` keys the staffing model's own shop-household rule
+    lists under `who_lives_in` — the roles whose holders it houses with their employer
+    rather than in lodgings of their own. Read, never restated: the rule is T-1163's and
+    this file has no licence to widen or narrow it."""
+    rule = model.get("the_shop_household_rule") or {}
+    return set(rule.get("who_lives_in") or [])
+
+
+def _household_key(row: dict) -> str:
+    return f"{row['establishment_class']}/{row['role']}/{row['household_relationship']}"
+
+
+def _placement_tally(rows: list, businesses: list) -> dict:
+    """Paid hands by what the register makes of their house's place — `premises` where a
+    structure holds it, `street_only` where a street does and no building, `unplaceable`
+    where neither. The division axis can only be priced for the first two, which is why
+    this counts rather than asserts."""
+    by_id = {business["id"]: business for business in businesses}
+    out: dict = {}
+    for row in rows:
+        business = by_id.get(row["business_id"]) or {}
+        primary = next((loc for loc in business.get("locations") or []
+                        if loc.get("primary")), None)
+        kind = (primary or {}).get("kind") or "no_location_row"
+        out[kind] = out.get(kind, 0) + row["paid"]
+    return out
+
+
+def outstanding_family_trade_slots(book: dict) -> int:
+    """The `family/trade` slots left — the household type a hand who sleeps in the
+    employer's house would have to be paid from. Counted so that "there is no purse for
+    them" is a measurement rather than an assertion."""
+    family = next((f for f in book.get("bucket_families") or []
+                   if f.get("key") == "persons"), None)
+    if family is None:
+        raise Fault("the order book carries no `persons` bucket family")
+    left = 0
+    for bucket in family.get("buckets") or []:
+        axes = bucket.get("axes") or {}
+        if axes.get("trade") != "trade" or axes.get("household_type") != "family":
+            continue
+        left += max(0, int(bucket.get("to_reconstruct") or 0)
+                    - int(bucket.get("filled") or 0))
+    return left
+
+
+def the_bed_bound(lodgers: dict) -> dict:
+    """The boarders stage's own bed accounting, quoted. A `lodging/trade` slot is a
+    quota; a bed is somewhere to sleep. Nothing here is computed — every figure and the
+    sentence with them are `1835_lodgers_seated.json`'s, so this file cannot go on
+    pricing a mint against beds the town has stopped having."""
+    measurement = lodgers.get("measurement") or {}
+    reconciled = measurement.get("the_two_counts_reconciled") or {}
+    if "ordinary_night_beds_still_empty" not in measurement:
+        raise Fault("the committed lodging accounting no longer states how many "
+                    "ordinary-night beds stand empty")
+    return {
+        "read_from": "data/reconstruction/1835_lodgers_seated.json",
+        "ticket": lodgers.get("ticket"),
+        "built_lodging_places": measurement.get("built_lodging_places"),
+        "ordinary_night_beds": measurement.get("ordinary_night_beds"),
+        "ordinary_night_beds_slept_in": measurement.get("occupied_after_this_stage"),
+        "ordinary_night_beds_still_empty":
+            int(measurement.get("ordinary_night_beds_still_empty") or 0),
+        "lodging_places_unbuilt": reconciled.get("lodging_places_unbuilt"),
+        "may_anything_more_be_minted_here":
+            reconciled.get("may_anything_more_be_minted_here"),
+    }
+
+
 # ----------------------------------------------------------------- the order --
 
 def _tally(rows: list, key) -> list:
@@ -298,6 +428,91 @@ def order(data: dict) -> dict:
     youth_slots = sum(slot["outstanding"] for slot in slots
                       if bands_overlap("youth_12_18", slot["age_band"]))
     youth_wanted = sum(row["short_by"] for row in rows if row["age_band"] == "youth_12_18")
+    youth_slots_by_sex: dict = {}
+    for slot in slots:
+        if bands_overlap("youth_12_18", slot["age_band"]):
+            youth_slots_by_sex[slot["sex"]] = (youth_slots_by_sex.get(slot["sex"], 0)
+                                               + slot["outstanding"])
+    payable_from_a_woman = sum(row["short_by"] for row in rows
+                               if "female" in SEX_RULE_PAYS_FROM.get(row["sex_rule"], []))
+    slots_outstanding = sum(slot["outstanding"] for slot in slots)
+    payable = wanted - unpaid
+    recut = data["book"].get("trade_re_cut") or {}
+
+    # THE SECOND ANSWER, PRICED. `the_demand` has always claimed that `count_low` is
+    # carried on every row "so a reader can price the other two answers", and until
+    # 2026-09-25 it was not carried at all — so the one answer the arithmetic could
+    # actually settle was the one nobody could read. Coming down to the model's low
+    # band is a smaller demand against the SAME purse, so it is paid the same way.
+    low_rows = [{**row, "short_by": row["short_by_at_the_low_band"]}
+                for row in rows if row["short_by_at_the_low_band"] > 0]
+    low_paid = pay_the_demand(low_rows, slots)
+    low_wanted = sum(row["short_by"] for row in low_rows)
+    low_unpaid = sum(row["unpaid"] for row in low_paid["rows"])
+    low_payable = low_wanted - low_unpaid
+
+    # THE RULED BAND, CARRIED ONTO THE ROWS. The owner ruled the low band, so the
+    # allocation it implies stops being an aside in `the_collision` and becomes the
+    # mint's own input: house by house, which bucket pays for which hand. Merged by
+    # (house, role, role row) rather than by position, because the low pass runs over a
+    # FILTERED set of rows and a positional merge would silently shift the payments one
+    # house to the left the first time a row dropped out of it.
+    low_by_key = {(row["business_id"], row["role"], row["role_row"]): row
+                  for row in low_paid["rows"]}
+
+    # AND WHAT THE RULED ALLOCATION ACTUALLY BUYS, on two axes `pay_the_demand` does not
+    # look at and a bound nothing had counted. Neither is a refusal of the ruling: the
+    # ruling is the band, and these are what the band costs on the town as committed.
+    lives_in = lives_in_the_employer_s_household(data["model"])
+    ruled = [row for row in low_paid["rows"] if row["paid"] > 0]
+    housed_with_the_employer = sum(row["paid"] for row in ruled
+                                   if _household_key(row) in lives_in)
+    certainly_housed = sum(row["paid"] for row in ruled
+                           if float(row["lives_on_premises"] or 0) >= 1.0)
+    family_trade_left = outstanding_family_trade_slots(data["book"])
+    beds = the_bed_bound(data["lodgers"])
+    needing_a_bed = low_payable - certainly_housed
+    mintable_today = min(needing_a_bed, beds["ordinary_night_beds_still_empty"])
+    by_premises_share: dict = {}
+    for row in ruled:
+        share = float(row["lives_on_premises"] or 0)
+        key = f"{share:.1f}"
+        by_premises_share[key] = by_premises_share.get(key, 0) + row["paid"]
+
+    # THE SENTENCES BELOW ARE DERIVED, NOT WRITTEN. Three of them used to be literals,
+    # and by 2026-09-25 all three were false: the re-cut this file asked for had run
+    # (T-1459, T-1503, T-1525) and opened the very band they said was drawn out, so the
+    # adjudication was arguing from a book that had moved under it. A file whose whole
+    # job is to make a ruling askable may not narrate a state it no longer measures, so
+    # every clause that names a quantity now reads that quantity off `slots`/`rows` and
+    # the assertions below fire on the wording as well as on the number.
+    if payable_from_a_woman == 0:
+        on_the_sex_reads_as = (
+            f"Every one of the {wanted} hands the shops want is a man or a role the "
+            f"model calls predominantly male — not one of them could be paid from a "
+            f"woman's slot. "
+            f"{purse_by_sex.get('female', 0)} of the book's {slots_outstanding} "
+            f"outstanding slots are women's, and they cannot be spent here at all.")
+    else:
+        on_the_sex_reads_as = (
+            f"{payable_from_a_woman} of the {wanted} hands wanted may be paid from a "
+            f"woman's slot, against {purse_by_sex.get('female', 0)} women's slots of "
+            f"the book's {slots_outstanding} outstanding. The other "
+            f"{wanted - payable_from_a_woman} are men's, or roles the model calls "
+            f"predominantly male, and the women's slots cannot be spent on them.")
+    if youth_slots == 0:
+        on_the_age_reads_as = (
+            f"The apprentice and the shop boy are {youth_wanted} of the {wanted} hands "
+            f"wanted. The book's 10-19 trade buckets are drawn out, so there is no slot "
+            f"a boy could be minted into without re-cutting.")
+    else:
+        on_the_age_reads_as = (
+            f"The apprentice and the shop boy are {youth_wanted} of the {wanted} hands "
+            f"wanted, and the band that reaches them is NO LONGER DRAWN OUT: "
+            f"{youth_slots} slot(s) stand outstanding in it, "
+            f"{youth_slots_by_sex.get('male', 0)} of them men's and so spendable on a "
+            f"boy, {youth_slots_by_sex.get('female', 0)} of them women's and so not. "
+            f"The age bar this file was written against is paid for; the sex bar is not.")
 
     return {
         "$schema_note": "DERIVED — regenerate with tools/staffing_mint_order_1835.py "
@@ -322,28 +537,60 @@ def order(data: dict) -> dict:
             "data/reconstruction/1835_business_staffing_model.json",
             "data/reconstruction/1835_reconstruction_order_book.json",
             "data/residents/reconstructed_seating.json",
+            "data/reconstruction/1835_lodgers_seated.json",
         ],
+        "what_the_re_cut_returned": {
+            "what_it_is": "The first of the answers below was RULED by the owner and "
+                          "has since been SPENT: the book was re-cut. These are the "
+                          "re-cut's own words and figures, read from "
+                          "data/reconstruction/1835_reconstruction_order_book.json, so "
+                          "that this file cannot go on arguing from a book that has "
+                          "moved under it.",
+            "ruling": recut.get("ruling"),
+            "ticket": recut.get("ticket"),
+            "slots_the_re_cut_wanted": recut.get("the_re_cut_wanted"),
+            "slots_that_moved": recut.get("what_moved"),
+            "why_it_stopped": recut.get("why_it_stopped"),
+            "the_sex_axis": recut.get("the_sex_axis"),
+            "and_the_mint_is_still_short": (
+                f"After the re-cut, {payable} of the {wanted} hands are payable and "
+                f"{unpaid} are not. The re-cut opened the band the shop boys stand in "
+                f"— {youth_slots} slot(s) outstanding in it now — and refused the sex "
+                f"axis on the evidence. The sex bar is what the {unpaid} stand behind, "
+                f"and re-cutting again cannot move it."),
+        },
         "the_question": {
             "for": "the owner, and T-1166 which owns the order book",
-            "asked": "The shops want more hands than the book has slots left, they are "
-                     "all men, and a fifth of them are boys in a band where the book "
-                     "has nothing outstanding at all. Which gives way?",
-            "the_three_answers_as_this_project_sees_them": [
-                "RE-CUT THE BOOK (T-1166). The town's remaining working people are "
-                "younger and more male than a cut shaped by the 1840 schedule's bands "
-                "makes them. This is the answer that lets the mint run to the typical "
-                "band, and it moves a quota five other stages draw against.",
-                "COME DOWN OFF THE TYPICAL BAND. Staff every house to what the book can "
-                "pay for and record the rest as a town owed more working men than it "
-                "holds. The staffing model's `count_low` is 65 hands against the "
-                "typical 202, so a low-band town is within the model's own range.",
+            "asked": f"The shops want {wanted} hands and the book has "
+                     f"{slots_outstanding} outstanding trade slots, of which "
+                     f"{purse_by_sex.get('female', 0)} are women's and cannot be spent "
+                     f"on them. Spent greedily in the stated order the book pays for "
+                     f"{payable} and leaves {unpaid} with nowhere to come from — and "
+                     f"every payable slot belongs to another stage. Which gives way?",
+            "the_answers_as_this_project_sees_them": [
+                "RE-CUT THE BOOK (T-1166) — RULED, RUN AND SPENT; see "
+                "`what_the_re_cut_returned` above. It opened the band the shop boys "
+                "stand in and it refused the sex axis on the evidence, so it did not "
+                "make the mint payable to the typical band. This answer is no longer "
+                "on the table, and the two below are.",
+                f"COME DOWN OFF THE TYPICAL BAND. Staff every house to the model's own "
+                f"`count_low` instead and the demand falls from {wanted} hands to "
+                f"{low_wanted}, of which the book pays for {low_wanted - low_unpaid} "
+                f"and leaves {low_unpaid} short. `count_low` and "
+                f"`short_by_at_the_low_band` are carried on every row below, so this "
+                f"answer prices house by house and not only in totals. A low-band town "
+                f"is inside the staffing model's own stated range.",
                 "LET THE HOUSES STAND SHORT AND SAY SO. Mint nothing, and let the "
                 "business card print the shortfall as the honest state of the evidence. "
                 "It costs the layer nothing and it is the only answer that invents "
                 "nobody.",
             ],
-            "what_this_tool_will_not_do": "Choose. Every one of the three changes what "
-                                          "the town IS, and this file exists to make the "
+            "answered": "ANSWERED on 2026-09-25 — the owner took the second answer, "
+                        "the model's LOW band. The three are kept below because the "
+                        "ruling is only readable against what it chose between. What "
+                        "the answer buys is `the_owner_s_ruling` above.",
+            "what_this_tool_will_not_do": "Choose. Every one of them changes what the "
+                                          "town IS, and this file exists to make the "
                                           "choice askable with numbers rather than to "
                                           "make it quietly by running.",
         },
@@ -362,12 +609,14 @@ def order(data: dict) -> dict:
         "what_the_book_can_pay": {
             "what_it_is": "The order book's `.../trade` person buckets with slots left. "
                           "Every one of them is a `lodging/trade` bucket and every one "
-                          "is owned by T-1500, the lodgers stage — so a mint that spends "
-                          "them spends another stage's quota, which is itself part of "
-                          "the question above. T-1500 because T-1175, which held these "
-                          "buckets when this sentence was written, split and left them "
-                          "ordered by nobody; T-1420 swept the book onto live owners on "
-                          "2026-09-21 and the stage is the same stage.",
+                          "is owned by T-1532, the working lodgers — so a mint that "
+                          "spends them spends another stage's quota, which is itself "
+                          "part of the question above. T-1532 because T-1175, which held "
+                          "these buckets when this sentence was written, split and left "
+                          "them ordered by nobody; T-1420 swept the book onto the live "
+                          "placeholder T-1500 on 2026-09-21, and T-1500 cut the bed "
+                          "buckets three ways on 2026-09-24, the `lodging/trade` third "
+                          "of them to T-1532. The stage is the same stage throughout.",
             "slots_outstanding": sum(slot["outstanding"] for slot in slots),
             "by_sex": dict(sorted(purse_by_sex.items())),
             "owning_tickets": sorted({slot["owning_ticket"] for slot in slots
@@ -385,23 +634,139 @@ def order(data: dict) -> dict:
                     row["short_by"] for row in rows
                     if "female" in SEX_RULE_PAYS_FROM.get(row["sex_rule"], [])),
                 "women_s_slots_outstanding": purse_by_sex.get("female", 0),
-                "reads_as": "Every hand the shops want is a man or a role the model "
-                            "calls predominantly male, and the book's remaining slots "
-                            "are two fifths women's. Those slots cannot be spent here "
-                            "at all.",
+                "reads_as": on_the_sex_reads_as,
             },
             "on_the_age": {
                 "boys_wanted_12_to_18": youth_wanted,
                 "slots_outstanding_in_a_band_that_reaches_them": youth_slots,
-                "reads_as": "The apprentice and the shop boy are a fifth of the demand. "
-                            "The book's 10-19 trade buckets are drawn out, so there is "
-                            "no slot a boy could be minted into without re-cutting.",
+                "slots_in_that_band_by_sex": dict(sorted(youth_slots_by_sex.items())),
+                "reads_as": on_the_age_reads_as,
             },
             "what_the_book_could_pay_for_today": wanted - unpaid,
             "what_would_go_unpaid": unpaid,
             "slots_that_would_be_left": paid["purse_left"],
+            "at_the_model_s_low_band": {
+                "what_it_is": "The same arithmetic against the second answer — every "
+                              "house staffed to `count_low` rather than to the typical "
+                              "band, paid from the same purse in the same order.",
+                "hands_wanted": low_wanted,
+                "houses_short": len({row["business_id"] for row in low_rows}),
+                "what_the_book_could_pay_for": low_wanted - low_unpaid,
+                "what_would_go_unpaid": low_unpaid,
+                "slots_that_would_be_left": low_paid["purse_left"],
+            },
         },
-        "rows": paid["rows"],
+        "the_owner_s_ruling": {
+            "what_it_is": "The owner's answer to the question below, and what it buys "
+                          "on the town as committed. The question is ANSWERED; this "
+                          "block is the price the mint stage runs from.",
+            "asked": "2026-09-25",
+            "answered": "2026-09-25",
+            "answer": "a",
+            "what_it_ruled": "Mint to the model's LOW band: the hands the book can pay "
+                             "for minted out of the outstanding lodging/trade slots, "
+                             "the houses it cannot reach left short and saying so on "
+                             "the business card.",
+            "why_that_one": "It is the band the staffing model itself states for this "
+                            "case, it leaves the smallest unexplained gap, and the "
+                            "houses it fills are chosen by a stated band rather than by "
+                            "the order the arithmetic happens to run in.",
+            "hands_the_ruling_wants": low_wanted,
+            "hands_the_book_pays_for_in_slots": low_payable,
+            "houses_left_short": low_unpaid,
+            "on_the_household_axis": {
+                "what_it_is": "A slot is not only a sex and an age band; it is also a "
+                              "HOUSEHOLD TYPE, and `pay_the_demand` does not look at "
+                              "one. Every slot it can reach is a `lodging/trade` "
+                              "bucket — a person the book orders into a lodging "
+                              "household — and the staffing model's own "
+                              "`the_shop_household_rule` houses the on-premises share "
+                              "of these roles with their EMPLOYER instead.",
+                "the_rule_it_reads":
+                    (data["model"].get("the_shop_household_rule") or {}).get("rule"),
+                "hands_paid_for_whose_role_the_rule_houses_with_the_employer":
+                    housed_with_the_employer,
+                "hands_paid_for_the_model_houses_there_at_every_share": certainly_housed,
+                "family_trade_slots_outstanding": family_trade_left,
+                "reads_as": (
+                    f"Of the {low_payable} hands the ruling buys, "
+                    f"{housed_with_the_employer} hold a role the model's own rule "
+                    f"houses with their employer, and {certainly_housed} of those it "
+                    f"states at `lives_on_premises: 1.0` — a household member at every "
+                    f"share of the role, and so not a lodger a `lodging/trade` slot can "
+                    f"pay for at all. The household type that could pay for them is "
+                    f"`family/trade`, and it has {family_trade_left} slot(s) "
+                    f"outstanding."),
+                "hands_paid_for_by_the_share_the_model_states": dict(
+                    sorted(by_premises_share.items(), key=lambda kv: -float(kv[0]))),
+            },
+            "on_the_bed_bound": {
+                "what_it_is": "A lodging slot is a quota and a bed is somewhere to "
+                              "sleep, and the second is the binding one. A lodger has "
+                              "to be seated in a house that stands, on the boarders "
+                              "stage's own bed accounting — the same bound T-1532 is "
+                              "blocked on.",
+                **beds,
+                "hands_of_the_ruling_that_would_need_a_bed": needing_a_bed,
+                "reads_as": (
+                    f"{needing_a_bed} of the {low_payable} hands the ruling buys would "
+                    f"have to be seated as lodgers, and "
+                    f"{beds['ordinary_night_beds_still_empty']} ordinary-night bed(s) "
+                    f"stand empty in the "
+                    f"{beds['built_lodging_places']} built lodging places. The "
+                    f"{beds['lodging_places_unbuilt']} lodging roofs the model "
+                    f"schedules and nothing has raised are where the rest of the beds "
+                    f"are."),
+            },
+            "mintable_today": mintable_today,
+            "reads_as": (
+                f"The ruling stands and the arithmetic under it is unchanged: "
+                f"{low_wanted} hands wanted at the low band, {low_payable} of them "
+                f"payable in slots. What the town cannot do today is SEAT them. "
+                f"{certainly_housed} are household members the lodging purse is the "
+                f"wrong household type for, and the {needing_a_bed} left need a bed "
+                f"against {beds['ordinary_night_beds_still_empty']} empty. So "
+                f"{mintable_today} of them can be minted on the files as committed. "
+                f"This is a bed bound and a household-type bound, not a ruling that "
+                f"has been refused, and neither can be lifted by re-cutting the book."
+                if mintable_today < low_payable else
+                f"The ruling is payable and seatable: {mintable_today} of the "
+                f"{low_payable} hands it buys can be minted on the files as "
+                f"committed."),
+            "waits_on": [
+                "T-1209 — raise the lodging roofs the model schedules; the beds are "
+                "there and nowhere else",
+                "T-1538 — seat the houses once they stand",
+                "T-1532 — the working lodgers, blocked on the same bound, whose "
+                "lodging/trade buckets this purse is",
+            ],
+            "and_the_division_axis_is_not_priced_either": {
+                "what_it_is": "A third axis the payment does not look at: a slot names "
+                              "the DIVISION the book is short of a person in, and a "
+                              "hand is paid from the first bucket by key whatever "
+                              "division its house stands in. It is named here and not "
+                              "closed here, because for most of these houses it cannot "
+                              "be: the register places no premises for them.",
+                "hands_paid_for_by_the_placement_of_their_house": dict(sorted(
+                    _placement_tally(ruled, data["businesses"]).items())),
+                "filed_as": "T-1566, beside this one",
+            },
+        },
+        "rows": [
+            {
+                **row,
+                "paid_from_at_the_low_band": low_by_key.get(
+                    (row["business_id"], row["role"], row["role_row"]),
+                    {}).get("paid_from", []),
+                "paid_at_the_low_band": low_by_key.get(
+                    (row["business_id"], row["role"], row["role_row"]),
+                    {}).get("paid", 0),
+                "unpaid_at_the_low_band": low_by_key.get(
+                    (row["business_id"], row["role"], row["role_row"]),
+                    {}).get("unpaid", 0),
+            }
+            for row in paid["rows"]
+        ],
         "how_the_two_vocabularies_were_matched": {
             "why": "The staffing model counts hands in its own age terms and the book "
                    "counts people in the 1840 schedule's bands. A slot pays for a hand "
@@ -416,12 +781,17 @@ def order(data: dict) -> dict:
                                   "would read that word as if it were.",
         },
         "what_this_does_not_do": {
-            "it_does_not_mint": "T-1434's mint is the act this file makes askable. Until "
-                                "the question above is answered, minting to the typical "
-                                "band would either overfill the book — which its "
-                                "`no_bucket_overfilled` invariant refuses — or put 129 "
-                                "people into the town outside the only quota this "
-                                "project holds.",
+            "it_does_not_mint": "T-1434's mint is the act this file prices, and the "
+                               "question it made askable has been answered — the low "
+                               "band, 2026-09-25. What stands between the ruling and the "
+                               "mint now is `the_owner_s_ruling.mintable_today`: a "
+                               "lodging slot is not a bed and the built houses have "
+                               "none empty, and the hands the model puts in their "
+                               "employer's household would need a `family/trade` slot, "
+                               "of which none is outstanding. Minting past either would "
+                               "overfill the book, which its `no_bucket_overfilled` "
+                               "invariant refuses, or seat a lodger in a bed the town "
+                               "does not have.",
             "it_does_not_re_cut_the_book": "Reading a book and proposing one are "
                                            "different acts. T-1166 owns the cut.",
             "it_does_not_seat_anybody": "T-1449 closes the join — the minted hands on "
@@ -444,6 +814,7 @@ def build_data() -> dict:
         "model": _load(MODEL),
         "book": _load(ORDER_BOOK),
         "seating": _load(SEATING),
+        "lodgers": _load(LODGERS_SEATED),
     }
 
 
@@ -457,10 +828,14 @@ def _write(doc: dict) -> None:
 def cmd_build() -> int:
     doc = order(build_data())
     _write(doc)
+    ruling = doc["the_owner_s_ruling"]
     print(f"wrote {OUT.relative_to(ROOT)} — {doc['the_demand']['hands_wanted']} hand(s) "
           f"wanted over {doc['the_demand']['houses_short']} house(s); the book can pay "
           f"for {doc['the_collision']['what_the_book_could_pay_for_today']} and "
-          f"{doc['the_collision']['what_would_go_unpaid']} would go unpaid")
+          f"{doc['the_collision']['what_would_go_unpaid']} would go unpaid. At the "
+          f"ruled LOW band: {ruling['hands_the_ruling_wants']} wanted, "
+          f"{ruling['hands_the_book_pays_for_in_slots']} payable in slots, "
+          f"{ruling['mintable_today']} mintable today")
     return 0
 
 
@@ -481,7 +856,7 @@ def cmd_check() -> int:
 
 
 def cmd_self_test() -> int:
-    """Six assertions, fired on the real data by breaking it on a copy."""
+    """Fourteen assertions, fired on the real data by breaking it on a copy."""
     data = build_data()
     doc = order(data)
     failures = []
@@ -547,6 +922,98 @@ def cmd_self_test() -> int:
     empty["book"] = book
     if order(empty)["the_collision"]["what_the_book_could_pay_for_today"] != 0:
         failures.append("a drawn-out book still paid for hands")
+
+    # 8. THE PROSE TRACKS THE COUNT. The sentence under `on_the_age` may only say the
+    #    boys' band is drawn out when it is: the literal it replaced went on saying so
+    #    for four days after the re-cut had opened it. Fired both ways — on the real
+    #    book, which has slots in that band, and on the drawn-out copy from 7.
+    live_age = doc["the_collision"]["on_the_age"]
+    if live_age["slots_outstanding_in_a_band_that_reaches_them"] > 0 \
+            and "drawn out" in live_age["reads_as"].lower() \
+            and "no longer drawn out" not in live_age["reads_as"].lower():
+        failures.append("the age sentence calls the boys' band drawn out while its own "
+                        "count says slots stand in it")
+    empty_age = order(empty)["the_collision"]["on_the_age"]
+    if empty_age["slots_outstanding_in_a_band_that_reaches_them"] == 0 \
+            and "no longer drawn out" in empty_age["reads_as"].lower():
+        failures.append("the age sentence called a drawn-out band open")
+
+    # 9. THE LOW BAND IS A REAL SECOND PASS, not the typical demand scaled. Every role
+    #    the model states low at or below typical, and the low-band demand is therefore
+    #    never the larger of the two.
+    for row in doc["rows"]:
+        if row["count_low"] > row["count_typical"]:
+            failures.append(f"{row['business_id']}/{row['role']} states a low band above "
+                            "its typical one, so the low-band pricing is not bounded")
+            break
+    if doc["the_collision"]["at_the_model_s_low_band"]["hands_wanted"] > \
+            doc["the_demand"]["hands_wanted"]:
+        failures.append("the low band wants more hands than the typical band")
+
+    # 10. The re-cut block is the BOOK's words, not this file's. Change the book's and
+    #     the order must change with it.
+    moved = dict(data)
+    book_moved = json.loads(json.dumps(data["book"]))
+    book_moved["trade_re_cut"]["why_it_stopped"] = "a sentence this file did not write"
+    moved["book"] = book_moved
+    if order(moved)["what_the_re_cut_returned"]["why_it_stopped"] \
+            == doc["what_the_re_cut_returned"]["why_it_stopped"]:
+        failures.append("the re-cut block does not follow the order book's own words")
+
+    # 11. THE BED BOUND IS THE LODGING FILE'S, NOT THIS ONE'S. Empty beds on a copy and
+    #     `mintable_today` must rise with them. A bound this file asserted rather than
+    #     read would be a bound that stays true after the town stops being like that,
+    #     which is the failure mode the derived prose above was written against.
+    bedded = dict(data)
+    lodgers = json.loads(json.dumps(data["lodgers"]))
+    lodgers["measurement"]["ordinary_night_beds_still_empty"] = 500
+    bedded["lodgers"] = lodgers
+    if order(bedded)["the_owner_s_ruling"]["mintable_today"] \
+            <= doc["the_owner_s_ruling"]["mintable_today"]:
+        failures.append("emptying the town's beds did not raise what the ruling can "
+                        "mint — the bed bound is not being read")
+    fires("the bed bound survived a lodging file that states no bed count",
+          lambda: the_bed_bound({"measurement": {}}))
+
+    # 12. THE HOUSEHOLD AXIS IS THE STAFFING MODEL'S OWN RULE. Empty `who_lives_in` on a
+    #     copy and the count of hands it houses with the employer must fall to nought.
+    unhoused = dict(data)
+    model_copy = json.loads(json.dumps(data["model"]))
+    model_copy["the_shop_household_rule"]["who_lives_in"] = []
+    unhoused["model"] = model_copy
+    if order(unhoused)["the_owner_s_ruling"]["on_the_household_axis"][
+            "hands_paid_for_whose_role_the_rule_houses_with_the_employer"] != 0:
+        failures.append("the household axis does not follow the staffing model's own "
+                        "`who_lives_in` rule")
+
+    # 13. THE RULED ALLOCATION IS THE LOW BAND'S AND IS BOUNDED BY IT. Every row's ruled
+    #     payment plus its ruled residue is that row's low-band shortfall exactly, and
+    #     the total paid is the figure the ruling block prints. A merge that shifted the
+    #     payments between rows would pass on the totals alone and fail here.
+    ruled_paid = 0
+    for row in doc["rows"]:
+        if row["paid_at_the_low_band"] + row["unpaid_at_the_low_band"] \
+                != row["short_by_at_the_low_band"]:
+            failures.append(f"{row['business_id']}/{row['role']} carries a ruled "
+                            "allocation that does not add up to its low-band shortfall")
+            break
+        ruled_paid += row["paid_at_the_low_band"]
+    if ruled_paid != doc["the_owner_s_ruling"]["hands_the_book_pays_for_in_slots"]:
+        failures.append("the ruled allocation on the rows does not total what the "
+                        "ruling block says the book pays for")
+
+    # 14. AND IT NEVER SPENDS A BUCKET PAST ITS SLOTS EITHER. The low pass runs over the
+    #     same purse as the typical one, so the guard that holds for 4 has to hold here.
+    ruled_spent: dict = {}
+    for row in doc["rows"]:
+        for payment in row["paid_from_at_the_low_band"]:
+            ruled_spent[payment["bucket"]] = (ruled_spent.get(payment["bucket"], 0)
+                                              + payment["hands"])
+    for slot in doc["what_the_book_can_pay"]["buckets"]:
+        if ruled_spent.get(slot["bucket"], 0) > slot["outstanding"]:
+            failures.append(f"{slot['bucket']} was spent past its outstanding slots at "
+                            "the ruled band")
+            break
 
     for failure in failures:
         print(f"  FAILED: {failure}", file=sys.stderr)

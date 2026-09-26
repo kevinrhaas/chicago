@@ -41,6 +41,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, renameSync, mkdirSync, realpathSync } from 'node:fs';
 import { execFileSync, spawnSync } from 'node:child_process';
 import path from 'node:path';
+import zlib from 'node:zlib';   // T-1548 reads the .json.gz ledgers when scanning for tripwires
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const ROOT = path.resolve(HERE, '..');
@@ -522,6 +523,196 @@ const RUN_HOURS = 3;
  * answered, and never here — this function stays offline, pure, and unable to stop a
  * run that has no network.
  */
+
+// ---------------------------------------------------------------------------
+// TRIPWIRES: committed files that record a ticket TOGETHER WITH its state (T-1548)
+// ---------------------------------------------------------------------------
+//
+// Several tools embed the state of a ticket they point FORWARD at, deliberately, so
+// that the day it lands the pointer goes red rather than quietly stale.
+// data/research/spend_rulings.json says it in its own _doc: "a hand-off is not a
+// spend: it names the open ticket whose field owns the finding, and that ticket
+// closing turns this file red, which is the point."
+//
+// They work. What was missing is that nobody is told at the moment it matters.
+// MEASURED — three times in the week to 2026-09-24, each turning `dev` red for
+// whoever came next:
+//
+//   T-1507 closed as #7   -> spend_trade_premises.HANDED_TICKET still named it
+//   T-1540 closed as #25  -> measure_west_grid_migration.OWNS_THE_MOVE still named it
+//   T-1299 closed as #26  -> spend_rulings' dated-role handoff still named it
+//
+// Every one was found hours later by a different run, from a red gate, and cost a
+// whole PR to re-point. The information needed to prevent it is present at
+// `done` time and is simply not looked at.
+//
+// So it is looked at here. This is NOT a heuristic over prose: a ticket id merely
+// MENTIONED in a note is ignored, and so is the `TICKET = "T-NNNN"` provenance
+// constant every tool carries. The only thing reported is a committed file that
+// records this ticket id ALONGSIDE A STATE which closing it would falsify — either
+// as `{"T-NNNN": "open"}`, the shape the derived traces write, or as the `ticket`
+// of a ruling whose disposition asserts the work is still live.
+const LIVE_DISPOSITIONS = ['unresolved'];
+const TICKET_KEYS = ['ticket', 'owning_ticket', 'unresolved_ticket'];
+
+function _scanJsonForTicket(value, id, out, where) {
+  if (Array.isArray(value)) {
+    value.forEach((v, i) => _scanJsonForTicket(v, id, out, `${where}[${i}]`));
+    return;
+  }
+  if (!value || typeof value !== 'object') return;
+  for (const [k, v] of Object.entries(value)) {
+    // shape (a) — a ticket id used as a KEY, with its state as the value
+    if (k === id && typeof v === 'string' && STATES.includes(v)) {
+      out.push({ where: `${where}/${k}`, records: v, shape: 'state' });
+    }
+    // shape (b) — a ruling that names this ticket as the live owner of a finding
+    if (TICKET_KEYS.includes(k) && v === id) {
+      const disp = value.disposition;
+      if (typeof disp === 'string' && LIVE_DISPOSITIONS.includes(disp)) {
+        out.push({ where, records: `disposition: ${disp}`, shape: 'handoff' });
+      }
+    }
+    _scanJsonForTicket(v, id, out, `${where}/${k}`);
+  }
+}
+
+function tripwiresNaming(id) {
+  const hits = [];
+  const roots = ['data', 'docs'];
+  const files = [];
+  for (const r of roots) {
+    const base = path.join(ROOT, r);
+    if (!existsSync(base)) continue;
+    const walk = (d) => {
+      for (const e of readdirSync(d, { withFileTypes: true })) {
+        const full = path.join(d, e.name);
+        if (e.isDirectory()) { walk(full); continue; }
+        if (e.name.endsWith('.json') || e.name.endsWith('.json.gz')) files.push(full);
+      }
+    };
+    try { walk(base); } catch { /* unreadable tree is not this check's business */ }
+  }
+  for (const f of files) {
+    let text;
+    try {
+      text = f.endsWith('.gz')
+        ? zlib.gunzipSync(readFileSync(f)).toString('utf8')
+        : readFileSync(f, 'utf8');
+    } catch { continue; }
+    if (!text.includes(id)) continue;            // cheap reject before parsing
+    let parsed;
+    try { parsed = JSON.parse(text); } catch { continue; }
+    const out = [];
+    _scanJsonForTicket(parsed, id, out, '');
+    for (const o of out) hits.push({ file: path.relative(ROOT, f), ...o });
+  }
+  return hits;
+}
+
+function tripwireSelfTest() {
+  // The scanner is a gate, so it is proved by breaking it. Fixtures only — nothing
+  // here reads the repository, so the assertions cannot drift with the data.
+  let fired = 0;
+  const check = (name, cond) => {
+    if (!cond) { console.error(`  self-test | FAIL  ${name}`); process.exitCode = 1; }
+    else { console.error(`  self-test | ok    ${name}`); fired += 1; }
+  };
+  const scan = (doc, id) => { const out = []; _scanJsonForTicket(doc, id, out, ''); return out; };
+
+  // (a) the derived-trace shape: a ticket id as a KEY, its state as the value
+  check('a trace recording {T-0001: open} is caught',
+    scan({ precondition: { owns_it_now: { 'T-0001': 'open' } } }, 'T-0001').length === 1);
+
+  // and the same file once the state agrees with where the ticket is going is NOT a
+  // tripwire — that is the file already re-pointed, which must not block the close
+  check('the same trace recording `done` does not fire when closing to done',
+    scan({ a: { 'T-0001': 'done' } }, 'T-0001')
+      .filter((h) => h.records !== 'done').length === 0);
+
+  // (b) the handoff shape: a ruling naming this ticket while asserting live work
+  check('a ruling with disposition unresolved naming the ticket is caught',
+    scan({ rules: { r: { disposition: 'unresolved', ticket: 'T-0002' } } }, 'T-0002')
+      .some((h) => h.shape === 'handoff'));
+  check('the same ruling settled (disposition refused) is not caught',
+    scan({ rules: { r: { disposition: 'refused', ticket: 'T-0002' } } }, 'T-0002')
+      .some((h) => h.shape === 'handoff') === false);
+
+  // THE TWO FALSE POSITIVES THIS MUST NEVER HAVE, because either one would make the
+  // check noise and noise gets bypassed.
+  check('a ticket merely NAMED in prose is ignored',
+    scan({ note: 'carried here from T-0003, by tools/x.py' }, 'T-0003').length === 0);
+  check('the TICKET = provenance constant shape is ignored',
+    scan({ ticket: 'T-0004' }, 'T-0004').length === 0);   // no liveness disposition beside it
+
+  // and a state word that is not a real state is not a state
+  check('a value that is not a ticket state is ignored',
+    scan({ a: { 'T-0005': 'sometime' } }, 'T-0005').length === 0);
+
+  console.error(`  self-test | ${fired} assertion(s) fired`);
+  return process.exitCode ? 1 : 0;
+}
+
+function refuseIfATripwireNamesIt(t, becoming) {
+  const hits = tripwiresNaming(t.id);
+  const live = hits.filter((h) => h.shape === 'handoff' || h.records !== becoming);
+  if (!live.length) return;
+  console.error(`\nA COMMITTED FILE STILL RECORDS ${t.id} AS LIVE WORK.`);
+  console.error(`Closing it makes that file stale, and the gate goes red for whoever`);
+  console.error(`merges next — this has happened three times (T-1507, T-1540, T-1299).\n`);
+  for (const h of live) {
+    console.error(`  ${h.file}`);
+    console.error(`      ${h.where || '(root)'} records ${h.records}`);
+  }
+  console.error(`\nRe-point each of them at live work IN THIS PR, re-derive with the tool`);
+  console.error(`that owns the file, and run this again. If the pointer is genuinely`);
+  console.error(`finished with, say so:`);
+  console.error(`      node tools/ticket.mjs done ${t.id} --pr N --anyway --why "<reason>"\n`);
+  process.exit(1);
+}
+
+/**
+ * AND THE OTHER HALF OF THE SAME QUESTION: WHAT THIS CLOSE STRANDS ABOVE IT (T-1581).
+ *
+ * `refuseIfATripwireNamesIt` matches the closing ticket's OWN id, and all three of the
+ * closes that turned `dev` red on 2026-09-25 stranded an ANCESTOR instead: a pointer
+ * named a `split` parent, which is live exactly while some descendant of it is, and
+ * this close took the last one. #40 (T-1448) left twelve resident cohort units on
+ * T-1189 two levels up and cost 2.5 hours of red; #43 (T-1560) ended the re-family
+ * programme on T-1556 while T-1564 stood open under the split T-1559; #49 (T-1523)
+ * would have left 272 landholding units on T-1198 had a person not read a NOTE.
+ *
+ * The walk and the scan are `tools/ticket_liveness.py` — the same relation the research
+ * ledger's `split_live` and the order book's work-order gate read, which is the point
+ * of putting it in one file. It is asked HERE, where the PR is open and the run is
+ * still present, for the same reason T-1548's scanner is: after the merge the red is
+ * dev's and no diff owns it.
+ *
+ * A CHECK THAT COULD NOT RUN IS NOT A CHECK THAT PASSED. No python3, no ledger, a
+ * crash — each SAYS SO and lets the close through, because refusing every close on
+ * this runner's package list is worse than the fault it guards. `--anyway --why` is
+ * the deliberate override, as it is everywhere else here.
+ */
+function refuseIfClosingStrandsAnAncestor(t) {
+  const tool = path.join(ROOT, 'tools', 'ticket_liveness.py');
+  if (!existsSync(tool)) return;
+  const r = spawnSync('python3', [tool, '--closing', t.id, '--root', ROOT],
+    { cwd: ROOT, encoding: 'utf8', env: { ...process.env, CHICAGO_TICKETS_DIR: DIR } });
+  if (r.error || r.status === null) {
+    console.error(`  note: the strand check did not run (${r.error?.message ?? 'no exit status'})`);
+    console.error('        — NOT a pass; run it by hand before you merge:');
+    console.error(`        python3 tools/ticket_liveness.py --closing ${t.id}`);
+    return;
+  }
+  if (r.status === 0) return;
+  process.stderr.write(r.stdout ?? '');
+  process.stderr.write(r.stderr ?? '');
+  console.error(`If the ancestor is genuinely finished with, say so and it is written`);
+  console.error(`into the ticket:`);
+  console.error(`      node tools/ticket.mjs done ${t.id} --pr N --anyway --why "<reason>"\n`);
+  process.exit(1);
+}
+
 const HELD_STATES = ['claimed', 'review'];
 function inflightState(state, ageHours, locked = false) {
   if (['done', 'withdrawn', 'split'].includes(state)) return 'cold';
@@ -683,23 +874,35 @@ function prTicketIds(title) {
  * check, and the cure is that the fixture and the API arrive by one road.
  *
  * `labels` is flattened to names, which is how `inflight` says `hold` out loud.
+ *
+ * `body`, `updated_at` and `html_url` joined it for T-1576, which reads the reason a
+ * pull request is parked out of the body the run wrote it in. They are here and not
+ * behind an option for the reason the whole function is here: a field the fixture has
+ * and production does not is the T-1427 fault, and an option is just a slower way of
+ * arranging one. The cost is bounded — `recentPulls` holds at most six pages, and a
+ * body is a few kilobytes against the tens of megabytes of nested user/head/base/links
+ * objects this projection was written to drop.
  */
 function normalizePull(p) {
   return {
     number: p?.number, title: p?.title,
     state: p?.state ?? null,
     merged_at: p?.merged_at ?? null, created_at: p?.created_at ?? null,
+    updated_at: p?.updated_at ?? null,
+    html_url: p?.html_url ?? null,
+    body: typeof p?.body === 'string' ? p.body : null,
     labels: Array.isArray(p?.labels)
       ? p.labels.map((l) => (typeof l === 'string' ? l : l?.name)).filter(Boolean) : [],
     head: { ref: p?.head?.ref ?? null },
   };
 }
 
-/** A REST GET that returns parsed JSON, or null — `gh api` if the runner has it
- *  authenticated, else plain `curl`. Both synchronous, both time-boxed, both silent
- *  on failure. REST only: the GraphQL bucket is a separate hourly quota the fleet
- *  exhausts, and `gh pr`/`gh issue` spend it. */
-function restGet(pathAndQuery) {
+/** A REST GET of a JSON ARRAY, unprojected, or null — the transport half of
+ *  `restGet`. Split out for T-1576, which reads a pull request's comments: those are
+ *  not pull requests and must not go through `normalizePull`, but they want the same
+ *  two transports, the same timeout and the same refusal to read a rate-limit object
+ *  as a page of zero results. */
+function restGetArray(pathAndQuery) {
   const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
   const attempts = [
     ['gh', ['api', '-H', 'Accept: application/vnd.github+json', pathAndQuery]],
@@ -719,10 +922,21 @@ function restGet(pathAndQuery) {
       // A rate-limit answer is a well-formed OBJECT, not the array we asked for.
       // Treating it as zero results would report "nothing landed" from a refusal.
       if (!Array.isArray(body)) continue;
-      return body.map(normalizePull);
+      return body;
     } catch { /* not JSON — try the next transport */ }
   }
   return null;
+}
+
+/** A page of pull requests, projected — `gh api` if the runner has it authenticated,
+ *  else plain `curl`. REST only: the GraphQL bucket is a separate hourly quota the
+ *  fleet exhausts, and `gh pr`/`gh issue` spend it.
+ *
+ *  THE PROJECTION IS THE POINT and is why this wrapper exists rather than callers
+ *  mapping for themselves — see `normalizePull` on T-1427. */
+function restGet(pathAndQuery) {
+  const body = restGetArray(pathAndQuery);
+  return body === null ? null : body.map(normalizePull);
 }
 
 /**
@@ -1242,9 +1456,199 @@ function queueHeader() {
     + `# Reorder by moving lines. Everything after the ticket id on a line is a label, not data.\n\n`;
 }
 
+/* ------------------------------------------------- parked pull requests */
+
+/**
+ * THE TWO LABELS A PULL REQUEST CAN BE PARKED UNDER, and the board shows both
+ * (T-1571, split to T-1574, split to T-1576).
+ *
+ *   `hold`   — the owner's park switch. His, and no run applies it.
+ *   `resume` — a run could not finish: work the loop still owes, for a later run.
+ *
+ * WHY THE BOARD HAS TO CARRY THEM. Every automated pass in this repository skips a
+ * parked PR on purpose — the lap, `merge-ready.sh` and `pr-stuck.sh` all read labels
+ * before they read state — so a parked PR is, by design, the one kind nothing is
+ * coming back for. Until now the only place its reason was written was the PR body,
+ * and the owner's words on 2026-09-25, finding three of them at once, were *"that
+ * seems like a bad move because i am not aware of why they are held"*. A park that
+ * nobody can see is indistinguishable from work that was dropped.
+ */
+const PARK_LABELS = ['hold', 'resume'];
+
+/** `2026-09-25T17:59:26Z` → `4h`, `35m`, `3d 4h` — HOW LONG AGO an instant was.
+ *  (`ageWords` and `sinceWords` above are its elder twins and take a number of HOURS;
+ *  this one takes the ISO timestamp GitHub actually hands back.) Null for anything it will not
+ *  vouch for: an age printed from an unreadable date is the `to_epoch` fault
+ *  `pr-stuck.sh` documents at length, arriving in a different file. */
+export function elapsedWords(iso, now = Date.now()) {
+  const at = iso ? Date.parse(iso) : NaN;
+  if (!Number.isFinite(at)) return null;
+  const mins = Math.max(0, Math.round((now - at) / 60_000));
+  if (mins < 60) return `${mins}m`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 48) return `${hours}h`;
+  return `${Math.floor(hours / 24)}d ${hours % 24}h`;
+}
+
+/**
+ * The reason a pull request is parked, READ AND NEVER COMPOSED. Three roads, tried
+ * in the order of how deliberately the reason was written, and a fourth answer that
+ * says plainly there is none:
+ *
+ *   1. The structured line T-1573 asks a run to leave —
+ *      `resume: <reason> · waits on: <ticket or "nothing">` — in a PR COMMENT.
+ *      Newest wins: a PR re-parked on a second head has a second line, and the
+ *      stale one is not the state of play.
+ *   2. The same structured line in the PR BODY, for a run that wrote it there.
+ *   3. The section a PR body already carries today — `### Why this is on `hold`,
+ *      and what lifts it` (#41 on 2026-09-25, and #39 and #42 in the same shape).
+ *      Its first paragraph, verbatim. This is the road that makes the board useful
+ *      BEFORE any run has learned to write road 1.
+ *   4. Nothing. Answered as null and printed as "no reason written on the PR",
+ *      which is a true and useful statement about a parked PR and is the one thing
+ *      that must never be papered over with a guess.
+ *
+ * `waits_on` comes only from road 1, where the run named it. A `T-NNNN` scraped out
+ * of prose is an inference, and inferring what a park is blocked on is exactly the
+ * kind of invention this project files under provenance.
+ */
+export function parkReasonOf(pr, comments = []) {
+  const structured = (text) => {
+    const m = /^[ \t>*_-]*(?:\*\*)?(hold|resume)(?:\*\*)?:[ \t]*(.+)$/im.exec(String(text ?? ''));
+    if (!m) return null;
+    const rest = m[2].trim().replace(/\s*[·|]\s*$/, '');
+    const w = /^(.*?)\s*·\s*waits on:\s*(.+?)\s*$/i.exec(rest);
+    return {
+      reason: (w ? w[1] : rest).trim(),
+      waits_on: w ? w[2].trim().replace(/^[`"']|[`"']$/g, '') : null,
+    };
+  };
+
+  const byNewest = [...(comments ?? [])].sort((a, b) =>
+    String(b?.created_at ?? '').localeCompare(String(a?.created_at ?? '')));
+  for (const c of byNewest) {
+    const hit = structured(c?.body);
+    if (hit) return { ...hit, from: 'comment' };
+  }
+  const inBody = structured(pr?.body);
+  if (inBody) return { ...inBody, from: 'body' };
+
+  // Road 3. The heading has to MENTION one of the labels, so an unrelated `## Why`
+  // in a long PR body cannot be mistaken for the park's reason.
+  const body = String(pr?.body ?? '');
+  const heading = new RegExp(`^#{2,4}[ \\t]*.*\\b(?:${PARK_LABELS.join('|')}|parked)\\b.*$`, 'im');
+  const at = heading.exec(body);
+  if (at) {
+    // THE FIRST PARAGRAPH IS USUALLY THE REASON, AND SOMETIMES ONLY ITS FIRST HALF.
+    // Measured on #42, 2026-09-25: its section opens "`./tools/check.sh` is red on
+    // `dev` itself, for reasons this branch does not touch. Four steps:" and the list
+    // that answers the colon is the next block. A reason that stops on a colon has
+    // been cut off mid-thought, so paragraphs are taken while the text so far is
+    // still plainly unfinished — and never past the next heading, which is a
+    // different subject by definition.
+    // A FENCED BLOCK ENDS THE PROSE as firmly as a heading does. #42's colon is
+    // answered by a four-item code fence, and a fence flattened onto one board line
+    // is unreadable where the two sentences before it were the whole point. So the
+    // section stops at whichever comes first, and a reason left dangling on its colon
+    // is marked `…` — the board links the PR, and that is where the list lives.
+    const after = body.slice(at.index + at[0].length);
+    const stop = /\n(?:#{1,6}[ \t]|```|~~~)/.exec(after);
+    const section = stop ? after.slice(0, stop.index) : after;
+    const paras = section.split(/\n[ \t]*\n/).map((x) => x.trim()).filter(Boolean);
+    const unfinished = (x) => x === '' || /[:;,]$/.test(x) || x.length < 80;
+    let reason = '';
+    for (const para of paras) {
+      if (reason && !unfinished(reason)) break;
+      reason = `${reason}${reason ? ' ' : ''}${para}`;
+      if (reason.length > 600) break;
+    }
+    reason = reason.replace(/\s*\n\s*/g, ' ').replace(/\s{2,}/g, ' ').trim();
+    if (reason.length > 600) reason = `${reason.slice(0, 600).replace(/\s+\S*$/, '')} …`;
+    if (/[:;,]$/.test(reason)) reason = `${reason} …`;
+    if (reason) return { reason, waits_on: null, from: 'body-section' };
+  }
+  return { reason: null, waits_on: null, from: null };
+}
+
+/**
+ * Every OPEN pull request on the code repo carrying `hold` or `resume`, with the
+ * reason it was parked for and how long it has been sitting there.
+ *
+ * IT REPORTS ITS OWN BLINDNESS. `{ ok: false, why }` when the list could not be
+ * read, and the board prints that instead of the section — because a parked-PR
+ * section that is empty because the call failed reads exactly like a queue with
+ * nothing parked in it, and this whole reading exists to end a silence.
+ *
+ * `fixture` is the offline demonstration, the device `landed --pr-json` and
+ * `inflight --branches-json` both use and for the same reason: the right answer
+ * against the live repository changes by the hour, so the gate asserts the READING.
+ * It goes through `normalizePull` like the API's own answer does (T-1427).
+ */
+export function collectParked({ fixture = null, now = Date.now() } = {}) {
+  const UNREADABLE = { ok: false, why: 'the open pull-request list could not be read', rows: [] };
+  let pulls;
+  if (fixture) {
+    // `{ pulls: null }` IS A FIXTURE AND NOT A MISSING KEY. It is how the gate reaches
+    // the one branch below that has no other way in: `restGet` answers null on a rate
+    // limit, a 404 or no network at all, and that answer must not read as an empty
+    // queue. A fixture that could only ever produce `ok: true` would leave the reading
+    // this ticket exists for as the single untested line in the file.
+    const raw = Array.isArray(fixture) ? fixture : fixture.pulls;
+    if (raw === null || raw === undefined) return UNREADABLE;
+    pulls = raw.map(normalizePull);
+  } else {
+    pulls = restGet(`repos/${REPO}/pulls?state=open&per_page=100`);
+    if (pulls === null) return UNREADABLE;
+  }
+
+  const commentsOf = (pr) => {
+    if (fixture) {
+      const byNumber = Array.isArray(fixture) ? {} : (fixture.comments ?? {});
+      return byNumber[String(pr.number)] ?? byNumber[pr.number] ?? [];
+    }
+    // ONE CALL PER PARKED PR, and only for parked ones — four on 2026-09-25, and the
+    // label filter is what keeps it four rather than one per open pull request.
+    return restGetArray(`repos/${REPO}/issues/${pr.number}/comments?per_page=100`) ?? [];
+  };
+
+  const rows = pulls
+    .filter((pr) => pr.state !== 'closed' && !pr.merged_at)
+    .map((pr) => ({ pr, label: PARK_LABELS.find((l) => pr.labels.includes(l)) ?? null }))
+    .filter((r) => r.label)
+    .map(({ pr, label }) => {
+      const { reason, waits_on, from } = parkReasonOf(pr, commentsOf(pr));
+      return {
+        number: pr.number,
+        title: pr.title ?? null,
+        url: pr.html_url ?? `${REPO_URL}/pull/${pr.number}`,
+        branch: pr.head?.ref ?? null,
+        // THE TITLE FIRST, and `prTicketIds` for it — the convention is `T-NNNN: …`
+        // and that function is the one place this repo has agreed what an id in a
+        // title means (see its header on the three false accusations). The branch is
+        // the fallback, read the way `branchCarries` reads one.
+        ticket: prTicketIds(pr.title)[0]
+          ?? (/(?:^|[^0-9a-z])t-?0*(\d{1,4})(?![0-9])/i.exec(pr.head?.ref ?? '')
+            ? idOf(Number(/(?:^|[^0-9a-z])t-?0*(\d{1,4})(?![0-9])/i.exec(pr.head.ref)[1])) : null),
+        label,
+        reason,
+        reason_from: from,
+        waits_on,
+        opened_at: pr.created_at ?? null,
+        updated_at: pr.updated_at ?? null,
+        age: elapsedWords(pr.created_at, now),
+        idle: elapsedWords(pr.updated_at, now),
+      };
+    })
+    // Oldest first: the one that has been parked longest is the one the owner has
+    // been unable to see for longest, and it goes at the top of his section.
+    .sort((a, b) => String(a.opened_at ?? '').localeCompare(String(b.opened_at ?? '')));
+
+  return { ok: true, why: null, rows };
+}
+
 /* ----------------------------------------------------------------- board */
 
-function generateBoard(tickets) {
+function generateBoard(tickets, parked = null) {
   const at = ctFmt(new Date());
   const order = queueIds();
   const rank = (t) => { const i = order.indexOf(t.id); return i < 0 ? 9999 : i; };
@@ -1276,7 +1680,33 @@ function generateBoard(tickets) {
   const finished = tickets.filter((t) => t.state === 'done').sort(byFinish);
   const shown = finished.slice(0, 100);
 
+  // PARKED PULL REQUESTS GO FIRST, above the queue, because they are the only rows
+  // here that no automation is coming back for (T-1576). A section that is absent
+  // when nothing asked for the list, a section that says so when the list could not
+  // be read, and a section with the rows in it otherwise — the middle one is the
+  // whole point: an empty section and a failed call print identically, and that
+  // silence is the fault this reading exists to end.
+  const parkedMd = parked === null ? ''
+    : !parked.ok
+      ? `## ⏸ Parked pull requests — NOT READ\n\n`
+        + `- This board could not read the open pull requests (${parked.why}), so it cannot`
+        + ` say whether anything is parked. **This is not "nothing is parked".**\n\n`
+      : parked.rows.length === 0
+        ? `## ⏸ Parked pull requests (0)\n\nNothing is parked: no open pull request on`
+          + ` [${REPO}](${REPO_URL}/pulls) carries \`hold\` or \`resume\`.\n\n`
+        : `## ⏸ Parked pull requests — nothing automated will move these (${parked.rows.length})\n\n`
+          + parked.rows.map((r) => `- **[#${r.number}](${r.url})** \`${r.label}\``
+            + `${r.ticket ? ` · ${r.ticket}` : ''}`
+            + ` · open ${r.age ?? 'for an unreadable time'}`
+            + `${r.idle ? `, last touched ${r.idle} ago` : ''}`
+            + `${r.label === 'hold' ? ' · **the owner\u2019s own park**' : ' · work the loop still owes'}`
+            + `\n  - ${r.title ?? '(untitled)'}`
+            + `\n  - **why:** ${r.reason ?? '_no reason written on the PR_'}`
+            + `${r.waits_on ? `\n  - **waits on:** ${r.waits_on}` : ''}`).join('\n')
+          + '\n\n';
+
   const md = `# BOARD — generated by \`tools/ticket.mjs board\`, ${at} CT. Do not edit.\n\n`
+    + parkedMd
     + sec('Claimed — being worked now', working, (t) => `${row(t)}`
       + `${t.claimed_by ? ` · ${t.claimed_by}` : ''}`
       + `${t.claimed_run ? ` · [the run](${t.claimed_run})` : ''}`)
@@ -1312,8 +1742,14 @@ function generateBoard(tickets) {
     pr_url: rest.pr ? prUrl(rest) : null,
     ...(rest.decision === 'pending' ? decisionOf(body) : {}),
   }));
+  // `parked` is an ADDITIONAL top-level key and never replaces or reshapes `tickets`:
+  // Manager's 4D Board reads this file and a reader that has not been taught about
+  // parked pull requests must go on working unchanged. Absent when nothing asked for
+  // the list, so the file's shape still says whether the question was even put.
   const wrote = settle(JSON_OUT, JSON.stringify({ project: 'chicago-4d',
-    generated_ct: at, tickets: strip }, null, 2) + '\n');
+    generated_ct: at, tickets: strip,
+    ...(parked === null ? {} : { parked: { ok: parked.ok, why: parked.why, pulls: parked.rows } }) },
+  null, 2) + '\n');
   // T-0154: this tool is the WRITER of tickets.json, so it carries the file to
   // the one published path publish.sh copies it to. Only on a real rewrite —
   // see MIRROR's note on why a blanket refresh would weaken check_published.
@@ -1338,8 +1774,22 @@ function mirrorTickets() {
 
 /* ----------------------------------------------------------------- check */
 
+/**
+ * Every fault this queue can be in. Returned as objects rather than strings since
+ * T-1593, because the CALLER has to be able to tell the two kinds apart:
+ *
+ *   scope 'tickets'  the fault is in kevinrhaas/chicago-tickets — a ticket's own
+ *                    front-matter, or QUEUE.md's ranking of it. A code pull request
+ *                    does not carry those files, so no change it makes can clear one.
+ *   scope 'code'     the fault is in THIS repository, in the diff under review, and
+ *                    is the pull request's own to fix.
+ *
+ * `problems` is the first kind and `codeProblems` the second; the split is here rather
+ * than at the twenty push sites because all but one of them is about a ticket.
+ */
 function check(tickets) {
   const problems = [];
+  const codeProblems = [];
   const seen = new Map();
   for (const t of tickets) {
     const at = path.basename(t.file);
@@ -1527,12 +1977,39 @@ function check(tickets) {
   // copy in publish.sh moves or goes away, this says so rather than letting the
   // two drift into silently mirroring different paths.
   if (existsSync(PUBLISH_SH) && !readFileSync(PUBLISH_SH, 'utf8').includes(PUBLISH_PIN)) {
-    problems.push(`tools/publish.sh no longer contains \`${PUBLISH_PIN}\`, which is the copy `
+    // …and this one is THIS repository's, in the diff under review: `tools/publish.sh`
+    // and `tools/ticket.mjs` are both files a code pull request changes, so it is the
+    // pull request's own to fix and fails its gate (T-1593).
+    codeProblems.push(`tools/publish.sh no longer contains \`${PUBLISH_PIN}\`, which is the copy `
       + 'this tool mirrors on its behalf (T-0154). Reconcile them: change MIRROR in '
       + 'tools/ticket.mjs to publish.sh\'s new destination, or drop the mirroring if '
       + 'publish.sh has stopped carrying tickets.json at all.');
   }
-  return problems;
+  return [
+    ...codeProblems.map((text) => ({ text, scope: 'code' })),
+    ...problems.map((text) => ({ text, scope: 'tickets' })),
+  ];
+}
+
+/**
+ * Who filed the ticket a fault is about, read off the ticket and off the tickets
+ * repository's own history — so a WARN about somebody else's filing names the filing
+ * (T-1593). Best-effort and message-only: the verdict never depends on it, so an
+ * unresolvable id or a clone with no history just omits the line.
+ */
+function filingOf(problem, tickets) {
+  const id = (/\bT-\d{4}\b/.exec(problem.text) ?? [])[0];
+  if (!id) return null;
+  const t = tickets.find((x) => x.id === id);
+  if (!t) return null;
+  const who = [t.opened ? `filed ${t.opened}` : null, t.requested_by ? `by ${t.requested_by}` : null]
+    .filter(Boolean).join(' ');
+  let commit = null;
+  if (inRepoMode() && t.file) {
+    const r = tgit(['log', '-1', '--format=%h %s', '--', path.relative(DIR, t.file)]);
+    if (r.status === 0) commit = (r.stdout || '').trim().split('\n')[0] || null;
+  }
+  return [who || null, commit ? `chicago-tickets ${commit}` : null].filter(Boolean).join(' · ') || null;
 }
 
 /* ----------------------------------------------- the tickets repository */
@@ -1733,6 +2210,53 @@ switch (cmd) {
     if (!title) { console.error('usage: ticket.mjs new "title" [--after T-NNNN] [--epic E] [--by owner|loop|steward] [--seen] [--needs-bake] [--effort M] [--legacy OLD-ID] [--anyway --why "<reason>"]\n'
       + '  --after T-NNNN  place the new line directly under that ticket, inside its band (a run\'s\n'
       + '                  filings go here — beside the work they serve, never at the foot)'); process.exit(1); }
+
+    /**
+     * THE FILING FAULT IS CAUGHT AT FILING (T-1593), because it is the only place one
+     * person can fix it in one command.
+     *
+     * `check` refuses an effort-L ticket in the queue and is right to: an L is MORE THAN
+     * ONE RUN, so whoever claims it cannot finish it, and saying so loudly is the point.
+     * But the state that step reads lives in the TICKETS repository, which is not in any
+     * code PR's diff — so the red belongs to every open pull request at once and to none
+     * of them in particular. Measured 2026-09-25: T-1585 and T-1586 were filed as L at
+     * 23:07Z, and the gate on #51 — a PR whose whole diff was AGENTS.md, a changelog entry
+     * and three files under tools/ — came back red on `ticket queue` at 23:44Z. Nothing
+     * #51 could do would clear it; it merged with GH_REST_MERGE_BLIND=1 and the reason
+     * written on the PR, which is the escape hatch working and not a thing to need.
+     *
+     * So the queue rule is not weakened, it is MOVED FORWARD: an unsplit L never enters
+     * QUEUE.md, and the person refused is the one who has the ticket in their head.
+     * `--anyway` cannot reach this — it overrides the ticket BUDGET, a judgement about
+     * whether a finding deserves a line, and there is no corresponding judgement here:
+     * the gate refuses an L unconditionally, so filing one anyway would only choose whose
+     * pull request goes red for it.
+     */
+    const effort = String(flag('effort') ?? 'M').toUpperCase();
+    const anchorFor = (flag('after') ?? 'T-NNNN');
+    if (!Object.keys(EFFORT).includes(effort)) {
+      console.error(`ticket.mjs new: REFUSED — effort "${flag('effort')}" is not one of `
+        + `${Object.keys(EFFORT).join('/')}.\n`);
+      console.error('Effort is measured in RUNS, and the gate reads it:');
+      for (const [k, v] of Object.entries(EFFORT)) console.error(`  ${k.padEnd(2)}  ${v}`);
+      console.error('\nA value the gate cannot read is the same fault as an L: it is written here,');
+      console.error('and reported hours later in the gate of a pull request that cannot fix it.');
+      process.exit(1);
+    }
+    if (effort === 'L') {
+      console.error(`ticket.mjs new: REFUSED — effort L is ${EFFORT.L}.\n`);
+      console.error('A queue line is a promise that whoever takes it can finish it. Size it before');
+      console.error('you file it: the pieces go in as their own tickets, beside the work they serve.\n');
+      console.error(`  node tools/ticket.mjs new "first piece"  --effort M --after ${anchorFor}`);
+      console.error(`  node tools/ticket.mjs new "second piece" --effort M --after ${anchorFor}\n`);
+      console.error('An L ALREADY in the queue is cut instead — the children keep its place:\n');
+      console.error('  node tools/ticket.mjs split T-NNNN "first piece" "second piece"\n');
+      console.error('`--anyway` cannot take this. It overrides the ticket BUDGET; the queue gate');
+      console.error('refuses an L unconditionally, and that state lives in the tickets repository —');
+      console.error('so an L filed anyway turns `ticket queue` red for every open pull request at');
+      console.error('once, and no code change in any of them can clear it (T-1593).');
+      process.exit(1);
+    }
     // The budget, measured against the base rather than guessed: the tickets THIS BRANCH
     // adds are the ones it is accountable for.
     const QUEUE_CEILING = 140;
@@ -1775,7 +2299,7 @@ switch (cmd) {
       id, title, state: 'open',
       epic: (flag('epic') ?? 'META').toUpperCase(),
       requested_by: flag('by') ?? 'steward',
-      seen: has('seen'), effort: flag('effort') ?? 'M',
+      seen: has('seen'), effort,
       legacy_id: flag('legacy') ?? null,
       opened: today(), closed: null, closed_at: null, pr: null,
       claimed_by: null, claimed_run: null, blocked_on: null,
@@ -1918,6 +2442,10 @@ switch (cmd) {
     if (inRepoMode()) {
       const pr = flag('pr');
       if (!pr || pr === true) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
+      // T-1548. Checked HERE, while the PR is still open and the run is still present:
+      // `review` is what settle turns into `done` on merge, and a tripwire this ticket
+      // trips is fixable in this PR and nowhere cheaper.
+      if (!flag('anyway')) { refuseIfATripwireNamesIt(t, 'review'); refuseIfClosingStrandsAnAncestor(t); }
       t.state = 'review'; t.pr = String(pr).replace(/^#/, '');
       writeTicket(t); generateBoard(loadAll());
       commitMessage = `${t.id}: review — PR #${t.pr}`;
@@ -1926,6 +2454,7 @@ switch (cmd) {
     }
     t.state = 'done'; t.closed = today(); t.closed_at = nowIso(); t.pr = flag('pr');
     if (!t.pr) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
+    if (!flag('anyway')) { refuseIfATripwireNamesIt(t, 'done'); refuseIfClosingStrandsAnAncestor(t); }  // T-1548 / T-1581
     writeTicket(t); queueRemove(t.id); generateBoard(loadAll());
     // THE CLAIM IS KEPT, AND COLLECTED BY AGE (T-1351). This used to give the marker
     // back here. The reasoning left behind by T-1145 — which moved `split` off the
@@ -2364,7 +2893,33 @@ switch (cmd) {
     for (const r of restored) console.log(`  ${r}`);
     break;
   }
-  case 'board': generateBoard(tickets); console.log(`BOARD.md + tickets.json regenerated (${tickets.length} tickets)`); break;
+  case 'board': {
+    // THE PARKED-PR READ IS OPT-IN (`--parked`), and that is deliberate. `board` is
+    // run by `publish.sh`, by `pr-lap.sh` and by the merge driver — all of them
+    // offline-safe, all of them on the hot path of a gate — and a network call on
+    // that path buys a slow, flaky publish for a section nobody reads there. The
+    // `board` branch the settle workflow force-pushes is what Manager's 4D Board
+    // and the owner actually read, and settle.yml asks for it there.
+    //
+    // `--pr-json <file>` is the offline demonstration, the same device
+    // `landed --pr-json` and `inflight --branches-json` use, and for the same
+    // reason: against the live repository the right answer changes by the hour, so
+    // the gate asserts the READING. It never reaches the network.
+    const prFixture = flag('pr-json');
+    const parked = typeof prFixture === 'string'
+      ? collectParked({ fixture: JSON.parse(readFileSync(prFixture, 'utf8')) })
+      : has('parked') ? collectParked() : null;
+    generateBoard(tickets, parked);
+    console.log(`BOARD.md + tickets.json regenerated (${tickets.length} tickets)`);
+    if (parked) {
+      console.log(parked.ok
+        ? `   parked pull requests: ${parked.rows.length}`
+          + `${parked.rows.length ? ` — ${parked.rows.map((r) => `#${r.number} ${r.label}`).join(', ')}` : ''}`
+        : `   parked pull requests: NOT READ — ${parked.why}`);
+    }
+    if (has('json')) console.log(JSON.stringify(parked, null, 2));
+    break;
+  }
   /**
    * WHAT IS BEING WORKED ON RIGHT NOW — the one question the files cannot answer.
    *
@@ -2594,6 +3149,9 @@ switch (cmd) {
     })), null, 2));
     break;
   }
+  case 'tripwire-self-test': {          // T-1548
+    process.exit(tripwireSelfTest());
+  }
   case 'check': {
     // No QUEUE.md means no tickets were read at all — the tickets clone is missing, and
     // a gate that checks nothing must not read as a gate that passed.
@@ -2602,22 +3160,61 @@ switch (cmd) {
         + '  They live in kevinrhaas/chicago-tickets: `bash tools/tickets.sh` clones them into tickets/.');
       process.exit(1);
     }
+    let dirty = '';
+    let ahead = '';
     if (inRepoMode()) {
-      const dirty = tgit(['status', '--porcelain', '--untracked-files=all']).stdout?.trim();
-      const ahead = tgit(['rev-list', '--count', '@{u}..HEAD']).stdout?.trim();
+      dirty = tgit(['status', '--porcelain', '--untracked-files=all']).stdout?.trim() ?? '';
+      ahead = tgit(['rev-list', '--count', '@{u}..HEAD']).stdout?.trim() ?? '';
       if (dirty) console.error(`  WARNING: the tickets clone has changes nobody else can see yet:\n${dirty.split('\n').map((l) => `    ${l}`).join('\n')}\n  push them: node tools/ticket.mjs sync -m "what changed"`);
       if (ahead && ahead !== '0') console.error(`  WARNING: the tickets clone is ${ahead} commit(s) ahead of its remote — push: bash tools/tickets.sh --push`);
     }
     const problems = check(tickets);
-    if (problems.length) {
+    /**
+     * WHOSE RED IS IT? (T-1593.) `--inherited-warn` is how `tools/check.sh` asks, and it
+     * is the whole difference between a gate that says "your change is wrong" and one
+     * that says "the queue is wrong, here is who filed it and the one command that
+     * clears it". Three conditions, and all three have to hold:
+     *
+     *   the flag         only the code repository's gate passes it. Run bare — by hand,
+     *                    or by the tickets repository's own CI — `check` is strict, which
+     *                    is what keeps the rule enforced SOMEWHERE.
+     *   repo mode        in embedded mode the tickets sit inside this repo and ARE in the
+     *                    diff, so every fault is the branch's own. (Every sandbox test
+     *                    runs embedded, and is held to the old behaviour exactly.)
+     *   a clean clone    if the tickets clone is dirty or ahead of its remote, THIS RUN
+     *                    put it in that state, so whatever is wrong is this run's own and
+     *                    still fails. That is the honest half of the distinction: what a
+     *                    pull request cannot fix is what it did not cause.
+     *
+     * A fault of scope 'code' fails either way — it is in the diff under review.
+     */
+    const warnInherited = has('inherited-warn') && inRepoMode()
+      && !dirty && (!ahead || ahead === '0');
+    const fatal = problems.filter((x) => x.scope === 'code' || !warnInherited);
+    const warned = problems.filter((x) => !fatal.includes(x));
+    if (warned.length) {
+      console.error(`  WARN: ${warned.length} queue fault(s) this pull request cannot fix — they are the`);
+      console.error('  state of kevinrhaas/chicago-tickets, a different repository, which no code diff');
+      console.error('  carries (T-1593). Reported, not charged to this branch:');
+      for (const x of warned) {
+        console.error('    - ' + x.text);
+        const filing = filingOf(x, tickets);
+        if (filing) console.error(`      ↳ ${filing}`);
+      }
+      console.error('  Whoever runs the command above clears it for EVERY open pull request at once:');
+      console.error('  `bash tools/tickets.sh` for a clone, then run it there. If it is the owner\'s to');
+      console.error('  answer, `node tools/ticket.mjs ask T-NNNN --question "…"` puts it on his board.');
+    }
+    if (fatal.length) {
       console.error('ticket queue FAILED:');
-      for (const p of problems) console.error('  - ' + p);
+      for (const x of fatal) console.error('  - ' + x.text);
       process.exit(1);
     }
     const open = tickets.filter((t) => WORKABLE.includes(t.state)).length;
     // Waiting on the owner = parked as blocked-owner OR asked in the queue (`ask`).
     const blocked = tickets.filter((t) => t.state === 'blocked-owner' || t.decision === 'pending').length;
-    console.log(`ticket queue OK — ${tickets.length} tickets, ${open} in the queue, ${blocked} waiting on the owner`);
+    console.log(`ticket queue OK — ${tickets.length} tickets, ${open} in the queue, ${blocked} waiting on the owner`
+      + (warned.length ? ` — and ${warned.length} inherited fault(s) reported above as WARN, none of them this branch's` : ''));
     break;
   }
   case 'claims': {
@@ -2782,7 +3379,7 @@ switch (cmd) {
     break;
   }
   default:
-    console.log('usage: ticket.mjs new|claim|done|block|unblock|withdraw|restamp|split|list|ask|settle|sync|inflight|landed|claims|prune|reconcile|board|check');
+    console.log('usage: ticket.mjs new|claim|done|block|unblock|withdraw|restamp|split|list|ask|settle|sync|inflight|landed|claims|prune|reconcile|board|check|tripwire-self-test');
     process.exit(cmd ? 1 : 0);
 }
 

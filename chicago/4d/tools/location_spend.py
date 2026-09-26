@@ -65,20 +65,28 @@ An adopted roof that ever acquires an anchor target, or a lot, or stops matching
 committed adoption record, fails the gate. That is the line clause 3 is drawing, and
 after this pass a later rung cannot cross it by accident.
 
-THE FOUR RETENTIONS.
+THE FOUR QUESTIONS.
 
 Clause 4 asks for a resolution or an explicit retention of T-0251, T-0305, T-0386 and
-T-1087. **All four are retained, none is resolved, and not one of them is the loop's
-to resolve**: three are `blocked-owner` and one is `blocked-tech` behind T-0414 and
-T-0009. Writing that down in prose is what the four ticket files already do, and it is
+T-1087. Writing that down in prose is what the four ticket files already do, and it is
 not enough — a dossier goes quietly out of date the day its subject changes.
 
-So each retention carries a GUARD: the committed fact it currently stands on, measured
-at build time. A retention may say `retained` only while its guard holds. The day the
-owner rules on Wabansia, or the saddlery leaves the watch list, or a Carver building is
-committed, or the church moves, the guard stops holding and the BUILD says so instead
-of this file lying. That is T-0305's own acceptance clause 5 — "the finding is held by
-a gate rather than by this file" — applied to all four.
+So each one carries a GUARD: the committed fact it currently stands on, measured at
+build time. A question may say `retained` only while its guard holds. The day the
+saddlery leaves the watch list, or a Carver building is committed, or the church moves,
+the guard stops holding and the BUILD says so instead of this file lying. That is
+T-0305's own acceptance clause 5 — "the finding is held by a gate rather than by this
+file" — applied to all four.
+
+THE DAY THE OWNER RULES, THE GUARD IS WHAT CATCHES IT, and that has now happened once.
+T-1087 asked whether Wabansia and Kinzie's Addition — surveys B4 kept undecided because
+this project committed neither, and commits both — were inside or out. The owner ruled
+INSIDE on 2026-09-21; B4's third kind was withdrawn rather than re-worded and the two
+surveys came onto a new B6. That expired the retention's guard, and this build refused
+until the retention was re-stated as the RULING it became. It reads `resolved` now, and
+its guard measures the ruling: put either survey back on B4 and the build fails again.
+Three of the four are still retained — two `blocked-owner`, one `blocked-tech` behind
+T-0414 and T-0009 — and none of those three is the loop's to resolve.
 
 NOTHING HERE IS AUTHORED. Every placement row is derived from the committed rows, the
 register's action, the adoption ledger and the structure ids the dataset holds; every
@@ -214,25 +222,45 @@ def retentions(known) -> list[dict]:
     out = [
         {
             "ticket": "T-0251",
-            "state": "blocked-owner",
-            "owner": "the owner",
+            "state": "ruled",
+            "owner": "the owner — precedence between the evidence layers is his, and he "
+                     "ruled it generally",
             "question": "Does a documented building displace an inferred unit when the "
                         "plat repair puts them on the same lot? first_presbyterian_church "
                         "needs 3.395 m to come onto the Lake Street plat and "
                         "physicians_office stands 3.15 m behind it.",
-            "what_it_costs_today": "The church stands 1.90 m out in the platted roadway "
-                                   "and two steps of Lake Street's plank walk stay unlaid.",
-            "what_would_resolve_it": "The owner picking one of the three options the "
-                                     "ticket measured, or naming a fourth. Never by "
-                                     "weakening the 3.0 m separation gate.",
+            "what_it_costs_today": "Nothing. The owner ruled on 2026-09-21 that where an "
+                                   "ATTESTED placement and an INFERRED one collide on a "
+                                   "lot the attested one stands and the inferred one moves "
+                                   "or is withdrawn. The church took the 3.395 m and its "
+                                   "north wall is 1.50 m back from the committed frontage "
+                                   "line; physicians_office gave way and was re-seated on "
+                                   "its own Lake Street frontage band, 12.99 m west along "
+                                   "the same face and forward onto the street line, its "
+                                   "card carrying what displaced it. The two steps of "
+                                   "Lake Street's plank walk are laid.",
+            "what_would_resolve_it": "Resolved by the owner's ruling of 2026-09-21, "
+                                     "written generally at "
+                                     "`tools/plat_occupancy.attested_precedence` and "
+                                     "applied to both records. The guard below now holds "
+                                     "the RULING rather than the retention: put the church "
+                                     "back out in the roadway and this build fails. "
+                                     "Neither footprint was narrowed and the 3.0 m "
+                                     "separation gate was not weakened — the ruling "
+                                     "refuses both in terms.",
             "guard": {
                 "reads": "data/structures/first_presbyterian_church.json",
-                "expects": "the position note still carries the T-0251 refusal and its "
-                           "1.90 m measurement, and physicians_office is still committed",
+                "expects": "the church's position note carries the ruling and the 1.90 m "
+                           "measurement it repaired, its wall is reconciled onto the "
+                           "committed line, and physicians_office is still committed — "
+                           "re-seated rather than withdrawn",
                 "measured": {
                     "note_names_the_ticket": "T-0251" in church,
                     "note_carries_the_measurement": "1.90 m" in church,
                     "physicians_office_committed": "physicians_office" in known,
+                    "note_carries_the_ruling": "THE OWNER RULED ON 2026-09-21" in church,
+                    "church_reconciled_onto_the_committed_line":
+                        "1.50 m back from the committed frontage line" in church,
                 },
             },
         },
@@ -285,20 +313,26 @@ def retentions(known) -> list[dict]:
         },
         {
             "ticket": "T-1087",
-            "state": "blocked-owner",
-            "owner": "the owner — resolution and basis are B-rules",
+            "state": "ruled",
+            "owner": "the owner — resolution and basis are B-rules, and he wrote them",
             "question": "place_vocabulary's B4 calls Wabansia and Kinzie's Addition "
                         "surveys this project commits none of, and it commits both. "
                         "Outside, inside, or B4 with a new reason?",
-            "what_it_costs_today": "Exactly one person — person_uncertain_doctor_kimberly, "
-                                   "the doctor in Wabansia — is scored undecided.",
-            "what_would_resolve_it": "The owner writing `resolution` and `basis` for the "
-                                     "two places, then "
-                                     "`tools/resolve_place_vocabulary.py --write`.",
+            "what_it_costs_today": "Nothing. The owner ruled INSIDE on 2026-09-21: B4's "
+                                   "third kind is withdrawn, both surveys are ruled on the "
+                                   "new B6, and the one person the question cost — "
+                                   "person_uncertain_doctor_kimberly, the doctor in "
+                                   "Wabansia — moved with it.",
+            "what_would_resolve_it": "Resolved by the owner's ruling of 2026-09-21, "
+                                     "written into the vocabulary and re-measured by "
+                                     "`tools/resolve_place_vocabulary.py --write`. The "
+                                     "guard below now holds the RULING rather than the "
+                                     "retention: put either survey back on B4 and this "
+                                     "build fails.",
             "guard": {
                 "reads": "data/research/newspapers/place_vocabulary.json",
-                "expects": "both places are still undecided on B4 and the person buckets "
-                           "are unmoved",
+                "expects": "both surveys are ruled inside on B6 and the doctor in Wabansia "
+                           "is counted inside",
                 "measured": {
                     "wabansia": [places["Wabansia"]["resolution"],
                                  places["Wabansia"]["basis"]],
@@ -311,13 +345,19 @@ def retentions(known) -> list[dict]:
     ]
     for item in out:
         item["holds"] = _guard_holds(item)
-        item["disposition"] = "retained" if item["holds"] else "expired"
+        if not item["holds"]:
+            item["disposition"] = "expired"
+        else:
+            item["disposition"] = "resolved" if item["ticket"] in RULED else "retained"
+        if item["ticket"] in RULED:
+            item["ruled_on"] = RULED[item["ticket"]]
     return out
 
 
 EXPECTED_GUARDS = {
     "T-0251": {"note_names_the_ticket": True, "note_carries_the_measurement": True,
-               "physicians_office_committed": True},
+               "physicians_office_committed": True, "note_carries_the_ruling": True,
+               "church_reconciled_onto_the_committed_line": True},
     "T-0305": {"saddlery_on_the_watch_list": True},
     "T-0386": {"montgomery_entries": ["business_l_w_montgomery_boot_and_shoe_maker",
                                       "business_montgomery_auction_and_commission_house",
@@ -329,10 +369,17 @@ EXPECTED_GUARDS = {
                     "business_w_montgomery",
                     "business_w_montgomery_auction_and_commission_house"],
                "carver_structures": []},
-    "T-1087": {"wabansia": ["undecided", "B4"],
-               "kinzies_addition": ["undecided", "B4"],
-               "persons_by_bucket": {"inside": 1119, "outside": 141, "undecided": 25}},
+    "T-1087": {"wabansia": ["inside", "B6"],
+               "kinzies_addition": ["inside", "B6"],
+               "persons_by_bucket": {"inside": 1120, "outside": 141, "undecided": 24}},
 }
+
+# A question the owner has ANSWERED keeps its guard and loses its retention. The guard
+# stops measuring "nothing has moved" and starts measuring the ruling itself, so the day
+# someone puts Wabansia back on B4 this build fails exactly as it would have failed the
+# day the ruling landed unrecorded. `resolved` is not a way out of the gate; it is a
+# different thing for the gate to hold.
+RULED = {"T-0251": "2026-09-21", "T-1087": "2026-09-21"}
 
 
 def _guard_holds(item: dict) -> bool:
@@ -406,7 +453,8 @@ def report(doc: dict) -> str:
     counts = doc["counts"]
     pub, adj = counts["published_limits"], counts["adjudicated_grades"]
     lines = [
-        "# The location spend: evidence reach, model seat, and four retentions",
+        "# The location spend: evidence reach, model seat, and four adjudicated "
+        "questions",
         "",
         f"Generated by `tools/location_spend.py` on {doc['as_of']}; scene date "
         f"{doc['scene_date']}. **Derived — do not hand-edit.** The adjudication lives "
@@ -476,16 +524,23 @@ def report(doc: dict) -> str:
     ]
     for cls, n in counts["households_by_seating_class"].items():
         lines.append(f"| {cls} | {n} |")
+    word = {0: "none", 1: "one", 2: "two", 3: "three", 4: "four"}
+    retained = word[sum(1 for i in doc["retentions"] if i["disposition"] == "retained")]
+    resolved = word[sum(1 for i in doc["retentions"] if i["disposition"] == "resolved")]
     lines += [
         "",
-        "## The four retentions",
+        "## The four questions",
         "",
-        "**All four are retained, none is resolved, and not one is the loop's to "
-        "resolve** — three are `blocked-owner` and one is `blocked-tech` behind T-0414 "
-        "and T-0009. Each retention carries a guard: the committed fact it stands on, "
-        "re-measured on every build. A retention may read `retained` only while its "
-        "guard holds, so the day the owner rules — or a source lands — the build says "
-        "so instead of this file going quietly out of date.",
+        f"**{retained.capitalize()} retained, {resolved} resolved, and not one of the "
+        f"{retained} retained is the loop's to resolve** — two are `blocked-owner` and "
+        "one is `blocked-tech` behind T-0414 and T-0009. Each question carries a guard: "
+        "the committed fact it stands on, re-measured on every build. It may read "
+        "`retained` only while that guard holds, so the day the owner rules — or a "
+        "source lands — the build says so instead of this file going quietly out of "
+        "date. That is how T-1087 came to read `resolved`: the owner ruled Wabansia and "
+        "Kinzie's Addition INSIDE on 2026-09-21, B4's third kind was withdrawn rather "
+        "than re-worded, the guard expired, and the build refused until the retention "
+        "was re-stated as the ruling. Its guard now measures the ruling itself.",
         "",
         "| ticket | state | what it costs today | what would resolve it | guard |",
         "|---|---|---|---|---|",
@@ -497,8 +552,10 @@ def report(doc: dict) -> str:
     lines += [
         "",
         "No retention upgraded a confidence, filled an anchor, minted a citation or "
-        "moved a building. Four questions were asked of the committed data and four "
-        "answers came back unchanged.",
+        f"moved a building. Four questions were asked of the committed data; {retained} "
+        f"answers came back unchanged and {resolved} came back RULED — and the ruling "
+        "moved exactly the one person it was measured to cost, "
+        "`person_uncertain_doctor_kimberly`, from undecided to inside.",
         "",
     ]
     return "\n".join(lines) + "\n"

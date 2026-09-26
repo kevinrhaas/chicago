@@ -86,6 +86,26 @@ TICKET = "T-1499"
 # sweep descends into these, and the agreement below is not asked about them.
 NOT_THE_SOURCE_TREE = (".git/", "node_modules/", "site/")
 
+# AND NEITHER IS COMPILED BYTECODE, which is the same kind of thing one directory
+# deeper. `__pycache__/` is gitignored at the repo root, so a `.pyc` is not a
+# committed name — but it is a BYTE-FOR-BYTE copy of the strings in the `.py` beside
+# it, and two of those files are PINNED precisely because their self-tests pass an
+# old roof id to the function under test. So a sweep that reaches into a pycache
+# reports its own pinned fixture back to itself as a dangling reference, which is
+# what T-1611's first `--check-blocks` did: one finding, `tools/__pycache__/
+# execute_roof_redeal.cpython-312.pyc names recon_1835_blk_randolph_market_a1_07`,
+# for a name the list had already ruled may stand. A prefix tuple cannot say this —
+# a pycache sits at any depth — so it is asked as a path SEGMENT.
+NOT_A_SOURCE_DIR = ("__pycache__",)
+
+
+def not_the_source_tree(rel: str) -> bool:
+    """Is this path outside the tree a roof-id sweep reads? The one answer, so the
+    two sweeps and this module's own gate cannot come to three."""
+    if rel.startswith(NOT_THE_SOURCE_TREE):
+        return True
+    return any(part in NOT_A_SOURCE_DIR for part in rel.split("/"))
+
 
 @dataclass(frozen=True)
 class Category:
@@ -216,6 +236,12 @@ PINS = (
         "recipe_record",
         "the North parcel's `migrated` block, which records what each roof WAS; "
         "this was the executor's inline skip and belongs in the list with the rest"),
+    Pin("data/reconstruction/1835_platted_block_parcels.json",
+        "recipe_record",
+        "the platted blocks' `redealt` block (T-1611), which records the id each of "
+        "the six re-dealt yard buildings moved FROM, beside the family and the class "
+        "it moved from — the same kind of record as the two parcels above, and it is "
+        "re-derived by the executor in any case"),
     Pin("renderers/web/js/changelog.js", "rename_prose",
         "the entry that told a visitor which roofs were renamed and to what"),
 )
@@ -267,7 +293,7 @@ def source_files() -> list[str]:
         if not path.is_file():
             continue
         rel = path.relative_to(ROOT).as_posix()
-        if rel.startswith(NOT_THE_SOURCE_TREE):
+        if not_the_source_tree(rel):
             continue
         out.append(rel)
     return sorted(out)

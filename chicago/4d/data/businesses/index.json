@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 272,
+    "records": 271,
     "compiled_from_register": 196,
-    "authored": 76,
-    "present_at_scene_date": 255,
+    "authored": 75,
+    "present_at_scene_date": 254,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -14,10 +14,10 @@
       "civic": 4,
       "druggist": 4,
       "iron_foundry": 2,
-      "lawyer": 20,
+      "lawyer": 19,
       "not_stated": 5,
-      "other": 120,
-      "physician": 9,
+      "other": 121,
+      "physician": 8,
       "printing_office": 3,
       "school": 7,
       "silversmith_jeweller": 2,
@@ -28,29 +28,30 @@
       "tin_and_copper_manufactory": 4
     },
     "by_location_kind": {
-      "anchored": 27,
-      "premises": 52,
-      "street_only": 89,
-      "unplaceable": 109
+      "anchored": 28,
+      "premises": 53,
+      "street_only": 87,
+      "unplaceable": 108
     },
-    "named_people": 406,
-    "named_people_linked_to_a_town_card": 352,
+    "named_people": 405,
+    "named_people_linked_to_a_town_card": 351,
     "works_at_households": 50,
     "works_at_households_resolving_to_a_business": 36,
     "by_grade": {
       "attested": 166,
       "inferred": 72,
-      "reconstructed": 34
+      "reconstructed": 33
     },
     "by_where_kind": {
-      "anchored": 27,
-      "premises": 51,
-      "street_only": 89,
-      "unplaceable": 105
+      "anchored": 28,
+      "premises": 52,
+      "street_only": 87,
+      "unplaceable": 104
     },
     "by_street": {
       "Canal Street": 6,
       "Dearborn Street": 29,
+      "Franklin Street": 1,
       "Kinzie Street": 4,
       "La Salle Street": 4,
       "Lake Street": 19,
@@ -58,19 +59,19 @@
       "Monroe Street": 1,
       "North Water Street": 5,
       "Randolph Street": 2,
-      "South Water Street": 43
+      "South Water Street": 41
     },
     "by_proprietor_community": {
       "british": 11,
       "free_black": 2,
       "french_canadian": 5,
-      "irish": 10,
+      "irish": 9,
       "metis": 1,
       "new_york": 50,
       "other": 11,
       "southern": 9,
-      "unknown": 100,
-      "yankee": 73
+      "unknown": 101,
+      "yankee": 72
     }
   },
   "_vocabulary_doc": "THE CLOSED VOCABULARY, and it is the resident layer's — data/residents/community_rules.json, one list for people and for the houses they kept. The rows with a zero count are the point and are shipped anyway: a term nobody carries is a measurement of this layer, not a gap in this file. The Businesses view offers a pill only where the count is above zero.",
@@ -114,7 +115,7 @@
       {
         "value": "yankee",
         "label": "New England",
-        "count": 73
+        "count": 72
       },
       {
         "value": "new_york",
@@ -124,7 +125,7 @@
       {
         "value": "irish",
         "label": "Irish",
-        "count": 10
+        "count": 9
       },
       {
         "value": "german",
@@ -149,7 +150,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 100
+        "count": 101
       }
     ]
   },
@@ -598,15 +599,15 @@
         }
       ],
       "where": {
-        "kind": "unplaceable",
+        "kind": "street_only",
         "structure_id": null,
         "anchor": null,
-        "street_id": null,
-        "street": null,
+        "street_id": "franklin",
+        "street": "Franklin Street",
         "tier": "inferred",
         "from": "1835-06-27",
         "to": null,
-        "limit_reason": "No street the model holds. The paper gives no anchor."
+        "limit_reason": "The paper names Franklin Street and no house on it, and prints Lake Street once, after the scene date. Street only, at inferred: the page images would settle which, and no source names the house itself."
       },
       "locations": 1,
       "opened": "1835-06-27",
@@ -3293,8 +3294,8 @@
           "also_printed_as": []
         },
         {
-          "name": "Elisha Metcalf",
-          "person_id": "rc_metcalf_elisha",
+          "name": "Francois Laframboise",
+          "person_id": "rc_laframboise_francois",
           "role": "clerk",
           "tier": "reconstructed",
           "from": null,
@@ -3357,8 +3358,8 @@
           ]
         },
         {
-          "name": "Joseph Laframboise",
-          "person_id": "rc_laframboise_joseph",
+          "name": "Elisha Metcalf",
+          "person_id": "rc_metcalf_elisha",
           "role": "clerk",
           "tier": "reconstructed",
           "from": null,
@@ -5849,8 +5850,8 @@
           "also_printed_as": []
         },
         {
-          "name": "Johanna McCarthy",
-          "person_id": "rc_mccarthy_johanna",
+          "name": "Madeleine Bourassa",
+          "person_id": "rc_bourassa_madeleine",
           "role": "household_member",
           "tier": "reconstructed",
           "from": null,
@@ -6993,7 +6994,7 @@
         "tier": "inferred",
         "from": "1835-06-13",
         "to": null,
-        "limit_reason": "The paper names North Water Street and nothing narrower; the anchor 'NORT[H] WATER STREET NORTM WATER STREET,' names nothing the committed town holds."
+        "limit_reason": "The paper names North Water Street and nothing narrower, and prints South Water once, three days after the scene date. Street only, at inferred."
       },
       "locations": 1,
       "opened": "1835-06-13",
@@ -7343,8 +7344,8 @@
           "also_printed_as": []
         },
         {
-          "name": "Victoire Pothier",
-          "person_id": "rc_pothier_victoire",
+          "name": "Johanna McCarthy",
+          "person_id": "rc_mccarthy_johanna",
           "role": "household_member",
           "tier": "reconstructed",
           "from": null,
@@ -13750,15 +13751,20 @@
         }
       ],
       "where": {
-        "kind": "street_only",
+        "kind": "anchored",
         "structure_id": null,
-        "anchor": null,
+        "anchor": {
+          "kind": "structure",
+          "id": "exchange_coffee_house",
+          "title": "Exchange Coffee House",
+          "streets": []
+        },
         "street_id": "lake",
         "street": "Lake Street",
         "tier": "inferred",
         "from": "1835-06-24",
         "to": null,
-        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor 'the Exchange' names nothing the committed town holds."
+        "limit_reason": "The register places this house against exchange_coffee_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-06-24",
@@ -14032,7 +14038,7 @@
         "tier": "inferred",
         "from": "1835-06-13",
         "to": null,
-        "limit_reason": "The paper names North Water Street and nothing narrower; the anchor 'Commission Merc[hant]. N[ORT]H WATER [S]TREET Commission Mere NbeEM WATER ITREET,' names nothing the committed town holds."
+        "limit_reason": "The paper names North Water Street and nothing narrower, and prints South Water once, three days after the scene date. Street only, at inferred."
       },
       "locations": 1,
       "opened": "1835-06-13",
@@ -14232,7 +14238,7 @@
     {
       "id": "rcb_cavanagh_boarding_house",
       "file": "rcb_cavanagh_boarding_house.json",
-      "name": "Johanna Cavanagh's boarding house",
+      "name": "Ellen Cavanagh's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -14246,8 +14252,8 @@
       "firm_styles": [],
       "people": [
         {
-          "name": "Johanna Cavanagh",
-          "person_id": "rc_cavanagh_johanna",
+          "name": "Ellen Cavanagh",
+          "person_id": "rc_cavanagh_ellen",
           "role": "proprietor",
           "tier": "reconstructed",
           "from": null,
@@ -14988,54 +14994,6 @@
       "liberties": []
     },
     {
-      "id": "rcb_mcguire_physician",
-      "file": "rcb_mcguire_physician.json",
-      "name": "Dr. J. McGuire, physician",
-      "register_id": null,
-      "provenance": "reconstructed",
-      "type": [
-        "physician"
-      ],
-      "present_at_scene_date": true,
-      "grade": "reconstructed",
-      "trade": "physician",
-      "occupation": "physician",
-      "goods": [
-        "physician"
-      ],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "John McGuire",
-          "person_id": "rc_mcguire_john",
-          "role": "proprietor",
-          "tier": "reconstructed",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        }
-      ],
-      "where": {
-        "kind": "street_only",
-        "structure_id": null,
-        "anchor": null,
-        "street_id": "south_water",
-        "street": "South Water Street",
-        "tier": "reconstructed",
-        "from": null,
-        "to": null,
-        "limit_reason": "No source places this house, because no source names it: it exists because the December 1835 State census counts more of its class than the register holds. The street is the reconstruction's own deal and stops there."
-      },
-      "locations": 1,
-      "opened": null,
-      "closed": null,
-      "dates_tier": "reconstructed",
-      "proprietor_community": "irish",
-      "proprietor_community_tier": "reconstructed",
-      "review_required": false,
-      "liberties": []
-    },
-    {
       "id": "rcb_metcalf_druggist",
       "file": "rcb_metcalf_druggist.json",
       "name": "Nathaniel Metcalf, drugs, medicines and dye stuffs",
@@ -15226,26 +15184,24 @@
       "liberties": []
     },
     {
-      "id": "rcb_parmelee_lawyer",
-      "file": "rcb_parmelee_lawyer.json",
-      "name": "R. Parmelee, attorney and counsellor at law, and solicitor in chancery",
+      "id": "rcb_pelletier_boarding_house",
+      "file": "rcb_pelletier_boarding_house.json",
+      "name": "Victoire Pelletier's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
-        "lawyer"
+        "other"
       ],
       "present_at_scene_date": true,
       "grade": "reconstructed",
-      "trade": "attorney and counsellor at law",
-      "occupation": "attorney",
-      "goods": [
-        "attorney and counsellor at law, and solicitor in chancery"
-      ],
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
       "firm_styles": [],
       "people": [
         {
-          "name": "Reuben Parmelee",
-          "person_id": "rc_parmelee_reuben",
+          "name": "Victoire Pelletier",
+          "person_id": "rc_pelletier_victoire",
           "role": "proprietor",
           "tier": "reconstructed",
           "from": null,
@@ -15254,22 +15210,22 @@
         }
       ],
       "where": {
-        "kind": "street_only",
-        "structure_id": null,
+        "kind": "premises",
+        "structure_id": "recon_1835_west_035",
         "anchor": null,
-        "street_id": "south_water",
-        "street": "South Water Street",
+        "street_id": null,
+        "street": null,
         "tier": "reconstructed",
         "from": null,
         "to": null,
-        "limit_reason": "No source places this house, because no source names it: it exists because the December 1835 State census counts more of its class than the register holds. The street is the reconstruction's own deal and stops there."
+        "limit_reason": null
       },
       "locations": 1,
       "opened": null,
       "closed": null,
       "dates_tier": "reconstructed",
-      "proprietor_community": "yankee",
-      "proprietor_community_tier": "reconstructed",
+      "proprietor_community": "unknown",
+      "proprietor_community_tier": null,
       "review_required": false,
       "liberties": []
     },
@@ -15468,7 +15424,7 @@
     {
       "id": "rcb_shea_millinery",
       "file": "rcb_shea_millinery.json",
-      "name": "Alice Shea, millinery",
+      "name": "Mary Shea, millinery",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -15484,8 +15440,8 @@
       "firm_styles": [],
       "people": [
         {
-          "name": "Alice Shea",
-          "person_id": "rc_shea_alice",
+          "name": "Mary Shea",
+          "person_id": "rc_shea_mary",
           "role": "proprietor",
           "tier": "reconstructed",
           "from": null,

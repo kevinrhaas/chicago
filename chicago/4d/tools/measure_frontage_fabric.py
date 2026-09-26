@@ -75,6 +75,31 @@ building on the line stands 1.61 m back (`thomas_church_store`) and the next bui
 anywhere is 3.81 m back (`recon_1835_west_008`). This is the midpoint of that gap. Run
 `--setbacks` to print the distribution and see the gap for yourself.
 
+## And where the frontage reach comes from (T-1511), which is the same method
+
+`STREET_LINE_M` answers "is this building ON its frontage or behind it". It never asked
+the question one step before that — **does it have one at all** — and until T-1511 nothing
+did: `nearest_frontage` credited every footprint to the corridor it stood nearest, however
+far that was. Fort Dearborn's reservation holds no street, and its roofs were nonetheless
+counted in the `principal` class of the trade share off Lake Street at 270 m to 420 m;
+before the bank test of T-1429 they were counted in `ordinary` off a Kinzie Street line
+across the channel. Neither reading is a fact about the business front. The fault was the
+missing bound, not the bank test that revealed it.
+
+`FRONTAGE_REACH_M` is that bound, cut the same way and from the same kind of gap — in the
+distribution of every building's distance to the corridor it stands nearest, measured with
+no reach at all. That distribution is continuous out to 60.79 m: 373 buildings, and no gap
+in them wider than 2.91 m. The next building anywhere stands 74.65 m back, an empty band
+of 13.86 m — 4.76 times the widest gap in the body. The reach is its midpoint, 67.72 m,
+and 35 buildings stand beyond it. `--setbacks` prints both distributions and both bands.
+
+A building beyond the reach is reported with NO street rather than with a distant one, and
+every consumer of this census reads that absence: it votes in no class of the trade share,
+the face rule does not rank it against a frontage, `reconcile_665` does not weight the
+business front by it, and the placement policy refuses it any clause that puts a building
+on a street line — which is how the reservation's roofs keep the outlier reasons the
+garrison clause wrote for them instead of quietly conforming.
+
 ## The trade share, which is the other half of the same census (T-0213)
 
 The fabric assertion above is about what the frontage is MADE OF. `trade_share_by_class`
@@ -87,7 +112,7 @@ Documented only: the invented layers are what the schedule produced, so weightin
 schedule by them would be the programme grading its own homework.
 
     tools/measure_frontage_fabric.py             the census
-    tools/measure_frontage_fabric.py --setbacks  the distribution the band comes from
+    tools/measure_frontage_fabric.py --setbacks  the distributions both bands come from
     tools/measure_frontage_fabric.py --trade     the trade share per street class
     tools/measure_frontage_fabric.py --gate      exit 1 on a uniformity the record refuses
     tools/measure_frontage_fabric.py --self-test break it in memory and watch it fire
@@ -114,6 +139,15 @@ from measure_street_frontage import layer_of, layer_of_record  # noqa: E402
 from placement_policy_1835 import constant  # noqa: E402
 from plat_corridors import corridors, sampled  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "drawn"
+CORRIDOR_LINE_WHY = (
+    "frontage is a property of the block face a building stands on, and the face is offset from the "
+    "drawn line"
+)
+
 # The empty gap in the setback distribution, at its midpoint. See the docstring; run
 # --setbacks to re-derive it. A building at or inside this stands ON the street line;
 # anything further back stands in the block behind it.
@@ -122,6 +156,19 @@ from plat_corridors import corridors, sampled  # noqa: E402
 # re-typed into `data/reconstruction/1835_placement_policy.json`, and that file's own
 # assertion 5 reads this line: put a literal back and the gate names the module.
 STREET_LINE_M = constant("street_line_m")
+
+# How far back a footprint may stand and still be FRONTING the corridor it is nearest.
+# The same method as STREET_LINE_M, one band further out: the empty gap in the town's own
+# distribution of nearest-corridor distances, at its midpoint. Below 60.79 m that
+# distribution is CONTINUOUS — 373 buildings, no gap wider than 2.91 m — and the next
+# building anywhere stands 74.65 m back, a band of 13.86 m with nothing in it. Run
+# --setbacks to re-derive both numbers.
+#
+# Beyond this there is no frontage to report. Before T-1511 there was no bound at all and
+# the reservation's roofs, 270-420 m from Lake Street across ground that holds no street,
+# voted in the principal class of the trade share. Held by the placement policy with the
+# other five constants; assertion 5 reads this line.
+FRONTAGE_REACH_M = constant("frontage_reach_m")
 
 # The construction classes this census reads. `construction` is a committed form value on
 # 344 phases and is the field the archetypes build walls from, so the material a visitor
@@ -307,8 +354,9 @@ def _edge_candidates(points: list, ring: list) -> list:
 
 
 def nearest_frontage(polygon: list[tuple[float, float]], lanes: dict,
-                     water: list | None = None) -> tuple[str, float]:
-    """(street id, setback) for the corridor this footprint stands nearest.
+                     water: list | None = None,
+                     reach: float | None = None) -> tuple[str | None, float]:
+    """(street id, setback) for the corridor this footprint FRONTS, or (None, distance).
 
     Setback is measured from the corridor EDGE and is negative where the footprint reaches
     inside the roadway, so the documented buildings PR #371 found standing in South Water
@@ -345,10 +393,31 @@ def nearest_frontage(polygon: list[tuple[float, float]], lanes: dict,
     again with their reasons intact, which is what `placement_policy_1835` recorded
     before the north bank had corridors and could no longer say.
 
-    A footprint no corridor reaches gets `(None, inf)`: the reservation and the river
-    mouth hold roofs that front no street, and saying so is the honest reading.
+    ## THE REACH (T-1511), which is the third clause and the one about distance
+
+    The three clauses above are all about WHAT stands between a footprint and a corridor.
+    None of them is about how far away it is, and until T-1511 nothing was: the nearest
+    corridor was this footprint's frontage at any distance whatever. Fort Dearborn's
+    reservation holds no street — that is the whole of the garrison clause in
+    `placement_policy_1835` and of six written outlier reasons — and yet its roofs were
+    credited with one, 270 m to 420 m off Lake Street, and voted in the `principal` class
+    of `trade_share_by_class`. Before T-1429 they were credited with Kinzie Street across
+    the channel instead. Neither reading is a fact about the business front.
+
+    So: **a corridor is this footprint's frontage only within `FRONTAGE_REACH_M` of it**,
+    which is the empty band in the town's own distribution of nearest-corridor distances,
+    at its midpoint — measured, in the same way as `STREET_LINE_M`, and not a bar anybody
+    picked. Pass `reach=math.inf` to take the unbounded reading the band is derived from;
+    `--setbacks` prints it.
+
+    A footprint no corridor reaches gets `(None, inf)`, and one whose nearest corridor is
+    beyond the reach gets `(None, that distance)` — the distance is kept because it is
+    what the derivation is made of and what `--setbacks` prints. Both mean the same
+    thing to a caller: this building fronts no street, and saying so is the honest
+    reading. The reservation and the river mouth hold 35 of them.
     """
     water = water_rings() if water is None else water
+    reach = FRONTAGE_REACH_M if reach is None else reach
     best_id, best = None, float("inf")
     points = sampled(polygon)
     for street_id, lane in lanes.items():
@@ -371,22 +440,40 @@ def nearest_frontage(polygon: list[tuple[float, float]], lanes: dict,
                 break
         if near < best:
             best_id, best = street_id, near
+    if best > reach:
+        return None, best
     return best_id, best
 
 
 def census(records: list[dict] | None = None,
-           streets: dict[str, str] | None = None) -> dict:
-    """Every building assigned to the street it stands nearest, split on the line."""
+           streets: dict[str, str] | None = None,
+           reach: float | None = None) -> dict:
+    """Every building assigned to the street it FRONTS, split on the line.
+
+    A building whose nearest corridor is beyond `FRONTAGE_REACH_M` carries `street: None`
+    — it fronts no street, and every consumer of this census reads the absence rather than
+    a distant street (T-1511). Its `setback_m` is still the measured distance to that
+    corridor, because that measurement is what the reach is derived from; `on_line` and
+    `principal` are False, which is what a caller asking about a frontage should get from
+    a building that has none. Pass `reach=math.inf` for the unbounded reading.
+    """
     lanes = corridors()
     water = water_rings()
     principal = principal_streets() if streets is None else streets
     rows = []
     for record in (buildings() if records is None else records):
-        street, setback = nearest_frontage(record["world"], lanes, water)
-        rows.append({**record, "street": street, "setback_m": round(setback, 2),
-                     "on_line": setback <= STREET_LINE_M,
+        street, setback = nearest_frontage(record["world"], lanes, water, reach)
+        rows.append({**record, "street": street,
+                     "setback_m": None if math.isinf(setback) else round(setback, 2),
+                     "on_line": street is not None and setback <= STREET_LINE_M,
                      "principal": street in principal})
     return {"principal": principal, "rows": rows}
+
+
+def no_street(result: dict) -> list[dict]:
+    """The rows that front no street, nearest corridor first. See `nearest_frontage`."""
+    return sorted((r for r in result["rows"] if r["street"] is None),
+                  key=lambda r: (r["setback_m"] is None, r["setback_m"], r["id"]))
 
 
 def _tally(rows: list[dict], layer_test) -> dict[str, int]:
@@ -439,8 +526,12 @@ def street_traffic() -> dict[str, str]:
     """Every committed street's traffic class, out of `data/streets/1835.json`.
 
     The same authored, sourced hierarchy `principal_streets` reads — this returns all three
-    tiers rather than only the top one, because the trade share turns out to be monotone in
-    them and a weighting that used only `principal` would throw the middle tier away.
+    tiers rather than only the top one, because the trade share differs across them and a
+    weighting that used only `principal` would throw the middle tier away. It was monotone
+    in them at T-0213 and is not now: the principal class carries the most trade (0.6500),
+    the ordinary class the least (0.4167), and the light class stands between on fourteen
+    records. `reconcile_665`'s business-front term never needed the ladder, only the
+    difference — see its own note.
     """
     return {s["id"]: s.get("traffic") for s in load(DATA / "streets" / "1835.json")["streets"]}
 
@@ -460,10 +551,18 @@ def trade_share_by_class(result: dict | None = None,
                          letters: tuple[str, ...] = TRADE_LETTERS) -> dict[str, dict]:
     """Per traffic class, the share of documented buildings that carry a trade family.
 
-    A building is assigned to the street its footprint stands nearest — the same
-    assignment the fabric census makes — and only the research layer is counted. The
-    return is `{class: {n, trade, share}}`, and a class the record says nothing about is
-    absent rather than zero.
+    A building is assigned to the street its footprint FRONTS — the same assignment the
+    fabric census makes — and only the research layer is counted. The return is
+    `{class: {n, trade, share}}`, and a class the record says nothing about is absent
+    rather than zero.
+
+    **A building that fronts no street does not vote (T-1511.)** It has no class, so it
+    is counted in none of them — not moved to the lowest, not spread across all three.
+    The trade share is a reading of what a FRONTAGE is for, and a building with no
+    frontage has nothing to say about it. `--trade` prints how many were set aside and
+    `no_street` names them, so the silence is visible rather than a shortfall in `n`.
+    Twenty of the twenty-five are the Fort Dearborn reservation, whose ground holds no
+    street at all; before the reach they carried Lake Street and voted `principal`.
     """
     result = census() if result is None else result
     traffic = street_traffic()
@@ -473,6 +572,9 @@ def trade_share_by_class(result: dict | None = None,
         if row["layer"] != "research":
             continue
         family = families.get(row["id"])
+        # `row["street"]` is None for a building that fronts no street, and
+        # `traffic.get(None)` is None: it falls out here with the records the street
+        # hierarchy has no class for, which is the reading, not an oversight.
         klass = traffic.get(row["street"])
         if not family or not klass:
             continue
@@ -499,6 +601,16 @@ def _trade(result: dict) -> str:
                 continue
             lines.append(f"   {klass:<14}{row['n']:>5}{row['trade']:>7}"
                          f"{row['share']:>9.4f}")
+        lines.append("")
+    silent = [r for r in no_street(result) if r["layer"] == "research"]
+    if silent:
+        lines += [f"   {len(silent)} documented building(s) front no street and vote in "
+                  f"no class — the nearest platted corridor is beyond "
+                  f"{FRONTAGE_REACH_M:.2f} m (T-1511):", ""]
+        for row in silent:
+            far = "no corridor reaches it" if row["setback_m"] is None \
+                else f"{row['setback_m']:.2f} m to the nearest corridor"
+            lines.append(f"      {row['id']:<40}{far}")
         lines.append("")
     lines.append("   tools/reconcile_665.py reads the first table (T-0213)")
     return "\n".join(lines)
@@ -528,21 +640,109 @@ def _table(result: dict) -> str:
                              f"{tally[LOG]:>6}{tally[FRAME]:>7}{tally[OTHER]:>7}")
     lines += ["", "   * a principal street of the committed street hierarchy — the "
               "town's business front"]
+    absent = no_street(result)
+    if absent:
+        lines.append(f"   and {len(absent)} building(s) front no street at all: the "
+                     f"nearest platted corridor stands beyond the frontage reach "
+                     f"({FRONTAGE_REACH_M:.2f} m), so this census credits them with "
+                     f"none. --setbacks names them")
+    return "\n".join(lines)
+
+
+def _ladder(rows: list[tuple[float, str]], threshold: float) -> list[str]:
+    lines, previous = [], None
+    for value, label in rows:
+        gap = ""
+        if previous is not None and value - previous > threshold:
+            gap = f"   <-- {value - previous:.2f} m gap"
+        lines.append(f"   {value:>8.2f}  {label:<46}{gap}")
+        previous = value
+    return lines
+
+
+def reach_band(unbounded: dict) -> dict:
+    """The empty band FRONTAGE_REACH_M is the midpoint of, re-derived from the tree.
+
+    Measured UNBOUNDED on purpose: with the reach applied the rows beyond it carry no
+    street and the gap they define would not be visible in the reading they produced.
+
+    ## Which gap, and why it is not the widest one
+
+    The WIDEST gap in this distribution is 46.43 m, between two buildings 223 m and 270 m
+    from any corridor — and it means nothing. A tail of thirty-five buildings spread over
+    four hundred metres has wide gaps everywhere by construction; picking the widest picks
+    a feature of the tail's sparseness, not the edge of the town's fabric.
+
+    What separates a population from a tail is where CONTINUITY ends. So the band is the
+    most ABRUPT break: the gap largest in proportion to the widest gap anywhere below it,
+    among the gaps that have more buildings below them than above — a break that leaves
+    the smaller half outside is a break inside the tail, not the edge of the body. The
+    measure is a ratio, so it is scale-free and there is no length anybody chose in it.
+
+    Today that is 4.76 — a 13.86 m band above a body whose own widest gap is 2.91 m —
+    against 1.36 for the widest gap in the tail.
+    """
+    rows = sorted(((r["setback_m"], r["id"]) for r in unbounded["rows"]
+                   if r["setback_m"] is not None))
+    best = None
+    for index in range(len(rows) - 1):
+        (low, _), (high, label) = rows[index], rows[index + 1]
+        below, above = index + 1, len(rows) - index - 1
+        if below <= above:
+            continue
+        body = max((b - a for (a, _), (b, _) in zip(rows, rows[1:])
+                    if b <= low), default=0.0)
+        if body <= 0:
+            continue
+        ratio = (high - low) / body
+        if best is None or ratio > best["abruptness"]:
+            best = {"inner": low, "outer": high, "outer_id": label,
+                    "band_m": high - low, "body_gap_m": body, "abruptness": ratio,
+                    "in_the_body": below, "midpoint_m": round((low + high) / 2, 2)}
+    return best
+
+
+def _reach_band(unbounded: dict) -> str:
+    rows = sorted(((r["setback_m"], r["id"]) for r in unbounded["rows"]
+                   if r["setback_m"] is not None))
+    band = reach_band(unbounded)
+    widest = max(b - a for (a, _), (b, _) in zip(rows, rows[1:]))
+    inner, outer, body = band["inner"], (band["outer"], band["outer_id"]), \
+        band["body_gap_m"]
+    lines = ["   every building by the distance to the corridor it stands nearest, "
+             "measured with NO reach — the reading the band is cut from", ""]
+    lines += _ladder([row for row in rows if row[0] > 25.0], 1.0)
+    lines += ["",
+              f"   the body of the distribution is continuous to {inner:.2f} m: "
+              f"{band['in_the_body']} buildings and no gap wider than {body:.2f} m.",
+              f"   the next building anywhere stands {outer[0]:.2f} m back "
+              f"({outer[1]}) — an empty band of {band['band_m']:.2f} m, "
+              f"{band['abruptness']:.2f} times the widest gap in the body. That ratio "
+              f"is what picks this band and not the",
+              f"   widest gap in the reading, which is {widest:.2f} m and lies out in "
+              f"the tail where sparseness makes wide gaps for free.",
+              f"   FRONTAGE_REACH_M is its midpoint: {band['midpoint_m']:.2f} m "
+              f"(committed: {FRONTAGE_REACH_M:.2f} m).",
+              f"   {sum(1 for v, _ in rows if v > FRONTAGE_REACH_M)} building(s) stand "
+              f"beyond it and are credited with no street."]
     return "\n".join(lines)
 
 
 def _setbacks(result: dict) -> str:
-    rows = sorted((r for r in result["rows"] if r["principal"]),
-                  key=lambda r: r["setback_m"])
-    lines = ["   every building on a principal-street frontage, by setback from the "
+    """Both measured bands, each with the distribution it is the gap in.
+
+    STREET_LINE_M separates a building standing ON a frontage from one standing behind
+    it; FRONTAGE_REACH_M separates a building that HAS that frontage from one that has
+    none. Same method, two questions — see the module docstring.
+    """
+    rows = sorted((r["setback_m"], r["id"]) for r in result["rows"]
+                  if r["principal"] and r["setback_m"] is not None)
+    lines = [f"   STREET_LINE_M = {STREET_LINE_M:.2f} m", "",
+             "   every building on a principal-street frontage, by setback from the "
              "corridor edge", ""]
-    previous = None
-    for row in rows:
-        gap = ""
-        if previous is not None and row["setback_m"] - previous > 1.0:
-            gap = f"   <-- {row['setback_m'] - previous:.2f} m gap"
-        lines.append(f"   {row['setback_m']:>8.2f}  {row['id']:<46}{gap}")
-        previous = row["setback_m"]
+    lines += _ladder(rows, 1.0)
+    lines += ["", "", f"   FRONTAGE_REACH_M = {FRONTAGE_REACH_M:.2f} m", ""]
+    lines.append(_reach_band(census(reach=math.inf)))
     return "\n".join(lines)
 
 
@@ -636,11 +836,53 @@ def self_test() -> int:
     for record_id, expected in (("fort_dearborn_out_building_a", "lake"),
                                 ("fort_dearborn_out_building_b", "lake")):
         record = by_id.get(record_id)
-        street, setback = (nearest_frontage(record["world"], lanes, water)
+        # unbounded, which is what the two bank clauses are measured by: the reach is a
+        # separate clause and the one below is where it is exercised
+        street, setback = (nearest_frontage(record["world"], lanes, water,
+                                            reach=float("inf"))
                            if record else (None, float("inf")))
         checks.append((f"{record_id} is off the far bank's street and onto its own",
                        street == expected,
                        f"{street} at {setback:.2f} m" if record else "not committed"))
+
+    # THE REACH (T-1511), on the records that earned it. The bank clauses take the two
+    # out-buildings off Kinzie and onto Lake; the reach then refuses Lake as well, which
+    # is the whole finding — a corridor 312 m away across ground that holds no street is
+    # not this footprint's frontage in either direction.
+    for record_id in ("fort_dearborn_out_building_a", "fort_dearborn_blockhouse"):
+        record = by_id.get(record_id)
+        street, setback = (nearest_frontage(record["world"], lanes, water)
+                           if record else ("lake", 0.0))
+        checks.append((f"{record_id} fronts no street: its nearest corridor is beyond "
+                       f"the reach", street is None,
+                       f"{street} at {setback:.2f} m, reach {FRONTAGE_REACH_M:.2f} m"))
+
+    # …and the reach is a BOUND, not a refusal of everything far: the building that
+    # defines the inner edge of the band still has its frontage.
+    inner = by_id.get("miller_tannery")
+    street, setback = (nearest_frontage(inner["world"], lanes, water)
+                       if inner else (None, float("inf")))
+    checks.append(("the outermost building inside the band keeps its street — "
+                   "miller_tannery on the Market corridor",
+                   street is not None and setback < FRONTAGE_REACH_M,
+                   f"{street} at {setback:.2f} m"))
+
+    # the committed constant IS the band, re-derived from the tree on every self-test:
+    # a corridor re-drawn or a roof moved that shifts the band shows up here rather than
+    # leaving 67.72 m standing as a number somebody once measured
+    band = reach_band(census(reach=float("inf")))
+    checks.append(("FRONTAGE_REACH_M is the midpoint of the band the tree measures "
+                   "today", band["midpoint_m"] == FRONTAGE_REACH_M,
+                   f"{band['inner']:.2f}-{band['outer']:.2f} m, midpoint "
+                   f"{band['midpoint_m']:.2f} m vs committed {FRONTAGE_REACH_M:.2f} m"))
+
+    # and the census carries the absence rather than dropping the record
+    absent = no_street(census())
+    checks.append(("the census reports a building that fronts no street instead of "
+                   "leaving it out", len(absent) == 35 and all(
+                       r["street"] is None and not r["on_line"] and not r["principal"]
+                       for r in absent),
+                   f"{len(absent)} row(s) with street None"))
     # and the ray clause on its own, which is the half the fort case does not exercise:
     # a straight line from the reservation to the north bank crosses the water
     reservation = by_id.get("fort_dearborn_blockhouse")
@@ -668,7 +910,8 @@ def main() -> int:
                         help="exit 1 where an invented frontage is more uniform than the "
                              "documented record of the same street")
     parser.add_argument("--setbacks", action="store_true",
-                        help="the distribution STREET_LINE_M is the gap in")
+                        help="the distributions STREET_LINE_M and FRONTAGE_REACH_M "
+                             "are the empty gaps in")
     parser.add_argument("--trade", action="store_true",
                         help="the documented trade share per class of street, which "
                              "tools/reconcile_665.py weights the business front by")

@@ -33,57 +33,6 @@
   },
   "walks": [
     {
-      "id": "green_tree_tavern_crossing_front",
-      "belongs_to": "green_tree_tavern",
-      "kind": "board_crossing",
-      "confidence": "reconstructed",
-      "street": "canal",
-      "street_name": "Canal Street",
-      "centreline_local_enu_m": [
-        [
-          -149.52,
-          -94.98
-        ],
-        [
-          -164.67,
-          -94.98
-        ]
-      ],
-      "width_m": 1.22,
-      "rise_m": 0.06,
-      "plank_run": "along",
-      "plank_count": 4,
-      "plank_thickness_m": 0.055,
-      "run_m": 15.15,
-      "note": "A BOARD CROSSING OVER THE STREET. Image 6 gives *plank sidewalks with board crossings* at this inn and image 8 the same at the Sauganash, so the fact is the plates' and every dimension is invented. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them; a walk's boards run the other way. WHERE is derived: it leaves the front walk's outer edge and runs 15.15 m, which is the walk's own verge plus half the Canal Street track plus 0.60 m onto the dry ground beyond it, so it reaches across the travelled way rather than stopping in it. It lies lower than the walk because a wheel crosses it. docs/LIBERTIES.md L135."
-    },
-    {
-      "id": "green_tree_tavern_walk_front",
-      "belongs_to": "green_tree_tavern",
-      "kind": "plank_walk",
-      "confidence": "reconstructed",
-      "street": "canal",
-      "street_name": "Canal Street",
-      "centreline_local_enu_m": [
-        [
-          -148.61,
-          -96.2
-        ],
-        [
-          -148.61,
-          -88.58
-        ]
-      ],
-      "width_m": 1.83,
-      "rise_m": 0.11,
-      "plank_run": "across",
-      "plank_pitch_m": 0.26,
-      "plank_thickness_m": 0.055,
-      "wall_offset_m": 0.2,
-      "verge_to_track_m": 7.55,
-      "note": "A PLANK WALK ON THE INN'S FRONTAGE, and the plates are the whole reason it is here. The Braunhold engraving of the Green Tree (data/sources/assets/owner_brief_2026_08_18/README.md, image 6) shows plank sidewalks with board crossings at this building — a tier-5 retrospective view, which may drive setting and may never drive a coordinate. So WHERE is derived: the deck lies 0.20 m off the front wall, 1.83 m wide, leaving 7.55 m of verge between its outer edge and the Canal Street track — which is the number that decides a walk may lie here at all. What is invented is the width, the rise, the plank pitch, and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L135."
-    },
-    {
       "id": "green_tree_tavern_walk_left",
       "belongs_to": "green_tree_tavern",
       "kind": "plank_walk",
@@ -92,12 +41,12 @@
       "street_name": "Lake Street",
       "centreline_local_enu_m": [
         [
-          -135.3,
-          -97.31
+          -18.9,
+          -97.3
         ],
         [
-          -147.49,
-          -97.31
+          -31.09,
+          -97.3
         ]
       ],
       "width_m": 1.83,
@@ -106,37 +55,27 @@
       "plank_pitch_m": 0.26,
       "plank_thickness_m": 0.055,
       "wall_offset_m": 0.2,
-      "verge_to_track_m": 5.06,
-      "note": "A PLANK WALK ON THE INN'S FRONTAGE, and the plates are the whole reason it is here. The Braunhold engraving of the Green Tree (data/sources/assets/owner_brief_2026_08_18/README.md, image 6) shows plank sidewalks with board crossings at this building — a tier-5 retrospective view, which may drive setting and may never drive a coordinate. So WHERE is derived: the deck lies 0.20 m off the left wall, 1.83 m wide, leaving 5.06 m of verge between its outer edge and the Lake Street track — which is the number that decides a walk may lie here at all. What is invented is the width, the rise, the plank pitch, and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L135."
+      "verge_to_track_m": 6.01,
+      "note": "A PLANK WALK ON THE INN'S FRONTAGE, and the plates are the whole reason it is here. The Braunhold engraving of the Green Tree (data/sources/assets/owner_brief_2026_08_18/README.md, image 6) shows plank sidewalks with board crossings at this building — a tier-5 retrospective view, which may drive setting and may never drive a coordinate. So WHERE is derived: the deck lies 0.20 m off the left wall, 1.83 m wide, leaving 6.01 m of verge between its outer edge and the Lake Street track — which is the number that decides a walk may lie here at all. What is invented is the width, the rise, the plank pitch, and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L135."
     }
   ],
-  "posts": [
-    {
-      "id": "green_tree_tavern_sign_post",
-      "belongs_to": "green_tree_tavern",
-      "kind": "sign_post",
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        -150.42,
-        -99.13
-      ],
-      "facade_bearing_deg": 270.0,
-      "post_height_m": 3.6,
-      "post_square_m": 0.18,
-      "arm_m": 1.55,
-      "arm_bearing": "along the front wall, away from the corner",
-      "board_w_m": 1.3,
-      "board_h_m": 0.55,
-      "board_thickness_m": 0.055,
-      "hanger_drop_m": 0.18,
-      "text": "GREEN TREE",
-      "text_confidence": "inferred",
-      "text_sources_note": "`trowbridge_green_tree_1902` — W. E. S. Trowbridge's drawing 'The Green Tree Tavern in 1835', signed 1902, image 7 of the owner's brief of 2026-08-18 and identified under T-0075 on 2026-08-22. The plate was retrieved and read: the board hangs from a post at the street edge and is lettered GREEN TREE. The wording is the plate's; the letterform is ours (docs/LIBERTIES.md L135).",
-      "clear_of_track_m": 6.65,
-      "note": "THE NAMED BOARD ON ITS POST, at the corner of the two streets. Image 6 puts a post-mounted hanging signboard at this inn's corner and image 7 says what is on it. WHERE is derived: the post stands 2.93 m out from each of the two walls that make the corner — clear of both walks by 0.90 m — with 6.65 m still between it and the travelled track. Its cross-arm runs along the front wall away from the corner, so the board's face looks down the street the inn fronts on. The pole, the arm and the board are invented in every dimension, and so is the letterform; the WORDING is the plate's. docs/LIBERTIES.md L135."
-    }
-  ],
+  "posts": [],
   "refused": [
+    {
+      "structure_id": "green_tree_tavern",
+      "wall": "corner",
+      "why": "the post stands at the corner two walks make, and one of the two was refused — no board is put on a post."
+    },
+    {
+      "structure_id": "green_tree_tavern",
+      "wall": "front",
+      "why": "the nearest street outward of this wall is Lake Street, and it lies BESIDE the wall rather than in front of it — 0.14 m of its 17.05 m stands outward, where a frontage needs 50%. A walk laid here would run down the inn's flank and call it a frontage — no walk is laid."
+    },
+    {
+      "structure_id": "green_tree_tavern",
+      "wall": "front",
+      "why": "no walk lies on the front, so nothing springs a crossing off it."
+    },
     {
       "structure_id": "green_tree_tavern",
       "wall": "rear",

@@ -1,6 +1,6 @@
 {
  "id": "hh_rc_fairbanks_amanda",
- "name": "Reconstructed household — Amanda Fairbanks, a woman keeping her own house in the south division",
+ "name": "Reconstructed household — Amanda Fairbanks, a woman boarding with her family in the south division",
  "division": "south",
  "head": "rc_fairbanks_amanda",
  "source_pass": "reconstructed_women_children",
@@ -11,7 +11,7 @@
   "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records."
  },
  "arrival_year": {
-  "value": 1834,
+  "value": 1835,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
@@ -50,14 +50,14 @@
   "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+  "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
   "basis": {
    "kind": "rule",
    "id": "reason_from_arrival_cohort",
-   "note": "arrival_fill.cohort_reasons — the household's arrival year (1834) is the only thing about it this value rests on."
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
   },
   "replaceable_by": {
    "kind": "person",
@@ -68,7 +68,7 @@
  "lives_at": {
   "value": null,
   "confidence": "reconstructed",
-  "note": "NO ROOF AND NO LOT. This stage seats nobody: the ground the north and west divisions still want is T-1191–T-1194's and T-1199 seats every reconstructed household on it. A coordinate invented here would be a fabricated location, which docs/LIBERTIES.md refuses outright."
+  "note": "NO ROOF AND NO LOT, AND THE DIVISION ABOVE IS NOT THE ONE THIS HOUSE WAS DEALT IN. T-1199 seats every reconstructed household on the lot grid; the division this card states is the south one it was RE-FAMILIED into, not the south one it was drawn in, and `refamilied` above names both. A coordinate invented here would be a fabricated location, which docs/LIBERTIES.md refuses outright."
  },
  "works_at": {
   "value": null,
@@ -91,6 +91,49 @@
   "seated_beyond_the_draw": 0,
   "seed": "rc_wc_south_061:household_size",
   "note": "The women and children the age pyramid still lacks. A servant, an apprentice or a lodger this house may also have held is priced by T-1183 and seated by T-1173 and T-1175; the drawn size is a floor on the house, and where the division's child buckets were still short after every house was drawn the remainder was seated across them and says so."
+ },
+ "refamilied": {
+  "ticket": "T-1564",
+  "parent_ticket": "T-1559",
+  "ruling": "the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the re-cut holds is RE-FAMILIED rather than retired",
+  "rule": "C1",
+  "rule_read_from": "data/reconstruction/1835_refamily_rule.json#the_moves_the_rule_yields",
+  "drawn_in_division": "south",
+  "drawn_in_bucket": "persons/female/40_49/south/family/none",
+  "counted_in_bucket": "persons/female/40_49/south/lodging/none",
+  "changed": [
+   "household"
+  ],
+  "the_whole_house": [
+   {
+    "person": "rc_fairbanks_amanda",
+    "rule": "C1",
+    "drawn_in_bucket": "persons/female/40_49/south/family/none",
+    "counted_in_bucket": "persons/female/40_49/south/lodging/none"
+   },
+   {
+    "person": "rc_fairbanks_amanda_1",
+    "rule": "C1",
+    "drawn_in_bucket": "persons/male/under_10/south/family/none",
+    "counted_in_bucket": "persons/male/under_10/south/lodging/none"
+   },
+   {
+    "person": "rc_fairbanks_amanda_2",
+    "rule": "C1",
+    "drawn_in_bucket": "persons/male/under_10/south/family/none",
+    "counted_in_bucket": "persons/male/under_10/south/lodging/none"
+   },
+   {
+    "person": "rc_fairbanks_amanda_3",
+    "rule": "C1",
+    "drawn_in_bucket": "persons/male/under_10/south/family/none",
+    "counted_in_bucket": "persons/male/under_10/south/lodging/none"
+   }
+  ],
+  "what_moved": "WHICH CELLS OF THE BOOK'S LADDER THIS HOUSEHOLD IS COUNTED IN, and nothing else. The draw above is not un-written: the buckets these people were dealt in keep it and name them in `refamilied_out`, the buckets they are counted in now fill orders with people the town already holds, and every id, name, sex, age band and seed on this card is the one the deal gave it. T-1557 built that accounting; these are 4 of its rows.",
+  "why_the_whole_house": "A RE-FAMILY MAY NOT SPLIT A FAMILY ACROSS THE RIVER. The rule's own ceiling requires an invented household to move whole or not at all — it is the condition that took T-1558's ceiling from 119 moves to 73, and the report calls it the right price. So this woman and her children are re-familied together, in one statement, and a rule that yielded a move for some of them and not the others would be refused here rather than half applied.",
+  "what_it_re_casts": "an invented house keeping itself as a family boarding together — this woman boards with her children rather than keeping a house of her own. The kind of house this was, was invented with it, so re-casting it is a reconstruction decision about invented people at the `reconstructed` tier, made and recorded here rather than refused. No attested household is touched by it, nobody is minted, nobody is retired and no roof moves.",
+  "withdrawn_if": "the rule no longer yields these moves; the re-family runs through --build, never by hand"
  },
  "persons": [
   {
@@ -363,5 +406,5 @@
  ],
  "touches_removal": false,
  "review_required": false,
- "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn laundress, in the south division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
+ "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn laundress, in the south division, where it is counted after the re-family recorded above; it was drawn in the south division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1). This household is one of the surplus the re-cut HOLDS rather than retires: the owner's ruling of 2026-09-24 re-families it into a cell the book still orders instead of un-writing it, and `refamilied` above is the whole of what that changed."
 }

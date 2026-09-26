@@ -12,7 +12,7 @@
    "the_reading_is_carried_as_a_dated_profile_fact_on_the_card": 4,
    "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date": 3,
    "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks": 2,
-   "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated": 1
+   "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses": 1
   }
  },
  "rows": [
@@ -163,12 +163,23 @@
    "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/pearsons_hiram",
    "pass": "02",
    "person": "pearsons_hiram",
-   "outcome": "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated",
-   "rule": "the_reading_contradicts_the_trade_the_card_carries_and_the_field_is_re_adjudicated",
-   "reading": "a house painter's trade, against the `speculator` the card carries as attested",
+   "outcome": "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses",
+   "rule": "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses",
+   "reading": "a house painter's trade, against the `speculator` the card carries for 1835",
    "describes": null,
-   "carries": [],
-   "note": "The pass on pearsons_hiram returned: “A contemporary reminiscence describes Pearsons as a house painter who entered real estate. This corrects the household's unsupported treatment of speculator as attested: house painter is sourced; investor or speculator is interpretive.” Sources as recorded: ingale_early_chicago_reminiscence. T-1469 reads that as a house painter's trade, against the `speculator` the card carries as attested. No field carries it, because the card carries the OPPOSITE reading at a grade the finding disputes; T-1507 owns the re-adjudication."
+   "carries": [
+    {
+     "field": "roles",
+     "at": "data/residents/households/hh_pearsons_hiram.json#persons[pearsons_hiram].roles[3]",
+     "value": "house painter",
+     "grade": "inferred",
+     "sources": [
+      "ingale_early_chicago_reminiscence"
+     ],
+     "reaches_scene_date": false
+    }
+   ],
+   "note": "The pass on pearsons_hiram returned: “A contemporary reminiscence describes Pearsons as a house painter who entered real estate. This corrects the household's unsupported treatment of speculator as attested: house painter is sourced; investor or speculator is interpretive.” Sources as recorded: ingale_early_chicago_reminiscence. T-1469 reads that as a house painter's trade, against the `speculator` the card carries for 1835. The card carries it at data/residents/households/hh_pearsons_hiram.json#persons[pearsons_hiram].roles[3] = “house painter” (inferred, outside the 1 July 1835 view)."
   },
   {
    "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/sen_elijah_wentworth",
@@ -924,14 +935,14 @@
      "field": "roles",
      "at": "data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].roles[0]",
      "value": "carpenter and builder",
-     "grade": "attested",
+     "grade": "inferred",
      "sources": [
       "fergus_chicago_directory_1839"
      ],
      "reaches_scene_date": false
     }
    ],
-   "note": "The pass on bailey_bennet returned: “Fergus 1839 prints 'Bailey, Bennett, carpenter and builder' and the 1837 election return 'Bennett Bailey' — an uncommon forename spelt out twice, four and two years after the scene. Pass 3 saw only the 1843 Mechanics' Institute directorship and called it a candidate over a nine-year gap; the 1837 return closes most of…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839, norris_chicago_directory_1843. T-1469 reads that as a carpenter and builder's trade printed in 1839. The card carries it at data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].occupation.later_occupation = “carpenter and builder” (attested, outside the 1 July 1835 view); data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].roles[0] = “carpenter and builder” (attested, outside the 1 July 1835 view)."
+   "note": "The pass on bailey_bennet returned: “Fergus 1839 prints 'Bailey, Bennett, carpenter and builder' and the 1837 election return 'Bennett Bailey' — an uncommon forename spelt out twice, four and two years after the scene. Pass 3 saw only the 1843 Mechanics' Institute directorship and called it a candidate over a nine-year gap; the 1837 return closes most of…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839, norris_chicago_directory_1843. T-1469 reads that as a carpenter and builder's trade printed in 1839. The card carries it at data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].occupation.later_occupation = “carpenter and builder” (attested, outside the 1 July 1835 view); data/residents/households/hh_bailey_bennet.json#persons[bailey_bennet].roles[0] = “carpenter and builder” (inferred, outside the 1 July 1835 view)."
   },
   {
    "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/chapman_chas_h",
@@ -956,7 +967,7 @@
      "field": "roles",
      "at": "data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].roles[1]",
      "value": "real estate dealer",
-     "grade": "attested",
+     "grade": "inferred",
      "sources": [
       "fergus_chicago_directory_1839"
      ],
@@ -974,7 +985,7 @@
      "reaches_scene_date": true
     }
    ],
-   "note": "The pass on chapman_chas_h returned: “The 1837 election return prints 'Chas. H. Chapman' — the transcribed 1835 form letter for letter — and Fergus 1839 prints 'Chapman, Charles II., real estate dealer, Randolph street', where 'II.' is the printer's H. The papers run him from 24 December 1833 to 20 June 1835 as a merchant, so the town has him before and a…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839. T-1469 reads that as a real-estate dealer's trade and a Randolph Street address. The card carries it at data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].occupation.later_occupation = “real estate dealer” (attested, outside the 1 July 1835 view); data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].roles[1] = “real estate dealer” (attested, outside the 1 July 1835 view); data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].workplaces[0] = “C. H. Chapman” (attested, in the 1 July 1835 view)."
+   "note": "The pass on chapman_chas_h returned: “The 1837 election return prints 'Chas. H. Chapman' — the transcribed 1835 form letter for letter — and Fergus 1839 prints 'Chapman, Charles II., real estate dealer, Randolph street', where 'II.' is the printer's H. The papers run him from 24 December 1833 to 20 June 1835 as a merchant, so the town has him before and a…” Sources as recorded: chicago_democrat_1833_1835, fergus_chicago_directory_1839. T-1469 reads that as a real-estate dealer's trade and a Randolph Street address. The card carries it at data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].occupation.later_occupation = “real estate dealer” (attested, outside the 1 July 1835 view); data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].roles[1] = “real estate dealer” (inferred, outside the 1 July 1835 view); data/residents/households/hh_chapman_chas_h.json#persons[chapman_chas_h].workplaces[0] = “C. H. Chapman” (attested, in the 1 July 1835 view)."
   },
   {
    "unit": "residents:data/research/residents/pass_14_75_cohort.json#people/clarke_h_b",

@@ -2,6 +2,25 @@
  "id": "hh_sabine_wm",
  "name": "The Sabine household — a documented forwarding and commission, unplaced in the town",
  "division": "unplaced",
+ "division_reconstructed": {
+  "value": "south",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "band": "south/labourer_dwellings",
+  "clause": "labourer_dwellings",
+  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's labourer_dwellings clause. Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+  "basis": {
+   "kind": "model",
+   "id": "policy_only_deal",
+   "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
+  },
+  "seed": "hh_sabine_wm|T-1522|division:53cbcd25b8d9|class:3b403a91e4a8",
+  "replaceable_by": {
+   "kind": "household",
+   "match": "any source that places this household in a division or nearer"
+  },
+  "written_by_stage": "policy_only_division"
+ },
  "head": "sabine_wm",
  "source_pass": "documented",
  "arrival": {
@@ -14,7 +33,7 @@
   "precision": "not_later_than"
  },
  "arrival_year": {
-  "value": 1834,
+  "value": 1833,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-06-13 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
@@ -175,6 +194,26 @@
      "employer_or_body": "not_stated",
      "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
      "premises": "own_premises"
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "boarding-house, 1 6",
+     "from": "1839",
+     "to": "1839",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "claim": "f1839_e1280",
+     "place": "Lake street",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1839 DIRECTORY, 4 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on. An address NUMBER in the 1839 directory is 1876's and not 1839's, on the compiler's own statement on printed page 3, so `place` carries the street NAME the entry names and the number is dropped — the crosswalk's own `address_rule`, applied here rather than tripped over downstream.",
+     "premises": null
     }
    ],
    "age_band": {

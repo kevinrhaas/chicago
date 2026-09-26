@@ -165,13 +165,36 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # and pier_crib reaches stay at 2 each. The five held slots add nothing here for the same
 # reason blocks B and C above add nothing: measured, dealt, and deliberately not built.
 #
+# 414 -> 417 and 412 -> 415 on 2026-09-24 (T-1490): Jefferson Street is carried north on its
+# own surviving control and the corporate boundary's west leg walks it instead of being
+# extrapolated 1,188.8 m across the West Division, so three of those five — `recon_1835_west_029`,
+# `_032` and `_035` — are decided by the ordinance and are built. Three new structure assets.
+# The remaining two are still not built and still add nothing: they stand inside the platted
+# Jefferson corridor, which is a different refusal and is stated in the parcel's own recipe.
+#
+# 417 -> 419 and 415 -> 417 on 2026-09-25 (T-1545): the last two — `recon_1835_west_027` and
+# `_037` — are re-dealt off that Jefferson corridor by the same frozen-setback table thirteen
+# other slots of the parcel already stand on, 12.25 m and 10.00 m east, and are built. Two new
+# structure assets, so two more meshes a change to the shared generator modules or to build.py
+# would re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing is held back in this
+# parcel now, so this line is the last one it will move for a release.
+#
+# 419 -> 421 and 417 -> 419 on 2026-09-26 (T-1622): the third deal on
+# blk_south_water_franklin raises the D4 two-room cottage and the D3 one-room cottage the
+# platted seating asked that block for by name — `recon_1835_blk_south_water_franklin_d4_12`
+# and `_d3_13` — on lot 4, its last free business-front lot. Two new structure assets, so two
+# more meshes a change to the shared generator modules or to build.py would re-stale; the
+# terrain and pier_crib reaches stay at 2 each. This is the first release on this row that a
+# HOUSEHOLD asked for rather than the schedule's district remainder, and the reach moves for
+# the same reason it always does: two more committed meshes, nothing about the debt itself.
+#
 STATED = {
-    "assets": 414,
+    "assets": 421,
     "restales": {
-        "generators/common/*.py": 414,
+        "generators/common/*.py": 421,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/build.py": 412,
+        "generators/build.py": 419,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
     },

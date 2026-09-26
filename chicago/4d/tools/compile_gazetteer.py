@@ -996,10 +996,68 @@ def compile_gazetteer(files, identity, corpus, quiet=True):
             problems.append("%s: merge_rule must name BOTH spellings verbatim, so the "
                             "judgement can be read back without the code" % label)
             continue
-        if surname(into) == surname(frm) and initials(into) != initials(frm):
-            problems.append("%s: same surname, different initials — this project never "
-                            "merges those, with or without a rule (the letter lists are "
-                            "full of families)" % label)
+        # SAME SURNAME, DIFFERENT INITIALS, and the one exception the owner granted
+        # (T-0392, 2026-09-21). The default is unchanged and silent: the letter lists are
+        # full of families and an initial is often all that separates two of them. What
+        # moved is the case where one printing could not READ the initial — `unread_
+        # initial_diff` is the whole of what the parse can tell — and there the merge is
+        # allowed if, and only if, the rule carries the undo the ruling made its condition.
+        unread = rule.get("unread_initial")
+        absent = rule.get("absent_initial")
+        same_surname = surname(into) == surname(frm)
+        shape = unread_initial_diff(into, frm) if same_surname else None
+        absent_shape = (absent_initial_diff(into, frm)
+                        if same_surname and shape is None else None)
+        if same_surname and initials(into) != initials(frm):
+            if shape is None and absent_shape is None:
+                problems.append("%s: same surname, different initials — this project "
+                                "never merges those, with or without a rule (the letter "
+                                "lists are full of families). The TWO exceptions are an "
+                                "initial one printing could not read against the same "
+                                "initial another prints whole (T-0392), and an initial "
+                                "one printing does not set at all against the same "
+                                "initial another prints (T-1528); these two readings are "
+                                "neither: %r against %r" % (
+                                    label, initials(into), initials(frm)))
+                continue
+            if shape is not None and absent is not None:
+                problems.append("%s: `absent_initial` is declared and these two readings "
+                                "differ at an UNREAD initial, not an absent one — a "
+                                "position with nothing in it is not the absence of a "
+                                "position, and it is T-0392's ruling that reaches it, so "
+                                "the record must be an `unread_initial` one" % label)
+                continue
+            if absent_shape is not None and unread is not None:
+                problems.append("%s: `unread_initial` is declared and these two readings "
+                                "differ because one printing sets NO SLOT where the other "
+                                "prints a letter — nothing on the page says a letter stood "
+                                "there, so this is T-1528's ruling and not T-0392's, and "
+                                "the record must be an `absent_initial` one" % label)
+                continue
+            if shape is not None:
+                bad = unread_initial_problems(label, unread, shape)
+                survivor, kind, read = shape[2], "unread", "READ"
+            else:
+                bad = absent_initial_problems(label, absent, absent_shape)
+                survivor, kind, read = absent_shape[2], "absent", "SET"
+            if bad:
+                problems.extend(bad)
+                continue
+            if into != survivor:
+                problems.append("%s: an %s-initial merge lands on the side a "
+                                "printing %s — %r — because the name that survives is "
+                                "the one the town can call somebody by"
+                                % (label, kind, read, survivor))
+                continue
+        elif unread is not None:
+            problems.append("%s: `unread_initial` is declared and these two readings do "
+                            "not differ at an unread initial — the record would assert a "
+                            "positional agreement that is not in the parse" % label)
+            continue
+        elif absent is not None:
+            problems.append("%s: `absent_initial` is declared and these two readings do "
+                            "not differ at an absent initial — the record would assert a "
+                            "positional agreement that is not in the parse" % label)
             continue
         a, b = person_key(into), person_key(frm)
         if a not in persons or b not in persons:
@@ -1018,7 +1076,15 @@ def compile_gazetteer(files, identity, corpus, quiet=True):
         dst["occupations"] = sorted(set(dst["occupations"]) | set(src["occupations"]))
         dst["associated_places"] = sorted(
             set(dst["associated_places"]) | set(src["associated_places"]))
-        dst.setdefault("merged", []).append({"from": frm, "merge_rule": why})
+        record = {"from": frm, "merge_rule": why}
+        # THE UNDO TRAVELS WITH THE MERGE. A reader of the gazetteer must be able to see
+        # that this person is two readings of one line and not two pieces of evidence
+        # about a letter, without going back to identity.json to find out.
+        if unread:
+            record["unread_initial"] = unread
+        if absent:
+            record["absent_initial"] = absent
+        dst.setdefault("merged", []).append(record)
 
     # THE FIRM MERGES (T-0304), and they are the person merges' equivalent rather than
     # their copy. A firm is not a person and the discriminator differs: the letter lists
@@ -2463,6 +2529,237 @@ def initials(name):
                  for w in _forename_fragments(name))
 
 
+# THE ONE DECLARED EXCEPTION to "same surname, different initials never merges", and
+# it is the owner's ruling of 2026-09-21 on T-0392. Refusing a merge where one printing
+# could not read the initial another prints whole — at the SAME ENTRY of the SAME LIST —
+# cost this project eighteen known duplicate persons, for a scruple that does not apply
+# to one line of ink read twice. So the merge is allowed, and it is allowed ONLY WITH ITS
+# UNDO: the agreement is POSITIONAL and not evidential, nothing about the letter itself
+# was read, and the record must never come to say it was. Whoever finally reads that
+# initial has to be able to split the merge in one step, which means the ground it stands
+# on has to survive in the compiled record and not dissolve into the identity graph.
+#
+# The scope is the question as it was asked and no wider: same list, same entry, no
+# competing letter. An ABSENT initial is not an unread one — nothing on the page says a
+# letter was there — so T-0392 did not reach `Samuel E. Toby` / `Samuel. Toby`, and a
+# pair whose two READ letters disagree is refused forever.
+#
+# THE ABSENT CASE IS THE OWNER'S RULING OF 2026-09-24 (T-1528), asked because T-0392's
+# reasoning does not carry over by itself: its ground was that the two readings are of ONE
+# LINE and the unread side supplies no competing LETTER, and here one side supplies no
+# SLOT, so the merge asserts that a printing which set 'Samuel. Toby' had an E it did not
+# print. He ruled it a merge, BOUNDED EXACTLY AS T-0392 WAS — same list, same entry, the
+# absent side supplying no competing letter, each merge carrying the same positional undo
+# so whoever reads the page can split it in one step. `absent_initial` below is that
+# record and it is gated the same way, edge for edge. The bound is the ruling: a pair
+# whose two sides are never read in ONE segmentation has no 'same entry' to stand on and
+# is still refused — `J. W. Smith` / `[?]. Smith` is that pair, and it is refused on its
+# alignment now rather than on a ground the owner has withdrawn.
+
+UNREAD_MERGE_FIELDS = ("unread_side", "read_side", "list", "entry", "witnesses",
+                       "positions", "basis", "undo")
+
+
+def unread_initial_diff(into, frm):
+    """Where two readings differ ONLY because one side's initial is UNREAD.
+
+    Returns `(positions, unread_side, read_side)` — positions 1-based into the forename
+    slots — or None when the pair is not that shape, which is every case the ruling does
+    not reach:
+
+      - a different NUMBER of forenames, which is the absent-initial case (`Samuel E.
+        Toby` against `Samuel. Toby`) and is `absent_initial_diff`'s, not this;
+      - a position where two READ letters disagree (`Lyman R. Lovell` / `Lyman B.
+        Lovell`), which stays refused forever;
+      - a position where BOTH sides are unread, where there is nothing to join;
+      - the two sides unread at DIFFERENT positions, because then neither of them is the
+        read one and "no competing letter" cannot be checked at all.
+
+    The surname is not this function's business — the caller has already established that
+    the two names share one — and neither is whether the pair stands at one entry of one
+    list, which no parse can see and the declaration has to state.
+    """
+    a, b = initials(into), initials(frm)
+    if not a or len(a) != len(b) or a == b:
+        return None
+    positions, unread_on = [], set()
+    for i, (x, y) in enumerate(zip(a, b), start=1):
+        if x == y:
+            continue
+        if x == UNREAD and y != UNREAD:
+            positions.append(i)
+            unread_on.add("into")
+        elif y == UNREAD and x != UNREAD:
+            positions.append(i)
+            unread_on.add("from")
+        else:
+            return None
+    if len(unread_on) != 1:
+        return None
+    unread_side = into if unread_on.pop() == "into" else frm
+    return tuple(positions), unread_side, (frm if unread_side == into else into)
+
+
+def unread_initial_problems(label, decl, shape):
+    """What is wrong with a merge's `unread_initial` record, or nothing.
+
+    The record IS the ruling's condition, so every part of it is gated. Three of the
+    checks are worth naming: the declared unread side is compared against what the PARSE
+    says is unread, so a rule cannot claim the wrong side of its own pair; the positions
+    are compared the same way, so the record cannot drift from the reading once somebody
+    re-transcribes the name; and the merge must land on the side a printing READ, because
+    a town whose surviving person is `[?]bey Blankinship` has kept the duplicate and lost
+    the name.
+    """
+    positions, unread_side, read_side = shape
+    if not isinstance(decl, dict) or not decl:
+        return ["%s: same surname, and the initials differ only because %r is UNREAD "
+                "where %r reads a letter. The owner's ruling of 2026-09-21 (T-0392) "
+                "allows that merge at the same entry of the same list — AND ONLY WITH "
+                "ITS UNDO. The rule must carry an `unread_initial` record naming the "
+                "unread side, the list and the entry it was read at, the witnesses, the "
+                "positions, `basis: positional`, and the undo in words. Without it the "
+                "refusal stands." % (label, unread_side, read_side)]
+    out = []
+    missing = [f for f in UNREAD_MERGE_FIELDS if not decl.get(f)]
+    if missing:
+        out.append("%s: `unread_initial` is missing %s — the undo is the ruling's "
+                   "condition, not a nicety, and a merge nobody can split is the one "
+                   "this project was told not to make"
+                   % (label, ", ".join("`%s`" % f for f in missing)))
+        return out
+    if decl["unread_side"] != unread_side:
+        out.append("%s: `unread_initial.unread_side` is %r and the parse reads %r as the "
+                   "unread side — a record that names the wrong side of its own pair "
+                   "cannot be undone by whoever reads the page"
+                   % (label, decl["unread_side"], unread_side))
+    if decl["read_side"] != read_side:
+        out.append("%s: `unread_initial.read_side` is %r and the parse reads %r as the "
+                   "side the printing read" % (label, decl["read_side"], read_side))
+    if tuple(decl["positions"]) != positions:
+        out.append("%s: `unread_initial.positions` is %r and the initials differ at %r "
+                   "(1-based forename slots) — the record states the reading, so it may "
+                   "not drift from it" % (label, list(decl["positions"]), list(positions)))
+    if decl["basis"] != "positional":
+        out.append("%s: `unread_initial.basis` is %r and the only basis this ruling "
+                   "grants is `positional` — the two readings are of one line, and "
+                   "nothing about the letter was read" % (label, decl["basis"]))
+    if not isinstance(decl["witnesses"], list) or not all(
+            isinstance(w, str) for w in decl["witnesses"]):
+        out.append("%s: `unread_initial.witnesses` must be the printings that carry the "
+                   "entry, by date" % label)
+    if unread_side not in (decl["undo"] or ""):
+        out.append("%s: `unread_initial.undo` must name the unread reading %r VERBATIM, "
+                   "so the merge can be split without the code — exactly as a "
+                   "`merge_rule` names both spellings" % (label, unread_side))
+    return out
+
+
+# THE SECOND DECLARED EXCEPTION, and it is the first one's bound applied to the case the
+# first one held over: the owner's ruling of 2026-09-24 on T-1528. Where one printing
+# PRINTS a forename initial and another sets no slot for it at all, the two may be
+# declared one person at the SAME ENTRY of the SAME LIST — and only with the same undo,
+# because the merge asserts something about a compositor and nothing about a letter.
+
+ABSENT_MERGE_FIELDS = ("absent_side", "present_side", "list", "entry", "witnesses",
+                       "positions", "basis", "undo")
+
+
+def absent_initial_diff(into, frm):
+    """Where two readings differ ONLY because one side sets no slot for an initial.
+
+    Returns `(positions, absent_side, present_side)` — positions 1-based into the
+    forename slots of the PRESENT side, naming the slots it sets and the other does not
+    — or None when the pair is not that shape.
+
+    `Samuel E. Toby` reads `S. E.` and `Samuel. Toby` reads `S.`: the second printing
+    sets no middle initial at all. That is not an unread `[?]`, which is a position with
+    nothing in it (T-0397); it is no position, and it is why T-0392's ruling did not
+    reach it and T-1528's was asked.
+
+    What the shape is NOT, and every one of these still refuses:
+
+      - a slot both sides set, reading two different letters — the families rule, which
+        no ruling has touched;
+      - a slot the SHORTER side sets unread (`J. W. Smith` reads `J. W.` against
+        `[?]. Smith`'s one unread slot), which compounds T-0392's question with this one.
+        The parse would have to check "no competing letter" at a slot nobody read AND
+        "no slot" at the next one in a single reading; it declines, and such a pair is
+        adjudicated in prose in `identity.json` instead;
+      - an extra slot that is itself UNREAD on the longer side, where the merge would
+        join an absence to an unread and nothing whatever was read on either side;
+      - a shorter side whose letters do not agree with the longer side's IN ORDER, where
+        which slot went missing is a guess (`E. Toby` against `Samuel E. Toby`).
+
+    Whether the pair stands at one entry of one list is not the parse's business and
+    never was — the declaration states it, exactly as for an unread initial.
+    """
+    a, b = initials(into), initials(frm)
+    if not a or not b or len(a) == len(b):
+        return None
+    into_is_longer = len(a) > len(b)
+    long_, short_ = (a, b) if into_is_longer else (b, a)
+    present, absent = (into, frm) if into_is_longer else (frm, into)
+    if UNREAD in long_ or UNREAD in short_:
+        return None
+    if long_[:len(short_)] != short_:
+        return None
+    return tuple(range(len(short_) + 1, len(long_) + 1)), absent, present
+
+
+def absent_initial_problems(label, decl, shape):
+    """What is wrong with a merge's `absent_initial` record, or nothing.
+
+    Every edge `unread_initial_problems` gates is gated here for the same reason, and one
+    of them differs in its words rather than its force: the merge must land on the side a
+    printing SET the initial, because a town whose surviving person is `Samuel. Toby` has
+    kept the duplicate and thrown away the letter a compositor actually printed.
+    """
+    positions, absent_side, present_side = shape
+    if not isinstance(decl, dict) or not decl:
+        return ["%s: same surname, and the initials differ only because %r sets no slot "
+                "where %r prints a letter. The owner's ruling of 2026-09-24 (T-1528) "
+                "allows that merge at the same entry of the same list — AND ONLY WITH "
+                "ITS UNDO. The rule must carry an `absent_initial` record naming the "
+                "absent side, the list and the entry it was read at, the witnesses, the "
+                "positions, `basis: positional`, and the undo in words. Without it the "
+                "refusal stands." % (label, absent_side, present_side)]
+    out = []
+    missing = [f for f in ABSENT_MERGE_FIELDS if not decl.get(f)]
+    if missing:
+        out.append("%s: `absent_initial` is missing %s — the undo is the ruling's "
+                   "condition, not a nicety, and a merge nobody can split is the one "
+                   "this project was told not to make"
+                   % (label, ", ".join("`%s`" % f for f in missing)))
+        return out
+    if decl["absent_side"] != absent_side:
+        out.append("%s: `absent_initial.absent_side` is %r and the parse reads %r as the "
+                   "side that sets no slot — a record that names the wrong side of its "
+                   "own pair cannot be undone by whoever reads the page"
+                   % (label, decl["absent_side"], absent_side))
+    if decl["present_side"] != present_side:
+        out.append("%s: `absent_initial.present_side` is %r and the parse reads %r as the "
+                   "side the printing set" % (label, decl["present_side"], present_side))
+    if tuple(decl["positions"]) != positions:
+        out.append("%s: `absent_initial.positions` is %r and the slots one side sets and "
+                   "the other does not are %r (1-based forename slots) — the record "
+                   "states the reading, so it may not drift from it"
+                   % (label, list(decl["positions"]), list(positions)))
+    if decl["basis"] != "positional":
+        out.append("%s: `absent_initial.basis` is %r and the only basis this ruling "
+                   "grants is `positional` — the two readings are of one line, and "
+                   "nothing on the page says a letter stood in that slot" % (label, decl["basis"]))
+    if not isinstance(decl["witnesses"], list) or not all(
+            isinstance(w, str) for w in decl["witnesses"]):
+        out.append("%s: `absent_initial.witnesses` must be the printings that carry the "
+                   "entry, by date" % label)
+    if absent_side not in (decl["undo"] or ""):
+        out.append("%s: `absent_initial.undo` must name the reading that sets no slot %r "
+                   "VERBATIM, so the merge can be split without the code — exactly as a "
+                   "`merge_rule` names both spellings" % (label, absent_side))
+    return out
+
+
 def _forename_fragments(name):
     """The forename WORDS of a name, in order, with the abbreviating point kept.
 
@@ -3510,13 +3807,143 @@ def self_test():
              "merge_rule": "Peter Cohen and Nobody At All, on a whim"}),
         "not a name any claim carries", "a merge rule for a person nobody claimed")
 
+    # THE ONE DECLARED EXCEPTION TO THE FAMILIES RULE, and the gate on its undo (T-0392,
+    # the owner's ruling of 2026-09-21). Every edge of it is asserted because a loosening
+    # in THIS direction does not look like a defect afterwards: it looks like a slightly
+    # smaller town in which two spellings quietly became one man. The fixture gains one
+    # entry read two ways, which is the shape all seventeen of these merges have.
+    def unread_entities(d):
+        d["claims"][0].setdefault("entities", []).extend(
+            [{"as_printed": "A. Beegle", "normalized": "A. Beegle", "role": "addressee"},
+             {"as_printed": "1. Beegle", "normalized": "[?]. Beegle", "role": "addressee"}])
+
+    def beegle(into="A. Beegle", frm="[?]. Beegle", declared=True, **over):
+        decl = {"unread_side": "[?]. Beegle", "read_side": "A. Beegle",
+                "list": "the 1 July 1834 Chicago letter list, printed three times",
+                "entry": "entry 63 of the 1834-07-09 and of the 1834-07-16 segmentation",
+                "witnesses": ["1834-07-09", "1834-07-16"], "positions": [1],
+                "basis": "positional",
+                "undo": "Nothing about the letter '[?]. Beegle' sets `[?]` for was read: "
+                        "the two readings are one line, joined by POSITION alone."}
+        decl.update(over)
+        rule = {"into": into, "from": frm,
+                "merge_rule": "%s and %s stand at one entry of one list, read twice, and "
+                              "the ruling of 2026-09-21 joins them." % (into, frm)}
+        if declared:
+            rule["unread_initial"] = decl
+        return rule
+
+    def unread_case(want, label, **over):
+        rule = beegle(**over)
+        run(lambda d, i: (unread_entities(d), i["merges"].append(rule)), want, label)
+
+    unread_case(None, "an unread-initial merge that carries its undo")
+    unread_case("ONLY WITH ITS UNDO", "an unread-initial merge with no undo record",
+                declared=False)
+    unread_case("is missing `entry`", "an undo record that does not say which entry",
+                entry="")
+    unread_case("the wrong side of its own pair",
+                "an undo record that calls the read side the unread one",
+                unread_side="A. Beegle")
+    unread_case("may not drift from it",
+                "an undo record whose slot is not the slot that differs", positions=[2])
+    unread_case("only basis this ruling grants",
+                "an unread-initial merge claiming an evidential basis", basis="evidential")
+    unread_case("VERBATIM", "an undo nobody could act on, naming neither reading",
+                undo="positional agreement; take my word for it")
+    unread_case("lands on the side a printing READ",
+                "an unread-initial merge that keeps the unread reading as the person",
+                into="[?]. Beegle", frm="A. Beegle")
+    unread_case("must be an `absent_initial` one",
+                "an absent initial declared as an unread one",
+                into="Samuel E. Toby", frm="Samuel. Toby")
+    unread_case("do not differ at an unread initial",
+                "an undo record on a pair whose initials do not differ that way",
+                frm="A. Bagel")
+
+    # THE SECOND EXCEPTION AND ITS OWN UNDO (T-1528, the owner's ruling of 2026-09-24).
+    # The same edges, asserted again rather than assumed to follow from the first gate:
+    # the two rulings are one sentence apart and a record that mixes them up is a merge
+    # claiming a position was read when the page has no position at all. The fixture
+    # gains the pair the ruling was asked about.
+    def toby_entities(d):
+        d["claims"][0].setdefault("entities", []).extend(
+            [{"as_printed": "samuel E. Toby", "normalized": "Samuel E. Toby",
+              "role": "addressee"},
+             {"as_printed": "samuel. Toby", "normalized": "Samuel. Toby",
+              "role": "addressee"}])
+
+    def toby(into="Samuel E. Toby", frm="Samuel. Toby", declared=True, **over):
+        decl = {"absent_side": "Samuel. Toby", "present_side": "Samuel E. Toby",
+                "list": "the 1 July 1834 Chicago letter list, printed three times",
+                "entry": "entry 219 of the 1834-07-09 and of the 1834-07-16 segmentation",
+                "witnesses": ["1834-07-09", "1834-07-16"], "positions": [2],
+                "basis": "positional",
+                "undo": "Nothing on the page says a letter stood where 'Samuel. Toby' "
+                        "sets no slot: the two readings are one line, joined by POSITION "
+                        "alone."}
+        decl.update(over)
+        rule = {"into": into, "from": frm,
+                "merge_rule": "%s and %s stand at one entry of one list, read twice, and "
+                              "the ruling of 2026-09-24 joins them." % (into, frm)}
+        if declared:
+            rule["absent_initial"] = decl
+        return rule
+
+    def absent_case(want, label, **over):
+        rule = toby(**over)
+        run(lambda d, i: (toby_entities(d), i["merges"].append(rule)), want, label)
+
+    absent_case(None, "an absent-initial merge that carries its undo")
+    absent_case("ONLY WITH ITS UNDO", "an absent-initial merge with no undo record",
+                declared=False)
+    absent_case("is missing `entry`", "an undo record that does not say which entry",
+                entry="")
+    absent_case("the wrong side of its own pair",
+                "an undo record that calls the present side the absent one",
+                absent_side="Samuel E. Toby")
+    absent_case("may not drift from it",
+                "an undo record whose slot is not the slot one side leaves unset",
+                positions=[1])
+    absent_case("only basis this ruling grants",
+                "an absent-initial merge claiming an evidential basis", basis="evidential")
+    absent_case("VERBATIM", "an undo nobody could act on, naming neither reading",
+                undo="positional agreement; take my word for it")
+    absent_case("lands on the side a printing SET",
+                "an absent-initial merge that keeps the unset reading as the person",
+                into="Samuel. Toby", frm="Samuel E. Toby")
+    absent_case("must be an `unread_initial` one",
+                "an unread initial declared as an absent one",
+                into="A. Beegle", frm="[?]. Beegle")
+    absent_case("do not differ at an absent initial",
+                "an undo record on a pair whose initials do not differ that way",
+                frm="Samuel E. Tobias")
+
+    # AND THE BOUND THE RULING KEPT: a slot the shorter side sets UNREAD compounds the
+    # two rulings, so the parse reads it as neither and the pair stays refused in prose.
+    # `J. W. Smith` / `[?]. Smith` is that pair and is the reason the check is here.
+    run(lambda d, i: (
+            d["claims"][0].setdefault("entities", []).extend(
+                [{"as_printed": "J. W. Smith", "normalized": "J. W. Smith",
+                  "role": "addressee"},
+                 {"as_printed": ". Smith", "normalized": "[?]. Smith",
+                  "role": "addressee"}]),
+            i["merges"].append(toby(into="J. W. Smith", frm="[?]. Smith"))),
+        "these two readings are",
+        "an unread initial AND an absent one in one pair, declared as either")
+
     # AND THE NAME PARSE THE POLICY RUNS ON (T-0299). The cases are the ones the three
     # printings of the 1 July 1834 letter list actually produced: markup inside a name and
     # an `[uncertain: …]` wrapper must not invent forenames, an OCR'd dotless ı must not
     # split one, and every genuine disagreement of initials — two read letters, a read
     # letter against an unread `[?]`, a present initial against an absent one — must still
-    # refuse. A loosening here shows up as a failure in the SECOND list, which is why both
-    # are asserted and not just the first.
+    # READ AS A DIFFERENCE. That is the parse and not the policy, and the two came apart
+    # with T-0392's ruling: `Ann M. Gooding` and `[?]nn M. Gooding` are now a declared
+    # merge, and they are in this loop because the merge rests on the parse still saying
+    # their initials differ and on a record that says the agreement is positional. The day
+    # the parse reads them as equal, the declaration would be joining two names nobody
+    # noticed had stopped disagreeing. A loosening here shows up as a failure in the SECOND
+    # list, which is why both are asserted and not just the first.
     for a, b in (("A[n]drew W. Borland", "Andrew W. Borland"),
                  ("[uncertain: Abey Blankinship]", "Abey Blankinship"),
                  ("Benjam\u0131n Swena", "Benjamin Swena"),

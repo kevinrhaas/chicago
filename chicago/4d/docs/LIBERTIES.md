@@ -2912,6 +2912,29 @@ house — a front narrower than its own range would produce the gable-front hous
 decade. The rectangle the recipe gives stands exactly where it gives it, on the same ground, with
 its long side read as the facade. Nothing about the building moved; which of its faces is called
 the front did.
+**AND THE LAST TWO ARRIVED WITH T-1545, 2026-09-25, OFF THE JEFFERSON CORRIDOR.** T-1490 held
+`recon_1835_west_027` and `recon_1835_west_037` unbuilt because they stood 11.9 m and 9.7 m inside
+the platted corridor of Jefferson Street — an invented placement has no business in a drawn
+roadway — and it added that the reconstruction "does not move a conjectural building sideways to
+make room for itself either". That second clause was already false of this generator: the
+`STREET_ADJUSTMENTS` table above is thirteen slots of this same parcel slid sideways off exactly
+such a corridor. So the two are re-dealt on the same rule and by the same search, 12.25 m and
+10.00 m east — one quarter-metre step further than the first step that clears, because the first
+leaves 0.15 m and 0.05 m of the corridor edge and a clearance thinner than the centimetre a
+corridor depth is quoted to re-derives back into the roadway. Both are well inside the same ±20 m,
+both keep their recipe id, family and dealt sequence number, and the parcel stands at 55 roofs,
+which is what this entry's title has said since T-1444.
+**Six of the fifty-five still stand in a corridor, and they are named rather than quietly
+matched.** The corridor gate this generator runs reads the Original Town block grid and the north
+bank; 46 of the 79 streets this project draws are outside it, jefferson among them, which is how a
+placement 11.9 m into a drawn street passed that gate for as long as it stood. Measured against
+the omitted streets' own declared corridors: `recon_1835_west_030` 3.28 m and `recon_1835_west_033`
+3.80 m into Jefferson — the same street the two above were refused for — `recon_1835_west_005`
+3.72 m and `recon_1835_west_006` 4.61 m into Fulton, and `recon_1835_west_039` 2.37 m and
+`recon_1835_west_046` 12.08 m into Des Plaines, the last of them deeper in than either slot the
+hold refused. None is moved here: each was dealt, reviewed and baked on its present seat, and
+re-seating six committed roofs is a different act from releasing two never built. T-1570 owns
+them, and the occupancy is frozen in the generator so a seventh cannot arrive unremarked.
 **What the release did NOT settle.** The recipe's fourth terrain rule deferred a reading of the
 two conjectural west-prairie swales to "after the west terrain extension". T-1444 took it, and it
 does not say what the rule assumed — see T-1460. Both invented alignments now begin in open
@@ -2927,7 +2950,7 @@ compatible anonymous slot rather than increasing the 665-roof programme. H2 boar
 uses a flagged generic frame block pending a canonical archetype.
 **How to resolve:** parcel-specific tax, deed, assessment or surveyed building evidence for any
 individual roof.
-**Covers:** `recon_1835_west_001.inferred_1835.documented_range`, `recon_1835_west_001.inferred_1835.position`, `recon_1835_west_001.inferred_1835.footprint`, `recon_1835_west_002.inferred_1835.documented_range`, `recon_1835_west_002.inferred_1835.position`, `recon_1835_west_002.inferred_1835.footprint`, `recon_1835_west_003.inferred_1835.documented_range`, `recon_1835_west_003.inferred_1835.position`, `recon_1835_west_003.inferred_1835.footprint`, `recon_1835_west_004.inferred_1835.documented_range`, `recon_1835_west_004.inferred_1835.position`, `recon_1835_west_004.inferred_1835.footprint`, `recon_1835_west_005.inferred_1835.documented_range`, `recon_1835_west_005.inferred_1835.position`, `recon_1835_west_005.inferred_1835.footprint`, `recon_1835_west_006.inferred_1835.documented_range`, `recon_1835_west_006.inferred_1835.position`, `recon_1835_west_006.inferred_1835.footprint`, `recon_1835_west_007.inferred_1835.documented_range`, `recon_1835_west_007.inferred_1835.position`, `recon_1835_west_007.inferred_1835.footprint`, `recon_1835_west_008.inferred_1835.documented_range`, `recon_1835_west_008.inferred_1835.position`, `recon_1835_west_008.inferred_1835.footprint`, `recon_1835_west_009.inferred_1835.documented_range`, `recon_1835_west_009.inferred_1835.position`, `recon_1835_west_009.inferred_1835.footprint`, `recon_1835_west_010.inferred_1835.documented_range`, `recon_1835_west_010.inferred_1835.position`, `recon_1835_west_010.inferred_1835.footprint`, `recon_1835_west_011.inferred_1835.documented_range`, `recon_1835_west_011.inferred_1835.position`, `recon_1835_west_011.inferred_1835.footprint`, `recon_1835_west_012.inferred_1835.documented_range`, `recon_1835_west_012.inferred_1835.position`, `recon_1835_west_012.inferred_1835.footprint`, `recon_1835_west_013.inferred_1835.documented_range`, `recon_1835_west_013.inferred_1835.position`, `recon_1835_west_013.inferred_1835.footprint`, `recon_1835_west_014.inferred_1835.documented_range`, `recon_1835_west_014.inferred_1835.position`, `recon_1835_west_014.inferred_1835.footprint`, `recon_1835_west_015.inferred_1835.documented_range`, `recon_1835_west_015.inferred_1835.position`, `recon_1835_west_015.inferred_1835.footprint`, `recon_1835_west_016.inferred_1835.documented_range`, `recon_1835_west_016.inferred_1835.position`, `recon_1835_west_016.inferred_1835.footprint`, `recon_1835_west_017.inferred_1835.documented_range`, `recon_1835_west_017.inferred_1835.position`, `recon_1835_west_017.inferred_1835.footprint`, `recon_1835_west_018.inferred_1835.documented_range`, `recon_1835_west_018.inferred_1835.position`, `recon_1835_west_018.inferred_1835.footprint`, `recon_1835_west_019.inferred_1835.documented_range`, `recon_1835_west_019.inferred_1835.position`, `recon_1835_west_019.inferred_1835.footprint`, `recon_1835_west_020.inferred_1835.documented_range`, `recon_1835_west_020.inferred_1835.position`, `recon_1835_west_020.inferred_1835.footprint`, `recon_1835_west_021.inferred_1835.documented_range`, `recon_1835_west_021.inferred_1835.position`, `recon_1835_west_021.inferred_1835.footprint`, `recon_1835_west_022.inferred_1835.documented_range`, `recon_1835_west_022.inferred_1835.position`, `recon_1835_west_022.inferred_1835.footprint`, `recon_1835_west_023.inferred_1835.documented_range`, `recon_1835_west_023.inferred_1835.position`, `recon_1835_west_023.inferred_1835.footprint`, `recon_1835_west_024.inferred_1835.documented_range`, `recon_1835_west_024.inferred_1835.position`, `recon_1835_west_024.inferred_1835.footprint`, `recon_1835_west_025.inferred_1835.documented_range`, `recon_1835_west_025.inferred_1835.position`, `recon_1835_west_025.inferred_1835.footprint`, `recon_1835_west_026.inferred_1835.documented_range`, `recon_1835_west_026.inferred_1835.position`, `recon_1835_west_026.inferred_1835.footprint`, `recon_1835_west_028.inferred_1835.documented_range`, `recon_1835_west_028.inferred_1835.position`, `recon_1835_west_028.inferred_1835.footprint`, `recon_1835_west_030.inferred_1835.documented_range`, `recon_1835_west_030.inferred_1835.position`, `recon_1835_west_030.inferred_1835.footprint`, `recon_1835_west_031.inferred_1835.documented_range`, `recon_1835_west_031.inferred_1835.position`, `recon_1835_west_031.inferred_1835.footprint`, `recon_1835_west_033.inferred_1835.documented_range`, `recon_1835_west_033.inferred_1835.position`, `recon_1835_west_033.inferred_1835.footprint`, `recon_1835_west_034.inferred_1835.documented_range`, `recon_1835_west_034.inferred_1835.position`, `recon_1835_west_034.inferred_1835.footprint`, `recon_1835_west_036.inferred_1835.documented_range`, `recon_1835_west_036.inferred_1835.position`, `recon_1835_west_036.inferred_1835.footprint`, `recon_1835_west_038.inferred_1835.documented_range`, `recon_1835_west_038.inferred_1835.position`, `recon_1835_west_038.inferred_1835.footprint`, `recon_1835_west_039.inferred_1835.documented_range`, `recon_1835_west_039.inferred_1835.position`, `recon_1835_west_039.inferred_1835.footprint`, `recon_1835_west_040.inferred_1835.documented_range`, `recon_1835_west_040.inferred_1835.position`, `recon_1835_west_040.inferred_1835.footprint`, `recon_1835_west_041.inferred_1835.documented_range`, `recon_1835_west_041.inferred_1835.position`, `recon_1835_west_041.inferred_1835.footprint`, `recon_1835_west_042.inferred_1835.documented_range`, `recon_1835_west_042.inferred_1835.position`, `recon_1835_west_042.inferred_1835.footprint`, `recon_1835_west_043.inferred_1835.documented_range`, `recon_1835_west_043.inferred_1835.position`, `recon_1835_west_043.inferred_1835.footprint`, `recon_1835_west_044.inferred_1835.documented_range`, `recon_1835_west_044.inferred_1835.position`, `recon_1835_west_044.inferred_1835.footprint`, `recon_1835_west_045.inferred_1835.documented_range`, `recon_1835_west_045.inferred_1835.position`, `recon_1835_west_045.inferred_1835.footprint`, `recon_1835_west_046.inferred_1835.documented_range`, `recon_1835_west_046.inferred_1835.position`, `recon_1835_west_046.inferred_1835.footprint`, `recon_1835_west_047.inferred_1835.documented_range`, `recon_1835_west_047.inferred_1835.position`, `recon_1835_west_047.inferred_1835.footprint`, `recon_1835_west_048.inferred_1835.documented_range`, `recon_1835_west_048.inferred_1835.position`, `recon_1835_west_048.inferred_1835.footprint`, `recon_1835_west_049.inferred_1835.documented_range`, `recon_1835_west_049.inferred_1835.position`, `recon_1835_west_049.inferred_1835.footprint`, `recon_1835_west_050.inferred_1835.documented_range`, `recon_1835_west_050.inferred_1835.position`, `recon_1835_west_050.inferred_1835.footprint`, `recon_1835_west_051.inferred_1835.documented_range`, `recon_1835_west_051.inferred_1835.position`, `recon_1835_west_051.inferred_1835.footprint`, `recon_1835_west_052.inferred_1835.documented_range`, `recon_1835_west_052.inferred_1835.position`, `recon_1835_west_052.inferred_1835.footprint`, `recon_1835_west_053.inferred_1835.documented_range`, `recon_1835_west_053.inferred_1835.position`, `recon_1835_west_053.inferred_1835.footprint`, `recon_1835_west_054.inferred_1835.documented_range`, `recon_1835_west_054.inferred_1835.position`, `recon_1835_west_054.inferred_1835.footprint`, `recon_1835_west_055.inferred_1835.documented_range`, `recon_1835_west_055.inferred_1835.position`, `recon_1835_west_055.inferred_1835.footprint`
+**Covers:** `recon_1835_west_001.inferred_1835.documented_range`, `recon_1835_west_001.inferred_1835.position`, `recon_1835_west_001.inferred_1835.footprint`, `recon_1835_west_002.inferred_1835.documented_range`, `recon_1835_west_002.inferred_1835.position`, `recon_1835_west_002.inferred_1835.footprint`, `recon_1835_west_003.inferred_1835.documented_range`, `recon_1835_west_003.inferred_1835.position`, `recon_1835_west_003.inferred_1835.footprint`, `recon_1835_west_004.inferred_1835.documented_range`, `recon_1835_west_004.inferred_1835.position`, `recon_1835_west_004.inferred_1835.footprint`, `recon_1835_west_005.inferred_1835.documented_range`, `recon_1835_west_005.inferred_1835.position`, `recon_1835_west_005.inferred_1835.footprint`, `recon_1835_west_006.inferred_1835.documented_range`, `recon_1835_west_006.inferred_1835.position`, `recon_1835_west_006.inferred_1835.footprint`, `recon_1835_west_007.inferred_1835.documented_range`, `recon_1835_west_007.inferred_1835.position`, `recon_1835_west_007.inferred_1835.footprint`, `recon_1835_west_008.inferred_1835.documented_range`, `recon_1835_west_008.inferred_1835.position`, `recon_1835_west_008.inferred_1835.footprint`, `recon_1835_west_009.inferred_1835.documented_range`, `recon_1835_west_009.inferred_1835.position`, `recon_1835_west_009.inferred_1835.footprint`, `recon_1835_west_010.inferred_1835.documented_range`, `recon_1835_west_010.inferred_1835.position`, `recon_1835_west_010.inferred_1835.footprint`, `recon_1835_west_011.inferred_1835.documented_range`, `recon_1835_west_011.inferred_1835.position`, `recon_1835_west_011.inferred_1835.footprint`, `recon_1835_west_012.inferred_1835.documented_range`, `recon_1835_west_012.inferred_1835.position`, `recon_1835_west_012.inferred_1835.footprint`, `recon_1835_west_013.inferred_1835.documented_range`, `recon_1835_west_013.inferred_1835.position`, `recon_1835_west_013.inferred_1835.footprint`, `recon_1835_west_014.inferred_1835.documented_range`, `recon_1835_west_014.inferred_1835.position`, `recon_1835_west_014.inferred_1835.footprint`, `recon_1835_west_015.inferred_1835.documented_range`, `recon_1835_west_015.inferred_1835.position`, `recon_1835_west_015.inferred_1835.footprint`, `recon_1835_west_016.inferred_1835.documented_range`, `recon_1835_west_016.inferred_1835.position`, `recon_1835_west_016.inferred_1835.footprint`, `recon_1835_west_017.inferred_1835.documented_range`, `recon_1835_west_017.inferred_1835.position`, `recon_1835_west_017.inferred_1835.footprint`, `recon_1835_west_018.inferred_1835.documented_range`, `recon_1835_west_018.inferred_1835.position`, `recon_1835_west_018.inferred_1835.footprint`, `recon_1835_west_019.inferred_1835.documented_range`, `recon_1835_west_019.inferred_1835.position`, `recon_1835_west_019.inferred_1835.footprint`, `recon_1835_west_020.inferred_1835.documented_range`, `recon_1835_west_020.inferred_1835.position`, `recon_1835_west_020.inferred_1835.footprint`, `recon_1835_west_021.inferred_1835.documented_range`, `recon_1835_west_021.inferred_1835.position`, `recon_1835_west_021.inferred_1835.footprint`, `recon_1835_west_022.inferred_1835.documented_range`, `recon_1835_west_022.inferred_1835.position`, `recon_1835_west_022.inferred_1835.footprint`, `recon_1835_west_023.inferred_1835.documented_range`, `recon_1835_west_023.inferred_1835.position`, `recon_1835_west_023.inferred_1835.footprint`, `recon_1835_west_024.inferred_1835.documented_range`, `recon_1835_west_024.inferred_1835.position`, `recon_1835_west_024.inferred_1835.footprint`, `recon_1835_west_025.inferred_1835.documented_range`, `recon_1835_west_025.inferred_1835.position`, `recon_1835_west_025.inferred_1835.footprint`, `recon_1835_west_026.inferred_1835.documented_range`, `recon_1835_west_026.inferred_1835.position`, `recon_1835_west_026.inferred_1835.footprint`, `recon_1835_west_027.inferred_1835.documented_range`, `recon_1835_west_027.inferred_1835.position`, `recon_1835_west_027.inferred_1835.footprint`, `recon_1835_west_028.inferred_1835.documented_range`, `recon_1835_west_028.inferred_1835.position`, `recon_1835_west_028.inferred_1835.footprint`, `recon_1835_west_029.inferred_1835.documented_range`, `recon_1835_west_029.inferred_1835.position`, `recon_1835_west_029.inferred_1835.footprint`, `recon_1835_west_030.inferred_1835.documented_range`, `recon_1835_west_030.inferred_1835.position`, `recon_1835_west_030.inferred_1835.footprint`, `recon_1835_west_031.inferred_1835.documented_range`, `recon_1835_west_031.inferred_1835.position`, `recon_1835_west_031.inferred_1835.footprint`, `recon_1835_west_032.inferred_1835.documented_range`, `recon_1835_west_032.inferred_1835.position`, `recon_1835_west_032.inferred_1835.footprint`, `recon_1835_west_033.inferred_1835.documented_range`, `recon_1835_west_033.inferred_1835.position`, `recon_1835_west_033.inferred_1835.footprint`, `recon_1835_west_034.inferred_1835.documented_range`, `recon_1835_west_034.inferred_1835.position`, `recon_1835_west_034.inferred_1835.footprint`, `recon_1835_west_035.inferred_1835.documented_range`, `recon_1835_west_035.inferred_1835.position`, `recon_1835_west_035.inferred_1835.footprint`, `recon_1835_west_036.inferred_1835.documented_range`, `recon_1835_west_036.inferred_1835.position`, `recon_1835_west_036.inferred_1835.footprint`, `recon_1835_west_037.inferred_1835.documented_range`, `recon_1835_west_037.inferred_1835.position`, `recon_1835_west_037.inferred_1835.footprint`, `recon_1835_west_038.inferred_1835.documented_range`, `recon_1835_west_038.inferred_1835.position`, `recon_1835_west_038.inferred_1835.footprint`, `recon_1835_west_039.inferred_1835.documented_range`, `recon_1835_west_039.inferred_1835.position`, `recon_1835_west_039.inferred_1835.footprint`, `recon_1835_west_040.inferred_1835.documented_range`, `recon_1835_west_040.inferred_1835.position`, `recon_1835_west_040.inferred_1835.footprint`, `recon_1835_west_041.inferred_1835.documented_range`, `recon_1835_west_041.inferred_1835.position`, `recon_1835_west_041.inferred_1835.footprint`, `recon_1835_west_042.inferred_1835.documented_range`, `recon_1835_west_042.inferred_1835.position`, `recon_1835_west_042.inferred_1835.footprint`, `recon_1835_west_043.inferred_1835.documented_range`, `recon_1835_west_043.inferred_1835.position`, `recon_1835_west_043.inferred_1835.footprint`, `recon_1835_west_044.inferred_1835.documented_range`, `recon_1835_west_044.inferred_1835.position`, `recon_1835_west_044.inferred_1835.footprint`, `recon_1835_west_045.inferred_1835.documented_range`, `recon_1835_west_045.inferred_1835.position`, `recon_1835_west_045.inferred_1835.footprint`, `recon_1835_west_046.inferred_1835.documented_range`, `recon_1835_west_046.inferred_1835.position`, `recon_1835_west_046.inferred_1835.footprint`, `recon_1835_west_047.inferred_1835.documented_range`, `recon_1835_west_047.inferred_1835.position`, `recon_1835_west_047.inferred_1835.footprint`, `recon_1835_west_048.inferred_1835.documented_range`, `recon_1835_west_048.inferred_1835.position`, `recon_1835_west_048.inferred_1835.footprint`, `recon_1835_west_049.inferred_1835.documented_range`, `recon_1835_west_049.inferred_1835.position`, `recon_1835_west_049.inferred_1835.footprint`, `recon_1835_west_050.inferred_1835.documented_range`, `recon_1835_west_050.inferred_1835.position`, `recon_1835_west_050.inferred_1835.footprint`, `recon_1835_west_051.inferred_1835.documented_range`, `recon_1835_west_051.inferred_1835.position`, `recon_1835_west_051.inferred_1835.footprint`, `recon_1835_west_052.inferred_1835.documented_range`, `recon_1835_west_052.inferred_1835.position`, `recon_1835_west_052.inferred_1835.footprint`, `recon_1835_west_053.inferred_1835.documented_range`, `recon_1835_west_053.inferred_1835.position`, `recon_1835_west_053.inferred_1835.footprint`, `recon_1835_west_054.inferred_1835.documented_range`, `recon_1835_west_054.inferred_1835.position`, `recon_1835_west_054.inferred_1835.footprint`, `recon_1835_west_055.inferred_1835.documented_range`, `recon_1835_west_055.inferred_1835.position`, `recon_1835_west_055.inferred_1835.footprint`
 **Recorded:** 2026-08-13.
 
 ### L82 — Sixty North Division roofs are count-units, not recovered buildings
@@ -10691,7 +10714,7 @@ lines drawn from no sheet) · tickets **T-0609** (this), **T-0557** (the reading
 
 ### L220 — 392 people join the town on the town's own lists, and a household is written round each of them
 
-**Scope:** `residents.persons[civic_mint]` — 392 people
+**Scope:** `residents.persons[civic_mint]` — 511 people **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. This is the entry the 120 arrive IN, which is why it is the one that rises: 392 to 511.
 **Decision:** on 2026-09-03 the owner ratified a grading ladder for resident evidence,
 quoted in full in T-0514 and in `docs/RESEARCH/resident-grading-policy.md`, and T-0513
 spent it: `tools/consolidate_resident_evidence.py --build` reads seven source domains,
@@ -11152,7 +11175,7 @@ re-dealt id) · **L143** (the same re-deal argument on this same block) · ticke
 **Recorded:** 2026-09-04.
 
 ### L223 — Fourteen houses stand on a street a directory printed eight or nine years after 1835
-**Scope:** `residence_back_projection.positions[placed]` — 10 households
+**Scope:** `residence_back_projection.positions[placed]` — 12 households
 **Decision:** where no source of the scene year says where a person's house stood, a
 **street** printed as that person's residence — the volume's own `res` or `bds`, or
 `house`, `h` and `r`, which is Norris's shorthand for the same word and is declared in
@@ -11296,6 +11319,35 @@ the refusal now resolves it and declines the Cass qualifier. The business pass's
 byte-identical across the change, which is the measurement that says no shop moved.
 Nothing was regraded, nothing was invented, and twenty of 825 households carry a real
 `lives_at` before and after.
+
+**Restated to twelve on 2026-09-25 (T-1525), and it is the town again, not the reading.**
+The fifth restatement, and the fourth of the five that moves because Chicago got bigger
+rather than because a clause changed. T-1525 minted the Catholic town St Mary's baptismal
+register of 1833-1835 names — 120 people the poll books and the letter lists never reached
+— and two of the new cards walked into residence ties this pass had already adjudicated
+and had been holding with no 1835 person to hand them to. Not one line of
+`docs/RESIDENCE-BACK-PROJECTION.md` moved, no clause was relaxed, and no directory page
+was read that had not been read before:
+
+- **`choulet_michel_alexandre`** takes Fergus 1843's residence clause onto **Dearborn
+  Street**, carried back eight years. Dearborn is the street T-1050 said above this entry
+  no longer claims, and it is worth saying plainly that the street is back for the
+  opposite reason to the one that took it away: T-1050 withdrew Rebecca Sherman's face
+  because the READING was wrong, and this places a different person on the same street
+  because the TOWN now holds somebody the volume was already printing.
+- **`stone_henry`** takes Norris 1844's onto **Michigan Street**, carried back nine years,
+  the widest gap in the set. Norris narrows it — he names Dearborn and Wolcott — and
+  clause R5 declines the corner, as it does on every one of the twelve.
+
+The twelve stand seven on Fergus's directory of 1843 and five on Norris's of 1844. THE
+LIBERTY ITSELF IS UNCHANGED and this is the whole of why the count moved: a face is still
+text on a card, still graded `reconstructed`, still no lot, no roof, no door count, no
+`lives_at` and no point. Twenty of 825 households carried a real `lives_at` before the
+mint and twenty carry one after — the two new faces put nobody in a building. What a
+reader should take from five restatements in three directions is the thing the entry has
+said since T-1049: this count is a measurement of the TOWN as much as of the reading, and
+a number that moves when neither the policy nor the page has changed is not a liberty
+being widened.
 
 ### L224 — A house the paper measured, on a corner the paper did not
 **Decision:** `lasalle_lake_house` — the 16-by-30-foot dwelling the *Chicago Democrat*
@@ -12375,8 +12427,8 @@ instruction — and the size is seated as a wife and children: 84 wives and 212 
 the sources do not name. Thirty-five of the hundred and nineteen drew a house of one and hold no
 kin at all, so the drawn people stand on 84 cards.
 
-**Scope:** `residents.persons[modelled_families]` — 296 people in 84 households, every one of
-them re-derivable from `tools/reconstruct_modelled_families.py --check`.
+**Scope:** `residents.persons[modelled_families]` — 295 people in 84 households, every one of
+them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. One drawn family member gives way to a head the register names.
 
 **What is invented, stated plainly.** That these men were married at all; how many children each
 had; every child's age band and sex; every forename. The surname is the head's own, the forename
@@ -12503,7 +12555,7 @@ because the row carries no readable date at all, and 39 because T-1144's reading
 shows its evidence is a source SPAN that runs through 1 July 1835 and therefore pins no day
 before it. A lag nothing measures is not a lag a persistence rate may be applied to.
 
-**Scope:** `residents.persons[readmissions]` — 179 people, in 179 cards of their own in `data/residents/readmitted/`, re-derivable from `tools/readmit_borderline_roster.py --check`. The 904 of the title is what the stage RE-ADMITS and the 179 is what it MINTS: 725 of the 904 are a second presence written beside a reading on a card this layer already held, and only the rows carrying a read name no card of this layer holds get a card here. The stage's own ledger prints both figures; this one is the count of people who exist because this stage ran.
+**Scope:** `residents.persons[readmissions]` — 121 people, in 121 cards of their own in `data/residents/readmitted/`, re-derivable from `tools/readmit_borderline_roster.py --check`. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Fifty-eight of the re-admitted turn out to be people the register NAMES, so they are minted on their own evidence instead of being re-admitted at the reconstructed tier — the strongest possible reason for this number to fall. The 904 of the title is what the stage RE-ADMITS and the 179 is what it MINTS: 725 of the 904 are a second presence written beside a reading on a card this layer already held, and only the rows carrying a read name no card of this layer holds get a card here. The stage's own ledger prints both figures; this one is the count of people who exist because this stage ran.
 
 **What is invented, exactly.** Two things and no more. First, **that these people were in
 Chicago on 1 July 1835**, which no source says of any of them — that is what "withheld"
@@ -12792,7 +12844,7 @@ programme licensed to write a Native or Métis person. Every card carries
 `review_required: true` and `touches_removal: true` with the sentence that says why, the
 `community` value **`native`** and **no nation at all**, and `origin: null`.
 
-**Scope:** `residents.persons[underdocumented]` — 102 people in 94 cards, of which **87** are this entry's and 15 are **L255**'s `free_black` sub-stage. The total is restated rather than the selector narrowed, for the reason the four reconstructed-business entries restate theirs: the stage is the unit the programme declares and the register says how large the whole of it is. Re-derivable from `tools/reconstruct_underdocumented.py --check` and `tools/reconstruct_free_black.py --check` together.
+**Scope:** `residents.persons[underdocumented]` — 104 people in 96 cards, of which **87** are this entry's, 15 are **L255**'s `free_black` sub-stage and 2 are **L269**'s `church_register` sub-stage. The total is restated rather than the selector narrowed, for the reason the four reconstructed-business entries restate theirs: the stage is the unit the programme declares and the register says how large the whole of it is. Re-derivable from `tools/reconstruct_underdocumented.py --check`, `tools/reconstruct_free_black.py --check` and `tools/reconstruct_church_register.py --check` together.
 
 **Why:** because the same page had already been half spent. The roll prints 134 men in two
 companies — forty under `G KERCHEVAL` and ninety-four under `INDIAN` — and T-1172 carded
@@ -12934,7 +12986,7 @@ programme itself raised as a lodging place, at the trade that roof's own `functi
 states. Nothing is hand-authored: every value comes from a seed a reader can retype, and
 `--check` re-derives all twelve cards and the ledger byte for byte.
 
-**Scope:** `residents.persons[lodgers]` — 56 people in 13 lodging-household cards, re-derivable from `tools/seat_lodgers_1835.py --check` (47 seats come from the layer; these 56 are the mint on top of them). The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life.
+**Scope:** `residents.persons[lodgers]` — 84 people in 16 lodging-household cards, re-derivable from `tools/seat_lodgers_1835.py --check` (54 seats come from the layer; these 81 are the mint on top of them). **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Six invented boarders give way: the seats they filled are taken by people the register names, and the seat count from the layer rises 47 to 54 as they do. **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — "a child does not take a bed at a tavern on their own account" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **T-1525 MOVED IT A SECOND TIME, FROM 81 TO 84, AND THIS ONE IS A RE-DEAL AND NOT A ROOF.** The stage freezes the quota it deals against so that a later re-cut of the order book spends what the stage did not and moves nobody — and this branch re-cut the book so far that the frozen quota stood at 334 lodgers where the book now orders 273. The gap was being held shut by a live ceiling that read the book on every build, and that ceiling turned out to be deciding which cells entered the proportional split: a cell the book had emptied since the deal left the split and moved every other cell's share by rounding, with nobody ever over-dealt. So the owner ruled the quota re-frozen against the re-cut book and the ceiling now reads the frozen room alone. THE RE-DEAL IS THE COST OF THAT and it is stated rather than absorbed: 32 invented slots retired, 35 opened and 7 re-banded, for a net of three. Not one of them is a person any source names — every one is `reconstructed`, and a reader who met one of these names met it as an invention. What a re-cut may NOT do is still what it could not do before: take the order out from under somebody already standing. That now stops the build and asks for a deliberate re-freeze instead of being absorbed quietly, which is the whole of what changed.
 
 **The liberty SHRANK on 2026-09-20, and the reason is worth keeping (T-1171).** It stood at
 75 minted against 17 seated. `reconstruct_modelled_families.py` had been refusing 822
@@ -13077,7 +13129,7 @@ letter-list name is worth), tickets **T-1386**, **T-1172**, **T-1144**, the re-c
 **Recorded:** 2026-09-19.
 
 ### L254 — Two apothecaries' shops stand in the town because a census counted four and the newspapers name two
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, four are **L257**'s boarding houses, two are **L258**'s mechanics' houses, three are **L259**'s professions, four are **L260**'s liveries and lumber yards and fifteen are **L262**'s services, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, seven are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards and fifteen are **L262**'s services, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
 
 **Decision:** `tools/reconstruct_businesses_1835.py` (T-1184) writes reconstructed business
 records into `data/businesses/authored/`, one for every house the reconstruction order book
@@ -13156,7 +13208,7 @@ T-1376's `native_and_metis`. Cards in `data/residents/underdocumented/hh_fb_*.js
 this is not the removal, and borrowing that flag would borrow the weight of a subject this
 stage is not about.
 
-**Scope:** `residents.persons[underdocumented]` — 102 people in 94 cards, of which **15** are this entry's and 87 are **L250**'s `native_and_metis` sub-stage. Restated whole for the reason L250 gives.
+**Scope:** `residents.persons[underdocumented]` — 104 people in 96 cards, of which **15** are this entry's, 87 are **L250**'s `native_and_metis` sub-stage and 2 are **L269**'s `church_register` sub-stage. Restated whole for the reason L250 gives.
 
 **Why:** T-1375 gave every person in the layer a community and printed one row reading
 `free_black` — **0**. That is a finding about this project and not about 1835 Chicago. The
@@ -13292,10 +13344,65 @@ Related: **L93** (the institutional families refused to a block parcel by name),
 outliers, and the seating tickets **T-1198** and **T-1199**.
 **Recorded:** 2026-09-19.
 
+**Revised:** 2026-09-26, T-1610. **A THIRTEENTH CLAUSE, AND IT IS AN OWNER RULING RATHER
+THAN A READING — THE THINNEST IN THE FILE.** `rear_dwelling_behind_its_own_roof` admits a
+D-family cottage at a `yard` setback off the block alley, behind the principal roof on its
+own lot, and makes it **ANCILLARY** there: a lot may carry a main house plus a rear
+dwelling. So the count above becomes thirteen clauses, **five** of them `inferred`, and the
+five cover C1, H1, H2 and D1–D7.
+
+**Why it exists, and it was not invented to be tidy.** T-1445's adjudication refamilies six
+A-family yard buildings on three platted blocks (`blk_randolph_market`,
+`blk_south_water_lasalle`, `blk_south_water_wells`) into dwelling families. The inventory
+class was read off the family GROUP alone, so each of the six became a second PRINCIPAL
+roof on a lot that already had one: the parcel gate refused all six, and no re-deal inside
+the verdict avoided it, because all 36 families the adjudication offers across them are
+ordinary dwellings. The three blocks hold two open lots between them against six roofs, and
+both are declared open in the recipe with a stated reason. T-1482 measured that, costed the
+three ways out, and asked, because all three change what the town IS. The owner answered on
+**2026-09-23**: *"Treat a rear cottage as ancillary, so a lot may carry a main house plus a
+rear dwelling."*
+
+**WHAT IS TAKEN HERE, SAID PLAINLY.** This town holds **no documented roof standing as a
+dwelling in another roof's yard**. The clause therefore cites **no record** — `evidence` is
+empty and the tier is `inferred`, and the reasoning in its place is the ruling, the six
+verdicts that needed it, and one measurement: the clause that refused the six,
+`ancillary_behind_its_own_roof`, refuses **three of its own four** evidence records when
+they are read against the same scored term, `wolf_point_tavern_stable` standing 36.70 m off
+a principal street where the refused `recon_1835_blk_randolph_market_d4_07` stands 29.28 m
+off one. A scored term its own evidence breaches is either the wrong term or the wrong
+evidence. That is an argument for doubting the refusal; it is **not** evidence for the rear
+cottage, and this entry does not dress it up as any. It also avoids nothing on purpose —
+where the A clause avoids `class:principal`, a rear cottage stands behind, off the alley, so
+the traffic class of the street its lot fronts is not a fact about its position.
+
+**What is NOT taken.** No roof moved. The six are not re-dealt: the recipe still stands them
+as A-family slots, no id has changed, nothing was rebaked, and no confidence moved anywhere
+— **T-1611** carries them out. No outlier was removed by the new clause: all seven documented
+D roofs conformed under their existing clauses already, and the policy still reports 56
+conforming of 77 with 21 outliers, the same counts as before. And because a rear cottage is
+ancillary rather than principal, the blocks' principal-roof counts do not move, so
+`lot_ceiling_principal` and `block_rooms` are untouched — a promotion to principal would have
+breached both, which is the second reason the ruling was needed and not merely convenient.
+
+**Two gates now hold it, rather than a comment.** `reconcile_665.inventory_class` is the one
+derivation and reads the POSITION as well as the group, so the generator and the redeal
+executor cannot come to two opinions; `generate_block_infill.check_slot_inventory_classes`
+refuses any recipe slot whose declared class is not the derived one, which is what makes
+T-1611 a re-deal instead of a field edit. `tools/measure_block_redeal_remedies.py --check`
+re-derives the six on every run and refuses a report in which any of them is refused again.
+
+**And one consequence a visitor will meet.** The adoption gate asked the inventory class and
+now asks the FAMILY. Its reason was always that *"a household living in a privy is not a
+modest claim but a nonsensical one"* — which is true of a privy, not of a position — so a
+rear cottage may house a household and a stable still may not. A business is refused from a
+rear cottage for a different reason, stated in `adopt_street_faces.yard_roofs`: every
+adoption there claims a STREET FACE, and a roof off the alley has none.
+
 ### L257 — Six boarding houses become houses of trade because the buildings were already standing and nothing in the business layer could see them
 
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade, of which SIX are this
-entry's. The other twenty-eight are **L254**'s apothecaries, **L255**'s Black-owned firms,
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which SEVEN are this
+entry's. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other twenty-seven are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber
 yards and **L262**'s services; the
 selector reads the whole reconstructed layer, so the count is restated here rather than
@@ -13377,9 +13484,9 @@ the seating tickets **T-1198** and **T-1199**.
 **Recorded:** 2026-09-19.
 
 ### L258 — A brewery and a jeweller's shop stand for a census count, and the brewery carries on its own card the newspaper that argues against it
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade. TWO are this entry's, the
-mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, four
-**L257**'s boarding houses, three **L259**'s professions, four **L260**'s liveries and
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade. TWO are this entry's, the
+mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, six
+**L257**'s boarding houses, two **L259**'s professions, four **L260**'s liveries and
 lumber yards and fifteen **L262**'s services. The
 selector reads the whole layer, so the count is restated here rather than narrowed, and the
 register keeps saying how many reconstructed houses of trade the town carries in total
@@ -13441,23 +13548,62 @@ same selector counts), **L248** (the trade heads these houses adopt), tickets **
 **T-1184**, the crosswalk **T-1404**, the order book **T-1166**, the roof re-cut **T-1196**.
 **Recorded:** 2026-09-19.
 
-### L259 — Two law offices and a physician's room stand for a census line that counts men, read down to the population the scene date actually had
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade, of which THREE are this
-entry's: two law offices and one physician's room. The other twenty-nine are **L254**'s
+### L259 — A law office and a physician's room stand for a census line that counts men, read down to the population the scene date actually had
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which ONE is this
+entry's: a single law office. The physician's room went the same way as the second law
+office, and the block below says how. The other thirty-two are **L254**'s
 apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and
 jeweller's, **L260**'s liveries and lumber yards and **L262**'s services — the other half of
 this entry's own group, and the half no census line reaches; the selector reads the whole
 reconstructed layer, so the count is restated here rather than narrowed.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group professions_and_services`
-(T-1418, of T-1186) writes **three** reconstructed records: *B. Robillard, attorney and counsellor at
-law, and solicitor in chancery* on North Water Street, *R. Parmelee, attorney and counsellor
-at law, and solicitor in chancery* on South Water Street, and *Dr. J. McGuire, physician* on
+(T-1418, of T-1186) writes **two** reconstructed records: *B. Robillard, attorney and counsellor at
+law, and solicitor in chancery* on North Water Street, and *Dr. J. McGuire, physician* on
 South Water Street. Each carries `provenance: reconstructed`, a `reconstruction` block naming the
 order-book row that bought it, and the seed string a reader can retype to redraw its style,
 its goods line and its street face. **And the order-book row itself was re-cut to buy
 them:** `tools/build_order_book_1835.py` now orders the two census lines that count MEN in
 men, and to the scene date's own bracket rather than to the December return.
+
+**ONE LAW OFFICE WAS RETIRED WHEN THE TOWN LEARNED A LAWYER'S NAME (T-1506).** This entry
+wrote two of them, *B. Robillard* and *R. Parmelee*, against an order of two. T-1299 then
+admitted the press roles whose bound contains 1 July 1835 into the resident `occupation`
+field, and one of them is **L. G. Curtiss, printed an attorney in the *Chicago Democrat* of
+the scene date itself** — so the class the town can NAME went from thirteen to fourteen and
+the order fell from two to one. For a while the town carried sixteen lawyers against a target
+of fifteen: fourteen it could name and two it had invented. The surplus is retired rather
+than clamped, and *R. Parmelee, attorney and counsellor at law, and solicitor in chancery* on
+South Water Street is the house that goes — chosen by the stage's own slot order and not by
+hand, re-derived through `--build` and never deleted as a file. **This is the shape a
+reconstruction is supposed to have:** the record said on its own face that it stood only
+until a reading took its place, and a reading took its place. Reuben Parmelee, the
+reconstructed head who kept it, is untouched — he keeps his trade and waits for a workplace,
+which is what the paragraph below already said would happen to the surplus attorneys.
+
+**THE PHYSICIAN'S ROOM WENT TOO, AND NOT BECAUSE THE TOWN NAMED A PHYSICIAN (T-1525).** The
+same shape as the retirement above and a different mechanism, which is why it is written
+out rather than folded into it. T-1525 minted the 120 households St Mary's baptismal
+register names, and this entry's arithmetic is *a profession scales with the population it
+serves* — so 120 more residents on 1 July 1835 raise what the July town should hold, and
+the physician order moved from **9 to 10** while the class the town can NAME stayed at
+**8**. The shortfall therefore grew from one room to two. **And the book drew neither.**
+`bucket businesses/physician` now reads `target 10, known 8, to_reconstruct 2, filled 0`,
+and the two are handed to **T-1529** as work somebody can pick up. *Dr. J. McGuire,
+physician* on South Water Street was the one room this entry had drawn against the old
+order of nine, and it is withdrawn with the rest — re-derived out through `--build`, by the
+stage's own slot order, never deleted as a file, exactly as *R. Parmelee* was.
+
+**WHY A GROWING SHORTFALL RETIRES A RECONSTRUCTION INSTEAD OF BUYING ANOTHER**, which reads
+backwards until the rule is stated: this project does not draw a house it can hand to a
+named piece of work, and it does not quietly enlarge an invention when the arithmetic that
+justified it moves. The owner's rule on the re-cut is that nothing already drawn is deleted
+to make the books close and nothing new is drawn to fill a gap a ticket can own — the
+over-supply is NAMED, with both figures, as work owed. So the class that went from one
+invented room to two owed ones ends with none invented at all, and a reader who wants to
+know what stands in for the July town's ninth and tenth physicians is pointed at T-1529
+rather than at a drawn name. THE LAW OFFICE IS NOW THE WHOLE OF THIS ENTRY: one house,
+*B. Robillard*, against an order of fifteen lawyers the town can name fourteen of.
 
 **Why:** because the December 1835 State census prints **twenty-two lawyers** and **fourteen
 physicians**, and until this entry the order book set those two figures against the newspaper
@@ -13470,8 +13616,8 @@ resident cards carrying Egan, Harmon, Goodhue, Kimberly and Temple are read besi
 the count is not of the scene: it was returned between 1 September and December 1835 over a
 town of 3,297, while the town model brackets 1 July 1835 between 2,353 and 3,265 people.
 Scaling the two lines by that bracket puts **15 to 21** lawyers and **9 to 13** physicians in
-the July town. The book now orders to the LOW end of each — 15 and 9 — against the 13 and 8
-the town holds in the counted unit, which is two offices and one room and not fifteen.
+the July town. The book now orders to the LOW end of each — 15 and 9 — against the 14 and 8
+the town holds in the counted unit, which is one office and one room and not fifteen.
 
 **What is invented, exactly:** four things. (1) **That the class was short at all**, which is
 the census's claim and not this project's — but the SIZE of the shortfall is this entry's
@@ -13492,7 +13638,7 @@ house because no source names it. The faces are the register's own distribution:
 offices it resolves a place for, South Water carries three, Dearborn four and Lake two, and
 both of its placed physicians are on Lake Street. (4) Nothing else.
 
-**The keeper is NOT invented here.** All three proprietors are reconstructed trade heads the
+**The keeper is NOT invented here.** Both proprietors are reconstructed trade heads the
 resident band drew months earlier (**L248**, stage `trade_households`) at the trades
 `attorney` and `physician`, and their cards said in advance what would happen to them: *"the
 business band adopts these heads as its proprietors rather than minting its own, so the two
@@ -13511,7 +13657,7 @@ the same thing.
 **Which way it is wrong if it is wrong.** Toward a town with too FEW practitioners. The low
 end of the bracket is taken and never the midpoint; the floor is a hard floor, so a class the
 town already meets in the counted unit orders nobody rather than a negative; and the four
-attorney heads the resident band drew are more than the two the re-cut book now buys — the
+attorney heads the resident band drew are more than the one the re-cut book now buys — the
 surplus keeps its trade and waits for a workplace rather than being handed one.
 
 Related: **L254** (the same tool's first group and the quota row), **L248** (the trade heads
@@ -13523,8 +13669,8 @@ nowhere), **T-1404** (a premises for every in-window trade) and **T-1189** (thei
 
 ### L260 — Two livery stables and two lumber yards stand because the men who kept them were already drawn, and nothing else in this town could buy them
 
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade, of which FOUR are this
-entry's. The other twenty-eight are **L254**'s apothecaries, **L255**'s Black-owned firms,
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which FOUR are this
+entry's. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
 **L262**'s services, which take this entry's own fourth form into four more trades; the
 selector reads the whole reconstructed layer, so the count is restated here rather than
@@ -13681,12 +13827,12 @@ which takes the West Division streets off the old E −320 clip. **Recorded:** 2
 
 ### L262 — Fifteen service houses stand because the women and men who kept them were already drawn, and the December census has no line that could ever have counted them
 
-**Scope:** `businesses.records[reconstructed]` — 34 houses of trade, of which FIFTEEN are
+**Scope:** `businesses.records[reconstructed]` — 33 houses of trade, of which FIFTEEN are
 this entry's: nine millineries, four land offices, one dress making shop and one barber's
-shop. The other seventeen are **L254**'s apothecaries, **L255**'s Black-owned firms,
+shop. The other eighteen are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
 **L260**'s liveries and lumber yards; the selector reads the whole reconstructed layer, so
-the count is restated here rather than narrowed, and each entry says which of the thirty-two
+the count is restated here rather than narrowed, and each entry says which of the thirty-three
 are its own.
 
 **Decision:** `tools/reconstruct_businesses_1835.py --group professions_and_services`
@@ -13769,7 +13915,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 394 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 401 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
@@ -13806,12 +13952,16 @@ row; nothing else has to move when it arrives.
 
 **Recorded:** 2026-09-20.
 
-**The count moved to 394 on 2026-09-21 (T-1444).** It read 364 when this liberty was
-taken. The West Division release instantiated its held slots and every one of the thirty
-states a roof type, so the exposure this entry commits is drawn on thirty more roofs. The
-commitment itself is unchanged — 0.14 m of exposure on a 4.48 m tile — and the scope is
-counted off the records' own `roof_type` so that a release restates it rather than leaving
-the entry claiming a population it no longer has.
+**The count moved to 394 on 2026-09-21 (T-1444), to 397 on 2026-09-24 (T-1490), to 399
+on 2026-09-25 (T-1545) and to 401 on 2026-09-26 (T-1622).** It read 364 when this liberty was taken. The West Division release
+instantiated its held slots and every one of the thirty states a roof type; T-1490 then traced
+Jefferson Street north, which freed three of the five that release had held back, and those
+three state one too; T-1545 re-dealt the last two off the platted Jefferson corridor and both
+state one as well; T-1622 raised the two roofs the platted seating asked of
+blk_south_water_franklin, and a frame cottage of either family states a roof type like every
+other roof on that row. The commitment itself is unchanged — 0.14 m of exposure on a 4.48 m tile —
+and the scope is counted off the records' own `roof_type` so that a release restates it rather
+than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
@@ -13912,9 +14062,9 @@ placement policy **T-1195**; the twenty-six verdicts whose record id carries its
 and whose execution is therefore an id migration across the derived layer, are **T-1452**.
 **Recorded:** 2026-09-20.
 
-### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 73 roofs that are not framed
+### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 75 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 73 phases: 59 log dwellings and
+**Scope:** `structures.phases[log_or_fort_archetype]` — 75 phases: 61 log dwellings and
 14 fort structures. Nothing about their geometry, their roof type,
 their pitch or their weathering moves. This entry is about one thing: which of the two
 coverings this project can argue each of those roofs is drawn on.
@@ -13977,10 +14127,556 @@ argument, the direction of the error and the discharge condition are untouched.
 
 **Recorded:** 2026-09-20.
 
-**The count moved to 73 on 2026-09-21 (T-1444).** It read 67 — 53 log dwellings and 14
-fort structures — when the South migration last restated it. The West Division release
-instantiated its held slots and six of them are log cabins, so the liberty now reaches
-**73**: 59 log dwellings and the same 14 fort structures. The argument does not move with
-the number, and it is not supposed to: the scope is counted off the records' own
-`archetype` precisely so a release restates it instead of leaving the entry asserting what
-it reached the day it was written.
+**The count moved to 73 on 2026-09-21 (T-1444) and to 74 on 2026-09-25 (T-1545).** It read
+67 — 53 log dwellings and 14 fort structures — when the South migration last restated it. The
+West Division release instantiated its held slots and six of them are log cabins, which took it
+to 73; T-1545 then re-dealt the last two slots off the platted Jefferson corridor and one of the
+two, `recon_1835_west_027`, is a log dwelling. So the liberty now reaches **74**: 60 log
+dwellings and the same 14 fort structures. The argument does not move with the number, and it is
+not supposed to: the scope is counted off the records' own `archetype` precisely so a release
+restates it instead of leaving the entry asserting what it reached the day it was written.
+
+**And to 75 on 2026-09-26 (T-1611).** The platted blocks' re-deal moved six yard buildings
+into dwelling families (**L270**), and one of the six —
+`recon_1835_blk_south_water_wells_d1_07`, a stable behind a South Water Street lot — joins
+the D1 band, which the family–archetype crosswalk deals as `log_dwelling`. So the liberty
+reaches **75**: 61 log dwellings and the same 14 fort structures. The other five are frame
+cottages and rough-plank dwellings and are none of this entry's business.
+
+### L267 — Two people are invented for the two institutional roofs whose own records put a household under them, and the other seven are refused
+
+**Decision:** `tools/reconstruct_institutional_households.py` (T-1531) writes **two**
+reconstructed heads into `data/residents/institutional/` — one at the Chicago light and one
+in the Michigan Street house John Watkins taught in. They are the whole of what the town's
+nine standing `institutional_public` roofs yield in people, and
+`data/reconstruction/1835_institutional_lodging.json` is the adjudication that says so,
+roof by roof, with the sentence that refuses each of the other seven.
+
+**Scope:** `residents.persons[institutional_households]` — 2 people in 2 cards, one head apiece, re-derivable from `tools/reconstruct_institutional_households.py --check`.
+
+**Why:** because the household quota was ordering twelve of them. The model's 643
+households are apportioned across the roof groups by ROOF COUNT, which is right for a group
+whose roofs are houses and wrong for the one group whose roofs are a church, a jail, a
+council house and a light tower. Nine institutional roofs drew twelve households — more
+than one per roof — and nobody had ever asked the roofs the question. Ordering ten
+households that could never honestly be written is not a conservative error; it is a
+standing instruction to invent ten families and hang them on buildings nothing says anybody
+slept in. The book now weights those cells on the adjudication instead, and orders two.
+
+**What is invented, exactly:** two people and nothing else about the two buildings. Each
+carries a name from the invented pools; the light keeper's sex is bounded by the three
+keepers of this light the sources name, all men, and the Watkins house's is drawn from the
+town model's own sex ratio with the seed printed on the card. No age is written at all — the
+household buckets carry no age axis, so nothing ordered a band and none is invented. The
+keeper's occupation is the APPOINTMENT rather than a deal: the keepership is recorded at
+$350 a year with quarters, and what is reconstructed is the holder, not the post. The
+Watkins house's head is given no trade, because the obvious guess — a schoolmaster — is
+exactly the guess this project does not write.
+
+**What this deliberately does NOT do.** It seats nobody at St. Mary's, at the First
+Presbyterian church, in the Temple Building, in the log jail, in Billy Caldwell's council
+house, in the North Side school or in the Walker meeting house. A congregation is not a
+household, a use is not a residence, and confinement is not residence; the minister whose
+lodging the sources DO record — Porter, in the unfinished loft of Peck's store — is lodged
+somewhere else entirely. And it draws no kin: a Chicago dwelling held 4.4 people on the 1840
+histogram, and the size drawn for the Watkins house is written onto `household_owed` with
+the ticket that seats it (T-1171, T-1174), because seating them here would order the same
+people twice. The keeper's quarters draw no size at all — a forty-foot light tower is not a
+distribution over dwellings.
+
+**What would discharge it:** a source naming who lived at either building on 1 July 1835
+retires that card and puts a reading in its place. A source putting a household under any of
+the seven refused roofs — a sexton's or a gaoler's return, a directory entry at a church
+address, a trustee's note that the master lodged in the school — moves that row to `true`,
+raises the division's capable count, and the book orders the household on the next build.
+
+**Related:** **L248** (the trade heads, the same shape at 308 times the size), **L253**
+(the lodgers), **L1** (no human figure is drawn, for anybody), T-1531 (this entry),
+T-1476 (which made the household quota speak at all), T-1196 (the roof programme).
+**Recorded:** 2026-09-24.
+
+### L268 — 450 of the 523 invented people the order book holds past its own order cannot be moved anywhere, and the book goes on naming both numbers for them
+
+**Decision:** the re-familying programme (T-1556, the owner's ruling of 2026-09-24) moves **73**
+of the 523 reconstructed people the order book's re-cut holds past what it would now order. The
+other **450**, standing in **43 of the 48 refused buckets**, stay exactly where they were
+written: counted in a cell the sources have since shown the town did not need that many of.
+`docs/RESEARCH/1835_refamily_programme.md` is the arithmetic, re-derivable from
+`tools/report_refamily_programme.py --check`, and each of those 43 buckets keeps its `held_at`
+and its `the_re_cut_would_have_ordered` side by side in
+`data/reconstruction/1835_reconstruction_order_book.json` rather than being quietly clamped to
+one figure.
+
+**Why:** because every other way out of it is worse, and the owner has ruled on two of them.
+Reading the Catholic parish register in September 2026 named real people in cells the book had
+already invented people into — the reading arrived after the invention. **T-1459**, 2026-09-20,
+refused clamping: a bucket's order may not fall below what was drawn against it, and the refusal
+is *named with both numbers*. **T-1556**, 2026-09-24, refused retiring: 34 of the 60 trade heads
+are adopted by name elsewhere in the layer, so deleting the surplus would have chosen the people
+the town lost by which of them failed to get a job — "not a modelled criterion", in the owner's
+own words. What is left is to move them, and moving them is what the 73 are.
+
+**What is invented, exactly:** nothing new here at all — that is the point of the entry. These
+450 people were invented by the reconstruction stages that drew them (**L83** is the programme,
+**L248** the trade heads, **L262** the service houses), each with its own card, seed and
+confidence, and none of that moves. What this entry admits is an ARITHMETIC liberty on top of
+them: the town's reconstructed population converges on 2,735 rather than the model's 2,543 point
+once the programme is spent, and 450 of that 192-person excess is known surplus that no rule in
+this project can place. It is inside the model's 2,362–3,265 range, and it is not the number the
+model expects.
+
+**Why they cannot be moved, and it is measured rather than asserted:** T-1558 tiered all 1,159
+people in the 48 refused buckets against the adoption layers and found the held surplus and the
+open orders **disjoint on every axis**. Not one refused bucket has a single open slot for its own
+(sex, age band, household kind, trade) class in any division. A move that changes only which side
+of the river somebody is counted on — the one axis that is a bare ledger allocation and therefore
+free — yields nought. The open orders are 285 adult-male slots; the remainder is 150 children
+under ten, 100 in their teens and 119 women. Keeping a person's sex and age band caps the
+programme at 233, keeping the trade too at 123, and keeping an invented household whole — one
+record states one division, so splitting it would put a mother on one bank and her children on
+the other — brings it to 73.
+
+**What this deliberately does NOT do.** No card is deleted, no id is reused, no confidence moves,
+no citation is dropped, and no bucket is clamped. Nobody is re-sexed, re-aged or re-employed to
+make the sums close: T-1558 records that folding the trade in would have bought 110 more moves by
+quietly giving people different jobs, and it was refused. And the book does not stop reporting
+the gap — a reader of any of the 43 buckets can still see the figure the re-cut would have
+ordered next to the figure standing.
+
+**What would discharge it:** an order book that wants women and children somewhere else. Three
+named levers, all outside this programme: more orders in those cells, which the lodging band
+(T-1532, T-1536, T-1538) and the boarding houses T-1209 raises would create directly; a ruling
+that an employment seat may be RE-SEATED at an equivalent house in the destination division,
+which would let the 283 people carrying an adoption travel instead of being refused; and T-1199's
+placement policy re-seating the 22 whose roof already stands. Short of those, a source naming a
+real person in one of the 43 cells retires an invented card there and closes the gap by one the
+honest way.
+
+**Related:** **L83** (the inferred-residents programme this is the accounting of), **L248** (the
+trade heads), **L262** (the service houses), **L246** (the withheld names re-admitted),
+T-1560 (this entry), T-1556 (the ruling), T-1557 (the ledger), T-1558 (the rule and the
+ceilings), T-1559 (the moves), T-1459 (held rather than clamped).
+**Recorded:** 2026-09-25.
+
+### L269 — Two women of St Mary's baptismal register are carded off one parenthesis apiece, and the presence of each is a draw
+
+**Decision:** `tools/reconstruct_church_register.py` (T-1504, of T-1177) writes **2**
+reconstructed cards into `data/residents/underdocumented/` — `hh_cr_marianne` and
+`hh_cr_jaespquaa` — the `church_register` sub-stage of stage `underdocumented`, beside
+T-1376's `native_and_metis` and T-1377's `free_black`. The derived record is
+`data/reconstruction/1835_church_register.json`. Both carry `review_required: true` and
+`touches_removal: true` with the sentence that says why, the `community` value **`native`**
+and **no nation at all**.
+
+**Scope:** `residents.persons[underdocumented]` — 104 people in 96 cards, of which **2** are this entry's, 87 are **L250**'s `native_and_metis` sub-stage and 15 are **L255**'s `free_black` sub-stage. Restated whole for the reason L250 gives.
+
+**Why:** `data/research/church/records/st_marys_baptisms_1833_1835.json` is the only source
+this project holds in which a CONTEMPORARY states an Indigenous identity for a named person
+at Chicago — Father Saint Cyr's own parenthesis on the page, not a term in a later
+biography. Since T-1383 the borderline roster reads it: four rows reach
+`R6_native_metis_black` on the rule `community_term_written_onto_the_name`, which fires only
+where the term follows the row's own name. T-1376's stage then withheld all four, honestly
+and at a dead end — *the only book it reads is the 1832 muster roll*. Meanwhile the town
+carried everybody else off those same entries: Antoine Aspam and both his children off
+entries 14 and 17, Paul Vieau and his daughter Susanne off entry 18. The only thing
+separating the two mothers from their own husbands and children was the word the priest
+wrote beside their names, and the stage that could spend it read a different book.
+
+**What is invented, exactly:** one thing. That a woman named at a font at Chicago in
+October 1833 was still here on 1 July 1835, at the odds the persistence model gives for a
+lag of about one year and nine months — the same model, the same arithmetic and the same
+seeded draw that priced Kercheval's twenty and the ninety-four of the company the 1832 roll
+heads INDIAN. Marianne reads `present` and Jaespquaa reads `absent`, each with the seed a
+reader can retype. The draw is priced off the LAST entry that names her, not the first,
+because a later printing is the last day this project can still see her.
+
+**What this deliberately does NOT do.** It writes **no surname**: the register gives each
+woman a forename and the priest's parenthesis, and her husband's surname is his. It writes
+**no nation**: `sauvage` names none, and `community: native` is this vocabulary's term for
+*the source says so and says nothing further*. It writes **no kin tie** — not to the
+husband, not to the children, not to the sponsors. The father named on the same line is
+read once, as a discriminator that tells two printings of one woman from two women (entries
+14 and 17 name the same Marianne and the same Antoine Aspam, so they are one card), and for
+nothing else; the kinship itself is handed to **T-1335**, the family pass, which the
+roster's own ledger reason already names on every one of these rows. It asserts **no
+residence, no address, no occupation and no arrival**: a baptism documents a person at a
+font on a day. And it draws **no remainder** off the book, for the reason L250 refused the
+same thing for the muster — a bracket needs a count, and a register of sacraments is not a
+census.
+
+**One origin is carried and it is a place.** Entry 18 reads `sauvage de Green Bay`, the only
+origin St Mary's register ever gives anyone. `Green Bay` goes onto Jaespquaa's card as an
+origin at the register reader's own grade for that row — `inferred`, because an Indigenous
+name written phonetically by a French speaker has middle letters nobody can be sure of — and
+a card never grades above the reading it stands on. No people is read off it:
+`data/residents/community_rules.json` files Green Bay as an **unreadable origin**, because
+the Menominee, the Ho-Chunk, the Potawatomi and the Ottawa country all met at that bay, and
+so did the French trade and the métis families it made.
+
+**The review AGENTS.md commits to has not been held.** Both cards carry `review_required`,
+which blocks any scene carrying them from being marked `released`, and each says in its own
+prose that it is a record of a Native woman at Chicago in the three years of the removal. No
+figure is drawn, for anybody (L1).
+
+**How to resolve:** any second independent source naming either woman at Chicago inside the
+window, or any source stating her nation, band, village or family name, carries the card
+past what one parenthesis in one register can hold — each record says so in its
+`replaceable_by`, and the retirement runs through `--build`, never by hand.
+
+**Related:** **L250** (the muster cohort of the same stage, whose refusal this entry
+answers), **L255** (the free Black cohort beside it), **L83** (the inferred-residents
+programme), tickets **T-1504** (this entry), **T-1177** (the stage), **T-1383** (the reading
+that put these rows in front of it), **T-1335** (the family pass the kinship is handed to),
+**T-1562** (two printings are one sighting).
+**Recorded:** 2026-09-25.
+
+### L270 — The plat's 226 lots are enumerated from records this project already held, and then 108 of the town's households are dealt onto them by a policy and not by a source
+
+**Scope:** `platted_seats.seats[dealt]` — 108 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,372
+written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
+`--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 226 lots
+the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
+fields is read off a committed record and the entry below says which.
+
+**The ledger invents nothing.** Which lot exists is `data/traces/vectors/thompson_lots.json`
+(T-0221, T-1194). Which street a lot's face fronts is that block's own `bounded_by`, and that
+street's traffic class is `data/streets/1835.json`. What stands on a lot is
+`tools/plat_occupancy.py`, measured, not asserted — a footprint's lot is the one it has the
+most area on and only if it reaches that lot's buildable inset. How many principal roofs the
+lot may carry is the placement policy's own `multi_building_lot` rule, selected by the street
+class: three party-line units on a principal street, one anywhere else. A lot's corner is its
+position on its own face. Six lookups, joined in one place for the first time, and the
+liberties they stand on are already recorded — **L90** for the anonymous roofs, the plat
+entries for the grid.
+
+**Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
+BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
+policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
+roof of a family its clause admits, on a lot of its own division; all 108 seats are that
+today. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
+on a block the 665-roof programme marks `open`, only inside that block's own committed family
+plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
+sizing keeps open; 0 of the 108 are that, the last four having been refused by that rule.
+**Which lot a household takes is
+this project's invention**, argued from the clause's stated preferences — the street class it
+prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
+places any of these 108 households anywhere; each one's own address-book row says so in its
+`words`, and that refusal is carried forward here rather than quietly replaced.
+
+**An adoption raises no roof and spends no order.** This is the part that keeps the invention
+small, and today it is the whole of it. All 108 seats put a household under a roof that
+already stands, was already gated and was already paid for in the 665-roof programme — so the
+order book is not drawn on at all, nothing is baked, and no seat here is a household with an
+address and no walls.
+
+**TWO OF THE SIX SLOTS WERE RAISED, AND NEITHER WENT TO THE HOUSEHOLD THAT ASKED (T-1622,
+2026-09-26).** The deal asked six slots of three South Water blocks; blk_south_water_franklin's
+two — a D3 and a D4 — were the only ones whose block had ground for them that was not the lot
+its schedule sizing reserves open, so a third deal on that block raised them on lot 4. What
+then took them was not the two tradesmen's households but the STREET-FACE ADOPTION policy
+(**L212**), which ranks a business the papers PRINT above a policy-dealt household for a roof
+on a business front: the new auction and commission room of South Water Street and Briggs &
+Humphrey, carriage and sleigh makers, had both been refused a face for want of a free roof on
+it, and South Water's refusals for that reason fell from 10 to 8. So the two households come
+back to this file OWED rather than slotted, and the seat count falls by two while the town
+gains two documented firms standing where the papers put them. That precedence is the
+committed one and this entry does not argue with it; T-1626 asks whether it should hold for a
+roof raised in answer to a slot.
+
+**AND THE OTHER FOUR ARE REFUSED, WHICH IS A LOT AND NOT A ROOF (T-1623, 2026-09-26).** No
+block is dealt out of the one lot its own schedule sizing keeps open. `lot_ceiling_principal`
+is `free_lots - 1` and the 665-roof programme says why in its own words — "less the one it
+keeps open" — so a free lot takes a slot only while the block's occupied free lots are still
+under that ceiling, and a free lot already carrying a STANDING roof takes none at all:
+extending that run is a claim about the face left between documented stores, and this pass
+measures no face. The four roofs blk_south_water_dearborn and blk_south_water_wells still plan
+could each have stood only on that block's single genuinely vacant lot — dearborn's other free
+lot holds 2.84 m and 2.28 m of face between the Chicago American office and Holbrook's store,
+wells's 4.46 m east of H. Jones's store, and neither holds two roofs. The owner ruled:
+*"Leave the four owed. The two blocks keep their vacant corner lot, and the seating pass stops
+requesting a slot on a lot the schedule's sizing reserves open — the request is refused in
+writing rather than standing unfulfillable."* So each of those households carries that
+sentence on its own owed row, the two blocks keep their empty corner, and the roofs are handed
+to **T-1200** through **T-1214** to build where there is room. The deal asks for no slot at
+all now, and the guard is an assertion rather than a memory: a seat on a block's last open lot
+refuses the whole pass.
+
+**Three kinds of roof are refused on purpose, and the refusals are the entry's substance.**
+A DOCUMENTED building is never re-tenanted — 35 of the roofs standing on these lots are the
+research layer's, and an invented household under Pruyne & Kimball's drugstore would be the
+reconstruction reading back as a fact. A roof whose own record STATES its occupancy is left
+alone, including the 15 that read `Anonymous stock; no occupant is claimed` (T-0516): that
+sentence is a committed claim about the town, 56 roofs carry one, and overturning it silently
+is the one move a seating pass must not make. And an ANCILLARY family — A1 through A5, the
+barns, stables, privies and woodsheds — is not a dwelling; 43 of the 152 unoccupied roofs on
+the plat are ancillary and no household is seated in one.
+
+**Which way it is wrong if it is wrong.** Toward a plat holding too FEW of the town's
+households. 1,372 of the 1,480 banded rows get no lot here, and they are not refused — they
+are handed to **T-1614**, which owns the ground the committed grid does not draw: the farms
+and country seats (204 rows, off the plat by their clause's own terms), the additions' small
+lots, the fringes and the branches. The binding constraint is the one the 665-roof programme
+states about itself: *"12 of the 262 remaining roofs stand on ground this project has already
+surveyed, platted and modelled… the binding constraint is coverage, not recipes."* This pass
+spends what that schedule offers and says out loud what it could not spend — 2 commercial
+roofs of plan (a C1 and a C2) stand unclaimed on South Water Street because every business the
+address book can place is already at a street face or a structure, and none is left at a band
+to take them.
+
+**The density standard is measured here rather than asserted.** 33 of the plat's 68
+principal-street lots carry more than one principal roof today, against a rule that permits
+three. That is a reading of the committed town, and the parcel schedule's own words are why it
+is not a target: *"A block at capacity is a claim about 1835 that the evidence does not
+support; the schedule's capacity is a ceiling."*
+
+**RESTATED 2026-09-26, and the reason is worth more than the numbers (T-1611).** Every
+count above was first written on a town whose three platted blocks still carried six
+invented yard buildings in their back lots. **L272** re-dealt those six into rear cottages,
+so six roofs this deal had been obliged to refuse as ancillary became dwellings standing
+free on lots of this very ledger, and the deal — re-derived, never hand-edited — took them:
+the seats rise from 104 to **110** and the adoptions from 100 to **106**, the rows handed to
+**T-1614** fall from 1,376 to **1,370**, and the four slots are the same four. Nothing about
+the policy, the clause order or the ranking changed; a liberty whose population moves under
+it is restated rather than left reading well. Two figures in the refusal paragraph moved with
+the six and are re-read here off the committed lot ledger and this file's own
+`roofs_held_back` — 35 documented roofs standing on these lots (was 34) and 43 ancillary of
+152 unoccupied (was 48 of 151) — and the two counts the six could not touch are unmoved: 56
+roofs whose own record states an occupancy, 15 of them reading `Anonymous stock; no occupant
+is claimed`.
+
+**How to resolve:** any source placing one of these households — a lot and block, a corner
+ordinal, a street address, a building — retires its seat, because a read placement outranks a
+dealt one and the address book already carries the field that says so. The retirement runs
+through `--build`, never by hand.
+
+**Revised:** 2026-09-26 (T-1626) — **the precedence reported above has been reversed, and
+the paragraph reporting it stands as written because it was true when written.** It asked
+whether a business the papers print should outrank a household for a roof RAISED IN ANSWER TO
+THAT HOUSEHOLD'S REQUEST, and the answer is no. The street-face adoption policy (**L212**)
+now carries a seventh refusal: a roof the platted deal asked a block for is the household
+layer's, and an adoption may not take it. The two franklin roofs come back to this file — the
+deal seats **112** against **110** without the refusal, the two roofs either way — and the two
+firms return to the refusal they carried the day before the roofs went up, *every roof on the
+face is spoken for*, South Water's count of it back to 10 from 8 and the adoptions back to 39
+from 41. Nothing was taken from the register: the reconstruction never added supply for it.
+(T-1622 measured the same pair at 106 against 104; T-1611 has since seated six more.)
+
+The reversal is narrow and it is not evidence yielding to invention. **L212** has stood aside
+for the inferred household layer since 2026-08-30, on the argument that the invention makes
+that refusal stronger rather than weaker, so the precedence was never documented-beats-dealt;
+it was first-past-the-post, and the adoption pass simply runs before the seating one. What
+decides it is L212's own third limit, that WHICH roof on a face a business takes is an
+allocation and a statement about nothing: a business is interchangeable between the free roofs
+of its face, and a slot request naming a block and a family is not. Left standing, the older
+precedence made the slot table unfulfillable in principle — every roof the build tickets raise
+on a face with a waiting business would be taken before its requester arrived — and T-1622
+measured that in practice: two roofs raised, and the town seated two households fewer than
+before it started.
+
+**And the two that asked still did not get them.** The deal is dealt in one order for the whole
+town, and on the re-derivation the two franklin roofs go to `hh_beeson_william` and
+`hh_bench_reuben` rather than to Brown and Bryant, who are seated elsewhere or owed. Which
+household takes which roof was never a claim about 1835 and is not one now; that a household
+and not a shop holds a roof raised for a household is the thing this revision fixes.
+
+**Related:** **L90** (the anonymous roofs this pass adopts), **L83** (the inferred-residents
+programme), **L268** (the invented people the order book cannot move), **L212** (the
+street-face adoption policy, and the refusal T-1626 added to it), tickets **T-1613**
+(this entry), **T-1199** (the parent ask), **T-1198** (the address book and its bands),
+**T-1195** (the placement policy), **T-1614** (the ground this pass hands on), **T-0516**
+(the anonymous-stock statement it refuses to overturn), **T-1622** (the build that found it),
+**T-1626** (the revision).
+
+**Revised:** 2026-09-26 (T-1623) — **the refusal above landed after that reversal, so the
+seats it reports as 112 stand at 108 and the rows handed to T-1614 at 1,372.** The reversal
+gave the two franklin roofs back to the household layer and left the slot table at four; the
+refusal then took the table to nothing, because the four roofs it asked for could stand only
+on the one lot each of two blocks keeps open. So the deal is 108 seats, every one of them an
+adoption, no order drawn on, nothing baked, and no seat that is a household with an address
+and no walls. The 4 the reversal counted as requests are OWED to **T-1200** through
+**T-1214**, and the guard in `seat_platted_ground_1835.py` is an assertion rather than a
+memory: a seat on a block's last open lot, or beside a standing roof on a free lot, refuses
+the whole pass. The order book's seated join moves with it, 184 to **180** — this pass's 108
+plus the off-plat pass's 72 — and is restated in `build_order_book_1835.py` rather than
+re-summed.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26.
+
+### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
+
+**Scope:** `off_plat_seats.seats[dealt]` — 72 households given a parcel of the committed
+ground the plat's own lot ledger does not draw, in
+`data/reconstruction/1835_off_plat_seats.json` beside the 1,302 written refusals,
+re-derived by `tools/seat_off_plat_ground_1835.py --build` and gated by its `--check`.
+The companion `data/reconstruction/1835_off_plat_ledger.json` enumerates the 177 parcels
+the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not
+claimed as one, for the reason **L270** gives about its own: every field is read off a
+committed record.
+
+**The ledger invents nothing, and it invents no line finer than the one it was given.**
+The 136 tier lots are `north_division_tier_lots.json` (T-1457) and
+`school_section_tier_lots.json` (T-1466), both written after the Thompson lot grid was
+closed, which is why neither is among L270's 226. The 27 Kinzie's Addition blocks are
+carried at BLOCK granularity and not lot, because that plat's own grid withholds its
+subdivision in as many words — no lot rule has been read for it, and carrying the
+Original Town's four-to-a-face module across the river would be a guess dressed as
+arithmetic. The 7 survey tracts are the placed chips of the 1834 colour key. The 5 camp
+grounds are carried by NAME and no polygon, because T-1214's own file authors no vertex
+and this one may not author one on its behalf. Which parcel a standing roof falls inside
+is a centroid test against those committed polygons, finest line first, so a roof inside a
+tier lot is reported on that lot and not on the tract the tier sits in.
+
+**Decision:** answer the 1,374 rows T-1613 handed on, in the placement policy's own clause
+order — *the order the committed policy file lists them in, not an order this pass chose* —
+by offering each household a standing anonymous roof of a family its clause admits, off the
+plat and in its own division. All 72 seats are adoptions. **Which parcel a household takes
+is this project's invention**, argued from the clause's stated preferences and nothing else;
+no source places any of these 72 households anywhere. **The policy vocabulary's `ground:`
+terms are spent here**, which is the part L270 deferred: `outside_plat` on every parcel in
+the file by construction, `unplatted` where no lot line is drawn, `wet` where the parcel's
+own committed ground sample reports metres below the datum. Two of the five — `branch` and
+`river_frontage` — are NOT scored, because no committed off-plat parcel record answers them;
+the ledger's `unscored_ground_terms` says so rather than guessing, and that is a gap for a
+later ticket and not a silence.
+
+**NOT ONE SLOT IS RAISED, and that is the finding rather than an omission.** A slot may be
+raised only on a block the 665-roof programme's schedule marks `open`, inside its committed
+family plan and up to its headroom. 150 of these 177 parcels have no row in that schedule of
+any kind — committed, surveyed, drawn ground the building programme does not carry — and the
+27 it does carry are Kinzie's Addition, every one marked `unsubdivided` with no headroom,
+waiting on that plat's own lot rule. So a household with no standing roof free in its own
+division has nowhere at all to be put, and its refusal says which of the two gates stopped
+it: no roof of an admitted family off the plat in that division, or one that a clause the
+policy ranks ABOVE its own had already taken. The 204 farms-and-country-seats rows are the
+second case, and the clause that took their D1 cabins is `labourer_dwellings` — whose own
+documented witness is Clybourn's cabins and Robinson and Caldwell's, both well outside the
+plat.
+
+**Which way it is wrong if it is wrong.** The same way L270 is: toward ground holding too
+FEW of the town's households. The sharpest reading of that is the South Division, where not
+one free reconstruction roof stands off the plat at all — every South Division roof this
+project raised is on a lot of the committed plat, and T-1613 dealt what was free of them.
+All 758 South Division rows handed on here are owed for a shortage of roofs, not a shortage
+of clauses.
+
+**Restated 2026-09-26 (T-1611, then T-1623).** T-1611's six rear cottages took four more of
+**L270**'s rows, and this pass was briefly handed 1,370 and handed on 1,298; T-1623 then
+refused **L270**'s last four slots, which hands those four rows straight back here, so the
+counts above stand as written — 1,374 in, 72 adoptions, 1,302 out. The 72 never moved through
+either ruling, because **L272**'s six cottages all stand on the committed plat and none of
+them is ground this entry deals, and neither is the reserved corner lot the refusal keeps
+open.
+
+**How to resolve:** any source placing one of these households retires its seat, exactly as
+L270 says of its own; and a lot rule read for Kinzie's Addition, or a schedule row for the
+tiers and the tracts, turns the owed rows into slots rather than refusals. The retirement
+and the re-deal both run through `--build`, never by hand.
+
+**Related:** **L270** (the plat's own ledger and deal, whose 1,374 owed rows are this
+entry's scope), **L90** (the anonymous roofs this pass adopts), **L1** (a camp never becomes
+a figure), tickets **T-1614** (this entry), **T-1199** (the parent ask), **T-1613** (the
+predecessor), **T-1615** (the successor these 1,302 are handed to), **T-1214** (the camp
+grounds carried here by name), **T-1457** and **T-1466** (the two tiers), **T-0516** (the
+anonymous-stock statement it refuses to overturn).
+**Recorded:** 2026-09-26.
+
+### L272 — Six invented yard buildings on three platted blocks become rear cottages, and every one of them grows or shrinks to the dwelling band it joins
+
+**Scope:** `1835_platted_block_parcels.json[redealt]` — 6 slots of three South Division
+blocks, re-derived into `recon_1835_blk_randolph_market_d4_07`, `_d4_12`, `_d2_05`,
+`_d2_06`, `recon_1835_blk_south_water_lasalle_d3_06` and
+`recon_1835_blk_south_water_wells_d1_07`. These are six of the anonymous roofs **L97**,
+**L100** and **L101** raised on those three blocks; nothing here adds, removes or withdraws
+a roof, and the town's standing count does not move.
+
+**Decision:** carry out, in the recipe, the last six of the thirty-two refamily verdicts
+T-1445's adjudication reached — a stable behind a Washington Street lot, a stable behind a
+Randolph frontage run, a privy, a woodshed and two more stables become two two-room frame
+cottages, two rough-plank dwellings, a one-room frame cottage and an older log dwelling, on
+the same lots, at the same 5.0 m setbacks off the same block alleys.
+`tools/execute_roof_redeal.py --redeal-blocks` writes them and `--check-blocks` gates them;
+the argument that freed them is published at
+`docs/RESEARCH/1835_block_redeal_remedies.md`.
+
+**Nothing is adjudicated here.** Every family written is the `to_family` T-1445 reached,
+and every reason recorded beside it is T-1445's own, quoted. The adjudication is the
+liberty; this is its execution.
+
+**The class is asked, never typed — and that is the whole of what waited on the owner.**
+Each of the six is a dwelling family standing in the yard of a lot whose main house is
+already dealt. Read off the family GROUP alone, a dwelling is a principal roof, and the
+parcel gate refuses a second principal roof on an occupied lot: all six were refused, and
+no re-deal inside the verdict avoided it, because all 36 families the adjudication offered
+across them are ordinary dwellings. T-1482 measured that and asked, because the way out
+changes what the town is. The owner ruled on **2026-09-23** that a rear cottage is
+ancillary, so a lot may carry a main house plus a rear dwelling — the thirteenth placement
+clause, `rear_dwelling_behind_its_own_roof`, written into **L256** under T-1610. This entry is the consequence:
+`reconcile_665.inventory_class` is asked for each re-dealt slot's class rather than told
+it, and `generate_block_infill.check_slot_inventory_classes` refuses any recipe slot whose
+declared class is not the derived one. **0 of the 6 move class**, which is why the blocks'
+principal-roof counts, `lot_ceiling_principal` and `block_rooms` do not move either.
+
+**Six footprints move, and that is this entry's own invention rather than T-1445's.** The
+block recipe authors no dimensions: the generator samples a rectangle inside the family's
+own band on a stable key, so joining a new family RE-DERIVES the footprint. Three roofs
+shrink and three grow, and two of them grow a great deal — a 1.69 × 1.87 m privy becomes a
+4.58 × 5.33 m rough-plank dwelling (3.2 to 24.4 m²) and a 2.20 × 3.92 m woodshed becomes a
+4.50 × 5.69 m one (8.6 to 25.6 m²). That is not a size chosen to look right and it is not a
+measurement of anything: it is what the D2 band's own floor is, and a shanty somebody sleeps
+in cannot be the size of a privy. The other four move between 34.6 and 53.9 m², each inside
+its new band.
+
+**The slot does not move and the origin does.** The verdict's own words are *"the slot is
+wanted and the position stands"*, and the slot's lot, its 5.0 m setback off the alley and
+its lateral offset are all untouched. But a record's position is the footprint's ORIGIN
+corner, derived from the lot frame and the setback, so a bigger rectangle at the same
+setback has its origin further along the lot: the six origins move between **0.38 m and
+3.75 m**, the largest being the privy that became a dwelling. Nobody re-placed a building;
+saying the position is unchanged while six coordinates change would be the kind of claim
+this file exists to refuse. Every one of the six was re-tested where it landed — against
+the platted street corridors, its own lot lines, the block's no-build ground and every other
+footprint in the dataset — and none was refused.
+
+**Nine other roofs change their clapboard course, and that is not a side effect to be
+hidden.** The siding stock (**L148**) is dealt across a parcel and then advanced so that no
+two roofs standing within 60 m of each other hang the same course. Six new dwellings in the
+deal move the advance, so five of their block neighbours —
+`recon_1835_blk_randolph_market_d5_11` and `_d6_02`,
+`recon_1835_blk_south_water_lasalle_d3_10`, `_d4_02` and `_d5_01` — wear a different one of
+the same four period mill sidings than they did, and four documented frame buildings
+(`chicago_democrat_office`, `harmon_loomis_store`, `lasalle_lake_house`,
+`pruyne_kimball_drugstore`) move with them. Nothing about those nine is re-graded and none
+of them moves: the stock was invention before and is invention after, at the same bottom
+tier, and the separation it buys is the point of it. All nine were rebaked in this change,
+because a record whose siding moved and whose mesh did not is a building the renderer draws
+wrongly.
+
+**One archetype does not follow the family, and it is left alone.** The two D2 roofs render
+as `outbuilding`, the same archetype they had as a privy and a woodshed, because that is
+what the family–archetype crosswalk deals D2. A rough-plank shanty and a woodshed are the
+same shape of thing to this renderer, and substituting a dwelling archetype here to make
+the change more visible would be inventing a form the crosswalk does not claim.
+
+**The grade does not move.** All six were `reconstructed` count-units before and are
+`reconstructed` after — that any building stood on this ground, which building it was and
+every dimension of it. Refamilying changes what an invented building is, never how well
+attested it is, and no roof here identifies an owner, an address, a use or an observed
+building.
+
+**Which way it is wrong if it is wrong.** Toward three blocks with too many dwellings and
+too few yards. The three blocks lose a stable, a privy, a woodshed and two more stables
+from their back lots and gain four cottages and a log dwelling in their place, on the
+adjudication's finding that a yard building standing nearest a principal street is refused
+where it stands. The yard buildings the blocks still want stay counted in the order book for
+the seating tickets to put back. The alternative — recorded and costed in
+`docs/RESEARCH/1835_block_redeal_remedies.md` as remedies (b) and (c) — was to move the six
+onto ground that does not exist, or to withdraw the verdicts and re-read the clause, and the
+owner chose neither.
+
+**Related:** **L97**, **L100** and **L101** (the three blocks these six stand on), **L256**
+(the rear-cottage clause this executes against), **L265** (the same execution for the West
+Division parcel), **L266** (the log-roof grading one of the six now falls under), the
+adjudication **T-1445**, the id-migration surface **T-1483**, the parent **T-1452**, the
+question and its remedies **T-1482**, the clause **T-1610**, this execution **T-1611**.
+**Recorded:** 2026-09-26.

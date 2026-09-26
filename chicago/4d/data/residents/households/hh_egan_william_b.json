@@ -61,6 +61,7 @@
    "name": "Dr William Bradshaw Egan",
    "relationship": "head",
    "grade": "attested",
+   "ladder_rule": "G1c",
    "sex": "male",
    "birth_year": {
     "value": 1808,
@@ -94,7 +95,9 @@
     "andreas_1884_v1",
     "chicago_voter_lists_1833_1835_irad",
     "fergus_chicago_directory_1839",
-    "isa_public_domain_land_tract_sales"
+    "fergus_chicago_directory_1843",
+    "isa_public_domain_land_tract_sales",
+    "st_marys_baptismal_register_1833_1835"
    ],
    "dated_bounds": [
     {
@@ -183,7 +186,7 @@
       "regraded_on": "2026-09-04",
       "rule": "G2b",
       "withheld": "the downgrade to inferred",
-      "reason": "This card rests on 3 thing(s) the consolidation did not read — andreas_1884_v1, fergus_chicago_directory_1839, isa_public_domain_land_tract_sales. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
+      "reason": "This card rests on 4 thing(s) the consolidation did not read — andreas_1884_v1, fergus_chicago_directory_1839, isa_public_domain_land_tract_sales, st_marys_baptismal_register_1833_1835. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
      }
     ],
     "summary": "The 1833 tax list and the 1834 poll both print the whole name 'Egan, William Bradshaw' — the middle name in full, which is as strong a discriminator as this corpus offers. Fergus 1839 then prints 'Egan, Dr. William B., real estate dealer, bds. City Hotel' and the 1837 election return 'William B. Egan'."
@@ -208,6 +211,26 @@
      "employer_or_body": "not_stated",
      "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
      "premises": "own_premises"
+    },
+    {
+     "role": null,
+     "kind": "trade",
+     "as_printed": "real estate dealer",
+     "from": "1839",
+     "to": "1839",
+     "precision": "year",
+     "dated_by": "printing_year",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "fergus_chicago_directory_1839"
+     ],
+     "claim": "f1839_e0445",
+     "place": "not_stated",
+     "employer_or_body": "not_stated",
+     "note": "A TRADE PRINTED IN THE 1839 DIRECTORY, 4 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on. An address NUMBER in the 1839 directory is 1876's and not 1839's, on the compiler's own statement on printed page 3, so `place` carries the street NAME the entry names and the number is dropped — the crosswalk's own `address_rule`, applied here rather than tripped over downstream.",
+     "premises": null
     },
     {
      "role": null,
@@ -250,6 +273,52 @@
      "premises": null
     }
    ],
+   "church_evidence": [
+    {
+     "list": "church_1833_1835",
+     "as_read": "Doctor Egan",
+     "locator": "sponsor",
+     "record_id": "st_marys_bapt_1834_18_4_sponsor",
+     "describes_date": "1834-07-16",
+     "source": "st_marys_baptismal_register_1833_1835",
+     "rule": "G2c"
+    }
+   ],
+   "book_evidence": [
+    {
+     "list": "directory_1843",
+     "as_read": "DOCTOR EGAN can be consulted in private cases at his residence or office, but can not attend to out-door practice.",
+     "locator": "residence or office, but can not attend to out-door practice",
+     "record_id": "f1843_e0136",
+     "describes_date": "1843",
+     "source": "fergus_chicago_directory_1843",
+     "rule": "G2c"
+    }
+   ],
+   "merged_from": [
+    {
+     "ticket": "T-0839",
+     "rule": "C0",
+     "cluster": "egan",
+     "cards": [
+      "egan_doctor"
+     ],
+     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "distinct",
+     "rule": "D1",
+     "cluster": "egan",
+     "weighed_against": [
+      "egan_emeline"
+     ],
+     "for_merge": "",
+     "against_merge": ""
+    }
+   ],
    "age_band": {
     "value": "20-29",
     "low": 20,
@@ -290,6 +359,19 @@
      "andreas_1884_v1"
     ]
    },
+   "merge_ruling": [
+    {
+     "ticket": "T-0839",
+     "verdict": "distinct",
+     "rule": "D1",
+     "cluster": "egan",
+     "weighed_against": [
+      "egan_william_b"
+     ],
+     "for_merge": "",
+     "against_merge": ""
+    }
+   ],
    "age_band": {
     "value": "20-29",
     "low": 20,

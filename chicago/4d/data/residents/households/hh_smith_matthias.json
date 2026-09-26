@@ -2,20 +2,38 @@
  "id": "hh_smith_matthias",
  "name": "The Smith household — a name the town's own records carry",
  "division": "unplaced",
+ "division_reconstructed": {
+  "value": "south",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "band": "south/tradesman_dwellings",
+  "clause": "tradesman_dwellings",
+  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's tradesman_dwellings clause. The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+  "basis": {
+   "kind": "model",
+   "id": "policy_only_deal",
+   "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
+  },
+  "seed": "hh_smith_matthias|T-1522|division:ba37b54298a2|class:c97b35c62ba8",
+  "replaceable_by": {
+   "kind": "household",
+   "match": "any source that places this household in a division or nearer"
+  },
+  "written_by_stage": "policy_only_division"
+ },
  "head": "smith_matthias",
  "source_pass": "civic",
  "arrival": {
   "value": "1833-12-31",
   "confidence": "inferred",
   "sources": [
-   "chicago_voter_lists_1833_1835_irad",
-   "fergus_chicago_directory_1843"
+   "chicago_voter_lists_1833_1835_irad"
   ],
   "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. poll_1833 names this person at Chicago by 31 December 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
   "precision": "not_later_than"
  },
  "arrival_year": {
-  "value": 1818,
+  "value": 1833,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1833-12-31 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
@@ -54,14 +72,14 @@
   "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": "The trading post, the fort and the country trade — the town before the boom",
+  "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
   "basis": {
    "kind": "rule",
    "id": "reason_from_arrival_cohort",
-   "note": "arrival_fill.cohort_reasons — the household's arrival year (1818) is the only thing about it this value rests on."
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
   },
   "replaceable_by": {
    "kind": "person",
@@ -80,22 +98,26 @@
   "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
  },
  "present_on_scene_date": {
-  "value": "present",
+  "value": "uncertain",
   "confidence": "inferred",
   "sources": [
-   "chicago_voter_lists_1833_1835_irad",
-   "fergus_chicago_directory_1843"
+   "chicago_voter_lists_1833_1835_irad"
   ],
-  "note": "THE RECORD BRACKETS THE DAY. This person is named at Chicago at or before 1 July 1835 and named again at or after it, so the sources reach across the scene date rather than stopping at one side of it. Inferred, not documented: no source says where they were on the day."
- },
- "modelled_family": {
-  "stage": "modelled_families",
-  "ticket": "T-1171",
-  "household_type": "family_with_children",
-  "size_drawn": 5,
-  "kin_seated": 5,
-  "seed": "hh_smith_matthias:household_size",
-  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
+  "last_dated_appearance": {
+   "as_read": "1833",
+   "precision": "year",
+   "reaches": "1833-12-31",
+   "includes_scene_date": false,
+   "days_before_scene_date": 547,
+   "leg": "sighting",
+   "person": "smith_matthias",
+   "record": "poll_1833_024",
+   "sources": [
+    "chicago_voter_lists_1833_1835_irad"
+   ],
+   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `civic_evidence` as `1833`, which reaches 1833-12-31 — 547 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+  },
+  "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
  "persons": [
   {
@@ -104,26 +126,14 @@
    "relationship": "head",
    "grade": "inferred",
    "civic_mint": true,
-   "ladder_rule": "G2b",
+   "ladder_rule": "G3",
    "occupation": {
     "value": "none_recorded",
     "confidence": "reconstructed",
-    "later_occupation": {
-     "value": "teacher public school 3, district 4",
-     "describes_date": 1843,
-     "confidence": "attested",
-     "sources": [
-      "fergus_chicago_directory_1843"
-     ],
-     "note": "NONE RECORDED FOR 1835 — AND A TRADE IS RECORDED FOR 1843. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. It is not a claim about the scene date: the 1835 occupation above still reads `none_recorded`, its grade has not moved, and no premises has been sought on the strength of it, because a directory of 1843 is evidence about 1843. It is written because the field a reader consults was asserting an absence this file contradicts three lines further down, and \"no trade anywhere\" and \"no trade in the scene window, one printed 1843\" are not the same fact (T-0693)."
-    },
-    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it.",
-    "derived_from": "roles",
-    "roles_at_scene_date": []
+    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
    },
    "sources": [
     "chicago_voter_lists_1833_1835_irad",
-    "fergus_chicago_directory_1839",
     "fergus_chicago_directory_1843"
    ],
    "dated_bounds": [
@@ -145,11 +155,11 @@
       "chicago_voter_lists_1833_1835_irad"
      ],
      "identity_discriminator": "forenames agree initial for initial: entry 'Matthias Smith' against resident 'Matthias Smith'",
-     "identity_rule": "one resident of the surname 'Smith' agrees with the entry's forenames; 9 bearer(s) of the surname were considered.",
-     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1833-08-10. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Smith' agrees with the entry's forenames; 9 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'Matthias Smith' against resident 'Matthias Smith'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+     "identity_rule": "one resident of the surname 'Smith' agrees with the entry's forenames; 10 bearer(s) of the surname were considered.",
+     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1833-08-10. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Smith' agrees with the entry's forenames; 10 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'Matthias Smith' against resident 'Matthias Smith'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
     }
    ],
-   "note": "AN 1833 OR 1834 LIST — POLL, TAX OR MUSTER — WITH ANOTHER SOURCE. Read from directory_1843, poll_1833. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. poll_1833 names this person at Chicago by 31 December 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “M. Smith” (f1839_v0380, printed page 43, ward 2, voting for John H. Kinzie). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Smith' folds to the same string as the 1837 entry's, and the given name of both begins M. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Smith, Matthias” (poll_1833_024, line 45). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Smith' agrees with the entry's forenames; 9 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json).",
+   "note": "PROJECTED RESIDENT. Documented once and corroborated by nothing else, so the weakest rung of `inferred` the owner's ladder defines. A SINGLE APPEARANCE AND NOTHING ELSE. Read from poll_1833. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G3), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. poll_1833 names this person at Chicago by 31 December 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1). THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 1 time: Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833 — “Smith, Matthias” (poll_1833_024, line 45). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Smith' agrees with the entry's forenames; 9 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json).",
    "civic_evidence": [
     {
      "list": "poll_1833",
@@ -158,44 +168,25 @@
      "record_id": "poll_1833_024",
      "describes_date": "1833",
      "source": "chicago_voter_lists_1833_1835_irad",
-     "rule": "G2b"
+     "rule": "G3"
     }
    ],
-   "book_evidence": [
-    {
-     "list": "directory_1843",
-     "as_read": "Smith, Miss M., teacher public school 3, district 4",
-     "locator": "alphabetical directory",
-     "record_id": "f1843_e2305",
-     "describes_date": "1843",
-     "source": "fergus_chicago_directory_1843",
-     "rule": "G2b"
-    }
-   ],
+   "resident_subtype": "projected_resident",
    "resident_research": {
     "regraded_on": "2026-09-04",
     "rule": "G2b"
    },
-   "roles": [
+   "merge_ruling": [
     {
-     "role": null,
-     "kind": "trade",
-     "as_printed": "teacher public school 3, district 4",
-     "from": "1843",
-     "to": "1843",
-     "precision": "year",
-     "dated_by": "printing_year",
-     "covers_scene_date": false,
-     "fills_scene_view": false,
-     "confidence": "attested",
-     "sources": [
-      "fergus_chicago_directory_1843"
+     "ticket": "T-1525",
+     "verdict": "distinct",
+     "rule": "D8",
+     "cluster": "smith-mathias-matthias",
+     "weighed_against": [
+      "smith_mathias"
      ],
-     "claim": null,
-     "place": "not_stated",
-     "employer_or_body": "not_stated",
-     "note": "A TRADE PRINTED AGAINST THIS NAME IN A LATER VOLUME, and this row says which year rather than leaving it to a pointer (T-0693, carried here by tools/derive_resident_roles.py). `role` is null because the directory's wording has not been adjudicated into the closed vocabulary — the printing is what the source gives and the printing is what is kept. T-1254 is where the controlled term is ruled on. It is not a claim about 1835-07-01 and never becomes one: the year is 1843. SYNONYM-FOLDED (T-1254): the same source prints this role as teacher public school 3, district 4 as well, and one source asserting one role over one bound is one row.",
-     "premises": null
+     "for_merge": "Mathias and Matthias ARE two spellings of one name, not two given names — this is D8's shape and not the stronger refusal it reserves for Mark against Mary. The surname agrees letter for letter, neither card carries a middle initial, so nothing but one doubled t stands between them, and the town holds exactly one bearer of each spelling.",
+     "against_merge": "NO PRINTING SETS BOTH, AND SMITH IS THE WORST SURNAME IN THE CORPUS TO FOLD ON A RESEMBLANCE. The corpus and the reading index were searched: 'Matthias Smith' is set 7 times across four texts and stands on the poll of 1833; 'Mathias Smith' is set NOWHERE in the deposited corpus and stands on one reading, a St Mary's sponsor of 5 June 1833. A poll book against a parish register — two instruments that do not touch — and no single issue, roll or directory entry is caught setting both spellings for one man. Against the corpus silence stands the surname itself: Smith is set 1,107 times across 93 texts and the layer already carries ten Smith cards, so this stem has abundant independent life and the silence around one forename spelling proves nothing about identity. The reading index holds 75 identities of each spelling. D8."
     }
    ],
    "age_band": {
@@ -222,284 +213,19 @@
     "confidence": "inferred",
     "note": "A FORENAME THAT STANDS IN ONE SEX'S NAMING ONLY. 'Matthias' is read as male because 1 person in this layer whose sex a source records bears it (mason_matthias). Nothing about this person is recorded; the name is the whole of the reasoning, and the table that licenses it — data/research/residents/forename_sex.json — refuses a name its own evidence splits, refuses Jean, Marion, Leslie and Francis by name, and refuses an initial outright."
    }
-  },
-  {
-   "id": "rc_smith_matthias_wife",
-   "name": "Lydia Smith",
-   "relationship": "wife",
-   "grade": "reconstructed",
-   "sex": "female",
-   "age_band": {
-    "value": "20-29",
-    "low": 20,
-    "high": 29,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30'. Never above the head's own band: the spacing rule of the household model, which the 1840 adult sex ratio argues for and no source states."
-    },
-    "seed": "hh_smith_matthias:wife_age_bands_1840",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "Lydia Smith",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
-    },
-    "seed": "hh_smith_matthias:wife_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of Matthias Smith's family"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "size_histogram_1840",
-    "note": "The household model drew this house at 5 people from the 1840 city's size histogram, at the head's own band and not at the mean. A house of 5 with a head of 30 and over is a married house, and this is its wife."
-   },
-   "seed": "hh_smith_matthias:household_size",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming this head's family"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "modelled_families",
-    "ticket": "T-1171",
-    "community": "yankee",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-  },
-  {
-   "id": "rc_smith_matthias_child_1",
-   "name": "Elisha Smith",
-   "relationship": "son",
-   "grade": "reconstructed",
-   "sex": "male",
-   "age_band": {
-    "value": "0-4",
-    "low": 0,
-    "high": 4,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
-    },
-    "seed": "hh_smith_matthias:child_1_age_bands_1840",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "Elisha Smith",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
-    },
-    "seed": "hh_smith_matthias:child_1_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of Matthias Smith's family"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "size_histogram_1840",
-    "note": "The household model drew this house at 5 people; the head and his wife seated, 3 of them are children."
-   },
-   "seed": "hh_smith_matthias:household_size",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming this head's family"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "modelled_families",
-    "ticket": "T-1171",
-    "community": "yankee",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-  },
-  {
-   "id": "rc_smith_matthias_child_2",
-   "name": "Abner Smith",
-   "relationship": "son",
-   "grade": "reconstructed",
-   "sex": "male",
-   "age_band": {
-    "value": "0-4",
-    "low": 0,
-    "high": 4,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
-    },
-    "seed": "hh_smith_matthias:child_2_age_bands_1840",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "Abner Smith",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
-    },
-    "seed": "hh_smith_matthias:child_2_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of Matthias Smith's family"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "size_histogram_1840",
-    "note": "The household model drew this house at 5 people; the head and his wife seated, 3 of them are children."
-   },
-   "seed": "hh_smith_matthias:household_size",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming this head's family"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "modelled_families",
-    "ticket": "T-1171",
-    "community": "yankee",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-  },
-  {
-   "id": "rc_smith_matthias_child_3",
-   "name": "Nathaniel Smith",
-   "relationship": "son",
-   "grade": "reconstructed",
-   "sex": "male",
-   "age_band": {
-    "value": "0-4",
-    "low": 0,
-    "high": 4,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
-    },
-    "seed": "hh_smith_matthias:child_3_age_bands_1840",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "Nathaniel Smith",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
-    },
-    "seed": "hh_smith_matthias:child_3_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of Matthias Smith's family"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "size_histogram_1840",
-    "note": "The household model drew this house at 5 people; the head and his wife seated, 3 of them are children."
-   },
-   "seed": "hh_smith_matthias:household_size",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming this head's family"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "modelled_families",
-    "ticket": "T-1171",
-    "community": "yankee",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,
  "review_required": false,
  "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213.",
  "directories": {
-  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. smith_matthias, Fergus's Chicago directory of 1843 — f1843_e2305 (a single entry).",
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. smith_matthias, Fergus's Chicago directory of 1843 — f1843_e2305 (contested, so nothing crossed).",
   "sources": [
    "fergus_chicago_directory_1843"
   ],
   "people": [
    {
-    "person_id": "smith_matthias",
-    "occupation_later": {
-     "value": "teacher public school 3, district 4",
-     "confidence": "attested",
-     "describes_date": 1843,
-     "sources": [
-      "fergus_chicago_directory_1843"
-     ],
-     "note": "Fergus's Chicago directory of 1843 prints this trade against this person, in the entry quoted on the card: 'Smith, Miss M., teacher public school 3, district 4'. It is evidence about 1843, written here as 1843's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
-    }
+    "person_id": "smith_matthias"
    }
   ]
  }

@@ -19,7 +19,7 @@
       "ticket": "T-0493",
       "what": "The four voter lists of 1833-1835, every entry crosswalked to the residents layer by tools/read_voter_lists.py under the matching rules at the head of that file.",
       "merges": 0,
-      "refusals": 29,
+      "refusals": 30,
       "why_no_merges": "A merge here would be a claim that a poll entry and a resident record are the same man, and this ticket does not make that claim for anybody: where the rules agree the entry is reported as matched in voter_crosswalk.json, and where they do not it is reported as a refusal. The mint (T-0514) is where a merge belongs."
     }
   ],
@@ -156,15 +156,15 @@
     {
       "pass": "T-0493",
       "a": "Medard Beaubien",
-      "b": "Alexandre Beaubien",
-      "rule": "The surname agrees and the forenames do not: 'Medard Beaubien' against 'Alexandre Beaubien'. A surname match is a clue, not an identity.",
+      "b": "Alexander Beaubien",
+      "rule": "The surname agrees and the forenames do not: 'Medard Beaubien' against 'Alexander Beaubien'. A surname match is a clue, not an identity.",
       "evidence": [
         {
           "source_id": "chicago_voter_lists_1833_1835_irad",
           "locator": "poll_1833 line 26"
         },
         {
-          "resident": "beaubien_alexandre"
+          "resident": "beaubien_alexander"
         }
       ]
     },
@@ -412,6 +412,21 @@
         },
         {
           "resident": "weaver_betsy"
+        }
+      ]
+    },
+    {
+      "pass": "T-0493",
+      "a": "Whistler",
+      "b": "Gwinthlean Whistler",
+      "rule": "A surname-only entry is always a refusal: 'Whistler' prints no forename, so nothing in it can separate 'Gwinthlean Whistler' from the other bearers of the surname.",
+      "evidence": [
+        {
+          "source_id": "chicago_voter_lists_1833_1835_irad",
+          "locator": "tax_1833 line 160"
+        },
+        {
+          "resident": "whistler_gwinthlean"
         }
       ]
     },

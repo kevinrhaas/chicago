@@ -19,10 +19,10 @@
     "data/structures/*.json"
   ],
   "counts": {
-    "people_in_scope": 525,
+    "people_in_scope": 526,
     "by_kind": {
       "class_held_no_house": 71,
-      "keeps_their_own_house": 164,
+      "keeps_their_own_house": 165,
       "no_employer_named": 162,
       "no_ruling": 5,
       "seated": 123
@@ -523,7 +523,7 @@
     "nearest": 0,
     "seeded_draw": 123,
     "why_division_is_inert": "No business record carries a division. The order book says why in its own words — 'EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY ... assigning premises to a division is T-1182's audit and T-1198's seating' — and this tool reads the field rather than deriving one, because deriving one is that audit done without a licence for it. Business records stating a division today: 0.",
-    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 30 of 196 business records name a structure this project holds, and 44 of 2136 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
+    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 30 of 196 business records name a structure this project holds, and 47 of 2203 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
   },
   "by_trade": {
     "attorney": {
@@ -564,9 +564,9 @@
       }
     },
     "boarding_house_keeper": {
-      "people": 44,
+      "people": 45,
       "kinds": {
-        "keeps_their_own_house": 44
+        "keeps_their_own_house": 45
       }
     },
     "boatman": {
@@ -637,10 +637,10 @@
       }
     },
     "domestic": {
-      "people": 76,
+      "people": 75,
       "kinds": {
         "seated": 14,
-        "class_held_no_house": 62
+        "class_held_no_house": 61
       }
     },
     "drayman": {
@@ -820,10 +820,10 @@
       }
     },
     "schoolteacher": {
-      "people": 7,
+      "people": 8,
       "kinds": {
         "seated": 6,
-        "class_held_no_house": 1
+        "class_held_no_house": 2
       }
     },
     "seaman": {
@@ -1695,7 +1695,7 @@
       "kind": "no_employer_named",
       "trade": "speculator",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "north",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -1769,6 +1769,36 @@
         "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
       },
       "chosen_by": []
+    },
+    {
+      "person_id": "rc_bourassa_madeleine",
+      "person_name": "Madeleine Bourassa",
+      "household_id": "hh_rc_bourassa_madeleine",
+      "kind": "seated",
+      "trade": "schoolteacher",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "south",
+      "business_id": "biz_j_a_marshall_s_dancing_school",
+      "business_name": "J. A. Marshall's dancing school",
+      "role": "schoolteacher",
+      "tier": "reconstructed",
+      "seed": "rc_bourassa_madeleine:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "establishment_class": "school",
+      "basis": {
+        "kind": "model",
+        "id": "1835_business_staffing_model#school.schoolteacher",
+        "note": "The staffing model puts 0 of this role in a school at the typical band and 1 at the high end, on period_convention. An assistant, at the larger schools only; the town's schools of 1835 are one room and one teacher. Analogue: the 1839 list's 13 schoolteachers. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a source naming where this person worked, which retires the draw"
+      },
+      "chosen_by": [
+        "seeded_draw"
+      ],
+      "candidates_considered": 6
     },
     {
       "person_id": "rc_brady_catherine",
@@ -2111,7 +2141,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 6
+      "candidates_considered": 5
     },
     {
       "person_id": "rc_cavanagh_bridget",
@@ -2196,8 +2226,8 @@
       "chosen_by": []
     },
     {
-      "person_id": "rc_cavanagh_johanna",
-      "person_name": "Johanna Cavanagh",
+      "person_id": "rc_cavanagh_ellen",
+      "person_name": "Ellen Cavanagh",
       "household_id": "hh_lodging_recon_1835_north_h2_028",
       "kind": "keeps_their_own_house",
       "trade": "boarding_house_keeper",
@@ -2207,7 +2237,7 @@
       "business_name": null,
       "role": null,
       "tier": "reconstructed",
-      "seed": "rc_cavanagh_johanna:employment",
+      "seed": "rc_cavanagh_ellen:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
       "classes": [],
@@ -3498,7 +3528,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 5
+      "candidates_considered": 4
     },
     {
       "person_id": "rc_dickinson_lucy",
@@ -3758,7 +3788,7 @@
       "kind": "class_held_no_house",
       "trade": "domestic",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -3866,33 +3896,6 @@
       "chosen_by": []
     },
     {
-      "person_id": "rc_doyle_honora",
-      "person_name": "Honora Doyle",
-      "household_id": "hh_rc_doyle_honora",
-      "kind": "keeps_their_own_house",
-      "trade": "boarding_house_keeper",
-      "premises": "own_premises",
-      "division_of_the_person": "south",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_doyle_honora:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "classes": [],
-      "basis": {
-        "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
-      },
-      "chosen_by": []
-    },
-    {
       "person_id": "rc_doyle_john",
       "person_name": "John Doyle",
       "household_id": "hh_rc_garrison_company_1",
@@ -3921,11 +3924,11 @@
     {
       "person_id": "rc_doyle_margaret",
       "person_name": "Margaret Doyle",
-      "household_id": "hh_rc_walsh_owen",
-      "kind": "no_employer_named",
-      "trade": "laundress",
-      "premises": "no_fixed_premises",
-      "division_of_the_person": "fort",
+      "household_id": "hh_rc_doyle_margaret",
+      "kind": "keeps_their_own_house",
+      "trade": "boarding_house_keeper",
+      "premises": "own_premises",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -3933,14 +3936,15 @@
       "seed": "rc_doyle_margaret:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
+      "classes": [],
       "basis": {
-        "kind": "ruling",
-        "id": "no_fixed_premises_and_no_class_employs_this_trade",
-        "note": "The premises ruling: Washing was taken in at the laundress's own dwelling or done at her employer's, and T-1419 (of T-1186) rules that NEITHER is a house of trade: a dwelling that takes in washing is a dwelling, and work done in another household's kitchen is done on premises the laundress does not keep. The workplace link is T-1189's. This does not touch rcb_fb_washing_and_ironing, an establishment T-1377's documented floor argues for directly. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
+        "kind": "rule",
+        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -4006,7 +4010,7 @@
       "kind": "class_held_no_house",
       "trade": "domestic",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -4169,7 +4173,7 @@
       "kind": "class_held_no_house",
       "trade": "domestic",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -4852,7 +4856,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 4
+      "candidates_considered": 3
     },
     {
       "person_id": "rc_fairbanks_reuben",
@@ -5269,7 +5273,7 @@
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -5837,7 +5841,7 @@
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "north",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -7820,7 +7824,7 @@
       "kind": "class_held_no_house",
       "trade": "domestic",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -7925,9 +7929,9 @@
       "candidates_considered": 10
     },
     {
-      "person_id": "rc_laframboise_francois",
-      "person_name": "Francois Laframboise",
-      "household_id": "hh_rc_laframboise_francois",
+      "person_id": "rc_laframboise_charles",
+      "person_name": "Charles Laframboise",
+      "household_id": "hh_rc_laframboise_charles",
       "kind": "keeps_their_own_house",
       "trade": "carpenter",
       "premises": "own_premises",
@@ -7936,7 +7940,7 @@
       "business_name": null,
       "role": null,
       "tier": "reconstructed",
-      "seed": "rc_laframboise_francois:employment",
+      "seed": "rc_laframboise_charles:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
       "classes": [],
@@ -7952,18 +7956,18 @@
       "chosen_by": []
     },
     {
-      "person_id": "rc_laframboise_joseph",
-      "person_name": "Joseph Laframboise",
-      "household_id": "hh_rc_laframboise_joseph",
+      "person_id": "rc_laframboise_francois",
+      "person_name": "Francois Laframboise",
+      "household_id": "hh_rc_laframboise_francois",
       "kind": "seated",
       "trade": "clerk",
       "premises": "no_fixed_premises",
       "division_of_the_person": "north",
-      "business_id": "biz_dr_w_g_austin",
-      "business_name": "Dr. W. G. Austin",
+      "business_id": "biz_dr_j_h_barnard",
+      "business_name": "Dr. J. H. Barnard",
       "role": "clerk",
       "tier": "reconstructed",
-      "seed": "rc_laframboise_joseph:employment",
+      "seed": "rc_laframboise_francois:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
       "establishment_class": "physician_practice",
@@ -8711,7 +8715,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 3
+      "candidates_considered": 2
     },
     {
       "person_id": "rc_lyman_samuel",
@@ -8830,6 +8834,32 @@
       "chosen_by": []
     },
     {
+      "person_id": "rc_lynch_margaret",
+      "person_name": "Margaret Lynch",
+      "household_id": "hh_rc_walsh_owen",
+      "kind": "no_employer_named",
+      "trade": "laundress",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "fort",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_lynch_margaret:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "basis": {
+        "kind": "ruling",
+        "id": "no_fixed_premises_and_no_class_employs_this_trade",
+        "note": "The premises ruling: Washing was taken in at the laundress's own dwelling or done at her employer's, and T-1419 (of T-1186) rules that NEITHER is a house of trade: a dwelling that takes in washing is a dwelling, and work done in another household's kitchen is done on premises the laundress does not keep. The workplace link is T-1189's. This does not touch rcb_fb_washing_and_ironing, an establishment T-1377's documented floor argues for directly. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
+      },
+      "chosen_by": []
+    },
+    {
       "person_id": "rc_lynch_martin",
       "person_name": "Martin Lynch",
       "household_id": "hh_rc_garrison_company_2",
@@ -8921,7 +8951,7 @@
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -9223,8 +9253,8 @@
       "trade": "schoolteacher",
       "premises": "no_fixed_premises",
       "division_of_the_person": "south",
-      "business_id": "biz_j_a_marshall_s_dancing_school",
-      "business_name": "J. A. Marshall's dancing school",
+      "business_id": "biz_john_watkins",
+      "business_name": "John Watkins",
       "role": "schoolteacher",
       "tier": "reconstructed",
       "seed": "rc_mccarthy_johanna:employment",
@@ -9243,7 +9273,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 2
+      "candidates_considered": 1
     },
     {
       "person_id": "rc_mccarthy_john",
@@ -9589,8 +9619,8 @@
       "trade": "clerk",
       "premises": "no_fixed_premises",
       "division_of_the_person": "south",
-      "business_id": "biz_dr_j_h_barnard",
-      "business_name": "Dr. J. H. Barnard",
+      "business_id": "biz_dr_w_g_austin",
+      "business_name": "Dr. W. G. Austin",
       "role": "clerk",
       "tier": "reconstructed",
       "seed": "rc_metcalf_elisha:employment",
@@ -9749,35 +9779,6 @@
       "chosen_by": []
     },
     {
-      "person_id": "rc_murphy_bridget",
-      "person_name": "Bridget Murphy",
-      "household_id": "hh_rc_murphy_bridget",
-      "kind": "class_held_no_house",
-      "trade": "domestic",
-      "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_murphy_bridget:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "classes": [
-        "tavern_or_hotel"
-      ],
-      "basis": {
-        "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in tavern_or_hotel, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
-      },
-      "chosen_by": []
-    },
-    {
       "person_id": "rc_murphy_bryan",
       "person_name": "Bryan Murphy",
       "household_id": "hh_rc_murphy_bryan",
@@ -9899,7 +9900,7 @@
       "kind": "class_held_no_house",
       "trade": "domestic",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "north",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -10010,7 +10011,7 @@
       "kind": "class_held_no_house",
       "trade": "domestic",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "north",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -10069,7 +10070,7 @@
       "kind": "no_employer_named",
       "trade": "seaman",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "north",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -10294,7 +10295,7 @@
       "kind": "no_employer_named",
       "trade": "music_teacher",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "north",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -10376,7 +10377,7 @@
       "kind": "no_employer_named",
       "trade": "surveyor",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -10565,7 +10566,7 @@
       "kind": "class_held_no_house",
       "trade": "blacksmith",
       "premises": "own_premises",
-      "division_of_the_person": "north",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -10594,7 +10595,7 @@
       "kind": "class_held_no_house",
       "trade": "butcher",
       "premises": "own_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -11177,34 +11178,60 @@
       "chosen_by": []
     },
     {
+      "person_id": "rc_pelletier_victoire",
+      "person_name": "Victoire Pelletier",
+      "household_id": "hh_lodging_recon_1835_west_035",
+      "kind": "keeps_their_own_house",
+      "trade": "boarding_house_keeper",
+      "premises": "own_premises",
+      "division_of_the_person": "west",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_pelletier_victoire:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "classes": [],
+      "basis": {
+        "kind": "rule",
+        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+      },
+      "chosen_by": []
+    },
+    {
       "person_id": "rc_pothier_victoire",
       "person_name": "Victoire Pothier",
       "household_id": "hh_rc_pothier_victoire",
-      "kind": "seated",
+      "kind": "class_held_no_house",
       "trade": "schoolteacher",
       "premises": "no_fixed_premises",
       "division_of_the_person": "west",
-      "business_id": "biz_john_watkins",
-      "business_name": "John Watkins",
-      "role": "schoolteacher",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
       "tier": "reconstructed",
       "seed": "rc_pothier_victoire:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
-      "establishment_class": "school",
+      "classes": [
+        "school"
+      ],
       "basis": {
-        "kind": "model",
-        "id": "1835_business_staffing_model#school.schoolteacher",
-        "note": "The staffing model puts 0 of this role in a school at the typical band and 1 at the high end, on period_convention. An assistant, at the larger schools only; the town's schools of 1835 are one room and one teacher. Analogue: the 1839 list's 13 schoolteachers. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
+        "kind": "rule",
+        "id": "the_class_that_employs_this_trade_holds_no_room",
+        "note": "The staffing model employs this trade in school, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
       },
       "replaceable_by": {
-        "kind": "person",
-        "match": "a source naming where this person worked, which retires the draw"
+        "kind": "business",
+        "match": "a house of this class raised or read into the layer, after which this person seats at it"
       },
-      "chosen_by": [
-        "seeded_draw"
-      ],
-      "candidates_considered": 1
+      "chosen_by": []
     },
     {
       "person_id": "rc_pratt_alanson",
@@ -11775,7 +11802,7 @@
       "kind": "class_held_no_house",
       "trade": "domestic",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "north",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -12152,7 +12179,7 @@
       "kind": "no_employer_named",
       "trade": "boatman",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -12236,7 +12263,7 @@
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -12252,35 +12279,6 @@
       "replaceable_by": {
         "kind": "business",
         "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
-      },
-      "chosen_by": []
-    },
-    {
-      "person_id": "rc_ryan_margaret",
-      "person_name": "Margaret Ryan",
-      "household_id": "hh_rc_ryan_margaret",
-      "kind": "class_held_no_house",
-      "trade": "domestic",
-      "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_ryan_margaret:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "classes": [
-        "tavern_or_hotel"
-      ],
-      "basis": {
-        "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in tavern_or_hotel, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
       },
       "chosen_by": []
     },
@@ -12462,9 +12460,9 @@
       "person_id": "rc_shea_alice",
       "person_name": "Alice Shea",
       "household_id": "hh_rc_shea_alice",
-      "kind": "keeps_their_own_house",
-      "trade": "milliner",
-      "premises": "own_premises",
+      "kind": "class_held_no_house",
+      "trade": "domestic",
+      "premises": "no_fixed_premises",
       "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
@@ -12474,16 +12472,16 @@
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
       "classes": [
-        "millinery_and_dressmaking"
+        "tavern_or_hotel"
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835. The staffing model keeps millinery_and_dressmaking at this trade and employs it in no class. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_class_that_employs_this_trade_holds_no_room",
+        "note": "The staffing model employs this trade in tavern_or_hotel, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a house of this class raised or read into the layer, after which this person seats at it"
       },
       "chosen_by": []
     },
@@ -12517,10 +12515,10 @@
       "person_id": "rc_shea_catherine",
       "person_name": "Catherine Shea",
       "household_id": "hh_rc_shea_catherine",
-      "kind": "keeps_their_own_house",
-      "trade": "boarding_house_keeper",
-      "premises": "own_premises",
-      "division_of_the_person": "west",
+      "kind": "class_held_no_house",
+      "trade": "domestic",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -12528,15 +12526,17 @@
       "seed": "rc_shea_catherine:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
-      "classes": [],
+      "classes": [
+        "tavern_or_hotel"
+      ],
       "basis": {
         "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+        "id": "the_class_that_employs_this_trade_holds_no_room",
+        "note": "The staffing model employs this trade in tavern_or_hotel, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+        "match": "a house of this class raised or read into the layer, after which this person seats at it"
       },
       "chosen_by": []
     },
@@ -12652,10 +12652,10 @@
       "person_id": "rc_shea_mary",
       "person_name": "Mary Shea",
       "household_id": "hh_rc_shea_mary",
-      "kind": "class_held_no_house",
-      "trade": "domestic",
-      "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
+      "kind": "keeps_their_own_house",
+      "trade": "milliner",
+      "premises": "own_premises",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -12664,16 +12664,16 @@
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
       "classes": [
-        "tavern_or_hotel"
+        "millinery_and_dressmaking"
       ],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in tavern_or_hotel, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
+        "note": "The premises ruling: a shop front on a street of stores — PUBLIC_TRADES `shop` of the signage rule, and one of the twenty-five mechanics' shops the Chicago American counted in August 1835. The staffing model keeps millinery_and_dressmaking at this trade and employs it in no class. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -12906,7 +12906,7 @@
       "kind": "no_employer_named",
       "trade": "plasterer",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "north",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -13432,7 +13432,7 @@
       "kind": "no_employer_named",
       "trade": "farmer",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "north",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -13538,9 +13538,9 @@
       "person_id": "rc_sullivan_ellen",
       "person_name": "Ellen Sullivan",
       "household_id": "hh_rc_sullivan_ellen",
-      "kind": "class_held_no_house",
-      "trade": "domestic",
-      "premises": "no_fixed_premises",
+      "kind": "keeps_their_own_house",
+      "trade": "boarding_house_keeper",
+      "premises": "own_premises",
       "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
@@ -13549,17 +13549,15 @@
       "seed": "rc_sullivan_ellen:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
-      "classes": [
-        "tavern_or_hotel"
-      ],
+      "classes": [],
       "basis": {
         "kind": "rule",
-        "id": "the_class_that_employs_this_trade_holds_no_room",
-        "note": "The staffing model employs this trade in tavern_or_hotel, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
+        "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
       },
       "replaceable_by": {
         "kind": "business",
-        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
       },
       "chosen_by": []
     },
@@ -13592,6 +13590,35 @@
         "seeded_draw"
       ],
       "candidates_considered": 72
+    },
+    {
+      "person_id": "rc_sullivan_johanna",
+      "person_name": "Johanna Sullivan",
+      "household_id": "hh_rc_sullivan_johanna",
+      "kind": "class_held_no_house",
+      "trade": "domestic",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "north",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_sullivan_johanna:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "classes": [
+        "tavern_or_hotel"
+      ],
+      "basis": {
+        "kind": "rule",
+        "id": "the_class_that_employs_this_trade_holds_no_room",
+        "note": "The staffing model employs this trade in tavern_or_hotel, and the business layer holds no house of that kind trading on 1835-07-01 with room left in its band. A house may take no more hands in a role than the model's own `count_high` for it, so the overflow is a town owed more houses and not a shop with more hands in it than the model allows."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "a house of this class raised or read into the layer, after which this person seats at it"
+      },
+      "chosen_by": []
     },
     {
       "person_id": "rc_sullivan_margaret",
@@ -13769,7 +13796,7 @@
       "kind": "class_held_no_house",
       "trade": "blacksmith",
       "premises": "own_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "north",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -13798,7 +13825,7 @@
       "kind": "no_employer_named",
       "trade": "farmer",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -13912,7 +13939,7 @@
       "kind": "class_held_no_house",
       "trade": "domestic",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "north",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -14345,7 +14372,7 @@
       "kind": "class_held_no_house",
       "trade": "painter",
       "premises": "own_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -14422,61 +14449,6 @@
       "chosen_by": []
     },
     {
-      "person_id": "rc_vieau_francois",
-      "person_name": "Francois Vieau",
-      "household_id": "hh_rc_vieau_francois",
-      "kind": "no_employer_named",
-      "trade": "mail_contractor",
-      "premises": "no_fixed_premises",
-      "division_of_the_person": "north",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_vieau_francois:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "basis": {
-        "kind": "ruling",
-        "id": "no_fixed_premises_and_no_class_employs_this_trade",
-        "note": "The premises ruling: A contract carried on the road. worked on the road, the water or the open prairie, and kept no house of trade. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
-      },
-      "chosen_by": []
-    },
-    {
-      "person_id": "rc_vieau_hyacinthe",
-      "person_name": "Hyacinthe Vieau",
-      "household_id": "hh_rc_vieau_hyacinthe",
-      "kind": "keeps_their_own_house",
-      "trade": "miller",
-      "premises": "own_premises",
-      "division_of_the_person": "west",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_vieau_hyacinthe:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "classes": [
-        "mill"
-      ],
-      "basis": {
-        "kind": "rule",
-        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
-        "note": "The premises ruling: a mill is premises; the December census's one steam saw-mill is a sawyer's works and not a grist miller's, so the class is `other`. The staffing model keeps mill at this trade and employs it in no class. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
-      },
-      "chosen_by": []
-    },
-    {
       "person_id": "rc_vieau_jean",
       "person_name": "Jean Vieau",
       "household_id": "hh_rc_vieau_jean",
@@ -14507,6 +14479,32 @@
       "candidates_considered": 71
     },
     {
+      "person_id": "rc_vieau_louis",
+      "person_name": "Louis Vieau",
+      "household_id": "hh_rc_vieau_louis",
+      "kind": "no_employer_named",
+      "trade": "mail_contractor",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "south",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_vieau_louis:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "basis": {
+        "kind": "ruling",
+        "id": "no_fixed_premises_and_no_class_employs_this_trade",
+        "note": "The premises ruling: A contract carried on the road. worked on the road, the water or the open prairie, and kept no house of trade. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
+      },
+      "chosen_by": []
+    },
+    {
       "person_id": "rc_vieau_marie",
       "person_name": "Marie Vieau",
       "household_id": "hh_rc_vieau_marie",
@@ -14526,6 +14524,35 @@
         "kind": "rule",
         "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
         "note": "The premises ruling: lodging is sold to arrivals who have to find the door — PUBLIC_TRADES `boarding_house`; the December census counts no boarding houses, so the class is `other`. The staffing model employs this trade in no class of house either, so there is not even somebody else's counter to stand behind. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
+      },
+      "chosen_by": []
+    },
+    {
+      "person_id": "rc_vieau_toussaint",
+      "person_name": "Toussaint Vieau",
+      "household_id": "hh_rc_vieau_toussaint",
+      "kind": "keeps_their_own_house",
+      "trade": "miller",
+      "premises": "own_premises",
+      "division_of_the_person": "west",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_vieau_toussaint:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "classes": [
+        "mill"
+      ],
+      "basis": {
+        "kind": "rule",
+        "id": "the_premises_ruling_gives_this_trade_a_house_of_its_own",
+        "note": "The premises ruling: a mill is premises; the December census's one steam saw-mill is a sawyer's works and not a grist miller's, so the class is `other`. The staffing model keeps mill at this trade and employs it in no class. Seating this person as somebody else's hand would demote a keeper to a clerk to close a count. The house is owed and T-1434 mints the layer's shortfall."
       },
       "replaceable_by": {
         "kind": "business",
@@ -14812,7 +14839,7 @@
       "kind": "no_employer_named",
       "trade": "farmer",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "north",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -14867,7 +14894,7 @@
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
+      "division_of_the_person": "west",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -15287,7 +15314,7 @@
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -15371,7 +15398,7 @@
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "north",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -15397,7 +15424,7 @@
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "north",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -15536,7 +15563,7 @@
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "west",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,

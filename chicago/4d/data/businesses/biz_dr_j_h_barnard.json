@@ -10,6 +10,7 @@
   "occupation": "physician",
   "goods": [],
   "firm_styles": [],
+  "notice": null,
   "proprietors": [
     {
       "name": "J. H. Barnard",
@@ -31,13 +32,13 @@
   "partners": [],
   "staff": [
     {
-      "name": "Elisha Metcalf",
-      "person_id": "rc_metcalf_elisha",
+      "name": "Francois Laframboise",
+      "person_id": "rc_laframboise_francois",
       "role": "clerk",
       "occupation": "clerk",
       "tier": "reconstructed",
       "basis": "The staffing model puts 0 of this role in a physician's practice at the typical band and 1 at the high end, on period_convention. A physician's student, on the same footing as the law student. Analogue: as above. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything. Seated by tools/seat_reconstructed_trades_1835.py (T-1433) off 1835_business_staffing_model#physician_practice.clerk; carried onto this record by tools/staff_the_houses_1835.py (T-1462).",
-      "seed": "rc_metcalf_elisha:employment",
+      "seed": "rc_laframboise_francois:employment",
       "replaceable_by": "a source naming where this person worked, which retires the draw"
     }
   ],

@@ -48,13 +48,35 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    disagreement — declares `not_a_reading: "<what it is instead>"` at the top, or measuring
    your own work reads the meter up and the domain looks further behind for having checked
    itself. Both are printed by the report; neither is ever a silent zero.
-9. **`tools/check.sh` passes before every commit.** It takes seconds and needs no Blender.
-   **Read its last four lines, not its middle.** 115 of its 304 steps are self-tests that
-   prove a gate by breaking it, so a GREEN run prints fourteen `FAIL` lines on purpose.
+9. **`tools/check.sh` passes before every commit.** About four minutes on four cores, and
+   no Blender. It runs its steps in a pool sized to the machine (`CHECK_JOBS`, on by
+   default since T-1578 — it was serial everywhere but CI, where a 620 s gate no longer
+   fit the 600 s a run's single foreground command gets, so a run got no verdict at all).
+   `CHECK_JOBS=1` is the serial escape hatch, for reproducing one step's red on a quiet
+   tree. **It has to keep fitting that ceiling**: the next step that costs a minute is
+   made cheaper, moved to `tools/bake.sh`, or argued for in check.sh's header.
+   **Read its last four lines, not its middle.** 264 of its 628 steps are self-tests that
+   prove a gate by breaking it, so a GREEN run prints `FAIL` lines on purpose.
    Those are tagged — every line of a self-test's transcript starts `   self-test | ` —
    and the steps that actually failed are listed once, by label, under `CHECK FAIL` at
    the end. An untagged `FAIL` is the only kind worth chasing. Three tickets were filed
    against tagged ones before T-0763; do not make a fourth.
+10. **A reader of the platted grid says which of its two lines its answer stands on.**
+   The **drawn** centreline in `data/streets/1835.json` is the block grid's own control —
+   `generate_plat_lots.block_edges` offsets it by the platted half-module — and the
+   **control** line is that corridor re-centred onto the street's committed survey control.
+   On `south_water` they disagree by 8.58 m and on `kinzie` by 2.91 m, and the owner ruled
+   on 2026-09-21 (T-0419) that the block grid is NOT re-cut onto the control: they answer
+   two different questions and neither is the other's control. So a question about a block,
+   a lot or a roof is asked on the drawn line; a question about where the PLAT put the
+   roadway is asked on the control line; and any module calling `corridors`,
+   `control_offsets`, `intrusion` or `block_edges` carries `CORRIDOR_LINE` and
+   `CORRIDOR_LINE_WHY` saying which and why. `tools/check_corridor_line.py --gate` refuses a
+   reader that does not declare, or whose declaration disagrees with its own calls; it reads
+   the syntax tree, so naming a line in prose is discussing it and not taking it.
+   `docs/CORRIDOR-LINES.md` is the ruling and the disagreement it declined to resolve.
+   **Do not "fix" the disagreement by moving the lot grid** — that was priced at 32 lots
+   re-cut, 53 committed roofs and a whole documented block into the river, and refused.
 
 ## Standing constraint — 1835 and Indigenous history
 
@@ -279,8 +301,10 @@ is the contract. The short form:
   only live view of work the merged files cannot show yet. It reads each branch as
   **live**, **held**, **open_pr**, **recoverable** or **cold**. A branch under
   **open_pr** has a pull request up right now and is printed with its number and labels
-  — `hold` there means a run parked that work for the owner on purpose, so do not
-  rebuild it, do not take the ticket and do not delete the branch (T-1427). `held` is the
+  — `hold` there means THE OWNER is deciding, so do not rebuild it, do not take the ticket
+  and do not delete the branch (T-1427); `resume` there means a RUN could not finish and
+  the work is waiting for one that can, so do not rebuild it either — **finish it**
+  (§ the two labels). `held` is the
   other one to read carefully: the branch is
   older than a run but the ticket's claim lock still stands, so it is either a run reading
   sources for hours or a run that died after its merge. Check its PR before you take it —
@@ -289,6 +313,25 @@ is the contract. The short form:
   records WHICH Actions run holds the ticket (`claimed_run`) and `done` records the
   INSTANT it finished (`closed_at`), so BOARD.md can show what is being worked now and
   what finished in the order it finished. Neither is ever hand-written.
+- **A PARKED PULL REQUEST IS ON THE BOARD, WITH THE REASON IT WAS PARKED FOR** (T-1576).
+  The lap, `merge-ready.sh` and `pr-stuck.sh` all read labels before they read state and
+  all skip `hold` on purpose, so a parked PR is by construction the one kind nothing is
+  coming back for — and until now its reason lived only in the PR body. The owner, on
+  2026-09-25, finding three at once: *"that seems like a bad move because i am not aware
+  of why they are held"*. So `ticket.mjs board --parked` reads the open pull requests and
+  puts every one carrying `hold` or `resume` at the TOP of BOARD.md with its ticket, its
+  age, how long since it was last touched, and its reason. The settle workflow passes
+  `--parked`; `publish.sh`, `pr-lap.sh` and the merge driver do not, and stay offline.
+  * **The reason is read, never composed.** T-1573's structured line
+    (`resume: <reason> · waits on: <ticket or "nothing">`) in a PR comment first —
+    newest wins — then the same line in the body, then the body's own
+    `### Why this is on \`hold\`` section. A PR that wrote none is listed saying
+    **no reason written on the PR**, which is a true statement about it and is not
+    papered over with a guess. `waits on` is carried only where a run named it.
+  * **An unread list is not an empty one.** When the PR list cannot be read — a rate
+    limit, a 404, no network — the section says **NOT READ** in those words. An empty
+    section and a failed call print identically otherwise, and that silence is the
+    fault the whole reading was filed against. `tools/test_ticket_parked.mjs` holds it.
 - **A CLAIM IS A LOCK, AND IT IS TAKEN ON THE REMOTE** (owner, 2026-09-11: *"can you
   prevent duplicate claiming going forward?"*). `claim` pushes a marker branch
   `claim/t-NNNN` before you do any work, and the push is a compare-and-swap the GitHub
@@ -315,6 +358,28 @@ is the contract. The short form:
   (T-0154; before it, that order left the mirror gate red every time — and since
   T-0938 the mirror is not committed, so no order of operations can leave a stale one
   in a PR at all).
+- **`done` REFUSES TWO THINGS, and both are cheapest to fix where you are standing.**
+  A committed file that still records *this* ticket as live work (T-1548), and — since
+  T-1581 — a close that would strand an ANCESTOR of it. A job that was cut up stands as
+  a `split` heading over its pieces and is live exactly while some descendant is; take
+  its last one and every research unit, ruling and work order pointing at the heading is
+  waiting on nobody. That red always lands on the NEXT run, because `done --pr` only sets
+  `review` and the tickets repo settles it to `done` when your PR merges — so your own
+  gate read it as live. Three closes did it on 2026-09-25 (#40 on T-1189 two levels up,
+  #43 on the re-family programme, #49 on 272 landholdings). Ask it yourself at any time:
+
+      python3 tools/ticket_liveness.py --closing T-NNNN   # what this close would strand
+      python3 tools/ticket_liveness.py --report           # what is ONE closure away
+
+  `check.sh` asks it of the tickets **your branch name carries**, and of nobody else's —
+  a PR is never red for a close somebody else is making. Repoint the pointers in the
+  same PR, or say why not: `done T-NNNN --pr N --anyway --why "<reason>"`.
+- **The walk over a `split` is ONE definition** — `tools/ticket_liveness.py`. The
+  research ledger's `split_live`, the order book's `live_pieces_of` and `ticket.mjs` all
+  read it; what each keeps is its own LEAF SET, because the ledger wants an *open* owner
+  and the order book counts a blocked ticket as live. They had three copies and a fix
+  made to one in July had to be made again to another in September; a self-test now
+  fails if any of them starts keeping its own.
 - **The build products are GENERATED AND UNTRACKED, so there is nothing to stage**
   (T-0937 for the board, T-0938 for the rest). `tickets/BOARD.md`,
   `tickets/tickets.json` and the whole of `site/4d/` are .gitignored. They used to be the repository's worst conflict source, and for a reason
@@ -339,21 +404,35 @@ is the contract. The short form:
   starts. This is not optional bookkeeping; an owner request going untracked for days is
   the exact failure this system exists to close.
 - **Finish your PR inside the run that opened it** — merge on a green gate, or `block`, or
-  label it `hold` with the reason. **A claim is only real once its PR merges**: the state
+  hand it to the next run with `.github/steward/pr-rest.sh resume <N> --why "…"`
+  (§ the two labels). `hold` is not yours to apply. **A claim is only real once its PR merges**: the state
   lives in the ticket file, so an abandoned open PR leaves the ticket reading `open` at the
   top of the queue and the next run rebuilds the same work. It cost about seventy minutes
   on 2026-08-19 (run 943's PR #258 left open, run 944 redoing T-0062 as #259). `claim` now
   checks `git ls-remote` for a rival branch carrying the ticket's number and refuses with a
   `--force` escape — but that only protects the NEXT run; finishing the PR is your half.
-- **Size in RUNS before you claim.** `XS` part of a run · `S` one run · `M` one run,
-  tight (or one run plus a bake) · `L` **more than one run, and `claim` refuses it**.
-  The test is the acceptance clause: *if it needs more than one demonstration, it is
-  more than one ticket.* Split with `ticket.mjs split T-NNNN "piece" "piece"` — the
+- **Size in RUNS before you FILE, not before you claim.** `XS` part of a run · `S` one
+  run · `M` one run, tight (or one run plus a bake) · `L` **more than one run, which
+  `new` now REFUSES at the prompt and `claim` refuses after** (T-1593). The test is the
+  acceptance clause: *if it needs more than one demonstration, it is more than one
+  ticket.* File the pieces as their own tickets, `--after` the work they serve; an L
+  already in the queue is cut with `ticket.mjs split T-NNNN "piece" "piece"` — the
   children inherit the parent's exact place in QUEUE, so a split never re-prioritises.
   If a run discovers mid-flight that its ticket is bigger than one demonstration, it
-  splits rather than shipping a self-invented "(1/2)".
+  splits rather than shipping a self-invented "(1/2)". `--anyway` is the ticket
+  *budget's* override and cannot reach an L: the queue gate refuses one unconditionally,
+  so filing one anyway only chooses whose pull request goes red for it.
 - `tools/check.sh` runs `ticket.mjs check`: duplicate ids, queue drift, stale BOARD, a
-  block with no stated question, an `L` in the queue — all merge-refusing.
+  block with no stated question, an `L` in the queue.
+- **…and it says WHOSE red it is** (T-1593). The tickets are a separate repository, so
+  nothing that step reads is in the diff under review — which on 2026-09-25 made the two
+  L filings above turn `ticket queue` red on #51, a pull request of AGENTS.md and three
+  files under `tools/`, 37 minutes later. check.sh passes `--inherited-warn`: a fault in
+  *this* repository's files still fails the gate, and a fault in the tickets repository
+  is reported as a WARN naming the filing and the one command that clears it for every
+  open PR at once. **Run `node tools/ticket.mjs check` bare and it is strict** — by hand
+  and in the tickets repository's own CI, which is where the rule keeps its teeth. The
+  flag softens nothing your run caused: a dirty or unpushed tickets clone still fails.
 
 **`docs/ROADMAP.md` is no longer the backlog.** It remains the *reasoning archive* — the
 parcel boxes hold measurements, refutations and acceptance clauses that tickets link into,
@@ -390,8 +469,56 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
 `docs/PIPELINE.md`; ours is the two-tier form of it.
 
 - **Branch `steward/<topic>` off `dev`. PR into `dev`. Merge when the dev gate is green.**
-  Never push to `dev` or `main` directly. Ambiguous or unverified work stays an open PR
-  with the `hold` label and a written explanation.
+  Never push to `dev` or `main` directly. Unfinished work stays an open PR labelled
+  `resume`, with its reason in a line a machine can read (§ the two labels).
+- <a id="the-two-labels"></a>**THE TWO LABELS, AND THEY MEAN DIFFERENT THINGS** (T-1573;
+  owner, 2026-09-25, on finding three PRs parked on `hold` whose reasons he had not seen:
+  *"that seems like a bad move because i am not aware of why they are held"*).
+
+  | label | means | who applies it | what comes for it |
+  |---|---|---|---|
+  | `hold` | **the owner is deciding** | the owner, never a run | nothing, until he says so |
+  | `resume` | **a run could not finish** | the run, with its reason | the lap, the merger, the next run |
+
+  `hold` was the only label a run had, so it was applied to both — and because every
+  automated pass in this repository skips a held PR on purpose (a park a robot can
+  overrule is not a park), work that needed nobody's decision had nothing coming for it
+  either. Measured on the three PRs open at 17:35Z on 2026-09-25: #39's stated reason
+  ("this run's clock ran out") was already stale — CI had passed all 620 steps — and it
+  had drifted into conflict with `dev` while held; #41 and #42 were both COMPLETE and
+  held only because `dev`'s own gate was red. Not one needed a ruling. Each needed a
+  machine to lap it, re-gate it and merge it, and each got a person instead.
+
+  So, concretely:
+
+  - **A run never applies `hold`.** If the thing in your way is genuinely the owner's —
+    rights, the depiction of people, money, what the project IS — that is `ticket.mjs
+    ask`, on the ticket, with options, so it reaches his board with a one-click answer.
+    A label is not a question.
+  - **A run that cannot finish applies `resume`, with its reason**, in one call:
+
+        .github/steward/pr-rest.sh resume <N> --why "dev's gate is red on T-1567" --waits-on T-1567
+
+    which writes `resume: <reason> · waits on: <T-NNNN|nothing>` as the first line of a
+    PR comment, applies the label, and takes `hold` off if a run left one there. The
+    reason goes on BEFORE the label, so a labelled PR never exists without it.
+  - **A later run works resumable PRs before it takes new queue work.** Merge `dev` in,
+    re-derive, fix what is red, gate, merge — it is the same endgame as any unit, on a
+    branch that is already most of the way there. **Skip one whose `waits on` ticket is
+    still open** and say so in your summary: it cannot go green yet, and re-gating it
+    would spend a run proving that.
+  - **What each pass does with the two**, stated so nobody has to read three scripts:
+    `pr-lap.sh` laps a `resume` PR like any other and skips `hold`; `merge-ready.sh`
+    merges a `resume` PR the moment GitHub calls it `clean` (which IS the resume, for one
+    REST call) and skips `hold`; `pr-stuck.sh` sees both, reports a resumable PR WITH its
+    reason and never labels it, and leaves a held one in silence. `waits on` gates only
+    the agentic pickup, never a machine merge of an already-green PR.
+  - **The tickets repo's settle workflow reads neither label.** It follows the PR's
+    merged/closed state alone: a ticket goes `done` when its PR merges and back to `open`
+    if the PR closes unmerged. So a `resume` PR's ticket sits at `review` with its PR
+    number until the work actually lands — which is the behaviour wanted, and is why
+    `ticket.mjs done --pr N` is still called when the PR is opened and not when it merges.
+
 - **A `steward/*` PR THAT CANNOT MERGE IS NOT OPEN — IT IS ROTTING.** Its ticket still
   reads `open` at the top of the queue, so the next slice picks the same row and rebuilds
   the same work. Measured 2026-09-13 (T-0809): **all five** open steward PRs on `dev`
@@ -402,7 +529,8 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
   them, five past saving. Two things follow, and both are now true:
   - the janitor **gates the merge, not the bare branch, and comments once naming the
     conflicting paths** on any PR it cannot merge (polecat-platform#161). If your PR is
-    rotting you will be told inside one sweep; rebase it on `dev` or label it `hold`.
+    rotting you will be told inside one sweep; rebase it on `dev`, or hand it on with
+    `pr-rest.sh resume` so the next run does (§ the two labels).
   - those three files conflict on nearly every landing BY DESIGN — the root
     `.gitattributes` refuses to union-merge the changelog because union silently
     corrupted it on five consecutive merges in one day. So expect to rebase, and **finish

@@ -14,6 +14,7 @@
     "Whiskey"
   ],
   "firm_styles": [],
+  "notice": null,
   "proprietors": [
     {
       "name": "Wm. Sabine",
@@ -148,8 +149,19 @@
       "from": "1835-06-13",
       "to": null,
       "tier": "inferred",
-      "basis": "The paper names a street and no house on it.",
-      "limit_reason": "The paper names North Water Street and nothing narrower; the anchor 'Commission Merc[hant]. N[ORT]H WATER [S]TREET Commission Mere NbeEM WATER ITREET,' names nothing the committed town holds."
+      "basis": "North Water Street is the reading taken, at the inferred tier (T-0305, owner's ruling 2026-09-23). The American sets this card North Water on 13 and 20 June and South Water on 4 July; the printings nearest the scene date and before it read North. The 4 July setting moves the card below it (John Dave[s]'s) the same way in the same issue, so one misset column or one real move accounts for both, and the transcription cannot say which. It was extracted under a third firm's name, which is why this record carried no disagreement until now.",
+      "limit_reason": "The paper names North Water Street and nothing narrower, and prints South Water once, three days after the scene date. Street only, at inferred.",
+      "contested": {
+        "ticket": "T-0305",
+        "reads": "North Water",
+        "for": [
+          "chicago_american_1835_06_13#c005"
+        ],
+        "against": [
+          "chicago_american_1835_07_04#c002"
+        ],
+        "unresolved": []
+      }
     }
   ],
   "dates": {
@@ -195,5 +207,5 @@
     "backdating_required": false
   },
   "review_required": false,
-  "replaceable_by": "A directory, a deed or a later reading that names this house's premises, its staff or its dates more exactly than the newspapers do."
+  "replaceable_by": "The page images of the Chicago American, 13 June 1835 p3 c5 (reading North) and 4 July 1835 p4 c4 (reading South) — one pair settles this house and John Dave[s]'s together — or any directory or deed that places Wm. Sabine's warehouse."
 }

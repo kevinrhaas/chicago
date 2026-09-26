@@ -5,15 +5,15 @@
   "source_id": "isa_public_domain_land_tract_sales",
   "note": "PROPOSALS, not identities. Nothing here mints a resident, regrades one, or writes to data/residents/. T-0514 and T-0515 spend this file. A match carrying a `ruling` block has been ADJUDICATED (T-0700, resident_rulings.json); one carrying `ruling: null` is still only what the mechanical rule proposed, and a refused proposal is in refusals[] with the ruling as its rule.",
   "ruled": {
-    "upheld": 135,
-    "named": 1,
+    "upheld": 134,
+    "named": 2,
     "refused": 68,
-    "unruled": 5
+    "unruled": 6
   },
   "counts": {
     "purchasers": 647,
-    "matched": 141,
-    "refused": 506,
+    "matched": 142,
+    "refused": 505,
     "firms": 2,
     "bodies": 3
   },
@@ -421,12 +421,30 @@
       "resident_name": "Mark Beaubien",
       "household_id": "hh_beaubien_mark",
       "match": "forename_agrees",
-      "rule": "BEAUBIEN MARK matches Mark Beaubien: the forename names Mark Beaubien of the 8 people of this surname, and the forename agrees in full.",
+      "rule": "BEAUBIEN MARK matches Mark Beaubien: the forename names Mark Beaubien of the 18 people of this surname, and the forename agrees in full.",
       "via_card_merge": null,
       "rivals": [
         {
+          "key": "beaubien_alexander",
+          "name": "Alexander Beaubien",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "beaubien_alexandre",
           "name": "Alexandre Beaubien",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_archange",
+          "name": "Archange Beaubien",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -443,11 +461,47 @@
           "outcome": "refused_on_the_forename"
         },
         {
+          "key": "beaubien_caroline",
+          "name": "Caroline Beaubien",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_charles",
+          "name": "Charles Beaubien",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "beaubien_charles_h",
           "name": "Charles H Beaubien",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": "H",
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_elonore",
+          "name": "Elonore Beaubien",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_george",
+          "name": "George Beaubien",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
           "reading_middle_initial": null,
           "outcome": "refused_on_the_forename"
         },
@@ -479,6 +533,15 @@
           "outcome": "refused_on_the_forename"
         },
         {
+          "key": "beaubien_joseph",
+          "name": "Joseph Beaubien",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "beaubien_madore",
           "name": "Madore Benjamin Beaubien",
           "forename_agrees": false,
@@ -495,6 +558,33 @@
           "middle_initial": null,
           "reading_middle_initial": null,
           "outcome": "survives"
+        },
+        {
+          "key": "beaubien_monique",
+          "name": "Monique Beaubien",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_robert_jerome",
+          "name": "Robert Jerome Beaubien",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "J",
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_susan",
+          "name": "Susan Beaubien",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
         }
       ],
       "residence_column": "UNKNOWN",
@@ -3116,13 +3206,30 @@
       "resident_id": "beaubien_jean_baptiste",
       "resident_name": "Col. Jean Baptiste Beaubien",
       "household_id": "hh_beaubien_jean_baptiste",
-      "match": "initial_agrees",
-      "rule": "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only.",
-      "via_card_merge": null,
+      "match": "named_by_ruling",
+      "rule": "NAMED, NOT UPHELD — AND THE JUDGEMENT IS THE ONE T-0990 MADE, NOT A NEW ONE (T-1525). It stood as `upheld` while the mechanical forename rule reached Col. Jean Baptiste Beaubien on its own and this file only had to confirm it. T-1525 minted the Catholic town St Mary's baptismal register names, and the layer's Beaubiens went from eight to eighteen; one of the new cards is a Joseph Beaubien, so the reading's J now stands for two of them and R3 — a reading is named onto exactly one or onto none — refuses the proposal the ruling used to adjudicate. A ruling on a refusal is a ruling on nothing, so the SAME finding is recorded in the direction that can carry it: `named`, under the guards this file states — the surname gathered rivals, the forename failed to choose among them, and the ruling names one of those rivals. NOTHING BELOW HAS CHANGED. UPHELD on the initials as the town itself prints them, and on a date only one Beaubien can reach. The town's record of this man does not hold a forename it has to have expanded for it: Andreas's 1833 roster prints 'J. B. Beaubien, merchant' and Fergus 1839 prints 'Beaubien, John B., Michigan ave., bet. Lake and So. Water sts' — J. B. is the form the town used, and the register's BEAUBIEN J B is that form. The layer holds ten Beaubiens and the sale is dated 29 September 1830: this card's arrival is attested at 1812 from Andreas — 'he came to Chicago and bought the cabin and cultivated field south of the old fort in 1812' — and it is the only Beaubien in the layer the record puts at Chicago that early. Four canal rows in section 29 of T39N R14E, two of them the register's own voided duplicates of the other two, carried at 212.61 acres and $1,063.20 net. TWO THINGS THIS DOES NOT DO: it does not touch the Fort Dearborn reservation claim, which this project holds no record of and makes no finding on, and it does not make the 1830 purchase evidence of residence — the Residence column reads ILLINOIS on the voided pair and UNKNOWN on the pair that stood, and neither names a town. AND WHY THE NEW RIVAL IS NOT THE MAN: the register prints BEAUBIEN J B, two initials, and Col. Jean Baptiste is the only candidate of the eighteen whose own middle initial is attested B — the town prints him 'J. B. Beaubien' in Andreas's 1833 roster and 'Beaubien, John B.' in Fergus 1839. Joseph Beaubien's card carries no middle initial at all: it is a person minted from a single baptismal entry, with no forename expansion, no middle name, no date before 1833 and nothing that reaches a tract entered on 29 September 1830. He is a rival the rule must count and not a candidate the record supports, and this ruling does not merge the two cards or say anything about him.",
       "rivals": [
+        {
+          "key": "beaubien_alexander",
+          "name": "Alexander Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "beaubien_alexandre",
           "name": "Alexandre Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_archange",
+          "name": "Archange Beaubien",
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": null,
@@ -3139,11 +3246,47 @@
           "outcome": "refused_on_the_forename"
         },
         {
+          "key": "beaubien_caroline",
+          "name": "Caroline Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_charles",
+          "name": "Charles Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "beaubien_charles_h",
           "name": "Charles H Beaubien",
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": "H",
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_elonore",
+          "name": "Elonore Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_george",
+          "name": "George Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
           "reading_middle_initial": "B",
           "outcome": "refused_on_the_forename"
         },
@@ -3175,6 +3318,15 @@
           "outcome": "refused_on_the_middle_initial"
         },
         {
+          "key": "beaubien_joseph",
+          "name": "Joseph Beaubien",
+          "forename_agrees": true,
+          "why": "an initial standing for the forename (M2)",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "survives"
+        },
+        {
           "key": "beaubien_madore",
           "name": "Madore Benjamin Beaubien",
           "forename_agrees": false,
@@ -3191,23 +3343,52 @@
           "middle_initial": null,
           "reading_middle_initial": "B",
           "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_monique",
+          "name": "Monique Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_robert_jerome",
+          "name": "Robert Jerome Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "J",
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_susan",
+          "name": "Susan Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
         }
       ],
       "residence_column": "ILLINOIS, UNKNOWN",
       "evidence_grade": "inferred",
       "ruling": {
-        "ruling": "upheld",
-        "ruled_on": "2026-09-10",
-        "ticket": "T-0990",
+        "ruling": "named",
+        "ruled_on": "2026-09-25",
+        "ticket": "T-1525",
         "checked_against": [
-          "isa_public_domain_land_tract_sales",
           "andreas_1884_v1",
+          "chicago_voter_lists_1833_1835_irad",
           "fergus_chicago_directory_1839",
           "fergus_chicago_directory_1843",
-          "chicago_voter_lists_1833_1835_irad"
+          "isa_public_domain_land_tract_sales",
+          "st_marys_baptismal_register_1833_1835"
         ],
-        "reasoning": "UPHELD on the initials as the town itself prints them, and on a date only one Beaubien can reach. The town's record of this man does not hold a forename it has to have expanded for it: Andreas's 1833 roster prints 'J. B. Beaubien, merchant' and Fergus 1839 prints 'Beaubien, John B., Michigan ave., bet. Lake and So. Water sts' — J. B. is the form the town used, and the register's BEAUBIEN J B is that form. The layer holds ten Beaubiens and the sale is dated 29 September 1830: this card's arrival is attested at 1812 from Andreas — 'he came to Chicago and bought the cabin and cultivated field south of the old fort in 1812' — and it is the only Beaubien in the layer the record puts at Chicago that early. Four canal rows in section 29 of T39N R14E, two of them the register's own voided duplicates of the other two, carried at 212.61 acres and $1,063.20 net. TWO THINGS THIS DOES NOT DO: it does not touch the Fort Dearborn reservation claim, which this project holds no record of and makes no finding on, and it does not make the 1830 purchase evidence of residence — the Residence column reads ILLINOIS on the voided pair and UNKNOWN on the pair that stood, and neither names a town."
+        "reasoning": "NAMED, NOT UPHELD — AND THE JUDGEMENT IS THE ONE T-0990 MADE, NOT A NEW ONE (T-1525). It stood as `upheld` while the mechanical forename rule reached Col. Jean Baptiste Beaubien on its own and this file only had to confirm it. T-1525 minted the Catholic town St Mary's baptismal register names, and the layer's Beaubiens went from eight to eighteen; one of the new cards is a Joseph Beaubien, so the reading's J now stands for two of them and R3 — a reading is named onto exactly one or onto none — refuses the proposal the ruling used to adjudicate. A ruling on a refusal is a ruling on nothing, so the SAME finding is recorded in the direction that can carry it: `named`, under the guards this file states — the surname gathered rivals, the forename failed to choose among them, and the ruling names one of those rivals. NOTHING BELOW HAS CHANGED. UPHELD on the initials as the town itself prints them, and on a date only one Beaubien can reach. The town's record of this man does not hold a forename it has to have expanded for it: Andreas's 1833 roster prints 'J. B. Beaubien, merchant' and Fergus 1839 prints 'Beaubien, John B., Michigan ave., bet. Lake and So. Water sts' — J. B. is the form the town used, and the register's BEAUBIEN J B is that form. The layer holds ten Beaubiens and the sale is dated 29 September 1830: this card's arrival is attested at 1812 from Andreas — 'he came to Chicago and bought the cabin and cultivated field south of the old fort in 1812' — and it is the only Beaubien in the layer the record puts at Chicago that early. Four canal rows in section 29 of T39N R14E, two of them the register's own voided duplicates of the other two, carried at 212.61 acres and $1,063.20 net. TWO THINGS THIS DOES NOT DO: it does not touch the Fort Dearborn reservation claim, which this project holds no record of and makes no finding on, and it does not make the 1830 purchase evidence of residence — the Residence column reads ILLINOIS on the voided pair and UNKNOWN on the pair that stood, and neither names a town. AND WHY THE NEW RIVAL IS NOT THE MAN: the register prints BEAUBIEN J B, two initials, and Col. Jean Baptiste is the only candidate of the eighteen whose own middle initial is attested B — the town prints him 'J. B. Beaubien' in Andreas's 1833 roster and 'Beaubien, John B.' in Fergus 1839. Joseph Beaubien's card carries no middle initial at all: it is a person minted from a single baptismal entry, with no forename expansion, no middle name, no date before 1833 and nothing that reaches a tract entered on 29 September 1830. He is a rival the rule must count and not a candidate the record supports, and this ruling does not merge the two cards or say anything about him."
       },
+      "was_refused_as": "BEAUBIEN J B is refused against 18 residents named Beaubien: the forename names 2 of the 18 people of this surname, and a reading is named onto exactly one or onto none (R3).",
       "what_it_evidences": "A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints."
     },
     {
@@ -3308,7 +3489,7 @@
       "resident_name": "Jeremiah Smith",
       "household_id": "hh_smith_jeremiah",
       "match": "initial_agrees",
-      "rule": "SMITH J matches Jeremiah Smith: the forename names Jeremiah Smith of the 9 people of this surname, and the forename agrees as an initial only.",
+      "rule": "SMITH J matches Jeremiah Smith: the forename names Jeremiah Smith of the 10 people of this surname, and the forename agrees as an initial only.",
       "via_card_merge": null,
       "rivals": [
         {
@@ -3366,6 +3547,15 @@
           "outcome": "refused_on_the_forename"
         },
         {
+          "key": "smith_mathias",
+          "name": "Mathias Smith",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "smith_matthias",
           "name": "Matthias Smith",
           "forename_agrees": false,
@@ -3410,7 +3600,7 @@
       "resident_name": "Jeremiah Smith",
       "household_id": "hh_smith_jeremiah",
       "match": "forename_agrees",
-      "rule": "SMITH JEREMIAH matches Jeremiah Smith: the forename names Jeremiah Smith of the 9 people of this surname, and the forename agrees in full.",
+      "rule": "SMITH JEREMIAH matches Jeremiah Smith: the forename names Jeremiah Smith of the 10 people of this surname, and the forename agrees in full.",
       "via_card_merge": null,
       "rivals": [
         {
@@ -3461,6 +3651,15 @@
         {
           "key": "smith_lawrence",
           "name": "Lawrence Smith",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "smith_mathias",
+          "name": "Mathias Smith",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -6888,6 +7087,25 @@
       "what_it_evidences": "A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints."
     },
     {
+      "purchaser_as_read": "STONE H O",
+      "record_ids": [
+        "ls1477",
+        "ls1478",
+        "ls1479"
+      ],
+      "resident_id": "stone_henry",
+      "resident_name": "Henry Stone",
+      "household_id": "hh_stone_henry",
+      "match": "initial_agrees",
+      "rule": "STONE H O matches Henry Stone: the forename names Henry Stone of the 1 person of this surname, and the forename agrees as an initial only.",
+      "via_card_merge": null,
+      "rivals": [],
+      "residence_column": "UNKNOWN",
+      "evidence_grade": "inferred",
+      "ruling": null,
+      "what_it_evidences": "A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints."
+    },
+    {
       "purchaser_as_read": "TAYLOR A D",
       "record_ids": [
         "ls1482",
@@ -8033,8 +8251,8 @@
     },
     {
       "a": "SMITH JEDUTHOM",
-      "b": "9 residents named Smith",
-      "rule": "SMITH JEDUTHOM is refused against 9 residents named Smith: the forename names 0 of the 9 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "10 residents named Smith",
+      "rule": "SMITH JEDUTHOM is refused against 10 residents named Smith: the forename names 0 of the 10 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
         {
           "key": "smith_e_kirby",
@@ -8084,6 +8302,15 @@
         {
           "key": "smith_lawrence",
           "name": "Lawrence Smith",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "smith_mathias",
+          "name": "Mathias Smith",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -8127,8 +8354,8 @@
     },
     {
       "a": "SMITH JEDUTHON",
-      "b": "9 residents named Smith",
-      "rule": "SMITH JEDUTHON is refused against 9 residents named Smith: the forename names 0 of the 9 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "10 residents named Smith",
+      "rule": "SMITH JEDUTHON is refused against 10 residents named Smith: the forename names 0 of the 10 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
         {
           "key": "smith_e_kirby",
@@ -8178,6 +8405,15 @@
         {
           "key": "smith_lawrence",
           "name": "Lawrence Smith",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "smith_mathias",
+          "name": "Mathias Smith",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -8594,7 +8830,7 @@
       ],
       "ruled_on": "2026-09-10",
       "ruled_under": "T-0850",
-      "was_proposed_as": "CHANDLER JOSEPH matches Joseph Chandler: the forename names Joseph Chandler of the 1 person of this surname, and the forename agrees in full."
+      "was_proposed_as": "CHANDLER JOSEPH matches Joseph Chandler: the forename names Joseph Chandler of the 2 people of this surname, and the forename agrees in full."
     },
     {
       "a": "CHAPLEY MORGAN L",
@@ -10124,8 +10360,19 @@
     },
     {
       "a": "HARRINGTON JAMES JR",
-      "b": "0 residents named Harrington",
-      "rule": "HARRINGTON JAMES JR is refused against 0 residents named Harrington: the residents layer holds nobody of the surname.",
+      "b": "Catherine Harrington",
+      "rule": "HARRINGTON JAMES JR is refused against Catherine Harrington: the forename names 0 of the 1 person of this surname, and a reading is named onto exactly one or onto none.",
+      "rivals": [
+        {
+          "key": "harrington_catherine",
+          "name": "Catherine Harrington",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        }
+      ],
       "record_ids": [
         "ls0437"
       ],
@@ -10756,8 +11003,8 @@
     },
     {
       "a": "SMITH JEBUTHOM",
-      "b": "9 residents named Smith",
-      "rule": "SMITH JEBUTHOM is refused against 9 residents named Smith: the forename names 0 of the 9 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "10 residents named Smith",
+      "rule": "SMITH JEBUTHOM is refused against 10 residents named Smith: the forename names 0 of the 10 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
         {
           "key": "smith_e_kirby",
@@ -10807,6 +11054,15 @@
         {
           "key": "smith_lawrence",
           "name": "Lawrence Smith",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "smith_mathias",
+          "name": "Mathias Smith",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -10974,7 +11230,7 @@
       ],
       "ruled_on": "2026-09-11",
       "ruled_under": "T-0990",
-      "was_proposed_as": "SMITH GEORGE matches George Smith: the forename names George Smith of the 9 people of this surname, and the forename agrees in full."
+      "was_proposed_as": "SMITH GEORGE matches George Smith: the forename names George Smith of the 10 people of this surname, and the forename agrees in full."
     },
     {
       "a": "BRITTON HIRAM Z",
@@ -11861,12 +12117,12 @@
       ],
       "ruled_on": "2026-09-10",
       "ruled_under": "T-0990",
-      "was_proposed_as": "SMITH LIMAN matches L W Smith: the forename names L W Smith of the 9 people of this surname, and the forename agrees as an initial only."
+      "was_proposed_as": "SMITH LIMAN matches L W Smith: the forename names L W Smith of the 10 people of this surname, and the forename agrees as an initial only."
     },
     {
       "a": "SMITH SIMAN",
-      "b": "9 residents named Smith",
-      "rule": "SMITH SIMAN is refused against 9 residents named Smith: the forename names 0 of the 9 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "10 residents named Smith",
+      "rule": "SMITH SIMAN is refused against 10 residents named Smith: the forename names 0 of the 10 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
         {
           "key": "smith_e_kirby",
@@ -11916,6 +12172,15 @@
         {
           "key": "smith_lawrence",
           "name": "Lawrence Smith",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "smith_mathias",
+          "name": "Mathias Smith",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -12087,7 +12352,7 @@
       ],
       "ruled_on": "2026-09-11",
       "ruled_under": "T-0990",
-      "was_proposed_as": "MURPHY JOHN matches John Murphy: the forename names John Murphy of the 3 people of this surname, and the forename agrees in full."
+      "was_proposed_as": "MURPHY JOHN matches John Murphy: the forename names John Murphy of the 4 people of this surname, and the forename agrees in full."
     },
     {
       "a": "OSTRANDER CATHRINE",
@@ -12509,8 +12774,8 @@
     },
     {
       "a": "SMITH JEDUTHAN",
-      "b": "9 residents named Smith",
-      "rule": "SMITH JEDUTHAN is refused against 9 residents named Smith: the forename names 0 of the 9 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "10 residents named Smith",
+      "rule": "SMITH JEDUTHAN is refused against 10 residents named Smith: the forename names 0 of the 10 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
         {
           "key": "smith_e_kirby",
@@ -12560,6 +12825,15 @@
         {
           "key": "smith_lawrence",
           "name": "Lawrence Smith",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "smith_mathias",
+          "name": "Mathias Smith",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -12730,8 +13004,8 @@
     },
     {
       "a": "SMITH WILLIAM",
-      "b": "9 residents named Smith",
-      "rule": "SMITH WILLIAM is refused against 9 residents named Smith: the forename names 2 of the 9 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "10 residents named Smith",
+      "rule": "SMITH WILLIAM is refused against 10 residents named Smith: the forename names 2 of the 10 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
         {
           "key": "smith_e_kirby",
@@ -12781,6 +13055,15 @@
         {
           "key": "smith_lawrence",
           "name": "Lawrence Smith",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "smith_mathias",
+          "name": "Mathias Smith",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -14201,8 +14484,8 @@
     },
     {
       "a": "SMITH JOSHUA",
-      "b": "9 residents named Smith",
-      "rule": "SMITH JOSHUA is refused against 9 residents named Smith: the forename names 0 of the 9 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "10 residents named Smith",
+      "rule": "SMITH JOSHUA is refused against 10 residents named Smith: the forename names 0 of the 10 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
         {
           "key": "smith_e_kirby",
@@ -14252,6 +14535,15 @@
         {
           "key": "smith_lawrence",
           "name": "Lawrence Smith",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "smith_mathias",
+          "name": "Mathias Smith",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -14826,15 +15118,33 @@
     },
     {
       "a": "CHEVALIER PIERRE",
-      "b": "Josette Chevalier",
-      "rule": "CHEVALIER PIERRE is refused against Josette Chevalier: the forename names 0 of the 1 person of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "3 residents named Chevalier",
+      "rule": "CHEVALIER PIERRE is refused against Joseph Chevalier and Josette Chevalier and Louis P Chevalier: the forename names 0 of the 3 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
+        {
+          "key": "chevalier_joseph",
+          "name": "Joseph Chevalier",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "chevalier_josette",
           "name": "Josette Chevalier",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "chevalier_louis_p",
+          "name": "Louis P Chevalier",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "P",
           "reading_middle_initial": null,
           "outcome": "refused_on_the_forename"
         }
@@ -15012,12 +15322,30 @@
     },
     {
       "a": "BEAUBIEN M",
-      "b": "8 residents named Beaubien",
-      "rule": "BEAUBIEN M is refused against 8 residents named Beaubien: the forename names 2 of the 8 people of this surname, and a reading is named onto exactly one or onto none (R3).",
+      "b": "18 residents named Beaubien",
+      "rule": "BEAUBIEN M is refused against 18 residents named Beaubien: the forename names 3 of the 18 people of this surname, and a reading is named onto exactly one or onto none (R3).",
       "rivals": [
+        {
+          "key": "beaubien_alexander",
+          "name": "Alexander Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "beaubien_alexandre",
           "name": "Alexandre Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_archange",
+          "name": "Archange Beaubien",
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": null,
@@ -15034,11 +15362,47 @@
           "outcome": "refused_on_the_forename"
         },
         {
+          "key": "beaubien_caroline",
+          "name": "Caroline Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_charles",
+          "name": "Charles Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "beaubien_charles_h",
           "name": "Charles H Beaubien",
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": "H",
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_elonore",
+          "name": "Elonore Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_george",
+          "name": "George Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
           "reading_middle_initial": null,
           "outcome": "refused_on_the_forename"
         },
@@ -15070,6 +15434,15 @@
           "outcome": "refused_on_the_forename"
         },
         {
+          "key": "beaubien_joseph",
+          "name": "Joseph Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "beaubien_madore",
           "name": "Madore Benjamin Beaubien",
           "forename_agrees": true,
@@ -15086,6 +15459,33 @@
           "middle_initial": null,
           "reading_middle_initial": null,
           "outcome": "survives"
+        },
+        {
+          "key": "beaubien_monique",
+          "name": "Monique Beaubien",
+          "forename_agrees": true,
+          "why": "an initial standing for the forename (M2)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "survives"
+        },
+        {
+          "key": "beaubien_robert_jerome",
+          "name": "Robert Jerome Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "J",
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_susan",
+          "name": "Susan Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
         }
       ],
       "record_ids": [
@@ -15097,12 +15497,30 @@
     },
     {
       "a": "BEAUBIEN M B",
-      "b": "8 residents named Beaubien",
-      "rule": "BEAUBIEN M B is refused against 8 residents named Beaubien: the forename names 2 of the 8 people of this surname, and a reading is named onto exactly one or onto none (R3).",
+      "b": "18 residents named Beaubien",
+      "rule": "BEAUBIEN M B is refused against 18 residents named Beaubien: the forename names 3 of the 18 people of this surname, and a reading is named onto exactly one or onto none (R3).",
       "rivals": [
+        {
+          "key": "beaubien_alexander",
+          "name": "Alexander Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "beaubien_alexandre",
           "name": "Alexandre Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_archange",
+          "name": "Archange Beaubien",
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": null,
@@ -15119,11 +15537,47 @@
           "outcome": "refused_on_the_forename"
         },
         {
+          "key": "beaubien_caroline",
+          "name": "Caroline Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_charles",
+          "name": "Charles Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "beaubien_charles_h",
           "name": "Charles H Beaubien",
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": "H",
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_elonore",
+          "name": "Elonore Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_george",
+          "name": "George Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
           "reading_middle_initial": "B",
           "outcome": "refused_on_the_forename"
         },
@@ -15155,6 +15609,15 @@
           "outcome": "refused_on_the_forename"
         },
         {
+          "key": "beaubien_joseph",
+          "name": "Joseph Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "beaubien_madore",
           "name": "Madore Benjamin Beaubien",
           "forename_agrees": true,
@@ -15171,6 +15634,33 @@
           "middle_initial": null,
           "reading_middle_initial": "B",
           "outcome": "survives"
+        },
+        {
+          "key": "beaubien_monique",
+          "name": "Monique Beaubien",
+          "forename_agrees": true,
+          "why": "an initial standing for the forename (M2)",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "survives"
+        },
+        {
+          "key": "beaubien_robert_jerome",
+          "name": "Robert Jerome Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "J",
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "beaubien_susan",
+          "name": "Susan Beaubien",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "B",
+          "outcome": "refused_on_the_forename"
         }
       ],
       "record_ids": [
@@ -15343,12 +15833,39 @@
     },
     {
       "a": "BOURASSA LEON",
-      "b": "Mark Bourassa",
-      "rule": "BOURASSA LEON is refused against Mark Bourassa: the forename names 0 of the 1 person of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "4 residents named Bourassa",
+      "rule": "BOURASSA LEON is refused against 4 residents named Bourassa: the forename names 0 of the 4 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
+        {
+          "key": "bourassa_jean_baptiste",
+          "name": "Jean Baptiste Bourassa",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "B",
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "bourassa_lon",
+          "name": "Lon Bourassa",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "bourassa_mark",
           "name": "Mark Bourassa",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "bourassa_noel",
+          "name": "Noel Bourassa",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -17412,7 +17929,7 @@
       ],
       "ruled_on": "2026-09-11",
       "ruled_under": "T-1034",
-      "was_proposed_as": "MILLER GEORGE matches George Miller: the forename names George Miller of the 3 people of this surname, and the forename agrees in full."
+      "was_proposed_as": "MILLER GEORGE matches George Miller: the forename names George Miller of the 4 people of this surname, and the forename agrees in full."
     },
     {
       "a": "MILLER J",
@@ -17427,7 +17944,7 @@
       ],
       "ruled_on": "2026-09-11",
       "ruled_under": "T-1034",
-      "was_proposed_as": "MILLER J matches John Miller: the forename names John Miller of the 3 people of this surname, and the forename agrees as an initial only."
+      "was_proposed_as": "MILLER J matches John Miller: the forename names John Miller of the 4 people of this surname, and the forename agrees as an initial only."
     },
     {
       "a": "MILLER SAMUEL",
@@ -17444,7 +17961,7 @@
       ],
       "ruled_on": "2026-09-11",
       "ruled_under": "T-1034",
-      "was_proposed_as": "MILLER SAMUEL matches Samuel Miller: the forename names Samuel Miller of the 3 people of this surname, and the forename agrees in full."
+      "was_proposed_as": "MILLER SAMUEL matches Samuel Miller: the forename names Samuel Miller of the 4 people of this surname, and the forename agrees in full."
     },
     {
       "a": "MORRISON EPHRAIM",
@@ -17935,8 +18452,8 @@
     },
     {
       "a": "SMITH JAMES A",
-      "b": "9 residents named Smith",
-      "rule": "SMITH JAMES A is refused against 9 residents named Smith: the forename names 0 of the 9 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "10 residents named Smith",
+      "rule": "SMITH JAMES A is refused against 10 residents named Smith: the forename names 0 of the 10 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
         {
           "key": "smith_e_kirby",
@@ -17986,6 +18503,15 @@
         {
           "key": "smith_lawrence",
           "name": "Lawrence Smith",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": "A",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "smith_mathias",
+          "name": "Mathias Smith",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -18031,8 +18557,8 @@
     },
     {
       "a": "SMITH W V",
-      "b": "9 residents named Smith",
-      "rule": "SMITH W V is refused against 9 residents named Smith: the forename names 2 of the 9 people of this surname, and a reading is named onto exactly one or onto none (R3).",
+      "b": "10 residents named Smith",
+      "rule": "SMITH W V is refused against 10 residents named Smith: the forename names 2 of the 10 people of this surname, and a reading is named onto exactly one or onto none (R3).",
       "rivals": [
         {
           "key": "smith_e_kirby",
@@ -18082,6 +18608,15 @@
         {
           "key": "smith_lawrence",
           "name": "Lawrence Smith",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "V",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "smith_mathias",
+          "name": "Mathias Smith",
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": null,
@@ -18243,22 +18778,20 @@
       ]
     },
     {
-      "a": "STONE H O",
-      "b": "0 residents named Stone",
-      "rule": "STONE H O is refused against 0 residents named Stone: the residents layer holds nobody of the surname.",
-      "record_ids": [
-        "ls1477",
-        "ls1478",
-        "ls1479"
-      ],
-      "evidence": [
-        "data/residents/index.json"
-      ]
-    },
-    {
       "a": "STONE R H",
-      "b": "0 residents named Stone",
-      "rule": "STONE R H is refused against 0 residents named Stone: the residents layer holds nobody of the surname.",
+      "b": "Henry Stone",
+      "rule": "STONE R H is refused against Henry Stone: the forename names 0 of the 1 person of this surname, and a reading is named onto exactly one or onto none.",
+      "rivals": [
+        {
+          "key": "stone_henry",
+          "name": "Henry Stone",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": null,
+          "reading_middle_initial": "H",
+          "outcome": "refused_on_the_forename"
+        }
+      ],
       "record_ids": [
         "ls1480"
       ],

@@ -612,19 +612,29 @@ EDGE_RECONCILED = {
 
 # AND THE SAME FAULT ON LAKE STREET, WHICH IS WHERE IT WENT NEXT. T-0199 closed
 # South Water and named the eleven march steps left in the town; they were all on
-# Lake Street, and their cause is the same modern-kerb read (T-0196). Three are
+# Lake Street, and their cause is the same modern-kerb read (T-0196). Three were
 # reconciled here by the same derivation, against the same committed line, to the
-# same 1.50 m. THE FOURTH IS NOT, and it is not an omission: the same translation
-# would set `first_presbyterian_church` down ON TOP of `physicians_office`, which
-# stands 3.15 m behind it on the lot it would come onto — moved 0.2 m the two are
-# inside the three-metre separation gate and moved 3.2 m they overlap. There is no
-# translation along this normal that both clears the walk and leaves the pair
-# standing apart, and choosing between a documented church and an inferred
-# household is a rule rather than a metre, so it went to the owner as T-0251. Two
-# steps of Lake Street's walk stay unlaid and the record below says whose they are.
+# same 1.50 m. THE FOURTH WAS NOT, and it was not an omission: the same translation
+# would have set `first_presbyterian_church` down ON TOP of `physicians_office`,
+# which stood 3.15 m behind it on the lot it would come onto — moved 0.2 m the two
+# were inside the three-metre separation gate and moved 3.2 m they overlapped. There
+# is no translation along this normal that both clears the walk and leaves the pair
+# standing apart, and choosing between a documented church and an inferred household
+# is a rule rather than a metre, so it went to the owner as T-0251.
+#
+# HE RULED ON 2026-09-21 AND THE FOURTH IS RECONCILED (T-0251). The rule is general —
+# where an ATTESTED placement and an INFERRED placement collide on one lot, the
+# attested one stands and the inferred one moves or is withdrawn; it is written
+# down, with its reasoning and the alternatives it refused, at
+# `tools/plat_occupancy.attested_precedence()`. So the church took the 3.395 m every
+# other Lake Street record took, and `physicians_office` gave way — re-seated on its
+# own frontage band 12.99 m west along the same face and forward onto the street
+# line, not withdrawn and not narrowed. The two steps of Lake Street's walk this
+# record refused, 88.6 to 99.0 m along `blk_lake_lasalle`'s north face, are laid by
+# the march below rather than by anything being relaxed in it.
 EDGE_RECONCILED_LAKE = {
     "old_bank_building": 3.124, "dole_warehouse_south": 2.784,
-    "st_marys_church": 4.532,
+    "st_marys_church": 4.532, "first_presbyterian_church": 3.395,
 }
 
 # AND ONCE MORE ON RANDOLPH STREET, on the one block this town kept for itself

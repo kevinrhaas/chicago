@@ -1,11 +1,28 @@
 #!/usr/bin/env bash
-# The per-commit gate. Seconds, no Blender, runs in every agent sandbox.
+# The per-commit gate. About four minutes on four cores, no Blender, runs in every
+# agent sandbox — and has to keep fitting the 600 s that is all a steward run's
+# single foreground command gets (T-1578).
 #
 # A gate that takes four minutes gets skipped, so this one deliberately does not
 # build geometry. Content builds live in tools/bake.sh and run on demand.
 #
+# THAT SENTENCE IS THE BUDGET, AND THE GATE HAS OUTGROWN IT ONCE ALREADY. It said
+# "Seconds" here until 2026-09-25, by which time 624 steps took about 620 s serially
+# — two and a half times the duration this file's own design note treats as the point
+# at which a gate stops being run, and past the 600 s ceiling, so a steward run got
+# NO verdict from it rather than a slow one. What bought the budget back was
+# tools/check_harness.sh's step pool, which CI had been using since T-1289 and no
+# other caller had: on by default now, 453 s on four cores, same verdict and the same
+# transcript in the same order. There is no third helping of that. The pool's ceiling
+# is its heavy tail — the slowest twenty steps are half the clock — so the next step
+# that costs a minute has to be made cheaper, or moved to tools/bake.sh, or the budget
+# has to be re-argued out loud here.
+#
 #   tools/check.sh            the gate
 #   tools/check.sh --strict   warnings are errors (used before a release)
+#
+#   CHECK_JOBS=1              serial, for reproducing a step's red on a quiet tree
+#   CHECK_TIMINGS=<path>      append "<seconds>\t<kind>\t<command>\t<label>" per step
 set -uo pipefail
 _check_tools="$(cd "$(dirname "$0")" && pwd)"
 cd "$_check_tools/.."
@@ -42,6 +59,13 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
 # cloned at tickets/. Fetched first because the publish below builds tickets.json from
 # them and `ticket.mjs check` gates them; a missing clone fails that check loudly rather
 # than letting an empty queue read as a clean one.
+# T-1548. Before anything else: are this clone's merge drivers registered? They live
+# in .git/config, so they cannot be committed and a fresh clone starts without them.
+# Unregistered they cost a hand-resolved changelog conflict per branch — four of them
+# in one session on 2026-09-24 — and nothing anywhere says so. This says so.
+step "the merge drivers this clone needs are registered (T-1548)" \
+  bash tools/check-merge-drivers.sh
+
 step "the tickets are here (kevinrhaas/chicago-tickets, cloned at tickets/)" \
   bash tools/tickets.sh
 check_flush   # the publish below reads the clone; never race it under CHECK_JOBS>1
@@ -96,6 +120,18 @@ step "the steward surfaces spend the REST bucket, not GraphQL (T-0234)" \
 
 selftest "…and a reintroduced gh pr draw is refused (T-0234)" \
   node tools/check_gh_rest.mjs --self-test
+
+# T-0135. The three scene-detail ceilings are a LADDER and nothing made them one.
+# `sealLadder()` in main.js takes the running minimum down the tier order, so a rung
+# typed too high cannot take effect; this is the gate beside that construction. It
+# is here and not only in the renderer smoke because the dev gate is check.sh and
+# nothing else (docs/PIPELINE.md) — a fault only a six-minute smoke part can see is
+# a fault that reaches the dev preview. It reads the committed source, sliced.
+step "the scene-detail ceilings are a ladder, and each rung says what it protects (T-0135)" \
+  node tools/check_detail_ladder.mjs
+
+selftest "…and the seal still clamps, marks and shouts a rung typed too high (T-0135)" \
+  node tools/check_detail_ladder.mjs --self-test
 
 step "dataset (schema, provenance, date gates, licenses, staleness, publish)" \
   python3 tools/validate.py --all $STRICT
@@ -945,6 +981,28 @@ step "the West Division re-cut of blocks 28 and 45 is still refused by the commi
 selftest "…and both halves of that refusal, the seating it would strand and the unanswered first question still fire" \
   python3 tools/measure_west_grid_migration.py --self-test
 
+# T-1540. The precondition BEHIND that refusal, which for three days pointed a reader at
+# a ticket already done: Clinton to Canal stands at 367.9 ft against the plat's 458 ft,
+# T-0444 reported it and T-0445 closed without moving a centreline. The owner ruled on
+# 2026-09-21 that the successor must own the whole question rather than the one number —
+# so this pair gates the WHOLE question. What is worth naming: the gap is on every
+# interval of the West Division grid, not on Clinton to Canal alone, and the assertion
+# that carries the finding is a COUNT rather than a metric — three intervals are short
+# and a centreline moved reaches two, so no single street move closes it, and that
+# holds whatever the datum residual is. The residual is gated both ways on purpose: at
+# least one interval must be short by more than 17.5 m (or the whole gap is inside the
+# georeferencing and there is nothing to repair) and at least one must sit inside it (or
+# the measurement is not discriminating and any interval could be called a defect). And
+# the sharpest one is the quotation: the sheet reading must still say `documented` "does
+# not grade any position", because that sentence is the only reason the plat cannot be a
+# position control — the day it changes, "the plat wins" becomes a move this project
+# could actually make, and the ruling in this file has to be rewritten rather than reused.
+step "the West Division's north-south lines are still seated on the survey, not on the plat's module" \
+  python3 tools/measure_west_division_spacing.py --check
+
+selftest "…and the gap on every interval, the datum test cutting both ways, the count no residual touches and both anchors' price still fire" \
+  python3 tools/measure_west_division_spacing.py --self-test
+
 # The band the two halves of that plat leave between them (T-0419). Since the owner ruled
 # on 2026-08-29 that a corridor is derived from the street CONTROL, south_water's corridor
 # stands 8.58 m north of block faces still offset from the DRAWN line, and 6,132 m2 of
@@ -958,6 +1016,21 @@ step "the band between the re-centred corridor and its block faces is what T-041
 
 selftest "…and that measurement's own assertions still fire when broken" \
   python3 tools/measure_corridor_strip.py --self-test
+
+# AND THE RULING THAT CLOSED IT (T-0419, the owner, 2026-09-21): the block grid is NOT
+# re-cut onto the control, the two lines are answers to two different questions, and EVERY
+# READER SAYS WHICH IT TOOK. That is the substance of the ruling and the only part of it
+# that is enforceable — the fault the ticket found was not a wrong line but a reader that
+# never said, so nobody could tell whether its number was about the plat or about the town.
+# The check reads the SYNTAX TREE and not the text, because every one of these modules
+# discusses both lines at length in its prose and a grep for `from_control` reports almost
+# all of them as control readers. `docs/CORRIDOR-LINES.md` is the ruling, the disagreement
+# the owner declined to resolve, and the price branch A was refused at.
+step "every reader of the platted grid says which of its two lines its answer stands on" \
+  python3 tools/check_corridor_line.py --gate
+
+selftest "…and the declaration is checked against the calls, in the tree and not in the prose" \
+  python3 tools/check_corridor_line.py --self-test
 
 # T-0875. The School Section's 142 block numerals, read off the 600-dpi NA sheet.
 # It sits beside the Thompson grid because it is the same question answered the
@@ -1229,6 +1302,21 @@ selftest "…and the executor's own refusals still fire on an unbuildable deal" 
 step "the redeal's migrated ids left nothing behind, and every migrated roof conforms" \
   python3 tools/execute_roof_redeal.py --check-migration
 
+# T-1611, and the LAST of the 32 refamily verdicts. Six yard buildings on three platted
+# blocks were re-dealt into dwelling families: the slot's family moved, its class was
+# ASKED of `reconcile_665.inventory_class` rather than typed over, the record ids moved
+# with the family and every committed file that named one was carried across. This step
+# asks four things the step above cannot, because a block is dealt more than once and its
+# schedule counts its own slots: that each re-dealt id still derives at its own sequence
+# in its own programme phase; that the class it stands as is still the class the
+# rear-cottage clause DERIVES for it, so losing that clause is red here rather than
+# quietly making six second principal roofs again; that the live adjudication now returns
+# `keep` for every one, which is the only thing a refamily is for; and that no committed
+# file — outside the dated receipts and the two sweeps' own fixtures, which it names — is
+# left pointing at one of the six ids that no longer exists.
+step "the platted blocks' six are re-dealt, still derive their class, and left nothing behind" \
+  python3 tools/execute_roof_redeal.py --check-blocks
+
 # T-1483, and the step that had to exist before the 26 outstanding verdicts could be
 # carried out at all. Their record ids encode the family, so executing them RENAMES a
 # roof some seventy files name — and a scripted rename over those files would pass every
@@ -1259,21 +1347,31 @@ step "the migrated roof ids re-derive, and nothing still names an old one" \
 selftest "…and the migration's own refusals still fire on a moved recipe" \
   python3 tools/migrate_roof_ids.py --self-test
 
-# T-1482, and the step that says why the last six of the 32 refamily verdicts are still
-# outstanding. The two migrations above carried 20 of them out; these six are yard
-# buildings standing off a block alley behind the principal roof on their own lot, and
-# the adjudication moves every one into a dwelling family. `generate_block_infill` reads
-# a roof's inventory class from its group, so that promotion makes each one a SECOND
-# principal roof on an occupied lot, which the parcel gate refuses and the committed
-# `multi_building_lot` rule admits only on a principal-street lot in a party-line run.
-# A report that could be read as "somebody forgot" is the failure this guards against:
-# it holds the refusal, the 36 offered families that all land in the same class, the two
-# open lots the three blocks have between them, and the clause's own evidence — three of
-# whose four documented stables stand exactly where the six were refused for standing.
-step "the platted blocks' six outstanding verdicts still have nowhere to be carried to" \
+# T-1482, and the step that holds the last six of the 32 refamily verdicts to what was
+# ruled about them. The two migrations above carried 20 out; these six are yard buildings
+# standing off a block alley behind the principal roof on their own lot, and the
+# adjudication moves every one into a dwelling family. The inventory class was read off
+# the GROUP alone, so that promotion made each one a SECOND principal roof on an occupied
+# lot — refused by the parcel gate, over `lot_ceiling_principal`, and not fixable inside
+# the verdict, because all 36 offered families are ordinary dwellings. This tool measured
+# that and the owner ruled on 2026-09-23 (option (a)): a rear cottage is ANCILLARY, so a
+# lot may carry a main house plus a rear dwelling.
+#
+# T-1610 carried the ruling into `reconcile_665.inventory_class`, which now reads the
+# position as well as the group, and into the placement policy as
+# `rear_dwelling_behind_its_own_roof`. T-1611 then carried the six OUT, so this step's
+# ordinary reading is now ZERO outstanding verdicts — which is what a carried-out
+# adjudication looks like from here, because the ledger is re-derived over the town as
+# it stands and a roof that conforms returns `keep`. What the step still holds is the
+# re-derivation itself: the report must re-derive from the ledger, the block recipe and
+# the placement policy, and it carries the ruling, the three remedies as each was costed,
+# and the clause's own evidence — three of whose four documented stables stand exactly
+# where the six were refused for standing. The record of the MOVE is the block recipe's
+# `redealt` block, gated by the step below.
+step "the platted blocks' remedies report still re-derives, and the rear-cottage ruling is still on the record" \
   python3 tools/measure_block_redeal_remedies.py --check
 
-selftest "…and it would say so the moment a re-deal had somewhere to go" \
+selftest "…and the derivation, both gates and the ruling's own record still fire when broken" \
   python3 tools/measure_block_redeal_remedies.py --self-test
 
 # T-1499, and the silence it closes. Two tools sweep that same surface — the
@@ -1676,7 +1774,11 @@ selftest "…and its own assertions still fire when broken" \
 # worked where, each with its tier and the documented records behind it, and the five
 # numbers in one place that the four modules now import. The clause text is authored in
 # the module; every count, street class and setback printed beside a clause is re-read
-# from the committed tree on every run, which is what --check compares. Five assertions:
+# from the committed tree on every run, which is what --check compares. THIRTEEN clauses
+# since T-1610, the thirteenth being `rear_dwelling_behind_its_own_roof` — the owner's
+# rear-cottage ruling of 2026-09-23, tier `inferred` and citing no record, because this
+# town holds no documented roof standing as a dwelling in another roof's yard. It removes
+# no outlier: all seven documented D roofs conformed already. Five assertions:
 # no clause cites a record this tree does not hold; a `documented` clause has evidence
 # and an inferred one has its reasoning; every outlier is explained AND every explanation
 # still has its outlier; no family letter is left without a seat rule; and no module has
@@ -1686,6 +1788,49 @@ step "the placement policy still re-derives, and nothing re-typed its constants"
 
 selftest "…and its five assertions still fire when broken" \
   python3 tools/placement_policy_1835.py --self-test
+
+# T-1613, the first piece of T-1199. The policy above says which GROUND a household of a
+# kind belongs on; this says which LOT, and it could not be written until the lots were
+# enumerated. `1835_lot_ledger.json` is that enumeration — 226 committed lots, each with
+# the street its face fronts, that street's traffic class, whether it turns a corner, what
+# stands on it and how many principal roofs the policy's multi-building rule lets it
+# carry — every field a join over a record this project already committed.
+# `1835_platted_seats.json` is the adjudication on top of it: every household the address
+# book leaves at a band, offered the plat in the policy's own clause order, adopting a
+# standing anonymous roof before ever asking for a new one, and handed to T-1614 in
+# writing where the plat has nothing for it. Six assertions: no seat on a lot the ledger
+# does not draw; no roof adopted twice; no household seated across a division line; no
+# adopted roof also drawn off the order book (that would spend one roof twice); no row in
+# scope left unanswered; and no owed row with a blank where its reason should be. Nothing
+# is raised and nothing is baked — an adoption points at a roof that already stands and a
+# slot is a request the 5C build tickets fulfil.
+step "the lot ledger and the platted seats still re-derive" \
+  python3 tools/seat_platted_ground_1835.py --check
+
+selftest "…and the deal's six refusals still fire when broken" \
+  python3 tools/seat_platted_ground_1835.py --self-test
+
+# T-1614, the second piece of T-1199. The pass above enumerated the plat and handed 1,374
+# of the 1,480 banded households on with a written reason; this is the file that answers
+# them, on the ground the committed plat does not draw. `1835_off_plat_ledger.json`
+# enumerates it — 136 tier lots the Thompson grid was closed before either tier file was
+# written, the 2 School Section blocks left whole, Kinzie's Addition's 27 blocks with a
+# boundary and no lot rule, the 7 placed survey chips and the 5 camp grounds carried by
+# name because their own file authors no vertex. `1835_off_plat_seats.json` deals it in
+# the placement policy's own clause order. EVERY SEAT IS AN ADOPTION and no slot is
+# raised anywhere, because 150 of those 177 parcels have no row in the 665-roof
+# programme's schedule at all and the 27 that do are marked `unsubdivided` with no
+# headroom — which is the finding, not an omission. Seven assertions: no seat on a parcel
+# the ledger does not draw; no roof adopted twice; no household seated across a division
+# line, tested against the roof's own `reconstruction.district`; no roof adopted here that
+# T-1613 already adopted, which would seat two households in one roof across two files;
+# no order-book draw on ground the schedule does not open; no handed-on row left
+# unanswered; and no owed row with a blank where its reason should be.
+step "the off-plat ledger and its seats still re-derive" \
+  python3 tools/seat_off_plat_ground_1835.py --check
+
+selftest "…and the off-plat deal's seven refusals still fire when broken" \
+  python3 tools/seat_off_plat_ground_1835.py --self-test
 
 # A dwelling nobody named is a count-unit toward a documented aggregate; a PUBLIC
 # building nobody named is the claim that an institution stood here and left no record
@@ -2212,8 +2357,67 @@ step "changelog contract" \
 # The ticket queue: the operational "what next" the owner ordered on 2026-08-17
 # after his own requests went untraceable in the ROADMAP. Duplicate ids, queue
 # drift, a stale BOARD, a block with no stated question — all merge-refusing.
-step "ticket queue" \
-  node tools/ticket.mjs check
+#
+# `--inherited-warn` IS WHOSE RED IT IS (T-1593). The tickets are a separate
+# repository since 2026-09-23, so nothing this step reads is in the diff under
+# review — and on 2026-09-25 that turned into a red nobody could clear: two
+# tickets were filed as effort L at 23:07Z and the gate on #51, a pull request of
+# AGENTS.md and three files under tools/, went red on THIS step 37 minutes later.
+# It merged with GH_REST_MERGE_BLIND=1 after its author had proved the red was
+# not his. So the step now says which faults are the branch's own — those fail —
+# and reports the rest as a WARN naming the filing and the command that clears it
+# for every open PR at once. `node tools/ticket.mjs check` run bare is still
+# strict, which is where the rule keeps its teeth: by hand, and in the tickets
+# repository's own CI. The flag does NOT soften a dirty or unpushed clone —
+# state this run put there is state this run owns.
+step "ticket queue (faults in the tickets repo are reported, not charged to this diff)" \
+  node tools/ticket.mjs check --inherited-warn
+
+# …AND BOTH HALVES OF T-1593, ON A REAL CLONE OF A REAL BARE TICKETS REPOSITORY,
+# because the whole distinction is which repository a file lives in and a fixture
+# folder cannot tell the two apart. The filing refusal (`new --effort L`, and an
+# effort the gate cannot read) and the WARN, against the exact queue state that
+# failed at 23:07Z — plus the three things the flag must NOT let through: a fault
+# in this repo's own files, a tickets clone this run dirtied, and embedded mode.
+step "a filing fault is refused at the prompt, and a queue fault no diff carries is not charged to it" \
+  node tools/test_ticket_filing_effort.mjs
+
+# T-1548. `done` refuses to close a ticket a committed file still records as live work
+# — the shape that turned dev red three times running (T-1507 as #7, T-1540 as #25,
+# T-1299 as #26), each found hours later by a different run from a red gate. The
+# scanner is a gate, so it is proved by breaking it, on fixtures rather than on the
+# data, and it asserts BOTH directions: the two shapes are caught, and the three ways
+# a ticket id appears innocently are not.
+selftest "…and the tripwire scanner behind \`done\` still fires, and still ignores prose" \
+  node tools/ticket.mjs tripwire-self-test
+
+# T-1581, AND THE HALF T-1548 COULD NOT SEE. That scanner matches the closing ticket's
+# OWN id; all three of the closes that turned dev red on 2026-09-25 stranded an
+# ANCESTOR instead — a pointer named a `split` parent, and the close took its last live
+# descendant. #40 (T-1448) left twelve cohort units on T-1189 two levels up, red for
+# 2.5h; #43 (T-1560) ended the re-family programme on T-1556 while T-1564 stood open
+# under the split T-1559; #49 (T-1523) would have left 272 landholding units on T-1198.
+#
+# THE WALK IS ONE DEFINITION NOW (tools/ticket_liveness.py): the research ledger's
+# `split_live`, the order book's `live_pieces_of` and ticket.mjs all read it, and the
+# self-test holds the three shapes above plus the one that must NOT fire — a split with
+# a live descendant two levels down.
+selftest "…and the split walk all three of them read still holds, on all four shapes" \
+  python3 tools/ticket_liveness.py --selftest
+
+# AND THE QUESTION ASKED OF THIS BRANCH, NOT OF THE WORLD. `done --pr` sets `review`,
+# and the tickets repo settles it to `done` when the PR MERGES — so the state that
+# breaks dev arrives after this gate has already passed it. This step asks it early:
+# the ledger's and the order book's ownership gates, re-run against a queue in which
+# the tickets THIS BRANCH NAMES are already `done`.
+#
+# SCOPED TO THE BRANCH, and the scope is the point. Reading every `review` ticket in
+# the shared queue would turn this PR red for a close somebody else is making, which
+# is precisely the fault T-1593 is filed about; on `dev` and `main` it says so and
+# does nothing. An ancestor that is ALREADY dead is not this branch's either — the
+# step reports only what is NEW with the close.
+step "closing this branch's tickets strands nobody above them" \
+  python3 tools/ticket_liveness.py
 
 # The link between the two: the shipped derivative against the master it was
 # compressed from. `--stale` gates data -> master and check_published.mjs gates
@@ -2388,6 +2592,32 @@ step "a claim is a lock on the remote, and two runs cannot hold one ticket" \
 step "a lap that could not ask never reports that it found nothing" \
   node tools/test_pr_lap_list.mjs
 
+# AND THE LAP MUST BE ABLE TO FINISH A REBUILD IT STARTS (T-1521). `site/4d/` is
+# generated and untracked (T-0938), so the lap's checkout has no mirror — and step
+# 156 of 156, `rebuild_closing_set.py --build`, reads the published residents and
+# REFUSES rather than write a count it did not take. The lap ran `rederive.mjs`
+# without publishing, so every lap over such a PR failed at the same step and left
+# it alone FOR EVER, which from outside looks exactly like a queue the lap has not
+# got to. Measured 2026-09-21, lap run 35624254338: #1629, #1630 and #1631 sat
+# unmergeable with GREEN gates while the lap reported success. This gate publishes
+# first for the same reason (its step 1); the lap now does too. The suite runs the
+# REAL script over a REAL bare remote with stub tools, and then runs it AGAIN with
+# the publish neutered and requires that to fail — a regression test that cannot
+# see the regression is decoration.
+step "the lap publishes the mirror before the rebuild that reads it" \
+  node tools/test_pr_lap_publish.mjs
+
+# ...AND WHEN IT CAN ASK BUT CANNOT CHECK OUT, IT HAS TO SAY WHY (T-1565). The
+# lap's two entry guards said four near-identical words each — `fetch failed`,
+# `checkout failed` — with git's stderr sent to /dev/null, so #1629's failure on
+# 2026-09-21 left a run summary with no reason in it at all: not which of the two
+# failed, not git's message, not the ref it could not resolve. Every other refusal
+# in the lap names its step and tails its log, which is how T-1521 was found.
+# This one runs the REAL script against a REAL bare remote with REAL git — the
+# faults live in git's own refusal messages, so a fake git would test the fake.
+step "a lap that cannot check out a branch says which step failed, and why" \
+  node tools/test_pr_lap_checkout.mjs
+
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
 # fleet janitor said the lap plus auto-merge did it, while excluding `custom`
@@ -2424,6 +2654,22 @@ step "the merger merges what GitHub calls clean, and nothing else" \
 # hours old and would have had the reporter declaring PRs stuck on no evidence.
 step "a pull request nothing can move is reported, and nothing else is touched" \
   node tools/test_pr_stuck.mjs
+
+# AND THE OTHER LABEL — the one a RUN applies to its own unfinished work (T-1573).
+# `hold` is the owner's park switch and every pass above skips it on purpose,
+# which is right; what was wrong is that the steward prompt told a run to apply
+# that same label whenever it merely could not FINISH, so work needing nobody's
+# decision had nothing coming for it either. Owner, 2026-09-25, on the three PRs
+# parked that way: "that seems like a bad move because i am not aware of why they
+# are held" — and he was right twice over, because #39's stated reason was already
+# stale (CI had passed all 620 steps) while #41 and #42 were simply COMPLETE.
+# `pr-rest.sh resume` is the replacement, and its whole value is one machine-
+# readable line — `resume: <reason> · waits on: <T-NNNN|nothing>` — that pr-stuck
+# reads back into every sweep. A reason lost to a stray newline, or a label applied
+# before the reason is written, rebuilds the silence exactly. This runs the REAL
+# script against a faked `gh` and holds it to the order as well as the content.
+step "a run that cannot finish hands its PR on, and says why in a line a script can read" \
+  node tools/test_pr_resume.mjs
 
 # AND THE QUESTION THE LOCK CANNOT ANSWER: has this ticket's PR already MERGED?
 # Everything here squash-merges, so a merged branch never becomes an ancestor of
@@ -2495,6 +2741,22 @@ step "a split keeps its claim, and the queue drops only finished work and regain
 # queue. Every one of those is run for real here: two clones of one bare repository.
 step "the tickets repo: claim is a pushed lock, done waits on the merge, ask stays in the queue" \
   node tools/test_ticket_repo_mode.mjs
+
+# A PARKED PULL REQUEST IS THE ONE KIND NOTHING IS COMING BACK FOR (T-1576). The lap,
+# `merge-ready.sh` and `pr-stuck.sh` all read labels before state and all skip `hold` on
+# purpose, so a held PR is invisible by design — and the only place its reason was
+# written was the PR body. The owner, 2026-09-25, finding three at once: "that seems
+# like a bad move because i am not aware of why they are held". `board --parked` puts
+# every open `hold`/`resume` PR on the board with its reason and its age.
+#
+# THE READING THIS STEP EXISTS FOR IS THE BLIND ONE. An empty section and a section
+# whose PR list could not be read print identically unless something makes them differ,
+# and the second dressed as the first is the same silence one level up. The fixture is
+# a constructed PR list for the reason `landed --pr-json` takes one: against the live
+# repository the right answer changes by the hour, so what a gate can hold is the
+# READING. It reaches no network.
+step "every held or resumable pull request reaches the board with its reason, and an unread list says so" \
+  node tools/test_ticket_parked.mjs
 
 # A GATED WRITER BELONGS IN THE MANIFEST (T-1282, owner 2026-09-18). A tool this gate runs
 # with --check, and that can also write, produces DERIVED content by definition — so if
@@ -2730,6 +2992,23 @@ step "every mint that re-derives a household carries the blocks it does not own"
 selftest "...and its own assertions still fire when broken" \
   python3 tools/carry_stage_blocks.py --self-test
 
+# T-1523, the first thing to use that slot for anything but an arrival. T-1522 dealt a
+# division to the 1,305 households no source places anywhere and wrote it in the address
+# book ALONE, so the card and the manifest both still read `unplaced` and the People
+# view's division filter was short of 1,526 people. This carries the dealt value onto the
+# card as `division_reconstructed` — marked `reconstructed`, carrying the digest that
+# placed it — and holds the two halves against each other in both directions: a dealt row
+# whose card does not carry it is the invisibility T-1522 left, and a carried card the
+# book deals nothing for is a block nothing re-derives. It also holds the scalar
+# `division` at `unplaced`, which is the whole point of the block: rung 5 IS the
+# households whose record places them nowhere, and `a_stated_division` would otherwise
+# turn every one of them into a house.
+step "the policy-only rung's dealt division is on the card the town shows" \
+  python3 tools/carry_policy_only_division.py --check
+
+selftest "...and every limit on that carry fires when broken" \
+  python3 tools/carry_policy_only_division.py --self-test
+
 # T-1350, the other half of that ownership and the opposite failure. A mint derives
 # `arrival` as a not_later_than BOUND off its register, which is right until a reading
 # says more than the register can — Moses and Kirkland's list of the spring of 1833
@@ -2809,6 +3088,24 @@ step "every trade household re-derives, and every bucket the book ordered is fil
 selftest "...and a seniority rule, an over-ceiling trade and a borrowed name are refused" \
   python3 tools/reconstruct_trade_households.py --self-test
 
+# T-1531, stage `institutional_households`. The household quota apportions the town's
+# houses across the roof groups by ROOF COUNT, which is right for a group whose roofs are
+# houses and wrong for the one group whose roofs are a church, a jail, a council house and
+# a light tower: the nine standing `institutional_public` roofs drew TWELVE households.
+# `data/reconstruction/1835_institutional_lodging.json` asks each of the nine the question
+# nobody had asked — does this project's own record of it put a household under it? — and
+# two answer yes: the Watkins house, whose function is domestic, and the light, whose
+# keepership is recorded at $350 a year WITH QUARTERS. `build_order_book_1835.py` weights
+# the institutional cells on that file, so the book orders two, and this stage mints two.
+# What the gate holds: that both cards re-derive from their seeds, that the order never
+# exceeds what the adjudication admits, that both cells are discharged, and that no
+# occupation outside the controlled vocabulary reaches a person.
+step "the institutional households re-derive, and the book orders no more than the nine roofs admit" \
+  python3 tools/reconstruct_institutional_households.py --check
+
+selftest "...and an admitted roof with no card rule, a drifted tally and an invented age are refused" \
+  python3 tools/reconstruct_institutional_households.py --self-test
+
 # T-1353, stage `transients` of the same programme, and the only stage of it that writes
 # people who are NOT residents. T-1352 bounded the summer crowd of 1 July 1835 at 192 to
 # 900 and adopted no point; this stage spends 384 ("twice the 1843 rate"), reserves 77 for
@@ -2868,6 +3165,26 @@ step "the free Black cohort re-derives, at or above the floor of its bracket" \
 
 selftest "...and a back-projected name, a drifted pool and the recapitulation leaf are refused" \
   python3 tools/reconstruct_free_black.py --self-test
+
+# T-1504, the `church_register` sub-stage of the same stage, and the reader a refusal in
+# T-1376's own report had been waiting on: "the only book it reads is the 1832 muster roll,
+# and this reading is a baptismal register entry. The row is owed a stage that reads the
+# register." St Mary's baptismal register is the ONE source this project holds in which a
+# contemporary states an Indigenous identity for a named person at Chicago — the priest's
+# parenthesis on the page — and the two women he wrote it onto were the only adults on
+# their own entries the town did not carry: it held both husbands and all three children.
+# The gate holds five things the record cannot vouch for itself: that both cards re-derive
+# from their roster rows, that each carries review_required AND touches_removal AND says in
+# its own prose which subject it is held for (AGENTS.md's Indigenous-history rule, which
+# refuses a bare boolean), that NO SURNAME IS INVENTED for a woman the book gives a
+# forename and a parenthesis and nothing else, that the kinship the entry states is handed
+# to T-1335 by name rather than joined here, and that the four printings collapse to the
+# two women the page actually holds rather than to four cards.
+step "the register's two women re-derive, mononyms intact and the kinship handed on" \
+  python3 tools/reconstruct_church_register.py --check
+
+selftest "...and an invented surname, a read nation and a doubled printing are refused" \
+  python3 tools/reconstruct_church_register.py --self-test
 
 # T-1349, stage `garrison` of the same programme, and the only one that is not a share of a
 # town model at all. The order book refuses to apportion the fort — "NOT APPORTIONED. The
@@ -2994,8 +3311,14 @@ step "one new household renames only the people it collides with" \
 # research_note and the head's grade, sources and note are no longer this pass's —
 # but the head's id and name are, and they are the register's own finding. The
 # withdrawal is asserted, not skipped: a man who quietly becomes placed again fails.
+# T-1502: the deal's name pool reads a capitalised word only under a key path
+# data/reconstruction/name_pool_keys.json declares, so a pass that writes a proper
+# name into a card under a NEW key goes red here, naming the key, instead of
+# silently retiring a documented man; and a lost seat says which refusal took him.
 step "the register's four documented men still head the roofs the deal gives them" \
   python3 tools/replace_invented_residents.py --check
+selftest "…and the name pool's declared keys, and a refusal naming its source, still fire when broken" \
+  python3 tools/replace_invented_residents.py --self-test
 
 # And the pass that ADDS one (T-0376). The register's `new_resident` people are
 # the ones this reconstruction does not hold at all; where it can also read a
@@ -4941,6 +5264,79 @@ step "the 1835 reconstruction order book re-derives, no bucket is overfilled, an
 selftest "…and its own assertions still fire when broken" \
   python3 tools/build_order_book_1835.py --self-test
 
+# T-1558, piece 2 of 4 of T-1556. WHICH OF THE HELD PEOPLE MAY BE RE-FAMILIED, AND WHAT
+# EACH MOVE WOULD REWRITE. T-1557 built the word for a move and moved nobody; the owner's
+# objection to retiring the surplus was about WHO it would have fallen on — "the men the
+# town lost would be chosen by which of them failed to get a job, which is not a modelled
+# criterion" — so the rule that picks them is a thing this project has to be able to show.
+#
+# WHY IT IS A GATE AND NOT A ONE-OFF READING. The model names, person by person, the 1,159
+# reconstructed people standing in the 48 refused buckets, and `--check` re-derives the
+# whole of it off the cards and the book. Two things can therefore never drift apart in
+# silence: the roster and the book's own `drawn_here` per bucket (the book counts people
+# and never names them, so this is the only place the two can be reconciled at all), and
+# the cost ladder and the moves that stand on it — `build_order_book_1835.py` refuses a
+# re-family whose `rule` is not a MOVABLE rung this file publishes, which is how T-1557's
+# "every row must NAME the rule" became checked rather than trusted.
+#
+# ITS FINDING IS THE REASON TO RUN IT OFTEN. The held surplus and the open orders are
+# disjoint on every axis: no refused bucket has a single open slot in its own (sex, age
+# band, household kind, trade) class in any division. So a move that changes only the
+# DIVISION yields nought, the 265 moves T-1556 § 3 named cannot be made by any rule that
+# keeps a person's sex and age band, and the rule's own yield is 73. Those numbers move the
+# moment the lodging band orders more people, and a stale copy of them would quietly
+# mis-price T-1559.
+step "the re-family rule re-derives, its roster reconciles with the order book, and every move stands on a published rung (T-1558)" \
+  python3 tools/model_refamily_rule.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/model_refamily_rule.py --self-test
+
+# T-1560, piece 4 of 4 of T-1556. WHAT THE RULING REACHES, WHICH IS ONE SUBTRACTION
+# NOTHING ELSE PERFORMS. The order book states the surplus the re-cut holds (523 across
+# 48 buckets); the rule states the moves the programme can make (73); no file subtracted
+# one from the other, so the number a reader of either would want — what the town is
+# STILL HOLDING when the owner's remedy has been spent in full — existed nowhere. It is
+# 450 people in 43 of the 48 buckets, and docs/LIBERTIES.md L268 is the admission.
+#
+# WHY IT IS A GATE. The report is a subtraction across two derived files that different
+# tools build, and T-1559 is spending the moves into one of them stage by stage. So the
+# thing that can drift is the JOIN: the gate re-derives it by PERSON and refuses a ledger
+# move the rule never yielded, a person moved twice, a move that lands in a bucket which
+# is itself refused (which would move the surplus sideways and remedy nothing), and a
+# bucket sending out more people than it holds. The end state it predicts must not move
+# as the stages land — only the spent/outstanding split may — and that is what re-deriving
+# on every commit asserts.
+step "the re-familying programme's report re-derives, and the ledger's moves are the ones the rule yields (T-1560)" \
+  python3 tools/report_refamily_programme.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/report_refamily_programme.py --self-test
+
+# T-1563 (of T-1559, of T-1556). THE MOVES THEMSELVES, SPENT — AND THE ONE ORDERING THAT
+# MAKES THEM CHECKABLE. A re-family is two statements about the same head: the household
+# card says which cell he is counted in, and the order book's ledger says it in the book's
+# own arithmetic. Only one of them can be the original, and it is the CARD — C1 is a rung
+# about the card ("the cell is written on an invented card that took it from the bucket"),
+# and the card is where a reader meets the person. So the mint carries the move INSIDE its
+# own derivation, where the seed, the name and the id are already fixed off the slot the
+# head was dealt in, and `tools/refamily_moves_1835.py --build` writes a ledger row only
+# where the card it names already carries the same move, field for field.
+#
+# WHAT THAT ORDERING FORBIDS, AND WHY IT IS A GATE. The book cannot claim a move the
+# residents layer has not made: a row typed into the ledger by hand names a card, the card
+# does not agree, and this step goes red. The converse is gated too — a `refamilied` block
+# standing on a card the rule yields no move for is a fault rather than a dropped row,
+# because a silently dropped row is how a ledger and a layer drift apart while both look
+# green. The step also prints what is still OWED: 19 of the rule's 73 are the trade
+# households' and are spent; the other 54 are `reconstruct_women_children.py`'s and are
+# T-1564's.
+step "every re-family move in the order book stands on a card that says the same thing, and no card claims one the rule does not yield (T-1563)" \
+  python3 tools/refamily_moves_1835.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/refamily_moves_1835.py --self-test
+
 # T-1370, piece 1 of T-1175. HOW MANY BEDS EACH LODGING PLACE HELD. The town model
 # states a bed bracket for the whole town and says in as many words that it "seats
 # nobody in any lodging place and gives no boarding house a capacity of its own";
@@ -5104,7 +5500,7 @@ selftest "…and each of its seven assertions still fires when broken" \
 step "the 1835 staffing mint order re-derives, and spends no bucket it cannot reach" \
   python3 tools/staffing_mint_order_1835.py --check
 
-selftest "…and each of its seven assertions still fires when broken" \
+selftest "…and each of its ten assertions still fires when broken" \
   python3 tools/staffing_mint_order_1835.py --self-test
 
 # T-1371, piece 2 of T-1175 and stage `lodgers` of the resident reconstruction programme.

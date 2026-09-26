@@ -17,8 +17,8 @@
     "refused": 14
   },
   "census": {
-    "standing": 413,
-    "anonymous_refused": 314,
+    "standing": 420,
+    "anonymous_refused": 321,
     "named_examined": 99,
     "named_with_1835_start_refused": 14,
     "state_not_stated_refused": 98,
@@ -133,7 +133,8 @@
       "function_confidence": "attested",
       "function_sources": [
         "andreas_1884_v1",
-        "chicagology_prefire112"
+        "chicagology_prefire112",
+        "chicago_democrat_1833_1835"
       ],
       "construction": "brick",
       "construction_confidence": "attested",

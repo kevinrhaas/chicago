@@ -2,6 +2,25 @@
  "id": "hh_pearce_eliza",
  "name": "The Pearce household — a name from the post office's letter lists",
  "division": "unplaced",
+ "division_reconstructed": {
+  "value": "north",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "band": "north/farms_and_country_seats",
+  "clause": "farms_and_country_seats",
+  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the north division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's farms_and_country_seats clause. The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+  "basis": {
+   "kind": "model",
+   "id": "policy_only_deal",
+   "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
+  },
+  "seed": "hh_pearce_eliza|T-1522|division:03cd0285e7c5|class:0c08c22ae302",
+  "replaceable_by": {
+   "kind": "household",
+   "match": "any source that places this household in a division or nearer"
+  },
+  "written_by_stage": "policy_only_division"
+ },
  "head": "pearce_eliza",
  "source_pass": "letter_list",
  "arrival": {

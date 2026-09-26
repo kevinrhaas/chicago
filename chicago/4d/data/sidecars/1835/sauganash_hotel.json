@@ -218,9 +218,10 @@
       "sources": [
         "kinzie_waubun_1856",
         "chicagology_prefire273",
-        "drloih_hotels"
+        "drloih_hotels",
+        "chicago_democrat_1833_1835"
       ],
-      "note": "A tavern from 1829 and a hotel from 1831; the social centre of the settlement in the target window. Chicago's first billiard table in a public house stood here."
+      "note": "A tavern from 1829 and a hotel from 1831; the social centre of the settlement in the target window. Chicago's first billiard table in a public house stood here.\n\nTHE HOUSE IS OPEN, AND FRESHLY DONE UP, THREE WEEKS BEFORE THE SCENE DATE. Reviewing the town's public houses against Detroit's new American Hotel, the Chicago Democrat of 10 June 1835, page 2 column 5, claim chicago_democrat_1835_06_10#c001, reports that 'The Sauganash has been re[paired,] fitted up and furnished with neatness and [taste,] and so far as it goes, will[, we have no doubt,] be found just the thing'. That is the only dated statement of this building's CONDITION the corpus holds, and it bears on how the scene should read it: on 1835-07-01 the Sauganash is a working, recently refitted public house and not the shabby survivor its 1829 log origins invite. 'so far as it goes' is the editor's qualification and it means small — his complaint in the same paragraph is that no establishment in Chicago is 'sufficiently extensive'. The refit is recorded here rather than in the form block below because nothing in it names a fabric, a storey or a colour, and inventing one from 'fitted up' is exactly the supply this project refuses."
     },
     "occupants": {
       "value": "a Mr. Davis, proprietor",
@@ -250,6 +251,46 @@
         }
       ],
       "research_note": ""
+    },
+    {
+      "household": "hh_lodging_sauganash_hotel",
+      "name": "The lodgers of Sauganash Hotel",
+      "division": "south",
+      "relation": "lodged here",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 7 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "sources": [],
+      "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
+      "persons": [
+        {
+          "name": "Polly Gilbert",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 7 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Martin Doyle",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 7 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Orrin Sheldon",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 7 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Patrick Brady",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 7 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
     },
     {
       "household": "hh_rc_crandall_william",
@@ -298,6 +339,34 @@
       "archived_url": "",
       "tier": 3,
       "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
     },
     {
       "source_id": "chicago_landmark_sauganash",
@@ -423,11 +492,11 @@
     "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 159 m² of enclosed floor (79 m² × 2 storeys) is of the class's floor area.",
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
-      "people": 3,
+      "people": 7,
       "beds_ordinary": 7,
-      "empty": 4,
-      "statement": "3 on this card against an ordinary night's 7 beds: 3 seated here from elsewhere in the layer, where no source gives them a roof.",
-      "empty_note": "The residents layer attaches no household to this house and the reconstruction programme did not raise it, so nothing this project holds says which division it stood in — data/structures/*.json carries no division field at all. A person drawn into a lodging house has to be ordered out of the book's bucket for a division, so this stage mints nobody here. Somebody the layer already counts may still be seated here, and the seats above are.",
+      "empty": 0,
+      "statement": "7 on this card against an ordinary night's 7 beds: 3 seated here from elsewhere in the layer, where no source gives them a roof, 4 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "empty_note": "",
       "keeper_persons": 0,
       "keeper_owed": "NOBODY KEEPS THIS HOUSE IN THIS DATASET. It is a documented building and no source this project holds names its keeper on 1 July 1835. A reconstructed proprietor is not written into a documented house: that is a research question, not a draw."
     }

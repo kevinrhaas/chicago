@@ -335,7 +335,7 @@
   },
   {
    "key": "underdocumented",
-   "ticket": "T-1177 (T-1375 derived the community; T-1376 carded the Native and Metis men the 1832 roll names; T-1377 wrote the free Black town to the floor of its bracket)",
+   "ticket": "T-1177 (T-1375 derived the community; T-1376 carded the Native and Metis men the 1832 roll names; T-1377 wrote the free Black town to the floor of its bracket; T-1504 read St Mary's baptismal register)",
    "title": "The under-documented cohorts, within their evidence",
    "writes": "reconstructed Native, Metis, free Black, Irish and German persons, households and businesses",
    "draws_from": [
@@ -350,12 +350,14 @@
    "sub_stages": {
     "native_and_metis": "T-1376, BUILT. The company the 1832 Black Hawk roll heads INDIAN, carded under R3's own licence; the counted-but-unnamed remainder refused in writing for want of any count. data/reconstruction/1835_native_and_metis.json.",
     "free_black": "T-1377, BUILT. The free Black town of 1835 written to the FLOOR of the only bracket the corpus gives it — Caton's six or seven free coloured men of August 1833 below, the 1840 census's 53 free coloured persons carried back at the same share above. Seven men, thirteen people and two firms, drawn from a name pool of five surnames the 1840 schedule prints in its free-coloured block; nobody here is a person a source names, and the head-room between the floor and the ceiling is left standing. data/reconstruction/1835_free_black.json, written by tools/reconstruct_free_black.py.",
-    "businesses_and_catholic_shares": "T-1378, not yet built."
+    "church_register": "T-1504, BUILT. St Mary's baptismal register of 1833-1835 \u2014 the only source this project holds in which a contemporary states an Indigenous identity for a named person at Chicago, in the priest's own parenthesis. Its four R6 rows are two women, `Marianne (sauvage)` and `Jaespquaa (sauvage de Green Bay)`, and they were the only adults on their own entries the town did not already carry: it held both husbands and all three children. Two cards, no surname invented, the kinship handed to T-1335. data/reconstruction/1835_church_register.json, written by tools/reconstruct_church_register.py.",
+   "businesses_and_catholic_shares": "T-1378, not yet built."
    },
    "mints": "persons",
    "liberties": [
     "L250",
-    "L255"
+    "L255",
+     "L269"
    ]
   },
   {
@@ -373,6 +375,23 @@
    "mints": "persons",
    "liberties": [
     "L249"
+   ]
+  },
+  {
+   "key": "institutional_households",
+   "ticket": "T-1531",
+   "title": "The people who slept at the town's institutions",
+   "writes": "reconstructed persons, one head per institutional roof whose own record puts a household under it",
+   "draws_from": [
+    "sex_ratio",
+    "household_size"
+   ],
+   "note": "The household quota apportions the town's houses across the roof groups by roof count, and `institutional_public` is the one group where that does not follow: nine standing roofs, most of them a church, a jail, a council house or a light tower, drew twelve households. data/reconstruction/1835_institutional_lodging.json adjudicates the nine out of each committed record's own function, occupants and research_note blocks; two hold a household and seven are refused there by name. The order book weights the institutional cells on that file, so it now orders two, and this stage mints them. No age band is written - the household buckets carry no age axis - and no kin are seated, which is T-1171's and T-1174's quota.",
+   "implemented": true,
+   "built_by": "tools/reconstruct_institutional_households.py",
+   "mints": "persons",
+   "liberties": [
+    "L267"
    ]
   },
   {

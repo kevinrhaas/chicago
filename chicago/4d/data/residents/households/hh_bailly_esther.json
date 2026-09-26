@@ -1,0 +1,199 @@
+{
+ "id": "hh_bailly_esther",
+ "name": "The Bailly household — a name the town's own records carry",
+ "division": "unplaced",
+ "division_reconstructed": {
+  "value": "south",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "band": "south/merchant_and_professional_dwellings",
+  "clause": "merchant_and_professional_dwellings",
+  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's merchant_and_professional_dwellings clause. The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+  "basis": {
+   "kind": "model",
+   "id": "policy_only_deal",
+   "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
+  },
+  "seed": "hh_bailly_esther|T-1522|division:b4f07cb5463c|class:7bbbbd3a56e4",
+  "replaceable_by": {
+   "kind": "household",
+   "match": "any source that places this household in a division or nearer"
+  },
+  "written_by_stage": "policy_only_division"
+ },
+ "head": "bailly_esther",
+ "source_pass": "civic",
+ "arrival": {
+  "value": "1833-06-05",
+  "confidence": "inferred",
+  "sources": [
+   "st_marys_baptismal_register_1833_1835"
+  ],
+  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 5 June 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
+  "precision": "not_later_than"
+ },
+ "arrival_year": {
+  "value": 1833,
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1833-06-05 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "basis": {
+   "kind": "model",
+   "id": "arrival",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1833."
+  },
+  "seed": "hh_bailly_esther:arrival_year",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a dated source that says which year this household came to Chicago"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "party_size_on_arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested."
+ },
+ "origin": {
+  "value": "New England",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+  "basis": {
+   "kind": "model",
+   "id": "origin",
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+  },
+  "seed": "hh_bailly_esther:origin_region",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says where this household came from"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "reason_for_coming": {
+  "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+  "basis": {
+   "kind": "rule",
+   "id": "reason_from_arrival_cohort",
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
+  },
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+  },
+  "written_by_stage": "attribute_fill_arrival"
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+ },
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "st_marys_baptismal_register_1833_1835"
+  ],
+  "last_dated_appearance": {
+   "as_read": "1833-06-05",
+   "precision": "day",
+   "reaches": "1833-06-05",
+   "includes_scene_date": false,
+   "days_before_scene_date": 756,
+   "leg": "sighting",
+   "person": "bailly_esther",
+   "record": "st_marys_bapt_1833_04_5_sponsor",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `church_evidence` as `1833-06-05`, which reaches 1833-06-05 — 756 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+  },
+  "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+ },
+ "modelled_family": {
+  "stage": "modelled_families",
+  "ticket": "T-1171",
+  "household_type": "solitary",
+  "size_drawn": 1,
+  "kin_seated": 1,
+  "seed": "hh_bailly_esther:household_size",
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
+ },
+ "persons": [
+  {
+   "id": "bailly_esther",
+   "name": "Esther Bailly",
+   "relationship": "head",
+   "grade": "inferred",
+   "civic_mint": true,
+   "ladder_rule": "G2c",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
+   },
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 5 June 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1).",
+   "church_evidence": [
+    {
+     "list": "church_1833_1835",
+     "as_read": "Esther Bailly",
+     "locator": "sponsor",
+     "record_id": "st_marys_bapt_1833_04_5_sponsor",
+     "describes_date": "1833-06-05",
+     "source": "st_marys_baptismal_register_1833_1835",
+     "rule": "G2c"
+    }
+   ],
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "sex_share_of_the_roll",
+     "note": "Drawn at 94.7% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
+    },
+    "seed": "bailly_esther:sex_ratio",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
+    },
+    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'bailly_esther:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
+   },
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+    },
+    "seed": "bailly_esther:age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('bailly_esther:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
+  }
+ ],
+ "touches_removal": false,
+ "review_required": false,
+ "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+}

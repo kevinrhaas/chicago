@@ -154,6 +154,67 @@
   },
   "residents": [
     {
+      "household": "hh_lodging_new_york_house",
+      "name": "The lodgers of New York House",
+      "division": "south",
+      "relation": "lodged here",
+      "why": "THE BED IS THE CLAIM. The lodging model puts 8 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+      "sources": [],
+      "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
+      "persons": [
+        {
+          "name": "Polly Kellogg",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Nancy Chapin",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Angelique Lecuyer",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Patrick Gallagher",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Louis Marcotte",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Levi Fisk",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Bryan Duffy",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 8 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    },
+    {
       "household": "hh_rc_gilbert_samuel",
       "name": "Samuel Gilbert",
       "division": "",
@@ -255,11 +316,11 @@
     "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 186 m² of enclosed floor (93 m² × 2 storeys) is of the class's floor area.",
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
-      "people": 1,
+      "people": 8,
       "beds_ordinary": 8,
-      "empty": 7,
-      "statement": "1 on this card against an ordinary night's 8 beds: 1 seated here from elsewhere in the layer, where no source gives them a roof.",
-      "empty_note": "The residents layer attaches no household to this house and the reconstruction programme did not raise it, so nothing this project holds says which division it stood in — data/structures/*.json carries no division field at all. A person drawn into a lodging house has to be ordered out of the book's bucket for a division, so this stage mints nobody here. Somebody the layer already counts may still be seated here, and the seats above are.",
+      "empty": 0,
+      "statement": "8 on this card against an ordinary night's 8 beds: 1 seated here from elsewhere in the layer, where no source gives them a roof, 7 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "empty_note": "",
       "keeper_persons": 0,
       "keeper_owed": "NOBODY KEEPS THIS HOUSE IN THIS DATASET. It is a documented building and no source this project holds names its keeper on 1 July 1835. A reconstructed proprietor is not written into a documented house: that is a research question, not a draw."
     }

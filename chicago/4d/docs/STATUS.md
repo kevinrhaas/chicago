@@ -1,5 +1,353 @@
 # STATUS
 
+## The ground off the plat is enumerated, and it holds 72 more — T-1614, 2026-09-26
+
+The second piece of T-1199, and it answers the 1,374 households the first piece handed on.
+`data/reconstruction/1835_off_plat_ledger.json` enumerates the ground the committed plat's
+own lot ledger does not draw: 136 tier lots (the North Division tier under Kinzie, the
+School Section tier between Madison and Monroe — both files written after the Thompson lot
+grid was closed), 2 School Section blocks left whole, Kinzie's Addition's 27 blocks, the 7
+placed chips of the 1834 survey colour key, and the 5 camp grounds. 177 parcels.
+
+**It is carried at the granularity the records actually hold.** Kinzie's Addition is a
+BLOCK and not a lot, because its own grid withholds the subdivision in as many words: no
+lot rule has been read for that plat, and carrying the Original Town's four-to-a-face
+module across the river would be a guess dressed as arithmetic. The camp grounds are a
+NAME and not a polygon, because T-1214's file authors no vertex and this one may not author
+one for it.
+
+**The unflattering number is 72 of 1,374, and every one of the 72 is an adoption.** Not one
+slot is raised, and that is the finding rather than an omission: 150 of the 177 parcels have
+no row in the 665-roof programme's schedule at all — committed, surveyed, drawn ground the
+building programme does not carry — and the 27 it does carry are Kinzie's Addition, marked
+`unsubdivided` with no headroom. So a household with no standing roof free in its own
+division has nowhere at all to be put, and 1,302 rows say which of the two gates stopped
+them.
+
+**The sharpest reading is the South Division: it has no free off-plat roof at all.** Every
+South Division roof this project raised stands on a lot of the committed plat, and T-1613
+dealt what was free of them. All 762 South Division rows handed on here are owed for a
+shortage of roofs, not a shortage of clauses. The 204 farms-and-country-seats rows are the
+other case — the D1 cabins their clause admits were taken by `labourer_dwellings`, which the
+placement policy's own order ranks above it, and whose documented witness is Clybourn's
+cabins and Robinson and Caldwell's, both well outside the plat.
+
+**What this pass spends that its predecessor could not.** T-1613 scored a clause's
+`class:`, `street:` and `lot:` preferences and said plainly that the policy vocabulary's
+`ground:` terms "are about unplatted ground and are the successor ticket's". They are scored
+now — `outside_plat`, `unplatted` and `wet`, each off a committed field. Two of the five,
+`branch` and `river_frontage`, are NOT scored, because no committed off-plat parcel record
+answers them; the ledger's `unscored_ground_terms` says so rather than guessing.
+
+**What this does not do.** It writes no structure record, raises no roof and bakes nothing.
+The People and Businesses views still do not read either seating file and the infill recipes
+are still not regenerated from them — both are T-1615. So today 178 households have an
+address that nothing in the walkthrough will show you.
+
+Gated by `tools/seat_off_plat_ground_1835.py --check` and its seven-refusal `--self-test` in
+`check.sh`; the invention is `docs/LIBERTIES.md` L271, counted by the register's own scope
+gate.
+
+## The scene-detail ladder is sealed, and every rung says what it protects — T-0135, 2026-09-26
+
+**What a visitor sees:** nothing. No geometry, no reach, no cull and no ceiling value moves.
+`full` still carries 1,460,000 triangles, `balanced` 1,280,000, `light` 825,000, and the
+draw-call budget is still 215.
+
+**What closes T-0135.** The ticket's first three items shipped on 2026-08-22 — the budget is
+read at five named stands and gated on the WORST of them, each stand's reason is written where
+the set is defined, and the run prints the spread. What kept the ticket open is the owner's
+ruling of 2026-09-21, which asked for something the re-basing did not do:
+
+> the whole ladder is re-derived from the measured worst stand, **monotonic by construction**,
+> with each rung stating what it is FOR … and what measurement set it. A rung that cannot say
+> what it protects is the next version of this ticket.
+
+**The defect is real, and the loose version of it is wrong — so say the precise one.** `DETAIL`
+in `renderers/web/js/main.js` was three independent literals with nothing between them. The
+three have always descended at any one instant, the ruling's own set included: 1,320,377 /
+1,144,787 / 992,617 is a descending set, and it descends against today's rungs too. **What has
+never existed is anything that made them.** The near miss on the record is the raise of
+2026-08-22, which that table describes itself: `light` went to 1,050,000, "MORE than `full`
+promised the day before". Across that raise the bottom rung passed the old top rung; only
+`full` being raised in the same commit kept the set ordered, and nothing in the code cared
+either way. Seven re-basings are recorded in those comments, every one hand-checked by whoever
+took it, and the ruling opens by worrying that raising `light` "puts it above what `full`
+carries today". The check was a person reading a table, every time.
+
+**Monotonic by construction, and the construction is a running minimum.** `sealLadder()` builds
+`DETAIL` from the declared table down `DETAIL_ORDER`, taking `min(declared, the rung above − 1)`.
+A rung can be typed too high; it cannot BE too high. That is the form the ruling asks for and an
+assertion is not: an assertion is deleted by the same edit that breaks what it asserts, and a
+`throw` here would turn a mistyped ceiling into a white screen for a visitor — a worse failure
+than the one being guarded. Today nothing clamps (1,460,000 > 1,280,000 > 825,000) and the
+running minimum is the identity.
+
+**A clamp nobody can see is the other failure, so it is reported, not swallowed.** A clamped rung
+carries `declared` and `clamped: true` on `__chicago4d.detailLevels`, `console.error` says so at
+boot, and three checks in **PART 1** of `tools/smoke_renderer.mjs` gate it: the DECLARED ceilings
+descend on their own, no rung is running clamped, and every rung states `protects` and `measured`.
+They are in part 1 and not part 5 deliberately — part 5 is the six-minute sweep, and a structural
+fault only a six-minute part can see is a fault that ships.
+
+**Re-read before any of it was written**, `tools/measure_detail_ceilings.mjs --only desktop`,
+published mirror, dev @ `50de0e10`, 1280 × 800, T-0135's five stands:
+
+| tier | ceiling | worst triangles | at | clear | worst calls |
+|---|---:|---:|---|---:|---:|
+| `full` | 1,460,000 | 1,378,519 | the forks, from Wolf Point | 81,481 (5.6 %) | 183 |
+| `balanced` | 1,280,000 | 1,228,859 | the forks, from Wolf Point | 51,141 (4.0 %) | 175 |
+| `light` | 825,000 | 768,487 | the open aerial | 56,513 (6.9 %) | **99** |
+
+Two things in that table are worth saying out loud. **The worst stand has moved** — it is the
+forks at `full` and `balanced` and the open aerial at `light`, not Lake Street at Canal, which is
+the stand the ceilings were argued at and the one the code's comments still name as "the known
+worst". Gating the worst OF A SET rather than a chosen stand is exactly what T-0135 built, and
+this is the set earning its keep. **And `light`'s draw-call floor is RED**: 99 calls at the open
+aerial against a floor of 90. That is **T-1595**, already open, and it is recorded here rather
+than adjusted — item 4 of this ticket says so in as many words ("Do NOT weaken anything to make
+the worst stand pass"), and nothing in this change touches that floor.
+
+**What each rung now says, at its definition site:** `full` — the machine this project targets, a
+desktop with a real GPU at 1280 × 800. `balanced` — the median visitor, integrated graphics on an
+ordinary laptop. `light` — the weak-machine floor, the only rung that is a promise to a person
+rather than a budget for a parcel. Each carries the reading that set it and the re-read above.
+The ceilings' own archaeology is untouched beneath; it is how the numbers got here.
+
+**The weak-machine floor was not re-measured on the machine it names**, and the ruling asks for
+that before a floor moves. This change moves no floor — `light` stays at 825,000, and the reading
+above is 56,513 under it — so the question the ruling guards is not reached. The day that rung
+rises, it is reached.
+
+**Verified in the foreground on the branch.** `./tools/check.sh` **PASS — 637 steps, none red**,
+which is the dev gate (docs/PIPELINE.md) and now carries the two steps above; no gate step
+reported a missing module, so nothing here stands on a banked reading. Smoke on the published
+mirror, the four legs `tools/smoke_budget.mjs --for-diff` prices for this diff:
+
+| leg | result |
+|---|---|
+| desktop 1280×800 part 1 | **80 passed, 0 failed** — the three new ladder checks among them |
+| desktop 1280×800 part 5 | 25 passed, **1 failed** — T-1595, inherited |
+| desktop 1280×800 part 12 | **92 passed, 0 failed** — the part that reads the release notes |
+| mobile 390×780 parts 1-3 | **240 passed, 0 failed** |
+
+**The one red is not this branch's and the record says so rather than the branch claiming it.**
+`node tools/dev-smoke-state.mjs ask --viewport desktop --stage 5` has dev standing red at part 5
+since 2026-09-26T00:09Z with the same single failure and the same number — 99 calls at light,
+the open aerial, against the 90-call floor. That is T-1595. Every other assertion in part 5
+passes, the ladder's behavioural half included ("turning scene detail down actually draws less,
+at every stand" and "draw calls under budget at the town's WORST frame"). All four readings are
+filed with `dev-smoke-state.mjs record`.
+
+`sealLadder` itself is proven by breaking it, in `tools/check_detail_ladder.mjs --self-test`:
+a table that is already a ladder passes through untouched and silent; a rung typed above the
+one above it runs clamped under it, marked and shouted; equal rungs are pushed strictly under;
+a level in the order and not in the table throws. No structure record, no GLB and no scene data
+moved, so no bake.
+## The plat is enumerated, and it holds 106 of 1,480 banded households — T-1613, 2026-09-26
+
+T-1199 asked for every reconstructed household and business seated onto the extended lot
+grid. It is split (T-1613 / T-1614 / T-1615) because it is not one run's demonstration, and
+this is the first piece: the ledger the seating deals from, and the platted ground seated on
+it.
+
+**What was missing was a list.** The 226 lots have been drawn since T-0221 and T-1194. Which
+street a lot fronts, that street's traffic class, whether the lot turns a corner, what stands
+on it and how many principal roofs the policy lets it carry were all READABLE and written down
+nowhere — six lookups in six files, so anything wanting them re-derived them or guessed.
+`data/reconstruction/1835_lot_ledger.json` is that list, and it claims nothing: every column is
+copied off a committed record.
+
+**The unflattering number is 106 of 1,480.** The address book leaves 1,480 households at a band
+— a division and a policy clause, no lot, no roof, no coordinate. The committed plat seats 106
+of them: 100 adopt a standing anonymous roof of an admitted family, 6 ask for a slot inside an
+open block's own committed plan. 1,374 are handed to T-1614 in writing, one reason each. That
+is not a shortfall this pass invented — 204 of them are outside the plat by their clause's own
+terms, and the 665-roof programme already says of itself that 250 of its 262 remaining roofs
+"have nowhere to go until street control, terrain and hydrology reach them". The binding
+constraint is coverage, and it still is.
+
+**Three commercial roofs of plan stand unclaimed** on South Water Street (C1, C2, C3), because
+every business the address book can place is already at a street face or a structure and none
+is left at a band to take them. The plat deal turned out to be a HOUSEHOLD deal; that was not
+the expectation going in.
+
+**What this does not do.** It writes no structure record, raises no roof and bakes nothing: an
+adoption is a pointer at a roof that already stands and a slot is a request T-1200 through
+T-1214 fulfil. The People and Businesses views do not read it yet and the infill recipes are
+not regenerated from it — both are T-1615. So today 106 households have an address that
+nothing in the walkthrough will show you.
+
+Gated by `tools/seat_platted_ground_1835.py --check` and its six-refusal `--self-test` in
+`check.sh`; the invention is `docs/LIBERTIES.md` L270, counted by the register's own scope gate.
+
+## The attested placement stands and the inferred one moves — T-0251, 2026-09-26
+
+**What a visitor sees:** the plank walk on Lake Street's south side runs the full length of
+`blk_lake_lasalle`'s frontage instead of stopping 10.4 m short of Clark, and the board crossing
+over Lake Street at Clark — refused because a walk that stops short of its corner takes the
+corner with it — is laid. First Presbyterian's meeting house is off the roadway and on its line.
+
+**The fault, and it was a rule rather than a metre.** `first_presbyterian_church` reached the
+scene the way eleven South Water records and three other Lake Street records did: its
+cross-street coordinate came off a modern OpenStreetMap kerb instead of this project's own
+committed Lake Street centreline. Measured against that line its north wall stood **1.90 m out
+past the `blk_lake_lasalle` frontage line**, in the platted roadway, and
+`tools/generate_frontage_works.py`'s march refused two steps of the walk for it. The standard
+repair — translate 3.395 m along the face's inward normal — was measured under T-0196 and
+**refused**, because `physicians_office` stood 3.15 m behind it on the same lot: moved 0.2 m the
+pair are inside the 3.0 m separation gate, moved 3.2 m the footprints overlap. No translation
+along that normal both clears the walk and leaves the pair apart.
+
+**The owner ruled on 2026-09-21, and he ruled it generally.** *Where an ATTESTED placement and an
+INFERRED placement collide on one lot, the attested one stands and the inferred one moves or is
+withdrawn.* He refused the alternative in terms: narrowing both footprints to make 3.395 m and
+3.15 m fit would leave "two buildings sized to each other rather than to their evidence".
+
+**The rule is written down where a machine reads it**, at
+`tools/plat_occupancy.attested_precedence()`, with the ruling's three conditions as its contract:
+which record is attested is read off the record and never off its name; re-seating comes before
+withdrawal; and no footprint is narrowed and no gate weakened. It refuses a collision inside one
+layer rather than answering it — two invented roofs three metres apart are the separation gate's
+question — and it refuses an id the dataset does not hold rather than reading it as a yield.
+`measure_corridor_intrusion.py --self-test` holds it on this collision and proves the reach:
+**read from their NAMES both records stand**, so the rule could not have decided this at all, and
+`physicians_office` — which carries no `recon_` or `inf_` prefix and is nonetheless a product of
+the inferred-household programme — is the record that fault was found on.
+
+**Applied, both halves, measured.** The church took the 3.395 m every other Lake Street record
+took: dE −0.028 m, dN −3.395 m, so E 447625.34 N 4637263.61 becomes **E 447625.312 N
+4637260.215**, leaving its north wall **1.50 m back** from the committed line — the margin
+`tools/generate_block_infill.py` gives every reconstructed unit on this face. `physicians_office`
+**gave way and was re-seated, not withdrawn**, which the ruling asks for first, and on its own
+evidence: it keeps its Lake Street frontage band, its face and this same lot 6, moving 12.99 m
+west along the face and 7.40 m forward onto the street line. Forward is its own clause's answer —
+`tools/placement_policy_1835.py` seats a C1 at `street_line` and this roof had stood 8.90 m back
+in the depth of its lot since it was raised. It is written as a **face placement** rather than a
+centre, the T-0182 repair: it now takes its line, bearing and outward offset from the committed
+plat instead of a hand-typed centre at bearing 0 on a face that runs at 0.469.
+
+**What the walk did, measured rather than asserted.**
+
+| | before | after |
+|---|---:|---:|
+| `blk_lake_lasalle` north walk | 31.3 → 88.6 m | 31.3 → **99.0 m** |
+| its walking decks | 4 | **5** |
+| board crossings in the town | 36 (857.5 m) | **37 (881.9 m)** |
+| walk in the town | 3182.9 m | **3193.4 m** |
+| street-edge refusals | 81 | **80** |
+
+The one refusal that stays on this lot is the street FENCE, and its number is now right: it read
+"`first_presbyterian_church` stands −1.90 m from this lot's frontage line" and reads 1.50 m. The
+building is the street wall here and a fence in front of it would be a second one.
+
+**Nothing was weakened and nothing was upgraded.** The 3.0 m separation gate is untouched and
+neither footprint was narrowed: measured after both moves the nearest committed footprint to the
+church is `physicians_office` at **3.101 m** and the next is `recon_1835_south_d6_012` at 7.78 m,
+and no footprint in the town overlaps another by a square centimetre. Both records keep their
+confidence grade — re-deriving a coordinate from better geometry is not new evidence — the church
+keeps every uncertainty it states, including the one-directional lot-depth error toward the south,
+and the office's placement is still `reconstructed` with a `not_derivable` derivation. Its card
+carries what displaced it and why, so the move is legible rather than a silent disappearance.
+`tools/location_spend.py`'s T-0251 retention is re-stated as the **ruling** it became: the guard
+now measures the reconciliation, so putting the church back out in the roadway fails the build.
+
+## Rule 9 says what is true of each row it refuses — T-1505, 2026-09-24
+
+**What a visitor sees:** nothing. No row changes class; every class count in
+`data/reconstruction/1835_borderline_roster.json` is what it was.
+
+**The fault.** `tools/export_borderline_roster.py` refused 254 single-token readings under one
+sentence: *"The reading gives a surname and no person, and no household of this town carries
+it."* Its predicate is one token and nothing more, so it could not tell a clipped surname
+from the whole of what a clerk wrote for a parent. The refusal was right for all 254. The
+sentence was false for four of them.
+
+**The fix: two refusals, told apart by the record's own fields,** never by a guess about
+a name's language:
+
+- **`single_name_parent_of_a_named_child` (3 rows).** The record's role is mother or father,
+  and the same dated entry has a child or subject with a name. The rows are Matanacqua
+  (mother of Marie Josette), Lieu[?] (mother of John David) and Miranda (father of
+  Geneviève Medera). The rule states itself generally, and each row's `note` names its child.
+- **`forename_printed_surname_lost` (1 row).** The record says the forename was printed and
+  the surname is lost: `John . . .`, St Cyr's death entry 8.
+- **`surname_only_and_unmatched` (254 → 250).** These keep their sentence word for word.
+  - **Bourrasso stays here.** The ticket's table lists this witness among the five, but also
+    calls it a surname standing alone, and its own record says Léon Bourassa and his son
+    are not merged to it. The existing sentence is true of it, so it keeps that sentence.
+
+Matanacqua is credited with no community: no source gives her one, and this ticket gives
+none. `--self-test` covers both directions: the rows that must be told apart, and the
+parent with no named child, the child's own name and the forename flag with a surname that
+must not be.
+## The deal's name pool reads declared keys — T-1502, 2026-09-24
+
+**What a visitor sees:** nothing. No seat moves and no refusal changes: `--report` is
+identical to `dev`'s apart from the refusal text, which now names its source.
+
+**The hole.** `replace_invented_residents.py` refuses a documented man a reconstructed
+roof when his surname is "already named in the town". That pool was every capitalised word
+in the raw text of the structure records, the non-`hh_inf_` household cards and the
+exclusions. So any pass that wrote a proper name into one of those files took a man out of
+the deal without saying so. T-1489 did it by accident: the tailor Thomas S. Eels left the
+deal, and the only sign was one unexplained DRIFT line.
+
+**The fix takes two of the ticket's three routes.** The third, reading only `name` fields,
+would drop the prose the guard reads on purpose.
+
+- **A declared list of keys.** The pool now reads a word only under a key path declared in
+  `data/reconstruction/name_pool_keys.json`. It was seeded from the committed tree: 275
+  paths (structures 132, households 129, exclusions 14), all `read`. Walking the JSON gives
+  the raw-text pool exactly, 3,127 words.
+- **A new key goes red.** A string under a path the file doesn't declare that carries a
+  capitalised word fails `--check`, naming the record kind, key path, file and word. The
+  writer then declares the path `read` or `ignored` at its own PR.
+- **Every refusal names its cause.** An `already named in the town` refusal now names the
+  file and key the word came from. When a settled seat is lost, its DRIFT line names the
+  refusal that took the man.
+- **Not re-ruled.** `--report` lists the paths each of the four refusals rests on; none
+  rests on one path alone. `persons[].workplaces[].business_name` has the same shape as the
+  path that retired Eels, and it is still read.
+
+A `--self-test` with 9 assertions is registered in check.sh.
+
+## Ruled readings for the American's four contradictions — T-0305, 2026-09-24
+
+**What a visitor sees:** Edward Burton's tailoring shop was `unplaceable`. Its card now puts it on
+**Franklin Street**, placed by street only and marked inferred. The cards of Wm. Sabine, John
+Dave[s] and S. B. Cobb's saddlery now say which printings they follow, which ones disagree with
+them, and which page columns would replace them.
+
+**The owner's answer (b), 2026-09-23:** build from the best transcription reading now, marked
+inferred, and replace it if the images ever arrive. This overrides acceptance point 4 ("no
+confidence moves") for the build, and for the build only. No bracket is filled, no printing is
+dropped, and no building moves.
+
+**One rule chooses:** take the resolved printing nearest the scene date (1835-07-01) and on or
+before it. The rulings are `data/businesses/rulings/contested_readings.json`, laid over the
+register by `tools/compile_businesses.py`.
+
+| question | built as | against |
+|---|---|---|
+| Burton's street | Franklin, `street_only` (was `unplaceable`) | 08-15 Lake |
+| Sabine's Water street | North Water (unchanged) | 07-04 South |
+| Dave[s]'s Water street | North Water (unchanged) | 07-04 South |
+| Cobb's cross street | Lake and Canal, `goss_cobb_saddlery` (unchanged) | none; the 1835 cards lose it |
+
+**Held by the gate.** `measure_american_contradictions.py --gate` now refuses any of these:
+
+- a question with no ruling;
+- a reading no printing carries;
+- a ruling against the printing nearest the scene date;
+- `for`/`against`/`unresolved` lists that do not match the printings;
+- an unresolved street ruled without the Democrat address under it;
+- a `replaceable_by` that names no column;
+- a compiled house that does not carry the ruling at `inferred`.
+
+That is 16 self-tests, up from 8. The page-image ask stands unchanged: six columns still settle
+all four.
+
 ## Responsive measured boot — T-1246, 2026-09-20
 
 The gate now exposes eight real work phases, completed-work events and measured cold/warm estimates for both viewports at all three detail tiers. Row/batch yields let the loading status repaint during planting; mobile/light measured 123.8 ms cold and 116.5 ms warm between paints, down from 974.5 ms cold. All twelve comparisons preserve geometry bytes, flora/tree statistics, roll and placement census. Optional people/census failures and background resume passed published-browser tests; failed terrain never opens the gate. First-render readiness and asynchronous shader preparation replace the earlier pre-render ready flag. [Measurement/reproduction notes](performance/BOOT-PHASES.md) distinguish the flora result from remaining software-renderer presentation stalls. Full regression validation is recorded in the closing PR.
@@ -16767,3 +17115,27 @@ New findings for S2 from the datum work: Hathaway carries survey bearings and lo
 ("N.51°E." along the main stem, 80-ft streets annotated); both 1834 sheets are anisotropically
 stretched (3.7% / 4.5%), so street geometry should be generated analytically from the plat
 dimensions and snapped to the fitted control, never traced raw from pixels.
+
+## Prairie Avenue research library — 2026-09-26
+
+Owner-requested atlas at `../prairie_1904_v1/`, centered on 1904 and bracketed by
+supplied 1911 Sanborn sheets. Separate named histories, tentative map frontages,
+directory candidates and a deep Glessner dossier prevent false parcel/household
+completeness. Six Glessner measured sheets and the 27-page survey report acquired;
+large archival originals retained in a companion archive. No 1904 meshes or census
+households were invented. See the library's research-gaps and statistics documents.
+
+Tracking-ticket creation was refused by automatic approval review because it would
+write to the separate tickets repository's main branch, while this request authorized
+code-repository dev delivery. No ticket was created or claimed; no existing Prairie
+scene ticket is represented as completed by this library. Browser/gate evidence is
+recorded in the delivery package. GitHub access was restored later on 2026-09-26;
+PR #82 carries the library into dev. The separate tracking-ticket write still needs
+explicit owner authorization after automatic review rejected it.
+
+The owner's follow-up screenshot exposed a pre-fire navigation gap: the quick years
+skipped 1834 and the map selector hid every map outside the nearest reference year.
+The existing 5050-by-6628 Wright sheet is retained. An 1834 shortcut and an all-map
+selector now expose it directly; selecting a map sets the timeline to its date.
+Long provenance paths wrap on mobile. Both research viewers are included in the dev
+preview so these changes can be inspected before production promotion.

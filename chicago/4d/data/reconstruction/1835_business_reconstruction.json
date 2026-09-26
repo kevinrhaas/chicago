@@ -7,14 +7,14 @@
   "proprietors": "ADOPTED from data/residents/reconstructed_trades/, never minted. tools/reconstruct_residents_1835.py is the one writer of a person.",
   "style_guide": "docs/RESEARCH/business-naming-1835.md",
   "liberty": "docs/LIBERTIES.md § L254",
-  "records": 32,
+  "records": 31,
   "groups": {
     "lodging_river_and_transport": {
       "ticket": "T-1187",
       "title": "lodging, the river and transport",
-      "records": 10,
+      "records": 11,
       "by_class": {
-        "other": 10
+        "other": 11
       },
       "by_street": {
         "Canal Street": 1,
@@ -27,7 +27,8 @@
         "recon_1835_north_h2_028": 1,
         "recon_1835_north_h2_030": 1,
         "recon_1835_north_h2_045": 1,
-        "recon_1835_west_006": 1
+        "recon_1835_west_006": 1,
+        "recon_1835_west_035": 1
       },
       "ids": [
         "rcb_bardwell_boarding_house",
@@ -39,18 +40,20 @@
         "rcb_hubbard_lumber_yard",
         "rcb_leland_livery_stable",
         "rcb_newell_boarding_house",
+        "rcb_pelletier_boarding_house",
         "rcb_woodruff_lumber_yard"
       ],
       "proprietors_adopted": [
         "rc_bardwell_esther",
         "rc_barnes_ezra",
-        "rc_cavanagh_johanna",
+        "rc_cavanagh_ellen",
         "rc_dufresne_joseph",
         "rc_fitzgerald_martin",
         "rc_gilbert_benjamin",
         "rc_hubbard_asa",
         "rc_leland_warren",
         "rc_newell_lydia",
+        "rc_pelletier_victoire",
         "rc_woodruff_calvin"
       ]
     },
@@ -79,11 +82,10 @@
     "professions_and_services": {
       "ticket": "T-1418",
       "title": "the professions and the services",
-      "records": 18,
+      "records": 16,
       "by_class": {
-        "lawyer": 2,
-        "other": 15,
-        "physician": 1
+        "lawyer": 1,
+        "other": 15
       },
       "by_street": {
         "Canal Street": 3,
@@ -91,7 +93,7 @@
         "Kinzie Street": 3,
         "Lake Street": 4,
         "North Water Street": 2,
-        "South Water Street": 3
+        "South Water Street": 1
       },
       "by_roof": {},
       "ids": [
@@ -102,10 +104,8 @@
         "rcb_fairbanks_land_office",
         "rcb_goodrich_millinery",
         "rcb_kellogg_millinery",
-        "rcb_mcguire_physician",
         "rcb_metcalf_land_office",
         "rcb_murphy_land_office",
-        "rcb_parmelee_lawyer",
         "rcb_quinn_millinery",
         "rcb_robillard_lawyer",
         "rcb_sawyer_dress_making_shop",
@@ -122,14 +122,12 @@
         "rc_fairbanks_seth",
         "rc_goodrich_seth",
         "rc_kellogg_almira",
-        "rc_mcguire_john",
         "rc_metcalf_hiram",
         "rc_murphy_hugh",
-        "rc_parmelee_reuben",
         "rc_quinn_honora",
         "rc_robillard_baptiste",
         "rc_sawyer_almira",
-        "rc_shea_alice",
+        "rc_shea_mary",
         "rc_sullivan_mary",
         "rc_walsh_honora",
         "rc_woodruff_hannah"
@@ -159,7 +157,7 @@
   },
   "lodging": {
     "_doc": "BEDS AGAINST KEEPERS. Every place data/reconstruction/1835_lodging_model.json stands, and the house of trade behind it. `kept_by` is null where there is none, and `why_not` says which kind of absence it is.",
-    "places": 16,
+    "places": 17,
     "reconstructed_roofs_this_programme_owes_a_firm": 0,
     "rows": [
       {
@@ -184,7 +182,7 @@
         "class": "boarding_house",
         "standing": "reconstructed",
         "beds_ordinary": 7,
-        "beds_crowded": 17,
+        "beds_crowded": 16,
         "keeper_person": "rc_bardwell_esther",
         "firm": "rcb_bardwell_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
@@ -197,7 +195,7 @@
         "class": "boarding_house",
         "standing": "reconstructed",
         "beds_ordinary": 10,
-        "beds_crowded": 23,
+        "beds_crowded": 22,
         "keeper_person": "rc_barnes_ezra",
         "firm": "rcb_barnes_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
@@ -209,9 +207,9 @@
         "name": "Reconstructed H2 medium boarding house #028",
         "class": "boarding_house",
         "standing": "reconstructed",
-        "beds_ordinary": 12,
-        "beds_crowded": 27,
-        "keeper_person": "rc_cavanagh_johanna",
+        "beds_ordinary": 11,
+        "beds_crowded": 26,
+        "keeper_person": "rc_cavanagh_ellen",
         "firm": "rcb_cavanagh_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
         "kept_by": "this programme",
@@ -223,7 +221,7 @@
         "class": "boarding_house",
         "standing": "reconstructed",
         "beds_ordinary": 10,
-        "beds_crowded": 24,
+        "beds_crowded": 23,
         "keeper_person": "rc_newell_lydia",
         "firm": "rcb_newell_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
@@ -236,7 +234,7 @@
         "class": "boarding_house",
         "standing": "reconstructed",
         "beds_ordinary": 11,
-        "beds_crowded": 27,
+        "beds_crowded": 25,
         "keeper_person": "rc_gilbert_benjamin",
         "firm": "rcb_gilbert_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
@@ -248,10 +246,23 @@
         "name": "Reconstructed H1 small boarding house #005",
         "class": "boarding_house",
         "standing": "reconstructed",
-        "beds_ordinary": 8,
+        "beds_ordinary": 7,
         "beds_crowded": 17,
         "keeper_person": "rc_fitzgerald_martin",
         "firm": "rcb_fitzgerald_boarding_house",
+        "businesses_in_the_register_at_this_roof": [],
+        "kept_by": "this programme",
+        "why_not": null
+      },
+      {
+        "place": "recon_1835_west_035",
+        "name": "Reconstructed H2 medium boarding house #035",
+        "class": "boarding_house",
+        "standing": "reconstructed",
+        "beds_ordinary": 11,
+        "beds_crowded": 27,
+        "keeper_person": "rc_pelletier_victoire",
+        "firm": "rcb_pelletier_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
         "kept_by": "this programme",
         "why_not": null
@@ -423,7 +434,7 @@
           {
             "person_id": "rc_robillard_michel",
             "name": "Michel Robillard",
-            "division": "south",
+            "division": "west",
             "head_slot": "trade_households:persons/male/30_39/south/family/trade:boatman:005",
             "firm": null
           }
@@ -506,9 +517,9 @@
         "why": "A CONTRACT IS NOT A SHOP, and T-1425 closes the deferral without building anything. The mail contractor holds a ROUTE under the Post Office Department; the office at the end of it is a civic establishment T-1410 already built, and this corpus gives the contractor no stage yard, no stable and no stand of his own — the stage and stable yard T-1424 wondered about is a building nobody printed. The hire teams of this town stood at the two livery stables the trade quota built, which is where a route's horses would be kept by a man who kept no yard. So the head is a contract and keeps no house, and T-1189 seats him where the work was done.",
         "people": [
           {
-            "person_id": "rc_vieau_francois",
-            "name": "Francois Vieau",
-            "division": "north",
+            "person_id": "rc_vieau_louis",
+            "name": "Louis Vieau",
+            "division": "south",
             "head_slot": "trade_households:persons/male/20_29/north/family/trade:mail_contractor:020",
             "firm": null
           }
@@ -556,7 +567,7 @@
           {
             "person_id": "rc_newell_hiram",
             "name": "Hiram Newell",
-            "division": "south",
+            "division": "north",
             "head_slot": "trade_households:persons/male/40_49/south/family/trade:seaman:009",
             "firm": null
           }
@@ -657,7 +668,7 @@
             "name": "Reuben Parmelee",
             "division": "south",
             "head_slot": "trade_households:persons/male/20_29/south/family/trade:attorney:001",
-            "firm": "rcb_parmelee_lawyer"
+            "firm": null
           },
           {
             "person_id": "rc_dickinson_george",
@@ -891,13 +902,13 @@
           {
             "person_id": "rc_doyle_alice",
             "name": "Alice Doyle",
-            "division": "west",
+            "division": "south",
             "head_slot": "trade_households:persons/female/20_29/west/family/trade:domestic:005",
             "firm": null
           },
           {
-            "person_id": "rc_ryan_margaret",
-            "name": "Margaret Ryan",
+            "person_id": "rc_shea_alice",
+            "name": "Alice Shea",
             "division": "west",
             "head_slot": "trade_households:persons/female/20_29/west/family/trade:domestic:006",
             "firm": null
@@ -933,7 +944,7 @@
           {
             "person_id": "rc_newell_amanda",
             "name": "Amanda Newell",
-            "division": "west",
+            "division": "north",
             "head_slot": "trade_households:persons/female/20_29/west/family/trade:domestic:011",
             "firm": null
           },
@@ -1008,8 +1019,8 @@
             "firm": null
           },
           {
-            "person_id": "rc_shea_mary",
-            "name": "Mary Shea",
+            "person_id": "rc_shea_catherine",
+            "name": "Catherine Shea",
             "division": "south",
             "head_slot": "trade_households:persons/female/30_39/south/family/trade:domestic:013",
             "firm": null
@@ -1029,9 +1040,9 @@
             "firm": null
           },
           {
-            "person_id": "rc_sullivan_ellen",
-            "name": "Ellen Sullivan",
-            "division": "west",
+            "person_id": "rc_sullivan_johanna",
+            "name": "Johanna Sullivan",
+            "division": "north",
             "head_slot": "trade_households:persons/female/30_39/west/family/trade:domestic:005",
             "firm": null
           },
@@ -1066,14 +1077,14 @@
           {
             "person_id": "rc_kelly_catherine",
             "name": "Catherine Kelly",
-            "division": "south",
+            "division": "west",
             "head_slot": "trade_households:persons/female/40_49/south/family/trade:domestic:005",
             "firm": null
           },
           {
             "person_id": "rc_reilly_johanna",
             "name": "Johanna Reilly",
-            "division": "west",
+            "division": "north",
             "head_slot": "trade_households:persons/female/40_49/west/family/trade:domestic:002",
             "firm": null
           },
@@ -1087,7 +1098,7 @@
           {
             "person_id": "rc_duffy_bridget",
             "name": "Bridget Duffy",
-            "division": "south",
+            "division": "west",
             "head_slot": "trade_households:persons/female/50_plus/south/family/trade:domestic:002",
             "firm": null
           },
@@ -1108,7 +1119,7 @@
           {
             "person_id": "rc_nash_eli",
             "name": "Eli Nash",
-            "division": "north",
+            "division": "south",
             "head_slot": "trade_households:persons/male/40_49/north/family/trade:domestic:002",
             "firm": null
           }
@@ -1177,7 +1188,7 @@
           {
             "person_id": "rc_gallagher_catherine",
             "name": "Catherine Gallagher",
-            "division": "west",
+            "division": "north",
             "head_slot": "trade_households:persons/female/50_plus/west/family/trade:laundress:002",
             "firm": null
           }
@@ -1212,8 +1223,8 @@
             "firm": "rcb_sullivan_millinery"
           },
           {
-            "person_id": "rc_shea_alice",
-            "name": "Alice Shea",
+            "person_id": "rc_shea_mary",
+            "name": "Mary Shea",
             "division": "west",
             "head_slot": "trade_households:persons/female/20_29/west/family/trade:milliner:013",
             "firm": "rcb_shea_millinery"
@@ -1272,7 +1283,7 @@
           {
             "person_id": "rc_newell_seth",
             "name": "Seth Newell",
-            "division": "south",
+            "division": "north",
             "head_slot": "trade_households:persons/male/50_plus/south/family/trade:music_teacher:004",
             "firm": null
           }
@@ -1290,7 +1301,7 @@
             "name": "John McGuire",
             "division": "south",
             "head_slot": "trade_households:persons/male/30_39/south/family/trade:physician:032",
-            "firm": "rcb_mcguire_physician"
+            "firm": null
           }
         ]
       },
@@ -1319,7 +1330,7 @@
           {
             "person_id": "rc_nichols_eli",
             "name": "Eli Nichols",
-            "division": "west",
+            "division": "south",
             "head_slot": "trade_households:persons/male/20_29/west/family/trade:surveyor:021",
             "firm": null
           }

@@ -11,20 +11,21 @@
   "proposed_not_written": 864
  },
  "counts": {
-  "person_records": 2265,
-  "carried_by_the_civic_mint": 392,
-  "rungs_spent": 807,
-  "conflicts_for_the_owner": 82,
+  "person_records": 2383,
+  "carried_by_the_civic_mint": 511,
+  "rungs_spent": 810,
+  "conflicts_for_the_owner": 79,
   "spent_by_rule": {
    "G1a": 22,
    "G1b": 92,
-   "G1c": 9,
-   "G2e": 54,
-   "G3": 630
+   "G1c": 11,
+   "G2c": 1,
+   "G2e": 53,
+   "G3": 631
   },
   "conflicts_by_kind": {
-   "abstention": 45,
-   "downgrade": 36,
+   "abstention": 43,
+   "downgrade": 35,
    "subtype": 1
   }
  },
@@ -555,6 +556,15 @@
    "identity": "id_beaubien_jean_baptiste",
    "rule": "G1a",
    "grade": "attested",
+   "resident_subtype": null
+  },
+  {
+   "person_id": "beaubien_josette",
+   "household_id": "hh_beaubien_jean_baptiste",
+   "name": "Josette LaFramboise Beaubien",
+   "identity": "id_beaubien_josette_laframboise",
+   "rule": "G2c",
+   "grade": "inferred",
    "resident_subtype": null
   },
   {
@@ -1366,6 +1376,15 @@
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "chandler_joseph",
+   "household_id": "hh_chandler_joseph",
+   "name": "Joseph Chandler",
+   "identity": "id_chandler_joseph_m",
+   "rule": "G1c",
+   "grade": "attested",
+   "resident_subtype": null
   },
   {
    "person_id": "chanpagne_batist",
@@ -2293,6 +2312,15 @@
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "egan_william_b",
+   "household_id": "hh_egan_william_b",
+   "name": "Dr William Bradshaw Egan",
+   "identity": "id_egan_william_bradshaw",
+   "rule": "G1c",
+   "grade": "attested",
+   "resident_subtype": null
   },
   {
    "person_id": "elias_maynar",
@@ -6689,11 +6717,11 @@
   {
    "person_id": "toby_samuel",
    "household_id": "hh_toby_samuel",
-   "name": "Samuel. Toby",
+   "name": "Samuel E. Toby",
    "identity": "id_toby_samuel_e",
-   "rule": "G2e",
+   "rule": "G3",
    "grade": "inferred",
-   "resident_subtype": null
+   "resident_subtype": "projected_resident"
   },
   {
    "person_id": "todd_hugh",
@@ -7421,21 +7449,6 @@
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
   },
   {
-   "person_id": "beaubien_josette",
-   "household_id": "hh_beaubien_jean_baptiste",
-   "name": "Josette LaFramboise Beaubien",
-   "identity": "id_beaubien_josette_laframboise",
-   "rule": "G5",
-   "grade": "inferred",
-   "resident_subtype": null,
-   "kind": "abstention",
-   "proposed": {
-    "grade": null,
-    "resident_subtype": null
-   },
-   "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
-  },
-  {
    "person_id": "beaubien_mark_household",
    "household_id": "hh_beaubien_mark",
    "name": "Mark Beaubien's family, unnamed",
@@ -7546,21 +7559,6 @@
    "name": "Billy Caldwell (Sauganash)",
    "identity": "id_caldwell_billy",
    "rule": "G2b",
-   "grade": "attested",
-   "resident_subtype": null,
-   "kind": "downgrade",
-   "proposed": {
-    "grade": "inferred",
-    "resident_subtype": null
-   },
-   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
-  },
-  {
-   "person_id": "chandler_joseph",
-   "household_id": "hh_chandler_joseph",
-   "name": "Joseph Chandler",
-   "identity": "id_chandler_joseph_m",
-   "rule": "G2e",
    "grade": "attested",
    "resident_subtype": null,
    "kind": "downgrade",
@@ -7734,21 +7732,6 @@
     "resident_subtype": null
    },
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
-  },
-  {
-   "person_id": "egan_william_b",
-   "household_id": "hh_egan_william_b",
-   "name": "Dr William Bradshaw Egan",
-   "identity": "id_egan_william_bradshaw",
-   "rule": "G2b",
-   "grade": "attested",
-   "resident_subtype": null,
-   "kind": "downgrade",
-   "proposed": {
-    "grade": "inferred",
-    "resident_subtype": null
-   },
-   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
    "person_id": "evans_sciota",
@@ -8430,15 +8413,15 @@
    "household_id": "hh_st_cyr_john_mary",
    "name": "Rev. John Mary Irenaeus St Cyr",
    "identity": "id_stcyr_john_mary_irenaeus",
-   "rule": "G5",
+   "rule": "G2c",
    "grade": "attested",
    "resident_subtype": null,
-   "kind": "abstention",
+   "kind": "downgrade",
    "proposed": {
-    "grade": null,
+    "grade": "inferred",
     "resident_subtype": null
    },
-   "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+   "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
   },
   {
    "person_id": "stow_william_h",

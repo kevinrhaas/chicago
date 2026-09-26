@@ -314,13 +314,13 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 299,
-  "outside": 114,
+  "inside": 301,
+  "outside": 119,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 23,
    "north_of_the_limit": 23,
-   "west_of_canal_street": 66,
+   "west_of_canal_street": 71,
    "south_of_washington_street": 1,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
@@ -419,12 +419,17 @@
     "recon_1835_west_024",
     "recon_1835_west_025",
     "recon_1835_west_026",
+    "recon_1835_west_027",
     "recon_1835_west_028",
+    "recon_1835_west_029",
     "recon_1835_west_030",
     "recon_1835_west_031",
+    "recon_1835_west_032",
     "recon_1835_west_033",
     "recon_1835_west_034",
+    "recon_1835_west_035",
     "recon_1835_west_036",
+    "recon_1835_west_037",
     "recon_1835_west_038",
     "recon_1835_west_039",
     "recon_1835_west_040",
@@ -901,14 +906,14 @@
    {
     "id": "west_wolf_point_outer",
     "kind": "reviewed_recipe_remainder",
-    "state": "gated",
-    "roofs": 5
+    "state": "complete",
+    "roofs": 0
    },
    {
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 104
+    "roofs": 106
    },
    {
     "id": "west_division_beyond_committed_control",

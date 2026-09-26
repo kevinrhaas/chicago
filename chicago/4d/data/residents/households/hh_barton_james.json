@@ -2,6 +2,25 @@
  "id": "hh_barton_james",
  "name": "The Barton household — a name from the post office's letter lists",
  "division": "unplaced",
+ "division_reconstructed": {
+  "value": "north",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "band": "north/farms_and_country_seats",
+  "clause": "farms_and_country_seats",
+  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the north division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's farms_and_country_seats clause. The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+  "basis": {
+   "kind": "model",
+   "id": "policy_only_deal",
+   "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
+  },
+  "seed": "hh_barton_james|T-1522|division:3afb556379aa|class:124f18457224",
+  "replaceable_by": {
+   "kind": "household",
+   "match": "any source that places this household in a division or nearer"
+  },
+  "written_by_stage": "policy_only_division"
+ },
  "head": "barton_james",
  "source_pass": "letter_list",
  "arrival": {
@@ -14,7 +33,7 @@
   "precision": "not_later_than"
  },
  "arrival_year": {
-  "value": 1835,
+  "value": 1834,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-06-30 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
@@ -53,14 +72,14 @@
   "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
+  "value": "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
   "basis": {
    "kind": "rule",
    "id": "reason_from_arrival_cohort",
-   "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1834) is the only thing about it this value rests on."
   },
   "replaceable_by": {
    "kind": "person",
@@ -106,7 +125,7 @@
     "chicago_democrat_1833_1835",
     "second_presbyterian_chicago_1892"
    ],
-   "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Barton, James' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 July 1835, column 4 — dated 1835-07-01. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1). THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Barton, John | Letter. | September 29, 1864. | Dismissed.” (second_presb_0412, printed page 178), admitted 1864-09-29 by letter. Under the rule that decided it: Surname 'Barton' folds to the same string as the roll line's, and the given name of both begins J. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
+   "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Barton, James' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 July 1835, column 4 — dated 1835-07-01. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1). THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Barton, John | Letter. | September 29, 1864. | Dismissed.” (second_presb_0414, printed page 178), admitted 1864-09-29 by letter. Under the rule that decided it: Surname 'Barton' folds to the same string as the roll line's, and the given name of both begins J. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
    "resident_research": {
     "programme": "resident-research-2026",
     "ticket": "T-0480",

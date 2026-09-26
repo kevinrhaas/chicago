@@ -52,6 +52,18 @@
       "derivation": "the empty gap in the town's own setback distribution, at its midpoint — re-derive with measure_frontage_fabric.py --setbacks. A building at or inside this stands ON the street line; anything further back stands in the block behind it."
     },
     {
+      "name": "frontage_reach_m",
+      "value": 67.72,
+      "unit": "m",
+      "read_by": [
+        {
+          "module": "tools/measure_frontage_fabric.py",
+          "name": "FRONTAGE_REACH_M"
+        }
+      ],
+      "derivation": "how far back a footprint may stand and still be FRONTING the corridor it is nearest, from the empty band in the town's own distribution of nearest-corridor distances, at its midpoint — re-derive with measure_frontage_fabric.py --setbacks. Below 60.79 m (miller_tannery, on the Market Street corridor) that distribution is continuous: 373 buildings and no gap wider than 2.91 m. The next building anywhere stands 74.65 m back (recon_1835_west_052), a band of 13.86 m with nothing in it — 4.76 times the widest gap in the body. Beyond this a building is reported with NO street rather than with a distant one; the reservation and the river mouth hold roofs that front none."
+    },
+    {
       "name": "party_line_unit_m",
       "value": 6.072,
       "unit": "m",
@@ -134,7 +146,7 @@
       "principal_roofs_max": 1,
       "basis": "the dwelling typology setback and the block parcels' own arrangement notes — a cottage on a side street keeps its front yard and its dooryard, and the lot is not subdivided.",
       "evidence": [],
-      "note": "Stated as the complement of the principal-street rule. No documented back-street lot in this town carries two principal roofs."
+      "note": "Stated as the complement of the principal-street rule. No documented back-street lot in this town carries two principal roofs. The rear cottage the owner admitted on 2026-09-23 does not raise this maximum: `rear_dwelling_behind_its_own_roof` seats a dwelling in the yard as ANCILLARY, and this number counts principal roofs."
     }
   },
   "clauses": [
@@ -187,6 +199,7 @@
           "ordinary": 0,
           "light": 1
         },
+        "fronting_no_street": 0,
         "on_the_street_line": 11,
         "setback_m_min": -12.1,
         "setback_m_max": 4.16
@@ -227,6 +240,7 @@
           "ordinary": 3,
           "light": 0
         },
+        "fronting_no_street": 0,
         "on_the_street_line": 4,
         "setback_m_min": -0.97,
         "setback_m_max": 1.5
@@ -270,6 +284,7 @@
           "ordinary": 2,
           "light": 1
         },
+        "fronting_no_street": 0,
         "on_the_street_line": 3,
         "setback_m_min": -0.56,
         "setback_m_max": 45.85
@@ -308,6 +323,7 @@
           "ordinary": 3,
           "light": 1
         },
+        "fronting_no_street": 0,
         "on_the_street_line": 1,
         "setback_m_min": -11.45,
         "setback_m_max": 60.79
@@ -349,6 +365,7 @@
           "ordinary": 0,
           "light": 1
         },
+        "fronting_no_street": 0,
         "on_the_street_line": 1,
         "setback_m_min": 0.85,
         "setback_m_max": 9.31
@@ -387,6 +404,7 @@
           "ordinary": 1,
           "light": 0
         },
+        "fronting_no_street": 0,
         "on_the_street_line": 2,
         "setback_m_min": -0.2,
         "setback_m_max": 1.5
@@ -426,6 +444,7 @@
           "ordinary": 2,
           "light": 1
         },
+        "fronting_no_street": 0,
         "on_the_street_line": 1,
         "setback_m_min": -1.98,
         "setback_m_max": 59.84
@@ -473,6 +492,7 @@
           "ordinary": 4,
           "light": 0
         },
+        "fronting_no_street": 0,
         "on_the_street_line": 7,
         "setback_m_min": -1.75,
         "setback_m_max": 39.76
@@ -507,10 +527,11 @@
         "evidence_records": 4,
         "standing_with_a_street": 4,
         "by_street_class": {
-          "principal": 2,
+          "principal": 0,
           "ordinary": 2,
           "light": 0
         },
+        "fronting_no_street": 2,
         "on_the_street_line": 0,
         "setback_m_min": 11.32,
         "setback_m_max": 360.15
@@ -549,10 +570,11 @@
         "evidence_records": 9,
         "standing_with_a_street": 9,
         "by_street_class": {
-          "principal": 1,
+          "principal": 0,
           "ordinary": 5,
           "light": 3
         },
+        "fronting_no_street": 1,
         "on_the_street_line": 5,
         "setback_m_min": -8.4,
         "setback_m_max": 317.96
@@ -587,13 +609,47 @@
         "evidence_records": 4,
         "standing_with_a_street": 4,
         "by_street_class": {
-          "principal": 3,
+          "principal": 1,
           "ordinary": 1,
           "light": 0
         },
+        "fronting_no_street": 2,
         "on_the_street_line": 1,
         "setback_m_min": 0.59,
         "setback_m_max": 420.22
+      }
+    },
+    {
+      "id": "rear_dwelling_behind_its_own_roof",
+      "applies_to": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6"
+      ],
+      "prefers": [
+        "lot:mid"
+      ],
+      "avoids": [],
+      "multi_building_lot_rule": "principal_plus_ancillary",
+      "setback_class": "yard",
+      "tier": "inferred",
+      "evidence": [],
+      "note": "THE REAR COTTAGE, and it is an owner ruling rather than a reading. A cottage may stand in the yard off the block alley behind the principal roof on its own lot, and it is ANCILLARY there — the lot carries a main house plus a rear dwelling. Owner, 2026-09-23, on T-1482's question, option (a): 'Treat a rear cottage as ancillary, so a lot may carry a main house plus a rear dwelling.' The question arose because T-1445 refamilies six A-family yard buildings on three platted blocks into dwelling families, and no clause covered a dwelling in a yard: `ancillary_behind_its_own_roof` is A1-A5 only, so the six became second PRINCIPAL roofs on occupied lots and the parcel gate refused all six. THIS CLAUSE CITES NO RECORD AND CLAIMS NONE: the town holds no documented roof standing as a dwelling in another roof's yard, so the tier is `inferred` and the reasoning is the ruling, the six verdicts that needed it, and the fact that the clause which refused them refuses three of its own four evidence records read against the same term (T-1482, and `tools/measure_block_redeal_remedies.py` re-derives that count). IT AVOIDS NOTHING ON PURPOSE, and that is the whole difference from the A clause: a rear cottage stands BEHIND, off the alley, so the traffic class of the street its lot fronts is not a fact about its position — and `class:principal` in the A clause's `avoids` is precisely the term that produced the six refusals. Recorded as a liberty at L256.",
+      "witness": {
+        "evidence_records": 0,
+        "standing_with_a_street": 0,
+        "by_street_class": {
+          "principal": 0,
+          "ordinary": 0,
+          "light": 0
+        },
+        "fronting_no_street": 0,
+        "on_the_street_line": 0,
+        "setback_m_min": null,
+        "setback_m_max": null
       }
     },
     {
@@ -623,10 +679,11 @@
         "evidence_records": 4,
         "standing_with_a_street": 4,
         "by_street_class": {
-          "principal": 4,
+          "principal": 0,
           "ordinary": 0,
           "light": 0
         },
+        "fronting_no_street": 4,
         "on_the_street_line": 0,
         "setback_m_min": 373.89,
         "setback_m_max": 405.45
@@ -635,8 +692,8 @@
   ],
   "coverage": {
     "documented_roofs_with_a_family": 77,
-    "conforming": 54,
-    "outliers": 23,
+    "conforming": 56,
+    "outliers": 21,
     "by_family": {
       "A1": [
         "ancillary_behind_its_own_roof"
@@ -663,7 +720,8 @@
       ],
       "D1": [
         "farms_and_country_seats",
-        "labourer_dwellings"
+        "labourer_dwellings",
+        "rear_dwelling_behind_its_own_roof"
       ],
       "F1": [
         "commercial_front"
@@ -711,18 +769,6 @@
   },
   "outliers": [
     {
-      "id": "beaubien_barn",
-      "family": "A2",
-      "street": "lake",
-      "class": "principal",
-      "setback_m": 347.65,
-      "measured": [
-        "stands on a principal street, which ancillary_behind_its_own_roof avoids",
-        "stands on a principal street, which farms_and_country_seats avoids"
-      ],
-      "reason": "Jean Baptiste Beaubien's own barn on his own ground east of the fort, outside the plat: an ancillary roof 347.65 m from Lake Street's corridor edge is behind its own house and not on anybody's frontage. It read Kinzie at 80.93 m until T-1429, which is a north-bank street across the channel."
-    },
-    {
       "id": "blacksmith_shop_state_st",
       "family": "W1",
       "street": "wolcott",
@@ -749,11 +795,11 @@
     {
       "id": "chicago_lighthouse_1832",
       "family": "I3",
-      "street": "lake",
-      "class": "principal",
+      "street": null,
+      "class": null,
       "setback_m": 317.96,
       "measured": [
-        "stands 317.96 m off the street line (2.71 m), and institutions_stand_where_named puts it on the line"
+        "fronts no street (its nearest corridor is 317.96 m away, beyond the frontage reach), and institutions_stand_where_named seats it by a `street_line` setback, which is measured from one"
       ],
       "reason": "at the river mouth on the federal reserve — a lighthouse is seated by the harbour and not by a street."
     },
@@ -769,69 +815,57 @@
       "reason": "on the lakefront reservation ground east of the platted town."
     },
     {
-      "id": "fort_dearborn_big_barn",
-      "family": "A2",
-      "street": "lake",
-      "class": "principal",
-      "setback_m": 270.75,
-      "measured": [
-        "stands on a principal street, which ancillary_behind_its_own_roof avoids",
-        "stands on a principal street, which farms_and_country_seats avoids"
-      ],
-      "reason": "inside the unplatted military reservation, 270.75 m from Lake Street's corridor edge: the garrison's own barn, seated behind the fort and not on a street. Same correction as its neighbours — Kinzie at 95.89 m was across the water."
-    },
-    {
       "id": "fort_dearborn_out_building_a",
       "family": "A5",
-      "street": "lake",
-      "class": "principal",
+      "street": null,
+      "class": null,
       "setback_m": 312.17,
       "measured": [
-        "stands on a principal street, which ancillary_behind_its_own_roof avoids"
+        "fronts no street (its nearest corridor is 312.17 m away, beyond the frontage reach), and ancillary_behind_its_own_roof seats it by a `yard` setback, which is measured from one"
       ],
       "reason": "inside the unplatted military reservation, 312.17 m from Lake Street's corridor edge: the ancillary clause's 'behind its own roof' is a statement about a platted lot and there is no lot here. T-1191 read it 198.31 m off Kinzie and this reason had to be withdrawn; T-1429's bank test refuses that line — it is Kinzie's east end, which stands under the 1834 harbour cut — and restores it."
     },
     {
       "id": "fort_dearborn_out_building_b",
       "family": "A5",
-      "street": "lake",
-      "class": "principal",
+      "street": null,
+      "class": null,
       "setback_m": 322.71,
       "measured": [
-        "stands on a principal street, which ancillary_behind_its_own_roof avoids"
+        "fronts no street (its nearest corridor is 322.71 m away, beyond the frontage reach), and ancillary_behind_its_own_roof seats it by a `yard` setback, which is measured from one"
       ],
       "reason": "inside the unplatted military reservation, 322.71 m from Lake Street's corridor edge, as its pair. Withdrawn by T-1191 and restored by T-1429 for the same reason."
     },
     {
       "id": "fort_dearborn_shop",
       "family": "W4",
-      "street": "lake",
-      "class": "principal",
+      "street": null,
+      "class": null,
       "setback_m": 381.64,
       "measured": [
-        "stands 381.64 m off the street line (2.71 m), and mechanics_streets puts it on the line"
+        "fronts no street (its nearest corridor is 381.64 m away, beyond the frontage reach), and mechanics_streets seats it by a `street_line` setback, which is measured from one"
       ],
       "reason": "inside the unplatted military reservation: the garrison's own workshop, not a mechanic's shop on a street. Its nearest corridor is Lake Street's at 381.64 m since T-1429 put the river in the reading; the Kinzie line at 157.87 m that T-1191 briefly gave it is on the far bank and was never its frontage."
     },
     {
       "id": "fort_dearborn_us_factors_house",
       "family": "C2",
-      "street": "lake",
-      "class": "principal",
+      "street": null,
+      "class": null,
       "setback_m": 287.59,
       "measured": [
-        "stands 287.59 m off the street line (2.71 m), and commercial_front puts it on the line"
+        "fronts no street (its nearest corridor is 287.59 m away, beyond the frontage reach), and commercial_front seats it by a `street_line` setback, which is measured from one"
       ],
       "reason": "inside the unplatted military reservation — see the garrison clause. No street crossed the reservation in 1835."
     },
     {
       "id": "fort_dearborn_wash_house",
       "family": "A5",
-      "street": "lake",
-      "class": "principal",
+      "street": null,
+      "class": null,
       "setback_m": 420.22,
       "measured": [
-        "stands on a principal street, which ancillary_behind_its_own_roof avoids"
+        "fronts no street (its nearest corridor is 420.22 m away, beyond the frontage reach), and ancillary_behind_its_own_roof seats it by a `yard` setback, which is measured from one"
       ],
       "reason": "inside the unplatted military reservation, 420.22 m from Lake Street's corridor edge: the garrison washed its own linen behind its own palisade. It read Kinzie at 144.13 m until T-1429, across the channel."
     },

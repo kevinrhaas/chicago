@@ -166,15 +166,15 @@
   "everywhere_else": {
    "purchaser_spellings": 542,
    "readings": {
-    "upheld": 86,
-    "named": 0,
+    "upheld": 85,
+    "named": 1,
     "match_refused": 0,
-    "match_unruled": 5,
-    "refused_against_a_rival": 241,
-    "surname_absent": 210
+    "match_unruled": 6,
+    "refused_against_a_rival": 243,
+    "surname_absent": 207
    },
-   "share_upheld_pct": 15.9,
-   "share_surname_absent_pct": 38.7
+   "share_upheld_pct": 15.7,
+   "share_surname_absent_pct": 38.2
   }
  },
  "surnames_the_layer_holds_nobody_of": {

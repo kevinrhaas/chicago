@@ -1934,6 +1934,22 @@
       ]
     },
     {
+      "why": "T-1540's measurement of which control seats the West Division's five north-south lines, what the plat's 458 ft module would cost if it were imposed on them, and what is seated on the spacing they have today. It runs AFTER tools/generate_plat_lots.py, and beside tools/measure_west_grid_migration.py, because it reads that grid's blocks and their `bounded_by` lines to derive which streets the division is actually cut against — run before it, it would measure a stale grid. IT MOVES NOTHING: no centreline is edited, no block re-emitted, no record re-seated, and every figure it writes is read back out of committed files, which is why it may own its output outright. `resolves` therefore names that one file: two runs re-deriving it produce the same bytes, so a conflict there is settled by rebuilding rather than by choosing a side.",
+      "command": [
+        "python3",
+        "tools/measure_west_division_spacing.py",
+        "--write"
+      ],
+      "resolves": [
+        "chicago/4d/data/traces/west_division_spacing_control.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/measure_west_division_spacing.py",
+        "--check"
+      ]
+    },
+    {
       "why": "SCENE FURNITURE DEALT FROM THE TOWN — signs, fences, plantings, infill. It reads a settled town and writes geometry nothing else reads back. PLACED BY LAYER, NOT BY A DERIVED DEPENDENCY (T-1302 batch 2, 2026-09-18). A dependency graph was built for this — write-sets MEASURED by running all 142 tools on a clean tree, reads taken from their source — and it was rejected by its own validation: against the 54 steps already here, an order people reached by hitting real failures, the graph contradicted 127 of 349 edges (36%; 32% at the finest granularity tried). These tools overwhelmingly read and write the same shared directories, so the graph saturates and cannot tell a real dependency from co-location. Only 6 of the 89 could be placed with evidence. A clean-tree `--run` goes green in ANY order because every one of them reproduces, so greenness is not evidence here either. This position is reasoned from what the tool reads and writes; it is not measured, and the honest test is the first time a change upstream of one of these fails to propagate. WRITES, BUT DOES NOT CLAIM, ITS OUTPUTS. `resolves` is not documentation: it declares that the manifest OWNS a file, so the lap settles a conflict there by REBUILDING rather than merging. Listing what these 89 tools touch took the owned set from 72 files to 1,899 — including 1,261 household cards — and a conflict in any of them would then be rebuilt over whatever a branch had actually written. Being run by the manifest and owning your outputs are separate decisions; this is the first, and the second is not taken here. rederive.mjs's own self-test caught it, on the assertion that `hh_taylor_c.json` is a file nobody derives.",
       "command": [
         "python3",
@@ -2159,6 +2175,22 @@
       "verify": [
         "python3",
         "tools/report_research_signoff.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "THE EMPLOYMENT ANSWER FOR THE WHOLE LAYER, AND IT WAS A GATED WRITER NOTHING RE-DERIVED (T-1555). tools/check.sh asserts data/residents/employment_coverage.json re-derives, the tool that writes it was measured to reproduce on 2026-09-20, and it was still outside this file — so every change to the resident layer left the join stale with no automated remedy, and it was hand-rebuilt twice in one session. PLACED BY LAYER, AND THE LAYER IS ITS WHOLE INPUT. It joins over the seven resident directories, the compiled business layer, premises_rulings.json, the staffing model, the town model and reconstructed_seating.json, and it writes ONE file beside the layer: it mints nobody, seats nobody, supplies no trade and touches no person card (its own header refuses all three). So its slot is below every step that writes a card — the last of those is the spends at steps 146-148 — and above the reports and exports at the foot, which read the tree off and are last by the same rule. Nothing in this manifest reads employment_coverage.json, so no step below it lags on this one and it needs no second pass. It carries no lag of its own either: the second pass re-draws arrival_year and reason_for_coming, and this tool reads neither. MEASURED, 2026-09-25, which is what _must_reproduce asks and all it asks: --build on a clean dev rewrote data/residents/employment_coverage.json (mtime 1790347317 -> 1790347480, so _must_actually_write is proven for this step too) and git status --porcelain was empty before and empty after — not one committed byte moved. The POSITION is reasoned from what it reads and writes, not measured, exactly as the T-1302 batch above says of itself; the honest test is the first time a change upstream fails to propagate.",
+      "command": [
+        "python3",
+        "tools/employment_coverage_1835.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/residents/employment_coverage.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/employment_coverage_1835.py",
         "--check"
       ]
     },

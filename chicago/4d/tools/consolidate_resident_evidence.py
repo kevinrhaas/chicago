@@ -170,8 +170,17 @@ GRADE_RULES = {
             "promoted on its own by this rung; it only COUNTS TOWARD convergence."),
     "G2a": ("inferred", "The 1835 poll list alone."),
     "G2b": ("inferred", "An 1833 or 1834 list (poll, tax, muster) with another source."),
-    "G2c": ("inferred", "The St Cyr register 1833-1835 — a party to a marriage or burial "
-            "in the parish inside the scene window."),
+    # WRITTEN AS THE REASON, NOT AS THE OUTCOME — the owner's instruction when he ruled
+    # this rung wider on 2026-09-21 (T-0841). A rung reading "the officiant of a parish
+    # register takes G2c" would be a special case with a name on it, and the next register
+    # would have to be argued from scratch. What the rung says instead is what a register
+    # IS: a record of acts, made by one of the parties to them.
+    "G2c": ("inferred", "The parish register of 1833-1835 — a party to an act the register "
+            "records, inside the scene window: a marriage, a burial, a baptism. The priest "
+            "who keeps it is a party too, because he signs a dated entry for an act he is "
+            "himself performing, so the book is evidence about him on the days he signs it "
+            "and on the same terms as about the people it names. Not about the days "
+            "between, and not about anyone the register does not name."),
     "G2d": ("inferred", "Hubbard or Fergus or Norris naming a person the town already carries, "
             "with a trade or an address."),
     "G2e": ("inferred", "A Chicago post-office letter list of 1833-1835 and nothing stronger. "
@@ -215,6 +224,17 @@ LETTER_LIST_CLASS = "newspaper_letter_list"
 # and NONE resolves inside it or is undecided. A man with one Chicago address is a
 # Chicago appearance whatever else his record carries.
 OUT_OF_TOWN_CLASS = "newspaper_out_of_town"
+# THE SAME REFUSAL, ONE DOMAIN OVER (T-0841). A parish register travels with its priest:
+# eleven baptisms of 1834 are written at the South Fork of the Sangamon on the journey back
+# from St Louis and 1833 entry 7 at Ottawa, and the reading records that on every row as
+# `at_chicago: false`. A row written in Sangamon County is evidence about Sangamon County,
+# so it is carried under a class of its own on exactly the terms the newspaper refusal
+# above already sets: no rung spends one, no class family counts one, `independent_records`
+# does not let one corroborate, and the row is KEPT so the refusal can be counted.
+CHURCH_OUT_OF_TOWN_CLASS = "church_out_of_town"
+# Read as a set wherever a rung, a family or the record counter has to skip a refusal about
+# WHERE, so the two cannot drift apart.
+OUT_OF_TOWN_CLASSES = {OUT_OF_TOWN_CLASS, CHURCH_OUT_OF_TOWN_CLASS}
 POLL_1835 = "poll_1835"
 EARLY_LIST_CLASSES = {"poll_1833", "tax_1833", "poll_1834", "muster_1832"}
 CHURCH_SCENE_CLASS = "church_1833_1835"
@@ -269,12 +289,39 @@ ABBREVIATED = {"jno": "john", "jas": "james", "wm": "william", "geo": "george",
 # immediately took the forename off `Ste Beadieston` — a man the letter lists print
 # `Beadieston, Ste`, whose only printing in the whole corpus is that one. A particle
 # nobody here has printed can only cost a reading; it can never win one.
-SURNAME_PARTICLES = {"st", "van", "von", "de", "den", "der", "du", "la", "le",
+SURNAME_PARTICLES = {"st", "saint", "van", "von", "de", "den", "der", "du", "la", "le",
                      "mc", "mac"}
+# `saint` IS `st` SPELLED OUT, AND THE SAME HAND WRITES BOTH (T-0841). Father St Cyr signs
+# `J. M. I. Saint Cyr` across the whole baptismal register and `J. M. I. St. Cyr` in the
+# burial register, and the residents layer carries him as `Rev. John Mary Irenaeus St Cyr`.
+# Those are one surname in two printings, so the key has to say so: without this the
+# register's rows key to `saintcyr`, stand up a rival priest beside the town's own `stcyr`,
+# and the man is graded twice on one book — which is the failure mode T-0724 fixed once
+# already, one spelling further out.
+#
+# THE RULE IS NARROW ON PURPOSE, in both of the ways it could go wrong. It rewrites a
+# PARTICLE — a token with another surname token after it — so `Saint Cyr` becomes `stcyr`
+# and a surname that merely BEGINS with those letters is untouched: `Sainthill` is one
+# token and stays `sainthill`. And it does not reach the comma form: the old settlers'
+# death notices print `Saint, Cyr` under S, where the comma makes `Saint` the whole
+# surname and `Cyr` the forename, and folding that onto the priest would be a merge
+# ruling on a 1883 obituary rather than a spelling. It is left standing as its own
+# identity, exactly as before, for a ruling to reach on its own evidence.
+SURNAME_PARTICLE_SPELLINGS = {"saint": "st"}
 
 
 def clean(token: str) -> str:
     return re.sub(r"[^a-z]", "", (token or "").lower())
+
+
+def particled(surname_part: str) -> list[tuple[int, str]]:
+    """The surname's tokens, each with the number of tokens that FOLLOW it.
+
+    `SURNAME_PARTICLE_SPELLINGS` reads that count and nothing else does: a token with
+    something after it may be a particle, and the last token never is.
+    """
+    tokens = [t for t in re.split(r"\s+", (surname_part or "").strip()) if clean(t)]
+    return [(len(tokens) - 1 - i, t) for i, t in enumerate(tokens)]
 
 
 def name_shaped(token: str) -> bool:
@@ -425,7 +472,9 @@ def split_name_or_reason(text: str) -> tuple[tuple[str, list[str]] | None, str |
                       "is an address and the row is an institution; on a town card it is "
                       "an OCR misreading of an initial (S. read as 8, H. as I1), so the "
                       "name as stored is not a name the town ever used")
-    surname = clean(surname_part)
+    surname = "".join(
+        SURNAME_PARTICLE_SPELLINGS.get(clean(t), clean(t)) if n else clean(t)
+        for n, t in particled(surname_part))
     # A SURNAME IS NOT AN INITIAL, AND A ROOM IS NOT A MAN. The 1843 and 1844
     # directories list institutions in the same alphabetical run as people, and a
     # naive read of "Reading Room (Y. M. A.), 37 Clark" takes "A.)" for the surname
@@ -571,18 +620,22 @@ def read_civic():
 # every `*.json` in `data/research/church/records/` is either READ below or DECLARED
 # unread WITH ITS REASON, `invariants()` fails if a file on disk is neither, and a reading
 # that lands tomorrow cannot go quiet — the gate names it the first time it runs.
-CHURCH_RECORDS_READ = ("st_cyr_marriages_1834_1839.json", "st_cyr_deaths_1834_1837.json")
+#
+# THE REGISTER IS NOW READ, on the owner's ruling of 2026-09-21: G2c reaches the parish
+# register of 1833-1835 whatever the sacrament, and reaches the man who keeps it. So the
+# declaration the gate above forced has been spent — which is what a declared silence is
+# for — and only the Second Presbyterian roll is still declared out.
+CHURCH_RECORDS_READ = ("st_cyr_marriages_1834_1839.json", "st_cyr_deaths_1834_1837.json",
+                       "st_marys_baptisms_1833_1835.json")
+# WHOSE OUT-OF-CHICAGO ROWS THIS READER REFUSES, and it is not yet every file (T-0841).
+# The baptismal register arrives here with its place refusal already applied because it
+# arrives here for the first time: no rung moves that was not standing on a row this
+# reading brings in. The marriage register's six Sangamon County rows are a DIFFERENT
+# change — they are spent today, and refusing them would take six people down from G2c
+# on a ruling nobody has made. T-1129 ruled on how those cards READ; the reader half is
+# filed after this ticket and is not smuggled into it.
+CHURCH_RECORDS_PLACE_FILTERED = ("st_marys_baptisms_1833_1835.json",)
 CHURCH_RECORDS_NOT_READ = {
-    "st_marys_baptisms_1833_1835.json":
-        "St Mary's baptismal register 1833-1835, 267 named readings over 57 entries. Its "
-        "CROSSWALK already reaches this tool — declared_rulings() and person_links() rglob "
-        "every *crosswalk*.json and pick up st_marys_baptisms_crosswalk.json's 8 merges, "
-        "18 refusals and 275 rulings — but its RECORD rows do not, so the register rules "
-        "on who is who here and never testifies to anybody's presence. Reading it is not a "
-        "no-op and it is not the tool's call: G2c accepts `a party to a marriage or "
-        "burial`, a baptism is neither, and reading the rows under that class would widen "
-        "a rung the owner ratified. Measured on this dev: it moves 137 people onto G2c and "
-        "mints 131 identities. T-0841 puts the question to him.",
     "second_presbyterian_members_1842_1892.json":
         "The Second Presbyterian roll, June 1842 to June 1892, 938 records. LATER EVIDENCE "
         "in full — the earliest line on it postdates the scene by seven years and every "
@@ -625,19 +678,64 @@ def undeclared_church_records() -> list[str]:
     return problems
 
 
+def church_class(record, name: str) -> str:
+    """Which class a church row is carried under: when first, then where."""
+    if name in CHURCH_RECORDS_PLACE_FILTERED and record.get("at_chicago") is False:
+        return CHURCH_OUT_OF_TOWN_CLASS
+    year = year_of(record.get("describes_date"))
+    return CHURCH_SCENE_CLASS if year and year <= SCENE_YEAR else "church_after_1835"
+
+
 def read_church():
+    """The parish registers, as evidence about their SUBJECTS and about their KEEPER.
+
+    THE OWNER'S RULING, 2026-09-21 (T-0841), and the second half of it is the part this
+    function had to grow a limb for: *"a priest signing his own entries is first-hand. A
+    priest who signs a dated entry in his own hand states his own presence as directly as
+    this corpus states anything, and refusing that while accepting the same line as
+    evidence about the child, the parents and the godparents is the document doing one job
+    for six people and a different one for the seventh."*
+
+    So a register is evidence about the man who wrote it, on the same rung and for the same
+    reason as it is evidence about the people it names: he is a party to the act he is
+    recording. That is written as the REASON in G2c and not as an outcome about priests,
+    because a rule reading "the officiant of a parish register takes G2c" would be a
+    special case with a name on it and the next register would have to be argued from
+    scratch.
+
+    THE BOUND IS THE SIGNING. One row per ENTRY, dated as that entry is dated — not one per
+    person-row, which would have counted the priest once per godparent and read a book of
+    fifty-seven entries as two hundred and ten appearances of one man. He is attested where
+    he signs and on the days he signs; the register's existence says nothing about the days
+    between, and nothing here claims it does.
+
+    The row's `record_id` is the entry's first reading with `#officiant` after it. It points
+    at a line that exists and can never be mistaken for a reading of its own: no officiant
+    row is transcribed anywhere in `data/research/church/records/`, and `cells.priest` is
+    where every one of them comes from.
+    """
     out = []
     for name in CHURCH_RECORDS_READ:
         doc = load(RESEARCH / "church" / "records" / name) or {}
+        entries = {}
         for record in doc.get("records", []):
-            year = year_of(record.get("describes_date"))
-            klass = (CHURCH_SCENE_CLASS if year and year <= SCENE_YEAR
-                     else "church_after_1835")
+            klass = church_class(record, name)
+            locator = record.get("locator") or {}
             out.append(appearance(
                 "church", record["id"], doc.get("source_id"), record.get("as_read"),
-                record.get("normalized"),
-                (record.get("locator") or {}).get("role") or name,
+                record.get("normalized"), locator.get("role") or name,
                 record.get("describes_date"), klass))
+            priest = (record.get("cells") or {}).get("priest")
+            # The entry, not the row — and the priest is part of the key because a register
+            # outlives its first keeper: the marriage book runs to 1839 and four hands sign
+            # it, so an entry says which of them was there.
+            entry = (locator.get("year_series"), locator.get("entry"), priest)
+            if priest and entry not in entries:
+                entries[entry] = (record, klass)
+        for (_, _, priest), (record, klass) in entries.items():
+            out.append(appearance(
+                "church", f"{record['id']}#officiant", doc.get("source_id"), priest,
+                priest, "officiant", record.get("describes_date"), klass))
     return out
 
 
@@ -1426,7 +1524,7 @@ def independent_records(identity):
     """
     return {(m["evidence_class"], m.get("describes_date"))
             for m in identity["members"] if m["domain"] != "residents"
-            and m["evidence_class"] != OUT_OF_TOWN_CLASS}
+            and m["evidence_class"] not in OUT_OF_TOWN_CLASSES}
 
 
 def in_window_families(identity):
@@ -1442,13 +1540,13 @@ def grade(identity):
     on_a_card = "residents" in domains
     evidence_domains = domains - {"residents"}
     n = len([m for m in identity["members"] if m["domain"] != "residents"
-             and m["evidence_class"] != OUT_OF_TOWN_CLASS])
+             and m["evidence_class"] not in OUT_OF_TOWN_CLASSES])
 
     scene_window = (CONTEMPORARY_CLASSES | EARLY_LIST_CLASSES
                     | {POLL_1835, CHURCH_SCENE_CLASS, LETTER_LIST_CLASS})
     if not (classes & scene_window) and classes <= (LATER_CLASSES
-                                                    | {"newspaper_after_1835", "town_layer",
-                                                       OUT_OF_TOWN_CLASS}):
+                                                    | {"newspaper_after_1835", "town_layer"}
+                                                    | OUT_OF_TOWN_CLASSES):
         if on_a_card:
             return "G5", None, None
         if evidence_domains:
@@ -2439,6 +2537,66 @@ def cmd_self_test() -> int:
         failures += 1
     else:
         print("  ok    every church reading on disk is read or declared, with its reason")
+
+    # ---- T-0841: the register is evidence about its KEEPER, and only where he signs ----
+    #
+    # The owner's ruling of 2026-09-21, gated in the three ways it could be got wrong: the
+    # officiant could go unread, he could be read once per person-row instead of once per
+    # entry, and the twelve entries written on the road could be read as Chicago.
+    church = read_church()
+    officiants = [a for a in church if a["locator"] == "officiant"]
+    baptisms = load(RESEARCH / "church" / "records" / "st_marys_baptisms_1833_1835.json") or {}
+    signed = {(r["locator"].get("year_series"), r["locator"].get("entry"))
+              for r in baptisms.get("records", [])}
+    bapt_officiants = [a for a in officiants
+                       if a["record_id"].startswith("st_marys_bapt_")]
+    if len(bapt_officiants) != len(signed):
+        print(f"  FAIL the baptismal register has {len(signed)} entries and "
+              f"{len(bapt_officiants)} officiant row(s) — the bound is the signing, one "
+              "row per entry")
+        failures += 1
+    else:
+        print(f"  ok    the register's keeper is read once per entry, not once per name — "
+              f"{len(signed)} entries, {len(bapt_officiants)} row(s), not "
+              f"{len(baptisms.get('records', []))}")
+    if not all(a["record_id"].endswith("#officiant") for a in officiants):
+        print("  FAIL an officiant row does not say in its own id that it is one")
+        failures += 1
+    elif any(a["record_id"].removesuffix("#officiant") not in
+             {r["id"] for r in baptisms.get("records", [])}
+             for a in bapt_officiants):
+        print("  FAIL an officiant row points at a reading that is not in the register")
+        failures += 1
+    else:
+        print("  ok    …and each one points at a line of the register that exists")
+    # HE IS ATTESTED WHERE HE SIGNS. A row written at the South Fork of the Sangamon is
+    # evidence about Sangamon County, so it is carried and never spent.
+    away = [a for a in church if a["evidence_class"] == CHURCH_OUT_OF_TOWN_CLASS]
+    if not away:
+        print("  FAIL the register's non-Chicago readings are being read as Chicago")
+        failures += 1
+    elif CHURCH_OUT_OF_TOWN_CLASS in (SCENE_WINDOW_CLASSES | LATER_CLASSES
+                                      | set().union(*CLASS_FAMILIES.values())):
+        print("  FAIL church_out_of_town is a class some rung or family spends")
+        failures += 1
+    else:
+        print(f"  ok    {len(away)} reading(s) written outside Chicago are kept and spent "
+              "by no rung and no class family")
+    # ---- T-0841: `Saint` is `St` spelled out, and only as a particle ----
+    for printed, want in (("John Mary Irenaeus Saint Cyr", ("stcyr", ["john", "mary", "irenaeus"])),
+                          ("J. M. I. Saint Cyr", ("stcyr", ["j", "m", "i"])),
+                          # THE COUNTER-CASES. A surname that merely begins with the
+                          # letters is one token and keeps them; the comma form makes
+                          # `Saint` the whole surname and folding it onto the priest would
+                          # be a merge ruling on an 1883 obituary, not a spelling.
+                          ("Sainthill, John", ("sainthill", ["john"])),
+                          ("Saint, Cyr", ("saint", ["cyr"]))):
+        got = split_name(printed)
+        if got != want:
+            print(f"  FAIL split_name({printed!r}) -> {got}, wanted {want}")
+            failures += 1
+        else:
+            print(f"  ok    split_name({printed!r}) -> {got}")
 
     def assert_fires(what, master, proposal):
         nonlocal failures

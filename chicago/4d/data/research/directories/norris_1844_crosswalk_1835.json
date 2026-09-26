@@ -12,20 +12,20 @@
  "whole_name_rule": ". A printed forename and a reading of 1835 are THE SAME NAME when\nthey set the SAME NUMBER of words and agree word by word — each pair either\nletter for letter, or one of them the single initial the other begins with.\nWhere exactly ONE candidate is the same name in that sense, the page names\nthat one and no other. Where none is, or more than one is, nothing happens\nand the tie stands with the reason filed.",
  "wife_rule": "— the second clause, and it is R6 arriving where it\nwas always true. `tools/consolidate_resident_evidence.py` holds `Mrs Rufus\nBrown` apart from `Rufus Brown` (R6, T-0723) because the honorific strip leaves\nthe husband's forename tokens on both readings and folds a wife onto him. The\ncrosswalks strip titles the same way and had no such rule, so the town layer's\ntwo people met `Brown, Rufus B., warehouseman` together and were filed as a\nCONTEST — a man contesting a printed line with his own wife. Where one\ncandidate of 1835 carries a female honorific, its forename tokens are exactly\nthose of another candidate carried WITHOUT one, and the printed entry sets no\nfemale honorific of its own, the entry is the husband's and she is not named by\nit. The proof is the same proof R6 asks for and it is in the contest itself:\nthe town layer prints both readings, which is what put them here together.",
  "counts": {
-  "residents_considered": 1283,
+  "residents_considered": 1402,
   "1844_entries_read": 2073,
   "1844_entries_set_aside_for_want_of_a_surname": 1,
-  "matched_one_1844_entry": 112,
+  "matched_one_1844_entry": 115,
   "matched_more_than_one_ambiguous": 9,
   "one_1844_entry_contested_by_two_residents": 2,
-  "surname_present_initial_absent_refused": 317,
+  "surname_present_initial_absent_refused": 328,
   "letter_list_bucket_refused": 2,
   "residents_that_refusal_reaches": 2,
   "further_initial_disagreed_refused": 14,
   "residents_that_further_initial_refusal_reaches": 13,
-  "initial_agreed_forenames_disagreed_refused": 48,
+  "initial_agreed_forenames_disagreed_refused": 51,
   "of_those_a_garbled_printed_forename": 0,
-  "residents_left_with_no_1844_entry_by_that_refusal": 27,
+  "residents_left_with_no_1844_entry_by_that_refusal": 29,
   "entries_the_whole_name_refused": 6,
   "residents_that_whole_name_refusal_reaches": 5,
   "entries_a_female_honorific_refused": 0,
@@ -35,8 +35,8 @@
   "ties_narrowed_by_a_trade": 2,
   "of_those_contested": 0,
   "of_those_ambiguous": 2,
-  "could_carry_occupation": 63,
-  "could_carry_address": 83
+  "could_carry_occupation": 66,
+  "could_carry_address": 86
  },
  "set_aside_for_want_of_a_surname": [
   {
@@ -1262,6 +1262,33 @@
    "resident_given_is_initial_only": false
   },
   {
+   "resident": "Henry Stone",
+   "person_id": "stone_henry",
+   "household_id": "hh_stone_henry",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "occupation_1835_confidence": "reconstructed",
+   "lives_at_1835": null,
+   "works_at_1835": null,
+   "rule": "Surname 'Stone' folds to the same string as the 1844 entry's, and the given name of both begins H.",
+   "entries_1844": [
+    {
+     "claim": "n1844_e1712",
+     "as_printed": "Stone, H. O. dry goods and groceries, ] 14 Lake st. h Michigan st. b Dearborn and Wolcott sts (See card)",
+     "printed_page": 57,
+     "occupation_1844": "dry goods and groceries, ] 14 Lake st",
+     "place_of_business_1844": null,
+     "address_1844": "h Michigan st. b Dearborn and Wolcott sts (See card)"
+    }
+   ],
+   "could_carry": [
+    "occupation",
+    "address"
+   ],
+   "carry_rule": "Whatever is carried is carried as 1844 evidence with describes_date 1844 on the note, never as an 1835 fact, and the grade of the person does not move.",
+   "resident_given_is_initial_only": false
+  },
+  {
    "resident": "Hibbard Porter",
    "person_id": "porter_hibbard",
    "household_id": "hh_porter_hibbard",
@@ -1293,7 +1320,7 @@
    "household_id": "hh_pearsons_hiram",
    "grade_1835": "attested",
    "occupation_1835": "speculator",
-   "occupation_1835_confidence": "attested",
+   "occupation_1835_confidence": "inferred",
    "lives_at_1835": null,
    "works_at_1835": null,
    "rule": "Surname 'Pearsons' folds to the same string as the 1844 entry's, and the given name of both begins H.",
@@ -1857,6 +1884,33 @@
    "resident_given_is_initial_only": false
   },
   {
+   "resident": "John Murray",
+   "person_id": "murray_john",
+   "household_id": "hh_murray_john",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "occupation_1835_confidence": "reconstructed",
+   "lives_at_1835": null,
+   "works_at_1835": null,
+   "rule": "Surname 'Murray' folds to the same string as the 1844 entry's, and the given name of both begins J.",
+   "entries_1844": [
+    {
+     "claim": "n1844_e1328",
+     "as_printed": "Murray, John, laborer, h Water, b Canal and Clinton sts",
+     "printed_page": 49,
+     "occupation_1844": "laborer",
+     "place_of_business_1844": null,
+     "address_1844": "h Water, b Canal and Clinton sts"
+    }
+   ],
+   "could_carry": [
+    "occupation",
+    "address"
+   ],
+   "carry_rule": "Whatever is carried is carried as 1844 evidence with describes_date 1844 on the note, never as an 1835 fact, and the grade of the person does not move.",
+   "resident_given_is_initial_only": false
+  },
+  {
    "resident": "John P. Simpson",
    "person_id": "simpson_john_p",
    "household_id": "hh_simpson_john_p",
@@ -2169,6 +2223,33 @@
      "occupation_1844": "caulker",
      "place_of_business_1844": null,
      "address_1844": "house Adams st. b Clark and Lasalle"
+    }
+   ],
+   "could_carry": [
+    "occupation",
+    "address"
+   ],
+   "carry_rule": "Whatever is carried is carried as 1844 evidence with describes_date 1844 on the note, never as an 1835 fact, and the grade of the person does not move.",
+   "resident_given_is_initial_only": false
+  },
+  {
+   "resident": "Michel Alexandre Choulet",
+   "person_id": "choulet_michel_alexandre",
+   "household_id": "hh_choulet_michel_alexandre",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "occupation_1835_confidence": "reconstructed",
+   "lives_at_1835": null,
+   "works_at_1835": null,
+   "rule": "Surname 'Choulet' folds to the same string as the 1844 entry's, and the given name of both begins M.",
+   "entries_1844": [
+    {
+     "claim": "n1844_e0334",
+     "as_printed": "Choulet, Michael, carpenter, res Dearborn st",
+     "printed_page": 28,
+     "occupation_1844": "carpenter",
+     "place_of_business_1844": null,
+     "address_1844": "res Dearborn st"
     }
    ],
    "could_carry": [
@@ -4008,11 +4089,32 @@
    "rule": "The surname 'Perry' is in Norris 1844 and no entry under it carries the initial 'C' of 'Calvin Perry'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Catherine Chandler",
+   "person_id": "chandler_catherine",
+   "surname_in_1844": "Chandler",
+   "candidates": 1,
+   "rule": "The surname 'Chandler' is in Norris 1844 and no entry under it carries the initial 'C' of 'Catherine Chandler'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Catherine Chevalier Robinson",
    "person_id": "robinson_catherine",
    "surname_in_1844": "Robinson",
    "candidates": 5,
    "rule": "The surname 'Robinson' is in Norris 1844 and no entry under it carries the initial 'C' of 'Catherine Chevalier Robinson'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Catherine Harrington",
+   "person_id": "harrington_catherine",
+   "surname_in_1844": "Harrington",
+   "candidates": 3,
+   "rule": "The surname 'Harrington' is in Norris 1844 and no entry under it carries the initial 'C' of 'Catherine Harrington'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Catherine Murray",
+   "person_id": "murray_catherine",
+   "surname_in_1844": "Murray",
+   "candidates": 2,
+   "rule": "The surname 'Murray' is in Norris 1844 and no entry under it carries the initial 'C' of 'Catherine Murray'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Charles C. Drake",
@@ -4076,6 +4178,13 @@
    "surname_in_1844": "Knight",
    "candidates": 1,
    "rule": "The surname 'Knight' is in Norris 1844 and no entry under it carries the initial 'C' of 'Clark Knight'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Claudia Pierrette Choulet",
+   "person_id": "choulet_claudia_pierrette",
+   "surname_in_1844": "Choulet",
+   "candidates": 1,
+   "rule": "The surname 'Choulet' is in Norris 1844 and no entry under it carries the initial 'C' of 'Claudia Pierrette Choulet'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Clement A Finley",
@@ -4258,6 +4367,13 @@
    "surname_in_1844": "Dalton",
    "candidates": 1,
    "rule": "The surname 'Dalton' is in Norris 1844 and no entry under it carries the initial 'E' of 'Edward Dalton'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Edward Daly",
+   "person_id": "daly_edward",
+   "surname_in_1844": "Daly",
+   "candidates": 3,
+   "rule": "The surname 'Daly' is in Norris 1844 and no entry under it carries the initial 'E' of 'Edward Daly'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Edward Richards Allen",
@@ -5037,6 +5153,13 @@
    "rule": "The surname 'Gleason' is in Norris 1844 and no entry under it carries the initial 'J' of 'Joseph Gleason'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Joseph Mayo",
+   "person_id": "mayo_joseph",
+   "surname_in_1844": "Mayo",
+   "candidates": 1,
+   "rule": "The surname 'Mayo' is in Norris 1844 and no entry under it carries the initial 'J' of 'Joseph Mayo'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Joseph Reynolds",
    "person_id": "reynolds_joseph",
    "surname_in_1844": "Reynolds",
@@ -5170,6 +5293,20 @@
    "rule": "The surname 'Downing' is in Norris 1844 and no entry under it carries the initial 'L' of 'Lorenzo Downing'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Louise Caroline Choulet",
+   "person_id": "choulet_louise_caroline",
+   "surname_in_1844": "Choulet",
+   "candidates": 1,
+   "rule": "The surname 'Choulet' is in Norris 1844 and no entry under it carries the initial 'L' of 'Louise Caroline Choulet'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Lucy Kennedy",
+   "person_id": "kennedy_lucy",
+   "surname_in_1844": "Kennedy",
+   "candidates": 3,
+   "rule": "The surname 'Kennedy' is in Norris 1844 and no entry under it carries the initial 'L' of 'Lucy Kennedy'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Luther Hatch",
    "person_id": "hatch_luther",
    "surname_in_1844": "Hatch",
@@ -5212,6 +5349,13 @@
    "rule": "The surname 'Parker' is in Norris 1844 and no entry under it carries the initial 'M' of 'Manson Parker'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Martha Murray",
+   "person_id": "murray_martha",
+   "surname_in_1844": "Murray",
+   "candidates": 2,
+   "rule": "The surname 'Murray' is in Norris 1844 and no entry under it carries the initial 'M' of 'Martha Murray'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Mary Barrows",
    "person_id": "barrows_mary",
    "surname_in_1844": "Barrows",
@@ -5224,6 +5368,13 @@
    "surname_in_1844": "Meacham",
    "candidates": 2,
    "rule": "The surname 'Meacham' is in Norris 1844 and no entry under it carries the initial 'M' of 'Mary Meacham'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Mary Murphy",
+   "person_id": "murphy_mary",
+   "surname_in_1844": "Murphy",
+   "candidates": 4,
+   "rule": "The surname 'Murphy' is in Norris 1844 and no entry under it carries the initial 'M' of 'Mary Murphy'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Mary Noble",
@@ -5245,6 +5396,13 @@
    "surname_in_1844": "Welch",
    "candidates": 3,
    "rule": "The surname 'Welch' is in Norris 1844 and no entry under it carries the initial 'M' of 'Michael P Welch'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Michel Mayo",
+   "person_id": "mayo_michel",
+   "surname_in_1844": "Mayo",
+   "candidates": 1,
+   "rule": "The surname 'Mayo' is in Norris 1844 and no entry under it carries the initial 'M' of 'Michel Mayo'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Morgan Burdick",
@@ -6296,6 +6454,23 @@
  ],
  "forename_refusals": [
   {
+   "resident": "Catherine Miller",
+   "person_id": "miller_catherine",
+   "grade_1835": "inferred",
+   "entry_1844": {
+    "claim": "n1844_e1273",
+    "as_printed": "Miller, Charles, barber and hair-dresser, Market st. one door N. of Sauganash, house Canal st",
+    "printed_page": 48,
+    "occupation_1844": "barber and hair-dresser",
+    "place_of_business_1844": "Market st. one door N. of Sauganash",
+    "address_1844": "house Canal st",
+    "forename_1835": "Catherine",
+    "forename_printed": "Charles",
+    "garbled_reading": false,
+    "rule": "Both readings print a full forename and the two disagree: 'Catherine' against 'Charles'. An initial standing against a full name is a match; two full names that differ are not."
+   }
+  },
+  {
    "resident": "Charlotte Wesencraft",
    "person_id": "wesencraft_charlotte",
    "grade_1835": "attested",
@@ -6820,6 +6995,40 @@
     "forename_printed": "Michael",
     "garbled_reading": false,
     "rule": "Both readings print a full forename and the two disagree: 'Mary' against 'Michael'. An initial standing against a full name is a match; two full names that differ are not."
+   }
+  },
+  {
+   "resident": "Mathias Smith",
+   "person_id": "smith_mathias",
+   "grade_1835": "inferred",
+   "entry_1844": {
+    "claim": "n1844_e1659",
+    "as_printed": "Smith, Michael, laborer, West of Clark South of First sts",
+    "printed_page": 56,
+    "occupation_1844": "laborer, West of Clark South of First sts",
+    "place_of_business_1844": null,
+    "address_1844": null,
+    "forename_1835": "Mathias",
+    "forename_printed": "Michael",
+    "garbled_reading": false,
+    "rule": "Both readings print a full forename and the two disagree: 'Mathias' against 'Michael'. An initial standing against a full name is a match; two full names that differ are not."
+   }
+  },
+  {
+   "resident": "Mathias Smith",
+   "person_id": "smith_mathias",
+   "grade_1835": "inferred",
+   "entry_1844": {
+    "claim": "n1844_e1660",
+    "as_printed": "Smith, Michael, at S. B. Cobb's",
+    "printed_page": 56,
+    "occupation_1844": "at S. B. Cobb's",
+    "place_of_business_1844": null,
+    "address_1844": null,
+    "forename_1835": "Mathias",
+    "forename_printed": "Michael",
+    "garbled_reading": false,
+    "rule": "Both readings print a full forename and the two disagree: 'Mathias' against 'Michael'. An initial standing against a full name is a match; two full names that differ are not."
    }
   },
   {

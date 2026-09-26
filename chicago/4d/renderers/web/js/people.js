@@ -42,7 +42,7 @@ import { TIER_TITLE } from './attribute-tiers.js';
 import { escapeHtml } from './citations.js';
 import { displayName } from './display-name.js';
 import { householdHtml, loadResidentJoins, words } from './residents.js';
-import { seatHtml, seatTarget } from './seat.js';
+import { seatHtml, goTarget } from './seat.js';
 
 const PAGE = 80;
 
@@ -609,11 +609,22 @@ export async function mountPeople({
     return COMMUNITY_LABEL.get(r.community) || words(r.community);
   }
 
+  // T-1523. The division a row is shown under. For the 1,305 households no source
+  // places anywhere it is DEALT — off the order book's own household shape — so it is
+  // marked here rather than printed as though a source said it. The filter holds both
+  // kinds; this is how a visitor tells them apart without opening the card.
+  function divisionText(r) {
+    if (!r.division) return '';
+    if (r.division === 'unplaced') return words(r.division);
+    const dealt = r.division_tier === 'reconstructed' ? ' (dealt)' : '';
+    return `${words(r.division)} division${dealt}`;
+  }
+
   function rowHtml(r) {
     const sub = [
       tradeText(r),
       communityText(r),
-      r.division ? `${words(r.division)}${r.division === 'unplaced' ? '' : ' division'}` : '',
+      divisionText(r),
       arrivalText(r),
     ].filter(Boolean).join(' · ');
     const mark = r.how_known !== 'documented'
@@ -819,7 +830,11 @@ export async function mountPeople({
           escapeHtml(r.how_known === 'documented' ? 'documented' : KNOWN_LABEL[r.how_known])}</span>${
         r.occupation ? ` · ${escapeHtml(words(r.occupation))}` : ''}
         <br><span class="people-card-hh">${escapeHtml(words(r.relationship))} of <b>${escapeHtml(r.household_name)}</b>${
-          r.division && r.division !== 'unplaced' ? `, ${escapeHtml(words(r.division))} division` : ''}</span>
+          r.division && r.division !== 'unplaced'
+            ? `, ${escapeHtml(words(r.division))} division${r.division_tier === 'reconstructed'
+              ? ' <span class="person-mark mark-reconstructed" title="No source places this household anywhere. The division is dealt from the reconstruction order book\u2019s own household target by division, seeded on the household\u2019s id \u2014 not read from a source.">dealt</span>'
+              : ''}`
+            : ''}</span>
       </p>
       <div class="people-card-actions">${actionsHtml(r)}</div>
       <p class="people-card-what">${escapeHtml(knownTitle)}.</p>
@@ -874,21 +889,27 @@ export async function mountPeople({
       // only where the actions block found NOTHING to offer — which is every rung
       // below a roof.
       //
-      // NO HOUSEHOLD TAKES IT TODAY, and the reason is worth stating because it
-      // looks like coverage otherwise. The 31 seated at a roof already have their
-      // button off their own record. The 175 T-1492 banded carry a `division_band`
-      // seat, which is a CLASS OF GROUND and not a place — there is no point on it
-      // to stand a visitor at, so `seatTarget` refuses it and the card says where
-      // they are in words alone. The same holds for the 21 firms on a `street_face`
-      // seat. When the walk learns to frame a band or a face, they light up here
-      // with no further edit; inventing a point on one to fill this button would be
-      // exactly the fabricated coordinate T-1198 forbids.
+      // NO HOUSEHOLD TOOK IT UNTIL T-1618, and the reason is worth keeping because
+      // it says what the button is and is not. The 31 seated at a roof already have
+      // their button off their own record. The 175 T-1492 banded carry a
+      // `division_band` seat, which is a CLASS OF GROUND and not a place — there is
+      // no point on it to stand a visitor at, so `seatTarget` refuses it, and the
+      // same holds for the 21 firms on a `street_face` seat. Inventing a point on
+      // one to fill this button would be exactly the fabricated coordinate T-1198
+      // forbids, and it is still refused.
+      //
+      // WHAT CHANGED IS THAT THE POLICY'S OWN DEAL ARRIVED. T-1613 and T-1614 seated
+      // the reconstructed households on the ground and the address book now carries
+      // that deal on the row as `dealt_roof` — 172 of them adopting a roof this
+      // scene already raises. `goTarget` offers THAT where the ladder offers nothing,
+      // with a verb naming the policy and a line saying the roof is substitutable, so
+      // a band's card can be walked to without the band having become a place.
       const seatRow = joins.seatByHousehold?.get(r.household);
       if (seatRow) {
         const actions = cardEl.querySelector('.people-card-actions');
         actions?.querySelector('.people-noaddr')?.remove();
         actions?.querySelector('.people-seat')?.remove();
-        const target = seatTarget(seatRow);
+        const target = goTarget(seatRow);
         const offered = !!actions?.querySelector('.people-go');
         const goable = !offered && !!target && !!registry?.has?.(target.id);
         actions?.insertAdjacentHTML('beforeend', seatHtml(seatRow, {

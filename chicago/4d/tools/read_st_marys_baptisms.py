@@ -1620,6 +1620,13 @@ def _resident_people():
                 "person_id": person.get("id"),
                 "household": doc.get("id"),
                 "grade": person.get("grade"),
+                # T-1525. WHICH READINGS OF THIS REGISTER THE CARD ITSELF CITES. The
+                # mint writes the reading onto the card it makes from it -- as_read, the
+                # locator and the record id -- so a card can say, in its own words, that
+                # it IS a given row of this book. `crosswalk_doc` reads that below.
+                "church_records": sorted(
+                    {ev.get("record_id") for ev in (person.get("church_evidence") or [])
+                     if ev.get("source") == SOURCE_ID and ev.get("record_id")}),
             })
     return people
 
@@ -1647,6 +1654,14 @@ def crosswalk_doc():
     for a, b, _ in REFUSALS:
         refused.add(a)
 
+    # T-1525. THE READINGS THE RESIDENTS LAYER WAS MINTED FROM. A card that cites this
+    # record id in its own church_evidence is not a namesake the crosswalk has to
+    # adjudicate -- it is this reading, written into the layer by the mint that read it.
+    minted_by_record = {}
+    for person in people:
+        for record_id in person["church_records"]:
+            minted_by_record.setdefault(record_id, set()).add(person["name"])
+
     adults, seen = [], {}
     for row in rows:
         if not row["adult"]:
@@ -1665,10 +1680,16 @@ def crosswalk_doc():
         # in it who folds identically. Saying "no forename agrees" over those would
         # be a false statement in a provenance artifact.
         exact = [c["name"] for c in candidates if _fold(c["name"]) == _fold(name)]
+        # T-1525. The cards this name's own readings were minted into. A HAND-AUTHORED
+        # adjudication still outranks it -- a merge and a refusal are rulings somebody
+        # made about two people, and the mint is not a ruling at all.
+        minted = sorted({n for r in rowset for n in minted_by_record.get(r["id"], ())})
         if name in merged:
             outcome = "merged"
         elif name in refused:
             outcome = "refused"
+        elif exact and set(minted) & set(exact):
+            outcome = "minted_from_this_reading"
         elif exact:
             outcome = "exact_name_unruled"
         elif candidates:
@@ -1684,11 +1705,12 @@ def crosswalk_doc():
                                for r in rowset}),
             "resident_surname_candidates": [c["name"] for c in candidates],
             "resident_exact_name_matches": exact,
+            "resident_minted_from_this_reading": minted,
             "adjudication": outcome,
         })
 
-    counted = {"merged": 0, "refused": 0, "exact_name_unruled": 0,
-               "refused_surname_only": 0, "no_candidate": 0}
+    counted = {"merged": 0, "refused": 0, "minted_from_this_reading": 0,
+               "exact_name_unruled": 0, "refused_surname_only": 0, "no_candidate": 0}
     chicago_counted = dict(counted)
     for o in outcomes:
         counted[o["adjudication"]] += 1
@@ -1737,6 +1759,22 @@ def crosswalk_doc():
                                       "in exact_name_unruled[] for the pass that rules "
                                       "on it; until then this reading is crosswalked to "
                                       "nobody.",
+                "minted_from_this_reading": "THE LAYER HOLDS THIS PERSON BECAUSE "
+                                            "THIS READING PUT THEM THERE. The residents "
+                                            "card whose name folds identically to this "
+                                            "one cites this very record id in its own "
+                                            "church_evidence — the mint read this row "
+                                            "and wrote a person from it. So this is not "
+                                            "a namesake anybody has to adjudicate and "
+                                            "not a pair awaiting a merge rule: the "
+                                            "crosswalk would be matching the register "
+                                            "against its own output. Neither is it a "
+                                            "merge, which is a ruling that two "
+                                            "separately-attested people are one; nothing "
+                                            "was matched here. A hand-authored merge or "
+                                            "refusal still outranks this, because those "
+                                            "are rulings somebody made and this is a "
+                                            "statement of where the card came from.",
                 "no_candidate": "NO CANDIDATE AT ALL — the residents layer holds no "
                                 "person of this surname. This is the finding, not a "
                                 "failure: it is the Catholic town the poll books and "
@@ -1792,7 +1830,12 @@ def crosswalk_doc():
                     "surname-only merge is always a refusal; an EXACT name with no "
                     "written rule is neither, and is held in exact_name_unruled[] "
                     "rather than filed under a refusal whose stated ground is untrue "
-                    "of it; a refusal is declared as explicitly as a merge. Nothing "
+                    "of it; a refusal is declared as explicitly as a merge. AN EXACT "
+                    "NAME WHOSE CARD CITES THIS VERY READING is not adjudicated at all "
+                    "(T-1525): the mint made that card FROM this row, so the pair is "
+                    "this crosswalk reading its own output, and it is stated as "
+                    "`minted_from_this_reading` rather than counted as a pair somebody "
+                    "still owes a ruling. Nothing "
                     "here mints or regrades a resident — T-0514 and T-0515 spend this "
                     "file.",
         "counts": {

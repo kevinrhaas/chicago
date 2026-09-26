@@ -1,0 +1,21 @@
+{
+ "_doc": "THE TRADES RETROSPECTIVE PROSE NAMES, AS ADJUDICATED ROLE READINGS — T-1507.\n\nWHY THIS FILE EXISTS. A resident's trade could be carried onto his card from five places — the card's own 1835 block, the newspaper gazetteer, the Fergus 1839 city register and the 1843 and 1844 directory crosswalks — and none of them is a REMINISCENCE. So a trade read out of recollected prose was carried by nothing at all. Hiram Pearsons is the case that found it: the resident-research pass of 2026-09-05 read the Ingale reminiscence as describing him a house painter who entered real estate, data/research/residents/spend_rulings.json recorded that the card carried the opposite reading at a grade the finding disputes, and then no field anywhere held the house painter. A reading held only in a findings ledger reads, to anybody opening the card, exactly like a reading nobody made.\n\nWHAT A ROW IS. One printing, in one retrospective volume, of one trade against one person the residents layer already holds, with the source stated, the unit named by `person_id`, and the reason the reading is kept. tools/derive_resident_roles.py carries each row onto that person's `roles[]` as a dated role, folding the printing through its own table; this file rules on the READING and never on the controlled word.\n\nIT MAY NEVER PROMOTE, AND THAT IS THE POINT. Every volume here is a recollection set down after the scene, so under the evidence ladder ratified 2026-09-03 (T-0513, applied by T-0514/T-0515) it may date and corroborate and may never promote: `fills_scene_view` is false on every row this file produces, whatever the volume's own `describes_date` says, and the generated role note gives the ladder as the reason rather than leaving the refusal to look like a missing bound. A reading that is kept is not a reading that is believed of 1 July 1835.\n\nTHIS IS NOT A FRESH READING. Every row cites the pass that read it, in `read_in`, and adds nothing to what that pass recorded. It is the CARRY the pass could not make, because a register may not hand-edit a field four generators derive.",
+ "ticket": "T-1507",
+ "ruled_on": "2026-09-24",
+ "readings": [
+  {
+   "person_id": "pearsons_hiram",
+   "household_id": "hh_pearsons_hiram",
+   "name_as_read": "Hiram Pearsons",
+   "source_id": "ingale_early_chicago_reminiscence",
+   "read_in": "data/research/residents/pass_02_findings.json#pearsons_hiram",
+   "as_printed": "house painter",
+   "describes_date": null,
+   "verdict": "retrospective_only",
+   "evidence": [
+    "pearsons_hiram"
+   ],
+   "reason": "The pass of 2026-09-05 read the reminiscence as describing Pearsons a house painter who entered real estate, and recorded that the card's `speculator` was held at `attested` on a note that called it this project's own reading. The house painter is kept because it is the one trade any prose this project holds states of this man, and it is kept UNDATED because the volume names no year: `describes_date` on the source record reads `nineteenth century`, which is no bound at all. It does not contradict the 1835 field as T-1507 re-adjudicated it — 'who entered real estate' is the same course of dealing the federal land tract register measures across the scene date, with a trade before it that no contemporary source this project holds records."
+  }
+ ]
+}

@@ -38,6 +38,19 @@ image-bound rather than corpus-bound, and the day an extraction pass finds a
 Democrat card for one of them, this assertion fires instead of the finding
 quietly going stale.
 
+**And the ruling that builds on them.** The page images are held outside the
+repository, so the owner ruled (T-0305, 2026-09-23, answer b): build from the best
+transcription reading now, at `inferred`, and replace it when the images arrive.
+The rulings are `data/businesses/rulings/contested_readings.json`, which
+`tools/compile_businesses.py` lays over the four houses. This gate holds them to
+the printings: every question has exactly one ruling; a ruling on a disagreement
+takes a reading some printing carries — the latest resolved printing on or before
+the scene date — and sorts every printing into `for`, `against` or `unresolved`
+exactly as they read; a ruling on an unresolved street rests on the Democrat
+address this file declares; each names the page columns that would replace it;
+and the compiled house carries the ruling at `inferred`. A ruling cannot invent a
+street, and a reading pass that changes a printing re-opens the ruling with it.
+
     python3 tools/measure_american_contradictions.py           # the table
     python3 tools/measure_american_contradictions.py --gate    # exit 1 on drift
 """
@@ -51,6 +64,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 EXTRACTED = ROOT / "data" / "research" / "newspapers" / "extracted"
+RULINGS = ROOT / "data" / "businesses" / "rulings" / "contested_readings.json"
+BUSINESSES = ROOT / "data" / "businesses"
+# The scene date the rulings choose against: the 1835 scene is 1 July 1835.
+SCENE_DATE = "1835-07-01"
 
 # `open_because` says WHY each question is open, because the two shapes need
 # different assertions: three of them are printed disagreements and the fourth is
@@ -197,8 +214,82 @@ def democrat_addresses(tokens: list[str]) -> list[tuple[str, str, str]]:
     return out
 
 
+def load_rulings() -> list[dict]:
+    if not RULINGS.is_file():
+        return []
+    return json.loads(RULINGS.read_text(encoding="utf-8")).get("entries") or []
+
+
+def printing_date(claim: str) -> str:
+    y, m, d = claim.split("#")[0].rsplit("_", 3)[-3:]
+    return f"{y}-{m}-{d}"
+
+
+def check_ruling(q: dict, ruling: dict | None, addrs: list) -> list[str]:
+    """What is wrong with the ruling on one question, if anything."""
+    qid = q["id"]
+    if ruling is None:
+        return [f"{qid}: has no ruling in {RULINGS.name} — T-0305's owner answer says "
+                f"every contested reading is built from its best transcription reading"]
+    out: list[str] = []
+    expected_biz = "biz_" + q["gazetteer_id"].removeprefix("business_")
+    if ruling.get("business_id") != expected_biz:
+        out.append(f"{qid}: the ruling names {ruling.get('business_id')}, and the house "
+                   f"this question is about compiles as {expected_biz}")
+    reads = ruling.get("reads")
+    by_reading = {"for": [], "against": [], "unresolved": []}
+    for p in q["printings"]:
+        side = "unresolved" if not p["reads"] else ("for" if p["reads"] == reads else "against")
+        by_reading[side].append(p["claim"])
+    if q["open_because"] == DISAGREE:
+        carried = {p["reads"] for p in q["printings"] if p["reads"]}
+        if reads not in carried:
+            out.append(f"{qid}: the ruling reads {reads!r}, which no printing carries "
+                       f"({sorted(carried)}) — a ruling may choose a reading, never invent one")
+        before = sorted((printing_date(p["claim"]), p["reads"]) for p in q["printings"]
+                        if p["reads"] and printing_date(p["claim"]) <= SCENE_DATE)
+        if before and before[-1][1] != reads:
+            out.append(f"{qid}: the ruling reads {reads!r}, and the resolved printing "
+                       f"nearest the scene date on or before it ({before[-1][0]}) reads "
+                       f"{before[-1][1]!r}")
+        for side in ("for", "against", "unresolved"):
+            if sorted(ruling.get(side) or []) != sorted(by_reading[side]):
+                out.append(f"{qid}: the ruling's {side} is {ruling.get(side) or []}, and "
+                           f"the printings sort as {by_reading[side]}")
+    else:
+        issues = {i for i, _, _ in addrs}
+        if not any(f in issues for f in ruling.get("for") or []):
+            out.append(f"{qid}: a ruling on a street no printing resolves must rest on a "
+                       f"Democrat address this file declares ({sorted(issues)}); it rests "
+                       f"on {ruling.get('for')}")
+        if sorted(ruling.get("unresolved") or []) != sorted(by_reading["unresolved"]):
+            out.append(f"{qid}: the ruling's unresolved is {ruling.get('unresolved')}, and "
+                       f"the printings that resolve nothing are {by_reading['unresolved']}")
+    columns = [f"p{p['page']} c{p['column']}" for p in q["printings"]]
+    if not any(c in (ruling.get("replaceable_by") or "") for c in columns):
+        out.append(f"{qid}: the ruling's replaceable_by names none of the page columns "
+                   f"({columns}) whose images would settle it")
+    path = BUSINESSES / f"{expected_biz}.json"
+    if path.is_file():
+        rec = json.loads(path.read_text(encoding="utf-8"))
+        primary = next((loc for loc in rec.get("locations") or [] if loc.get("primary")), {})
+        if (primary.get("contested") or {}).get("ticket") != "T-0305":
+            out.append(f"{qid}: {path.name} does not carry the ruling — rebuild with "
+                       f"tools/compile_businesses.py --build")
+        elif ruling.get("effect") == "street_only" and (
+                primary.get("street_id") != ruling.get("street_id")
+                or primary.get("tier") != "inferred"):
+            out.append(f"{qid}: {path.name} stands on {primary.get('street_id')} at "
+                       f"{primary.get('tier')}; the ruling is {ruling.get('street_id')} "
+                       f"at inferred")
+    else:
+        out.append(f"{qid}: {path.name} is not a compiled business record")
+    return out
+
+
 def measure(questions: list[dict] | None = None,
-            transcription: list[dict] | None = None) -> tuple[list[str], list[dict]]:
+            transcription: list[dict] | None = None,
+            rulings: list[dict] | None = None) -> tuple[list[str], list[dict]]:
     """Returns (failures, per-question rows).
 
     Both declarations are parameters rather than globals so `--self-test` can
@@ -207,7 +298,16 @@ def measure(questions: list[dict] | None = None,
     """
     questions = QUESTIONS if questions is None else questions
     transcription = TRANSCRIPTION_READINGS if transcription is None else transcription
+    rulings = load_rulings() if rulings is None else rulings
     failures: list[str] = []
+    ruled: dict[str, list[dict]] = {}
+    for r in rulings:
+        ruled.setdefault(r.get("question_id"), []).append(r)
+    for qid, rs in sorted(ruled.items(), key=lambda kv: str(kv[0])):
+        if len(rs) > 1:
+            failures.append(f"{qid}: ruled {len(rs)} times; one question, one ruling")
+        if qid not in {q["id"] for q in questions}:
+            failures.append(f"{qid}: a ruling on a question this file does not declare")
     rows: list[dict] = []
 
     for q in questions:
@@ -259,7 +359,10 @@ def measure(questions: list[dict] | None = None,
                 f"{q['democrat_tokens']} — {addrs} — so the corpus may settle this "
                 f"question and it is no longer waiting on a page image")
 
-        rows.append({"q": q, "resolved": distinct, "democrat": addrs})
+        ruling = (ruled.get(q["id"]) or [None])[0]
+        failures.extend(check_ruling(q, ruling, addrs))
+
+        rows.append({"q": q, "resolved": distinct, "democrat": addrs, "ruling": ruling})
 
     for t in transcription:
         path = text_path(t["issue"])
@@ -293,11 +396,15 @@ def report(rows: list[dict]) -> None:
                   f"{', '.join(f'{i}#{c}' for i, c, _ in row['democrat'])}")
         else:
             print("      the Democrat supplies no address for it in 73 issues")
+        if row.get("ruling"):
+            print(f"      ruled (T-0305, owner, answer b): built as {row['ruling']['reads']}, "
+                  f"inferred, until the page images arrive")
         print()
     for t in TRANSCRIPTION_READINGS:
         print(f"  also, off the transcription: {t['issue']} line {t['line']} "
               f"reads {t['reads']} ({t['whose']})")
-    print(f"\n  {len(rows)} question(s), none of them closeable from the corpus.")
+    print(f"\n  {len(rows)} question(s), none of them closeable from the corpus; "
+          f"{sum(1 for r in rows if r.get('ruling'))} built from a ruled reading.")
 
 
 SELF_TESTS = [
@@ -318,6 +425,26 @@ SELF_TESTS = [
      lambda qs, tr: qs[3].__setitem__("democrat_tokens", ["Nobody"])),
     ("a transcription line that has drifted", "no longer reads",
      lambda qs, tr: tr[0].__setitem__("line", 1)),
+]
+
+# The rulings, broken one at a time the same way.
+RULING_SELF_TESTS = [
+    ("a question left without a ruling", "has no ruling",
+     lambda rs: rs.pop(0)),
+    ("a ruling on a reading no printing carries", "no printing carries",
+     lambda rs: rs[0].__setitem__("reads", "Clark")),
+    ("a ruling against the printing nearest the scene date", "nearest the scene date",
+     lambda rs: rs[1].__setitem__("reads", "South Water")),
+    ("a ruling whose printings are sorted wrong", "the printings sort as",
+     lambda rs: rs[0].__setitem__("against", [])),
+    ("an unresolved street ruled with no Democrat address under it", "must rest on",
+     lambda rs: rs[3].__setitem__("for", ["chicago_american_1835_06_08#c007"])),
+    ("a ruling that names no page column to replace it", "names none of the page columns",
+     lambda rs: rs[0].__setitem__("replaceable_by", "the images")),
+    ("a question ruled twice", "one question, one ruling",
+     lambda rs: rs.append(dict(rs[0]))),
+    ("a ruling on the wrong house", "compiles as",
+     lambda rs: rs[1].__setitem__("business_id", "biz_john_dave_north_water_street")),
 ]
 
 
@@ -344,8 +471,18 @@ def self_test() -> int:
         else:
             print(f"  FAIL  {label} — nothing said {expect!r}; got {got or 'no failure'}")
             bad += 1
+    for label, expect, break_it in RULING_SELF_TESTS:
+        rs = _copy.deepcopy(load_rulings())
+        break_it(rs)
+        got, _ = measure(rulings=rs)
+        if any(expect in g for g in got):
+            print(f"  ok    {label}")
+        else:
+            print(f"  FAIL  {label} — nothing said {expect!r}; got {got or 'no failure'}")
+            bad += 1
+    total = len(SELF_TESTS) + len(RULING_SELF_TESTS)
     print(f"\n  SELF-TEST {'PASS' if not bad else 'FAIL'} — "
-          f"{len(SELF_TESTS) - bad}/{len(SELF_TESTS)} assertions fire when broken")
+          f"{total - bad}/{total} assertions fire when broken")
     return 1 if bad else 0
 
 
@@ -368,8 +505,8 @@ def main() -> int:
             print(f"\n  {len(failures)} declared reading(s) no longer hold.")
             return 1
         print(f"  ok    {len(QUESTIONS)} American contradiction(s) still read as "
-              f"declared, and the Democrat still settles none of the three it is "
-              f"silent on")
+              f"declared, the Democrat still settles none of the three it is "
+              f"silent on, and each is built from one ruling the printings bear out")
         return 0
 
     report(rows)

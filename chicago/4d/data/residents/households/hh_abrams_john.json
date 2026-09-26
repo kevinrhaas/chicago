@@ -2,6 +2,25 @@
  "id": "hh_abrams_john",
  "name": "The Abrams household — a name the town's own records carry",
  "division": "unplaced",
+ "division_reconstructed": {
+  "value": "south",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "band": "south/merchant_and_professional_dwellings",
+  "clause": "merchant_and_professional_dwellings",
+  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's merchant_and_professional_dwellings clause. The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+  "basis": {
+   "kind": "model",
+   "id": "policy_only_deal",
+   "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
+  },
+  "seed": "hh_abrams_john|T-1522|division:bb173e1bb231|class:5a4335e38870",
+  "replaceable_by": {
+   "kind": "household",
+   "match": "any source that places this household in a division or nearer"
+  },
+  "written_by_stage": "policy_only_division"
+ },
  "head": "abrams_john",
  "source_pass": "civic",
  "arrival": {
@@ -105,7 +124,7 @@
   "ticket": "T-1171",
   "household_type": "family_with_children",
   "size_drawn": 7,
-  "kin_seated": 3,
+  "kin_seated": 2,
   "seed": "hh_abrams_john:household_size",
   "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
  },
@@ -249,70 +268,6 @@
     "review_required": false
    },
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-  },
-  {
-   "id": "rc_abrams_john_child_5",
-   "name": "George Abrams",
-   "relationship": "son",
-   "grade": "reconstructed",
-   "sex": "male",
-   "age_band": {
-    "value": "0-4",
-    "low": 0,
-    "high": 4,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
-    },
-    "seed": "hh_abrams_john:child_5_age_bands_1840",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "George Abrams",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
-    },
-    "seed": "hh_abrams_john:child_5_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of John Abrams's family"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "size_histogram_1840",
-    "note": "The household model drew this house at 7 people; the head and his wife seated, 5 of them are children."
-   },
-   "seed": "hh_abrams_john:household_size",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming this head's family"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "modelled_families",
-    "ticket": "T-1171",
-    "community": "yankee",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,

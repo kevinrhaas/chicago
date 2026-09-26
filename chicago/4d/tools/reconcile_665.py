@@ -147,15 +147,18 @@ UNSCHEDULED_PLATS = {
                           "tract's own name and platter are still unsettled (T-1080)"),
     "wabansia": ("data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one "
                  "unplaced household in the whole survey"),
-    # T-1455. The West Division's own grid, and it is unscheduled for a different reason
-    # from the two above: this district is not short of evidence, it is already spoken
-    # for. `west_wolf_point_outer` holds the West recipe's remaining reviewed placements
-    # and T-1444 is the open ticket that instantiates them; dealing this district's
-    # remainder onto new lot lines would bid against placements already written. And the
-    # density is not measured here either — see the block comment in `programme_document`.
+    # T-1455, re-read when T-1444 closed (2026-09-26). The West Division's own grid, and
+    # it is unscheduled for a different reason from the two above: this district is not
+    # short of evidence, it is already spoken for. `west_wolf_point_outer` held the West
+    # recipe's remaining reviewed placements and T-1444 has now INSTANTIATED them — all
+    # 55 of them, nothing withheld — so dealing this district's remainder onto new lot
+    # lines would bid against placements that are no longer merely written but standing
+    # and baked. The reason is the same one and it is stronger, not weaker. And the
+    # density is not measured here either — see the block comment in
+    # `programme_document`.
     "west_division": ("data/reconstruction/1835_phase2_west_wolf_point_approaches.json, "
-                      "whose reviewed placements already hold this district's remainder, "
-                      "with T-1444 open to instantiate them"),
+                      "whose reviewed placements already hold this district's remainder "
+                      "and are instantiated on it (T-1444)"),
 }
 
 
@@ -227,13 +230,15 @@ def west_held_back(recipe: dict) -> int:
     if gate.get("instantiation_block"):
         held += sum(1 for p in recipe["placements"]
                     if p["center_local_enu_m"][0] < WEST_INSTANTIATION_BLOCK_E)
-    # T-1444. The terrain block is retired and a second one took its place, on a question
-    # terrain cannot answer: five slots stand inside the drift band of the corporate
-    # boundary's extrapolated west leg, so which side of the 1833 town limits they were on
-    # is not knowable until Jefferson Street is traced north (T-1490). A hold is a hold —
-    # the schedule counts what the parcel still owes, not why it owes it — and the count
-    # is read off the recipe rather than retyped here.
-    held += len((gate.get("boundary_hold") or {}).get("slots") or {})
+    # T-1444, re-cut by T-1490 and spent by T-1545. The terrain block is retired and a
+    # second hold took its place; T-1490 traced Jefferson north and released three of its
+    # five slots, and the two that remained were held on a question the boundary was
+    # hiding — they stood inside the platted Jefferson corridor. T-1545 re-dealt both off
+    # it, so the corridor hold now withholds nothing and this term reads 0. That is why it
+    # is still read: a hold is a hold — the schedule counts what the parcel still owes, not
+    # why it owes it — and the count comes off the recipe rather than being retyped here,
+    # so the mechanism re-arms on the day a slot is named there again.
+    held += len((gate.get("corridor_hold") or {}).get("slots") or {})
     return held
 
 # What the balance of each district is waiting on. The West entry is the street control
@@ -282,6 +287,55 @@ def group_of(family: str) -> str:
     return GROUP_OF_LETTER[family[0]]
 
 
+# THE INVENTORY CLASS READS THE POSITION AS WELL AS THE GROUP (T-1610).
+#
+# It read the group alone until now, and that is what stopped the platted blocks' six
+# refamily verdicts. All six are yard buildings standing at a `yard` setback off their
+# block alley, BEHIND the principal roof on their own lot, and T-1445 moves every one of
+# them into an `ordinary_dwellings` family. Under a group-only reading a dwelling family
+# is `principal_functional` wherever it stands, so each verdict made its roof a SECOND
+# principal roof on an occupied lot — refused by the parcel gate, and over
+# `lot_ceiling_principal` besides. T-1482 measured that and asked the owner, who ruled on
+# 2026-09-23 (option (a)): *treat a rear cottage as ancillary, so a lot may carry a main
+# house plus a rear dwelling*. `rear_dwelling_behind_its_own_roof` in the placement policy
+# is that ruling written as a clause; this is the same ruling written as the derivation
+# the generators deal by.
+#
+# THE POSITION IS COMMITTED DATA, not a judgement made here: a block recipe's slot says
+# `stands_on: "alley"` and names the `lot` it stands on, and the lots carrying a principal
+# roof are the ones the same deal already placed one on. So "behind the principal roof on
+# its own lot" is read off the recipe, and a caller who knows no position (the North
+# Division's placement rows, which carry none) gets the group-only answer it always got.
+def inventory_class(family: str, *, stands_on: str | None = None,
+                    lot_carries_a_principal_roof: bool = False) -> str:
+    """`ancillary` or `principal_functional`, from what a roof IS and where it STANDS.
+
+    A barn or a small outbuilding is ancillary by what it is, wherever it stands — that
+    half is unchanged and is the older rule. Anything else is ancillary when it stands in
+    the yard: off the alley, on a lot whose principal roof is already dealt.
+    """
+    if group_of(family) in ANCILLARY_GROUPS:
+        return "ancillary"
+    if stands_on == "alley" and lot_carries_a_principal_roof:
+        return "ancillary"
+    return "principal_functional"
+
+
+def houses_a_household(family: str) -> bool:
+    """Whether an occupant may be adopted onto this family's roof — by GROUP, not class.
+
+    `generate_block_infill` has refused an occupant on an ancillary roof since the
+    inferred-household programme, and L256's neighbour states the reason in the only
+    terms that ever justified it: *"a yard building serves the lot it stands behind, and a
+    household living in a privy is not a modest claim but a nonsensical one"*. What makes
+    that nonsensical is that the roof is a PRIVY, not that it is in the yard — so the
+    refusal belongs to the two ancillary groups and never to the position. Once a rear
+    cottage can be ancillary (T-1610), reading the class here would refuse a dwelling a
+    household for standing behind the house, which is what a rear cottage is for.
+    """
+    return group_of(family) not in ANCILLARY_GROUPS
+
+
 def apportion(total: int, weights: list[float]) -> list[int]:
     """Hamilton's method — proportional, integer, sums exactly, ties broken by position."""
     if total <= 0 or not weights:
@@ -315,10 +369,19 @@ def deal(counts: dict[str, int]) -> list[str]:
 # ---- the business-front term (T-0213) --------------------------------------------
 #
 # The schedule apportions families by DISTRICT and has no notion of a street. Measured on
-# the committed record, that is wrong in one particular: the DOCUMENTED trade share is
-# monotone in the committed street hierarchy — 0.7778 of the documented buildings standing
-# nearest a `principal` street carry a trade family, 0.4545 on an `ordinary` street and
-# 0.0000 on a `light` one (`tools/measure_frontage_fabric.py --trade`, 68 records). So a
+# the committed record, that is wrong in one particular: the DOCUMENTED trade share
+# differs by the committed street hierarchy, and the business front carries the most of
+# it — 0.6500 of the documented buildings FRONTING a `principal` street carry a trade
+# family against 0.4167 on an `ordinary` one (`--trade`, 58 records). It was read as
+# monotone across all three classes at T-0213, off a town whose north bank had no
+# corridors and whose census had no frontage reach; the `light` class has since risen to
+# 0.6429 on fourteen records and the ordering is no longer a ladder. The term does not
+# rest on one — a block's weight is the mean of its faces' class shares whatever order
+# those shares fall in — and the principal class being the highest of the three is what
+# it is for. THE PRINCIPAL SHARE READ 0.3846 UNTIL T-1511, the LOWEST of the three, and
+# that was an artefact: nineteen roofs that front no street, seventeen of them inside the
+# Fort Dearborn reservation, were being counted in the class off a Lake Street line 270 m
+# to 429 m away. Two of the nineteen carried a trade family. So a
 # block dealt a South Water face should be likelier to be dealt C, F and W than a block two
 # streets back, and until this term it was not: `blk_south_water_franklin` and
 # `blk_south_water_lasalle` between them held twelve of the business front's roofs and not
@@ -1457,15 +1520,24 @@ def programme_document():
             "business_front": {
                 "what": "Which of a district's principal roofs land on which platted "
                         "block is weighted by what the block FRONTS, because the "
-                        "documented trade share is monotone in the committed street "
-                        "hierarchy. It is a permutation of the families the district deal "
-                        "already placed, among the same blocks, so no total moves: not the "
+                        "documented trade share differs by the committed street "
+                        "hierarchy — highest on the principal class. It is a permutation "
+                        "of the families the district deal already placed, among the same "
+                        "blocks, so no total moves: not the "
                         "target, not a district, not a family, not any block's roof count.",
                 "measured": "tools/measure_frontage_fabric.py --trade — the share of "
                             "DOCUMENTED buildings carrying a trade family (C stores, F "
                             "warehouses, W workshops), by the traffic class of the street "
-                            "they stand nearest. The research layer only: weighting the "
-                            "schedule by what the schedule invented would ratchet.",
+                            "they FRONT. The research layer only: weighting the "
+                            "schedule by what the schedule invented would ratchet. Since "
+                            "T-1511 a building beyond the census's frontage reach fronts "
+                            "no street and votes in no class: nineteen roofs left the "
+                            "principal class, seventeen of them inside the Fort Dearborn "
+                            "reservation and only two of the nineteen carrying a trade "
+                            "family, and the principal share went from 0.3846 (15 of 39) "
+                            "to 0.6500 (13 of 20). The weight ordering of the four South "
+                            "Water blocks is unchanged by it and the same eight trade "
+                            "roofs are re-dealt to the same quota.",
                 "weight": "A block's weight is the mean of its four faces' class shares, "
                           "read off data/streets/1835.json. Re-class a street there and "
                           "every block on it re-weights in the same commit.",

@@ -8,18 +8,20 @@
  "street_layer": "data/streets/1835.json",
  "business_pass": "tools/back_project_addresses.py",
  "counts": {
-  "addresses_adjudicated": 56,
-  "printed_as_a_residence": 43,
+  "addresses_adjudicated": 59,
+  "printed_as_a_residence": 46,
   "printed_as_a_lodging": 13,
-  "placed": 10,
-  "placed_as_a_face": 10,
-  "placed_with_no_1835_trade": 6,
+  "placed": 12,
+  "placed_as_a_face": 12,
+  "placed_with_no_1835_trade": 8,
   "already_better_placed": 0,
-  "refused": 46,
+  "refused": 47,
   "faces_reached": [
    "Clark Street",
+   "Dearborn Street",
    "Lake Street",
    "Market Street",
+   "Michigan Street",
    "North Water Street",
    "Washington Street",
    "Wells Street"
@@ -203,6 +205,28 @@
    "street_id": null,
    "face": null,
    "placement": null
+  },
+  {
+   "household_id": "hh_choulet_michel_alexandre",
+   "person_id": "choulet_michel_alexandre",
+   "person": "Michel Alexandre Choulet",
+   "address_as_printed": "res Dearborn",
+   "address_read_as_the_home": null,
+   "kind": "resides",
+   "describes_date": 1843,
+   "read_back_years": 8,
+   "sources": [
+    "fergus_chicago_directory_1843"
+   ],
+   "occupation_1835": null,
+   "trade_not_required": true,
+   "lives_at_1835": null,
+   "outcome": "placed",
+   "clause": "R4 and R5",
+   "reason": "Dearborn Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. So the placement is the FACE and nothing narrower, and no roof is dealt.",
+   "street_id": "dearborn",
+   "face": "Dearborn Street",
+   "placement": "face"
   },
   {
    "household_id": "hh_clark_erastus",
@@ -909,6 +933,28 @@
    "placement": null
   },
   {
+   "household_id": "hh_murray_john",
+   "person_id": "murray_john",
+   "person": "John Murray",
+   "address_as_printed": "res West Water, bet Canal and Clinton",
+   "address_read_as_the_home": null,
+   "kind": "resides",
+   "describes_date": 1843,
+   "read_back_years": 8,
+   "sources": [
+    "fergus_chicago_directory_1843"
+   ],
+   "occupation_1835": null,
+   "trade_not_required": true,
+   "lives_at_1835": null,
+   "outcome": "refused",
+   "clause": "R4",
+   "reason": "West Water Street is the west-bank riverfront street; the 1835 layer carries Market as the west-division street nearest the South Branch and no West Water.",
+   "street_id": null,
+   "face": null,
+   "placement": null
+  },
+  {
    "household_id": "hh_newberry_walter_loomis",
    "person_id": "newberry_walter_loomis",
    "person": "Walter Loomis Newberry",
@@ -1215,6 +1261,28 @@
    "street_id": null,
    "face": null,
    "placement": null
+  },
+  {
+   "household_id": "hh_stone_henry",
+   "person_id": "stone_henry",
+   "person": "Henry Stone",
+   "address_as_printed": "h Michigan st. b Dearborn and Wolcott sts (See card)",
+   "address_read_as_the_home": null,
+   "kind": "resides",
+   "describes_date": 1844,
+   "read_back_years": 9,
+   "sources": [
+    "norris_directory_1844"
+   ],
+   "occupation_1835": null,
+   "trade_not_required": true,
+   "lives_at_1835": null,
+   "outcome": "placed",
+   "clause": "R4 and R5",
+   "reason": "Michigan Street stands in 1835 under that name and in that place, and the entry prints it as this person's home. The volume narrows it further — it names Dearborn Street and Wolcott Street — and clause R5 declines to take the point: a corner or a run between two crossings is a fact about the numbered grid of the 1840s, and a house moves more than a shopfront does. So the placement is the FACE and nothing narrower, and no roof is dealt.",
+   "street_id": "michigan_north",
+   "face": "Michigan Street",
+   "placement": "face"
   },
   {
    "household_id": "hh_thompson_lieut_j_l",

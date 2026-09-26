@@ -135,6 +135,10 @@
   "kin:st_cyr_death_01_2__parent_of__st_cyr_death_01_1": {
    "verdict": "insufficient_identity",
    "why": "The burial entry names the parent and COUNTS the child: 'one of the daughters of M. Colewell'. A member a source counts and does not name is the reconstruction half of T-1170 and is not this pass's to write."
+  },
+  "kin:st_marys_bapt_1833_12_3_mother__parent_of__st_marys_bapt_1833_12_1_child": {
+   "verdict": "insufficient_identity",
+   "why": "The register states the relation plainly — entry 12 of 1833 baptises 'Isabelle[?] daughter of Andrew and Adelaide Bouchard, born the eighth of May eighteen hundred & thirty three' — and the mother is a head this layer carries. What the reading does not reach is the CHILD. The transcriber bracketed her forename: the row is graded `inferred`, its own note says 'the forename is written small and the first syllable is not certain', and the surname is the father's rather than anything the entry writes for her. The civic mint refuses her on exactly that ground — `REFUSE id_bouchard_isabelle: the transcription bracketed the name as uncertain` — and a pass that declines to mint an uncertain forename may not seat the same uncertain forename through the kin door instead. Her brother Louis, baptised on the same day out of the same entry pair with an unbracketed name, stands on his own card, so the household this register documents is in the layer; what is missing is a name this project can assert. A scan reading that settles the first syllable retires this ruling and the person becomes landable."
   }
  }
 }

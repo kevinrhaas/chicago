@@ -39,7 +39,7 @@
   "basis": {
    "kind": "model",
    "id": "persistence_1835",
-   "note": "The reading dates this name at 1835, 0.50 years before the scene date. The persistence model gives 0.967 for that lag and the seeded draw reads present."
+   "note": "The reading dates this name at 1835, 0.50 years before the scene date. The persistence model gives 0.969 for that lag and the seeded draw reads present."
   },
   "seed": "hh_laura_adelaide_sherrill:persistence",
   "replaceable_by": {

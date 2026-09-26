@@ -127,7 +127,7 @@ def limits_ring():
     Ohio, east to the lake, south round the pier, west up the river to the Canal
     Commissioners' east line, south to Jackson, home.
     """
-    jefferson_at_x, jefferson_at_y, jeff_span = straight("jefferson_school_section")
+    _, _, jeff_span = straight("jefferson_school_section")
     ohio_at_x, _, ohio_span = straight("ohio_north")
     jackson_at_x, _, jack_span = straight("jackson")
     state_at_x, state_at_y, state_span = straight("state")
@@ -137,8 +137,41 @@ def limits_ring():
         raise SystemExit("Jefferson's committed centreline is no longer due north-south; "
                          "the west leg cannot be extended along its own bearing")
 
+    # THE WEST LEG IS WALKED ON BOTH COMMITTED READINGS OF JEFFERSON STREET, and this is
+    # the whole of T-1490. `jefferson_school_section` is Wright's line south of Madison
+    # and `jefferson` is the West Division's, seated on surviving intersection control;
+    # both are in data/streets/1835.json and both carry the name the ordinance walks. The
+    # leg used to resolve on the School Section line alone and be carried 1 188.8 m past
+    # its north end to reach Ohio — straight across the West Division, where the other
+    # line has been drawn since T-1430. It now runs up the School Section line to its own
+    # end, crosses the 119 m neither line draws, runs up the West Division line to the
+    # north end T-1490 traced, and is extrapolated only for the 288 m beyond that. The two
+    # surveys disagree by 8.3 m at Madison's northing and no line is bent to hide it: the
+    # ring takes the dogleg, which is what the committed geometry actually says.
+    west_south, west_north = street("jefferson")
+    if west_north[1] <= west_south[1] or west_south[1] <= jeff_span[1][1]:
+        raise SystemExit("the West Division's Jefferson no longer runs north from above "
+                         "the School Section line's end; the west leg cannot be walked "
+                         "on the two committed readings in order")
+
+    def on_west_division(y: float) -> float:
+        """The West Division line's easting at a northing, on its own bearing."""
+        (ax, ay), (bx, by) = west_south, west_north
+        return ax + (bx - ax) * (y - ay) / (by - ay)
+
     corner_jackson = (jx, jackson_at_x(jx))
-    corner_ohio = (jx, ohio_at_x(jx))
+    join_south = (jx, jeff_span[1][1])                 # School Section line's north end
+    join_north = west_south                            # West Division line's south end
+    join_top = west_north                              # the north end T-1490 traced to
+
+    # Ohio's line meets the West Division line's own bearing here, solved rather than
+    # iterated: y = ohio(x) and x = jefferson(y) are both straight.
+    slope = (west_north[0] - west_south[0]) / (west_north[1] - west_south[1])
+    ox0, oy0 = ohio_span[0][0], ohio_at_x(ohio_span[0][0])
+    ohio_slope = (ohio_at_x(ohio_span[0][1]) - oy0) / (ohio_span[0][1] - ox0)
+    y_ohio = ((oy0 + ohio_slope * (west_south[0] - slope * west_south[1] - ox0))
+              / (1 - ohio_slope * slope))
+    corner_ohio = (on_west_division(y_ohio), y_ohio)
 
     line = shore()
 
@@ -162,7 +195,7 @@ def limits_ring():
         raise SystemExit("the shore trace no longer runs from the river mouth eastward "
                          "and then north; the ordinance's walk cannot be read off it")
 
-    ring = ([corner_jackson, corner_ohio, corner_lake]
+    ring = ([corner_jackson, join_south, join_north, join_top, corner_ohio, corner_lake]
             + [line[i] for i in range(co[0], cs[0], -1)]
             + [corner_state, (state_at_y(corner_jackson[1]), corner_jackson[1])])
 
@@ -172,8 +205,10 @@ def limits_ring():
     # along the extension. That is why an extrapolation is measured along its own length
     # and not as a flat clearance.
     reach = [
+        ("west — Jefferson, School Section line to West Division",
+         join_south, join_north),
         ("west — Jefferson, north to Ohio",
-         (jx, jeff_span[1][1]), corner_ohio),
+         join_top, corner_ohio),
         ("north — Ohio, west to Jefferson",
          (ohio_span[0][0], ohio_at_x(ohio_span[0][0])), corner_ohio),
         ("north — Ohio, east to the lake shore",

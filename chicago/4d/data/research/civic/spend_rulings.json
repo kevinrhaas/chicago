@@ -64,7 +64,7 @@
     {
       "unit": "civic:data/research/civic/records/voter_lists_1833_1835.json#records/poll_1833_005",
       "rule": "the_roll_names_a_person_the_town_does_not_hold",
-      "note": "Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833, entry 5 (1833-08-10) enters 'Beaubien, Medard' read as 'Medard Beaubien', and the town's households hold no one the crosswalk can join it to: no resident of the surname 'Beaubien' agrees with the entry's forenames (8 bearer(s) of the surname considered), and no bridge row carries the entry."
+      "note": "Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833, entry 5 (1833-08-10) enters 'Beaubien, Medard' read as 'Medard Beaubien', and the town's households hold no one the crosswalk can join it to: no resident of the surname 'Beaubien' agrees with the entry's forenames (18 bearer(s) of the surname considered), and no bridge row carries the entry."
     },
     {
       "unit": "civic:data/research/civic/records/voter_lists_1833_1835.json#records/poll_1833_016",
@@ -204,7 +204,7 @@
     {
       "unit": "civic:data/research/civic/records/voter_lists_1833_1835.json#records/tax_1833_108",
       "rule": "the_roll_names_a_person_the_town_does_not_hold",
-      "note": "Tax list of the Town of Chicago, 1833, entry 108 (1833) enters 'Whistler' read as 'Whistler', and the town's households hold no one the crosswalk can join it to: surname-only: the entry 'Whistler' prints no forename, and a bare surname separates no member of a family; refused whether or not the residents layer carries the surname (0 do)."
+      "note": "Tax list of the Town of Chicago, 1833, entry 108 (1833) enters 'Whistler' read as 'Whistler', and the town's households hold no one the crosswalk can join it to: surname-only: the entry 'Whistler' prints no forename, and a bare surname separates no member of a family; refused whether or not the residents layer carries the surname (2 do)."
     },
     {
       "unit": "civic:data/research/civic/records/voter_lists_1833_1835.json#records/tax_1833_114",

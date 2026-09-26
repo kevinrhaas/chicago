@@ -114,6 +114,13 @@
       "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "carry_policy_only_division.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-25",
+      "placed": "after seat_known_1835.py --build, which writes the address book this reads, and before rebuild_resident_index.py, which denormalises the block's value into the manifest. Both edges are real and neither is in the manifest's order yet — seat_known_1835.py is not in derived_manifest.json at all — so placing this one means placing that one first. T-1523 measured the reproduction and left the ordering to its own pass.",
+      "finding": "Ran --build on the committed tree: wrote 0 card(s) and git reports no byte moved, so the 1,305 division_reconstructed blocks on disk are exactly what it derives from the address book's rung-5 rows. Its own --check asserts the same field for field, in both directions."
+    },
     "carry_stage_blocks.py": {
       "placement": "not_derivable",
       "write_mode": "--build",
@@ -357,11 +364,10 @@
       "finding": "Does NOT reproduce: `--write` rewrote 1 committed file(s) on a tree the gate called clean."
     },
     "employment_coverage_1835.py": {
-      "placement": "pending",
+      "placement": "manifest",
       "write_mode": "--build",
-      "measured": "2026-09-20",
-      "finding": "Reproduces: `--build` on a clean tree rewrote data/residents/employment_coverage.json and nothing else, and `git status --porcelain` was identical before and after — not one committed byte moved, no person card was touched, no trade was supplied and no business record was written to. T-1461. PENDING rather than manifest for the reason its three siblings staff_businesses_1835.py, seat_reconstructed_trades_1835.py and staffing_mint_order_1835.py are: it reads the whole resident layer, the compiled business layer, the premises rulings and two models, and writes a join beside the layer — its slot in the re-derivation order is a question a measured pass of the manifest owns rather than this one.",
-      "placed": "not yet — measured to reproduce. Its header calls it T-1461, piece 1 of 2 of T-1449, and it joins over the WHOLE resident layer, so a slot for it sits after the last stage that seats anybody. That is not a theoretical hazard: T-1463's re-cut left this tool stale, the gate then read fifteen people carrying no employment answer, and CI found the red rather than the manifest (T-1453). the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
+      "measured": "2026-09-25",
+      "finding": "Reproduces, measured twice. 2026-09-20 (T-1461): '--build' on a clean tree rewrote data/residents/employment_coverage.json and nothing else, and 'git status --porcelain' was identical before and after — not one committed byte moved, no person card was touched, no trade was supplied and no business record was written to. RE-MEASURED 2026-09-25 (T-1555) on clean dev before placing it: --check green on all 3,305 people, --build rewrote the join (mtime 1790347317 -> 1790347480) and left the porcelain empty, so _must_reproduce and _must_actually_write are both satisfied for its step. PLACED at manifest step 153, below the last step that writes a person card and above the reports at the foot — see that step's own 'why'."
     },
     "execute_roof_redeal.py": {
       "placement": "pending",
@@ -558,18 +564,18 @@
       "measured": "2026-09-18",
       "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
     },
+    "measure_block_gating.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-09-18",
+      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
+    },
     "measure_block_redeal_remedies.py": {
       "placement": "pending",
       "write_mode": "--build",
       "measured": "2026-09-21",
       "finding": "Reproduces: ran `--build` on a clean tree in 4s, wrote its two outputs and changed no committed byte.",
       "placed": "not yet — measured to reproduce, but it reads the roof redeal ledger, the platted-block recipe and the placement policy, and the first two are written by stages whose slot in the manifest's order is itself a measured question. It also reports on a ticket blocked on the owner: the day the six verdicts are carried out or withdrawn, this tool's outputs change or stop existing, and placing it before that is settled would order a step that may not be there."
-    },
-    "measure_block_gating.py": {
-      "placement": "not_a_writer",
-      "write_mode": null,
-      "measured": "2026-09-18",
-      "finding": "Run bare it exits 0 and writes nothing, so it does not write by default. Gated with --check; a reporter or a checker."
     },
     "measure_canal_control_spread.py": {
       "placement": "not_a_writer",
@@ -608,6 +614,13 @@
       "measured": "2026-09-21",
       "finding": "Reproduces, and the perturbation test tells reproduction from inertia. On a clean tree `--build` rewrote docs/RESEARCH/1835_roof_id_migration.md and nothing else, and `git status --porcelain` came back to the same single entry it started at. The measurement was then bent — the header's \"26 moving id(s)\" to 999 — a bare run went red (\"DRIFT: ... is not what a re-measurement produces\"), `--build` re-derived the file, and the tree came back clean. Its ONLY output is that one document; it reads the roof id reference list and the 75 files that name a moving id, and writes none of them.",
       "placed": "not yet — measured to reproduce, and it is a pure reader: every input it touches is a committed file some other stage owns, so it has no ordering hazard of its own. Its slot is the ordering pass's call, not this ticket's."
+    },
+    "measure_west_division_spacing.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-09-24",
+      "finding": "Reproduces: ran `--write` on a clean tree in under 1s, wrote its output, changed no committed byte.",
+      "placed": "by layer, 2026-09-24 — reasoned, not derived. It reads tools/generate_plat_lots.py's output (the West Division's blocks, their lot cuts and their `bounded_by` lines) and is placed immediately after tools/measure_west_grid_migration.py, which reads the same file for the same ticket family; run earlier it would measure a stale grid. Nothing reads what it writes, so nothing constrains it from below."
     },
     "measure_west_grid_migration.py": {
       "placement": "manifest",
@@ -653,6 +666,20 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "model_refamily_rule.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-25",
+      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on the committed tree rewrote data/reconstruction/1835_refamily_rule.json and docs/RESEARCH/1835_refamily_rule.md and changed no committed byte; the perturbation test says that is idempotence rather than inertia — the JSON was deleted, `--check` went red on it (\"the re-family rule is missing — run --build\"), `--build` restored it, and `git status` came back empty.",
+      "placed": "not yet — measured to reproduce, and the ordering is the thing to settle. This tool reads the order book, and build_order_book_1835.py then reads the rung ids and the rule's one line back out of it, so the pair wants TWO passes in the manifest's order (book, rule, book) rather than one slot. Only literals travel back — the ladder's ids and the rule's one-line sentence, both constants in model_refamily_rule.py — so the two cannot oscillate; what has to be settled is whether the manifest can express a second pass over a tool it has already run, which is not this ticket's to decide."
+    },
+    "report_refamily_programme.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-25",
+      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on the committed tree rewrote data/reconstruction/1835_refamily_programme.json and docs/RESEARCH/1835_refamily_programme.md and changed no committed byte; the perturbation test says that is idempotence rather than inertia — the JSON was deleted, `--check` went red on it (\"the re-familying programme report is missing — run --build\"), `--build` restored it, and `git status` came back empty.",
+      "placed": "not yet — measured to reproduce, and its slot is the one model_refamily_rule.py is waiting on. This tool reads BOTH the order book and the rule, so it can only run after the pair has settled, and that pair is the thing the row above says the manifest cannot yet express: build_order_book_1835.py reads the rung ids back out of the rule, so book/rule wants two passes rather than one slot. Nothing reads this report back, so it is a pure leaf and adds no new ordering question of its own — it inherits the one already open."
     },
     "model_town_1835.py": {
       "placement": "manifest",
@@ -998,7 +1025,14 @@
       "finding": "Reproduces: ran `--group stores_and_provisions --build` on a clean tree in 1s, wrote its records, its ledger and the order book's fill, and changed no committed byte.",
       "placed": "not yet — measured to reproduce. Its header states that the quota lives in the reconstruction order book and nothing about it lives in the tool, so any ticket that re-cuts the book moves this stage with it; it writes the order book's fill as well as its own records. the manifest's order is its own measured pass — on #1452 three reconstruction stages oscillated until they sat in the right slot — so this cannot be appended blind."
     },
-    "reconstruct_free_black.py": {
+    "reconstruct_church_register.py": {
+   "placement": "pending",
+   "write_mode": "--build",
+   "measured": "2026-09-25",
+   "finding": "Reproduces: ran `--build` on a clean tree in 0.31s, rewrote its 2 household cards and its derived record, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool, which reports both gated commands writing nothing in-tree.",
+   "placed": "not yet — measured to reproduce. Stage `underdocumented`, sub-stage `church_register` (T-1504, of T-1177). It is the THIRD writer of data/residents/underdocumented/, each sweeping its own id prefix out of it — `hh_cr_` here, `hh_um_` in reconstruct_underdocumented.py, `hh_fb_` in reconstruct_free_black.py — so it inherits the same unstated order against its two siblings that reconstruct_free_black.py's row records. The manifest's order is its own measured pass, so this cannot be appended blind."
+  },
+  "reconstruct_free_black.py": {
       "placement": "pending",
       "write_mode": "--build",
       "measured": "2026-09-19",
@@ -1011,6 +1045,13 @@
       "measured": "2026-09-19",
       "finding": "Reproduces: `--build` on a settled tree wrote its own outputs and changed no committed byte, and `--check` re-derives all 11 cards, 125 people and the return in data/reconstruction/1835_garrison.json from their seeds. In the manifest directly after `women_and_children`.",
       "placed": "by stage order, 2026-09-19 — its invented names must step past that stage's, and measured in the other order 43 of that stage's cards redraw"
+    },
+    "reconstruct_institutional_households.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-24",
+      "finding": "Reproduces: `--build` run on the tree it had already built wrote its own outputs and changed no committed byte — `git status --porcelain` is identical before and after. Measured, not read (T-1531).",
+      "placed": "Waiting on nothing but its own slot being proved stable. It IS in the resident layer's rebuild order as `stage_institutional_households`, after `transients` and before `converge`, which is the programme's own stage order, and its three back edges into data/residents are declared in `the_cycle.edges` (resident_index, scene_sidecars, town_census). What has to be settled before it joins derived_manifest.json's dependency order is the same thing #1452 had to settle for three reconstruction stages that oscillated: that one pass of the manifest's order reaches a fixed point with it in place. `converge_resident_layer.py --run` reaches one today; the manifest's own order is a separate measured pass and is not claimed here."
     },
     "reconstruct_modelled_families.py": {
       "placement": "manifest",
@@ -1070,6 +1111,13 @@
       "measured": "2026-09-20",
       "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on a clean tree ran in 1.9s, wrote data/reconstruction/1835_roof_redeal.json and docs/RESEARCH/1835_anonymous_roof_redeal.md and changed no committed byte; the perturbation test tells idempotence from inertia — the record's retire count was bent from 0 to 7 and one verdict flipped to `retire`, `--check` went red (\"no longer re-derives from its inputs\"), `--build` re-derived both files, and `git status` came back empty.",
       "placed": "not yet — measured to reproduce, but it reads the structure layer, the order book and the placement policy, all of which earlier reconstruction stages write, so its place in the manifest's dependency order is that pass's to settle."
+    },
+    "refamily_moves_1835.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-25",
+      "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on the committed tree rewrote data/reconstruction/1835_reconstruction_order_book.json (and the report the book's own --build writes) and changed no committed byte; the perturbation test says that is idempotence rather than inertia — `re_family_ledger.moves` was emptied by hand, `--check` went red on it (\"the book's re-family ledger is not what the cards carry\"), `--build` restored all 19 rows, and `git status` came back empty.",
+      "placed": "not yet — measured to reproduce, and it wants the same second-pass ordering model_refamily_rule.py does. This tool reads the residents layer's cards and writes the order book; the mints that carry a move onto a card read the rule, which reads the book. So the manifest order is book, rule, mint, this, book — and whether the manifest can express a second pass over a tool it has already run is the same open question the rule's own row states, and is not this ticket's to decide."
     },
     "refuse_reconstructed_grade.py": {
       "placement": "not_a_writer",
@@ -1215,6 +1263,20 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "seat_off_plat_ground_1835.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-26",
+      "finding": "Reproduces: `--build` on a clean tree rewrote its own two outputs \u2014 data/reconstruction/1835_off_plat_ledger.json and data/reconstruction/1835_off_plat_seats.json \u2014 twice in succession, `--check` passed against both, and `git status --porcelain` named nothing but those two files. It writes no structure record and no person card: every seat it deals is an ADOPTION of a roof that already stands, it raises no slot at all, and so it draws nothing off the order book. Measured again through tools/measure_step_isolation.mjs --tool, which reports both gated commands \u2014 --check and --self-test \u2014 writing nothing in-tree.",
+      "placed": "not yet \u2014 measured to reproduce. T-1614, piece 2 of 3 of T-1199, and it sits DOWNSTREAM of seat_platted_ground_1835.py: its scope is that tool's own `owed` list, so a manifest slot for this one has to fall after a slot for that one, which is itself still pending behind seat_known_1835.py. Three tools deep and none of them in derived_manifest.json, so this cannot be appended blind \u2014 the manifest's order is its own measured pass (on #1452 three reconstruction stages oscillated until they sat in the right slot)."
+    },
+    "seat_platted_ground_1835.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-26",
+      "finding": "Reproduces: `--build` on a clean tree rewrote its own two outputs \u2014 data/reconstruction/1835_lot_ledger.json and data/reconstruction/1835_platted_seats.json \u2014 and `git status --porcelain` came back EMPTY afterwards, so not one committed byte moved. It writes no structure record and no person card: an adoption is a pointer at a roof that already stands and a slot is a request the 5C build tickets fulfil, so this pass raises nothing and bakes nothing. Measured again through tools/measure_step_isolation.mjs --tool, which reports both gated commands writing nothing in-tree.",
+      "placed": "not yet \u2014 measured to reproduce. T-1613, piece 1 of 3 of T-1199. Its inputs are the committed lot grid, the 665-roof programme's schedule, the placement policy and the address book, and the LAST of those is written by seat_known_1835.py, which is not in derived_manifest.json at all \u2014 so a slot for this one sits downstream of a tool that has no slot either, and placing this means placing that first. The manifest's order is its own measured pass \u2014 on #1452 three reconstruction stages oscillated until they sat in the right slot \u2014 so this cannot be appended blind."
     },
     "seat_reconstructed_trades_1835.py": {
       "placement": "pending",

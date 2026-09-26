@@ -47,6 +47,14 @@
 #   * `hold`. The owner's park switch. A held PR is `dirty` with zero check runs
 #     and looks EXACTLY like the deadlock from outside — #1533 and #1576 were both
 #     mistaken for it on 2026-09-20. Labels are read before anything is declared.
+#   * `resume`. A RUN'S UNFINISHED HANDOFF, which is a different thing and used to
+#     wear the same label (T-1573). It is not stuck BY DEFINITION: something is
+#     coming for it, namely the next run, which works resumable PRs before it takes
+#     new queue work. So it is not labelled and not shouted at — but it IS SAID,
+#     with the reason off its own `resume:` line, because the fault T-1571 names is
+#     that the reason a PR was parked lived only in the PR body and the owner never
+#     saw it. A held PR is now the ONLY silent one, and that silence is his to break.
+#     A stale `stuck` on a resumable PR does come off: something owns it now.
 #   * Drafts. The steward's salvage step opens one for a run that died before its
 #     PR; it is not a queue member.
 #   * A PR WHOSE OWNING RUN IS STILL ALIVE. #1499 was `dirty` with zero check runs
@@ -73,6 +81,8 @@ BASE="${STUCK_BASE:-dev}"
 ONLY="${STUCK_ONLY:-}"
 DRY="${STUCK_DRY_RUN:-}"
 LABEL="${STUCK_LABEL:-stuck}"
+# The run's own handoff label (T-1573), read here and never written here.
+RESUME_LABEL="${STUCK_RESUME_LABEL:-resume}"
 MIN_AGE_MIN="${STUCK_MIN_AGE_MIN:-45}"
 # The same three hours ticket.mjs calls a dead run. A claim marker older than this
 # is already stolen by the next claimer, so it cannot be evidence of a live run.
@@ -223,6 +233,17 @@ gate_verdict() {
     2>/dev/null
 }
 
+# The newest `resume:` line a run has left on a pull request, without its prefix —
+# `<reason> · waits on: <T-NNNN|nothing>` — or nothing at all when no run wrote
+# one. NEWEST WINS: a PR can be handed off more than once and only the last reason
+# is true. `.[].body` returns the bodies in the order they were posted, and the
+# `resume:` line is the FIRST line of each, which is exactly why `pr-rest.sh resume`
+# refuses a reason carrying a newline.
+resume_line() {
+  gh api --paginate "repos/$REPO/issues/${1}/comments" --jq '.[].body' 2>/dev/null \
+    | sed -n 's/^resume: \(.*\)$/\1/p' | tail -1
+}
+
 # The steps that actually failed, read from the job the check run points at. WHY
 # THIS AND NOT "the gate is red": the whole cost of this state is that somebody
 # has to open the logs to find out what broke, and the reporter has just been
@@ -240,7 +261,7 @@ failing_steps() {
           | "  * \(.name)"' 2>/dev/null
 }
 
-STUCK=0; RED=0; HELD=0; MIDRUN=0; YOUNG=0; FINE=0; CLEARED=0
+STUCK=0; RED=0; HELD=0; MIDRUN=0; YOUNG=0; FINE=0; CLEARED=0; RESUMABLE=0
 
 while IFS=$'\t' read -r N BR SHA LABELS; do
   [ -n "${N:-}" ] || continue
@@ -252,6 +273,34 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
     say "#$N  held — the owner parked this on purpose; not a deadlock however much it looks like one"
     HELD=$((HELD+1)); continue
   fi
+
+  # `resume` NEXT, AND FOR THE OPPOSITE REASON TO `hold` (T-1573). A held PR is left
+  # alone because a PERSON owns it. A resumable one is left alone because the LOOP
+  # owns it: the next run takes resumable PRs before new queue work, so nothing is
+  # missing here. What this adds is the one thing that WAS missing — saying the
+  # reason out loud, off the PR's own `resume:` line, in the sweep that every push
+  # to `dev` runs. It reports; it never labels.
+  if printf '%s' ",$LABELS," | grep -q ",$RESUME_LABEL,"; then
+    WHY=$(resume_line "$N")
+    if [ -n "$WHY" ]; then
+      say "#$N  resume — the loop owes this work: $WHY"
+    else
+      say "#$N  resume — the loop owes this work, and NO \`resume:\` line says why."
+      say "     Whoever handed it off did not use \`pr-rest.sh resume\`, which writes one."
+    fi
+    # A `stuck` label that outlived its reason is worse than no label, and a
+    # resumable PR has an owner: the next run. The same rule the `moving` branch
+    # below applies, applied here too — because this branch `continue`s before it.
+    if printf '%s' ",$LABELS," | grep -q ",$LABEL,"; then
+      if [ -z "$DRY" ]; then
+        gh api -X DELETE "repos/$REPO/issues/$N/labels/$LABEL" >/dev/null 2>&1 || true
+      fi
+      say "     and its \`$LABEL\` label came off — something is coming for it now"
+      CLEARED=$((CLEARED+1))
+    fi
+    RESUMABLE=$((RESUMABLE+1)); continue
+  fi
+
   HAS_LABEL=
   printf '%s' ",$LABELS," | grep -q ",$LABEL," && HAS_LABEL=1
 
@@ -423,8 +472,11 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
       printf '2. If the failure is not this PR'"'"'s — red on `%s` too — say so on the PR and\n' "$BASE"
       printf '   port the fix rather than widening this branch.\n'
       printf '3. Or close it and re-cut the work on a current `%s`.\n\n' "$BASE"
-      printf 'Park it with the `hold` label if it is waiting on the owner on purpose — this\n'
-      printf 'reporter reads labels first and will leave a held PR alone.\n\n'
+      printf 'If it is waiting on the OWNER on purpose, park it with `hold` — this reporter\n'
+      printf 'reads labels first and leaves a held PR alone. If it is merely UNFINISHED, hand\n'
+      printf 'it to the next run instead:\n\n'
+      printf '    .github/steward/pr-rest.sh resume %s --why "..." --waits-on nothing\n\n' "$N"
+      printf 'which writes the reason where a machine and a person can both read it.\n\n'
       printf -- '---\n_Generated by [Claude Code](https://claude.ai/code)_\n'
     } > /tmp/pr-stuck-comment.md
   else
@@ -461,8 +513,11 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
     printf 'git add -A && git commit && git push origin HEAD:%s\n' "$BR"
     printf '```\n\n'
     printf '3. Or close it and re-cut the work on a current `%s`.\n\n' "$BASE"
-    printf 'Park it with the `hold` label if it is waiting on the owner on purpose — this\n'
-    printf 'reporter reads labels first and will leave a held PR alone.\n\n'
+    printf 'If it is waiting on the OWNER on purpose, park it with `hold` — this reporter\n'
+    printf 'reads labels first and leaves a held PR alone. If it is merely UNFINISHED, hand\n'
+    printf 'it to the next run instead:\n\n'
+    printf '    .github/steward/pr-rest.sh resume %s --why "..." --waits-on nothing\n\n' "$N"
+    printf 'which writes the reason where a machine and a person can both read it.\n\n'
     printf -- '---\n_Generated by [Claude Code](https://claude.ai/code)_\n'
   } > /tmp/pr-stuck-comment.md
   fi
@@ -479,5 +534,5 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
 done <<< "$PRS"
 
 say ""
-say "PR stuck: deadlocked=$STUCK red-gate=$RED held=$HELD mid-run=$MIDRUN too-young=$YOUNG moving=$FINE unlabelled=$CLEARED"
+say "PR stuck: deadlocked=$STUCK red-gate=$RED held=$HELD resumable=$RESUMABLE mid-run=$MIDRUN too-young=$YOUNG moving=$FINE unlabelled=$CLEARED"
 say "  (it reports; it never merges, pushes or resolves. The lap and merge-ready do those.)"

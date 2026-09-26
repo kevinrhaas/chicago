@@ -18,7 +18,7 @@
   {
    "what": "residents layer, persons",
    "path": "data/residents/households/",
-   "n": 1283
+   "n": 1402
   },
   {
    "what": "voter, poll and tax list entries (T-0493)",
@@ -28,7 +28,7 @@
   {
    "what": "letter-list and newspaper persons",
    "path": "data/research/newspapers/gazetteer.json",
-   "n": 2640
+   "n": 2622
   },
   {
    "what": "1840 heads of household read in this repo",
@@ -39,8 +39,8 @@
  "counts": {
   "residents_matched_one_entry": 90,
   "residents_ambiguous": 31,
-  "residents_contested": 18,
-  "residents_surname_only_refused": 219,
+  "residents_contested": 21,
+  "residents_surname_only_refused": 233,
   "residents_further_initial_disagreed_refused": 4,
   "residents_letter_list_bucket_refused": 1,
   "voters_matched_one_entry": 81,
@@ -48,7 +48,7 @@
   "voters_surname_only_refused": 86,
   "letter_list_matched_one_entry": 195,
   "letter_list_ambiguous": 64,
-  "letter_list_surname_only_refused": 545,
+  "letter_list_surname_only_refused": 542,
   "heads_1840_matched_one_entry": 86,
   "heads_1840_ambiguous": 21,
   "heads_1840_surname_only_refused": 205
@@ -782,6 +782,28 @@
     "carry_rule": "What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house."
    },
    {
+    "name": "Henry Stone",
+    "rule": "Surname 'Stone' folds to the same string as the 1837 entry's, and the given name of both begins H.",
+    "entries_1837": [
+     {
+      "claim": "f1839_v0610",
+      "as_printed": "H. 0. Stone",
+      "printed_page": 45,
+      "role": "voter",
+      "ward_1837": 6,
+      "voted_for": "William B. Ogden",
+      "party": null,
+      "office": null,
+      "column_run_on": false,
+      "candidate_inferred": false
+     }
+    ],
+    "person_id": "stone_henry",
+    "household_id": "hh_stone_henry",
+    "grade_1835": "inferred",
+    "carry_rule": "What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house."
+   },
+   {
     "name": "Henry Walton",
     "rule": "Surname 'Walton' folds to the same string as the 1837 entry's, and the given name of both begins H.",
     "entries_1837": [
@@ -1417,28 +1439,6 @@
     "person_id": "jones_m",
     "household_id": "hh_jones_m",
     "grade_1835": "attested",
-    "carry_rule": "What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house."
-   },
-   {
-    "name": "Matthias Smith",
-    "rule": "Surname 'Smith' folds to the same string as the 1837 entry's, and the given name of both begins M.",
-    "entries_1837": [
-     {
-      "claim": "f1839_v0380",
-      "as_printed": "M. Smith",
-      "printed_page": 43,
-      "role": "voter",
-      "ward_1837": 2,
-      "voted_for": "John H. Kinzie",
-      "party": null,
-      "office": null,
-      "column_run_on": false,
-      "candidate_inferred": false
-     }
-    ],
-    "person_id": "smith_matthias",
-    "household_id": "hh_smith_matthias",
-    "grade_1835": "inferred",
     "carry_rule": "What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house."
    },
    {
@@ -2258,7 +2258,7 @@
    },
    {
     "name": "Madore Benjamin Beaubien",
-    "rule": "Surname 'Beaubien' folds to the same string as the 1837 entry's, and the given name of both begins M. CONTESTED: 2 residents of 1835 meet this one 1837 entry on that rule, and at most one of them is the man who voted. The match is not made.",
+    "rule": "Surname 'Beaubien' folds to the same string as the 1837 entry's, and the given name of both begins M. CONTESTED: 3 residents of 1835 meet this one 1837 entry on that rule, and at most one of them is the man who voted. The match is not made.",
     "entries_1837": [
      {
       "claim": "f1839_v0006",
@@ -2277,12 +2277,13 @@
     "household_id": "hh_beaubien_madore",
     "grade_1835": "attested",
     "contested_with": [
-     "Mark Beaubien"
+     "Mark Beaubien",
+     "Monique Beaubien"
     ]
    },
    {
     "name": "Mark Beaubien",
-    "rule": "Surname 'Beaubien' folds to the same string as the 1837 entry's, and the given name of both begins M. CONTESTED: 2 residents of 1835 meet this one 1837 entry on that rule, and at most one of them is the man who voted. The match is not made.",
+    "rule": "Surname 'Beaubien' folds to the same string as the 1837 entry's, and the given name of both begins M. CONTESTED: 3 residents of 1835 meet this one 1837 entry on that rule, and at most one of them is the man who voted. The match is not made.",
     "entries_1837": [
      {
       "claim": "f1839_v0006",
@@ -2301,7 +2302,81 @@
     "household_id": "hh_beaubien_mark",
     "grade_1835": "attested",
     "contested_with": [
-     "Madore Benjamin Beaubien"
+     "Madore Benjamin Beaubien",
+     "Monique Beaubien"
+    ]
+   },
+   {
+    "name": "Mathias Smith",
+    "rule": "Surname 'Smith' folds to the same string as the 1837 entry's, and the given name of both begins M. CONTESTED: 2 residents of 1835 meet this one 1837 entry on that rule, and at most one of them is the man who voted. The match is not made.",
+    "entries_1837": [
+     {
+      "claim": "f1839_v0380",
+      "as_printed": "M. Smith",
+      "printed_page": 43,
+      "role": "voter",
+      "ward_1837": 2,
+      "voted_for": "John H. Kinzie",
+      "party": null,
+      "office": null,
+      "column_run_on": false,
+      "candidate_inferred": false
+     }
+    ],
+    "person_id": "smith_mathias",
+    "household_id": "hh_smith_mathias",
+    "grade_1835": "inferred",
+    "contested_with": [
+     "Matthias Smith"
+    ]
+   },
+   {
+    "name": "Matthias Smith",
+    "rule": "Surname 'Smith' folds to the same string as the 1837 entry's, and the given name of both begins M. CONTESTED: 2 residents of 1835 meet this one 1837 entry on that rule, and at most one of them is the man who voted. The match is not made.",
+    "entries_1837": [
+     {
+      "claim": "f1839_v0380",
+      "as_printed": "M. Smith",
+      "printed_page": 43,
+      "role": "voter",
+      "ward_1837": 2,
+      "voted_for": "John H. Kinzie",
+      "party": null,
+      "office": null,
+      "column_run_on": false,
+      "candidate_inferred": false
+     }
+    ],
+    "person_id": "smith_matthias",
+    "household_id": "hh_smith_matthias",
+    "grade_1835": "inferred",
+    "contested_with": [
+     "Mathias Smith"
+    ]
+   },
+   {
+    "name": "Monique Beaubien",
+    "rule": "Surname 'Beaubien' folds to the same string as the 1837 entry's, and the given name of both begins M. CONTESTED: 3 residents of 1835 meet this one 1837 entry on that rule, and at most one of them is the man who voted. The match is not made.",
+    "entries_1837": [
+     {
+      "claim": "f1839_v0006",
+      "as_printed": "Medor B. Beaubien,",
+      "printed_page": 41,
+      "role": "voter",
+      "ward_1837": 1,
+      "voted_for": "William B. Ogden",
+      "party": null,
+      "office": null,
+      "column_run_on": false,
+      "candidate_inferred": false
+     }
+    ],
+    "person_id": "beaubien_monique",
+    "household_id": "hh_beaubien_monique",
+    "grade_1835": "inferred",
+    "contested_with": [
+     "Madore Benjamin Beaubien",
+     "Mark Beaubien"
     ]
    },
    {
@@ -3600,6 +3675,11 @@
     "rule": "The surname 'Kent' stands in the 1837 poll and no man under it carries the initial 'A' of 'Alex. M. Kent'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Alexander Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands in the 1837 poll and no man under it carries the initial 'A' of 'Alexander Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Alexandre Beaubien",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Beaubien' stands in the 1837 poll and no man under it carries the initial 'A' of 'Alexandre Beaubien'. A surname-only agreement is a refusal."
@@ -3628,6 +3708,11 @@
     "name": "Amasa Wright",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Wright' stands in the 1837 poll and no man under it carries the initial 'A' of 'Amasa Wright'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Archange Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands in the 1837 poll and no man under it carries the initial 'A' of 'Archange Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "Arthur Bronson",
@@ -3688,6 +3773,31 @@
     "name": "Capt. J. M. Baxley",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Baxley' stands in the 1837 poll and no man under it carries the initial 'J' of 'Capt. J. M. Baxley'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Caroline Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands in the 1837 poll and no man under it carries the initial 'C' of 'Caroline Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Catherine Chandler",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Chandler' stands in the 1837 poll and no man under it carries the initial 'C' of 'Catherine Chandler'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Catherine Harrington",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Harrington' stands in the 1837 poll and no man under it carries the initial 'C' of 'Catherine Harrington'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Catherine Miller",
+    "candidates_under_that_surname": 4,
+    "rule": "The surname 'Miller' stands in the 1837 poll and no man under it carries the initial 'C' of 'Catherine Miller'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Charles Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands in the 1837 poll and no man under it carries the initial 'C' of 'Charles Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "Charles C. Williams",
@@ -3855,6 +3965,11 @@
     "rule": "The surname 'Hamilton' stands in the 1837 poll and no man under it carries the initial 'E' of 'Ellen Hamilton'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Elonore Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands in the 1837 poll and no man under it carries the initial 'E' of 'Elonore Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Emeline Egan",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Egan' stands in the 1837 poll and no man under it carries the initial 'E' of 'Emeline Egan'. A surname-only agreement is a refusal."
@@ -3893,6 +4008,11 @@
     "name": "Gardner Brooks",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Brooks' stands in the 1837 poll and no man under it carries the initial 'G' of 'Gardner Brooks'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "George Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands in the 1837 poll and no man under it carries the initial 'G' of 'George Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "George Chapman",
@@ -4170,6 +4290,11 @@
     "rule": "The surname 'Watkins' stands in the 1837 poll and no man under it carries the initial 'J' of 'John Watkins'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Joseph Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands in the 1837 poll and no man under it carries the initial 'J' of 'Joseph Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Joseph Bradley",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Bradley' stands in the 1837 poll and no man under it carries the initial 'J' of 'Joseph Bradley'. A surname-only agreement is a refusal."
@@ -4270,6 +4395,11 @@
     "rule": "The surname 'Thompson' stands in the 1837 poll and no man under it carries the initial 'J' of 'Lieut J L Thompson'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Lucy Kennedy",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Kennedy' stands in the 1837 poll and no man under it carries the initial 'L' of 'Lucy Kennedy'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Luther Hatch",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Hatch' stands in the 1837 poll and no man under it carries the initial 'L' of 'Luther Hatch'. A surname-only agreement is a refusal."
@@ -4293,6 +4423,11 @@
     "name": "Mary Hogan",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Hogan' stands in the 1837 poll and no man under it carries the initial 'M' of 'Mary Hogan'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Mary Murphy",
+    "candidates_under_that_surname": 4,
+    "rule": "The surname 'Murphy' stands in the 1837 poll and no man under it carries the initial 'M' of 'Mary Murphy'. A surname-only agreement is a refusal."
    },
    {
     "name": "Mary Noble",
@@ -4430,6 +4565,11 @@
     "rule": "The surname 'Hunter' stands in the 1837 poll and no man under it carries the initial 'R' of 'Robert Hunter'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Robert Jerome Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands in the 1837 poll and no man under it carries the initial 'R' of 'Robert Jerome Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "Rowland I!. Cook",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Cook' stands in the 1837 poll and no man under it carries the initial 'R' of 'Rowland I!. Cook'. A surname-only agreement is a refusal."
@@ -4488,6 +4628,11 @@
     "name": "Stephen F. Gale",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Gale' stands in the 1837 poll and no man under it carries the initial 'S' of 'Stephen F. Gale'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Susan Beaubien",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Beaubien' stands in the 1837 poll and no man under it carries the initial 'S' of 'Susan Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "T. Johnston",
@@ -16032,24 +16177,9 @@
     "rule": "The surname 'Warren' stands in the 1837 poll and no man under it carries the initial '-' of '[?] Warren'. A surname-only agreement is a refusal."
    },
    {
-    "name": "[?]. Fisher",
-    "candidates_under_that_surname": 1,
-    "rule": "The surname 'Fisher' stands in the 1837 poll and no man under it carries the initial '-' of '[?]. Fisher'. A surname-only agreement is a refusal."
-   },
-   {
     "name": "[?]. Smith",
     "candidates_under_that_surname": 11,
     "rule": "The surname 'Smith' stands in the 1837 poll and no man under it carries the initial '-' of '[?]. Smith'. A surname-only agreement is a refusal."
-   },
-   {
-    "name": "[?]. [H]. Scott",
-    "candidates_under_that_surname": 2,
-    "rule": "The surname 'Scott' stands in the 1837 poll and no man under it carries the initial 'H' of '[?]. [H]. Scott'. A surname-only agreement is a refusal."
-   },
-   {
-    "name": "[?]kiler Brown",
-    "candidates_under_that_surname": 7,
-    "rule": "The surname 'Brown' stands in the 1837 poll and no man under it carries the initial 'K' of '[?]kiler Brown'. A surname-only agreement is a refusal."
    },
    {
     "name": "[C]handler Fi[s]her",

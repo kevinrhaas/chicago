@@ -2,6 +2,25 @@
  "id": "hh_forster_jane",
  "name": "The Forster household — a name from the post office's letter lists",
  "division": "unplaced",
+ "division_reconstructed": {
+  "value": "south",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "band": "south/tradesman_dwellings",
+  "clause": "tradesman_dwellings",
+  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's tradesman_dwellings clause. The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+  "basis": {
+   "kind": "model",
+   "id": "policy_only_deal",
+   "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
+  },
+  "seed": "hh_forster_jane|T-1522|division:74940b01a888|class:af89ac1848bf",
+  "replaceable_by": {
+   "kind": "household",
+   "match": "any source that places this household in a division or nearer"
+  },
+  "written_by_stage": "policy_only_division"
+ },
  "head": "forster_jane",
  "source_pass": "letter_list",
  "arrival": {
@@ -169,5 +188,13 @@
  ],
  "touches_removal": false,
  "review_required": false,
- "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+ "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale.",
+ "surname_collision": {
+  "refusal": "the town already names a Forster",
+  "holds_the_surname": [
+   "Bridget Forster (hh_forster_bridget)"
+  ],
+  "ruling": "T-0660, option (c), owner 2026-09-18",
+  "note": "A COLLISION SAID, NOT ACTED ON. Run against the tree as it stands, this pass would not MINT this card: refusal 7 — 'the town already names a Forster' — lands on it, because Bridget Forster (hh_forster_bridget) already holds the family name Forster. The owner ruled on 2026-09-18 (T-0660, option (c)) that refusals 7 and 8 are MINT-TIME rules: they decide whether a new household may be minted on a family name the town already spends, and they do not un-mint one that already stands. So this record is not retired, its id is not redirected at anybody, the town's population does not move, and the research row and directory matches it carries are not stranded on a retirement nothing draws. What has changed is that the collision is legible: a reader sees both cards and why both are here. REFUSAL 7 IS NOT A CLAIM THAT TWO RECORDS ARE ONE PERSON — it is the precedence rule between this pass and the ones above it, which give a man the papers gave a trade the family name a letter list only spells. Two of the collisions this reading uncovered are two different men. The pass's `rank()` is unchanged and the cohort is not re-derived; that was option (b)'s cost and the ruling declined to pay it. The derivation behind this block, both readings side by side, is docs/RESEARCH/letter-list-surname-collisions.md."
+ }
 }

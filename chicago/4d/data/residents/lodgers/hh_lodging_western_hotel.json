@@ -74,72 +74,8 @@
  },
  "persons": [
   {
-   "id": "rc_lyman_rhoda",
-   "name": "Rhoda Lyman",
-   "relationship": "lodger",
-   "grade": "reconstructed",
-   "sex": "female",
-   "age_band": {
-    "value": "10-19",
-    "low": 10,
-    "high": 19,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_reconstruction_order_book",
-     "note": "The bucket that ordered this person is 10_19; the band is the order, not a draw. Nothing here is a reading of anybody's age."
-    },
-    "seed": "lodgers:western_hotel:female:10_19:001:age_band",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
-   },
-   "name_basis": {
-    "value": "Rhoda Lyman",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
-    },
-    "seed": "lodgers:western_hotel:female:10_19:001:forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a real person who lodged in this house"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn lodger from another, and it is checked against every real name in the layer."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "1835_reconstruction_order_book",
-    "note": "The book's bucket persons/female/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
-   },
-   "seed": "lodgers:western_hotel:female:10_19:001:forename",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a person who lodged in this house, who would take this bed instead"
-   },
-   "reconstruction": {
-    "stage": "lodgers",
-    "programme": "chicago_1835_resident_reconstruction",
-    "community": "yankee",
-    "review_required": false
-   },
-   "resident_subtype": "reconstructed_lodger",
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
-  },
-  {
-   "id": "rc_wilcox_betsey",
-   "name": "Betsey Wilcox",
+   "id": "rc_barnes_rhoda",
+   "name": "Rhoda Barnes",
    "relationship": "lodger",
    "grade": "reconstructed",
    "sex": "female",
@@ -154,7 +90,7 @@
      "id": "1835_reconstruction_order_book",
      "note": "The bucket that ordered this person is 20_29; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:western_hotel:female:20_29:002:age_band",
+    "seed": "lodgers:western_hotel:female:20_29:001:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -162,7 +98,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Betsey Wilcox",
+    "value": "Rhoda Barnes",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -170,7 +106,7 @@
      "id": "1835_invented_name_pools",
      "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:western_hotel:female:20_29:002:forename",
+    "seed": "lodgers:western_hotel:female:20_29:001:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -180,9 +116,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/20_29/south/lodging/none",
     "note": "The book's bucket persons/female/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
-   "seed": "lodgers:western_hotel:female:20_29:002:forename",
+   "seed": "lodgers:western_hotel:female:20_29:001:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -202,8 +139,8 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_thayer_abigail",
-   "name": "Abigail Thayer",
+   "id": "rc_donnelly_johanna",
+   "name": "Johanna Donnelly",
    "relationship": "lodger",
    "grade": "reconstructed",
    "sex": "female",
@@ -218,7 +155,7 @@
      "id": "1835_reconstruction_order_book",
      "note": "The bucket that ordered this person is 30_39; the band is the order, not a draw. Nothing here is a reading of anybody's age."
     },
-    "seed": "lodgers:western_hotel:female:30_39:003:age_band",
+    "seed": "lodgers:western_hotel:female:30_39:002:age_band",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -226,15 +163,15 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Abigail Thayer",
+    "value": "Johanna Donnelly",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_invented_name_pools",
-     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
+     "note": "Both parts are drawn from the irish pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
     },
-    "seed": "lodgers:western_hotel:female:30_39:003:forename",
+    "seed": "lodgers:western_hotel:female:30_39:002:forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a real person who lodged in this house"
@@ -244,9 +181,10 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/30_39/south/lodging/none",
     "note": "The book's bucket persons/female/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
-   "seed": "lodgers:western_hotel:female:30_39:003:forename",
+   "seed": "lodgers:western_hotel:female:30_39:002:forename",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a person who lodged in this house, who would take this bed instead"
@@ -254,7 +192,72 @@
    "reconstruction": {
     "stage": "lodgers",
     "programme": "chicago_1835_resident_reconstruction",
-    "community": "yankee",
+    "community": "irish",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_lodger",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "NOT DEALT HERE. The order book's `lodging/trade` buckets want working lodgers and this stage does not fill them: dealing a trade is T-1173's machinery and the 1839 directory's shares are its table. This person carries no trade, the same as the people the rosters print without one."
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 15 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_corrigan_alice",
+   "name": "Alice Corrigan",
+   "relationship": "lodger",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "40-49",
+    "low": 40,
+    "high": 49,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_reconstruction_order_book",
+     "note": "The bucket that ordered this person is 40_49; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+    },
+    "seed": "lodgers:western_hotel:female:40_49:003:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+   },
+   "name_basis": {
+    "value": "Alice Corrigan",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Both parts are drawn from the irish pool, which is seeded from the attested residents of this town. A lodger carries no trade, so the pools' trade weighting has nothing to say here and the community is drawn from the general stock."
+    },
+    "seed": "lodgers:western_hotel:female:40_49:003:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a real person who lodged in this house"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn lodger from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/40_49/south/lodging/none",
+    "note": "The book's bucket persons/female/40_49/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
+   },
+   "seed": "lodgers:western_hotel:female:40_49:003:forename",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a person who lodged in this house, who would take this bed instead"
+   },
+   "reconstruction": {
+    "stage": "lodgers",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "irish",
     "review_required": false
    },
    "resident_subtype": "reconstructed_lodger",
@@ -308,6 +311,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/10_19/south/lodging/none",
     "note": "The book's bucket persons/male/10_19/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
    "seed": "lodgers:western_hotel:male:10_19:004:forename",
@@ -372,6 +376,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/20_29/south/lodging/none",
     "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
    "seed": "lodgers:western_hotel:male:20_29:005:forename",
@@ -436,6 +441,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/20_29/south/lodging/none",
     "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
    "seed": "lodgers:western_hotel:male:20_29:006:forename",
@@ -500,6 +506,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/30_39/south/lodging/none",
     "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is western_hotel's, from the lodging model's ordinary-night figure of 15."
    },
    "seed": "lodgers:western_hotel:male:30_39:007:forename",

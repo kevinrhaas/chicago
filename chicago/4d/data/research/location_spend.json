@@ -16,14 +16,14 @@
  "counts": {
   "businesses": 179,
   "published_limits": {
-   "structure": 56,
-   "street_only": 61,
+   "structure": 57,
+   "street_only": 60,
    "unplaceable": 62
   },
   "adjudicated_grades": {
-   "structure_committed": 45,
+   "structure_committed": 46,
    "structure_pending": 11,
-   "street_only_adopted": 40,
+   "street_only_adopted": 39,
    "street_only_unseated": 21,
    "unplaceable": 62
   },
@@ -32,10 +32,10 @@
    "lot": 0,
    "face": 0,
    "division": 176,
-   "none": 1186
+   "none": 1305
   },
   "moved_between_published_limits": 0,
-  "seats_that_are_substitutable": 40
+  "seats_that_are_substitutable": 39
  },
  "placements": [
   {
@@ -239,12 +239,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_blk_south_water_clark_d4_02",
+   "model_seat": "recon_1835_blk_lake_market_d5_01",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": "Lake Street",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_clark_d4_02', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_market_d5_01', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_briggs_humphrey",
@@ -538,12 +538,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_blk_lake_franklin_d1_02",
+   "model_seat": "recon_1835_blk_lake_clark_d5_03",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": "fice on Lake street, near tho post office.",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_franklin_d1_02', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d5_03', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_e_l_thrall",
@@ -746,12 +746,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_blk_lake_clark_d5_03",
+   "model_seat": "recon_1835_blk_lake_clark_d3_02",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": "opposite Dr. Temple's, Lake-st.",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d5_03', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d3_02', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_g_spring",
@@ -888,7 +888,7 @@
    "published_limit": "structure",
    "grade": "structure_committed",
    "evidence_reach": "structure",
-   "evidence_street": "Lake Street",
+   "evidence_street": "West Water Street",
    "model_seat": "green_tree_tavern",
    "seat_is_substitutable": false,
    "register_action": "enrich_existing",
@@ -1747,12 +1747,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_blk_lake_franklin_d5_01",
+   "model_seat": "recon_1835_blk_lake_franklin_d1_02",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": "she fina taken 2 room in Lake-atreet; in tue house occupied by Dr. Austin, and oppoaito Dr, Tomplo's",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_franklin_d5_01', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_franklin_d1_02', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_stuart_s_confectionary_and_perfumery",
@@ -2046,12 +2046,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_blk_lake_market_d5_01",
+   "model_seat": "recon_1835_blk_lake_market_d4_02",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": ", Hear Lake st, adjacent to}\nJ. T. Temple,",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_market_d5_01', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_market_d4_02', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_uncertain_the_physician_lodging_at_the_mansion_house_july_1834",
@@ -2280,12 +2280,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_blk_lake_market_d4_02",
+   "model_seat": "recon_1835_blk_lake_franklin_d5_01",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lake",
    "printed_place": "than a reasonable profit; at the corner of\nand Franklin streets, opposite Dr, Temple's.",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_market_d4_02', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_franklin_d5_01', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_wm_h_kennicott",
@@ -2302,16 +2302,16 @@
   },
   {
    "business_id": "business_wm_h_kennicott_surgeon_dentist",
-   "published_limit": "street_only",
-   "grade": "street_only_adopted",
-   "evidence_reach": "street",
+   "published_limit": "structure",
+   "grade": "structure_committed",
+   "evidence_reach": "structure",
    "evidence_street": "Lake Street",
-   "model_seat": "recon_1835_blk_lake_clark_d3_02",
-   "seat_is_substitutable": true,
-   "register_action": "street_only",
-   "register_action_target": "lake",
+   "model_seat": "exchange_coffee_house",
+   "seat_is_substitutable": false,
+   "register_action": "new_building",
+   "register_action_target": "exchange_coffee_house",
    "printed_place": "OFFICE OPPOSITE THE EXCHENGE, LAKF-STRYE",
-   "clause": "The paper reaches 'Lake Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_clark_d3_02', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The advertisement's anchor reaches a roof and the register's new_building target 'exchange_coffee_house' is a committed structure."
   },
   {
    "business_id": "business_wm_h_taylor",
@@ -2369,22 +2369,25 @@
  "retentions": [
   {
    "ticket": "T-0251",
-   "state": "blocked-owner",
-   "owner": "the owner",
+   "state": "ruled",
+   "owner": "the owner — precedence between the evidence layers is his, and he ruled it generally",
    "question": "Does a documented building displace an inferred unit when the plat repair puts them on the same lot? first_presbyterian_church needs 3.395 m to come onto the Lake Street plat and physicians_office stands 3.15 m behind it.",
-   "what_it_costs_today": "The church stands 1.90 m out in the platted roadway and two steps of Lake Street's plank walk stay unlaid.",
-   "what_would_resolve_it": "The owner picking one of the three options the ticket measured, or naming a fourth. Never by weakening the 3.0 m separation gate.",
+   "what_it_costs_today": "Nothing. The owner ruled on 2026-09-21 that where an ATTESTED placement and an INFERRED one collide on a lot the attested one stands and the inferred one moves or is withdrawn. The church took the 3.395 m and its north wall is 1.50 m back from the committed frontage line; physicians_office gave way and was re-seated on its own Lake Street frontage band, 12.99 m west along the same face and forward onto the street line, its card carrying what displaced it. The two steps of Lake Street's plank walk are laid.",
+   "what_would_resolve_it": "Resolved by the owner's ruling of 2026-09-21, written generally at `tools/plat_occupancy.attested_precedence` and applied to both records. The guard below now holds the RULING rather than the retention: put the church back out in the roadway and this build fails. Neither footprint was narrowed and the 3.0 m separation gate was not weakened — the ruling refuses both in terms.",
    "guard": {
     "reads": "data/structures/first_presbyterian_church.json",
-    "expects": "the position note still carries the T-0251 refusal and its 1.90 m measurement, and physicians_office is still committed",
+    "expects": "the church's position note carries the ruling and the 1.90 m measurement it repaired, its wall is reconciled onto the committed line, and physicians_office is still committed — re-seated rather than withdrawn",
     "measured": {
      "note_names_the_ticket": true,
      "note_carries_the_measurement": true,
-     "physicians_office_committed": true
+     "physicians_office_committed": true,
+     "note_carries_the_ruling": true,
+     "church_reconciled_onto_the_committed_line": true
     }
    },
    "holds": true,
-   "disposition": "retained"
+   "disposition": "resolved",
+   "ruled_on": "2026-09-21"
   },
   {
    "ticket": "T-0305",
@@ -2434,32 +2437,33 @@
   },
   {
    "ticket": "T-1087",
-   "state": "blocked-owner",
-   "owner": "the owner — resolution and basis are B-rules",
+   "state": "ruled",
+   "owner": "the owner — resolution and basis are B-rules, and he wrote them",
    "question": "place_vocabulary's B4 calls Wabansia and Kinzie's Addition surveys this project commits none of, and it commits both. Outside, inside, or B4 with a new reason?",
-   "what_it_costs_today": "Exactly one person — person_uncertain_doctor_kimberly, the doctor in Wabansia — is scored undecided.",
-   "what_would_resolve_it": "The owner writing `resolution` and `basis` for the two places, then `tools/resolve_place_vocabulary.py --write`.",
+   "what_it_costs_today": "Nothing. The owner ruled INSIDE on 2026-09-21: B4's third kind is withdrawn, both surveys are ruled on the new B6, and the one person the question cost — person_uncertain_doctor_kimberly, the doctor in Wabansia — moved with it.",
+   "what_would_resolve_it": "Resolved by the owner's ruling of 2026-09-21, written into the vocabulary and re-measured by `tools/resolve_place_vocabulary.py --write`. The guard below now holds the RULING rather than the retention: put either survey back on B4 and this build fails.",
    "guard": {
     "reads": "data/research/newspapers/place_vocabulary.json",
-    "expects": "both places are still undecided on B4 and the person buckets are unmoved",
+    "expects": "both surveys are ruled inside on B6 and the doctor in Wabansia is counted inside",
     "measured": {
      "wabansia": [
-      "undecided",
-      "B4"
+      "inside",
+      "B6"
      ],
      "kinzies_addition": [
-      "undecided",
-      "B4"
+      "inside",
+      "B6"
      ],
      "persons_by_bucket": {
-      "inside": 1119,
+      "inside": 1120,
       "outside": 141,
-      "undecided": 25
+      "undecided": 24
      }
     }
    },
    "holds": true,
-   "disposition": "retained"
+   "disposition": "resolved",
+   "ruled_on": "2026-09-21"
   }
  ]
 }

@@ -106,6 +106,10 @@ from block_faces import project as face_project  # noqa: E402
 # here rather than retyped, so the ceiling the schedule deals against and the ceiling
 # the generator enforces cannot become two numbers.
 from reconcile_665 import ROW_UNITS_PER_LOT  # noqa: E402
+# T-1610. The inventory class and the adoption test are one derivation, in the module
+# that owns the family-to-group mapping, so this generator and the redeal executor
+# cannot come to two opinions about what standing in a yard means.
+from reconcile_665 import houses_a_household, inventory_class  # noqa: E402
 
 # The family band, and the one rule that turns it into an instance's dimensions. It
 # used to live in this file; the North Division parcel needed the same arithmetic and
@@ -116,6 +120,15 @@ from family_bands import (dimensions_m, eave_floor, eave_for_ridge,  # noqa: E40
                           storeys, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import note_refusal, roof_kind  # noqa: E402
+
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "drawn"
+CORRIDOR_LINE_WHY = (
+    "a roof on a platted lot is seated on the block grid, so the roadway it must keep out of is the "
+    "one a visitor walks"
+)
 
 OCCUPANCY = occupancy()
 
@@ -860,6 +873,7 @@ def build_block(block: dict, table: dict[str, dict], lots_by_id: dict[str, dict]
     # would collide on the first slot that shared a family. Everything else already
     # works across entries: occupancy, separation and the roadway are all measured
     # against the committed dataset rather than against this entry's own slots.
+    check_slot_inventory_classes(block)
     records = []
     for seq, slot in enumerate(block["slots"], start=int(block.get("seq_start", 1))):
         on_frontage = slot["stands_on"] == "frontage"
@@ -954,6 +968,48 @@ TRAFFIC_RANK = {"light": 0, "ordinary": 1, "principal": 2}
 def street_traffic() -> dict[str, str]:
     return {s["id"]: s.get("traffic")
             for s in load(DATA / "streets" / "1835.json")["streets"]}
+
+
+def principal_lots_of(block: dict) -> set[int]:
+    """The lots this deal stands a principal roof on — the same set the parcel gate holds.
+
+    A frontage run holds no lot per unit; it counts against the lots the recipe named for
+    it, so those are in the set under the run's name.
+    """
+    held = {int(slot["lot"]) for slot in block["slots"]
+            if slot.get("inventory_class") == "principal_functional" and "lot" in slot}
+    held |= {int(i) for i in (block.get("frontage") or {}).get("lots", ())}
+    return held
+
+
+def check_slot_inventory_classes(block: dict) -> None:
+    """Every slot's declared class must be the one the derivation gives it. T-1610.
+
+    THIS IS WHAT MAKES A RE-DEAL A RE-DEAL. `inventory_class` reads a slot's family and
+    its position — off the alley behind a dealt principal roof is ancillary, by the
+    owner's rear-cottage ruling of 2026-09-23 — and the recipe states the answer beside
+    every slot. Until now nothing held the two together, so the six platted-block
+    verdicts T-1611 carries out could have been landed by typing `ancillary` over a
+    dwelling slot's class, which is a field edit dressed as a deal: the class would no
+    longer follow from anything, and the next reader could not tell an argued position
+    from a typo. With this, the only way to move a slot's class is to move the slot.
+    """
+    held = principal_lots_of(block)
+    for seq, slot in enumerate(block["slots"], start=int(block.get("seq_start", 1))):
+        lot = int(slot["lot"]) if "lot" in slot else None
+        derived = inventory_class(
+            slot["family"], stands_on=slot.get("stands_on"),
+            lot_carries_a_principal_roof=lot is not None and lot in held)
+        if slot.get("inventory_class") == derived:
+            continue
+        where = (f"on the {slot.get('stands_on')}" if lot is None
+                 else f"on lot {lot}, off the {slot.get('stands_on')}")
+        raise SystemExit(
+            f"{block['block_id']}: slot {seq} is a {slot['family']} {where} and the "
+            f"recipe calls it {slot.get('inventory_class')!r}, which is not what it "
+            f"derives as ({derived!r}). The class is not a field to be set — it follows "
+            f"from the family and the position, so re-deal the slot rather than "
+            f"re-typing its class (see reconcile_665.inventory_class)")
 
 
 def check_non_dwelling_slot(block: dict, slot: dict, family: str,
@@ -1840,11 +1896,19 @@ def records_from_inputs() -> list[dict]:
             raise SystemExit(f"the inferred-household programme adopts {sid}, which no "
                              f"block recipe builds")
         recon = record["reconstruction"]
-        if recon["inventory_class"] != "principal_functional":
-            raise SystemExit(f"{sid} is an ancillary {recon['family']} roof and cannot be "
-                             f"adopted: a yard building serves the lot it stands behind, "
-                             f"and an adoption is a claim about who lived or worked in a "
-                             f"building")
+        # T-1610. This asks the FAMILY, not the inventory class, and the two stopped
+        # agreeing the day a rear cottage could be ancillary. What makes an adoption
+        # nonsensical is the kind of building — "a household living in a privy is not a
+        # modest claim but a nonsensical one" (L256's neighbour) — and a privy is a privy
+        # because of its family, not because of where it stands. A rear cottage in the
+        # yard is a DWELLING and housing a household in one is the whole point of the
+        # owner's ruling of 2026-09-23; refusing it here for being ancillary would take
+        # that ruling back in the one place it matters.
+        if not houses_a_household(recon["family"]):
+            raise SystemExit(f"{sid} is a {recon['family']} yard building and cannot be "
+                             f"adopted: a stable or a privy serves the lot it stands "
+                             f"behind, and an adoption is a claim about who lived or "
+                             f"worked in a building")
     return records
 
 

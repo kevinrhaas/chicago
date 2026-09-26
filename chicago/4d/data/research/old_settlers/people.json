@@ -3434,7 +3434,7 @@
     "rule": "OS3",
     "outcome": "refused",
     "person_id": null,
-    "why": "the residents layer has 2 bearer(s) of 'murray', none with the forename initial 'r'; same surname, different forename initial never merges"
+    "why": "the residents layer has 5 bearer(s) of 'murray', none with the forename initial 'r'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",
@@ -4537,7 +4537,7 @@
     "rule": "OS3",
     "outcome": "refused",
     "person_id": null,
-    "why": "the residents layer has 9 bearer(s) of 'smith', none with the forename initial 'd'; same surname, different forename initial never merges"
+    "why": "the residents layer has 10 bearer(s) of 'smith', none with the forename initial 'd'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",
@@ -5671,9 +5671,10 @@
     "person_id": null,
     "candidates": [
      "beaubien_madore",
-     "beaubien_mark"
+     "beaubien_mark",
+     "beaubien_monique"
     ],
-    "why": "2 bearers of 'beaubien' share the forename initial 'm'; the roster does not discriminate between them"
+    "why": "3 bearers of 'beaubien' share the forename initial 'm'; the roster does not discriminate between them"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",
@@ -8228,7 +8229,7 @@
     "rule": "OS3",
     "outcome": "refused",
     "person_id": null,
-    "why": "the residents layer has 9 bearer(s) of 'smith', none with the forename initial 'd'; same surname, different forename initial never merges"
+    "why": "the residents layer has 10 bearer(s) of 'smith', none with the forename initial 'd'; same surname, different forename initial never merges"
    },
    "proposed": {
     "rung": "not_a_resident_on_this_evidence",

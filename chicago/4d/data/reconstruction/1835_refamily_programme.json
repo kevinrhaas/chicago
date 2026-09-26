@@ -1,0 +1,600 @@
+{
+  "$schema_note": "No schema. DERIVED — regenerate with tools/report_refamily_programme.py --build. Do not hand-edit.",
+  "id": "chicago_1835_refamily_programme",
+  "ticket": "T-1560",
+  "parent_ticket": "T-1556",
+  "target_date": "1835-07-01",
+  "generated_by": "tools/report_refamily_programme.py --build",
+  "read_by": [
+    "data/reconstruction/1835_reconstruction_order_book.json",
+    "data/reconstruction/1835_refamily_rule.json"
+  ],
+  "not_a_reading": "This report adjudicates no source and reads nothing new. It subtracts one derived file from another and states the result.",
+  "moves_nobody": true,
+  "writes_no_card": true,
+  "the_ruling": "the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the re-cut holds is RE-FAMILIED rather than retired — the heads move into the buckets the re-cut grew instead of being un-written",
+  "what_a_move_is": "one reconstructed person counted in a different cell of the same ladder. His card, his id, his residence_grade and every citation on him are untouched; his sex and age band may not change; the bucket he left keeps its `drawn_here` and names him in `refamilied_out`, and the bucket he entered fills one of its orders with a person the town already holds.",
+  "what_a_move_is_not": "a retirement (nobody is un-written, which is T-1459's ruling of 2026-09-20) and a draw (no stranger enters the town, so the population does not move — only what is still OWED does).",
+  "the_pieces": [
+    {
+      "ticket": "T-1557",
+      "owns": "the ledger and the order book's accounting of a move, with zero moves made",
+      "settled": true
+    },
+    {
+      "ticket": "T-1558",
+      "owns": "the rule that chooses WHICH held heads move, modelled against the adoption layers",
+      "settled": true
+    },
+    {
+      "ticket": "T-1559",
+      "owns": "the moves themselves, in bucket-family stages",
+      "settled": true
+    },
+    {
+      "ticket": "T-1560",
+      "owns": "this report: the counts, the rule, and the owner's ruling behind them",
+      "settled": false
+    }
+  ],
+  "the_programme_in_four_numbers": {
+    "held_when_the_ruling_was_made": 524,
+    "moves_T_1556_named": 265,
+    "moves_the_rule_yields": 129,
+    "people_still_held_when_it_is_spent": 395,
+    "the_remedy_reaches": 0.2462
+  },
+  "where_the_programme_stands": {
+    "moves_made": 129,
+    "moves_outstanding": 0,
+    "outstanding_by_the_ticket_the_move_names": [],
+    "surplus_still_held_today": 395
+  },
+  "what_it_is_left_holding": {
+    "people": 395,
+    "buckets": 44,
+    "buckets_cleared": 0,
+    "of_refused_buckets": 44,
+    "by_family": [
+      {
+        "sex": "female",
+        "age_band": "under_10",
+        "people_still_held": 69
+      },
+      {
+        "sex": "male",
+        "age_band": "under_10",
+        "people_still_held": 69
+      },
+      {
+        "sex": "female",
+        "age_band": "20_29",
+        "people_still_held": 64
+      },
+      {
+        "sex": "male",
+        "age_band": "10_19",
+        "people_still_held": 46
+      },
+      {
+        "sex": "female",
+        "age_band": "10_19",
+        "people_still_held": 39
+      },
+      {
+        "sex": "male",
+        "age_band": "20_29",
+        "people_still_held": 35
+      },
+      {
+        "sex": "female",
+        "age_band": "30_39",
+        "people_still_held": 28
+      },
+      {
+        "sex": "male",
+        "age_band": "30_39",
+        "people_still_held": 24
+      },
+      {
+        "sex": "female",
+        "age_band": "40_49",
+        "people_still_held": 9
+      },
+      {
+        "sex": "male",
+        "age_band": "40_49",
+        "people_still_held": 6
+      },
+      {
+        "sex": "female",
+        "age_band": "50_plus",
+        "people_still_held": 4
+      },
+      {
+        "sex": "male",
+        "age_band": "50_plus",
+        "people_still_held": 2
+      }
+    ],
+    "and_nothing_can_move_them": "T-1558 measured the ceilings: with a person's sex and age band fixed the bound is 233, with the trade fixed too it is 123, and with movability applied and a house kept whole it is 73. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
+  },
+  "what_the_town_converges_to": {
+    "still_owed_now": 299,
+    "still_owed_when_the_programme_is_spent": 299,
+    "persons_standing_in_the_layer": 2381,
+    "converges_to_now": 2680,
+    "converges_to_when_the_programme_is_spent": 2551,
+    "the_model_point": 2543,
+    "the_model_range": [
+      2362,
+      3265
+    ],
+    "reading": "2,551 is inside the model's 2,362-3,265 and 8 above its 2,543 point, against 137 above it today."
+  },
+  "what_the_book_goes_on_saying": "Each of the buckets below keeps its `held_at` and its `the_re_cut_would_have_ordered` side by side, which is T-1459's ruling of 2026-09-20 and is the state the 2026-09-24 ruling IMPROVED on rather than abolished. docs/LIBERTIES.md L268 is the admission.",
+  "what_would_move_the_remainder": [
+    {
+      "id": "more_orders_in_the_women_and_children_cells",
+      "says": "The binding constraint is room, not willingness: the surplus is 223 people under twenty and 105 adult women, and their cells hold 37 and 1 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
+    },
+    {
+      "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
+      "says": "277 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 143 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "who_owns_it": "the business staffing band (T-1189 and its successors)"
+    },
+    {
+      "id": "the_22_seated_households",
+      "says": "23 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.",
+      "who_owns_it": "T-1199"
+    },
+    {
+      "id": "and_the_honest_alternative",
+      "says": "What is left standing after the rule is spent is a remainder that NOTHING can move, and T-1459's ruling says it is held rather than clamped. The book will go on naming both numbers per bucket, which is the state the owner's ruling improved on rather than abolished.",
+      "who_owns_it": "T-1560, the programme's report"
+    }
+  ],
+  "the_end_state": [
+    {
+      "bucket": "persons/male/under_10/south/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 109,
+      "the_re_cut_would_have_ordered": 64,
+      "surplus_still_held": 45,
+      "refamilied_out_already": 10,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 45
+    },
+    {
+      "bucket": "persons/female/under_10/south/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 100,
+      "the_re_cut_would_have_ordered": 57,
+      "surplus_still_held": 43,
+      "refamilied_out_already": 7,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 43
+    },
+    {
+      "bucket": "persons/female/20_29/south/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 64,
+      "the_re_cut_would_have_ordered": 36,
+      "surplus_still_held": 28,
+      "refamilied_out_already": 2,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 28
+    },
+    {
+      "bucket": "persons/male/10_19/south/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 65,
+      "the_re_cut_would_have_ordered": 39,
+      "surplus_still_held": 26,
+      "refamilied_out_already": 6,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 26
+    },
+    {
+      "bucket": "persons/female/10_19/south/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 55,
+      "the_re_cut_would_have_ordered": 33,
+      "surplus_still_held": 22,
+      "refamilied_out_already": 6,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 22
+    },
+    {
+      "bucket": "persons/male/20_29/south/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 52,
+      "the_re_cut_would_have_ordered": 32,
+      "surplus_still_held": 20,
+      "refamilied_out_already": 8,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 20
+    },
+    {
+      "bucket": "persons/male/under_10/north/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 44,
+      "the_re_cut_would_have_ordered": 28,
+      "surplus_still_held": 16,
+      "refamilied_out_already": 7,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 16
+    },
+    {
+      "bucket": "persons/female/under_10/north/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 41,
+      "the_re_cut_would_have_ordered": 26,
+      "surplus_still_held": 15,
+      "refamilied_out_already": 4,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 15
+    },
+    {
+      "bucket": "persons/male/30_39/south/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 32,
+      "the_re_cut_would_have_ordered": 19,
+      "surplus_still_held": 13,
+      "refamilied_out_already": 3,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 13
+    },
+    {
+      "bucket": "persons/female/20_29/south/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 30,
+      "the_re_cut_would_have_ordered": 19,
+      "surplus_still_held": 11,
+      "refamilied_out_already": 5,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 11
+    },
+    {
+      "bucket": "persons/female/30_39/south/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 27,
+      "the_re_cut_would_have_ordered": 16,
+      "surplus_still_held": 11,
+      "refamilied_out_already": 4,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 11
+    },
+    {
+      "bucket": "persons/female/under_10/west/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 34,
+      "the_re_cut_would_have_ordered": 23,
+      "surplus_still_held": 11,
+      "refamilied_out_already": 6,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 11
+    },
+    {
+      "bucket": "persons/male/10_19/north/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 28,
+      "the_re_cut_would_have_ordered": 17,
+      "surplus_still_held": 11,
+      "refamilied_out_already": 2,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 11
+    },
+    {
+      "bucket": "persons/female/20_29/north/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 26,
+      "the_re_cut_would_have_ordered": 16,
+      "surplus_still_held": 10,
+      "refamilied_out_already": 2,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 10
+    },
+    {
+      "bucket": "persons/female/10_19/north/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 24,
+      "the_re_cut_would_have_ordered": 15,
+      "surplus_still_held": 9,
+      "refamilied_out_already": 2,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 9
+    },
+    {
+      "bucket": "persons/female/10_19/west/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 21,
+      "the_re_cut_would_have_ordered": 13,
+      "surplus_still_held": 8,
+      "refamilied_out_already": 3,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 8
+    },
+    {
+      "bucket": "persons/male/10_19/west/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 23,
+      "the_re_cut_would_have_ordered": 15,
+      "surplus_still_held": 8,
+      "refamilied_out_already": 3,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 8
+    },
+    {
+      "bucket": "persons/male/20_29/north/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 22,
+      "the_re_cut_would_have_ordered": 14,
+      "surplus_still_held": 8,
+      "refamilied_out_already": 3,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 8
+    },
+    {
+      "bucket": "persons/male/under_10/west/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 34,
+      "the_re_cut_would_have_ordered": 26,
+      "surplus_still_held": 8,
+      "refamilied_out_already": 9,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 8
+    },
+    {
+      "bucket": "persons/female/20_29/north/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 15,
+      "the_re_cut_would_have_ordered": 8,
+      "surplus_still_held": 7,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 7
+    },
+    {
+      "bucket": "persons/female/30_39/south/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 16,
+      "the_re_cut_would_have_ordered": 9,
+      "surplus_still_held": 7,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 7
+    },
+    {
+      "bucket": "persons/male/20_29/west/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 20,
+      "the_re_cut_would_have_ordered": 13,
+      "surplus_still_held": 7,
+      "refamilied_out_already": 3,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 7
+    },
+    {
+      "bucket": "persons/male/30_39/north/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 15,
+      "the_re_cut_would_have_ordered": 8,
+      "surplus_still_held": 7,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 7
+    },
+    {
+      "bucket": "persons/female/20_29/west/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 20,
+      "the_re_cut_would_have_ordered": 14,
+      "surplus_still_held": 6,
+      "refamilied_out_already": 5,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 6
+    },
+    {
+      "bucket": "persons/female/30_39/north/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 11,
+      "the_re_cut_would_have_ordered": 7,
+      "surplus_still_held": 4,
+      "refamilied_out_already": 2,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 4
+    },
+    {
+      "bucket": "persons/male/30_39/west/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 11,
+      "the_re_cut_would_have_ordered": 7,
+      "surplus_still_held": 4,
+      "refamilied_out_already": 2,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 4
+    },
+    {
+      "bucket": "persons/male/40_49/south/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 9,
+      "the_re_cut_would_have_ordered": 5,
+      "surplus_still_held": 4,
+      "refamilied_out_already": 1,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 4
+    },
+    {
+      "bucket": "persons/female/30_39/west/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 9,
+      "the_re_cut_would_have_ordered": 6,
+      "surplus_still_held": 3,
+      "refamilied_out_already": 3,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 3
+    },
+    {
+      "bucket": "persons/female/40_49/south/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 9,
+      "the_re_cut_would_have_ordered": 6,
+      "surplus_still_held": 3,
+      "refamilied_out_already": 2,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 3
+    },
+    {
+      "bucket": "persons/female/20_29/west/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 9,
+      "the_re_cut_would_have_ordered": 7,
+      "surplus_still_held": 2,
+      "refamilied_out_already": 4,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 2
+    },
+    {
+      "bucket": "persons/female/30_39/north/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 6,
+      "the_re_cut_would_have_ordered": 4,
+      "surplus_still_held": 2,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 2
+    },
+    {
+      "bucket": "persons/female/40_49/north/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 3,
+      "the_re_cut_would_have_ordered": 1,
+      "surplus_still_held": 2,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 2
+    },
+    {
+      "bucket": "persons/female/40_49/south/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 5,
+      "the_re_cut_would_have_ordered": 3,
+      "surplus_still_held": 2,
+      "refamilied_out_already": 1,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 2
+    },
+    {
+      "bucket": "persons/female/50_plus/south/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 6,
+      "the_re_cut_would_have_ordered": 4,
+      "surplus_still_held": 2,
+      "refamilied_out_already": 2,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 2
+    },
+    {
+      "bucket": "persons/female/30_39/west/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 5,
+      "the_re_cut_would_have_ordered": 4,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 1,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/female/40_49/north/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 4,
+      "the_re_cut_would_have_ordered": 3,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 1,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/female/40_49/west/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 2,
+      "the_re_cut_would_have_ordered": 1,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 1,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/female/50_plus/north/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 2,
+      "the_re_cut_would_have_ordered": 1,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/female/50_plus/west/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 2,
+      "the_re_cut_would_have_ordered": 1,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/male/10_19/west/lodging/trade",
+      "owning_ticket": "T-1532",
+      "held_at": 1,
+      "the_re_cut_would_have_ordered": 0,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/male/40_49/north/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 3,
+      "the_re_cut_would_have_ordered": 2,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 1,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/male/40_49/west/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 3,
+      "the_re_cut_would_have_ordered": 2,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/male/50_plus/south/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 3,
+      "the_re_cut_would_have_ordered": 2,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 2,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/male/50_plus/west/family/trade",
+      "owning_ticket": "T-1347",
+      "held_at": 2,
+      "the_re_cut_would_have_ordered": 1,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    }
+  ]
+}

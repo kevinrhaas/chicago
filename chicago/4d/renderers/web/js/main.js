@@ -330,7 +330,7 @@ const FURNITURE_REACH_BALANCED_M = 800;
  * rendering programme. Recorded here, at the definition site, per the ruling's
  * third half — MEASURE, THEN MOVE. This is the measure. The move is his.
  */
-const DETAIL = {
+const DETAIL_DECLARED = {
   // RAISED 2026-08-22 TO CARRY THE WORST STAND, ON THE OWNER'S RULING ("raise
   // it, I think"), and this is the entry that says what it cost. T-0135 built
   // the instrument that walks five named stands instead of one and found the
@@ -473,7 +473,22 @@ const DETAIL = {
   // reading of the merged tree. T-0672 re-measures the moment #432 is green, and
   // if the merged tree reads under these numbers they come DOWN to it.
   full:     { triangles: 1460000, shadowReachM: 240, furnitureCastsShadow: true,
-              furnitureReachM: null },
+              furnitureReachM: null,
+              // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
+              // MEASUREMENT SET IT, because "a rung that cannot say what it
+              // protects is the next version of this ticket". The archaeology
+              // above stays — it is how the number got here — and these two
+              // lines are the answer a reader needs before any of it.
+              protects: 'the machine this project targets: a desktop with a real '
+                + 'GPU, running the town at 1280x800 with every layer at full detail',
+              measured: '1,460,000 set 2026-09-03 (the sixth re-basing, on the '
+                + "owner's \u201craise all 3\u201d, to carry PR #432's heightfield). "
+                + 'Re-read on dev 2026-09-26, published mirror, desktop 1280x800, '
+                + "T-0135's five stands, after T-1595 gave the apron's 130 sliver "
+                + 'tiles one draw between them: worst 1,383,428 at the forks from '
+                + 'Wolf Point \u2014 76,572 clear, 5.2 %. The apron is 2,489 '
+                + 'triangles that the frustum used to be able to reject and now '
+                + 'cannot, and that is the whole of the rise' },
   // RE-BUDGETED 2026-08-21, 800000 -> 900000, on the owner's ruling that a
   // ceiling is a number this project chose rather than a claim about 1835.
   // Four parcels landed the same day - the street edge, the lot-line fences,
@@ -560,7 +575,14 @@ const DETAIL = {
   // no room for the parcel after these; T-0149 and T-0147 still own the trim
   // that would win the rung back.
   balanced: { triangles: 1280000, shadowReachM: 240, furnitureCastsShadow: true,
-              furnitureReachM: FURNITURE_REACH_BALANCED_M },
+              furnitureReachM: FURNITURE_REACH_BALANCED_M,
+              protects: 'the median visitor: integrated graphics on an ordinary '
+                + 'laptop, which is what most people arrive on',
+              measured: '1,280,000 set 2026-09-03 in the same re-basing and by the '
+                + 'same rule (keep at least the absolute headroom carried that day, '
+                + 'rounded up to 5,000). Re-read on dev 2026-09-26, published mirror, '
+                + 'desktop 1280x800, after T-1595: worst 1,233,768 at the forks '
+                + 'from Wolf Point \u2014 46,232 clear, 3.6 %' },
   // -- T-0147, 2026-08-27 -- AND THE FLOOR IS WON BACK: 1,050,000 -> 785,000 --
   //
   // The third and last piece of T-0149, whose whole complaint is the sentence
@@ -614,9 +636,86 @@ const DETAIL = {
   // ceiling following a trim DOWN, which T-0149 named as the strongest evidence
   // that a trim worked.
   light:    { triangles: 825000, shadowReachM: 120, furnitureCastsShadow: false,
-              furnitureReachM: FURNITURE_REACH_LIGHT_M },
+              furnitureReachM: FURNITURE_REACH_LIGHT_M,
+              protects: 'the weak-machine floor \u2014 the tier a touch device and a '
+                + 'machine without a GPU boot into, and the only rung that is a '
+                + 'promise to a person rather than a budget for a parcel',
+              measured: '825,000 set 2026-09-03, the one raise of this rung ever '
+                + 'taken and taken only on a second explicit ruling. Re-read on dev '
+                + '2026-09-26, published mirror, after T-1595: worst 772,025 at the '
+                + 'open aerial \u2014 52,975 clear, 6.4 % \u2014 at 1280x800, and '
+                + '698,550 at the same stand at 390x780. Its DRAW-CALL floor is a '
+                + 'separate promise and it was RED at 99 against 90 until T-1595 '
+                + "gave the ground's apron one draw call instead of 130; it is GREEN "
+                + 'at 82 (Lake and Market) on desktop and 74 on mobile, and it was '
+                + 'won by a trim and not by moving the number' },
 };
 const DETAIL_ORDER = ['full', 'balanced', 'light'];
+/**
+ * THE LADDER IS SEALED HERE, AND THAT IS WHY `DETAIL` IS BUILT RATHER THAN
+ * WRITTEN (T-0135, the owner's ruling of 2026-09-21).
+ *
+ * The table above is a DECLARATION. This is the thing that turns it into a
+ * ladder, and the distinction is the whole of the ruling: "three rungs that no
+ * longer ascend are not a quality ladder — they are three numbers."
+ *
+ * SAY PRECISELY WHAT THE RISK IS, because the loose version of it is wrong and
+ * checkable. The three numbers in this table have always descended at any one
+ * instant, the ruling's own set included — 1,320,377 / 1,144,787 / 992,617 is a
+ * descending set, and it is a descending set against today's rungs too. What
+ * has NEVER existed is anything that made them. The raise of 2026-08-22 is the
+ * near miss on the record and this table says so above: `light` went to
+ * 1,050,000, "MORE than `full` promised the day before". Across that raise the
+ * bottom rung passed the old top rung; only the fact that `full` was raised in
+ * the same commit kept the set ordered, and nothing in the code cared either
+ * way. Seven re-basings are recorded above, each one hand-checked by whoever
+ * took it, and the ruling that asks for this seal opens by worrying — in the
+ * owner's own words — that raising `light` "puts it above what `full` carries
+ * today". The check was a person reading a table, every time, and a person is
+ * what this replaces.
+ *
+ * So the ceiling a tier actually carries is the RUNNING MINIMUM down
+ * `DETAIL_ORDER`, not the number typed beside it. A rung can be typed too high;
+ * it cannot BE too high. That is what "monotonic by construction" has to mean
+ * to be worth anything — an assertion can be deleted by the same edit that
+ * breaks the thing it asserts, and a `throw` here would turn a mistyped ceiling
+ * into a white screen for a visitor, which is a worse failure than the one it
+ * guards. The construction cannot be deleted without deleting the ladder.
+ *
+ * A clamp that nobody can see is the other failure, so it is reported rather
+ * than swallowed: the clamped rung carries `declared` and `clamped: true`,
+ * `console.error` says so at boot, and `tools/smoke_renderer.mjs` gates BOTH —
+ * that the declared numbers descend on their own, and that no rung is running
+ * clamped. Today nothing clamps: 1,460,000 > 1,280,000 > 825,000, and the
+ * running minimum is the identity. The seal costs nothing until the day it is
+ * the only thing standing between a typo and a ladder that lies.
+ *
+ * `protects` and `measured` are required of every rung for the same reason and
+ * gated the same way. A ceiling with no stated purpose is a number somebody
+ * will raise, because there is nothing written down for the raise to argue
+ * against — which is the fault T-0135 was opened on, one level up.
+ */
+const sealLadder = (declared, order) => {
+  const sealed = {};
+  let above = Infinity;
+  for (const level of order) {
+    const rung = declared[level];
+    if (!rung) throw new Error(`scene detail: '${level}' is in the order and not in the table`);
+    const ceiling = Math.min(rung.triangles, above - 1);
+    if (ceiling !== rung.triangles) {
+      console.error(`scene detail: the '${level}' ceiling is declared at `
+        + `${rung.triangles.toLocaleString('en-US')}, which does not sit under the rung `
+        + `above it (${(above).toLocaleString('en-US')}). It is running clamped to `
+        + `${ceiling.toLocaleString('en-US')}. A ladder whose rungs do not descend is `
+        + 'three numbers — fix the declaration (T-0135).');
+    }
+    sealed[level] = { ...rung, triangles: ceiling, declared: rung.triangles,
+      clamped: ceiling !== rung.triangles };
+    above = ceiling;
+  }
+  return sealed;
+};
+const DETAIL = sealLadder(DETAIL_DECLARED, DETAIL_ORDER);
 /**
  * THE DRAW-CALL BUDGET, RAISED FROM 80 TO 120 ON 2026-08-21 — a conscious
  * re-budget, written down here where the number is set, and never a silent one.

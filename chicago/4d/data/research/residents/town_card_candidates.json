@@ -4,18 +4,20 @@
  "generated_by": "tools/consolidate_town_cards.py --apply",
  "ticket": "T-0839",
  "counts": {
-  "town_people": 1285,
-  "open_clusters": 20,
-  "cards_in_open_clusters": 43,
+  "town_people": 1404,
+  "open_clusters": 21,
+  "cards_in_open_clusters": 45,
   "rulings": {
-   "distinct": 67,
-   "merge": 47,
+   "distinct": 71,
+   "merge": 48,
    "undecided_T-1281": 1,
+   "undecided_T-1550": 1,
+   "undecided_T-1554": 1,
    "undecided_owner": 1,
    "undecided_rule": 12
   },
-  "landed_merges": 47,
-  "cards_folded": 66
+  "landed_merges": 48,
+  "cards_folded": 67
  },
  "landed": [
   {
@@ -130,6 +132,16 @@
     "dole_g_w"
    ],
    "rule": "C2"
+  },
+  {
+   "cluster": "egan",
+   "survivor": "egan_william_b",
+   "survivor_household": "hh_egan_william_b",
+   "survivor_on_the_cards": true,
+   "folded": [
+    "egan_doctor"
+   ],
+   "rule": "C0"
   },
   {
    "cluster": "eldredge-eldridge",
@@ -279,6 +291,16 @@
    "rule": "C2"
   },
   {
+   "cluster": "kimberley",
+   "survivor": "kimberly_edmund_s",
+   "survivor_household": "hh_pruyne_kimberly",
+   "survivor_on_the_cards": true,
+   "folded": [
+    "kimberley_ed"
+   ],
+   "rule": "C9"
+  },
+  {
    "cluster": "kimberly",
    "survivor": "kimberly_edmund_s",
    "survivor_household": "hh_pruyne_kimberly",
@@ -289,16 +311,6 @@
     "kimberly_edmund_l"
    ],
    "rule": "C0"
-  },
-  {
-   "cluster": "kimberley",
-   "survivor": "kimberly_edmund_s",
-   "survivor_household": "hh_pruyne_kimberly",
-   "survivor_on_the_cards": true,
-   "folded": [
-    "kimberley_ed"
-   ],
-   "rule": "C9"
   },
   {
    "cluster": "kinzie-john",
@@ -563,8 +575,8 @@
       "chicago_voter_lists_1833_1835_irad",
       "isa_public_domain_land_tract_sales"
      ],
-     "ruling": "undecided",
-     "ruled_in": "barry-j"
+     "ruling": "distinct",
+     "ruled_in": "barre-barry-j-r"
     },
     {
      "person": "barry_john_s",
@@ -575,8 +587,8 @@
       "chicago_democrat_1833_1835",
       "chicago_voter_lists_1833_1835_irad"
      ],
-     "ruling": "undecided",
-     "ruled_in": "barry-j"
+     "ruling": "distinct",
+     "ruled_in": "barre-barry-john-s"
     }
    ],
    "pairs": [
@@ -589,6 +601,45 @@
      ],
      "against": [
       "the middle initial contradicts: 'r' against 's'",
+      "neither card is an anchor: nothing here documents the person beyond a list"
+     ]
+    }
+   ]
+  },
+  {
+   "surname": "beaubien",
+   "cards": [
+    {
+     "person": "beaubien_charles",
+     "household": "hh_beaubien_charles",
+     "name": "Charles Beaubien",
+     "anchor": false,
+     "sources": [
+      "st_marys_baptismal_register_1833_1835"
+     ],
+     "ruling": "undecided",
+     "ruled_in": "beaubien_charles"
+    },
+    {
+     "person": "beaubien_charles_h",
+     "household": "hh_beaubien_charles_h",
+     "name": "Charles H Beaubien",
+     "anchor": false,
+     "sources": [
+      "chicago_voter_lists_1833_1835_irad"
+     ],
+     "ruling": "undecided",
+     "ruled_in": "beaubien_charles"
+    }
+   ],
+   "pairs": [
+    {
+     "a": "beaubien_charles",
+     "b": "beaubien_charles_h",
+     "for": [
+      "the same forename, 'charles'"
+     ],
+     "against": [
       "neither card is an anchor: nothing here documents the person beyond a list"
      ]
     }
@@ -690,7 +741,7 @@
       "chicago_democrat_1833_1835"
      ],
      "ruling": "distinct",
-     "ruled_in": "clark-john"
+     "ruled_in": "chark-clark-john-a"
     },
     {
      "person": "clark_john_k",
@@ -702,7 +753,7 @@
       "isa_public_domain_land_tract_sales"
      ],
      "ruling": "distinct",
-     "ruled_in": "clark-john"
+     "ruled_in": "chark-clark-john-k"
     }
    ],
    "pairs": [
@@ -1403,8 +1454,8 @@
      "sources": [
       "chicago_american_1835"
      ],
-     "ruling": "undecided",
-     "ruled_in": "wright"
+     "ruling": "distinct",
+     "ruled_in": "wight-wright-j"
     },
     {
      "person": "wright_john",
@@ -1416,7 +1467,7 @@
       "chicago_democrat_1833_11_26"
      ],
      "ruling": "distinct",
-     "ruled_in": "wright"
+     "ruled_in": "wight-wright-john"
     },
     {
      "person": "wright_john_s",

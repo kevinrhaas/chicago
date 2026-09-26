@@ -289,7 +289,7 @@
     },
     {
       "file": "chicago/4d/data/research/newspapers/extracted/chicago_democrat_1835_05_20.json",
-      "sha256": "31a5c954a12390715603c74e0a9351c2149a6e5645b526bad65b287b4aa6e159"
+      "sha256": "bb2f138d109f459acf868c841106c8520acc741386c443ba04a3c6908ecd8381"
     },
     {
       "file": "chicago/4d/data/research/newspapers/extracted/chicago_democrat_1835_05_27.json",
@@ -350,7 +350,7 @@
   ],
   "counts": {
     "claims": 1189,
-    "persons": 2685,
+    "persons": 2667,
     "places": 3,
     "businesses": 196,
     "agencies": 1
@@ -403,18 +403,48 @@
       "name": "A. Beegle",
       "variants": [
         {
+          "as_printed": "1. Beegle",
+          "claim": "chicago_democrat_1834_07_09#c003"
+        },
+        {
           "as_printed": "A. Beegle",
           "claim": "chicago_democrat_1834_07_16#c003"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c003",
         "chicago_democrat_1834_07_16#c003"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]. Beegle",
+          "merge_rule": "‘A. Beegle’ and ‘[?]. Beegle’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 63 of the 1834-07-09 segmentation and entry 63 of 1834-07-16 — the same position of the same return, surnamed Beegle. The forename initial is the only thing between them — A. Beegle reads A. where [?]. Beegle sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]. Beegle",
+            "read_side": "A. Beegle",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 63 of the 1834-07-09 segmentation and entry 63 of 1834-07-16 — the same position of the same return, surnamed Beegle",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]. Beegle’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]. Beegle’ and ‘A. Beegle’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]. Beegle’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with A. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "A. Beegle": "A.",
+              "[?]. Beegle": "[?]"
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_a_c_paterson",
@@ -1504,24 +1534,6 @@
       "associated_places": []
     },
     {
-      "id": "person_adkins",
-      "name": "[?] Adkins",
-      "variants": [
-        {
-          "as_printed": ". Adkins",
-          "claim": "chicago_democrat_1834_07_09#c001"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c001"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
       "id": "person_afutchiens_nathap",
       "name": "Afutchiens, Nathap",
       "variants": [
@@ -2388,18 +2400,48 @@
       "name": "Alvah Fow[l]er",
       "variants": [
         {
+          "as_printed": "Irah Fowler",
+          "claim": "chicago_democrat_1834_07_09#c008"
+        },
+        {
           "as_printed": "Alvah Fowier",
           "claim": "chicago_democrat_1834_07_16#c008"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c008",
         "chicago_democrat_1834_07_16#c008"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]rah Fowler",
+          "merge_rule": "‘Alvah Fow[l]er’ and ‘[?]rah Fowler’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 196 of the 1834-07-09 segmentation and entry 196 of 1834-07-16 — the same position of the same return, surnamed Fowler. The forename initial is the only thing between them — Alvah Fow[l]er reads A. where [?]rah Fowler sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]rah Fowler",
+            "read_side": "Alvah Fow[l]er",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 196 of the 1834-07-09 segmentation and entry 196 of 1834-07-16 — the same position of the same return, surnamed Fowler",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]rah Fowler’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]rah Fowler’ and ‘Alvah Fow[l]er’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]rah Fowler’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with A. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "Alvah Fow[l]er": "A.",
+              "[?]rah Fowler": "[?]"
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_amanda_miner",
@@ -2476,24 +2518,6 @@
       "associated_places": [
         "Chicago"
       ]
-    },
-    {
-      "id": "person_amnee_ball",
-      "name": "[?]amnee Ball",
-      "variants": [
-        {
-          "as_printed": "amnee Ball",
-          "claim": "chicago_democrat_1834_07_09#c003"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c003"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
     },
     {
       "id": "person_amos_bennett",
@@ -2862,18 +2886,48 @@
       "name": "Ann M. Gooding",
       "variants": [
         {
+          "as_printed": "inn M. Gooding",
+          "claim": "chicago_democrat_1834_07_09#c009"
+        },
+        {
           "as_printed": "Ann M. Gooding",
           "claim": "chicago_democrat_1834_07_16#c009"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c009",
         "chicago_democrat_1834_07_16#c009"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]nn M. Gooding",
+          "merge_rule": "‘Ann M. Gooding’ and ‘[?]nn M. Gooding’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 203 of the 1834-07-09 segmentation and entry 204 of 1834-07-16, surnamed Gooding — one slot apart in segmentations holding 324 and 321 entities, and named as one entry by the 1834-07-16 reading pass itself. The forename initial is the only thing between them — Ann M. Gooding reads A. M. where [?]nn M. Gooding sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). The 1834-07-16 reading pass names this pair in its own notes, among what the earlier readings had to leave bracketed and it prints whole: “'[?]nn M. Gooding' is Ann M. Gooding (537)”, line 537 of that column. THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]nn M. Gooding",
+            "read_side": "Ann M. Gooding",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 203 of the 1834-07-09 segmentation and entry 204 of 1834-07-16, surnamed Gooding — one slot apart in segmentations holding 324 and 321 entities, and named as one entry by the 1834-07-16 reading pass itself",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]nn M. Gooding’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]nn M. Gooding’ and ‘Ann M. Gooding’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]nn M. Gooding’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with A. M. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "Ann M. Gooding": "A. M.",
+              "[?]nn M. Gooding": "[?] M."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_anne_maria_barney",
@@ -3519,24 +3573,6 @@
         "forwarding and commission merchant",
         "grocer"
       ],
-      "associated_places": []
-    },
-    {
-      "id": "person_b_northrop",
-      "name": "[?] B. Northrop",
-      "variants": [
-        {
-          "as_printed": "¥..B Northrop",
-          "claim": "chicago_democrat_1834_01_28#c001"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_01_28#c001"
-      ],
-      "first_seen": "1834-01-28",
-      "last_seen": "1834-01-28",
-      "letter_list_only": true,
-      "occupations": [],
       "associated_places": []
     },
     {
@@ -4798,24 +4834,6 @@
       ]
     },
     {
-      "id": "person_beegle",
-      "name": "[?]. Beegle",
-      "variants": [
-        {
-          "as_printed": "1. Beegle",
-          "claim": "chicago_democrat_1834_07_09#c003"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c003"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
       "id": "person_beeson_william",
       "name": "Beeson, William",
       "variants": [
@@ -5338,24 +5356,6 @@
       ]
     },
     {
-      "id": "person_bey_blankinship",
-      "name": "[?]bey Blankinship",
-      "variants": [
-        {
-          "as_printed": "Abey Blankinship",
-          "claim": "chicago_democrat_1834_07_09#c002"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c002"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
       "id": "person_beyera_tobia",
       "name": "Beyera, Tobia",
       "variants": [
@@ -5454,24 +5454,6 @@
       "associated_places": [
         "Chicago"
       ]
-    },
-    {
-      "id": "person_blair",
-      "name": "[?]. Blair",
-      "variants": [
-        {
-          "as_printed": "1. Blair 2",
-          "claim": "chicago_democrat_1834_07_09#c003"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c003"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
     },
     {
       "id": "person_blair_wallian_g",
@@ -7034,24 +7016,6 @@
           "merge_rule": "\"C. C. Town[s]end\" and \"C. C. Townsend\" are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, which the Democrat printed three times — 1834-07-02, 1834-07-09 and 1834-07-16. They stand at the same place in the list in each of the printings that carry them (1834-07-02 and 1834-07-16), and the reading kept here is the one 1834-07-16 prints. Both readings carry the same letters — C. C. Townsend — and differ only in which of them the transcriber bracketed as supplied."
         }
       ]
-    },
-    {
-      "id": "person_c_chamberlain",
-      "name": "[?]. C. Chamberlain",
-      "variants": [
-        {
-          "as_printed": ".. C. Chamberlain",
-          "claim": "chicago_democrat_1834_07_09#c005"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c005"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
     },
     {
       "id": "person_c_e_townsend",
@@ -10806,24 +10770,6 @@
       ]
     },
     {
-      "id": "person_d_doty",
-      "name": "[?]. D. Doty",
-      "variants": [
-        {
-          "as_printed": ". D. Doty",
-          "claim": "chicago_democrat_1834_07_09#c007"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c007"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
       "id": "person_d_elston_co",
       "name": "D. Elston & Co.",
       "variants": [
@@ -13840,18 +13786,48 @@
       "name": "E. M. Fish",
       "variants": [
         {
+          "as_printed": ".. M. Fish",
+          "claim": "chicago_democrat_1834_07_09#c009"
+        },
+        {
           "as_printed": "E. M. Fish",
           "claim": "chicago_democrat_1834_07_16#c009"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c009",
         "chicago_democrat_1834_07_16#c009"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]. M. Fish",
+          "merge_rule": "‘E. M. Fish’ and ‘[?]. M. Fish’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 204 of the 1834-07-09 segmentation and entry 202 of 1834-07-16, surnamed Fish — two slots apart in segmentations holding 324 and 321 entities, and named as one entry by the 1834-07-16 reading pass itself. The forename initial is the only thing between them — E. M. Fish reads E. M. where [?]. M. Fish sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). The 1834-07-16 reading pass names this pair in its own notes: “'[?]. M. Fish' is E. M. Fish (535)”, line 535 of that column. THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]. M. Fish",
+            "read_side": "E. M. Fish",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 204 of the 1834-07-09 segmentation and entry 202 of 1834-07-16, surnamed Fish — two slots apart in segmentations holding 324 and 321 entities, and named as one entry by the 1834-07-16 reading pass itself",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]. M. Fish’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]. M. Fish’ and ‘E. M. Fish’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]. M. Fish’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with E. M. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "E. M. Fish": "E. M.",
+              "[?]. M. Fish": "[?] M."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_e_p_deacon",
@@ -15700,18 +15676,48 @@
       "name": "F. B. Northrop",
       "variants": [
         {
+          "as_printed": "¥..B Northrop",
+          "claim": "chicago_democrat_1834_01_28#c001"
+        },
+        {
           "as_printed": "F. B. Northrop",
           "claim": "chicago_democrat_1834_03_04#c033"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_01_28#c001",
         "chicago_democrat_1834_03_04#c033"
       ],
-      "first_seen": "1834-03-04",
+      "first_seen": "1834-01-28",
       "last_seen": "1834-03-04",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?] B. Northrop",
+          "merge_rule": "‘F. B. Northrop’ and ‘[?] B. Northrop’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 January 1834, printed in the Chicago Democrat of 1834-01-28 and again on 1834-03-04, at entry 22 of the 1834-01-28 segmentation and entry 153 of 1834-03-04 — segmentations holding 107 and 159 entities, so the ordinals do not align and the entry is identified the way T-1011 identified it: line 113 of the page image is set ‘F. B. Northrop’ and it is the only one of the 170 lines beginning with that pair of initials, and ‘[?] B. Northrop’ is the only reading on its side beginning ‘[?] B.’. The forename initial is the only thing between them — F. B. Northrop reads F. B. where [?] B. Northrop sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?] B. Northrop",
+            "read_side": "F. B. Northrop",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 January 1834, printed in the Chicago Democrat of 1834-01-28 and again on 1834-03-04",
+            "entry": "entry 22 of the 1834-01-28 segmentation and entry 153 of 1834-03-04 — segmentations holding 107 and 159 entities, so the ordinals do not align and the entry is identified the way T-1011 identified it: line 113 of the page image is set ‘F. B. Northrop’ and it is the only one of the 170 lines beginning with that pair of initials, and ‘[?] B. Northrop’ is the only reading on its side beginning ‘[?] B.’",
+            "witnesses": [
+              "1834-01-28",
+              "1834-03-04"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?] B. Northrop’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?] B. Northrop’ and ‘F. B. Northrop’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 January 1834, printed in the Chicago Democrat of 1834-01-28 and again on 1834-03-04 read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?] B. Northrop’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with F. B. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "F. B. Northrop": "F. B.",
+              "[?] B. Northrop": "[?] B."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_f_c_berger",
@@ -16125,24 +16131,6 @@
       "associated_places": [
         "Chicago"
       ]
-    },
-    {
-      "id": "person_fisher",
-      "name": "[?]. Fisher",
-      "variants": [
-        {
-          "as_printed": "1. Fisher",
-          "claim": "chicago_democrat_1834_07_09#c008"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c008"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
     },
     {
       "id": "person_fitzlugh_daniel_i",
@@ -19411,18 +19399,48 @@
       "name": "H. Fisher",
       "variants": [
         {
+          "as_printed": "1. Fisher",
+          "claim": "chicago_democrat_1834_07_09#c008"
+        },
+        {
           "as_printed": "H. Fisher",
           "claim": "chicago_democrat_1834_07_16#c008"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c008",
         "chicago_democrat_1834_07_16#c008"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]. Fisher",
+          "merge_rule": "‘H. Fisher’ and ‘[?]. Fisher’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 204 of the 1834-07-09 segmentation and entry 202 of 1834-07-16, surnamed Fish — two slots apart in segmentations holding 324 and 321 entities, and named as one entry by the 1834-07-16 reading pass itself. The forename initial is the only thing between them — H. Fisher reads E. M. where [?]. Fisher sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). The 1834-07-16 reading pass names this pair in its own notes: “'[?]. M. Fish' is E. M. Fish (535)”, line 535 of that column. THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]. Fisher",
+            "read_side": "H. Fisher",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 204 of the 1834-07-09 segmentation and entry 202 of 1834-07-16, surnamed Fish — two slots apart in segmentations holding 324 and 321 entities, and named as one entry by the 1834-07-16 reading pass itself",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]. Fisher’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]. Fisher’ and ‘H. Fisher’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]. Fisher’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with E. M. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "H. Fisher": "H.",
+              "[?]. Fisher": "[?]"
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_h_haddock",
@@ -19642,24 +19660,6 @@
       ],
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
-      "id": "person_h_scott",
-      "name": "[?]. [H]. Scott",
-      "variants": [
-        {
-          "as_printed": "Do 11. scolt",
-          "claim": "chicago_democrat_1834_07_09#c007"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c007"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
       "letter_list_only": true,
       "occupations": [],
       "associated_places": []
@@ -23918,18 +23918,48 @@
       "name": "J. Adkin[s]",
       "variants": [
         {
+          "as_printed": ". Adkins",
+          "claim": "chicago_democrat_1834_07_09#c001"
+        },
+        {
           "as_printed": "J. Adking",
           "claim": "chicago_democrat_1834_07_16#c001"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c001",
         "chicago_democrat_1834_07_16#c001"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?] Adkins",
+          "merge_rule": "‘J. Adkin[s]’ and ‘[?] Adkins’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 15 of the 1834-07-09 segmentation and entry 15 of 1834-07-16 — the same position of the same return, surnamed Adkins. The forename initial is the only thing between them — J. Adkin[s] reads J. where [?] Adkins sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). The 1834-07-16 reading pass names this pair in its own notes: “'[?] Adkins' is J. Adkins (302)”, line 302 of that column. THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?] Adkins",
+            "read_side": "J. Adkin[s]",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 15 of the 1834-07-09 segmentation and entry 15 of 1834-07-16 — the same position of the same return, surnamed Adkins",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?] Adkins’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?] Adkins’ and ‘J. Adkin[s]’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?] Adkins’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with J. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "J. Adkin[s]": "J.",
+              "[?] Adkins": "[?]"
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_j_allen",
@@ -24366,18 +24396,48 @@
       "name": "J. D. Doty",
       "variants": [
         {
+          "as_printed": ". D. Doty",
+          "claim": "chicago_democrat_1834_07_09#c007"
+        },
+        {
           "as_printed": "J. D. Doty",
           "claim": "chicago_democrat_1834_07_16#c007"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c007",
         "chicago_democrat_1834_07_16#c007"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]. D. Doty",
+          "merge_rule": "‘J. D. Doty’ and ‘[?]. D. Doty’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 159 of the 1834-07-09 segmentation and entry 159 of 1834-07-16 — the same position of the same return, surnamed Doty. The forename initial is the only thing between them — J. D. Doty reads J. D. where [?]. D. Doty sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]. D. Doty",
+            "read_side": "J. D. Doty",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 159 of the 1834-07-09 segmentation and entry 159 of 1834-07-16 — the same position of the same return, surnamed Doty",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]. D. Doty’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]. D. Doty’ and ‘J. D. Doty’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]. D. Doty’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with J. D. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "J. D. Doty": "J. D.",
+              "[?]. D. Doty": "[?] D."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_j_dean_caton",
@@ -26144,18 +26204,48 @@
       "name": "Jame[s] Ball",
       "variants": [
         {
+          "as_printed": "amnee Ball",
+          "claim": "chicago_democrat_1834_07_09#c003"
+        },
+        {
           "as_printed": "Jamee Ball",
           "claim": "chicago_democrat_1834_07_16#c003"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c003",
         "chicago_democrat_1834_07_16#c003"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]amnee Ball",
+          "merge_rule": "‘Jame[s] Ball’ and ‘[?]amnee Ball’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 75 of the 1834-07-09 segmentation and entry 75 of 1834-07-16 — the same position of the same return, surnamed Ball. The forename initial is the only thing between them — Jame[s] Ball reads J. where [?]amnee Ball sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]amnee Ball",
+            "read_side": "Jame[s] Ball",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 75 of the 1834-07-09 segmentation and entry 75 of 1834-07-16 — the same position of the same return, surnamed Ball",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]amnee Ball’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]amnee Ball’ and ‘Jame[s] Ball’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]amnee Ball’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with J. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "Jame[s] Ball": "J.",
+              "[?]amnee Ball": "[?]"
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_jame_s_s_cook",
@@ -31970,24 +32060,6 @@
       ]
     },
     {
-      "id": "person_kiler_brown",
-      "name": "[?]kiler Brown",
-      "variants": [
-        {
-          "as_printed": "Skiler Brown",
-          "claim": "chicago_democrat_1834_07_09#c003"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c003"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
       "id": "person_killmore_sanmuel",
       "name": "Killmore, Sanmuel",
       "variants": [
@@ -32673,18 +32745,48 @@
       "name": "L. C. Chamber[l]ain",
       "variants": [
         {
+          "as_printed": ".. C. Chamberlain",
+          "claim": "chicago_democrat_1834_07_09#c005"
+        },
+        {
           "as_printed": "L. C. Chamberiain",
           "claim": "chicago_democrat_1834_07_16#c005"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c005",
         "chicago_democrat_1834_07_16#c005"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]. C. Chamberlain",
+          "merge_rule": "‘L. C. Chamber[l]ain’ and ‘[?]. C. Chamberlain’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 124 of the 1834-07-09 segmentation and entry 124 of 1834-07-16 — the same position of the same return, surnamed Chamberlain. The forename initial is the only thing between them — L. C. Chamber[l]ain reads L. C. where [?]. C. Chamberlain sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]. C. Chamberlain",
+            "read_side": "L. C. Chamber[l]ain",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 124 of the 1834-07-09 segmentation and entry 124 of 1834-07-16 — the same position of the same return, surnamed Chamberlain",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]. C. Chamberlain’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]. C. Chamberlain’ and ‘L. C. Chamber[l]ain’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]. C. Chamberlain’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with L. C. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "L. C. Chamber[l]ain": "L. C.",
+              "[?]. C. Chamberlain": "[?] C."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_l_c_saxton",
@@ -32880,18 +32982,48 @@
       "name": "[L]. H. Scott",
       "variants": [
         {
+          "as_printed": "Do 11. scolt",
+          "claim": "chicago_democrat_1834_07_09#c007"
+        },
+        {
           "as_printed": "L. H. scott",
           "claim": "chicago_democrat_1834_07_16#c007"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c007",
         "chicago_democrat_1834_07_16#c007"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]. [H]. Scott",
+          "merge_rule": "‘[L]. H. Scott’ and ‘[?]. [H]. Scott’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 173 of the 1834-07-09 segmentation and entry 173 of 1834-07-16 — the same position of the same return, surnamed Scott. The forename initial is the only thing between them — [L]. H. Scott reads L. H. where [?]. [H]. Scott sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]. [H]. Scott",
+            "read_side": "[L]. H. Scott",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 173 of the 1834-07-09 segmentation and entry 173 of 1834-07-16 — the same position of the same return, surnamed Scott",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]. [H]. Scott’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]. [H]. Scott’ and ‘[L]. H. Scott’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]. [H]. Scott’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with L. H. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "[L]. H. Scott": "L. H.",
+              "[?]. [H]. Scott": "[?] H."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_l_t_jamison",
@@ -34998,24 +35130,6 @@
       ],
       "first_seen": "1834-10-22",
       "last_seen": "1834-10-22",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
-      "id": "person_m_fish",
-      "name": "[?]. M. Fish",
-      "variants": [
-        {
-          "as_printed": ".. M. Fish",
-          "claim": "chicago_democrat_1834_07_09#c009"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c009"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
       "letter_list_only": true,
       "occupations": [],
       "associated_places": []
@@ -38274,18 +38388,48 @@
       "name": "N. W. Easling",
       "variants": [
         {
+          "as_printed": "i. W. Easling",
+          "claim": "chicago_democrat_1834_07_09#c008"
+        },
+        {
           "as_printed": "N. W. Easling",
           "claim": "chicago_democrat_1834_07_16#c008"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c008",
         "chicago_democrat_1834_07_16#c008"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]. W. Easling",
+          "merge_rule": "‘N. W. Easling’ and ‘[?]. W. Easling’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 180 of the 1834-07-09 segmentation and entry 180 of 1834-07-16 — the same position of the same return, surnamed Easling. The forename initial is the only thing between them — N. W. Easling reads N. W. where [?]. W. Easling sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]. W. Easling",
+            "read_side": "N. W. Easling",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 180 of the 1834-07-09 segmentation and entry 180 of 1834-07-16 — the same position of the same return, surnamed Easling",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]. W. Easling’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]. W. Easling’ and ‘N. W. Easling’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]. W. Easling’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with N. W. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "N. W. Easling": "N. W.",
+              "[?]. W. Easling": "[?] W."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_nancey_ann_goodell",
@@ -39107,24 +39251,6 @@
       ]
     },
     {
-      "id": "person_nn_m_gooding",
-      "name": "[?]nn M. Gooding",
-      "variants": [
-        {
-          "as_printed": "inn M. Gooding",
-          "claim": "chicago_democrat_1834_07_09#c009"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c009"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
       "id": "person_noah_phelps",
       "name": "Noah Phelps",
       "variants": [
@@ -39450,24 +39576,6 @@
           "merge_rule": "\"Oliver Raym[o]nd\" and \"Oliver Raymand\" are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, which the Democrat printed three times — 1834-07-02, 1834-07-09 and 1834-07-16. They stand at the same place in the list in each of the printings that carry them (1834-07-09 and 1834-07-16), and the reading kept here is the one 1834-07-16 prints. The readings differ by Raymand against Raymond: a recognition-class difference in one printing's type, not two names."
         }
       ]
-    },
-    {
-      "id": "person_oon_bowrassa",
-      "name": "[?]oon Bowrassa",
-      "variants": [
-        {
-          "as_printed": "coon Bowrassa",
-          "claim": "chicago_democrat_1834_07_09#c003"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c003"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
     },
     {
       "id": "person_orange_chauncy",
@@ -42876,24 +42984,6 @@
       ]
     },
     {
-      "id": "person_rah_fowler",
-      "name": "[?]rah Fowler",
-      "variants": [
-        {
-          "as_printed": "Irah Fowler",
-          "claim": "chicago_democrat_1834_07_09#c008"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c008"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
       "id": "person_ralph_martin",
       "name": "Ralph Martin",
       "variants": [
@@ -45476,24 +45566,6 @@
       "associated_places": []
     },
     {
-      "id": "person_saac_scarrett",
-      "name": "[?]saac Scarrett",
-      "variants": [
-        {
-          "as_printed": "Inson HI. Delamatter elsase scarrett",
-          "claim": "chicago_democrat_1834_07_09#c007"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c007"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
       "id": "person_sabine_williem",
       "name": "Sabine, Williem",
       "variants": [
@@ -45859,19 +45931,50 @@
           "claim": "chicago_democrat_1834_07_02#c033"
         },
         {
+          "as_printed": "samuel. Toby",
+          "claim": "chicago_democrat_1834_07_09#c009"
+        },
+        {
           "as_printed": "samuel E. Toby",
           "claim": "chicago_democrat_1834_07_16#c009"
         }
       ],
       "mentions": [
         "chicago_democrat_1834_07_02#c033",
+        "chicago_democrat_1834_07_09#c009",
         "chicago_democrat_1834_07_16#c009"
       ],
       "first_seen": "1834-07-02",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "Samuel. Toby",
+          "merge_rule": "‘Samuel E. Toby’ and ‘Samuel. Toby’ are one person: three printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 219 of the 1834-07-09 segmentation and entry 219 of 1834-07-16 — the same position of the same return, surnamed Toby; the 1834-07-02 segmentation reads it at entry 153 of its own 228 entities and also sets the E. The middle initial is the only thing between them — ‘Samuel E. Toby’ reads S. E. where ‘Samuel. Toby’ reads S. and sets no second slot at all — and an ABSENT initial is not a competing letter either; it is the absence of a position rather than a position with nothing in it (T-0397, T-0392). THE OWNER RULED ON 2026-09-24 (T-1528) that a merge may be declared exactly here, bounded exactly as T-0392's was — same list, same entry, the absent side supplying no competing letter — because the alternative is to carry a known duplicate for a scruple about a compositor who dropped a letter from one of three settings of one line. T-0392's own reasoning did not carry over by itself and was not made to: its ground was that the unread side supplies no LETTER, and this merge asserts instead that the printing which set ‘Samuel. Toby’ had an E it did not print. THE RULING MAKES THE UNDO ITS CONDITION, and `absent_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing on the page says a letter stood in that slot. These pages get re-read. When somebody reads that line from a page image it either shows the E dropped in setting, and this merge gains a real basis, or it shows two Tobys, and they come apart in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0392 held it over, and T-1528 carried the question. T-1528.",
+          "absent_initial": {
+            "absent_side": "Samuel. Toby",
+            "present_side": "Samuel E. Toby",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 219 of the 1834-07-09 segmentation and entry 219 of 1834-07-16 — the same position of the same return, surnamed Toby; the 1834-07-02 segmentation reads it at entry 153 of its own 228 entities and also sets the E.",
+            "witnesses": [
+              "1834-07-02",
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              2
+            ],
+            "basis": "positional",
+            "undo": "Nothing on the page says a letter stood where ‘Samuel. Toby’ sets no second slot — not then and not now. This merge rests on POSITION: ‘Samuel. Toby’ and ‘Samuel E. Toby’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read three times, and not on any evidence about the initial. Whoever reads that entry from a page image splits the two in one step: drop this rule and ‘Samuel. Toby’ is a person of the gazetteer again, with its reading untouched. If the page shows the E dropped in setting the merge gains a real basis and this record can say so; if it shows two men, they were never one and the split is the answer.",
+            "initials_read": {
+              "Samuel E. Toby": "S. E.",
+              "Samuel. Toby": "S."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_samuel_eberiden",
@@ -46209,24 +46312,6 @@
       ],
       "first_seen": "1834-07-02",
       "last_seen": "1834-07-16",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
-    },
-    {
-      "id": "person_samuel_toby",
-      "name": "Samuel. Toby",
-      "variants": [
-        {
-          "as_printed": "samuel. Toby",
-          "claim": "chicago_democrat_1834_07_09#c009"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c009"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
       "letter_list_only": true,
       "occupations": [],
       "associated_places": []
@@ -51644,17 +51729,47 @@
       "variants": [
         {
           "as_printed": "Abey Blankinship",
+          "claim": "chicago_democrat_1834_07_09#c002"
+        },
+        {
+          "as_printed": "Abey Blankinship",
           "claim": "chicago_democrat_1834_07_16#c002"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c002",
         "chicago_democrat_1834_07_16#c002"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]bey Blankinship",
+          "merge_rule": "‘[uncertain: Abey Blankinship]’ and ‘[?]bey Blankinship’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 49 of the 1834-07-09 segmentation and entry 49 of 1834-07-16 — the same position of the same return, surnamed Blankinship. The forename initial is the only thing between them — [uncertain: Abey Blankinship] reads A. where [?]bey Blankinship sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]bey Blankinship",
+            "read_side": "[uncertain: Abey Blankinship]",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 49 of the 1834-07-09 segmentation and entry 49 of 1834-07-16 — the same position of the same return, surnamed Blankinship",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]bey Blankinship’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]bey Blankinship’ and ‘[uncertain: Abey Blankinship]’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]bey Blankinship’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with A. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "[?]bey Blankinship": "[?]",
+              "[uncertain: Abey Blankinship]": "A."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_uncertain_alonzo_wood",
@@ -52177,18 +52292,48 @@
       "name": "[uncertain: H. Blair]",
       "variants": [
         {
+          "as_printed": "1. Blair 2",
+          "claim": "chicago_democrat_1834_07_09#c003"
+        },
+        {
           "as_printed": "H. Biair 2",
           "claim": "chicago_democrat_1834_07_16#c003"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c003",
         "chicago_democrat_1834_07_16#c003"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]. Blair",
+          "merge_rule": "‘[uncertain: H. Blair]’ and ‘[?]. Blair’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 68 of the 1834-07-09 segmentation and entry 67 of 1834-07-16, surnamed Blair — one slot apart in segmentations holding 324 and 321 entities, and both printings set the same trailing numeral 2 (the count of letters held) beside it. The forename initial is the only thing between them — [uncertain: H. Blair] reads H. where [?]. Blair sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]. Blair",
+            "read_side": "[uncertain: H. Blair]",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 68 of the 1834-07-09 segmentation and entry 67 of 1834-07-16, surnamed Blair — one slot apart in segmentations holding 324 and 321 entities, and both printings set the same trailing numeral 2 (the count of letters held) beside it",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]. Blair’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]. Blair’ and ‘[uncertain: H. Blair]’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]. Blair’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with H. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "[?]. Blair": "[?]",
+              "[uncertain: H. Blair]": "H."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_uncertain_honks_james_c",
@@ -52273,19 +52418,50 @@
           "claim": "chicago_democrat_1834_07_02#c032"
         },
         {
+          "as_printed": "Inson HI. Delamatter elsase scarrett",
+          "claim": "chicago_democrat_1834_07_09#c007"
+        },
+        {
           "as_printed": "Anson Il. Delamatter Qisnac scarrett",
           "claim": "chicago_democrat_1834_07_16#c007"
         }
       ],
       "mentions": [
         "chicago_democrat_1834_07_02#c032",
+        "chicago_democrat_1834_07_09#c007",
         "chicago_democrat_1834_07_16#c007"
       ],
       "first_seen": "1834-07-02",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]saac Scarrett",
+          "merge_rule": "‘[uncertain: Isaac Scarrett]’ and ‘[?]saac Scarrett’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 167 of the 1834-07-09 segmentation and entry 167 of 1834-07-16 — the same position of the same return, surnamed Scarrett; the 1834-07-02 segmentation holds the same reading at its entry 127, and both of those printings run the name on from the Delamatter entry before it. The forename initial is the only thing between them — [uncertain: Isaac Scarrett] reads I. where [?]saac Scarrett sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]saac Scarrett",
+            "read_side": "[uncertain: Isaac Scarrett]",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 167 of the 1834-07-09 segmentation and entry 167 of 1834-07-16 — the same position of the same return, surnamed Scarrett; the 1834-07-02 segmentation holds the same reading at its entry 127, and both of those printings run the name on from the Delamatter entry before it",
+            "witnesses": [
+              "1834-07-02",
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]saac Scarrett’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]saac Scarrett’ and ‘[uncertain: Isaac Scarrett]’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]saac Scarrett’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with I. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "[?]saac Scarrett": "[?]",
+              "[uncertain: Isaac Scarrett]": "I."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_uncertain_j_i_mulford",
@@ -52646,18 +52822,48 @@
       "name": "[uncertain: Loon Bowrassa]",
       "variants": [
         {
+          "as_printed": "coon Bowrassa",
+          "claim": "chicago_democrat_1834_07_09#c003"
+        },
+        {
           "as_printed": "Loon Bowrassa",
           "claim": "chicago_democrat_1834_07_16#c003"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c003",
         "chicago_democrat_1834_07_16#c003"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]oon Bowrassa",
+          "merge_rule": "‘[uncertain: Loon Bowrassa]’ and ‘[?]oon Bowrassa’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 51 of the 1834-07-09 segmentation and entry 51 of 1834-07-16 — the same position of the same return, surnamed Bowrassa. The forename initial is the only thing between them — [uncertain: Loon Bowrassa] reads L. where [?]oon Bowrassa sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]oon Bowrassa",
+            "read_side": "[uncertain: Loon Bowrassa]",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 51 of the 1834-07-09 segmentation and entry 51 of 1834-07-16 — the same position of the same return, surnamed Bowrassa",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]oon Bowrassa’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]oon Bowrassa’ and ‘[uncertain: Loon Bowrassa]’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]oon Bowrassa’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with L. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "[?]oon Bowrassa": "[?]",
+              "[uncertain: Loon Bowrassa]": "L."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_uncertain_loventus_a_f_corbin",
@@ -53295,17 +53501,47 @@
       "variants": [
         {
           "as_printed": "Skiler Brown",
+          "claim": "chicago_democrat_1834_07_09#c003"
+        },
+        {
+          "as_printed": "Skiler Brown",
           "claim": "chicago_democrat_1834_07_16#c003"
         }
       ],
       "mentions": [
+        "chicago_democrat_1834_07_09#c003",
         "chicago_democrat_1834_07_16#c003"
       ],
-      "first_seen": "1834-07-16",
+      "first_seen": "1834-07-09",
       "last_seen": "1834-07-16",
       "letter_list_only": true,
       "occupations": [],
-      "associated_places": []
+      "associated_places": [],
+      "merged": [
+        {
+          "from": "[?]kiler Brown",
+          "merge_rule": "‘[uncertain: Skiler Brown]’ and ‘[?]kiler Brown’ are one person: two printings of one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three, at entry 53 of the 1834-07-09 segmentation and entry 53 of 1834-07-16 — the same position of the same return, surnamed Brown, and both printings set the same characters, ‘Skiler Brown’. The forename initial is the only thing between them — [uncertain: Skiler Brown] reads S. where [?]kiler Brown sets `[?]`, a letter that printing could not read — and an unread initial is not a competing letter, it is a position with nothing in it (T-0397). THE OWNER RULED ON 2026-09-21 (T-0392) that a merge may be declared exactly here — same list, same entry, no competing letter — because refusing it costs eighteen known duplicate persons for a scruple that does not apply to one line of ink read twice. THE RULING MAKES THE UNDO ITS CONDITION, and `unread_initial` beside this rule is that record: the agreement is POSITIONAL, the two readings are of one line, and nothing whatever about the letter itself was read. These pages get re-read. When somebody reads that initial it either agrees, and this merge gains a real basis, or it does not, and two men come apart again in one step. The refusal this replaces is WITHDRAWN on a policy ruling and not overturned by new evidence: T-0348 stated it, T-0397 repaired the reading it was stated on, and T-0392 carried the question. T-0392.",
+          "unread_initial": {
+            "unread_side": "[?]kiler Brown",
+            "read_side": "[uncertain: Skiler Brown]",
+            "list": "the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three",
+            "entry": "entry 53 of the 1834-07-09 segmentation and entry 53 of 1834-07-16 — the same position of the same return, surnamed Brown, and both printings set the same characters, ‘Skiler Brown’",
+            "witnesses": [
+              "1834-07-09",
+              "1834-07-16"
+            ],
+            "positions": [
+              1
+            ],
+            "basis": "positional",
+            "undo": "Nothing about the letter ‘[?]kiler Brown’ sets `[?]` for was read, then or now. This merge rests on POSITION — ‘[?]kiler Brown’ and ‘[uncertain: Skiler Brown]’ are one entry of the list of letters remaining in the Post Office at Chicago on 1 July 1834, printed three times in the Chicago Democrat — 1834-07-02 p3 c2, 1834-07-09 p1 c2 and 1834-07-16 p1 c2, the last of them the best witness of the three read twice — and not on any evidence about the initial. Whoever reads that initial from a page image splits the two in one step: drop this rule and ‘[?]kiler Brown’ is a person of the gazetteer again, with its reading untouched. If the letter read agrees with S. the merge gains a real basis and this record can say so; if it disagrees, the two were never one man and the split is the answer.",
+            "initials_read": {
+              "[?]kiler Brown": "[?]",
+              "[uncertain: Skiler Brown]": "S."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "person_uncertain_snell_solomon_r",
@@ -54296,24 +54532,6 @@
       "associated_places": [
         "Chicago"
       ]
-    },
-    {
-      "id": "person_w_easling",
-      "name": "[?]. W. Easling",
-      "variants": [
-        {
-          "as_printed": "i. W. Easling",
-          "claim": "chicago_democrat_1834_07_09#c008"
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1834_07_09#c008"
-      ],
-      "first_seen": "1834-07-09",
-      "last_seen": "1834-07-09",
-      "letter_list_only": true,
-      "occupations": [],
-      "associated_places": []
     },
     {
       "id": "person_w_eek_samuel_h",

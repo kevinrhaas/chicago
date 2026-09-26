@@ -17,27 +17,27 @@
   "corpus_units": 147,
   "units_spent": 119,
   "units_with_no_identification": 28,
-  "bounds_written": 248,
-  "people_written": 153,
-  "households_touched": 151,
-  "identifications_refused": 136,
+  "bounds_written": 250,
+  "people_written": 155,
+  "households_touched": 153,
+  "identifications_refused": 134,
   "grades_changed": 0,
   "identities_changed": 0,
   "persons_minted": 0,
   "per_side_of_scene_date": {
-   "earlier": 248
+   "earlier": 250
   },
   "per_claim_kind": {
-   "event": 120,
+   "event": 122,
    "notice": 94,
    "person": 34
   },
   "per_source": {
-   "chicago_american_1835": 12,
+   "chicago_american_1835": 14,
    "chicago_democrat_1833_1835": 236
   },
   "refused_per_register_action": {
-   "new_resident": 125,
+   "new_resident": 123,
    "replace_invented": 11
   }
  },
@@ -45,22 +45,22 @@
   {
    "rule": "P1",
    "why": "every row carries `here_by: null`. The paper was printed at Chicago and the claim is dated, and neither of those says the person stood in the town that day",
-   "rows": 248
+   "rows": 250
   },
   {
    "rule": "P2",
    "why": "no row reaches `attested`. The issue is documented and the identity is a name agreement the register declared, so the bound is inferred however documented the page under it is",
-   "rows": 248
+   "rows": 250
   },
   {
    "rule": "P3",
    "why": "no row covers the scene date. An earlier source corroborates and dates and never promotes, and a later one does not promote either",
-   "rows": 248
+   "rows": 250
   },
   {
    "rule": "P4",
    "why": "no card is touched where the register's action is not `enrich`. A `new_resident` row says the printed name is a person this layer does not hold and a `replace_invented` row names a card the register has marked for substitution; both are refused by name in tools/spend_remainder_rulings.py, with what would reopen them",
-   "rows": 136
+   "rows": 134
   }
  ],
  "people": [
@@ -2513,6 +2513,35 @@
    ]
   },
   {
+   "household_id": "hh_harrington_catherine",
+   "person_id": "harrington_catherine",
+   "bounds": [
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago American",
+     "record_id": "chicago_american_1835_06_20#c011",
+     "claim_kind": "event",
+     "as_printed": "C1 Harringfon",
+     "role": "passenger",
+     "locator": "chicago_american_1835_06_20 page 3 column 5",
+     "describes_date": "1835-06-20",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-20",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_american_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_c_harrington, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago American of 1835-06-20 names 'C1 Harringfon' in the claim read as chicago_american_1835_06_20#c011, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ]
+  },
+  {
    "household_id": "hh_heacock_russel_e",
    "person_id": "heacock_russel_e",
    "bounds": [
@@ -4122,6 +4151,35 @@
      ],
      "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_murray_a, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
      "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-09-24 names 'A, MURRAY' in the claim read as chicago_democrat_1834_09_24#c005, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ]
+  },
+  {
+   "household_id": "hh_murray_john",
+   "person_id": "murray_john",
+   "bounds": [
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago American",
+     "record_id": "chicago_american_1835_06_20#c011",
+     "claim_kind": "event",
+     "as_printed": "James li Murray",
+     "role": "passenger",
+     "locator": "chicago_american_1835_06_20 page 3 column 5",
+     "describes_date": "1835-06-20",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-06-20",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_american_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_james_h_murray, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago American of 1835-06-20 names 'James li Murray' in the claim read as chicago_american_1835_06_20#c011, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
     }
    ]
   },

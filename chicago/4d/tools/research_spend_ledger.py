@@ -6,11 +6,20 @@ import copy
 import gzip
 import json
 import re
+import sys
 import tempfile
 from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+# THE WALK OVER A SPLIT IS ONE DEFINITION AND NOT THREE (T-1581). `split_live` below,
+# the order book's `live_pieces_of` and `ticket.mjs done` all read the same relation;
+# they had three implementations and T-1421's fix reached only this one. What stays
+# local is the LEAF SET — this gate wants an OPEN ticket, not merely a live one.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import ticket_liveness  # noqa: E402
+
 REGISTRY = ROOT / "data" / "research" / "domains.json"
 LEDGER = ROOT / "data" / "research" / "research_spend_ledger.json.gz"
 REPORT = ROOT / "docs" / "RESEARCH" / "research-spend-ledger-2026-09-15.md"
@@ -21,6 +30,9 @@ DISPOSITIONS = (
     "asserted", "later_only", "outside_chicago", "aggregate_only", "refused", "unresolved",
 )
 OPEN_TICKET_STATES = {"open", "claimed", "review", "in-progress", "split_live"}
+# The same set without the DERIVED member, which is what a walk over the tree is
+# asked with: `split_live` is an answer the walk produces, never an input to it.
+LEDGER_ALIVE_SET = frozenset(OPEN_TICKET_STATES - {"split_live"})
 STRUCTURED_CONFIDENCE = {"attested", "inferred", "documented"}
 NAME_FIELDS = ("normalized", "as_read", "quote")
 
@@ -87,35 +99,59 @@ def ticket_states(root: Path = ROOT) -> dict[str, str]:
     itself open, and plain `split` once every child has closed. The invariant is
     unchanged and is the strict one: a unit may only defer to work that is still going
     to happen. What changes is that re-filing work no longer reads as finishing it.
+
+    AND LIVENESS CLIMBS A CHAIN, NOT ONE STEP (T-1421). A split piece may itself be
+    split — T-1188 was cut into T-1410 and T-1411, and T-1411 into T-1421 and T-1422 —
+    and read one level deep the grandparent went back to plain `split` the moment its
+    last direct child stopped being `open`, so twelve units that had not moved read as
+    deferred to finished work and the sign-off went NO-GO on C3. The work had not
+    stopped; it had been cut finer.
+
+    THE WALK ITSELF NOW LIVES IN `tools/ticket_liveness.py` (T-1581), where the order
+    book and `ticket.mjs` read it too. `LEDGER_ALIVE` is what stays here: an unresolved
+    unit may only be owned by a ticket somebody can be working NOW, so a blocked leaf
+    does not hold a split parent live for this gate — it does for the order book's, and
+    that asymmetry is a ruling written out in that module.
     """
-    states, parents = {}, {}
+    states, parents = ticket_liveness.read_tree(root)
+    return ticket_liveness.derived_states(states, parents, ticket_liveness.LEDGER_ALIVE)
+
+
+def ticket_parents(root: Path = ROOT) -> dict[str, str]:
+    """Child -> parent, from the same scan `ticket_states` reads."""
+    parents = {}
     for path in sorted((root / "tickets").rglob("T-*.md")):
         text = path.read_text(encoding="utf-8", errors="replace")
         tid = re.search(r"(?m)^id:\s*(T-\d+)\s*$", text)
-        state = re.search(r"(?m)^state:\s*([^\s#]+)", text)
         parent = re.search(r"(?m)^parent:\s*(T-\d+)\s*$", text)
-        if tid and state:
-            states[tid.group(1)] = state.group(1)
-            if parent:
-                parents[tid.group(1)] = parent.group(1)
-    # AND LIVENESS CLIMBS A CHAIN, NOT ONE STEP (T-1421). A split piece may itself be
-    # split — T-1188 was cut into T-1410 and T-1411, and T-1411 into T-1421 and T-1422 —
-    # and read one level deep the grandparent went back to plain `split` the moment its
-    # last direct child stopped being `open`, so twelve units that had not moved read as
-    # deferred to finished work and the sign-off went NO-GO on C3. The work had not
-    # stopped; it had been cut finer. So the pass runs to a fixed point and a `split_live`
-    # parent is itself live for ITS parent. The invariant is untouched and still strict:
-    # a unit may only defer to work that is still going to happen, and a chain every one
-    # of whose leaves has closed still reports plain `split`.
-    alive = {"open", "claimed", "review", "in-progress", "split_live"}
-    while True:
-        promoted = False
-        for child, parent in parents.items():
-            if states.get(child) in alive and states.get(parent) == "split":
-                states[parent] = "split_live"
-                promoted = True
-        if not promoted:
-            return states
+        if tid and parent:
+            parents[tid.group(1)] = parent.group(1)
+    return parents
+
+
+# A DEAD POINTER SHOULD SAY WHAT KILLED IT (T-1567/T-1568). The fault below used to read
+# `unresolved ticket 'T-1189' is missing or not open` and stop there, and that sentence is
+# true of four different situations a reader has to tell apart: a typo, a ticket that was
+# withdrawn, one that finished, and — the one that actually happens here — a `split` parent
+# whose whole chain has since closed. The difference matters because only the last kind is
+# nobody's fault: nothing in the tree moved, a ticket somewhere else closed, and the run
+# whose gate went red has no diff to blame. On 2026-09-25 that cost PR #42 its run, which
+# parked on `hold` for a red it could not attribute, and it cost two tickets to diagnose
+# what one sentence can say. The phrase `is missing or not open` is kept intact — it is what
+# the self-tests hold this gate to — and the cause is appended to it.
+def dead_pointer_reason(ticket: str, states: dict[str, str], root: Path = ROOT) -> str:
+    state = states.get(ticket)
+    if state is None:
+        return "no ticket file carries that id"
+    if state != "split":
+        return f"its state is {state!r}"
+    children = sorted(tid for tid, parent in ticket_parents(root).items() if parent == ticket)
+    if not children:
+        return "it is `split` and no child of it can be found"
+    listed = ", ".join(children)
+    return (f"it was `split` and every leaf of its chain has since closed "
+            f"(children: {listed}) — so the work it stood for has stopped, and this unit "
+            f"has to be repointed at the live ticket that owns its question, or one filed")
 
 
 def declared_containers(doc: dict) -> list[str]:
@@ -420,13 +456,124 @@ def business_target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
     return found
 
 
-def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
-    """Index source-bearing structured assertions by the unit keys they name.
+# T-1600. THE STRUCTURE LAYER IS THE THIRD TARGET SURFACE, and until this it was not.
+# The ledger indexed the residents layer and, since T-1508, the business layer, so a
+# reading whose whole content is a BUILDING -- a church standing and meeting in June
+# 1835, an auction room on Dearborn large enough to hold a land sale and a fair, a hotel
+# going up in Kinzie's Addition and not yet named -- had nowhere to land. It could not
+# reach a person (a meeting notice names a clerk, not an occupant) and it could not reach
+# a firm (a congregation is not a business), and the record that WOULD carry it already
+# existed under its own name in data/structures/. T-1598 read 34 such notices, found ten
+# of them naming a building the town already holds, and had to hand all ten to a ticket
+# because asserting them was an edit to a layer this index could not see.
+#
+# It is indexed on the RESIDENTS walk and not the business layer's stricter one, because
+# a structure record has no `claim_ids` list: the corpus's own citation style, written
+# long before this index reached it, is the claim key in the block's `note` beside the
+# newspaper in its `sources` -- new_york_house has carried two that way since T-1508.
+# THE LOOSE READING WAS MEASURED BEFORE IT WAS ADOPTED: on the day this landed, exactly
+# 16 claim keys were reached by a source-bearing confident block anywhere under
+# data/structures/, and all 16 were already `asserted` off a resident card or a business
+# block. So nothing flipped that this ticket did not write, which is the number to
+# re-take if the walk is ever suspected of over-reaching.
+STRUCTURE_LAYER = ("data", "structures")
 
-    The residents layer first, then the business layer, so a reading a resident card
-    already carries keeps the target it had and a reading only the business layer carries
-    reaches the block that carries it (T-1508).
-    """
+# AND ONE KEY OF THE STRUCTURE LAYER IS BLINDED, FOR TOKEN_BLIND_KEYS' REASON AND NOT
+# FOR A NEW ONE. `land_owner.entries` on 69 records is a list of land-sale register rows
+# -- five ids, ls0053 and ls0056 through ls0059 -- naming the purchase the tract under a
+# building was entered on. Three of the five are already `asserted` off a resident card.
+# The other two are `refused` by the DERIVED land-sale register (T-1296), which rules on
+# all 1,572 of its rows, so reading the cross-reference as a spend would assert them here
+# AND leave two rulings in that register that never fire, which `ruling_coverage_faults`
+# fails. That is the gate saying a question has two answers, and T-1600 handed the choice
+# to the land-sale corpus rather than taking it from a building-reading ticket.
+#
+# T-1605 IS THAT CHOICE, AND THE BLIND STAYS. The cross-reference is a CITATION of the
+# row and not a spend of it, for one reason: the unit is a PERSON unit and `land_owner`
+# asserts no person. Every consumer of a land_sales unit reads it as a purchaser -- the
+# crosswalk joins it to a card or refuses it, the borderline roster offers or withholds the
+# read name, `spend_land_sale_bounds.py` writes it onto a card as a dated appearance -- and
+# `resolve_land_tracts.py` says in its own docstring what its block does NOT claim, the
+# second of the three being that the entryman "lived there or ever stood on it (the domain
+# README's first discipline: a sale is not a resident)". A block that states a tract
+# contains a footprint, and says of itself that it places nobody, cannot be what spent a
+# purchaser. The refusal in T-1296's register is the right answer and it stands.
+#
+# WHAT THE BLIND COSTS AND WHAT REMOVING IT COSTS, both measured rather than argued, since
+# T-1600 asked for the number to be re-taken if the walk were ever suspected. Unblinding
+# reaches exactly three keys the blind hides -- ls0057, ls0058 and ls0059 -- and no fourth:
+# ls0053 and ls0056 stay out of reach because every block naming them is `reconstructed`,
+# which is not in STRUCTURED_CONFIDENCE, and ls0059 is reached but does not move, because
+# the residents walk runs first in `target_index` and its card already carries it (T-1332).
+# So unblinding would assert two units. THEN IT DOES NOT STOP AT THIS LEDGER. A land_sales
+# unit that turns `asserted` leaves the borderline roster's step 5 -- which is keyed on the
+# ledger's RULE name, so the standing refusal stops being repeated the moment the register
+# stops ruling the row -- and lands in `R2_in_window_single_source` under T-1367's
+# `in_window_unspent_inside_an_asserted_claim`, a class whose licence is to mint. Run it
+# through and `readmit_borderline_roster.py` writes `data/residents/readmitted/`
+# hh_john_baptist_baubian.json: a reconstructed household for "BAUBIAN JOHN BAPTIST", off
+# ls0057, which is John Baptist Beaubien's Fort Dearborn pre-emption of 28 May 1835 -- a
+# man this town already holds twice over, as hh_beaubien_j_b and hh_beaubien_john_b. The
+# mint's own `withdrawn_if` names the fault it would be filed under: "a ruling that this
+# name is a duplicate of a card the town already holds". A bookkeeping ruling about GROUND
+# would have invented a person, and the crosswalk had refused that very name against the
+# residents layer. That is the measurement that settles the question.
+#
+# `entries_are_blinded_faults` below holds this ruling so a later pass cannot quietly undo
+# it: removing the key from this set turns the gate red and says what it would cost.
+# Everything else on a structure record is read, which is where the ten newspaper claims
+# T-1600 wrote onto six buildings are found -- in the `note` of the block they bear on,
+# beside the newspaper in its `sources`, which is the citation style the corpus already
+# had (new_york_house has carried two that way since T-1508).
+STRUCTURE_BLIND_KEYS = frozenset({"entries"})
+
+# The land-sale rows the ruling above is about, and the two facts that make it a ruling
+# rather than a preference: the structure layer names them at a confidence this walk reads,
+# and the crosswalk refuses both names against the residents layer. Stated here so the
+# gate checks the ruling's premises and not merely its outcome.
+LAND_OWNER_CITED_ROWS = ("ls0057", "ls0058")
+LAND_OWNER_REFUSED_NAMES = ("BAUBIAN JOHN BAPTIST", "KENZIE ROBERT A")
+
+
+def entries_are_blinded_faults(root: Path = ROOT) -> list[str]:
+    """T-1605's ruling, held over the committed layer: the citation is not a spend."""
+    faults = []
+    if "entries" not in STRUCTURE_BLIND_KEYS:
+        faults.append(
+            "land_owner.entries is no longer blinded, so this ledger now spends a "
+            "land-sale purchaser onto a BUILDING. T-1605 ruled that it must not: the "
+            "block asserts no person, and asserting the row carries ls0057 into the "
+            "borderline roster's mintable class and invents a second John Baptist "
+            "Beaubien. Re-read STRUCTURE_BLIND_KEYS before removing this.")
+    crosswalk = root / "data" / "research" / "land_sales" / "resident_crosswalk.json"
+    if not crosswalk.is_file():
+        return faults + [f"{crosswalk} is missing; T-1605's premise cannot be checked"]
+    refused = {
+        str(row.get("a")): row
+        for row in read_json(crosswalk).get("refusals") or []
+    }
+    for name in LAND_OWNER_REFUSED_NAMES:
+        if name not in refused:
+            faults.append(
+                f"the crosswalk no longer refuses {name!r}. T-1605's ruling stands on "
+                "that refusal, so the blind is owed a re-reading rather than a re-run.")
+    cited = set()
+    structures = root.joinpath(*STRUCTURE_LAYER)
+    for path in sorted(structures.rglob("*.json")) if structures.is_dir() else []:
+        block = read_json(path).get("land_owner")
+        if isinstance(block, dict) and block.get("confidence") in STRUCTURED_CONFIDENCE:
+            cited.update(e for e in block.get("entries") or [] if isinstance(e, str))
+    for row_id in LAND_OWNER_CITED_ROWS:
+        if row_id not in cited:
+            faults.append(
+                f"no read-confidence land_owner block names {row_id} any more, so the "
+                "collision T-1605 ruled on has moved; re-take the measurement.")
+    return faults
+
+
+def prose_target_index(paths, root: Path, keys: set[str], kind: str,
+                       blind: frozenset = frozenset()) -> dict[str, list[dict]]:
+    """Index source-bearing confident blocks by the unit keys their prose names."""
     found = defaultdict(list)
 
     def walk(node, parts, root_id, rel):
@@ -435,7 +582,8 @@ def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
             sources_here = cited_sources(node) if confidence in STRUCTURED_CONFIDENCE else set()
             if sources_here:
                 tokens = set()
-                for value in naming_strings(node):
+                for value in naming_strings(
+                        {k: v for k, v in node.items() if k not in blind}):
                     if value in keys:
                         tokens.add(value)
                     for token in UNIT_TOKEN.findall(value):
@@ -444,7 +592,7 @@ def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
                         tokens.update(part for part in token.split("#") if part in keys)
                 for key in tokens:
                     found[key].append({
-                        "kind": "resident_record",
+                        "kind": kind,
                         "id": root_id,
                         "file": rel,
                         "field_path": "".join("/" + pointer_part(p) for p in parts),
@@ -456,13 +604,32 @@ def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
             for index, value in enumerate(node):
                 walk(value, parts + [index], root_id, rel)
 
-    for path in town_records((root / "data" / "residents")):
+    for path in paths:
         doc = read_json(path)
         if not isinstance(doc, dict) or not doc.get("id"):
             continue
         walk(doc, [], str(doc["id"]), path.relative_to(root).as_posix())
+    return found
+
+
+def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
+    """Index source-bearing structured assertions by the unit keys they name.
+
+    The residents layer first, then the business layer, then the structure layer, so a
+    reading a resident card already carries keeps the target it had, a reading only the
+    business layer carries reaches the block that carries it (T-1508), and a reading
+    whose subject is a building reaches the building (T-1600).
+    """
+    found = prose_target_index(
+        town_records(root / "data" / "residents"), root, keys, "resident_record")
     for key, rows in business_target_index(root, keys).items():
         found[key].extend(rows)
+    structures = root.joinpath(*STRUCTURE_LAYER)
+    if structures.is_dir():
+        for key, rows in prose_target_index(
+                sorted(structures.rglob("*.json")), root, keys, "structure_record",
+                STRUCTURE_BLIND_KEYS).items():
+            found[key].extend(rows)
     return found
 
 
@@ -532,8 +699,19 @@ EPIC_PIECES = {
                         "a trade the town ran that no business record carries."
                         " T-1182 WAS SPLIT on 2026-09-19 into T-1401..T-1405 and all five are DONE, so the pointer moves again rather than going quiet with the ticket. T-1190 since 2026-09-20 (owner's call): the business layer's convergence is what is left to reconcile a trade or a premises against the layer once the audit is spent."
                         " AND T-1190 IS SPENT SINCE 2026-09-20, its three pieces T-1440, T-1441 and T-1442 all closed; the pointer moves once more, to T-1468, which owns the reconciliation itself rather than the convergence that has now finished."),
-    "census_1830": ("T-1297", "The name-on-a-roll piece owns this unasserted unit."),
-    "directories": ("T-1297", "The name-on-a-roll piece owns this unasserted unit."),
+    # AND THE NAME-ON-A-ROLL POINTER HAS GONE THE SAME WAY, for the same reason and caught
+    # the same way. T-1297 closed on 2026-09-17 and nothing noticed, because on the day it
+    # closed no unit of either domain reached it. T-1525 is what made one reach it: minting
+    # the register's 120 documented residents changes WHICH units are unasserted, and the
+    # one that arrives is `census1830_n580_030` — "Clouded L Framboy" on image n580 of the
+    # 1830 Peoria & Putnam schedule, normalised CLAUDE LAFRAMBOISE, a head of family one
+    # line below Joseph. That is precisely the corpus T-1525 found the register carries as
+    # real people, which is why it is reachable now and was not before.
+    # A closed ticket cannot own an unresolved unit, so the pointer moves to live work
+    # rather than going quiet with the ticket — the rule this table has already applied
+    # twice to `civic`.
+    "census_1830": ("T-1551", "The 1830 census and directory residue T-1297 left behind."),
+    "directories": ("T-1551", "The 1830 census and directory residue T-1297 left behind."),
 }
 
 # T-1241 ENDED T-1147, AND THE SAME ROUTING RULE APPLIES A THIRD TIME. The place and
@@ -570,9 +748,43 @@ PLACE_AND_ENTERPRISE = {
     # would name a ticket that is `split` and not live, and the gate would say so on the
     # unit rather than on the pointer — so the next reading that lands here is a ticket
     # of its own, not a rename.
-    "building": ("T-1198", "The seating pass owns this unasserted place claim."),
-    "street": ("T-1198", "The seating pass owns this unasserted place claim."),
-    "infrastructure": ("T-1198", "The seating pass owns this unasserted place claim."),
+    # AND THE PLACE HALF WENT THE SAME WAY ON 2026-09-25, exactly as the paragraph above
+    # predicted for the enterprise half — "the next reading that lands here is a ticket of
+    # its own, not a rename". T-1198 was SPLIT into T-1491, T-1492 and T-1493; T-1492 split
+    # again, and the last live leaf of the chain, T-1523, settled `done` at 22:35Z when PR
+    # #49 merged. 270 units that had not moved were suddenly deferring to finished work, and
+    # `check.sh` went red on four steps on a clean `origin/dev` and therefore on every open
+    # PR (T-1584; the shape is case 3 of T-1581).
+    #
+    # THE POINTER MOVES TO A SPEND AND NOT TO ANOTHER SEATING TICKET, because the REASON for
+    # the deferral has changed. These units were held here on the ground that there was "no
+    # seat on the ground to carry a place claim" — and T-1198's chain built exactly that:
+    # T-1491 wrote the address book, T-1492's chain seated the reach, T-1493 made a seat
+    # navigable. The seat EXISTS. What the readings still need is nobody's rename; it is
+    # somebody reading them against the layer one at a time, which is the argument T-1569
+    # makes for the twelve civic posts and T-1315 and T-1335 for the births and the kin.
+    #
+    # AND THEY DIVIDE BY WHAT THE READING NAMES, because three different layers receive
+    # them — a roof, a corridor, and the river works and town apparatus. Three sibling
+    # tickets, filed together and each owning one kind.
+    #
+    # TWO OF THE THREE ARE SPLIT PARENTS, WHICH IS THE SHAPE THAT JUST FAILED, so it is worth
+    # saying why it is right here and was wrong there. 159 building readings and 92
+    # infrastructure readings are more than one run's demonstration and the queue gate
+    # refuses an unsplit `L`, so T-1585 is cut by corpus into T-1589 + T-1590 and T-1586 into
+    # T-1591 + T-1592; a `split` parent with a live child reads `split_live`, which this
+    # module's own liveness pass treats as alive and climbs to a fixed point (T-1421).
+    # What went wrong with T-1198 was not that it was a parent. It was that its children
+    # spent a DIFFERENT corpus — they built the address book — so the chain could close with
+    # every one of these 270 units untouched. These four pieces spend exactly the units that
+    # point at their parent, so the last one cannot close while a unit still defers to it.
+    "building": ("T-1585", "The building-reading spend owns this unasserted place claim: "
+                           "159 units read against the address book and the structure layer."),
+    "street": ("T-1587", "The street-reading spend owns this unasserted place claim: "
+                         "19 units read against the street and corridor layers."),
+    "infrastructure": ("T-1586", "The infrastructure-reading spend owns this unasserted place "
+                                 "claim: 92 units read against the corridor, yard and "
+                                 "structure layers."),
 }
 
 
@@ -593,8 +805,15 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
             # owns what is left of the role migration.
             return {"disposition": "unresolved", "ticket": "T-1254",
                     "reason": "The dated plural-role migration owns this temporal role ruling."}
+        # AND THE REMAINDER POINTER HAS GONE THE SAME WAY AS T-1145's ABOVE. T-1298
+        # closed on its own corpus and the four sites below still named it, so a unit
+        # arriving today cites a ticket this gate cannot resolve. T-1525 is what made one
+        # arrive: minting the register's 120 documented residents changes which units are
+        # unasserted, and a Second Presbyterian roll entry reached it. A closed ticket
+        # cannot own an unresolved unit, so the pointer moves to T-1552 — the same rule
+        # this module has already applied to T-1145, and EPIC_PIECES to T-1297.
         if name == "letter_list_reading_suspicions.json":
-            return {"disposition": "unresolved", "ticket": "T-1298",
+            return {"disposition": "unresolved", "ticket": "T-1552",
                     "reason": "The remainder piece of the epic owns this surviving name suspicion."}
         finding = resident_finding(root, unit)
         if finding:
@@ -603,7 +822,7 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
                 return {"disposition": "refused", "rule": outcome,
                         "evidence": finding.get("summary") or finding["default_summary"]}
             if not finding.get("completed"):
-                return {"disposition": "unresolved", "ticket": "T-1298",
+                return {"disposition": "unresolved", "ticket": "T-1552",
                         "reason": "The resident research pass has not completed this reserved person."}
         # The pilot is a reservation without a committed findings file; positive
         # pass findings that have no exact structured target also remain owned here.
@@ -612,7 +831,7 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
             if not unit["source_ids"] or set(unit["source_ids"]) & set(target["sources"]):
                 target = {k: v for k, v in target.items() if k != "sources"}
                 return {"disposition": "asserted", "target": target}
-        return {"disposition": "unresolved", "ticket": "T-1298",
+        return {"disposition": "unresolved", "ticket": "T-1552",
                 "reason": "No exact source-bearing structured resident field is named yet."}
 
     if domain == "newberry_index":
@@ -647,7 +866,7 @@ def natural_disposition(root: Path, unit: dict, targets: dict[str, list[dict]]) 
         owner, reason = PLACE_AND_ENTERPRISE[kind]
         return {"disposition": "unresolved", "ticket": owner, "reason": reason}
     owner, reason = EPIC_PIECES.get(
-        domain, ("T-1298", "The remainder piece of the epic owns this unasserted unit."))
+        domain, ("T-1552", "The remainder piece of the epic owns this unasserted unit."))
     return {"disposition": "unresolved", "ticket": owner, "reason": reason}
 
 
@@ -944,6 +1163,8 @@ def build_document(root: Path = ROOT) -> tuple[dict, list[str]]:
         return {}, ["data/research/domains.json is missing or unreadable"]
     units, faults = extract_units(root, registry)
     faults.extend(record_id_scope_faults(units, registry))
+    # T-1605's ruling is a premise of the walk below, so it is checked before the walk.
+    faults.extend(entries_are_blinded_faults(root))
     targets = target_index(root, {unit["record_key"] for unit in units})
     rulings, ruling_faults = read_rulings(root)
     faults.extend(ruling_faults)
@@ -1049,7 +1270,8 @@ def validate_document(doc: dict, root: Path = ROOT,
             elif not str(row.get("awaiting_evidence") or "").strip():
                 ticket = row.get("ticket")
                 if states.get(ticket) not in OPEN_TICKET_STATES:
-                    faults.append(f"{where}: unresolved ticket {ticket!r} is missing or not open")
+                    faults.append(f"{where}: unresolved ticket {ticket!r} is missing or not open"
+                                  f" — {dead_pointer_reason(ticket, states, root)}")
             if not str(row.get("reason") or "").strip():
                 faults.append(f"{where}: unresolved row gives no reason")
         elif disposition == "refused":
@@ -1153,6 +1375,58 @@ def check(legacy_rows: list[dict], root: Path = ROOT) -> list[str]:
     if not report.exists() or report.read_text(encoding="utf-8") != report_text(expected, legacy_rows):
         faults.append("research-spend report is stale — run --ledger-build")
     return faults
+
+
+# THE NEXT ONE, BEFORE IT LANDS (T-1567/T-1568). The rule above is strict and right — a unit
+# may only defer to work that is still going to happen — and `split_live` is what keeps it
+# from firing on work that was merely re-filed. But `split_live` is a property of OTHER
+# tickets: a chain lifted by a single live leaf is one merge away from stranding every unit
+# beneath it, and the run that finds out is a run with no diff to blame. T-1189 spent five
+# days in exactly that state and nothing said so; T-1448 merged, and four gate steps went red
+# on twelve records nobody had touched.
+#
+# So the gate now says which pointers are one close away. It is a NOTE and not a fault, on
+# purpose: a single-leaf chain is not wrong, and failing on it would make closing the last
+# piece of a split impossible. What it buys is that the repointing can be done by the run
+# that closes the leaf, beside the work, instead of by the next run to gate.
+def _descends_from(tid: str, ancestor: str, parents: dict[str, str]) -> bool:
+    seen = set()
+    while tid in parents and tid not in seen:
+        seen.add(tid)
+        tid = parents[tid]
+        if tid == ancestor:
+            return True
+    return False
+
+
+def fragile_pointers(root: Path = ROOT) -> list[str]:
+    """Split chains held live by ONE leaf, and how many units ride on them.
+
+    Read off the COMMITTED ledger rather than a fresh build: the same step has already
+    faulted if that file is stale, and re-deriving the whole corpus a third time to print
+    a note is how a one-second gate becomes a ten-second one.
+    """
+    doc = read_ledger(root / LEDGER.relative_to(ROOT)) or {}
+    states = ticket_states(root)
+    parents = ticket_parents(root)
+    counts = Counter(str(row.get("ticket") or "")
+                     for row in (doc.get("units") or [])
+                     if isinstance(row, dict) and row.get("disposition") == "unresolved")
+    notes = []
+    children = ticket_liveness.children_of(parents)
+    for ticket, n in sorted(counts.items()):
+        if not ticket or states.get(ticket) != "split_live":
+            continue
+        # THE SAME DESCENT THE GATE ABOVE USES (T-1581) rather than a fourth walk of
+        # its own — `_descends_from` is kept for the self-tests that assert the
+        # relation directly, and this note now cannot disagree with the gate.
+        leaves = ticket_liveness.live_pieces_of(ticket, states, children, LEDGER_ALIVE_SET)
+        if len(leaves) == 1:
+            notes.append(
+                f"{n:,} unresolved unit(s) defer to {ticket}, a split parent held live by ONE "
+                f"leaf ({leaves[0]}); when that closes, this gate goes red on all of them — "
+                f"repoint them at the live ticket that owns the question, or file one")
+    return notes
 
 
 AWAITING = {"good": "A document naming this person at Chicago on or about 1 July 1835."}
@@ -1290,6 +1564,31 @@ def self_test() -> int:
             failures.append("a spent chain still reported itself live: %r" % states)
         else:
             print("  fires: a chain whose leaves have all closed reports plain split")
+        # T-1567/T-1568. The fault says WHY the pointer is dead, and the note says which
+        # pointer is one close away from becoming one. Both are held here, on the same
+        # fixture chain: spent, then lifted again by a single leaf.
+        reason = dead_pointer_reason("T-9001", states, root)
+        if "every leaf of its chain has since closed" not in reason or "T-9002" not in reason:
+            failures.append("a spent split chain did not say so: %r" % reason)
+        else:
+            print("  holds: a dead pointer names the spent chain that killed it")
+        if dead_pointer_reason("T-9404", {}, root) != "no ticket file carries that id":
+            failures.append("a pointer at no ticket at all was not named as such")
+        else:
+            print("  holds: a pointer at no ticket at all says so")
+        ticket("T-9003", "open", "T-9002")
+        write_ledger(root / LEDGER.relative_to(ROOT), {"units": [
+            {"unit_id": "civic:r1", "disposition": "unresolved", "ticket": "T-9001"}]})
+        notes = fragile_pointers(root)
+        if not any("T-9001" in note and "T-9003" in note for note in notes):
+            failures.append("a split chain held live by one leaf raised no note: %r" % notes)
+        else:
+            print("  fires: a pointer one ticket-close away from stranding is named")
+        ticket("T-9004", "open", "T-9002")
+        if fragile_pointers(root):
+            failures.append("a chain with two live leaves was called fragile")
+        else:
+            print("  holds: a chain with more than one live leaf is not fragile")
         for stale in chain.glob("T-90*-fixture.md"):
             stale.unlink()
 

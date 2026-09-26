@@ -334,7 +334,7 @@
    "file": "reconstructed_trades/hh_rc_bertrand_pierre.json",
    "bucket": "persons/male/50_plus/north/family/trade",
    "trade": "speculator",
-   "division": "north"
+   "division": "west"
   },
   {
    "id": "hh_rc_bourassa_antoine",
@@ -663,7 +663,7 @@
    "file": "reconstructed_trades/hh_rc_doyle_alice.json",
    "bucket": "persons/female/20_29/west/family/trade",
    "trade": "domestic",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_doyle_edward",
@@ -673,8 +673,8 @@
    "division": "west"
   },
   {
-   "id": "hh_rc_doyle_honora",
-   "file": "reconstructed_trades/hh_rc_doyle_honora.json",
+   "id": "hh_rc_doyle_margaret",
+   "file": "reconstructed_trades/hh_rc_doyle_margaret.json",
    "bucket": "persons/female/20_29/south/family/trade",
    "trade": "boarding_house_keeper",
    "division": "south"
@@ -691,7 +691,7 @@
    "file": "reconstructed_trades/hh_rc_duffy_bridget.json",
    "bucket": "persons/female/50_plus/south/family/trade",
    "trade": "domestic",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_duffy_catherine",
@@ -894,7 +894,7 @@
    "file": "reconstructed_trades/hh_rc_gallagher_catherine.json",
    "bucket": "persons/female/50_plus/west/family/trade",
    "trade": "laundress",
-   "division": "west"
+   "division": "north"
   },
   {
    "id": "hh_rc_gallagher_daniel",
@@ -1188,18 +1188,18 @@
    "file": "reconstructed_trades/hh_rc_kelly_catherine.json",
    "bucket": "persons/female/40_49/south/family/trade",
    "trade": "domestic",
-   "division": "south"
+   "division": "west"
   },
   {
-   "id": "hh_rc_laframboise_francois",
-   "file": "reconstructed_trades/hh_rc_laframboise_francois.json",
+   "id": "hh_rc_laframboise_charles",
+   "file": "reconstructed_trades/hh_rc_laframboise_charles.json",
    "bucket": "persons/male/20_29/south/family/trade",
    "trade": "carpenter",
    "division": "south"
   },
   {
-   "id": "hh_rc_laframboise_joseph",
-   "file": "reconstructed_trades/hh_rc_laframboise_joseph.json",
+   "id": "hh_rc_laframboise_francois",
+   "file": "reconstructed_trades/hh_rc_laframboise_francois.json",
    "bucket": "persons/male/20_29/north/family/trade",
    "trade": "clerk",
    "division": "north"
@@ -1496,7 +1496,7 @@
    "file": "reconstructed_trades/hh_rc_nash_eli.json",
    "bucket": "persons/male/40_49/north/family/trade",
    "trade": "domestic",
-   "division": "north"
+   "division": "south"
   },
   {
    "id": "hh_rc_nash_ezra",
@@ -1510,7 +1510,7 @@
    "file": "reconstructed_trades/hh_rc_newell_amanda.json",
    "bucket": "persons/female/20_29/west/family/trade",
    "trade": "domestic",
-   "division": "west"
+   "division": "north"
   },
   {
    "id": "hh_rc_newell_benjamin",
@@ -1524,7 +1524,7 @@
    "file": "reconstructed_trades/hh_rc_newell_hiram.json",
    "bucket": "persons/male/40_49/south/family/trade",
    "trade": "seaman",
-   "division": "south"
+   "division": "north"
   },
   {
    "id": "hh_rc_newell_john",
@@ -1559,7 +1559,7 @@
    "file": "reconstructed_trades/hh_rc_newell_seth.json",
    "bucket": "persons/male/50_plus/south/family/trade",
    "trade": "music_teacher",
-   "division": "south"
+   "division": "north"
   },
   {
    "id": "hh_rc_nichols_david",
@@ -1573,7 +1573,7 @@
    "file": "reconstructed_trades/hh_rc_nichols_eli.json",
    "bucket": "persons/male/20_29/west/family/trade",
    "trade": "surveyor",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_nichols_george",
@@ -1594,14 +1594,14 @@
    "file": "reconstructed_trades/hh_rc_nichols_rufus.json",
    "bucket": "persons/male/20_29/north/family/trade",
    "trade": "blacksmith",
-   "division": "north"
+   "division": "west"
   },
   {
    "id": "hh_rc_nichols_samuel",
    "file": "reconstructed_trades/hh_rc_nichols_samuel.json",
    "bucket": "persons/male/20_29/west/family/trade",
    "trade": "butcher",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_nichols_willard",
@@ -1811,7 +1811,7 @@
    "file": "reconstructed_trades/hh_rc_reilly_johanna.json",
    "bucket": "persons/female/40_49/west/family/trade",
    "trade": "domestic",
-   "division": "west"
+   "division": "north"
   },
   {
    "id": "hh_rc_reilly_martin",
@@ -1888,7 +1888,7 @@
    "file": "reconstructed_trades/hh_rc_robillard_michel.json",
    "bucket": "persons/male/30_39/south/family/trade",
    "trade": "boatman",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_robillard_pierre",
@@ -1896,13 +1896,6 @@
    "bucket": "persons/male/30_39/south/family/trade",
    "trade": "grocer",
    "division": "south"
-  },
-  {
-   "id": "hh_rc_ryan_margaret",
-   "file": "reconstructed_trades/hh_rc_ryan_margaret.json",
-   "bucket": "persons/female/20_29/west/family/trade",
-   "trade": "domestic",
-   "division": "west"
   },
   {
    "id": "hh_rc_sawyer_almira",
@@ -1929,15 +1922,15 @@
    "id": "hh_rc_shea_alice",
    "file": "reconstructed_trades/hh_rc_shea_alice.json",
    "bucket": "persons/female/20_29/west/family/trade",
-   "trade": "milliner",
+   "trade": "domestic",
    "division": "west"
   },
   {
    "id": "hh_rc_shea_catherine",
    "file": "reconstructed_trades/hh_rc_shea_catherine.json",
-   "bucket": "persons/female/30_39/west/family/trade",
-   "trade": "boarding_house_keeper",
-   "division": "west"
+   "bucket": "persons/female/30_39/south/family/trade",
+   "trade": "domestic",
+   "division": "south"
   },
   {
    "id": "hh_rc_shea_cornelius",
@@ -1949,9 +1942,9 @@
   {
    "id": "hh_rc_shea_mary",
    "file": "reconstructed_trades/hh_rc_shea_mary.json",
-   "bucket": "persons/female/30_39/south/family/trade",
-   "trade": "domestic",
-   "division": "south"
+   "bucket": "persons/female/20_29/west/family/trade",
+   "trade": "milliner",
+   "division": "west"
   },
   {
    "id": "hh_rc_sheldon_asa",
@@ -1986,7 +1979,7 @@
    "file": "reconstructed_trades/hh_rc_sheldon_willard.json",
    "bucket": "persons/male/30_39/west/family/trade",
    "trade": "plasterer",
-   "division": "west"
+   "division": "north"
   },
   {
    "id": "hh_rc_sheldon_william",
@@ -2070,7 +2063,7 @@
    "file": "reconstructed_trades/hh_rc_stiles_nathaniel.json",
    "bucket": "persons/male/30_39/south/family/trade",
    "trade": "farmer",
-   "division": "south"
+   "division": "north"
   },
   {
    "id": "hh_rc_stiles_william",
@@ -2090,7 +2083,7 @@
    "id": "hh_rc_sullivan_ellen",
    "file": "reconstructed_trades/hh_rc_sullivan_ellen.json",
    "bucket": "persons/female/30_39/west/family/trade",
-   "trade": "domestic",
+   "trade": "boarding_house_keeper",
    "division": "west"
   },
   {
@@ -2099,6 +2092,13 @@
    "bucket": "persons/male/20_29/south/family/trade",
    "trade": "clerk",
    "division": "south"
+  },
+  {
+   "id": "hh_rc_sullivan_johanna",
+   "file": "reconstructed_trades/hh_rc_sullivan_johanna.json",
+   "bucket": "persons/female/30_39/west/family/trade",
+   "trade": "domestic",
+   "division": "north"
   },
   {
    "id": "hh_rc_sullivan_mary",
@@ -2119,14 +2119,14 @@
    "file": "reconstructed_trades/hh_rc_thayer_harvey.json",
    "bucket": "persons/male/30_39/west/family/trade",
    "trade": "blacksmith",
-   "division": "west"
+   "division": "north"
   },
   {
    "id": "hh_rc_thayer_james",
    "file": "reconstructed_trades/hh_rc_thayer_james.json",
    "bucket": "persons/male/20_29/west/family/trade",
    "trade": "farmer",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_thayer_orrin",
@@ -2210,7 +2210,7 @@
    "file": "reconstructed_trades/hh_rc_tuttle_rufus.json",
    "bucket": "persons/male/20_29/south/family/trade",
    "trade": "painter",
-   "division": "south"
+   "division": "west"
   },
   {
    "id": "hh_rc_tuttle_ruth",
@@ -2227,24 +2227,17 @@
    "division": "south"
   },
   {
-   "id": "hh_rc_vieau_francois",
-   "file": "reconstructed_trades/hh_rc_vieau_francois.json",
-   "bucket": "persons/male/20_29/north/family/trade",
-   "trade": "mail_contractor",
-   "division": "north"
-  },
-  {
-   "id": "hh_rc_vieau_hyacinthe",
-   "file": "reconstructed_trades/hh_rc_vieau_hyacinthe.json",
-   "bucket": "persons/male/20_29/west/family/trade",
-   "trade": "miller",
-   "division": "west"
-  },
-  {
    "id": "hh_rc_vieau_jean",
    "file": "reconstructed_trades/hh_rc_vieau_jean.json",
    "bucket": "persons/male/30_39/south/family/trade",
    "trade": "clerk",
+   "division": "south"
+  },
+  {
+   "id": "hh_rc_vieau_louis",
+   "file": "reconstructed_trades/hh_rc_vieau_louis.json",
+   "bucket": "persons/male/20_29/north/family/trade",
+   "trade": "mail_contractor",
    "division": "south"
   },
   {
@@ -2253,6 +2246,13 @@
    "bucket": "persons/female/40_49/north/family/trade",
    "trade": "boarding_house_keeper",
    "division": "north"
+  },
+  {
+   "id": "hh_rc_vieau_toussaint",
+   "file": "reconstructed_trades/hh_rc_vieau_toussaint.json",
+   "bucket": "persons/male/20_29/west/family/trade",
+   "trade": "miller",
+   "division": "west"
   },
   {
    "id": "hh_rc_wadsworth_alvah",
@@ -2287,7 +2287,7 @@
    "file": "reconstructed_trades/hh_rc_walsh_edward.json",
    "bucket": "persons/male/20_29/north/family/trade",
    "trade": "farmer",
-   "division": "north"
+   "division": "west"
   },
   {
    "id": "hh_rc_walsh_honora",
@@ -2420,6 +2420,54 @@
   "persons/male/50_plus/north/family/trade": 2,
   "persons/male/50_plus/south/family/trade": 5,
   "persons/male/50_plus/west/family/trade": 2
+ },
+ "re_familied": {
+  "ticket": "T-1563",
+  "parent_ticket": "T-1559",
+  "ruling": "the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the re-cut holds is RE-FAMILIED rather than retired",
+  "read_from": "data/reconstruction/1835_refamily_rule.json#the_moves_the_rule_yields",
+  "heads_moved": 39,
+  "out_of": {
+   "persons/female/20_29/south/family/trade": 5,
+   "persons/female/20_29/west/family/trade": 4,
+   "persons/female/30_39/west/family/trade": 1,
+   "persons/female/40_49/south/family/trade": 1,
+   "persons/female/40_49/west/family/trade": 1,
+   "persons/female/50_plus/south/family/trade": 2,
+   "persons/female/50_plus/west/family/trade": 1,
+   "persons/male/20_29/north/family/trade": 3,
+   "persons/male/20_29/south/family/trade": 8,
+   "persons/male/20_29/west/family/trade": 3,
+   "persons/male/30_39/south/family/trade": 3,
+   "persons/male/30_39/west/family/trade": 2,
+   "persons/male/40_49/north/family/trade": 1,
+   "persons/male/40_49/south/family/trade": 1,
+   "persons/male/50_plus/north/family/trade": 1,
+   "persons/male/50_plus/south/family/trade": 2
+  },
+  "into": {
+   "persons/female/20_29/north/lodging/trade": 1,
+   "persons/female/20_29/south/lodging/trade": 6,
+   "persons/female/20_29/west/lodging/trade": 2,
+   "persons/female/30_39/north/lodging/trade": 1,
+   "persons/female/40_49/north/lodging/trade": 1,
+   "persons/female/40_49/west/lodging/trade": 1,
+   "persons/female/50_plus/north/lodging/trade": 1,
+   "persons/female/50_plus/south/lodging/trade": 1,
+   "persons/female/50_plus/west/lodging/trade": 1,
+   "persons/male/20_29/south/lodging/trade": 11,
+   "persons/male/20_29/west/lodging/trade": 3,
+   "persons/male/30_39/north/lodging/trade": 3,
+   "persons/male/30_39/south/lodging/trade": 1,
+   "persons/male/30_39/west/lodging/trade": 1,
+   "persons/male/40_49/north/lodging/trade": 1,
+   "persons/male/40_49/south/lodging/trade": 1,
+   "persons/male/50_plus/north/lodging/trade": 1,
+   "persons/male/50_plus/south/lodging/trade": 1,
+   "persons/male/50_plus/west/lodging/trade": 1
+  },
+  "what_it_did_not_change": "the fills above. A move is recorded on both ends by the order book (T-1557): the bucket a head was dealt in keeps its draw and names him in `refamilied_out`, and the bucket he is counted in now names him in `refamilied_in`. If this stage had re-pointed its own fills instead, the same head would have been counted out of one bucket twice and the draw would have been un-written.",
+  "who_writes_the_book_s_ledger": "tools/refamily_moves_1835.py --build, which carries a move into the order book only where the card already says the same thing."
  },
  "measurement": {
   "buckets_ordered": 24,

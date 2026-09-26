@@ -44,7 +44,7 @@
 import { escapeHtml } from './citations.js';
 import { displayName } from './display-name.js';
 import { loadResidentJoins, words } from './residents.js';
-import { seatHtml, seatTarget } from './seat.js';
+import { seatHtml, goTarget } from './seat.js';
 
 /** Diacritics folded, lower-cased, one space between words — the same reduction
  *  people.js applies, so the two directories answer a query the same way. */
@@ -820,7 +820,11 @@ export async function mountBusinesses({
     const row = joins.seatByBusiness?.get(r.register_id);
     const slot = card.querySelector('.biz-seat-slot');
     if (!row || !slot || card.hidden) return;
-    const target = seatTarget(row);
+    // The ladder's seat first, and the policy's dealt roof where the ladder
+    // reaches none (T-1618). No firm carries a deal today — the two seats files
+    // seat households — but the card reads the same join the person card does,
+    // so a firm dealt a roof lights up here with no further edit.
+    const target = goTarget(row);
     const offered = !!card.querySelector('.biz-locs .biz-go');
     const goable = !offered && !!target && !!registry?.has?.(target.id);
     if (!goable && row.rung === 'structure') return; // the premises button already said it

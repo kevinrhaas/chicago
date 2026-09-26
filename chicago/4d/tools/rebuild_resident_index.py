@@ -5,6 +5,9 @@ The manifest is a SUMMARY of data/residents/households/*.json and nothing else.
 Every row's `head`, `division`, `persons`, `grades`, `lives_at`, `works_at`,
 `present_on_scene_date`, `review_required` and its four evidence flags are
 denormalised copies of the record on disk, and `counts` is a tally of those rows.
+One row field is not a copy but a READING of the record: `dwelling_evidence`,
+which names the clause under which T-1476's ruling counts the record as a HOUSE
+and is absent on a record that is a person awaiting one. See `DWELLING_CLAUSES`.
 
 Before this module, four minting passes and four rewriting passes each patched
 the SLICE of the manifest they owned and left the rest verbatim:
@@ -88,14 +91,23 @@ GRADES = ("attested", "inferred", "reconstructed")
 # happened to mint the household. Every committed shape is a subset of this
 # order, so adopting it is a normalisation and not a reshuffle.
 ROW_KEYS = ("id", "file", "letter_list_only", "civic_mint", "head", "division",
-            "persons", "grades", "lives_at", "works_at", "present_on_scene_date",
-            "review_required", PROJECTED, "census_1840_linked")
+            "division_reconstructed", "persons", "grades", "lives_at", "works_at",
+            "present_on_scene_date", "review_required", PROJECTED,
+            "census_1840_linked", "dwelling_evidence")
+
+# T-1523. The policy-only rung's DEALT division, denormalised beside `division` and
+# never into it. `division` is what a source states and `unplaced` where none does —
+# which is what `a_stated_division` below reads to call a record a house — so the dealt
+# value needs a key of its own or the dwelling clause would count 1,305 houses the deal
+# claims no roof for. Absent on a record the deal does not reach, like every other
+# reconstruction on this row.
+DEALT_DIVISION = "division_reconstructed"
 
 # The count keys this derivation owns. Anything else in `counts` is authored and
 # is carried through untouched, in its committed position.
 DERIVED_COUNTS = ("households", "persons", "by_grade", "letter_list_only",
                   "projected_residents", "census_1840_linked", "civic_mint",
-                  "merged_away")
+                  "merged_away", "houses", "awaiting_a_household")
 
 # One redirect row, derived from one retired record in data/residents/merged/.
 # The order is the committed one; every key is copied from the record's own
@@ -109,6 +121,81 @@ MERGED_ROW_KEYS = ("person", "household", "name", "merged_into_person",
 def _value(field):
     """A record's fields are {value, confidence, ...} blocks; the row copies the value."""
     return field.get("value") if isinstance(field, dict) else field
+
+
+# A RECORD AND A HOUSEHOLD ARE NOT THE SAME UNIT — the owner's ruling of 2026-09-21,
+# on T-1476, derived here because this module is the layer's one summary.
+#
+# The layer holds 1,393 household records and the town model wants 643 houses, and
+# for a year those two numbers were set against each other as though they counted the
+# same thing. They do not. `data/residents/` has no container for a person except a
+# household, so a lone name off a post-office letter list BECOMES a one-person
+# household the moment it is minted — and the order book, summing rows, read the town
+# as needing no more houses at all.
+#
+# THE RULING: a name on a letter list is evidence that a man was at Chicago. It is not
+# evidence that he kept a house. So a record whose whole evidence says nothing about a
+# dwelling is a PERSON AWAITING A HOUSEHOLD, and 1,393 against 643 is a backlog rather
+# than a contradiction.
+#
+# WHAT IT DOES NOT DO, said because the opposite reading is the tempting one: nothing
+# is retired, nothing is re-graded and nobody is downgraded. Every record stays exactly
+# as it is, with its evidence and its grade. What changes is which QUESTION the record
+# answers — it answers "was this man here", and it does not answer "how many houses
+# stood in this town". A record answers both the moment something seats him, and this
+# derivation picks that up on the next rebuild without anybody editing a row.
+#
+# THE TEST IS THE EVIDENCE, NOT THE HEAD COUNT. A one-person record is not held out
+# because it holds one person — a man may well have lived alone. It is held out where
+# its whole evidence is a name on a list. So the clauses below are readings, each
+# recorded by name on the row that carries it, and the FIRST that holds is the one
+# written: a reader who asks "why is this a house?" gets an answer and not a boolean.
+#
+# WHAT IS DELIBERATELY NOT A CLAUSE, and each refusal is a reading:
+#   * A TRADE ON ITS OWN. The ruling says "a trade with a premises". A man printed as
+#     a carpenter is a man with a trade; where he slept is a separate question, and 43
+#     records held out here carry an occupation and nothing else. `works_at` is the
+#     premises clause and a bare occupation word is not it.
+#   * A LATER DIRECTORY'S STREET. `directories` carries 1839, 1843 and 1844 addresses
+#     under the ratified ladder's own rule that a directory read after 1835 makes
+#     nobody a resident OF 1835. Counting `address_later` as a dwelling here would be
+#     the silent back-projection the layer's `_doc` forbids in as many words.
+DWELLING_CLAUSES = (
+    # Read first because it is not a reading at all: a record with no named person
+    # is one a reconstruction stage MINTED, and whatever division or roof it carries
+    # was written by the same stage. Saying "a stated division" of it would dress a
+    # construction up as evidence.
+    ("the_programme_built_it_as_a_house",
+     lambda doc, named: named == 0 and bool(doc.get("persons"))),
+    ("a_stated_dwelling",
+     lambda doc, named: bool(_value(doc.get("lives_at")))),
+    ("a_stated_premises",
+     lambda doc, named: bool(_value(doc.get("works_at")))),
+    ("more_than_one_named_person",
+     lambda doc, named: named > 1),
+    ("a_stated_kinship",
+     lambda doc, named: bool(doc.get("kin"))),
+    ("a_stated_division",
+     lambda doc, named: (doc.get("division") or "unplaced") != "unplaced"),
+)
+
+
+def dwelling_evidence(doc: dict) -> str | None:
+    """Which reading makes this record a HOUSE, or None if it awaits one.
+
+    `named` is the people the SOURCES give the record — a household that reads as
+    two only because a reconstruction stage seated a drawn wife in it was never
+    given a shape by a source, and `more_than_one_named_person` will not take it.
+    The first clause is the mirror of that: a record with no named person at all is
+    one the reconstruction programme MINTED as a house, and it is a house by
+    construction rather than by evidence.
+    """
+    persons = doc.get("persons") or []
+    named = sum(1 for person in persons if person.get("grade") != "reconstructed")
+    for clause, holds in DWELLING_CLAUSES:
+        if holds(doc, named):
+            return clause
+    return None
 
 
 def load_households(root: Path | None = None) -> dict[Path, dict]:
@@ -187,6 +274,13 @@ def row_for(path: Path, doc: dict) -> dict:
         "present_on_scene_date": _value(doc.get("present_on_scene_date")),
         "review_required": bool(doc.get("review_required")),
     }
+    # T-1523's dealt division, copied off the block `tools/carry_policy_only_division.py`
+    # owns. Only the VALUE is denormalised: the tier, the band, the seed and the words
+    # stay on the card, which is where a reader who wants to know how it was dealt goes.
+    dealt = doc.get(DEALT_DIVISION)
+    if isinstance(dealt, dict) and dealt.get("value"):
+        row[DEALT_DIVISION] = dealt["value"]
+
     # The evidence flags, each present only when true - the shape the manifest
     # already carries, and the shape the Evidence panel reads.
     if any(p.get("letter_list_only") for p in persons):
@@ -198,6 +292,9 @@ def row_for(path: Path, doc: dict) -> dict:
     linked = sum(1 for p in persons if p.get("later_census"))
     if linked:
         row["census_1840_linked"] = linked
+    clause = dwelling_evidence(doc)
+    if clause:
+        row["dwelling_evidence"] = clause
     return {k: row[k] for k in ROW_KEYS if k in row}
 
 
@@ -300,6 +397,11 @@ def rebuild(index: dict, docs=None) -> dict:
         "census_1840_linked": sum(1 for p in people if p.get("later_census")),
         "civic_mint": sum(1 for p in people if p.get("civic_mint")),
         "merged_away": len(index["merged"]),
+        # T-1476's two units, counted side by side so neither can be read for the
+        # other again. They sum to `households`, which is the record count.
+        "houses": sum(1 for r in rows if r.get("dwelling_evidence")),
+        "awaiting_a_household": sum(1 for r in rows
+                                    if not r.get("dwelling_evidence")),
     }
     counts = dict(index.get("counts") or {})
     counts.update(derived)                       # in place for keys already there
@@ -468,6 +570,58 @@ def self_test() -> int:
                authored["reconstructed_removed_in_2026_09_02_synthesis"] == 7
                and authored["households"] == 2
                and list(authored)[0] == "reconstructed_removed_in_2026_09_02_synthesis")
+
+    # --- T-1476: which records are HOUSES, and which await one ---------------
+    def clause(**fields):
+        persons = fields.pop("persons", [{"id": "p", "grade": "inferred"}])
+        fields.setdefault("division", "unplaced")
+        return dwelling_evidence(_card("hh_t", persons, **fields)[1])
+
+    check_that("a name off a letter list, placed nowhere, awaits a household",
+               clause() is None)
+    check_that("…and so does one carrying a trade word and nothing else — the "
+               "ruling says a trade WITH A PREMISES",
+               clause(persons=[{"id": "p", "grade": "inferred",
+                                "occupation": {"value": "carpenter"}}]) is None)
+    check_that("…and so does one whose only street is a later directory's",
+               clause(directories={"people": [{"person_id": "p", "address_later": {
+                   "value": "South Water street", "describes_date": 1839}}]}) is None)
+    check_that("a stated dwelling makes it a house",
+               clause(lives_at={"value": "Lake Street"}) == "a_stated_dwelling")
+    check_that("a stated premises makes it a house",
+               clause(works_at={"value": "biz_a"}) == "a_stated_premises")
+    check_that("two NAMED people make it a house",
+               clause(persons=[{"id": "p1", "grade": "attested"},
+                               {"id": "p2", "grade": "inferred"}])
+               == "more_than_one_named_person")
+    check_that("…but a drawn second person does not: a seated reconstruction is "
+               "not a source giving the record a shape",
+               clause(persons=[{"id": "p1", "grade": "inferred"},
+                               {"id": "p2", "grade": "reconstructed"}]) is None)
+    check_that("a stated kinship makes it a house",
+               clause(kin={"readings": [1]}) == "a_stated_kinship")
+    check_that("a civil division makes it a house, and `unplaced` is not one",
+               clause(division="north") == "a_stated_division"
+               and clause(division="unplaced") is None)
+    check_that("a household with no named person at all is one the programme "
+               "built, and is a house by construction",
+               clause(persons=[{"id": "p", "grade": "reconstructed"}])
+               == "the_programme_built_it_as_a_house")
+    check_that("an empty card is neither — it is not a house and there is "
+               "nobody in it to await one",
+               clause(persons=[]) is None)
+    check_that("the clause is read in order, so the strongest reading is the "
+               "one the row carries",
+               clause(division="north", lives_at={"value": "Lake Street"})
+               == "a_stated_dwelling")
+    check_that("the two units sum to the record count, and neither is the other",
+               counts["houses"] + counts["awaiting_a_household"]
+               == counts["households"])
+    check_that("the row carries the clause, and a record awaiting a household "
+               "carries no key at all",
+               rows["hh_a"].get("dwelling_evidence") == "a_stated_dwelling"
+               and rows["hh_b"].get("dwelling_evidence")
+               == "the_programme_built_it_as_a_house")
 
     # --- what --check refuses, each broken on purpose ------------------------
     check_that("a manifest that matches its cards reports nothing",

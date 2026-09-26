@@ -81,7 +81,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import research_spend_ledger as L  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
-TICKET = "T-1298"
+# T-1525. THE POINTER MOVED, AND THIS FILE FOLLOWS IT. T-1298 closed on the corpus it
+# could reach; the units it could not reach are still unasserted, and a unit arriving
+# after the closure cannot be owned by a closed ticket -- `ticket_liveness` below is the
+# assertion that says so. Minting the register's 120 documented residents made new units
+# arrive, so `research_spend_ledger.natural_disposition` re-pointed the remainder to
+# T-1552, the open ticket that owns what T-1298 left behind. This constant is the same
+# pointer read from the other end: it selects which units this register rules, so leaving
+# it on T-1298 empties three of the five documents rather than re-homing them. The rows
+# and the rules do not change -- only the ticket that owns the work they hand on to. The
+# precedent is T-1145 -> T-1254 in the ledger, and T-1297 -> T-1551 in EPIC_PIECES.
+TICKET = "T-1552"
 # T-1509. THE BUSINESS REMAINDER IS THE SECOND CORPUS THIS TOOL OWNS. T-1508 taught the
 # ledger to reach the business layer, and 485 units landed there; 100 did not, and they
 # stood `unresolved` behind the routing pointer T-1468 with nothing said about any one
@@ -311,7 +321,25 @@ RULES = {
     },
     "the_enrichment_names_a_civic_church_or_school_post_no_field_carries": {
         "disposition": "unresolved",
-        "ticket": "T-1189",
+        # AND T-1189 IS SPENT SINCE 2026-09-25, so the pointer moves a third time. This is
+        # the T-1237 rule again and it arrived the way that rule always arrives: nothing in
+        # the tree moved, a ticket closed. T-1189 has been `split` since 2026-09-20 and was
+        # held live by ONE leaf of one chain the whole time — T-1189 -> T-1434 -> T-1448 —
+        # and T-1448 merged as #40 at 16:13Z on 2026-09-25 and settled to `done`. T-1432,
+        # T-1433, T-1461 and T-1462 had already closed, so the chain now reads spent and
+        # these twelve units were deferred to finished work; `check.sh` on dev went red on
+        # exactly them (T-1567 filed it from `--ledger-build`, T-1568 from the gate).
+        #
+        # THE PIECES OF T-1189 DO NOT COVER THEM, which is why this is not a per-person deal
+        # among T-1432, T-1433 and T-1434. Those three ran the staffing JOIN: T-1432 wrote
+        # `staff[]` on every business a source staffs, T-1433 seated reconstructed residents
+        # with a trade and no workplace, and T-1434's chain minted the shortfall and printed
+        # the coverage. Not one of them walked the RESIDENT LAYER'S ENRICHMENTS against the
+        # establishments T-1188's children raised — a post found in a volume, on a card this
+        # town already holds. That walk is what these twelve still need, and it now has its
+        # own ticket rather than a pointer at a chain that has stopped: T-1569, filed beside
+        # T-1315 and T-1335, which are the same shape for the dated births and the kin.
+        "ticket": "T-1569",
         "statement": (
             "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a "
             "person this town holds -- a trade, an address, an origin, a kinship, a date -- that "
@@ -332,11 +360,25 @@ RULES = {
             "open ticket that puts real persons into them -- every working person a workplace and "
             "every workplace its people. The three closed children raised the houses and named the "
             "officers their own sources printed; they did not walk the resident layer's enrichments "
-            "against them, and that walk is what a post found in a volume still needs."),
+            "against them, and that walk is what a post found in a volume still needs."
+            " AND THE HAND-OFF IS T-1569 SINCE 2026-09-25: T-1189's own chain is spent — T-1432 and T-1433 done, T-1434 split to T-1448 (done, #40) and T-1449, whose pieces T-1461 and T-1462 are done — so the ticket that was going to do the walk has stopped without doing it. T-1569 is that walk, and it is a SPEND rather than a routing: the join those pieces built is what gives these twelve a field to be written into."),
     },
     "the_enrichment_names_a_landholding_no_field_carries": {
         "disposition": "unresolved",
-        "ticket": "T-1198",
+        # AND THE LANDHOLDING POINTER WENT THE WAY OF THE CIVIC ONE ABOVE, one day later and
+        # for the same reason (T-1584). T-1198 was split into T-1491, T-1492 and T-1493, and
+        # the chain's last live leaf T-1523 settled `done` at 22:35Z on 2026-09-25 — so these
+        # two units, which had not moved, were deferring to finished work and took four gate
+        # steps red with them on a clean `origin/dev`.
+        #
+        # T-1198's PIECES DO NOT COVER THEM. Those three built the address book, seated its
+        # reconstructed reach and made a seat navigable: they put HOUSEHOLDS on ground. What
+        # these two readings name is what a PERSON HELD — John S. Wright's Chicago purchases
+        # and original-town lots, Paul Kingston as a Chicago landholder — and a seat on the
+        # ground is not a field for that. So the hand-off is T-1588, filed beside T-1315,
+        # T-1335 and T-1569, which are this same shape for the dated births, the kin and the
+        # civic posts: a spend against the cards, with the field decided in writing first.
+        "ticket": "T-1588",
         "statement": (
             "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a "
             "person this town holds -- a trade, an address, an origin, a kinship, a date -- that "
@@ -347,8 +389,15 @@ RULES = {
             "one at a time and handed each to the OPEN ticket whose acceptance owns the kind of "
             "fact it names; this unit's own note says which field that is. This one names LAND "
             "rather than a trade or a roof -- a purchase, an original-town lot, a holding -- and "
-            "T-1198 is the pass that seats every attested and inferred household and business on "
-            "the ground its evidence allows, plural and dated, with no fabricated coordinates."),
+            "T-1198 was the pass that seats every attested and inferred household and business on "
+            "the ground its evidence allows, plural and dated, with no fabricated coordinates."
+            " AND THE HAND-OFF IS T-1588 SINCE 2026-09-25: T-1198 was split into T-1491, T-1492 "
+            "and T-1493 and the chain's last live leaf closed, so the ticket these two were "
+            "waiting on has stopped. Its pieces do not cover them either -- they built the "
+            "address book, seated its reconstructed reach and made a seat navigable, which puts "
+            "HOUSEHOLDS on ground and gives no field for what a PERSON HELD. T-1588 is that "
+            "spend, filed beside T-1315, T-1335 and T-1569 for the dated births, the kin and the "
+            "civic posts, and it decides the field in writing before writing anything into it."),
     },
     "the_later_volume_enriches_a_biography_and_names_no_1835_field": {
         "disposition": "later_only",
@@ -458,24 +507,17 @@ RULES = {
             "spent as."),
     },
     # ---- hand-offs ---------------------------------------------------------------
-    "the_compiled_record_names_this_claim_and_tiers_no_field_to_it": {
-        "disposition": "unresolved",
-        "ticket": "T-1514",
-        "statement": (
-            "A compiled business record DOES name this claim -- and only at its root, in "
-            "`claim_ids`, beside a root `sources` list that carries no tier. The ledger "
-            "reaches the business layer on a block that carries a tier AND cites a source "
-            "(T-1508), and on these records there is no such block: `proprietors` and "
-            "`partners` are empty because the advertisement is anonymous, and `locations` "
-            "and `dates` are `inferred` from the placement policy and cite nothing. So the "
-            "reading compiled a whole record and no field of that record is attested from "
-            "it. This is a fault in the LAYER and not in the reading, and it is not closed "
-            "by calling the root a tier: that would be minting a confidence the generator "
-            "never derived. T-1514 owns putting the tier on in "
-            "tools/compile_businesses.py, where the layer re-derives; the day it does, the "
-            "ledger asserts these units with no ruling at all and these rows go red, which "
-            "is what a hand-off closing is supposed to look like."),
-    },
+    # T-1514 CLOSED THIS RULE OUT OF EXISTENCE, 2026-09-24, and that is what a hand-off
+    # closing looks like. `the_compiled_record_names_this_claim_and_tiers_no_field_to_it`
+    # stood here and ruled 49 newspaper readings `unresolved`: a compiled business record
+    # named the claim at its ROOT, where no tier stands, so the reading compiled a whole
+    # record and asserted no field of it. The rule said the day the generator put a tier
+    # on, "the ledger asserts these units with no ruling at all and these rows go red".
+    # tools/compile_businesses.py now derives the anonymous notice's own `notice` block --
+    # attested, citing the source, naming the claims -- so the ledger reaches those
+    # readings by itself and there is nothing left for a ruling to close. A reading a
+    # record still reaches and no block of it asserts is now a fault in the LAYER, and
+    # `rule_business` refuses it rather than ruling it.
     "the_letter_list_name_belongs_to_the_borderline_roster": {
         "disposition": "unresolved",
         # T-1159 CLOSES WITH THE ROSTER IT BUILDS, so a hand-off cannot name it: this
@@ -731,13 +773,13 @@ RULES = {
 # (T-1310, T-1440..T-1442), the one-occupation field became dated plural roles with a
 # `covers_scene_date` flag and a written withdrawal (T-0837, T-0991), and the candidate-fact
 # table is committed (T-1232). tools/spend_trade_premises.py reads all 37 against those
-# fields and gives each one of SIX outcomes, 36 of them terminal. Its rules are folded in
+# fields and gives each one of SIX outcomes, all of them terminal since T-1526. Its rules are folded in
 # here rather than restated, for the same reason `wrote_by_spend` imports the arrival pass's
 # table: the pass that read the card is the pass that says what the card answered with, and
 # a rule renamed there cannot drift out of the register that vouches for it.
 from spend_trade_premises import (BOUNDED as TRADE_BOUNDED,  # noqa: E402
                                   CARRIED as TRADE_CARRIED,
-                                  HANDED as TRADE_HANDED,
+                                  CONTRADICTING as TRADE_CONTRADICTING,
                                   LATER as TRADE_LATER,
                                   PROFILE as TRADE_PROFILE,
                                   RULES as TRADE_RULES,
@@ -1106,6 +1148,12 @@ CHURCH_CROSSWALKS = (
 )
 CHURCH_OUTCOME_RULES = {
     "merged": None,                       # spent on a card by T-1337; see below
+    # T-1525. SPENT, AND NOT BY A MATCH. The crosswalk says the residents card whose
+    # name folds identically to this reading cites this very record id -- the mint read
+    # this row and wrote the person from it. The reading is therefore already on a card,
+    # verbatim, with its locator; there is nothing for this register to rule and a ruling
+    # would read as work done. `church_appearance_rule` states where it went instead.
+    "minted_from_this_reading": None,
     "no_candidate": "the_register_appearance_names_nobody_this_town_holds",
     "unmatched": "the_register_appearance_names_nobody_this_town_holds",
     "refused": "the_register_appearance_identity_was_refused_in_the_crosswalk",
@@ -1143,8 +1191,19 @@ def church_identification(record_id: str, cache: dict) -> dict | None:
 def church_appearance_rule(row: dict, where: str, seen: str,
                            entry: dict) -> tuple[str, str]:
     """What an appearance's own crosswalk already decided about the identity."""
-    rule = CHURCH_OUTCOME_RULES[str(entry.get("outcome"))]
-    told = f"{entry['crosswalk'].rsplit('/', 1)[-1]} rules it {entry.get('outcome')!r}"
+    outcome = str(entry.get("outcome"))
+    rule = CHURCH_OUTCOME_RULES[outcome]
+    told = f"{entry['crosswalk'].rsplit('/', 1)[-1]} rules it {outcome!r}"
+    if outcome == "minted_from_this_reading":
+        # SPENT, NOT RULED (T-1337), and spent by the mint rather than by a merge: the
+        # card names this record id in its own church_evidence, so the reading is on it
+        # as read and this register states nothing about it.
+        minted = entry.get("resident_minted_from_this_reading") or []
+        into = clip(", ".join(minted), 120) or entry.get("name")
+        return None, (
+            f"{where}: {seen}. {told}: tools/mint_civic_residents.py read this row and "
+            f"wrote {into!r} from it, and the card carries the reading as read with this "
+            f"record id — the appearance is on a card already.")
     if rule is None:
         # SPENT, NOT RULED (T-1337). tools/spend_appearance_bounds.py has written this
         # appearance onto the card the crosswalk merges it into, so it closes `asserted`
@@ -1279,10 +1338,17 @@ def rule_business(unit: dict, reach: dict[str, list[str]],
 
     records = reach.get(unit["record_key"]) or []
     if records:
-        return ("the_compiled_record_names_this_claim_and_tiers_no_field_to_it",
-                f"{where}: the layer holds {', '.join(records)}, compiled from this very "
-                f"reading of “{named}” — and it names this claim only at the record root, "
-                f"where no tier stands. It reads: “{line}”")
+        # NOT A RULING ANY MORE (T-1514). The layer holds a record compiled from this very
+        # reading, and since T-1514 every compiled record carries a tiered, source-bearing
+        # block naming the claims it was compiled from -- a proprietor row where the notice
+        # printed a name, the `notice` block where it printed none. So the ledger asserts
+        # this unit on its own and it should never have reached this register. If it did,
+        # the block is missing or untiered on that record, and papering over a hole in the
+        # layer with a written ruling is exactly what this file must not do.
+        raise SystemExit(
+            f"{unit['record_key']}: {', '.join(records)} is compiled from this reading and "
+            f"no tiered, source-bearing block of it names the claim -- put the tier on in "
+            f"tools/compile_businesses.py (T-1514) rather than ruling the reading here")
     if printed and printed > SCENE_DATE:
         return ("the_issue_is_printed_after_the_scene_date",
                 f"{where}: the issue is dated {printed}, after the scene date, and the "
@@ -1628,16 +1694,16 @@ def self_test() -> int:
     except SystemExit:
         pass
 
-    # T-1509: the four answers a business reading can get, each held over a fixture, and
-    # the reach index held over the layer as it stands. The reach fixture is synthetic on
-    # purpose -- the real claim ids move as the corpora are read, and a self-test pinned
-    # to one of them goes red on work that is nothing to do with it.
+    # T-1509 gave a business reading four answers and T-1514 took the first of them away:
+    # a reading the layer compiled a record FROM is asserted by that record's own tiered
+    # block now, so it never reaches this register and a ruling for it would be a hole in
+    # the layer written down as prose. Three answers, each held over a fixture, and the
+    # refusal held over the fourth. The reach fixture is synthetic on purpose -- the real
+    # claim ids move as the corpora are read, and a self-test pinned to one of them goes
+    # red on work that is nothing to do with it.
     trade = {"source_file": "x/chicago_democrat_1835_01_21.json", "record_key": "c900",
              "record": {"id": "c900", "kind": "business", "normalized": "Iron and hardware.",
                         "business": {"name": "an iron and hardware stock"}}}
-    held("a business the layer compiled a record from", trade,
-         "the_compiled_record_names_this_claim_and_tiers_no_field_to_it",
-         fn=lambda u: rule_business(u, {"c900": ["biz_fixture"]}, "1835-06-13"))
     held("a business notice printed after the scene date", trade,
          "the_issue_is_printed_after_the_scene_date",
          fn=lambda u: rule_business(u, {}, "1835-08-05"))
@@ -1648,24 +1714,33 @@ def self_test() -> int:
     held("a business reading the layer holds no record for", trade,
          "a_trade_reading_the_business_layer_holds_no_record_for",
          fn=lambda u: rule_business(u, {}, "1835-06-13"))
-    # THE RECORD OUTRANKS THE DATE, and that order is the ruling, not an accident of the
-    # branch order: a post-scene printing the layer compiled a record from is the
-    # record's question and not this register's (T-1508).
-    if rule_business(trade, {"c900": ["biz_fixture"]}, "1835-08-05")[0] != \
-            "the_compiled_record_names_this_claim_and_tiers_no_field_to_it":
-        failures.append("a compiled record lost to the scene-date fallback")
+    # AND THE REFUSAL, which is what the retired rule became. A record that reaches the
+    # reading and asserts no field of it is T-1514's fault come back, and it is not ruled
+    # here on any date: the refusal outranks the scene-date fallback exactly as the ruling
+    # it replaced outranked it (T-1508).
+    for label, printed in (("an in-window printing", "1835-06-13"),
+                           ("a post-scene printing", "1835-08-05")):
+        try:
+            got = rule_business(trade, {"c900": ["biz_fixture"]}, printed)
+            failures.append(f"a record compiled from the reading asserted none of it and "
+                            f"{label} was ruled anyway: {got[0]!r}")
+        except SystemExit:
+            print(f"  fires: {label} whose compiled record tiers nothing to the claim")
 
-    # ...and the reach index reads the layer that is committed, not one in a fixture.
+    # ...and the reach index reads the layer that is committed, not one in a fixture: every
+    # business unit that survives to this register must be one NO record reaches, or
+    # `rule_business` would have refused it above.
     reach = business_claim_reach(ROOT)
     if not reach:
         failures.append("the business layer reaches no claim at all")
     else:
-        unreached = [unit for unit in mine(ROOT)
-                     if unit["record"].get("kind") == "business"
-                     and not reach.get(unit["record_key"])]
-        ruled = {rule_business(unit, reach, None)[0] for unit in unreached}
-        if "the_compiled_record_names_this_claim_and_tiers_no_field_to_it" in ruled:
-            failures.append("a unit no record reaches was handed to T-1514 anyway")
+        reached = [unit for unit in mine(ROOT)
+                   if unit["record"].get("kind") == "business" and reach.get(unit["record_key"])]
+        if reached:
+            failures.append(f"{len(reached)} business unit(s) a compiled record reaches are "
+                            f"still unasserted: {reached[0]['record_key']!r}")
+        else:
+            print("  holds: no business reading the layer compiled a record from is left over")
 
     book = {"source_file": "x/hubbard_autobiography_1911.json",
             "record": {"id": "b1", "kind": "landscape", "normalized": "The prairie.",
@@ -1710,7 +1785,7 @@ def self_test() -> int:
             ("a trade carried as a profile fact", "06", "mitchell_henry", TRADE_PROFILE),
             ("a trade printed for a later year", "14", "sabine_wm", TRADE_LATER),
             ("a pre-scene engagement", "04", "handy_major", TRADE_UNREACHED),
-            ("a reading the card contradicts", "02", "pearsons_hiram", TRADE_HANDED),
+            ("a reading the card contradicts", "02", "pearsons_hiram", TRADE_CONTRADICTING),
             ("a county office", "04", "steele_ashbel", "the_enrichment_names_a_civic_church_or_school_post_no_field_carries"),
             ("a landholding", "05", "wright_john_s", "the_enrichment_names_a_landholding_no_field_carries"),
             ("a later volume", "15", "doolittle_ehjah", "the_later_volume_enriches_a_biography_and_names_no_1835_field")):

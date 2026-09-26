@@ -2100,6 +2100,30 @@ def self_test():
              "occupant_text": "", "function": "tavern_inn",
              "identity_text": "Tremont House (the first) ; Tremont House",
              "occupation": None, "anonymous": False},
+            # T-1607's own case, and the shape a printed landmark takes once the town
+            # has worn its name down: the record's AKA carries the ONE-WORD short form
+            # the corpus prints beside the full name it also prints. The real Exchange
+            # Coffee House answers to both — Heacock's standing advertisement sets the
+            # full form on 1835-05-27 and the bare one on 1835-07-08 — and it is an AKA
+            # that carries that, not a loosening of the match.
+            {"id": "exchange_coffee_house", "name": "Exchange Coffee House",
+             "name_words": [{"exchange", "coffee", "house"}, {"exchange"}],
+             "aka_head_words": [{"exchange"}], "aka_texts": ["the Exchange"],
+             "occupant_words": set(), "occupant_words_all": set(),
+             "occupant_text": "", "function": "tavern_inn",
+             "identity_text": "Exchange Coffee House ; the Exchange",
+             "occupation": None, "anonymous": False},
+            # …and the reason that short form had to be RULED rather than assumed: the
+            # town holds a second house carrying the same word. The Sauganash began as
+            # the Eagle Exchange Tavern and still answers to it.
+            {"id": "sauganash_hotel", "name": "Sauganash Hotel",
+             "name_words": [{"sauganash", "hotel"}, {"eagle", "exchange", "tavern"}],
+             "aka_head_words": [{"eagle", "exchange", "tavern"}],
+             "aka_texts": ["Eagle Exchange Tavern"],
+             "occupant_words": set(), "occupant_words_all": set(),
+             "occupant_text": "", "function": "tavern_inn",
+             "identity_text": "Sauganash Hotel ; Eagle Exchange Tavern",
+             "occupation": None, "anonymous": False},
             # T-0403's own shape: a building whose occupants line DATES its namesake
             # tenant away from the scene, and whose name and aka go on carrying him.
             {"id": "democrat_office_fixture", "name": "The Chicago Democrat Office",
@@ -2455,6 +2479,35 @@ def self_test():
          lambda d: True if (d["businesses"][0]["anchor"]["kind"] == "structure"
                             and d["businesses"][0]["anchor"]["target"] == "dole_warehouse_south"
                             and d["businesses"][0]["action"] == "new_building")
+         else "anchor=%r action=%r" % (d["businesses"][0]["anchor"],
+                                       d["businesses"][0]["action"]))
+    # 4c. T-1607. THE SHORT FORM A TOWN WEARS INTO A LANDMARK'S NAME. The Democrat
+    #     prints "the Exchange" as often as it prints "the Exchange Coffee House", and
+    #     the proof they are one house is inside the corpus: Russell E. Heacock's
+    #     standing advertisement sets the full form on 1835-05-27 and the bare one on
+    #     1835-07-08, one office, two settings. Carrying that on the record's AKA is
+    #     T-0406's mechanism used as intended — the MATCH is not loosened, the record's
+    #     own list of names it answers to is what grew. Wm. H. Kennicott's dentistry,
+    #     "OFFICE OPPOSITE THE EXCHANGE, LAKE-STREET", is the business it releases.
+    case("an anchor resolves on a ONE-WORD aka the corpus prints",
+         gaz([biz("b1", street="Lake Street", placement={
+             "class": "relative", "anchor": "the Exchange"})]),
+         lambda d: True if (d["businesses"][0]["anchor"]["kind"] == "structure"
+                            and d["businesses"][0]["anchor"]["target"] == "exchange_coffee_house"
+                            and d["businesses"][0]["action"] == "new_building")
+         else "anchor=%r action=%r" % (d["businesses"][0]["anchor"],
+                                       d["businesses"][0]["action"]))
+    case("…and the second house sharing that word does not follow it there",
+         gaz([biz("b1", street="Lake Street", placement={
+             "class": "relative", "anchor": "the Eagle Exchange Tavern"})]),
+         lambda d: True if (d["businesses"][0]["anchor"]["kind"] == "structure"
+                            and d["businesses"][0]["anchor"]["target"] == "sauganash_hotel")
+         else "anchor=%r" % d["businesses"][0]["anchor"])
+    case("…and the one-word aka is still matched WHOLE, so a third form names nothing",
+         gaz([biz("b1", street="Lake Street", placement={
+             "class": "relative", "anchor": "the Exchange Tavern"})]),
+         lambda d: True if (d["businesses"][0]["anchor"]["kind"] == "unresolved"
+                            and d["businesses"][0]["action"] == "street_only")
          else "anchor=%r action=%r" % (d["businesses"][0]["anchor"],
                                        d["businesses"][0]["action"]))
     case("an anchor naming TWO documented businesses is refused on the hop too",

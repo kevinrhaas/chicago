@@ -33,9 +33,12 @@ clause a reading of the record rather than a preference about frontage.
 ## The one-source-of-truth clause, and it is the part with teeth
 
 Five numbers were typed into four modules, under seven names. They now live in `constants` and the modules
-import them:
+import them — six since T-1511 added the frontage reach, which was never typed anywhere
+because it did not exist: the census credited a building to the corridor it stood nearest
+however far that was:
 
     street_line_m        2.71   STREET_LINE_M         measure_frontage_fabric
+    frontage_reach_m    67.72   FRONTAGE_REACH_M      measure_frontage_fabric
     party_line_unit_m    6.072  PARTY_LINE_UNIT_M     measure_end_rule
     trade_letters        C F W  TRADE_LETTERS         measure_frontage_fabric
                                 LIGHT_STREET_ZERO     generate_block_infill
@@ -95,6 +98,20 @@ CONSTANTS = [
                    "midpoint — re-derive with measure_frontage_fabric.py --setbacks. A "
                    "building at or inside this stands ON the street line; anything "
                    "further back stands in the block behind it."},
+    {"name": "frontage_reach_m", "value": 67.72, "unit": "m",
+     "read_by": [{"module": "tools/measure_frontage_fabric.py",
+                  "name": "FRONTAGE_REACH_M"}],
+     "derivation": "how far back a footprint may stand and still be FRONTING the "
+                   "corridor it is nearest, from the empty band in the town's own "
+                   "distribution of nearest-corridor distances, at its midpoint — "
+                   "re-derive with measure_frontage_fabric.py --setbacks. Below "
+                   "60.79 m (miller_tannery, on the Market Street corridor) that "
+                   "distribution is continuous: 373 buildings and no gap wider than "
+                   "2.91 m. The next building anywhere stands 74.65 m back "
+                   "(recon_1835_west_052), a band of 13.86 m with nothing in it — "
+                   "4.76 times the widest gap in the body. Beyond this a building is "
+                   "reported with NO street rather than with a distant one; the "
+                   "reservation and the river mouth hold roofs that front none."},
     {"name": "party_line_unit_m", "value": 6.072, "unit": "m",
      "read_by": [{"module": "tools/measure_end_rule.py",
                   "name": "PARTY_LINE_UNIT_M"}],
@@ -144,7 +161,9 @@ CONSTANTS = [
 #
 # `multi_building_lot_rule`:
 #   party_line_run        the density standard's party-line units, up to three per lot
-#   principal_plus_ancillary   one principal roof and its yard buildings
+#   principal_plus_ancillary   one principal roof and the yard buildings behind it —
+#                         which since the owner's ruling of 2026-09-23 (T-1482, T-1610)
+#                         may include a rear DWELLING, not only a stable or a privy
 #   one_principal_roof    one roof, and the lot is not subdivided
 #   not_applicable        the record is not seated on a platted lot
 
@@ -317,6 +336,36 @@ CLAUSES = [
              "the roof they serve. This predates the face rule and is a rule about the "
              "LOT, which is why A is not one of the face rule's letters."},
 
+    {"id": "rear_dwelling_behind_its_own_roof",
+     "applies_to": ["D1", "D2", "D3", "D4", "D5", "D6"],
+     "prefers": ["lot:mid"],
+     "avoids": [],
+     "multi_building_lot_rule": "principal_plus_ancillary",
+     "setback_class": "yard",
+     "tier": "inferred",
+     "evidence": [],
+     "note": "THE REAR COTTAGE, and it is an owner ruling rather than a reading. A "
+             "cottage may stand in the yard off the block alley behind the principal "
+             "roof on its own lot, and it is ANCILLARY there — the lot carries a main "
+             "house plus a rear dwelling. Owner, 2026-09-23, on T-1482's question, "
+             "option (a): 'Treat a rear cottage as ancillary, so a lot may carry a main "
+             "house plus a rear dwelling.' The question arose because T-1445 refamilies "
+             "six A-family yard buildings on three platted blocks into dwelling "
+             "families, and no clause covered a dwelling in a yard: "
+             "`ancillary_behind_its_own_roof` is A1-A5 only, so the six became second "
+             "PRINCIPAL roofs on occupied lots and the parcel gate refused all six. "
+             "THIS CLAUSE CITES NO RECORD AND CLAIMS NONE: the town holds no documented "
+             "roof standing as a dwelling in another roof's yard, so the tier is "
+             "`inferred` and the reasoning is the ruling, the six verdicts that needed "
+             "it, and the fact that the clause which refused them refuses three of its "
+             "own four evidence records read against the same term (T-1482, and "
+             "`tools/measure_block_redeal_remedies.py` re-derives that count). IT "
+             "AVOIDS NOTHING ON PURPOSE, and that is the whole difference from the A "
+             "clause: a rear cottage stands BEHIND, off the alley, so the traffic class "
+             "of the street its lot fronts is not a fact about its position — and "
+             "`class:principal` in the A clause's `avoids` is precisely the term that "
+             "produced the six refusals. Recorded as a liberty at L256."},
+
     {"id": "garrison_reservation",
      "applies_to": ["M1"],
      "prefers": ["ground:unplatted", "division:south"],
@@ -357,7 +406,10 @@ MULTI_BUILDING_LOT = {
                  "dooryard, and the lot is not subdivided.",
         "evidence": [],
         "note": "Stated as the complement of the principal-street rule. No documented "
-                "back-street lot in this town carries two principal roofs.",
+                "back-street lot in this town carries two principal roofs. The rear "
+                "cottage the owner admitted on 2026-09-23 does not raise this maximum: "
+                "`rear_dwelling_behind_its_own_roof` seats a dwelling in the yard as "
+                "ANCILLARY, and this number counts principal roofs.",
     },
 }
 
@@ -406,6 +458,42 @@ MULTI_BUILDING_LOT = {
 # own reasons below now that the street is the one on their side of the water. Two
 # north-bank roofs moved the other way, off Kinzie's submerged end onto Michigan Street,
 # and both still conform. Nothing was retyped and no coordinate moved.
+#
+# AND WHAT MOVED ON 2026-09-24 WAS THE READING ITSELF (T-1511). Until this ticket the
+# census credited every footprint to the corridor it stood NEAREST at any distance
+# whatever, so the reservation's roofs were scored against a street 270 m to 420 m away
+# across ground that holds no street. `nearest_frontage` now carries a measured reach and
+# reports them with NO street, and this policy answers a record with no street by the
+# clause's own setback class rather than by silence — `unplatted` says in so many words
+# that it is for a roof with "no street frontage to keep a setback from", and the other
+# three classes all measure from a street or from a platted lot. See `_breaches`.
+#
+# Nineteen of the reasons below are on roofs that front no street and every one of them
+# stands, re-read: the sentence that used to say "270.75 m from Lake Street's corridor
+# edge" is now saying it about a corridor this roof is not on, which is the point they
+# were all making in words already. TWO come off the list, and both for the same reason
+# — the clause that covers them is the `unplatted` one, and it is the clause that was
+# written for exactly this ground:
+#
+#   beaubien_barn          A2, and `farms_and_country_seats` is an `unplatted` clause
+#                          covering A2. Its reason said the barn is "on his own ground
+#                          east of the fort, outside the plat … behind its own house and
+#                          not on anybody's frontage", and it was an outlier only because
+#                          `ancillary_behind_its_own_roof` avoids the `principal` class
+#                          that Lake Street at 347.65 m put it in. There is no class now,
+#                          the country-seats clause accepts it, and the reason has become
+#                          a description of a conforming roof rather than of a breach.
+#   fort_dearborn_big_barn A2, the same clause and the same sentence: "the garrison's own
+#                          barn, seated behind the fort and not on a street". It is not
+#                          on a street, the reading finally says so, and the clause that
+#                          covers unplatted ground takes it.
+#
+# Neither reason was deleted to tidy the reading — both are quoted here, which is where a
+# withdrawn reason goes, and assertion 3 refuses a reason that outlives its outlier. The
+# three A5 roofs beside them — out_building_a, out_building_b and wash_house — do NOT
+# move: `ancillary_behind_its_own_roof` seats a roof by a `yard` setback off a block
+# alley, there is no platted lot on the reservation to take one from, and their reasons
+# say that already.
 
 OUTLIER_REASONS = {
     "blacksmith_shop_state_st":
@@ -424,15 +512,6 @@ OUTLIER_REASONS = {
         "harbour and not by a street.",
     "council_house":
         "on the lakefront reservation ground east of the platted town.",
-    "beaubien_barn":
-        "Jean Baptiste Beaubien's own barn on his own ground east of the fort, outside "
-        "the plat: an ancillary roof 347.65 m from Lake Street's corridor edge is behind "
-        "its own house and not on anybody's frontage. It read Kinzie at 80.93 m until "
-        "T-1429, which is a north-bank street across the channel.",
-    "fort_dearborn_big_barn":
-        "inside the unplatted military reservation, 270.75 m from Lake Street's corridor "
-        "edge: the garrison's own barn, seated behind the fort and not on a street. Same "
-        "correction as its neighbours — Kinzie at 95.89 m was across the water.",
     "fort_dearborn_shop":
         "inside the unplatted military reservation: the garrison's own workshop, not a "
         "mechanic's shop on a street. Its nearest corridor is Lake Street's at 381.64 m "
@@ -541,7 +620,29 @@ def _breaches(row: dict, clause_row: dict, street_line_m: float) -> list[str]:
     out = []
     if row["class"] and f"class:{row['class']}" in clause_row["avoids"]:
         out.append(f"stands on a {row['class']} street, which {clause_row['id']} avoids")
-    if clause_row["setback_class"] == "street_line" and not row["on_line"]:
+
+    # T-1511. A record beyond the frontage reach fronts NO street: there is no class for
+    # an `avoids` term to refuse it by — the test above simply cannot speak — and no
+    # frontage to keep a setback from. This policy already has a setback class for that
+    # case and says what it means: `unplatted — no street frontage to keep a setback
+    # from`. So a record with no street is answered by the clause's own setback class
+    # rather than by silence: `unplatted` is satisfied, and every other class is not,
+    # because `street_line` and `typology` both measure from a street and `yard`
+    # measures from a platted lot and its alley. That is the reading six of the outlier
+    # reasons on the reservation already give in words — "there is no lot here" — and it
+    # is now the reading the measurement gives too.
+    # `.get` with a non-None default on purpose: a caller that scores a place of its own
+    # making (redeal's self-test, the clause witnesses) states a class and a setback and
+    # no street key at all, and that is a place ON a street, not the absence of one.
+    if row.get("street", "") is None:
+        if clause_row["setback_class"] != "unplatted":
+            how_far = ("no platted corridor reaches it" if row["setback_m"] is None
+                       else f"its nearest corridor is {row['setback_m']:.2f} m away, "
+                            f"beyond the frontage reach")
+            out.append(f"fronts no street ({how_far}), and {clause_row['id']} seats it "
+                       f"by a `{clause_row['setback_class']}` setback, which is measured "
+                       f"from one")
+    elif clause_row["setback_class"] == "street_line" and not row["on_line"]:
         out.append(f"stands {row['setback_m']:.2f} m off the street line "
                    f"({street_line_m} m), and {clause_row['id']} puts it on the line")
     return out
@@ -588,7 +689,9 @@ def outliers(result: dict | None = None) -> list[dict]:
             continue
         why = sorted({m for v in row["breaches"].values() for m in v})
         out.append({"id": row["id"], "family": row["family"], "street": row["street"],
-                    "class": row["class"], "setback_m": round(row["setback_m"], 2),
+                    "class": row["class"],
+                    "setback_m": (None if row["setback_m"] is None
+                                  else round(row["setback_m"], 2)),
                     "measured": why,
                     "reason": OUTLIER_REASONS.get(row["id"])})
     return sorted(out, key=lambda r: r["id"])
@@ -598,11 +701,15 @@ def witness(clause_row: dict, result: dict) -> dict:
     """What the clause's own evidence does, re-read from the tree on every build."""
     by_id = {r["id"]: r for r in result["rows"]}
     seen = [by_id[i] for i in clause_row["evidence"] if i in by_id]
-    setbacks = sorted(round(r["setback_m"], 2) for r in seen)
+    setbacks = sorted(round(r["setback_m"], 2) for r in seen
+                      if r["setback_m"] is not None)
     return {
         "evidence_records": len(clause_row["evidence"]),
         "standing_with_a_street": len(seen),
         "by_street_class": {k: sum(1 for r in seen if r["class"] == k) for k in CLASSES},
+        # T-1511: an evidence record beyond the frontage reach has no class and is in
+        # none of the three above; it is counted here rather than going missing.
+        "fronting_no_street": sum(1 for r in seen if r["street"] is None),
         "on_the_street_line": sum(1 for r in seen if r["on_line"]),
         "setback_m_min": setbacks[0] if setbacks else None,
         "setback_m_max": setbacks[-1] if setbacks else None,
@@ -767,8 +874,13 @@ def _report(result: dict) -> str:
              "      setback   verdict"]
     for row in sorted(result["rows"], key=lambda r: (r["family"], r["id"])):
         verdict = "conforms" if row["conforms"] else "OUTLIER"
-        lines.append(f"   {row['family']:<8}{row['id']:<41}{row['street']:<14}"
-                     f"{str(row['class']):<11}{row['setback_m']:>8.2f} m  {verdict}")
+        # T-1511: a roof beyond the frontage reach fronts no street — printed as the
+        # absence it is, with the distance to the corridor it is nearest in brackets
+        street = row["street"] or "(none)"
+        setback = ("       —" if row["street"] is None or row["setback_m"] is None
+                   else f"{row['setback_m']:>8.2f}")
+        lines.append(f"   {row['family']:<8}{row['id']:<41}{street:<14}"
+                     f"{str(row['class']):<11}{setback} m  {verdict}")
     lines.append("\n   the outliers, and what each one is telling you\n")
     for row in outliers(result):
         lines.append(f"   {row['family']:<5}{row['id']}")

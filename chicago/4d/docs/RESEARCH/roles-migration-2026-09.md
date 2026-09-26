@@ -6,11 +6,20 @@ describing the tree it is about. T-1254, of T-1145 (acceptance 3 and 9).
 
 ## What was offered, and what was made of it
 
-Four research records hold structured role evidence about people the residents
-layer carries: the newspaper gazetteer compiled from the 1833-1835 Chicago press,
-the Fergus 1839 city register's office tables, and the Fergus 1843 and Norris 1844
-directory crosswalks. Every row each of them offers about a resident is listed
-below under the disposition it received.
+Six research records hold role evidence about people the residents layer carries:
+the newspaper gazetteer compiled from the 1833-1835 Chicago press, the Fergus 1839
+city register's office tables, the Fergus 1839, Fergus 1843 and Norris 1844
+directory crosswalks, and — since T-1507 — the adjudicated readings of
+retrospective PROSE, which is the one of the six that is not a structured record
+and the reason a trade named only in a reminiscence used to be carried by nothing
+at all. Every row each of them offers about a resident is listed below under the
+disposition it received.
+
+The 1839 DIRECTORY joined the table in T-1515. Until then its printings reached a
+card only through `occupation_later`, a pointer written only where the 1835 field
+had a gap to fill, so that volume's evidence was conditional on the 1835 field
+being empty and its siblings' was not. It is read off its own crosswalk now,
+whatever the 1835 field holds, and the pointer is a convenience.
 
 - **asserted** — the printing IS a word in the residents vocabulary.
 - **folded** — a synonym ruled onto a controlled word (`boot and shoe maker` ->
@@ -29,20 +38,22 @@ carry is a controlled word, and it may not fill the 1835 view without one.
 
 | record | offered | asserted | folded | refused | unresolved |
 | --- | ---: | ---: | ---: | ---: | ---: |
+| `fergus_1839_directory` | 151 | 19 | 11 | 8 | 113 |
 | `fergus_1839_register` | 18 | 0 | 5 | 13 | 0 |
-| `fergus_1843_directory` | 125 | 19 | 11 | 12 | 83 |
+| `fergus_1843_directory` | 126 | 20 | 12 | 12 | 82 |
 | `newspaper_gazetteer` | 213 | 88 | 81 | 44 | 0 |
-| `norris_1844_directory` | 100 | 22 | 14 | 8 | 56 |
-| **total** | **456** | **129** | **111** | **77** | **139** |
+| `norris_1844_directory` | 103 | 23 | 15 | 8 | 57 |
+| `retrospective_prose` | 1 | 0 | 1 | 0 | 0 |
+| **total** | **612** | **150** | **125** | **85** | **252** |
 
-`9` further row(s) were SYNONYM-FOLDED INTO EACH OTHER: one
+`10` further row(s) were SYNONYM-FOLDED INTO EACH OTHER: one
 source printing two wordings for one controlled role over one bound asserts that
 role once, and the survivor names the other wording in its note.
 
 ## What the roles now carry
 
-- `173` people carry two or more roles, listed below.
-- `98` of their roles reach 1835-07-01, of which `97` stand in the 1835 compatibility view.
+- `185` people carry two or more roles, listed below.
+- `115` of their roles reach 1835-07-01, of which `114` stand in the 1835 compatibility view.
 - The `1` that reach the day WITHOUT filling the
   field are the migration's open question, and they are held open on purpose. Four
   tools derive `persons[].occupation` and only one of them was taught about roles:
@@ -54,7 +65,7 @@ role once, and the survivor names the other wording in its note.
   lawyer no practitioner ruling held. T-1296 makes the four agree; until it does,
   the rows say plainly that the evidence reaches the day and the field does not
   carry it, which is a state that can be read and argued with.
-- `165` carry a stated `place` and `56` a stated
+- `256` carry a stated `place` and `58` a stated
   `employer_or_body`. Both default to `not_stated`, which is an assertion:
   the record does not say. Places come from the directories' own address and
   place-of-business columns and bodies from the register's `body` column and the
@@ -77,7 +88,7 @@ least one source in common, with corroborators beside it.
 | role | as printed | from | to | reaches 1835-07-01 | fills it | place | body |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `soap_and_candle_maker` | — | 1833-11 | 1833-11 | no | no | not_stated | not_stated |
-| _none_ | brickmaker | 1839 | 1839 | no | no | not_stated | not_stated |
+| `brickmaker` | brickmaker | 1839 | 1839 | no | no | Elston road | not_stated |
 | _none_ | school inspector | 1839 | 1839 | no | no | not_stated | city_of_chicago |
 | `brickmaker` | patent press-brick maker | 1843 | 1843 | no | no | res North Branch | not_stated |
 | `brickmaker` | patent press brickmaker | 1844 | 1844 | no | no | res N. Branch Mile End | not_stated |
@@ -87,95 +98,102 @@ least one source in common, with corroborators beside it.
 | person | roles | reaching 1835-07-01 | printings |
 | --- | ---: | ---: | --- |
 | `abbott_titus_h` | 2 | 0 | blacksmith; merchant |
-| `abell_sidney` | 4 | 0 | attorney; attorney at law |
+| `abell_sidney` | 3 | 0 | attorney; attorney at law |
 | `adams_william_h` | 3 | 0 | (W. H. A. & Co.); merchant; of W. H. A. & Co |
 | `allen_edward_richards` | 2 | 0 | druggist, Leroy M. Boyce |
-| `allen_lieut_james` | 4 | 1 | army officer; army_officer; harbour agent |
+| `allen_lieut_james` | 5 | 1 | army officer; army_officer; harbour agent; steamboat builder |
 | `allen_william` | 3 | 0 | saloon; shipcarpenter; shipwright |
 | `austin_w_g` | 3 | 0 | botanic practitioner; physician |
 | `bailey_bennet` | 3 | 0 | carpenter; carpenter and builder; carpenter, Dearborn |
+| `bates_john_jr` | 2 | 1 | auctioneer |
 | `beaubien_jean_baptiste` | 4 | 3 | colonel of the Cook county regiment; merchant; public administrator; trader |
-| `beaubien_mark` | 2 | 1 | U.S. light-house keeper; tavern_keeper |
-| `bennett_h_c` | 2 | 1 | attorney; whitewasher alley |
+| `beaubien_mark` | 3 | 1 | U.S. light-house keeper; hotel-keeper; tavern_keeper |
+| `bennett_h_c` | 3 | 1 | attorney; speculator; whitewasher alley |
 | `bishop_j_e` | 3 | 0 | canal contractor; dry goods and groceries, 131 Lake; dry goods, groceries, and hardv/are |
 | `blair_william_g` | 2 | 0 | hardware, etc., 111 S. Water, s.-e; stove and tin factory |
 | `blakesley_harvey_a` | 3 | 0 | (Loyd, B. & Co.); bookkeeper, L. W. Holmes; of Loyd, B. & Co |
 | `blanchard_f_gantry` | 2 | 0 | capitalist; real estate dealer |
-| `botsford_j_k` | 3 | 1 | (B. & Beers), 109 Lake; grocer; of B. & Beers |
+| `blodgett_tyler_k` | 2 | 1 | brickmaker; tavern-keeper |
+| `botsford_j_k` | 4 | 1 | (B. & Beers), 109 Lake; Botsford & Beers; grocer; of B. & Beers |
 | `bowen_erastus_selden` | 4 | 0 | (B. & Cole); city collector; collector; of B. & Cole |
 | `bradley_joseph` | 3 | 0 | clerk, William H. Adams & Co; clerk, at W. H. Adams & Co.'s; surgeon dentist |
 | `bristol_r_c` | 2 | 0 | (B. & Porter); of B. & Porter |
 | `brookes_samuel` | 2 | 0 | florist |
-| `brown_lemuel` | 2 | 1 | blacksmith; blacksmith, boarding house, 142 Lake |
-| `brown_rufus` | 3 | 1 | boarding_house_keeper; clerk at J. P. Chapin & Co.'s; warehouse man, John P. Chapin & Co |
+| `brown_lemuel` | 3 | 1 | blacksmith; blacksmith, boarding house, 142 Lake |
+| `brown_rufus` | 4 | 1 | boarding_house_keeper; clerk at J. P. Chapin & Co.'s; warehouse man, John P. Chapin & Co; warehouseman, Bristol & Porter |
 | `brown_mrs_rufus` | 2 | 1 | boarding_house_keeper; dress and cloak maker, 189 Lake, up stairs |
 | `brown_william_h` | 6 | 0 | 8 LaSalle, (A. G. Burley & Co.); attorney, office Bank Building; cashier, Branch State Bank Illinois; grocer; merchant; school inspector |
 | `burton_edward` | 3 | 0 | merchant tailor, 162 Lake; tailor; tailor, 1G2 Lake st |
 | `burton_john` | 2 | 0 | gardener; vegetable gardener, N. Clark, s.e |
 | `calhoun_alvin` | 3 | 0 | carpenter; carpenter and builder; carpenter, hou.«e Randolph st. 1st ward |
-| `calhoun_john` | 3 | 1 | editor; printer; retired printer |
+| `calhoun_john` | 4 | 1 | county collector, Eddy’s store; editor; printer; retired printer |
 | `carli_p_s` | 3 | 0 | fancy store keeper; tavern keeper |
 | `carli_paul_j` | 2 | 0 | tavern keeper |
-| `caton_john_dean` | 3 | 1 | attorney; laborer |
+| `carpenter_philo` | 2 | 1 | druggist; druggist and apothecary |
+| `casey_edward_w` | 2 | 1 | attorney; clerk, Stanton & Black |
+| `caton_john_dean` | 4 | 1 | attorney; attorney at law; laborer |
 | `chapman_chas_h` | 2 | 0 | merchant; real estate dealer |
+| `choulet_michel_alexandre` | 3 | 0 | carpenter; carpenter, Alex. Loyd |
 | `christy_nathan` | 3 | 0 | fisherman; laborer |
-| `church_thomas` | 3 | 1 | dry goods and groceries; dry goods and groceries, 111 Lake; merchant |
+| `church_thomas` | 4 | 1 | dry goods and groceries; dry goods and groceries, 111 Lake; grocery and provision store, hi; merchant |
 | `clarke_h_b` | 3 | 1 | farmer, Michigan ave, n.e; farmer, lake shore, below Michigan avenue; hardware_merchant |
 | `clarke_w_b` | 2 | 0 | & Abram F. , wholesale druggists and apothecaries; hardware merchant |
 | `clift_benjamin_h` | 2 | 0 | bookseller; stationer |
 | `clybourne_archibald` | 3 | 1 | butcher; farmer |
-| `cohen_peter` | 2 | 1 | clothier; ready-made clothing, Lake |
+| `cohen_peter` | 3 | 1 | clothier; merchant; ready-made clothing, Lake |
 | `cole_parker_m` | 3 | 0 | (Bowen & C), county poor master; dry goods and groceries, Lake streel; of Bowen & C. Lake st. near State |
 | `collins_j_h` | 3 | 1 | attorney; attorney (Butterfield & C); of Butterfield & C |
-| `cook_john` | 3 | 0 | tailor |
-| `cook_josiah_p` | 3 | 0 | baker |
+| `cook_john` | 2 | 0 | tailor |
+| `cook_josiah_p` | 2 | 0 | baker |
 | `cook_thomas` | 3 | 0 | teamster; teamster, Desplaines. south of Randolph |
-| `couch_ira` | 3 | 1 | hotel_keeper; proprietor Tremont House, s.e; proprietor of the Tremont House |
-| `couch_james` | 2 | 1 | hotel_keeper; superintendent Tremont House |
+| `couch_ira` | 4 | 1 | hotel-keeper, Tremont House, n.-w. cor. Dearborn and; hotel_keeper; proprietor Tremont House, s.e; proprietor of the Tremont House |
+| `couch_james` | 3 | 1 | Superintendent Tremont House; hotel_keeper; superintendent Tremont House |
+| `crocker_h` | 2 | 1 | attorney at law; schoolteacher |
 | `curtis_jacob_s` | 2 | 0 | water borer |
-| `curtiss_j` | 3 | 1 | State's attorney, 136 Lake; attorney; state's attorney, office"-. 136 Lake st |
+| `curtiss_j` | 4 | 1 | State's attorney, 136 Lake; attorney; attorney and counsellor at law, 17^; state's attorney, office"-. 136 Lake st |
 | `curtiss_l_g` | 3 | 1 | attorney; deputy surveyor of Cook County |
 | `davis_george` | 4 | 0 | clerk county commissioners' court, office 107 Lake st; clerk, county commiss'rs' court, county-clerk, 107 Lake; county clerk; sealer of weights and measures |
-| `davis_john` | 3 | 1 | hotel_keeper; sailor; tailor. North Water |
+| `davis_john` | 4 | 1 | hotel_keeper; sailor; tailor; tailor. North Water |
 | `dean_james_l` | 2 | 0 | saddler and harness m;iker, at Paine's; saddler and harness maker, James S. Paine |
 | `dewey_d_s` | 2 | 0 | cabinet maker; chair and furniture maker |
-| `dole_george_w` | 5 | 1 | (Newberry &D). Michigan; forwarding_and_commission; merchant; of Newberry & D; treasurer |
-| `egan_william_b` | 3 | 1 | physician; physician, recorder, c Clark and Rand st; physician, recorder, etc., 68 Clark |
-| `eldridge_john_w` | 2 | 0 | physician |
+| `dole_george_w` | 6 | 1 | (Newberry &D). Michigan; city treasurer; forwarding_and_commission; merchant; of Newberry & D; treasurer |
+| `egan_william_b` | 4 | 1 | physician; physician, recorder, c Clark and Rand st; physician, recorder, etc., 68 Clark; real estate dealer |
 | `elston_daniel` | 5 | 0 | brickmaker; patent press brickmaker; patent press-brick maker; school inspector; soap_and_candle_maker |
-| `fitzgerald_thos` | 3 | 0 | laborer |
-| `fitzsimmons_john` | 2 | 0 | teamster |
-| `foot_s` | 3 | 1 | grocer; teamster; teamster, 180 Clark |
+| `fitzgerald_thos` | 2 | 0 | laborer |
+| `foot_s` | 4 | 1 | grocer; teamster; teamster, 180 Clark |
 | `forbes_stephen` | 2 | 2 | sheriff; sheriff of cook county |
 | `foster_amos` | 2 | 0 | (Jennings & F.); of Jennings A: F |
-| `fullerton_alexander` | 5 | 1 | attorney; attorney at law; secretary to the town trustees |
+| `fullerton_alexander` | 6 | 1 | attorney; attorney at law; lumber merchant; secretary to the town trustees |
 | `funk_absolom` | 3 | 0 | Funk & Doyle, butchers; butcher, Fulton and Boston Markets; butcher, Fulton and Boston markets |
 | `gage_eli` | 2 | 0 | daguerreotype; daguerrotype artist, 90 Lake |
-| `gale_stephen_f` | 3 | 1 | & Co. (A. H. Burley), books and stationery, 106 Lake; merchant; of S. F. & Co |
-| `garrett_a` | 2 | 1 | auctioneer; of G. & Seaman |
-| `cobb_silas_b` | 4 | 1 | saddler; saddler and harness maker; saddler and harness maker. 171 Lake |
-| `gould_a_b` | 3 | 0 | sailor |
-| `haddock_edward` | 4 | 1 | merchant; tavern keeper; tavern_keeper |
-| `hamilton_richard_j` | 6 | 2 | (H. & Chamberlin); clerk of the circuit court; county clerk; county_clerk; justice; of H. & Chamberlaine |
+| `gale_stephen_f` | 4 | 1 | & Co. (A. H. Burley), books and stationery, 106 Lake; bookseller and stationer; merchant; of S. F. & Co |
+| `garrett_a` | 3 | 1 | auctioneer; auctioneer, real estate; of G. & Seaman |
+| `cobb_silas_b` | 5 | 1 | saddle, harness, and trunk maker, 1 7; saddler; saddler and harness maker; saddler and harness maker. 171 Lake |
+| `gould_a_b` | 2 | 0 | sailor |
+| `grant_james` | 2 | 1 | attorney; attorney, N. Water st near Rush |
+| `haddock_edward` | 5 | 1 | commission merchant; merchant; tavern keeper; tavern_keeper |
+| `hamilton_richard_j` | 7 | 2 | (H. & Chamberlin); clerk circuit court; clerk of the circuit court; county clerk; county_clerk; justice; of H. & Chamberlaine |
 | `harmon_charles_l` | 3 | 0 | dry goods and groceries; dry goods and groceries, 145 South Water. s.-w; dry_goods_merchant |
 | `harmon_isaac_d` | 5 | 0 | clerk of the board of trustees; dry goods merchant; dry_goods_merchant; justice of the peace; secretary, Board of Trustees |
 | `harmon_elijah_d` | 2 | 1 | physician |
 | `heacock_russel_e` | 4 | 4 | attorney; justice of the peace; land agent |
 | `herrick_ira` | 2 | 0 | canal contractor; contractor |
 | `hinton_isaac_t` | 2 | 0 | Baptist pastor; First Baptist Church |
-| `hogan_john_s_c` | 6 | 3 | at C. L. P. Hogan's; ex-postmaster; merchant; postmaster |
+| `hogan_john_s_c` | 7 | 3 | at C. L. P. Hogan's; dry goods and groceries; ex-postmaster; merchant; postmaster |
+| `holbrook_john` | 2 | 1 | boots and shoes; shoemaker |
 | `holsman_george` | 2 | 0 | saloon; tailor |
 | `howe_sarah_d` | 4 | 0 | cloak maker; dress maker; dressmaker; habit maker |
 | `hubbard_ahira` | 3 | 0 | Baptist pastor; book-keeper at G. S. Hubbard's; book-keeper, Gurdon S. Hubbard |
 | `hubbard_elijah_kent` | 6 | 2 | banker, 47-; fire insurance agent; land agent; merchant |
 | `hubbard_gurdon` | 8 | 4 | commission and forwarding merchant; forwarding and commission merchant; forwarding and commission, South Water; merchant; packer; railroad commissioner |
-| `hubbard_henry_g` | 4 | 2 | at clerk's office; clerk, Circuit Court; commission and forwarding merchant; merchant |
+| `hubbard_henry_g` | 5 | 2 | at G. S. Hubbard & Co.’s warehouse; at clerk's office; clerk, Circuit Court; commission and forwarding merchant; merchant |
+| `hugunin_hiram` | 2 | 1 | insurance_agent; merchant |
 | `hugunin_leonard_c` | 2 | 0 | at United States Hotel; speculator |
 | `inf_cooper_north_04` | 2 | 1 | cooper |
 | `inf_joiner_north_02` | 2 | 1 | cabinet maker; joiner |
 | `inf_physician_south_01` | 3 | 1 | land agent; physician |
 | `inf_tailor_north_02` | 3 | 1 | tailor |
-| `inf_tavern_keeper_north_01` | 2 | 1 | tavern keeper; tavern_keeper |
+| `inf_tavern_keeper_north_01` | 3 | 1 | tavern keeper; tavern_keeper |
 | `jackson_samuel` | 2 | 0 | Government works, near Garrison; overseer of harbor |
 | `jamison_l_t` | 3 | 3 | Lieutenant, U.S. Army; acting commissary of subsistence; assistant commissary of subsistence |
 | `johnson_lathrop` | 3 | 0 | cigar maker, A. B. Wheeler; cigar, maker at Wheeler's; liveryman |
@@ -184,70 +202,75 @@ least one source in common, with corroborators beside it.
 | `jones_benjamin` | 3 | 0 | grocer; of B. J. & Co |
 | `jones_m` | 2 | 0 | founder; stove dealer |
 | `jones_william` | 7 | 2 | (B. J. & Co.); hardware merchant; justice of the peace; merchant; of B. Jones & Co; stove and hollow ware dealer |
-| `jordan_j_b` | 2 | 0 | sailor |
 | `kennicott_william_h` | 6 | 0 | dentist; dentist, 133 Lake; physician; surgeon dentist |
 | `kercheval_gholson` | 2 | 1 | real estate dealer; sub_agent |
 | `kimball_walter` | 2 | 0 | dry_goods_merchant; probate judge, cor. Clark and |
-| `king_j_d` | 2 | 0 | carpenter |
+| `king_byram` | 2 | 1 | Jones, King & Co; hardware_merchant |
 | `king_tuthill` | 4 | 1 | New York clothing store; clothier; clothing, dry goods, &c; ready-made clothing, dry goods, etc., 115 Lake |
+| `kinzie_james` | 2 | 1 | merchant; real estate agent |
 | `kinzie_john_h` | 5 | 3 | President, Board of Trustees of the Town of Chicago; forwarding and commission merchant; forwarding_and_commission; merchant; register land office |
-| `kinzie_robert_a` | 2 | 1 | merchant |
-| `lacey_j_s` | 3 | 0 | baker |
-| `lawrence_james_r` | 2 | 0 | mason |
+| `kinzie_robert_a` | 3 | 1 | Davis, Kinzie & Hyde; merchant |
+| `lacey_j_s` | 2 | 0 | baker |
 | `lincoln_solomon` | 2 | 0 | tailor; tailor and clothier |
 | `loyd_alexander` | 3 | 0 | carpenter and builder; carpenter and builder, (L., Blakesley & Co.); mayor of chicago |
 | `marsh_silvester` | 2 | 1 | 98 Lake, packing-house, 304-6 North Water; provision_dealer |
-| `marshall_j_a` | 3 | 1 | auctioneer, Parker & Dodge; auctioneer, at Parker & Dodge's; schoolteacher |
+| `marshall_j_a` | 4 | 1 | auctioneer, Parker & Dodge; auctioneer, at Parker & Dodge's; auctioneer, commission, etc; schoolteacher |
 | `mason_matthias` | 2 | 0 | blacksmith |
-| `maxwell_philip` | 3 | 1 | army_surgeon; physician; physician, s.-w |
-| `meeker_joseph` | 3 | 1 | carpenter; carpenter and builder |
+| `maxwell_philip` | 4 | 1 | Garrison; army_surgeon; physician; physician, s.-w |
+| `mckee_david` | 2 | 1 | blacksmith; gunsmith, U.S., Garrison |
+| `meeker_joseph` | 4 | 1 | carpenter; carpenter and builder |
 | `merrill_george_w` | 3 | 0 | dry goods merchant; provision store; provisions, etc., 157 Lake, s.e |
-| `miller_john` | 2 | 1 | fire warden; tanner |
-| `montgomery_l_w` | 3 | 1 | shoemaker; shoemaker, Jerome Beecher; shoemaker, at Beecher's |
+| `miller_john` | 3 | 1 | fire warden; tanner; tanner, North Branch, fire warden, 4th ward |
+| `montgomery_l_w` | 4 | 1 | United States Hotel; shoemaker; shoemaker, Jerome Beecher; shoemaker, at Beecher's |
 | `montgomery_w` | 7 | 0 | auctioneer; commission merchant; land agent; newspaper agent; newspaper subscription agent |
+| `moore_henry` | 2 | 1 | attorney; attorney and counseller at law |
 | `morin_william_w` | 3 | 0 | cabinet maker; carriage maker; soldier |
 | `morris_b_s` | 3 | 0 | (alderman,) attorney, etc., Saloon Bdgs; attorney at law; attorney, 59 Clark |
 | `morrison_james_m` | 3 | 0 | carpenter |
 | `morrison_orsemus` | 3 | 0 | carpenter; street com., collector, coroner |
 | `mulford_james_h` | 9 | 3 | & Edward; jeweller; merchant; shopkeeper; silversmith; watchmaker; watchmaker and jeweller |
-| `murphy_john` | 2 | 1 | alderman; tavern_keeper |
-| `myers_frederick` | 3 | 1 | clerk; laborer |
+| `murphy_john` | 3 | 1 | United States Hotel, West Water cor. Randolph; alderman; tavern_keeper |
+| `murray_john` | 2 | 0 | laborer |
+| `myers_frederick` | 4 | 1 | clerk; laborer; saloon |
 | `newberry_walter_loomis` | 2 | 0 | (N. & Burch); att'yand real est., office Newberry & Dole |
+| `norton_nelson_r` | 2 | 1 | bridge-builder, n.-w. cor. N. State and; ship_carpenter |
 | `ogden_w_b` | 4 | 0 | (O. & Jones); mayor of chicago; of O. & Jones; real estate dealer |
 | `osborn_wm` | 2 | 0 | boot, shoe, and leather merchant; shoe dealer, Jerome Beecher |
 | `owen_thomas_jv` | 6 | 1 | Indian agent; indian agent; indian_agent; president of the board of trustees |
-| `paine_seth` | 2 | 0 | dry goods merchant |
 | `parsons_edward` | 3 | 0 | (Clark, Haines & Co.); Parsons & Holden; of Clark, Haines, & Co |
 | `peacock_elijah` | 4 | 0 | judge of election; watchmaker; watchmaker and jeweler, 195 Lake; watchmaker and jeweller |
-| `pearsons_hiram` | 2 | 1 | speculator |
-| `peck_philip` | 7 | 1 | capitalist; merchant; price reporter for the Chicago Democrat; storekeeper |
+| `pearsons_hiram` | 4 | 1 | house painter; real estate dealer; speculator |
+| `peck_philip` | 8 | 1 | capitalist; merchant; price reporter for the Chicago Democrat; real estate speculator; storekeeper |
 | `perry_a_8` | 3 | 0 | barber; barber, ex-justice of peace; barber, ex-justice of the peace, Reservation |
-| `pierce_asahel` | 4 | 1 | alderman; blacksmith; blacksmith, 20 Market; blacksmith. S. Water st. b Lake and Randolph sts |
+| `pierce_asahel` | 5 | 1 | alderman; blacksmith; blacksmith, 20 Market; blacksmith. S. Water st. b Lake and Randolph sts; plow and wagon maker |
 | `porter_hibbard` | 3 | 0 | (Bristol & P.); (Bristol & Porter,); of Bristol & Porter, house'cor Clark and Adams |
-| `price_jeremiah` | 2 | 0 | fire warden |
+| `pruyne_peter` | 2 | 1 | druggist; druggist and apothecary |
 | `kimberly_edmund_s` | 3 | 1 | physician; physician, 101 Lake |
-| `reed_william` | 4 | 0 | cabinet maker; carpenter |
+| `reed_william` | 3 | 0 | cabinet maker; carpenter |
 | `rider_eli_a` | 4 | 0 | clerk at C. L. P. Hojran; clerk, C. L. P. Hogan; clerk, Charles L. P. Hogan; merchant |
 | `rue_john_c` | 3 | 0 | carpenter; carpenter and builder; carpenter, 156 Clark |
+| `sabine_wm` | 2 | 1 | boarding-house, 1 6; forwarding_and_commission |
 | `scott_john` | 4 | 0 | carpenter; carpenter, South Branch, west side; school inspector |
 | `sherman_silas_w` | 2 | 1 | Sheriff of Cook County; ex-sheriff |
 | `sherman_william_george` | 2 | 0 | clerk, Sherman & Pitkin; clerk, at Sherman & Pitkin's |
 | `simons_e` | 3 | 0 | butcher; butcher, Archibald Clybourn; provision dealer |
-| `simpson_john_p` | 3 | 0 | mason |
+| `simpson_john_p` | 2 | 0 | mason |
 | `smith_e_kirby` | 5 | 0 | (Henry & Elijah S.); army officer; merchant tailor, 48 Clark sti'eet; of H. & E. Smith; post adjutant |
-| `smith_george` | 3 | 1 | (George Smith & Co.); coffee_house_keeper; of'G. S. & Co |
+| `smith_george` | 4 | 1 | (George Smith & Co.); coffee_house_keeper; general merchant; of'G. S. & Co |
 | `smith_william` | 2 | 0 | carpenter; teamster |
 | `snow_george_w` | 5 | 1 | Public Administrator of Cook county; clerk of the board of trustees; lumber merchant; lumber merchant, S, Water; surveyor |
 | `spring_giles` | 3 | 1 | (S. & Goodrich); attorney; of S. & Goodrich |
 | `sproat_grenville` | 2 | 1 | schoolmaster; schoolteacher |
-| `steele_ashbel` | 2 | 1 | plasterer; sheriff of cook county |
-| `stow_william_h` | 3 | 1 | alderman; hotel_keeper; iron foundry, North Canal |
-| `taylor_charles` | 3 | 1 | carpenter; currier, Johonnett, Wells & Co; currier, at Johonnett, Wells, & Co.'s |
-| `taylor_augustine` | 3 | 1 | builder; carpenter; carpenter and builder |
+| `steele_ashbel` | 3 | 1 | mason builder, 3d ward; plasterer; sheriff of cook county |
+| `stewart_r` | 2 | 1 | attorney; attorney at law |
+| `stow_william_h` | 4 | 1 | alderman; foundry; hotel_keeper; iron foundry, North Canal |
+| `taylor_anson_h` | 2 | 1 | carpenter; general supply store, near the Garrison |
+| `taylor_charles` | 4 | 1 | carpenter; currier, Johonnett, Wells & Co; currier, at Johonnett, Wells, & Co.'s; tailor, Francis |
+| `taylor_augustine` | 4 | 1 | builder; carpenter; carpenter and builder |
 | `taylor_edmund_d` | 4 | 0 | Receiver of Public Moneys; Taylor, Breese Co; coft'ee house; receiver, United States Land Office |
 | `taylor_william_h` | 6 | 2 | (Dan. Taylor); agent, Dan. Taylor, 120 Lake; boot and shoe maker; leather dealer |
 | `temple_john_t` | 6 | 1 | land owner; physician; physician, 218 Lake; school trustee |
-| `temple_peter` | 2 | 1 | dentist |
+| `temple_peter` | 3 | 1 | dentist; real estate agent, block 17, School Section |
 | `thompson_lieut_j_l` | 3 | 0 | caulker; soldier |
 | `thompson_o_i` | 2 | 0 | alderman; dry goods and groceries |
 | `thrall_e_l` | 3 | 1 | clerk, Charles Walker & Co; clerk, at C. Walker & Co.'s; clothier |
@@ -258,4 +281,4 @@ least one source in common, with corroborators beside it.
 | `williams_john_l` | 2 | 0 | clerk, Benjamin W. Raymond, South Water; haircutting and shaving-shop |
 | `wolcott_alexander` | 2 | 0 | clerk Steamer Geo. W. Dole, for St. Joseph; surveyor |
 | `woodworth_james_h` | 2 | 1 | dry_goods_merchant; merchant |
-| `wright_john_s` | 2 | 1 | clerk; editor and proprietor Prairie Farmer |
+| `wright_john_s` | 3 | 1 | clerk; editor and proprietor Prairie Farmer; forwarding commission merchant |

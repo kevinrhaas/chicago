@@ -12,11 +12,11 @@
  "whole_name_rule": ". A printed forename and a reading of 1835 are THE SAME NAME when\nthey set the SAME NUMBER of words and agree word by word — each pair either\nletter for letter, or one of them the single initial the other begins with.\nWhere exactly ONE candidate is the same name in that sense, the page names\nthat one and no other. Where none is, or more than one is, nothing happens\nand the tie stands with the reason filed.",
  "wife_rule": "— the second clause, and it is R6 arriving where it\nwas always true. `tools/consolidate_resident_evidence.py` holds `Mrs Rufus\nBrown` apart from `Rufus Brown` (R6, T-0723) because the honorific strip leaves\nthe husband's forename tokens on both readings and folds a wife onto him. The\ncrosswalks strip titles the same way and had no such rule, so the town layer's\ntwo people met `Brown, Rufus B., warehouseman` together and were filed as a\nCONTEST — a man contesting a printed line with his own wife. Where one\ncandidate of 1835 carries a female honorific, its forename tokens are exactly\nthose of another candidate carried WITHOUT one, and the printed entry sets no\nfemale honorific of its own, the entry is the husband's and she is not named by\nit. The proof is the same proof R6 asks for and it is in the contest itself:\nthe town layer prints both readings, which is what put them here together.",
  "counts": {
-  "residents_considered": 1283,
-  "matched_one_1843_entry": 136,
+  "residents_considered": 1402,
+  "matched_one_1843_entry": 137,
   "matched_more_than_one_ambiguous": 15,
-  "one_1843_entry_contested_by_two_residents": 2,
-  "surname_present_initial_absent_refused": 324,
+  "one_1843_entry_contested_by_two_residents": 4,
+  "surname_present_initial_absent_refused": 343,
   "of_those_an_entry_one_letter_off_the_surname": 15,
   "entries_one_letter_off_a_refused_surname": 12,
   "of_those_overturned": 0,
@@ -24,9 +24,9 @@
   "residents_that_refusal_reaches": 2,
   "further_initial_disagreed_refused": 12,
   "residents_that_further_initial_refusal_reaches": 11,
-  "initial_agreed_forenames_disagreed_refused": 82,
+  "initial_agreed_forenames_disagreed_refused": 89,
   "of_those_a_garbled_printed_forename": 0,
-  "residents_left_with_no_1843_entry_by_that_refusal": 42,
+  "residents_left_with_no_1843_entry_by_that_refusal": 46,
   "entries_the_whole_name_refused": 11,
   "residents_that_whole_name_refusal_reaches": 9,
   "contests_the_page_named": 5,
@@ -36,9 +36,9 @@
   "ties_narrowed_by_a_trade": 1,
   "of_those_contested": 0,
   "of_those_ambiguous": 1,
-  "could_carry_occupation": 74,
-  "could_carry_address": 92,
-  "could_carry_death_note": 91,
+  "could_carry_occupation": 75,
+  "could_carry_address": 94,
+  "could_carry_death_note": 92,
   "business_directory_notices_with_a_surname": 106,
   "notices_folded_onto_their_own_roll_entry": 82,
   "notices_standing_as_their_own_candidate": 24,
@@ -2735,7 +2735,7 @@
    "household_id": "hh_pearsons_hiram",
    "grade_1835": "attested",
    "occupation_1835": "speculator",
-   "occupation_1835_confidence": "attested",
+   "occupation_1835_confidence": "inferred",
    "lives_at_1835": null,
    "works_at_1835": null,
    "rule": "Surname 'Pearsons' folds to the same string as the 1843 entry's, and the given name of both begins H.",
@@ -3552,6 +3552,35 @@
    "resident_given_is_initial_only": false
   },
   {
+   "resident": "John Murray",
+   "person_id": "murray_john",
+   "household_id": "hh_murray_john",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "occupation_1835_confidence": "reconstructed",
+   "lives_at_1835": null,
+   "works_at_1835": null,
+   "rule": "Surname 'Murray' folds to the same string as the 1843 entry's, and the given name of both begins J.",
+   "entries_1843": [
+    {
+     "claim": "f1843_e1868",
+     "as_printed": "Murray, John, laborer, res West Water, bet Canal and Clinton",
+     "page": "fergus_1843_page_003",
+     "section": "alphabetical directory",
+     "trade_heading": null,
+     "occupation_1843": "laborer",
+     "address_1843": "res West Water, bet Canal and Clinton",
+     "death_note_1843": null
+    }
+   ],
+   "could_carry": [
+    "occupation",
+    "address"
+   ],
+   "carry_rule": "Whatever is carried is carried as 1843 evidence with describes_date 1843 on the note, never as an 1835 fact, and the grade of the person does not move. The death note is T-0574's, not this file's.",
+   "resident_given_is_initial_only": false
+  },
+  {
    "resident": "John P. Simpson",
    "person_id": "simpson_john_p",
    "household_id": "hh_simpson_john_p",
@@ -4013,29 +4042,31 @@
    "resident_given_is_initial_only": false
   },
   {
-   "resident": "Matthias Smith",
-   "person_id": "smith_matthias",
-   "household_id": "hh_smith_matthias",
+   "resident": "Michel Alexandre Choulet",
+   "person_id": "choulet_michel_alexandre",
+   "household_id": "hh_choulet_michel_alexandre",
    "grade_1835": "inferred",
    "occupation_1835": "none_recorded",
    "occupation_1835_confidence": "reconstructed",
    "lives_at_1835": null,
    "works_at_1835": null,
-   "rule": "Surname 'Smith' folds to the same string as the 1843 entry's, and the given name of both begins M.",
+   "rule": "Surname 'Choulet' folds to the same string as the 1843 entry's, and the given name of both begins M.",
    "entries_1843": [
     {
-     "claim": "f1843_e2305",
-     "as_printed": "Smith, Miss M., teacher public school 3, district 4",
-     "page": "fergus_1843_page_004",
+     "claim": "f1843_e0602",
+     "as_printed": "Choulet, Michel Alexandre, carpenter, res Dearborn [died 1854. a. 47]",
+     "page": "fergus_1843_page_002",
      "section": "alphabetical directory",
      "trade_heading": null,
-     "occupation_1843": "teacher public school 3, district 4",
-     "address_1843": null,
-     "death_note_1843": null
+     "occupation_1843": "carpenter",
+     "address_1843": "res Dearborn",
+     "death_note_1843": "died 1854. a. 47"
     }
    ],
    "could_carry": [
-    "occupation"
+    "occupation",
+    "address",
+    "death_note"
    ],
    "carry_rule": "Whatever is carried is carried as 1843 evidence with describes_date 1843 on the note, never as an 1835 fact, and the grade of the person does not move. The death note is T-0574's, not this file's.",
    "resident_given_is_initial_only": false
@@ -5256,6 +5287,102 @@
  ],
  "contested": [
   {
+   "resident": "Mathias Smith",
+   "person_id": "smith_mathias",
+   "household_id": "hh_smith_mathias",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "occupation_1835_confidence": "reconstructed",
+   "lives_at_1835": null,
+   "works_at_1835": null,
+   "rule": "Surname 'Smith' folds to the same string as the 1843 entry's, and the given name of both begins M. CONTESTED: 2 residents of 1835 meet this one 1843 entry on that rule, and at most one of them is the person printed. The match is not made.",
+   "entries_1843": [
+    {
+     "claim": "f1843_e2305",
+     "as_printed": "Smith, Miss M., teacher public school 3, district 4",
+     "page": "fergus_1843_page_004",
+     "section": "alphabetical directory",
+     "trade_heading": null,
+     "occupation_1843": "teacher public school 3, district 4",
+     "address_1843": null,
+     "death_note_1843": null
+    }
+   ],
+   "could_carry": [
+    "occupation"
+   ],
+   "carry_rule": "Whatever is carried is carried as 1843 evidence with describes_date 1843 on the note, never as an 1835 fact, and the grade of the person does not move. The death note is T-0574's, not this file's.",
+   "resident_given_is_initial_only": false,
+   "contested_with": [
+    "Matthias Smith"
+   ],
+   "discriminator": {
+    "kind": "trade",
+    "named": null,
+    "why": "the trade names 0 of the 2 sides, and a discriminator fires only when it names exactly one",
+    "sides": [
+     {
+      "key": "smith_mathias",
+      "agrees": false,
+      "why": "no trade on one side"
+     },
+     {
+      "key": "smith_matthias",
+      "agrees": false,
+      "why": "no trade on one side"
+     }
+    ]
+   }
+  },
+  {
+   "resident": "Matthias Smith",
+   "person_id": "smith_matthias",
+   "household_id": "hh_smith_matthias",
+   "grade_1835": "inferred",
+   "occupation_1835": "none_recorded",
+   "occupation_1835_confidence": "reconstructed",
+   "lives_at_1835": null,
+   "works_at_1835": null,
+   "rule": "Surname 'Smith' folds to the same string as the 1843 entry's, and the given name of both begins M. CONTESTED: 2 residents of 1835 meet this one 1843 entry on that rule, and at most one of them is the person printed. The match is not made.",
+   "entries_1843": [
+    {
+     "claim": "f1843_e2305",
+     "as_printed": "Smith, Miss M., teacher public school 3, district 4",
+     "page": "fergus_1843_page_004",
+     "section": "alphabetical directory",
+     "trade_heading": null,
+     "occupation_1843": "teacher public school 3, district 4",
+     "address_1843": null,
+     "death_note_1843": null
+    }
+   ],
+   "could_carry": [
+    "occupation"
+   ],
+   "carry_rule": "Whatever is carried is carried as 1843 evidence with describes_date 1843 on the note, never as an 1835 fact, and the grade of the person does not move. The death note is T-0574's, not this file's.",
+   "resident_given_is_initial_only": false,
+   "contested_with": [
+    "Mathias Smith"
+   ],
+   "discriminator": {
+    "kind": "trade",
+    "named": null,
+    "why": "the trade names 0 of the 2 sides, and a discriminator fires only when it names exactly one",
+    "sides": [
+     {
+      "key": "smith_mathias",
+      "agrees": false,
+      "why": "no trade on one side"
+     },
+     {
+      "key": "smith_matthias",
+      "agrees": false,
+      "why": "no trade on one side"
+     }
+    ]
+   }
+  },
+  {
    "resident": "William Smith",
    "person_id": "smith_william",
    "household_id": "hh_smith_william",
@@ -6387,6 +6514,13 @@
    "rule": "The surname 'Kent' is in Fergus 1843 and no entry under it carries the initial 'A' of 'Alex. M. Kent'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Alexander Beaubien",
+   "person_id": "beaubien_alexander",
+   "surname_in_1843": "Beaubien",
+   "candidates": 4,
+   "rule": "The surname 'Beaubien' is in Fergus 1843 and no entry under it carries the initial 'A' of 'Alexander Beaubien'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Alexandre Beaubien",
    "person_id": "beaubien_alexandre",
    "surname_in_1843": "Beaubien",
@@ -6504,6 +6638,13 @@
    "surname_in_1843": "Leonard",
    "candidates": 2,
    "rule": "The surname 'Leonard' is in Fergus 1843 and no entry under it carries the initial 'A' of 'Anson Leonard'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Archange Beaubien",
+   "person_id": "beaubien_archange",
+   "surname_in_1843": "Beaubien",
+   "candidates": 4,
+   "rule": "The surname 'Beaubien' is in Fergus 1843 and no entry under it carries the initial 'A' of 'Archange Beaubien'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Archibald Knox",
@@ -6667,11 +6808,46 @@
    "rule": "The surname 'Perry' is in Fergus 1843 and no entry under it carries the initial 'C' of 'Calvin Perry'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Caroline Beaubien",
+   "person_id": "beaubien_caroline",
+   "surname_in_1843": "Beaubien",
+   "candidates": 4,
+   "rule": "The surname 'Beaubien' is in Fergus 1843 and no entry under it carries the initial 'C' of 'Caroline Beaubien'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Catherine Chandler",
+   "person_id": "chandler_catherine",
+   "surname_in_1843": "Chandler",
+   "candidates": 1,
+   "rule": "The surname 'Chandler' is in Fergus 1843 and no entry under it carries the initial 'C' of 'Catherine Chandler'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Catherine Chevalier Robinson",
    "person_id": "robinson_catherine",
    "surname_in_1843": "Robinson",
    "candidates": 6,
    "rule": "The surname 'Robinson' is in Fergus 1843 and no entry under it carries the initial 'C' of 'Catherine Chevalier Robinson'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Catherine Harrington",
+   "person_id": "harrington_catherine",
+   "surname_in_1843": "Harrington",
+   "candidates": 3,
+   "rule": "The surname 'Harrington' is in Fergus 1843 and no entry under it carries the initial 'C' of 'Catherine Harrington'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Catherine Murray",
+   "person_id": "murray_catherine",
+   "surname_in_1843": "Murray",
+   "candidates": 3,
+   "rule": "The surname 'Murray' is in Fergus 1843 and no entry under it carries the initial 'C' of 'Catherine Murray'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Charles Beaubien",
+   "person_id": "beaubien_charles",
+   "surname_in_1843": "Beaubien",
+   "candidates": 4,
+   "rule": "The surname 'Beaubien' is in Fergus 1843 and no entry under it carries the initial 'C' of 'Charles Beaubien'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Charles C. Drake",
@@ -6728,6 +6904,13 @@
    "surname_in_1843": "Knight",
    "candidates": 1,
    "rule": "The surname 'Knight' is in Fergus 1843 and no entry under it carries the initial 'C' of 'Clark Knight'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Claudia Pierrette Choulet",
+   "person_id": "choulet_claudia_pierrette",
+   "surname_in_1843": "Choulet",
+   "candidates": 1,
+   "rule": "The surname 'Choulet' is in Fergus 1843 and no entry under it carries the initial 'C' of 'Claudia Pierrette Choulet'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Clement A Finley",
@@ -6947,6 +7130,13 @@
    "rule": "The surname 'Dalton' is in Fergus 1843 and no entry under it carries the initial 'E' of 'Edward Dalton'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Edward Daly",
+   "person_id": "daly_edward",
+   "surname_in_1843": "Daly",
+   "candidates": 3,
+   "rule": "The surname 'Daly' is in Fergus 1843 and no entry under it carries the initial 'E' of 'Edward Daly'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Edward E Hunter",
    "person_id": "hunter_edward_e",
    "surname_in_1843": "Hunter",
@@ -7052,6 +7242,13 @@
    "rule": "The surname 'Hamilton' is in Fergus 1843 and no entry under it carries the initial 'E' of 'Ellen Hamilton'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Elonore Beaubien",
+   "person_id": "beaubien_elonore",
+   "surname_in_1843": "Beaubien",
+   "candidates": 4,
+   "rule": "The surname 'Beaubien' is in Fergus 1843 and no entry under it carries the initial 'E' of 'Elonore Beaubien'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Emeline Egan",
    "person_id": "egan_emeline",
    "surname_in_1843": "Egan",
@@ -7134,6 +7331,13 @@
    "surname_in_1843": "Ballantine",
    "candidates": 2,
    "rule": "The surname 'Ballantine' is in Fergus 1843 and no entry under it carries the initial 'G' of 'Geor Ballantine'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "George Beaubien",
+   "person_id": "beaubien_george",
+   "surname_in_1843": "Beaubien",
+   "candidates": 4,
+   "rule": "The surname 'Beaubien' is in Fergus 1843 and no entry under it carries the initial 'G' of 'George Beaubien'. A surname-only agreement is a refusal."
   },
   {
    "resident": "George Chapman",
@@ -7647,6 +7851,13 @@
    "rule": "The surname 'Gleason' is in Fergus 1843 and no entry under it carries the initial 'J' of 'Joseph Gleason'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Joseph Mayo",
+   "person_id": "mayo_joseph",
+   "surname_in_1843": "Mayo",
+   "candidates": 1,
+   "rule": "The surname 'Mayo' is in Fergus 1843 and no entry under it carries the initial 'J' of 'Joseph Mayo'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Joseph Reynolds",
    "person_id": "reynolds_joseph",
    "surname_in_1843": "Reynolds",
@@ -7773,6 +7984,20 @@
    "rule": "The surname 'Downing' is in Fergus 1843 and no entry under it carries the initial 'L' of 'Lorenzo Downing'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Louise Caroline Choulet",
+   "person_id": "choulet_louise_caroline",
+   "surname_in_1843": "Choulet",
+   "candidates": 1,
+   "rule": "The surname 'Choulet' is in Fergus 1843 and no entry under it carries the initial 'L' of 'Louise Caroline Choulet'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Lucy Kennedy",
+   "person_id": "kennedy_lucy",
+   "surname_in_1843": "Kennedy",
+   "candidates": 3,
+   "rule": "The surname 'Kennedy' is in Fergus 1843 and no entry under it carries the initial 'L' of 'Lucy Kennedy'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Luther Hatch",
    "person_id": "hatch_luther",
    "surname_in_1843": "Hatch",
@@ -7829,6 +8054,13 @@
    "rule": "The surname 'Parker' is in Fergus 1843 and no entry under it carries the initial 'M' of 'Manson Parker'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Martha Murray",
+   "person_id": "murray_martha",
+   "surname_in_1843": "Murray",
+   "candidates": 3,
+   "rule": "The surname 'Murray' is in Fergus 1843 and no entry under it carries the initial 'M' of 'Martha Murray'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Mary Barrows",
    "person_id": "barrows_mary",
    "surname_in_1843": "Barrows",
@@ -7841,6 +8073,13 @@
    "surname_in_1843": "Meacham",
    "candidates": 2,
    "rule": "The surname 'Meacham' is in Fergus 1843 and no entry under it carries the initial 'M' of 'Mary Meacham'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Mary Murphy",
+   "person_id": "murphy_mary",
+   "surname_in_1843": "Murphy",
+   "candidates": 6,
+   "rule": "The surname 'Murphy' is in Fergus 1843 and no entry under it carries the initial 'M' of 'Mary Murphy'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Mary Noble",
@@ -7862,6 +8101,13 @@
    "surname_in_1843": "Welch",
    "candidates": 3,
    "rule": "The surname 'Welch' is in Fergus 1843 and no entry under it carries the initial 'M' of 'Michael P Welch'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Michel Mayo",
+   "person_id": "mayo_michel",
+   "surname_in_1843": "Mayo",
+   "candidates": 1,
+   "rule": "The surname 'Mayo' is in Fergus 1843 and no entry under it carries the initial 'M' of 'Michel Mayo'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Morgan Burdick",
@@ -8186,6 +8432,13 @@
    "rule": "The surname 'Hunter' is in Fergus 1843 and no entry under it carries the initial 'R' of 'Robert Hunter'. A surname-only agreement is a refusal."
   },
   {
+   "resident": "Robert Jerome Beaubien",
+   "person_id": "beaubien_robert_jerome",
+   "surname_in_1843": "Beaubien",
+   "candidates": 4,
+   "rule": "The surname 'Beaubien' is in Fergus 1843 and no entry under it carries the initial 'R' of 'Robert Jerome Beaubien'. A surname-only agreement is a refusal."
+  },
+  {
    "resident": "Robert Moody",
    "person_id": "moody_robert",
    "surname_in_1843": "Moody",
@@ -8317,6 +8570,13 @@
    "surname_in_1843": "Mack",
    "candidates": 1,
    "rule": "The surname 'Mack' is in Fergus 1843 and no entry under it carries the initial 'S' of 'Stephen Mack'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Susan Beaubien",
+   "person_id": "beaubien_susan",
+   "surname_in_1843": "Beaubien",
+   "candidates": 4,
+   "rule": "The surname 'Beaubien' is in Fergus 1843 and no entry under it carries the initial 'S' of 'Susan Beaubien'. A surname-only agreement is a refusal."
   },
   {
    "resident": "T. Johnston",
@@ -9284,6 +9544,25 @@
    }
   },
   {
+   "resident": "Catherine Miller",
+   "person_id": "miller_catherine",
+   "grade_1835": "inferred",
+   "entry_1843": {
+    "claim": "f1843_e1796",
+    "as_printed": "Miller, Chas. [Andrew J.], barber and hairdresser, 19 Market, res Canal [died, Memphis, Tenn., Sept. 2, 1864.]",
+    "page": "fergus_1843_page_003",
+    "section": "alphabetical directory",
+    "trade_heading": null,
+    "occupation_1843": "barber and hairdresser, 19 Market",
+    "address_1843": "res Canal",
+    "death_note_1843": "died, Memphis, Tenn., Sept. 2, 1864.",
+    "forename_1835": "Catherine",
+    "forename_printed": "Chas",
+    "garbled_reading": false,
+    "rule": "Both readings print a full forename and the two disagree: 'Catherine' against 'Chas'. An initial standing against a full name is a match; two full names that differ are not."
+   }
+  },
+  {
    "resident": "Charles L Bristol",
    "person_id": "bristol_charles_l",
    "grade_1835": "attested",
@@ -9577,6 +9856,45 @@
     "forename_printed": "Henry",
     "garbled_reading": false,
     "rule": "Both readings print a full forename and the two disagree: 'Hanna' against 'Henry'. An initial standing against a full name is a match; two full names that differ are not."
+   }
+  },
+  {
+   "resident": "Henry Stone",
+   "person_id": "stone_henry",
+   "grade_1835": "inferred",
+   "entry_1843": {
+    "claim": "f1843_e2370",
+    "as_printed": "Stone, Horatio Odel, dry goods and groceries, 114 Lake, res Michigan, bet Dearborn and Wolcott [died July 20, 1877, aged 66 ½]",
+    "page": "fergus_1843_page_004",
+    "section": "alphabetical directory",
+    "trade_heading": null,
+    "occupation_1843": "dry goods and groceries, 114 Lake",
+    "address_1843": "res Michigan, bet Dearborn and Wolcott",
+    "death_note_1843": "died July 20, 1877, aged 66 ½",
+    "also_printed": [
+     {
+      "claim": "f1843_e0062",
+      "as_printed": "H. O. STONE, wholesale and retail dealer in dry goods, groceries, hardware, etc., 114 Lake Street, Chicago, Ill.; storage and forwarding, South-Water Street; cash paid for wheat, flour, corn, oats, etc.",
+      "page": "fergus_1843_page_001",
+      "section": "business directory",
+      "trade_heading": "DRY GOODS, GROCERIES, ETC",
+      "occupation_1843": "wholesale and retail dealer in dry goods, groceries, hardware, etc., 114 Lake Street, Chicago, Ill.; storage and forwarding, South-Water Street; cash paid for wheat, flour, corn, oats, etc",
+      "address_1843": null
+     },
+     {
+      "claim": "f1843_e0171",
+      "as_printed": "H. O. STONE, 114 Lake Street, Chicago, Ill., wholesale and retail dealer in dry goods and groceries; 100 pcs fulled cloth, ass'd colors; 50 bales sheeting, wicks and twine; 30 pcs broadcloths, ass'd colors; 3 cases hard times; 20 pcs cassimeres; 10 cases prints; 1000 lbs cotton yarn; 40 pcs flannel, ass'd colors; 60 pcs Ky. Jeans; 30 cases boots and shoes; 30 pcs muslin de lanes and chusans; 40 pcs colored and lustring silks; 600 pcs seasonable ribbons and artificial flowers; Tuscan silk and velvet bonnets; 100 kegs nails, sash, glass, and putty; 50 bbls dried peaches and apples; a full cargo of wooden-ware; 100 chests, ½-chests, and caddies of tea; 100 bags coffee; 10 hhds and 30 bbls sugar and molasses; a full assortment of family groceries. \" He that would thrive, must either hold or drive.\" Call and see. No charge for showing goods at 114 Lake Street; storage or South-Water Street; cash advances made on produce left in store; cash paid at all times for wheat and flour.",
+      "page": "fergus_1843_page_001",
+      "section": "business directory",
+      "trade_heading": "MISCELLANEOUS",
+      "occupation_1843": "114 Lake Street, Chicago, Ill., wholesale and retail dealer in dry goods and groceries; 100 pcs fulled cloth, ass'd colors; 50 bales sheeting, wicks and twine; 30 pcs broadcloths, ass'd colors; 3 cases hard times; 20 pcs cassimeres; 10 cases prints; 1000 lbs cotton yarn; 40 pcs flannel, ass'd colors; 60 pcs Ky. Jeans; 30 cases boots and shoes; 30 pcs muslin de lanes and chusans; 40 pcs colored and lustring silks; 600 pcs seasonable ribbons and artificial flowers; Tuscan silk and velvet bonnets; 100 kegs nails, sash, glass, and putty; 50 bbls dried peaches and apples; a full cargo of wooden-ware; 100 chests, ½-chests, and caddies of tea; 100 bags coffee; 10 hhds and 30 bbls sugar and molasses; a full assortment of family groceries. \" He that would thrive, must either hold or drive.\" Call and see. No charge for showing goods at 114 Lake Street; storage or South-Water Street; cash advances made on produce left in store; cash paid at all times for wheat and flour",
+      "address_1843": null
+     }
+    ],
+    "forename_1835": "Henry",
+    "forename_printed": "Horatio",
+    "garbled_reading": false,
+    "rule": "Both readings print a full forename and the two disagree: 'Henry' against 'Horatio'. An initial standing against a full name is a match; two full names that differ are not."
    }
   },
   {
@@ -10077,6 +10395,25 @@
    }
   },
   {
+   "resident": "John Murray",
+   "person_id": "murray_john",
+   "grade_1835": "inferred",
+   "entry_1843": {
+    "claim": "f1843_e1867",
+    "as_printed": "Murray, James (M. & Brand), bds City Hotel",
+    "page": "fergus_1843_page_003",
+    "section": "alphabetical directory",
+    "trade_heading": null,
+    "occupation_1843": "(M. & Brand)",
+    "address_1843": "bds City Hotel",
+    "death_note_1843": null,
+    "forename_1835": "John",
+    "forename_printed": "James",
+    "garbled_reading": false,
+    "rule": "Both readings print a full forename and the two disagree: 'John' against 'James'. An initial standing against a full name is a match; two full names that differ are not."
+   }
+  },
+  {
    "resident": "John Rice",
    "person_id": "rice_john",
    "grade_1835": "attested",
@@ -10188,6 +10525,25 @@
     "forename_printed": "James",
     "garbled_reading": false,
     "rule": "Both readings print a full forename and the two disagree: 'John' against 'James'. An initial standing against a full name is a match; two full names that differ are not."
+   }
+  },
+  {
+   "resident": "Joseph Beaubien",
+   "person_id": "beaubien_joseph",
+   "grade_1835": "inferred",
+   "entry_1843": {
+    "claim": "f1843_e0309",
+    "as_printed": "Beaubien, Gen. Jean Baptiste, [died, Naperville, DuPage Co., Ill., Jan. 25, 1873, aged about 80]",
+    "page": "fergus_1843_page_002",
+    "section": "alphabetical directory",
+    "trade_heading": null,
+    "occupation_1843": null,
+    "address_1843": null,
+    "death_note_1843": "died, Naperville, DuPage Co., Ill., Jan. 25, 1873, aged about 80",
+    "forename_1835": "Joseph",
+    "forename_printed": "Jean",
+    "garbled_reading": false,
+    "rule": "Both readings print a full forename and the two disagree: 'Joseph' against 'Jean'. An initial standing against a full name is a match; two full names that differ are not."
    }
   },
   {
@@ -10362,6 +10718,44 @@
    }
   },
   {
+   "resident": "Mathias Smith",
+   "person_id": "smith_mathias",
+   "grade_1835": "inferred",
+   "entry_1843": {
+    "claim": "f1843_e2303",
+    "as_printed": "Smith, Michael, laborer, west of Clark, south of VanBuren",
+    "page": "fergus_1843_page_004",
+    "section": "alphabetical directory",
+    "trade_heading": null,
+    "occupation_1843": "laborer, west of Clark, south of VanBuren",
+    "address_1843": null,
+    "death_note_1843": null,
+    "forename_1835": "Mathias",
+    "forename_printed": "Michael",
+    "garbled_reading": false,
+    "rule": "Both readings print a full forename and the two disagree: 'Mathias' against 'Michael'. An initial standing against a full name is a match; two full names that differ are not."
+   }
+  },
+  {
+   "resident": "Mathias Smith",
+   "person_id": "smith_mathias",
+   "grade_1835": "inferred",
+   "entry_1843": {
+    "claim": "f1843_e2304",
+    "as_printed": "Smith, Michael, harness maker, Silas B. Cobb",
+    "page": "fergus_1843_page_004",
+    "section": "alphabetical directory",
+    "trade_heading": null,
+    "occupation_1843": "harness maker, Silas B. Cobb",
+    "address_1843": null,
+    "death_note_1843": null,
+    "forename_1835": "Mathias",
+    "forename_printed": "Michael",
+    "garbled_reading": false,
+    "rule": "Both readings print a full forename and the two disagree: 'Mathias' against 'Michael'. An initial standing against a full name is a match; two full names that differ are not."
+   }
+  },
+  {
    "resident": "Matthias Smith",
    "person_id": "smith_matthias",
    "grade_1835": "inferred",
@@ -10397,6 +10791,25 @@
     "forename_printed": "Michael",
     "garbled_reading": false,
     "rule": "Both readings print a full forename and the two disagree: 'Matthias' against 'Michael'. An initial standing against a full name is a match; two full names that differ are not."
+   }
+  },
+  {
+   "resident": "Monique Beaubien",
+   "person_id": "beaubien_monique",
+   "grade_1835": "inferred",
+   "entry_1843": {
+    "claim": "f1843_e0310",
+    "as_printed": "Beaubien, Mark, U.S. light-house keeper, res River street [died, Kankakee, Ill., April 11, 1881, aged 81]",
+    "page": "fergus_1843_page_002",
+    "section": "alphabetical directory",
+    "trade_heading": null,
+    "occupation_1843": "U.S. light-house keeper",
+    "address_1843": "res River street",
+    "death_note_1843": "died, Kankakee, Ill., April 11, 1881, aged 81",
+    "forename_1835": "Monique",
+    "forename_printed": "Mark",
+    "garbled_reading": false,
+    "rule": "Both readings print a full forename and the two disagree: 'Monique' against 'Mark'. An initial standing against a full name is a match; two full names that differ are not."
    }
   },
   {

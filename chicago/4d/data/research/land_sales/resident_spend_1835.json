@@ -12,11 +12,11 @@
  "writes": "data/residents/households/*.json — persons[].sources and persons[].note",
  "carry_rule": "PROPOSALS, not identities. Nothing here mints a resident, regrades one, or writes to data/residents/. T-0514 and T-0515 spend this file. A match carrying a `ruling` block has been ADJUDICATED (T-0700, resident_rulings.json); one carrying `ruling: null` is still only what the mechanical rule proposed, and a refused proposal is in refusals[] with the ruling as its rule.",
  "counts": {
-  "matched_rulings": 141,
-  "people_written": 104,
-  "households_touched": 102,
+  "matched_rulings": 142,
+  "people_written": 105,
+  "households_touched": 103,
   "grades_changed": 0,
-  "entries_carried": 537,
+  "entries_carried": 540,
   "acres_carried": 15376.23,
   "school_section_parcels_carried": 148,
   "matched_more_than_once": 31
@@ -25,7 +25,7 @@
   {
    "rule": "L1",
    "why": "a refusal is a rival still standing: the crosswalk did not choose between the bearers of the name, and a card that cited the register anyway would print an undecided identity as a decided one",
-   "rulings": 506
+   "rulings": 505
   },
   {
    "rule": "L2",
@@ -1738,7 +1738,7 @@
     "BEAUBIEN MARK"
    ],
    "rules": [
-    "BEAUBIEN MARK matches Mark Beaubien: the forename names Mark Beaubien of the 8 people of this surname, and the forename agrees in full."
+    "BEAUBIEN MARK matches Mark Beaubien: the forename names Mark Beaubien of the 18 people of this surname, and the forename agrees in full."
    ],
    "totals": {
     "entries": 4,
@@ -1826,7 +1826,7 @@
      "page": "011"
     }
    ],
-   "written": "THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 4 times, as “BEAUBIEN MARK”, 1830-09-27 to 1833-10-25: 2 lots in the platted town — lot 3 of block 31 in the town the register codes CHIOT (L3BL31CHIOT, as printed); lot 4 of block 31 in the town the register codes CHIOT (L4BL31CHIOT, as printed) and 2 parcels of the school section — lot 7 of block 81 of the school section (sec 16 T39N R14E); lot 8 of block 81 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $273.00 (ls0069, ls0070, ls0970, ls0971). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $102.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: BEAUBIEN MARK matches Mark Beaubien: the forename names Mark Beaubien of the 8 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+   "written": "THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 4 times, as “BEAUBIEN MARK”, 1830-09-27 to 1833-10-25: 2 lots in the platted town — lot 3 of block 31 in the town the register codes CHIOT (L3BL31CHIOT, as printed); lot 4 of block 31 in the town the register codes CHIOT (L4BL31CHIOT, as printed) and 2 parcels of the school section — lot 7 of block 81 of the school section (sec 16 T39N R14E); lot 8 of block 81 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $273.00 (ls0069, ls0070, ls0970, ls0971). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $102.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: BEAUBIEN MARK matches Mark Beaubien: the forename names Mark Beaubien of the 18 people of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
   },
   {
    "household_id": "hh_blanchard_f_gantry",
@@ -7159,7 +7159,7 @@
     "BEAUBIEN J B"
    ],
    "rules": [
-    "BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only."
+    "NAMED, NOT UPHELD — AND THE JUDGEMENT IS THE ONE T-0990 MADE, NOT A NEW ONE (T-1525). It stood as `upheld` while the mechanical forename rule reached Col. Jean Baptiste Beaubien on its own and this file only had to confirm it. T-1525 minted the Catholic town St Mary's baptismal register names, and the layer's Beaubiens went from eight to eighteen; one of the new cards is a Joseph Beaubien, so the reading's J now stands for two of them and R3 — a reading is named onto exactly one or onto none — refuses the proposal the ruling used to adjudicate. A ruling on a refusal is a ruling on nothing, so the SAME finding is recorded in the direction that can carry it: `named`, under the guards this file states — the surname gathered rivals, the forename failed to choose among them, and the ruling names one of those rivals. NOTHING BELOW HAS CHANGED. UPHELD on the initials as the town itself prints them, and on a date only one Beaubien can reach. The town's record of this man does not hold a forename it has to have expanded for it: Andreas's 1833 roster prints 'J. B. Beaubien, merchant' and Fergus 1839 prints 'Beaubien, John B., Michigan ave., bet. Lake and So. Water sts' — J. B. is the form the town used, and the register's BEAUBIEN J B is that form. The layer holds ten Beaubiens and the sale is dated 29 September 1830: this card's arrival is attested at 1812 from Andreas — 'he came to Chicago and bought the cabin and cultivated field south of the old fort in 1812' — and it is the only Beaubien in the layer the record puts at Chicago that early. Four canal rows in section 29 of T39N R14E, two of them the register's own voided duplicates of the other two, carried at 212.61 acres and $1,063.20 net. TWO THINGS THIS DOES NOT DO: it does not touch the Fort Dearborn reservation claim, which this project holds no record of and makes no finding on, and it does not make the 1830 purchase evidence of residence — the Residence column reads ILLINOIS on the voided pair and UNKNOWN on the pair that stood, and neither names a town. AND WHY THE NEW RIVAL IS NOT THE MAN: the register prints BEAUBIEN J B, two initials, and Col. Jean Baptiste is the only candidate of the eighteen whose own middle initial is attested B — the town prints him 'J. B. Beaubien' in Andreas's 1833 roster and 'Beaubien, John B.' in Fergus 1839. Joseph Beaubien's card carries no middle initial at all: it is a person minted from a single baptismal entry, with no forename expansion, no middle name, no date before 1833 and nothing that reaches a tract entered on 29 September 1830. He is a rival the rule must count and not a candidate the record supports, and this ruling does not merge the two cards or say anything about him."
    ],
    "totals": {
     "entries": 13,
@@ -7401,7 +7401,7 @@
      "page": "006"
     }
    ],
-   "written": "THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 13 times, as “BEAUBIEN J B”, 1830-09-27 to 1830-09-29: 4 federal land entries — NFR2NEVO sec 29 T39N R14E; NFRNE sec 29 T39N R14E; NWFRPTNW sec 29 T39N R14E; NWFRPTNWVO sec 29 T39N R14E and 9 lots in the platted town — lot 1 of block 17 in the town the register codes CHIOT (L1B17CHIOT, as printed); lot 1 of block 18 in the town the register codes CHIOT (L1BL18CHIOT, as printed); lot 2 of block 17 in the town the register codes CHIOT (L2B17CHIOT, as printed); lot 3 of block 36 in the town the register codes CHIOT (L3BL36CHIOT, as printed); lot 4 of block 36 in the town the register codes CHIOT (L4BL36CHIOT, as printed); lot 6 of block 35 in the town the register codes CHIOT (L6BL35CHIOT, as printed); lot 7 of block 16 in the town the register codes CHIOT (L7B16CHIOT, as printed); lot 7 of block 17 in the town the register codes CHIOT (L7BL17CHIOT, as printed); lot 8 of block 17 in the town the register codes CHIOT (L8BL17CHIOT, as printed), 425.22 acres stated in all, for $2472.40 (ls0454, ls0455, ls0456, ls0457, ls0959, ls0960, ls0961, ls0962, ls0963, ls0964, ls0965, ls0966, ls0967). THE REGISTER'S OWN RESIDENCE COLUMN READS ILLINOIS, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $346.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: BEAUBIEN J B matches Col. Jean Baptiste Beaubien: the forename names Col. Jean Baptiste Beaubien of the 8 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+   "written": "THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 13 times, as “BEAUBIEN J B”, 1830-09-27 to 1830-09-29: 4 federal land entries — NFR2NEVO sec 29 T39N R14E; NFRNE sec 29 T39N R14E; NWFRPTNW sec 29 T39N R14E; NWFRPTNWVO sec 29 T39N R14E and 9 lots in the platted town — lot 1 of block 17 in the town the register codes CHIOT (L1B17CHIOT, as printed); lot 1 of block 18 in the town the register codes CHIOT (L1BL18CHIOT, as printed); lot 2 of block 17 in the town the register codes CHIOT (L2B17CHIOT, as printed); lot 3 of block 36 in the town the register codes CHIOT (L3BL36CHIOT, as printed); lot 4 of block 36 in the town the register codes CHIOT (L4BL36CHIOT, as printed); lot 6 of block 35 in the town the register codes CHIOT (L6BL35CHIOT, as printed); lot 7 of block 16 in the town the register codes CHIOT (L7B16CHIOT, as printed); lot 7 of block 17 in the town the register codes CHIOT (L7BL17CHIOT, as printed); lot 8 of block 17 in the town the register codes CHIOT (L8BL17CHIOT, as printed), 425.22 acres stated in all, for $2472.40 (ls0454, ls0455, ls0456, ls0457, ls0959, ls0960, ls0961, ls0962, ls0963, ls0964, ls0965, ls0966, ls0967). THE REGISTER'S OWN RESIDENCE COLUMN READS ILLINOIS, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $346.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: NAMED, NOT UPHELD — AND THE JUDGEMENT IS THE ONE T-0990 MADE, NOT A NEW ONE (T-1525). It stood as `upheld` while the mechanical forename rule reached Col. Jean Baptiste Beaubien on its own and this file only had to confirm it. T-1525 minted the Catholic town St Mary's baptismal register names, and the layer's Beaubiens went from eight to eighteen; one of the new cards is a Joseph Beaubien, so the reading's J now stands for two of them and R3 — a reading is named onto exactly one or onto none — refuses the proposal the ruling used to adjudicate. A ruling on a refusal is a ruling on nothing, so the SAME finding is recorded in the direction that can carry it: `named`, under the guards this file states — the surname gathered rivals, the forename failed to choose among them, and the ruling names one of those rivals. NOTHING BELOW HAS CHANGED. UPHELD on the initials as the town itself prints them, and on a date only one Beaubien can reach. The town's record of this man does not hold a forename it has to have expanded for it: Andreas's 1833 roster prints 'J. B. Beaubien, merchant' and Fergus 1839 prints 'Beaubien, John B., Michigan ave., bet. Lake and So. Water sts' — J. B. is the form the town used, and the register's BEAUBIEN J B is that form. The layer holds ten Beaubiens and the sale is dated 29 September 1830: this card's arrival is attested at 1812 from Andreas — 'he came to Chicago and bought the cabin and cultivated field south of the old fort in 1812' — and it is the only Beaubien in the layer the record puts at Chicago that early. Four canal rows in section 29 of T39N R14E, two of them the register's own voided duplicates of the other two, carried at 212.61 acres and $1,063.20 net. TWO THINGS THIS DOES NOT DO: it does not touch the Fort Dearborn reservation claim, which this project holds no record of and makes no finding on, and it does not make the 1830 purchase evidence of residence — the Residence column reads ILLINOIS on the voided pair and UNKNOWN on the pair that stood, and neither names a town. AND WHY THE NEW RIVAL IS NOT THE MAN: the register prints BEAUBIEN J B, two initials, and Col. Jean Baptiste is the only candidate of the eighteen whose own middle initial is attested B — the town prints him 'J. B. Beaubien' in Andreas's 1833 roster and 'Beaubien, John B.' in Fergus 1839. Joseph Beaubien's card carries no middle initial at all: it is a person minted from a single baptismal entry, with no forename expansion, no middle name, no date before 1833 and nothing that reaches a tract entered on 29 September 1830. He is a rival the rule must count and not a candidate the record supports, and this ruling does not merge the two cards or say anything about him. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
   },
   {
    "household_id": "hh_smith_jeremiah",
@@ -7413,8 +7413,8 @@
     "SMITH JEREMIAH"
    ],
    "rules": [
-    "SMITH J matches Jeremiah Smith: the forename names Jeremiah Smith of the 9 people of this surname, and the forename agrees as an initial only.",
-    "SMITH JEREMIAH matches Jeremiah Smith: the forename names Jeremiah Smith of the 9 people of this surname, and the forename agrees in full."
+    "SMITH J matches Jeremiah Smith: the forename names Jeremiah Smith of the 10 people of this surname, and the forename agrees as an initial only.",
+    "SMITH JEREMIAH matches Jeremiah Smith: the forename names Jeremiah Smith of the 10 people of this surname, and the forename agrees in full."
    ],
    "totals": {
     "entries": 6,
@@ -7533,7 +7533,7 @@
      "page": "037"
     }
    ],
-   "written": "THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 6 times, as “SMITH J”, “SMITH JEREMIAH”, 1834-10-02 to 1835-06-27: 3 federal land entries — SE sec 34 T39N R14E; SW sec 14 T38N R14E; W2NW sec 11 T40N R13E, 560.00 acres stated in all, for $700.00 (ls0485, ls0486, ls0488, ls0614, ls0909, ls0910). THE REGISTER'S OWN RESIDENCE COLUMN READS COOK, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. The register states this purchaser's residence as COOK, so the sale is contemporary evidence that a man of this name lived in Cook County on the date of sale. It is not evidence that he lived in the town. Identity by the crosswalk's own rule: SMITH J matches Jeremiah Smith: the forename names Jeremiah Smith of the 9 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+   "written": "THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 6 times, as “SMITH J”, “SMITH JEREMIAH”, 1834-10-02 to 1835-06-27: 3 federal land entries — SE sec 34 T39N R14E; SW sec 14 T38N R14E; W2NW sec 11 T40N R13E, 560.00 acres stated in all, for $700.00 (ls0485, ls0486, ls0488, ls0614, ls0909, ls0910). THE REGISTER'S OWN RESIDENCE COLUMN READS COOK, UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. The register states this purchaser's residence as COOK, so the sale is contemporary evidence that a man of this name lived in Cook County on the date of sale. It is not evidence that he lived in the town. Identity by the crosswalk's own rule: SMITH J matches Jeremiah Smith: the forename names Jeremiah Smith of the 10 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
   },
   {
    "household_id": "hh_price_jeremiah",
@@ -11963,6 +11963,87 @@
     }
    ],
    "written": "THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 7 times, as “STEWART ROYAL”, 1836-06-20 to 6/22/1836: 7 lots in the platted town — lot 1 of block 35 in the town the register codes CHIOT (L1BL35CHIOT, as printed); lot 1 of block 9 in the town the register codes CHIOTVO (L1BL9CHIOTVO, as printed); lot 2 of block 8 in the town the register codes CHIOTVO (L2BL8CHIOTVO, as printed); lot 2 of block 9 in the town the register codes CHIOTVO (L2BL9CHIOTVO, as printed); lot 3 of block 2 in the town the register codes CHIOT (L3BL2CHIOT, as printed); lot 3 of block 38 in the town the register codes CHIOT (L3BL38CHIOT, as printed); lot 7 of block 37 in the town the register codes CHIOT (L7BL37CHIOT, as printed), 0.00 acres stated in all, for $47560.00 (ls1470, ls1471, ls1472, ls1473, ls1474, ls1475, ls1476). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $47560.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: STEWART ROYAL matches R. Stewart: the forename names R. Stewart of the 2 people of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+  },
+  {
+   "household_id": "hh_stone_henry",
+   "person_id": "stone_henry",
+   "name": "Henry Stone",
+   "source_id": "isa_public_domain_land_tract_sales",
+   "purchaser_spellings": [
+    "STONE H O"
+   ],
+   "rules": [
+    "STONE H O matches Henry Stone: the forename names Henry Stone of the 1 person of this surname, and the forename agrees as an initial only."
+   ],
+   "totals": {
+    "entries": 3,
+    "acres": 0.0,
+    "dollars": 3355.0,
+    "first_purchase": "1836-06-24",
+    "last_purchase": "1836-06-27",
+    "tracts": [],
+    "school_section": [],
+    "town_plat_lots": [
+     "lot 3 of block 49 in the town the register codes CHIOTV (L3BL49CHIOTV, as printed)",
+     "lot 4 of block 24 in the town the register codes CHIOT (L4BL24CHIOT, as printed)",
+     "lot 4 of block 49 in the town the register codes CHIOTV (L4BL49CHIOTV, as printed)"
+    ],
+    "town_plat_dollars": 3355.0,
+    "residence_as_read": [
+     "UNKNOWN"
+    ]
+   },
+   "entries": [
+    {
+     "record_id": "ls1477",
+     "as_read": "STONE H O",
+     "date_purchased": "1836-06-24",
+     "acres": "0000.00",
+     "total_price": "2000.00",
+     "type_of_sale": "canal land sale",
+     "residence_as_read": "UNKNOWN",
+     "county": "COOK",
+     "tract": "lot 4 of block 24 in the town the register codes CHIOT (L4BL24CHIOT, as printed)",
+     "resolves": "town_plat_lot",
+     "sale_kind": "town_plat_lot",
+     "purchase_no": "0366359",
+     "volume": "L5A",
+     "page": "008"
+    },
+    {
+     "record_id": "ls1478",
+     "as_read": "STONE H O",
+     "date_purchased": "1836-06-27",
+     "acres": "0000.00",
+     "total_price": "655.00",
+     "type_of_sale": "canal land sale",
+     "residence_as_read": "UNKNOWN",
+     "county": "COOK",
+     "tract": "lot 3 of block 49 in the town the register codes CHIOTV (L3BL49CHIOTV, as printed)",
+     "resolves": "town_plat_lot",
+     "sale_kind": "town_plat_lot",
+     "purchase_no": "0366360",
+     "volume": "L5A",
+     "page": "018"
+    },
+    {
+     "record_id": "ls1479",
+     "as_read": "STONE H O",
+     "date_purchased": "1836-06-27",
+     "acres": "0000.00",
+     "total_price": "700.00",
+     "type_of_sale": "canal land sale",
+     "residence_as_read": "UNKNOWN",
+     "county": "COOK",
+     "tract": "lot 4 of block 49 in the town the register codes CHIOTV (L4BL49CHIOTV, as printed)",
+     "resolves": "town_plat_lot",
+     "sale_kind": "town_plat_lot",
+     "purchase_no": "0366361",
+     "volume": "L5A",
+     "page": "018"
+    }
+   ],
+   "written": "THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 3 times, as “STONE H O”, 1836-06-24 to 1836-06-27: 3 lots in the platted town — lot 3 of block 49 in the town the register codes CHIOTV (L3BL49CHIOTV, as printed); lot 4 of block 24 in the town the register codes CHIOT (L4BL24CHIOT, as printed); lot 4 of block 49 in the town the register codes CHIOTV (L4BL49CHIOTV, as printed), 0.00 acres stated in all, for $3355.00 (ls1477, ls1478, ls1479). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $3355.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: STONE H O matches Henry Stone: the forename names Henry Stone of the 1 person of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
   },
   {
    "household_id": "hh_taylor_augustine",

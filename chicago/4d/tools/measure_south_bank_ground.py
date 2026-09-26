@@ -62,6 +62,12 @@ from measure_no_build_ground import (  # noqa: E402
 )
 from plat_corridors import corridors, intrusion  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "drawn"
+CORRIDOR_LINE_WHY = "it asks whether a building could stand somewhere, and a building stands on the block grid"
+
 BASELINE = ROOT / "tools" / "south_bank_ground_baseline.json"
 DATA = ROOT / "data"
 

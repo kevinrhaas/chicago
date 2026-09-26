@@ -28,9 +28,9 @@
     "confidence": "derived",
     "counts": {
       "runs_joined_to_a_household": 53,
-      "runs_bounding_structures_only": 256,
+      "runs_bounding_structures_only": 257,
       "households_that_gained_a_fence": 25,
-      "lots_named": 124,
+      "lots_named": 125,
       "households": [
         "hh_bates_john_jr",
         "hh_beaubien_madore",
@@ -544,12 +544,12 @@
       "id": "side_blk_west_lake_canal_lot0_n",
       "path_local_enu_m": [
         [
-          -112.67,
-          -120.97
+          -104.2,
+          -121.03
         ],
         [
-          -101.12,
-          -121.06
+          -92.29,
+          -121.13
         ]
       ],
       "belongs_to": [
@@ -573,12 +573,12 @@
       "id": "rear_blk_west_lake_canal_lot0",
       "path_local_enu_m": [
         [
-          -101.12,
-          -121.06
+          -92.29,
+          -121.13
         ],
         [
-          -100.03,
-          -144.74
+          -91.92,
+          -144.81
         ]
       ],
       "belongs_to": [
@@ -596,18 +596,18 @@
           ]
         }
       ],
-      "note": "THE REAR LOT LINE of blk_west_lake_canal_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds pierce_blacksmith_shop — and the yard behind those buildings is 12.19 m deep by 23.71 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_west_lake_canal_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds pierce_blacksmith_shop — and the yard behind those buildings is 12.19 m deep by 23.68 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_west_lake_canal_lot0_s",
       "path_local_enu_m": [
         [
-          -112.86,
-          -144.64
+          -104.39,
+          -144.71
         ],
         [
-          -100.03,
-          -144.74
+          -91.92,
+          -144.81
         ]
       ],
       "belongs_to": [
@@ -2108,7 +2108,7 @@
         {
           "lot": "blk_randolph_market_lot0",
           "structures": [
-            "recon_1835_blk_randolph_market_a3_05",
+            "recon_1835_blk_randolph_market_d2_05",
             "recon_1835_blk_randolph_market_d5_01"
           ],
           "households": [],
@@ -2133,14 +2133,14 @@
         {
           "lot": "blk_randolph_market_lot0",
           "structures": [
-            "recon_1835_blk_randolph_market_a3_05",
+            "recon_1835_blk_randolph_market_d2_05",
             "recon_1835_blk_randolph_market_d5_01"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_randolph_market_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_randolph_market_a3_05, recon_1835_blk_randolph_market_d5_01 — and the yard behind those buildings is 12.19 m deep by 24.38 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_randolph_market_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_randolph_market_d2_05, recon_1835_blk_randolph_market_d5_01 — and the yard behind those buildings is 12.19 m deep by 24.38 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "rear_blk_randolph_market_lot1",
@@ -2158,16 +2158,16 @@
         {
           "lot": "blk_randolph_market_lot1",
           "structures": [
-            "recon_1835_blk_randolph_market_a1_12",
             "recon_1835_blk_randolph_market_d1_10",
             "recon_1835_blk_randolph_market_d2_09",
+            "recon_1835_blk_randolph_market_d4_12",
             "recon_1835_blk_randolph_market_d5_11"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_randolph_market_lot1, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_randolph_market_a1_12, recon_1835_blk_randolph_market_d1_10, recon_1835_blk_randolph_market_d2_09, recon_1835_blk_randolph_market_d5_11 — and the yard behind those buildings is 12.19 m deep by 24.38 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_randolph_market_lot1, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_randolph_market_d1_10, recon_1835_blk_randolph_market_d2_09, recon_1835_blk_randolph_market_d4_12, recon_1835_blk_randolph_market_d5_11 — and the yard behind those buildings is 12.19 m deep by 24.38 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_randolph_market_lot1_w",
@@ -2185,9 +2185,9 @@
         {
           "lot": "blk_randolph_market_lot1",
           "structures": [
-            "recon_1835_blk_randolph_market_a1_12",
             "recon_1835_blk_randolph_market_d1_10",
             "recon_1835_blk_randolph_market_d2_09",
+            "recon_1835_blk_randolph_market_d4_12",
             "recon_1835_blk_randolph_market_d5_11"
           ],
           "households": [],
@@ -2212,7 +2212,7 @@
         {
           "lot": "blk_randolph_market_lot0",
           "structures": [
-            "recon_1835_blk_randolph_market_a3_05",
+            "recon_1835_blk_randolph_market_d2_05",
             "recon_1835_blk_randolph_market_d5_01"
           ],
           "households": [],
@@ -2222,7 +2222,7 @@
         {
           "lot": "blk_randolph_market_lot2",
           "structures": [
-            "recon_1835_blk_randolph_market_a4_06",
+            "recon_1835_blk_randolph_market_d2_06",
             "recon_1835_blk_randolph_market_d6_02"
           ],
           "households": [],
@@ -2248,7 +2248,7 @@
         {
           "lot": "blk_randolph_market_lot2",
           "structures": [
-            "recon_1835_blk_randolph_market_a4_06",
+            "recon_1835_blk_randolph_market_d2_06",
             "recon_1835_blk_randolph_market_d6_02"
           ],
           "households": [],
@@ -2283,14 +2283,14 @@
         {
           "lot": "blk_randolph_market_lot2",
           "structures": [
-            "recon_1835_blk_randolph_market_a4_06",
+            "recon_1835_blk_randolph_market_d2_06",
             "recon_1835_blk_randolph_market_d6_02"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_randolph_market_lot2, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_randolph_market_a4_06, recon_1835_blk_randolph_market_d6_02 — and the yard behind those buildings is 12.19 m deep by 24.38 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_randolph_market_lot2, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_randolph_market_d2_06, recon_1835_blk_randolph_market_d6_02 — and the yard behind those buildings is 12.19 m deep by 24.38 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "rear_blk_randolph_market_lot3",
@@ -2308,14 +2308,14 @@
         {
           "lot": "blk_randolph_market_lot3",
           "structures": [
-            "recon_1835_blk_randolph_market_a1_07",
-            "recon_1835_blk_randolph_market_d4_03"
+            "recon_1835_blk_randolph_market_d4_03",
+            "recon_1835_blk_randolph_market_d4_07"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_randolph_market_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_randolph_market_a1_07, recon_1835_blk_randolph_market_d4_03 — and the yard behind those buildings is 12.19 m deep by 24.38 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_randolph_market_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_randolph_market_d4_03, recon_1835_blk_randolph_market_d4_07 — and the yard behind those buildings is 12.19 m deep by 24.38 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_randolph_market_lot1_blk_randolph_market_lot3_e",
@@ -2333,9 +2333,9 @@
         {
           "lot": "blk_randolph_market_lot1",
           "structures": [
-            "recon_1835_blk_randolph_market_a1_12",
             "recon_1835_blk_randolph_market_d1_10",
             "recon_1835_blk_randolph_market_d2_09",
+            "recon_1835_blk_randolph_market_d4_12",
             "recon_1835_blk_randolph_market_d5_11"
           ],
           "households": [],
@@ -2345,8 +2345,8 @@
         {
           "lot": "blk_randolph_market_lot3",
           "structures": [
-            "recon_1835_blk_randolph_market_a1_07",
-            "recon_1835_blk_randolph_market_d4_03"
+            "recon_1835_blk_randolph_market_d4_03",
+            "recon_1835_blk_randolph_market_d4_07"
           ],
           "households": [],
           "side": "south-east",
@@ -3826,8 +3826,8 @@
         {
           "lot": "blk_randolph_market_lot3",
           "structures": [
-            "recon_1835_blk_randolph_market_a1_07",
-            "recon_1835_blk_randolph_market_d4_03"
+            "recon_1835_blk_randolph_market_d4_03",
+            "recon_1835_blk_randolph_market_d4_07"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
@@ -5057,8 +5057,8 @@
       "id": "rear_blk_west_lake_canal_lot0_gate",
       "on": "alley",
       "at_local_enu_m": [
-        -100.58,
-        -132.9
+        -92.11,
+        -132.97
       ],
       "width_m": 3.048,
       "confidence": "reconstructed",
@@ -5177,7 +5177,7 @@
       "blk_west_randolph_des_plaines_lot5"
     ],
     "runs": 153,
-    "note": "124 of the 132 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 8 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 37 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
+    "note": "125 of the 133 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 8 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 37 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [
     "blk_lake_clark_lot3 (recon_1835_south_d6_031): the committed buildings reach 4.58 m past the lot's own rear line",

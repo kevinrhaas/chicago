@@ -50,7 +50,7 @@
   "basis": {
    "kind": "model",
    "id": "persistence_1835",
-   "note": "The roll dates this name at 1832, 3.50 years before the scene date. The persistence model gives 0.789 for that lag and the seeded draw reads absent. It is the same model, the same lag and the same draw that priced the twenty men of Kercheval's company the town already carries."
+   "note": "The roll dates this name at 1832, 3.50 years before the scene date. The persistence model gives 0.801 for that lag and the seeded draw reads absent. It is the same model, the same lag and the same draw that priced the twenty men of Kercheval's company the town already carries."
   },
   "seed": "hh_um_ma_che_we_ta:persistence",
   "replaceable_by": {

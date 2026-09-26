@@ -1,0 +1,63 @@
+{
+  "_doc": "RULINGS ON READINGS THE PAPER CONTRADICTS (T-0305). Four times in its thirteen surviving issues the Chicago American prints a house's address two ways, or never resolves it; tools/measure_american_contradictions.py declares every printing and re-derives them against the committed extraction on every gate, and docs/RESEARCH/american_self_contradictions.md carries the full reading. The page images that would settle them are held outside this repository. THE OWNER'S RULING, 2026-09-23, answer (b) to the question T-0305 put: 'Build from the best transcription reading now, marked inferred, and replace it if the images ever arrive.' So each entry below names the reading taken, the printings for it and against it, why it is the better one, and the exact page columns that would replace it. tools/compile_businesses.py lays each entry over the register's record: a `street_only` ruling makes that street the house's scene-date location at the `inferred` tier, a `keep_premises` ruling leaves a committed building where it stands and says on the record what its address rests on. measure_american_contradictions.py --gate refuses a ruling whose chosen reading no printing carries, so a ruling cannot invent a street. THE BEST READING IS CHOSEN BY ONE RULE, stated once: the resolved printings nearest the scene date (1835-07-01) and on or before it; where those agree, that is the reading. Nothing here moves a confidence above `inferred`, fills a bracket, or deletes a printing: every alternative stays on the record as the reading it is.",
+  "ruling": {
+    "ticket": "T-0305",
+    "owner_answer": "b",
+    "answered": "2026-09-23",
+    "question": "Four newspaper readings contradict themselves and only the original page images (six Chicago American columns, held outside the repo) can settle them. How should they be handled?"
+  },
+  "entries": [
+    {
+      "question_id": "tailor_street",
+      "business_id": "biz_a_new_tailoring_establishment_chicago_june_1835",
+      "effect": "street_only",
+      "street_id": "franklin",
+      "reads": "Franklin",
+      "for": ["chicago_american_1835_06_27#c009", "chicago_american_1835_07_25#c002"],
+      "against": ["chicago_american_1835_08_15#c002"],
+      "unresolved": ["chicago_american_1835_08_01#c005"],
+      "basis": "Franklin Street is the reading taken, at the inferred tier (T-0305, owner's ruling 2026-09-23). Edward Burton's card, copy-dated 27 June 1835, is set four times: Franklin on 27 June and 25 July, unresolved on 1 August, Lake on 15 August. The printing nearest the scene date, and on or before it, reads Franklin, and so does the next; the one Lake setting comes six weeks after the scene date. Whether it records a move or a misset line the transcription cannot say, so it is kept as the reading it is.",
+      "limit_reason": "The paper names Franklin Street and no house on it, and prints Lake Street once, after the scene date. Street only, at inferred: the page images would settle which, and no source names the house itself.",
+      "replaceable_by": "The page images of the Chicago American, 27 June 1835 p3 c5 (reading Franklin) and 15 August 1835 p3 c6 (reading Lake), or any directory or deed that places Edward Burton's tailoring shop."
+    },
+    {
+      "question_id": "sabine_water_street",
+      "business_id": "biz_wm_sabine_storage_forwarding_and_commission_merchant",
+      "effect": "street_only",
+      "street_id": "north_water",
+      "reads": "North Water",
+      "for": ["chicago_american_1835_06_13#c005"],
+      "against": ["chicago_american_1835_07_04#c002"],
+      "unresolved": [],
+      "basis": "North Water Street is the reading taken, at the inferred tier (T-0305, owner's ruling 2026-09-23). The American sets this card North Water on 13 and 20 June and South Water on 4 July; the printings nearest the scene date and before it read North. The 4 July setting moves the card below it (John Dave[s]'s) the same way in the same issue, so one misset column or one real move accounts for both, and the transcription cannot say which. It was extracted under a third firm's name, which is why this record carried no disagreement until now.",
+      "limit_reason": "The paper names North Water Street and nothing narrower, and prints South Water once, three days after the scene date. Street only, at inferred.",
+      "replaceable_by": "The page images of the Chicago American, 13 June 1835 p3 c5 (reading North) and 4 July 1835 p4 c4 (reading South) — one pair settles this house and John Dave[s]'s together — or any directory or deed that places Wm. Sabine's warehouse."
+    },
+    {
+      "question_id": "dave_water_street",
+      "business_id": "biz_john_dave_north_water_street",
+      "effect": "street_only",
+      "street_id": "north_water",
+      "reads": "North Water",
+      "for": ["chicago_american_1835_06_13#c006"],
+      "against": ["chicago_american_1835_07_04#c002"],
+      "unresolved": [],
+      "basis": "North Water Street is the reading taken, at the inferred tier (T-0305, owner's ruling 2026-09-23). The card is set immediately below Wm. Sabine's and moves with it: North Water on 13 and 20 June, South Water on 4 July. The printings nearest the scene date and before it read North, exactly as Sabine's do, and the two are one question rather than two.",
+      "limit_reason": "The paper names North Water Street and nothing narrower, and prints South Water once, three days after the scene date. Street only, at inferred.",
+      "replaceable_by": "The page images of the Chicago American, 13 June 1835 p3 c5 (reading North) and 4 July 1835 p4 c4 (reading South) — the same pair that settles Wm. Sabine's — or any directory or deed that places John Dave[s]'s house."
+    },
+    {
+      "question_id": "cobb_cross_street",
+      "business_id": "biz_s_b_cobb_saddle_harness_and_trunk_manufactory",
+      "effect": "keep_premises",
+      "structure_id": "goss_cobb_saddlery",
+      "reads": "Lake and Canal",
+      "for": ["chicago_democrat_1833_11_26"],
+      "against": [],
+      "unresolved": ["chicago_american_1835_06_08#c007", "chicago_american_1835_06_13#c016", "chicago_american_1835_07_11#c008"],
+      "basis": "The corner of Lake and Canal is the reading taken for 1835, at the inferred tier (T-0305, owner's ruling 2026-09-23). All three of S. B. Cobb's 1835 cards print Lake Street and lose the cross street ('Lake an[d] [Amor.', 'corner [o]f [...] [st]re[et]s', 'Lake [an]d the [Balle'); none of them reads another street either. The Democrat of 26 November 1833, read off the page image, sets Goss & Cobb's shop at 'the corner of Lake and Canal streets', and the shop stands there. So the building does not move: what is inferred is that the corner the 1835 cards could not print is the one the 1833 card did.",
+      "limit_reason": null,
+      "replaceable_by": "The page images of the Chicago American, 8 June 1835 p3 c5 ('Lake and [Amor.]') and 11 July 1835 p3 c6 ('Lake and the [Balle]'), which would read the cross street the transcription lost."
+    }
+  ]
+}

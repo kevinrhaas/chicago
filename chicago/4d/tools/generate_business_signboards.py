@@ -158,6 +158,7 @@ _RESOLVERS = {
 }
 SIDECARS = DATA / "sidecars" / "1835"
 STRUCTURES = DATA / "structures"
+FRONTAGE = DATA / "frontage"
 STREETS = DATA / "streets" / "1835.json"
 FRONTAGE = DATA / "frontage"
 OUT = DATA / "signage" / "town_business_signboards.json"
@@ -906,7 +907,36 @@ WORDING_GRADES = {"inferred", "reconstructed"}
 # docs/LIBERTIES.md L135). That board is the town's exemplar for the post mounting this
 # record now uses elsewhere; drawing a second sign here would be the town making the same
 # claim twice.
+def _post_is_drawn(sid: str) -> bool:
+    """Does the frontage layer actually stand a post for this building today?
+
+    Clause 6 below withholds this record's wall board because the frontage layer
+    draws a NAMED board on a post instead. That is a claim about another layer's
+    OUTPUT, and it stopped being true the day the Green Tree moved: the post
+    stands at the corner two walks make, the move left the inn one walk, and the
+    post was refused with it — so this refusal went on naming a board the
+    repository no longer held, and the reader was told where to find a thing that
+    was not there.
+
+    The board is still withheld either way, and that is the evidence talking: the
+    plates show ONE board at this inn and it is post-mounted, so hanging one on
+    the wall instead would draw it in a position no source shows and would need
+    wording no source gives. What changes is only what the refusal SAYS. A
+    refusal may not assert a thing this repository does not contain.
+    """
+    for path in sorted(FRONTAGE.glob("*.json")):
+        try:
+            record = _load(path)
+        except (OSError, ValueError):
+            continue
+        for post in (record.get("posts") or []):
+            if post.get("belongs_to") == sid:
+                return True
+    return False
+
+
 POST_BOARD_IDS = {
+    # (why, why when the frontage layer is not standing that post today)
     "green_tree_tavern": (
         "it carries a NAMED board on its own post at the street corner instead. "
         "Images 6 and 7 of data/sources/assets/owner_brief_2026_08_18/README.md both "
@@ -914,7 +944,20 @@ POST_BOARD_IDS = {
         "TREE; it is drawn from data/frontage/green_tree_frontage.json by "
         "renderers/web/js/frontage.js (T-0082, docs/LIBERTIES.md L135). That board is "
         "the exemplar this record's own post mounting is copied from. A second sign "
-        "here would be this layer drawing the same claim a second time."
+        "here would be this layer drawing the same claim a second time.",
+
+        "images 6 and 7 of data/sources/assets/owner_brief_2026_08_18/README.md show "
+        "ONE board at this inn and it is POST-MOUNTED AT THE CORNER, so a board on "
+        "this wall is not the same board in a second place — it is a board the plates "
+        "do not show, in a position no source gives, needing wording no source "
+        "states. THE POST IS NOT STANDING TODAY: the inn's move left it one walk of "
+        "the two its corner post is derived from, and "
+        "data/frontage/green_tree_frontage.json refuses the post in writing. So the "
+        "town holds no board for this inn at all, which is the honest reading of one "
+        "post-mounted board whose corner is gone — not licence to hang a different "
+        "one here. T-1547 owns getting the corner back; when it does, the post "
+        "returns with its GREEN TREE lettering and this clause reads as it did "
+        "before, with no edit to this table."
     ),
 }
 
@@ -1668,8 +1711,10 @@ def _candidates() -> tuple[list, list]:
             continue                                            # clause 8
 
         if sid in POST_BOARD_IDS:
+            why, why_when_the_post_is_gone = POST_BOARD_IDS[sid]
             refused.append({"structure_id": sid, "trade": trade,
-                            "why": POST_BOARD_IDS[sid]})
+                            "why": why if _post_is_drawn(sid)
+                            else why_when_the_post_is_gone})
             continue                                            # clause 6
 
         struct = _load(STRUCTURES / f"{sid}.json")

@@ -520,6 +520,24 @@ const shadowRigFor = (level, touch) => {
  *   the Sauganash at 26 m    121 calls     960,515 tris   <- the old sole stand
  *   Newberry & Dole's wharf   94 calls     812,603 tris
  *
+ * RE-READ 2026-09-26 (T-0135's close), same instrument, same viewport, dev @
+ * 50de0e10 — AND THE WORST STAND HAS MOVED. It is no longer Lake at Canal:
+ *
+ *   the forks, from Wolf Pt  183 calls   1,378,519 tris   <- worst at full and balanced
+ *   Lake at Canal, east      163 calls   1,323,964 tris
+ *   Lake and Market          164 calls   1,067,232 tris
+ *   the open aerial          147 calls   1,255,131 tris   <- worst at light, and 99 calls there
+ *   the Sauganash at 26 m    124 calls     936,123 tris
+ *
+ * Nothing regressed and nothing was tuned; the town filled in westward and the
+ * open-water view across the forks now draws more of it than the axial street
+ * does. That is the set doing the job it was built for — a single chosen stand,
+ * even the one honestly chosen as worst in August, would have been reading the
+ * second-worst frame for a month. It is also why the ceilings are argued against
+ * `worst-of-set` and not against a named camera, and why nothing below is
+ * re-ranked: membership is about the SHAPE of cost each stand covers, and every
+ * one of the five still covers its own.
+ *
  * South Water is NOT in the set: it is inside the set's worst on both axes and
  * its shape — an axial street down built frontage — is already carried by Lake
  * at Canal, so it would cost the gate a stand's worth of time and buy no
@@ -561,12 +579,32 @@ const STANDS = [
     why: 'the stand every earlier budget was measured at, kept for continuity',
   },
   {
-    id: 'lake_at_canal', kind: 'anchor', target: 'green_tree',
+    id: 'lake_at_canal', kind: 'anchor', target: 'lake_at_canal',
     label: 'Lake Street at Canal, east down the axis',
     // The known worst, and the reason this ticket exists: standing at the west
     // end of Lake Street looking east puts the whole platted town inside one
     // frustum, so every chunked layer pays for all of its chunks and the sun
     // pays for them again.
+    //
+    // T-1580 — IT RODE ON THE GREEN TREE'S VIEWPOINT AND THE INN MOVED. This
+    // stand's `target` was `green_tree`, which was the anchor "Green Tree
+    // Tavern, Lake and Canal" at E -159.7, N -108.4, yaw 90 — the west end of
+    // Lake Street looking due east, which is the GROUND this budget is about.
+    // T-0141 (#16) then moved the inn 116 m east to Lake and West Water and
+    // moved its visitor-facing anchor with it, correctly: an anchor named after
+    // a building should look at that building, and it now stands at E -44.11,
+    // N -121.52, yaw 33.3 — "from across Lake Street", north-east at the inn.
+    // The perf suite inherited that silently, and with it a stand that is not
+    // axial at all: the far merge read 0 of 21 clusters where it had saved 54
+    // calls, and the furniture reach read +1,272 triangles where it wants
+    // 120,000. Nothing had regressed; the camera had turned round.
+    // So the ground this budget measures now has its OWN authored viewpoint —
+    // `lake_at_canal` in data/scenes/1835.json, at the coordinates every
+    // recorded figure here was taken at — and this stand names it. The rule
+    // above is kept: it is a viewpoint the Go-to menu offers a visitor, not a
+    // camera invented for the test. The lesson is that a perf stand must name
+    // the GROUND it is about, because an anchor named after a building is free
+    // to follow the building.
     why: 'the long axial street — nothing culls, so chunking costs instead of saves',
   },
   {
@@ -2082,6 +2120,60 @@ for (const [label, viewport, touch] of [
       multisample.asked === true && multisample.samples >= 2,
       `antialias=${multisample.asked} SAMPLES=${multisample.samples} `
       + `pointer:coarse=${multisample.coarse}`);
+
+    // --- the scene-detail ladder is a ladder, and every rung says what it is
+    // --- for (T-0135, the owner's ruling of 2026-09-21) ---------------------
+    //
+    // THIS IS THE CHEAP HALF OF THE LADDER GATE AND IT IS HERE ON PURPOSE. The
+    // other half — that turning the control down actually draws less, at every
+    // stand — is in PART 5 and costs six minutes of sweep to answer. This half
+    // asks nothing of the scene: it reads the declaration, and a declaration
+    // that is not a ladder is wrong on every branch whether or not anybody can
+    // afford to run the sweep on it. A structural fault that only a six-minute
+    // part can see is a fault that ships.
+    //
+    // Three things, and the ruling names all three:
+    //
+    //  1. THE DECLARED CEILINGS DESCEND ON THEIR OWN. `main.js` clamps them to
+    //     a running minimum so a mistyped rung cannot BE too high — but a clamp
+    //     firing means the table says something untrue, and the table is what a
+    //     person reads and argues with. The construction stops the visitor
+    //     seeing it; this stops it staying there.
+    //  2. NO RUNG IS RUNNING CLAMPED. `sealLadder` marks one that is. Without
+    //     this the clamp would be the quiet failure it was written not to be.
+    //  3. EVERY RUNG STATES WHAT IT PROTECTS AND WHAT MEASUREMENT SET IT.
+    //     Verbatim from the ruling: "A rung that cannot say what it protects is
+    //     the next version of this ticket." Gated rather than trusted, because
+    //     the rung most likely to lose its statement is the one somebody is in
+    //     the middle of raising.
+    const ladder = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const order = ['full', 'balanced', 'light'];
+      return order.map((level) => {
+        const r = a.detailLevels[level] || {};
+        return { level, ceiling: r.triangles, declared: r.declared, clamped: !!r.clamped,
+          protects: typeof r.protects === 'string' ? r.protects.trim() : '',
+          measured: typeof r.measured === 'string' ? r.measured.trim() : '' };
+      });
+    });
+    const notDescending = ladder.filter((r, i) => i > 0
+      && !(ladder[i - 1].declared > r.declared));
+    check(`${label}: the declared scene-detail ceilings descend — it is a ladder, not three numbers`,
+      notDescending.length === 0 && ladder.every((r) => Number.isFinite(r.declared)),
+      ladder.map((r) => `${r.level} ${(r.declared ?? NaN).toLocaleString('en-US')}`).join(' > ')
+      + (notDescending.length ? ` — ${notDescending.map((r) => r.level).join(', ')} does not sit under the rung above it` : ''));
+    const clamped = ladder.filter((r) => r.clamped);
+    check(`${label}: no scene-detail rung is running clamped — the table and the scene agree`,
+      clamped.length === 0,
+      clamped.length
+        ? clamped.map((r) => `${r.level} declared ${r.declared} running ${r.ceiling}`).join('; ')
+        : 'every rung carries the ceiling its table declares');
+    const unstated = ladder.filter((r) => !r.protects || !r.measured);
+    check(`${label}: every scene-detail rung says what it protects and what measurement set it`,
+      unstated.length === 0,
+      unstated.length
+        ? unstated.map((r) => `${r.level} is missing ${[!r.protects && 'protects', !r.measured && 'measured'].filter(Boolean).join(' and ')}`).join('; ')
+        : ladder.map((r) => `${r.level}: ${r.protects.split(':')[0]}`).join(' · '));
 
     // T-1292: the loader is an arrival screen, not a coverage dashboard. The census
     // mount no longer exists there, and no count, percentage or completeness bar may
@@ -4156,7 +4248,17 @@ for (const [label, viewport, touch] of [
         .filter((c) => c.name === 'frontage' || c.name === 'frontage-chunk');
       const mesh = timber.find((c) => c.name === 'frontage');
       const letters = (f?.group?.children ?? []).find((c) => c.name === 'frontage-lettering');
-      const post = f?.posts?.[0] ?? null;
+      // THE SIGN POST IS RESOLVED BY WHAT IT IS, NOT BY BEING FIRST (T-1580).
+      // This read `posts[0]`, which was the Green Tree's boarded corner post for
+      // as long as that post existed. When T-0141's move retired it, `posts[0]`
+      // became a 1.30 m HITCHING post and the board check went on measuring
+      // against it — it reported "post 1.30 m over its grade against a recorded
+      // 1.3 m" and failed on the board height alone, which reads as a board hung
+      // too low rather than as a board that is not there. A post that carries a
+      // board is the one whose kind is not `hitching_post`, and frontage.js
+      // stands at most one in the town.
+      const post = (f?.posts ?? []).find((q) => q.kind !== 'hitching_post') ?? null;
+      const greenTree = (f?.records ?? []).find((r) => r.id === 'green_tree_frontage');
       let sink = Infinity;
       let deckTop = -Infinity;
       let highest = -Infinity;
@@ -4520,6 +4622,14 @@ for (const [label, viewport, touch] of [
         recordIds: (f?.records ?? []).map((r) => r.id),
         noBoardHere: (f?.records ?? []).find((r) => r.id === 'sauganash_frontage')
           ?.board_on_a_post?.value ?? null,
+        // T-1580 — what the record says about the board, read beside what the
+        // layer drew, so "no board" can be told from "board missing".
+        signPosts: (f?.posts ?? []).filter((q) => q.kind !== 'hitching_post').length,
+        letterMesh: !!letters,
+        letteringValue: greenTree?.lettering?.value ?? null,
+        letteringGrade: greenTree?.lettering?.confidence ?? null,
+        boardRefusal: (greenTree?.refused ?? [])
+          .find((x) => x.wall === 'corner')?.why ?? null,
         census: f?.census ?? null,
         meshes: f?.group?.children?.length ?? 0,
         names: (f?.group?.children ?? []).map((c) => c.name),
@@ -4629,7 +4739,7 @@ for (const [label, viewport, touch] of [
       // street fence needs, so the building IS the street wall there. They are
       // blk_south_water_clark lot 7 (tremont_house_1, 2.40 m),
       // blk_lake_dearborn lot 2 (mason_blacksmith_shop, 0.55 m) and
-      // blk_south_water_lasalle lot 3 (recon_1835_blk_south_water_lasalle_a1_06,
+      // blk_south_water_lasalle lot 3 (recon_1835_blk_south_water_lasalle_d3_06,
       // 1.61 m). The first is what T-0461 was filed for: that fence stood
       // between the footway and the Tremont House's own goods.
       // REFUSED 83 to 85 — the two new setback refusals above that were not
@@ -4655,7 +4765,26 @@ for (const [label, viewport, touch] of [
       // privy carries no trade the hitching rule accepts, and the two other
       // privies this ticket re-lotted moved between lots that are improved on
       // both sides of the move.
-      frontage.census?.records === 5 && frontage.census?.walks === 51
+      // T-1580 — THE GREEN TREE'S CORNER RETIRES, and four of these five numbers
+      // move together on that one cause. T-0141 (#16) moved the inn 116 m east
+      // to Lake and West Water, where Lake Street lies BESIDE its front wall
+      // rather than in front of it — 0.14 m of that wall's 17.05 m stands
+      // outward, where a frontage needs 50 %. So the front walk is refused in
+      // writing ("a walk laid here would run down the inn's flank and call it a
+      // frontage"), the crossing that sprang off it is refused with it ("no walk
+      // lies on the front, so nothing springs a crossing off it"), and the
+      // corner post is refused because it stands where two walks meet and one of
+      // the two is gone ("no board is put on a post"). One walk, one crossing,
+      // one post, three refusals — and the record states each of them rather
+      // than falling silent: 51 walks to 50, 39 crossings to 38, 19 posts to 18,
+      // 89 refusals to 92. FENCES DO NOT MOVE: the inn's walls were never a
+      // street-fence refusal on either site, and the left walk it keeps is the
+      // same walk on the same Lake Street frontage.
+      // T-1547 owns putting the corner back — re-seating the inn clear of the
+      // West Water track carries the trace past its corner and the front
+      // frontage qualifies again — so these four move BACK together when it
+      // lands, by the same arithmetic and in the same direction.
+      frontage.census?.records === 5 && frontage.census?.walks === 50
         && frontage.census?.crossings === 39
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
@@ -4691,8 +4820,24 @@ for (const [label, viewport, touch] of [
         // crossings, fences and posts do not move. None of the three was ever a street
         // wall the fence rule refused, each stands where it stood, and a cottage on a
         // block face carries no frontage furniture of its own.
-        && frontage.census?.posts === 19 && frontage.census?.fences === 31
-        && frontage.census?.refused === 89
+        // T-0251 — THE FOURTH LAKE STREET RECORD IS RECONCILED, and it is T-0246's
+        // pattern exactly. The owner ruled on 2026-09-21 that where an ATTESTED
+        // placement and an INFERRED one collide on a lot the attested one stands, so
+        // first_presbyterian_church took the 3.395 m off the modern kerb it was placed
+        // from and physicians_office gave way. THE WALK COUNT DOES NOT MOVE: the two
+        // steps the church had refused, 88.6 to 99.0 m along blk_lake_lasalle's north
+        // face, extend an existing run to the full face rather than opening a new one.
+        // But a walk that stopped short of its corner had refused the corner CROSSING
+        // with it, and that one is now laid — 38 crossings to 39, and the refusal that
+        // named it retires, 92 to 91. Those two move together and only together, which
+        // is the check that a walk reached its corner rather than a crossing being
+        // invented. POSTS AND FENCES DO NOT MOVE: the church carries no trade the
+        // hitching rule accepts, physicians_office's is reconstructed and was already
+        // refused for it, and a wall 1.50 m back from the frontage line is still inside
+        // the 3.0 m a street fence needs — that lot-6 refusal stands, with its number
+        // corrected from -1.90 m to 1.50 m.
+        && frontage.census?.posts === 18 && frontage.census?.fences === 31
+        && frontage.census?.refused === 91
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -4779,12 +4924,32 @@ for (const [label, viewport, touch] of [
     // THE POST STANDS ON THE GROUND AND ITS BOARD HANGS OVER A HEAD. A pole whose
     // height came from a number beside the mesh rather than from a terrain sample
     // floats; a board hung too low is one a visitor walks through.
-    check(`${label}: the named board hangs on a post that stands on the ground`,
-      Math.abs(frontage.highest - frontage.postHeight) <= 0.05
-        && frontage.boardLow >= 2.4 && frontage.clearOfTrack > 0,
-      `post ${frontage.highest?.toFixed(2)} m over its grade against a recorded `
-      + `${frontage.postHeight} m, board's underside ${frontage.boardLow?.toFixed(2)} m up, `
-      + `${frontage.clearOfTrack} m clear of the travelled track`);
+    //
+    // T-1580 — AND WHEN THERE IS NO BOARD, THE RECORD HAS TO SAY SO. The town's
+    // one boarded post is the Green Tree's, standing at the corner its two walks
+    // made, and T-0141's move refused one of the two. So this asks the record
+    // which case the town is in and holds each case to its own bar:
+    //   a sign post declared — it stands on its own terrain sample to within
+    //     0.05 m, its board's underside is 2.4 m up and it is clear of the
+    //     travelled track. The SAME three bars, none of them loosened.
+    //   none declared — the layer has drawn no sign post at all AND the record
+    //     refuses it in writing at the corner, in the words that say why.
+    // The second branch is the stronger reading of a board going away, not the
+    // weaker one: the only thing that satisfies it is a stated refusal, so a
+    // board that disappears without one still fails here — which is what the old
+    // line could not do, because a vanished post left it measuring a hitching
+    // post and reporting a height.
+    check(`${label}: the named board hangs on a post that stands on the ground, or the record refuses it`,
+      frontage.signPosts === 0
+        ? /no board is put on a post/.test(frontage.boardRefusal ?? '')
+        : Math.abs(frontage.highest - frontage.postHeight) <= 0.05
+          && frontage.boardLow >= 2.4 && frontage.clearOfTrack > 0,
+      frontage.signPosts === 0
+        ? 'no sign post drawn; the record refuses it at the corner: '
+          + `"${frontage.boardRefusal ?? 'NOTHING STATED'}"`
+        : `post ${frontage.highest?.toFixed(2)} m over its grade against a recorded `
+          + `${frontage.postHeight} m, board's underside ${frontage.boardLow?.toFixed(2)} m up, `
+          + `${frontage.clearOfTrack} m clear of the travelled track`);
     // THE LAYER DRAWS THE MESHES IT LAID, AND ONLY THOSE ARE ITS OWN (T-0349).
     // This census used to be the seventh clause of the lettering check below,
     // and it was the only clause in that conjunction whose verdict depended on
@@ -4822,8 +4987,16 @@ for (const [label, viewport, touch] of [
     // take. What is asserted about them is that they are the layer's own kind of
     // artefact — every extra child is a `frontage-far-merge` — so a stray mesh
     // parented onto this group by anything else still fails.
+    // T-1580 — AND THE COUNT FOLLOWS THE BOARD. frontage.js draws the painted
+    // name on its own mesh "because a painted name is a texture and timber is
+    // not — and it exists only when a board carries text", so `frontage-
+    // lettering` is the 62nd mesh exactly when a board is lettered. With the
+    // Green Tree's corner post refused (T-0141) the layer authors 61: the shared
+    // `frontage` mesh and 60 `frontage-chunk`s. Stating it as 61 + the board
+    // rather than as a number means this line does not have to be edited twice
+    // more when T-1547 puts the corner back.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === 62
+      frontage.authored === (frontage.census?.lettered === 1 ? 62 : 61)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -4841,21 +5014,60 @@ for (const [label, viewport, touch] of [
     // inventing a sign, which is exactly what L25 and L130 refuse. The painted
     // name is on its own mesh, the only thing in this layer that may carry a
     // texture; the timber it hangs over is all on ONE material and carries none.
-    check(`${label}: the board carries the record's own name, painted`,
-      frontage.census?.lettered === 1 && frontage.letterVerts >= 6
-        && frontage.letterMap === true && frontage.timberMap === false
-        && frontage.lettering === frontage.recordText
-        && frontage.recordText === 'GREEN TREE'
-        && frontage.textGrade === 'inferred',
-      `"${frontage.lettering}" on ${frontage.letterVerts} vertices, record says `
-      + `"${frontage.recordText}" graded ${frontage.textGrade}`);
+    //
+    // T-1580 — AND WHEN NO BOARD IS DRAWN, THE WORDING IS STILL UNDER GATE. The
+    // board went with the corner post (T-0141), so the painted name has nothing
+    // to hang on and `lettered` is 0. The second branch asserts the negative
+    // exactly — no lettering mesh, no lettering vertices, and the timber still
+    // carrying no texture of its own — and then asserts the thing that must
+    // survive the board's absence: green_tree_frontage STILL says "GREEN TREE"
+    // at the `inferred` grade, with the L135 argument behind it. That is
+    // deliberate. The cheap way to make this line green would be to delete the
+    // lettering claim from the record, and the wording is the one part of this
+    // that no ticket may quietly drop — it is the plate's, not the renderer's,
+    // and T-1547 needs it back the moment the post returns.
+    check(`${label}: the board carries the record's own name, painted, or none is drawn and the name is kept`,
+      frontage.census?.lettered === 1
+        ? frontage.letterVerts >= 6
+          && frontage.letterMap === true && frontage.timberMap === false
+          && frontage.lettering === frontage.recordText
+          && frontage.recordText === 'GREEN TREE'
+          && frontage.textGrade === 'inferred'
+        : frontage.census?.lettered === 0 && frontage.letterVerts === 0
+          && frontage.letterMesh === false && frontage.timberMap === false
+          && frontage.letteringValue === 'GREEN TREE'
+          && frontage.letteringGrade === 'inferred',
+      frontage.census?.lettered === 1
+        ? `"${frontage.lettering}" on ${frontage.letterVerts} vertices, record says `
+          + `"${frontage.recordText}" graded ${frontage.textGrade}`
+        : `no board lettered (${frontage.letterVerts} lettering vertices, `
+          + `lettering mesh ${frontage.letterMesh}); the record keeps its wording `
+          + `"${frontage.letteringValue}" graded ${frontage.letteringGrade}`);
 
     // AND IT READS FROM THE STREET, which is what a walk and a signboard are FOR.
-    // Stand out on Canal Street where a traveller coming up to the inn stands and
+    // Stand out on Lake Street where a traveller coming up to the inn stands and
     // hold the clock, so the grass cannot supply the difference. Same bar as the
     // goods, the fence gates and the signboard: worst >= 6 and mean >= 0.3.
+    //
+    // T-1580 — THE STAND FOLLOWED THE INN, 116 m LATE. It was E -163, N -99,
+    // yaw 80 — out on Canal Street beside the inn's OLD site — and T-0141 moved
+    // the inn east to Lake and West Water without moving it, so the frontage
+    // layer's whole group could be switched off in front of this camera and not
+    // one cell of the frame changed: mean 0.00, worst 0.
+    // The new stand is on the Lake Street track itself, E -25, N -104, looking
+    // due north at the walk the inn keeps — the walk's centreline runs E -18.9
+    // to -31.09 at N -97.3, and its record leaves 6.01 m of verge between its
+    // outer edge and the track, which puts the track at about N -104.2. So this
+    // is the traveller's own ground rather than a distance chosen to make a
+    // number, and pitch -6 is the angle at which a walk 1.83 m wide reads as a
+    // deck rather than as a line. THE BAR IS UNCHANGED — worst >= 6, mean >= 0.3
+    // — which is what keeps this from being the check weakened to pass: the
+    // board is presently withheld with the post (T-0141), so the delta is the
+    // walk's alone, and a walk that cannot clear the signboard's own bar from
+    // the street is still a fault. Measured here: mobile 2.94 / 37, desktop
+    // 5.70 / 69.
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: -163, local_n: -99, yaw_deg: 80, pitch_deg: 0 }));
+      { local_e: -25, local_n: -104, yaw_deg: 0, pitch_deg: -6 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const frontWith = await page.evaluate(() => window.__chicago4d.capture());
@@ -4872,9 +5084,18 @@ for (const [label, viewport, touch] of [
     // asks the LAYER rather than the app's pick, because the app would answer the
     // same building from the wall behind it and the assertion would pass while
     // the layer picked nothing at all.
+    //
+    // T-1580 — the corner is the thing that went (T-0141), so what the crosshair
+    // now finds is the plank walk, and a walk belongs to the building it was
+    // derived from exactly as the post did: frontage.js answers the same
+    // `green_tree_tavern` off either. The stand moves with the walk — E -155,
+    // N -101, yaw 68, pitch 12 was aimed at the old corner and returned nothing
+    // from all 25 aims — to the same traveller's ground as the reading above,
+    // looking down onto the deck. The assertion itself does not move: twenty-five
+    // aims across the crosshair, and the layer's own pick must name the inn.
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: -155.0, local_n: -101.0, yaw_deg: 68, pitch_deg: 12 }));
+      { local_e: -25.0, local_n: -104.0, yaw_deg: 0, pitch_deg: -6 }));
     await page.waitForTimeout(600);
     const frontagePick = await page.evaluate(() => {
       const a = window.__chicago4d;
@@ -4956,7 +5177,12 @@ for (const [label, viewport, touch] of [
         && frontage.hitching.filter((h) => !h.street).length === 2
         && frontage.hitching.filter((h) => h.street).length === 16
         && postsBad.length === 0
-        && frontage.census?.lettered === 1
+        // T-1580 — the clause this carried was `lettered === 1`, and what it is
+        // FOR is that none of these eighteen is the boarded post: the layer's
+        // lettered boards hang on SIGN posts and there are no sign posts among
+        // the hitching. Said that way it is true whether or not the Green Tree's
+        // corner stands, and it still fails if one of the eighteen grows a board.
+        && frontage.census?.lettered === frontage.signPosts
         && frontage.noBoardHere === false,
       `${frontage.hitching.length} post(s) read, census says ${frontage.census?.hitching}`
       + ` — ${frontage.hitching.filter((h) => !h.street).length} on a record's own`
@@ -4965,7 +5191,8 @@ for (const [label, viewport, touch] of [
       + (postsBad.map((h) => `${h.id} ${h.top?.toFixed(2)}/${h.recorded} m, `
         + `foot ${h.low?.toFixed(3)} m, ${h.found} vert, ${h.clear} m clear`).join(' | ')
         || 'none')
-      + ` — ${frontage.census?.lettered} board(s) lettered in the layer, `
+      + ` — ${frontage.census?.lettered} board(s) lettered in the layer on `
+      + `${frontage.signPosts} sign post(s), `
       + `record says a board on a post here: ${frontage.noBoardHere}`);
 
     // AND IT READS FROM THE STREET, the same bar the Green Tree's frontage is
@@ -6180,11 +6407,19 @@ for (const [label, viewport, touch] of [
       // plus the evidence-only household above.
       const carrying = index.households
         .filter((h) => ((h.grades || {}).reconstructed || 0) > 0);
+      // FETCHED TOGETHER, NOT ONE BY ONE (T-1501). This loop used to await each card in
+      // turn, and on a page busy drawing the whole town every one of those awaits waits
+      // for a free turn of the main thread — 221 households, two awaits apiece, and the
+      // part stopped fitting its 600 s ceiling (measured 2026-09-21 and 2026-09-24:
+      // stalled here for minutes after reaching the block in under one). Issued at once,
+      // the browser queues the requests itself and the block costs a few turns, not
+      // hundreds. The records read and every assertion below are unchanged.
+      const cards = await Promise.all(carrying.map(async (r) =>
+        (await fetch(new URL(`residents/${r.file}`, api.dataBase))).json()));
       const faults = [];
       let found = 0;
       let undeclared = 0;
-      for (const r of carrying) {
-        const card = await (await fetch(new URL(`residents/${r.file}`, api.dataBase))).json();
+      for (const card of cards) {
         for (const p of card.persons || []) {
           if (p.grade !== 'reconstructed') {
             // The K18 trip, kept: an invented name on a record that does not own
@@ -6777,8 +7012,42 @@ for (const [label, viewport, touch] of [
     //
     // Three reads, and the second and third are the discriminating ones. A card
     // that printed the whole file would pass the first alone.
-    const popAgency = await page.evaluate(() => {
+    //
+    // T-1627. WHICH roof the refused holding sits on is NOT a reading of any
+    // source, so it must not be pinned here. `compile_agencies.py` derives a
+    // business holder's `structure_id` from `street_face_adoptions.json`, whose
+    // own note says it plainly: "WHICH roof on the face is an allocation by
+    // tools/adopt_street_faces.py rather than a reading of any source." T-1622
+    // (#79) raised two roofs on blk_south_water_franklin's last free front, the
+    // allocator re-dealt the face, and Jones, King & Co. moved from
+    // ..._d5_01 to ..._d4_08 — so this check went red on dev having caught a
+    // re-deal and no regression at all. The only change to `1835_agencies.json`
+    // across that merge was that one id.
+    //
+    // So the roof is READ from the compiled file, and the thing that would be a
+    // real regression — the refusal being DROPPED by a re-deal — is asserted
+    // directly below instead. Repointing at `..._d4_08` would have bought the
+    // same green and gone red again on the next deal.
+    const agenciesDoc = JSON.parse(
+      fs.readFileSync(path.join(ROOT, 'data', 'reconstruction', '1835_agencies.json'), 'utf8'),
+    );
+    const refusedOnARoof = (agenciesDoc.agencies ?? [])
+      .flatMap((a) => a.refused_holdings ?? [])
+      .filter((h) => h.structure_id);
+    check(`${label}: the compiled agencies still carry a refused holding on a roof`,
+      refusedOnARoof.length === 1
+      && refusedOnARoof[0].holder === 'Jones, King & Co.'
+      && refusedOnARoof[0].holder_id === 'business_jones_king_co'
+      && Number(agenciesDoc.counts?.refused_holdings) === 1,
+      JSON.stringify({
+        found: refusedOnARoof.map((h) => ({ holder: h.holder, structure_id: h.structure_id })),
+        counts: agenciesDoc.counts,
+      }));
+    const refusedRoof = refusedOnARoof[0]?.structure_id ?? null;
+
+    const popAgency = await page.evaluate((jonesKingRoof) => {
       const read = (id) => {
+        if (!id) return { present: false, text: '', refused: false, cites: [] };
         window.__chicago4d.pick(id);
         const sec = document.querySelector('#popup .pop-agency');
         return {
@@ -6791,10 +7060,10 @@ for (const [label, viewport, touch] of [
       };
       return {
         hubbard: read('recon_1835_blk_randolph_wells_d2_07'),
-        jonesKing: read('recon_1835_blk_south_water_franklin_d5_01'),
+        jonesKing: read(jonesKingRoof),
         sauganash: read('sauganash_hotel'),
       };
-    });
+    }, refusedRoof);
     check(`${label}: the card names the agency this house held, and its principal`,
       popAgency.hubbard.present
       && /Hubbard & Co\. held the agency for Howard Fire Insurance Company/.test(popAgency.hubbard.text)
@@ -6821,8 +7090,9 @@ for (const [label, viewport, touch] of [
     // The REFUSED holding is legible, on the house the reading was made about.
     check(`${label}: a refused holding is on the card of the house it was refused for`,
       popAgency.jonesKing.present && popAgency.jonesKing.refused
-      && /Refused:/.test(popAgency.jonesKing.text),
-      popAgency.jonesKing.text.slice(0, 240));
+      && /Refused:/.test(popAgency.jonesKing.text)
+      && /agency for Howard Fire Insurance Company/.test(popAgency.jonesKing.text),
+      `${refusedRoof}: ${popAgency.jonesKing.text.slice(0, 240)}`);
     // And the discriminating case: a building holding no agency shows no section.
     check(`${label}: a house that held no agency says nothing about one`,
       !popAgency.sauganash.present,
@@ -8318,6 +8588,32 @@ for (const [label, viewport, touch] of [
     // not to wherever the reading was, and the next parcel to spend the five
     // spare calls reaches it honestly. When THIS one goes red, same rule:
     // a trim or an argued re-budget, never a quiet weakening.
+    //
+    // IT WENT RED, AND THIS TIME THE ANSWER WAS THE TRIM — T-1595, 2026-09-26.
+    // Red at 94 on dev on 2026-09-20 (the banked dev-smoke reading) and at 99
+    // six days later, worst stand the open aerial. 90 HAS NOT MOVED and is not
+    // asked to: `tools/measure_stand_budget.mjs --stand from_above --tiers
+    // light` priced the frame layer by layer for the first time and the ground
+    // was 45 of the 99 calls, nearly half, against 28 % of the triangles. Of
+    // its 360 tiles, 130 were the heightfield's SKIRT — the apron outside the
+    // modelled box — cut on the same 240 m grid and holding 2,489 triangles
+    // BETWEEN THEM, nineteen apiece, each its own draw. `terrain.js` now gives
+    // every bucket under GROUND_TILE_MIN_TRIS one mesh between them, which is
+    // a change of batching and of nothing else.
+    //
+    // Re-read afterwards on the published mirror with
+    // `tools/measure_detail_ceilings.mjs`, the instrument that reproduces this
+    // sweep to the draw call, at both viewports:
+    //
+    //                     light worst calls        full worst calls
+    //   desktop 1280x800   99 -> 82 (Lake & Market)  183 -> 156 (the forks)
+    //   mobile   390x780         74 (Lake & Market)        155 (Lake at Canal)
+    //
+    // Eight calls of room under the floor where there were none, and the town
+    // budget of 215 gains 27 at its own worst frame. WHAT IT COST, said plainly:
+    // the merged remainder is one bounding box round the whole scene, so its
+    // 2,489 triangles can no longer be frustum-culled and every stand reads
+    // about 3,600 triangles heavier. Both figures are in `DETAIL`'s rungs.
     //
     // The ratio is KEPT underneath rather than replaced: the count is the
     // promise to a weak machine, the ratio is the claim that the scene-detail
@@ -11943,7 +12239,7 @@ for (const [label, viewport, touch] of [
       // figures the rest of this file and model_town_1835.py read cannot disagree with
       // the loop that produced them.
       && people.counts.sourceKeys
-         === 'lodgers,manifest,readmitted,reconstructed_trades,transients,underdocumented'
+         === 'institutional,lodgers,manifest,readmitted,reconstructed_trades,transients,underdocumented'
       && people.counts.sourceTotal === people.counts.stated
       && people.counts.bySource.manifest === people.counts.manifest
       && people.counts.bySource.readmitted === people.counts.readmitted
