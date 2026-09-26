@@ -15,7 +15,7 @@ sheet so neither registration enters it. `tools/read_south_bank_swell_1834.py`
 keeps Wright's ink vertex for vertex as the set-aside reading and its `--check`
 re-derives the displacement from it on every commit, so the departure is gated
 rather than asserted. **The waterline on this reach is `reconstructed`, not a
-trace** (`docs/LIBERTIES.md` L274) — the only place in the scene where the ground's
+trace** (`docs/LIBERTIES.md` L275) — the only place in the scene where the ground's
 edge is not the survey the datum, the plat and all 41 blocks are fitted to.
 
 What it buys, measured: the bank's step across the La Salle mouth falls 9.62 → 1.18 m,

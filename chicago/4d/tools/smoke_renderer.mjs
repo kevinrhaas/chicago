@@ -4796,7 +4796,7 @@ for (const [label, viewport, touch] of [
       // middle of a face never sprang a corner crossing, and nothing about a wall,
       // a trade or a setback changed on either block.
       // T-1630 TAKES ONE MORE, AND IT IS A DIFFERENT KIND OF BREAK. The south bank
-      // below the bend came in to Hathaway's line on the owner's ruling (L274), so the
+      // below the bend came in to Hathaway's line on the owner's ruling (L275), so the
       // outer plank walk no longer has to swing north round a point: the wharf reach is
       // re-authored as ONE straight segment from the La Salle crossing to Jones's
       // landing, and on that line Philo Carpenter's landing — which the old curve ran
