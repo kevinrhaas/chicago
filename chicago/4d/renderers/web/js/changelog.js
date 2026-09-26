@@ -1,9 +1,10 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'A test that followed the wrong roof', kind: 'fix', ts: '',
+  { v: 1147, title: 'A test that followed the wrong roof', kind: 'fix', ts: '2026-09-26T17:06:32.284Z', date: 'Sep 26, 2026, 12:06 PM CT',
     items: [
       'Nothing you can see in the town has changed. A check that guards the buildings\u2019 cards had gone red, and it was the check that was wrong, not the town.',
-      'On one South Water Street house the card carries a REFUSAL \u2014 a reading that said the firm there held a fire-insurance agency, and the reading does not stand. The check made sure that refusal reaches the card. But it named the house by hand, and last release re-dealt that block: two new cottages went up on its last free front and the firm shifted one roof along. The refusal moved with the firm, exactly as it should, and the check went looking for it at the old address.',
-      'It now reads the address out of the same file the card does, so a re-deal cannot break it again. What it pins instead is the thing that would really be wrong: that the refusal is still there at all, still against the same firm, and still the only one of its kind. Pointing the old check at the new house would have gone green today and red again the next time a block is dealt.',
+      'On one South Water Street house the card carries a REFUSAL \u2014 a reading that said the hardware firm there held a fire-insurance agency, and the reading does not stand. A check made sure that refusal reaches the card, and it named the house by hand. Nothing ever promised it that address: which of a street\u2019s anonymous buildings a printed firm takes is dealt out, not read off a source, and the file that does the dealing says so in its own words.',
+      'So the moment two cottages went up on that block\u2019s last free front, the firm shifted one roof along, the refusal went with it \u2014 exactly as it should \u2014 and the check went looking at the old address and failed. In the three releases since, that firm has moved and moved back: naming the new house by hand would have gone green this morning and red again this afternoon.',
+      'The check now reads the address out of the same file the card does, so a re-deal cannot break it. What it pins instead is the thing that would really be wrong \u2014 that the refusal is still there at all, still against the same firm, and still the only one of its kind \u2014 and that half was proved by deleting the refusal and watching it go red.',
     ] },
   { v: 1146, title: 'The houses built for two families now hold families', kind: 'fix', ts: '2026-09-26T16:30:19.049Z', date: 'Sep 26, 2026, 11:30 AM CT',
     items: [
