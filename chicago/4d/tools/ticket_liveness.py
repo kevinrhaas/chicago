@@ -68,6 +68,14 @@ ROOT = Path(__file__).resolve().parents[1]
 # not its own state but its descendants', which is the whole subject of this file.
 DEAD_FLAT_STATES = ("done", "split", "withdrawn")
 
+# `split_live` is DERIVED — `derived_states` writes it back onto the map as the answer
+# this walk produces. A caller holding a derived map and asking the walk again is not a
+# mistake (the ledger's fragile-pointer note does exactly that), so the walk recognises
+# both spellings of the same node and descends through either. Reading `split_live` as
+# an opaque unknown state instead is a silent hole: it drops the whole subtree under it,
+# which is how the self-test's T-9001 -> T-9002 -> T-9003 chain first came back empty.
+SPLIT_STATES = ("split", "split_live")
+
 # The two leaf sets, named where they are used rather than folded together. See the
 # module docstring: the asymmetry is a ruling, not an oversight.
 LEDGER_ALIVE = frozenset({"open", "claimed", "review", "in-progress"})
@@ -76,7 +84,7 @@ ORDER_BOOK_ALIVE = None      # None = "anything not flat-dead", the book's own r
 
 def _alive(state: str | None, alive: frozenset[str] | None) -> bool:
     """Is a ticket in this FLAT state live, before any walk through a split?"""
-    if state is None or state == "split":
+    if state is None or state in SPLIT_STATES:
         return False
     if alive is None:
         return state not in DEAD_FLAT_STATES
@@ -100,7 +108,11 @@ def read_tree(root: Path = ROOT,
         # `CHICAGO_TICKETS_DIR` in the tickets repo's own workflows, and a walk that
         # read a different queue from its caller's would be worse than no walk.
         env = os.environ.get("CHICAGO_TICKETS_DIR")
-        tickets_dir = Path(env) if env else root / "tickets"
+        # …but only for THIS checkout. `fragile_pointers`' self-test builds a fixture
+        # tree in a temp directory and asks for it by root; an env var pointing at the
+        # real clone would answer with the real queue and the fixture would prove
+        # nothing. An explicitly named root wins over the environment.
+        tickets_dir = Path(env) if env and root == ROOT else root / "tickets"
     directory = Path(tickets_dir)
     if not directory.is_dir():
         return states, parents
@@ -142,7 +154,7 @@ def live_pieces_of(ticket: str, states: dict[str, str], children: dict[str, list
             if kid in seen:
                 continue
             seen.add(kid)
-            if states.get(kid) == "split":
+            if states.get(kid) in SPLIT_STATES:
                 walk(kid)
             elif _alive(states.get(kid), alive):
                 found.append(kid)
@@ -154,7 +166,7 @@ def live_pieces_of(ticket: str, states: dict[str, str], children: dict[str, list
 def is_live(ticket: str, states: dict[str, str], children: dict[str, list[str]],
             alive: frozenset[str] | None = ORDER_BOOK_ALIVE) -> bool:
     """One predicate. A flat-live ticket is live; a split is live through its pieces."""
-    if states.get(ticket) == "split":
+    if states.get(ticket) in SPLIT_STATES:
         return bool(live_pieces_of(ticket, states, children, alive))
     return _alive(states.get(ticket), alive)
 
@@ -170,7 +182,7 @@ def derived_states(states: dict[str, str], parents: dict[str, str],
     children = children_of(parents)
     out = dict(states)
     for tid, state in states.items():
-        if state == "split" and is_live(tid, states, children, alive):
+        if state in SPLIT_STATES and is_live(tid, states, children, alive):
             out[tid] = "split_live"
     return out
 
@@ -406,6 +418,23 @@ def self_test() -> int:
     states, parents = _fixture(cyc)
     strands(["T-3"], states, parents, LEDGER_ALIVE)
     print("  holds: a parent cycle terminates")
+
+    # 8. A DERIVED MAP READS THE SAME AS A FLAT ONE, and this one is not theoretical:
+    #    `fragile_pointers` holds the derived map and asks the walk again, and the first
+    #    version of this module read `split_live` as an unknown state and silently
+    #    dropped the whole subtree under it. The ledger's own T-9001 -> T-9002 -> T-9003
+    #    fixture caught it; it is held here too, where it is one line to read.
+    chain = {"T-9001": ("split", None), "T-9002": ("split", "T-9001"),
+             "T-9003": ("open", "T-9002")}
+    states, parents = _fixture(chain)
+    derived = derived_states(states, parents, LEDGER_ALIVE)
+    flat_leaves = live_pieces_of("T-9001", states, children_of(parents), LEDGER_ALIVE)
+    derived_leaves = live_pieces_of("T-9001", derived, children_of(parents), LEDGER_ALIVE)
+    if flat_leaves != ["T-9003"] or derived_leaves != ["T-9003"]:
+        failures.append(f"the walk disagrees with itself on a derived map: "
+                        f"flat {flat_leaves}, derived {derived_leaves}")
+    else:
+        print("  holds: the walk descends `split_live` exactly as it descends `split`")
 
     # 7. ONE DEFINITION, ASSERTED AND NOT ASSUMED. The two callers keep their own
     #    leaf sets on purpose, and the walk is shared — so what this holds is that
