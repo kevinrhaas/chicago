@@ -11787,6 +11787,12 @@
       "asset": "gltf/recon_1835_west_026__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_west_027",
+      "name": "Reconstructed D1 older log dwelling #027",
+      "sidecar": "sidecars/1835/recon_1835_west_027.json",
+      "asset": "gltf/recon_1835_west_027__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_west_028",
       "name": "Reconstructed D2 rough plank dwelling or shanty #028",
       "sidecar": "sidecars/1835/recon_1835_west_028.json",
@@ -11839,6 +11845,12 @@
       "name": "Reconstructed W5 large workshop #036",
       "sidecar": "sidecars/1835/recon_1835_west_036.json",
       "asset": "gltf/recon_1835_west_036__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_west_037",
+      "name": "Reconstructed A1 stable #037",
+      "sidecar": "sidecars/1835/recon_1835_west_037.json",
+      "asset": "gltf/recon_1835_west_037__inferred_1835.glb"
     },
     {
       "id": "recon_1835_west_038",

@@ -172,13 +172,20 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # The remaining two are still not built and still add nothing: they stand inside the platted
 # Jefferson corridor, which is a different refusal and is stated in the parcel's own recipe.
 #
+# 417 -> 419 and 415 -> 417 on 2026-09-25 (T-1545): the last two — `recon_1835_west_027` and
+# `_037` — are re-dealt off that Jefferson corridor by the same frozen-setback table thirteen
+# other slots of the parcel already stand on, 12.25 m and 10.00 m east, and are built. Two new
+# structure assets, so two more meshes a change to the shared generator modules or to build.py
+# would re-stale; the terrain and pier_crib reaches stay at 2 each. Nothing is held back in this
+# parcel now, so this line is the last one it will move for a release.
+#
 STATED = {
-    "assets": 417,
+    "assets": 419,
     "restales": {
-        "generators/common/*.py": 417,
+        "generators/common/*.py": 419,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/build.py": 415,
+        "generators/build.py": 417,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
     },
