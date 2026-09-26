@@ -2,6 +2,70 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "mobile",
+      "stage": "5-6",
+      "parts": [
+        5,
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 32,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 192,
+      "takenAt": "2026-09-26T00:20:59.628Z",
+      "ref": "steward/t1580-mobile-frontage-farmerge",
+      "commit": "bbac700280b9",
+      "devCommit": "2892a7b3714e",
+      "treeHash": "sha256:fef33ca3b7e966de",
+      "treeDirty": false,
+      "changelogHash": "sha256:d1dd5514ee794f4c",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.8,
+          3.7,
+          3.3
+        ]
+      },
+      "source": "/tmp/m56_final.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 154,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 164,
+      "takenAt": "2026-09-26T00:20:59.566Z",
+      "ref": "steward/t1580-mobile-frontage-farmerge",
+      "commit": "bbac700280b9",
+      "devCommit": "2892a7b3714e",
+      "treeHash": "sha256:fef33ca3b7e966de",
+      "treeDirty": false,
+      "changelogHash": "sha256:d1dd5514ee794f4c",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.8,
+          3.7,
+          3.3
+        ]
+      },
+      "source": "/tmp/m12_final.log"
+    },
+    {
       "viewport": "desktop",
       "stage": "5",
       "parts": [
@@ -1445,68 +1509,6 @@
         ]
       },
       "source": "/tmp/smoke_m1112.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 420,
-      "takenAt": "2026-09-21T17:19:52.735Z",
-      "ref": "steward/t-1482-platted-blocks-migration",
-      "commit": "781fb6b23c9c",
-      "devCommit": "c5b5e3e67d06",
-      "treeHash": "sha256:1666667eb77950c8",
-      "treeDirty": false,
-      "changelogHash": "sha256:5d39aba23e41a829",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          2.5,
-          4,
-          4.3
-        ]
-      },
-      "source": "/tmp/smoke_d12.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 304,
-      "takenAt": "2026-09-21T15:50:13.276Z",
-      "ref": "steward/t-1499-one-roof-id-exemption-list",
-      "commit": "eca5a0cd7f4a",
-      "devCommit": "c2fa31c70d63",
-      "treeHash": "sha256:889f8eb55021a44f",
-      "treeDirty": false,
-      "changelogHash": "sha256:5944324656afd87f",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.6,
-          3.5,
-          2.1
-        ]
-      },
-      "source": "/tmp/smoke-desktop-12.log"
     },
     {
       "viewport": "desktop",
