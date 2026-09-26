@@ -392,6 +392,27 @@
   line-height: 1.4;
 }
 .seat-go + .people-seat { margin-top: 6px; border-top-left-radius: 4px; border-top-right-radius: 4px; }
+
+/* T-1618. The policy's deal, under the ladder's own words. It is a DIFFERENT KIND OF
+   SENTENCE from the two above it — those say what the record reaches, this says what
+   this project decided — so it is ruled off with a currentColor edge rather than
+   another dim paragraph a reader would run together with the rung. Single colour,
+   both themes, no new token. */
+.people-seat-dealt {
+  margin-top: 5px;
+  padding-left: 9px;
+  border-left: 2px solid currentColor;
+  color: var(--ink-dim);
+  font-size: 11.5px;
+  line-height: 1.5;
+  opacity: .92;
+}
+.people-seat-dealt[data-how="slot"] { border-left-style: dashed; }
+/* The dealt button's verb names the policy, so the button itself is marked the same
+   way the sentence is: dashed like any seat button, and a touch dimmer than a seat
+   the record made. */
+.seat-go-dealt { opacity: .94; }
+.seat-go-dealt:hover, .seat-go-dealt:focus-visible { opacity: 1; }
 .people-card-what { margin: 0 0 14px; color: var(--ink-dim); font-size: 11.5px; line-height: 1.5; }
 
 /* T-1172. A re-admitted row is a RECONSTRUCTION standing beside a refusal the

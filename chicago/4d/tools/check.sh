@@ -1793,6 +1793,28 @@ step "the lot ledger and the platted seats still re-derive" \
 selftest "…and the deal's six refusals still fire when broken" \
   python3 tools/seat_platted_ground_1835.py --self-test
 
+# T-1614, the second piece of T-1199. The pass above enumerated the plat and handed 1,374
+# of the 1,480 banded households on with a written reason; this is the file that answers
+# them, on the ground the committed plat does not draw. `1835_off_plat_ledger.json`
+# enumerates it — 136 tier lots the Thompson grid was closed before either tier file was
+# written, the 2 School Section blocks left whole, Kinzie's Addition's 27 blocks with a
+# boundary and no lot rule, the 7 placed survey chips and the 5 camp grounds carried by
+# name because their own file authors no vertex. `1835_off_plat_seats.json` deals it in
+# the placement policy's own clause order. EVERY SEAT IS AN ADOPTION and no slot is
+# raised anywhere, because 150 of those 177 parcels have no row in the 665-roof
+# programme's schedule at all and the 27 that do are marked `unsubdivided` with no
+# headroom — which is the finding, not an omission. Seven assertions: no seat on a parcel
+# the ledger does not draw; no roof adopted twice; no household seated across a division
+# line, tested against the roof's own `reconstruction.district`; no roof adopted here that
+# T-1613 already adopted, which would seat two households in one roof across two files;
+# no order-book draw on ground the schedule does not open; no handed-on row left
+# unanswered; and no owed row with a blank where its reason should be.
+step "the off-plat ledger and its seats still re-derive" \
+  python3 tools/seat_off_plat_ground_1835.py --check
+
+selftest "…and the off-plat deal's seven refusals still fire when broken" \
+  python3 tools/seat_off_plat_ground_1835.py --self-test
+
 # A dwelling nobody named is a count-unit toward a documented aggregate; a PUBLIC
 # building nobody named is the claim that an institution stood here and left no record
 # at all. ROADMAP T-I3 enumerated them: on 1835-07-01 the town's public buildings with a
