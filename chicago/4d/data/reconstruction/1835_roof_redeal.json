@@ -24,8 +24,8 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 318,
-    "keep": 304,
+    "audited": 320,
+    "keep": 306,
     "refamily": 14,
     "retire": 0,
     "kept_occupied": 3,
@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 10,
     "roof_target": 668,
-    "standing_before": 404,
-    "standing_after": 404,
-    "short_of_the_programme_before": 264,
-    "short_of_the_programme_after": 264
+    "standing_before": 406,
+    "standing_after": 406,
+    "short_of_the_programme_before": 262,
+    "short_of_the_programme_after": 262
   },
   "ledger": [
     {
@@ -56,11 +56,11 @@
       "group": "barns_stables",
       "division": "west",
       "target": 20,
-      "standing": 11,
-      "anonymous": 9,
-      "head_before": 9,
-      "standing_after": 11,
-      "head_after": 9
+      "standing": 12,
+      "anonymous": 10,
+      "head_before": 8,
+      "standing_after": 12,
+      "head_after": 8
     },
     {
       "bucket": "structures/barns_stables/north",
@@ -210,11 +210,11 @@
       "group": "ordinary_dwellings",
       "division": "west",
       "target": 75,
-      "standing": 50,
-      "anonymous": 47,
-      "head_before": 25,
-      "standing_after": 52,
-      "head_after": 23
+      "standing": 51,
+      "anonymous": 48,
+      "head_before": 24,
+      "standing_after": 53,
+      "head_after": 22
     },
     {
       "bucket": "structures/ordinary_dwellings/north",
@@ -5783,6 +5783,24 @@
       "reason": "the order book has an occupant class for a D1 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_west_027",
+      "division": "west",
+      "family": "D1",
+      "group": "ordinary_dwellings",
+      "programme_phase": "phase2_west_wolf_point_approaches",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 480.0,
+      "street": "lake",
+      "street_class": "principal",
+      "setback_m": 36.6,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/ordinary_dwellings/west",
+      "reason": "the order book has an occupant class for a D1 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_west_028",
       "division": "west",
       "family": "D2",
@@ -5943,6 +5961,24 @@
       "verdict": "keep",
       "bucket": "structures/workshops/west",
       "reason": "the order book has an occupant class for a W5 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_west_037",
+      "division": "west",
+      "family": "A1",
+      "group": "barns_stables",
+      "programme_phase": "phase2_west_wolf_point_approaches",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 416.0,
+      "street": "randolph",
+      "street_class": "ordinary",
+      "setback_m": 1.19,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/barns_stables/west",
+      "reason": "the order book has an occupant class for a A1 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_west_038",

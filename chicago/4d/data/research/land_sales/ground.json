@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 417,
+    "structures_placed": 419,
     "structures_reached": 69,
     "structures_reached_by_grade": {
       "inferred": 19,
       "reconstructed": 50
     },
     "structures_unreached_by_section": {
-      "09": 346,
+      "09": 348,
       "10": 1,
       "16": 1
     },
@@ -39813,6 +39813,7 @@
       "recon_1835_west_024",
       "recon_1835_west_025",
       "recon_1835_west_026",
+      "recon_1835_west_027",
       "recon_1835_west_028",
       "recon_1835_west_029",
       "recon_1835_west_030",
@@ -39822,6 +39823,7 @@
       "recon_1835_west_034",
       "recon_1835_west_035",
       "recon_1835_west_036",
+      "recon_1835_west_037",
       "recon_1835_west_038",
       "recon_1835_west_039",
       "recon_1835_west_040",

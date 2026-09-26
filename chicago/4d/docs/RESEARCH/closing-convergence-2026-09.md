@@ -33,11 +33,11 @@ That one is a property of the mirror rather than an oversight — it is the one 
 | member | tracked files written | claimed by the manifest | unowned |
 |---|---:|---:|---:|
 | `data/residents/index.json` and its `merged` redirect table | 1 | 1 | 0 |
-| the 1835 sidecars, `data/sidecars/1835/` | 424 | 1 | 423 |
+| the 1835 sidecars, `data/sidecars/1835/` | 426 | 1 | 425 |
 | the town census, `data/town_census.json` | 1 | 1 | 0 |
 | the final resident audit, `chicago/reference/resident-research/final/audit/` | 3 | 3 | 0 |
 
-423 tracked closing-set file(s) are written by a manifest step and not claimed by it — in `sidecars_1835`. Widening `resolves` to the whole sidecar directory is a decision about what the lap may overwrite, not a bookkeeping fix, and the manifest is explicit that "being run by the manifest and owning your outputs are separate decisions" — so this states the number rather than taking that decision. The row moves the moment the count does.
+425 tracked closing-set file(s) are written by a manifest step and not claimed by it — in `sidecars_1835`. Widening `resolves` to the whole sidecar directory is a decision about what the lap may overwrite, not a bookkeeping fix, and the manifest is explicit that "being run by the manifest and owning your outputs are separate decisions" — so this states the number rather than taking that decision. The row moves the moment the count does.
 
 ## 3. The deltas
 
@@ -53,9 +53,9 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 | persons graded `attested` | 410 | 412 | +2 |
 | persons graded `inferred` | 875 | 992 | +117 |
 | persons graded `reconstructed` | 3 | 979 | +976 |
-| 1835 sidecar files | 391 | 424 | +33 |
+| 1835 sidecar files | 391 | 426 | +35 |
 | people in the 1835 people sidecar | 1288 | 3292 | +2004 |
-| buildings standing in the town census | 371 | 404 | +33 |
+| buildings standing in the town census | 371 | 406 | +35 |
 | people housed in the town census | 34 | 181 | +147 |
 | households housed in the town census | 20 | 31 | +11 |
 | rows in the final resident audit | 1288 | 2383 | +1095 |
