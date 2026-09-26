@@ -1264,6 +1264,13 @@
       "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "seat_platted_ground_1835.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-26",
+      "finding": "Reproduces: `--build` on a clean tree rewrote its own two outputs \u2014 data/reconstruction/1835_lot_ledger.json and data/reconstruction/1835_platted_seats.json \u2014 and `git status --porcelain` came back EMPTY afterwards, so not one committed byte moved. It writes no structure record and no person card: an adoption is a pointer at a roof that already stands and a slot is a request the 5C build tickets fulfil, so this pass raises nothing and bakes nothing. Measured again through tools/measure_step_isolation.mjs --tool, which reports both gated commands writing nothing in-tree.",
+      "placed": "not yet \u2014 measured to reproduce. T-1613, piece 1 of 3 of T-1199. Its inputs are the committed lot grid, the 665-roof programme's schedule, the placement policy and the address book, and the LAST of those is written by seat_known_1835.py, which is not in derived_manifest.json at all \u2014 so a slot for this one sits downstream of a tool that has no slot either, and placing this means placing that first. The manifest's order is its own measured pass \u2014 on #1452 three reconstruction stages oscillated until they sat in the right slot \u2014 so this cannot be appended blind."
+    },
     "seat_reconstructed_trades_1835.py": {
       "placement": "pending",
       "write_mode": "--build",

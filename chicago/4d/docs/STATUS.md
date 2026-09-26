@@ -1,5 +1,42 @@
 # STATUS
 
+## The plat is enumerated, and it holds 106 of 1,480 banded households — T-1613, 2026-09-26
+
+T-1199 asked for every reconstructed household and business seated onto the extended lot
+grid. It is split (T-1613 / T-1614 / T-1615) because it is not one run's demonstration, and
+this is the first piece: the ledger the seating deals from, and the platted ground seated on
+it.
+
+**What was missing was a list.** The 226 lots have been drawn since T-0221 and T-1194. Which
+street a lot fronts, that street's traffic class, whether the lot turns a corner, what stands
+on it and how many principal roofs the policy lets it carry were all READABLE and written down
+nowhere — six lookups in six files, so anything wanting them re-derived them or guessed.
+`data/reconstruction/1835_lot_ledger.json` is that list, and it claims nothing: every column is
+copied off a committed record.
+
+**The unflattering number is 106 of 1,480.** The address book leaves 1,480 households at a band
+— a division and a policy clause, no lot, no roof, no coordinate. The committed plat seats 106
+of them: 100 adopt a standing anonymous roof of an admitted family, 6 ask for a slot inside an
+open block's own committed plan. 1,374 are handed to T-1614 in writing, one reason each. That
+is not a shortfall this pass invented — 204 of them are outside the plat by their clause's own
+terms, and the 665-roof programme already says of itself that 250 of its 262 remaining roofs
+"have nowhere to go until street control, terrain and hydrology reach them". The binding
+constraint is coverage, and it still is.
+
+**Three commercial roofs of plan stand unclaimed** on South Water Street (C1, C2, C3), because
+every business the address book can place is already at a street face or a structure and none
+is left at a band to take them. The plat deal turned out to be a HOUSEHOLD deal; that was not
+the expectation going in.
+
+**What this does not do.** It writes no structure record, raises no roof and bakes nothing: an
+adoption is a pointer at a roof that already stands and a slot is a request T-1200 through
+T-1214 fulfil. The People and Businesses views do not read it yet and the infill recipes are
+not regenerated from it — both are T-1615. So today 106 households have an address that
+nothing in the walkthrough will show you.
+
+Gated by `tools/seat_platted_ground_1835.py --check` and its six-refusal `--self-test` in
+`check.sh`; the invention is `docs/LIBERTIES.md` L270, counted by the register's own scope gate.
+
 ## The attested placement stands and the inferred one moves — T-0251, 2026-09-26
 
 **What a visitor sees:** the plank walk on Lake Street's south side runs the full length of
