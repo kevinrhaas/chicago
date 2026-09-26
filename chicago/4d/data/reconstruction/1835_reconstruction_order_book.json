@@ -4624,13 +4624,13 @@
             "division": "south"
           },
           "target": 35,
-          "standing": 20,
-          "to_build": 15,
+          "standing": 16,
+          "to_build": 19,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 15 of them to build"
+          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 19 of them to build"
         },
         {
           "key": "structures/barns_stables/west",
@@ -4842,13 +4842,13 @@
             "division": "south"
           },
           "target": 176,
-          "standing": 118,
-          "to_build": 58,
+          "standing": 124,
+          "to_build": 52,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1203",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 58 of them to build"
+          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 52 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/west",
@@ -4889,13 +4889,13 @@
             "division": "south"
           },
           "target": 48,
-          "standing": 25,
-          "to_build": 23,
+          "standing": 23,
+          "to_build": 25,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 23 of them to build"
+          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 25 of them to build"
         },
         {
           "key": "structures/small_outbuildings/west",

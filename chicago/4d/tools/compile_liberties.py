@@ -500,6 +500,18 @@ def _redealt_roof_count() -> int:
     return len(recipe.get("redealt", {}).get("roofs", []))
 
 
+def _block_redealt_roof_count() -> int:
+    """The platted blocks' re-dealt roofs, counted off the block recipe's own record.
+
+    The same reasoning as `_redealt_roof_count` one function up, on the other recipe:
+    the adjudication ledger is re-derived over the town as it stands, so a verdict that
+    worked is gone from it, and `1835_platted_block_parcels.json`'s `redealt` block is
+    where the execution is permanent. T-1611.
+    """
+    recipe = json.loads((RECON_DIR / "1835_platted_block_parcels.json").read_text())
+    return len(recipe.get("redealt", {}).get("roofs", []))
+
+
 SCOPE_SOURCES = {
     "register_1835.businesses[survival_liberty_required]": (
         _register_survival_liberty_count,
@@ -546,6 +558,10 @@ SCOPE_SOURCES = {
         _redealt_roof_count,
         "data/reconstruction/1835_phase2_west_wolf_point_approaches.json, itself "
         "re-derived by tools/execute_roof_redeal.py --check"),
+    "1835_platted_block_parcels.json[redealt]": (
+        _block_redealt_roof_count,
+        "data/reconstruction/1835_platted_block_parcels.json, itself re-derived by "
+        "tools/execute_roof_redeal.py --check-blocks"),
     **_stage_scope_sources(),
 }
 

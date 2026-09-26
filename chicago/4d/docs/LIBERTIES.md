@@ -14060,9 +14060,9 @@ placement policy **T-1195**; the twenty-six verdicts whose record id carries its
 and whose execution is therefore an id migration across the derived layer, are **T-1452**.
 **Recorded:** 2026-09-20.
 
-### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 74 roofs that are not framed
+### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 75 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 74 phases: 60 log dwellings and
+**Scope:** `structures.phases[log_or_fort_archetype]` — 75 phases: 61 log dwellings and
 14 fort structures. Nothing about their geometry, their roof type,
 their pitch or their weathering moves. This entry is about one thing: which of the two
 coverings this project can argue each of those roofs is drawn on.
@@ -14133,6 +14133,13 @@ two, `recon_1835_west_027`, is a log dwelling. So the liberty now reaches **74**
 dwellings and the same 14 fort structures. The argument does not move with the number, and it is
 not supposed to: the scope is counted off the records' own `archetype` precisely so a release
 restates it instead of leaving the entry asserting what it reached the day it was written.
+
+**And to 75 on 2026-09-26 (T-1611).** The platted blocks' re-deal moved six yard buildings
+into dwelling families (**L270**), and one of the six —
+`recon_1835_blk_south_water_wells_d1_07`, a stable behind a South Water Street lot — joins
+the D1 band, which the family–archetype crosswalk deals as `log_dwelling`. So the liberty
+reaches **75**: 61 log dwellings and the same 14 fort structures. The other five are frame
+cottages and rough-plank dwellings and are none of this entry's business.
 
 ### L267 — Two people are invented for the two institutional roofs whose own records put a household under them, and the other seven are refused
 
@@ -14320,3 +14327,103 @@ programme), tickets **T-1504** (this entry), **T-1177** (the stage), **T-1383** 
 that put these rows in front of it), **T-1335** (the family pass the kinship is handed to),
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
+
+### L270 — Six invented yard buildings on three platted blocks become rear cottages, and every one of them grows or shrinks to the dwelling band it joins
+
+**Scope:** `1835_platted_block_parcels.json[redealt]` — 6 slots of three South Division
+blocks, re-derived into `recon_1835_blk_randolph_market_d4_07`, `_d4_12`, `_d2_05`,
+`_d2_06`, `recon_1835_blk_south_water_lasalle_d3_06` and
+`recon_1835_blk_south_water_wells_d1_07`. These are six of the anonymous roofs **L97**,
+**L100** and **L101** raised on those three blocks; nothing here adds, removes or withdraws
+a roof, and the town's standing count does not move.
+
+**Decision:** carry out, in the recipe, the last six of the thirty-two refamily verdicts
+T-1445's adjudication reached — a stable behind a Washington Street lot, a stable behind a
+Randolph frontage run, a privy, a woodshed and two more stables become two two-room frame
+cottages, two rough-plank dwellings, a one-room frame cottage and an older log dwelling, on
+the same lots, at the same 5.0 m setbacks off the same block alleys.
+`tools/execute_roof_redeal.py --redeal-blocks` writes them and `--check-blocks` gates them;
+the argument that freed them is published at
+`docs/RESEARCH/1835_block_redeal_remedies.md`.
+
+**Nothing is adjudicated here.** Every family written is the `to_family` T-1445 reached,
+and every reason recorded beside it is T-1445's own, quoted. The adjudication is the
+liberty; this is its execution.
+
+**The class is asked, never typed — and that is the whole of what waited on the owner.**
+Each of the six is a dwelling family standing in the yard of a lot whose main house is
+already dealt. Read off the family GROUP alone, a dwelling is a principal roof, and the
+parcel gate refuses a second principal roof on an occupied lot: all six were refused, and
+no re-deal inside the verdict avoided it, because all 36 families the adjudication offered
+across them are ordinary dwellings. T-1482 measured that and asked, because the way out
+changes what the town is. The owner ruled on **2026-09-23** that a rear cottage is
+ancillary, so a lot may carry a main house plus a rear dwelling — the thirteenth placement
+clause, `rear_dwelling_behind_its_own_roof`, written into **L256** under T-1610. This entry is the consequence:
+`reconcile_665.inventory_class` is asked for each re-dealt slot's class rather than told
+it, and `generate_block_infill.check_slot_inventory_classes` refuses any recipe slot whose
+declared class is not the derived one. **0 of the 6 move class**, which is why the blocks'
+principal-roof counts, `lot_ceiling_principal` and `block_rooms` do not move either.
+
+**Six footprints move, and that is this entry's own invention rather than T-1445's.** The
+block recipe authors no dimensions: the generator samples a rectangle inside the family's
+own band on a stable key, so joining a new family RE-DERIVES the footprint. Three roofs
+shrink and three grow, and two of them grow a great deal — a 1.69 × 1.87 m privy becomes a
+4.58 × 5.33 m rough-plank dwelling (3.2 to 24.4 m²) and a 2.20 × 3.92 m woodshed becomes a
+4.50 × 5.69 m one (8.6 to 25.6 m²). That is not a size chosen to look right and it is not a
+measurement of anything: it is what the D2 band's own floor is, and a shanty somebody sleeps
+in cannot be the size of a privy. The other four move between 34.6 and 53.9 m², each inside
+its new band.
+
+**The slot does not move and the origin does.** The verdict's own words are *"the slot is
+wanted and the position stands"*, and the slot's lot, its 5.0 m setback off the alley and
+its lateral offset are all untouched. But a record's position is the footprint's ORIGIN
+corner, derived from the lot frame and the setback, so a bigger rectangle at the same
+setback has its origin further along the lot: the six origins move between **0.38 m and
+3.75 m**, the largest being the privy that became a dwelling. Nobody re-placed a building;
+saying the position is unchanged while six coordinates change would be the kind of claim
+this file exists to refuse. Every one of the six was re-tested where it landed — against
+the platted street corridors, its own lot lines, the block's no-build ground and every other
+footprint in the dataset — and none was refused.
+
+**Nine other roofs change their clapboard course, and that is not a side effect to be
+hidden.** The siding stock (**L148**) is dealt across a parcel and then advanced so that no
+two roofs standing within 60 m of each other hang the same course. Six new dwellings in the
+deal move the advance, so five of their block neighbours —
+`recon_1835_blk_randolph_market_d5_11` and `_d6_02`,
+`recon_1835_blk_south_water_lasalle_d3_10`, `_d4_02` and `_d5_01` — wear a different one of
+the same four period mill sidings than they did, and four documented frame buildings
+(`chicago_democrat_office`, `harmon_loomis_store`, `lasalle_lake_house`,
+`pruyne_kimball_drugstore`) move with them. Nothing about those nine is re-graded and none
+of them moves: the stock was invention before and is invention after, at the same bottom
+tier, and the separation it buys is the point of it. All nine were rebaked in this change,
+because a record whose siding moved and whose mesh did not is a building the renderer draws
+wrongly.
+
+**One archetype does not follow the family, and it is left alone.** The two D2 roofs render
+as `outbuilding`, the same archetype they had as a privy and a woodshed, because that is
+what the family–archetype crosswalk deals D2. A rough-plank shanty and a woodshed are the
+same shape of thing to this renderer, and substituting a dwelling archetype here to make
+the change more visible would be inventing a form the crosswalk does not claim.
+
+**The grade does not move.** All six were `reconstructed` count-units before and are
+`reconstructed` after — that any building stood on this ground, which building it was and
+every dimension of it. Refamilying changes what an invented building is, never how well
+attested it is, and no roof here identifies an owner, an address, a use or an observed
+building.
+
+**Which way it is wrong if it is wrong.** Toward three blocks with too many dwellings and
+too few yards. The three blocks lose a stable, a privy, a woodshed and two more stables
+from their back lots and gain four cottages and a log dwelling in their place, on the
+adjudication's finding that a yard building standing nearest a principal street is refused
+where it stands. The yard buildings the blocks still want stay counted in the order book for
+the seating tickets to put back. The alternative — recorded and costed in
+`docs/RESEARCH/1835_block_redeal_remedies.md` as remedies (b) and (c) — was to move the six
+onto ground that does not exist, or to withdraw the verdicts and re-read the clause, and the
+owner chose neither.
+
+**Related:** **L97**, **L100** and **L101** (the three blocks these six stand on), **L256**
+(the rear-cottage clause this executes against), **L265** (the same execution for the West
+Division parcel), **L266** (the log-roof grading one of the six now falls under), the
+adjudication **T-1445**, the id-migration surface **T-1483**, the parent **T-1452**, the
+question and its remedies **T-1482**, the clause **T-1610**, this execution **T-1611**.
+**Recorded:** 2026-09-26.

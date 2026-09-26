@@ -1010,6 +1010,7 @@ def plan_block(recipe: dict, outstanding: list[dict]) -> list[dict]:
             lot_carries_a_principal_roof=lot is not None and lot in held[id(block)])
         plan.append({
             "id": v["id"], "new_id": new_id, "sequence": seq,
+            "slot": slot,
             "block_id": block["block_id"],
             "programme_phase": block["programme_phase"],
             "lot": lot, "stands_on": slot.get("stands_on"),
@@ -1022,9 +1023,14 @@ def plan_block(recipe: dict, outstanding: list[dict]) -> list[dict]:
             "why": v["reason"],
         })
     # A re-deal that landed two roofs on one id, or on an id another slot already
-    # derives, would delete a building by renaming it onto its neighbour.
+    # derives, would delete a building by renaming it onto its neighbour. THE
+    # SEQUENCE DOES NOT RULE THIS OUT, which is why the question is asked of the slot
+    # and not of its number: a block dealt twice numbers its second deal on from a
+    # `seq_start`, so one entry's slot 2 and another's can hold the same sequence and
+    # be two different buildings.
     for e in plan:
-        if e["new_id"] in index and index[e["new_id"]][2] != e["sequence"]:
+        found = index.get(e["new_id"])
+        if found is not None and found[1] is not e["slot"]:
             raise SystemExit(f"{e['id']} would become {e['new_id']}, which another "
                              f"slot of the same block already derives")
     seen = [e["new_id"] for e in plan]
@@ -1382,6 +1388,97 @@ def self_test() -> int:
          "a platted-block id carries its family and therefore moves")
     want(not id_moves("recon_1835_west_008", "W1"),
          "a west id does not carry its family and therefore does not move")
+
+    # T-1611, the block plan, fired on a fixture recipe rather than on the town. The
+    # three assertions are the three things a block is that a parcel is not.
+    fixture = {"blocks": [
+        {"block_id": "blk_fixture", "programme_phase": "fixture",
+         "families": {"D5": 1, "A1": 1}, "drawn_from_schedule": {
+             "capacity_roofs": 4, "standing_roofs": 0, "headroom": 4,
+             "principal": 1, "ancillary": 1, "dealt_principal": 1,
+             "dealt_ancillary": 1},
+         "slots": [{"family": "D5", "inventory_class": "principal_functional",
+                    "lot": 0, "stands_on": "street", "fronts": "randolph"},
+                   {"family": "A1", "inventory_class": "ancillary", "lot": 0,
+                    "stands_on": "alley", "fronts": "randolph"}]},
+        {"block_id": "blk_fixture", "programme_phase": "fixture_second_deal",
+         "seq_start": 3, "families": {"A1": 1},
+         "drawn_from_schedule": {"capacity_roofs": 4, "standing_roofs": 2,
+                                 "headroom": 2, "principal": 0, "ancillary": 1,
+                                 "dealt_principal": 0, "dealt_ancillary": 1},
+         "frontage": {"lots": [1]},
+         "slots": [{"family": "A1", "inventory_class": "ancillary", "lot": 1,
+                    "stands_on": "alley", "fronts": "washington"}]}]}
+    index = block_slot_index(fixture)
+    want("recon_1835_blk_fixture_a1_02" in index,
+         "a slot's id is its block, its family and its position in the deal")
+    want("recon_1835_blk_fixture_a1_03" in index,
+         "and a SECOND deal on the same block numbers on from `seq_start`, which is "
+         "why a slot is found by programme phase and sequence and never by block id")
+
+    verdicts = [
+        {"id": "recon_1835_blk_fixture_a1_02", "family": "A1",
+         "group": "barns_stables", "to_family": "D4",
+         "to_group": "ordinary_dwellings", "reason": "a fixture's reason"},
+        {"id": "recon_1835_blk_fixture_a1_03", "family": "A1",
+         "group": "barns_stables", "to_family": "D4",
+         "to_group": "ordinary_dwellings", "reason": "a fixture's reason"},
+    ]
+    plan = plan_block(fixture, verdicts)
+    want([e["new_id"] for e in plan] == ["recon_1835_blk_fixture_d4_02",
+                                         "recon_1835_blk_fixture_d4_03"],
+         "the re-dealt id keeps its sequence and takes the new family")
+    want(all(e["to_inventory_class"] == "ancillary" for e in plan),
+         "a dwelling off the alley behind a dealt principal roof is ANCILLARY — the "
+         "owner's rear-cottage ruling, asked of the derivation and not chosen here; "
+         "the second is behind a FRONTAGE RUN's lot, which holds its lot the same way")
+    want(all(not e["from_inventory_class"] != e["to_inventory_class"] for e in plan),
+         "so the class does not move, and the block's principal count does not either")
+
+    # A re-deal that renamed a roof onto a slot that already derives that id would
+    # delete a building, and it is the one collision the sequence does not prevent.
+    collide = {"blocks": [
+        fixture["blocks"][0],
+        {"block_id": "blk_fixture", "programme_phase": "fixture_third_deal",
+         "seq_start": 2, "families": {"D4": 1},
+         "drawn_from_schedule": {"capacity_roofs": 4, "standing_roofs": 2,
+                                 "headroom": 1, "principal": 1, "ancillary": 0},
+         "slots": [{"family": "D4", "inventory_class": "principal_functional",
+                    "lot": 5, "stands_on": "street", "fronts": "washington"}]}]}
+    try:
+        plan_block(collide, [{"id": "recon_1835_blk_fixture_a1_02", "family": "A1",
+                              "group": "barns_stables", "to_family": "D4",
+                              "to_group": "ordinary_dwellings", "reason": "x"}])
+        want(False, "a re-deal onto an id another slot derives is refused")
+    except SystemExit as exc:
+        want("already derives" in str(exc),
+             "a re-deal onto an id another slot derives is refused, and says so")
+
+    # The slot has to be the one the adjudication described. A recipe edited under the
+    # verdict's feet would otherwise be re-dealt from a family nobody adjudicated.
+    try:
+        plan_block(fixture, [{"id": "recon_1835_blk_fixture_a1_02", "family": "A3",
+                              "group": "small_outbuildings", "to_family": "D4",
+                              "to_group": "ordinary_dwellings", "reason": "x"}])
+        want(False, "a verdict whose family the slot does not carry is refused")
+    except SystemExit as exc:
+        want("no slot" in str(exc) or "stands as" in str(exc),
+             "a verdict whose family the slot does not carry is refused, and says so")
+
+    # The schedule is RECOUNTED from the re-dealt slots, and a family the re-deal
+    # empties drops out rather than standing at zero.
+    import copy  # noqa: PLC0415
+    spare = copy.deepcopy(fixture)
+    redealt = migrate_block_recipe(spare, plan_block(spare, verdicts))
+    first = redealt["blocks"][0]
+    want(first["families"] == {"D5": 1, "D4": 1},
+         "the emptied A1 drops out of the claimed mix rather than standing at zero")
+    want((first["drawn_from_schedule"]["principal"],
+          first["drawn_from_schedule"]["ancillary"]) == (1, 1),
+         "and the principal/ancillary mix is counted, not held to an old total")
+    want(first["drawn_from_schedule"]["headroom"] == 4,
+         "while the SCHEDULE's own numbers — capacity, headroom, free lots — are the "
+         "programme's and are not touched by a re-deal")
 
     want(buildable_in_band(20, 32, [18, 28, 24, 34]) == [20, 30],
          "a 20x32 shop made a D5 cottage loses two feet of depth, the smaller move")
