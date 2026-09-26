@@ -5,8 +5,8 @@ DERIVED — regenerate with `tools/measure_roof_id_migration.py --build`. T-1483
 T-1445 returned 32 refamily verdicts; T-1451 carried out the 6 whose record id does not encode its family. These are the other 26. Each becomes a new id the moment its family moves, and the id is named across the tree. NOTHING IS MOVED HERE: this is the measurement the three carry-out tickets (T-1481 south, T-1482 the platted blocks, T-1484 north) each stand on.
 
 - roofs whose id moves: **6**
-- files that name one: **22**
-- of those, **0** hold a reference a rename would falsify, **4** rename, **16** are re-derived by their own tool, **2** are frozen records of a past run
+- files that name one: **23**
+- of those, **0** hold a reference a rename would falsify, **4** rename, **17** are re-derived by their own tool, **2** are frozen records of a past run
 
 ## The rows that cost judgement
 
@@ -21,12 +21,12 @@ A reference is not always a pointer. These assert what the roof IS, and the verd
 
 | roof | becomes | renamed | re-derived | frozen | adjudicated |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `recon_1835_blk_randolph_market_a1_07` | `recon_1835_blk_randolph_market_d4_07` | 3 | 9 | 2 | 0 |
-| `recon_1835_blk_randolph_market_a1_12` | `recon_1835_blk_randolph_market_d4_12` | 0 | 9 | 2 | 0 |
-| `recon_1835_blk_randolph_market_a3_05` | `recon_1835_blk_randolph_market_d2_05` | 0 | 9 | 2 | 0 |
-| `recon_1835_blk_randolph_market_a4_06` | `recon_1835_blk_randolph_market_d2_06` | 0 | 9 | 2 | 0 |
-| `recon_1835_blk_south_water_lasalle_a1_06` | `recon_1835_blk_south_water_lasalle_d3_06` | 1 | 10 | 2 | 0 |
-| `recon_1835_blk_south_water_wells_a1_07` | `recon_1835_blk_south_water_wells_d1_07` | 0 | 9 | 2 | 0 |
+| `recon_1835_blk_randolph_market_a1_07` | `recon_1835_blk_randolph_market_d4_07` | 3 | 10 | 2 | 0 |
+| `recon_1835_blk_randolph_market_a1_12` | `recon_1835_blk_randolph_market_d4_12` | 0 | 10 | 2 | 0 |
+| `recon_1835_blk_randolph_market_a3_05` | `recon_1835_blk_randolph_market_d2_05` | 0 | 10 | 2 | 0 |
+| `recon_1835_blk_randolph_market_a4_06` | `recon_1835_blk_randolph_market_d2_06` | 0 | 10 | 2 | 0 |
+| `recon_1835_blk_south_water_lasalle_a1_06` | `recon_1835_blk_south_water_lasalle_d3_06` | 1 | 11 | 2 | 0 |
+| `recon_1835_blk_south_water_wells_a1_07` | `recon_1835_blk_south_water_wells_d1_07` | 0 | 10 | 2 | 0 |
 
 ## Renamed — 4 file(s)
 
@@ -39,7 +39,7 @@ A plain pointer at the record. The migration rewrites the string and nothing els
 | `tools/measure_roof_id_migration.py` | 1 | a plain pointer at the record |
 | `tools/smoke_renderer.mjs` | 1 | a plain pointer at the record |
 
-## Re-derived — 16 file(s)
+## Re-derived — 17 file(s)
 
 Written by a tool, which `check.sh` re-runs. The migration must NOT hand-edit these; it re-runs the tool and commits what comes out.
 
@@ -49,6 +49,7 @@ Written by a tool, which `check.sh` re-runs. The migration must NOT hand-edit th
 | `data/enclosures/town_lot_line_pickets.json` | 2 | generated_by tools/generate_lot_line_fences.py |
 | `data/enclosures/town_lot_line_rails.json` | 4 | generated_by tools/generate_lot_line_fences.py |
 | `data/reconstruction/1835_block_redeal_remedies.json` | 6 | Derived |
+| `data/reconstruction/1835_lot_ledger.json` | 6 | DERIVED — regenerate with tools/seat_platted_ground_1835 |
 | `data/reconstruction/1835_roof_redeal.json` | 6 | DERIVED — regenerate with tools/redeal_anonymous_roofs |
 | `data/research/land_sales/ground.json` | 6 | generated_by tools/resolve_land_tracts.py --build |
 | `data/sidecars/1835/index.json` | 6 | compiled from the structure records by tools/compile_scene.py --all |
