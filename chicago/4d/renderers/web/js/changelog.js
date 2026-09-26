@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'How many of the town\u2019s people have an address yet', kind: 'change', ts: '', date: '',
+  { v: 1141, title: 'How many of the town\u2019s people have an address yet', kind: 'change', ts: '2026-09-26T13:12:37.304Z', date: 'Sep 26, 2026, 8:12 AM CT',
     items: [
       'Open \u201cReconstructing the town\u201d in the Evidence tab and there is a new section at the top of it. The card has always said what the town still owes \u2014 how many people, households, shops and roofs the models say were here and the sources cannot name. It has never said how far the work of housing them has actually got.',
       'It does now, in one line: 178 of the 1,480 households waiting for an address have one, and 1,302 do not. The last two releases did that work and there was nowhere on the site to see it.',
