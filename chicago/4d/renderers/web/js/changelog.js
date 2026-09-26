@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1139, title: 'The reconstructed households can be walked to at last', kind: 'change', ts: '2026-09-26T11:42:06.381Z', date: 'Sep 26, 2026, 6:42 AM CT',
+    items: [
+      'Open one of the town\u2019s reconstructed households in People \u2014 the ones known only from a name on a letter list \u2014 and there is now a button that takes you to the house they were put in. 172 cards gained one. Until today those cards told you where the town had placed the household and gave you no way to go and stand there, which is exactly backwards: the people with the thinnest record are the ones a visitor most needs shown.',
+      'The last two releases did the placing. They dealt every household with no address onto the ground \u2014 first the plat\u2019s lots, then the farms, tracts and tiers outside it \u2014 and almost all of those deals put a household into a cottage or cabin that was already standing in the scene. That was written into a file and read by nothing you could open.',
+      'The button is careful about what it claims, because nothing here is an address. Its wording names the rule that placed them, not a street; the line under it says the house is substitutable, meaning any other empty house of the same kind would have done as well; and the card still says, first and in its own words, that no source records where this household lived. Arriving somewhere must never read as evidence.',
+      'Six households were dealt a place on a lot where the house has not been built yet. They get no button \u2014 there is nowhere to stand \u2014 and their card says so and names the work that will raise it.',
+      'Nothing in the town itself changed: no building moved, none was added, and no household record was rewritten. The deal was already made; this is the deal arriving on the cards.',
+    ] },
   { v: 1138, title: 'The town has ground outside the plat, and nobody had counted it', kind: 'change', ts: '2026-09-26T11:02:57.914Z', date: 'Sep 26, 2026, 6:02 AM CT',
     items: [
       'Nothing you can see in the town changed. This finishes the half of last release\u2019s job that stopped at the edge of the surveyed streets.',
