@@ -53,6 +53,15 @@ import math
 import sys
 from pathlib import Path
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "drawn"
+CORRIDOR_LINE_WHY = (
+    "buildable ground is counted against the block faces `block_edges` derives, which is the drawn "
+    "line offset"
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 sys.path.insert(0, str(ROOT / "tools"))

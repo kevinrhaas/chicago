@@ -77,6 +77,15 @@ from family_bands import (eave_floor, eave_for_ridge, eave_limits,  # noqa: E402
                           families, pitch_deg, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "both"
+CORRIDOR_LINE_WHY = (
+    "it places roofs on the DRAWN line, and reports each one's depth into the control corridor as "
+    "well so an inferred placement is never defended by the choice of line"
+)
+
 
 def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))

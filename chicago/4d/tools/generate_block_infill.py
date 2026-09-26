@@ -117,6 +117,15 @@ from family_bands import (dimensions_m, eave_floor, eave_for_ridge,  # noqa: E40
 from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import note_refusal, roof_kind  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "drawn"
+CORRIDOR_LINE_WHY = (
+    "a roof on a platted lot is seated on the block grid, so the roadway it must keep out of is the "
+    "one a visitor walks"
+)
+
 OCCUPANCY = occupancy()
 
 # The same separation the household parcel enforces. A generated building that lands

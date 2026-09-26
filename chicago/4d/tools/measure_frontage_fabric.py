@@ -139,6 +139,15 @@ from measure_street_frontage import layer_of, layer_of_record  # noqa: E402
 from placement_policy_1835 import constant  # noqa: E402
 from plat_corridors import corridors, sampled  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "drawn"
+CORRIDOR_LINE_WHY = (
+    "frontage is a property of the block face a building stands on, and the face is offset from the "
+    "drawn line"
+)
+
 # The empty gap in the setback distribution, at its midpoint. See the docstring; run
 # --setbacks to re-derive it. A building at or inside this stands ON the street line;
 # anything further back stands in the block behind it.

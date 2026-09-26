@@ -61,6 +61,15 @@ from plat_corridors import control_offsets, corridors, sampled  # noqa: E402
 from plat_occupancy import footprints, layers  # noqa: E402
 from exact_sums import consistent_reading  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "both"
+CORRIDOR_LINE_WHY = (
+    "its subject IS the disagreement between the two lines, so it takes both by construction and "
+    "measures the ground each leaves the other"
+)
+
 BASELINE = ROOT / "tools" / "corridor_strip_baseline.json"
 EPOCH = DATA / "terrain" / "epochs" / "e1834_harbor_cut"
 LOTS = DATA / "traces" / "vectors" / "thompson_lots.json"

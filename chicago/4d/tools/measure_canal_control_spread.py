@@ -59,6 +59,15 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import plat_corridors  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "control"
+CORRIDOR_LINE_WHY = (
+    "its whole subject is what a correction to Canal Street's CONTROL would do to the platted "
+    "corridor derived from it"
+)
+
 ROOT = Path(__file__).resolve().parent.parent
 CONTROL = ROOT / "data" / "traces" / "street_control.json"
 STREETS = ROOT / "data" / "streets" / "1835.json"
