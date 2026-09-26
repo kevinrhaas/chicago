@@ -58,9 +58,19 @@ const jsonOut = argAt('--json');
 const ONLY = argAt('--only') || 'desktop';
 const TIERS = (argAt('--tiers') || 'full,balanced,light').split(',').map((s) => s.trim());
 
-/** T-0135's stands, by the ids `tools/smoke_renderer.mjs` gives them. */
+/** T-0135's stands, by the ids `tools/smoke_renderer.mjs` gives them.
+ *
+ * T-1580 — the axial stand targets the `lake_at_canal` ANCHOR, not `green_tree`.
+ * It named the Green Tree's viewpoint, which was at Lake and Canal looking east
+ * until T-0141 moved the inn 116 m and moved its viewpoint with it; from
+ * 2026-09-24 every figure this tool recorded at "Lake Street at Canal" was taken
+ * from across Lake Street at the inn's new front, and the merge read 0 of 21
+ * clusters there. The ground now has its own authored anchor at the coordinates
+ * the 201 -> 147 reading was taken at. The same repoint is in six sibling
+ * measure_*.mjs tools, which carried the identical stand.
+ */
 const STANDS = [
-  { id: 'lake_at_canal', kind: 'anchor', target: 'green_tree',
+  { id: 'lake_at_canal', kind: 'anchor', target: 'lake_at_canal',
     label: 'Lake Street at Canal, east down the axis' },
   { id: 'the_forks', kind: 'anchor', target: 'forks', label: 'the forks, from Wolf Point' },
   { id: 'from_above', kind: 'anchor', target: 'from_above', label: 'the open aerial' },
