@@ -39,18 +39,18 @@
   },
   "by_state": {
    "at_capacity": 78,
-   "free": 96,
-   "room": 52
+   "free": 95,
+   "room": 53
   },
   "by_multi_building_rule": {
    "one_principal_roof": 158,
    "party_line_run": 68
   },
   "corner_lots": 94,
-  "lots_with_a_roof": 134,
-  "lots_barring_another_roof": 132,
+  "lots_with_a_roof": 135,
+  "lots_barring_another_roof": 133,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 185,
+  "principal_roofs_standing": 187,
   "lots_over_their_own_rule": 12
  },
  "the_density_standard": {
@@ -75,8 +75,8 @@
   },
   "multi_building_lot_rate_on_the_principal_streets": {
    "principal_street_lots": 68,
-   "carrying_more_than_one_principal_roof": 30,
-   "rate": 0.4412,
+   "carrying_more_than_one_principal_roof": 31,
+   "rate": 0.4559,
    "standard": "three party-line units per lot where the rule fires — the schedule's capacity is a ceiling and not a target (1835_platted_block_parcels.json, `placement_rule.open_lots`)"
   }
  },
@@ -5082,7 +5082,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 4,
    "plat_lot_confidence": "conjectural",
    "face": "north",
@@ -5117,7 +5117,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 5,
    "plat_lot_confidence": "conjectural",
    "face": "south",
@@ -5146,7 +5146,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 3,
    "plat_lot_confidence": "conjectural",
    "face": "north",
@@ -5185,7 +5185,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 6,
    "plat_lot_confidence": "conjectural",
    "face": "south",
@@ -5220,7 +5220,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 2,
    "plat_lot_confidence": "conjectural",
    "face": "north",
@@ -5233,14 +5233,20 @@
    "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_south_water_franklin_d3_13",
+    "recon_1835_blk_south_water_franklin_d4_12"
+   ],
+   "standing_families": {
+    "recon_1835_blk_south_water_franklin_d3_13": "D3",
+    "recon_1835_blk_south_water_franklin_d4_12": "D4"
+   },
+   "principal_roofs_standing": 2,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "room"
   },
   {
    "lot_id": "blk_south_water_franklin#05",
@@ -5249,7 +5255,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 7,
    "plat_lot_confidence": "conjectural",
    "face": "south",
@@ -5282,7 +5288,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 1,
    "plat_lot_confidence": "conjectural",
    "face": "north",
@@ -5321,7 +5327,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 8,
    "plat_lot_confidence": "conjectural",
    "face": "south",

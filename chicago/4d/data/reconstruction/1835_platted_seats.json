@@ -31,19 +31,19 @@
  ],
  "counts": {
   "rows_in_scope": 1480,
-  "seated": 106,
-  "owed": 1374,
+  "seated": 104,
+  "owed": 1376,
   "by_how": {
    "adopted": 100,
-   "slot": 6
+   "slot": 4
   },
   "by_clause": {
    "labourer_dwellings": 31,
-   "merchant_and_professional_dwellings": 11,
+   "merchant_and_professional_dwellings": 9,
    "tradesman_dwellings": 64
   },
   "by_district": {
-   "south": 90,
+   "south": 88,
    "west": 16
   },
   "by_family": {
@@ -53,29 +53,29 @@
    "D4": 18,
    "D5": 16,
    "D6": 10,
-   "D7": 3,
-   "H1": 5,
+   "D7": 2,
+   "H1": 4,
    "H2": 3
   },
-  "lots_taken": 92,
+  "lots_taken": 91,
   "roofs_adopted": 100,
-  "slots_requested": 6,
+  "slots_requested": 4,
   "owed_by_band_clause": {
    "division_ground": 52,
    "farms_and_country_seats": 204,
    "heavy_and_noxious_trades": 2,
    "labourer_dwellings": 126,
    "lodging_near_the_landings": 2,
-   "merchant_and_professional_dwellings": 395,
+   "merchant_and_professional_dwellings": 397,
    "tradesman_dwellings": 593
   },
   "roofs_offered_for_adoption": 103,
-  "roofs_held_back": 54
+  "roofs_held_back": 56
  },
  "what_the_plat_could_not_hold": {
-  "rows": 1374,
+  "rows": 1376,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 106 of the 1480 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 104 of the 1480 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "roofs_held_back": [
   {
@@ -345,102 +345,116 @@
    "occupants": "Clark, Filer & Co. — cabinet shop; chairs"
   },
   {
+   "structure_id": "recon_1835_blk_south_water_franklin_d3_13",
+   "lot_id": "blk_south_water_franklin#04",
+   "family": "D3",
+   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
+   "occupants": "Briggs & Humphrey — carriage and sleigh making"
+  },
+  {
    "structure_id": "recon_1835_blk_south_water_franklin_d4_02",
    "lot_id": "blk_south_water_franklin#06",
    "family": "D4",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Briggs & Humphrey — carriage and sleigh making"
+   "occupants": "J. H. Mulford — watches, jewelry, engravings and fancy goods"
   },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_d4_08",
    "lot_id": "blk_south_water_franklin#02",
    "family": "D4",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "J. H. Mulford — watches, jewelry, engravings and fancy goods"
+   "occupants": "Jones, King & Co. — hardware, cutlery, nails, iron, steel, stoves, stove furniture, iron ware and saw mill gearing, wholesale and retail"
+  },
+  {
+   "structure_id": "recon_1835_blk_south_water_franklin_d4_12",
+   "lot_id": "blk_south_water_franklin#04",
+   "family": "D4",
+   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
+   "occupants": "a new auction and commission room, South Water Street — auction and commission"
   },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_d5_01",
    "lot_id": "blk_south_water_franklin#06",
    "family": "D5",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Jones, King & Co. — hardware, cutlery, nails, iron, steel, stoves, stove furniture, iron ware and saw mill gearing, wholesale and retail"
+   "occupants": "H. Doty & Co. — dry goods and groceries"
   },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_d5_09",
    "lot_id": "blk_south_water_franklin#02",
    "family": "D5",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "a new auction and commission room, South Water Street — auction and commission"
+   "occupants": "Rockwell, cabinet furniture warehouse — cabinet furniture"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
    "lot_id": "blk_south_water_lasalle#02",
    "family": "C3",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "H. Doty & Co. — dry goods and groceries"
+   "occupants": "Samuel Lewis — vocal and instrumental music school, and the repair and tuning of piano fortes"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d1_08",
    "lot_id": "blk_south_water_lasalle#00",
    "family": "D1",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Rockwell, cabinet furniture warehouse — cabinet furniture"
+   "occupants": "Hiram Pearsons — storage and commission merchant"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d2_09",
    "lot_id": "blk_south_water_lasalle#00",
    "family": "D2",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Samuel Lewis — vocal and instrumental music school, and the repair and tuning of piano fortes"
+   "occupants": "Chicago Democrat printing office — newspaper and job printing"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d3_10",
    "lot_id": "blk_south_water_lasalle#00",
    "family": "D3",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Hiram Pearsons — storage and commission merchant"
+   "occupants": "A. Filer & Co. — cabinet and chair manufactory"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d4_02",
    "lot_id": "blk_south_water_lasalle#04",
    "family": "D4",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Chicago Democrat printing office — newspaper and job printing"
+   "occupants": "A. Garrett — auction and commission"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d5_01",
    "lot_id": "blk_south_water_lasalle#04",
    "family": "D5",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "A. Filer & Co. — cabinet and chair manufactory"
+   "occupants": "the New Store at the corner of Water and Clark streets — dry goods, crockery, hardware and cutlery"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d6_11",
    "lot_id": "blk_south_water_lasalle#02",
    "family": "D6",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "A. Garrett — auction and commission"
+   "occupants": "E. L. Thrall — tailoring and ready made clothing"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d7_12",
    "lot_id": "blk_south_water_lasalle#02",
    "family": "D7",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "the New Store at the corner of Water and Clark streets — dry goods, crockery, hardware and cutlery"
+   "occupants": "[uncertain: DATID GAD], auction and commission merchant, South Water Street — auction and commission merchant"
   },
   {
    "structure_id": "recon_1835_blk_south_water_wells_d5_02",
    "lot_id": "blk_south_water_wells#04",
    "family": "D5",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "E. L. Thrall — tailoring and ready made clothing"
+   "occupants": "[uncertain: J. I. Mulford], carriage and sleigh maker — carriage and sleigh making, and repairing"
   },
   {
    "structure_id": "recon_1835_blk_south_water_wells_d6_01",
    "lot_id": "blk_south_water_wells#04",
    "family": "D6",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "[uncertain: DATID GAD], auction and commission merchant, South Water Street — auction and commission merchant"
+   "occupants": "J. Curtiss, Attorney and Counsellor at Law — law"
   },
   {
    "structure_id": "recon_1835_south_c3_040",
@@ -460,21 +474,14 @@
  "plan_left_unclaimed": [
   {
    "block_id": "blk_south_water_dearborn",
-   "family": "C3",
-   "roofs": 1,
-   "district": "south",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_south_water_franklin",
-   "family": "C2",
+   "family": "C1",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
   {
    "block_id": "blk_south_water_wells",
-   "family": "C1",
+   "family": "C2",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
@@ -696,62 +703,6 @@
    "order_book_draw": null,
    "seed": "hh_asa_nc_doel|T-1522|division:675ec655203f|class:7ff69463c7ed",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_ashbaugh_fre",
-   "kind": "household",
-   "name": "The Ashbaugh household — a name from the post office's letter lists",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "south",
-   "band": "south/merchant_and_professional_dwellings",
-   "lot_id": "blk_south_water_dearborn#07",
-   "block_id": "blk_south_water_dearborn",
-   "lot_index": 7,
-   "fronts": "lake",
-   "street_class": "principal",
-   "corner": true,
-   "how": "slot",
-   "structure_id": null,
-   "family": "D7",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "multi_building_rule": "party_line_run",
-   "policy_rule": "merchant_and_professional_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_south_water_dearborn",
-    "family": "D7",
-    "district": "south"
-   },
-   "seed": "hh_ashbaugh_fre|T-1522|division:5c92c159be88|class:6587c80c938c",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-  },
-  {
-   "id": "hh_aspam_antoine",
-   "kind": "household",
-   "name": "The Aspam household — a name the town's own records carry",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "south",
-   "band": "south/merchant_and_professional_dwellings",
-   "lot_id": "blk_south_water_dearborn#07",
-   "block_id": "blk_south_water_dearborn",
-   "lot_index": 7,
-   "fronts": "lake",
-   "street_class": "principal",
-   "corner": true,
-   "how": "slot",
-   "structure_id": null,
-   "family": "H1",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "multi_building_rule": "party_line_run",
-   "policy_rule": "merchant_and_professional_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_south_water_dearborn",
-    "family": "H1",
-    "district": "south"
-   },
-   "seed": "hh_aspam_antoine|T-1522|division:53513e91fdfd|class:4bfe45dc6ef9",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_abbott_constant",
@@ -2200,26 +2151,26 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_south_water_franklin#04",
-   "block_id": "blk_south_water_franklin",
-   "lot_index": 4,
-   "fronts": "south_water",
+   "lot_id": "blk_south_water_dearborn#07",
+   "block_id": "blk_south_water_dearborn",
+   "lot_index": 7,
+   "fronts": "lake",
    "street_class": "principal",
-   "corner": false,
+   "corner": true,
    "how": "slot",
    "structure_id": null,
-   "family": "D3",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
-    "block_id": "blk_south_water_franklin",
-    "family": "D3",
+    "block_id": "blk_south_water_dearborn",
+    "family": "D5",
     "district": "south"
    },
    "seed": "hh_brown_lemuel|south|blacksmith|T-1512",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_bryant_j_r_m",
@@ -2228,26 +2179,26 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_south_water_franklin#04",
-   "block_id": "blk_south_water_franklin",
-   "lot_index": 4,
-   "fronts": "south_water",
+   "lot_id": "blk_south_water_dearborn#07",
+   "block_id": "blk_south_water_dearborn",
+   "lot_index": 7,
+   "fronts": "lake",
    "street_class": "principal",
-   "corner": false,
+   "corner": true,
    "how": "slot",
    "structure_id": null,
-   "family": "D4",
+   "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
-    "block_id": "blk_south_water_franklin",
-    "family": "D4",
+    "block_id": "blk_south_water_dearborn",
+    "family": "D6",
     "district": "south"
    },
    "seed": "hh_bryant_j_r_m|T-1522|division:7abb6840ceb8|class:fa637aa1ee5c",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_burbee_jonathan",
@@ -2264,18 +2215,18 @@
    "corner": true,
    "how": "slot",
    "structure_id": null,
-   "family": "D5",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_south_water_wells",
-    "family": "D5",
+    "family": "D3",
     "district": "south"
    },
    "seed": "hh_burbee_jonathan|T-1522|division:9671ee147ea5|class:d579097adeba",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_burk_james",
@@ -2292,18 +2243,18 @@
    "corner": true,
    "how": "slot",
    "structure_id": null,
-   "family": "D6",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_south_water_wells",
-    "family": "D6",
+    "family": "D4",
     "district": "south"
    },
    "seed": "hh_burk_james|T-1522|division:7f36b0c6314f|class:f0cdbcf32636",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_alden_ebenozer",
@@ -3102,6 +3053,24 @@
    "band": "west/merchant_and_professional_dwellings",
    "clause": "merchant_and_professional_dwellings",
    "district": "west",
+   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_ashbaugh_fre",
+   "kind": "household",
+   "band": "south/merchant_and_professional_dwellings",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "south",
+   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_aspam_antoine",
+   "kind": "household",
+   "band": "south/merchant_and_professional_dwellings",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "south",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },

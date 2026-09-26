@@ -526,10 +526,6 @@
         {
           "lot": 1,
           "why": "The Lake-and-Franklin corner, left open. Franklin is the lumber-and-wharf end of this block and Lake is its back street, so the corner where the two meet is the least attractive residential lot the block has — the same tier reasoning the Randolph and Market parcel applied to its own back-street corner. Which lot within the tier is arbitrary; that a block on the business front is not a completed terrace one street back is the programme's own assumption of alternating vacancy, and the schedule's capacity is a ceiling rather than a target."
-        },
-        {
-          "lot": 4,
-          "why": "Left open by T-1053, and it is a correction rather than a choice. This entry declared lots 4 and 6 as its frontage and the run it built stands on lot 6 alone; lot 4 was held on the list only because this parcel's privy stood in its yard, and the privy has moved to lot 6 where the cottage it serves actually is. Nothing of this parcel and nothing documented stands on lot 4 — the Temple Building and J. H. Kinzie's forwarding store both seat on lot 0 and the second deal on this block took lot 2 — so the lot is open ground on the business front, which `business_front` above still names it part of. It is not offered a roof here because this parcel was dealt the roofs it has already built and the schedule's capacity is a ceiling rather than a target."
         }
       ],
       "slots": [
@@ -2035,10 +2031,6 @@
         {
           "lot": 1,
           "why": "The Lake-and-Franklin corner, open since the first deal and untouched by this one. Franklin is the lumber-and-wharf end of this block and Lake is its back street, so the corner where the two meet is the least attractive residential lot the block has — the reading the first deal made of it, which this deal has no cause to overturn because it was dealt no roof that wants a back-street corner. It is the lot this block keeps open, and the core density standard is explicit that capacity is a ceiling and not a target: a block whose every lot is built on is a claim about 1835 that nobody made."
-        },
-        {
-          "lot": 4,
-          "why": "Left open, and this deal did not leave it: the FIRST deal on this block did, under T-1053, and a second deal has to account for every lot of the block it claims from. That entry declared lots 4 and 6 as its frontage while its run stands on lot 6 alone, and held lot 4 only because its privy stood in lot 4's yard serving a cottage on lot 6. The privy has moved to the lot it serves and lot 4 carries nothing — not this deal's roofs, which stand on lot 2, and nothing documented. This deal was dealt the roofs it has built and asks the block for no more ground, so the lot stays open."
         }
       ],
       "frontage": {
@@ -2231,6 +2223,90 @@
           "lateral_m": -3.5
         }
       ]
+    },
+    {
+      "block_id": "blk_south_water_franklin",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_south_water_franklin_third_deal",
+      "claimed": "2026-09-26",
+      "seq_start": 12,
+      "bounded_by": {
+        "north": "south_water",
+        "south": "lake",
+        "west": "franklin",
+        "east": "wells"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 31,
+        "standing_roofs": 15,
+        "free_lots": 2,
+        "headroom": 4,
+        "dealt_roofs": 2,
+        "dealt_principal": 2,
+        "dealt_ancillary": 0,
+        "principal": 2,
+        "ancillary": 0
+      },
+      "families": {
+        "D3": 1,
+        "D4": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1622",
+        "parent": "T-1621",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_brown_lemuel",
+            "family": "D3",
+            "order_book_draw": "blk_south_water_franklin / D3 / south"
+          },
+          {
+            "seat": "hh_bryant_j_r_m",
+            "family": "D4",
+            "order_book_draw": "blk_south_water_franklin / D4 / south"
+          }
+        ],
+        "why": "THIS IS THE FIRST DEAL ON THIS FILE THAT DID NOT CHOOSE ITS OWN FAMILIES. T-1613's platted seating offered the plat to every banded household in the placement policy's order and could not find a standing roof for six of them; for each it drew on the block's own committed family plan and wrote a `slot` — a request, with the block and the family named in `order_book_draw` and no roof to walk to. Two of those six asked this block for a D3 and a D4, which is exactly what the 665-roof programme's schedule still apportions it, so this entry deals them. The LOT is not the request's: a seat row carries the lot the lot ledger found headroom on, and which lot a family stands on is this file's to author — the two requests named lot 4 and this run stands on lot 4, so on this block the two answers agree. THE OTHER FOUR REQUESTS ARE NOT DEALT HERE AND ARE NOT ABANDONED: the D7 and H1 asked of blk_south_water_dearborn and the D5 and D6 asked of blk_south_water_wells can only stand on the one lot each of those blocks still holds genuinely vacant, and that is the lot the schedule's own sizing reserves open. T-1623 carries the question to the owner with the measurement: dearborn's other free lot has 2.84 m and 2.28 m of face left between the Chicago American office and Holbrook's store, and wells's has 4.46 m east of H. Jones's store, so neither holds two roofs and building the four would mean calling a lot with two documented stores on it the block's open one."
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The Lake-and-Franklin corner, open since the first deal and still the lot this block keeps open — re-read here rather than restated, and this deal has more reason to read it than either of the two before it, because this deal is the one that takes the block's other free lot. tools/measure_end_rule.py blk_south_water_franklin --list puts lot 1 at 480.66 m straight and 599.42 m walked from the foot of the Dearborn Street drawbridge, the remotest of this block's eight lots from the only crossing of the main stem in July 1835, where lot 6 at the other end of the north face reads 392.81 m. It is also the lot the schedule's own sizing reserves: principal room is ROW_UNITS_PER_LOT times the free lots LESS ONE, precisely so a block is never dealt out of its open lot, and with two free lots this run may stand on one of them and no more. The programme's placement rule is explicit that a block at capacity is a claim about 1835 the evidence does not support."
+        }
+      ],
+      "frontage": {
+        "face": "north",
+        "fronts": "south_water",
+        "setback_m": 1.5,
+        "lots": [
+          4
+        ],
+        "why": "T-1622, the third deal on this block and the one that spends its last free business-front lot. THE FACE IS NOT RE-ARGUED: this block's north face is South Water Street, the town's business front, graded `principal` in the committed hierarchy, and the two runs already standing on this block — the first deal's on lot 6 and the second's on lot 2 — stand on its line at a 1.5 m setback. This run adopts the same setback, which is what puts its front wall on the line the block's other nine frontage roofs already stand on rather than on a line of its own. LOT 4 CAME OFF TWO OPEN-LOT LISTS TO BE DEALT THIS RUN, AND NEITHER OF THEM CALLED IT A RESERVED VACANCY. The first deal declared lots 4 and 6 as its frontage and stood its whole run on lot 6; T-1053 then listed lot 4 open, saying in its own words that it was held on the list \"only because this parcel's privy stood in its yard\" and that the privy had since moved to the lot it serves. The second deal repeated the listing with the same reason and added the only one it had of its own: \"this deal was dealt the roofs it has built and asks the block for no more ground, so the lot stays open.\" Neither is the end-rule reading that makes lot 1 the block's open lot; both are a parcel saying it had no roof to put there. This deal has two, and they are two the platted seating asked this block for by name. So lot 4 leaves both lists and is built on, and lot 1 — the remotest lot from the bridge and the one the schedule's sizing reserves — is still open, which is the standard the density rule actually states. THE GROUND WAS MEASURED BEFORE IT WAS DEALT. Lot 4 projects onto the north face between 47.06 m and 72.12 m, so with the plat module's 1.5 m side margin the run has 22.06 m of buildable face. The nearest roof west of it is the second deal's two-room cottage recon_1835_blk_south_water_franklin_d4_08, whose east wall reads 46.21 m; the nearest east is the first deal's log dwelling recon_1835_blk_south_water_franklin_d1_04 at 77.13 m. Neither is touched: the run is anchored at the EAST end of its own frontage at the 1.5 m margin and packs back west, which leaves 6.51 m to d1_04 and better than eleven metres to d4_08, against a three-metre separation gate.",
+        "runs": "One run of TWO, and the count is the request's rather than this recipe's: the platted seating asked this block for one D3 and one D4 and the block's committed family plan offers exactly one of each. The order within the run is the block's own end rule and not a new reading — tools/measure_end_rule.py grades this face at a 6.06 m step per unit against a 6.00 m floor, so the criterion orders the placement rather than merely decorating it — and the better roof stands nearer the bridge. The D4 two-room frame cottage takes the east end of the run and the D3 one-room frame cottage stands west of it on a shared party line, which is the same reading the first deal made of this face one lot east and the second deal made of it one lot west."
+      },
+      "slots": [
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "stands_on": "frontage",
+          "fronts": "south_water",
+          "anchor": {
+            "corner": "east",
+            "clear_m": 1.5
+          }
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "stands_on": "frontage",
+          "fronts": "south_water",
+          "anchor": {
+            "abut_west_of": "recon_1835_blk_south_water_franklin_d4_12"
+          }
+        }
+      ],
+      "arrangement_note": "The THIRD deal on blk_south_water_franklin, and the first roof this project has raised because a household asked for it. Everything before this file's T-1613 seating chose a family off the schedule's district remainder and then looked for ground; these two are the other way round — the placement policy offered the plat to 1,480 banded households, found no standing roof of an admitted family free for two of this division's tradesmen, and wrote a request against this block's own committed plan. A request is not evidence and nothing here is graded any higher for having been asked for: the roofs stand at the same bottom tier, on invented positions, with the same reasoning notes as every other anonymous count-unit on this row. What changes is only which of the schedule's apportioned families got built next, and the answer came off the town's arithmetic rather than off this file's judgement. WHAT IS STILL INVENTED IS EVERYTHING THAT MATTERS: that any building stood on lot 4, which buildings they were, and that they were dwellings. The block's open lot, its family mix, its setback line and its end rule are all the ones already committed, and no documented position moves."
     }
   ]
 }

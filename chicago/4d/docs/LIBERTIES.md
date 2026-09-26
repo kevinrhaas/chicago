@@ -13915,7 +13915,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 399 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 401 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
@@ -13952,12 +13952,14 @@ row; nothing else has to move when it arrives.
 
 **Recorded:** 2026-09-20.
 
-**The count moved to 394 on 2026-09-21 (T-1444), to 397 on 2026-09-24 (T-1490) and to 399
-on 2026-09-25 (T-1545).** It read 364 when this liberty was taken. The West Division release
+**The count moved to 394 on 2026-09-21 (T-1444), to 397 on 2026-09-24 (T-1490), to 399
+on 2026-09-25 (T-1545) and to 401 on 2026-09-26 (T-1622).** It read 364 when this liberty was taken. The West Division release
 instantiated its held slots and every one of the thirty states a roof type; T-1490 then traced
 Jefferson Street north, which freed three of the five that release had held back, and those
 three state one too; T-1545 re-dealt the last two off the platted Jefferson corridor and both
-state one as well. The commitment itself is unchanged — 0.14 m of exposure on a 4.48 m tile —
+state one as well; T-1622 raised the two roofs the platted seating asked of
+blk_south_water_franklin, and a frame cottage of either family states a roof type like every
+other roof on that row. The commitment itself is unchanged — 0.14 m of exposure on a 4.48 m tile —
 and the scope is counted off the records' own `roof_type` so that a release restates it rather
 than leaving the entry claiming a population it no longer has.
 
@@ -14321,10 +14323,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 226 lots are enumerated from records this project already held, and then 106 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 226 lots are enumerated from records this project already held, and then 104 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 106 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,374
+**Scope:** `platted_seats.seats[dealt]` — 104 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,376
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 226 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14344,40 +14346,56 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; 100 of the 106 seats are
+roof of a family its clause admits, on a lot of its own division; 100 of the 104 seats are
 that. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
-plan, and only up to its headroom; 6 of the 106 are that. **Which lot a household takes is
+plan, and only up to its headroom; 4 of the 104 are that. **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
 prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
-places any of these 106 households anywhere; each one's own address-book row says so in its
+places any of these 104 households anywhere; each one's own address-book row says so in its
 `words`, and that refusal is carried forward here rather than quietly replaced.
 
 **An adoption raises no roof and spends no order.** This is the part that keeps the invention
-small. 100 of the 106 seats put a household under a roof that already stands, was already
+small. 100 of the 104 seats put a household under a roof that already stands, was already
 gated and was already paid for in the 665-roof programme — so the order book is not drawn on
-at all, and nothing is baked. The 6 slots are requests, not buildings: T-1200 through T-1214
+at all, and nothing is baked. The 4 slots are requests, not buildings: T-1200 through T-1214
 raise them, and until one does, the seat is a household with an address and no walls.
+
+**TWO OF THE SIX SLOTS WERE RAISED, AND NEITHER WENT TO THE HOUSEHOLD THAT ASKED (T-1622,
+2026-09-26).** The deal asked six slots of three South Water blocks; blk_south_water_franklin's
+two — a D3 and a D4 — were the only ones whose block had ground for them that was not the lot
+its schedule sizing reserves open, so a third deal on that block raised them on lot 4. What
+then took them was not the two tradesmen's households but the STREET-FACE ADOPTION policy
+(**L212**), which ranks a business the papers PRINT above a policy-dealt household for a roof
+on a business front: the new auction and commission room of South Water Street and Briggs &
+Humphrey, carriage and sleigh makers, had both been refused a face for want of a free roof on
+it, and South Water's refusals for that reason fell from 10 to 8. So the two households come
+back to this file OWED rather than slotted, and the seat count falls by two while the town
+gains two documented firms standing where the papers put them. That precedence is the
+committed one and this entry does not argue with it; T-1626 asks whether it should hold for a
+roof raised in answer to a slot. The other four slots are unraised and stay requests: T-1623
+carries to the owner the question of whether blk_south_water_dearborn and
+blk_south_water_wells may be dealt out of their open lot to house them.
 
 **Three kinds of roof are refused on purpose, and the refusals are the entry's substance.**
 A DOCUMENTED building is never re-tenanted — 34 of the roofs standing on these lots are the
 research layer's, and an invented household under Pruyne & Kimball's drugstore would be the
 reconstruction reading back as a fact. A roof whose own record STATES its occupancy is left
 alone, including the 15 that read `Anonymous stock; no occupant is claimed` (T-0516): that
-sentence is a committed claim about the town, 54 roofs carry one, and overturning it silently
+sentence is a committed claim about the town, 56 roofs carry one, and overturning it silently
 is the one move a seating pass must not make. And an ANCILLARY family — A1 through A5, the
 barns, stables, privies and woodsheds — is not a dwelling; 48 of the 151 unoccupied roofs on
 the plat are ancillary and no household is seated in one.
 
 **Which way it is wrong if it is wrong.** Toward a plat holding too FEW of the town's
-households. 1,374 of the 1,480 banded rows get no lot here, and they are not refused — they
+households. 1,376 of the 1,480 banded rows get no lot here, and they are not refused — they
 are handed to **T-1614**, which owns the ground the committed grid does not draw: the farms
 and country seats (204 rows, off the plat by their clause's own terms), the additions' small
 lots, the fringes and the branches. The binding constraint is the one the 665-roof programme
 states about itself: *"12 of the 262 remaining roofs stand on ground this project has already
 surveyed, platted and modelled… the binding constraint is coverage, not recipes."* This pass
-spends what that schedule offers and says out loud what it could not spend — 3 commercial
-roofs of plan (C1, C2, C3) stand unclaimed on South Water Street because every business the
+spends what that schedule offers and says out loud what it could not spend — 2 commercial
+roofs of plan (a C1 and a C2) stand unclaimed on South Water Street because every business the
 address book can place is already at a street face or a structure, and none is left at a band
 to take them.
 
