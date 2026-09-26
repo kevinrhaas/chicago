@@ -143,3 +143,67 @@ the ground, this section is current.
    neither ends as an open trench; the La Salle alignment carries 7–10 m plan swings between
    its fixed readings (mouth, west-half-of-the-block corridor, terminus), threading the same
    committed roofs § 4 lists. All still `reconstructed`; L149/L150 amended.
+
+## 8. The La Salle inland course is cut back to Wright — T-1628 (2026-09-26)
+
+**The owner's ruling, verbatim.** He flew the 1835 scene over the South Division river front
+and compared it with Wright 1834 (`wright_1834`, `wright_1834_nara_hup`) and Hathaway 1834
+(`hathaway_1834`): *"when you look down on the river, there is a bulge and then a slough just
+east of lasalle that goes very deep, the slough goes all the way to lake. that is not how it is
+depicted in the wright or hathaway map. i think its ok to depict the slough like the wright map,
+so it seems it should come in, just a bit past south water and then into the lot, but not
+deeper"*.
+
+**What he was looking at is the part of § 2 row 2 that was never Wright's.** The mouth is traced
+and confirmed — T-0795 picked the V notched into the south bank at NA px (2403, 2495), E +449.9,
+against the E +462…+469 the traced waterline carries, 12.1 m inside a fit whose own RMS is
+16.02 m. The **inland course** was argued from Conley/Stelzer 1933 at `asset_use: orientation`
+and never from a traced boundary, and the same T-0795 walk found that the NA/HUP sheet draws
+**no inland course here at all**. So the ruling does not overturn a reading; it declines one
+this file has always labelled as a 1933 pictorial reconstruction read at 20–30 m tolerance.
+
+**What is built now.** `lasalle_slough_upper` is **deleted**. `lasalle_slough_lower` keeps its
+first two vertices exactly as T-0129 and T-0118 left them — (466, +10) inside Wright's traced
+re-entrant, the junction at (469.5, −6) bent 2.5 m east to keep `blk_south_water_lasalle`'s
+north-west corner out of the water — and ends at a new third vertex (472.7, −20.0). That head is
+a point **on the committed Conley alignment**, 8 mm off the bearing of the (469.5, −6) →
+(475, −30) segment it truncates, so this is the old course cut back and not a new course drawn.
+
+| | figure |
+|---|---|
+| channel length, mouth to head | 30.74 m |
+| platted south edge of the South Water corridor, along the channel | 14.39 m (N −4.05, E +469.07) |
+| head south of that block face | **15.95 m** |
+| channel inside the lot | 16.35 m |
+| block 50 South Water lot depth (97.30 m block, 5.49 m mid-block alley) | 45.91 m |
+| head as a fraction of lot depth | **34.7 %** |
+| full 3.2 ft cut holds to | 17.0 m along — 2.6 m past the block face |
+| feather knots | 2.2 ft at 23.0 m, 1.0 ft at 27.5 m, 0.0 ft at 30.74 m |
+| open water ends (bed rises through datum on the 2.4–2.9 ft plain) | ≈ 20.0 m along, ≈ 7.5 m inside the lot |
+
+The feather is shorter than the ~40 m § 7 row 4 records for the old course, because the whole
+channel is now 30.7 m long and the street corridor has to carry water across its full width.
+At 3.2 ft over 13.7 m the longitudinal grade is 7 per cent, against the 24 per cent the banks
+already stand at across the 4.0 m half-width, so the head closes as a hollow and not as a step —
+which is the test § 7 row 4 set, applied to a shorter reach.
+
+**`lasalle_slough_crossing` still spans water.** The deck sits at about N +4…+8, 2–6 m along the
+channel from the mouth, inside the reach that holds the full 3.2 ft cut; nothing about the
+crossing, its span, its approaches or L195 is touched. `tools/measure_slough_crossing.py` reads
+it on every commit.
+
+**Conley/Stelzer is set aside, not refuted, and the reading is kept here.** What he draws is what
+§ 2 row 2 says he draws: the course running south up the west half of the La Salle–Clark block,
+washed as open water to about Lake Street, continuing as a dark drain and terminating just north
+of Randolph Street. That is still the only reconstruction anybody has of this stream above the
+bank, and if a period survey ever contradicts the ruling it is the line to go back to. It is set
+aside on 2026-09-26 because a 1933 pictorial reconstruction is not evidence against two 1834
+sheets that draw nothing, and because the owner — looking at the thing — read the result as
+wrong. The source record is unchanged and `lasalle_slough_lower` still cites it, since the
+surviving stub's alignment is still his line.
+
+**Liberties.** L150 — "the La Salle slough's inland course and terminus rest on a 1933
+reconstruction" — moves to **Resolved**: the terminus it admitted to inventing is not in the
+terrain any more, so the invention is withdrawn rather than corrected. The much smaller liberty
+that survives — 16.35 m of channel inside a lot, on a ruling and on no sheet — is recorded as
+**L273**.

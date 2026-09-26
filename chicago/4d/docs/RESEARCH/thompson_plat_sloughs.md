@@ -135,8 +135,13 @@ since T-0005:
 | # | slough | where it is held | form |
 |---|---|---|---|
 | 1 | north-side | `hydrology.geojson` `north_side_slough`, carved via `terrain_spec.json` `watercourses[0]` | traced centreline, `bed_ft −1.0`, `e_fold_m 1.2` |
-| 2 | La Salle Street | `terrain_spec.json` `swales[2]` `lasalle_slough_lower`, `swales[3]` `lasalle_slough_upper` | authored centreline + half-width swales |
-| 3 | State Street | `terrain_spec.json` `swales[4]` `state_slough_course`, `swales[5]` `state_slough_mouth` | authored centreline + half-width swales |
+| 2 | La Salle Street | `terrain_spec.json` `swales[2]` `lasalle_slough_lower` | authored centreline + half-width swale |
+| 3 | State Street | `terrain_spec.json` `swales[3]` `state_slough_course`, `swales[4]` `state_slough_mouth` | authored centreline + half-width swales |
+
+Row 2 held two entries until 2026-09-26, when T-1628 deleted `lasalle_slough_upper` and cut
+`lasalle_slough_lower` back to a head 15.95 m inside block 50's South Water lot, on the owner's
+ruling that the slough is depicted as Wright depicts it. The indices above moved with it. See
+docs/RESEARCH/main_branch_sloughs_1833.md § 8.
 
 All three are also bridged: `slough_log_bridge`, `lasalle_slough_crossing` and
 `north_water_slough_crossing` are committed structures with approaches in the same spec.

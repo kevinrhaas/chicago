@@ -353,14 +353,6 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
-    "terrain/e1834_harbor_cut/swales.lasalle_slough_upper": {
-      "kind": "ground",
-      "blocked_sources": [
-        "conley_stelzer_1933"
-      ],
-      "sole_support": true,
-      "confidence": "reconstructed"
-    },
     "terrain/e1834_harbor_cut/swales.state_slough_course": {
       "kind": "ground",
       "blocked_sources": [
