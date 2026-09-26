@@ -1,10 +1,26 @@
 export const CHANGELOG = [ // newest first
-  { v: 1147, title: 'Explore Prairie Avenue in 1904', kind: 'change', ts: '2026-09-26T17:23:59.733Z', date: 'Sep 26, 2026, 12:23 PM CT',
+  { v: null, title: 'Explore Prairie Avenue in 1904', kind: 'change', ts: '',
     items: [
       'A new Prairie Avenue research browser brings together house histories, Sanborn maps, directory leads and a dedicated Glessner collection.',
       'Browse the six Glessner measured drawings and survey report, compare 1911 frontage evidence with the 1904 target, and inspect source dates and unresolved questions.',
       'The pre-fire library now has an 1834 shortcut for the Wright map. Its map menu lists every dated reference and moves the timeline to your selection.',
       'This is a research library for the planned reconstruction. The 1835 town and the unfinished Prairie 3D scene are unchanged.',
+    ] },
+  { v: 1148, title: 'The four houses with nowhere to stand are now refused in writing', kind: 'change', ts: '2026-09-26T17:31:46.182Z', date: 'Sep 26, 2026, 12:31 PM CT',
+    items: [
+      'Earlier today this town settled that a house built because a family asked for one belongs to that family. Four more such houses were still on the request list, and they had nowhere to stand. This release says so out loud instead of leaving them waiting.',
+      'The four \u2014 two on the Dearborn block of South Water Street, two on the Wells block \u2014 could only ever have stood on one particular lot: the single lot each of those two blocks still has genuinely empty.',
+      'That empty lot is not spare room. The building programme deliberately sizes every block at one lot less than it has, so a block is never built out completely \u2014 an 1835 block with no gap left in it is a claim about the town the evidence does not support. Building the four would have meant spending that reserve and then re-labelling a lot that already carries two documented stores as the empty one: the Chicago American\u2019s office and Holbrook\u2019s store on the Dearborn block, H. Jones\u2019s store on the Wells block. There is 2.84 m, 2.28 m and 4.46 m of street face left beside them respectively, which will not hold a house.',
+      'So the request is refused on each household\u2019s own row, in a sentence that says why, and the household is owed to the building work instead of holding a request that could never be filled. Open \u201cReconstructing the town\u201d in the Evidence tab and the card says so: no houses are requested now, where it said four an hour ago and six this morning.',
+      'The rule is enforced rather than remembered. The seating pass will not ask for a house on the last empty lot of a block, and will not add one beside a documented store on a free lot either \u2014 stretching a row of buildings along a street face is a claim about how much frontage is left, and this pass measures none. A check fires on every change if either ever happens again.',
+      'Nothing was built, nothing moved and no confidence was raised. The plat now seats 108 of the town\u2019s 1,480 households whose records give no address, all of them under houses that already stand, and 1,372 are handed on to the ground the plat does not draw.',
+    ] },
+  { v: 1147, title: 'A test that followed the wrong roof', kind: 'fix', ts: '2026-09-26T17:06:32.284Z', date: 'Sep 26, 2026, 12:06 PM CT',
+    items: [
+      'Nothing you can see in the town has changed. A check that guards the buildings\u2019 cards had gone red, and it was the check that was wrong, not the town.',
+      'On one South Water Street house the card carries a REFUSAL \u2014 a reading that said the hardware firm there held a fire-insurance agency, and the reading does not stand. A check made sure that refusal reaches the card, and it named the house by hand. Nothing ever promised it that address: which of a street\u2019s anonymous buildings a printed firm takes is dealt out, not read off a source, and the file that does the dealing says so in its own words.',
+      'So the moment two cottages went up on that block\u2019s last free front, the firm shifted one roof along, the refusal went with it \u2014 exactly as it should \u2014 and the check went looking at the old address and failed. In the three releases since, that firm has moved and moved back: naming the new house by hand would have gone green this morning and red again this afternoon.',
+      'The check now reads the address out of the same file the card does, so a re-deal cannot break it. What it pins instead is the thing that would really be wrong \u2014 that the refusal is still there at all, still against the same firm, and still the only one of its kind \u2014 and that half was proved by deleting the refusal and watching it go red.',
     ] },
   { v: 1146, title: 'The houses built for two families now hold families', kind: 'fix', ts: '2026-09-26T16:30:19.049Z', date: 'Sep 26, 2026, 11:30 AM CT',
     items: [

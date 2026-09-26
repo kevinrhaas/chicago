@@ -286,16 +286,16 @@
    "west/tradesman_dwellings": 137
   },
   "reconstructed_seats": 1512,
-  "dealt_a_roof": 184,
+  "dealt_a_roof": 180,
   "dealt_a_standing_roof": 180,
-  "dealt_a_slot_not_yet_built": 4,
+  "dealt_a_slot_not_yet_built": 0,
   "dealt_by_ticket": {
-   "T-1613": 112,
+   "T-1613": 108,
    "T-1614": 72
   },
   "dealt_by_ground": {
    "off_plat_parcel": 72,
-   "platted_lot": 112
+   "platted_lot": 108
   }
  },
  "rows": [
@@ -12274,24 +12274,7 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_byam_seth|T-1522|division:4563fbf55dfa|class:a050d5158f07",
-   "dealt_roof": {
-    "structure_id": null,
-    "how": "slot",
-    "dealt_by": "T-1613",
-    "ground": "platted_lot",
-    "on": "blk_south_water_dearborn#07",
-    "block_id": "blk_south_water_dearborn",
-    "fronts": "lake",
-    "family": "D5",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "stands_on": "lot",
-    "deal_seed": "hh_byam_seth|T-1522|division:4563fbf55dfa|class:a050d5158f07",
-    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
-    "owed_to": "T-1200..T-1214",
-    "substitutable": true,
-    "words": "The placement policy deals this household a place on blk_south_water_dearborn#07 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D5 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
-   }
+   "dealt_roof": null
   },
   {
    "id": "hh_byram_thomas",
@@ -12332,24 +12315,7 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_byram_thomas|T-1522|division:8762955d4f5a|class:fa728f460e96",
-   "dealt_roof": {
-    "structure_id": null,
-    "how": "slot",
-    "dealt_by": "T-1613",
-    "ground": "platted_lot",
-    "on": "blk_south_water_dearborn#07",
-    "block_id": "blk_south_water_dearborn",
-    "fronts": "lake",
-    "family": "D6",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "stands_on": "lot",
-    "deal_seed": "hh_byram_thomas|T-1522|division:8762955d4f5a|class:fa728f460e96",
-    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
-    "owed_to": "T-1200..T-1214",
-    "substitutable": true,
-    "words": "The placement policy deals this household a place on blk_south_water_dearborn#07 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D6 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
-   }
+   "dealt_roof": null
   },
   {
    "id": "hh_cable_p_b_f",
@@ -12430,24 +12396,7 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_cady_levi|T-1522|division:b4fc443d7c49|class:aae2d210f873",
-   "dealt_roof": {
-    "structure_id": null,
-    "how": "slot",
-    "dealt_by": "T-1613",
-    "ground": "platted_lot",
-    "on": "blk_south_water_wells#01",
-    "block_id": "blk_south_water_wells",
-    "fronts": "lake",
-    "family": "D3",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "stands_on": "lot",
-    "deal_seed": "hh_cady_levi|T-1522|division:b4fc443d7c49|class:aae2d210f873",
-    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
-    "owed_to": "T-1200..T-1214",
-    "substitutable": true,
-    "words": "The placement policy deals this household a place on blk_south_water_wells#01 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D3 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
-   }
+   "dealt_roof": null
   },
   {
    "id": "hh_caldwell_billy",
@@ -12523,24 +12472,7 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_calhoun_alvin|T-1522|division:4384b2df0733|class:e5655f2e8474",
-   "dealt_roof": {
-    "structure_id": null,
-    "how": "slot",
-    "dealt_by": "T-1613",
-    "ground": "platted_lot",
-    "on": "blk_south_water_wells#01",
-    "block_id": "blk_south_water_wells",
-    "fronts": "lake",
-    "family": "D4",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "stands_on": "lot",
-    "deal_seed": "hh_calhoun_alvin|T-1522|division:4384b2df0733|class:e5655f2e8474",
-    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
-    "owed_to": "T-1200..T-1214",
-    "substitutable": true,
-    "words": "The placement policy deals this household a place on blk_south_water_wells#01 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D4 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
-   }
+   "dealt_roof": null
   },
   {
    "id": "hh_calhoun_john",
