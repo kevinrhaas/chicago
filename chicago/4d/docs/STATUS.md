@@ -1,5 +1,39 @@
 # STATUS
 
+## The south bank below the bend is recut to Hathaway — T-1630, 2026-09-26
+
+The owner's answer to T-1630's own question, option (b). The reading that asked it
+(PR #88, `docs/RESEARCH/south_bank_swell_1834.md` §§ 1–5) established that the
+committed bank IS Wright's ink — median 1.87 m, p90 3.96 m over 103 stations — and
+that **Wright himself draws the swell** while Hathaway does not. So there was
+nothing to correct on the trace's own terms, and the choice of sheet was his.
+
+He chose Hathaway here. The bank between local E +228.91 and the La Salle mouth is
+now Wright's traced line displaced **south by the two sheets' own disagreement** —
+5.6 m at block 20, 10.8 m at block 19, zero at both ends — measured inside each
+sheet so neither registration enters it. `tools/read_south_bank_swell_1834.py`
+keeps Wright's ink vertex for vertex as the set-aside reading and its `--check`
+re-derives the displacement from it on every commit, so the departure is gated
+rather than asserted. **The waterline on this reach is `reconstructed`, not a
+trace** (`docs/LIBERTIES.md` L275) — the only place in the scene where the ground's
+edge is not the survey the datum, the plat and all 41 blocks are fitted to.
+
+What it buys, measured: the bank's step across the La Salle mouth falls 9.62 → 1.18 m,
+and its p90 departure from a straight fit over E +300…+456 — the stretch where the
+plank walk curved round the point — falls 1.53 → 0.65 m. The walk is one straight
+run where it was two, four landings re-seat 4.6–10.8 m south, and 299 planting nodes
+that would have stood in water are not planted.
+
+**Two things are NOT taken, and both are refusals with numbers.** Block 18's 7.5 m,
+because the bank there stands 5.4 m north of South Water Street's platted corridor
+edge and 7.5 m would put the river 2.1 m into the roadway. And the west end stops at
+the committed bend vertex rather than the foot of the turn, because west of E +222 the
+traced bank already stands south of that edge and starting further west drowned another
+32 m of roadway for no reading. The block grid is not re-cut; T-0419 stands.
+
+`tools/check.sh`: 649 steps, the eight that went red on the moved ground re-derived and
+green, nothing skipped for a missing module. Smoke verdicts are in the PR.
+
 ## Source-use backlinks compiled — T-1248, 2026-09-26
 
 The deterministic compiler reads the authored reconstruction and records typed
