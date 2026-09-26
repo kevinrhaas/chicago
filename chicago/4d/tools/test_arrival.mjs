@@ -3,8 +3,9 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  bootProgress, easeInOut, reducedProgress, settleDurationMs, yearForProgress,
+  bootProgress, createArrival, easeInOut, reducedProgress, settleDurationMs, yearForProgress,
 } from '../renderers/web/js/arrival.js';
+import { createBoot } from '../renderers/web/js/boot-phases.js';
 
 assert.equal(easeInOut(0), 0);
 assert.equal(easeInOut(1), 1);
@@ -128,3 +129,69 @@ failed.buttonEl.click({ preventDefault() {}, stopImmediatePropagation() {} });
 assert.ok(failed.reloaded);
 assert.ok(!failed.boot.finish());
 console.log('ARRIVAL CONTROLLER PASS — real events, smooth ticks, monotone corrections, instant fast/reduced, optional/essential failure and retry');
+
+
+/* Real-controller integration: an elapsed-only essential phase keeps moving
+ * between boot events, while optional work never steals the essential status. */
+let clock = 0;
+let scheduled = null;
+let frameId = 0;
+const phaseEl = {
+  textContent: '',
+  attrs: {},
+  setAttribute(name, value) { this.attrs[name] = value; },
+};
+const buttonEl = {
+  disabled: true,
+  textContent: '',
+  dataset: {},
+  addEventListener() {},
+};
+const boot = createBoot({
+  device: 'desktop',
+  detail: 'full',
+  now: () => clock,
+});
+const integrated = createArrival({
+  boot,
+  phaseEl,
+  buttonEl,
+  currentYear: 2026,
+  now: () => clock,
+  reducedMotion: false,
+  scheduleFrame(cb) { scheduled = cb; return ++frameId; },
+  cancelFrame() { scheduled = null; },
+});
+
+boot.start('scene');
+assert.equal(phaseEl.textContent, 'Reading the scene…');
+const initialYear = integrated.state.year;
+assert.equal(typeof scheduled, 'function', 'an active essential phase schedules elapsed progress');
+
+clock = boot.expected.scene * 1000 * 0.92;
+const elapsedFrame = scheduled;
+elapsedFrame();
+assert.ok(integrated.state.year < initialYear,
+  'the year advances between boot events from elapsed/expected progress');
+
+const essentialLabel = phaseEl.textContent;
+boot.start('people');
+assert.equal(phaseEl.textContent, essentialLabel,
+  'an optional phase start must not replace the essential phase announcement');
+boot.fail('people', new Error('optional unavailable'));
+assert.equal(integrated.state.failed, false, 'an optional phase failure must not stop arrival');
+assert.equal(phaseEl.textContent, essentialLabel,
+  'an optional phase failure/end must not replace the essential phase announcement');
+
+boot.fail('scene', new Error('essential unavailable'));
+assert.equal(integrated.state.failed, true, 'an essential failure stops arrival');
+assert.equal(buttonEl.textContent, 'Retry');
+assert.equal(buttonEl.disabled, false);
+
+const main = readFileSync(path.join(here, '../renderers/web/js/main.js'), 'utf8');
+assert.doesNotMatch(main, /present:\s*progress/,
+  'arrival.js must be the sole gate presenter; legacy progress cannot compete');
+assert.doesNotMatch(main, /gateBtn\.disabled\s*=\s*false[^\n]*Tap to enter/,
+  'main.js must not enable entry before the arrival ready/settle path');
+
+console.log('ARRIVAL CONTROLLER PASS — elapsed tick, optional isolation, failure and sole presenter');
