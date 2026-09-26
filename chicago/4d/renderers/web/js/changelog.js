@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1145, title: 'Explore Prairie Avenue in 1904', kind: 'change', ts: '2026-09-26T15:44:43.139Z', date: 'Sep 26, 2026, 10:44 AM CT',
+    items: [
+      'A new Prairie Avenue research browser brings together house histories, Sanborn maps, directory leads and a dedicated Glessner collection.',
+      'Browse the six Glessner measured drawings and survey report, compare 1911 frontage evidence with the 1904 target, and inspect source dates and unresolved questions.',
+      'This is a research library for the planned reconstruction. The 1835 town and the unfinished Prairie 3D scene are unchanged.',
+    ] },
   { v: 1144, title: 'The last building readings, and what a memoir cannot prove', kind: 'change', ts: '2026-09-26T14:44:13.239Z', date: 'Sep 26, 2026, 9:44 AM CT',
     items: [
       'Nothing you can see in the town has changed. This finishes the reading ledger\u2019s building work: the last 35 unruled readings about buildings, from Hubbard\u2019s memoir, Hurlbut, Fergus, Moses and Kirkland, Norris\u2019s 1844 sketch, Andreas and the St Mary\u2019s baptism register. Each now carries a written answer.',

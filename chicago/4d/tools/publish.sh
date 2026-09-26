@@ -66,6 +66,8 @@ if ! python3 tools/measure_web_derivatives.py --gate --quiet; then
 fi
 
 SITE="../../site/4d"
+# Owner-requested Prairie research browser also travels with the dev preview.
+python3 ../prairie_1904_v1/tools/publish.py "../../site/4d/prairie-1904"
 mkdir -p "$SITE/data/gltf" "$SITE/data/sidecars"
 
 # renderer

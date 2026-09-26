@@ -1,0 +1,789 @@
+{
+  "title": "Glessner House research dossier for 1904 Prairie Avenue reconstruction",
+  "compiled": "2026-09-26",
+  "coverage": "Focused online source-discovery and three downloaded historic images; not an exhaustive archive inventory",
+  "building_id": "prairie-1800-glessner",
+  "target_year": 1904,
+  "sources": [
+    {
+      "id": "G01",
+      "title": "John J. Glessner House, HABS IL-1015",
+      "url": "https://www.loc.gov/item/il0118/",
+      "source_type": "federal architectural survey",
+      "dates": {
+        "construction": "1886–1887",
+        "documentation": "after 1933"
+      },
+      "summary": "Catalog identifies 17 photographs, six measured drawings, 27 data pages, one caption page; unprocessed field notes FN-128. Call number HABS ILL,16-CHIG,17-.",
+      "evidence_limit": "Later survey requires phase reconciliation; copied historical images may have separate rights. Item catalog verified via indexed metadata; image/PDF downloads returned 403.",
+      "retrieval_status": "indexed-record-verified; download-blocked",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G01-D1",
+      "title": "Title sheet with neighborhood plan",
+      "url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=1",
+      "source_type": "HABS measured drawing",
+      "dates": {
+        "documentation": "after 1933"
+      },
+      "summary": "Named drawing in HABS IL-1015; dimensional extraction pending original scan.",
+      "evidence_limit": "Do not invent dimensions or assign all surviving details to 1904.",
+      "retrieval_status": "indexed-record-verified; download-blocked",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G01-D4",
+      "title": "Section A-A",
+      "url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=4",
+      "source_type": "HABS measured drawing",
+      "dates": {
+        "documentation": "after 1933"
+      },
+      "summary": "Named drawing in HABS IL-1015; dimensional extraction pending original scan.",
+      "evidence_limit": "Do not invent dimensions or assign all surviving details to 1904.",
+      "retrieval_status": "indexed-record-verified; download-blocked",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G01-D5",
+      "title": "Masonry details",
+      "url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=5",
+      "source_type": "HABS measured drawing",
+      "dates": {
+        "documentation": "after 1933"
+      },
+      "summary": "Named drawing in HABS IL-1015; dimensional extraction pending original scan.",
+      "evidence_limit": "Do not invent dimensions or assign all surviving details to 1904.",
+      "retrieval_status": "indexed-record-verified; download-blocked",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G01-D6",
+      "title": "Front (east) elevation",
+      "url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=6",
+      "source_type": "HABS measured drawing",
+      "dates": {
+        "documentation": "after 1933"
+      },
+      "summary": "Named drawing in HABS IL-1015; dimensional extraction pending original scan.",
+      "evidence_limit": "Do not invent dimensions or assign all surviving details to 1904.",
+      "retrieval_status": "indexed-record-verified; download-blocked",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G01-P12",
+      "title": "Photocopy of preliminary design, courtesy Houghton Library",
+      "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=12",
+      "source_type": "HABS copy of historic architectural design",
+      "dates": {},
+      "summary": "Links the LOC survey to the Harvard Richardson originals.",
+      "evidence_limit": "Preliminary design is not proof of as-built form.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G01-P",
+      "title": "HABS photo series",
+      "url": "https://www.loc.gov/resource/hhh.il0118.photos?st=gallery",
+      "source_type": "federal photo collection",
+      "dates": {},
+      "summary": "17 cataloged photographs.",
+      "evidence_limit": "Individual dates and captions must be read before assigning chronological state.",
+      "retrieval_status": "indexed-record-verified; download-blocked",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G01-T",
+      "title": "HABS data PDF",
+      "url": "https://cdn.loc.gov/master/pnp/habshaer/il/il0100/il0118/data/il0118data.pdf",
+      "source_type": "federal survey report",
+      "dates": {},
+      "summary": "Cataloged 27-page report; acquisition target.",
+      "evidence_limit": "No report measurements transcribed because binary retrieval failed.",
+      "retrieval_status": "download-blocked-403",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G01-C",
+      "title": "HABS photo captions PDF",
+      "url": "https://cdn.loc.gov/master/pnp/habshaer/il/il0100/il0118/data/il0118cap.pdf",
+      "source_type": "federal survey caption list",
+      "dates": {},
+      "summary": "Caption list acquisition target.",
+      "evidence_limit": "Must reconcile photographed dates, views, and alterations.",
+      "retrieval_status": "download-blocked-403",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G02",
+      "title": "The House",
+      "url": "https://www.glessnerhouse.org/the-house",
+      "source_type": "building custodian history",
+      "dates": {},
+      "summary": "Rusticated Braggville pink granite faces a brick structure above Illinois dolomite. E-shaped plan fronts east/north/west lot edges; south courtyard admits light. Over 17,000 square feet; service space exceeds half. Three family, two guest, eight servant bedrooms; eleven fireplaces; seven staircases. Post-family institutional use began after 1936; 1946 conversion, 1966 preservation purchase.",
+      "evidence_limit": "Granite thickness stated 8–10 inches here conflicts with about seven inches in G03; modern description is not a dated 1904 inventory.",
+      "retrieval_status": "web-reviewed",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G03",
+      "title": "The Collection — architectural and household evidence",
+      "url": "https://www.glessnerhouse.org/the-collection",
+      "source_type": "museum object catalog essays",
+      "dates": {
+        "Richardson sketch": "1885-05-14",
+        "Story of a House": "1923"
+      },
+      "summary": "Richardson sketch dated May 14, 1885. John Glessner’s 1923 memoir includes 25 typed pages, floorplans and Kaufmann & Fabry photographs, including two unique Fanny-bedroom views. Kitchen annunciator used twelve call buttons. A 1965 sale flyer records institutional plans and paved courtyard; museum corrects its stone-veneer claim to about seven inches.",
+      "evidence_limit": "Collection essays span many years. Date every object; 1923 photographs and 1965 plans are not direct 1904 snapshots. Original memoir not fully acquired.",
+      "retrieval_status": "web-reviewed",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G04",
+      "title": "Exterior from Inland Architect",
+      "url": "https://www.glessnerhouse.org/exterior-from-inland-architect",
+      "source_type": "museum reproduction of contemporary publication",
+      "dates": {
+        "publication": "1888-02",
+        "publication_detail": "The Inland Architect and News Record, vol. XI no. 1"
+      },
+      "summary": "Period exterior photograph and first-floor sketch published two months after the family moved in.",
+      "evidence_limit": "Provides 1888 baseline, not automatic proof of unchanged 1904 details.",
+      "retrieval_status": "web-reviewed",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G05",
+      "title": "Porte Cochere doors",
+      "url": "https://www.glessnerhouse.org/porte-cochere-doors",
+      "source_type": "museum reproduction of family photograph",
+      "dates": {
+        "photo": "circa 1888",
+        "photographer": "George Glessner"
+      },
+      "summary": "Period front driveway doors; these sheltered carriage arrivals. Museum used the photograph to recreate doors removed during the 1950s for an overhead garage door.",
+      "evidence_limit": "Historic photo is direct baseline; present restored doors should be cross-checked against it.",
+      "retrieval_status": "web-reviewed",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G06",
+      "title": "Double Bough",
+      "url": "https://www.glessnerhouse.org/double-bough",
+      "source_type": "museum interior conservation history",
+      "dates": {
+        "pattern": "1891",
+        "installation": "1892",
+        "repapering": "1916",
+        "reproduction": "2015"
+      },
+      "summary": "Corner guest-room Morris & Co. wallpaper selected after electrification in 1892, selected again in 1916; current paper is a 2015 reproduction.",
+      "evidence_limit": "Supports 1904 pattern attribution, not proof of exact surviving shade or condition.",
+      "retrieval_status": "web-reviewed",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G07",
+      "title": "Electricity comes to Glessner House",
+      "url": "https://glessnerhouse.blogspot.com/2013/08/electricity-comes-to-glessner-house.html",
+      "source_type": "official museum blog citing family correspondence",
+      "dates": {
+        "publication": "2013-08-12",
+        "electrification": "1892 summer",
+        "staff instructions": "1901"
+      },
+      "summary": "July 1892 correspondence documents electric conversion, repainting and a gas explosion. Original gas fixtures in main hall/parlor were converted. Parlor received Pretyman wall covering; other rooms Morris papers. Kerosene lamps remained in use in 1901. Basement wood conduit survives. 1923 photos show some changed fixtures of unknown installation date.",
+      "evidence_limit": "Do not infer 1904 fixtures from all 1923 photographs. Original prewiring is presumed in article, not confirmed by building specifications.",
+      "retrieval_status": "web-reviewed",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G08",
+      "title": "Glessner Family",
+      "url": "https://www.glessnerhouse.org/glessner-family",
+      "source_type": "museum family history",
+      "dates": {
+        "silversmith bench": "1904"
+      },
+      "summary": "Frances established a basement workbench in 1904 for silverwork.",
+      "evidence_limit": "Exact installation month, equipment inventory and room dimensions require journal verification.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G09",
+      "title": "Heating Glessner House — Then and Now",
+      "url": "https://glessnerhouse.blogspot.com/2015/12/heating-glessner-house-then-and-now.html",
+      "source_type": "museum building-services history",
+      "dates": {
+        "publication": "2015-12"
+      },
+      "summary": "Source discusses original heating and quotes the 1923 memoir. A photographed thermostat was made by a company organized in 1904.",
+      "evidence_limit": "Company founding gives only a terminus post quem, not proof that this thermostat existed in the 1904 house.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G10",
+      "title": "Preservation Month Part I — Dining Room",
+      "url": "https://glessnerhouse.blogspot.com/2020/05/preservation-month-part-i-dining-room.html?m=0",
+      "source_type": "museum room restoration account",
+      "dates": {
+        "publication": "2020-05",
+        "fixtures electrified": "1892",
+        "tiles removed": "1938-04"
+      },
+      "summary": "Dining-room gas fixtures converted in 1892 with glass shades added. Iznik fireplace tiles removed by Frances Glessner Lee in 1938; later recreated.",
+      "evidence_limit": "Track originals versus recreated surfaces; historic photos are required for 1904 placement.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G11",
+      "title": "Preservation Month Part II — Main Hall",
+      "url": "https://glessnerhouse.blogspot.com/2020/05/preservation-month-part-ii-main-hall.html",
+      "source_type": "museum room restoration account",
+      "dates": {
+        "publication": "2020-05",
+        "earliest photograph": "1888"
+      },
+      "summary": "Includes George Glessner’s earliest known main-hall photograph and discussion of later restoration.",
+      "evidence_limit": "Modern restoration is an interpretive reconstruction; date historic views separately.",
+      "retrieval_status": "web-reviewed",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G12",
+      "title": "Stone capitals on Glessner House",
+      "url": "https://glessnerhouse.blogspot.com/2013/02/the-stone-capitals-on-glessner-house.html",
+      "source_type": "museum ornament history",
+      "dates": {
+        "publication": "2013-02"
+      },
+      "summary": "Examines capital design; Isaac Scott proposals were not accepted by the Glessners.",
+      "evidence_limit": "Rejected designs must not be modeled as executed ornament.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G13",
+      "title": "A Tale of Thirty-Five Tiles",
+      "url": "https://glessnerhouse.blogspot.com/2018/11/a-tale-of-thirty-five-tiles.html?m=0",
+      "source_type": "museum conservation account",
+      "dates": {
+        "restoration reopening": "2018-11-07"
+      },
+      "summary": "Documents master-bedroom tile restoration and return from family ownership.",
+      "evidence_limit": "Use to distinguish removed/reinstalled originals from twentieth-century conditions.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G14",
+      "title": "Datestone",
+      "url": "https://www.glessnerhouse.org/datestone",
+      "source_type": "museum architectural detail",
+      "dates": {
+        "setting": "1886-11 approximately"
+      },
+      "summary": "North-facing east-end gable bears A.D. and 1886 datestones; journal places near-completion of exterior stonework in November 1886.",
+      "evidence_limit": "1886 date stone is not occupancy year; finished house occupied in December 1887.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G15",
+      "title": "Research Opportunities",
+      "url": "https://www.glessnerhouse.org/research-opportunities",
+      "source_type": "custodian archive access description",
+      "dates": {},
+      "summary": "Museum holds historic photographs, family papers, restoration files, drawings and published articles. Appointment-based access.",
+      "evidence_limit": "Collections are not comprehensively digitized. No appointment or contact was made.",
+      "retrieval_status": "web-reviewed",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G16",
+      "title": "Henry Hobson Richardson drawings, circa 1886–1940",
+      "url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434",
+      "source_type": "Harvard archival finding aid",
+      "dates": {},
+      "summary": "Finding aid includes Glessner project. Drawing codes distinguish plans A, elevations B, sections C, exterior details D, interior details E, site/perspective F. Digital microfilm index linked.",
+      "evidence_limit": "Exact Glessner series/item numbers and drawings still require extraction. Direct open rate-limited; indexed record verified.",
+      "retrieval_status": "indexed-record-verified; direct-open-429",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G16-I",
+      "title": "Richardson drawing microfilm index",
+      "url": "https://iiif.lib.harvard.edu/manifests/view/drs:474641184$363i",
+      "source_type": "Harvard digital index",
+      "dates": {},
+      "summary": "Index URL provided by Harvard finding aid.",
+      "evidence_limit": "Lead only: not yet inspected; do not claim individual drawings acquired.",
+      "retrieval_status": "catalog-linked-lead",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G17",
+      "title": "Glessner family papers",
+      "url": "https://www.aaa.si.edu/collections/surveys/chicago/chicago-history-museum/glessner-family-papers",
+      "source_type": "Smithsonian survey of Chicago History Museum holdings",
+      "dates": {},
+      "summary": "Survey identifies family papers at Chicago History Museum and museum-held searchable typescript of Frances Glessner journals.",
+      "evidence_limit": "Indexed summary gives erroneous/ambiguous 1886 move-in chronology; prefer 1887 contemporary evidence. Direct page retrieval failed.",
+      "retrieval_status": "indexed-record-verified; direct-open-failed",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G18",
+      "title": "Isaac Scott papers",
+      "url": "https://www.aaa.si.edu/collections/surveys/chicago/glessner-house-museum/isaac-scott-papers",
+      "source_type": "Smithsonian archival holdings survey",
+      "dates": {},
+      "summary": "Design drawings, sketches, photographs and correspondence; three flat files, two oversize folders, portfolio and four tubes.",
+      "evidence_limit": "Finding aid describes holdings, not digitized object access.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G19",
+      "title": "Scrapbook of Glessner correspondence",
+      "url": "https://www.aaa.si.edu/collections/surveys/chicago/glessner-house-museum/scrapbook-glessner-correspondence",
+      "source_type": "Smithsonian archival holdings survey",
+      "dates": {
+        "coverage": "1880–1904"
+      },
+      "summary": "Bound scrapbook of letters to John and Frances from artists, designers and other correspondents.",
+      "evidence_limit": "Finding aid only; no letters acquired or transcribed.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G20",
+      "title": "Virtual Tour",
+      "url": "https://www.glessnerhouse.org/virtual-tour",
+      "source_type": "museum contemporary spatial reference",
+      "dates": {},
+      "summary": "Interactive present-day tour reference.",
+      "evidence_limit": "Contemporary restored state; do not use as 1904 truth without phase controls.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G21",
+      "title": "Glessner House landmark entry",
+      "url": "https://webapps1.chicago.gov/landmarksweb/web/landmarkdetails.htm?lanId=1315",
+      "source_type": "City of Chicago civic landmark record",
+      "dates": {},
+      "summary": "Civic identity and designation reference for 1800 South Prairie Avenue.",
+      "evidence_limit": "Designation history is different from construction chronology.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G22",
+      "title": "Glessner House National Historic Landmark nomination",
+      "url": "https://npgallery.nps.gov/GetAsset/e8026882-ab58-4a8a-b093-6ed95af4fc3d",
+      "source_type": "NPS nomination PDF",
+      "dates": {},
+      "summary": "Nomination document identified in search; building narrative and bibliography target.",
+      "evidence_limit": "Lead: full PDF not yet acquired or page-audited.",
+      "retrieval_status": "indexed-document-lead",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G23",
+      "title": "Prairie Avenue 1887",
+      "url": "https://www.glessnerhouse.org/prairie-avenue-1887",
+      "source_type": "museum reproduction of Ward Bros publication",
+      "dates": {
+        "publication": "1887"
+      },
+      "summary": "Northward street view from 20th Street/Cullerton published in Souvenir of Chicago.",
+      "evidence_limit": "Street scene predates 1904; identify individual parcels before using it for geometry.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "G24",
+      "title": "Prairie Avenue neighborhood history",
+      "url": "https://www.glessnerhouse.org/prairie-avenue",
+      "source_type": "museum neighborhood history",
+      "dates": {
+        "last new house": "1904",
+        "institutional conversions": "by 1910"
+      },
+      "summary": "Museum gives 1904 as the last new house for nearly a century; by 1910 medical school and addiction clinic were present.",
+      "evidence_limit": "Useful rationale for a 1904 baseline and 1910/1911 change horizon; individual demolition dates require parcel evidence.",
+      "retrieval_status": "indexed-record-verified",
+      "accessed": "2026-09-26"
+    }
+  ],
+  "assets": [
+    {
+      "file": "inland-architect-1888.jpg",
+      "url": "https://images.squarespace-cdn.com/content/v1/55ef0304e4b03f4c029572a4/2ac22506-7367-4eec-8fc0-55974e09ded3/74%2B-%2BInland%2BArchitect%2BVol%2BXI%2BNo%2B1%2B-%2BFeb%2B1888.jpg",
+      "bytes": 975180,
+      "status": "downloaded",
+      "sha256": "d81ed50777e458fdaa28753ce385e6054479e725065fa97f0642601b733f96f7",
+      "local_path": "research-assets/glessner/inland-architect-1888.jpg",
+      "rights": "Underlying historic work dates 1885/circa1888/1888; United States public-domain basis likely. Museum reproduction rights/license not explicitly stated on source page; retain provenance and review before bulk republication.",
+      "source_id": "G04"
+    },
+    {
+      "file": "porte-cochere-ca1888.jpg",
+      "url": "https://images.squarespace-cdn.com/content/v1/55ef0304e4b03f4c029572a4/510387f9-71f2-4c3c-adee-50b2f99a0962/82%2B-%2BPorte%2Bcochere%2Bdoors.jpg",
+      "bytes": 829526,
+      "status": "downloaded",
+      "sha256": "7ec28333cf83f86af1202e59c577b9e97a2acc5d7e76a4271b6058471c41f900",
+      "local_path": "research-assets/glessner/porte-cochere-ca1888.jpg",
+      "rights": "Underlying historic work dates 1885/circa1888/1888; United States public-domain basis likely. Museum reproduction rights/license not explicitly stated on source page; retain provenance and review before bulk republication.",
+      "source_id": "G05"
+    },
+    {
+      "file": "richardson-sketch-1885.jpg",
+      "url": "https://images.squarespace-cdn.com/content/v1/55ef0304e4b03f4c029572a4/1589217152971-H5GD1V68VR88CPC911Q6/2020-05%2BRichardson%2Bsketch.JPG",
+      "bytes": 129616,
+      "status": "downloaded",
+      "sha256": "c5cfb1b1b75923e0df5efa91bfd7e931d7cf1575c5cdfbff41843098aac462ea",
+      "local_path": "research-assets/glessner/richardson-sketch-1885.jpg",
+      "rights": "Underlying historic work dates 1885/circa1888/1888; United States public-domain basis likely. Museum reproduction rights/license not explicitly stated on source page; retain provenance and review before bulk republication.",
+      "source_id": "G03"
+    }
+  ],
+  "facts": [
+    {
+      "property": "construction",
+      "value": "1886–1887",
+      "source_id": "G01",
+      "evidence": "verified-catalog"
+    },
+    {
+      "property": "occupied",
+      "value": "December 1887",
+      "source_id": "G04",
+      "evidence": "verified-custodian"
+    },
+    {
+      "property": "architect",
+      "value": "Henry Hobson Richardson",
+      "source_id": "G01",
+      "evidence": "verified-catalog"
+    },
+    {
+      "property": "address",
+      "value": "1800 South Prairie Avenue; southwest corner of 18th Street",
+      "source_id": "G01",
+      "evidence": "verified-catalog"
+    },
+    {
+      "property": "foundation material",
+      "value": "Illinois dolomite",
+      "source_id": "G02",
+      "evidence": "verified-custodian"
+    },
+    {
+      "property": "wall material",
+      "value": "Braggville pink granite facing common-brick structural wall",
+      "source_id": "G02",
+      "evidence": "verified-custodian"
+    },
+    {
+      "property": "granite thickness",
+      "value": "UNRESOLVED: 8–10 inches in House page versus about 7 inches in Collection sale-flyer discussion",
+      "source_id": "G02/G03",
+      "evidence": "conflict"
+    },
+    {
+      "property": "gross floor area",
+      "value": "over 17,000 square feet; not a precise measured quantity",
+      "source_id": "G02",
+      "evidence": "approximate-custodian"
+    },
+    {
+      "property": "plan configuration",
+      "value": "E-shaped; courtyard oriented south",
+      "source_id": "G02/G04",
+      "evidence": "verified-custodian"
+    },
+    {
+      "property": "1904 lighting",
+      "value": "Electric service installed summer 1892; kerosene lamps still documented 1901",
+      "source_id": "G07",
+      "evidence": "verified-museum-citing-primary"
+    },
+    {
+      "property": "1892 interior change",
+      "value": "Pretyman parlor wall covering; Morris wallpaper in other rooms",
+      "source_id": "G07",
+      "evidence": "verified-museum-citing-primary"
+    },
+    {
+      "property": "corner guest room wallpaper",
+      "value": "Double Bough from 1892; replaced with same pattern 1916",
+      "source_id": "G06",
+      "evidence": "verified-custodian"
+    },
+    {
+      "property": "1904 basement activity",
+      "value": "Frances Glessner silverwork bench introduced in 1904; exact month unverified",
+      "source_id": "G08",
+      "evidence": "verified-custodian"
+    },
+    {
+      "property": "porte-cochere",
+      "value": "Historic carriage doors removed in 1950s, recreated from ca1888 photograph",
+      "source_id": "G05",
+      "evidence": "verified-custodian"
+    },
+    {
+      "property": "1923 photo use",
+      "value": "Some altered lighting fixtures in 1923 photographs have uncertain installation dates",
+      "source_id": "G07",
+      "evidence": "chronology-warning"
+    }
+  ],
+  "reconstruction_controls": [
+    "Use 1885 sketch only as design-intent evidence; first-floor as-built and altered conditions require HABS/Harvard comparison.",
+    "Use museum period photographs and dated 1892 changes to reconstruct 1904. Do not copy present museum wholesale.",
+    "1904 is a year: choose a season before including newly installed basement workbench.",
+    "Do not invent footprint, heights, floor elevations, roof pitches or openings from uninspected drawing thumbnails.",
+    "1911 Sanborn maps are later evidence; backcast only after change review.",
+    "Separate primary document contents from custodian summaries and catalog leads."
+  ],
+  "acquisition_queue": [
+    {
+      "priority": 1,
+      "target": "All six HABS drawings, 17 photos, 27 data pages and caption page",
+      "source": "G01",
+      "action": "Retrieve originals and transcribe calibrated dimensions and photo dates."
+    },
+    {
+      "priority": 1,
+      "target": "Harvard Glessner construction drawings and details",
+      "source": "G16",
+      "action": "Read drawing index; acquire plans/elevations/sections/details with sheet identifiers."
+    },
+    {
+      "priority": 1,
+      "target": "Frances Glessner journals 1900–1911, especially 1904",
+      "source": "G17",
+      "action": "Obtain museum searchable transcripts or CHM originals; extract dated repair/redecoration/service and neighbor entries."
+    },
+    {
+      "priority": 1,
+      "target": "George Glessner labeled photographs and negatives",
+      "source": "G15",
+      "action": "Request inventory of dated exteriors/interiors/street views with rights and digital reproductions."
+    },
+    {
+      "priority": 2,
+      "target": "1923 Story of a House full album",
+      "source": "G03",
+      "action": "Acquire memoir, original plans, all Kaufmann & Fabry photographs; difference against 1888 and 1904."
+    },
+    {
+      "priority": 2,
+      "target": "Restoration files and paint/finish analyses",
+      "source": "G15",
+      "action": "Extract original material evidence and separate modern replacements."
+    },
+    {
+      "priority": 2,
+      "target": "HABS field notes FN-128",
+      "source": "G01",
+      "action": "Locate unprocessed field measurements and originals through LOC reference service."
+    }
+  ],
+  "download_failures": [
+    {
+      "url": "https://www.loc.gov/item/il0118/?fo=json",
+      "status": "403"
+    },
+    {
+      "url": "https://cdn.loc.gov/master/pnp/habshaer/il/il0100/il0118/data/il0118data.pdf",
+      "status": "403"
+    },
+    {
+      "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/il/il0100/il0118/data/il0118data.pdf",
+      "status": "403"
+    },
+    {
+      "url": "https://cdn.loc.gov/master/pnp/habshaer/il/il0100/il0118/data/il0118cap.pdf",
+      "status": "403"
+    },
+    {
+      "url": "https://cdn.loc.gov/service/pnp/habshaer/il/il0100/il0118/photos/060910pv.jpg",
+      "status": "blocked",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://cdn.loc.gov/service/pnp/habshaer/il/il0100/il0118/photos/060912pv.jpg",
+      "status": "blocked",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "habs_manifest": {
+    "survey": "HABS IL-1015",
+    "item_url": "https://www.loc.gov/item/il0118/",
+    "drawing_pages": [
+      {
+        "sequence": 1,
+        "url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=1",
+        "title": "Title sheet with neighborhood plan",
+        "verification": "indexed title verified"
+      },
+      {
+        "sequence": 2,
+        "url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=2",
+        "title": null,
+        "verification": "catalog count supports sequence; title not extracted"
+      },
+      {
+        "sequence": 3,
+        "url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=3",
+        "title": null,
+        "verification": "catalog count supports sequence; title not extracted"
+      },
+      {
+        "sequence": 4,
+        "url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=4",
+        "title": "Section A-A",
+        "verification": "indexed title verified"
+      },
+      {
+        "sequence": 5,
+        "url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=5",
+        "title": "Masonry details",
+        "verification": "indexed title verified"
+      },
+      {
+        "sequence": 6,
+        "url": "https://www.loc.gov/resource/hhh.il0118.sheet/?sp=6",
+        "title": "Front (east) elevation",
+        "verification": "indexed title verified"
+      }
+    ],
+    "photo_pages": [
+      {
+        "sequence": 1,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=1",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 2,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=2",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 3,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=3",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 4,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=4",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 5,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=5",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 6,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=6",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 7,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=7",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 8,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=8",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 9,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=9",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 10,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=10",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 11,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=11",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 12,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=12",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 13,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=13",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 14,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=14",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 15,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=15",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 16,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=16",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      },
+      {
+        "sequence": 17,
+        "url": "https://www.loc.gov/resource/hhh.il0118.photos/?sp=17",
+        "verification": "catalog count supports sequence; caption extraction pending"
+      }
+    ],
+    "verified_photo_assets": [
+      {
+        "sequence": 8,
+        "title": "Library west and north sides",
+        "date": "circa 1923",
+        "provenance": "HABS photocopy from John J. Glessner, The Story of a House",
+        "record_url": "https://www.loc.gov/pictures/item/il0118.photos.060910p/",
+        "jpeg_url": "https://cdn.loc.gov/service/pnp/habshaer/il/il0100/il0118/photos/060910pv.jpg",
+        "tiff_url": "https://cdn.loc.gov/master/pnp/habshaer/il/il0100/il0118/photos/060910pu.tif",
+        "rights": "LOC warns copied images may have restrictions; underlying 1923 historical work needs item-level assessment."
+      },
+      {
+        "sequence": 10,
+        "title": "Dining room west and north sides",
+        "date": "circa 1923",
+        "provenance": "HABS photocopy from John J. Glessner, The Story of a House",
+        "record_url": "https://www.loc.gov/pictures/item/il0118.photos.060912p/",
+        "jpeg_url": "https://cdn.loc.gov/service/pnp/habshaer/il/il0100/il0118/photos/060912pv.jpg",
+        "tiff_url": "https://cdn.loc.gov/master/pnp/habshaer/il/il0100/il0118/photos/060912pu.tif",
+        "rights": "LOC warns copied images may have restrictions; underlying 1923 historical work needs item-level assessment."
+      },
+      {
+        "sequence": 1,
+        "title": "Exterior from northwest",
+        "date": "1963-07-23",
+        "photographer": "Cervin Robinson",
+        "record_url": "https://www.loc.gov/pictures/resource/hhh.il0118.photos.060903p",
+        "thumbnail_url": "https://cdn.loc.gov/service/pnp/habshaer/il/il0100/il0118/photos/060903p_150px.jpg",
+        "evidence_limit": "Shows post-family institutional use, not 1904."
+      }
+    ]
+  }
+}

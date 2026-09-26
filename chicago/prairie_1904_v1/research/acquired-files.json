@@ -1,0 +1,416 @@
+[
+  {
+    "path": "maps/originals/robinson-1886-north-block.jpg",
+    "bytes": 889562,
+    "sha256": "652bfd6b70ea05447b866933bf4a019b593313a338ee203e4f3744eaa999a1ab",
+    "retention": "repository"
+  },
+  {
+    "path": "maps/originals/sanborn-1911-key.jpg",
+    "bytes": 507539,
+    "sha256": "8757152ea4edb1c7a22fe1beaf687bc6880689bd4cbb81f179c00b5a4e9c3391",
+    "retention": "repository"
+  },
+  {
+    "path": "maps/originals/sanborn-1911-sheet-20.jpg",
+    "bytes": 883177,
+    "sha256": "c7065feb27f8d9bf1b1b69b1b8505da44fb0e5d72ba6ffee36e56b25f2b39291",
+    "retention": "repository"
+  },
+  {
+    "path": "maps/originals/sanborn-1911-sheet-28.jpg",
+    "bytes": 866800,
+    "sha256": "48c9db192ad96415754622df7c50dbee413ac971f8330493f913706538974ce9",
+    "retention": "repository"
+  },
+  {
+    "path": "maps/originals/sanborn-1911-sheet-35.jpg",
+    "bytes": 890229,
+    "sha256": "753b3cf4f70b9f4d2d6d1b3fd0e638bdc22d0ed859b1cba17ce20dd13dfaaabf",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/clarke-habs-data.pdf",
+    "bytes": 116076,
+    "sha256": "e18248b26cc2c5e08f96a08f86fdb3e7bce201fef737cf4b07b330ac4d2944fc",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-data.pdf",
+    "bytes": 988424,
+    "sha256": "396aa92eda99b41b6a0c6bee2515c4a9a5509f8e8dc42fb9694ecec407e9d407",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-1.png",
+    "bytes": 1301635,
+    "sha256": "b5cb45f2ecad879959dbf62e60431984b60ae088a0883f3201b5505539427623",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-1.tif",
+    "bytes": 796400,
+    "sha256": "5a0a51ef44be4c0203b305539f16bcb6686c765e35968ab63b89863aad4324a3",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-2.png",
+    "bytes": 923285,
+    "sha256": "23593d8eb6ce3c7ddc35221f0eab62371b76fe821d43dfd9e503060930ddb660",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-2.tif",
+    "bytes": 574580,
+    "sha256": "4022ad6e8384c0d80cc4bc3a06e37414f18d3cebd60a9dce066c1bdd90646be9",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-3.png",
+    "bytes": 892574,
+    "sha256": "5d52e28b6e1363da8afe7574035383c9f429bb2943682a3d2551a181dd8e972b",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-3.tif",
+    "bytes": 551998,
+    "sha256": "51d9ace7fbb4945a0752706b97aa854de9c4af81c13c86b39b3aa18b76cdec07",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-4.png",
+    "bytes": 1688228,
+    "sha256": "3ea0e58b5dff642041b94de27b2fd786cd7e50d566a7cf680620e20f728d15b2",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-4.tif",
+    "bytes": 1435148,
+    "sha256": "0a601c7addc7df43ab8a68c05f386e8770b146e93994c5e5da3ee22b176fa7fc",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-5.png",
+    "bytes": 1443790,
+    "sha256": "cc9daa9ca663542f95ef82511ad755b1ce3b77621bf7f1846ee2bfe1ba18713e",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-5.tif",
+    "bytes": 950582,
+    "sha256": "b736245db6218e62ccf7c7a1b2faad781da363dfd2853cc95ad40c24ad6e597a",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-6.png",
+    "bytes": 2571312,
+    "sha256": "9cbb7dc9e704a8864310211dfe083972732c784e8cb501f24931a67af2a66025",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/glessner-habs-sheet-6.tif",
+    "bytes": 2425520,
+    "sha256": "2f90ff1857ecafdaa1914aa22a29f7b873c8a2a48881803895203a5ea41ba8ca",
+    "retention": "repository"
+  },
+  {
+    "path": "research/public/kimball-habs-data.pdf",
+    "bytes": 129250,
+    "sha256": "27b11a5070d018b6d5f6a3eaa223085978272dda5303dd0cf80938480476db46",
+    "retention": "repository"
+  },
+  {
+    "path": "research-assets/buildings/1729prairie1886map.jpg",
+    "bytes": 2775235,
+    "sha256": "a7ff768322286e3024c779f1b22c816cca35d343679492e6b36a9f5bbafb315e",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/1729prairie1901.jpg",
+    "bytes": 624387,
+    "sha256": "2f7071713fb4c161b68530e30cb839730666a01448928ad74146363897e4f13d",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/1729prairie1902.jpg",
+    "bytes": 391393,
+    "sha256": "76f03000a82416afed94da9a60f70219e166fe4564aa252f2a2e51a835ce4723",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/1729prairieaddition.jpg",
+    "bytes": 301670,
+    "sha256": "d3dcd036e23f1f5f85240c5cf6a65e2bbf814e6ad2bde93cce3aa2704fb89b1f",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/1729prairiedailynews.jpg",
+    "bytes": 277244,
+    "sha256": "f180d0c705072c031f6f0d1e974d49c26f8d28645cc4f25ba79648fed7ca7182",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/1729prairiedrawingroom.jpg",
+    "bytes": 1078403,
+    "sha256": "dac1b4d2b9c52059f2153cab6dab19480c35c2aecb1a980beef59629f01033db",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/1893marshallfieldhouse.jpg",
+    "bytes": 1419296,
+    "sha256": "25995b2477b84b7a4b450d4dde014b462dc56653963ec7913627128e5634badc",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/1905prairehallway.jpg",
+    "bytes": 1440188,
+    "sha256": "284ed2d5049bfc9c7873c27b3ce8e376309ec9ff8a6ccff349bc5dc8e89cbbee",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/1905prairie1886map.jpg",
+    "bytes": 2778789,
+    "sha256": "d212dfbda6620474ff3ea74804d7f1bec02092707f552408783b8e5769888661",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/1905prairieA.jpg",
+    "bytes": 455105,
+    "sha256": "a81025eecebcecd304e3b48f20ad509bb71b2669b763d5829716be6a2cbe69af",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/1905prairieC.jpg",
+    "bytes": 137667,
+    "sha256": "5ee3ed2c4407359686d9636c1804c2102175f7eb3fece48df137fa2086ad475a",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/1905prairielibrary.jpg",
+    "bytes": 603950,
+    "sha256": "f30d17569c4e38fda5b3abaec4cf6d172b87907f2ef59e33444c90f3482e5f66",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/923prairiefieldhome.jpg",
+    "bytes": 1144328,
+    "sha256": "44aa281670f19edaa108dbdfb5eb2073528cad379858eea76f6eda12fd0d1cb9",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/acquisition-manifest.json",
+    "bytes": 22384,
+    "sha256": "929dc6475041f287160772cf2437a9015009baef930d66a361d5c793eb4e605e",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/clarke-habs-data.pdf",
+    "bytes": 116076,
+    "sha256": "e18248b26cc2c5e08f96a08f86fdb3e7bce201fef737cf4b07b330ac4d2944fc",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/dimensional-claims.json",
+    "bytes": 11690,
+    "sha256": "933745536492b7ef338b832068ab2b2f2ed6df3e20a063e78c8ae4819e0cfd54",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/glessner-chronology-supplement.json",
+    "bytes": 1801,
+    "sha256": "463e649d09fb7a5ec26c83aa78383f41ff6b8e2a7721913ab20195ffcb89242b",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/glessner-habs-data.pdf",
+    "bytes": 988424,
+    "sha256": "396aa92eda99b41b6a0c6bee2515c4a9a5509f8e8dc42fb9694ecec407e9d407",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/glessner-habs-sheet-1.tif",
+    "bytes": 796400,
+    "sha256": "5a0a51ef44be4c0203b305539f16bcb6686c765e35968ab63b89863aad4324a3",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/glessner-habs-sheet-2.tif",
+    "bytes": 574580,
+    "sha256": "4022ad6e8384c0d80cc4bc3a06e37414f18d3cebd60a9dce066c1bdd90646be9",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/glessner-habs-sheet-3.tif",
+    "bytes": 551998,
+    "sha256": "51d9ace7fbb4945a0752706b97aa854de9c4af81c13c86b39b3aa18b76cdec07",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/glessner-habs-sheet-4.tif",
+    "bytes": 1435148,
+    "sha256": "0a601c7addc7df43ab8a68c05f386e8770b146e93994c5e5da3ee22b176fa7fc",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/glessner-habs-sheet-5.tif",
+    "bytes": 950582,
+    "sha256": "b736245db6218e62ccf7c7a1b2faad781da363dfd2853cc95ad40c24ad6e597a",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/glessner-habs-sheet-6.tif",
+    "bytes": 2425520,
+    "sha256": "2f90ff1857ecafdaa1914aa22a29f7b873c8a2a48881803895203a5ea41ba8ca",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/keith-dining-room.jpg",
+    "bytes": 479816,
+    "sha256": "2e1114542688b7e98ec31d130d802a1b825c17ff2f1ac78b16ef53ddda87b0cd",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/keith-nrhp-1972.pdf",
+    "bytes": 40352871,
+    "sha256": "92d947d05a8aedb97efd2631e0d93efa7c88e74770e972ff0a8a70079ccfa79e",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/kimball-habs-data.pdf",
+    "bytes": 129250,
+    "sha256": "27b11a5070d018b6d5f6a3eaa223085978272dda5303dd0cf80938480476db46",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/prairie-brochure-2022.pdf",
+    "bytes": 1776366,
+    "sha256": "fc679e8527e458af5bf6839e990d15570c481e4172b27c0a01b177f2d9cf1fbb",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/prairie-city-report-1973.pdf",
+    "bytes": 1434832,
+    "sha256": "82a0f6c22f73c32e0f88ddd9856e40351e4b6b62299164d1ec0747668385c30c",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/prairie-district-nrhp-1972.pdf",
+    "bytes": 40352871,
+    "sha256": "92d947d05a8aedb97efd2631e0d93efa7c88e74770e972ff0a8a70079ccfa79e",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/reid-nrhp-2003.pdf",
+    "bytes": 38678201,
+    "sha256": "39b2e6e45a1f2f17d82095b8b87c4592aa667f662bdac203ab931a6a8ad3453d",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/buildings/wheeler-kohn-nrhp-1999.pdf",
+    "bytes": 32663769,
+    "sha256": "83ff72d5a8d6f0ffcdf942f78b64fa756136abd4161c194180acb9e2bd0a0630",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/blue-book-1903-ocr.txt",
+    "bytes": 2506970,
+    "sha256": "695c3d3b116b575aa93a2e0678c53721659a00505b6a0949d9371d8126e25e79",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/blue-book-1904-ocr.txt",
+    "bytes": 2518852,
+    "sha256": "3a61b5af090f1e7109e92565d13bf4c4bb29d0863357b52c34ad0f38e3acf811",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/blue-book-1904.pdf",
+    "bytes": 85791730,
+    "sha256": "59c5081ee1a9a7ed3f615e7b260b0c3f0b3d908628bc0624676cd2b6a117c7d5",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/blue-book-1905-ocr.txt",
+    "bytes": 2498609,
+    "sha256": "314b7826d0f73a4015b105f9367df1b86b1080d950038cdd2126244a6f1ff547",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/blue-book-1906-ocr.txt",
+    "bytes": 2611424,
+    "sha256": "b883aa1b2393d9cea00180888761fa3082625073d8e52a013e864c9415582267",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/blue-book-1907-ocr.txt",
+    "bytes": 2542940,
+    "sha256": "fd76aeeed8dec73cfcd4b0c3fb003df84da311ced9ee96eca245d38afd9042a1",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/blue-book-1908-ocr.txt",
+    "bytes": 2683238,
+    "sha256": "47d18b89d914129cdd726783e35b0773e0d4ef1c402842f89d014453bed437d4",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/blue-book-1909-ocr.txt",
+    "bytes": 2745904,
+    "sha256": "cd6cb37f3bf384be5a63b412f9a99cc28bb2cc886153d091dbb79bd2380da615",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/blue-book-1910-ocr.txt",
+    "bytes": 2770108,
+    "sha256": "1e0e7a6a6f4d971073f73781599418ad131a557644817db1148436b5f7d4f7d7",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/blue-book-1910.pdf",
+    "bytes": 93390178,
+    "sha256": "3596a01075d802eb964da3f4cf83107bd7cb8e5759c1fe848a4b5a79cf6acdc7",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/blue-book-1911-ocr.txt",
+    "bytes": 2847825,
+    "sha256": "7b46d640ae1de9f30194d4cc4c66e37bbb393db98aba0b68ae2db8e65506d8bf",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/municipal-code-1881.pdf",
+    "bytes": 59067033,
+    "sha256": "2b9785ac4c8715fb9f2e2355e6fb6351e09740e8aae16201cda3d4fdcb511bf7",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/civic/uiuc-rights.html",
+    "bytes": 4770,
+    "sha256": "51661254e52f8b7b4f5ade0be374154be0570de133fff27188f67b486d5d7163",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/glessner/download-log.json",
+    "bytes": 800,
+    "sha256": "75be645cbf0e9bee61aa438da54568c8bb74625abd1f443caad438ad984d40ed",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/glessner/inland-architect-1888.jpg",
+    "bytes": 975180,
+    "sha256": "d81ed50777e458fdaa28753ce385e6054479e725065fa97f0642601b733f96f7",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/glessner/porte-cochere-ca1888.jpg",
+    "bytes": 829526,
+    "sha256": "7ec28333cf83f86af1202e59c577b9e97a2acc5d7e76a4271b6058471c41f900",
+    "retention": "companion_archive_not_Pages"
+  },
+  {
+    "path": "research-assets/glessner/richardson-sketch-1885.jpg",
+    "bytes": 129616,
+    "sha256": "c5cfb1b1b75923e0df5efa91bfd7e931d7cf1575c5cdfbff41843098aac462ea",
+    "retention": "companion_archive_not_Pages"
+  }
+]

@@ -1,0 +1,1181 @@
+{
+  "title": "Prairie Avenue reconstruction building research inventory",
+  "researched_at": "2026-09-26",
+  "target_year": 1904,
+  "coverage": "Named-building inventory, 1600–2100 Prairie blocks plus adjacent context. NOT a parcel-complete census. Null dates mean unknown, not proof of survival. Owners/names are historical associations, not a 1904 household roster.",
+  "sources": [
+    {
+      "id": "marker_north",
+      "title": "Lost Houses: 1600–1700 blocks",
+      "url": "https://www.hmdb.org/m.asp?m=308722",
+      "type": "Historic interpretive marker transcription",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "marker_west",
+      "title": "Lost Houses: 1800–1900 west",
+      "url": "https://www.hmdb.org/m.asp?m=308706",
+      "type": "Historic interpretive marker transcription",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "marker_east",
+      "title": "Lost Houses: 1800–1900 east",
+      "url": "https://www.hmdb.org/m.asp?m=308709",
+      "type": "Historic interpretive marker transcription",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "marker_south",
+      "title": "Lost Houses: 2000–2100 blocks",
+      "url": "https://www.hmdb.org/m.asp?m=308703",
+      "type": "Historic interpretive marker transcription",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "marker_survivors",
+      "title": "A Heritage Preserved",
+      "url": "https://www.hmdb.org/m.asp?m=308723",
+      "type": "Historic interpretive marker transcription",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "marker_outside",
+      "title": "Outside the District",
+      "url": "https://www.hmdb.org/m.asp?m=308724",
+      "type": "Historic interpretive marker transcription",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "city1973",
+      "title": "Prairie Avenue: Chicago’s First Gold Coast, March 1973",
+      "url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+      "type": "City Commission on Chicago Historical and Architectural Landmarks research report",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "early2",
+      "title": "Early History of Prairie Avenue, Part II",
+      "url": "https://glessnerhouse.blogspot.com/2020/06/the-early-history-of-prairie-avenue_23.html",
+      "type": "Glessner House Museum research, 2020-06-23",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "early4",
+      "title": "Early History of Prairie Avenue, Part IV",
+      "url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
+      "type": "Glessner House Museum research, 2020-07-07",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "news",
+      "title": "Prairie Avenue in the News",
+      "url": "https://fannyglessner.wordpress.com/the-household-2/the-neighborhood/prairie-avenue-in-the-news/",
+      "type": "Glessner House institutional research archive",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "collection",
+      "title": "The Collection",
+      "url": "https://www.glessnerhouse.org/the-collection",
+      "type": "Glessner House Museum",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "kimball",
+      "title": "The Kimball House on Chicago’s Prairie Avenue",
+      "url": "https://glessnerhouse.blogspot.com/2013/05/the-kimball-house-on-chicagos-prairie.html",
+      "type": "Glessner House Museum, search-index text retrieved; full open rate-limited",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "hanford",
+      "title": "Unearthing Hanford",
+      "url": "https://glessnerhouse.blogspot.com/2015/03/unearthing-hanford.html",
+      "type": "Glessner House Museum, 2015-03-30",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "worlds",
+      "title": "The Worlds of Prairie Avenue",
+      "url": "https://www.encyclopedia.chicagohistory.org/pages/10431_em.html",
+      "type": "Encyclopedia of Chicago; search-index text retrieved, open timed out",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "burley",
+      "title": "Burley and Tyrrell, January 2022",
+      "url": "https://glessnerhouse.blogspot.com/2022/01/",
+      "type": "Glessner House Museum research",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "christmas",
+      "title": "Glessner House 2021 articles / Christmas 1911",
+      "url": "https://glessnerhouse.blogspot.com/2021/",
+      "type": "Glessner House Museum research",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "reid_nom",
+      "title": "Reid House National Register nomination",
+      "url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf",
+      "type": "National Register nomination; search-index lead, full 38.7 MB PDF not retrieved",
+      "accessed": "2026-09-26"
+    },
+    {
+      "id": "reid_nom_acquired",
+      "title": "Reid House National Register nomination, 2003",
+      "url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf",
+      "type": "National Register primary nomination, fully acquired",
+      "accessed": "2026-09-26",
+      "local_file": "research-assets/buildings/reid-nrhp-2003.pdf"
+    }
+  ],
+  "buildings": [
+    {
+      "id": "pa-1612-1",
+      "address": "1612 S. Prairie Avenue",
+      "name": "Joseph Goodman / Studebaker residence",
+      "construction": "1869",
+      "demolition": "circa 1960",
+      "architect": null,
+      "sources": [
+        "marker_north"
+      ],
+      "notes": "Bishop Anderson residence from 1905; do not backdate that occupancy.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1638-2",
+      "address": "1638 S. Prairie Avenue",
+      "name": "John G. Shortall / Robert B. and Addie Gregory residence",
+      "construction": "1868 (marker); 1870 (1973 report)",
+      "demolition": "1944 (marker); conflicts with report’s 1947 occupancy claim",
+      "architect": "John W. Roberts",
+      "sources": [
+        "marker_north",
+        "city1973"
+      ],
+      "notes": "Chronology conflict retained; adjudicate against permits/newspapers.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1701-3",
+      "address": "1701 S. Prairie Avenue",
+      "name": "William G. Hibbard residence",
+      "construction": "1869",
+      "demolition": "1932",
+      "architect": "William Le Baron Jenney",
+      "sources": [
+        "marker_north"
+      ],
+      "notes": "American Terra Cotta acquired 1921; Sullivan office was later use.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1721-4",
+      "address": "1721 S. Prairie Avenue",
+      "name": "Wirt Dexter residence",
+      "construction": "1863",
+      "demolition": "1927",
+      "architect": null,
+      "sources": [
+        "marker_north"
+      ],
+      "notes": "Arthur Little front addition, 1889; later relocation of addition requires dated phase model.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1729-5",
+      "address": "1729 S. Prairie Avenue",
+      "name": "George M. Pullman residence",
+      "construction": "1870–1876",
+      "demolition": "1922",
+      "architect": "Henry S. Jaffray; later Solon S. Beman",
+      "sources": [
+        "marker_north"
+      ],
+      "notes": "Marker spells Jaffay; theatre, organ, bowling alley; conservatory/park extended across 18th along Calumet.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1808-6",
+      "address": "1808 S. Prairie Avenue",
+      "name": "Osborn R. Keith / Stanley Field residence",
+      "construction": "1886",
+      "demolition": "1968",
+      "architect": "Cobb & Frost",
+      "sources": [
+        "marker_west"
+      ],
+      "notes": "North wall retained beside Glessner courtyard.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1812-7",
+      "address": "1812 S. Prairie Avenue",
+      "name": "George H. Wheeler residence",
+      "construction": "1884",
+      "demolition": "1968",
+      "architect": "Burnham & Root",
+      "sources": [
+        "marker_west"
+      ],
+      "notes": "Brick, Dutch vernacular rowhouse.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1824-8",
+      "address": "1824 S. Prairie Avenue",
+      "name": "Samuel B. Pomeroy / George B. Marsh residence",
+      "construction": "1857",
+      "demolition": "1940s",
+      "architect": null,
+      "sources": [
+        "marker_west"
+      ],
+      "notes": "New stone front in early 1880s; use altered form for 1904.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1834-9",
+      "address": "1834 S. Prairie Avenue",
+      "name": "Fernando Jones residence",
+      "construction": "1866 (marker); post-1871 (1973 report)",
+      "demolition": "1942",
+      "architect": "John M. Van Osdel",
+      "sources": [
+        "marker_west",
+        "city1973"
+      ],
+      "notes": "1886 mansard addition; disputed original construction date.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1912-10",
+      "address": "1912 S. Prairie Avenue",
+      "name": "Bryan P. Moulton / Frank O. Lowden residence",
+      "construction": "1882",
+      "demolition": "1939",
+      "architect": null,
+      "sources": [
+        "marker_west"
+      ],
+      "notes": "Marker says Lowden acquired 1898; 1973 report says 1899. Later Blackstone widow use not necessarily 1904.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1936-11",
+      "address": "1936 S. Prairie Avenue",
+      "name": "Daniel M. Thompson / Samuel W. Allerton residence",
+      "construction": "1870",
+      "demolition": "1915",
+      "architect": "Lavall B. Dixon",
+      "sources": [
+        "marker_west"
+      ],
+      "notes": "Allerton ownership from 1879; Hump Hairpin factory replaced house.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1815-12",
+      "address": "1815 S. Prairie Avenue",
+      "name": "Joseph Sears / Arthur Meeker residence",
+      "construction": "1882",
+      "demolition": "1967",
+      "architect": "Burnham & Root",
+      "sources": [
+        "marker_east"
+      ],
+      "notes": "Meeker acquired 1902; exact 1904 occupancy needs directory.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": "Arthur Meeker family, supported by 1902 acquisition but not a 1904 household roster",
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1823-13",
+      "address": "1823 S. Prairie Avenue",
+      "name": "Thomas Dent residence",
+      "construction": "1881",
+      "demolition": "1945",
+      "architect": "Burnham & Root",
+      "sources": [
+        "marker_east"
+      ],
+      "notes": "Later donated to Second Presbyterian Church.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1827-14",
+      "address": "1827 S. Prairie Avenue",
+      "name": "John W. Doane residence",
+      "construction": "1882",
+      "demolition": "1936",
+      "architect": "Theodore V. Wadskier",
+      "sources": [
+        "marker_east"
+      ],
+      "notes": "La Farge glazing; verify architect spelling against signed drawings.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1901-15",
+      "address": "1901 S. Prairie Avenue",
+      "name": "Osborn R. Keith / Norman B. Ream residence",
+      "construction": "1882",
+      "demolition": "1929",
+      "architect": "Lavall B. Dixon; remodel Daniel Burnham",
+      "sources": [
+        "marker_east"
+      ],
+      "notes": "1887 remodeling is relevant to target form.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1905-16",
+      "address": "1905 S. Prairie Avenue",
+      "name": "Marshall Field Sr. residence",
+      "construction": "1871–1873",
+      "demolition": "1955",
+      "architect": "Richard Morris Hunt",
+      "sources": [
+        "marker_east"
+      ],
+      "notes": "New Bauhaus and aeronautical school were later uses.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2009-17",
+      "address": "2009 S. Prairie Avenue",
+      "name": "Max A. Mayer residence",
+      "construction": "1888",
+      "demolition": "1955",
+      "architect": "Burnham & Root",
+      "sources": [
+        "marker_south"
+      ],
+      "notes": "Marker heading spells Meyer; text spells Mayer; retain name ambiguity.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2100-18",
+      "address": "2100 S. Prairie Avenue",
+      "name": "John B. Sherman residence",
+      "construction": "1874",
+      "demolition": "1936",
+      "architect": "Burnham & Root",
+      "sources": [
+        "marker_south"
+      ],
+      "notes": "",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2115-19",
+      "address": "2115 S. Prairie Avenue",
+      "name": "David Kelley / Philip D. Armour residence",
+      "construction": "1871",
+      "demolition": "1937",
+      "architect": null,
+      "sources": [
+        "marker_south"
+      ],
+      "notes": "Armour widow remained through 1927; do not label deceased Philip as 1904 occupant.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2126-20",
+      "address": "2126 S. Prairie Avenue",
+      "name": "Edward F. Robbins residence",
+      "construction": "1904 (marker); other accounts say 1905",
+      "demolition": "2002",
+      "architect": "Mann, MacNeill & Lindeberg",
+      "sources": [
+        "marker_south"
+      ],
+      "notes": "Target-year construction event: no exact completion/occupancy date established. Red brick, white marble; publishing offices later.",
+      "target1904": "construction during target year; month unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2140-21",
+      "address": "2140 S. Prairie Avenue",
+      "name": "William F. Tucker / Byron L. Smith residence",
+      "construction": "1876",
+      "demolition": "1936",
+      "architect": "John M. Van Osdel",
+      "sources": [
+        "marker_south"
+      ],
+      "notes": "Smith acquired 1881; dining room salvaged to Northern Trust.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1800-22",
+      "address": "1800 S. Prairie Avenue",
+      "name": "John and Frances Glessner residence",
+      "construction": "1887",
+      "demolition": null,
+      "architect": "Henry Hobson Richardson",
+      "sources": [
+        "marker_survivors"
+      ],
+      "notes": "Extant courtyard house; consult separate deep Glessner dossier.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1801-23",
+      "address": "1801 S. Prairie Avenue",
+      "name": "William W. Kimball residence",
+      "construction": "1890–1892",
+      "demolition": null,
+      "architect": "Solon S. Beman",
+      "sources": [
+        "marker_survivors",
+        "kimball"
+      ],
+      "notes": "Marker dates 1890; museum article explains completion in 1892 after two-year construction.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1811-24",
+      "address": "1811 S. Prairie Avenue",
+      "name": "Joseph G. Coleman / Ames residence",
+      "construction": "1886",
+      "demolition": null,
+      "architect": "Cobb & Frost",
+      "sources": [
+        "marker_survivors"
+      ],
+      "notes": "Brown sandstone; Romanesque.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1900-25",
+      "address": "1900 S. Prairie Avenue",
+      "name": "Elbridge G. Keith residence",
+      "construction": "1870",
+      "demolition": null,
+      "architect": "John W. Roberts",
+      "sources": [
+        "marker_survivors"
+      ],
+      "notes": "Second Empire.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1919-26",
+      "address": "1919 S. Prairie Avenue",
+      "name": "William Murray / Charles Schwartz / Marshall Field Jr. residence",
+      "construction": "1867 (marker); 1883 Beman commission (museum research)",
+      "demolition": null,
+      "architect": "Solon S. Beman; D. H. Burnham & Co. addition",
+      "sources": [
+        "marker_survivors",
+        "news"
+      ],
+      "notes": "1902 enlargement; 20-foot land strip from Field Sr.; construction phases need adjudication.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-213–217-e.-cullerton-street-27",
+      "address": "213–217 E. Cullerton Street",
+      "name": "Three surviving rowhouses",
+      "construction": "circa 1870–1900",
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "marker_survivors"
+      ],
+      "notes": "Aggregate inventory record; split to 213, 215, 217 after parcel map review.",
+      "target1904": "inferred present",
+      "scope": "adjacent",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1827-s.-indiana-avenue-(modern-location)-28",
+      "address": "1827 S. Indiana Avenue (modern location)",
+      "name": "Henry B. Clarke residence",
+      "construction": "1836",
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "marker_survivors"
+      ],
+      "notes": "Moved to Wabash in 1872, here in 1977. EXCLUDE from 1904 neighborhood scene.",
+      "target1904": "absent from this site in 1904",
+      "scope": "anachronism guard",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2013-29",
+      "address": "2013 S. Prairie Avenue",
+      "name": "William H. Reid residence",
+      "construction": "1894",
+      "demolition": null,
+      "architect": "Beers, Clay & Dutton",
+      "sources": [
+        "marker_outside"
+      ],
+      "notes": "Replaced earlier house on same parcel. Nomination PDF is acquisition lead.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2110-30",
+      "address": "2110 S. Prairie Avenue",
+      "name": "Harriet P. Rees residence",
+      "construction": "1888 (marker); 1887 (Reid nomination lead)",
+      "demolition": null,
+      "architect": "Cobb & Frost",
+      "sources": [
+        "marker_outside",
+        "reid_nom"
+      ],
+      "notes": "Historical address; do not use relocated modern site for 1904. Date discrepancy requires Rees nomination.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2018-s.-calumet-avenue-31",
+      "address": "2018 S. Calumet Avenue",
+      "name": "Calvin T. Wheeler / Joseph A. Kohn residence",
+      "construction": "1870",
+      "demolition": null,
+      "architect": "Otis L. Wheelock",
+      "sources": [
+        "marker_outside"
+      ],
+      "notes": "1880s copper bay alteration.",
+      "target1904": "inferred present",
+      "scope": "adjacent",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1936-s.-michigan-avenue-32",
+      "address": "1936 S. Michigan Avenue",
+      "name": "Second Presbyterian Church",
+      "construction": "1872–1874",
+      "demolition": null,
+      "architect": "James Renwick; interior Howard Van Doren Shaw and Frederic Clay Bartlett",
+      "sources": [
+        "marker_outside"
+      ],
+      "notes": "1900 sanctuary fire and subsequent Arts and Crafts rebuilding; 1904 interior must be postfire.",
+      "target1904": "inferred present",
+      "scope": "adjacent",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1816-33",
+      "address": "1816 S. Prairie Avenue",
+      "name": "Charles M. Henderson residence",
+      "construction": null,
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "city1973"
+      ],
+      "notes": "Address/name identification only; exact lifetime and 1904 household unresolved.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1906-34",
+      "address": "1906 S. Prairie Avenue",
+      "name": "Edson Keith residence",
+      "construction": null,
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "city1973"
+      ],
+      "notes": "Address/name identification only; 1904 residents require directory.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1923-35",
+      "address": "1923 S. Prairie Avenue",
+      "name": "Charles P. Kellogg residence",
+      "construction": null,
+      "demolition": "1933",
+      "architect": null,
+      "sources": [
+        "news"
+      ],
+      "notes": "Construction and target occupancy unresolved.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2021-36",
+      "address": "2021 S. Prairie Avenue",
+      "name": "Benjamin Adams / James L. High residence",
+      "construction": "late 1870s",
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "city1973"
+      ],
+      "notes": "High purchase 1886; 16 rooms, 2.5 stories reported.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2027-37",
+      "address": "2027 S. Prairie Avenue",
+      "name": "Silas B. Cobb-associated residence",
+      "construction": null,
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "city1973"
+      ],
+      "notes": "Historical association only; owner versus daughter’s household must be resolved.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2036-38",
+      "address": "2036 S. Prairie Avenue",
+      "name": "Ebenezer Buckingham residence",
+      "construction": null,
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "city1973"
+      ],
+      "notes": "Address/name identification only.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2112-39",
+      "address": "2112 S. Prairie Avenue",
+      "name": "Max M. Rothschild residence",
+      "construction": null,
+      "demolition": "1934",
+      "architect": null,
+      "sources": [
+        "news"
+      ],
+      "notes": "Construction and target occupants unresolved.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2108-40",
+      "address": "2108 S. Prairie Avenue",
+      "name": "Mark Kimball residence",
+      "construction": null,
+      "demolition": "1933",
+      "architect": null,
+      "sources": [
+        "news"
+      ],
+      "notes": "Do not confuse with William Kimball at 1801.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2109-41",
+      "address": "2109 S. Prairie Avenue",
+      "name": "Robert Roloson residence",
+      "construction": null,
+      "demolition": "1933",
+      "architect": null,
+      "sources": [
+        "news"
+      ],
+      "notes": "Construction and target occupants unresolved.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2130-42",
+      "address": "2130 S. Prairie Avenue",
+      "name": "Thomas Murdoch residence",
+      "construction": null,
+      "demolition": "1933",
+      "architect": null,
+      "sources": [
+        "news"
+      ],
+      "notes": "Construction and target occupants unresolved.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1702-43",
+      "address": "1702 S. Prairie Avenue",
+      "name": "John Nichols Staples / Turlington W. Harvey residence",
+      "construction": "1853",
+      "demolition": "1899",
+      "architect": null,
+      "sources": [
+        "early2"
+      ],
+      "notes": "1880 remodeling. Replaced by Glessner children’s townhouses; exclude old house in 1904.",
+      "target1904": "demolished before 1904",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1804–1808-s.-prairie-avenue-(predecessors)-44",
+      "address": "1804–1808 S. Prairie Avenue (predecessors)",
+      "name": "Horatio Hitchcock / A. J. Galloway double houses",
+      "construction": "circa 1858",
+      "demolition": "1886",
+      "architect": null,
+      "sources": [
+        "early2"
+      ],
+      "notes": "Replaced by Glessner and O. R. Keith residences; illustrated 1874; exclude in target year.",
+      "target1904": "demolished before 1904",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1637-45",
+      "address": "1637 S. Prairie Avenue",
+      "name": "Cornelia Grosvenor / Jesse Spalding residence",
+      "construction": "1862",
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "early4"
+      ],
+      "notes": "Major Spalding remodeling obscured initial Italianate design; target phase unresolved.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1709-46",
+      "address": "1709 S. Prairie Avenue",
+      "name": "Nicholas O. Williams residence",
+      "construction": "1862",
+      "demolition": "circa 1882",
+      "architect": "W. W. Boyington",
+      "sources": [
+        "early4"
+      ],
+      "notes": "Superseded by Palmer Kellogg house.",
+      "target1904": "demolished before 1904",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1709-s.-prairie-avenue-(successor)-47",
+      "address": "1709 S. Prairie Avenue (successor)",
+      "name": "Palmer Kellogg residence",
+      "construction": "circa 1882",
+      "demolition": null,
+      "architect": "Burnham & Root",
+      "sources": [
+        "early4"
+      ],
+      "notes": "Replacement of Williams house; demolition unknown.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1635-48",
+      "address": "1635 S. Prairie Avenue",
+      "name": "Col. Robert Forsyth residence",
+      "construction": "1863",
+      "demolition": "by early 1900s",
+      "architect": null,
+      "sources": [
+        "early4"
+      ],
+      "notes": "Do not assume present in 1904; requires demolition permit.",
+      "target1904": "uncertain; likely absent",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1736-49",
+      "address": "1736 S. Prairie Avenue",
+      "name": "Granville S. Ingraham / Hugh McBirney residence",
+      "construction": "1864",
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "early4"
+      ],
+      "notes": "Mansard may be later addition; phase unresolved.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1630-50",
+      "address": "1630 S. Prairie Avenue",
+      "name": "Small early residence; owner unresolved",
+      "construction": "Civil War era",
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "early4"
+      ],
+      "notes": "Known to survive into twentieth century; target exact form unknown.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1726–1728-s.-prairie-avenue-(predecessor)-51",
+      "address": "1726–1728 S. Prairie Avenue (predecessor)",
+      "name": "Early frame double house",
+      "construction": "Civil War era",
+      "demolition": "1880s",
+      "architect": null,
+      "sources": [
+        "early4"
+      ],
+      "notes": "Record replacement properties from map; predecessor excluded in target year.",
+      "target1904": "demolished before 1904",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1700-52",
+      "address": "1700 S. Prairie Avenue",
+      "name": "Blewett and Frances Glessner Lee townhouse",
+      "construction": "1901 design; occupied March 4, 1902",
+      "demolition": null,
+      "architect": "Shepley, Rutan & Coolidge",
+      "sources": [
+        "collection"
+      ],
+      "notes": "Mirror of 1706; Georgian Revival; 1904 occupants still require census/directory corroboration.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1706-53",
+      "address": "1706 S. Prairie Avenue",
+      "name": "George and Alice Glessner townhouse",
+      "construction": "1901 design",
+      "demolition": null,
+      "architect": "Shepley, Rutan & Coolidge",
+      "sources": [
+        "collection"
+      ],
+      "notes": "Mirror of 1700; Georgian Revival; separate from earlier 1702 Staples building.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1708-54",
+      "address": "1708 S. Prairie Avenue",
+      "name": "James and Narcissa Thorne residence",
+      "construction": null,
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "christmas"
+      ],
+      "notes": "1911 address attestation only; do not project occupancy to 1904.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-1720-55",
+      "address": "1720 S. Prairie Avenue",
+      "name": "John Tyrrell / James Walker residence",
+      "construction": "1868",
+      "demolition": "1910",
+      "architect": "Otis L. Wheelock",
+      "sources": [
+        "burley",
+        "worlds"
+      ],
+      "notes": "Tyrrell sold 1878; encyclopedia marks 1910 loss. Italianate frame.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2008-s.-calumet-avenue-56",
+      "address": "2008 S. Calumet Avenue",
+      "name": "Philander C. Hanford residence",
+      "construction": "1883",
+      "demolition": "1953",
+      "architect": "Henry S. Jaffray; interiors Isaac Scott",
+      "sources": [
+        "hanford"
+      ],
+      "notes": "Brownstone; double basement; museum holds salvaged pieces. Excavation photographs from 2001 useful for footprint.",
+      "target1904": "inferred present",
+      "scope": "adjacent",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; footprint and heights require map/plan reconciliation",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan unless otherwise stated"
+    },
+    {
+      "id": "pa-2031-nrhp",
+      "address": "2031 S. Prairie Avenue",
+      "name": "Townhouse; historic owner unresolved",
+      "construction": "1869",
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "reid_nom_acquired"
+      ],
+      "notes": "Nomination PDF p13 identifies trio at 2031–2035, 25-foot lots and Lemont limestone fronts. Exact 1904 survival/occupants require map and directory.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "25-foot lot width from nomination; footprint and height unmeasured",
+      "confidence": "source-backed historical identification; target-year existence unverified"
+    },
+    {
+      "id": "pa-2033-nrhp",
+      "address": "2033 S. Prairie Avenue",
+      "name": "Townhouse; historic owner unresolved",
+      "construction": "1869",
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "reid_nom_acquired"
+      ],
+      "notes": "Nomination PDF p13 identifies trio at 2031–2035, 25-foot lots and Lemont limestone fronts. Exact 1904 survival/occupants require map and directory.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "25-foot lot width from nomination; footprint and height unmeasured",
+      "confidence": "source-backed historical identification; target-year existence unverified"
+    },
+    {
+      "id": "pa-2035-nrhp",
+      "address": "2035 S. Prairie Avenue",
+      "name": "Townhouse; historic owner unresolved",
+      "construction": "1869",
+      "demolition": null,
+      "architect": null,
+      "sources": [
+        "reid_nom_acquired"
+      ],
+      "notes": "Nomination PDF p13 identifies trio at 2031–2035, 25-foot lots and Lemont limestone fronts. Exact 1904 survival/occupants require map and directory.",
+      "target1904": "unresolved",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "25-foot lot width from nomination; footprint and height unmeasured",
+      "confidence": "source-backed historical identification; target-year existence unverified"
+    }
+  ],
+  "priority_gaps": [
+    "Reconcile every frontage and rear stable against 1886 and 1911 Sanborn sheets; reconstruct 1904 using permits and intervening photos.",
+    "Find all unnamed rowhouses and predecessor/successor parcels; current inventory is not every building.",
+    "Transcribe 1904 directory by street address; link 1900 and 1910 census households without assuming continuity.",
+    "Acquire Reid and Rees nomination PDFs and HABS for measured geometry.",
+    "Adjudicate Jones, Shortall/Gregory, Field Jr., Robbins, Rees construction chronology conflicts.",
+    "Verify 1904 street lighting, sidewalks, fences, poles, utilities and railroad visual context separately.",
+    "Do not insert modern Clarke House, transplanted Rees site, Women’s Park or restoration-era streetscape in target scene."
+  ],
+  "image_leads": [
+    {
+      "repository": "Chicago History Museum",
+      "identifier": "ICHi-001299",
+      "subject": "Sherman house, 2100 Prairie, circa 1890",
+      "source": "marker_south"
+    },
+    {
+      "repository": "Chicago History Museum",
+      "identifier": "ICHi-038250",
+      "subject": "1815 Prairie, Hugh W. Celander photograph, 1959",
+      "source": "marker_east"
+    },
+    {
+      "repository": "Chicago History Museum",
+      "identifier": "ICHi-071912",
+      "subject": "Wirt Dexter residence, Charles R. Clark, circa 1905",
+      "source": "marker_north"
+    },
+    {
+      "repository": "Chicago History Museum",
+      "identifier": "Chicago Daily News collection; item unresolved",
+      "subject": "Marshall Field Sr. residence, 1905",
+      "source": "marker_east"
+    }
+  ]
+}

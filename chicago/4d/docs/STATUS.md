@@ -17115,3 +17115,19 @@ New findings for S2 from the datum work: Hathaway carries survey bearings and lo
 ("N.51°E." along the main stem, 80-ft streets annotated); both 1834 sheets are anisotropically
 stretched (3.7% / 4.5%), so street geometry should be generated analytically from the plat
 dimensions and snapped to the fitted control, never traced raw from pixels.
+
+## Prairie Avenue research library — 2026-09-26
+
+Owner-requested atlas at `../prairie_1904_v1/`, centered on 1904 and bracketed by
+supplied 1911 Sanborn sheets. Separate named histories, tentative map frontages,
+directory candidates and a deep Glessner dossier prevent false parcel/household
+completeness. Six Glessner measured sheets and the 27-page survey report acquired;
+large archival originals retained in a companion archive. No 1904 meshes or census
+households were invented. See the library's research-gaps and statistics documents.
+
+Tracking-ticket creation was refused by automatic approval review because it would
+write to the separate tickets repository's main branch, while this request authorized
+code-repository dev delivery. No ticket was created or claimed; no existing Prairie
+scene ticket is represented as completed by this library. Browser/gate evidence is
+recorded in the delivery package. GitHub branch creation returned HTTP 403
+(Resource not accessible by integration), so no PR or remote push was created.
