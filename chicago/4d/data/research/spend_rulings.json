@@ -1,7 +1,7 @@
 {
   "schema": "research-spend-rulings-v1",
-  "_doc": "HAND-AUTHORED, T-1234. The written ruling on every unasserted PERSON unit the matched-research table of T-1232 does not reach: the book-domain person units and the letter-list name suspicions. tools/research_spend_ledger.py reads this file at the point where it would otherwise leave a unit unresolved, so a ruling here can only close a unit nothing else has already closed and can never overturn an assertion, a later_only or a refusal the readings themselves carry. Every rule below is stated once and every unit carries its own note; the gate fails on a ruling whose unit does not exist, on a ruling that never fires, and on a rule with no statement. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON OR MOVES A CONFIDENCE. A hand-off is not a spend: it names the open ticket whose field owns the finding, and that ticket closing turns this file red, which is the point.",
-  "ticket": "T-1234, corrected by T-1322",
+  "_doc": "HAND-AUTHORED, T-1234. The written ruling on every unasserted PERSON unit the matched-research table of T-1232 does not reach: the book-domain person units and the letter-list name suspicions. tools/research_spend_ledger.py reads this file at the point where it would otherwise leave a unit unresolved, so a ruling here can only close a unit nothing else has already closed and can never overturn an assertion, a later_only or a refusal the readings themselves carry. Every rule below is stated once and every unit carries its own note; the gate fails on a ruling whose unit does not exist, on a ruling that never fires, and on a rule with no statement. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON OR MOVES A CONFIDENCE. A hand-off is not a spend: it names the open ticket whose field owns the finding, and that ticket closing turns this file red, which is the point. T-1598 ADDED A SECOND KIND OF UNIT TO THIS FILE: the 34 `building` place readings in the 1835 issues of the Chicago Democrat and the Chicago American. They are here rather than in a derived register because each one is a judgement about what the ground can receive from a particular notice, which is the shape T-1234 wrote this file for; a tool that derived them would be deriving the judgement. NOTHING HERE PLACES A BUILDING, MOVES A STRUCTURE OR INVENTS A COORDINATE — a reading that names a standing building the structure layer holds is handed to T-1600, which owns writing the corroboration onto the record, and every other reading is closed against a stated rule.",
+  "ticket": "T-1234, corrected by T-1322, extended by T-1598",
   "rules": {
     "earlier_evidence_adds_no_1835_fact": {
       "disposition": "refused",
@@ -44,6 +44,24 @@
     "the_reading_is_spent_on_the_yard_and_not_on_a_person_or_a_firm": {
       "disposition": "aggregate_only",
       "statement": "The unit is a town reading the SCENE has already taken and the person ledger cannot take. This ledger indexes two target surfaces — the residents layer and, since T-1508, the business layer — and a reading spent on the yard, the terrain or the shore lands on neither, so it stands `unresolved` while being, in fact, finished work. That is the same answer a ground reading gets: it is true, it is in the window, it is committed chronology that the layer citing it names by claim id, and it attaches to no person and no firm. Spending it in aggregate records what it did rather than leaving it queued behind a ticket that has closed. Nothing here edits the record that cites it, raises a trade, or moves a tier."
+    },
+    "the_notice_documents_building_stock_and_no_seat": {
+      "disposition": "aggregate_only",
+      "statement": "A to-let, for-rent or for-sale notice that names a store, a dwelling, a house or a stable standing in Chicago and gives nothing that reaches a seat: no street, or a street and no corner, number or neighbour on it. The BUILDING IS DOCUMENTED and the town's building stock is what it counts toward; no record in data/reconstruction/1835_address_book.json and no structure in data/structures/ can receive it, because nothing in the reading says which one it is. Choosing a frontage for it would be inventing a coordinate, which AGENTS.md rule 1 and rule 2 both forbid, so the unit is closed in the aggregate and the notice stands as committed evidence of vacant floor rather than as a placement."
+    },
+    "the_building_is_not_standing_at_the_scene_date": {
+      "disposition": "refused",
+      "statement": "The source's own words put the building AFTER 1835-07-01: a meeting called to consider measures for building one, a corner stone to be laid, a board of directors consulting on means of obtaining premises. The reading is kept, and it is kept as a NEGATIVE — on the scene date the district has no school house, the square carries no reading room, the new meeting house is not yet begun — which is worth as much to a reconstruction as a positive and is the reason a refusal here is not a deletion. No structure may be raised on it and no seat may be reserved for it."
+    },
+    "the_named_standing_building_waits_on_the_structure_layer": {
+      "disposition": "unresolved",
+      "ticket": "T-1600",
+      "reason": "The named-building assertion pass owns this reading: the structure layer holds the building the notice names, and what is left is writing the issue that names it onto that record.",
+      "statement": "The notice names a building that STANDS at or before the scene date and that the structure layer already holds under its own name — a church, a meeting house, a coffee house, an inn, an auction room, a house going up in Kinzie's Addition. The reading is therefore spendable and is not spent here: asserting it means adding the issue to the record's sources and saying which attribute it carries, which is an edit to data/structures/ and belongs in the pull request that makes it. T-1600 owns exactly these ten readings and names them, so this hand-off has a floor: the ticket cannot close while one of them is still unasserted."
+    },
+    "the_issue_is_printed_after_the_scene_date_and_only_corroborates": {
+      "disposition": "later_only",
+      "statement": "The issue is dated after 1835-07-01 and the building content it carries is first documented there. Under the evidence ladder ratified 2026-09-03 a source later than the scene date corroborates, enriches and dates, and never promotes: a store advertised to let on 29 July, a three-storey auction room rented on 1 August, eight thousand bricks wanted on 29 August do not establish that building on 1 July, and a hotel named only in an August reward notice is corroborated by it and not placed by it. The reading stands as committed chronology of the weeks after the scene and nothing in the 1835 model is moved on it."
     }
   },
   "rulings": [
@@ -381,6 +399,176 @@
       "unit": "residents:data/research/residents/letter_list_reading_suspicions.json#rows/~1rows~19",
       "rule": "suspicion_is_not_a_reading",
       "note": "The letter list prints 'Nelts' in the household held as 'Wm. Nelts', and the worklist's suspected reading is 'Welts' and it is graded nothing."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_american_1835_06_08.json#claims/c009",
+      "rule": "the_notice_documents_building_stock_and_no_seat",
+      "note": "A store standing empty and advertised to let in June 1835. The notice gives no street and the advertiser's name survives only as the fragment 'dM KINZ' in the adjoining column, which the reading itself refused to make an entity. An empty store is a building; this one has no seat and is counted as stock."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_american_1835_06_08.json#claims/c010",
+      "rule": "the_notice_documents_building_stock_and_no_seat",
+      "note": "Two dwellings and a third building whose kind is illegible ('idee'), offered together by C. H. Chapman. The 1835-06-20 printing of the same notice sets the third as a stable; neither printing names a street. Three buildings in one hand is a count the household layer can eventually use and a placement it cannot."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_american_1835_06_20.json#claims/c016",
+      "rule": "the_named_standing_building_waits_on_the_structure_layer",
+      "note": "The Presbyterian Church is standing and in civic use in June 1835 — School District No. 4's inhabitants meet in it — and data/structures/ holds the building. The school house in the same notice is the other half and is refused separately by its Democrat printings; what T-1600 owes here is the church's use and this issue on its record."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_american_1835_06_20.json#claims/c017",
+      "rule": "the_notice_documents_building_stock_and_no_seat",
+      "note": "The same Chapman group as 1835-06-08, with the third building now legible as a stable: two dwellings and a stable offered together. A dwelling pair with a stable behind is a yard shape the household layer builds, and still no street is printed in either issue, so nothing chooses which yard it is."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_american_1835_06_27.json#claims/c003",
+      "rule": "the_notice_documents_building_stock_and_no_seat",
+      "note": "A house on Lake Street, to let, in the week before the scene date. The corridor is named and that is as far as it reaches: Lake Street carries dozens of frontages in the address book and the notice gives no corner, no number and no neighbour, so no seat on it is more likely than any other. The forty acres of section 4 advertised beside it are county land and are not a building."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_american_1835_07_04.json#claims/c011",
+      "rule": "the_named_standing_building_waits_on_the_structure_layer",
+      "note": "The Baptist Meeting House, named whole where the 1835-06-27 printing cut the denomination away, and in use for School District No. 2's election on 11 July. It is a different building from the NEW Baptist meeting house whose corner stone is laid on 4 July, and keeping the two apart is the reason this unit is handed on rather than folded into that refusal."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_american_1835_07_11.json#claims/c001",
+      "rule": "the_building_is_not_standing_at_the_scene_date",
+      "note": "The Chicago Reading Room has a board of directors, a subscription costed at $2,500 to $3,000, and no premises: the board meets at the Tremont House on 6 July precisely to consult on means of obtaining a building. On the scene date there is no reading-room building, and this notice is the evidence that there is not."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_american_1835_07_18.json#claims/c001",
+      "rule": "the_building_is_not_standing_at_the_scene_date",
+      "note": "The directors resolve that a joint-stock company might put a building for the Reading Room on the Public Square under a rent-free lease. A building that a committee believes a lease can PROBABLY be obtained for is not a building: on 1835-07-01 the square carries no reading room and nothing else this notice proposes."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_american_1835_08_01.json#claims/c001",
+      "rule": "the_issue_is_printed_after_the_scene_date_and_only_corroborates",
+      "note": "A three-storey store rented whole as an auction room, advertised on 1 August 1835 — the only building in this corpus documented at more than one storey by its own count. Neither of the two street names printed with it is legible ('IWarpom' street, 'lo. Ly' street) and neither is guessed at, so the reading dates and describes and does not place."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_american_1835_08_29.json#claims/c001",
+      "rule": "the_issue_is_printed_after_the_scene_date_and_only_corroborates",
+      "note": "Eight thousand bricks and a mason to lay them, wanted at B. Beaubien's store at the end of August 1835 — the only masonry evidence in eleven weeks of this paper, against oak scantling, seasoned lumber, five lumber cargoes and hand-made sash. It corroborates a plank town with brick as the exception and moves nothing standing on 1 July."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_20.json#claims/c001",
+      "rule": "the_named_standing_building_waits_on_the_structure_layer",
+      "note": "The Exchange Coffee House, where the town's Democrats met on 13 April 1835 and again for the town-election caucus on 6 June, and which Heacock's advertisement in the following week's paper puts at the corner of Lake and Franklin. The structure layer holds the house; the meeting and the corner are what T-1600 owes its record."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_20.json#claims/c010",
+      "rule": "the_notice_documents_building_stock_and_no_seat",
+      "note": "A store, a dwelling and a large house 'suitable for a Boarding House' in C. H. Chapman's hands, in the month the same paper reports every room in the public houses taken and strangers sleeping on floors. None of the four printings names a street for any of the three, so all three are building stock and none is a placement."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_20.json#claims/c012",
+      "rule": "the_notice_documents_building_stock_and_no_seat",
+      "note": "A house on Randolph Street 'nearly opposite the public square' — the best anchor any placeless notice in this run carries, because the square is a surveyed block the reconstruction already stands on. It is still not a seat: 'nearly opposite' spans the whole Randolph frontage of the block and the address book would have to pick one of them."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_20.json#claims/c015",
+      "rule": "the_notice_documents_building_stock_and_no_seat",
+      "note": "A store of 20 by 45 feet including its counting room, with three rooms let separately as offices, in Kinzie's Addition — the only MEASURED commercial building in this reading range, which is the reason the measurement is recorded here rather than lost. Kinzie's Addition is a whole addition north of the main branch and the notice names no lot in it, so the figure has no building to sit on yet."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_27.json#claims/c008",
+      "rule": "the_notice_documents_building_stock_and_no_seat",
+      "note": "John T. Temple lets two stores — one on South Water, one on Lake — and a dwelling. Both of the town's principal streets are named and neither store is: no corner, no number, no neighbour. What the notice establishes is lettable empty commercial floor on both streets in late May 1835, which is an aggregate and is recorded as one."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_27.json#claims/c009",
+      "rule": "the_notice_documents_building_stock_and_no_seat",
+      "note": "A store house — a warehouse — on Water Street, let by David Carver, the town's lumber dealer and commission merchant. The river street is named and the building is not placed on it. The trade attached to the man is a business reading and is not this unit."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_06_10.json#claims/c001",
+      "rule": "the_named_standing_building_waits_on_the_structure_layer",
+      "note": "Three dated building facts three weeks before the scene date: the Sauganash freshly 'repaired, fitted up and furnished', a new house going up in Kinzie's Addition that is not yet finished or named, and the editor's comparison with Detroit. The structure layer holds both the Sauganash and lake_house_construction, so the condition and the state of works are corroborations to be written onto records that exist."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_06_10.json#claims/c012",
+      "rule": "the_named_standing_building_waits_on_the_structure_layer",
+      "note": "An auction room on Dearborn Street, and the possessive lost at the column edge is supplied from the 1835-06-17 issue's 'Bates' new auction room'. data/structures/bates_auction_room.json holds the building; the street and the two-day land sale of 12-13 June are what this issue adds to it."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_06_10.json#claims/c013",
+      "rule": "the_notice_documents_building_stock_and_no_seat",
+      "note": "A dwelling house 'lately erected by Mr. Rezigue' in Kinzie's Addition, to let and standing empty in June 1835. 'Lately erected' dates it to the months before the scene date and that is the fact; the addition is named and no lot in it is, and Rezigue is a single crop-edge reading that the extraction itself declined to make an entity."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_06_17.json#claims/c005",
+      "rule": "the_named_standing_building_waits_on_the_structure_layer",
+      "note": "Bates' NEW auction room, named — which is what supplies the possessive missing from the 1835-06-10 land-auction notice — and large and public enough to hold the Episcopal ladies' first annual fair on the evening of 18 June as well as a two-day land sale. It is the only Chicago interior in these issues described by two different uses, and both belong on the record."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_06_17.json#claims/c006",
+      "rule": "the_named_standing_building_waits_on_the_structure_layer",
+      "note": "The Presbyterian Church's second civic use in one issue: School District No. 4's inhabitants are to meet in it on 7 July. The church stands and the structure layer holds it. The school house the district is meeting to consider is the negative half and is refused with the 1835-07-01 printing."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_06_24.json#claims/c001",
+      "rule": "the_named_standing_building_waits_on_the_structure_layer",
+      "note": "The Eagle Coffee House, Trowbridge's — a third named public house, meeting the town's Democrats on 29 June 1835, two days before the scene date, and identified in print by the man who kept it. The move from the Exchange to the Eagle between 6 and 24 June is dated by these two issues and is the kind of thing only the record can carry."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_07_01.json#claims/c007",
+      "rule": "the_building_is_not_standing_at_the_scene_date",
+      "note": "The corner stone of a NEW Baptist meeting house is to be laid on 4 July 1835, one block south of the public square. Three days after the scene date, so on 1 July there is no such building — only a site a block south of the square and a ceremony announced. The existing Baptist meeting house that District No. 2 meets in is a different building and is handed to T-1600 separately."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_07_01.json#claims/c008",
+      "rule": "the_building_is_not_standing_at_the_scene_date",
+      "note": "The left-hand ends of the same printed lines as c007, kept as their own claim because they are in another column and because 'One block' — the only thing in the issue that puts the new meeting house anywhere — is here. Same refusal, same reason: the corner stone is laid on 4 July and the building does not exist on the scene date."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_07_01.json#claims/c012",
+      "rule": "the_named_standing_building_waits_on_the_structure_layer",
+      "note": "The third printing of School District No. 4's notice, read across two columns, and the one that completes Byram King's name from 'BYRA' here and 'KING, Clerk.' there. What it carries for the layer is the Presbyterian Church as the district's meeting place on 7 July; the school house is not built and is refused with c007's shape."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_07_08.json#claims/c004",
+      "rule": "the_named_standing_building_waits_on_the_structure_layer",
+      "note": "A Baptist meeting house standing in Chicago and in use for a public meeting on the evening of Saturday 11 July 1835 — the district's own business, filling a trustee, a clerk and a collector, is secondary to the building. The hour is cut at the crop edge and is not guessed at. The structure layer holds the meeting house and this issue dates a use of it."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_07_08.json#claims/c013",
+      "rule": "the_notice_documents_building_stock_and_no_seat",
+      "note": "The Rezigue dwelling again, and this printing's line ends 'erected by Mr. Rezigue, on' with the crop taking the street. The reading deliberately does not supply it. A large dwelling house lately built and standing empty is building stock; where it stood is not in this corpus."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_07_15.json#claims/c001",
+      "rule": "the_building_is_not_standing_at_the_scene_date",
+      "note": "The Reading Room's directors meet at the Tremont House on 13 July and resolve to seek about two thousand dollars of joint stock for a building containing the reading room and usable as a meeting or lecture room, on the understanding that a site could be had on the Public Square. A building proposed is not a building standing, and nothing in the 1835 model may stand on it."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_07_29.json#claims/c003",
+      "rule": "the_issue_is_printed_after_the_scene_date_and_only_corroborates",
+      "note": "'A good Store to let — Apply to JOHN T. TEMPLE', 29 July 1835. An empty store is a building and this one is four weeks after the scene date with no street given, so it neither places anything nor reaches 1 July. Temple is documented elsewhere in the town and the notice places neither him nor the store."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_08_12.json#claims/c009",
+      "rule": "the_issue_is_printed_after_the_scene_date_and_only_corroborates",
+      "note": "'The New Store on Dearborn st.', rented for an auction and commission business in August 1835, with no owner, no number and no neighbour — the definite article doing all the work, which is itself the finding about how small the town was. The printing is unsigned, so the claim is a building and not a business, and it is six weeks later than the scene."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_08_12.json#claims/c010",
+      "rule": "the_issue_is_printed_after_the_scene_date_and_only_corroborates",
+      "note": "Two stores standing empty and advertised to let, dated 20 July and printed 12 August 1835 — the only vacancy the month advertises, and it says nothing about where they are. The surname is set 'SEMPLE' here and 'TEMPLE' on 19 August; neither printing is merged into the other, because identity.json is the only place that judgement may be made."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_08_19.json#claims/c018",
+      "rule": "the_issue_is_printed_after_the_scene_date_and_only_corroborates",
+      "note": "The same two empty stores, and this printing sets the name as TEMPLE against the 12 August column's 'SEMPLE'. Still no address in either printing, and still after the scene date: it corroborates the 12 August reading and adds no 1 July fact."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_08_26.json#claims/c005",
+      "rule": "the_issue_is_printed_after_the_scene_date_and_only_corroborates",
+      "note": "The Green Tree Hotel named, with a waggon standing beside it overnight on 7 or 8 August 1835 carrying two hundred dollars in coin, and robbed. The use is vivid and it is dated five weeks after the scene; it corroborates the house the structure layer already holds and moves nothing on 1 July."
+    },
+    {
+      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_08_26.json#claims/c006",
+      "rule": "the_issue_is_printed_after_the_scene_date_and_only_corroborates",
+      "note": "A second named Chicago inn used as an address: information about a strayed bay horse to be left 'at the New [York] House'. The supplied word is bracketed and is the least certain reading in the claim. August 1835, so it corroborates and does not place."
     }
   ]
 }
