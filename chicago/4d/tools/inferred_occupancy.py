@@ -22,6 +22,21 @@ conjectural as they were. Nothing here is evidence that a building stood on that
 spot; it is evidence about who the town must have held, attached to a roof the
 programme had already placed.
 
+THE THIRD PROGRAMME IS THE PLACEMENT POLICY'S PLATTED DEAL (T-1638, piece 1 of T-1200;
+liberty L275 over L270). `tools/seat_platted_ground_1835.py` deals the committed plat to the
+households the address book leaves standing at a BAND, and every one of its 108 seats ADOPTS
+a roof that already stands. Until T-1638 that reached the person's card and stopped there:
+the building said `Anonymous count-unit toward the July 1835 665-roof programme` and named
+nobody. `tools/name_the_keepers_1835.py` writes the ledger and this module spends it, for the
+third time for the same reason — a generated record edited by hand is drift.
+
+It is the one programme here that hands over TWO blocks. `occupants` is the prose a card
+shows; `resident_assignment` carries `status: assigned` and the household id, which is the
+machine-readable half and is what lets the deal recognise its own writing and stay
+idempotent. The id is deliberately absent from the prose: `generate_dooryard_pickets.py`
+admits a lot for a garden on an id appearing there, and a keeper a policy deal seats is not
+a measurement of anybody's garden.
+
 THE SECOND PROGRAMME IS STREET-FACE ADOPTION (T-0354, the owner's ruling of
 2026-08-29; docs/STREET-FACE-ADOPTION.md, liberty L212). Where the newspaper
 register can place a DOCUMENTED business no closer than a platted street, the
@@ -49,6 +64,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PROGRAMME = ROOT / "data" / "reconstruction" / "1835_inferred_household_programme.json"
 ADOPTIONS = ROOT / "data" / "research" / "newspapers" / "street_face_adoptions.json"
+KEEPERS = ROOT / "data" / "reconstruction" / "1835_roof_keepers.json"
 
 # A claim id is `<issue_id>#<claim>`, and an issue id opens with the paper's name. The
 # structure schema wants the SOURCE RECORD rather than the issue, and there are two.
@@ -202,7 +218,13 @@ def occupancy() -> dict[str, dict]:
     # population `resident_population_active` turning back to true restores every
     # one of these blocks from that same record.
     if programme.get("resident_population_active") is False:
-        return dict(street_face_occupancy())
+        # T-1638. The retirement of 2026-09-02 took the RECONSTRUCTED RESIDENT POPULATION's
+        # adoptions off these roofs. It did not touch a programme that seats somebody the
+        # town's own records name: the street-face adoptions have come through this return
+        # since the day it was written, and the platted deal's keepers come through it for
+        # the same reason. Missing this branch is how the keepers reached the ledger and not
+        # the cards on the first attempt — this return is the live path, not the fallback.
+        return _with_keepers(dict(street_face_occupancy()))
     for h in programme.get("households", []):
         for key in ("lives_at", "works_at"):
             sid = h.get(key)
@@ -251,7 +273,75 @@ def occupancy() -> dict[str, dict]:
                 "adoption. One roof, one occupant: re-run tools/adopt_street_faces.py, "
                 "which must refuse a roof the household layer already holds." % sid)
         blocks[sid] = block
+    return _with_keepers(blocks)
+
+
+def _with_keepers(blocks: dict[str, dict]) -> dict[str, dict]:
+    """The platted deal's keepers, added to whatever the other programmes already seated.
+
+    Both of `occupancy()`'s exits come through here, because one of them is the live path
+    and the other is the one a revival of the retired population would take.
+    """
+    for sid, block in keeper_occupancy().items():
+        if sid in blocks:
+            raise LedgerError(
+                "%s is claimed by both the platted deal's keepers and another programme. "
+                "One roof, one occupant: the deal's own adoption test refuses a roof whose "
+                "record already states an occupancy, so a collision here means the ledger "
+                "and the deal have come apart — re-run "
+                "tools/name_the_keepers_1835.py --build." % sid)
+        blocks[sid] = block
     return blocks
+
+
+def keeper_occupancy(doc: dict | None = None) -> dict[str, dict]:
+    """The `occupants` block of every roof the platted deal seated a household on.
+
+    Verbatim off `data/reconstruction/1835_roof_keepers.json`, which
+    `tools/name_the_keepers_1835.py --check` re-derives on every commit. Nothing is
+    composed here: the ledger's own `--check` and the generator that spends it have to be
+    reading one statement, not two that agree today.
+    """
+    doc = doc if doc is not None else (
+        json.loads(KEEPERS.read_text(encoding="utf-8")) if KEEPERS.exists() else {})
+    out: dict[str, dict] = {}
+    for row in doc.get("written") or []:
+        sid = row.get("structure_id")
+        block = row.get("occupants")
+        if not sid or not block:
+            raise LedgerError("a keeper row names no roof or carries no occupants block")
+        if block.get("confidence") != "reconstructed":
+            raise LedgerError("%s is graded %r — a dealt lot is the invention, so a keeper "
+                              "is never anything but reconstructed"
+                              % (sid, block.get("confidence")))
+        if not block.get("sources"):
+            raise LedgerError("%s cites nothing — a keeper's sources carry the household's "
+                              "NAME, and a card may not state one on this project's word "
+                              "alone" % sid)
+        if "hh_" in json.dumps(block):
+            raise LedgerError("%s names a household id in its occupants PROSE, which grows "
+                              "a dooryard garden as a side effect of naming a keeper "
+                              "(tools/generate_dooryard_pickets.py clause 4)" % sid)
+        if sid in out:
+            raise LedgerError("%s is given two keepers" % sid)
+        out[sid] = block
+    return out
+
+
+def keeper_assignments(doc: dict | None = None) -> dict[str, dict]:
+    """The `resident_assignment` block of every roof the platted deal seated a household on."""
+    doc = doc if doc is not None else (
+        json.loads(KEEPERS.read_text(encoding="utf-8")) if KEEPERS.exists() else {})
+    out: dict[str, dict] = {}
+    for row in doc.get("written") or []:
+        sid, block = row.get("structure_id"), row.get("resident_assignment")
+        if not sid or not block:
+            raise LedgerError("a keeper row names no roof or carries no assignment block")
+        if block.get("status") != "assigned" or not block.get("household_id"):
+            raise LedgerError("%s is written as a keeper's roof and its assignment does not "
+                              "say who or that it is assigned" % sid)
+        out[sid] = block
+    return out
 
 
 def self_test() -> int:
@@ -307,8 +397,36 @@ def self_test() -> int:
     case("an adoption on the centreline band the owner declined",
          lambda: spend(lambda b: b["adoptions"][0].update(face="centreline band")))
 
+    keepers = json.loads(KEEPERS.read_text(encoding="utf-8")) if KEEPERS.exists() else {}
+    if not (keepers.get("written") or []):
+        print("  FAIL  no keeper is written, so nothing of the third programme can break")
+        return 1
+
+    def spend_keepers(mutate) -> None:
+        broken = copy.deepcopy(keepers)
+        mutate(broken)
+        keeper_occupancy(broken)
+        keeper_assignments(broken)
+
+    case("a keeper graded above `reconstructed`",
+         lambda: spend_keepers(lambda b: b["written"][0]["occupants"].update(
+             confidence="documented")))
+    case("a keeper citing nothing for its own name",
+         lambda: spend_keepers(lambda b: b["written"][0]["occupants"].update(sources=[])))
+    case("a household id smuggled into the occupants prose",
+         lambda: spend_keepers(lambda b: b["written"][0]["occupants"].update(
+             note=b["written"][0]["occupants"]["note"] + " hh_somebody")))
+    case("two keepers on one roof",
+         lambda: spend_keepers(lambda b: b["written"].__setitem__(
+             1, dict(b["written"][1],
+                     structure_id=b["written"][0]["structure_id"]))))
+    case("an assignment that does not say it is assigned",
+         lambda: spend_keepers(lambda b: b["written"][0]["resident_assignment"].update(
+             status="unassigned")))
+
     households = {sid for sid in occupancy()
-                  if sid not in street_face_occupancy()}
+                  if sid not in street_face_occupancy()
+                  and sid not in keeper_occupancy()}
     adopted = set(street_face_occupancy())
     overlap = households & adopted
     if overlap:
@@ -331,7 +449,8 @@ def self_test() -> int:
     if failed:
         print("SELF-TEST FAIL")
         return 1
-    print("SELF-TEST PASS — the ledger refuses every way an adoption could lie (7 cases)")
+    print("SELF-TEST PASS — the ledger refuses every way an adoption or a keeper could "
+          "lie (12 cases)")
     return 0
 
 

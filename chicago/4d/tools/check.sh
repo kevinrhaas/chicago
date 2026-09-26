@@ -1835,6 +1835,22 @@ step "the lot ledger and the platted seats still re-derive" \
 selftest "…and the deal's six refusals still fire when broken" \
   python3 tools/seat_platted_ground_1835.py --self-test
 
+# T-1638, piece 1 of 4 of T-1200. The deal above puts a household under a roof; until this
+# step the ROOF said nothing back. The link ran one way — the address book's row naming its
+# structure — so a visitor opening one of these South Water buildings read "Anonymous
+# count-unit toward the July 1835 665-roof programme" while a file two directories away said
+# which household the policy had seated in it. `1835_roof_keepers.json` is that publication,
+# and its refusals are the load-bearing half: 60 of the deal's 108 adopted seats are
+# households minted from the post office's letter lists, whom the owner's ruling of
+# 2026-08-30 (T-0379) refuses a roof, so they are listed with the ruling rather than written
+# onto a card. Nothing is raised, nothing is baked and no keeper is a reading — L275 carries
+# the publication and L270 the invention underneath it.
+step "the South Water roofs still name the keepers the platted deal seated there" \
+  python3 tools/name_the_keepers_1835.py --check
+
+selftest "…and the keeper ledger's five assertions still fire when broken" \
+  python3 tools/name_the_keepers_1835.py --self-test
+
 # T-1614, the second piece of T-1199. The pass above enumerated the plat and handed 1,374
 # of the 1,480 banded households on with a written reason; this is the file that answers
 # them, on the ground the committed plat does not draw. `1835_off_plat_ledger.json`

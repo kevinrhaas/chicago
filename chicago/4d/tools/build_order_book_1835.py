@@ -278,7 +278,13 @@ STRUCTURE_TICKETS = {
     ("south", "larger_boarding_houses"): "T-1209",
     ("south", "inns_taverns"): "T-1201",
     ("south", "workshops"): "T-1201",
-    ("south", "warehouses_freight"): "T-1200",
+    # T-1638 split T-1200 into four pieces, so the parent cannot be claimed and this
+    # cell had to name a live successor (T-1420's rule). The six left here are
+    # WAREHOUSES: T-1639 raises the F1-F3 warehouses and the C-family store fronts on
+    # the South Water party lines. The freight SHEDS behind them are T-1640's, on the
+    # river-bank band, and will want their own cell if the programme ever splits the
+    # group the way the queue now splits the work.
+    ("south", "warehouses_freight"): "T-1639",
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",

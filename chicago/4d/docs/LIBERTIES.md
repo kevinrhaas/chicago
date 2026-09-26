@@ -14904,3 +14904,55 @@ inside the 80 ft corridors), the refusal this spends **T-0134**, its parent **T-
 `docs/RESEARCH/south_bank_dearborn_ground.md`, `data/exclusions.json` →
 `south_bank_warehouses_dearborn_reach`.
 **Recorded:** 2026-09-26.
+
+### L275 — Nine South Water roofs now NAME the household the placement policy dealt them, and eleven do not because a ruling refuses them one
+
+**Scope:** `roof_keepers.written[named]` — 9 South Water roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 60
+refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`.
+
+**No new invention is made here.** The invention is **L270**'s: which of the town's banded
+households takes which lot of the committed plat, dealt by a policy in
+`data/reconstruction/1835_platted_seats.json` because no source places any of these
+households anywhere. What this entry covers is that the invention is now PUBLISHED on the
+building — until T-1638 the link ran one way only, the address book's row naming its roof and
+the roof naming nobody, so a visitor opening one of these nine read `Anonymous count-unit
+toward the July 1835 665-roof programme` while a file two directories away said who the
+policy had put in it. A liberty a visitor cannot meet is not much of a disclosure.
+
+**What the card says and what it may not be read as.** `occupants` is graded `reconstructed`
+and cites only the sources that carry the household's NAME — a baptismal register, the
+Democrat's own columns — never its address, because there is no address. The note on every
+one of the nine says so in its first two sentences. The roof stays `inferred_anonymous`, a
+count-unit of the 665-roof programme: its existence, position and footprint are as
+conjectural after the seating as before it, the order book was not drawn on, and no mesh
+moved — `generators/mesh_inputs.py` hashes archetype parameters and not prose, so a keeper
+costs no bake.
+
+**Eleven of the twenty are refused, and the refusal is the load-bearing half.** Eleven of the
+twenty South Water seats — sixty of the deal's hundred and eight town-wide — are households
+minted from the post office's letter lists, and the owner's ruling of 2026-08-30 (T-0379)
+refuses that cohort a roof: *a letter-list name is a name the town knows, not a man with an
+address*. Writing the household's name rather than its person id would have slipped past the
+gate that holds the ruling and landed the exact claim it forbids. They are listed with that
+reason in the keepers ledger instead. **The deal seated them there anyway**, so the deal and
+the ruling disagree on sixty roofs; that disagreement is filed, not settled here, and not
+hidden by a pass that could have looked complete by ignoring it.
+
+**One thing was available and declined.** `tools/generate_dooryard_pickets.py` admits a lot
+for a garden when a household id appears in a structure's `occupants` prose. Putting the id
+there would have grown nine gardens as a side effect of naming nine keepers, on no evidence
+about any garden, so the id is carried in `resident_assignment.household_id` — machine
+readable, and invisible to a test that was never about this. Whether these lots held gardens
+is that generator's question to answer on its own ground.
+
+**How to resolve:** any source that places one of these households — a lot record, a deed, an
+advertisement giving an address, a directory entry. One would replace a dealt lot with a read
+one, and the nine would stop being a liberty.
+
+**Related:** **L270** (the deal this publishes), **L90** (the anonymous roofs it seats into),
+**L212** (the street-face business adoptions, the same shape for firms rather than keepers),
+T-1638, its parent **T-1200**, the ruling **T-0379**, and
+`data/reconstruction/1835_roof_keepers.json`.
+**Recorded:** 2026-09-26.

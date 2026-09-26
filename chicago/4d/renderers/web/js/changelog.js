@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1158, title: 'Nine South Water buildings now say who kept them', kind: 'change', ts: '2026-09-26T22:50:23.259Z', date: 'Sep 26, 2026, 5:50 PM CT',
+    items: [
+      'Walk down South Water Street, step behind the stores and open one of the cottages. Until today its card read \u201CAnonymous count-unit toward the July 1835 665-roof programme\u201D and named nobody. Nine of them now name a household \u2014 the Beaubiens on three of them, the Bourassas, the Bourques, the Cass family, the Davisons, the Clarks and a land agent named Blanshard.',
+      'Nothing was built and nobody moved. The town\u2019s placement policy dealt these households onto these lots a week ago, and the record of it was complete \u2014 in one direction. The PERSON\u2019s card said which building. The BUILDING\u2019s card said nothing at all. It now says it back.',
+      'Not one of these households is put here by a source, and every card says so in its first two sentences. What the citations carry is the NAME: a baptismal register, the Democrat\u2019s own columns. The lot is this project\u2019s invention, the roof over it is still a count-unit nobody attested, and switching the invented tier off still takes the whole thing away.',
+      'Eleven other South Water roofs were left anonymous deliberately, and sixty across the town. Those households are names read off the post office\u2019s letter lists \u2014 a name the town knew, with no address anywhere \u2014 and a ruling from last month refuses that cohort a roof. Writing them in would have been easy and wrong. They are listed with the ruling that refuses them.',
+      'Which leaves something worth saying out loud: the deal seated those sixty anyway. So the town\u2019s own seating and its own ruling disagree about sixty roofs, and that disagreement is now written down in a file instead of being invisible in two.',
+    ] },
   { v: 1157, title: 'A freight shed on the south bank below the draw', kind: 'change', ts: '2026-09-26T22:00:03.429Z', date: 'Sep 26, 2026, 5:00 PM CT',
     items: [
       'Walk down the river from the Dearborn drawbridge and the engraving this town\u2019s river front was built from shows low warehouses on BOTH banks. The north bank has carried four of them for a month. The south bank has been empty, and a measurement said it had to be: not one position on the whole reach, at any angle, would take the smallest freight shed the reconstruction allows on ground flat enough to walk.',
