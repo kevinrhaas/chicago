@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'Work filed too big turned every waiting change red', kind: 'fix', ts: '',
+  { v: 1123, title: 'Work filed too big turned every waiting change red', kind: 'fix', ts: '2026-09-26T03:01:27.610Z', date: 'Sep 25, 2026, 10:01 PM CT',
     items: [
       'Nothing you can see in the town changed. This is about the checking between finished work and the town, and a way it could blame the wrong piece of work.',
       'The list of jobs this project has left to do lives in a separate place from the town itself, and every job on it carries a size, measured in sittings. A job marked as more than one sitting is refused: nobody who picks it up can finish it, so it would leave half-done work and a queue line that lies. Refusing it is right, and that part has not changed.',
