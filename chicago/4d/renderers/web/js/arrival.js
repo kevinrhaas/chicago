@@ -160,11 +160,15 @@ export function createArrival({
     });
     const from = Math.max(1836, lastShown ?? Math.round(yearForProgress(
       bootProgress(boot.phases, boot.expected, event?.at ?? now()), currentYear, false)));
+    if (buttonEl && duration > 0) buttonEl.disabled = true;
     const finish = () => {
       showYear(1835, duration > 0);
       setBar(barEl, 1);
       if (phaseEl) phaseEl.textContent = 'You have arrived in Chicago, summer 1835.';
-      if (buttonEl) buttonEl.textContent = 'Tap to enter';
+      if (buttonEl) {
+        buttonEl.textContent = 'Tap to enter';
+        buttonEl.disabled = false;
+      }
     };
     if (!duration || typeof requestAnimationFrame !== 'function') {
       finish();
