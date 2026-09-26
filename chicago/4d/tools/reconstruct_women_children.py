@@ -76,6 +76,7 @@ POOLS = ROOT / "data" / "reconstruction" / "1835_invented_name_pools.json"
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 PROGRAMME = ROOT / "data" / "reconstruction" / "1835_resident_reconstruction_programme.json"
 LEDGER = ROOT / "data" / "reconstruction" / "1835_women_children.json"
+REFAMILY_RULE = ROOT / "data" / "reconstruction" / "1835_refamily_rule.json"
 
 STAGE = "women_and_children"
 TICKET = "T-1174"
@@ -84,6 +85,10 @@ SCENE_DATE = "1835-07-01"
 RECONSTRUCTED = "reconstructed"
 PREFIX = "rc_"
 SOURCE_PASS = "reconstructed_women_children"
+REFAMILY_TICKET = "T-1564"
+REFAMILY_PARENT = "T-1559"
+REFAMILY_RULING = ("the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the "
+                   "surplus the re-cut holds is RE-FAMILIED rather than retired")
 
 # The divisions the order book apportions. Sorted, so the draw does not depend on the
 # order a dict happened to be written in.
@@ -106,7 +111,7 @@ CHILD_BANDS = ("under_10", "10_19")
 # to another stage of the same programme and is that stage's to prove.
 OWNED_KEYS = ("id", "name", "division", "head", "source_pass", "arrival",
               "party_size_on_arrival", "lives_at", "works_at",
-              "present_on_scene_date", "women_children", "persons",
+              "present_on_scene_date", "women_children", "refamilied", "persons",
               "touches_removal", "review_required", "research_note")
 
 
@@ -499,6 +504,155 @@ def household_record(hid: str, slot: str, division: str, head: dict, members: li
     return card
 
 
+# ----------------------------------------------------------------- the re-family --
+
+def refamily_moves() -> dict:
+    """The moves T-1558's rule yields for this stage's houses, by household id (T-1564).
+
+    THE CARD IS WHERE A MOVE BECOMES TRUE, AND THIS IS THE ONLY WAY IT GETS THERE. The
+    rule at `data/reconstruction/1835_refamily_rule.json` says WHICH held people may be
+    counted in a different cell; C1 — the rung these houses stand on — says the statement
+    a move rewrites is the invented card's own division, which it derived from the bucket
+    in the first place. So the move is applied HERE, inside the derivation, rather than
+    edited onto a committed card afterwards, and `--check` re-derives a moved card exactly
+    as it re-derives an unmoved one. A hand-written re-family does not survive a --build.
+
+    The rule names people of two stages and keys by household id; the ids are unique
+    across the layer, so the rows answering to a card this stage derives are its own.
+    """
+    if not REFAMILY_RULE.exists():
+        return {}
+    doc = json.loads(REFAMILY_RULE.read_text(encoding="utf-8"))
+    moves: dict = {}
+    seen = set()
+    for row in doc.get("the_moves_the_rule_yields") or []:
+        hid, person = row.get("household"), row.get("person")
+        if not hid or not person:
+            raise SystemExit("FAIL a re-family move in the rule names no household "
+                             "or no person")
+        if person in seen:
+            raise SystemExit("FAIL %s is re-familied twice by the rule" % person)
+        seen.add(person)
+        moves.setdefault(hid, []).append(row)
+    return moves
+
+
+def refamily_block(rows: list, drawn_in: str, head: str) -> OrderedDict:
+    """What the card says about its own move, and what it may not be read as saying.
+
+    A HOUSE MOVES WHOLE OR NOT AT ALL, so the statement is made once per person as well as
+    once for the house. The head's own fields are the house's move — a reader meets the
+    household through its head — and `the_whole_house` below is the roster the ledger
+    checks row by row, because a mother and her children stand in different bands and so
+    in different buckets, and no single pair of buckets is true of all of them."""
+    by_person = {r["person"]: r for r in rows}
+    mine = by_person[head]
+    block = OrderedDict()
+    block["ticket"] = REFAMILY_TICKET
+    block["parent_ticket"] = REFAMILY_PARENT
+    block["ruling"] = REFAMILY_RULING
+    block["rule"] = mine["rule"]
+    block["rule_read_from"] = ("data/reconstruction/1835_refamily_rule.json"
+                               "#the_moves_the_rule_yields")
+    block["drawn_in_division"] = drawn_in
+    block["drawn_in_bucket"] = mine["from_bucket"]
+    block["counted_in_bucket"] = mine["to_bucket"]
+    block["changed"] = list(mine.get("changes") or [])
+    block["the_whole_house"] = [
+        OrderedDict((("person", r["person"]),
+                     ("rule", r["rule"]),
+                     ("drawn_in_bucket", r["from_bucket"]),
+                     ("counted_in_bucket", r["to_bucket"])))
+        for r in rows]
+    block["what_moved"] = (
+        "WHICH CELLS OF THE BOOK'S LADDER THIS HOUSEHOLD IS COUNTED IN, and nothing else. "
+        "The draw above is not un-written: the buckets these people were dealt in keep it "
+        "and name them in `refamilied_out`, the buckets they are counted in now fill "
+        "orders with people the town already holds, and every id, name, sex, age band and "
+        "seed on this card is the one the deal gave it. T-1557 built that accounting; "
+        "these are %d of its rows." % len(rows))
+    block["why_the_whole_house"] = (
+        "A RE-FAMILY MAY NOT SPLIT A FAMILY ACROSS THE RIVER. The rule's own ceiling "
+        "requires an invented household to move whole or not at all — it is the condition "
+        "that took T-1558's ceiling from 119 moves to 73, and the report calls it the "
+        "right price. So this woman and her children are re-familied together, in one "
+        "statement, and a rule that yielded a move for some of them and not the others "
+        "would be refused here rather than half applied.")
+    block["what_it_re_casts"] = (
+        "an invented house keeping itself as a family boarding together — this woman "
+        "boards with her children rather than keeping a house of her own. The kind of "
+        "house this was, was invented with it, so re-casting it is a reconstruction "
+        "decision about invented people at the `reconstructed` tier, made and recorded "
+        "here rather than refused. No attested household is touched by it, nobody is "
+        "minted, nobody is retired and no roof moves.")
+    block["withdrawn_if"] = ("the rule no longer yields these moves; the re-family runs "
+                             "through --build, never by hand")
+    return block
+
+
+def refamily(made: dict, moves: dict) -> Counter:
+    """Apply the rule's moves to the cards this stage drew. Returns the per-division tally.
+
+    AFTER THE DRAW, WHICH IT MAY NOT DISTURB, AND AFTER THE RESIDUAL SWEEP TOO. The sweep
+    groups this stage's houses by the division on the card, and the quota, the seeds, the
+    names and the ids are all taken from the division a house was DEALT in — so a move
+    applied any earlier would deal a different town. It is applied last, when every person
+    on the card is fixed, and it changes what the card STATES about the cell it is counted
+    in and nothing about who is on it."""
+    tally = Counter()
+    for hid, rows in sorted(moves.items()):
+        card = made.get(hid)
+        if card is None:
+            continue
+        drawn_in = card["division"]
+        people = [p["id"] for p in card["persons"]]
+        named = {r["person"] for r in rows}
+        # THE HOUSE MOVES WHOLE, AND THAT IS CHECKED BOTH WAYS. A row for somebody who is
+        # not here means the rule and the deal disagree about who lives in this house; a
+        # person here with no row means the rule would split the family across the river,
+        # which its own ceiling forbids. Either is a fault rather than a move.
+        if named != set(people):
+            raise SystemExit(
+                "FAIL the rule re-families %d of the %d people on %s: a house moves whole "
+                "or not at all" % (len(named & set(people)), len(people), hid))
+        divisions = {r["to_bucket"].split("/")[3] for r in rows}
+        if len(divisions) != 1:
+            raise SystemExit("FAIL the rule sends %s to %d divisions at once"
+                             % (hid, len(divisions)))
+        if {r["from_bucket"].split("/")[3] for r in rows} != {drawn_in}:
+            raise SystemExit("FAIL the rule re-families %s out of a division this stage "
+                             "did not deal it in (it dealt %s)" % (hid, drawn_in))
+        seats_in = divisions.pop()
+        head = card["head"]
+        moved = OrderedDict()
+        for key, value in card.items():
+            moved[key] = value
+            if key == "women_children":
+                moved["refamilied"] = refamily_block(rows, drawn_in, head)
+        moved["division"] = seats_in
+        moved["name"] = (f"Reconstructed household — {card['persons'][0]['name']}, a woman "
+                         f"boarding with her family in the {seats_in} division")
+        moved["lives_at"] = dict(card["lives_at"], note=(
+            "NO ROOF AND NO LOT, AND THE DIVISION ABOVE IS NOT THE ONE THIS HOUSE WAS "
+            "DEALT IN. T-1199 seats every reconstructed household on the lot grid; the "
+            f"division this card states is the {seats_in} one it was RE-FAMILIED into, "
+            f"not the {drawn_in} one it was drawn in, and `refamilied` above names both. "
+            "A coordinate invented here would be a fabricated location, which "
+            "docs/LIBERTIES.md refuses outright."))
+        moved["research_note"] = (
+            card["research_note"].replace(
+                f"in the {drawn_in} division. NOBODY HERE",
+                f"in the {seats_in} division, where it is counted after the re-family "
+                f"recorded above; it was drawn in the {drawn_in} division. NOBODY HERE", 1)
+            + " This household is one of the surplus the re-cut HOLDS rather than retires: "
+              "the owner's ruling of 2026-09-24 re-families it into a cell the book still "
+              "orders instead of un-writing it, and `refamilied` above is the whole of "
+              "what that changed.")
+        made[hid] = moved
+        tally[f"{drawn_in} -> {seats_in}"] += len(rows)
+    return tally
+
+
 # --------------------------------------------------------------------- the pass --
 
 def ours(card: dict) -> bool:
@@ -668,6 +822,11 @@ def fill(base: dict) -> tuple:
                 refusals[f"the {division} sweep could seat nobody"] += 1
                 break
 
+    # THE RE-FAMILY, LAST OF ALL (T-1564, of T-1559). Every person on every card is fixed
+    # by here — the deal, the residual sweep and the quota are all behind it — so what
+    # follows changes only which cell of the book's ladder a house is COUNTED in.
+    refamilied = refamily(made, refamily_moves())
+
     for hid in order:
         seated_size[made[hid]["women_children"]["seated"]] += 1
 
@@ -693,6 +852,13 @@ def fill(base: dict) -> tuple:
         "seated_histogram": {str(k): v for k, v in sorted(seated_size.items())},
         "refusals": dict(sorted(refusals.items())),
         "fills": dict(sorted(fills.items())),
+        # WHAT WAS DRAWN IS ABOVE; THIS IS WHAT MOVED AFTERWARDS. The counters above are
+        # the DEAL — the buckets these people were drawn against, which a re-family never
+        # un-writes — so the moves are reported beside them rather than folded into them.
+        # The book's own ledger is the arithmetic: tools/refamily_moves_1835.py --build.
+        "refamilied_people": sum(refamilied.values()),
+        "refamilied_households": sum(1 for hid in order if made[hid].get("refamilied")),
+        "refamilied_by_division": dict(sorted(refamilied.items())),
         "buckets_left_short": {k: v for k, v in sorted(left.items()) if v > 0},
     }
     # T-1489. THE SEAT ANOTHER PASS DREW FOR THESE PEOPLE, CARRIED THROUGH THE REBUILD.

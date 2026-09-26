@@ -111,6 +111,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/20_29/south/lodging/none",
     "note": "The book's bucket persons/female/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is mansion_house's, from the lodging model's ordinary-night figure of 5."
    },
    "seed": "lodgers:mansion_house:female:20_29:001:forename",
@@ -175,6 +176,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/female/30_39/south/lodging/none",
     "note": "The book's bucket persons/female/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is mansion_house's, from the lodging model's ordinary-night figure of 5."
    },
    "seed": "lodgers:mansion_house:female:30_39:002:forename",
@@ -239,6 +241,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/20_29/south/lodging/none",
     "note": "The book's bucket persons/male/20_29/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is mansion_house's, from the lodging model's ordinary-night figure of 5."
    },
    "seed": "lodgers:mansion_house:male:20_29:003:forename",
@@ -303,6 +306,7 @@
    "basis": {
     "kind": "model",
     "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/30_39/south/lodging/none",
     "note": "The book's bucket persons/male/30_39/south/lodging/none ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is mansion_house's, from the lodging model's ordinary-night figure of 5."
    },
    "seed": "lodgers:mansion_house:male:30_39:004:forename",
