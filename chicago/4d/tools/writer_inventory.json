@@ -905,6 +905,13 @@
       "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "read_south_bank_swell_1834.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-26",
+      "finding": "Reproduces: ran `--build` on a clean tree in 0.4s, rewrote data/traces/south_bank_swell_1834.json byte for byte and moved nothing else. It reads two working-copy rasters (chicago/pre_fire_v1/maps/images/1834-wright-map.jpg and 1834_hathaway_map.jpg) and the committed waterline; the sha256 it records for the Wright facsimile is the one data/sources/wright_1834_nara_hup.json states.",
+      "placed": "not yet \u2014 measured to reproduce. Its inputs are the two 1834 rasters, which no stage writes, and the committed e1834_harbor_cut waterline, which tools/trace_river.py and tools/trace_shoreline.py write and which the manifest does not run (both need the network and both are pinned). So a slot for it sits downstream of nothing the manifest currently owns, and appending it blind is still the thing #1452 measured against \u2014 the manifest's order is its own pass."
+    },
     "read_school_section_numerals.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
