@@ -2185,6 +2185,188 @@
         ]
       },
       "source": "/tmp/smoke_m34.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 114,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 209,
+      "takenAt": "2026-09-26T19:13:55.090Z",
+      "ref": "steward/t-1247-arrival",
+      "commit": "e5c4d5c5bdbf",
+      "devCommit": "c2dd2ea19bcf",
+      "treeHash": "sha256:78af5d321534f9fb",
+      "treeDirty": false,
+      "changelogHash": "sha256:684af79d9aec7a0b",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          6.4,
+          8,
+          12.1
+        ]
+      },
+      "source": "/tmp/arrival-evidence-recheck.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "all",
+      "parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 546,
+      "failed": 2,
+      "failures": [
+        "desktop 1280x800: turning scene detail down actually draws less, at every stand — the open aerial 1259733 > 691370 > 771701",
+        "desktop 1280x800: zero page errors — HTTP 404 http://127.0.0.1:4187/data/flora/zones/z06_dense_forest.json"
+      ],
+      "wallSeconds": 2746,
+      "takenAt": "2026-09-26T19:10:14.547Z",
+      "ref": "steward/t-1247-arrival",
+      "commit": "e5c4d5c5bdbf",
+      "devCommit": "c2dd2ea19bcf",
+      "treeHash": "sha256:78af5d321534f9fb",
+      "treeDirty": false,
+      "changelogHash": "sha256:684af79d9aec7a0b",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          5.2,
+          8.8,
+          13.3
+        ]
+      },
+      "source": "/tmp/arrival-smoke-desktop.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 26,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 317,
+      "takenAt": "2026-09-26T18:58:28.444Z",
+      "ref": "steward/t-1247-arrival",
+      "commit": "e5c4d5c5bdbf",
+      "devCommit": "c2dd2ea19bcf",
+      "treeHash": "sha256:78af5d321534f9fb",
+      "treeDirty": false,
+      "changelogHash": "sha256:684af79d9aec7a0b",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          10.2,
+          18.1,
+          18.5
+        ]
+      },
+      "source": "/tmp/arrival-detail-recheck.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "all",
+      "parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 551,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 2018,
+      "takenAt": "2026-09-26T18:58:28.338Z",
+      "ref": "steward/t-1247-arrival",
+      "commit": "e5c4d5c5bdbf",
+      "devCommit": "c2dd2ea19bcf",
+      "treeHash": "sha256:78af5d321534f9fb",
+      "treeDirty": false,
+      "changelogHash": "sha256:684af79d9aec7a0b",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          10.2,
+          18.1,
+          18.5
+        ]
+      },
+      "source": "/tmp/arrival-smoke-mobile.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 26,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 446,
+      "takenAt": "2026-09-26T18:51:52.749Z",
+      "ref": "HEAD",
+      "commit": "c2dd2ea19bcf",
+      "devCommit": "c2dd2ea19bcf",
+      "treeHash": "sha256:25ccbd1a599a1592",
+      "treeDirty": false,
+      "changelogHash": "sha256:0f848fa8fae2194a",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          20.4,
+          23.7,
+          19.2
+        ]
+      },
+      "source": "/tmp/arrival-baseline-smoke.log"
     }
   ]
 }

@@ -75,3 +75,19 @@ The module is under 9 KB **unminified**, below its 12 KB budget. Measured cold b
 wire payload: **9.617 MB / 12.000 MB**. Full renderer smoke results are recorded in
 `tools/dev-smoke-state.json` and the PR; a unit/controller pass is not described as a
 full renderer smoke pass.
+
+
+## Full renderer smoke
+
+Published mobile completed all 13 stages: **551 passed, 0 failed**. The desktop
+full run completed with **546 passed, 2 failed**. It reported a detail-tier ordering failure at the open aerial stand
+(full 1,259,733; balanced 691,370; light 771,701 triangles). Its isolated stage 5
+recheck passed **26/26**, as did the same isolated stage on untouched `dev`.
+The failure was not reproduced; it is retained in the smoke ledger rather than
+attributed to the baseline or erased. No smoke assertion was changed.
+
+The other desktop failure was a 404 for `data/flora/zones/z06_dense_forest.json`
+in a run that overlapped the independent source check rebuilding the published
+mirror (a likely transient cause, not proven attribution). The rebuilt file
+matches its authored source. The affected Evidence stage passed **114 checks, 0 failed** on a
+stable mirror; the original full-run failure remains recorded.
