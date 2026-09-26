@@ -693,6 +693,13 @@
       "measured": "2026-09-19",
       "finding": "Reproduces: `--build` on a tree the gate called clean rewrote its own two outputs and changed no committed byte."
     },
+    "name_the_keepers_1835.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-26",
+      "finding": "Reproduces: ran `--build` on a tree the gate called clean, rewrote its one output (data/reconstruction/1835_roof_keepers.json) and changed no committed byte.",
+      "placed": "not yet \u2014 measured to reproduce, but it stands between two passes already in the order: it reads the platted deal and the household cards, and the roofs that carry what it writes are re-derived from it by generate_block_infill.py. Its slot is behind both, and which side of the resident layer's own convergence that falls on is T-1398's question"
+    },
     "newspaper_corpus.py": {
       "placement": "manifest",
       "write_mode": "--build",
