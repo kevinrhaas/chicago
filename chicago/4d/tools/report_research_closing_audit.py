@@ -352,8 +352,12 @@ def render(model: dict) -> str:
                "invariant is that it may only defer to work that is still going to happen, so every owner "
                "below is checked against its ticket's current state.")
     out.append("")
-    out.extend(table(["Owner", "Units", "State", "Live"],
-                     [[o["ticket"], n(o["units"]), o["state"], "yes" if o["live"] else "**NO**"]
+    # T-1608. The state word is a CHECK input and is not emitted, for the reason written out
+    # at the same table in report_research_signoff.py: the queue is another repository, so a
+    # claim there turns this committed, gated document stale with no commit here. `live` is
+    # what this report asks of an owner, and it turns only on a real close.
+    out.extend(table(["Owner", "Units", "Live"],
+                     [[o["ticket"], n(o["units"]), "yes" if o["live"] else "**NO**"]
                       for o in led["owners"]]))
     out.append("")
     out.append("The rest defer to no ticket, and that is the second legitimate shape rather than a gap "

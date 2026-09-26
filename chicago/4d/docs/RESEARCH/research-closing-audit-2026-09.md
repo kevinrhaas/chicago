@@ -114,18 +114,18 @@ Reproduce: `python3 tools/audit_confidence.py --strict`.
 
 An unresolved unit is research that has been read and not yet spent. The ledger's standing invariant is that it may only defer to work that is still going to happen, so every owner below is checked against its ticket's current state.
 
-| Owner | Units | State | Live |
-| --- | ---: | ---: | ---: |
-| T-1315 | 3 | open | yes |
-| T-1335 | 169 | open | yes |
-| T-1543 | 1 | open | yes |
-| T-1552 | 26 | open | yes |
-| T-1569 | 12 | open | yes |
-| T-1585 | 123 | split_live | yes |
-| T-1586 | 92 | split_live | yes |
-| T-1587 | 18 | open | yes |
-| T-1588 | 2 | open | yes |
-| T-1603 | 1 | open | yes |
+| Owner | Units | Live |
+| --- | ---: | ---: |
+| T-1315 | 3 | yes |
+| T-1335 | 169 | yes |
+| T-1543 | 1 | yes |
+| T-1552 | 26 | yes |
+| T-1569 | 12 | yes |
+| T-1585 | 123 | yes |
+| T-1586 | 92 | yes |
+| T-1587 | 18 | yes |
+| T-1588 | 2 | yes |
+| T-1603 | 1 | yes |
 
 The rest defer to no ticket, and that is the second legitimate shape rather than a gap (T-1423): a name the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, whose open question is whether the person was in the town on 1 July 1835. No ticket can answer that — only a document can — so each states the document instead. The pointer that used to stand here was renamed four times as the ticket it named kept closing, and no source came any nearer.
 
