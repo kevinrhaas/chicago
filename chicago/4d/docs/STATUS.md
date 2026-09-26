@@ -1,5 +1,17 @@
 # STATUS
 
+## Arrival rolls the year back to summer 1835 — T-1247, 2026-09-26
+
+The loading gate now presents a restrained split-flap year, driven by the measured
+boot controller. It stays above 1835 until readiness, then lands with its arrival
+message and entry button. Reduced motion is stepped; fast loads add no wait;
+failed essential work stops and offers Retry. The neutral source card remains for
+T-1275 to populate. No town data or geometry changes.
+
+[Acceptance, captures, failure cases and reproduction](performance/ARRIVAL.md).
+Full renderer smoke verdicts are recorded in the PR and smoke ledger; the controlled
+fast fixture does not claim a sub-1.5-second full-town load on this software renderer.
+
 ## The ground off the plat is enumerated, and it holds 72 more — T-1614, 2026-09-26
 
 The second piece of T-1199, and it answers the 1,374 households the first piece handed on.

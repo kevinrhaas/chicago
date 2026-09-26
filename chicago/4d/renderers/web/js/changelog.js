@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1151, title: 'The haze stops painting the prairie the colour of water', kind: 'fix', ts: '2026-09-26T18:52:24.784Z', date: 'Sep 26, 2026, 1:52 PM CT',
+  { v: null, title: 'The haze stops painting the prairie the colour of water', kind: 'fix', ts: '',
     items: [
       'Fly north over the town at six hundred feet and the world looked flooded. Past the last blocks the ground turned a flat pale blue-grey, the far woods stood up out of it like trees in a lake, and a hard bright band filled the horizon. The owner reported it from the air this week.',
       'The ground was there the whole time. Switch the distance haze off at the same spot and the very pixel that read as open water reads as green prairie — so nothing was missing, nothing had been culled, and the reach that decides how far the ground is drawn was never the fault. What was wrong was the colour distance fades TO.',
@@ -7,6 +7,13 @@ export const CHANGELOG = [ // newest first
       'The haze is no longer a fixed colour. At startup the scene now reads its own sky, all the way round the horizon, and the air takes the colour of whatever sky the visitor is actually facing. Looking north it is thirty-six levels darker than before, looking south barely a step. Distance now settles below the horizon instead of standing out against it, and the bright band at the skyline is gone. The river and the far woods follow the same reading, so the water, the plain and the treeline still agree about what distance looks like.',
       'Nothing was invented to do it and no ground was added. The sky itself is untouched — it is only being asked what colour it is, rather than being told. There are no new shapes in the scene, no extra ground, and the frame costs exactly what it cost before.',
       'What this does not fix, said plainly: beyond about a kilometre and a quarter the plain is still a featureless band, because the air in this reconstruction is deliberately thick enough to swallow anything further than that. That is a separate decision about how far you can see here, and it is now written down as its own question rather than left inside this one.',
+    ] },
+  { v: 1151, title: 'Arrive in 1835 as the town is assembled', kind: 'change', ts: '2026-09-26T18:30:51.494Z', date: 'Sep 26, 2026, 1:30 PM CT',
+    items: [
+      'The loading screen is now an arrival: the year rolls backward from the present toward 1835 as real reconstruction phases finish.',
+      'The year never reaches 1835 before the town is ready; long phases ease rather than pretending to be complete, and a fast warm load does not add an artificial delay.',
+      'Reduced-motion visitors get a short stepped year change instead of flip animation, and a failed essential load stops the clock and offers Retry.',
+      'The arrival styling is a restrained instrument panel with split-flap numerals, a live phase line and room for the richer source-status library coming next.',
     ] },
   { v: 1150, title: 'The bulge in the river turns out to be Wright\u2019s own', kind: 'fix', ts: '2026-09-26T18:10:03.863Z', date: 'Sep 26, 2026, 1:10 PM CT',
     items: [

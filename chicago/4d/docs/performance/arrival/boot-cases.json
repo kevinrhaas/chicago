@@ -1,0 +1,1744 @@
+{
+  "browser": "153.0.8010.0",
+  "measuredAt": "2026-09-26T18:23:26.027Z",
+  "cases": [
+    {
+      "name": "cold",
+      "probe": [
+        {
+          "at": 11728.200000000186,
+          "year": 2026,
+          "ready": false,
+          "phase": "Reading the scene…"
+        },
+        {
+          "at": 11888.299999999814,
+          "year": 2025,
+          "ready": false,
+          "phase": "Reading the scene…"
+        },
+        {
+          "at": 11988.600000000093,
+          "year": 2024,
+          "ready": false,
+          "phase": "Reading the scene…"
+        },
+        {
+          "at": 42621.89999999991,
+          "year": 2023,
+          "ready": false,
+          "phase": "Laying the ground and the river…"
+        },
+        {
+          "at": 43182.39999999991,
+          "year": 2017,
+          "ready": false,
+          "phase": "Laying the ground and the river…"
+        },
+        {
+          "at": 62239.299999999814,
+          "year": 2016,
+          "ready": false,
+          "phase": "Placing the buildings…"
+        },
+        {
+          "at": 62668.299999999814,
+          "year": 2015,
+          "ready": false,
+          "phase": "Placing the buildings…"
+        },
+        {
+          "at": 62925.799999999814,
+          "year": 2014,
+          "ready": false,
+          "phase": "Placing the buildings…"
+        },
+        {
+          "at": 63156.89999999991,
+          "year": 2013,
+          "ready": false,
+          "phase": "Placing the buildings…"
+        },
+        {
+          "at": 63369.200000000186,
+          "year": 2012,
+          "ready": false,
+          "phase": "Placing the buildings…"
+        },
+        {
+          "at": 64757.700000000186,
+          "year": 2003,
+          "ready": false,
+          "phase": "Laying the ground and the river…"
+        },
+        {
+          "at": 73267.5,
+          "year": 2002,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73359.1000000001,
+          "year": 1999,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73386.70000000019,
+          "year": 1997,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73445.29999999981,
+          "year": 1994,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73480.29999999981,
+          "year": 1992,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73533.5,
+          "year": 1989,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73639.29999999981,
+          "year": 1982,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73727.29999999981,
+          "year": 1976,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73774.20000000019,
+          "year": 1971,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73837.6000000001,
+          "year": 1969,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73926,
+          "year": 1960,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73939.70000000019,
+          "year": 1959,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 73985.1000000001,
+          "year": 1957,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74034,
+          "year": 1953,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74141.79999999981,
+          "year": 1943,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74229.29999999981,
+          "year": 1938,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74266.6000000001,
+          "year": 1934,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74324.5,
+          "year": 1929,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74364.1000000001,
+          "year": 1926,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74495.29999999981,
+          "year": 1914,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74565.1000000001,
+          "year": 1910,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74634.3999999999,
+          "year": 1906,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74763.1000000001,
+          "year": 1895,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74869.20000000019,
+          "year": 1887,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 74944.6000000001,
+          "year": 1885,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 75034,
+          "year": 1884,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 75150.79999999981,
+          "year": 1883,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 94255.20000000019,
+          "year": 1882,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 94787.5,
+          "year": 1881,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 95330.5,
+          "year": 1880,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 95802.70000000019,
+          "year": 1879,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 96257.79999999981,
+          "year": 1878,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 96668.20000000019,
+          "year": 1877,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 97123.6000000001,
+          "year": 1876,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 97607.8999999999,
+          "year": 1875,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98495.8999999999,
+          "year": 1874,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98666,
+          "year": 1864,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98698.79999999981,
+          "year": 1863,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98736.70000000019,
+          "year": 1861,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98767.6000000001,
+          "year": 1860,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98791.29999999981,
+          "year": 1859,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98825.20000000019,
+          "year": 1858,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98836.20000000019,
+          "year": 1857,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98852.8999999999,
+          "year": 1856,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98888.29999999981,
+          "year": 1855,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98902.5,
+          "year": 1854,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98927.6000000001,
+          "year": 1853,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98936.8999999999,
+          "year": 1852,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98970.79999999981,
+          "year": 1851,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 98986.1000000001,
+          "year": 1850,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99028.20000000019,
+          "year": 1848,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99051.6000000001,
+          "year": 1847,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99085.6000000001,
+          "year": 1846,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99127,
+          "year": 1845,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99135.79999999981,
+          "year": 1844,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99175.8999999999,
+          "year": 1843,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99202.1000000001,
+          "year": 1842,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99235.5,
+          "year": 1841,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99268.6000000001,
+          "year": 1840,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99307,
+          "year": 1839,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99352,
+          "year": 1838,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99442,
+          "year": 1837,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 99577,
+          "year": 1836,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 125622.79999999981,
+          "year": 1835,
+          "ready": true,
+          "phase": "You have arrived in Chicago, summer 1835."
+        }
+      ],
+      "state": {
+        "failed": false,
+        "ready": true,
+        "year": 1835
+      },
+      "phases": [
+        {
+          "id": "scene",
+          "label": "Reading the scene…",
+          "essential": true,
+          "startedAt": 11726.100000000093,
+          "endedAt": 42597.799999999814,
+          "units": 420,
+          "unitsDone": 420,
+          "error": null,
+          "seconds": 30.87169999999972,
+          "expectedSeconds": 0.2453
+        },
+        {
+          "id": "terrain",
+          "label": "Laying the ground and the river…",
+          "essential": true,
+          "startedAt": 42597.89999999991,
+          "endedAt": 55891.799999999814,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": 13.293899999999907,
+          "expectedSeconds": 0.2309
+        },
+        {
+          "id": "buildings",
+          "label": "Placing the buildings…",
+          "essential": true,
+          "startedAt": 55891.89999999991,
+          "endedAt": 64196.89999999991,
+          "units": 420,
+          "unitsDone": 420,
+          "error": null,
+          "seconds": 8.305,
+          "expectedSeconds": 0.1098
+        },
+        {
+          "id": "ground",
+          "label": "Laying the ground and the river…",
+          "essential": true,
+          "startedAt": 64196.89999999991,
+          "endedAt": 73255.70000000019,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": 9.058800000000279,
+          "expectedSeconds": 0.2058
+        },
+        {
+          "id": "flora",
+          "label": "Planting the prairie…",
+          "essential": true,
+          "startedAt": 73255.70000000019,
+          "endedAt": 98479.79999999981,
+          "units": 978,
+          "unitsDone": 978,
+          "error": null,
+          "seconds": 25.224099999999627,
+          "expectedSeconds": 1.7328
+        },
+        {
+          "id": "people",
+          "label": "Reading the scene…",
+          "essential": false,
+          "startedAt": 98648.70000000019,
+          "endedAt": 107713.5,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": 9.064799999999813,
+          "expectedSeconds": 0.0841
+        },
+        {
+          "id": "census",
+          "label": "Reading the scene…",
+          "essential": false,
+          "startedAt": null,
+          "endedAt": null,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": null,
+          "expectedSeconds": 0.0044
+        },
+        {
+          "id": "interaction",
+          "label": "Planting the prairie…",
+          "essential": true,
+          "startedAt": 98479.8999999999,
+          "endedAt": 118180.8999999999,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": 19.701,
+          "expectedSeconds": 1.0129
+        }
+      ],
+      "readyAt": 118182.20000000019,
+      "copy": "You have arrived in Chicago, summer 1835.",
+      "button": "Tap to enter",
+      "disabled": false,
+      "hidden": "true",
+      "animations": 1,
+      "errors": []
+    },
+    {
+      "name": "layout-320-light",
+      "nodes": [
+        {
+          "id": "gate-title",
+          "left": 29,
+          "right": 291,
+          "top": 140.5,
+          "bottom": 253
+        },
+        {
+          "id": "arrival-year",
+          "left": 64,
+          "right": 256,
+          "top": 309,
+          "bottom": 371
+        },
+        {
+          "id": "arrival-card",
+          "left": 41,
+          "right": 279,
+          "top": 381,
+          "bottom": 417
+        },
+        {
+          "id": "gate-sub",
+          "left": 29,
+          "right": 291,
+          "top": 444,
+          "bottom": 507
+        },
+        {
+          "id": "gate-btn",
+          "left": 29,
+          "right": 291,
+          "top": 539,
+          "bottom": 587.5
+        }
+      ],
+      "width": 320,
+      "live": [
+        "gate-sub"
+      ]
+    },
+    {
+      "name": "layout-320-dark",
+      "nodes": [
+        {
+          "id": "gate-title",
+          "left": 29,
+          "right": 291,
+          "top": 140.5,
+          "bottom": 253
+        },
+        {
+          "id": "arrival-year",
+          "left": 64,
+          "right": 256,
+          "top": 309,
+          "bottom": 371
+        },
+        {
+          "id": "arrival-card",
+          "left": 41,
+          "right": 279,
+          "top": 381,
+          "bottom": 417
+        },
+        {
+          "id": "gate-sub",
+          "left": 29,
+          "right": 291,
+          "top": 444,
+          "bottom": 507
+        },
+        {
+          "id": "gate-btn",
+          "left": 29,
+          "right": 291,
+          "top": 539,
+          "bottom": 587.5
+        }
+      ],
+      "width": 320,
+      "live": [
+        "gate-sub"
+      ]
+    },
+    {
+      "name": "layout-390-light",
+      "nodes": [
+        {
+          "id": "gate-title",
+          "left": 39,
+          "right": 351,
+          "top": 148,
+          "bottom": 260.5
+        },
+        {
+          "id": "arrival-year",
+          "left": 85,
+          "right": 305,
+          "top": 316.5,
+          "bottom": 384.5
+        },
+        {
+          "id": "arrival-card",
+          "left": 51,
+          "right": 339,
+          "top": 394.5,
+          "bottom": 430.5
+        },
+        {
+          "id": "gate-sub",
+          "left": 39,
+          "right": 351,
+          "top": 457.5,
+          "bottom": 499.5
+        },
+        {
+          "id": "gate-btn",
+          "left": 39,
+          "right": 351,
+          "top": 531.5,
+          "bottom": 580
+        }
+      ],
+      "width": 390,
+      "live": [
+        "gate-sub"
+      ]
+    },
+    {
+      "name": "layout-390-dark",
+      "nodes": [
+        {
+          "id": "gate-title",
+          "left": 39,
+          "right": 351,
+          "top": 148,
+          "bottom": 260.5
+        },
+        {
+          "id": "arrival-year",
+          "left": 85,
+          "right": 305,
+          "top": 316.5,
+          "bottom": 384.5
+        },
+        {
+          "id": "arrival-card",
+          "left": 51,
+          "right": 339,
+          "top": 394.5,
+          "bottom": 430.5
+        },
+        {
+          "id": "gate-sub",
+          "left": 39,
+          "right": 351,
+          "top": 457.5,
+          "bottom": 499.5
+        },
+        {
+          "id": "gate-btn",
+          "left": 39,
+          "right": 351,
+          "top": 531.5,
+          "bottom": 580
+        }
+      ],
+      "width": 390,
+      "live": [
+        "gate-sub"
+      ]
+    },
+    {
+      "name": "layout-1280-light",
+      "nodes": [
+        {
+          "id": "gate-title",
+          "left": 435,
+          "right": 845,
+          "top": 176.75,
+          "bottom": 251.75
+        },
+        {
+          "id": "arrival-year",
+          "left": 530,
+          "right": 750,
+          "top": 307.75,
+          "bottom": 375.75
+        },
+        {
+          "id": "arrival-card",
+          "left": 447,
+          "right": 833,
+          "top": 385.75,
+          "bottom": 421.75
+        },
+        {
+          "id": "gate-sub",
+          "left": 435,
+          "right": 845,
+          "top": 448.75,
+          "bottom": 490.75
+        },
+        {
+          "id": "gate-btn",
+          "left": 435,
+          "right": 845,
+          "top": 522.75,
+          "bottom": 571.25
+        }
+      ],
+      "width": 1280,
+      "live": [
+        "gate-sub"
+      ]
+    },
+    {
+      "name": "layout-1280-dark",
+      "nodes": [
+        {
+          "id": "gate-title",
+          "left": 435,
+          "right": 845,
+          "top": 176.75,
+          "bottom": 251.75
+        },
+        {
+          "id": "arrival-year",
+          "left": 530,
+          "right": 750,
+          "top": 307.75,
+          "bottom": 375.75
+        },
+        {
+          "id": "arrival-card",
+          "left": 447,
+          "right": 833,
+          "top": 385.75,
+          "bottom": 421.75
+        },
+        {
+          "id": "gate-sub",
+          "left": 435,
+          "right": 845,
+          "top": 448.75,
+          "bottom": 490.75
+        },
+        {
+          "id": "gate-btn",
+          "left": 435,
+          "right": 845,
+          "top": 522.75,
+          "bottom": 571.25
+        }
+      ],
+      "width": 1280,
+      "live": [
+        "gate-sub"
+      ]
+    },
+    {
+      "name": "reduced",
+      "probe": [
+        {
+          "at": 346.29999999981374,
+          "year": 2026,
+          "ready": false,
+          "phase": "Reading the scene…"
+        },
+        {
+          "at": 6614.699999999721,
+          "year": 1996,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 7508.299999999814,
+          "year": 1931,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 13241.299999999814,
+          "year": 1866,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 18012.299999999814,
+          "year": 1835,
+          "ready": true,
+          "phase": "You have arrived in Chicago, summer 1835."
+        }
+      ],
+      "state": {
+        "failed": false,
+        "ready": true,
+        "year": 1835
+      },
+      "phases": [
+        {
+          "id": "scene",
+          "label": "Reading the scene…",
+          "essential": true,
+          "startedAt": 345.6999999997206,
+          "endedAt": 2207.5,
+          "units": 420,
+          "unitsDone": 420,
+          "error": null,
+          "seconds": 1.8618000000002795,
+          "expectedSeconds": 0.2453
+        },
+        {
+          "id": "terrain",
+          "label": "Laying the ground and the river…",
+          "essential": true,
+          "startedAt": 2207.5999999996275,
+          "endedAt": 3786.899999999907,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": 1.5793000000002795,
+          "expectedSeconds": 0.2309
+        },
+        {
+          "id": "buildings",
+          "label": "Placing the buildings…",
+          "essential": true,
+          "startedAt": 3786.899999999907,
+          "endedAt": 4538.899999999907,
+          "units": 420,
+          "unitsDone": 420,
+          "error": null,
+          "seconds": 0.752,
+          "expectedSeconds": 0.1098
+        },
+        {
+          "id": "ground",
+          "label": "Laying the ground and the river…",
+          "essential": true,
+          "startedAt": 4538.899999999907,
+          "endedAt": 6521.0999999996275,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": 1.9821999999997206,
+          "expectedSeconds": 0.2058
+        },
+        {
+          "id": "flora",
+          "label": "Planting the prairie…",
+          "essential": true,
+          "startedAt": 6521.0999999996275,
+          "endedAt": 13045.599999999627,
+          "units": 978,
+          "unitsDone": 978,
+          "error": null,
+          "seconds": 6.5245,
+          "expectedSeconds": 1.7328
+        },
+        {
+          "id": "people",
+          "label": "Reading the scene…",
+          "essential": false,
+          "startedAt": 13118.5,
+          "endedAt": 13830.5,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": 0.712,
+          "expectedSeconds": 0.0841
+        },
+        {
+          "id": "census",
+          "label": "Reading the scene…",
+          "essential": false,
+          "startedAt": null,
+          "endedAt": null,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": null,
+          "expectedSeconds": 0.0044
+        },
+        {
+          "id": "interaction",
+          "label": "Planting the prairie…",
+          "essential": true,
+          "startedAt": 13045.599999999627,
+          "endedAt": 18011.5,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": 4.965900000000373,
+          "expectedSeconds": 1.0129
+        }
+      ],
+      "readyAt": 18011.69999999972,
+      "copy": "You have arrived in Chicago, summer 1835.",
+      "button": "Tap to enter",
+      "disabled": false,
+      "hidden": "true",
+      "animations": 0,
+      "errors": []
+    },
+    {
+      "name": "essential-failure",
+      "probe": [
+        {
+          "at": 559,
+          "year": 2026,
+          "ready": false,
+          "phase": "Reading the scene…"
+        },
+        {
+          "at": 2679.2000000001863,
+          "year": 2024,
+          "ready": false,
+          "phase": "Reading the scene…"
+        },
+        {
+          "at": 5492.800000000279,
+          "year": 2023,
+          "ready": false,
+          "phase": "Laying the ground and the river…"
+        }
+      ],
+      "state": {
+        "failed": true,
+        "ready": false,
+        "year": 2023
+      },
+      "phases": [
+        {
+          "id": "scene",
+          "label": "Reading the scene…",
+          "essential": true,
+          "startedAt": 558.5,
+          "endedAt": 5491.899999999907,
+          "units": 420,
+          "unitsDone": 420,
+          "error": null,
+          "seconds": 4.9333999999999065,
+          "expectedSeconds": 0.2453
+        },
+        {
+          "id": "terrain",
+          "label": "Laying the ground and the river…",
+          "essential": true,
+          "startedAt": 5491.899999999907,
+          "endedAt": 5655.600000000093,
+          "units": null,
+          "unitsDone": 0,
+          "error": "forced terrain failure",
+          "seconds": 0.16370000000018625,
+          "expectedSeconds": 0.2309
+        },
+        {
+          "id": "buildings",
+          "label": "Placing the buildings…",
+          "essential": true,
+          "startedAt": null,
+          "endedAt": null,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": null,
+          "expectedSeconds": 0.1098
+        },
+        {
+          "id": "ground",
+          "label": "Laying the ground and the river…",
+          "essential": true,
+          "startedAt": null,
+          "endedAt": null,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": null,
+          "expectedSeconds": 0.2058
+        },
+        {
+          "id": "flora",
+          "label": "Planting the prairie…",
+          "essential": true,
+          "startedAt": null,
+          "endedAt": null,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": null,
+          "expectedSeconds": 1.7328
+        },
+        {
+          "id": "people",
+          "label": "Reading the scene…",
+          "essential": false,
+          "startedAt": null,
+          "endedAt": null,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": null,
+          "expectedSeconds": 0.0841
+        },
+        {
+          "id": "census",
+          "label": "Reading the scene…",
+          "essential": false,
+          "startedAt": null,
+          "endedAt": null,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": null,
+          "expectedSeconds": 0.0044
+        },
+        {
+          "id": "interaction",
+          "label": "Planting the prairie…",
+          "essential": true,
+          "startedAt": null,
+          "endedAt": null,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": null,
+          "expectedSeconds": 1.0129
+        }
+      ],
+      "readyAt": null,
+      "copy": "Could not load the scene — forced terrain failure",
+      "button": "Retry",
+      "disabled": false,
+      "hidden": "true",
+      "animations": 0,
+      "errors": []
+    },
+    {
+      "name": "optional-failure",
+      "probe": [
+        {
+          "at": 644.8999999999069,
+          "year": 2026,
+          "ready": false,
+          "phase": "Reading the scene…"
+        },
+        {
+          "at": 2195.100000000093,
+          "year": 2024,
+          "ready": false,
+          "phase": "Reading the scene…"
+        },
+        {
+          "at": 4924.899999999907,
+          "year": 2023,
+          "ready": false,
+          "phase": "Laying the ground and the river…"
+        },
+        {
+          "at": 5031.100000000093,
+          "year": 2021,
+          "ready": false,
+          "phase": "Laying the ground and the river…"
+        },
+        {
+          "at": 5116.100000000093,
+          "year": 2019,
+          "ready": false,
+          "phase": "Laying the ground and the river…"
+        },
+        {
+          "at": 6686.299999999814,
+          "year": 2017,
+          "ready": false,
+          "phase": "Laying the ground and the river…"
+        },
+        {
+          "at": 7185,
+          "year": 2016,
+          "ready": false,
+          "phase": "Placing the buildings…"
+        },
+        {
+          "at": 7707.899999999907,
+          "year": 2015,
+          "ready": false,
+          "phase": "Placing the buildings…"
+        },
+        {
+          "at": 8103.899999999907,
+          "year": 2014,
+          "ready": false,
+          "phase": "Placing the buildings…"
+        },
+        {
+          "at": 8307.69999999972,
+          "year": 2013,
+          "ready": false,
+          "phase": "Placing the buildings…"
+        },
+        {
+          "at": 8547.600000000093,
+          "year": 2012,
+          "ready": false,
+          "phase": "Placing the buildings…"
+        },
+        {
+          "at": 9126.799999999814,
+          "year": 2003,
+          "ready": false,
+          "phase": "Laying the ground and the river…"
+        },
+        {
+          "at": 11202.399999999907,
+          "year": 2002,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11263.299999999814,
+          "year": 2001,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11285.19999999972,
+          "year": 2000,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11308.100000000093,
+          "year": 1999,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11336.299999999814,
+          "year": 1997,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11364,
+          "year": 1996,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11402.600000000093,
+          "year": 1994,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11431.799999999814,
+          "year": 1992,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11516,
+          "year": 1986,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11555.799999999814,
+          "year": 1983,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11596,
+          "year": 1981,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11625.5,
+          "year": 1979,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11656.399999999907,
+          "year": 1977,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11695.19999999972,
+          "year": 1974,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11756.399999999907,
+          "year": 1969,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11863.19999999972,
+          "year": 1960,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11887.69999999972,
+          "year": 1959,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11905.899999999907,
+          "year": 1958,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 11940.19999999972,
+          "year": 1955,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12002.69999999972,
+          "year": 1950,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12037.69999999972,
+          "year": 1948,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12116.799999999814,
+          "year": 1941,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12140.69999999972,
+          "year": 1939,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12178.799999999814,
+          "year": 1936,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12219.399999999907,
+          "year": 1933,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12284,
+          "year": 1928,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12315.69999999972,
+          "year": 1925,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12338.100000000093,
+          "year": 1924,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12403.899999999907,
+          "year": 1918,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12455.69999999972,
+          "year": 1914,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12500.19999999972,
+          "year": 1911,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12548,
+          "year": 1907,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12578.19999999972,
+          "year": 1905,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12611.69999999972,
+          "year": 1902,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12655.799999999814,
+          "year": 1899,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12699.69999999972,
+          "year": 1895,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12739.899999999907,
+          "year": 1893,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12778.19999999972,
+          "year": 1890,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12803.19999999972,
+          "year": 1888,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12839.399999999907,
+          "year": 1887,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12863.600000000093,
+          "year": 1886,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12899.69999999972,
+          "year": 1885,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 12952,
+          "year": 1884,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 13088.299999999814,
+          "year": 1883,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 18792.600000000093,
+          "year": 1882,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 18880.5,
+          "year": 1881,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 18950.5,
+          "year": 1880,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 19068.299999999814,
+          "year": 1879,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 19192.799999999814,
+          "year": 1878,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 19295.5,
+          "year": 1877,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 19434.399999999907,
+          "year": 1876,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 19628.600000000093,
+          "year": 1875,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 19877.799999999814,
+          "year": 1874,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 19945.69999999972,
+          "year": 1871,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 19997.5,
+          "year": 1869,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20032.399999999907,
+          "year": 1867,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20116,
+          "year": 1862,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20134.19999999972,
+          "year": 1861,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20157.69999999972,
+          "year": 1860,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20199.899999999907,
+          "year": 1858,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20232.600000000093,
+          "year": 1856,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20259.600000000093,
+          "year": 1855,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20294,
+          "year": 1853,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20313.399999999907,
+          "year": 1852,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20354.399999999907,
+          "year": 1851,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20400.69999999972,
+          "year": 1849,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20403.5,
+          "year": 1848,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20430.600000000093,
+          "year": 1847,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20606.69999999972,
+          "year": 1840,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20699.799999999814,
+          "year": 1839,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20711.5,
+          "year": 1838,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20783.799999999814,
+          "year": 1837,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 20950.299999999814,
+          "year": 1836,
+          "ready": false,
+          "phase": "Planting the prairie…"
+        },
+        {
+          "at": 31614,
+          "year": 1835,
+          "ready": true,
+          "phase": "You have arrived in Chicago, summer 1835."
+        }
+      ],
+      "state": {
+        "failed": false,
+        "ready": true,
+        "year": 1835
+      },
+      "phases": [
+        {
+          "id": "scene",
+          "label": "Reading the scene…",
+          "essential": true,
+          "startedAt": 644.6000000000931,
+          "endedAt": 4914.100000000093,
+          "units": 420,
+          "unitsDone": 420,
+          "error": null,
+          "seconds": 4.2695,
+          "expectedSeconds": 0.2453
+        },
+        {
+          "id": "terrain",
+          "label": "Laying the ground and the river…",
+          "essential": true,
+          "startedAt": 4914.100000000093,
+          "endedAt": 6940.5,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": 2.026399999999907,
+          "expectedSeconds": 0.2309
+        },
+        {
+          "id": "buildings",
+          "label": "Placing the buildings…",
+          "essential": true,
+          "startedAt": 6940.5,
+          "endedAt": 8886.69999999972,
+          "units": 420,
+          "unitsDone": 420,
+          "error": null,
+          "seconds": 1.9461999999997206,
+          "expectedSeconds": 0.1098
+        },
+        {
+          "id": "ground",
+          "label": "Laying the ground and the river…",
+          "essential": true,
+          "startedAt": 8886.69999999972,
+          "endedAt": 11200.19999999972,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": 2.3135,
+          "expectedSeconds": 0.2058
+        },
+        {
+          "id": "flora",
+          "label": "Planting the prairie…",
+          "essential": true,
+          "startedAt": 11200.19999999972,
+          "endedAt": 19863.100000000093,
+          "units": 978,
+          "unitsDone": 978,
+          "error": null,
+          "seconds": 8.662900000000372,
+          "expectedSeconds": 1.7328
+        },
+        {
+          "id": "people",
+          "label": "Reading the scene…",
+          "essential": false,
+          "startedAt": 19940.5,
+          "endedAt": 19947.799999999814,
+          "units": null,
+          "unitsDone": 0,
+          "error": "sidecars/1835/people.json 503 — nobody is listed in Go to or People",
+          "seconds": 0.007299999999813736,
+          "expectedSeconds": 0.0841
+        },
+        {
+          "id": "census",
+          "label": "Reading the scene…",
+          "essential": false,
+          "startedAt": null,
+          "endedAt": null,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": null,
+          "expectedSeconds": 0.0044
+        },
+        {
+          "id": "interaction",
+          "label": "Planting the prairie…",
+          "essential": true,
+          "startedAt": 19863.100000000093,
+          "endedAt": 24929.799999999814,
+          "units": null,
+          "unitsDone": 0,
+          "error": null,
+          "seconds": 5.06669999999972,
+          "expectedSeconds": 1.0129
+        }
+      ],
+      "readyAt": 24930,
+      "copy": "You have arrived in Chicago, summer 1835.",
+      "button": "Tap to enter",
+      "disabled": false,
+      "hidden": "true",
+      "animations": 1,
+      "errors": []
+    }
+  ]
+}
