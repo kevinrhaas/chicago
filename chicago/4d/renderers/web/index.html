@@ -53,12 +53,17 @@
      the town is already drawn behind this panel. -->
 <div id="gate" class="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
   <div class="gate-card">
-    <p class="gate-eyebrow">4D Chicago</p>
-    <h1 id="gate-title">Chicago, summer 1835</h1>
-    <p class="gate-sub" id="gate-sub">Loading the scene…</p>
+    <p class="gate-eyebrow">4D Chicago · Arrival</p>
+    <h1 id="gate-title">Entering a digital reconstruction of Chicago</h1>
+    <div class="arrival-instrument">
+      <p class="arrival-label">Year</p>
+      <div id="arrival-year" class="arrival-year" aria-hidden="true">2026</div>
+      <p id="arrival-card" class="arrival-card">Drawing on previously researched sources</p>
+    </div>
+    <p class="gate-sub" id="gate-sub" aria-live="polite">Loading the scene…</p>
     <div class="gate-bar" id="gate-bar" role="progressbar" aria-labelledby="gate-sub"
          aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
-    <button id="gate-btn" class="gate-btn" disabled>Tap to walk</button>
+    <button id="gate-btn" class="gate-btn" disabled>Tap to enter</button>
     <p class="gate-keys">
       <span class="k">W A S D</span> walk · <span class="k">Shift</span> run ·
       <span class="k">mouse</span> look · <span class="k">E</span> inspect ·

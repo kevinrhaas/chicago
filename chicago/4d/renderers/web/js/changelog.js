@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1150, title: 'The loading screen now arrives in 1835', kind: 'change', ts: '2026-09-26T18:04:12.000Z', date: 'Sep 26, 2026, 1:04 PM CT',
+    items: [
+      'Loading is now the journey into the reconstruction: the year rolls back from the present and never reaches 1835 until the town is actually ready.',
+      'The arrival panel uses a restrained split-flap instrument, real reconstruction phases and a quiet source card rather than a theatrical timer.',
+      'Reduced-motion and fast warm loads settle immediately, while a failed essential phase stops the year and offers Retry instead of claiming you arrived.',
+    ] },
   { v: 1149, title: 'Explore Prairie Avenue in 1904', kind: 'change', ts: '2026-09-26T17:49:41.580Z', date: 'Sep 26, 2026, 12:49 PM CT',
     items: [
       'A new Prairie Avenue research browser brings together house histories, Sanborn maps, directory leads and a dedicated Glessner collection.',

@@ -19,6 +19,7 @@ const H_FOV_DEG = 76;
 const DEG = Math.PI / 180;
 
 import { createBoot, createCheckpoint, yieldToPaint } from './boot-phases.js';
+import { createArrival } from './arrival.js';
 import { loadScene, resolveBases } from './scene-loader.js';
 import { createWorld } from './world.js';
 import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
@@ -930,6 +931,15 @@ const bootController = createBoot({
   storage: bootStorage, problems, present: progress,
 });
 api.boot = bootController;
+const arrival = createArrival({
+  boot: bootController,
+  yearEl: document.getElementById('arrival-year'),
+  phaseEl: gateSub,
+  cardEl: document.getElementById('arrival-card'),
+  barEl: gateBar,
+  buttonEl: gateBtn,
+});
+api.arrival = arrival;
 const bootCheckpoint = createCheckpoint();
 
 boot().catch((err) => {
@@ -940,12 +950,11 @@ boot().catch((err) => {
   // A year with no scene yet (a door such as /4d/1812/ that is ahead of the data)
   // is not a broken build, and should not read like one.
   const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`);
-  if (gateSub) {
-    gateSub.textContent = unbuilt
+  arrival.fail(err, {
+    message: unbuilt
       ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.`
-      : `Could not load the scene — ${api.error}`;
-  }
-  if (gateBtn) gateBtn.textContent = 'Failed to load';
+      : `Could not load the scene — ${api.error}`,
+  });
   console.error('[4D Chicago] boot failed', err);
 });
 
@@ -2788,7 +2797,7 @@ async function boot() {
   // Optional census work may finish later; it cannot hold the street closed.
   await firstFrame;
   bootController.end('interaction');
-  if (gateBtn) { gateBtn.disabled = false; gateBtn.textContent = 'Tap to walk'; }
+  if (gateBtn) { gateBtn.disabled = false; gateBtn.textContent = 'Tap to enter'; }
   api.ready = true;
   if (!bootController.finish()) {
     api.ready = false;

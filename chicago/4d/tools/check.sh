@@ -37,6 +37,9 @@ source "$_check_tools/check_harness.sh"
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
+step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
+  node tools/test_arrival.mjs
+
 # THE MIRROR IS BUILT FIRST, BECAUSE IT IS NOT IN THE REPOSITORY ANY MORE (T-0938).
 #
 # `site/4d/` used to be committed, so every step below could assume it was
