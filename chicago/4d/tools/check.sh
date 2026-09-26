@@ -136,6 +136,16 @@ step "the scene-detail ceilings are a ladder, and each rung says what it protect
 selftest "…and the seal still clamps, marks and shouts a rung typed too high (T-0135)" \
   node tools/check_detail_ladder.mjs --self-test
 
+# The other renderer constant that a DATA change can silently invalidate. L17's apron
+# is re-derived from the terrain box by generators/terrain_gen.py, so extending the box
+# moves the distance the haze has to close over — and the haze is a literal in two
+# renderer files. This holds the one against the other, both ways. See T-1635.
+step "the haze closes before L17's ground apron ends, and both its literals agree (T-1635)" \
+  node tools/check_haze_reach.mjs
+
+selftest "…and it refuses a thinned air, a shrunk apron and the two literals drifting apart (T-1635)" \
+  node tools/check_haze_reach.mjs --self-test
+
 step "dataset (schema, provenance, date gates, licenses, staleness, publish)" \
   python3 tools/validate.py --all $STRICT
 

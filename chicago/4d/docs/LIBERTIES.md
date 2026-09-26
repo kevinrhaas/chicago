@@ -1254,6 +1254,40 @@ answering its fallback out there. What has not changed: the heightfield is byte-
 surviving apron vertex outside the bar's 85 m carries its old height exactly, and the ring is still
 the same ring — it gains one more, at 2 256 vertices, which is what the taper is drawn with.
 
+**Revised 2026-09-26 — this entry's standing condition is now a GATE, and the air it asks for has
+been re-solved against the apron this entry actually has (T-1635).** Every version of the text above
+leans on one sentence — "the scene's fog is total by 1500 m" — and that sentence was the argument for
+`renderers/web/js/world.js`'s haze density, 0.00125, whose air goes total at **1,883 m**. Meanwhile
+this entry's own apron has been re-derived three times and stands at **2,659.84 m**. The condition
+therefore held only in the safe direction, by **776.7 m of air nobody had a reason for**, and that
+surplus is what the owner reported from 600 ft: past about 1.2 km the plain was a featureless band
+with the far timber standing in it, because only a tenth of the prairie's own colour survived the
+trip to the eye.
+
+The density is now SOLVED from this apron rather than set beside it: 0.00089, the thinnest air for
+which the haze is still total inside `heightfield.json`'s published `skirt.margin_m`, going total
+14.9 m short of the apron's outer edge. At 1,200 m the prairie's own colour now survives at 32 %
+against 10.5 %, and at 1,500 m at 16.8 % against 3.0 %.
+
+**What is claimed out there has not changed by one metre, and that is the whole reason this is a
+revision and not a weakening.** The apron is the same apron, the same 2 256 vertices, the same
+boundary heights carried outward, the same fallback from the walker's sampler, and the heightfield
+is byte-identical. More of it is legible; none of it is asserted. What this entry has always
+promised is that the apron's outer EDGE is never seen, because an edge reads as a landform — and
+that promise is now kept by `tools/check_haze_reach.mjs` on every commit, against every epoch's own
+published margin, instead of by a prose sentence that three box extensions had already made stale.
+A future box that shrinks the apron under the air, or a hand that thins the air past the apron,
+turns the gate red rather than quietly displaying ground nobody built.
+
+**The liberty this leaves standing, stated plainly.** No source reached describes visibility over
+the July prairie in 1835, and none is cited: the air in this scene is as clear as the modelled world
+allows and no clearer. Read as meteorological visibility — the 2 % contrast distance — it is 2.2 km,
+up from 1.6 km, which is mist rather than a clear summer day. That figure is a fact about how much
+ground has been built, not a claim about the weather, and the way to improve it is to build ground.
+
+**Related:** **L35** (the far timber's exemption from this air, whose compromise this makes 423 m
+smaller without touching its cap).
+
 ### L18 — Sauganash Hotel: the 1829 cabin's height and its roof are placeholders
 **Decision:** the `log_1829` phase is built 2.4 m to the plate under a gable roof, both tagged
 `conjectural`, both carrying the word PLACEHOLDER in their own notes.
@@ -1722,6 +1756,29 @@ sampling a shader is not fitting a model. **The cap remains 0.82 and the density
 0.00125**; what the scene's air is thick ENOUGH to hide is unchanged, and the residual reported
 under T-1631 — that past about 1.2 km the plain is still a featureless band because the haze is
 90 % there by design — is the density's business and not this entry's.
+
+**Revised 2026-09-26 (T-1635) — the density's business has now been done, and it makes this
+entry's compromise 423 m smaller without touching its cap.** The residual T-1631 handed on was
+spent: the haze density is no longer 0.00125 but **0.00089**, solved from the width of the
+ground apron L17 asks it to close over rather than from L17's long-retired "total by 1500 m"
+(the apron stands at 2,659.84 m; the air was still built for 1,883 m). Two of this entry's own
+figures move with it, and both move the way this entry has always wanted:
+
+- the sentence above that "every other distant thing" is hazed by a fog "deliberately total by
+  1500 m" is retired. The shared fog is total at **2,644.9 m**, and what makes that the figure is
+  the apron and not a preference;
+- the band's own law now reaches the 0.82 cap at **1,471 m** instead of about 1,048 m. So the
+  band follows the scene's real air 423 m further out before this constant takes over, and the
+  compression the first consequence above confesses starts 423 m further out with it.
+
+**`HAZE_MAX` is unchanged at 0.82, deliberately.** It is the figure this entry argues for, the
+dossier's three-, four- and six-mile timber is the argument, and nothing in T-1635's reading
+bears on it — the exemption is smaller, not resolved. The **"How to resolve"** below is also
+unchanged, and one line of it is now half true in a way worth naming: the second route it offers
+is that "replacing the skirt with real terrain removes L17's need for a closed horizon". L17's
+need is not removed, but it is now *priced*, and the price is published — the haze may be thinned
+exactly as far as the apron is pushed out by ground someone actually builds, and
+`tools/check_haze_reach.mjs` is what will let the next thinning through.
 
 **Also revised: the third point's measurement is half answered.** The band was additionally
 being *deleted* rather than merely dim — the crown/gap modulation cuts a bearing to as little

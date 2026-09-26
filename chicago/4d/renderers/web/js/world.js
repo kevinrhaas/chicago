@@ -296,19 +296,67 @@ const ENV_INTENSITY = 1.0;
 const FILL_UP = SKY_FILL_UP.map((v) => v * ENV_INTENSITY);
 
 /**
- * Exponential-squared haze, tuned so it is nothing at conversational range,
- * a readable recession across the middle distance, and total at the edge of what
- * is modelled: ~1.7 % at 100 m, 13 % at 300 m, 46 % at 700 m, 98 % at 1500 m.
+ * Exponential-squared haze, and since T-1635 the density is DERIVED rather than
+ * tuned. `FogExp2` leaves a surface exp(-(d * density)^2) of its own colour at
+ * distance d, so at 0.00089 the air takes 0.8 % at 100 m, 6.9 % at 300 m, 32 %
+ * at 700 m, 68 % at 1,200 m, 83 % at 1,500 m, and the last representable 8-bit
+ * step of it at 2,644.9 m.
  *
- * That last figure is the point, and it is a HONESTY constraint rather than a
- * look: docs/LIBERTIES.md L17 records that the ground beyond the 640 m
- * heightfield is a radial skirt carried out to 1400 m — geometry for the horizon
- * only, nothing modelled, sampled or claimed — on the standing condition that
- * "the scene's fog is total by 1500 m". Fog here hides ground we have not built.
- * It must never be turned down far enough to display it, and it is not doing any
- * work the other way either: no distant landform is drawn INTO the haze.
+ * WHAT SETS IT, AND IT IS A MEASUREMENT OF COMMITTED GEOMETRY. The air here
+ * exists to close the horizon over the apron. docs/LIBERTIES.md L17 carries each
+ * boundary vertex of the modelled box outward past the box — geometry for the
+ * horizon only, nothing modelled, sampled or claimed — and the fog has to be
+ * total by the time the eye reaches that apron's OUTER EDGE, or the edge itself
+ * reads as a landform. The apron's width is not a choice either:
+ * `generators/terrain_gen.py` derives it from the box so the publish step's
+ * quantiser lattice divides the terrain grid (T-0152) and publishes it as
+ * `heightfield.json`'s `skirt.margin_m`, which for the committed field is
+ * **2,659.84 m**. Solve `hazeReachM(density) <= 2659.84` and the thinnest air
+ * this scene is allowed is 0.0008850. 0.00089 is that bound rounded up to two
+ * figures; the haze goes total 14.9 m inside the apron's edge.
+ *
+ * THE NUMBER IT REPLACES WAS THE SAME ARGUMENT AGAINST A BOX THREE MOVES AGO.
+ * 0.00125 is total at 1,883 m, and it was set against L17 as L17 was first
+ * written: a heightfield covering "a 640 m square", "a radial skirt carried out
+ * to 1400 m", and the standing condition that "the scene's fog is total by
+ * 1500 m". All three of those figures have since been retired inside L17 itself
+ * — the box was extended east, north and south, and the apron was re-derived
+ * with it — so the distance the fog is actually asked to close over ran 776.7 m
+ * past the air that was built for it, and nothing re-thinned the air to match.
+ * What was left of it is what the owner reported from the air: past about 1.2 km
+ * the plain was a featureless band with the far timber standing in it, because
+ * one tenth of the prairie's own colour survived the trip. Just under a third of
+ * it does now, and the same reading at 1,500 m goes 3.0 % to 16.8 %.
+ *
+ * SO THIS IS NOT A LOOK, AND IT IS NOT A CLAIM ABOUT JULY WEATHER EITHER. No
+ * source reached describes visibility over the 1835 prairie, and none is cited
+ * here: the air is as clear as the modelled world allows and no clearer, which
+ * is a stated liberty and is recorded as one in L17. Read as meteorological
+ * visibility (the 2 % contrast distance) it is still only 2.2 km, up from
+ * 1.6 km — mist, not a clear summer day. That gap is a fact about how much
+ * ground has been built, not about the weather, and it closes by building
+ * ground.
+ *
+ * IT IS GATED, NOT PROMISED. `tools/check_haze_reach.mjs` reads this literal,
+ * the copy in `trees.js` and every epoch's published `skirt.margin_m`, and
+ * refuses a density whose total distance runs past the apron it has to close
+ * over. L17's standing condition is therefore held by a check on every commit
+ * instead of by a sentence in this block that the next box extension can quietly
+ * make false — which is exactly what happened to the last one.
+ *
+ * WHAT IT COSTS, MEASURED. `terrain.js`'s `hazeReachM()` derives the ground cull
+ * from this density, so thinning the air pushes the reach out 761.7 m (1,883.2
+ * -> 2,644.9). Read on the published mirror at desktop 1280x800, at T-0135's
+ * five stands and all three sealed tiers, this tree against dev's: the triangle
+ * and draw-call counts are IDENTICAL at all fifteen readings, and identical
+ * again at the owner's own pose (fly, e 120, n -420, 183 m, yaw 0, pitch -8 —
+ * 1,072,186 triangles, 89 calls, 30 of 217 ground tiles drawn, at both
+ * densities). The ground's culling grid is cut at 240 m and what lies between
+ * the two reaches at these stands is apron, which T-1595's sliver merge already
+ * submits as one always-drawn mesh of 2,489 triangles. The reach moved and the
+ * frame did not.
  */
-const HAZE_DENSITY = 0.00125;
+const HAZE_DENSITY = 0.00089;
 
 /**
  * ROADMAP R-W3b(a) — HOW FAR FROM THE VISITOR THE SUN'S SHADOW REACHES, in
