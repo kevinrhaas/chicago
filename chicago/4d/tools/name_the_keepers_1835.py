@@ -20,7 +20,7 @@ seats are on the five South Water blocks, and this is the ticket that makes the 
 
 Nothing here is a reading and nothing here is new invention. The invention — WHICH
 household takes WHICH lot — was made by the deal and is recorded as **L270**; what this
-pass does is publish it where a visitor meets it, and **L275** carries that.
+pass does is publish it where a visitor meets it, and **L276** carries that.
 
 ## THE RULING THAT REFUSES ELEVEN OF THE TWENTY
 
@@ -125,7 +125,7 @@ def occupants_note(seat: dict) -> str:
     return (
         "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL "
         "(data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto "
-        f"this roof by {TICKET}; liberties L270 and L275). NO SOURCE PLACES THIS HOUSEHOLD "
+        f"this roof by {TICKET}; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD "
         "HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot "
         "and not even a division — so both halves of its band were dealt rather than read, "
         f"and the lot under this roof is the policy's {seat['policy_rule']} clause answered "
@@ -147,7 +147,7 @@ def assignment_note(seat: dict) -> str:
         f"{seat['policy_rule']} clause, on {seat['lot_id']} fronting {seat['fronts']} — "
         f"a standing anonymous roof of family {seat['family']} "
         "this clause admits, adopted and not raised. WHICH household takes WHICH lot is "
-        "this project's invention (L270); that the card now says so is L275. No source "
+        "this project's invention (L270); that the card now says so is L276. No source "
         "places this household on this lot, on this street, or in this division."
     )
 

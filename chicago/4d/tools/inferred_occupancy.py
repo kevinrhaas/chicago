@@ -23,7 +23,7 @@ spot; it is evidence about who the town must have held, attached to a roof the
 programme had already placed.
 
 THE THIRD PROGRAMME IS THE PLACEMENT POLICY'S PLATTED DEAL (T-1638, piece 1 of T-1200;
-liberty L275 over L270). `tools/seat_platted_ground_1835.py` deals the committed plat to the
+liberty L276 over L270). `tools/seat_platted_ground_1835.py` deals the committed plat to the
 households the address book leaves standing at a BAND, and every one of its 108 seats ADOPTS
 a roof that already stands. Until T-1638 that reached the person's card and stopped there:
 the building said `Anonymous count-unit toward the July 1835 665-roof programme` and named

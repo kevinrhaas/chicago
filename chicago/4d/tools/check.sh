@@ -1843,7 +1843,7 @@ selftest "…and the deal's six refusals still fire when broken" \
 # and its refusals are the load-bearing half: 60 of the deal's 108 adopted seats are
 # households minted from the post office's letter lists, whom the owner's ruling of
 # 2026-08-30 (T-0379) refuses a roof, so they are listed with the ruling rather than written
-# onto a card. Nothing is raised, nothing is baked and no keeper is a reading — L275 carries
+# onto a card. Nothing is raised, nothing is baked and no keeper is a reading — L276 carries
 # the publication and L270 the invention underneath it.
 step "the South Water roofs still name the keepers the platted deal seated there" \
   python3 tools/name_the_keepers_1835.py --check

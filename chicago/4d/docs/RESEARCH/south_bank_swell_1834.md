@@ -123,3 +123,81 @@ whose lots, landings and plank walk are about to be built against it (T-1200). S
 asked, on T-1630's own `## Decision needed`, and the ticket keeps its place in the queue.
 
 Whichever way it goes, this reading is what the change will be measured against.
+
+## 6. The owner's answer, 2026-09-26: option (b), Hathaway governs this reach
+
+He read the per-block table in § 3 and answered the question in § 5 himself, twice:
+
+> *"ok yes st till want to bring that bulge in some, so the sidewalk is fairly straight and
+> following, at least 50% of what is north of south water street i think"*
+
+and then, on the table:
+
+> *"i think it is closer to the hathaway map in that reading"*
+
+So the waterline on this reach follows **Hathaway 1834**, and Wright's ink becomes the
+set-aside reading. It is kept vertex for vertex in `data/traces/south_bank_swell_1834.json`
+under `recut.wright_bank_as_traced`, and every figure in § 2 and § 3 is still measured
+against it — the reading is about the trace; the ruling is laid over it.
+
+**The amount is the two sheets' own disagreement, not a fraction of Wright and not a drawn
+line.** His first message asks for "at least 50%"; halving Wright's 39.0 m at block 19 would
+cut to ~19.5 m, past Hathaway's 28.2 m, which is exactly the overcorrection his third message
+forbade ("dont go crazy on either way"). So the shift is `wright_minus_hathaway_m` from § 3,
+block by block: **5.6 m at block 20, 10.8 m at block 19.** Measured inside each sheet, so
+neither registration enters it.
+
+## 7. What was moved, and what it measures
+
+The shift is piecewise linear in local easting, zero at both ends, so Wright's La Salle
+re-entrant stays the one break in the run and nothing outside the reach moves at all:
+
+| local E | +228.91 | +268.00 | +390.00 | +455.81 | +467.17 |
+|---|---|---|---|---|---|
+| bank moved south | 0 m | 5.6 m | 10.8 m | 10.8 m | 0 m |
+
+Nine bank stations moved, in `river.geojson` (the forks window, to E +314) and
+`shoreline.geojson` (the harbour reach, from E +314) and in both files' water polygons, so
+the water mask's union sees one line and not two.
+
+**The west end is a measurement, not a preference.** The turn the owner named runs from about
+E +160, but west of E +222 the traced bank already stands SOUTH of South Water Street's own
+platted corridor edge — the river crosses the street at the forks, which is why the plat omits
+block 21. A shift starting at the foot of the turn put another 32 m of roadway under water for
+no reading, so the run starts at the committed bend vertex at E +228.91. Clearance over the
+corridor edge is non-decreasing at every station as a result, and its minimum outside the
+slough mouth is unchanged at −3.72 m.
+
+**Block 18 is not moved, and that is a refusal with a number on it.** The ruling's table asks
+7.5 m of it, but east of the slough the committed bank stands only **5.4 m** north of the same
+corridor edge, so 7.5 m would put the river 2.1 m into the roadway. The owner's own words bound
+the reach — *"from the bend in the west to the La Salle mouth"*, *"east of the slough it already
+follows the bank"* — and they are followed. Block 17 was never in question (Hathaway draws it
+1.5 m WIDER than Wright).
+
+What the change buys, on the committed geometry, re-derived by
+`tools/read_south_bank_swell_1834.py --check`:
+
+| | before | after |
+|---|---|---|
+| step in the bank across the La Salle mouth | 9.62 m | **1.18 m** |
+| p90 departure from a straight fit, E +220…+456 | 6.25 m | **4.35 m** |
+| p90 departure from a straight fit, E +300…+456 | 1.53 m | **0.65 m** |
+| ground north of the corridor edge at block 20 | 16.03 m | 10.51 m |
+| ground north of the corridor edge at block 19 | 23.94 m | 13.36 m |
+
+The first row is the owner's own test — the reach west of the slough now reads level with the
+bank east of it instead of standing 9.6 m proud of it. The third is the plank walk's: over the
+stretch that used to curve round the point, the bank is straight to 0.65 m.
+
+**The per-block depths cannot be restated against Hathaway's absolute figures, and pretending
+otherwise would be the dishonest move here.** § 3's 29.3 / 28.2 / 24.2 m are measured between
+a sheet's own bank and its own block tier; the model's tier is the platted grid, which stands
+2 to 11 m south of Wright's inked tier under the NA/HUP fit, and 8.58 m of that is the
+corridor-line disagreement T-0419 refused to move. So the depths above are stated against the
+model's own corridor edge, and what is held to Hathaway is the DIFFERENCE, which is free of
+both registrations.
+
+**Grade.** The waterline on this reach is no longer a trace of the sheet the datum, the plat
+and the block grid are fitted to; it is that trace displaced by a measured quantity on a
+ruling. That is `reconstructed`, and `docs/LIBERTIES.md` carries it.

@@ -278,13 +278,14 @@ STRUCTURE_TICKETS = {
     ("south", "larger_boarding_houses"): "T-1209",
     ("south", "inns_taverns"): "T-1201",
     ("south", "workshops"): "T-1201",
-    # T-1638 split T-1200 into four pieces, so the parent cannot be claimed and this
-    # cell had to name a live successor (T-1420's rule). The six left here are
-    # WAREHOUSES: T-1639 raises the F1-F3 warehouses and the C-family store fronts on
-    # the South Water party lines. The freight SHEDS behind them are T-1640's, on the
-    # river-bank band, and will want their own cell if the programme ever splits the
-    # group the way the queue now splits the work.
-    ("south", "warehouses_freight"): "T-1639",
+    # T-1200 WAS SPLIT on 2026-09-26 (T-1638, T-1639, T-1640, T-1641) and this row moved
+    # with it, for the reason BUSINESS_TICKETS states below: a bucket whose `owning_ticket`
+    # names a ticket in state `split` orders work nobody can claim. Of the four children the
+    # freight band is T-1640's in as many words — "the freight sheds and landings behind
+    # South Water, on the river-bank band the south-bank ground rule allows" — while T-1638
+    # writes keepers onto seated roofs, T-1639 raises the street line's stores and
+    # warehouses, and T-1641 closes the district's books.
+    ("south", "warehouses_freight"): "T-1640",
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",

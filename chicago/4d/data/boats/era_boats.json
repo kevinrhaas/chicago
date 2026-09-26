@@ -198,7 +198,7 @@
       ],
       "heading_deg": 60,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. Her neighbour, a boat-length and a half east and swung to a different heading. About 2.4 m under her; some 24 m west of Jones's landing."
+      "note": "INVENTED POSITION. Her neighbour, a boat-length and a half east and swung to a different heading. About 3.1 m under her — 2.4 m until T-1630 widened this reach to Hathaway's line and put her further off the bank; she did not move — and some 24 m west of Jones's landing, which moved 9.5 m south and 1.7 m east with the bank."
     },
     {
       "id": "boat_rowboat_bank_1",
@@ -208,11 +208,11 @@
       "symbolic_location": "At the water's edge of the South Water Street bank",
       "position_local_enu_m": [
         307.0,
-        42.5
+        35.2
       ],
       "heading_deg": 100,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. Drawn up at the water's edge of the South Water bank, bow to the grass — the committed ground here lies at the waterline, so her stern wets and her bow rides the bank, which is what image 11 draws. The hull sits on the terrain's own surface, sampled at load."
+      "note": "INVENTED POSITION. Drawn up at the water's edge of the South Water bank, bow to the grass — the committed ground here lies at the waterline (+0.04 m), so her stern wets and her bow rides the bank, which is what image 11 draws. The hull sits on the terrain's own surface, sampled at load. MOVED 7.3 m SOUTH by T-1630: the bank she is hauled out on came in to Hathaway's line on the owner's ruling (docs/LIBERTIES.md L275), and she was left standing in 1.9 m of open water. She keeps her easting, her heading and her relation to the waterline; only the bank moved."
     },
     {
       "id": "boat_rowboat_bank_2",
@@ -222,11 +222,11 @@
       "symbolic_location": "At the water's edge of the South Water Street bank",
       "position_local_enu_m": [
         312.0,
-        41.5
+        33.2
       ],
       "heading_deg": 85,
       "confidence": "reconstructed",
-      "note": "INVENTED POSITION. Beside her neighbour, a little higher up the bank on ground just proud of the water — two skiffs hauled out side by side read as a working bank, one alone reads as an accident."
+      "note": "INVENTED POSITION. Beside her neighbour, a little higher up the bank on ground just proud of the water (+0.26 m) — two skiffs hauled out side by side read as a working bank, one alone reads as an accident. MOVED 8.3 m SOUTH by T-1630 with her neighbour and with the bank itself; she keeps the same step up from the waterline she was authored with."
     },
     {
       "id": "boat_rowboat_wolf_point_1",
