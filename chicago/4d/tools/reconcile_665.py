@@ -147,15 +147,18 @@ UNSCHEDULED_PLATS = {
                           "tract's own name and platter are still unsettled (T-1080)"),
     "wabansia": ("data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one "
                  "unplaced household in the whole survey"),
-    # T-1455. The West Division's own grid, and it is unscheduled for a different reason
-    # from the two above: this district is not short of evidence, it is already spoken
-    # for. `west_wolf_point_outer` holds the West recipe's remaining reviewed placements
-    # and T-1444 is the open ticket that instantiates them; dealing this district's
-    # remainder onto new lot lines would bid against placements already written. And the
-    # density is not measured here either — see the block comment in `programme_document`.
+    # T-1455, re-read when T-1444 closed (2026-09-26). The West Division's own grid, and
+    # it is unscheduled for a different reason from the two above: this district is not
+    # short of evidence, it is already spoken for. `west_wolf_point_outer` held the West
+    # recipe's remaining reviewed placements and T-1444 has now INSTANTIATED them — all
+    # 55 of them, nothing withheld — so dealing this district's remainder onto new lot
+    # lines would bid against placements that are no longer merely written but standing
+    # and baked. The reason is the same one and it is stronger, not weaker. And the
+    # density is not measured here either — see the block comment in
+    # `programme_document`.
     "west_division": ("data/reconstruction/1835_phase2_west_wolf_point_approaches.json, "
-                      "whose reviewed placements already hold this district's remainder, "
-                      "with T-1444 open to instantiate them"),
+                      "whose reviewed placements already hold this district's remainder "
+                      "and are instantiated on it (T-1444)"),
 }
 
 
@@ -227,12 +230,14 @@ def west_held_back(recipe: dict) -> int:
     if gate.get("instantiation_block"):
         held += sum(1 for p in recipe["placements"]
                     if p["center_local_enu_m"][0] < WEST_INSTANTIATION_BLOCK_E)
-    # T-1444, re-cut by T-1490. The terrain block is retired and a second hold took its
-    # place; T-1490 traced Jefferson north and released three of its five slots, and the
-    # two that remain are held on a question the boundary was hiding — they stand inside
-    # the platted Jefferson corridor. A hold is a hold — the schedule counts what the
-    # parcel still owes, not why it owes it — and the count is read off the recipe rather
-    # than retyped here.
+    # T-1444, re-cut by T-1490 and spent by T-1545. The terrain block is retired and a
+    # second hold took its place; T-1490 traced Jefferson north and released three of its
+    # five slots, and the two that remained were held on a question the boundary was
+    # hiding — they stood inside the platted Jefferson corridor. T-1545 re-dealt both off
+    # it, so the corridor hold now withholds nothing and this term reads 0. That is why it
+    # is still read: a hold is a hold — the schedule counts what the parcel still owes, not
+    # why it owes it — and the count comes off the recipe rather than being retyped here,
+    # so the mechanism re-arms on the day a slot is named there again.
     held += len((gate.get("corridor_hold") or {}).get("slots") or {})
     return held
 

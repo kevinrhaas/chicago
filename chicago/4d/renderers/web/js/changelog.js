@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1133, title: 'The back yard may hold a cottage, and six were waiting', kind: 'change', ts: '2026-09-26T08:12:25.535Z', date: 'Sep 26, 2026, 3:12 AM CT',
+  { v: 1134, title: 'The back yard may hold a cottage, and six were waiting', kind: 'change', ts: '2026-09-26T08:23:04.420Z', date: 'Sep 26, 2026, 3:23 AM CT',
     items: [
       'Nothing you can see in the town has changed yet. This is a rule about back yards, and it unblocks six small houses that have been stuck for six days \u2014 they go up in the next release.',
       'Behind the houses on three of the town\u2019s platted blocks stand small buildings off the alley: stables, privies, woodsheds. Last week a review of the town\u2019s 285 anonymous roofs decided that six of them are not sheds at all but little dwellings \u2014 a cottage in somebody\u2019s back yard, which is how a crowded town of 3,265 people housed the people who did not have a lot of their own.',
@@ -7,6 +7,14 @@ export const CHANGELOG = [ // newest first
       'What was wrong is the question. Whether a building is the main one on its lot is about WHERE IT STANDS, not what it is: a cottage twenty metres back, off the alley, behind the house that fronts the street, is plainly not that lot\u2019s main house. The reconstruction now asks both \u2014 what the building is, and where it stands.',
       'This is the owner\u2019s decision, not a measurement, and it is written down as one: a lot may carry a main house plus a rear dwelling. No source in this town shows such a cottage, so the rule cites none and is marked as reasoning rather than evidence, at L256 in the liberties.',
       'One thing follows that a visitor will notice later. A stable cannot have a family living in it, and the reconstruction refused to put anybody in a yard building for that reason \u2014 which was right about stables and wrong about cottages. A rear cottage can now hold a household; a privy still cannot.',
+    ] },
+  { v: 1133, title: 'A finished job that still owned nine of the town\u2019s work orders', kind: 'fix', ts: '2026-09-26T08:10:16.495Z', date: 'Sep 26, 2026, 3:10 AM CT',
+    items: [
+      'Nothing you can see in the town changed. This is about a job the project had already finished and could not put down.',
+      'The job was to release 35 held West Division houses onto ground that had just been extended west. It was picked up on 20 September, the run carrying it died, and the mark saying somebody had it never came off. The work got done anyway, by the jobs either side of it: all 55 of that parcel\u2019s reviewed houses stand today and not one is held back. But for six days the top of the West Division\u2019s list read \u201ctaken\u201d \u2014 and the rule for picking work is to skip anything taken, so run after run walked past it.',
+      'Putting it down was not free, and the project\u2019s own checks are what said so. The order book \u2014 the document that says how many buildings of each kind each district still owes, and which job owes them \u2014 named this one as the owner of nine work orders, the West Division\u2019s ground among them. A job nobody can claim cannot owe anything, and an order like that reads as nothing left and gets stepped over.',
+      'So the West Division\u2019s ground is swept onto the job that genuinely still owes it: there is no surveyed street control west of Clinton and Canal, and the job for those streets is still on the books. The half this one owned has ARRIVED \u2014 the ground was modelled out to the western edge these houses needed and they are standing on it \u2014 and arrival is recorded as arrival rather than handed to an owner invented to fill the space. The terrain further west still has no owner at all, and that silence is written down instead.',
+      'Two places in the code also still said two of these houses were held back inside Jefferson Street. They were re-dealt clear of the street on the 25th and both are built. Corrected \u2014 and the mechanism that withholds a house is left live, still taking its count from one place, so it re-arms the day a house needs holding again.',
     ] },
   { v: 1132, title: 'The town said \u201cthe Exchange\u201d, and we only heard the long name', kind: 'fix', ts: '2026-09-26T07:48:08.718Z', date: 'Sep 26, 2026, 2:48 AM CT',
     items: [

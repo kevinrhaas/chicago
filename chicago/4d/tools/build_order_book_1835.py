@@ -398,10 +398,26 @@ BUSINESS_TICKETS = {
 #           river ARRIVED. Ground that has arrived is not a wait.
 #   T-1192  split; its live piece is T-1414, the West Division's and Wabansia's
 #           corridors and small lots. That is the successor T-1420 was filed for.
-#   T-1193  split; its live frontier is T-1444 (via T-1417 and T-1431), and all
+#   T-1193  split; its live frontier was T-1444 (via T-1417 and T-1431), and all
 #           three of those say West Division in their own titles. The north half of
 #           T-1193 — the field regenerated to N +760 so the North Division's second
 #           parcel has ground — closed with T-1416.
+#
+# T-1444 CLOSED, AND THE WEST ROW IS SWEPT AGAIN (2026-09-26). It was the last live
+# descendant of all three of T-1193, T-1417 and T-1431, so its close is the T-1237
+# failure above recurring on the row the 2026-09-21 sweep had just repaired: a ground
+# row naming a ticket nobody can claim. `ticket_liveness.py` said so on this branch
+# rather than on the next one to gate, which is what that step is for.
+#   What T-1444 owned ARRIVED. The committed heightfield spans E -705..1,700 m and
+# `generate_west_infill.py --check` re-derives all 55 of the recipe's reviewed
+# placements with 0 withheld, so the West Division's held slots have ground and are
+# standing on it. Ground that has arrived is not a wait — the same reading that
+# emptied T-1191's and T-1194's rows above, applied to the row they left behind.
+#   T-1414 STAYS, AND IS WHAT THE WEST ROW WAITS ON NOW: street control west of
+# Clinton and Canal is still owed and T-1414's own title owes it. The other half of
+# the row's `waiting_on` prose — no unified terrain, hydrology or map coverage past
+# local E -700 m — has no live owner, and by the rule below that silence is the
+# statement this table makes rather than a ticket invented to fill it.
 #
 # SOUTH AND NORTH ARE EMPTY, AND THAT IS NOT A CLAIM THAT THEIR GROUND IS WHOLE. It
 # is the narrower statement this table can make: no LIVE ticket owns what they still
@@ -412,7 +428,7 @@ BUSINESS_TICKETS = {
 # owner for either would be inventing one; naming a closed ticket was worse.
 GROUND_TICKETS = {
     "south": [],
-    "west": ["T-1414", "T-1444"],
+    "west": ["T-1414"],
     "north": [],
     "fort": [],
 }
