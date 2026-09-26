@@ -15,11 +15,15 @@ arrival is painted with 1835 by the existing settle controller. Successful
 same-build visits in this tab limit repeat boots to one loading card plus arrival;
 storage denial falls back to dwell-based rotation. The library describes previously
 researched evidence, not live archival research. Seeded simulation records humor
-in 52 of 10,000 sessions, at most once per session. Published Chromium checks passed at 390×780 and 1280×780: 39 and 5 cold
+in 52 of 10,000 sessions, at most once per session. Published Chromium checks passed at 390×780 and 1280×780: 37 and 6 cold
 cards, exactly 2 on each repeat visit, no page errors, and the final card once
 at 1835. All 160 cards fit two lines at 320 px without clipping.
 Receipts and stills: `docs/performance/loading-content/`. The PR records the
 full repository gate, smoke and payload results.
+The broader mobile smoke finds a river-walk obstruction also reproduced on
+unmodified dev `b6c56c8` (stage 2: 87 passed, 1 failed): the south-bank shed
+overlaps the walking path. T-1643 owns that placement repair; the baseline
+receipt is preserved beside the loading evidence. No smoke assertion is weakened.
 
 ## Source-use backlinks compiled — T-1248, 2026-09-26
 
