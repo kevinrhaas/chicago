@@ -16,13 +16,17 @@ vegetation sampler are all readings of that same field, so the condition the blo
 written against is met and the block is retired rather than waived. The 35 held slots
 instantiate on their recipe ids and their recipe families, exactly as the hold promised.
 
-**Two of those thirty-five stay held, on a different question entirely.** They stand
-inside the platted corridor of Jefferson Street, and an invented placement has no
-business in the roadway. The reconstruction does not build the roof and does not slide
-it sideways either; see `CORRIDOR_HOLDS`. They keep their ids, their families and their
-dealt sequence numbers, exactly as the terrain hold kept them. Five were held here until
-T-1490, three of them only because the corporate boundary's west leg was extrapolated
-1,188.8 m across a West Division that already had a drawn Jefferson in it.
+**NOTHING IS HELD HERE ANY MORE, AND THE MECHANISM IS STILL LIVE.** Two of those
+thirty-five were held on a different question entirely: they stood inside the platted
+corridor of Jefferson Street, and an invented placement has no business in the roadway.
+Five were held on that question until T-1490, three of them only because the corporate
+boundary's west leg was extrapolated 1,188.8 m across a West Division that already had a
+drawn Jefferson in it. T-1545 then re-dealt the last two off the corridor on the frozen
+`STREET_ADJUSTMENTS` setback that thirteen other slots of this parcel already stand on,
+so both are BUILT and they keep their ids, their families and their dealt sequence
+numbers, exactly as the terrain hold kept them. `CORRIDOR_HOLDS` still reads its slots
+from the recipe rather than from a number typed here, so the withholding has one count
+and re-arms the moment the recipe names a slot again.
 
 The hold's one lasting mark is the dealing order. `seq` deals finish, roof condition,
 age state and form, and the twenty roofs built under the hold were dealt 1..20 in
