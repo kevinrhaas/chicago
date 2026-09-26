@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1128, title: 'A claim on one job could stop every other job merging', kind: 'fix', ts: '2026-09-26T05:21:52.987Z', date: 'Sep 26, 2026, 12:21 AM CT',
+    items: [
+      'Nothing you can see in the town changed. This is about a way the project could go red without anybody changing anything, and it stopped work for everyone while it lasted.',
+      'Two of this project\u2019s research reports are rebuilt from the tree and checked against it, so that a report can never quietly stop describing what it reports on. Both printed a small table of the jobs the remaining unspent research is waiting on \u2014 and beside each job, the word for what was happening to it: waiting, being worked, finished.',
+      'That last word is the problem. The job list lives in a separate place now, and it changes all day as work is picked up and put down. So somebody starting a job \u2014 an ordinary thing that happens several times an hour and touches nothing in the town \u2014 rewrote a word in two documents here, and the check that guards them called them out of date. Which they were. Nothing was wrong with them.',
+      'It happened this morning: one job was picked up, one word changed in two tables, and the whole project failed its checks until somebody rebuilt two files by hand. Every other piece of work waiting to go in was stuck behind it, and the blame landed on a change that had touched neither file.',
+      'The word is gone from both tables. What stays is the thing the reports actually argue \u2014 whether the job is still going to happen \u2014 which changes only when a job genuinely finishes, and that is exactly when these reports SHOULD be rebuilt. Both halves were measured: a job being picked up no longer makes them stale, and a job finishing still does.',
+      'This project already had the rule written down, next to a different table that obeys it: what the job list holds this morning may be READ by a check and must never be PRINTED into what the check is checking. These two had it printed.',
+    ] },
   { v: 1127, title: 'Two lines down one street, and nothing said which one it meant', kind: 'fix', ts: '2026-09-26T04:49:52.978Z', date: 'Sep 25, 2026, 11:49 PM CT',
     items: [
       'Nothing you can see in the town changed. This is about a disagreement in the survey under it that has stood for four weeks, and the thirteen tools that read across it.',
