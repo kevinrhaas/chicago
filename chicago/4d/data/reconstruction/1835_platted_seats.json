@@ -31,34 +31,34 @@
  ],
  "counts": {
   "rows_in_scope": 1480,
-  "seated": 110,
-  "owed": 1370,
+  "seated": 112,
+  "owed": 1368,
   "by_how": {
-   "adopted": 106,
+   "adopted": 108,
    "slot": 4
   },
   "by_clause": {
    "labourer_dwellings": 34,
    "merchant_and_professional_dwellings": 9,
-   "tradesman_dwellings": 67
+   "tradesman_dwellings": 69
   },
   "by_district": {
-   "south": 94,
+   "south": 96,
    "west": 16
   },
   "by_family": {
    "D1": 21,
    "D2": 13,
-   "D3": 21,
-   "D4": 20,
+   "D3": 22,
+   "D4": 21,
    "D5": 16,
    "D6": 10,
    "D7": 2,
    "H1": 4,
    "H2": 3
   },
-  "lots_taken": 91,
-  "roofs_adopted": 106,
+  "lots_taken": 92,
+  "roofs_adopted": 108,
   "slots_requested": 4,
   "owed_by_band_clause": {
    "division_ground": 52,
@@ -67,15 +67,15 @@
    "labourer_dwellings": 123,
    "lodging_near_the_landings": 2,
    "merchant_and_professional_dwellings": 397,
-   "tradesman_dwellings": 590
+   "tradesman_dwellings": 588
   },
-  "roofs_offered_for_adoption": 109,
-  "roofs_held_back": 56
+  "roofs_offered_for_adoption": 111,
+  "roofs_held_back": 54
  },
  "what_the_plat_could_not_hold": {
-  "rows": 1370,
+  "rows": 1368,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 110 of the 1480 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 112 of the 1480 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "roofs_held_back": [
   {
@@ -345,116 +345,102 @@
    "occupants": "Clark, Filer & Co. — cabinet shop; chairs"
   },
   {
-   "structure_id": "recon_1835_blk_south_water_franklin_d3_13",
-   "lot_id": "blk_south_water_franklin#04",
-   "family": "D3",
-   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Briggs & Humphrey — carriage and sleigh making"
-  },
-  {
    "structure_id": "recon_1835_blk_south_water_franklin_d4_02",
    "lot_id": "blk_south_water_franklin#06",
    "family": "D4",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "J. H. Mulford — watches, jewelry, engravings and fancy goods"
+   "occupants": "Briggs & Humphrey — carriage and sleigh making"
   },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_d4_08",
    "lot_id": "blk_south_water_franklin#02",
    "family": "D4",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Jones, King & Co. — hardware, cutlery, nails, iron, steel, stoves, stove furniture, iron ware and saw mill gearing, wholesale and retail"
-  },
-  {
-   "structure_id": "recon_1835_blk_south_water_franklin_d4_12",
-   "lot_id": "blk_south_water_franklin#04",
-   "family": "D4",
-   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "a new auction and commission room, South Water Street — auction and commission"
+   "occupants": "J. H. Mulford — watches, jewelry, engravings and fancy goods"
   },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_d5_01",
    "lot_id": "blk_south_water_franklin#06",
    "family": "D5",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "H. Doty & Co. — dry goods and groceries"
+   "occupants": "Jones, King & Co. — hardware, cutlery, nails, iron, steel, stoves, stove furniture, iron ware and saw mill gearing, wholesale and retail"
   },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_d5_09",
    "lot_id": "blk_south_water_franklin#02",
    "family": "D5",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Rockwell, cabinet furniture warehouse — cabinet furniture"
+   "occupants": "a new auction and commission room, South Water Street — auction and commission"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
    "lot_id": "blk_south_water_lasalle#02",
    "family": "C3",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Samuel Lewis — vocal and instrumental music school, and the repair and tuning of piano fortes"
+   "occupants": "H. Doty & Co. — dry goods and groceries"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d1_08",
    "lot_id": "blk_south_water_lasalle#00",
    "family": "D1",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Hiram Pearsons — storage and commission merchant"
+   "occupants": "Rockwell, cabinet furniture warehouse — cabinet furniture"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d2_09",
    "lot_id": "blk_south_water_lasalle#00",
    "family": "D2",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "Chicago Democrat printing office — newspaper and job printing"
+   "occupants": "Samuel Lewis — vocal and instrumental music school, and the repair and tuning of piano fortes"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d3_10",
    "lot_id": "blk_south_water_lasalle#00",
    "family": "D3",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "A. Filer & Co. — cabinet and chair manufactory"
+   "occupants": "Hiram Pearsons — storage and commission merchant"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d4_02",
    "lot_id": "blk_south_water_lasalle#04",
    "family": "D4",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "A. Garrett — auction and commission"
+   "occupants": "Chicago Democrat printing office — newspaper and job printing"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d5_01",
    "lot_id": "blk_south_water_lasalle#04",
    "family": "D5",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "the New Store at the corner of Water and Clark streets — dry goods, crockery, hardware and cutlery"
+   "occupants": "A. Filer & Co. — cabinet and chair manufactory"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d6_11",
    "lot_id": "blk_south_water_lasalle#02",
    "family": "D6",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "E. L. Thrall — tailoring and ready made clothing"
+   "occupants": "A. Garrett — auction and commission"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d7_12",
    "lot_id": "blk_south_water_lasalle#02",
    "family": "D7",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "[uncertain: DATID GAD], auction and commission merchant, South Water Street — auction and commission merchant"
+   "occupants": "the New Store at the corner of Water and Clark streets — dry goods, crockery, hardware and cutlery"
   },
   {
    "structure_id": "recon_1835_blk_south_water_wells_d5_02",
    "lot_id": "blk_south_water_wells#04",
    "family": "D5",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "[uncertain: J. I. Mulford], carriage and sleigh maker — carriage and sleigh making, and repairing"
+   "occupants": "E. L. Thrall — tailoring and ready made clothing"
   },
   {
    "structure_id": "recon_1835_blk_south_water_wells_d6_01",
    "lot_id": "blk_south_water_wells#04",
    "family": "D6",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
-   "occupants": "J. Curtiss, Attorney and Counsellor at Law — law"
+   "occupants": "[uncertain: DATID GAD], auction and commission merchant, South Water Street — auction and commission merchant"
   },
   {
    "structure_id": "recon_1835_south_c3_040",
@@ -1575,6 +1561,54 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
+   "lot_id": "blk_south_water_franklin#04",
+   "block_id": "blk_south_water_franklin",
+   "lot_index": 4,
+   "fronts": "south_water",
+   "street_class": "principal",
+   "corner": false,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_south_water_franklin_d3_13",
+   "family": "D3",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "party_line_run",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_beeson_william|T-1522|division:4b139fdfe255|class:f5c2245a500e",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_bench_reuben",
+   "kind": "household",
+   "name": "The Bench household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
+   "lot_id": "blk_south_water_franklin#04",
+   "block_id": "blk_south_water_franklin",
+   "lot_index": 4,
+   "fronts": "south_water",
+   "street_class": "principal",
+   "corner": false,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_south_water_franklin_d4_12",
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "party_line_run",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_bench_reuben|T-1522|division:b276798643b3|class:f0c661708c8c",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_benn_eli",
+   "kind": "household",
+   "name": "The Benn household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
    "lot_id": "blk_south_water_clark#05",
    "block_id": "blk_south_water_clark",
    "lot_index": 5,
@@ -1589,13 +1623,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_beeson_william|T-1522|division:4b139fdfe255|class:f5c2245a500e",
+   "seed": "hh_benn_eli|T-1522|division:70b5e1892a3b|class:e42424829b55",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bench_reuben",
+   "id": "hh_bertholf_marcus",
    "kind": "household",
-   "name": "The Bench household — a name from the post office's letter lists",
+   "name": "The Bertholf household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1613,13 +1647,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bench_reuben|T-1522|division:b276798643b3|class:f0c661708c8c",
+   "seed": "hh_bertholf_marcus|T-1522|division:9e3bc08e543e|class:9053f3accc7b",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_benn_eli",
+   "id": "hh_bertrand_b_h",
    "kind": "household",
-   "name": "The Benn household — a name from the post office's letter lists",
+   "name": "The Bertrand household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1637,13 +1671,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_benn_eli|T-1522|division:70b5e1892a3b|class:e42424829b55",
+   "seed": "hh_bertrand_b_h|T-1522|division:9388f4c3bd06|class:db7c33a5a9aa",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bertholf_marcus",
+   "id": "hh_blakesley_harvey_a",
    "kind": "household",
-   "name": "The Bertholf household — a name from the post office's letter lists",
+   "name": "The Blakesley household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1661,13 +1695,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bertholf_marcus|T-1522|division:9e3bc08e543e|class:9053f3accc7b",
+   "seed": "hh_blakesley_harvey_a|T-1522|division:74f6da400d94|class:d84ab78c5c73",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bertrand_b_h",
+   "id": "hh_blanchard_f_gantry",
    "kind": "household",
-   "name": "The Bertrand household — a name from the post office's letter lists",
+   "name": "The Blanchard household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1685,13 +1719,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bertrand_b_h|T-1522|division:9388f4c3bd06|class:db7c33a5a9aa",
+   "seed": "hh_blanchard_f_gantry|T-1522|division:4f73583968e9|class:c91f276b126c",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_blakesley_harvey_a",
+   "id": "hh_blanshard_f_g",
    "kind": "household",
-   "name": "The Blakesley household — a name from the post office's letter lists",
+   "name": "The Blanshard household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1709,13 +1743,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_blakesley_harvey_a|T-1522|division:74f6da400d94|class:d84ab78c5c73",
+   "seed": "hh_blanshard_f_g|T-1522|division:3c6432a48d63|class:f392522e2cad",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_blanchard_f_gantry",
+   "id": "hh_boilvin_nicholas",
    "kind": "household",
-   "name": "The Blanchard household — a name the town's own records carry",
+   "name": "The Boilvin household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1733,13 +1767,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_blanchard_f_gantry|T-1522|division:4f73583968e9|class:c91f276b126c",
+   "seed": "hh_boilvin_nicholas|T-1522|division:cc5c6088f1e4|class:db68351a6d59",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_blanshard_f_g",
+   "id": "hh_bonn_augustin",
    "kind": "household",
-   "name": "The Blanshard household — a name the town's own records carry",
+   "name": "The Bonn household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1757,13 +1791,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_blanshard_f_g|T-1522|division:3c6432a48d63|class:f392522e2cad",
+   "seed": "hh_bonn_augustin|T-1522|division:74f431b34400|class:9ad2163065dd",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_boilvin_nicholas",
+   "id": "hh_bostwick_e_b",
    "kind": "household",
-   "name": "The Boilvin household — a name from the post office's letter lists",
+   "name": "The Bostwick household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1781,13 +1815,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_boilvin_nicholas|T-1522|division:cc5c6088f1e4|class:db68351a6d59",
+   "seed": "hh_bostwick_e_b|T-1522|division:be7474be4b77|class:ff20d2d5717b",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bonn_augustin",
+   "id": "hh_bouchard_adelaide",
    "kind": "household",
-   "name": "The Bonn household — a name the town's own records carry",
+   "name": "The Bouchard household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1805,13 +1839,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bonn_augustin|T-1522|division:74f431b34400|class:9ad2163065dd",
+   "seed": "hh_bouchard_adelaide|T-1522|division:bc6e50d63c5c|class:bcab8cc1beee",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bostwick_e_b",
+   "id": "hh_boucher_joseph",
    "kind": "household",
-   "name": "The Bostwick household — a name from the post office's letter lists",
+   "name": "The Boucher household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1829,13 +1863,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bostwick_e_b|T-1522|division:be7474be4b77|class:ff20d2d5717b",
+   "seed": "hh_boucher_joseph|T-1522|division:964c2863d9b8|class:feee15c33164",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bouchard_adelaide",
+   "id": "hh_bourque_william",
    "kind": "household",
-   "name": "The Bouchard household — a name the town's own records carry",
+   "name": "The Bourque household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1853,13 +1887,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bouchard_adelaide|T-1522|division:bc6e50d63c5c|class:bcab8cc1beee",
+   "seed": "hh_bourque_william|T-1522|division:c942a111c6ad|class:fc0cf460927b",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_boucher_joseph",
+   "id": "hh_bourrassa_leon",
    "kind": "household",
-   "name": "The Boucher household — a name from the post office's letter lists",
+   "name": "The Bourrassa household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1877,13 +1911,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_boucher_joseph|T-1522|division:964c2863d9b8|class:feee15c33164",
+   "seed": "hh_bourrassa_leon|T-1522|division:9feceb486241|class:dc6b0c46e54a",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bourque_william",
+   "id": "hh_bousque_bernard",
    "kind": "household",
-   "name": "The Bourque household — a name the town's own records carry",
+   "name": "The Bousque household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1901,13 +1935,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bourque_william|T-1522|division:c942a111c6ad|class:fc0cf460927b",
+   "seed": "hh_bousque_bernard|T-1522|division:5c250311a692|class:b1e4e2d1764c",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bourrassa_leon",
+   "id": "hh_boyer_j_k",
    "kind": "household",
-   "name": "The Bourrassa household — a name the town's own records carry",
+   "name": "The Boyer household — documented at Chicago, no trade printed, unplaced in the town",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1925,13 +1959,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bourrassa_leon|T-1522|division:9feceb486241|class:dc6b0c46e54a",
+   "seed": "hh_boyer_j_k|T-1522|division:4d52d7af70a2|class:9c2e22e9bfc1",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bousque_bernard",
+   "id": "hh_bradford_harriet",
    "kind": "household",
-   "name": "The Bousque household — a name the town's own records carry",
+   "name": "The Bradford household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1949,13 +1983,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bousque_bernard|T-1522|division:5c250311a692|class:b1e4e2d1764c",
+   "seed": "hh_bradford_harriet|T-1522|division:459f98c8d850|class:d8dd2b1b9523",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_boyer_j_k",
+   "id": "hh_bradley_joseph",
    "kind": "household",
-   "name": "The Boyer household — documented at Chicago, no trade printed, unplaced in the town",
+   "name": "The Bradley household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1973,13 +2007,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_boyer_j_k|T-1522|division:4d52d7af70a2|class:9c2e22e9bfc1",
+   "seed": "hh_bradley_joseph|T-1522|division:540be32f862b|class:bf9243216c0d",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bradford_harriet",
+   "id": "hh_brink_john",
    "kind": "household",
-   "name": "The Bradford household — a name from the post office's letter lists",
+   "name": "The Brink household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -1997,13 +2031,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bradford_harriet|T-1522|division:459f98c8d850|class:d8dd2b1b9523",
+   "seed": "hh_brink_john|T-1522|division:92162bc513f8|class:bacf98d71cbd",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bradley_joseph",
+   "id": "hh_britain_hiram_z",
    "kind": "household",
-   "name": "The Bradley household — a name the town's own records carry",
+   "name": "The Britain household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2021,13 +2055,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bradley_joseph|T-1522|division:540be32f862b|class:bf9243216c0d",
+   "seed": "hh_britain_hiram_z|T-1522|division:a04bd5877096|class:b066352b321f",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_brink_john",
+   "id": "hh_brookes_samuel",
    "kind": "household",
-   "name": "The Brink household — a name from the post office's letter lists",
+   "name": "The Brookes household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2045,13 +2079,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_brink_john|T-1522|division:92162bc513f8|class:bacf98d71cbd",
+   "seed": "hh_brookes_samuel|T-1522|division:c80010fd94ce|class:e63cd516267b",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_britain_hiram_z",
+   "id": "hh_brookins_david",
    "kind": "household",
-   "name": "The Britain household — a name from the post office's letter lists",
+   "name": "The Brookins household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2069,13 +2103,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_britain_hiram_z|T-1522|division:a04bd5877096|class:b066352b321f",
+   "seed": "hh_brookins_david|T-1522|division:904946f9b899|class:c49d16684098",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_brookes_samuel",
+   "id": "hh_brown_jesse_b",
    "kind": "household",
-   "name": "The Brookes household — a name from the post office's letter lists",
+   "name": "The Brown household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2093,13 +2127,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_brookes_samuel|T-1522|division:c80010fd94ce|class:e63cd516267b",
+   "seed": "hh_brown_jesse_b|T-1522|division:88577d53c61e|class:cb9d6dde60ea",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_brookins_david",
+   "id": "hh_brown_lemuel",
    "kind": "household",
-   "name": "The Brookins household — a name from the post office's letter lists",
+   "name": "The Brown household",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2117,13 +2151,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_brookins_david|T-1522|division:904946f9b899|class:c49d16684098",
+   "seed": "hh_brown_lemuel|south|blacksmith|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_brown_jesse_b",
+   "id": "hh_bryant_j_r_m",
    "kind": "household",
-   "name": "The Brown household — a name the town's own records carry",
+   "name": "The Bryant household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2141,13 +2175,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_brown_jesse_b|T-1522|division:88577d53c61e|class:cb9d6dde60ea",
+   "seed": "hh_bryant_j_r_m|T-1522|division:7abb6840ceb8|class:fa637aa1ee5c",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_brown_lemuel",
+   "id": "hh_burbee_jonathan",
    "kind": "household",
-   "name": "The Brown household",
+   "name": "The Burbee household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2165,13 +2199,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_brown_lemuel|south|blacksmith|T-1512",
+   "seed": "hh_burbee_jonathan|T-1522|division:9671ee147ea5|class:d579097adeba",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_bryant_j_r_m",
+   "id": "hh_burk_james",
    "kind": "household",
-   "name": "The Bryant household — a name from the post office's letter lists",
+   "name": "The Burk household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2189,13 +2223,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_bryant_j_r_m|T-1522|division:7abb6840ceb8|class:fa637aa1ee5c",
+   "seed": "hh_burk_james|T-1522|division:7f36b0c6314f|class:f0cdbcf32636",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_burbee_jonathan",
+   "id": "hh_burke_james",
    "kind": "household",
-   "name": "The Burbee household — a name from the post office's letter lists",
+   "name": "The Burke household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2213,13 +2247,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_burbee_jonathan|T-1522|division:9671ee147ea5|class:d579097adeba",
+   "seed": "hh_burke_james|T-1522|division:7623e9ab1b02|class:a6163847dd0a",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_burk_james",
+   "id": "hh_byam_seth",
    "kind": "household",
-   "name": "The Burk household — a name from the post office's letter lists",
+   "name": "The Byam household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2241,13 +2275,13 @@
     "family": "D5",
     "district": "south"
    },
-   "seed": "hh_burk_james|T-1522|division:7f36b0c6314f|class:f0cdbcf32636",
+   "seed": "hh_byam_seth|T-1522|division:4563fbf55dfa|class:a050d5158f07",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
-   "id": "hh_burke_james",
+   "id": "hh_byram_thomas",
    "kind": "household",
-   "name": "The Burke household — a name the town's own records carry",
+   "name": "The Byram household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2269,13 +2303,13 @@
     "family": "D6",
     "district": "south"
    },
-   "seed": "hh_burke_james|T-1522|division:7623e9ab1b02|class:a6163847dd0a",
+   "seed": "hh_byram_thomas|T-1522|division:8762955d4f5a|class:fa728f460e96",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
-   "id": "hh_byam_seth",
+   "id": "hh_cady_levi",
    "kind": "household",
-   "name": "The Byam household — a name from the post office's letter lists",
+   "name": "The Cady household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2297,13 +2331,13 @@
     "family": "D3",
     "district": "south"
    },
-   "seed": "hh_byam_seth|T-1522|division:4563fbf55dfa|class:a050d5158f07",
+   "seed": "hh_cady_levi|T-1522|division:b4fc443d7c49|class:aae2d210f873",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
-   "id": "hh_byram_thomas",
+   "id": "hh_calhoun_alvin",
    "kind": "household",
-   "name": "The Byram household — a name the town's own records carry",
+   "name": "The Calhoun household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2325,7 +2359,7 @@
     "family": "D4",
     "district": "south"
    },
-   "seed": "hh_byram_thomas|T-1522|division:8762955d4f5a|class:fa728f460e96",
+   "seed": "hh_calhoun_alvin|T-1522|division:4384b2df0733|class:e5655f2e8474",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
@@ -7094,24 +7128,6 @@
    "band": "west/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_cady_levi",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_calhoun_alvin",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
