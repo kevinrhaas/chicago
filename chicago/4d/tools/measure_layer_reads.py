@@ -247,6 +247,17 @@ AMBIGUOUS_LEAVES = frozenset({
     # thing with the same word. A bare-name scan hands the card's reads to the vocabulary
     # row and calls it a phantom. Qualified by its data parent, like the four above.
     "age_band",
+    # T-1620's seating section on the order book card. `seated` is now a word
+    # `orderbook.js` prints off the RECONSTRUCTION ORDER BOOK — how many of the banded
+    # households each seating pass put on ground — and the household layer carries
+    # `garrison.seated` and `women_children.seated`, which are a modelled household's own
+    # tallies and nothing to do with it. A bare-name scan handed the card's reads to those
+    # two and called an unread figure a phantom. Same shape as `statement` directly above,
+    # which `orderbook.js` collided with in exactly this way, and the same narrowing rather
+    # than an exemption: qualified by its data parent, so the day a card really does print
+    # how many of the garrison's people were seated it declares the expression and never
+    # reaches here.
+    "seated",
 })
 
 # Unread leaves the reverse scan of assertion 3 cannot attribute, STATED rather
