@@ -22,7 +22,13 @@ the freight shed of the plate — be put down at all, on ground that is
 * outside every platted street corridor (`plat_corridors`, the module the placement
   gate itself asks), and
 * off the refused ground of the Reservation and the sand bar
-  (`measure_no_build_ground`, so the two answers cannot disagree).
+  (`measure_no_build_ground`, so the two answers cannot disagree), and
+* out of the travelled way of a committed street `plat_corridors` cannot see, because
+  that module carries the PLATTED grid and the road to the fort was never platted.
+  Added 2026-09-26 by T-1636, when the filled slough mouth opened 91 flat positions on
+  this reach and every one of them stood in the fort road. A reading that reports the
+  town's only way to the fort as free ground is not a reading, and the number it produced
+  would have been spent building in the road.
 
 **Every bound is the permissive one, on purpose.** A refusal is only worth having if it
 survives the most generous reading of its own inputs: the rectangle may stand at ANY
@@ -150,8 +156,77 @@ def footprint_m() -> tuple[float, float]:
     return round(w_lo * FT_M, 4), round(d_lo * FT_M, 4)
 
 
+# How far outside the reach a track segment is still worth carrying: a road that passes
+# near the box can still put its travelled way inside it, and a segment whose ends are
+# both well clear of the box cannot. 40 m is more than the widest committed track.
+TRACK_MARGIN_M = 40.0
+
+
+def unplatted_tracks(west: float, east: float) -> list[dict]:
+    """The travelled ways of committed streets `plat_corridors` does not carry.
+
+    T-1636. `plat_corridors.corridors()` is the PLATTED grid — 33 streets off James
+    Thompson's plat and its additions — and it is the right module for the question
+    "is this in a platted street". It is the wrong module for the question this reading
+    actually asks, which is whether a building could stand somewhere, because a road
+    that is not on the plat is still a road. On this reach that is `fort_road`: South
+    Water Street stops at the United States Reservation, and the way from the town's
+    east end to the fort gate runs across exactly the ground the filled slough mouth
+    opened.
+
+    The mask is the TRAVELLED WAY (`track_width_m`), not the reconstructed corridor,
+    because every bound in this reading is the permissive one and the corridor of an
+    unplatted road is an invention twice over. What the 12 m corridor would refuse is
+    reported beside it rather than gated on.
+    """
+    lanes = corridors()
+    lo_e, hi_e = west - TRACK_MARGIN_M, east + TRACK_MARGIN_M
+    lo_n, hi_n = BOX_S_M - TRACK_MARGIN_M, BOX_N_M + TRACK_MARGIN_M
+    out = []
+    for street in load(DATA / "streets" / "1835.json")["streets"]:
+        if street["id"] in lanes:
+            continue
+        path = [(float(e), float(n)) for e, n in street.get("path_local_enu_m") or []]
+        segments = [(a, b) for a, b in zip(path, path[1:])
+                    if min(a[0], b[0]) <= hi_e and max(a[0], b[0]) >= lo_e
+                    and min(a[1], b[1]) <= hi_n and max(a[1], b[1]) >= lo_n]
+        if not segments:
+            continue
+        track = street.get("track_width_m")
+        if track is None:
+            raise SystemExit(f"{street['id']} reaches this reach and carries no "
+                             "track_width_m, so its travelled way cannot be masked")
+        out.append({"id": street["id"], "track_width_m": float(track),
+                    "corridor_width_m": street.get("corridor_width_m"),
+                    "segments": segments})
+    return out
+
+
+def in_a_track(e: float, n: float, tracks: list[dict], half: str = "track") -> bool:
+    """Is the point inside the masked half-width of any of these travelled ways?"""
+    for road in tracks:
+        key = "track_width_m" if half == "track" else "corridor_width_m"
+        width = road.get(key) or road["track_width_m"]
+        limit = (width / 2.0) ** 2
+        for (e1, n1), (e2, n2) in road["segments"]:
+            de, dn = e2 - e1, n2 - n1
+            span = de * de + dn * dn
+            t = 0.0 if span == 0 else ((e - e1) * de + (n - n1) * dn) / span
+            t = 0.0 if t < 0.0 else (1.0 if t > 1.0 else t)
+            pe, pn = e1 + t * de, n1 + t * dn
+            if (e - pe) ** 2 + (n - pn) ** 2 < limit:
+                return True
+    return False
+
+
 class Ground:
-    """Is a point buildable at all — dry, out of the roadway, and not refused ground."""
+    """Is a point buildable at all — dry, out of the roadway, and not refused ground.
+
+    The unplatted travelled ways are NOT applied here, on purpose: `strip()` reports the
+    physical free ground and that reading did not change when T-1636 taught this tool
+    about the fort road. The road is applied to the FOOTPRINT, in `fits()`, which is
+    where the question "could a building stand here" is actually asked.
+    """
 
     def __init__(self) -> None:
         self.hf = Heightfield.load(EPOCH)
@@ -203,13 +278,20 @@ def strip(ground: Ground, west: float, east: float) -> list[dict]:
     return rows
 
 
-def fits(ground: Ground, west: float, east: float,
-         width: float, depth: float) -> list[dict]:
+def fits(ground: Ground, west: float, east: float, width: float, depth: float,
+         tracks: list[dict] | None = None) -> list[dict]:
     """Every position and bearing at which the smallest F1 footprint would stand.
 
     The rectangle is sampled on a half-metre lattice INCLUDING its corners, because a
     footprint whose middle is dry and whose corner is in the river is not a building.
+
+    Each accepted position is ANNOTATED with whether it stands in an unplatted travelled
+    way (`in_track`) and whether it stands in one of those roads' reconstructed corridors
+    (`in_track_corridor`), rather than being dropped. The caller counts them apart, so
+    the correction T-1636 made is legible in the reading instead of hidden inside a
+    smaller number.
     """
+    tracks = tracks or []
     out = []
     us = [i * MASK_M for i in range(int(width / MASK_M) + 1)]
     vs = [i * MASK_M for i in range(int(depth / MASK_M) + 1)]
@@ -237,9 +319,16 @@ def fits(ground: Ground, west: float, east: float,
                     if not ok:
                         break
                 if ok:
+                    lattice = [(e0 + u * cos - v * sin, n0 + u * sin + v * cos)
+                               for u in us for v in vs]
                     out.append({"e": round(e0, 1), "n": round(n0, 1),
                                 "bearing_deg": round(math.degrees(theta), 1),
-                                "relief_m": round(max(heights) - min(heights), 3)})
+                                "relief_m": round(max(heights) - min(heights), 3),
+                                "in_track": any(in_a_track(e, n, tracks)
+                                                for e, n in lattice),
+                                "in_track_corridor": any(
+                                    in_a_track(e, n, tracks, half="corridor")
+                                    for e, n in lattice)})
             n0 += STEP_M
         e0 += STEP_M
     return out
@@ -249,8 +338,11 @@ def measure() -> dict:
     west, east = reach()
     width, depth = footprint_m()
     ground = Ground()
+    tracks = unplatted_tracks(west, east)
     rows = strip(ground, west, east)
-    placements = fits(ground, west, east, width, depth)
+    all_placements = fits(ground, west, east, width, depth, tracks)
+    placements = [p for p in all_placements if not p["in_track"]]
+    in_track = [p for p in all_placements if p["in_track"]]
     widest = max(rows, key=lambda r: r["width_m"])
     end = platted_end()
     platted_rows = [r for r in rows if r["e"] <= end]
@@ -276,6 +368,12 @@ def measure() -> dict:
         "platted_end_m": round(end, 2),
         "widest_free_strip_beside_the_street": widest_platted,
         "fits_beside_the_street": on_street,
+        "unplatted_tracks_masked": [
+            {"id": t["id"], "track_width_m": t["track_width_m"],
+             "corridor_width_m": t["corridor_width_m"]} for t in tracks],
+        "fits_in_an_unplatted_track": counted(in_track),
+        "fits_in_an_unplatted_corridor": counted(
+            [p for p in placements if p["in_track_corridor"]]),
         "strip": rows,
     }
 
@@ -308,6 +406,19 @@ def report(result: dict, json_out: bool = False) -> str:
     for key, count in result["fits_beside_the_street"].items():
         clause = "no relief clause" if key == "none" else f"relief <= {key} m"
         lines.append(f"      {clause:<22} {count}")
+    masked = result["unplatted_tracks_masked"]
+    if masked:
+        named = ", ".join(f"{t['id']} ({t['track_width_m']:.1f} m)" for t in masked)
+        lines.append(f"   REFUSED FOR STANDING IN AN UNPLATTED TRAVELLED WAY — "
+                     f"{named}, which plat_corridors does not carry:")
+        for key, count in result["fits_in_an_unplatted_track"].items():
+            clause = "no relief clause" if key == "none" else f"relief <= {key} m"
+            lines.append(f"      {clause:<22} {count}")
+        lines.append("   and of the positions above, those the same roads' "
+                     "RECONSTRUCTED corridors would also refuse (reported, not gated):")
+        for key, count in result["fits_in_an_unplatted_corridor"].items():
+            clause = "no relief clause" if key == "none" else f"relief <= {key} m"
+            lines.append(f"      {clause:<22} {count}")
     return "\n".join(lines)
 
 
@@ -337,6 +448,17 @@ def gate(quiet: bool = False) -> int:
                 f"{count} position(s) with relief {key}, and the baseline recorded "
                 f"{was} — this is the frontage the plate draws, and a fit appearing "
                 f"here is T-0134 re-opening")
+
+    for key, count in result["fits_in_an_unplatted_track"].items():
+        was = (baseline.get("fits_in_an_unplatted_track") or {}).get(key)
+        if was is None:
+            failures.append(f"the baseline carries no in-the-road reading at {key}")
+        elif count != was:
+            failures.append(
+                f"{count} position(s) with relief {key} now stand in an unplatted "
+                f"travelled way, and the baseline recorded {was} — the road moved, or "
+                f"the ground under it did, and either way the finding is re-read before "
+                f"this is banked")
 
     for field in ("widest_free_strip", "widest_free_strip_beside_the_street"):
         widest = result[field]["width_m"]
@@ -379,10 +501,28 @@ def self_test() -> int:
     if not (west < east):
         problems.append("the reach does not read west to east")
 
+    # 4. The unplatted travelled ways are found, and the fort road is one of them —
+    #    plat_corridors carries the platted grid and cannot see it (T-1636).
+    tracks = unplatted_tracks(west, east)
+    if "fort_road" not in [t["id"] for t in tracks]:
+        problems.append("fort_road is not masked on this reach, so the reading would "
+                        "report the town's only way to the fort as free ground")
+
+    # 5. The mask is not vacuous: a point on the fort road's own centreline is in it,
+    #    and a point 30 m north of the road on the same station is not.
+    if tracks:
+        on_road = [(e, n) for (e, n), _ in tracks[0]["segments"]][:1]
+        if on_road:
+            e, n = on_road[0]
+            if not in_a_track(e, n, tracks):
+                problems.append("a point on an unplatted centreline is not in its track")
+            if in_a_track(e, n + 30.0, tracks):
+                problems.append("a point 30 m off the centreline is inside the track")
+
     for line in problems:
         print(f"   {line}")
     if not problems:
-        print("   3 assertions fire")
+        print("   5 assertions fire")
     return 1 if problems else 0
 
 
