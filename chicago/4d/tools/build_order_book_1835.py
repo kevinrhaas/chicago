@@ -3812,12 +3812,13 @@ def cmd_self_test() -> int:
     # differently, and the ruling is what has to be argued for. A seating file that moves
     # under this join must be RED, not quietly re-summed, so restate it against the files
     # whenever it moves. It was 176; T-1611 re-dealt six platted-block yard buildings into
-    # rear cottages, which the deal adopted, taking it to 182; then T-1623 refused the four
-    # slots the platted deal still asked for on the lots the schedule's own sizing keeps
-    # open, taking it to 178 — the platted pass's 106 plus the off-plat pass's 72, both read
-    # off the committed files.
+    # rear cottages, which the deal adopted, taking it to 182; T-1626 gave the two franklin
+    # roofs back to the households that had asked for them, taking it to 184; then T-1623
+    # refused the four slots the platted deal still asked for on the lots the schedule's own
+    # sizing keeps open, taking it to 180 — the platted pass's 108 plus the off-plat pass's
+    # 72, both read off the committed files.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 178
+        data["inventory"], data["programme"], occ))["seated"] == 180
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

@@ -180,7 +180,7 @@ showing it a corner side, five are named households' homes, two are inferred hou
 five are yard buildings, and six are free — so six are seated and twelve refused on supply.
 That is refusal 4 doing its job, and **T-0375** is where more Dearborn frontage comes from.
 
-## The six refusals
+## The seven refusals
 
 1. **`not present at the scene date`** — the register already excluded it: contradicted
    before 1 July 1835, or first printed after it.
@@ -252,6 +252,72 @@ That is refusal 4 doing its job, and **T-0375** is where more Dearborn frontage 
    checks. Four of the nine took a principal roof instead; five had none left on their street
    and joined refusal 4.
 
+7. **the roof was raised to answer a household's slot request** — the third refusal of a
+   ROOF, added by **T-1626 on 2026-09-26**. `tools/seat_platted_ground_1835.py` walks the
+   banded households over the plat, and where it finds no standing roof for one it does
+   not give up: it draws on the block's own committed family plan and writes a **slot** —
+   a request naming the block and the family, which the 5C build tickets (T-1200..T-1214)
+   fulfil. This pass used to treat the resulting roof as free supply, and it got there
+   first.
+
+   **What that cost, measured.** T-1622 built the D3 and D4 that
+   `blk_south_water_franklin` had been asked for. This pass handed both to documented
+   firms — W. Montgomery's auction and commission room and Briggs & Humphrey, carriage
+   and sleigh makers — before the seating could return: adoptions went **39 → 41** and the
+   platted deal's seats went **106 → 104**. The two households did not merely miss their
+   roof; the block's headroom had been spent building it, so they lost the REQUEST too and
+   fell back to `owed`. Two roofs were raised, and the town seated two households fewer.
+   Left standing, that makes the slot table a promise the build tickets can never keep:
+   any roof they raise on a face with a waiting business is taken before its requester
+   arrives.
+
+   **Why the household layer wins, and why this is not "invention beats evidence".** The
+   precedence here was never documented-beats-reconstructed. Refusal 5 has subordinated
+   this pass to the INFERRED household layer since 2026-08-30 — a hypothesis from the
+   town's arithmetic that names nobody — and argues there that the invention makes the
+   refusal *stronger*. A platted seat is the same kind of claim. The only reason it lost
+   was that it was recorded as a REQUEST rather than an occupancy, and a request is
+   invisible to a pass that reads `occupants`; this pass simply runs first. What decides
+   it is **limit 3**, which this policy has stated from its first day: *which* roof on a
+   face a business takes is an allocation and "a statement about nothing". A business is
+   roof-INDIFFERENT — any free roof on the face serves it, and refusal 4 is the honest
+   answer when the face runs out. A slot request is roof-SPECIFIC: the roof exists because
+   a named household asked that block for that family. Giving the indifferent claim
+   priority over the specific one is what produced a build that seated nobody.
+
+   **And the register loses nothing it had.** The refused business falls back to refusal
+   4, *every roof on the face is spoken for* — which is precisely the refusal it carried
+   before the roof was built. With refusal 7 in force the numbers return to 39 adopted and
+   21 waiting, and the platted deal seats **112** against **110** without it — the two
+   roofs, either way. (T-1622 measured that pair at 106 against 104 on the tree it ran on;
+   T-1611 has since seated six more.) The reconstruction did not add supply for the
+   register; it added a roof for a household.
+
+   **How it is derived, and why it closes no cycle.** The build ticket records the request
+   it answered in `data/reconstruction/1835_platted_block_parcels.json` §
+   `dealt_against_a_request`, beside the deal. That is an AUTHORED recipe upstream of both
+   passes. `requested_roofs()` reads it and matches each request to a roof of its family
+   raised by that deal, one roof per request, in id order. It could not read
+   `1835_platted_seats.json` instead: that file is derived from the structure records, and
+   this pass's allocation is spent into them by `tools/inferred_occupancy.py`, so reading
+   the seats here would make `check.sh`'s re-derivation depend on which pass ran last.
+
+   **The reservation does not expire.** A roof carries it because of how it came to be
+   raised, and that stays true if the seating pass deals it to a household other than the
+   one that asked — which it did here, to `hh_beeson_william` and `hh_bench_reuben`
+   rather than to Brown and Bryant. Which household takes a roof is the seating pass's
+   allocation, exactly as which roof a business takes is this one's. The written table
+   carries `reserved_without_a_committed_occupancy` as the watch on the cost, and it reads
+   the STRUCTURE RECORD only: the platted deal writes no `occupants` ("no structure record
+   is touched" in its own words), so a roof it has seated still counts there. The number is
+   an upper bound on what the reservation costs, not the cost — 2 today, both of them
+   seated by the deal.
+
+   **This was a run's call, not the owner's.** It is an allocation precedence between two
+   of this project's own passes, with no source read on either side and no claim about
+   1835 either way — not rights, not the depiction of people, not money, not what the
+   project is.
+
 ## What it moves, measured 2026-08-30
 
 **Every number below is DERIVED, and none of it is authored.** `python3
@@ -259,7 +325,7 @@ tools/adopt_street_faces.py --report` reprints all of it from the register as co
 a figure that has gone stale shows as a disagreement rather than rotting quietly in prose.
 The register moves — it was read six times while this policy was being written and the
 `street_only` pile went 47 → 45 → 60 → 59 — and the POLICY does not move with it: the four
-limits, the six refusals and the two readings of "face" the owner has adopted are unchanged
+limits, the seven refusals and the two readings of "face" the owner has adopted are unchanged
 by any of that, which is the point of deriving the allocation instead of listing it.
 
 Re-measured 2026-08-30 for the corner-side ruling. The two readings before it: **24 adopted
