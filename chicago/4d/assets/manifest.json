@@ -3312,6 +3312,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_026"
     },
+    "recon_1835_west_027__inferred_1835.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 32776,
+      "inputs_sha256": "f6518d8c6211a7cb5852b87ba7b476ba9173765d305dc5150dcbac0cacae5b55",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_west_027"
+    },
     "recon_1835_west_028__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -3392,6 +3401,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_036"
+    },
+    "recon_1835_west_037__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 139128,
+      "inputs_sha256": "77ba593d3be20480570695a64018ac8417a60f6d5c80216d281c5e1e2de49811",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_west_037"
     },
     "recon_1835_west_038__inferred_1835.glb": {
       "archetype": "log_dwelling",

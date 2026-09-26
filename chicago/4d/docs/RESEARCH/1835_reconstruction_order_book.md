@@ -10,7 +10,7 @@
 | Persons | 2,543 | 1,402 | 1,651 |
 | Households | 644 | 82 | 564 |
 | Businesses (enumerated classes) | 109 | 130 | 7 |
-| Roofs | 668 | 417 | 264 |
+| Roofs | 668 | 419 | 262 |
 
 **2,381 people stand in the layer today** and **408** are still owed after the counters, so the town this book converges to is **2,789** — inside the model's 2,362-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
@@ -458,16 +458,16 @@ The December 1835 State census set against the register the town already holds.
 The roofs the 668-roof programme still owes, by archetype group and division.
 
 - `roof_target`: 668
-- `standing_records`: 417
+- `standing_records`: 419
 - `standing_with_an_occupant`: 124
-- `standing_without_an_occupant`: 293
-- `to_build_total`: 264
-- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 293 of the 417 standing records carry no occupants block today, and T-1197 re-audits them against this book.
+- `standing_without_an_occupant`: 295
+- `to_build_total`: 262
+- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 295 of the 419 standing records carry no occupants block today, and T-1197 re-audits them against this book.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
 | `structures/barns_stables/south` | 35 | 20 | 15 | 0 | T-1212 |
-| `structures/barns_stables/west` | 20 | 11 | 9 | 0 | T-1212 |
+| `structures/barns_stables/west` | 20 | 12 | 8 | 0 | T-1212 |
 | `structures/barns_stables/north` | 17 | 8 | 9 | 0 | T-1212 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | T-1204 |
 | `structures/fort_principal/fort` | 10 | 10 | 0 | 0 | T-1204 |
@@ -481,7 +481,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/larger_boarding_houses/west` | 6 | 2 | 4 | 0 | T-1209 |
 | `structures/larger_boarding_houses/north` | 8 | 6 | 2 | 0 | T-1209 |
 | `structures/ordinary_dwellings/south` | 176 | 118 | 58 | 0 | T-1203 |
-| `structures/ordinary_dwellings/west` | 75 | 50 | 25 | 0 | T-1208 |
+| `structures/ordinary_dwellings/west` | 75 | 51 | 24 | 0 | T-1208 |
 | `structures/ordinary_dwellings/north` | 84 | 46 | 38 | 0 | T-1206 |
 | `structures/small_outbuildings/south` | 48 | 25 | 23 | 0 | T-1212 |
 | `structures/small_outbuildings/west` | 14 | 4 | 10 | 0 | T-1212 |
@@ -504,8 +504,8 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 The streets, terrain and lots a structure bucket waits on.
 
 - `roofs_on_committed_ground`: 12
-- `roofs_gated_on_coverage`: 252
-- `statement`: 12 of the 264 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 252 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
+- `roofs_gated_on_coverage`: 250
+- `statement`: 12 of the 262 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 250 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -536,7 +536,6 @@ The streets, terrain and lots a structure bucket waits on.
 | `ground/blk_wabansia_b_t7` | 0 | — | — | 0 | T-1414, T-1444 |
 | `ground/blk_wabansia_c_t7` | 0 | — | — | 0 | T-1414, T-1444 |
 | `ground/blk_south_water_market` | 27 | — | — | 0 |  |
-| `ground/west_wolf_point_outer` | 2 | — | — | 0 | T-1414, T-1444 |
 | `ground/south_plat_beyond_committed_control` | 104 | — | — | 0 |  |
 | `ground/west_division_beyond_committed_control` | 52 | — | — | 0 | T-1414, T-1444 |
 | `ground/north_division_beyond_modelled_ground` | 67 | — | — | 0 |  |
@@ -558,7 +557,7 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 - **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 20 of 1375 present households name a lives_at.
 - **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 49 of 1375 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
-- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 293 of 417 standing records carry no occupants block.
+- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 295 of 419 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,543 people into 644 households.
 - **an_uncompared_class_orders_nothing** (T-1442) — A trade-census class the crosswalk rules `compared: false` carries its figures but orders no reconstruction: the difference between a census line and the register is only a shortfall where the crosswalk has ruled the two comparable. *Now:* carried uncompared: 1 of 18 enumerated business classes, each ordering nought.
 - **no_bucket_overfilled** (T-1166) — No bucket's `filled` exceeds its `to_reconstruct`; a filler that bypasses the book is red in check.sh. *Now:* enforced by --check on every gate run.
