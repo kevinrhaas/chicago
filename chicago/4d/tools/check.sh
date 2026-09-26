@@ -2273,8 +2273,30 @@ step "changelog contract" \
 # The ticket queue: the operational "what next" the owner ordered on 2026-08-17
 # after his own requests went untraceable in the ROADMAP. Duplicate ids, queue
 # drift, a stale BOARD, a block with no stated question — all merge-refusing.
-step "ticket queue" \
-  node tools/ticket.mjs check
+#
+# `--inherited-warn` IS WHOSE RED IT IS (T-1593). The tickets are a separate
+# repository since 2026-09-23, so nothing this step reads is in the diff under
+# review — and on 2026-09-25 that turned into a red nobody could clear: two
+# tickets were filed as effort L at 23:07Z and the gate on #51, a pull request of
+# AGENTS.md and three files under tools/, went red on THIS step 37 minutes later.
+# It merged with GH_REST_MERGE_BLIND=1 after its author had proved the red was
+# not his. So the step now says which faults are the branch's own — those fail —
+# and reports the rest as a WARN naming the filing and the command that clears it
+# for every open PR at once. `node tools/ticket.mjs check` run bare is still
+# strict, which is where the rule keeps its teeth: by hand, and in the tickets
+# repository's own CI. The flag does NOT soften a dirty or unpushed clone —
+# state this run put there is state this run owns.
+step "ticket queue (faults in the tickets repo are reported, not charged to this diff)" \
+  node tools/ticket.mjs check --inherited-warn
+
+# …AND BOTH HALVES OF T-1593, ON A REAL CLONE OF A REAL BARE TICKETS REPOSITORY,
+# because the whole distinction is which repository a file lives in and a fixture
+# folder cannot tell the two apart. The filing refusal (`new --effort L`, and an
+# effort the gate cannot read) and the WARN, against the exact queue state that
+# failed at 23:07Z — plus the three things the flag must NOT let through: a fault
+# in this repo's own files, a tickets clone this run dirtied, and embedded mode.
+step "a filing fault is refused at the prompt, and a queue fault no diff carries is not charged to it" \
+  node tools/test_ticket_filing_effort.mjs
 
 # T-1548. `done` refuses to close a ticket a committed file still records as live work
 # — the shape that turned dev red three times running (T-1507 as #7, T-1540 as #25,
