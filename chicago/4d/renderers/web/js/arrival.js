@@ -28,7 +28,6 @@ export function bootProgress(phases, expected = {}, nowMs = 0) {
       fraction = Math.min(0.92, elapsed / w);
     }
     done += w * fraction;
-    break;
   }
   return Math.min(0.999999, clamp01(done / total));
 }
@@ -58,15 +57,19 @@ function setDigits(host, year, animate) {
       const digit = document.createElement('span');
       digit.className = 'arrival-digit';
       digit.innerHTML = '<span class="arrival-digit-half arrival-digit-top"><span></span></span>'
-        + '<span class="arrival-digit-half arrival-digit-bottom"><span></span></span>';
+        + '<span class="arrival-digit-half arrival-digit-bottom"><span></span></span>'
+        + '<span class="arrival-digit-half arrival-digit-flap"><span></span></span>';
       host.appendChild(digit);
     }
   }
   [...host.children].forEach((digit, i) => {
     const char = text[i];
+    if (!animate) digit.classList.remove('is-flipping');
     if (digit.dataset.value === char) return;
+    const old = digit.dataset.value ?? char;
     digit.dataset.value = char;
-    digit.querySelectorAll('.arrival-digit-half span').forEach(span => { span.textContent = char; });
+    digit.querySelectorAll('.arrival-digit-top span, .arrival-digit-bottom span').forEach(span => { span.textContent = char; });
+    digit.querySelector('.arrival-digit-flap span').textContent = old;
     if (animate) {
       digit.classList.remove('is-flipping');
       void digit.offsetWidth;
@@ -78,7 +81,7 @@ function setDigits(host, year, animate) {
 
 function setBar(bar, progress) {
   if (!bar) return;
-  const pct = Math.round(clamp01(progress) * 100);
+  const pct = progress >= 1 ? 100 : Math.min(99, Math.round(clamp01(progress) * 100));
   bar.setAttribute('aria-valuenow', String(pct));
   const fill = bar.firstElementChild;
   if (fill) fill.style.width = `${pct}%`;
@@ -96,13 +99,18 @@ export function createArrival({
     ? matchMedia('(prefers-reduced-motion: reduce)').matches : false,
   now = () => performance.now(),
   reload = () => location.reload(),
+  requestFrame = typeof requestAnimationFrame === 'function' ? requestAnimationFrame : null,
+  cancelFrame = typeof cancelAnimationFrame === 'function' ? cancelAnimationFrame : () => {},
 } = {}) {
   if (!boot) throw new Error('createArrival requires api.boot');
   let failed = false;
   let ready = false;
   let settleRaf = null;
   let lastShown = null;
-  let lastReduced = null;
+  let progress = 0;
+  let displayedYear = Math.max(1836, currentYear);
+  let tickerRaf = null;
+  let lastFrame = now();
 
   if (phaseEl) phaseEl.setAttribute('aria-live', 'polite');
   if (yearEl) yearEl.setAttribute('aria-hidden', 'true');
@@ -124,23 +132,39 @@ export function createArrival({
 
   function sync(event) {
     if (failed || ready) return;
-    const p = bootProgress(boot.phases, boot.expected, event?.at ?? now());
-    const shownProgress = reducedMotion ? reducedProgress(p) : p;
-    if (reducedMotion && shownProgress === lastReduced && lastShown != null) {
-      setBar(barEl, p);
-      return;
-    }
-    lastReduced = shownProgress;
-    showYear(yearForProgress(shownProgress, currentYear, false), true);
-    setBar(barEl, p);
-    const label = event?.phase?.label;
+    // Optional work cannot replace the essential phase's announcement.
+    const label = event?.phase?.essential !== false && event?.phase?.label;
     if (label && phaseEl && phaseEl.textContent !== label) phaseEl.textContent = label;
+    progress = Math.max(progress, bootProgress(boot.phases, boot.expected, now()));
+    setBar(barEl, progress);
+    if (reducedMotion) showYear(yearForProgress(reducedProgress(progress), currentYear), false);
+    else if (!requestFrame) showYear(yearForProgress(progress, currentYear), false);
+  }
+
+  function tick() {
+    if (failed || ready) return;
+    const at = now();
+    sync();
+    const target = yearForProgress(progress, currentYear);
+    // Smooth discrete work events without running ahead of completed/estimated work.
+    // A resumed tab reads the current clock once; it never replays queued ticks.
+    const alpha = 1 - Math.exp(-Math.max(0, at - lastFrame) / 90);
+    displayedYear = Math.min(displayedYear, displayedYear + (target - displayedYear) * alpha);
+    lastFrame = at;
+    if (!reducedMotion) showYear(displayedYear);
+    tickerRaf = requestFrame(tick);
+  }
+
+  function stopTicker() {
+    if (tickerRaf != null) cancelFrame(tickerRaf);
+    tickerRaf = null;
   }
 
   function fail(error, { message } = {}) {
     if (ready) return;
     failed = true;
-    if (settleRaf != null && typeof cancelAnimationFrame === 'function') cancelAnimationFrame(settleRaf);
+    stopTicker();
+    if (settleRaf != null) cancelFrame(settleRaf);
     const msg = message || (error ? `Could not finish the reconstruction — ${String(error.message || error)}`
       : 'Could not finish the reconstruction.');
     if (phaseEl) phaseEl.textContent = msg;
@@ -154,6 +178,7 @@ export function createArrival({
   function settle(event) {
     if (failed || ready) return;
     ready = true;
+    stopTicker();
     const duration = settleDurationMs({
       reducedMotion,
       bootDurationMs: Math.max(0, (event?.at ?? now()) - firstStartedAt()),
@@ -162,15 +187,16 @@ export function createArrival({
       bootProgress(boot.phases, boot.expected, event?.at ?? now()), currentYear, false)));
     if (buttonEl && duration > 0) buttonEl.disabled = true;
     const finish = () => {
-      showYear(1835, duration > 0);
+      showYear(1835, false);
       setBar(barEl, 1);
+      barEl?.classList.add('done');
       if (phaseEl) phaseEl.textContent = 'You have arrived in Chicago, summer 1835.';
       if (buttonEl) {
         buttonEl.textContent = 'Tap to enter';
         buttonEl.disabled = false;
       }
     };
-    if (!duration || typeof requestAnimationFrame !== 'function') {
+    if (!duration || !requestFrame) {
       finish();
       return;
     }
@@ -178,11 +204,12 @@ export function createArrival({
     const frame = () => {
       const t = clamp01((now() - started) / duration);
       const y = from - (from - 1835) * easeInOut(t);
-      showYear(Math.max(1835, y), true);
-      if (t < 1) settleRaf = requestAnimationFrame(frame);
-      else finish();
+      if (t < 1) {
+        showYear(Math.max(1836, y), true);
+        settleRaf = requestFrame(frame);
+      } else finish();
     };
-    settleRaf = requestAnimationFrame(frame);
+    settleRaf = requestFrame(frame);
   }
 
   for (const type of ['phasestart', 'phaseprogress', 'phaseend']) boot.on(type, sync);
@@ -201,10 +228,12 @@ export function createArrival({
     }, true);
   }
 
-  showYear(currentYear, false);
+  showYear(displayedYear, false);
   setBar(barEl, 0);
   if (cardEl) cardEl.textContent = cardEl.textContent.trim()
     || 'Drawing on previously researched sources';
+
+  if (requestFrame) tickerRaf = requestFrame(tick);
 
   return {
     sync,

@@ -163,11 +163,19 @@ html, body {
 .arrival-digit-top span { top: 0; }
 .arrival-digit-bottom { bottom: 0; }
 .arrival-digit-bottom span { bottom: 0; }
-.arrival-digit.is-flipping { animation: arrival-flip 180ms ease-out; }
+.arrival-digit-flap {
+  top: 0;
+  z-index: 2;
+  background: var(--panel-solid);
+  transform-origin: 50% 100%;
+  backface-visibility: hidden;
+  visibility: hidden;
+}
+.arrival-digit-flap span { top: 0; }
+.arrival-digit.is-flipping .arrival-digit-flap { animation: arrival-flip 180ms ease-in; }
 @keyframes arrival-flip {
-  0% { transform: rotateX(0deg); }
-  48% { transform: rotateX(-8deg); }
-  100% { transform: rotateX(0deg); }
+  0% { visibility: visible; transform: rotateX(0deg); }
+  100% { visibility: visible; transform: rotateX(-90deg); }
 }
 .arrival-card {
   min-height: 3em;
@@ -1467,7 +1475,7 @@ kbd {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arrival-digit.is-flipping { animation: none; }
+  .arrival-digit.is-flipping .arrival-digit-flap { animation: none; }
   .gate-bar > i { transition: none; }
 }
 @media (max-width: 360px) {

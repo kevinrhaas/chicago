@@ -3419,10 +3419,10 @@
     "tools/synthesize_resident_research.py": {
       "wrote": []
     },
-    "tools/test_boot_phases.mjs": {
+    "tools/test_arrival.mjs": {
       "wrote": []
     },
-    "tools/test_arrival.mjs": {
+    "tools/test_boot_phases.mjs": {
       "wrote": []
     },
     "tools/test_changelog_entry_gate.mjs": {

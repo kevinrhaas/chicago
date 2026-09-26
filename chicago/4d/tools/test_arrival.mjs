@@ -54,3 +54,77 @@ assert.match(index, /id="gate-sub"[^>]*aria-live="polite"/,
 assert.match(index, /id="arrival-card"/, 'the source/status card slot must exist');
 
 console.log('ARRIVAL A11Y PASS — year hidden, phase line polite, card slot present');
+
+// Exercise the real event controller, including writes that the pure mapping
+// tests cannot see (failure followed by phaseend, and reduced phase announcements).
+const { createBoot } = await import('../renderers/web/js/boot-phases.js');
+const { createArrival } = await import('../renderers/web/js/arrival.js');
+function fixture(reducedMotion = false) {
+  let clock = 0, id = 0, reloaded = false;
+  const frames = new Map();
+  const phaseEl = { textContent: '', setAttribute() {} };
+  const buttonEl = { disabled: true, dataset: {}, addEventListener(_, fn) { this.click = fn; } };
+  const barEl = { setAttribute(_, v) { this.percent = v; }, firstElementChild: { style: {} }, classList: { add() {} } };
+  const boot = createBoot({ now: () => clock });
+  // Fixed phase weights make the controller scenarios independent of device benchmarks.
+  for (const p of boot.phases) boot.expected[p.id] = 1;
+  const arrival = createArrival({ boot, phaseEl, buttonEl, barEl, currentYear: 2026, reducedMotion,
+    now: () => clock, requestFrame: fn => { frames.set(++id, fn); return id; },
+    cancelFrame: id => frames.delete(id), reload: () => { reloaded = true; } });
+  const step = ms => { clock += ms; const pending = [...frames.values()]; frames.clear(); pending.forEach(fn => fn()); };
+  const complete = () => { for (const p of boot.phases.filter(p => p.essential)) { boot.start(p.id); boot.end(p.id); } boot.frameRendered(); assert.ok(boot.finish()); };
+  return { boot, arrival, phaseEl, buttonEl, barEl, frames, step, complete, get reloaded() { return reloaded; } };
+}
+const slow = fixture();
+slow.boot.start('scene');
+const years = [slow.arrival.state.year];
+for (let i = 0; i < 20; i++) { slow.step(100); years.push(slow.arrival.state.year); }
+assert.ok(new Set(years).size > 2, 'elapsed phases animate between boot events');
+assert.ok(years.every((y, i) => y >= 1836 && (!i || y <= years[i - 1])));
+slow.boot.progress('scene', 0, 1000); // newly counted work must never roll forward
+slow.step(100);
+assert.ok(slow.arrival.state.year <= years.at(-1));
+slow.complete();
+slow.step(200);
+assert.ok(slow.arrival.state.year >= 1836);
+assert.doesNotMatch(slow.phaseEl.textContent, /arrived/);
+slow.step(100);
+assert.equal(slow.arrival.state.year, 1835);
+assert.equal(slow.buttonEl.disabled, false);
+assert.equal(slow.barEl.percent, '100');
+assert.equal(slow.frames.size, 0, 'no ticker remains after arrival');
+const arrived = slow.phaseEl.textContent;
+slow.boot.fail('people', 'optional failure');
+assert.equal(slow.phaseEl.textContent, arrived);
+
+const fast = fixture(); fast.boot.start('scene'); fast.step(100); fast.complete();
+assert.equal(fast.arrival.state.year, 1835);
+assert.equal(fast.frames.size, 0, 'fast boot has no cosmetic delay');
+assert.match(fast.phaseEl.textContent, /You have arrived/);
+
+const reducedFixture = fixture(true);
+reducedFixture.boot.start('scene');
+const reducedYears = new Set([reducedFixture.arrival.state.year]);
+for (const p of reducedFixture.boot.phases.filter(p => p.essential)) {
+  reducedFixture.boot.start(p.id); reducedFixture.step(350); reducedFixture.boot.end(p.id);
+  reducedYears.add(reducedFixture.arrival.state.year);
+  assert.equal(reducedFixture.phaseEl.textContent, p.label);
+}
+reducedFixture.complete(); reducedYears.add(reducedFixture.arrival.state.year);
+assert.ok(reducedYears.size <= 5);
+assert.equal(reducedFixture.frames.size, 0);
+
+const failed = fixture(); failed.boot.start('terrain'); failed.step(2000);
+failed.boot.fail('terrain', 'ground unavailable');
+const stopped = failed.arrival.state.year;
+failed.step(10000);
+assert.equal(failed.arrival.state.year, stopped);
+assert.ok(stopped >= 1836);
+assert.match(failed.phaseEl.textContent, /ground unavailable/);
+assert.doesNotMatch(failed.phaseEl.textContent, /arrived/);
+assert.equal(failed.buttonEl.textContent, 'Retry');
+assert.equal(failed.frames.size, 0);
+failed.buttonEl.click({ preventDefault() {}, stopImmediatePropagation() {} });
+assert.ok(failed.reloaded);
+assert.ok(!failed.boot.finish());
+console.log('ARRIVAL CONTROLLER PASS — real events, smooth ticks, monotone corrections, instant fast/reduced, optional/essential failure and retry');
