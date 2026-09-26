@@ -651,11 +651,22 @@ const DETAIL_ORDER = ['full', 'balanced', 'light'];
  *
  * The table above is a DECLARATION. This is the thing that turns it into a
  * ladder, and the distinction is the whole of the ruling: "three rungs that no
- * longer ascend are not a quality ladder — they are three numbers." That is not
- * hypothetical. The ruling itself proposed `light` at 992,617 against a `full`
- * of 1,320,377 and would have inverted the bottom two rungs in the act of
- * raising them; a table of three independent literals has nothing in it that
- * could have noticed.
+ * longer ascend are not a quality ladder — they are three numbers."
+ *
+ * SAY PRECISELY WHAT THE RISK IS, because the loose version of it is wrong and
+ * checkable. The three numbers in this table have always descended at any one
+ * instant, the ruling's own set included — 1,320,377 / 1,144,787 / 992,617 is a
+ * descending set, and it is a descending set against today's rungs too. What
+ * has NEVER existed is anything that made them. The raise of 2026-08-22 is the
+ * near miss on the record and this table says so above: `light` went to
+ * 1,050,000, "MORE than `full` promised the day before". Across that raise the
+ * bottom rung passed the old top rung; only the fact that `full` was raised in
+ * the same commit kept the set ordered, and nothing in the code cared either
+ * way. Seven re-basings are recorded above, each one hand-checked by whoever
+ * took it, and the ruling that asks for this seal opens by worrying — in the
+ * owner's own words — that raising `light` "puts it above what `full` carries
+ * today". The check was a person reading a table, every time, and a person is
+ * what this replaces.
  *
  * So the ceiling a tier actually carries is the RUNNING MINIMUM down
  * `DETAIL_ORDER`, not the number typed beside it. A rung can be typed too high;

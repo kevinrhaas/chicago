@@ -15,12 +15,17 @@ ruling of 2026-09-21, which asked for something the re-basing did not do:
 > with each rung stating what it is FOR … and what measurement set it. A rung that cannot say
 > what it protects is the next version of this ticket.
 
-**The defect the ruling names is real and it is not hypothetical.** `DETAIL` in
-`renderers/web/js/main.js` was three independent literals with nothing between them. The
-ruling's own proposed numbers — `light` 992,617 against a `full` of 1,320,377 — would have
-INVERTED the bottom two rungs in the act of raising them, and no check in this project could
-have seen it. Five raises and one return are recorded in that table's comments; not one of
-them was constrained to keep the order.
+**The defect is real, and the loose version of it is wrong — so say the precise one.** `DETAIL`
+in `renderers/web/js/main.js` was three independent literals with nothing between them. The
+three have always descended at any one instant, the ruling's own set included: 1,320,377 /
+1,144,787 / 992,617 is a descending set, and it descends against today's rungs too. **What has
+never existed is anything that made them.** The near miss on the record is the raise of
+2026-08-22, which that table describes itself: `light` went to 1,050,000, "MORE than `full`
+promised the day before". Across that raise the bottom rung passed the old top rung; only
+`full` being raised in the same commit kept the set ordered, and nothing in the code cared
+either way. Seven re-basings are recorded in those comments, every one hand-checked by whoever
+took it, and the ruling opens by worrying that raising `light` "puts it above what `full`
+carries today". The check was a person reading a table, every time.
 
 **Monotonic by construction, and the construction is a running minimum.** `sealLadder()` builds
 `DETAIL` from the declared table down `DETAIL_ORDER`, taking `min(declared, the rung above − 1)`.
