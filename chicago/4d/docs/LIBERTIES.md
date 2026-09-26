@@ -444,6 +444,34 @@ into the river as one pool at one surface, so the offset never arose. What is st
 what it always was: the depth and the width of a watercourse whose route is documented and whose
 section nobody recorded. That invention lives in **L149** with the swales, not here.
 
+**Evidence since, 2026-09-26 — the crossing has MOVED, and it changed streets doing it
+(T-1629).** The owner flew the reach against Wright 1834 and Hathaway 1834 and ruled that the
+State slough has one mouth, at the notch both sheets draw just EAST of State, and that the mouth
+this project had built west of State was the invention: *"keep the inland state slough, move the
+bridge, i thgink there should only be one slough though? and from the wright map it appears to
+start east of state. you have two slough entry points there"*. The mouth moved, and the reach
+that reaches it crosses **State Street** at E +826.9 N −8.4. **South Water Street does not cross
+this drain any more, and cannot** — its committed path stops at the United States Reservation
+(E +805, the 1833 order; the Reservation's west line is State), and the drain is now east and
+south of that. So the crossing was re-seated on State Street. **That is a loss against the source
+and this entry is where the loss is recorded**, because L69 is the entry that says this bridge
+stands at "the meeting of a named street and a named stream mouth" and that displacing it "would
+throw away the best evidence either record holds". Half of that pin is now thrown away: the
+source's sentence is *"where WATER STREET crossed it a log bridge was needed until after 1840"*,
+and this reconstruction can no longer carry the street's name. What it still carries — and what
+keeps the record standing — is the rest of the same sentence: that the town bridged THIS drain
+where its graded street met it, that the bridge was of log, and that it was needed past 1840.
+`position.confidence` stays `inferred` and does not rise on the move. The re-seating buys one
+thing back, which is worth saying beside the loss: the deck's BEARING was an admitted invention
+at the old seat (an east-west deck assumed over a north-running stream) and is now the committed
+line of State Street. The measured cost of the move, on the committed heightfield: the terrace
+along State stands level at 5.09 ft for 45 m either side of the crossing, so the deck sits 0.72 m
+below grade at both ends and both approaches are cuts 8.7 m long at 1 in 12, against 0.35–0.49 m
+at the old seat — the ridge-toe cost T-0118 declined and the owner accepted. And the reading this
+entry closed on still holds at the new seat: **4.80 m of open water in the deck's 8.00 m span
+(60 %), 0.93 m deep, 1.40 m and 1.80 m of dry abutment seat**, the channel unbroken from the
+planks to the river, taken by the same `tools/measure_slough_crossing.py`.
+
 
 ### L40 — Two thirds of the town stands on ground that has not been built
 **Decision:** twenty of the thirty-three structures now in the dataset stand **outside the
@@ -7990,46 +8018,57 @@ east side to the river at the foot of State Street — is carved into the ground
 entries (`state_slough_course`, `state_slough_mouth` in `terrain_spec.json`), both
 `reconstructed`. The course is cut 2.2 ft on a 5 m half-width, FEATHERING from zero at its
 head over the first ~58 m so the ground closes over the drain's rise instead of ending in an
-open trench; the mouth reach grades from the course's 2.2 ft to a full 6.2 ft against the
-State ridge toe on a 3 m half-width, runs straight north under the committed Slough Log
-Bridge deck, and enters the river SQUARE at about E +809.5, N +25 — one reach, one pool from
-about N −25 to the water (amended by T-0118; as first built the mouth turned east and ran
-~35 m along the shore to the traced re-entrant at 6.2 ft, and the owner read the resulting
-shore-parallel pocket as a bay).
+open trench. The mouth reach is RE-ROUTED BY T-1629: it leaves the course at the same
+hand-over vertex, bends east-north-east across the higher ground east of State, crosses STATE
+STREET at E +826.9 N −8.4 and enters the river inside **Wright's traced re-entrant**, crossing
+the waterline at the notch's apex (E +850.5, N +8.2) and running on to E +853.5 N +14.0 in the
+notch's own water. It grades from the course's 2.2 ft to a full **9.0 ft** on a 3.5 m
+half-width, and there is exactly ONE mouth at the foot of State — the mouth this entry used to
+build at E +809.5, WEST of State, is filled back to the bank line by its own removal from the
+spec.
 **Why:** the ROUTE is documented (chicagology_prefire273: it "passed over the site of the
 Tremont House and entered the river at the end of State Street") and the waypoints between its
 documented ends are read from Conley/Stelzer 1933 under that source's `orientation` ceiling —
 head just east of Clark between Washington and Randolph, a mid-block Dearborn crossing about
-N −190. The DEPTH figure restates the dossier row's own thalweg (1.5–3.0 ft below the adjacent
-plain, about +0.5…+1.5 ft absolute — the reason this is a swale and not a below-datum channel),
-and the WIDTH sits at the top of the row's 15–40 ft band. What is invented outright: the exact
-line between the documented waypoints, chosen to thread the committed reconstructed roofs; the
-head feather's length (the head vertex itself does not move, and the visible hollow dies out
-inside the head reading's own 20–30 m tolerance); the mouth reach's 6.2 ft cut, sized against
-the State ridge toe the spec already builds; and THE CHOICE OF WHICH PIN THE STRAIGHT ENTRY
-KEEPS. A single straight reach cannot honour both the committed bridge deck (E +805…+813) and
-Wright's traced re-entrant (E +850…+856), and it is the TRACED RE-ENTRANT the carved mouth no
-longer ends inside: the bridge is a committed structure with committed approach earthworks,
-moving it east into the rising ridge toe would demand street cuts twice as deep, and the
-documentary mouth — the foot of State, about E +827 at the bank — sits BETWEEN the pins, with
-the built mouth ~18 m west of it (inside the sheet's ±20 m band) where the traced notch was
-~25 m east. The re-entrant itself stays exactly as traced in the waterline — a small drawn
-notch 40 m east of the built mouth, evidence kept, no longer claimed as this drain's outfall.
-The old over-deepened joint (−5.0 ft where the two entries' cuts summed) is GONE: swale cuts
-now combine by maximum and the mouth's depth profile opens at the course's own 2.2 ft, so the
-two entries carve one continuous graded bed.
+N −190. The DEPTH figure on the course restates the dossier row's own thalweg (1.5–3.0 ft below
+the adjacent plain, about +0.5…+1.5 ft absolute — the reason that entry is a swale and not a
+below-datum channel), and the WIDTH sits at the top of the row's 15–40 ft band. WHY THE MOUTH
+MOVED, AND ON WHOSE WORD: the owner flew the reach on 2026-09-26 against Wright 1834 and
+Hathaway 1834 and found TWO notches within 40 m of each other at the foot of State — this
+entry's built mouth west of State, and the notch the sheets draw east of it — and ruled that
+"there is only one just east of state, the other slough does not appear to be depicted in
+either the wright or the hathaway map", then "keep the inland state slough, move the bridge".
+So the pin this liberty used to say the straight entry could not keep is the one it now keeps,
+and the invention it used to prefer is gone. What is invented outright, after the move: the
+exact line between the documented waypoints, chosen to thread the committed reconstructed
+roofs; the head feather's length; the last 60 m between the course's hand-over and the traced
+notch, which no source draws at all; and THE 9.0 ft CUT, which is the figure this liberty most
+needs to say plainly. It is not a sounding and it is not the dossier's. It is the depth the bed
+needs in order to stay below the water surface across ground that stands 6–7 ft on the
+committed heightfield — the sand rise between State Street and the fort, which the old mouth
+never crossed because it entered the river 40 m west of it. That is the RIDGE-TOE COST T-0118
+declined and the owner has now accepted, and it is paid twice: once in the cut, and once in the
+crossing's approaches, which are 0.72 m deep where they used to be 0.35–0.49 m. The pool that
+cut holds runs unbroken from about N −18 to the river; above it the drain is the damp July swale
+the dossier describes and stands ABOVE the water, which is the claim and not a fault. THE
+RE-ENTRANT ITSELF DID NOT MOVE: nothing in `shoreline.geojson` changed, and T-0795's
+re-measurement of it (NA px (2968, 2515), E +848.6) is what this entry now rests its outfall on.
 **Consequence:** a visitor sees the drain the town bridged — a winding damp hollow through the
-business district falling into standing water below the ridge toe — and the State slough
-empties straight into the river in one reach, with no shore-parallel pocket. Every carved cell
-is conjectural in the confidence channel and dithers when `reconstructed` is hidden. The
-streets the drain crosses (Dearborn, Lake) dip through it at grade; no crossing is documented
-at either, and none is built.
+business district falling into standing water — and from the river and from the air there is
+ONE notch in the south bank between Clark and the fort, where there were two. The cost is
+visible too and is the honest price of the ruling: a cut deeper than any other swale in this
+dataset carries the drain across the rise east of State, and the log bridge over it sits 0.72 m
+below the terrace it crosses. Every carved cell is conjectural in the confidence channel and
+dithers when `reconstructed` is hidden. The streets the drain crosses (Dearborn, Lake) dip
+through it at grade; no crossing is documented at either, and none is built. The one street
+crossing that IS built moved with the water — see L69 for what that cost the source's own
+sentence about Water Street.
 **How to resolve:** any grading petition, drainage ordinance, lot survey or levelled section
 locating or sounding the slough — a sourced line or depth would replace the invented one for
-one; a sourced mouth position would settle which pin the straight entry should have kept; see
-docs/RESEARCH/main_branch_sloughs_1833.md.
+one, and a sourced course for the last 60 m would replace the reach this ruling had to invent;
+see docs/RESEARCH/main_branch_sloughs_1833.md section 8.
 **Covers:** `terrain.e1834_harbor_cut.swales.state_slough_course`, `terrain.e1834_harbor_cut.swales.state_slough_mouth`.
-**Recorded:** 2026-08-20. **Amended:** 2026-08-20 (T-0118).
+**Recorded:** 2026-08-20. **Amended:** 2026-08-20 (T-0118), 2026-09-26 (T-1629).
 
 ### L150 — Terrain: the La Salle slough's inland course and terminus rest on a 1933 reconstruction
 **Decision:** the watercourse Wright 1834 draws dropping south off the main stem just east of
@@ -8151,6 +8190,7 @@ South Water bank showing the crossing's walking surface or a bank walk; a commit
 crossing at the La Salle mouth would close the one gap in the run.
 **Recorded:** 2026-08-21.
 **Amended 2026-09-03 — this walk is held between STRING PIECES (T-0460).** The one renderer that draws every plank walk in this project now lays a 0.09 m edge timber down each side of one, its top flush with the boards and its foot in the ground, taking the outermost 0.09 m of the walk's own width so nothing widens. It replaces a row of board ENDS at the walk's edge, which is what the owner reported as a jagged sawtooth where the boards met the dirt. **The invention this adds — that these walks had edge timbers at all — is argued in full at L160**, and it is the same class as the width, the rise and the plank pitch this entry already claims.
+**Amended 2026-09-26 — the footway it was named for is GONE, and the walk's east end now lies on ground (T-1629).** The owner ruled, against Wright 1834 and Hathaway 1834, that the State slough has ONE mouth and it is the notch the sheets draw just EAST of State — so the mouth this footway was built to cross, at E +809.5 WEST of State, was the invention. It is filled back to the bank line and the Slough Log Bridge went with the water onto State Street, 35 m inland. **What this entry claimed about the footway is therefore withdrawn, not quietly restated:** there is no deck under these boards, `rides` and `deck_m` are gone from the record, and the pin this liberty leaned on hardest — "the crossing footway's extent is the bridge's committed deck ends" — no longer exists. The run's two knots (E +803.6…+815.0 at N +14.2) are now AUTHORED, at exactly the extent the walk already published, so a visitor's walk neither shortens nor moves for a change that is about the drain; and the exemption this entry granted them is withdrawn with the deck, so every station of that reach is audited against the committed heightfield like every other board here. The walk's id keeps the word `footway` because ids in this dataset are stable. See L149 for the mouth and L69 for the crossing.
 
 ### L155 — Terrain: the fort's river frontage is cut steeper than the banks either side of it
 **Decision:** the south division's `face_profile` in

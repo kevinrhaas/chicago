@@ -30,7 +30,7 @@ other three say so themselves:
 | `north_side_slough` | existence **and course** | drawn, and re-measured below |
 | `lasalle_slough_lower` / `_upper` | existence and **mouth only** (course: Conley/Stelzer 1933) | the mouth is drawn; no inland course |
 | `state_slough_course` | **nothing** — chicagology + Conley/Stelzer | not drawn, as expected |
-| `state_slough_mouth` | the traced **re-entrant** only | the re-entrant is drawn |
+| `state_slough_mouth` | the traced **re-entrant** only | the re-entrant is drawn, and since T-1629 it is this reach's OUTFALL again |
 | `west_prairie_swale_a` / `_b` | **nothing** — no source at all | not drawn |
 
 So the count comes out even. That is the result the ticket asked for: *"A count of four that
