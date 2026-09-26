@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'Arrive in 1835 as the town is assembled', kind: 'change', ts: '',
+  { v: 1151, title: 'Arrive in 1835 as the town is assembled', kind: 'change', ts: '2026-09-26T18:30:51.494Z', date: 'Sep 26, 2026, 1:30 PM CT',
     items: [
       'The loading screen is now an arrival: the year rolls backward from the present toward 1835 as real reconstruction phases finish.',
       'The year never reaches 1835 before the town is ready; long phases ease rather than pretending to be complete, and a fast warm load does not add an artificial delay.',
