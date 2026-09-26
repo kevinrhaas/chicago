@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'Two lines down one street, and nothing said which one it meant', kind: 'fix', ts: '',
+  { v: 1126, title: 'Two lines down one street, and nothing said which one it meant', kind: 'fix', ts: '2026-09-26T04:30:45.907Z', date: 'Sep 25, 2026, 11:30 PM CT',
     items: [
       'Nothing you can see in the town changed. This is about a disagreement in the survey under it that has stood for four weeks, and the thirteen tools that read across it.',
       'Two lines run down each street of the 1835 plat. One is the line this project has DRAWN, and the town is built on it: blocks set back from it, lots cut off the blocks, every roof on a lot. The other is where the surviving survey markers put the street. On two streets they disagree \u2014 8.58 m on South Water, 2.91 m on Kinzie \u2014 and nothing in the record says which one the surveyor drew.',
