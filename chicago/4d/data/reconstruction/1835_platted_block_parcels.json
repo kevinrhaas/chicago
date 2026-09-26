@@ -399,14 +399,12 @@
         "ancillary": 4
       },
       "families": {
-        "A1": 1,
         "A2": 1,
-        "A3": 1,
-        "A4": 1,
         "D3": 1,
-        "D4": 1,
+        "D4": 2,
         "D5": 1,
-        "D6": 1
+        "D6": 1,
+        "D2": 2
       },
       "arrangement_note": "The first South Division block of the Randolph row, bounded by Randolph, Franklin, Washington and Market, and the first block off the schedule whose standing roofs were put there by THIS project's own inferred-household layer rather than by a pre-plat coordinate parcel. inf_sawyer_dwelling_a and _b hold lots 4 and 6 — the two sawyer households of the occupation census, placed from typed coordinates before the plat module existed — so the block arrives with its Randolph face half built and both remaining free lots on that face. That is what decides the arrangement: the through street fills first, and the vacancy the programme requires has nowhere to fall but the Washington face. What is argued here and not found: the deep-plan and the one-and-a-half-storey cottages take the two free Randolph lots, because Randolph is the through street of the pair in the module's own street hierarchy and carries the west-side crossing — the same frontage-value typology the three Randolph-tier blocks before this one recorded. The two-room and the one-room cottages take Washington, the back street. Lots 1 and 5 are left open in alternation with them, and lot 1 is the one named first because it is the Washington-and-Market corner: Market is the river edge of the South Division here, and the corner nearest the wharves and the lumber ground is the least attractive residential lot on the block. The barn or carriage shed takes lot 7, the Franklin end of the quiet street and the furthest point on the block from the Randolph-and-Market bridge approach — the same where-a-town-keeps-a-large-animal-shelter typology the two blocks before this one applied at their own quiet ends, tested here against a third geometry rather than repeated. The stable, the woodshed and the privy stand behind the cottages on their own lots. None of it is evidence about this block, and no lot is numbered.",
       "open_lots": [
@@ -453,7 +451,7 @@
           "lateral_m": -2.0
         },
         {
-          "family": "A3",
+          "family": "D2",
           "inventory_class": "ancillary",
           "lot": 0,
           "stands_on": "alley",
@@ -462,7 +460,7 @@
           "lateral_m": 5.5
         },
         {
-          "family": "A4",
+          "family": "D2",
           "inventory_class": "ancillary",
           "lot": 2,
           "stands_on": "alley",
@@ -471,7 +469,7 @@
           "lateral_m": -5.0
         },
         {
-          "family": "A1",
+          "family": "D4",
           "inventory_class": "ancillary",
           "lot": 3,
           "stands_on": "alley",
@@ -636,9 +634,8 @@
         "ancillary": 2
       },
       "families": {
-        "A1": 1,
         "A3": 1,
-        "D1": 1,
+        "D1": 2,
         "D2": 1,
         "D3": 1,
         "D4": 1,
@@ -711,7 +708,7 @@
           "lateral_m": 2.0
         },
         {
-          "family": "A1",
+          "family": "D1",
           "inventory_class": "ancillary",
           "lot": 3,
           "stands_on": "alley",
@@ -769,11 +766,10 @@
         "ancillary": 2
       },
       "families": {
-        "A1": 1,
         "A3": 1,
         "D1": 1,
         "D2": 1,
-        "D3": 1,
+        "D3": 2,
         "D4": 1,
         "D5": 1
       },
@@ -827,7 +823,7 @@
           "lateral_m": -2.0
         },
         {
-          "family": "A1",
+          "family": "D3",
           "inventory_class": "ancillary",
           "lot": 3,
           "stands_on": "alley",
@@ -1810,7 +1806,7 @@
         "D5": 1,
         "D1": 1,
         "D2": 1,
-        "A1": 1
+        "D4": 1
       },
       "open_lots": [
         {
@@ -1859,7 +1855,7 @@
           }
         },
         {
-          "family": "A1",
+          "family": "D4",
           "inventory_class": "ancillary",
           "lot": 1,
           "stands_on": "alley",
@@ -2232,5 +2228,119 @@
         }
       ]
     }
-  ]
+  ],
+  "redealt": {
+    "on": "2026-09-26",
+    "ticket": "T-1611",
+    "adjudicated_by": "T-1445",
+    "ruled_by": "the owner, 2026-09-23, on T-1482's question",
+    "clause": "rear_dwelling_behind_its_own_roof",
+    "ledger": "data/reconstruction/1835_roof_redeal.json",
+    "why": "THE LAST SIX OF THE 32, AND THE RULING THAT FREED THEM. T-1445 adjudicated the town's anonymous roofs and returned 32 refamily verdicts; T-1451 carried out the six whose ids do not move, T-1494 the phase-one South parcel's eleven and T-1480 the North Division's nine. These six are the platted blocks', and the rename was never what stopped them. Every one is an A-family yard building at a `yard` setback off its block alley, behind the principal roof on its own lot, and the adjudication moves each into an ordinary-dwelling family. The inventory class was read off the family GROUP alone, so each promotion made a SECOND principal roof on an occupied lot and the parcel gate refused all six; T-1482 measured that, costed the three ways out and asked, because all three change what the town is. The owner answered on 2026-09-23: treat a rear cottage as ancillary, so a lot may carry a main house plus a rear dwelling. T-1610 wrote the ruling into the placement policy as `rear_dwelling_behind_its_own_roof` and into `reconcile_665.inventory_class`, which now reads the position as well as the group. THIS IS THE RE-DEAL ITSELF, and it is a re-deal and not a field edit: the slot's family moves and its class is ASKED of that derivation, which `generate_block_infill.check_slot_inventory_classes` then refuses to let disagree. NOTHING IS ADJUDICATED HERE --- every family is the `to_family` T-1445 reached and every reason beside it is T-1445's own, quoted. NO ROOF MOVES: each slot keeps its lot, its setback and its lateral offset, because the adjudication refused these families' placement policy and not their positions. NO FOOTPRINT IS CHOSEN: the block recipe authors no dimensions, so the generator re-samples each one inside its new family's own band. NO CONFIDENCE MOVES: these roofs are reconstructed count-units before and after, and refamilying changes what an invented building is, never how well attested it is. The six record ids move with the family, and every committed file that named one is carried across with them. Recorded in docs/LIBERTIES.md.",
+    "class_moved": 0,
+    "roofs": [
+      {
+        "was_id": "recon_1835_blk_randolph_market_a1_07",
+        "id": "recon_1835_blk_randolph_market_d4_07",
+        "sequence": 7,
+        "block_id": "blk_randolph_market",
+        "programme_phase": "phase3_platted_block_randolph_market",
+        "lot": 3,
+        "stands_on": "alley",
+        "was": "A1",
+        "now": "D4",
+        "was_group": "barns_stables",
+        "now_group": "ordinary_dwellings",
+        "was_inventory_class": "ancillary",
+        "inventory_class": "ancillary",
+        "lot_carries_a_principal_roof": true,
+        "why": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+      },
+      {
+        "was_id": "recon_1835_blk_randolph_market_a1_12",
+        "id": "recon_1835_blk_randolph_market_d4_12",
+        "sequence": 12,
+        "block_id": "blk_randolph_market",
+        "programme_phase": "phase3_platted_block_randolph_market_second_deal",
+        "lot": 1,
+        "stands_on": "alley",
+        "was": "A1",
+        "now": "D4",
+        "was_group": "barns_stables",
+        "now_group": "ordinary_dwellings",
+        "was_inventory_class": "ancillary",
+        "inventory_class": "ancillary",
+        "lot_carries_a_principal_roof": true,
+        "why": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+      },
+      {
+        "was_id": "recon_1835_blk_randolph_market_a3_05",
+        "id": "recon_1835_blk_randolph_market_d2_05",
+        "sequence": 5,
+        "block_id": "blk_randolph_market",
+        "programme_phase": "phase3_platted_block_randolph_market",
+        "lot": 0,
+        "stands_on": "alley",
+        "was": "A3",
+        "now": "D2",
+        "was_group": "small_outbuildings",
+        "now_group": "ordinary_dwellings",
+        "was_inventory_class": "ancillary",
+        "inventory_class": "ancillary",
+        "lot_carries_a_principal_roof": true,
+        "why": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+      },
+      {
+        "was_id": "recon_1835_blk_randolph_market_a4_06",
+        "id": "recon_1835_blk_randolph_market_d2_06",
+        "sequence": 6,
+        "block_id": "blk_randolph_market",
+        "programme_phase": "phase3_platted_block_randolph_market",
+        "lot": 2,
+        "stands_on": "alley",
+        "was": "A4",
+        "now": "D2",
+        "was_group": "small_outbuildings",
+        "now_group": "ordinary_dwellings",
+        "was_inventory_class": "ancillary",
+        "inventory_class": "ancillary",
+        "lot_carries_a_principal_roof": true,
+        "why": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+      },
+      {
+        "was_id": "recon_1835_blk_south_water_lasalle_a1_06",
+        "id": "recon_1835_blk_south_water_lasalle_d3_06",
+        "sequence": 6,
+        "block_id": "blk_south_water_lasalle",
+        "programme_phase": "phase3_platted_block_south_water_lasalle",
+        "lot": 3,
+        "stands_on": "alley",
+        "was": "A1",
+        "now": "D3",
+        "was_group": "barns_stables",
+        "now_group": "ordinary_dwellings",
+        "was_inventory_class": "ancillary",
+        "inventory_class": "ancillary",
+        "lot_carries_a_principal_roof": true,
+        "why": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+      },
+      {
+        "was_id": "recon_1835_blk_south_water_wells_a1_07",
+        "id": "recon_1835_blk_south_water_wells_d1_07",
+        "sequence": 7,
+        "block_id": "blk_south_water_wells",
+        "programme_phase": "phase3_platted_block_south_water_wells",
+        "lot": 3,
+        "stands_on": "alley",
+        "was": "A1",
+        "now": "D1",
+        "was_group": "barns_stables",
+        "now_group": "ordinary_dwellings",
+        "was_inventory_class": "ancillary",
+        "inventory_class": "ancillary",
+        "lot_carries_a_principal_roof": true,
+        "why": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
+      }
+    ]
+  }
 }

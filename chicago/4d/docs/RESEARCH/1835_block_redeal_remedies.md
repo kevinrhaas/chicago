@@ -19,12 +19,12 @@ Each is an A-family yard building standing at a yard setback off its block alley
 
 | roof | becomes | stands | was | now | the refusal |
 | --- | --- | --- | --- | --- | --- |
-| `recon_1835_blk_randolph_market_a1_07` | `recon_1835_blk_randolph_market_d4_07` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D4 (ancillary) | None |
-| `recon_1835_blk_randolph_market_a1_12` | `recon_1835_blk_randolph_market_d4_12` | lot 1, off the alley, 5.0 m | A1 (ancillary) | D4 (ancillary) | None |
-| `recon_1835_blk_randolph_market_a3_05` | `recon_1835_blk_randolph_market_d2_05` | lot 0, off the alley, 5.0 m | A3 (ancillary) | D2 (ancillary) | None |
-| `recon_1835_blk_randolph_market_a4_06` | `recon_1835_blk_randolph_market_d2_06` | lot 2, off the alley, 4.5 m | A4 (ancillary) | D2 (ancillary) | None |
-| `recon_1835_blk_south_water_lasalle_a1_06` | `recon_1835_blk_south_water_lasalle_d3_06` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D3 (ancillary) | None |
-| `recon_1835_blk_south_water_wells_a1_07` | `recon_1835_blk_south_water_wells_d1_07` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D1 (ancillary) | None |
+| `recon_1835_blk_randolph_market_d4_07` | `recon_1835_blk_randolph_market_d4_07` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D4 (ancillary) | None |
+| `recon_1835_blk_randolph_market_d4_12` | `recon_1835_blk_randolph_market_d4_12` | lot 1, off the alley, 5.0 m | A1 (ancillary) | D4 (ancillary) | None |
+| `recon_1835_blk_randolph_market_d2_05` | `recon_1835_blk_randolph_market_d2_05` | lot 0, off the alley, 5.0 m | A3 (ancillary) | D2 (ancillary) | None |
+| `recon_1835_blk_randolph_market_d2_06` | `recon_1835_blk_randolph_market_d2_06` | lot 2, off the alley, 4.5 m | A4 (ancillary) | D2 (ancillary) | None |
+| `recon_1835_blk_south_water_lasalle_d3_06` | `recon_1835_blk_south_water_lasalle_d3_06` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D3 (ancillary) | None |
+| `recon_1835_blk_south_water_wells_d1_07` | `recon_1835_blk_south_water_wells_d1_07` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D1 (ancillary) | None |
 
 Every one of the 36 families the adjudication offers across the six is an ordinary dwelling, so no offered family avoided the promotion by its letter alone. There was no re-deal inside the verdict, which is why the question had to go to the owner rather than being solved here.
 
@@ -40,7 +40,7 @@ And each of those open lots is declared open in the recipe with a stated reason 
 
 ## The clause, asked its own question
 
-1 of the 4 documented buildings this clause cites as its evidence FRONTS a principal street, which is the position the clause says it avoids and the one term the policy scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a principal street; `recon_1835_blk_randolph_market_a1_07` is an A1 standing 29.28 m from one. The test that refamilies the second refamilies the first. That is a question about the clause, and this tool does not answer it. 2 more front no street at all, out on the reservation beyond the census's frontage reach (T-1511): the scored term has no class to read for them, and the clause's own answer is printed beside it — it refuses 2 of them on the `yard` setback it seats by, which is measured off a block alley this ground does not have.
+1 of the 4 documented buildings this clause cites as its evidence FRONTS a principal street, which is the position the clause says it avoids and the one term the policy scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a principal street; `recon_1835_blk_randolph_market_d4_07` is an A1 standing 29.28 m from one. The test that refamilies the second refamilies the first. That is a question about the clause, and this tool does not answer it. 2 more front no street at all, out on the reservation beyond the census's frontage reach (T-1511): the scored term has no class to read for them, and the clause's own answer is printed beside it — it refuses 2 of them on the `yard` setback it seats by, which is measured off a block alley this ground does not have.
 
 | evidence record | family | street it fronts | class | setback m | scored term | the clause refuses it |
 | --- | --- | --- | --- | ---: | --- | --- |

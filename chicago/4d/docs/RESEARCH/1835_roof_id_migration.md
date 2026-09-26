@@ -21,12 +21,12 @@ A reference is not always a pointer. These assert what the roof IS, and the verd
 
 | roof | becomes | renamed | re-derived | frozen | adjudicated |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `recon_1835_blk_randolph_market_a1_07` | `recon_1835_blk_randolph_market_d4_07` | 3 | 10 | 3 | 0 |
-| `recon_1835_blk_randolph_market_a1_12` | `recon_1835_blk_randolph_market_d4_12` | 0 | 9 | 2 | 0 |
-| `recon_1835_blk_randolph_market_a3_05` | `recon_1835_blk_randolph_market_d2_05` | 0 | 9 | 2 | 0 |
-| `recon_1835_blk_randolph_market_a4_06` | `recon_1835_blk_randolph_market_d2_06` | 0 | 9 | 2 | 0 |
-| `recon_1835_blk_south_water_lasalle_a1_06` | `recon_1835_blk_south_water_lasalle_d3_06` | 1 | 10 | 2 | 0 |
-| `recon_1835_blk_south_water_wells_a1_07` | `recon_1835_blk_south_water_wells_d1_07` | 0 | 9 | 2 | 0 |
+| `recon_1835_blk_randolph_market_d4_07` | `recon_1835_blk_randolph_market_d4_07` | 3 | 10 | 3 | 0 |
+| `recon_1835_blk_randolph_market_d4_12` | `recon_1835_blk_randolph_market_d4_12` | 0 | 9 | 2 | 0 |
+| `recon_1835_blk_randolph_market_d2_05` | `recon_1835_blk_randolph_market_d2_05` | 0 | 9 | 2 | 0 |
+| `recon_1835_blk_randolph_market_d2_06` | `recon_1835_blk_randolph_market_d2_06` | 0 | 9 | 2 | 0 |
+| `recon_1835_blk_south_water_lasalle_d3_06` | `recon_1835_blk_south_water_lasalle_d3_06` | 1 | 10 | 2 | 0 |
+| `recon_1835_blk_south_water_wells_d1_07` | `recon_1835_blk_south_water_wells_d1_07` | 0 | 9 | 2 | 0 |
 
 ## Renamed — 4 file(s)
 
@@ -53,12 +53,12 @@ Written by a tool, which `check.sh` re-runs. The migration must NOT hand-edit th
 | `data/reconstruction/1835_roof_redeal.json` | 6 | DERIVED — regenerate with tools/redeal_anonymous_roofs |
 | `data/research/land_sales/ground.json` | 6 | generated_by tools/resolve_land_tracts.py --build |
 | `data/sidecars/1835/index.json` | 6 | compiled from the structure records by tools/compile_scene.py --all |
-| `data/sidecars/1835/recon_1835_blk_randolph_market_a1_07.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
-| `data/sidecars/1835/recon_1835_blk_randolph_market_a1_12.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
-| `data/sidecars/1835/recon_1835_blk_randolph_market_a3_05.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
-| `data/sidecars/1835/recon_1835_blk_randolph_market_a4_06.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
-| `data/sidecars/1835/recon_1835_blk_south_water_lasalle_a1_06.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
-| `data/sidecars/1835/recon_1835_blk_south_water_wells_a1_07.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
+| `data/sidecars/1835/recon_1835_blk_randolph_market_d4_07.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
+| `data/sidecars/1835/recon_1835_blk_randolph_market_d4_12.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
+| `data/sidecars/1835/recon_1835_blk_randolph_market_d2_05.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
+| `data/sidecars/1835/recon_1835_blk_randolph_market_d2_06.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
+| `data/sidecars/1835/recon_1835_blk_south_water_lasalle_d3_06.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
+| `data/sidecars/1835/recon_1835_blk_south_water_wells_d1_07.json` | 1 | compiled from the structure records by tools/compile_scene.py --all |
 | `docs/RESEARCH/1835_anonymous_roof_redeal.md` | 6 | DERIVED — regenerate with `tools/redeal_anonymous_roofs |
 | `docs/RESEARCH/1835_block_redeal_remedies.md` | 6 | DERIVED — regenerate with `tools/measure_block_redeal_remedies |
 | `docs/RESEARCH/1835_roof_redeal_execution.md` | 6 | DERIVED — regenerate with `tools/execute_roof_redeal |

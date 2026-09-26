@@ -1458,23 +1458,23 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_franklin_d6_01"
     },
-    "recon_1835_blk_randolph_market_a1_07__inferred_1835.glb": {
+    "recon_1835_blk_randolph_market_d4_07__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 86396,
       "inputs_sha256": "1d20bc210e73e6a4cfeb61c3b0c8a244533585598787f1020f14ba8eae788ccf",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_randolph_market_a1_07"
+      "structure_id": "recon_1835_blk_randolph_market_d4_07"
     },
-    "recon_1835_blk_randolph_market_a1_12__inferred_1835.glb": {
+    "recon_1835_blk_randolph_market_d4_12__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 100752,
       "inputs_sha256": "fcd361f22fb7354f4fdb1b37849f1c16f5d8db7114b9801434a3429f32e9027c",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_randolph_market_a1_12"
+      "structure_id": "recon_1835_blk_randolph_market_d4_12"
     },
     "recon_1835_blk_randolph_market_a2_08__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -1485,23 +1485,23 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_market_a2_08"
     },
-    "recon_1835_blk_randolph_market_a3_05__inferred_1835.glb": {
+    "recon_1835_blk_randolph_market_d2_05__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 31716,
       "inputs_sha256": "f8bc70e147c2ac82ece9b23a4f454e481b4c4128ee1d1e4252f01b13082be3f8",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_randolph_market_a3_05"
+      "structure_id": "recon_1835_blk_randolph_market_d2_05"
     },
-    "recon_1835_blk_randolph_market_a4_06__inferred_1835.glb": {
+    "recon_1835_blk_randolph_market_d2_06__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 42956,
       "inputs_sha256": "23b92b5e285ad89010e56d9d3d21051bf7f2744824a69f4e634bdcb8e1f64833",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_randolph_market_a4_06"
+      "structure_id": "recon_1835_blk_randolph_market_d2_06"
     },
     "recon_1835_blk_randolph_market_d1_10__inferred_1835.glb": {
       "archetype": "log_dwelling",
@@ -1899,14 +1899,14 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_franklin_d5_09"
     },
-    "recon_1835_blk_south_water_lasalle_a1_06__inferred_1835.glb": {
+    "recon_1835_blk_south_water_lasalle_d3_06__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 79856,
       "inputs_sha256": "ac4fca758a3cc6e0742fa797a3eac903e9e872130c985ce3330dcd5255e2f596",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_south_water_lasalle_a1_06"
+      "structure_id": "recon_1835_blk_south_water_lasalle_d3_06"
     },
     "recon_1835_blk_south_water_lasalle_a1_14__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -2034,14 +2034,14 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_lasalle_d7_12"
     },
-    "recon_1835_blk_south_water_wells_a1_07__inferred_1835.glb": {
+    "recon_1835_blk_south_water_wells_d1_07__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
       "bytes": 93892,
       "inputs_sha256": "19e949432884bb0a143ed31ef2470c1905e6a879c981c840e61785327d574665",
       "kind": "generated",
       "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_south_water_wells_a1_07"
+      "structure_id": "recon_1835_blk_south_water_wells_d1_07"
     },
     "recon_1835_blk_south_water_wells_a3_08__inferred_1835.glb": {
       "archetype": "outbuilding",

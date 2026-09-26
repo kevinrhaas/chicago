@@ -13369,7 +13369,7 @@ empty and the tier is `inferred`, and the reasoning in its place is the ruling, 
 verdicts that needed it, and one measurement: the clause that refused the six,
 `ancillary_behind_its_own_roof`, refuses **three of its own four** evidence records when
 they are read against the same scored term, `wolf_point_tavern_stable` standing 36.70 m off
-a principal street where the refused `recon_1835_blk_randolph_market_a1_07` stands 29.28 m
+a principal street where the refused `recon_1835_blk_randolph_market_d4_07` stands 29.28 m
 off one. A scored term its own evidence breaches is either the wrong term or the wrong
 evidence. That is an argument for doubting the refusal; it is **not** evidence for the rear
 cottage, and this entry does not dress it up as any. It also avoids nothing on purpose —

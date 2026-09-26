@@ -31,7 +31,7 @@
   },
   "roofs": [
     {
-      "id": "recon_1835_blk_randolph_market_a1_07",
+      "id": "recon_1835_blk_randolph_market_d4_07",
       "would_become": "recon_1835_blk_randolph_market_d4_07",
       "sequence": 7,
       "block_id": "blk_randolph_market",
@@ -86,7 +86,7 @@
       "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
     },
     {
-      "id": "recon_1835_blk_randolph_market_a1_12",
+      "id": "recon_1835_blk_randolph_market_d4_12",
       "would_become": "recon_1835_blk_randolph_market_d4_12",
       "sequence": 12,
       "block_id": "blk_randolph_market",
@@ -141,7 +141,7 @@
       "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
     },
     {
-      "id": "recon_1835_blk_randolph_market_a3_05",
+      "id": "recon_1835_blk_randolph_market_d2_05",
       "would_become": "recon_1835_blk_randolph_market_d2_05",
       "sequence": 5,
       "block_id": "blk_randolph_market",
@@ -196,7 +196,7 @@
       "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
     },
     {
-      "id": "recon_1835_blk_randolph_market_a4_06",
+      "id": "recon_1835_blk_randolph_market_d2_06",
       "would_become": "recon_1835_blk_randolph_market_d2_06",
       "sequence": 6,
       "block_id": "blk_randolph_market",
@@ -251,7 +251,7 @@
       "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
     },
     {
-      "id": "recon_1835_blk_south_water_lasalle_a1_06",
+      "id": "recon_1835_blk_south_water_lasalle_d3_06",
       "would_become": "recon_1835_blk_south_water_lasalle_d3_06",
       "sequence": 6,
       "block_id": "blk_south_water_lasalle",
@@ -306,7 +306,7 @@
       "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands"
     },
     {
-      "id": "recon_1835_blk_south_water_wells_a1_07",
+      "id": "recon_1835_blk_south_water_wells_d1_07",
       "would_become": "recon_1835_blk_south_water_wells_d1_07",
       "sequence": 7,
       "block_id": "blk_south_water_wells",
@@ -435,7 +435,7 @@
       }
     ],
     "clause_evidence_fronting_no_street": 2,
-    "reading": "1 of the 4 documented buildings this clause cites as its evidence FRONTS a principal street, which is the position the clause says it avoids and the one term the policy scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a principal street; `recon_1835_blk_randolph_market_a1_07` is an A1 standing 29.28 m from one. The test that refamilies the second refamilies the first. That is a question about the clause, and this tool does not answer it. 2 more front no street at all, out on the reservation beyond the census's frontage reach (T-1511): the scored term has no class to read for them, and the clause's own answer is printed beside it — it refuses 2 of them on the `yard` setback it seats by, which is measured off a block alley this ground does not have."
+    "reading": "1 of the 4 documented buildings this clause cites as its evidence FRONTS a principal street, which is the position the clause says it avoids and the one term the policy scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a principal street; `recon_1835_blk_randolph_market_d4_07` is an A1 standing 29.28 m from one. The test that refamilies the second refamilies the first. That is a question about the clause, and this tool does not answer it. 2 more front no street at all, out on the reservation beyond the census's frontage reach (T-1511): the scored term has no class to read for them, and the clause's own answer is printed beside it — it refuses 2 of them on the `yard` setback it seats by, which is measured off a block alley this ground does not have."
   },
   "ruling": {
     "asked": "2026-09-23",
