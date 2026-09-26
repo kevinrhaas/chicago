@@ -4645,8 +4645,7 @@
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "basis": "the inventory's district/group matrix sets 20; the 668-roof programme leaves 8 of them to build"
         },
@@ -4723,8 +4722,7 @@
           "filled": 0,
           "owning_ticket": "T-1207",
           "ground_waits_on": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "basis": "the inventory's district/group matrix sets 3; the 668-roof programme leaves 0 of them to build"
         },
@@ -4771,8 +4769,7 @@
           "filled": 0,
           "owning_ticket": "T-1208",
           "ground_waits_on": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "basis": "the inventory's district/group matrix sets 1; the 668-roof programme leaves 0 of them to build"
         },
@@ -4819,8 +4816,7 @@
           "filled": 0,
           "owning_ticket": "T-1209",
           "ground_waits_on": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "basis": "the inventory's district/group matrix sets 6; the 668-roof programme leaves 4 of them to build"
         },
@@ -4867,8 +4863,7 @@
           "filled": 0,
           "owning_ticket": "T-1208",
           "ground_waits_on": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "basis": "the inventory's district/group matrix sets 75; the 668-roof programme leaves 24 of them to build"
         },
@@ -4915,8 +4910,7 @@
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "basis": "the inventory's district/group matrix sets 14; the 668-roof programme leaves 10 of them to build"
         },
@@ -4978,8 +4972,7 @@
           "filled": 0,
           "owning_ticket": "T-1207",
           "ground_waits_on": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "basis": "the inventory's district/group matrix sets 6; the 668-roof programme leaves 2 of them to build"
         },
@@ -5041,8 +5034,7 @@
           "filled": 0,
           "owning_ticket": "T-1207",
           "ground_waits_on": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "basis": "the inventory's district/group matrix sets 2; the 668-roof programme leaves 1 of them to build"
         },
@@ -5089,8 +5081,7 @@
           "filled": 0,
           "owning_ticket": "T-1207",
           "ground_waits_on": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "basis": "the inventory's district/group matrix sets 8; the 668-roof programme leaves 3 of them to build"
         },
@@ -5142,10 +5133,9 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder, with T-1444 open to instantiate them. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5155,10 +5145,9 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder, with T-1444 open to instantiate them. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5168,10 +5157,9 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder, with T-1444 open to instantiate them. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5181,10 +5169,9 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder, with T-1444 open to instantiate them. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5194,10 +5181,9 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder, with T-1444 open to instantiate them. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5207,10 +5193,9 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder, with T-1444 open to instantiate them. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5220,10 +5205,9 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder, with T-1444 open to instantiate them. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5233,10 +5217,9 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder, with T-1444 open to instantiate them. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5246,10 +5229,9 @@
             "division": "west"
           },
           "roofs_gated": 0,
-          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder, with T-1444 open to instantiate them. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
+          "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/reconstruction/1835_phase2_west_wolf_point_approaches.json, whose reviewed placements already hold this district's remainder and are instantiated on it (T-1444). Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5301,8 +5283,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5314,8 +5295,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5327,8 +5307,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5340,8 +5319,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5353,8 +5331,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5366,8 +5343,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5379,8 +5355,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5392,8 +5367,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5405,8 +5379,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5418,8 +5391,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5431,8 +5403,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5444,8 +5415,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5457,8 +5427,7 @@
           "roofs_gated": 0,
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
@@ -5490,8 +5459,7 @@
           "roofs_gated": 52,
           "waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
           "owning_tickets": [
-            "T-1414",
-            "T-1444"
+            "T-1414"
           ],
           "filled": 0
         },
