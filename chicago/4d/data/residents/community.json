@@ -15,9 +15,9 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 2914,
-  "households": 2035,
-  "known": 2777,
+  "persons": 2916,
+  "households": 2037,
+  "known": 2779,
   "unknown": 137,
   "by_community": {
    "yankee": 1278,
@@ -27,19 +27,19 @@
    "unknown": 137,
    "other": 132,
    "british": 109,
-   "native": 87,
+   "native": 89,
    "southern": 66,
    "free_black": 15,
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 2718,
+   "reconstructed": 2720,
    "null": 137,
    "inferred": 56,
    "attested": 3
   },
   "by_rule": {
-   "reconstruction_community": 1389,
+   "reconstruction_community": 1391,
    "origin_region": 1363,
    "no_origin_recorded": 121,
    "stated_community": 25,
@@ -53,7 +53,7 @@
    "other": 132,
    "unknown": 124,
    "british": 109,
-   "native": 87,
+   "native": 89,
    "french_canadian": 73,
    "southern": 63,
    "free_black": 7,
@@ -3851,6 +3851,11 @@
    "tier": null,
    "rule": "no_origin_recorded"
   },
+  "jaespquaa": {
+   "value": "native",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
   "jaines_gooding": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -4850,6 +4855,11 @@
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
+  },
+  "marianne": {
+   "value": "native",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
   },
   "markle_joseph_w": {
    "value": "new_york",
@@ -17187,6 +17197,20 @@
    "rule": "origin_region",
    "head": "covell_thomas_r",
    "file": "households/hh_covell_thomas_r.json"
+  },
+  "hh_cr_jaespquaa": {
+   "value": "native",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "jaespquaa",
+   "file": "underdocumented/hh_cr_jaespquaa.json"
+  },
+  "hh_cr_marianne": {
+   "value": "native",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "marianne",
+   "file": "underdocumented/hh_cr_marianne.json"
   },
   "hh_crandal_alva": {
    "value": "new_york",

@@ -1,0 +1,161 @@
+{
+ "id": "hh_cr_jaespquaa",
+ "name": "Jaespquaa — named in St Mary's baptismal register, 1833",
+ "division": "unplaced",
+ "head": "jaespquaa",
+ "source_pass": "reconstructed_church_register",
+ "underdocumented": {
+  "ticket": "T-1504",
+  "parent": "T-1177",
+  "stage": "underdocumented",
+  "sub_stage": "church_register",
+  "class": "R6_native_metis_black",
+  "rule": "underdocumented_r6_the_priest_writes_the_term_onto_the_name",
+  "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_3_mother#0",
+  "name_as_read": "Jaespquaa (sauvage de Green Bay)",
+  "as_printed": "Jaespquaa (sauvage de Green Bay)",
+  "community_term_as_written": "sauvage de Green Bay",
+  "community_term_is_the_clerks_word": "`sauvage` is Father Saint Cyr's word for an Indigenous woman, written in his own hand in 1833. It is kept because it is the register's own vocabulary and the reason this record exists. It is not this project's word, it is not her name, and it is not printed as either.",
+  "entries_that_name_her": [
+   {
+    "record_id": "st_marys_bapt_1833_18_3_mother",
+    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_3_mother#0",
+    "entry": 18,
+    "year_series": 1833,
+    "describes_date": "1833-10-10",
+    "as_read": "Jaespquaa (sauvage de Green Bay)"
+   }
+  ],
+  "entry_as_read": "Le 10 d'octobre mil huit cent trente trois, je soussigné ai baptisé Susanne fille de Paul Vieaux et de Jaespquaa (sauvage de Green Bay), née le dix mai mil huit cent trente un. Parrain et marraine ont été Joseph Beaubien et Monique Nadeau.",
+  "priest": "J. M. I. Saint Cyr",
+  "place_as_printed": "Chicago, Cook County, Illinois",
+  "role_on_the_entry": "mother",
+  "reading_grade": "inferred",
+  "stands_on": "Named in St Mary's baptismal register at Chicago in 1833, with the priest's own word for an Indigenous woman written onto her name and onto no other name on the line. No 1835 corroboration and no card. The licence is R3's — a dated appearance inside the window, priced against the persistence model — and the husband and the children named on the same entries the town already carries.",
+  "the_research_layers_own_ruling": "unresolved",
+  "handed_to_the_family_pass": {
+   "ticket": "T-1335",
+   "named_on_the_same_entries": [
+    {
+     "record_id": "st_marys_bapt_1833_18_1_child",
+     "role": "child",
+     "as_read": "Susanne",
+     "normalised": "Susanne Vieaux"
+    },
+    {
+     "record_id": "st_marys_bapt_1833_18_2_father",
+     "role": "father",
+     "as_read": "Paul Vieaux",
+     "normalised": "Paul Vieau"
+    },
+    {
+     "record_id": "st_marys_bapt_1833_18_4_godfather",
+     "role": "godfather",
+     "as_read": "Joseph Beaubien",
+     "normalised": "Joseph Beaubien"
+    },
+    {
+     "record_id": "st_marys_bapt_1833_18_5_godmother",
+     "role": "godmother",
+     "as_read": "Monique Nadeau",
+     "normalised": "Monique Nadeau"
+    }
+   ],
+   "what_is_handed": "The kinship these entries state — who is whose child, whose wife, whose godparent — is NOT joined here and no tie is written onto this card. The roster's own ledger hands every one of these rows to T-1335, the family pass proper, and that is where the tie belongs. What this stage takes off the same line is the spouse's name, used once, as a discriminator that tells two printings of one woman from two women."
+  },
+  "withdrawn_if": "a ruling that this reading is a duplicate of a card the town already holds; the retirement runs through tools/consolidate_town_cards.py, never by hand"
+ },
+ "arrival": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not attested. The register dates an appearance at a font and records no arrival; this is also the country these people were already in, so the question the word `arrival` asks may not be the right one to ask of this card at all."
+ },
+ "origin": {
+  "value": "Green Bay",
+  "confidence": "inferred",
+  "tier": "inferred",
+  "sources": [
+   "st_marys_baptismal_register_1833_1835"
+  ],
+  "note": "READ OFF THE PAGE, AND IT IS A PLACE AND NOT A PEOPLE. The priest writes `sauvage de Green Bay` — the ONLY origin St Mary's register ever gives anyone, by the register reader's own note on this row. It says where he understood her to come from; it does not name a nation, and none is written here. It places HER and not the household, and no residence follows from it. Graded `inferred` because that is the grade the register reader gives this row, and a card does not grade above the reading it stands on.",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "a source that states where this person came from, or that names her nation, band or village"
+  }
+ },
+ "lives_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not attested. A baptism documents a person at a font on a day. It is not a residence, an address, an occupation or an arrival, and this card asserts none of them. What the dated appearance bounds is that she was at Chicago on that day; what it does not bound is where she slept, whose roof it was, or whether she was still here on 1 July 1835 — that last is what the persistence draw prices and says out loud. The entry's `place` column reads Chicago, which is where the sacrament was administered and is not an address."
+ },
+ "works_at": {
+  "value": null,
+  "confidence": "reconstructed",
+  "tier": "unknown",
+  "note": "Not attested. A baptismal entry records no trade."
+ },
+ "present_on_scene_date": {
+  "value": "absent",
+  "confidence": "reconstructed",
+  "tier": "reconstructed",
+  "basis": {
+   "kind": "model",
+   "id": "persistence_1835",
+   "note": "The register's LAST sighting of this name is 1833-10-10 — entry 18 of 1833, of the 1 entry/entries that name her — 1.72 years before the scene date. The persistence model gives 0.896 for that lag and the seeded draw reads absent. A later printing is the last day this project can still see her and is the lag the model is about; pricing off the first would understate the evidence. It is the same model and the same draw that priced the men of the 1832 muster."
+  },
+  "seed": "hh_cr_jaespquaa:persistence",
+  "replaceable_by": {
+   "kind": "person",
+   "match": "any source naming this person at Chicago on or after 1 July 1835"
+  }
+ },
+ "persons": [
+  {
+   "id": "jaespquaa",
+   "name": "Jaespquaa",
+   "name_as_read": "Jaespquaa (sauvage de Green Bay)",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sex": "female",
+   "sex_basis": {
+    "value": "female",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "note": "READ OFF THE ENTRY'S OWN STRUCTURE and not drawn from the sex model: the register's `role` column puts this person in the MOTHER's place of a baptism, and the entry names the father separately. It is one of two attributes the document settles — this and the day — and no age is drawn beside it, because the same document settles nothing about that."
+   },
+   "basis": {
+    "kind": "rule",
+    "id": "underdocumented_r6_the_priest_writes_the_term_onto_the_name",
+    "note": "Named in St Mary's baptismal register at Chicago in 1833, with the priest's own word for an Indigenous woman written onto her name and onto no other name on the line. No 1835 corroboration and no card. The licence is R3's — a dated appearance inside the window, priced against the persistence model — and the husband and the children named on the same entries the town already carries."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a second independent source naming this person at Chicago inside the window, or any source that states her nation, band, village or family name — any of them would carry the card past what one parenthesis in one register can hold"
+   },
+   "reconstruction": {
+    "stage": "underdocumented",
+    "sub_stage": "church_register",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "native",
+    "review_required": true,
+    "touches_removal": true
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "tier": "unknown",
+    "note": "No source records an occupation for this person. A baptismal entry records none for anybody."
+   },
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "CARDED FROM THE BORDERLINE ROSTER'S R6 (T-1504, stage `underdocumented`, sub-stage `church_register`). Named in St Mary's baptismal register at Chicago in 1833, with the priest's own word for an Indigenous woman written onto her name and onto no other name on the line. No 1835 corroboration and no card. The licence is R3's — a dated appearance inside the window, priced against the persistence model — and the husband and the children named on the same entries the town already carries. The register prints her as `Jaespquaa (sauvage de Green Bay)`, in the mother's place of entry 18 of 1833, at `Chicago, Cook County, Illinois`, in the hand of J. M. I. Saint Cyr, dated 1833-10-10. NO SURNAME IS INVENTED: the book gives her a forename and the priest's parenthesis and nothing else, and her husband's surname is his. A baptism documents a person at a font on a day. It is not a residence, an address, an occupation or an arrival, and this card asserts none of them. What the dated appearance bounds is that she was at Chicago on that day; what it does not bound is where she slept, whose roof it was, or whether she was still here on 1 July 1835 — that last is what the persistence draw prices and says out loud. The research READ this row and left it `unresolved`, handing the kinship on to T-1335; that ruling is not overturned, and this record is a reconstruction of what the town looks like if the name is admitted at the limit of its own evidence. The reading, the source and the ruling stand at `church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_3_mother#0` in data/reconstruction/1835_borderline_roster.json. REVIEW REQUIRED: this card is a record of a Native woman at Chicago in the three years of the removal, and AGENTS.md's standing constraint holds it for review by Native scholars or community organisations before any scene carrying it may be marked released. No figure is drawn (L1).",
+   "resident_subtype": "underdocumented_resident"
+  }
+ ],
+ "touches_removal": true,
+ "review_required": true,
+ "research_note": "WRITTEN BY tools/reconstruct_church_register.py (T-1504), the `church_register` sub-stage of the `underdocumented` stage of the 1835 resident reconstruction programme, under the owner's ruling of 2026-09-17 recorded in AGENTS.md. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a card written here lives beside the muster cohort and is overlaid onto the scene by tools/compile_scene.py. REVIEW REQUIRED AND TOUCHES REMOVAL, both true, for the subject this record is about: a Native woman at Chicago in 1833, two years before the removal of the Potawatomi from this place. The review AGENTS.md commits to has not been held; until it is, no scene carrying this card may be marked released. docs/LIBERTIES.md carries the invention."
+}

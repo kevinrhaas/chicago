@@ -80,12 +80,12 @@
     "at_work_is_not_placed": "`at_a_trade_with_no_house_to_join` is in neither set and that is the point of it. Those people follow a trade; what is missing is a house in the business layer to join them to. Counting them as unemployed would be false and counting them as placed would be an invention."
   },
   "counts": {
-    "people": 3305,
+    "people": 3307,
     "by_status": {
       "at_a_named_house": 112,
       "at_a_seat_this_project_drew": 123,
       "at_a_trade_with_no_house_to_join": 269,
-      "no_trade_recorded": 2593,
+      "no_trade_recorded": 2595,
       "on_their_own_account": 208
     },
     "by_reason": {
@@ -94,12 +94,12 @@
       "named_by_a_source": 112,
       "no_employer_named": 162,
       "no_ruling_on_the_trade": 5,
-      "no_trade_recorded": 2593,
+      "no_trade_recorded": 2595,
       "seated_by_the_staffing_model": 123,
       "trade_attested_no_house_named": 31
     },
     "by_age_scope": {
-      "age_is_not_settled": 538,
+      "age_is_not_settled": 540,
       "below_working_age": 531,
       "working_age": 2236
     },
@@ -107,7 +107,7 @@
       "age_is_not_settled": {
         "at_a_seat_this_project_drew": 2,
         "at_a_trade_with_no_house_to_join": 20,
-        "no_trade_recorded": 513,
+        "no_trade_recorded": 515,
         "on_their_own_account": 3
       },
       "below_working_age": {
@@ -145,7 +145,7 @@
   },
   "what_this_does_not_do": {
     "the_business_side_is_T-1462s": "Nothing is written onto a business record here. `staff[]` stays as the register left it, and the order book's employment buckets stay unfilled until T-1459's re-cut lets the mint run.",
-    "it_supplies_no_trade": "2593 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
+    "it_supplies_no_trade": "2595 people carry no trade and leave here carrying none. Reading one in from the household would be the reconstruction doing by inference what its own stages do under a quota.",
     "it_re_decides_nothing": "Every answer is already implied by a committed file. T-1432's join, T-1433's seating and premises_rulings.json each keep their own words; this pass only guarantees that one of them reaches every card."
   },
   "rows": [
@@ -10143,6 +10143,19 @@
       "houses": []
     },
     {
+      "person_id": "jaespquaa",
+      "household_id": "hh_cr_jaespquaa",
+      "record_folder": "underdocumented",
+      "age_band": null,
+      "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
       "person_id": "jaines_gooding",
       "household_id": "hh_jaines_gooding",
       "record_folder": "households",
@@ -12772,6 +12785,19 @@
       "person_id": "mariana_kamenwith",
       "household_id": "hh_mariana_kamenwith",
       "record_folder": "readmitted",
+      "age_band": null,
+      "age_scope": "age_is_not_settled",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "marianne",
+      "household_id": "hh_cr_marianne",
+      "record_folder": "underdocumented",
       "age_band": null,
       "age_scope": "age_is_not_settled",
       "trade": null,

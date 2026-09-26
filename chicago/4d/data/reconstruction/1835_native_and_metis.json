@@ -123,8 +123,14 @@
    "file": "data/research/church/records/st_marys_baptisms_1833_1835.json",
    "what_it_gave": "Four entries of 1833 in which the priest states an Indigenous identity in his own hand — entries 7, 14, 17 and 18, naming Josette Ashkam of Ottaway, Marianne (sauvage) wife of Antoine Aspam, and Jaespquaa (sauvage de Green Bay) wife of Paul Vieaux. The two women are the ONLY adults on their own entries that the borderline roster ruled ineligible, so the town carries their husbands and their children and not them.",
    "spent": false,
-   "why_not": "A baptism is not a residence and the roster's ineligibility ruling is the research layer's, not this stage's to overturn from the outside. It is a reading, and a reading is a ticket: filed as T-1383, with the four entries and what it should answer.",
-   "filed_as": "T-1383"
+   "why_not": "Not by THIS sub-stage, which reads the muster roll and nothing else. A baptism is not a residence and the roster's ineligibility ruling is the research layer's, not this stage's to overturn from the outside. It was a reading, and a reading is a ticket: filed as T-1383 and answered by T-1504.",
+   "filed_as": "T-1383",
+   "spent_instead_by": {
+    "ticket": "T-1504",
+    "tool": "tools/reconstruct_church_register.py",
+    "sub_stage": "church_register",
+    "what_it_did": "Read the register's R6 rows and carded the two women the priest wrote the term onto — the two adults on entries 14, 17 and 18 the town did not already hold, its four printings being two people."
+   }
   }
  ],
  "minted": [
@@ -2560,7 +2566,7 @@
    "domain": "church",
    "describes_date": "1833-10-10",
    "reason": "the_statement_is_not_on_the_roll_this_stage_reads",
-   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. The row is owed a stage that reads the register, and until one exists the person stays out of the town for want of a reader rather than for want of evidence."
+   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. THE READER IT WAS OWED NOW EXISTS: T-1504 built `tools/reconstruct_church_register.py`, the `church_register` sub-stage of this same stage, which reads St Mary's register and spends these rows. So this is a refusal of SCOPE and nothing more — the row is not out of the town, it is carded by the sibling that can read its book."
   },
   {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_3_mother#0",
@@ -2568,7 +2574,7 @@
    "domain": "church",
    "describes_date": "1833-10",
    "reason": "the_statement_is_not_on_the_roll_this_stage_reads",
-   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. The row is owed a stage that reads the register, and until one exists the person stays out of the town for want of a reader rather than for want of evidence."
+   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. THE READER IT WAS OWED NOW EXISTS: T-1504 built `tools/reconstruct_church_register.py`, the `church_register` sub-stage of this same stage, which reads St Mary's register and spends these rows. So this is a refusal of SCOPE and nothing more — the row is not out of the town, it is carded by the sibling that can read its book."
   },
   {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_3_mother#0",
@@ -2576,7 +2582,7 @@
    "domain": "church",
    "describes_date": "1833-10-08",
    "reason": "the_statement_is_not_on_the_roll_this_stage_reads",
-   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. The row is owed a stage that reads the register, and until one exists the person stays out of the town for want of a reader rather than for want of evidence."
+   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. THE READER IT WAS OWED NOW EXISTS: T-1504 built `tools/reconstruct_church_register.py`, the `church_register` sub-stage of this same stage, which reads St Mary's register and spends these rows. So this is a refusal of SCOPE and nothing more — the row is not out of the town, it is carded by the sibling that can read its book."
   },
   {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_3_mother#0",
@@ -2584,7 +2590,7 @@
    "domain": "church",
    "describes_date": "1833-10-10",
    "reason": "the_statement_is_not_on_the_roll_this_stage_reads",
-   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. The row is owed a stage that reads the register, and until one exists the person stays out of the town for want of a reader rather than for want of evidence."
+   "why": "The source states this person's community in its own structure — the term is written onto this name and onto no other on the line — so the refusal above, that a term in prose is not a statement, would be untrue of this row. What holds it out is this stage's SCOPE: the only book it reads is the 1832 muster roll, and this reading is a baptismal register entry. THE READER IT WAS OWED NOW EXISTS: T-1504 built `tools/reconstruct_church_register.py`, the `church_register` sub-stage of this same stage, which reads St Mary's register and spends these rows. So this is a refusal of SCOPE and nothing more — the row is not out of the town, it is carded by the sibling that can read its book."
   },
   {
    "row_id": "civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_010#0",
