@@ -56,6 +56,13 @@
       "yaw_deg": 90.0
     },
     {
+      "id": "lake_at_canal",
+      "label": "Lake and Canal, east down the axis",
+      "local_e": -159.7,
+      "local_n": -108.4,
+      "yaw_deg": 90.0
+    },
+    {
       "id": "green_tree",
       "label": "Green Tree Tavern, from across Lake Street",
       "local_e": -44.11,

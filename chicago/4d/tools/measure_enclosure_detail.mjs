@@ -95,7 +95,7 @@ const BASELINE = path.join(HERE, 'enclosure_detail_baseline.json');
  * less complete, never wrong.
  */
 const STANDS = [
-  { id: 'lake_at_canal', kind: 'anchor', target: 'green_tree', label: 'Lake at Canal, east' },
+  { id: 'lake_at_canal', kind: 'anchor', target: 'lake_at_canal', label: 'Lake at Canal, east' },
   { id: 'the_forks', kind: 'anchor', target: 'forks', label: 'the forks, Wolf Point' },
   { id: 'lake_and_market', kind: 'anchor', target: 'lake_market', label: 'Lake and Market' },
   { id: 'from_above', kind: 'anchor', target: 'from_above', label: 'the open aerial' },

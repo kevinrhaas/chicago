@@ -90,7 +90,7 @@ const YEAR = process.env.DETAIL_YEAR || '1835';
 const DOWNTOWN = [
   { id: 'sauganash_26', kind: 'frame', target: 'sauganash_hotel', distance: 26,
     label: 'the Sauganash at 26 m' },
-  { id: 'lake_at_canal', kind: 'anchor', target: 'green_tree',
+  { id: 'lake_at_canal', kind: 'anchor', target: 'lake_at_canal',
     label: 'Lake Street at Canal, east down the axis' },
   { id: 'the_forks', kind: 'anchor', target: 'forks',
     label: 'the forks, from Wolf Point' },
