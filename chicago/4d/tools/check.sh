@@ -3067,6 +3067,26 @@ step "the free Black cohort re-derives, at or above the floor of its bracket" \
 selftest "...and a back-projected name, a drifted pool and the recapitulation leaf are refused" \
   python3 tools/reconstruct_free_black.py --self-test
 
+# T-1504, the `church_register` sub-stage of the same stage, and the reader a refusal in
+# T-1376's own report had been waiting on: "the only book it reads is the 1832 muster roll,
+# and this reading is a baptismal register entry. The row is owed a stage that reads the
+# register." St Mary's baptismal register is the ONE source this project holds in which a
+# contemporary states an Indigenous identity for a named person at Chicago — the priest's
+# parenthesis on the page — and the two women he wrote it onto were the only adults on
+# their own entries the town did not carry: it held both husbands and all three children.
+# The gate holds five things the record cannot vouch for itself: that both cards re-derive
+# from their roster rows, that each carries review_required AND touches_removal AND says in
+# its own prose which subject it is held for (AGENTS.md's Indigenous-history rule, which
+# refuses a bare boolean), that NO SURNAME IS INVENTED for a woman the book gives a
+# forename and a parenthesis and nothing else, that the kinship the entry states is handed
+# to T-1335 by name rather than joined here, and that the four printings collapse to the
+# two women the page actually holds rather than to four cards.
+step "the register's two women re-derive, mononyms intact and the kinship handed on" \
+  python3 tools/reconstruct_church_register.py --check
+
+selftest "...and an invented surname, a read nation and a doubled printing are refused" \
+  python3 tools/reconstruct_church_register.py --self-test
+
 # T-1349, stage `garrison` of the same programme, and the only one that is not a share of a
 # town model at all. The order book refuses to apportion the fort — "NOT APPORTIONED. The
 # garrison of 1 July 1835 is a return to be read" — so this stage reads it: the Act of 2

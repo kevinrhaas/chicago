@@ -3,7 +3,7 @@
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it — ticket.mjs check writes nothing on a consistent tree and REPAIRS tickets.json on a stale one, and measures clean here purely because the mirror was current when this ran (T-1341). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
   "measured": "2026-09-26",
   "gate_verdict": "CHECK FAIL",
-  "declared_steps": 620,
+  "declared_steps": 628,
   "exempt": {
     "site/": {
       "reason": "THE PUBLISHED MIRROR, AND THE GATE'S OWN FIRST STEP REGENERATES IT WHOLESALE. site/4d/ is generated (T-0938) and check.sh opens by running publish.sh over it; the single check_flush barrier T-1289 added sits directly after that step, with the comment 'everything below reads the mirror the step above writes'. So these writes are ordered rather than racing, and they are the one mutation this gate is built around instead of against. A write anywhere OUTSIDE site/ is not covered by this."
@@ -2146,6 +2146,8 @@
         "site/4d/data/residents/transients/hh_rc_wilcox_david.json",
         "site/4d/data/residents/transients/hh_rc_woodruff_abigail.json",
         "site/4d/data/residents/transients/hh_rc_woodruff_betsey.json",
+        "site/4d/data/residents/underdocumented/hh_cr_jaespquaa.json",
+        "site/4d/data/residents/underdocumented/hh_cr_marianne.json",
         "site/4d/data/residents/underdocumented/hh_fb_anderson_benjamin.json",
         "site/4d/data/residents/underdocumented/hh_fb_anderson_henry.json",
         "site/4d/data/residents/underdocumented/hh_fb_askie_george.json",
@@ -2244,88 +2246,100 @@
       ],
       "wrote_by": [
         "- ../../site/4d/data/residents",
-        "- ../../site/4d/walk/index.html build 5f93b006 · Sep 25, 2026, 9:45 AM CT"
+        "- ../../site/4d/walk/index.html build 548805ed · Sep 25, 2026, 4:10 PM CT"
       ]
     },
-    "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/.github/chicago-4d-dev-preview.mjs": {
+    "/home/runner/work/polecat-platform/polecat-platform/chicago/.github/chicago-4d-dev-preview.mjs": {
       "wrote": []
     },
-    "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/.github/chicago-4d-url-check.mjs": {
+    "/home/runner/work/polecat-platform/polecat-platform/chicago/.github/chicago-4d-url-check.mjs": {
       "wrote": []
     },
-    "/tmp/c4d-repomode-Exqt11/bin/gh": {
+    "/tmp/c4d-repomode-azqs8o/bin/gh": {
       "wrote": []
     },
-    "/tmp/prstuck-5JPTnF/gh.mjs": {
+    "/tmp/prstuck-33FPyA/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-5lwqJK/gh.mjs": {
+    "/tmp/prstuck-4QF1DI/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-7UdXMK/gh.mjs": {
+    "/tmp/prstuck-55Yl3F/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-90jD0l/gh.mjs": {
+    "/tmp/prstuck-5W1dhN/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-BcE3qH/gh.mjs": {
+    "/tmp/prstuck-BqHYaf/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-BgcUY6/gh.mjs": {
+    "/tmp/prstuck-E3rVve/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-Bi0lZf/gh.mjs": {
+    "/tmp/prstuck-FAqjeF/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-DQedFa/gh.mjs": {
+    "/tmp/prstuck-GVnawd/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-GoXgST/gh.mjs": {
+    "/tmp/prstuck-I1JKIE/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-UIFC9X/gh.mjs": {
+    "/tmp/prstuck-I5ggBT/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-YJgfzv/gh.mjs": {
+    "/tmp/prstuck-LsQHFM/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-aRbGp4/gh.mjs": {
+    "/tmp/prstuck-MY0Y7R/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-anF4Sl/gh.mjs": {
+    "/tmp/prstuck-PpwDn9/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-cME79D/gh.mjs": {
+    "/tmp/prstuck-PuX7nW/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-cZtMVR/gh.mjs": {
+    "/tmp/prstuck-RIaRw2/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-cjDRUp/gh.mjs": {
+    "/tmp/prstuck-S54xJV/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-cyr68L/gh.mjs": {
+    "/tmp/prstuck-T8zopu/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-dCFfQQ/gh.mjs": {
+    "/tmp/prstuck-Vj2DQC/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-etuuxc/gh.mjs": {
+    "/tmp/prstuck-YwN4je/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-gsgse1/gh.mjs": {
+    "/tmp/prstuck-axnBZY/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-jTJcDx/gh.mjs": {
+    "/tmp/prstuck-e2MSl2/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-lX51Q2/gh.mjs": {
+    "/tmp/prstuck-fb2ZX1/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-xV0XMX/gh.mjs": {
+    "/tmp/prstuck-hdFdLM/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-zifrsF/gh.mjs": {
+    "/tmp/prstuck-lmtkYd/gh.mjs": {
+      "wrote": []
+    },
+    "/tmp/prstuck-o0fizY/gh.mjs": {
+      "wrote": []
+    },
+    "/tmp/prstuck-pvZ90b/gh.mjs": {
+      "wrote": []
+    },
+    "/tmp/prstuck-tJggkC/gh.mjs": {
+      "wrote": []
+    },
+    "/tmp/prstuck-zvsZOS/gh.mjs": {
       "wrote": []
     },
     "generators/ao_export.py": {
@@ -3117,6 +3131,9 @@
     "tools/reconstruct_businesses_1835.py": {
       "wrote": []
     },
+    "tools/reconstruct_church_register.py": {
+      "wrote": []
+    },
     "tools/reconstruct_free_black.py": {
       "wrote": []
     },
@@ -3369,7 +3386,7 @@
         "site/4d/walk/js/changelog.js"
       ],
       "wrote_by": [
-        "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/chicago/4d/tools/stamp-changelog.mjs --write-mirrors"
+        "/home/runner/work/polecat-platform/polecat-platform/chicago/chicago/4d/tools/stamp-changelog.mjs --write-mirrors"
       ]
     },
     "tools/substitute_reconstruction.py": {
@@ -3475,7 +3492,7 @@
         "site/4d/tickets.json"
       ],
       "wrote_by": [
-        "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/chicago/4d/tools/ticket.mjs board"
+        "/home/runner/work/polecat-platform/polecat-platform/chicago/chicago/4d/tools/ticket.mjs board"
       ]
     },
     "tools/ticket_liveness.py": {
@@ -3528,7 +3545,7 @@
         "site/4d/index.html"
       ],
       "wrote_by": [
-        "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/chicago/4d/tools/write_entry_pages.mjs ../../site/4d"
+        "/home/runner/work/polecat-platform/polecat-platform/chicago/chicago/4d/tools/write_entry_pages.mjs ../../site/4d"
       ]
     },
     "{\"1242\":\"dirty\",\"1315\":\"blocked\",\"1316\":\"blocked\",\"1319\":\"clean\"}": {

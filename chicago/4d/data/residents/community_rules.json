@@ -393,6 +393,10 @@
     {
       "origin": "Detroit",
       "note": "Detroit alone says a place and not a community: the town held a French colonial population, an American garrison and territorial officers, and Yankee and New York merchants passing through. The origin does not separate them and this pass will not guess."
+    },
+    {
+      "origin": "Green Bay",
+      "note": "Jaespquaa, of St Mary's baptismal register entry 18 of 1833, the one origin the book ever gives anyone: the priest writes `sauvage de Green Bay`. GREEN BAY SAYS A PLACE AND NOT A PEOPLE. The Menominee, the Ho-Chunk, the Potawatomi and the Ottawa country all met at that bay, and so did the French trade and the métis families it made; the phrase separates none of them and this pass will not guess. It costs her nothing: her community is stated on the card by the word the priest wrote onto her name, carried in her `reconstruction.community` by T-1504's stage, and this pass reads THAT — a reconstructed person's own block is read before any household origin. The row is here so the place is accounted for, not so it speaks."
     }
   ],
   "coverage_rule": "Every distinct `origin.value` in data/residents/ must appear exactly once across `stated_community`, `origin_region` and `unreadable_origin`. tools/derive_person_community.py --check fails when one does not, so a new origin string cannot enter the layer without somebody deciding what it means."

@@ -86,9 +86,12 @@ def household_files(rules) -> list[tuple[str, Path]]:
     """Every household the scene compiles, in the three places they live.
 
     The mints' own directory (data/residents/index.json), the re-admissions T-1172 minted
-    outside it, the trade households T-1347 drew, and the Native and Metis men T-1376
-    carded. compile_scene.py walks exactly these and this pass must walk the same town or
-    the People view would carry rows this file has never seen.
+    outside it, the trade households T-1347 drew, and the three cohorts of the
+    `underdocumented` stage — T-1376's Native and Metis men, T-1377's free Black town and
+    T-1504's two women of St Mary's register. compile_scene.py walks these and this pass
+    must walk the same town or the People view would carry rows this file has never seen:
+    a row nobody walked reads `community: null`, which on a card written BECAUSE the
+    source states a community is the worst possible way to be wrong.
 
     THE VISITORS ARE THE ONE SET NOT WALKED HERE, and that is a gap and not a decision:
     T-1353 minted 307 transients into data/reconstruction/1835_transient_persons.json after
@@ -100,7 +103,8 @@ def household_files(rules) -> list[tuple[str, Path]]:
     for entry in index.get("households", []):
         out.append((entry["file"], RESIDENTS / entry["file"]))
     for name in ("1835_readmissions.json", "1835_trade_households.json",
-                 "1835_native_and_metis.json", "1835_free_black.json"):
+                 "1835_native_and_metis.json", "1835_free_black.json",
+                 "1835_church_register.json"):
         path = DATA / "reconstruction" / name
         if not path.exists():
             continue
