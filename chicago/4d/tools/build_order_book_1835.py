@@ -271,30 +271,21 @@ HOUSEHOLD_BUCKETS = (
 
 # Which build ticket owns a structure group in a division. The queue's 5C band is
 # cut by district and street, so this maps the programme's own group x district
-# matrix onto the ten build tickets. A value is one ticket id, or a tuple of them
-# where a cell the inventory does not cut is genuinely owed by more than one live run.
+# matrix onto the ten build tickets.
 STRUCTURE_TICKETS = {
     ("south", "ordinary_dwellings"): "T-1203",
     ("south", "stores_mixed_use"): "T-1201",
     ("south", "larger_boarding_houses"): "T-1209",
     ("south", "inns_taverns"): "T-1201",
     ("south", "workshops"): "T-1201",
-    # T-1200 SPLIT (T-1638..T-1641) AND THIS ROW IS THE ONLY ONE OF ITS FOUR THAT HAD
-    # WORK LEFT — the T-1420 sweep, run again on 2026-09-26 for the split of the day
-    # before. T-1200 was the South Water river front entire, which is where every one of
-    # the south division's 11 warehouse-and-freight roofs stands, so the whole group came
-    # to it. Read to the frontier, the group's 6 remaining roofs are owed by TWO of the
-    # four pieces and not one: T-1639 raises the F1-F3 warehouses on the street line's
-    # party lines, and T-1640 the freight sheds and the landings on the bank behind them.
-    # T-1638 writes occupants onto roofs that already stand and T-1641 closes the
-    # district's books; neither raises a roof, so neither owns a roof bucket.
-    #
-    # BOTH ARE NAMED, because naming one would be a modelling decision this sweep has no
-    # evidence for: the group is `warehouses_freight`, a single cell holding both halves,
-    # and the inventory does not cut the 6 into warehouses and sheds. `owning_tickets` is
-    # what the book already says for ground, where the same thing is true — more than one
-    # live run owes one cell — and the gate, the report and `ticket_liveness` all read it.
-    ("south", "warehouses_freight"): ("T-1639", "T-1640"),
+    # T-1200 WAS SPLIT on 2026-09-26 (T-1638, T-1639, T-1640, T-1641) and this row moved
+    # with it, for the reason BUSINESS_TICKETS states below: a bucket whose `owning_ticket`
+    # names a ticket in state `split` orders work nobody can claim. Of the four children the
+    # freight band is T-1640's in as many words — "the freight sheds and landings behind
+    # South Water, on the river-bank band the south-bank ground rule allows" — while T-1638
+    # writes keepers onto seated roofs, T-1639 raises the street line's stores and
+    # warehouses, and T-1641 closes the district's books.
+    ("south", "warehouses_freight"): "T-1640",
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
@@ -1631,14 +1622,6 @@ def structure_buckets(inventory: dict, programme: dict, occupancy: dict) -> dict
             ticket = STRUCTURE_TICKETS.get((division, group))
             if ticket is None:
                 raise Fault(f"no build ticket owns {group} in the {division} division")
-            # ONE OWNER IS `owning_ticket`, SEVERAL ARE `owning_tickets`. A cell the
-            # inventory does not cut can be owed by more than one live run — see the
-            # South Water note on the table above — and the book already says that for
-            # ground. The gate, the report and `tools/ticket_liveness.py` read both keys;
-            # writing the plural key only when it is needed keeps the 28 single-owner
-            # rows byte-identical to what they have always said.
-            owners = {"owning_ticket": ticket} if isinstance(ticket, str) else \
-                     {"owning_tickets": list(ticket)}
             buckets.append({
                 "key": f"structures/{group}/{division}",
                 "axes": {"group": group, "division": division},
@@ -1647,7 +1630,7 @@ def structure_buckets(inventory: dict, programme: dict, occupancy: dict) -> dict
                 "to_build": to_build,
                 "to_retire_or_redeal": max(0, -standing) if standing < 0 else 0,
                 "filled": 0,
-                **owners,
+                "owning_ticket": ticket,
                 "ground_waits_on": GROUND_TICKETS[division],
                 "basis": f"the inventory's district/group matrix sets {target}; the 668-roof "
                          f"programme leaves {to_build} of them to build",
