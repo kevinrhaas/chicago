@@ -1,7 +1,7 @@
 {
   "schema": "research-spend-rulings-v1",
   "_doc": "HAND-AUTHORED, T-1234. The written ruling on every unasserted PERSON unit the matched-research table of T-1232 does not reach: the book-domain person units and the letter-list name suspicions. tools/research_spend_ledger.py reads this file at the point where it would otherwise leave a unit unresolved, so a ruling here can only close a unit nothing else has already closed and can never overturn an assertion, a later_only or a refusal the readings themselves carry. Every rule below is stated once and every unit carries its own note; the gate fails on a ruling whose unit does not exist, on a ruling that never fires, and on a rule with no statement. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON OR MOVES A CONFIDENCE. A hand-off is not a spend: it names the open ticket whose field owns the finding, and that ticket closing turns this file red, which is the point. T-1598 ADDED A SECOND KIND OF UNIT TO THIS FILE: the 34 `building` place readings in the 1835 issues of the Chicago Democrat and the Chicago American. They are here rather than in a derived register because each one is a judgement about what the ground can receive from a particular notice, which is the shape T-1234 wrote this file for; a tool that derived them would be deriving the judgement. NOTHING HERE PLACES A BUILDING, MOVES A STRUCTURE OR INVENTS A COORDINATE — a reading that names a standing building the structure layer holds was handed to T-1600, which wrote the corroboration onto the record — and T-1600 then took the hand-off's own mechanism away by making data/structures/ a target surface, so nine of those ten now close as `asserted` off the record they were written onto and are gone from this file entirely. That is what a hand-off is supposed to end as. The tenth named a building the town has not built and waited on T-1603, which RULED it: the house stands on Dearborn Street and reaches no seat there, so it closes in the aggregate as building stock and data/exclusions.json carries the guard against building it. Every reading in this file is now closed against a stated rule and no rule here hands work to an open ticket. T-1599 CARRIED THAT SECOND KIND OF UNIT BACK BEFORE THE SCENE YEAR: the 88 `building` place readings in the 1833 and 1834 issues of the Chicago Democrat. They are the harder half of T-1589, because a pre-scene notice can be REFUTED by the calendar as well as unseated by the page — under the ladder ratified 2026-09-03 an earlier source no more promotes an 1835 fact than a later one does — and because eleven of them turned out to be spent already, on a layer this ledger does not index: the building stands in the committed town under its own record in data/structures/, raised or dated from the very notice the unit carries. Each of those eleven names its structure id so the claim can be checked in one grep. NOTHING HERE PLACES A BUILDING, MOVES A STRUCTURE OR INVENTS A COORDINATE: the 23 readings that DO reach the plat — a lot and a block, a named corner, an offset from a building the town holds — are handed to T-1624, which owns carrying each one forward to 1835-07-01 or refusing it in writing with the plat in front of it.",
-  "ticket": "T-1234, corrected by T-1322, extended by T-1598 and T-1599",
+  "ticket": "T-1234, corrected by T-1322, extended by T-1598, T-1599 and T-1590",
   "rules": {
     "earlier_evidence_adds_no_1835_fact": {
       "disposition": "refused",
@@ -82,6 +82,32 @@
       "ticket": "T-1624",
       "reason": "The plat pass owns this reading: 23 pre-scene-date placements the papers give on the plat, each to be carried forward to 1835-07-01 with the plat and the block recipes in front of it, or refused in writing.",
       "statement": "THE NOTICE REACHES THE PLAT, AND CARRYING IT TO THE SCENE DATE IS NOT A LINE IN THIS REGISTER. These are the readings of 1833-34 that do what almost nothing in the corpus does: they give a LOT AND A BLOCK NUMBER, or a named corner, or an offset from a building the committed town already holds under its own record. A dwelling house and a fine well on lot 7 of block 16, one lot east of Haddock's Tavern on Lake Street; the building on lot 2 of block 1 on North Water Street; houses — plural — on lot 3 of block 111; a shed in the rear of J. B. Beaubien's store house; a two-storey store-and-dwelling nearly opposite the drawbridge and next door to the post office; a store standing on J. S. C. Hogan's lot. WHY THEY ARE NOT SPENT HERE. Every one of them needs three decisions this register has no business making: which lot of which block on the committed plat, whether the 1834 building is one the 1835 town already carries under another name, and whether the corpus carries it forward over the twelve to twenty months to 1835-07-01 at all. Each of those is an edit to `data/structures/` or to a block recipe, in the pull request that makes it, and the second and third can go either way — the ladder ratified 2026-09-03 does not let an 1834 notice promote an 1835 fact on its own, so some of these will be refused and the refusal will be the finding. T-1624 owns exactly these readings and names them, so the hand-off has a floor: the ticket cannot close while one of them is still unruled. NOTHING HERE PLACES A BUILDING, MOVES A STRUCTURE OR INVENTS A COORDINATE."
+    },
+    "the_prose_reading_corroborates_a_structure_the_town_already_holds": {
+      "disposition": "aggregate_only",
+      "statement": "THE PROSE TWIN OF `the_earlier_notice_is_spent_on_a_structure_the_town_already_holds`, AND IT CLAIMS ONE THING LESS. The building the reading describes stands in the committed town under its own record in `data/structures/`, and what the reading carries is that building's form, use, occupancy or construction date. It is a recollection in a book, a compiled history or a civic finding, not a notice on a page, so it reaches the structure layer and nothing on the two surfaces this ledger indexes: not a resident, not a firm. THE ONE THING IT DOES NOT CLAIM is that the record was written from it. Most of these records were not: `grep` the structure id and the record's own sources and this page is usually absent, which is exactly why the rule says corroborates and not spent. AND THE RULE ADDS NOTHING. It writes no source onto a record, moves no position, and raises no confidence -- under the ladder ratified 2026-09-03 a recollection set down in 1881, 1884, 1895 or 1911 about a building of 1818 or 1833 may corroborate and may not promote, and a record's `documented` grade is not reachable from a page that is neither the source it stands on nor contemporary with the fact. Offering the corroboration to the record is the structures layer's own PR and its own judgement. EVERY RULING UNDER THIS RULE NAMES THE STRUCTURE ID, so the claim is checkable in one grep; where the reading disagrees with the record the ruling says so and resolves nothing, because an agreement manufactured between a plan and a pace-estimate is not evidence."
+    },
+    "the_prose_reading_is_spent_on_the_scene_exclusion_ledger": {
+      "disposition": "aggregate_only",
+      "statement": "THE READING IS FINISHED WORK, AND THE WORK IT FINISHED WAS LEAVING A BUILDING OUT. `data/sidecars/1835/exclusions.json` is the scene's written list of structures this project researched and deliberately did not build, each with the evidence that dates it out; a reading that describes one of those buildings has already been spent, on the only decision it could ever have supported. Two shapes qualify and both name their id: the reading describes a building on the `excluded` list, or the reading is itself cited in the dossier under `docs/RESEARCH/` that put the building on that list. THE FIRST FORT AND THE OLD KINZIE MANSION ARE THE BULK OF IT -- `fort_dearborn_first_1803` burned in 1812 and the scene stands beside the 1816 rebuild; `kinzie_house` was last seen years before the window and no source attests its survival -- and a recollection of either is a recollection of a building that is not in this town. Nothing is drawn, moved or added, and no exclusion is reopened here: an exclusion is a ruling on the scene and this ledger does not overturn one from the research side."
+    },
+    "the_prose_reading_carries_no_building_only_the_town_around_it": {
+      "disposition": "aggregate_only",
+      "statement": "THE PROSE TWIN OF `the_earlier_reading_carries_no_building_only_the_town_around_it`. The unit is filed `kind: building` and its building content is not a building: a garrison strength in companies, a parish register's opening date with no chapel, house or street in it anywhere on the page. It is true, dated and committed chronology the reconstruction reasons from, and it attaches to no resident, no firm and no structure record, which is the only reason it stood unresolved. It is spendable on nothing smaller than the town."
+    },
+    "the_prose_building_stands_outside_the_reconstruction_ground": {
+      "disposition": "outside_chicago",
+      "statement": "THE PROSE TWIN OF `the_earlier_building_stands_outside_the_reconstruction_ground`. The reading places its building, and the place is off this project's ground -- up the South Branch, out on the prairie, in another township. The placement is the strongest thing in the reading and that is precisely what carries it out of scope. It is kept for what it is good for, and nothing is bent to bring it inside the plat."
+    },
+    "the_prose_placement_waits_on_the_corner_pass": {
+      "disposition": "unresolved",
+      "ticket": "T-1625",
+      "reason": "The prose-placement pass owns this reading: six placements the books and Norris give by corner, cross street or named neighbour, each to be carried forward to 1835-07-01 or refused with the plat and the block recipes in front of them. It is the prose counterpart of T-1624, which owns the 23 the newspapers give on the plat, and it is a separate ticket for a separate reason: a corner and a cross street are not a lot and a block, and half of these locators are 1895 street names the compiler wrote as 'what is now'.",
+      "statement": "THE READING REACHES A SEAT AND THE COMMITTED TOWN HOLDS NO RECORD FOR THE BUILDING. That is the whole difference between this rule and `the_prose_reading_corroborates_a_structure_the_town_already_holds`: a corner, a cross street or a named neighbour the plat can take, naming a building that is neither in `data/structures/` nor on the exclusion list. It is not ruled here, because ruling it means resolving 1895 street names against 1835 ground, deciding whether an undated fitting-up falls before or after 1 July 1835, and reading a relative bearing in rods off the plat -- three things that want the sheets open and are one ticket's work, not a line in a ledger. It is handed on rather than refused so that the placement is not lost, and handed on to an OPEN ticket rather than a closed one so the ledger's own dead-pointer gate can see it."
+    },
+    "the_later_printed_reading_corroborates_the_scene_from_outside_the_window": {
+      "disposition": "later_only",
+      "statement": "THE SOURCE IS PRINTED AFTER THE SCENE AND ITS BUILDING CONTENT SPANS THE SCENE DATE. That is the one shape in which a later page speaks to 1 July 1835 without being an 1835 source: not a fact dated after the window and carried back, but a span -- occupied, standing, in use from a year before to a year after -- inside which the scene date falls. Under the ladder ratified 2026-09-03 that corroborates and dates and does not promote: it cannot raise a confidence, it cannot place anything, and it is written here rather than left to the automatic rule because the automatic rule reads a describes_date and a span is not a date."
     }
   },
   "rulings": [
@@ -984,6 +1010,181 @@
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_12_24.json#claims/c012",
       "rule": "the_earlier_building_placement_waits_on_the_plat",
       "note": "The second witness to the same building, reading the lot as 2 where 17 December reads 9 — both claimed, each quoting its own digit, neither amended to agree with the other, because an agreement manufactured between two transcriptions is not evidence. Block 1 on North Water street is common to both and that much is safe; the placement is T-1624's."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_014",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`old_bank_building` -- the brick building Hubbard raised and packed in, and here he is telling it himself. AND THE TWO DISAGREE ABOUT WHICH CORNER. The record's own aka reads 'the building Hubbard packed in, Lake and LaSalle'; this page puts it at the corner of La Salle and South Water, one block south. The disagreement is recorded and resolved nowhere: a memoir of 1911 does not move a position the record already carries, and the record is not amended to agree with it. What travels with the building is 'ground that then seemed very far west', which is a measure of the town's extent in 1834 and not of a seat."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_019",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`green_tree_tavern`, and the only reading in this set whose own date falls inside the scene year -- 25 May 1835, five weeks before the window closes. `docs/RESEARCH/green_tree_tavern.md` already leans on Hubbard by way of Andreas; this is the passage at first hand. What it carries is a USE, not a position: the house newly landed passengers walked to once their goods were in the warehouse. The record's seat is untouched."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_054",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`fort_dearborn_palisade` and `fort_dearborn_blockhouse`, described by a man standing in front of them in 1818. The two corner works and their orientation -- a block house at the south-west, a bastion at the north-west about a hundred feet from the river -- agree with what the town stands. 'A square of about six hundred feet' DOES NOT: it is far larger than the enclosure this project reconstructs, and it is a pace-estimate at sixty years' distance, not a measurement. The disagreement is the finding; the palisade is not resized to honour a recollection."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_055",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`fort_dearborn_officers_quarters`, and the fullest elevation of it this corpus holds: two storeys of hewn logs, a piazza along the entire front at second-floor level reached by outside stairs, kitchen, dining and store rooms below, one large room above, under split clapboards about four feet long. It is 1818 fabric and the record is not re-elevated from it. IT ALSO SETS UP THE BOOK'S SHARPEST SELF-CONTRADICTION: this page puts the quarters OUTSIDE the pickets, page 167 (`bk_hub_090`) puts the commanding officers' former quarters in a brick building just within the north stockade and the log quarters inside the pickets on the west. Nine years and a fire lie between the two and this project resolves neither."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_056",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`fort_dearborn_barracks` -- the soldiers' quarters, of logs like the officers' except that both storeys were finished and divided into rooms. One sentence, and it is the one that tells this project the barracks were fully partitioned on both floors."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_057",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`fort_dearborn_sutlers_store` in the north-east corner and `fort_dearborn_guard_house` -- guardhouses about ten feet square, one on each side of the south gate -- with the two parade gates on the north and south sides. The plan of the enclosure as a man who lived in it remembered it; a corroboration of the corner and the gates, and no change to either record."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_058",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`fort_dearborn_store_house` (two storeys, east of the guardhouse and south of the soldiers' quarters) and `fort_dearborn_magazine` (brick, west of the guardhouse and near the block house), with the stockade and every building neatly whitewashed. THE ONE BRICK BUILDING IN THE 1818 FORT IS THE MAGAZINE, and that is why this page matters against `bk_hub_090`, where the brick building at the north stockade is where the Indian agent lived in 1827 -- `fort_dearborn_commandants_quarters`, whose own aka is 'the brick building'. Two brick buildings nine years apart, or one misremembered; the reading records the question and does not answer it."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_090",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`fort_dearborn_commandants_quarters`, `fort_dearborn_officers_quarters` and `fort_dearborn_barracks`, and the richest occupancy statement in the book: in 1827 Dr Alexander Wolcott the Indian agent in the brick building just within the north stockade, Russell E. Heacock's family and one other American family in the old log quarters on the west and within the pickets, and voyageur families in the soldiers' quarters on the east side. THE FORT AS A TENEMENT. It is 1827 and not 1835 and it seats nobody in the scene; it contradicts `bk_hub_055` and `bk_hub_058` as set out there; and `heacock_house_monroe` is where this town stands Heacock, which this page does not disturb."
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_004",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`hogan_store`, whose own aka already reads 'Chicago's first post office' and 'the log store'. This page gives it four of the five fields `data/structures/` wants -- log, story-and-a-half, 45 by 18 feet, and the angle formed by the intersection of Lake and South Water -- and the fifth, the orientation, is implied by the angle and not stated. IT IS A CORROBORATION AND NOT A PLACEMENT, because the record already stands on that ground. The post-office arrangement is described from 2 November 1832 and the same volume has Hogan in the office until 3 March 1837, so the scene date falls inside the span; that is a reason for the structures layer to look at the record's own function note, and it is not a licence for this ledger to write one."
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_009",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`peck_store`, aka 'Peck's store at South Water and LaSalle' -- and this page is the most detailed description of it the corpus holds: two storeys, frame, black walnut lumber sawn and shipped from Detroit, on the south-east corner of La Salle and South Water, occupied and the goods moved in from the log store in the fall of 1831. Standing on the scene date unless something took it down, which nothing here says. IT DISAGREES WITH PAGE 89 OF THE SAME BOOK about which building was first -- page 89 calls Dole's and Peck's the first frame buildings used for business and dates the pair to 1832 -- and both readings stand. The log store that preceded it is placed no closer than 'close to Fort Dearborn' and reaches no seat. 'What is now' is 1895 street naming applied to 1831 ground."
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_004",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`mansion_house`, and a USE the record can carry: Cook county's first term of court sat in an unfinished loft of it in 1834. THE BEARING IS THE PART THAT CANNOT BE TAKEN -- 'directly north of the present Tremont House' is a bearing to the 1895 Tremont and the Tremont of 1835 is not that building; T-0385 is open on the 1835 Tremont's own position in Dearborn Street and this sentence does not settle it, so no position is derived here. The compiler's denial that there was ever a brick house in the fort is him arguing with Governor Bross and is recorded as the disagreement it is."
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_015",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`temple_building`, and a CONSTRUCTION YEAR for it: Dr John T. Temple put it up in 1833. That is an independent corroboration of volume 1's `bk_mose1_012`, which has Caton renting from December 1833, and the two disagree on what he rented -- volume 1 the back room and the attic with desk-room sub-let to Giles Spring, volume 2 a desk in the office and a sleeping room in the attic. Both stand. The Peoria stage line is a business with a timetable and no premises beyond 'the office', which is this same building."
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_016",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`fort_dearborn_shop` -- 'Fort Dearborn - the shop', function `workshop` -- and a USE for it: Major Fowle set the carpenter shop inside the stockade apart for religious services, and the first sermon by a Presbyterian clergyman in Chicago was preached there by Rev. Jeremiah Porter on 19 May 1833. Whether the shop was still in that use at the scene date this does not say and the answer is probably not: `first_presbyterian_church` stands in this town. The lead surname on the row is `carpenter`, which here is a trade and a building and not a person, and the row's own verdict says so."
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_017",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`walker_meeting_house`, aka 'Rev. Jesse Walker's log cabin' -- and the first administration of the Lord's supper in a Presbyterian place of worship in Chicago, on Sunday 7 June 1833, was held in it. A USE, dated, for a building this town stands. The cabin gets no position from this sentence and needs none. The three elders are an OFFICE and not building content; Philo Carpenter is a man this project holds, and 'Major Wilcox' is a surname and a rank with no forename, so the project's own John L. Wilcox stays a candidate and not a match."
+    },
+    {
+      "unit": "civic:data/research/civic/claims/town_findings_andreas_v1.json#claims/c004",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`sauganash_hotel` -- Mark Beaubien's house, and the town's meeting place as well as its polling place. A USE with a stated day and hour: from 4 September 1833 the Board of Trustees met there on the first Wednesday of each month at seven in the evening. Dated before the window and carried into it by nothing here; the record's seat is untouched and its function already says what the building was."
+    },
+    {
+      "unit": "civic:data/research/civic/claims/town_findings_andreas_v1.json#claims/c010",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`cook_county_courthouse_1835`, AND THIS IS THE ONE RULING IN THE SET WHERE THE RECORD DOES REST ON THE READING. The record's `wood_1835` phase carries `documented_range` 1835-10-01 to 1835-12-31, cites `andreas_1884_v1`, and its note quotes this very passage -- 'during the fall of the year (1835,) a one-story and basement brick court-house was erected on the northeast corner of the square, on Clark and Randolph streets' -- as the thing that DATES THE BUILDING OUT OF THE SCENE. So the reading is spent, and what it was spent on was keeping a building off the ground at 1 July 1835. It is not re-spent here and the autumn date is not softened: the court-house is not scene fabric."
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_025",
+      "rule": "the_prose_reading_corroborates_a_structure_the_town_already_holds",
+      "note": "`robert_kinzie_store`, aka 'Robert Kinzie's storehouse' -- built at Wolf Point sometime in 1832 and called by Norris the first frame building in Chicago. A construction year and a first for a building this town stands. The second half of the sentence -- 'in 1834 several brick buildings were erected' -- names none of them and reaches no seat; what it is worth is the MATERIAL CLOCK, which is that brick was one year old in the town the scene shows, and that is a fact about the town and not about a roof."
+    },
+    {
+      "unit": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_030",
+      "rule": "the_prose_reading_is_spent_on_the_scene_exclusion_ledger",
+      "note": "`fort_dearborn_first_1803` on the excluded list: the fort Whistler built burned in 1812 and the town of 1835 stands beside the 1816 rebuild. The reading is kept for the DATE IT DISAGREES ABOUT -- Beckwith's footnote, at eighty years' distance, says 1803, and this project already holds 1804 from Hubbard (`bk_hub_050`). NEITHER IS UPGRADED BY THE OTHER and the disagreement is the finding. Nothing about the fort in the scene follows from either number."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_049",
+      "rule": "the_prose_reading_is_spent_on_the_scene_exclusion_ledger",
+      "note": "`kinzie_house` on the excluded list -- 'NO SOURCE ATTESTS ITS SURVIVAL' -- and this is the most vivid description of it anywhere in the corpus: a long log cabin with a rude piazza, fronting the river directly opposite Fort Dearborn, from a man who slept in it in 1818. The piazza is confirmed independently at page 169 (`bk_hub_095`) nine years later. NONE OF THAT PUTS IT IN THIS SCENE: the exclusion turns on survival to 1835 and a description of 1818 is not evidence of survival. The exclusion is not reopened from the research side."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_050",
+      "rule": "the_prose_reading_is_spent_on_the_scene_exclusion_ledger",
+      "note": "`fort_dearborn_first_1803` again -- the 1804 establishment on the south bank -- and the reading's durable half is the two words 'then discharged'. The river mouth of 1804 is not the river mouth of 1835: the channel ran south behind the beach bar until the 1834 cut, which is what this project's terrain and river layers already model, and what `bk_hub_060` and `bk_hub_061` carry. A corroboration of the pre-cut mouth from a source the geometry was not taken from, and no building at all in the scene."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_065",
+      "rule": "the_prose_reading_is_spent_on_the_scene_exclusion_ledger",
+      "note": "SPENT ON `john_dean_house`'s OWN DOSSIER. `docs/RESEARCH/john_dean_house.md` cites this page twice -- in the 1818 neighbour list at line 62 and in the 1822/1823 occupancy row at line 126 -- and that dossier is the reasoning behind the house's place on the excluded list. What the page adds is the American Fur Company storehouse itself: round logs, a rail fence, on the river edge about four hundred feet east of the Dean house, erected and occupied by the company's agent John Craft and taken by Jean Baptiste Beaubien after Craft's death, which Hurlbut dates 'in December, of I think the year 1823' (`bk_afc_007`). The storehouse has no record in `data/structures/` and no line on the exclusion list, and nothing in this corpus carries it to 1835; whose house Beaubien was in between 1822 and 1823 is the open T-0894 the dossier names, and it is not this ledger's to settle."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_066",
+      "rule": "the_prose_reading_is_spent_on_the_scene_exclusion_ledger",
+      "note": "CITED IN `data/sidecars/1835/exclusions.json` ITSELF, which is as spent as a reading in this corpus gets. The exclusion for `john_dean_house` turns on this sentence: Hubbard closes his 1818 inventory -- the fort's group, the Factor House, the Fur Company storehouse and its burying-ground, Hardscrabble, Ouilmette's cabin and Kinzie's house -- with the words 'comprised ALL the buildings within the present limits of Cook County', and it is that exhaustiveness which FORCES the identification of Andreas's Dean house with Hubbard's house of hewn logs at `bk_hub_064`, every other building on the list being placed somewhere this one is not. Two more of the seven are excluded for themselves, `kinzie_house` and `ouilmette_cabin`. Seventeen years before the scene, and what it fixes is the floor the town of 1835 was built up from."
+    },
+    {
+      "unit": "books:data/research/books/claims/american_fur_company_hurlbut.json#claims/bk_afc_008",
+      "rule": "the_prose_reading_is_spent_on_the_scene_exclusion_ledger",
+      "note": "CITED IN `docs/RESEARCH/john_dean_house.md` at line 126, in the row that carries Beaubien's whereabouts in 1822/1823 to the open T-0894. Its own content is a placement of 1819 and the only one in Hurlbut's chapter that lands on this project's ground: Beaubien moved up from Milwaukee to oppose Crafts and built his trading houses at the mouth of the Chicago river, 'THEN about the foot of Harrison Street' -- Hurlbut telling his 1881 reader that the mouth had moved, which corroborates the pre-cut channel this project models from sources it was not taken from. It is no evidence for a structure standing in 1835: sixteen years and a rebuilt river separate the two, and `hh_beaubien_jean_baptiste` already places Beaubien at `jb_beaubien_homestead` by the scene date on Andreas."
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_016",
+      "rule": "the_prose_reading_is_spent_on_the_scene_exclusion_ledger",
+      "note": "`fort_dearborn_first_1803` on the excluded list -- Norris's 'Fort Chicago', built 1804 on the site the fort of 1844 stood on, which is the burned first fort and not the 1816 rebuild the scene holds (`n1844_tf_020` dates that one). Norris agrees with Hubbard's 1804 against Beckwith's 1803 (`bk_fer_030`) and the disagreement stays recorded rather than settled by a show of hands. The American Fur Company's trading station 'about the same time', under the protection of the garrison, is a FOUNDING DATE with no position in this sentence: it reaches no seat, and the one description of that post's fabric in the corpus is `bk_hub_065`, ruled above."
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_017",
+      "rule": "the_prose_reading_is_spent_on_the_scene_exclusion_ledger",
+      "note": "`kinzie_house` on the excluded list, and this is the sketch's most usable locator for it: John Kinzie -- father of the John H. Kinzie who was Register of the Land Office in 1844 -- occupied a house on the north side of the river 'a little east of the site of the Lake House', and leaf 22 repeats it. The Lake House is ground this project holds (`lake_house_construction` stands, `lake_house_finished` is excluded), so the bearing is readable. IT IS STILL NOT A SURVIVAL: this is a recollection of August 1812 written in 1844, the exclusion turns on nothing attesting the house in 1835, and a locator is not a date."
+    },
+    {
+      "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_042",
+      "rule": "the_prose_reading_carries_no_building_only_the_town_around_it",
+      "note": "A GARRISON STRENGTH AND NO FABRIC: Fort Dearborn as it was understood at Mackinaw before Hubbard ever saw it, 'a frontier post garrisoned by two companies of soldiers'. Two companies is a number this project can hold against the fort's own returns when it reads them, and it is a number about the garrison and not about a building; it names no quarters, no store, no gate and no wall. Filed `kind: building` and carrying none."
+    },
+    {
+      "unit": "church:data/research/church/claims/st_marys_baptisms_town_findings.json#claims/st_marys_town_01",
+      "rule": "the_prose_reading_carries_no_building_only_the_town_around_it",
+      "note": "THE REGISTER DOES NOT NAME A CHURCH -- not on this page and not on any of the eleven. It heads its entries 'Chicago', 'Chicago Cook Co.' and 'Chicago Ill.' and never a street, a chapel or a house. What the book establishes is a DATE: a Catholic priest was baptising at Chicago from 22 May 1833 and the register he opened that day is headed '1er Page', so the parish's own recordkeeping begins there and not before. `st_marys_church` stands in this town on other evidence entirely, and where the first church stood is NOT read out of these scans and must not be taken from them."
+    },
+    {
+      "unit": "books:data/research/books/claims/american_fur_company_hurlbut.json#claims/bk_afc_007",
+      "rule": "the_prose_building_stands_outside_the_reconstruction_ground",
+      "note": "HARDSCRABBLE, AND OUTSIDE THIS SCENE TWICE OVER. John Crafts's trading house stood 'about half a mile below Bridgeport' -- roughly four miles up the South Branch from the town this project models, off the reconstruction's ground entirely -- and it is Crafts's up to 1819, sixteen years before the window. What it is kept for is the CATCHMENT: outfits to Rock River and 'within a range say of a hundred miles of Chicago' is a measured statement of how far the Chicago trade reached, and it is Hubbard's rather than Hurlbut's. Note also the habit: 'Bridgeport' did not exist in 1835, so a house of 1818 is being located by a landmark of 1881. This project should expect that in recollection and never repeat it."
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_003",
+      "rule": "the_prose_placement_waits_on_the_corner_pass",
+      "note": "THE FIRST BAPTIST MEETING HOUSE: a small frame building on South Water street near Franklin, occupied on weekdays by Granville T. Sproat's English and classical school for boys, with Miss Sarah L. Warren as assistant from the spring of 1834. A street and a cross street, which is the form the plat can take, and no record for it in `data/structures/` and no line on the exclusion list. It is also a DOUBLE USE of one building -- a Baptist meeting house on Sunday, a boys' school on weekdays -- and the same building is where Rev. Isaac W. Hallam held the first Episcopal services on 19 October 1834 (`bk_mose2_009`). Nothing here dates the building itself, which is one of the questions T-1625 has to answer. The lead surname `carpenter` is a married name acquired later -- 'afterwards Mrs. Abel E. Carpenter' -- and reaches no Chicago man of 1835."
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_006",
+      "rule": "the_prose_placement_waits_on_the_corner_pass",
+      "note": "RICHARD J. HAMILTON'S OWN HOUSE, and the reason it goes to T-1625 rather than being waved through: he built it on what the compiler of 1895 calls Michigan street between Cass and Rush and LIVED IN IT NINETEEN YEARS, which puts a dwelling on that block at the scene date -- and the town holds no structure record for it. The block must be resolved through the street-name history first, because 'what is now' is 1895 naming, and the date is the compiler's own 'at about this time' and not a stated year. The little school Watkins was hired to teach in 1833, in 'the old stable near by' the Agency House, is a USE of an outbuilding and not a new structure; `watkins_school_house` and `cobweb_castle` both stand in this town already. The lead surname `hall` belongs to the Indian Creek passage above and not to this claim."
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_008",
+      "rule": "the_prose_placement_waits_on_the_corner_pass",
+      "note": "MARK BEAUBIEN'S SMALL FRAME BUILDING NEAR MR NOBLE'S HOUSE, where the first Sunday school in Chicago met from 19 August 1832, and on the day it opened the building 'had neither doors nor windows and was very imperfectly roofed'. A builder, a named neighbour the town holds, and a CONDITION of the kind the renderer can carry -- and it is a condition of 1832, by which time in 1835 the building may have been finished, moved or gone. The same sentence places a second structure, Rufus Brown's house within the stockade of the fort; `brown_boarding_house` stands in this town and whether it is that house is T-1625's to say. Neither the frame building nor the identification is settled here."
+    },
+    {
+      "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_009",
+      "rule": "the_prose_placement_waits_on_the_corner_pass",
+      "note": "TIPPECANOE HALL, at the south-east corner of Kinzie and State streets, fitted up for Episcopal services at John H. Kinzie's expense. A CORNER, which is exactly the form this project wants, AND NO DATE, which is why it cannot be ruled in a ledger: the paragraph before it is dated 19 October 1834 and the word is 'Later', so the fitting-up falls somewhere between that and the brick church the same passage goes on to describe, and whether that is before or after 1 July 1835 this sentence does not say. The name is anachronistic for the scene in any case -- the Tippecanoe campaign is 1840 -- even if the building is not. The two lots Kinzie afterwards donated at Cass and Illinois are a SITE with nothing standing on it. The lead surname `hall` is the building's name and not a person, and the row's verdict says so."
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_023",
+      "rule": "the_prose_placement_waits_on_the_corner_pass",
+      "note": "THREE NAMED BUILDINGS OF 1832, AND ONE OF THEM IS A PLACEMENT NOBODY HOLDS. Colonel Owings's house stood 'about 80 rods south' -- some 1,320 feet -- of the Fur Company house Col. Beaubien occupied until shortly before 1844, and Norris records it as since washed away by the lake; that is a relative bearing off a lakefront anchor, it wants the sheets open, and no record and no exclusion names the house. The other two are already the town's: `cobweb_castle` is Wolcott's Cobweb Castle on block 1, and the Fur Company house Beaubien took is the subject of `john_dean_house`'s dossier and its exclusion. All three are 1832 buildings and whether any stood on 1 July 1835 is the question T-1625 carries; for Owings's, 'washed away by 1844' is a terminus and not an answer."
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_024",
+      "rule": "the_prose_placement_waits_on_the_corner_pass",
+      "note": "NORRIS'S INVENTORY OF WHAT STOOD AT CHICAGO IN 1832, and it is the pre-boom floor the scene was built up from: John Kinzie's dwelling east of the Lake House (`kinzie_house`, excluded -- see `n1844_tf_017`), Mark Beaubien's tavern on the site of the Sauganash known as the Eagle (`sauganash_hotel`), and Robinson the Indian chief's cabin at Wolf Point (`robinson_caldwell_cabins`). TWO OF THE FIVE REACH THE PLAT AND NOTHING HOLDS THEM: a log building at the corner of Dearborn and South Water Streets, and a building on block 14. A corner and a block number are locators the plat can take directly, which is precisely why they are handed to T-1625 with the sheets rather than ruled from a ledger, and 1832 is not 1835."
+    },
+    {
+      "unit": "directories:data/research/directories/claims/norris_1844_town_findings.json#claims/n1844_tf_020",
+      "rule": "the_later_printed_reading_corroborates_the_scene_from_outside_the_window",
+      "note": "THE FORT STANDING IN THE SCENE, dated from outside the window by a span rather than a date. Norris, printing in 1844, has the fort rebuilt in 1816 -- the page's '1617' is an unmistakable OCR slip and the repair is in `normalized` only, per this domain's rule -- named Fort Dearborn, and 'occupied by a garrison, except at short intervals, until 1837, when it was finally evacuated and never re-occupied as a military post'. 1 July 1835 falls inside that span, so Norris corroborates a GARRISONED Fort Dearborn at the scene date, which is what the fort parcel in `data/structures/` already stands. It corroborates and does not promote: no confidence moves, no position moves, and an 1844 sketch does not become an 1835 source by spanning one."
     }
   ]
 }
