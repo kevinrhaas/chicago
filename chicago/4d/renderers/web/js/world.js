@@ -324,6 +324,131 @@ const HAZE_DENSITY = 0.00125;
 export const SHADOW_REACH_M = 240;
 
 /**
+ * THE HAZE FOLLOWS THE SKY IT CONVERGES ON — T-1631.
+ *
+ * THE DEFECT, and it is one number. `HORIZON_HAZE` above is the horizon sky of
+ * the BAR PHOTOGRAPH, sRGB (136,163,192), L 159.4. This scene's own horizon sky
+ * is not that colour in any direction, and the two notes that knew it never met:
+ * HORIZON_RESTORE's "one honest cost" records the render at 1° above the NORTH
+ * horizon as (104,132,166), L 128, because the anti-sun sky starts darker and an
+ * azimuth-blind fit takes the same red and green off it; and `trees.js` records
+ * the fully-fogged pixel as "four levels BELOW the horizon sky, which is what
+ * airlight is supposed to do" — true on the solar side, where that note was
+ * measured, and false everywhere else.
+ *
+ * Sampled here rather than argued about: the scene's own sky at 1° elevation,
+ * every 10° of bearing, reads L 122 due north rising to L 148 due south. The fog
+ * is L 159. **The haze is brighter than the sky it is supposed to be converging
+ * on at every azimuth on the compass** — by 11 luminance toward the sun and by
+ * 37 away from it.
+ *
+ * WHAT THAT LOOKS LIKE, which is what the ticket was filed for. Distance cannot
+ * then fade into the sky; it can only rise out of it. A visitor flying north at
+ * 600 ft sees the ground past the drawn town converge on a flat sheet 31
+ * luminance BRIGHTER than the sky above it, with a hard step where the two meet
+ * — and a bright flat blue-grey sheet under a darker sky, with trees standing up
+ * out of it, is what a lake looks like from the air. Measured at that pose
+ * (e 120, n -420, 183 m, yaw 0, pitch -8°): the pixel below the step reads
+ * (136,163,192) against (103,131,165) above it. Turn the fog off and the same
+ * pixel reads (109,125,84) — GREEN. The ground was there the whole time and the
+ * reach was never the fault: the haze was painting land the colour of water.
+ *
+ * THE FIX IS A SAMPLE, NOT A FIT. `HORIZON_RESTORE` refused an azimuth term
+ * because fitting one honestly needs a second verified July photograph shot away
+ * from the sun, and `bar/REFERENCES.md` has none. That refusal stands and this
+ * does not touch it: the fog is not being fitted to anything. It is being told
+ * to converge on the sky THIS SCENE ALREADY DRAWS, read off the shader at boot.
+ * Nothing is invented, no photograph is guessed at, and the sky is unchanged —
+ * what changes is that distance now goes toward the air that is actually there
+ * instead of toward the air over a different photograph.
+ *
+ * WHAT IT COSTS. Thirty-six one-pixel renders of the sky box, once, at boot. Per
+ * frame it is a bearing, a table index and a colour copy; no geometry is added,
+ * no reach moves, and `hazeReachM()` is untouched because it reads the DENSITY,
+ * which does not change. The consumers that copy the haze follow it live —
+ * `terrain.js`'s water `uSky` and `trees.js`'s horizon band — and the release
+ * smoke already asserts the band against `scene.fog.color` rather than against a
+ * hex, so that coupling is gated rather than promised.
+ */
+const HORIZON_RING_STEPS = 36;
+/** The elevation the ring is read at: the one the committed readings are at. */
+const HORIZON_SAMPLE_DEG = 1.0;
+/**
+ * The anti-sun reading this sampler has to reproduce, from HORIZON_RESTORE's own
+ * measurement at 1° above the north horizon. The guard is deliberately loose —
+ * its job is to catch a sampler that has stopped reading the sky at all (a white
+ * wash from a lost shader marker, a linear-space read at a third the radiance),
+ * not to re-litigate a unit. A ring that misses it is reported and the fixed
+ * constant is kept, because a haze read off nothing is worse than a stale one.
+ */
+const HORIZON_RING_NORTH = [104, 132, 166];
+const HORIZON_RING_TOLERANCE = 14;
+
+/**
+ * Read this scene's own sky at the horizon, all the way round.
+ *
+ * The sky is lifted into a bare scene for the pass for the same reason the PMREM
+ * build above lifts it: everything else in the world would be in the way. It is
+ * put back before this returns.
+ *
+ * The render target carries `SRGBColorSpace`, so what comes back is the DISPLAY
+ * colour — which is the space `FogExp2` lerps in (three r185 runs fog after the
+ * tone curve and the colour-space encode, and uploads the fog uniform through
+ * `getUnlitUniformColorSpace()`). Reading it in any other space would give a fog
+ * that is arithmetically defensible and visibly wrong, which is the exact bug
+ * `terrain.js`'s `uSky` note records having shipped once already.
+ *
+ * @returns {THREE.Color[] | null} one colour per 10° of bearing, or null
+ */
+function sampleHorizonRing(renderer, sky, problems = []) {
+  const parent = sky.parent;
+  const stage = new THREE.Scene();
+  const rt = new THREE.WebGLRenderTarget(1, 1, { colorSpace: THREE.SRGBColorSpace });
+  const cam = new THREE.PerspectiveCamera(1, 1, 0.1, 1e6);
+  const prevTarget = renderer.getRenderTarget();
+  const px = new Uint8Array(4);
+  const el = HORIZON_SAMPLE_DEG * Math.PI / 180;
+  const ring = [];
+  try {
+    stage.add(sky);
+    for (let i = 0; i < HORIZON_RING_STEPS; i++) {
+      const b = (i / HORIZON_RING_STEPS) * Math.PI * 2;
+      // ENU bearing 0 is north and the renderer's north is -Z, so a bearing of
+      // b looks along (sin b, ., -cos b) — the same mapping `enuToWorld` uses.
+      cam.position.set(0, 0, 0);
+      cam.up.set(0, 1, 0);
+      cam.lookAt(Math.sin(b) * Math.cos(el), Math.sin(el), -Math.cos(b) * Math.cos(el));
+      cam.updateMatrixWorld();
+      renderer.setRenderTarget(rt);
+      renderer.render(stage, cam);
+      renderer.readRenderTargetPixels(rt, 0, 0, 1, 1, px);
+      ring.push(new THREE.Color().setRGB(px[0] / 255, px[1] / 255, px[2] / 255,
+        THREE.SRGBColorSpace));
+    }
+  } catch (err) {
+    problems.push(`world: the horizon ring could not be sampled (${err?.message || err}); `
+      + 'the haze is the fixed constant');
+    return null;
+  } finally {
+    renderer.setRenderTarget(prevTarget);
+    rt.dispose();
+    parent?.add(sky);
+  }
+  const north = ring[0].getHex(THREE.SRGBColorSpace);
+  const got = [(north >> 16) & 255, (north >> 8) & 255, north & 255];
+  const off = Math.max(...got.map((v, i) => Math.abs(v - HORIZON_RING_NORTH[i])));
+  if (off > HORIZON_RING_TOLERANCE) {
+    const said = `world: the sampled horizon sky due north is (${got.join(',')}), `
+      + `${off} off the measured (${HORIZON_RING_NORTH.join(',')}) — the haze is `
+      + 'the fixed constant until someone says which of the two moved';
+    problems.push(said);
+    console.warn(`[4D Chicago] ${said}`);
+    return null;
+  }
+  return ring;
+}
+
+/**
  * Solar azimuth and elevation, NOAA's algorithm.
  *
  * @param {object} o
@@ -687,6 +812,13 @@ export function createWorld({
   // what the green-tinted haze it replaces did to the horizon.
   scene.fog = new THREE.FogExp2(HORIZON_HAZE, HAZE_DENSITY);
 
+  // The haze COLOUR is not this constant for long: `aim()` below replaces it
+  // every time the view turns far enough, with the colour this scene's own sky
+  // is at the horizon the visitor is looking at. See HORIZON_RING. The constant
+  // is what the fog is installed with, what it falls back to if the ring cannot
+  // be sampled, and the solar-side reading the ring is checked against.
+  const ring = sampleHorizonRing(renderer, sky, problems);
+
   const offset = new THREE.Vector3();
   const shadowRig = {
     reachM: half,
@@ -750,8 +882,43 @@ export function createWorld({
       .addScaledVector(snapUp, Math.round(u / texel) * texel - u);
   }
   let brightness = 0;
+  // The haze's own state: which of the ring's 36 bearings the fog is currently
+  // set to, so `aim()` writes a uniform when the view has actually turned that
+  // far and not once per frame.
+  let hazeSlot = -1;
+  const aimForward = new THREE.Vector3();
+
   return {
     sky, light, sun, direction: dir.clone(),
+    /** The sampled horizon sky, or null where the sampler could not read it. */
+    horizonRing: ring,
+    /**
+     * Point the haze at the sky the visitor is looking at — T-1631, and see
+     * HORIZON_RING above for why the fog cannot be one colour.
+     *
+     * Called once a frame from the render loop, after the walker has moved the
+     * camera and before anything is submitted. It is a bearing, a table index
+     * and — only when the index moved — a colour copy, so standing still costs
+     * nothing and a full turn costs 36 uniform writes.
+     *
+     * @param {THREE.Camera} camera the camera about to render
+     * @returns {boolean} whether the haze colour changed this frame
+     */
+    aim(camera) {
+      if (!ring || !camera || !scene.fog) return false;
+      camera.getWorldDirection(aimForward);
+      // Bearing from the renderer's north (-Z), the same mapping the sampler
+      // used. atan2 of (east, north) rather than of the raw axes, so a camera
+      // looking straight down still yields the bearing it is facing.
+      const bearing = Math.atan2(aimForward.x, -aimForward.z);
+      const turns = bearing / (Math.PI * 2);
+      const slot = ((Math.round(turns * HORIZON_RING_STEPS) % HORIZON_RING_STEPS)
+        + HORIZON_RING_STEPS) % HORIZON_RING_STEPS;
+      if (slot === hazeSlot) return false;
+      hazeSlot = slot;
+      scene.fog.color.copy(ring[slot]);
+      return true;
+    },
     /** The environment map this rig installed, and the fill it delivers. */
     environment: envRT.texture, skyFill: FILL_UP.slice(), envIntensity: ENV_INTENSITY,
     /**
