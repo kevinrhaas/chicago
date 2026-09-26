@@ -1390,13 +1390,98 @@
    "19": 10.8,
    "20": 5.6
   },
-  "swell_amplitude_m": 12.3
+  "swell_amplitude_m": 12.3,
+  "recut": {
+   "vertices_moved": 8,
+   "worst_vertex_error_m": 0.004,
+   "shift_m_at_block_20": 5.6,
+   "shift_m_at_block_19": 10.8,
+   "shift_m_at_block_18": 0.0,
+   "shift_m_at_block_17": 0.0,
+   "step_across_the_la_salle_mouth_m": 1.18,
+   "straightness_p90_m": 4.35
+  }
  },
  "findings": [
-  "THE COMMITTED BANK IS WRIGHT'S INK. Over 103 committed vertices between local E +160 and E +690, the waterline stands a median 1.87 m from the bank Wright inked, p90 3.96 m, worst 9.43 m \u2014 against a trace whose own stated vertex uncertainty is +/-20 m and two registrations carrying 17.5 m and 16.0 m of RMS. The swell is not a tracing artefact, and it is not lettering read as ground: it is what Wright drew.",
+  "THE TRACED BANK IS WRIGHT'S INK. Over 103 traced stations between local E +160 and E +690, the waterline stands a median 1.87 m from the bank Wright inked, p90 3.96 m, worst 9.43 m \u2014 against a trace whose own stated vertex uncertainty is +/-20 m and two registrations carrying 17.5 m and 16.0 m of RMS. The swell is not a tracing artefact, and it is not lettering read as ground: it is what Wright drew.",
   "WRIGHT DRAWS THE SWELL. Measured inside his own sheet, so no registration enters it, the ground he draws between his bank and his block tier's north line runs 34.9 m at block 20, 39.0 m at block 19, 31.7 m at block 18, 19.8 m at block 17.",
   "HATHAWAY DOES NOT. The same measurement on his sheet runs 29.3 m at block 20, 28.2 m at block 19, 24.2 m at block 18, 21.3 m at block 17 \u2014 a monotone narrowing eastward with no local maximum in it. The owner is right that Hathaway draws this reach even.",
   "THE TWO SHEETS DISAGREE BY 12.3 m ACROSS THE REACH. Wright is 5.6 m wider at block 20, 10.8 m wider at block 19, 7.5 m wider at block 18, -1.5 m wider at block 17, so the departure peaks at block 19 and has died out by the east end. The reported bulge is that disagreement, and it is about half the 20 m read off the scene, where the eye is also carrying the block grid's own 8.58 m corridor-line offset (docs/CORRIDOR-LINES.md).",
-  "SO THE TICKET'S FIRST HYPOTHESIS IS REFUTED. There is nothing to re-trace and nothing to correct on the trace's own terms. Bringing the bank in to the owner's line would move it OFF the ink of the sheet his own third message makes the arbiter, which is the one thing that message forbids. That is a ruling, not a measurement, and it is asked rather than taken."
- ]
+  "SO THE TICKET'S FIRST HYPOTHESIS IS REFUTED. There is nothing to re-trace and nothing to correct on the trace's own terms: bringing the bank in moves it OFF the ink of the sheet the datum, the plat and the block grid are all fitted to. That is a ruling, not a measurement, and it was asked rather than taken.",
+  "AND THE OWNER RULED FOR HATHAWAY ON THIS REACH (option b). The committed bank is now Wright's traced line moved SOUTH by 5.6 m at block 20 and 10.8 m at block 19 \u2014 the two sheets' own disagreement, measured inside each sheet, not a fraction of Wright and not a drawn line \u2014 over 8 bank stations between the bend near the forks and the La Salle mouth. Zero at both ends, so Wright's re-entrant stays the one break in the run and nothing outside the reach moves.",
+  "THE SWELL IS GONE, AND THESE ARE THE NUMBERS. The bank's step across the La Salle mouth falls to 1.18 m, which is the owner's own test that the reach west of the slough reads level with the bank east of it; its p90 departure from a straight fit over local E +220..+456 is 4.35 m, so the outer plank walk that follows it runs roughly straight. Block 18 is NOT moved and that is a refusal with a number on it: the ruling asks 7.5 m of it and the committed bank there stands only 5.4 m north of South Water Street's own platted corridor edge.",
+  "THE BANK ON THIS REACH IS RECONSTRUCTED, NOT DOCUMENTED. Wright's ink is kept above, vertex for vertex, as the set-aside reading, and every figure in this record is still measured against it \u2014 the reading is about the trace, and the ruling is laid over it."
+ ],
+ "recut": {
+  "ticket": "T-1630",
+  "ruling": "Owner answer of 2026-09-26, option (b) of this reading's own question: \"ok yes st till want to bring that bulge in some, so the sidewalk is fairly straight and following, at least 50% of what is north of south water street i think\", and on seeing the per-block table, \"i think it is closer to the hathaway map in that reading\". The bank on this reach follows HATHAWAY 1834; Wright's ink is the set-aside reading and is kept below, vertex for vertex.",
+  "grade": "reconstructed",
+  "grade_note": "The waterline on this reach is no longer a trace of the sheet the datum, the plat and the block grid are fitted to. It is Wright's traced line displaced by the two sheets' own measured disagreement, on the owner's ruling, which is an invention within stated bounds. docs/LIBERTIES.md carries it.",
+  "sources": [
+   "hathaway_1834",
+   "wright_1834_nara_hup"
+  ],
+  "shift_anchors_local_e_m": [
+   [
+    228.91,
+    0.0
+   ],
+   [
+    268.0,
+    5.6
+   ],
+   [
+    390.0,
+    10.8
+   ],
+   [
+    455.81,
+    10.8
+   ],
+   [
+    467.17,
+    0.0
+   ]
+  ],
+  "block_18_refused_m": 7.5,
+  "block_18_refusal": "East of the slough the committed bank stands 5.4 m north of South Water Street's own platted corridor edge, so the ruling's 7.5 m would put the river 2.1 m into the roadway. The reach is bounded by the owner's own words, \"from the bend in the west to the La Salle mouth\".",
+  "wright_bank_as_traced": [
+   [
+    267.26,
+    34.51
+   ],
+   [
+    307.72,
+    42.59
+   ],
+   [
+    314.0,
+    42.72
+   ],
+   [
+    390.12,
+    42.85
+   ],
+   [
+    395.71,
+    43.69
+   ],
+   [
+    448.1,
+    40.42
+   ],
+   [
+    455.81,
+    36.96
+   ],
+   [
+    462.84,
+    28.41
+   ],
+   [
+    465.0,
+    18.31
+   ]
+  ]
+ }
 }

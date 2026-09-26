@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 275,
+  "count": 276,
   "liberties": [
     {
       "id": "L1",
@@ -16602,6 +16602,45 @@
         {
           "label": "Related",
           "text": "**L150** (the course this replaces, now resolved), **L195** (the crossing over the reach that survives), the ruling **T-1628**, the mouth **T-0129**, the meander and the feather **T-0118**, the sheet reading **T-0795**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-26."
+        }
+      ]
+    },
+    {
+      "id": "L274",
+      "title": "Terrain: the south bank below the bend is Wright's line moved south onto Hathaway's, on a ruling",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-09-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "between local **E +228.91** (the committed bend vertex below the forks) and **E +467.17** (the east lip of Wright's La Salle re-entrant) the south bank of the main stem no longer stands where Wright 1834 inked it. It stands that traced line displaced **south** by a piecewise-linear amount — 0 m at E +228.91, **5.6 m** at E +268 (block 20), **10.8 m** at E +390 (block 19), held to E +455.81, 0 m again at E +467.17 — moved at nine bank stations in `river.geojson` and `shoreline.geojson` and in both files' water polygons. The river is that much wider on this reach; the north bank does not move, and nothing outside the reach moves at all."
+        },
+        {
+          "label": "Why",
+          "text": "the owner flew the reach, read it against both 1834 surveys and ruled for Hathaway here (T-1630, 2026-09-26): *\"ok yes st till want to bring that bulge in some, so the sidewalk is fairly straight and following\"*, and on the per-block table, *\"i think it is closer to the hathaway map in that reading\"*. The amount is not his drawn line and not a fraction of Wright: it is the two sheets' own disagreement — the ground each draws between its own bank and its own block tier, 34.9 vs 29.3 m at block 20 and 39.0 vs 28.2 m at block 19 — measured inside each sheet so neither registration enters it. Halving Wright's 39.0 m would have cut past Hathaway, which is the overcorrection his third message forbade (*\"dont go crazy on either way\"*). The reading that establishes all of this is `data/traces/south_bank_swell_1834.json` and `docs/RESEARCH/south_bank_swell_1834.md`; Wright's ink is kept there vertex for vertex as the set-aside reading, and `tools/read_south_bank_swell_1834.py --check` re-derives the displacement from it on every commit."
+        },
+        {
+          "label": "Consequence",
+          "text": "the waterline on this reach is **reconstructed**, not a trace. It is the one place in the scene where the ground's edge is not the sheet the datum, the plat and all 41 blocks are fitted to — a visitor standing on South Water Street between Market and La Salle is looking at a bank placed by a ruling over a measurement, and everything seated against it (the plank walk, the landings, the planting on the point) follows a line Wright did not draw. What it buys is stated as numbers: the step in the bank across the La Salle mouth falls from 9.62 m to 1.18 m, so the reach west of the slough reads level with the bank east of it; the p90 departure from a straight fit over E +300…+456, the stretch where the walk used to curve round the point, falls from 1.53 m to 0.65 m."
+        },
+        {
+          "label": "What is NOT taken",
+          "text": "block 18 is not moved, though the ruling's table asks 7.5 m of it. East of the slough the committed bank stands only 5.4 m north of South Water Street's own platted corridor edge, so 7.5 m would put the river 2.1 m into the roadway; the reach is bounded by the owner's own words, *\"from the bend in the west to the La Salle mouth\"*. The west end stops at E +228.91 rather than at the foot of the turn near E +160 for the same reason, measured: west of E +222 the traced bank already stands south of that corridor edge, and starting further west drowned another 32 m of roadway for no reading. The block grid is not re-cut — T-0419 refused that and nothing here reopens it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a period survey or shore section of the main stem between Market and La Salle that puts the waterline anywhere. Either 1834 sheet re-registered off new control would also settle it, by making the two agree or by saying which is right; the disagreement this entry spends is 12.3 m across the reach, and the fits carry 16.0 m and 17.7 m of RMS."
+        },
+        {
+          "label": "Related",
+          "text": "the reading **T-1630**, the set-aside sheet **wright_1834** / **wright_1834_nara_hup**, the sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unchanged), **L273** and **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line disagreement **docs/CORRIDOR-LINES.md** (T-0419)."
         },
         {
           "label": "Recorded",

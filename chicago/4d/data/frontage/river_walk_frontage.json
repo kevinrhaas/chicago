@@ -32,7 +32,7 @@
         "note": "Asked for by the owner at the slough mouth, 2026-08-20: 'the pedestrian plank sidewalk bridge crossing it close to the river should exist and run along the river towards the town.' No 1835 source describes a walk on this bank; the crossing it rides is the documented Slough Log Bridge."
       },
       "run_m": {
-        "value": 424.6,
+        "value": 422.8,
         "confidence": "reconstructed",
         "sources": [],
         "note": "The whole run, crossing footway and Dearborn boards included, bounded by the bridge's committed deck ends and Jones's committed landing — nothing measured, everything derived or invented and audited."
@@ -187,24 +187,8 @@
           14.3
         ],
         [
-          455.0,
-          24.0
-        ],
-        [
-          448.0,
-          32.0
-        ],
-        [
-          428.0,
-          37.5
-        ],
-        [
-          396.0,
-          40.2
-        ],
-        [
-          392.29,
-          40.21
+          364.08,
+          30.19
         ]
       ],
       "width_m": 1.83,
@@ -212,42 +196,15 @@
       "plank_run": "across",
       "plank_pitch_m": 0.26,
       "plank_thickness_m": 0.055,
-      "note": "THE RIVERSIDE WALK'S LAST REACH, run 1 of 2, from the west lip of the La Salle slough's mouth west along the swinging bank to the landing at Philo Carpenter's South Water Street Store. The reach is authored as one line from the La Salle mouth to Jones's landing and then CUT wherever a committed landing's deck or boarding stair stands across it: a plank sidewalk stops where a working wharf comes ashore, and the landing's own deck — a walker's floor since T-0058 — is the surface there. Every board of this run is audited clear of every landing's works on every regeneration, so a wharf that moves or a new one built on this bank re-cuts the walk rather than oversailing it. The knots are invented: docs/LIBERTIES.md L153."
-    },
-    {
-      "id": "river_plank_walk_wharf_reach_2",
-      "belongs_to": "river_plank_walk",
-      "kind": "plank_walk",
-      "confidence": "reconstructed",
-      "centreline_local_enu_m": [
-        [
-          383.3,
-          40.23
-        ],
-        [
-          362.6,
-          40.29
-        ]
-      ],
-      "width_m": 1.83,
-      "rise_m": 0.11,
-      "plank_run": "across",
-      "plank_pitch_m": 0.26,
-      "plank_thickness_m": 0.055,
-      "note": "THE RIVERSIDE WALK'S LAST REACH, run 2 of 2, from the landing at Philo Carpenter's South Water Street Store west along the swinging bank to the landing at Jones's Grocery and Provision Store. The reach is authored as one line from the La Salle mouth to Jones's landing and then CUT wherever a committed landing's deck or boarding stair stands across it: a plank sidewalk stops where a working wharf comes ashore, and the landing's own deck — a walker's floor since T-0058 — is the surface there. Every board of this run is audited clear of every landing's works on every regeneration, so a wharf that moves or a new one built on this bank re-cuts the walk rather than oversailing it. The knots are invented: docs/LIBERTIES.md L153."
+      "note": "THE RIVERSIDE WALK'S LAST REACH, run 1 of 1, from the west lip of the La Salle slough's mouth west along the swinging bank to the landing at Jones's Grocery and Provision Store. The reach is authored as one line from the La Salle mouth to Jones's landing and then CUT wherever a committed landing's deck or boarding stair stands across it: a plank sidewalk stops where a working wharf comes ashore, and the landing's own deck — a walker's floor since T-0058 — is the surface there. Every board of this run is audited clear of every landing's works on every regeneration, so a wharf that moves or a new one built on this bank re-cuts the walk rather than oversailing it. The knots are invented: docs/LIBERTIES.md L153."
     }
   ],
   "posts": [],
   "refused": [
     {
       "structure_id": "river_plank_walk",
-      "wall": "the landing at Philo Carpenter's South Water Street Store (E +383 to +392)",
-      "why": "the landing at Philo Carpenter's South Water Street Store comes ashore across the walk's authored line, and 8.6 m of boards are refused rather than laid under it. The deck ties 2.0 m back into this bank (L132) and its boarding stair steps down landward of that heel onto the same ground; a walk laid through them ran under a slab standing half a metre over the planks, with 0.36 m of daylight between, and since T-0058 put a floor on that slab it also stood a 0.50 m riser across the walker's path — over the 0.35 m step-up rule, so refused. What a walker meets here is the landing: its deck is the walking surface and its boarding stair is the way up. T-0228."
-    },
-    {
-      "structure_id": "river_plank_walk",
-      "wall": "the landing at Jones's Grocery and Provision Store (E +358 to +362)",
-      "why": "the landing at Jones's Grocery and Provision Store comes ashore across the walk's authored line, and 4.9 m of boards are refused rather than laid under it. The deck ties 2.0 m back into this bank (L132) and its boarding stair steps down landward of that heel onto the same ground; a walk laid through them ran under a slab standing half a metre over the planks, with 0.36 m of daylight between, and since T-0058 put a floor on that slab it also stood a 0.50 m riser across the walker's path — over the 0.35 m step-up rule, so refused. What a walker meets here is the landing: its deck is the walking surface and its boarding stair is the way up. T-0228."
+      "wall": "the landing at Jones's Grocery and Provision Store (E +359 to +364)",
+      "why": "the landing at Jones's Grocery and Provision Store comes ashore across the walk's authored line, and 4.7 m of boards are refused rather than laid under it. The deck ties 2.0 m back into this bank (L132) and its boarding stair steps down landward of that heel onto the same ground; a walk laid through them ran under a slab standing half a metre over the planks, with 0.36 m of daylight between, and since T-0058 put a floor on that slab it also stood a 0.50 m riser across the walker's path — over the 0.35 m step-up rule, so refused. What a walker meets here is the landing: its deck is the walking surface and its boarding stair is the way up. T-0228."
     },
     {
       "structure_id": "river_plank_walk",

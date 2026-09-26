@@ -25,7 +25,7 @@
  "max_m": 3.7446,
  "quantisation_error_m": 0.0025,
  "water_surface_m": 0.0,
- "water_fraction": 0.1606,
+ "water_fraction": 0.1607,
  "relief_ft": {
   "land_min": -3.556,
   "land_max": 12.285,
@@ -38,7 +38,7 @@
    62.5
   ],
   "marsh_exclusion_m": 48.0,
-  "plain_cells_audited": 716291,
+  "plain_cells_audited": 716082,
   "carried_frame": {
    "cells": 356650,
    "block_max": 1.836,
@@ -65,7 +65,7 @@
    },
    "approach_lasalle_crossing_west": {
     "cells": 10,
-    "cell_max": 60.641
+    "cell_max": 59.897
    },
    "approach_north_branch_east": {
     "cells": 21,
@@ -92,7 +92,7 @@
     "cell_max": 171.698
    },
    "bank_face": {
-    "cells": 91156,
+    "cells": 91133,
     "cell_max": 224.231
    },
    "fort_dearborn_mound": {
@@ -100,7 +100,7 @@
     "cell_max": 188.858
    },
    "marsh_strip": {
-    "cells": 22008,
+    "cells": 21942,
     "cell_max": 148.58
    },
    "north_sand_ridge": {
@@ -136,5 +136,5 @@
   "ground": "gltf/terrain__e1834_harbor_cut.glb",
   "water": "gltf/water__e1834_harbor_cut.glb"
  },
- "inputs_sha256": "957e4766382435090d53b79483797ac1aab5016f4afe2b694fd199fae016ee66"
+ "inputs_sha256": "5b7d85f70e6f3b53b33c3b2f8d173a71c0632e2d53b3405d4bb7d247a038e972"
 }
