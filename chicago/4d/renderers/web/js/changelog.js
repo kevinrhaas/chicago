@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1146, title: 'A test that followed the wrong roof', kind: 'fix', ts: '2026-09-26T16:44:40.666Z', date: 'Sep 26, 2026, 11:44 AM CT',
+    items: [
+      'Nothing you can see in the town has changed. A check that guards the buildings\u2019 cards had gone red, and it was the check that was wrong, not the town.',
+      'On one South Water Street house the card carries a REFUSAL \u2014 a reading that said the firm there held a fire-insurance agency, and the reading does not stand. The check made sure that refusal reaches the card. But it named the house by hand, and last release re-dealt that block: two new cottages went up on its last free front and the firm shifted one roof along. The refusal moved with the firm, exactly as it should, and the check went looking for it at the old address.',
+      'It now reads the address out of the same file the card does, so a re-deal cannot break it again. What it pins instead is the thing that would really be wrong: that the refusal is still there at all, still against the same firm, and still the only one of its kind. Pointing the old check at the new house would have gone green today and red again the next time a block is dealt.',
+    ] },
   { v: 1145, title: 'The six back-yard cottages went up', kind: 'change', ts: '2026-09-26T15:44:49.688Z', date: 'Sep 26, 2026, 10:44 AM CT',
     items: [
       'Six sheds in the back yards of three platted blocks are cottages now, and you can walk round them. Last week\u2019s release wrote the rule and said the buildings would follow; this is that release.',

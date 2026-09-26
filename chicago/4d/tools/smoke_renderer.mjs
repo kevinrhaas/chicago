@@ -7012,8 +7012,42 @@ for (const [label, viewport, touch] of [
     //
     // Three reads, and the second and third are the discriminating ones. A card
     // that printed the whole file would pass the first alone.
-    const popAgency = await page.evaluate(() => {
+    //
+    // T-1627. WHICH roof the refused holding sits on is NOT a reading of any
+    // source, so it must not be pinned here. `compile_agencies.py` derives a
+    // business holder's `structure_id` from `street_face_adoptions.json`, whose
+    // own note says it plainly: "WHICH roof on the face is an allocation by
+    // tools/adopt_street_faces.py rather than a reading of any source." T-1622
+    // (#79) raised two roofs on blk_south_water_franklin's last free front, the
+    // allocator re-dealt the face, and Jones, King & Co. moved from
+    // ..._d5_01 to ..._d4_08 — so this check went red on dev having caught a
+    // re-deal and no regression at all. The only change to `1835_agencies.json`
+    // across that merge was that one id.
+    //
+    // So the roof is READ from the compiled file, and the thing that would be a
+    // real regression — the refusal being DROPPED by a re-deal — is asserted
+    // directly below instead. Repointing at `..._d4_08` would have bought the
+    // same green and gone red again on the next deal.
+    const agenciesDoc = JSON.parse(
+      fs.readFileSync(path.join(ROOT, 'data', 'reconstruction', '1835_agencies.json'), 'utf8'),
+    );
+    const refusedOnARoof = (agenciesDoc.agencies ?? [])
+      .flatMap((a) => a.refused_holdings ?? [])
+      .filter((h) => h.structure_id);
+    check(`${label}: the compiled agencies still carry a refused holding on a roof`,
+      refusedOnARoof.length === 1
+      && refusedOnARoof[0].holder === 'Jones, King & Co.'
+      && refusedOnARoof[0].holder_id === 'business_jones_king_co'
+      && Number(agenciesDoc.counts?.refused_holdings) === 1,
+      JSON.stringify({
+        found: refusedOnARoof.map((h) => ({ holder: h.holder, structure_id: h.structure_id })),
+        counts: agenciesDoc.counts,
+      }));
+    const refusedRoof = refusedOnARoof[0]?.structure_id ?? null;
+
+    const popAgency = await page.evaluate((jonesKingRoof) => {
       const read = (id) => {
+        if (!id) return { present: false, text: '', refused: false, cites: [] };
         window.__chicago4d.pick(id);
         const sec = document.querySelector('#popup .pop-agency');
         return {
@@ -7026,10 +7060,10 @@ for (const [label, viewport, touch] of [
       };
       return {
         hubbard: read('recon_1835_blk_randolph_wells_d2_07'),
-        jonesKing: read('recon_1835_blk_south_water_franklin_d5_01'),
+        jonesKing: read(jonesKingRoof),
         sauganash: read('sauganash_hotel'),
       };
-    });
+    }, refusedRoof);
     check(`${label}: the card names the agency this house held, and its principal`,
       popAgency.hubbard.present
       && /Hubbard & Co\. held the agency for Howard Fire Insurance Company/.test(popAgency.hubbard.text)
@@ -7056,8 +7090,9 @@ for (const [label, viewport, touch] of [
     // The REFUSED holding is legible, on the house the reading was made about.
     check(`${label}: a refused holding is on the card of the house it was refused for`,
       popAgency.jonesKing.present && popAgency.jonesKing.refused
-      && /Refused:/.test(popAgency.jonesKing.text),
-      popAgency.jonesKing.text.slice(0, 240));
+      && /Refused:/.test(popAgency.jonesKing.text)
+      && /agency for Howard Fire Insurance Company/.test(popAgency.jonesKing.text),
+      `${refusedRoof}: ${popAgency.jonesKing.text.slice(0, 240)}`);
     // And the discriminating case: a building holding no agency shows no section.
     check(`${label}: a house that held no agency says nothing about one`,
       !popAgency.sauganash.present,
