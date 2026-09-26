@@ -1708,11 +1708,11 @@
     "sampled_every_m": 5.0,
     "samples": 380,
     "off_the_modelled_field": 0,
-    "below_datum": 2,
-    "min_m": -0.46,
+    "below_datum": 0,
+    "min_m": 0.22,
     "max_m": 1.28,
-    "mean_m": 0.81,
-    "reading": "2 sample(s) below datum and 0 off the modelled field"
+    "mean_m": 0.82,
+    "reading": "dry: every sample stands above datum on the modelled field"
    },
    "survey_tract": {
     "tract": "canal_commissioners_1830",

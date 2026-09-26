@@ -141,7 +141,7 @@ since T-0005:
 Row 2 held two entries until 2026-09-26, when T-1628 deleted `lasalle_slough_upper` and cut
 `lasalle_slough_lower` back to a head 15.95 m inside block 50's South Water lot, on the owner's
 ruling that the slough is depicted as Wright depicts it. The indices above moved with it. See
-docs/RESEARCH/main_branch_sloughs_1833.md § 8.
+docs/RESEARCH/main_branch_sloughs_1833.md § 9.
 
 All three are also bridged: `slough_log_bridge`, `lasalle_slough_crossing` and
 `north_water_slough_crossing` are committed structures with approaches in the same spec.
