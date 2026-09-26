@@ -43,6 +43,7 @@ const SITE = path.resolve(REPO, '../../site/4d');
 const COPIES = [
   // The owner-requested atlas browser is copied verbatim into the dev preview.
   ['prairie-1904/', '../prairie_1904_v1/'],
+  ['pre-fire/', '../pre_fire_v1/'],
   ['walk/', 'renderers/web/'],
   ['js/changelog.js', 'renderers/web/js/changelog.js'],
   ['tickets.json', 'tickets/tickets.json'],

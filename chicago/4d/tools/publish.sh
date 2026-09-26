@@ -68,6 +68,10 @@ fi
 SITE="../../site/4d"
 # Owner-requested Prairie research browser also travels with the dev preview.
 python3 ../prairie_1904_v1/tools/publish.py "../../site/4d/prairie-1904"
+# Keep the pre-fire reference UI available for review before production promotion.
+bash ../pre_fire_v1/tools/publish.sh
+mkdir -p "$SITE/pre-fire"
+cp -R ../../site/pre-fire/viewer ../../site/pre-fire/maps ../../site/pre-fire/media "$SITE/pre-fire/"
 mkdir -p "$SITE/data/gltf" "$SITE/data/sidecars"
 
 # renderer

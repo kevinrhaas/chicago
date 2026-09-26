@@ -1,8 +1,9 @@
 export const CHANGELOG = [ // newest first
-  { v: 1146, title: 'Explore Prairie Avenue in 1904', kind: 'change', ts: '2026-09-26T16:17:01.156Z', date: 'Sep 26, 2026, 11:17 AM CT',
+  { v: 1146, title: 'Explore Prairie Avenue in 1904', kind: 'change', ts: '2026-09-26T16:18:46.697Z', date: 'Sep 26, 2026, 11:18 AM CT',
     items: [
       'A new Prairie Avenue research browser brings together house histories, Sanborn maps, directory leads and a dedicated Glessner collection.',
       'Browse the six Glessner measured drawings and survey report, compare 1911 frontage evidence with the 1904 target, and inspect source dates and unresolved questions.',
+      'The pre-fire library now has an 1834 shortcut for the Wright map. Its map menu lists every dated reference and moves the timeline to your selection.',
       'This is a research library for the planned reconstruction. The 1835 town and the unfinished Prairie 3D scene are unchanged.',
     ] },
   { v: 1145, title: 'The six back-yard cottages went up', kind: 'change', ts: '2026-09-26T15:44:49.688Z', date: 'Sep 26, 2026, 10:44 AM CT',

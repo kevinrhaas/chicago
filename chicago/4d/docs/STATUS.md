@@ -17129,5 +17129,13 @@ Tracking-ticket creation was refused by automatic approval review because it wou
 write to the separate tickets repository's main branch, while this request authorized
 code-repository dev delivery. No ticket was created or claimed; no existing Prairie
 scene ticket is represented as completed by this library. Browser/gate evidence is
-recorded in the delivery package. GitHub branch creation returned HTTP 403
-(Resource not accessible by integration), so no PR or remote push was created.
+recorded in the delivery package. GitHub access was restored later on 2026-09-26;
+PR #82 carries the library into dev. The separate tracking-ticket write still needs
+explicit owner authorization after automatic review rejected it.
+
+The owner's follow-up screenshot exposed a pre-fire navigation gap: the quick years
+skipped 1834 and the map selector hid every map outside the nearest reference year.
+The existing 5050-by-6628 Wright sheet is retained. An 1834 shortcut and an all-map
+selector now expose it directly; selecting a map sets the timeline to its date.
+Long provenance paths wrap on mobile. Both research viewers are included in the dev
+preview so these changes can be inspected before production promotion.
