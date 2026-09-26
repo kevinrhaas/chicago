@@ -18,6 +18,25 @@ necessarily a building in anybody's way. That is exactly why this module reports
 and lets each caller set its own bar: an invented placement has no business in the
 roadway at all, while an attested frontage that lands a few metres inside it is a
 measurement about the georeference and about the plat, not a defect in the record.
+
+TWO LINES, AND EVERY READER SAYS WHICH IT TOOK (T-0419, the owner's ruling of
+2026-09-21). `corridors()` answers on the DRAWN line, which is also the block grid's own
+control — `generate_plat_lots.block_edges` offsets that same line by the same half-module,
+so a block, a lot and the roof on it are seated on it. `corridors(from_control=True)` and
+`control_offsets()` answer on the CONTROL line. On the two streets whose drawn line does
+not reproduce their control the two disagree, and the owner ruled that the block grid is
+NOT re-cut onto the control: they are answers to two different questions, and neither is
+the other's control. The vocabulary is `LINES` below; the rule that every reader declares
+is `tools/check_corridor_line.py`; the disagreement itself is `docs/CORRIDOR-LINES.md`.
+
+THE DISAGREEMENT IS UNEXPLAINED, AND THAT IS RECORDED RATHER THAN RESOLVED. On
+`south_water` the control line stands 8.58 m north of the block faces derived from the
+drawn one, and on `kinzie` 2.91 m. Nothing in the record says which of the two the surveyor
+drew. It is not evidence either line is wrong: `data/streets/1835.json` already says that
+south_water's line "is shifted into the dry half of the platted riverfront corridor", and
+the band the control line would abandon is 99.1 % dry while the band it would claim is
+54.0 % river. The figures are pinned by `tools/measure_corridor_strip.py --gate` so the
+question cannot drift while it stands unanswered.
 """
 
 from __future__ import annotations
@@ -48,6 +67,19 @@ SAMPLE_M = 0.5
 # control to under a centimetre is a street drawn on its control, and re-centring it would
 # move the whole town by arithmetic noise.
 QUOTED_M = 0.01
+
+# WHICH LINE A READER'S ANSWER STANDS ON. T-0419's ruling turns on the distinction, so the
+# three words for it live here, beside the derivation, and `tools/check_corridor_line.py`
+# imports them rather than keeping a second list.
+#
+#   drawn    — the committed centreline of `data/streets/1835.json`, and with it the block
+#              faces `generate_plat_lots.block_edges` offsets from that same line. A
+#              question about a block, a lot or a roof is asked here.
+#   control  — the corridor re-centred onto the street's committed survey control. A
+#              question about where the PLAT put the roadway is asked here.
+#   both     — a reader whose subject IS the disagreement, and which therefore takes both
+#              on purpose and says what each is for.
+LINES = ("drawn", "control", "both")
 
 
 def _cross_axis_of_line(points: list, along: float, axis: str) -> float | None:

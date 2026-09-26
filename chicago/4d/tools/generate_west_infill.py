@@ -92,6 +92,15 @@ from inferred_occupancy import occupancy  # noqa: E402
 # the only thing that knows the parcel whole. See tools/siding_stock.py.
 from siding_stock import deal_records as deal_siding  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "drawn"
+CORRIDOR_LINE_WHY = (
+    "a West Division roof is seated on its lot, so the corridor it is refused from is the drawn one "
+    "its lot is measured off"
+)
+
 OCCUPANCY = occupancy()
 FAMILIES = families()
 

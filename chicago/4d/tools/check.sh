@@ -1005,6 +1005,21 @@ step "the band between the re-centred corridor and its block faces is what T-041
 selftest "…and that measurement's own assertions still fire when broken" \
   python3 tools/measure_corridor_strip.py --self-test
 
+# AND THE RULING THAT CLOSED IT (T-0419, the owner, 2026-09-21): the block grid is NOT
+# re-cut onto the control, the two lines are answers to two different questions, and EVERY
+# READER SAYS WHICH IT TOOK. That is the substance of the ruling and the only part of it
+# that is enforceable — the fault the ticket found was not a wrong line but a reader that
+# never said, so nobody could tell whether its number was about the plat or about the town.
+# The check reads the SYNTAX TREE and not the text, because every one of these modules
+# discusses both lines at length in its prose and a grep for `from_control` reports almost
+# all of them as control readers. `docs/CORRIDOR-LINES.md` is the ruling, the disagreement
+# the owner declined to resolve, and the price branch A was refused at.
+step "every reader of the platted grid says which of its two lines its answer stands on" \
+  python3 tools/check_corridor_line.py --gate
+
+selftest "…and the declaration is checked against the calls, in the tree and not in the prose" \
+  python3 tools/check_corridor_line.py --self-test
+
 # T-0875. The School Section's 142 block numerals, read off the 600-dpi NA sheet.
 # It sits beside the Thompson grid because it is the same question answered the
 # other way round: there, two legible numerals could not say how a run passes from

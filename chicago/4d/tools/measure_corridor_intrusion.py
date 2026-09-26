@@ -76,6 +76,15 @@ from plat_corridors import (  # noqa: E402
     control_offsets, corridors, intrusion, sampled)
 from plat_occupancy import world_polygon  # noqa: E402
 
+# WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
+# 2026-09-21). See `plat_corridors.LINES` for the three words and
+# `tools/check_corridor_line.py` for the check that every reader declares.
+CORRIDOR_LINE = "control"
+CORRIDOR_LINE_WHY = (
+    "it asks where the PLAT put the roadway a body is drawn standing in, which is the owner's ruling "
+    "of 2026-08-29; `--drawn` re-asks it on the other line for comparison"
+)
+
 # WHICH CORRIDOR THIS WHOLE TOOL MEASURES AGAINST — T-0009, and the owner's ruling of
 # 2026-08-29 that the platted corridor is derived from the street CONTROL and not from the
 # drawn line. `--drawn` puts every mode back on the drawn line, so the before-and-after

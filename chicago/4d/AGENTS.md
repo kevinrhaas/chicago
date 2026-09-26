@@ -61,6 +61,22 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    and the steps that actually failed are listed once, by label, under `CHECK FAIL` at
    the end. An untagged `FAIL` is the only kind worth chasing. Three tickets were filed
    against tagged ones before T-0763; do not make a fourth.
+10. **A reader of the platted grid says which of its two lines its answer stands on.**
+   The **drawn** centreline in `data/streets/1835.json` is the block grid's own control —
+   `generate_plat_lots.block_edges` offsets it by the platted half-module — and the
+   **control** line is that corridor re-centred onto the street's committed survey control.
+   On `south_water` they disagree by 8.58 m and on `kinzie` by 2.91 m, and the owner ruled
+   on 2026-09-21 (T-0419) that the block grid is NOT re-cut onto the control: they answer
+   two different questions and neither is the other's control. So a question about a block,
+   a lot or a roof is asked on the drawn line; a question about where the PLAT put the
+   roadway is asked on the control line; and any module calling `corridors`,
+   `control_offsets`, `intrusion` or `block_edges` carries `CORRIDOR_LINE` and
+   `CORRIDOR_LINE_WHY` saying which and why. `tools/check_corridor_line.py --gate` refuses a
+   reader that does not declare, or whose declaration disagrees with its own calls; it reads
+   the syntax tree, so naming a line in prose is discussing it and not taking it.
+   `docs/CORRIDOR-LINES.md` is the ruling and the disagreement it declined to resolve.
+   **Do not "fix" the disagreement by moving the lot grid** — that was priced at 32 lots
+   re-cut, 53 committed roofs and a whole documented block into the river, and refused.
 
 ## Standing constraint — 1835 and Indigenous history
 

@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1123, title: 'Two lines down one street, and nothing said which one it meant', kind: 'fix', ts: '2026-09-26T03:28:33.517Z', date: 'Sep 25, 2026, 10:28 PM CT',
+    items: [
+      'Nothing you can see in the town changed. This is about a disagreement in the survey under it that has stood for four weeks, and the thirteen tools that read across it.',
+      'Two lines run down each street of the 1835 plat. One is the line this project has DRAWN, and the town is built on it: blocks set back from it, lots cut off the blocks, every roof on a lot. The other is where the surviving survey markers put the street. On two streets they disagree \u2014 8.58 m on South Water, 2.91 m on Kinzie \u2014 and nothing in the record says which one the surveyor drew.',
+      'The owner has ruled, and the ruling is that the town does not move. Moving it was priced first: thirty-two lots re-cut, fifty-three buildings already standing on them, and one whole documented block off the plat into the river. The ground the other line would hand back in exchange is 99 % dry, which is the wrong shape for land a survey put in water. The evidence does not carry that price.',
+      'What the ruling asks instead is that every tool SAY which line it stands on, because the fault was never a wrong line \u2014 it was that you could not tell. A question about a building, a lot or a block belongs on the drawn line; a question about where the survey put the roadway belongs on the other. Thirteen tools were reading one or the other with nothing on their face to say so.',
+      'All thirteen now declare it, and say what question they are asking. A new check refuses any that does not, or that declares one line and then asks for the other. It reads the code rather than the comments, which matters: every one of these tools discusses both lines at length, so looking for the words would have accused almost all of them. Seventeen tests hold it shut.',
+      'And the odd number is written down rather than tidied away \u2014 the disagreement, the ground each line leaves the other, what the refused alternative would have cost, and the note that none of it is evidence either line is wrong. The figures are pinned, so the question cannot drift while it stands unanswered.',
+    ] },
   { v: 1122, title: 'The checks complained about themselves on every run', kind: 'fix', ts: '2026-09-26T02:37:15.916Z', date: 'Sep 25, 2026, 9:37 PM CT',
     items: [
       'Nothing you can see in the town changed. This is about the 630 checks every change here has to pass, and two lines of complaint they have printed about their own wording since 9 September.',
