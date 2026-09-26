@@ -1422,13 +1422,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1480,
-    "seated": 172,
-    "still_owed": 1308,
-    "roofs_adopted": 172,
+    "seated": 178,
+    "still_owed": 1302,
+    "roofs_adopted": 178,
     "slots_requested": 0,
     "roofs_standing": 421,
-    "roofs_standing_unseated": 249,
-    "share_of_standing_roofs_seated": 0.4086,
+    "roofs_standing_unseated": 243,
+    "share_of_standing_roofs_seated": 0.4228,
     "passes": [
       {
         "key": "platted",
@@ -1437,22 +1437,22 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1480,
-        "seated": 100,
-        "handed_on": 1380,
-        "roofs_adopted": 100,
+        "seated": 106,
+        "handed_on": 1374,
+        "roofs_adopted": 106,
         "slots_requested": 0,
-        "roofs_offered_for_adoption": 103,
+        "roofs_offered_for_adoption": 109,
         "roofs_held_back": 56,
         "ground_taken": 89,
         "ground_taken_unit": "lots",
         "by_district": {
-          "south": 84,
+          "south": 90,
           "west": 16
         },
         "by_clause": {
-          "labourer_dwellings": 31,
+          "labourer_dwellings": 34,
           "merchant_and_professional_dwellings": 9,
-          "tradesman_dwellings": 60
+          "tradesman_dwellings": 63
         }
       },
       {
@@ -1461,9 +1461,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1380,
+        "rows_offered": 1374,
         "seated": 72,
-        "handed_on": 1308,
+        "handed_on": 1302,
         "roofs_adopted": 72,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 74,
@@ -1485,7 +1485,7 @@
     "requested_slots": [],
     "slot_blocks": [],
     "what_the_slots_wait_on": "no slot was requested: every seat is an adoption of a roof already standing.",
-    "what_is_left": "1,308 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,302 of the 1,480 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -4696,13 +4696,13 @@
             "division": "south"
           },
           "target": 35,
-          "standing": 20,
-          "to_build": 15,
+          "standing": 16,
+          "to_build": 19,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 15 of them to build"
+          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 19 of them to build"
         },
         {
           "key": "structures/barns_stables/west",
@@ -4914,13 +4914,13 @@
             "division": "south"
           },
           "target": 176,
-          "standing": 120,
-          "to_build": 56,
+          "standing": 126,
+          "to_build": 50,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1203",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 56 of them to build"
+          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 50 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/west",
@@ -4961,13 +4961,13 @@
             "division": "south"
           },
           "target": 48,
-          "standing": 25,
-          "to_build": 23,
+          "standing": 23,
+          "to_build": 25,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1212",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 23 of them to build"
+          "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 25 of them to build"
         },
         {
           "key": "structures/small_outbuildings/west",

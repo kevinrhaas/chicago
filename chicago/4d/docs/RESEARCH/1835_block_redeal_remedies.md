@@ -10,37 +10,28 @@ Each is an A-family yard building standing at a yard setback off its block alley
 
 **What is still not done:** The six are not re-dealt. The recipe stands them as A-family slots, no id has moved and no mesh has been rebaked — T-1611 does that, and this report is what says it now can be.
 
-- outstanding verdicts: **6**
+- outstanding verdicts: **0**
 - refused by the parcel gate: **0**
-- offered families that would leave the inventory class alone: **0** of 36
-- open lots across the three blocks: **2**, against 6 roofs
+- offered families that would leave the inventory class alone: **0** of 0
+- open lots across the three blocks: **0**, against 0 roofs
 
 ## The six, and what refuses each one
 
 | roof | becomes | stands | was | now | the refusal |
 | --- | --- | --- | --- | --- | --- |
-| `recon_1835_blk_randolph_market_a1_07` | `recon_1835_blk_randolph_market_d4_07` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D4 (ancillary) | None |
-| `recon_1835_blk_randolph_market_a1_12` | `recon_1835_blk_randolph_market_d4_12` | lot 1, off the alley, 5.0 m | A1 (ancillary) | D4 (ancillary) | None |
-| `recon_1835_blk_randolph_market_a3_05` | `recon_1835_blk_randolph_market_d2_05` | lot 0, off the alley, 5.0 m | A3 (ancillary) | D2 (ancillary) | None |
-| `recon_1835_blk_randolph_market_a4_06` | `recon_1835_blk_randolph_market_d2_06` | lot 2, off the alley, 4.5 m | A4 (ancillary) | D2 (ancillary) | None |
-| `recon_1835_blk_south_water_lasalle_a1_06` | `recon_1835_blk_south_water_lasalle_d3_06` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D3 (ancillary) | None |
-| `recon_1835_blk_south_water_wells_a1_07` | `recon_1835_blk_south_water_wells_d1_07` | lot 3, off the alley, 5.0 m | A1 (ancillary) | D1 (ancillary) | None |
 
-Every one of the 36 families the adjudication offers across the six is an ordinary dwelling, so no offered family avoided the promotion by its letter alone. There was no re-deal inside the verdict, which is why the question had to go to the owner rather than being solved here.
+Every one of the 0 families the adjudication offers across the six is an ordinary dwelling, so no offered family avoided the promotion by its letter alone. There was no re-deal inside the verdict, which is why the question had to go to the owner rather than being solved here.
 
 ## The ground the other remedy would need
 
 | block | roofs needing a lot | open lots |
 | --- | ---: | ---: |
-| `blk_randolph_market` | 4 | 1 |
-| `blk_south_water_lasalle` | 1 | 0 |
-| `blk_south_water_wells` | 1 | 1 |
 
 And each of those open lots is declared open in the recipe with a stated reason — the programme's own alternating-vacancy assumption. Taking one is overruling that assumption, not finding space.
 
 ## The clause, asked its own question
 
-1 of the 4 documented buildings this clause cites as its evidence FRONTS a principal street, which is the position the clause says it avoids and the one term the policy scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a principal street; `recon_1835_blk_randolph_market_a1_07` is an A1 standing 29.28 m from one. The test that refamilies the second refamilies the first. That is a question about the clause, and this tool does not answer it. 2 more front no street at all, out on the reservation beyond the census's frontage reach (T-1511): the scored term has no class to read for them, and the clause's own answer is printed beside it — it refuses 2 of them on the `yard` setback it seats by, which is measured off a block alley this ground does not have.
+1 of the 4 documented buildings this clause cites as its evidence FRONTS a principal street, which is the position the clause says it avoids and the one term the policy scores. `wolf_point_tavern_stable` is an A1 standing 36.70 m from a principal street; the roof now standing as `recon_1835_blk_randolph_market_d4_07` WAS an A1 standing 29.28 m from one, until T-1611 re-dealt it. The test that refamilies the second refamilies the first. That is a question about the clause, and this tool does not answer it. 2 more front no street at all, out on the reservation beyond the census's frontage reach (T-1511): the scored term has no class to read for them, and the clause's own answer is printed beside it — it refuses 2 of them on the `yard` setback it seats by, which is measured off a block alley this ground does not have.
 
 | evidence record | family | street it fronts | class | setback m | scored term | the clause refuses it |
 | --- | --- | --- | --- | ---: | --- | --- |
@@ -57,13 +48,13 @@ All three change what the town IS, so this tool costed them and asked rather tha
 
 The town gains a building class it had never stated. `ancillary_behind_its_own_roof` applies to A1–A5 only, so a D-family roof in the yard was covered by no clause at all. The adoption gate had to be ruled on too: it refused an ancillary roof an occupant on the reasoning that a yard building is a shed, and a rear cottage is not one.
 
-**Costs:** 6 roofs keep their position; one new policy clause, tier `inferred` and citing no record; one ruling on adoption. TAKEN by the owner on 2026-09-23.
+**Costs:** 0 roofs keep their position; one new policy clause, tier `inferred` and citing no record; one ruling on adoption. TAKEN by the owner on 2026-09-23.
 
 ### Deal the six onto free lots as principal roofs.
 
-The verdict's own sentence — `the slot is wanted and the position stands` — no longer holds, and the ground is not there: the three blocks hold 2 open lot(s) against 6 roofs, and each of those lots is declared open in the recipe with a stated reason, carried into `ground` below. Taking one is overruling the programme's alternating-vacancy assumption, not finding space.
+The verdict's own sentence — `the slot is wanted and the position stands` — no longer holds, and the ground is not there: the three blocks hold 0 open lot(s) against 0 roofs, and each of those lots is declared open in the recipe with a stated reason, carried into `ground` below. Taking one is overruling the programme's alternating-vacancy assumption, not finding space.
 
-**Costs:** 4 roof(s) with nowhere to stand even after both open lots are spent.
+**Costs:** 0 roof(s) with nowhere to stand even after both open lots are spent.
 
 ### Let the six stand as the A-family yard buildings they are and record the refusal against the adjudication.
 

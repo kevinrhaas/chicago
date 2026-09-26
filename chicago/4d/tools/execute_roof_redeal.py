@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """CARRY THE ANONYMOUS-ROOF ADJUDICATION OUT IN THE RECIPES. T-1451.
 
-    tools/execute_roof_redeal.py --apply       execute what can be executed, write the report
-    tools/execute_roof_redeal.py --check       re-derive and refuse drift
-    tools/execute_roof_redeal.py --self-test   the guards, fired on fixtures
+    tools/execute_roof_redeal.py --apply           execute what can be executed, write the report
+    tools/execute_roof_redeal.py --check           re-derive and refuse drift
+    tools/execute_roof_redeal.py --migrate         the North Division's nine (T-1480)
+    tools/execute_roof_redeal.py --check-migration re-derive those and sweep for stale names
+    tools/execute_roof_redeal.py --redeal-blocks   the three platted blocks' six (T-1611)
+    tools/execute_roof_redeal.py --check-blocks    re-derive those and sweep for stale names
+    tools/execute_roof_redeal.py --self-test       the guards, fired on fixtures
 
 T-1445 adjudicated the town's 285 anonymous roofs against the re-derived
 programme and wrote `data/reconstruction/1835_roof_redeal.json`: 253 keep, 32
@@ -28,11 +32,15 @@ executable here only if carrying it out leaves the RECORD ID alone:
     the derived layer, not an edit. T-1452 was split once the surface was
     measured: `tools/measure_roof_id_migration.py` classifies every reference
     they stand on, and T-1481 (south), T-1482 (the platted blocks) and T-1484
-    (north) carry them out.
+    (north) carry them out. ALL THREE HAVE NOW RUN --- `tools/migrate_roof_ids.py`
+    took the south eleven, `--migrate` below the north nine, and `--redeal-blocks`
+    the platted blocks' six, which needed an owner ruling first and were the last
+    of the 32.
 
-So the tool executes the six West Division verdicts, RECORDS the other 26 as
-outstanding with the files that name each one, and refuses to pretend the
-difference away. An executor that quietly renamed 26 ids and left ten files
+So the tool executes the six West Division verdicts under `--apply`, carries the
+id-moving ones out under `--migrate` (north) and `--redeal-blocks` (the platted
+blocks), RECORDS anything still outstanding with the files that name each one, and
+refuses to pretend the difference away. An executor that quietly renamed 26 ids and left ten files
 pointing at roofs that no longer exist would pass its own check and break the
 town.
 
@@ -81,6 +89,11 @@ sys.path.insert(0, str(ROOT / "tools"))
 # imported rather than retyped: a group total computed under a second opinion
 # about which letter is a workshop would not be the town's.
 from reconcile_665 import group_of  # noqa: E402
+# The one class derivation, which since T-1610 reads a slot's POSITION as well
+# as its family. Imported and never retyped: the block re-deal below asks it for
+# each re-dealt slot's class, and `generate_block_infill` refuses a recipe that
+# disagrees with it, so a second opinion here would be red rather than wrong.
+from reconcile_665 import inventory_class  # noqa: E402
 # The one list of names a roof-id sweep may not move (T-1499).
 import roof_id_pins  # noqa: E402
 
@@ -230,6 +243,35 @@ def plan_west(recipe: dict, here: list[dict]) -> list[dict]:
             "band_already_fits": bool(v["band_already_fits"]),
             "inventory_class": p["inventory_class"],
             "why": v["reason"],
+        })
+    plan.sort(key=lambda e: e["id"])
+    return plan
+
+
+def merge_recorded_west(recipe: dict, plan: list[dict]) -> list[dict]:
+    """Today's West plan plus the verdicts a previous run already carried out.
+
+    Those are gone from the ledger --- the adjudication is re-derived over the town
+    as it stands, so a roof that conforms returns `keep` --- and they stand in the
+    recipe's own `redealt` block. Merged so the report and the totals describe the
+    whole execution rather than only today's remainder. Lifted out of `--apply`
+    (T-1611) because `--redeal-blocks` needs the same list to rewrite the report
+    WITHOUT planning any West work: the platted-block re-deal is what empties the
+    outstanding list the report prints, and executing a West verdict is `--apply`'s
+    business and nobody else's.
+    """
+    done = {e["id"] for e in plan}
+    for r in recipe.get("redealt", {}).get("roofs", []):
+        if r["id"] in done:
+            continue
+        plan.append({
+            "id": r["id"], "slot": r["slot"],
+            "from_family": r["was"], "to_family": r["now"],
+            "from_group": r["was_group"], "to_group": r["now_group"],
+            "from_footprint_ft": list(r.get("was_footprint_ft", r["footprint_ft"])),
+            "to_footprint_ft": list(r["footprint_ft"]),
+            "band_already_fits": not r["footprint_moved"],
+            "inventory_class": None, "why": r["why"],
         })
     plan.sort(key=lambda e: e["id"])
     return plan
@@ -689,8 +731,18 @@ def migrate_tree(plan: list[dict]) -> tuple[list[str], list[str]]:
     """Carry every committed reference across, and rename every file called
     after a migrated roof. Returns (files rewritten, files renamed)."""
     moves = {e["id"]: e["new_id"] for e in plan}
+    # A YARD GROUP NAMED AFTER A MIGRATED ROOF MOVES WITH IT --- and only the North
+    # parcel names one. Its placements carry an `id_suffix`, and three yards are
+    # called after it; the platted blocks' slots carry no suffix at all, their yard
+    # goods are grouped by the block or by a named premises, and none of the six is
+    # named by one (measured over `data/yard/` on 2026-09-26). So the rename map is
+    # built from the entries that HAVE a suffix rather than from all of them: asking
+    # every plan for a key only one mode authors is how this raised a KeyError on the
+    # block re-deal's first run.
     yards = {}
     for e in plan:
+        if not e.get("suffix"):
+            continue
         for tag in ("nw", "wk", "re", "km", "ke", "rf"):
             yards[f"{tag}_{e['suffix']}_yard"] = f"{tag}_{e['new_suffix']}_yard"
 
@@ -716,7 +768,7 @@ def migrate_tree(plan: list[dict]) -> tuple[list[str], list[str]]:
         if not path.is_file() or path in skip:
             continue
         rel = path.relative_to(ROOT).as_posix()
-        if rel.startswith(roof_id_pins.NOT_THE_SOURCE_TREE) or keeps_the_old_name(rel):
+        if roof_id_pins.not_the_source_tree(rel) or keeps_the_old_name(rel):
             continue
         if path.suffix.lower() not in (".json", ".md", ".py", ".js", ".mjs",
                                        ".html", ".css", ".txt", ".sh", ".csv"):
@@ -798,7 +850,7 @@ def check_migration() -> int:
         if not path.is_file():
             continue
         rel = path.relative_to(ROOT).as_posix()
-        if rel.startswith(roof_id_pins.NOT_THE_SOURCE_TREE):
+        if roof_id_pins.not_the_source_tree(rel):
             continue
         if keeps_the_old_name(rel):
             text = path.read_text(encoding="utf-8", errors="ignore")
@@ -841,6 +893,373 @@ def check_migration() -> int:
 
     print(f"verified {len(block['roofs'])} migrated roof(s), every one now `keep`, "
           f"and no live reference names an id they left behind")
+    for rel in pinned:
+        print(f"  pinned, true as written on its own date: {rel}")
+    return 0
+
+
+# --------------------------------------------------------------------------
+# the block re-deal --- T-1611, the three platted blocks' six
+# --------------------------------------------------------------------------
+#
+# THE THIRD MODE, AND THE LAST OF THE 32. `plan_west` carries out a verdict whose
+# id stays put; `plan_north` carries out one whose id moves and whose recipe
+# authors the footprint and the class per placement. These six are neither: they
+# are the yard buildings of `blk_randolph_market`, `blk_south_water_lasalle` and
+# `blk_south_water_wells`, and until the owner's ruling of 2026-09-23 there was no
+# plan for them here at all --- the tool recorded them as outstanding and said
+# which files named them, and that was the whole of it.
+#
+# WHAT IS DIFFERENT ABOUT A BLOCK, and each difference is why this is a third
+# plan rather than an argument passed to the second:
+#
+#   * THE RECIPE AUTHORS NO FOOTPRINT. `generate_block_infill` samples a slot's
+#     dimensions inside its family's own band on a stable key, so refamilying
+#     RE-DERIVES the footprint by construction. There is no `band_already_fits`
+#     column to honour and no band corner to take: this plan computes no
+#     dimension, which is the honest answer and not an omission.
+#
+#   * THE CLASS IS NOT A FIELD. Since T-1610 `reconcile_665.inventory_class` reads
+#     a slot's POSITION as well as its family --- off the alley, on a lot whose
+#     principal roof is already dealt, a dwelling is a rear cottage and ancillary
+#     --- and `generate_block_infill.check_slot_inventory_classes` refuses any
+#     recipe slot whose declared class is not the derived one. So this plan ASKS
+#     the derivation for the new class rather than choosing it, and that is what
+#     makes the six a re-deal instead of six field edits. It is also the assertion
+#     the owner's ruling turns on: measured on the committed tree, 0 of the 6 move
+#     class, which is why the blocks' principal-roof counts do not move either.
+#
+#   * A BLOCK IS DEALT MORE THAN ONCE. `blk_randolph_market` carries a first deal
+#     and a second, `blk_south_water_lasalle` likewise, and the two entries share
+#     a `block_id` while numbering from different `seq_start`s. A slot is therefore
+#     found by PROGRAMME PHASE and sequence, never by block id alone --- one of the
+#     six (`..._a1_12`) lives in a second deal, and a plan keyed on the block would
+#     have re-dealt the wrong slot or none.
+#
+#   * THE BLOCK'S OWN SCHEDULE COUNTS ITS SLOTS. `check_block` holds `families`
+#     and the principal/ancillary mix to what the records actually are, so both are
+#     RECOUNTED here from the re-dealt slots. A family the re-deal empties drops
+#     out rather than standing at zero, and the mix is counted rather than held to
+#     keep an old total --- the same rule the North migration follows.
+#
+# What it refuses is what the other two refuse: it adjudicates nothing (every
+# family is the `to_family` T-1445 reached, every reason is T-1445's own, quoted),
+# it upgrades no confidence, and it moves no roof --- every slot keeps its lot, its
+# setback and its lateral offset, because the adjudication refused these families'
+# placement policy and not their positions.
+
+BLOCK_RECIPE = RECON / "1835_platted_block_parcels.json"
+BLOCK_PREFIX = "recon_1835_blk_"
+BLOCK_TICKET = "T-1611"
+
+
+def block_slot_index(recipe: dict) -> dict[str, tuple[dict, dict, int]]:
+    """Every derived record id in the block recipe -> (block entry, slot, sequence).
+
+    The id is built the way `generate_block_infill` builds it, and the sequence
+    starts where the entry says it does: a second deal on a block numbers on from
+    the first, and two entries both numbering from one would collide.
+    """
+    index: dict[str, tuple[dict, dict, int]] = {}
+    for block in recipe["blocks"]:
+        stem = block["block_id"].removeprefix("blk_")
+        for seq, slot in enumerate(block["slots"],
+                                   start=int(block.get("seq_start", 1))):
+            sid = f"{BLOCK_PREFIX}{stem}_{slot['family'].lower()}_{seq:02d}"
+            if sid in index:
+                raise SystemExit(f"{sid} is derived by two slots; the recipe's "
+                                 f"sequences no longer make the id unique")
+            index[sid] = (block, slot, seq)
+    return index
+
+
+def block_held_lots(block: dict) -> frozenset[int]:
+    """The lots this block's dealt principal roofs hold, asked of the generator.
+
+    Imported rather than restated: whether a frontage run holds the lots it was
+    dealt is the parcel gate's business, and a second opinion about it here would
+    compute a class the generator then refuses. WHICH roof holds a lot is not asked
+    --- `docs/RESEARCH/1835_block_redeal_remedies.md` names each one, and a set is
+    the whole of what the derivation needs.
+    """
+    sys.path.insert(0, str(ROOT / "tools"))
+    import generate_block_infill  # noqa: PLC0415
+    return frozenset(generate_block_infill.principal_lots_of(block))
+
+
+def plan_block(recipe: dict, outstanding: list[dict]) -> list[dict]:
+    index = block_slot_index(recipe)
+    held = {id(block): block_held_lots(block) for block in recipe["blocks"]}
+    plan = []
+    for v in sorted(outstanding, key=lambda v: v["id"]):
+        if not v["id"].startswith(BLOCK_PREFIX):
+            continue
+        found = index.get(v["id"])
+        if found is None:
+            raise SystemExit(f"{v['id']}: refamilied by the adjudication and no slot "
+                             f"in {BLOCK_RECIPE.name} derives it")
+        block, slot, seq = found
+        if slot["family"] != v["family"]:
+            raise SystemExit(f"{v['id']}: the slot stands as {slot['family']}, not "
+                             f"the {v['family']} the adjudication describes")
+        stem = block["block_id"].removeprefix("blk_")
+        new_id = f"{BLOCK_PREFIX}{stem}_{v['to_family'].lower()}_{seq:02d}"
+        lot = int(slot["lot"]) if "lot" in slot else None
+        to_class = inventory_class(
+            v["to_family"], stands_on=slot.get("stands_on"),
+            lot_carries_a_principal_roof=lot is not None and lot in held[id(block)])
+        plan.append({
+            "id": v["id"], "new_id": new_id, "sequence": seq,
+            "slot": slot,
+            "block_id": block["block_id"],
+            "programme_phase": block["programme_phase"],
+            "lot": lot, "stands_on": slot.get("stands_on"),
+            "fronts": slot.get("fronts"),
+            "from_family": v["family"], "to_family": v["to_family"],
+            "from_group": v["group"], "to_group": v["to_group"],
+            "from_inventory_class": slot["inventory_class"],
+            "to_inventory_class": to_class,
+            "lot_carries_a_principal_roof": lot is not None and lot in held[id(block)],
+            "why": v["reason"],
+        })
+    # A re-deal that landed two roofs on one id, or on an id another slot already
+    # derives, would delete a building by renaming it onto its neighbour. THE
+    # SEQUENCE DOES NOT RULE THIS OUT, which is why the question is asked of the slot
+    # and not of its number: a block dealt twice numbers its second deal on from a
+    # `seq_start`, so one entry's slot 2 and another's can hold the same sequence and
+    # be two different buildings.
+    for e in plan:
+        found = index.get(e["new_id"])
+        if found is not None and found[1] is not e["slot"]:
+            raise SystemExit(f"{e['id']} would become {e['new_id']}, which another "
+                             f"slot of the same block already derives")
+    seen = [e["new_id"] for e in plan]
+    if len(set(seen)) != len(seen):
+        raise SystemExit("two re-dealt roofs would take the same id; the sequence no "
+                         "longer makes the id unique")
+    return plan
+
+
+WHY_BLOCK_REDEALT = (
+    "THE LAST SIX OF THE 32, AND THE RULING THAT FREED THEM. T-1445 adjudicated "
+    "the town's anonymous roofs and returned 32 refamily verdicts; T-1451 carried "
+    "out the six whose ids do not move, T-1494 the phase-one South parcel's "
+    "eleven and T-1480 the North Division's nine. These six are the platted "
+    "blocks', and the rename was never what stopped them. Every one is an "
+    "A-family yard building at a `yard` setback off its block alley, behind the "
+    "principal roof on its own lot, and the adjudication moves each into an "
+    "ordinary-dwelling family. The inventory class was read off the family GROUP "
+    "alone, so each promotion made a SECOND principal roof on an occupied lot and "
+    "the parcel gate refused all six; T-1482 measured that, costed the three ways "
+    "out and asked, because all three change what the town is. The owner answered "
+    "on 2026-09-23: treat a rear cottage as ancillary, so a lot may carry a main "
+    "house plus a rear dwelling. T-1610 wrote the ruling into the placement "
+    "policy as `rear_dwelling_behind_its_own_roof` and into "
+    "`reconcile_665.inventory_class`, which now reads the position as well as the "
+    "group. THIS IS THE RE-DEAL ITSELF, and it is a re-deal and not a field edit: "
+    "the slot's family moves and its class is ASKED of that derivation, which "
+    "`generate_block_infill.check_slot_inventory_classes` then refuses to let "
+    "disagree. NOTHING IS ADJUDICATED HERE --- every family is the `to_family` "
+    "T-1445 reached and every reason beside it is T-1445's own, quoted. NO ROOF "
+    "MOVES: each slot keeps its lot, its setback and its lateral offset, because "
+    "the adjudication refused these families' placement policy and not their "
+    "positions. NO FOOTPRINT IS CHOSEN: the block recipe authors no dimensions, "
+    "so the generator re-samples each one inside its new family's own band. NO "
+    "CONFIDENCE MOVES: these roofs are reconstructed count-units before and "
+    "after, and refamilying changes what an invented building is, never how well "
+    "attested it is. The six record ids move with the family, and every committed "
+    "file that named one is carried across with them. Recorded in docs/LIBERTIES.md."
+)
+
+
+def migrate_block_recipe(recipe: dict, plan: list[dict]) -> dict:
+    """The block recipe, re-dealt. Loaded and dumped whole --- this file is already
+    one value per line at indent 2 and a round trip reproduces it byte for byte."""
+    from collections import Counter  # noqa: PLC0415
+
+    by_phase: dict[str, list[dict]] = {}
+    for e in plan:
+        by_phase.setdefault(e["programme_phase"], []).append(e)
+
+    for block in recipe["blocks"]:
+        entries = by_phase.get(block["programme_phase"])
+        if not entries:
+            continue
+        for seq, slot in enumerate(block["slots"],
+                                   start=int(block.get("seq_start", 1))):
+            for e in entries:
+                if e["sequence"] != seq:
+                    continue
+                slot["family"] = e["to_family"]
+                slot["inventory_class"] = e["to_inventory_class"]
+        fams = Counter(slot["family"] for slot in block["slots"])
+        # The FILE's key order is kept --- the schedule's, not the alphabet's --- and a
+        # family the re-deal empties drops out rather than standing at zero.
+        block["families"] = ({k: fams[k] for k in block["families"] if fams.get(k)}
+                             | {k: fams[k] for k in sorted(fams)
+                                if k not in block["families"]})
+        principal = sum(1 for slot in block["slots"]
+                        if slot["inventory_class"] == "principal_functional")
+        ancillary = len(block["slots"]) - principal
+        claimed = block["drawn_from_schedule"]
+        # Counted, never held to keep an old total. `capacity_roofs`, `headroom` and
+        # `free_lots` are the SCHEDULE's, derived from the programme and the committed
+        # footprints, and this tool does not touch them.
+        claimed["principal"] = principal
+        claimed["ancillary"] = ancillary
+        if "dealt_principal" in claimed:
+            claimed["dealt_principal"] = principal
+        if "dealt_ancillary" in claimed:
+            claimed["dealt_ancillary"] = ancillary
+
+    recipe["redealt"] = {
+        "on": "2026-09-26",
+        "ticket": BLOCK_TICKET,
+        "adjudicated_by": "T-1445",
+        "ruled_by": "the owner, 2026-09-23, on T-1482's question",
+        "clause": "rear_dwelling_behind_its_own_roof",
+        "ledger": "data/reconstruction/1835_roof_redeal.json",
+        "why": WHY_BLOCK_REDEALT,
+        "class_moved": sum(1 for e in plan
+                           if e["from_inventory_class"] != e["to_inventory_class"]),
+        "roofs": [
+            {
+                "was_id": e["id"], "id": e["new_id"], "sequence": e["sequence"],
+                "block_id": e["block_id"],
+                "programme_phase": e["programme_phase"],
+                "lot": e["lot"], "stands_on": e["stands_on"],
+                "was": e["from_family"], "now": e["to_family"],
+                "was_group": e["from_group"], "now_group": e["to_group"],
+                "was_inventory_class": e["from_inventory_class"],
+                "inventory_class": e["to_inventory_class"],
+                "lot_carries_a_principal_roof": e["lot_carries_a_principal_roof"],
+                "why": e["why"],
+            }
+            for e in plan
+        ],
+    }
+    return recipe
+
+
+def check_block_redeal() -> int:
+    """Did the block re-deal happen, did it settle the verdicts, and is anything
+    still pointing at a roof that no longer exists?"""
+    recipe = load(BLOCK_RECIPE)
+    redealt = recipe.get("redealt")
+    if not redealt:
+        print(f"DRIFT: no re-deal recorded in {BLOCK_RECIPE.name} — run "
+              f"--redeal-blocks")
+        return 1
+    index = block_slot_index(recipe)
+    verdict = {v["id"]: v for v in load(LEDGER)["verdicts"]}
+
+    for r in redealt["roofs"]:
+        found = index.get(r["id"])
+        if found is None:
+            print(f"DRIFT: {r['id']} was re-dealt and no slot derives it")
+            return 1
+        block, slot, seq = found
+        if seq != r["sequence"]:
+            print(f"DRIFT: {r['id']} was re-dealt at sequence {r['sequence']} and "
+                  f"derives at {seq}")
+            return 1
+        if block["programme_phase"] != r["programme_phase"]:
+            print(f"DRIFT: {r['id']} was re-dealt in {r['programme_phase']} and "
+                  f"derives in {block['programme_phase']}")
+            return 1
+        if slot["family"] != r["now"]:
+            print(f"DRIFT: {r['id']} was re-dealt to {r['now']} and stands as "
+                  f"{slot['family']}")
+            return 1
+        if slot["inventory_class"] != r["inventory_class"]:
+            print(f"DRIFT: {r['id']} was re-dealt as {r['inventory_class']} and "
+                  f"stands as {slot['inventory_class']}")
+            return 1
+        # THE CLASS IS STILL DERIVED, NOT DECLARED. `generate_block_infill` refuses a
+        # slot whose declared class is not the derived one, and this asks the same
+        # question of the RE-DEALT slot in particular: losing the rear-cottage clause
+        # out of the derivation would make every one of these six a second principal
+        # roof again, and that is the failure the owner's ruling exists to prevent.
+        lot = int(slot["lot"]) if "lot" in slot else None
+        derived = inventory_class(
+            slot["family"], stands_on=slot.get("stands_on"),
+            lot_carries_a_principal_roof=(
+                lot is not None and lot in block_held_lots(block)))
+        if derived != slot["inventory_class"]:
+            print(f"FAIL: {r['id']} stands as {slot['inventory_class']} and derives "
+                  f"as {derived} — the rear-cottage clause is no longer in force")
+            return 1
+        # THE RE-DEAL HAS TO HAVE WORKED --- the question both other modes ask. A
+        # roof the live adjudication still wants to refamily was moved into a family
+        # refused where it stands too, and carrying the verdict out achieved nothing.
+        v = verdict.get(r["id"])
+        if v is None:
+            print(f"DRIFT: the adjudication no longer audits {r['id']}")
+            return 1
+        if v["verdict"] != "keep":
+            print(f"FAIL: {r['id']} was re-dealt {r['was']} -> {r['now']} and the "
+                  f"adjudication still says {v['verdict']} — the re-deal did not "
+                  f"settle it")
+            return 1
+        if verdict.get(r["was_id"]) is not None:
+            print(f"DRIFT: {r['was_id']} is still audited, so the old record still "
+                  f"stands")
+            return 1
+
+    # NOTHING MAY STILL NAME A ROOF THAT NO LONGER EXISTS. The same sweep the North
+    # migration's check runs, for the same reason: a dangling id in an enclosure or a
+    # land-sale ground index reads as a record about a building the scene does not draw.
+    stale, pinned = [], []
+    old_ids = [r["was_id"] for r in redealt["roofs"]]
+    for path in sorted(ROOT.rglob("*")):
+        if not path.is_file():
+            continue
+        rel = path.relative_to(ROOT).as_posix()
+        if roof_id_pins.not_the_source_tree(rel):
+            continue
+        if keeps_the_old_name(rel):
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            if any(re.search(rf"{old}(?![0-9A-Za-z])", text) for old in old_ids):
+                pinned.append(rel)
+            continue
+        if path.suffix.lower() in (".glb", ".png", ".jpg", ".jpeg", ".pdf",
+                                   ".webp", ".tif", ".tiff", ".zip", ".xlsx"):
+            if any(path.name.startswith(old) for old in old_ids):
+                stale.append(rel)
+            continue
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for old in old_ids:
+            if re.search(rf"{old}(?![0-9A-Za-z])", text):
+                stale.append(f"{rel} names {old}")
+                break
+    if stale:
+        print("BLOCK RE-DEAL INCOMPLETE — these still name a re-dealt roof:")
+        for s in stale[:40]:
+            print(f"  - {s}")
+        return 1
+
+    # The blocks' own schedules count the slots they hold, which is what `check_block`
+    # will refuse if the re-deal recounted one of them wrongly.
+    from collections import Counter  # noqa: PLC0415
+    for block in recipe["blocks"]:
+        fams = Counter(slot["family"] for slot in block["slots"])
+        if block["families"] != {k: v for k, v in fams.items()}:
+            print(f"DRIFT: {block['programme_phase']}'s families do not count its "
+                  f"own slots")
+            return 1
+        principal = sum(1 for slot in block["slots"]
+                        if slot["inventory_class"] == "principal_functional")
+        claimed = block["drawn_from_schedule"]
+        if (claimed["principal"], claimed["ancillary"]) != (
+                principal, len(block["slots"]) - principal):
+            print(f"DRIFT: {block['programme_phase']}'s principal/ancillary mix does "
+                  f"not count its own slots")
+            return 1
+
+    moved = redealt["class_moved"]
+    print(f"verified {len(redealt['roofs'])} re-dealt platted-block roof(s), every one "
+          f"now `keep`, {moved} of them moving inventory class, and no live reference "
+          f"names an id they left behind")
     for rel in pinned:
         print(f"  pinned, true as written on its own date: {rel}")
     return 0
@@ -894,6 +1313,26 @@ def write_report(plan: list[dict], outstanding: list[dict], retire: list[dict]) 
                    f"{e['from_group']} → {e['to_group']} | {fp} | {e['why']} |")
     out.append("")
     out.append("## Outstanding — the id migration T-1481, T-1482 and T-1484 own\n")
+    if not outstanding:
+        # NOT AN EMPTY TABLE. All three id migrations have run, and where the record of
+        # each move now lives is the thing a reader of this section wants — an empty
+        # heading would read as "nobody has looked", which is the opposite of the truth.
+        out.append(
+            "**None.** All three have run, and the permanent record of each move is the "
+            "recipe's own, because the adjudication is re-derived over the town as it "
+            "stands and a roof that conforms returns `keep`: "
+            "`tools/migrate_roof_ids.py --check` holds the phase-one South parcel's "
+            "eleven against `data/reconstruction/1835_roof_id_migration.json`; "
+            "`--check-migration` holds the North Division's nine against that parcel's "
+            "`migrated` block; and `--check-blocks` holds the three platted blocks' six "
+            "against `1835_platted_block_parcels.json`'s `redealt` block. The platted "
+            "blocks were last, and they waited on an owner ruling rather than on a "
+            "rename: their slots are yard buildings off a block alley and every family "
+            "offered is a dwelling, so each promotion made a second principal roof on "
+            "an occupied lot until the rear-cottage clause admitted a dwelling as "
+            "ancillary there (T-1482 measured it, the owner ruled on 2026-09-23, "
+            "T-1610 wrote the clause and T-1611 carried the six out).\n")
+        return "\n".join(out) + "\n"
     out.append(
         "Each of these becomes a new id when its family moves, and the id is not "
         "private to its record. The files below name it today and would point at a "
@@ -950,6 +1389,97 @@ def self_test() -> int:
     want(not id_moves("recon_1835_west_008", "W1"),
          "a west id does not carry its family and therefore does not move")
 
+    # T-1611, the block plan, fired on a fixture recipe rather than on the town. The
+    # three assertions are the three things a block is that a parcel is not.
+    fixture = {"blocks": [
+        {"block_id": "blk_fixture", "programme_phase": "fixture",
+         "families": {"D5": 1, "A1": 1}, "drawn_from_schedule": {
+             "capacity_roofs": 4, "standing_roofs": 0, "headroom": 4,
+             "principal": 1, "ancillary": 1, "dealt_principal": 1,
+             "dealt_ancillary": 1},
+         "slots": [{"family": "D5", "inventory_class": "principal_functional",
+                    "lot": 0, "stands_on": "street", "fronts": "randolph"},
+                   {"family": "A1", "inventory_class": "ancillary", "lot": 0,
+                    "stands_on": "alley", "fronts": "randolph"}]},
+        {"block_id": "blk_fixture", "programme_phase": "fixture_second_deal",
+         "seq_start": 3, "families": {"A1": 1},
+         "drawn_from_schedule": {"capacity_roofs": 4, "standing_roofs": 2,
+                                 "headroom": 2, "principal": 0, "ancillary": 1,
+                                 "dealt_principal": 0, "dealt_ancillary": 1},
+         "frontage": {"lots": [1]},
+         "slots": [{"family": "A1", "inventory_class": "ancillary", "lot": 1,
+                    "stands_on": "alley", "fronts": "washington"}]}]}
+    index = block_slot_index(fixture)
+    want("recon_1835_blk_fixture_a1_02" in index,
+         "a slot's id is its block, its family and its position in the deal")
+    want("recon_1835_blk_fixture_a1_03" in index,
+         "and a SECOND deal on the same block numbers on from `seq_start`, which is "
+         "why a slot is found by programme phase and sequence and never by block id")
+
+    verdicts = [
+        {"id": "recon_1835_blk_fixture_a1_02", "family": "A1",
+         "group": "barns_stables", "to_family": "D4",
+         "to_group": "ordinary_dwellings", "reason": "a fixture's reason"},
+        {"id": "recon_1835_blk_fixture_a1_03", "family": "A1",
+         "group": "barns_stables", "to_family": "D4",
+         "to_group": "ordinary_dwellings", "reason": "a fixture's reason"},
+    ]
+    plan = plan_block(fixture, verdicts)
+    want([e["new_id"] for e in plan] == ["recon_1835_blk_fixture_d4_02",
+                                         "recon_1835_blk_fixture_d4_03"],
+         "the re-dealt id keeps its sequence and takes the new family")
+    want(all(e["to_inventory_class"] == "ancillary" for e in plan),
+         "a dwelling off the alley behind a dealt principal roof is ANCILLARY — the "
+         "owner's rear-cottage ruling, asked of the derivation and not chosen here; "
+         "the second is behind a FRONTAGE RUN's lot, which holds its lot the same way")
+    want(all(not e["from_inventory_class"] != e["to_inventory_class"] for e in plan),
+         "so the class does not move, and the block's principal count does not either")
+
+    # A re-deal that renamed a roof onto a slot that already derives that id would
+    # delete a building, and it is the one collision the sequence does not prevent.
+    collide = {"blocks": [
+        fixture["blocks"][0],
+        {"block_id": "blk_fixture", "programme_phase": "fixture_third_deal",
+         "seq_start": 2, "families": {"D4": 1},
+         "drawn_from_schedule": {"capacity_roofs": 4, "standing_roofs": 2,
+                                 "headroom": 1, "principal": 1, "ancillary": 0},
+         "slots": [{"family": "D4", "inventory_class": "principal_functional",
+                    "lot": 5, "stands_on": "street", "fronts": "washington"}]}]}
+    try:
+        plan_block(collide, [{"id": "recon_1835_blk_fixture_a1_02", "family": "A1",
+                              "group": "barns_stables", "to_family": "D4",
+                              "to_group": "ordinary_dwellings", "reason": "x"}])
+        want(False, "a re-deal onto an id another slot derives is refused")
+    except SystemExit as exc:
+        want("already derives" in str(exc),
+             "a re-deal onto an id another slot derives is refused, and says so")
+
+    # The slot has to be the one the adjudication described. A recipe edited under the
+    # verdict's feet would otherwise be re-dealt from a family nobody adjudicated.
+    try:
+        plan_block(fixture, [{"id": "recon_1835_blk_fixture_a1_02", "family": "A3",
+                              "group": "small_outbuildings", "to_family": "D4",
+                              "to_group": "ordinary_dwellings", "reason": "x"}])
+        want(False, "a verdict whose family the slot does not carry is refused")
+    except SystemExit as exc:
+        want("no slot" in str(exc) or "stands as" in str(exc),
+             "a verdict whose family the slot does not carry is refused, and says so")
+
+    # The schedule is RECOUNTED from the re-dealt slots, and a family the re-deal
+    # empties drops out rather than standing at zero.
+    import copy  # noqa: PLC0415
+    spare = copy.deepcopy(fixture)
+    redealt = migrate_block_recipe(spare, plan_block(spare, verdicts))
+    first = redealt["blocks"][0]
+    want(first["families"] == {"D5": 1, "D4": 1},
+         "the emptied A1 drops out of the claimed mix rather than standing at zero")
+    want((first["drawn_from_schedule"]["principal"],
+          first["drawn_from_schedule"]["ancillary"]) == (1, 1),
+         "and the principal/ancillary mix is counted, not held to an old total")
+    want(first["drawn_from_schedule"]["headroom"] == 4,
+         "while the SCHEDULE's own numbers — capacity, headroom, free lots — are the "
+         "programme's and are not touched by a re-deal")
+
     want(buildable_in_band(20, 32, [18, 28, 24, 34]) == [20, 30],
          "a 20x32 shop made a D5 cottage loses two feet of depth, the smaller move")
     want(buildable_in_band(22, 34, [20, 26, 24, 34]) == [22, 33],
@@ -993,6 +1523,9 @@ def main() -> int:
     ap.add_argument("--migrate", action="store_true",
                     help="carry the North Division's nine id-moving verdicts out")
     ap.add_argument("--check-migration", action="store_true")
+    ap.add_argument("--redeal-blocks", action="store_true",
+                    help="carry the three platted blocks' six out (T-1611)")
+    ap.add_argument("--check-blocks", action="store_true")
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--self-test", action="store_true")
     args = ap.parse_args()
@@ -1001,6 +1534,8 @@ def main() -> int:
         return self_test()
     if args.check_migration:
         return check_migration()
+    if args.check_blocks:
+        return check_block_redeal()
 
     ledger = load(LEDGER)
     here, outstanding, retire = partition(ledger)
@@ -1020,25 +1555,52 @@ def main() -> int:
             print(f"  ~ {rel}")
         return 0
 
+    if args.redeal_blocks:
+        blocks = load(BLOCK_RECIPE)
+        plan = plan_block(blocks, outstanding)
+        if not plan:
+            # The ordinary state once the re-deal has run, not an error. The
+            # adjudication is re-derived over the town as it stands, so carrying a
+            # verdict out deletes it: the roof conforms and the next re-derivation
+            # returns `keep`. The permanent record is the recipe's own `redealt`
+            # block, which `--check-blocks` reads.
+            print("no platted-block verdict is outstanding; nothing to re-deal")
+            # The report is DERIVED and it names what is outstanding, so it is rewritten
+            # on this path too rather than only on the path that changes something. A
+            # tool whose output is only correct on the run that did the work leaves the
+            # tree one re-run away from drift for no reason.
+            REPORT.write_text(
+                write_report(merge_recorded_west(recipe, []), outstanding, retire),
+                encoding="utf-8")
+            return 0
+        rewritten, renamed = migrate_tree(plan)
+        dump(BLOCK_RECIPE, migrate_block_recipe(blocks, plan))
+        # THE REPORT NAMES WHAT IS OUTSTANDING, and this run is what empties that list.
+        # Rewritten from the West execution ALREADY RECORDED in its recipe — no West
+        # verdict is planned or carried out here, which is `--apply`'s business — and
+        # from the outstanding list less the six just re-dealt, which is derivable
+        # without waiting for the ledger to be rebuilt.
+        remaining = [v for v in outstanding
+                     if v["id"] not in {e["id"] for e in plan}]
+        REPORT.write_text(
+            write_report(merge_recorded_west(recipe, []), remaining, retire),
+            encoding="utf-8")
+        moved = sum(1 for e in plan
+                    if e["from_inventory_class"] != e["to_inventory_class"])
+        print(f"{len(plan)} platted-block roof(s) re-dealt, {moved} of them moving "
+              f"inventory class; {len(renamed)} file(s) renamed, "
+              f"{len(rewritten)} rewritten")
+        for e in plan:
+            print(f"  {e['id']} -> {e['new_id']}  ({e['from_family']} -> "
+                  f"{e['to_family']}, {e['from_inventory_class']} -> "
+                  f"{e['to_inventory_class']}, lot {e['lot']} of "
+                  f"{e['programme_phase']})")
+        for rel in rewritten:
+            print(f"  ~ {rel}")
+        return 0
+
     if args.apply:
-        plan = plan_west(recipe, here)
-        # Verdicts a previous run already carried out are gone from the ledger and
-        # stand in the recipe. Merge them so the report and the totals describe the
-        # whole execution rather than only today's remainder.
-        done = {e["id"] for e in plan}
-        for r in recipe.get("redealt", {}).get("roofs", []):
-            if r["id"] in done:
-                continue
-            plan.append({
-                "id": r["id"], "slot": r["slot"],
-                "from_family": r["was"], "to_family": r["now"],
-                "from_group": r["was_group"], "to_group": r["now_group"],
-                "from_footprint_ft": list(r.get("was_footprint_ft", r["footprint_ft"])),
-                "to_footprint_ft": list(r["footprint_ft"]),
-                "band_already_fits": not r["footprint_moved"],
-                "inventory_class": None, "why": r["why"],
-            })
-        plan.sort(key=lambda e: e["id"])
+        plan = merge_recorded_west(recipe, plan_west(recipe, here))
         text = WEST_RECIPE.read_text(encoding="utf-8")
         WEST_RECIPE.write_text(apply_west(text, recipe, plan), encoding="utf-8")
         dump(EXCLUSIONS, apply_retirements(retire))

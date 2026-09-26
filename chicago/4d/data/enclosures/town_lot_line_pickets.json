@@ -265,14 +265,14 @@
         {
           "lot": "blk_south_water_wells_lot3",
           "structures": [
-            "recon_1835_blk_south_water_wells_a1_07",
+            "recon_1835_blk_south_water_wells_d1_07",
             "recon_1835_blk_south_water_wells_d2_06"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_south_water_wells_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_south_water_wells_a1_07, recon_1835_blk_south_water_wells_d2_06 — and the yard behind those buildings is 12.19 m deep by 24.40 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_south_water_wells_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_south_water_wells_d1_07, recon_1835_blk_south_water_wells_d2_06 — and the yard behind those buildings is 12.19 m deep by 24.40 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "rear_blk_south_water_wells_lot4",
@@ -442,14 +442,14 @@
         {
           "lot": "blk_south_water_lasalle_lot3",
           "structures": [
-            "recon_1835_blk_south_water_lasalle_a1_06",
-            "recon_1835_blk_south_water_lasalle_d2_05"
+            "recon_1835_blk_south_water_lasalle_d2_05",
+            "recon_1835_blk_south_water_lasalle_d3_06"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_south_water_lasalle_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_south_water_lasalle_a1_06, recon_1835_blk_south_water_lasalle_d2_05 — and the yard behind those buildings is 12.19 m deep by 24.77 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_south_water_lasalle_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_south_water_lasalle_d2_05, recon_1835_blk_south_water_lasalle_d3_06 — and the yard behind those buildings is 12.19 m deep by 24.77 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "rear_blk_south_water_lasalle_lot4",
@@ -652,7 +652,7 @@
         {
           "lot": "blk_south_water_wells_lot3",
           "structures": [
-            "recon_1835_blk_south_water_wells_a1_07",
+            "recon_1835_blk_south_water_wells_d1_07",
             "recon_1835_blk_south_water_wells_d2_06"
           ],
           "households": [],
@@ -677,7 +677,7 @@
         {
           "lot": "blk_south_water_wells_lot3",
           "structures": [
-            "recon_1835_blk_south_water_wells_a1_07",
+            "recon_1835_blk_south_water_wells_d1_07",
             "recon_1835_blk_south_water_wells_d2_06"
           ],
           "households": [],
@@ -803,8 +803,8 @@
         {
           "lot": "blk_south_water_lasalle_lot3",
           "structures": [
-            "recon_1835_blk_south_water_lasalle_a1_06",
-            "recon_1835_blk_south_water_lasalle_d2_05"
+            "recon_1835_blk_south_water_lasalle_d2_05",
+            "recon_1835_blk_south_water_lasalle_d3_06"
           ],
           "households": [],
           "side": "south-east",
