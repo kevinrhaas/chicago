@@ -519,7 +519,7 @@
           {
             "person_id": "rc_vieau_louis",
             "name": "Louis Vieau",
-            "division": "north",
+            "division": "south",
             "head_slot": "trade_households:persons/male/20_29/north/family/trade:mail_contractor:020",
             "firm": null
           }
@@ -902,7 +902,7 @@
           {
             "person_id": "rc_doyle_alice",
             "name": "Alice Doyle",
-            "division": "west",
+            "division": "south",
             "head_slot": "trade_households:persons/female/20_29/west/family/trade:domestic:005",
             "firm": null
           },
@@ -1330,7 +1330,7 @@
           {
             "person_id": "rc_nichols_eli",
             "name": "Eli Nichols",
-            "division": "west",
+            "division": "south",
             "head_slot": "trade_households:persons/male/20_29/west/family/trade:surveyor:021",
             "firm": null
           }

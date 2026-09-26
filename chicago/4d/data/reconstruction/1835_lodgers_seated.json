@@ -547,16 +547,26 @@
     {
      "bucket": "persons/female/10_19/north/lodging/none",
      "the_deal_was_dealt_against": 2,
-     "the_book_orders_now": 1
+     "the_book_orders_now": 4
     },
     {
      "bucket": "persons/female/10_19/north/lodging/trade",
      "the_deal_was_dealt_against": 3,
-     "the_book_orders_now": 4
+     "the_book_orders_now": 1
     },
     {
      "bucket": "persons/female/30_39/north/lodging/trade",
      "the_deal_was_dealt_against": 2,
+     "the_book_orders_now": 1
+    },
+    {
+     "bucket": "persons/male/10_19/north/lodging/none",
+     "the_deal_was_dealt_against": 3,
+     "the_book_orders_now": 5
+    },
+    {
+     "bucket": "persons/male/10_19/north/lodging/trade",
+     "the_deal_was_dealt_against": 3,
      "the_book_orders_now": 1
     },
     {
@@ -572,42 +582,42 @@
     {
      "bucket": "persons/female/10_19/south/lodging/none",
      "the_deal_was_dealt_against": 4,
-     "the_book_orders_now": 5
+     "the_book_orders_now": 9
     },
     {
      "bucket": "persons/female/10_19/south/lodging/trade",
      "the_deal_was_dealt_against": 8,
-     "the_book_orders_now": 7
+     "the_book_orders_now": 3
     },
     {
      "bucket": "persons/female/20_29/south/lodging/none",
      "the_deal_was_dealt_against": 18,
-     "the_book_orders_now": 19
+     "the_book_orders_now": 13
     },
     {
      "bucket": "persons/female/20_29/south/lodging/trade",
      "the_deal_was_dealt_against": 1,
-     "the_book_orders_now": 0
+     "the_book_orders_now": 6
     },
     {
      "bucket": "persons/male/10_19/south/lodging/none",
      "the_deal_was_dealt_against": 4,
-     "the_book_orders_now": 3
+     "the_book_orders_now": 9
     },
     {
      "bucket": "persons/male/10_19/south/lodging/trade",
      "the_deal_was_dealt_against": 9,
-     "the_book_orders_now": 10
+     "the_book_orders_now": 4
     },
     {
      "bucket": "persons/male/20_29/south/lodging/none",
      "the_deal_was_dealt_against": 32,
-     "the_book_orders_now": 33
+     "the_book_orders_now": 22
     },
     {
      "bucket": "persons/male/20_29/south/lodging/trade",
      "the_deal_was_dealt_against": 1,
-     "the_book_orders_now": 0
+     "the_book_orders_now": 11
     },
     {
      "bucket": "persons/male/30_39/south/lodging/none",
@@ -620,27 +630,34 @@
      "the_book_orders_now": 6
     },
     {
+     "bucket": "persons/female/10_19/west/lodging/none",
+     "the_deal_was_dealt_against": 1,
+     "the_book_orders_now": 5
+    },
+    {
      "bucket": "persons/male/10_19/west/lodging/none",
      "the_deal_was_dealt_against": 1,
-     "the_book_orders_now": 2
+     "the_book_orders_now": 5
     },
     {
      "bucket": "persons/male/10_19/west/lodging/trade",
      "the_deal_was_dealt_against": 4,
-     "the_book_orders_now": 3
+     "the_book_orders_now": 1
     },
     {
      "bucket": "persons/male/20_29/west/lodging/none",
      "the_deal_was_dealt_against": 12,
-     "the_book_orders_now": 13
+     "the_book_orders_now": 8
     },
     {
      "bucket": "persons/male/20_29/west/lodging/trade",
      "the_deal_was_dealt_against": 1,
-     "the_book_orders_now": 0
+     "the_book_orders_now": 5
     }
    ],
-   "gone_from_the_book": [],
+   "gone_from_the_book": [
+    "persons/female/10_19/west/lodging/trade"
+   ],
    "new_since_the_deal": [],
    "note": "`new_since_the_deal` is deliberately OUTSIDE the room. A cell the re-cut re-opened is work for the stage that asked for it — T-1448's shop boys — and letting it back into these weights would re-deal this stage's own draw, which is the fault T-1503 fixed."
   }

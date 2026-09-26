@@ -248,22 +248,22 @@
    "structure": 116
   },
   "by_band": {
-   "north/division_ground": 14,
+   "north/division_ground": 13,
    "north/farms_and_country_seats": 59,
    "north/heavy_and_noxious_trades": 1,
-   "north/labourer_dwellings": 25,
+   "north/labourer_dwellings": 26,
    "north/merchant_and_professional_dwellings": 88,
    "north/tradesman_dwellings": 142,
-   "south/division_ground": 29,
+   "south/division_ground": 31,
    "south/farms_and_country_seats": 101,
    "south/heavy_and_noxious_trades": 1,
-   "south/labourer_dwellings": 96,
+   "south/labourer_dwellings": 97,
    "south/lodging_near_the_landings": 2,
    "south/merchant_and_professional_dwellings": 242,
    "south/tradesman_dwellings": 378,
-   "west/division_ground": 9,
+   "west/division_ground": 8,
    "west/farms_and_country_seats": 44,
-   "west/labourer_dwellings": 36,
+   "west/labourer_dwellings": 34,
    "west/merchant_and_professional_dwellings": 76,
    "west/tradesman_dwellings": 137
   },
@@ -40815,25 +40815,25 @@
   {
    "id": "hh_rc_barnes_clarissa",
    "kind": "household",
-   "name": "Reconstructed household — Clarissa Barnes, a woman keeping her own house in the west division",
+   "name": "Reconstructed household — Clarissa Barnes, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "west/division_ground",
-    "division": "west",
+    "id": "south/division_ground",
+    "division": "south",
     "clause": null
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "west",
-   "division": "west",
+   "reach_value": "south",
+   "division": "south",
    "tier": "reconstructed",
    "basis": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
-   "words": "The record reaches the west division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
+   "words": "The record reaches the south division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
    "replaceable_by": "a source giving this household's head a trade, or naming a street, a corner or a building for them",
    "owed_to": null,
    "band": {
-    "band": "west/division_ground",
+    "band": "south/division_ground",
     "clause": null,
     "clause_applies_to": [],
     "clause_tier": null,
@@ -40841,7 +40841,7 @@
     "division_is_the_clause_preference": null,
     "from_trade": null
    },
-   "seed": "hh_rc_barnes_clarissa|west|no_trade|T-1512"
+   "seed": "hh_rc_barnes_clarissa|south|no_trade|T-1512"
   },
   {
    "id": "hh_rc_barnes_emily",
@@ -40911,7 +40911,7 @@
   {
    "id": "hh_rc_barnes_nancy",
    "kind": "household",
-   "name": "Reconstructed household — Nancy Barnes, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Nancy Barnes, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
@@ -41688,25 +41688,25 @@
   {
    "id": "hh_rc_duffy_margaret",
    "kind": "household",
-   "name": "Reconstructed household — Margaret Duffy, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Margaret Duffy, a woman boarding with her family in the west division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "south/labourer_dwellings",
-    "division": "south",
+    "id": "west/labourer_dwellings",
+    "division": "west",
     "clause": "labourer_dwellings"
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "south",
-   "division": "south",
+   "reach_value": "west",
+   "division": "west",
    "tier": "reconstructed",
    "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-   "words": "The record reaches the south division and nothing narrower. Inside it the placement policy bands this household by its head's trade (domestic): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "words": "The record reaches the west division and nothing narrower. Inside it the placement policy bands this household by its head's trade (domestic): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
    "replaceable_by": "a source naming a street, a corner or a building for this household",
    "owed_to": null,
    "band": {
-    "band": "south/labourer_dwellings",
+    "band": "west/labourer_dwellings",
     "clause": "labourer_dwellings",
     "clause_applies_to": [
      "D1",
@@ -41714,10 +41714,10 @@
     ],
     "clause_tier": "inferred",
     "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-    "division_is_the_clause_preference": false,
+    "division_is_the_clause_preference": true,
     "from_trade": "domestic"
    },
-   "seed": "hh_rc_duffy_margaret|south|domestic|T-1512"
+   "seed": "hh_rc_duffy_margaret|west|domestic|T-1512"
   },
   {
    "id": "hh_rc_duffy_martin",
@@ -41743,25 +41743,25 @@
   {
    "id": "hh_rc_dufresne_therese",
    "kind": "household",
-   "name": "Reconstructed household — Therese Dufresne, a woman keeping her own house in the north division",
+   "name": "Reconstructed household — Therese Dufresne, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "north/division_ground",
-    "division": "north",
+    "id": "south/division_ground",
+    "division": "south",
     "clause": null
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "north",
-   "division": "north",
+   "reach_value": "south",
+   "division": "south",
    "tier": "reconstructed",
    "basis": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
-   "words": "The record reaches the north division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
+   "words": "The record reaches the south division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
    "replaceable_by": "a source giving this household's head a trade, or naming a street, a corner or a building for them",
    "owed_to": null,
    "band": {
-    "band": "north/division_ground",
+    "band": "south/division_ground",
     "clause": null,
     "clause_applies_to": [],
     "clause_tier": null,
@@ -41769,7 +41769,7 @@
     "division_is_the_clause_preference": null,
     "from_trade": null
    },
-   "seed": "hh_rc_dufresne_therese|north|no_trade|T-1512"
+   "seed": "hh_rc_dufresne_therese|south|no_trade|T-1512"
   },
   {
    "id": "hh_rc_eastman_emily",
@@ -41860,7 +41860,7 @@
   {
    "id": "hh_rc_fairbanks_amanda",
    "kind": "household",
-   "name": "Reconstructed household — Amanda Fairbanks, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Amanda Fairbanks, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
@@ -42059,25 +42059,25 @@
   {
    "id": "hh_rc_fisk_esther",
    "kind": "household",
-   "name": "Reconstructed household — Esther Fisk, a woman keeping her own house in the west division",
+   "name": "Reconstructed household — Esther Fisk, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "west/labourer_dwellings",
-    "division": "west",
+    "id": "south/labourer_dwellings",
+    "division": "south",
     "clause": "labourer_dwellings"
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "west",
-   "division": "west",
+   "reach_value": "south",
+   "division": "south",
    "tier": "reconstructed",
    "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-   "words": "The record reaches the west division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "words": "The record reaches the south division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
    "replaceable_by": "a source naming a street, a corner or a building for this household",
    "owed_to": null,
    "band": {
-    "band": "west/labourer_dwellings",
+    "band": "south/labourer_dwellings",
     "clause": "labourer_dwellings",
     "clause_applies_to": [
      "D1",
@@ -42085,10 +42085,10 @@
     ],
     "clause_tier": "inferred",
     "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-    "division_is_the_clause_preference": true,
+    "division_is_the_clause_preference": false,
     "from_trade": "laundress"
    },
-   "seed": "hh_rc_fisk_esther|west|laundress|T-1512"
+   "seed": "hh_rc_fisk_esther|south|laundress|T-1512"
   },
   {
    "id": "hh_rc_fitzgerald_alice",
@@ -42345,7 +42345,7 @@
   {
    "id": "hh_rc_gilbert_abigail",
    "kind": "household",
-   "name": "Reconstructed household — Abigail Gilbert, a woman keeping her own house in the north division",
+   "name": "Reconstructed household — Abigail Gilbert, a woman boarding with her family in the north division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
@@ -42757,25 +42757,25 @@
   {
    "id": "hh_rc_kelly_honora",
    "kind": "household",
-   "name": "Reconstructed household — Honora Kelly, a woman keeping her own house in the north division",
+   "name": "Reconstructed household — Honora Kelly, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "north/division_ground",
-    "division": "north",
+    "id": "south/division_ground",
+    "division": "south",
     "clause": null
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "north",
-   "division": "north",
+   "reach_value": "south",
+   "division": "south",
    "tier": "reconstructed",
    "basis": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
-   "words": "The record reaches the north division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
+   "words": "The record reaches the south division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
    "replaceable_by": "a source giving this household's head a trade, or naming a street, a corner or a building for them",
    "owed_to": null,
    "band": {
-    "band": "north/division_ground",
+    "band": "south/division_ground",
     "clause": null,
     "clause_applies_to": [],
     "clause_tier": null,
@@ -42783,7 +42783,7 @@
     "division_is_the_clause_preference": null,
     "from_trade": null
    },
-   "seed": "hh_rc_kelly_honora|north|no_trade|T-1512"
+   "seed": "hh_rc_kelly_honora|south|no_trade|T-1512"
   },
   {
    "id": "hh_rc_laframboise_angelique",
@@ -43064,25 +43064,25 @@
   {
    "id": "hh_rc_mahoney_catherine",
    "kind": "household",
-   "name": "Reconstructed household — Catherine Mahoney, a woman keeping her own house in the west division",
+   "name": "Reconstructed household — Catherine Mahoney, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "west/labourer_dwellings",
-    "division": "west",
+    "id": "south/labourer_dwellings",
+    "division": "south",
     "clause": "labourer_dwellings"
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "west",
-   "division": "west",
+   "reach_value": "south",
+   "division": "south",
    "tier": "reconstructed",
    "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-   "words": "The record reaches the west division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "words": "The record reaches the south division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
    "replaceable_by": "a source naming a street, a corner or a building for this household",
    "owed_to": null,
    "band": {
-    "band": "west/labourer_dwellings",
+    "band": "south/labourer_dwellings",
     "clause": "labourer_dwellings",
     "clause_applies_to": [
      "D1",
@@ -43090,10 +43090,10 @@
     ],
     "clause_tier": "inferred",
     "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-    "division_is_the_clause_preference": true,
+    "division_is_the_clause_preference": false,
     "from_trade": "laundress"
    },
-   "seed": "hh_rc_mahoney_catherine|west|laundress|T-1512"
+   "seed": "hh_rc_mahoney_catherine|south|laundress|T-1512"
   },
   {
    "id": "hh_rc_mahoney_honora",
@@ -43253,7 +43253,7 @@
   {
    "id": "hh_rc_nash_martha",
    "kind": "household",
-   "name": "Reconstructed household — Martha Nash, a woman keeping her own house in the north division",
+   "name": "Reconstructed household — Martha Nash, a woman boarding with her family in the north division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
@@ -43315,25 +43315,25 @@
   {
    "id": "hh_rc_newell_hannah",
    "kind": "household",
-   "name": "Reconstructed household — Hannah Newell, a woman keeping her own house in the west division",
+   "name": "Reconstructed household — Hannah Newell, a woman boarding with her family in the north division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "west/division_ground",
-    "division": "west",
+    "id": "north/division_ground",
+    "division": "north",
     "clause": null
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "west",
-   "division": "west",
+   "reach_value": "north",
+   "division": "north",
    "tier": "reconstructed",
    "basis": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
-   "words": "The record reaches the west division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
+   "words": "The record reaches the north division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
    "replaceable_by": "a source giving this household's head a trade, or naming a street, a corner or a building for them",
    "owed_to": null,
    "band": {
-    "band": "west/division_ground",
+    "band": "north/division_ground",
     "clause": null,
     "clause_applies_to": [],
     "clause_tier": null,
@@ -43341,7 +43341,7 @@
     "division_is_the_clause_preference": null,
     "from_trade": null
    },
-   "seed": "hh_rc_newell_hannah|west|no_trade|T-1512"
+   "seed": "hh_rc_newell_hannah|north|no_trade|T-1512"
   },
   {
    "id": "hh_rc_newell_polly",
@@ -43647,7 +43647,7 @@
   {
    "id": "hh_rc_pothier_victoire",
    "kind": "household",
-   "name": "Reconstructed household — Victoire Pothier, a woman keeping her own house in the west division",
+   "name": "Reconstructed household — Victoire Pothier, a woman boarding with her family in the west division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
@@ -43847,25 +43847,25 @@
   {
    "id": "hh_rc_ryan_ellen",
    "kind": "household",
-   "name": "Reconstructed household — Ellen Ryan, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Ellen Ryan, a woman boarding with her family in the west division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "south/labourer_dwellings",
-    "division": "south",
+    "id": "west/labourer_dwellings",
+    "division": "west",
     "clause": "labourer_dwellings"
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "south",
-   "division": "south",
+   "reach_value": "west",
+   "division": "west",
    "tier": "reconstructed",
    "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-   "words": "The record reaches the south division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "words": "The record reaches the west division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
    "replaceable_by": "a source naming a street, a corner or a building for this household",
    "owed_to": null,
    "band": {
-    "band": "south/labourer_dwellings",
+    "band": "west/labourer_dwellings",
     "clause": "labourer_dwellings",
     "clause_applies_to": [
      "D1",
@@ -43873,10 +43873,10 @@
     ],
     "clause_tier": "inferred",
     "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-    "division_is_the_clause_preference": false,
+    "division_is_the_clause_preference": true,
     "from_trade": "laundress"
    },
-   "seed": "hh_rc_ryan_ellen|south|laundress|T-1512"
+   "seed": "hh_rc_ryan_ellen|west|laundress|T-1512"
   },
   {
    "id": "hh_rc_ryan_mary",
@@ -43984,7 +43984,7 @@
   {
    "id": "hh_rc_shea_bridget",
    "kind": "household",
-   "name": "Reconstructed household — Bridget Shea, a woman keeping her own house in the west division",
+   "name": "Reconstructed household — Bridget Shea, a woman boarding with her family in the west division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
@@ -44128,7 +44128,7 @@
   {
    "id": "hh_rc_stebbins_clarissa",
    "kind": "household",
-   "name": "Reconstructed household — Clarissa Stebbins, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Clarissa Stebbins, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
@@ -44459,25 +44459,25 @@
   {
    "id": "hh_rc_thayer_sarah",
    "kind": "household",
-   "name": "Reconstructed household — Sarah Thayer, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Sarah Thayer, a woman boarding with her family in the north division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "south/labourer_dwellings",
-    "division": "south",
+    "id": "north/labourer_dwellings",
+    "division": "north",
     "clause": "labourer_dwellings"
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "south",
-   "division": "south",
+   "reach_value": "north",
+   "division": "north",
    "tier": "reconstructed",
    "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-   "words": "The record reaches the south division and nothing narrower. Inside it the placement policy bands this household by its head's trade (domestic): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "words": "The record reaches the north division and nothing narrower. Inside it the placement policy bands this household by its head's trade (domestic): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
    "replaceable_by": "a source naming a street, a corner or a building for this household",
    "owed_to": null,
    "band": {
-    "band": "south/labourer_dwellings",
+    "band": "north/labourer_dwellings",
     "clause": "labourer_dwellings",
     "clause_applies_to": [
      "D1",
@@ -44485,10 +44485,10 @@
     ],
     "clause_tier": "inferred",
     "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-    "division_is_the_clause_preference": false,
+    "division_is_the_clause_preference": true,
     "from_trade": "domestic"
    },
-   "seed": "hh_rc_thayer_sarah|south|domestic|T-1512"
+   "seed": "hh_rc_thayer_sarah|north|domestic|T-1512"
   },
   {
    "id": "hh_rc_tobin_ellen",
@@ -44579,25 +44579,25 @@
   {
    "id": "hh_rc_walsh_johanna",
    "kind": "household",
-   "name": "Reconstructed household — Johanna Walsh, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Johanna Walsh, a woman boarding with her family in the west division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "south/labourer_dwellings",
-    "division": "south",
+    "id": "west/labourer_dwellings",
+    "division": "west",
     "clause": "labourer_dwellings"
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "south",
-   "division": "south",
+   "reach_value": "west",
+   "division": "west",
    "tier": "reconstructed",
    "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-   "words": "The record reaches the south division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "words": "The record reaches the west division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
    "replaceable_by": "a source naming a street, a corner or a building for this household",
    "owed_to": null,
    "band": {
-    "band": "south/labourer_dwellings",
+    "band": "west/labourer_dwellings",
     "clause": "labourer_dwellings",
     "clause_applies_to": [
      "D1",
@@ -44605,10 +44605,10 @@
     ],
     "clause_tier": "inferred",
     "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-    "division_is_the_clause_preference": false,
+    "division_is_the_clause_preference": true,
     "from_trade": "laundress"
    },
-   "seed": "hh_rc_walsh_johanna|south|laundress|T-1512"
+   "seed": "hh_rc_walsh_johanna|west|laundress|T-1512"
   },
   {
    "id": "hh_rc_walsh_owen",
@@ -44670,25 +44670,25 @@
   {
    "id": "hh_rc_whitcomb_sarah",
    "kind": "household",
-   "name": "Reconstructed household — Sarah Whitcomb, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Sarah Whitcomb, a woman boarding with her family in the north division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "south/division_ground",
-    "division": "south",
+    "id": "north/division_ground",
+    "division": "north",
     "clause": null
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "south",
-   "division": "south",
+   "reach_value": "north",
+   "division": "north",
    "tier": "reconstructed",
    "basis": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
-   "words": "The record reaches the south division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
+   "words": "The record reaches the north division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
    "replaceable_by": "a source giving this household's head a trade, or naming a street, a corner or a building for them",
    "owed_to": null,
    "band": {
-    "band": "south/division_ground",
+    "band": "north/division_ground",
     "clause": null,
     "clause_applies_to": [],
     "clause_tier": null,
@@ -44696,7 +44696,7 @@
     "division_is_the_clause_preference": null,
     "from_trade": null
    },
-   "seed": "hh_rc_whitcomb_sarah|south|no_trade|T-1512"
+   "seed": "hh_rc_whitcomb_sarah|north|no_trade|T-1512"
   },
   {
    "id": "hh_rc_wilcox_esther",
@@ -44737,25 +44737,25 @@
   {
    "id": "hh_rc_wilcox_harriet",
    "kind": "household",
-   "name": "Reconstructed household — Harriet Wilcox, a woman keeping her own house in the north division",
+   "name": "Reconstructed household — Harriet Wilcox, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "north/division_ground",
-    "division": "north",
+    "id": "south/division_ground",
+    "division": "south",
     "clause": null
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "north",
-   "division": "north",
+   "reach_value": "south",
+   "division": "south",
    "tier": "reconstructed",
    "basis": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
-   "words": "The record reaches the north division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
+   "words": "The record reaches the south division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
    "replaceable_by": "a source giving this household's head a trade, or naming a street, a corner or a building for them",
    "owed_to": null,
    "band": {
-    "band": "north/division_ground",
+    "band": "south/division_ground",
     "clause": null,
     "clause_applies_to": [],
     "clause_tier": null,
@@ -44763,7 +44763,7 @@
     "division_is_the_clause_preference": null,
     "from_trade": null
    },
-   "seed": "hh_rc_wilcox_harriet|north|no_trade|T-1512"
+   "seed": "hh_rc_wilcox_harriet|south|no_trade|T-1512"
   },
   {
    "id": "hh_rc_wilcox_maria",
@@ -44804,7 +44804,7 @@
   {
    "id": "hh_rc_wilcox_martha",
    "kind": "household",
-   "name": "Reconstructed household — Martha Wilcox, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Martha Wilcox, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
@@ -44874,25 +44874,25 @@
   {
    "id": "hh_rc_wilcox_sophronia",
    "kind": "household",
-   "name": "Reconstructed household — Sophronia Wilcox, a woman keeping her own house in the west division",
+   "name": "Reconstructed household — Sophronia Wilcox, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "west/labourer_dwellings",
-    "division": "west",
+    "id": "south/labourer_dwellings",
+    "division": "south",
     "clause": "labourer_dwellings"
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "west",
-   "division": "west",
+   "reach_value": "south",
+   "division": "south",
    "tier": "reconstructed",
    "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-   "words": "The record reaches the west division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "words": "The record reaches the south division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
    "replaceable_by": "a source naming a street, a corner or a building for this household",
    "owed_to": null,
    "band": {
-    "band": "west/labourer_dwellings",
+    "band": "south/labourer_dwellings",
     "clause": "labourer_dwellings",
     "clause_applies_to": [
      "D1",
@@ -44900,15 +44900,49 @@
     ],
     "clause_tier": "inferred",
     "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-    "division_is_the_clause_preference": true,
+    "division_is_the_clause_preference": false,
     "from_trade": "laundress"
    },
-   "seed": "hh_rc_wilcox_sophronia|west|laundress|T-1512"
+   "seed": "hh_rc_wilcox_sophronia|south|laundress|T-1512"
   },
   {
    "id": "hh_rc_woodruff_eliza",
    "kind": "household",
-   "name": "Reconstructed household — Eliza Woodruff, a woman keeping her own house in the north division",
+   "name": "Reconstructed household — Eliza Woodruff, a woman boarding with her family in the south division",
+   "rung": "division_band",
+   "seat": {
+    "kind": "division_band",
+    "id": "south/labourer_dwellings",
+    "division": "south",
+    "clause": "labourer_dwellings"
+   },
+   "works_seat": null,
+   "reach": "division",
+   "reach_value": "south",
+   "division": "south",
+   "tier": "reconstructed",
+   "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
+   "words": "The record reaches the south division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "replaceable_by": "a source naming a street, a corner or a building for this household",
+   "owed_to": null,
+   "band": {
+    "band": "south/labourer_dwellings",
+    "clause": "labourer_dwellings",
+    "clause_applies_to": [
+     "D1",
+     "D2"
+    ],
+    "clause_tier": "inferred",
+    "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
+    "division_is_the_clause_preference": false,
+    "from_trade": "laundress"
+   },
+   "seed": "hh_rc_woodruff_eliza|south|laundress|T-1512"
+  },
+  {
+   "id": "hh_rc_woodruff_emily",
+   "kind": "household",
+   "name": "Reconstructed household — Emily Woodruff, a woman boarding with her family in the north division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
@@ -44937,64 +44971,30 @@
     "division_is_the_clause_preference": true,
     "from_trade": "laundress"
    },
-   "seed": "hh_rc_woodruff_eliza|north|laundress|T-1512"
+   "seed": "hh_rc_woodruff_emily|north|laundress|T-1512"
   },
   {
-   "id": "hh_rc_woodruff_emily",
+   "id": "hh_rc_woodruff_lucy",
    "kind": "household",
-   "name": "Reconstructed household — Emily Woodruff, a woman keeping her own house in the west division",
+   "name": "Reconstructed household — Lucy Woodruff, a woman boarding with her family in the west division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "west/labourer_dwellings",
+    "id": "west/division_ground",
     "division": "west",
-    "clause": "labourer_dwellings"
+    "clause": null
    },
    "works_seat": null,
    "reach": "division",
    "reach_value": "west",
    "division": "west",
    "tier": "reconstructed",
-   "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-   "words": "The record reaches the west division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
-   "replaceable_by": "a source naming a street, a corner or a building for this household",
-   "owed_to": null,
-   "band": {
-    "band": "west/labourer_dwellings",
-    "clause": "labourer_dwellings",
-    "clause_applies_to": [
-     "D1",
-     "D2"
-    ],
-    "clause_tier": "inferred",
-    "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-    "division_is_the_clause_preference": true,
-    "from_trade": "laundress"
-   },
-   "seed": "hh_rc_woodruff_emily|west|laundress|T-1512"
-  },
-  {
-   "id": "hh_rc_woodruff_lucy",
-   "kind": "household",
-   "name": "Reconstructed household — Lucy Woodruff, a woman keeping her own house in the south division",
-   "rung": "division_band",
-   "seat": {
-    "kind": "division_band",
-    "id": "south/division_ground",
-    "division": "south",
-    "clause": null
-   },
-   "works_seat": null,
-   "reach": "division",
-   "reach_value": "south",
-   "division": "south",
-   "tier": "reconstructed",
    "basis": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
-   "words": "The record reaches the south division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
+   "words": "The record reaches the west division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
    "replaceable_by": "a source giving this household's head a trade, or naming a street, a corner or a building for them",
    "owed_to": null,
    "band": {
-    "band": "south/division_ground",
+    "band": "west/division_ground",
     "clause": null,
     "clause_applies_to": [],
     "clause_tier": null,
@@ -45002,30 +45002,30 @@
     "division_is_the_clause_preference": null,
     "from_trade": null
    },
-   "seed": "hh_rc_woodruff_lucy|south|no_trade|T-1512"
+   "seed": "hh_rc_woodruff_lucy|west|no_trade|T-1512"
   },
   {
    "id": "hh_rc_woodruff_ruth",
    "kind": "household",
-   "name": "Reconstructed household — Ruth Woodruff, a woman keeping her own house in the west division",
+   "name": "Reconstructed household — Ruth Woodruff, a woman boarding with her family in the south division",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",
-    "id": "west/labourer_dwellings",
-    "division": "west",
+    "id": "south/labourer_dwellings",
+    "division": "south",
     "clause": "labourer_dwellings"
    },
    "works_seat": null,
    "reach": "division",
-   "reach_value": "west",
-   "division": "west",
+   "reach_value": "south",
+   "division": "south",
    "tier": "reconstructed",
    "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-   "words": "The record reaches the west division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "words": "The record reaches the south division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
    "replaceable_by": "a source naming a street, a corner or a building for this household",
    "owed_to": null,
    "band": {
-    "band": "west/labourer_dwellings",
+    "band": "south/labourer_dwellings",
     "clause": "labourer_dwellings",
     "clause_applies_to": [
      "D1",
@@ -45033,10 +45033,10 @@
     ],
     "clause_tier": "inferred",
     "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-    "division_is_the_clause_preference": true,
+    "division_is_the_clause_preference": false,
     "from_trade": "laundress"
    },
-   "seed": "hh_rc_woodruff_ruth|west|laundress|T-1512"
+   "seed": "hh_rc_woodruff_ruth|south|laundress|T-1512"
   },
   {
    "id": "hh_reed_s_w",
