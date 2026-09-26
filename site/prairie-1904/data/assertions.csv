@@ -1,0 +1,135 @@
+entity_id,field,value,source_ids,confidence
+prairie-1800-glessner,construction,1886–1887,"[""G01""]",verified-catalog
+prairie-1800-glessner,occupied,December 1887,"[""G04""]",verified-custodian
+prairie-1800-glessner,architect,Henry Hobson Richardson,"[""G01""]",verified-catalog
+prairie-1800-glessner,address,1800 South Prairie Avenue; southwest corner of 18th Street,"[""G01""]",verified-catalog
+prairie-1800-glessner,foundation material,Illinois dolomite,"[""G02""]",verified-custodian
+prairie-1800-glessner,wall material,Braggville pink granite facing common-brick structural wall,"[""G02""]",verified-custodian
+prairie-1800-glessner,granite thickness,UNRESOLVED: 8–10 inches in House page versus about 7 inches in Collection sale-flyer discussion,"[""G02"", ""G03""]",conflict
+prairie-1800-glessner,gross floor area,"over 17,000 square feet; not a precise measured quantity","[""G02""]",approximate-custodian
+prairie-1800-glessner,plan configuration,E-shaped; courtyard oriented south,"[""G02"", ""G04""]",verified-custodian
+prairie-1800-glessner,1904 lighting,Electric service installed summer 1892; kerosene lamps still documented 1901,"[""G07""]",verified-museum-citing-primary
+prairie-1800-glessner,1892 interior change,Pretyman parlor wall covering; Morris wallpaper in other rooms,"[""G07""]",verified-museum-citing-primary
+prairie-1800-glessner,corner guest room wallpaper,Double Bough from 1892; replaced with same pattern 1916,"[""G06""]",verified-custodian
+prairie-1800-glessner,1904 basement activity,Frances Glessner silverwork bench introduced in 1904; exact month unverified,"[""G08""]",verified-custodian
+prairie-1800-glessner,porte-cochere,"Historic carriage doors removed in 1950s, recreated from ca1888 photograph","[""G05""]",verified-custodian
+prairie-1800-glessner,1923 photo use,Some altered lighting fixtures in 1923 photographs have uncertain installation dates,"[""G07""]",chronology-warning
+pa-1612-1,construction,1869,"[""B-marker_north"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1612-1,demolition,circa 1960,"[""B-marker_north"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1638-2,construction,1868 (marker); 1870 (1973 report),"[""B-marker_north"", ""B-city1973"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1638-2,demolition,1944 (marker); conflicts with report’s 1947 occupancy claim,"[""B-marker_north"", ""B-city1973"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1638-2,architect,John W. Roberts,"[""B-marker_north"", ""B-city1973"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1701-3,construction,1869,"[""B-marker_north"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1701-3,demolition,1932,"[""B-marker_north"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1701-3,architect,William Le Baron Jenney,"[""B-marker_north"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1721-4,construction,1863,"[""B-marker_north"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1721-4,demolition,1927,"[""B-marker_north"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1729-5,construction,1870–1876,"[""B-marker_north"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1729-5,demolition,1922,"[""B-marker_north"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1729-5,architect,Henry S. Jaffray; later Solon S. Beman,"[""B-marker_north"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1808-6,construction,1886,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1808-6,demolition,1968,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1808-6,architect,Cobb & Frost,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1812-7,construction,1884,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1812-7,demolition,1968,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1812-7,architect,Burnham & Root,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1824-8,construction,1857,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1824-8,demolition,1940s,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1834-9,construction,1866 (marker); post-1871 (1973 report),"[""B-marker_west"", ""B-city1973"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1834-9,demolition,1942,"[""B-marker_west"", ""B-city1973"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1834-9,architect,John M. Van Osdel,"[""B-marker_west"", ""B-city1973"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1912-10,construction,1882,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1912-10,demolition,1939,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1936-11,construction,1870,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1936-11,demolition,1915,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1936-11,architect,Lavall B. Dixon,"[""B-marker_west"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1815-12,construction,1882,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1815-12,demolition,1967,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1815-12,architect,Burnham & Root,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1823-13,construction,1881,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1823-13,demolition,1945,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1823-13,architect,Burnham & Root,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1827-14,construction,1882,"[""B-marker_east""]",reported; preserve conflicts
+pa-1827-14,demolition,1936,"[""B-marker_east""]",reported; preserve conflicts
+pa-1827-14,architect,Theodore V. Wadskier,"[""B-marker_east""]",reported; preserve conflicts
+pa-1901-15,construction,1882,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1901-15,demolition,1929,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1901-15,architect,Lavall B. Dixon; remodel Daniel Burnham,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1905-16,construction,1871–1873,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1905-16,demolition,1955,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1905-16,architect,Richard Morris Hunt,"[""B-marker_east"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2009-17,construction,1888,"[""B-marker_south"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2009-17,demolition,1955,"[""B-marker_south"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2009-17,architect,Burnham & Root,"[""B-marker_south"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2100-18,construction,1874,"[""B-marker_south""]",reported; preserve conflicts
+pa-2100-18,demolition,1936,"[""B-marker_south""]",reported; preserve conflicts
+pa-2100-18,architect,Burnham & Root,"[""B-marker_south""]",reported; preserve conflicts
+pa-2115-19,construction,1871,"[""B-marker_south"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2115-19,demolition,1937,"[""B-marker_south"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2126-20,construction,1904 (marker); other accounts say 1905,"[""B-marker_south"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2126-20,demolition,2002,"[""B-marker_south"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2126-20,architect,"Mann, MacNeill & Lindeberg","[""B-marker_south"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2140-21,construction,1876,"[""B-marker_south"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2140-21,demolition,1936,"[""B-marker_south"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2140-21,architect,John M. Van Osdel,"[""B-marker_south"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1800-22,construction,1887,"[""B-marker_survivors"", ""civic-bluebook-1904"", ""G01"", ""G02"", ""G04"", ""G07"", ""MAP-1911-28""]",reported; preserve conflicts
+pa-1800-22,architect,Henry Hobson Richardson,"[""B-marker_survivors"", ""civic-bluebook-1904"", ""G01"", ""G02"", ""G04"", ""G07"", ""MAP-1911-28""]",reported; preserve conflicts
+pa-1801-23,construction,1890–1892,"[""B-marker_survivors"", ""B-kimball"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1801-23,architect,Solon S. Beman,"[""B-marker_survivors"", ""B-kimball"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1811-24,construction,1886,"[""B-marker_survivors""]",reported; preserve conflicts
+pa-1811-24,architect,Cobb & Frost,"[""B-marker_survivors""]",reported; preserve conflicts
+pa-1900-25,construction,1870,"[""B-marker_survivors"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1900-25,architect,John W. Roberts,"[""B-marker_survivors"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1919-26,construction,1867 (marker); 1883 Beman commission (museum research),"[""B-marker_survivors"", ""B-news"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1919-26,architect,Solon S. Beman; D. H. Burnham & Co. addition,"[""B-marker_survivors"", ""B-news"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-213–217-e.-cullerton-street-27,construction,circa 1870–1900,"[""B-marker_survivors""]",reported; preserve conflicts
+pa-1827-s.-indiana-avenue-(modern-location)-28,construction,1836,"[""B-marker_survivors""]",reported; preserve conflicts
+pa-2013-29,construction,1894,"[""B-marker_outside"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2013-29,architect,"Beers, Clay & Dutton","[""B-marker_outside"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2110-30,construction,1888 (marker); 1887 (Reid nomination lead),"[""B-marker_outside"", ""B-reid_nom"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2110-30,architect,Cobb & Frost,"[""B-marker_outside"", ""B-reid_nom"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2018-s.-calumet-avenue-31,construction,1870,"[""B-marker_outside""]",reported; preserve conflicts
+pa-2018-s.-calumet-avenue-31,architect,Otis L. Wheelock,"[""B-marker_outside""]",reported; preserve conflicts
+pa-1936-s.-michigan-avenue-32,construction,1872–1874,"[""B-marker_outside""]",reported; preserve conflicts
+pa-1936-s.-michigan-avenue-32,architect,James Renwick; interior Howard Van Doren Shaw and Frederic Clay Bartlett,"[""B-marker_outside""]",reported; preserve conflicts
+pa-1923-35,demolition,1933,"[""B-news"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2021-36,construction,late 1870s,"[""B-city1973"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2112-39,demolition,1934,"[""B-news"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2108-40,demolition,1933,"[""B-news""]",reported; preserve conflicts
+pa-2109-41,demolition,1933,"[""B-news"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2130-42,demolition,1933,"[""B-news""]",reported; preserve conflicts
+pa-1702-43,construction,1853,"[""B-early2""]",reported; preserve conflicts
+pa-1702-43,demolition,1899,"[""B-early2""]",reported; preserve conflicts
+pa-1804–1808-s.-prairie-avenue-(predecessors)-44,construction,circa 1858,"[""B-early2"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1804–1808-s.-prairie-avenue-(predecessors)-44,demolition,1886,"[""B-early2"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1637-45,construction,1862,"[""B-early4"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1709-46,construction,1862,"[""B-early4"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1709-46,demolition,circa 1882,"[""B-early4"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1709-46,architect,W. W. Boyington,"[""B-early4"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1709-s.-prairie-avenue-(successor)-47,construction,circa 1882,"[""B-early4"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1709-s.-prairie-avenue-(successor)-47,architect,Burnham & Root,"[""B-early4"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1635-48,construction,1863,"[""B-early4""]",reported; preserve conflicts
+pa-1635-48,demolition,by early 1900s,"[""B-early4""]",reported; preserve conflicts
+pa-1736-49,construction,1864,"[""B-early4"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1630-50,construction,Civil War era,"[""B-early4""]",reported; preserve conflicts
+pa-1726–1728-s.-prairie-avenue-(predecessor)-51,construction,Civil War era,"[""B-early4"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1726–1728-s.-prairie-avenue-(predecessor)-51,demolition,1880s,"[""B-early4"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1700-52,construction,"1901 design; occupied March 4, 1902","[""B-collection"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1700-52,architect,"Shepley, Rutan & Coolidge","[""B-collection"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1706-53,construction,1901 design,"[""B-collection"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1706-53,architect,"Shepley, Rutan & Coolidge","[""B-collection"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1720-55,construction,1868,"[""B-burley"", ""B-worlds"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1720-55,demolition,1910,"[""B-burley"", ""B-worlds"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1720-55,architect,Otis L. Wheelock,"[""B-burley"", ""B-worlds"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2008-s.-calumet-avenue-56,construction,1883,"[""B-hanford""]",reported; preserve conflicts
+pa-2008-s.-calumet-avenue-56,demolition,1953,"[""B-hanford""]",reported; preserve conflicts
+pa-2008-s.-calumet-avenue-56,architect,Henry S. Jaffray; interiors Isaac Scott,"[""B-hanford""]",reported; preserve conflicts
+pa-2031-nrhp,construction,1869,"[""B-reid_nom_acquired"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2033-nrhp,construction,1869,"[""B-reid_nom_acquired"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-2035-nrhp,construction,1869,"[""B-reid_nom_acquired"", ""civic-bluebook-1904""]",reported; preserve conflicts
+pa-1609-1904-correction,construction,By 1886; exact date unresolved,"[""TYRE-20260923"", ""MAP-1886""]",reported; preserve conflicts
+pa-1609-1904-correction,demolition,After 1904 and by 1911,"[""TYRE-20260923"", ""MAP-1886""]",reported; preserve conflicts
+pa-1611-1904-correction,construction,By 1886; exact date unresolved,"[""TYRE-20260923"", ""MAP-1886""]",reported; preserve conflicts
+pa-1611-1904-correction,demolition,After 1904 and by 1911,"[""TYRE-20260923"", ""MAP-1886""]",reported; preserve conflicts
+pa-1620-1904-correction,construction,By 1886; exact date unresolved,"[""TYRE-20260923"", ""MAP-1886""]",reported; preserve conflicts
+pa-1620-1904-correction,demolition,After 1904 and by 1911,"[""TYRE-20260923"", ""MAP-1886""]",reported; preserve conflicts

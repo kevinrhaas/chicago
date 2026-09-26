@@ -19,6 +19,9 @@ button { border:1px solid var(--line); background:var(--card); padding:6px 12px;
 .year-badge { background:var(--accent); color:white; border-radius:999px; padding:5px 10px; font-weight:800; }
 .map-tools { display:grid; gap:7px; justify-items:end; min-width:220px; } .map-tools label { color:var(--muted); font-size:.75rem; font-weight:700; } .map-tools select { width:100%; border:1px solid var(--line); border-radius:8px; padding:7px; background:white; }
 .meta,.warning { color:var(--muted); font-size:.88rem; } .map-card .meta { margin-top:12px; }
+.map-card { min-width:0; overflow-wrap:anywhere; }
+.map-tools { width:280px; max-width:100%; min-width:0; flex-shrink:0; }
+.map-tools select { min-width:0; max-width:100%; }
 .records-status { color:var(--lake); font-size:.9rem; font-weight:700; }
 aside { display:grid; gap:18px; align-content:start; } .metric,.context { padding:20px; } .metric span { font:700 3.5rem Georgia,serif; color:var(--lake); } .metric p { color:var(--muted); margin:0; }
 .image-metric span { color:var(--accent); }

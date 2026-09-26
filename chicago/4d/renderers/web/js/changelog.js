@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1149, title: 'The LaSalle slough no longer runs inland to Randolph', kind: 'fix', ts: '2026-09-26T18:33:41.267Z', date: 'Sep 26, 2026, 1:33 PM CT',
+  { v: 1152, title: 'The LaSalle slough no longer runs inland to Randolph', kind: 'fix', ts: '2026-09-26T19:43:19.454Z', date: 'Sep 26, 2026, 2:43 PM CT',
     items: [
       'Fly over the river front just east of LaSalle Street and there was a ditch running inland from the water, under South Water Street, across Lake Street and on nearly to Randolph. It is gone. The drain now comes in from the river, crosses the street under its plank crossing, reaches about sixteen metres into the lot behind, and the ground closes over it.',
       'The owner spotted it from the air and checked it against the two 1834 surveys the town is fitted to \u2014 Wright\u2019s and Hathaway\u2019s. Neither draws an inland course here at all. They draw a notch in the bank and nothing above it, which is what this project\u2019s own reading of Wright\u2019s whole sheet had already found and written down.',
@@ -7,6 +7,28 @@ export const CHANGELOG = [ // newest first
       'The mouth did not move a centimetre. It is the notch Wright drew, confirmed against the original sheet to within twelve metres on a survey fit whose own error is sixteen. Nor did the plank crossing on South Water Street: the water under its deck is as deep and as wide as it was.',
       'Two blocks got their prairie back. Lake Street and Randolph Street read as level ground again, and the ground the ditch held is released to the lots behind South Water Street, where houses may now be dealt. The measurable side of that: the roughest patch of supposedly level plain in the whole model falls by two fifths, from 55.9 to 33.2, because the inland ditch was the worst of it.',
       'The plank sidewalk on the north side of Lake Street is one walk again. The ditch used to break it in two \u2014 the town laid two separate runs between LaSalle and Clark to get round it \u2014 and the town now carries 39 runs of sidewalk where it carried 41, with 31 more metres of board underfoot. The lot behind South Water Street stands drier too: of 400 ground samples taken across it, 16 used to fall below the waterline and 2 do now.',
+    ] },
+  { v: 1151, title: 'Arrive in 1835 as the town is assembled', kind: 'change', ts: '2026-09-26T18:30:51.494Z', date: 'Sep 26, 2026, 1:30 PM CT',
+    items: [
+      'The loading screen is now an arrival: the year rolls backward from the present toward 1835 as real reconstruction phases finish.',
+      'The year never reaches 1835 before the town is ready; long phases ease rather than pretending to be complete, and a fast warm load does not add an artificial delay.',
+      'Reduced-motion visitors get a short stepped year change instead of flip animation, and a failed essential load stops the clock and offers Retry.',
+      'The arrival styling is a restrained instrument panel with split-flap numerals, a live phase line and room for the richer source-status library coming next.',
+    ] },
+  { v: 1150, title: 'The bulge in the river turns out to be Wright\u2019s own', kind: 'fix', ts: '2026-09-26T18:10:03.863Z', date: 'Sep 26, 2026, 1:10 PM CT',
+    items: [
+      'Nothing you can see in the town has changed, and this release is about why. The owner flew the river front and reported that the south bank swells out into the channel between the bend at the forks and the slough by LaSalle Street, where the other 1834 map draws it even \u2014 and asked for it brought in to the bank the 1834 survey actually drew.',
+      'It is already on that bank. The waterline was traced years ago off one scan of that survey; it has now been measured against the surveyor\u2019s own ink on a DIFFERENT scan, registered independently, at 103 points five metres apart. Half of them sit within 1.9 metres of his line and nine in ten within 4 metres, against a trace that only ever claimed twenty. The notch where the slough comes in is his too, drawn between the same two blocks.',
+      'So the swell is not a tracing mistake. It is what the surveyor drew. The 1834 map the owner compared it against, Hathaway\u2019s, genuinely does draw the reach even \u2014 and the way to say that without either map\u2019s georeferencing getting in the way is to measure inside each sheet on its own: the ground each draughtsman puts between his own bank and his own block fronts. Wright gives 35, 39, 32 and 20 metres across the four blocks; Hathaway gives 29, 28, 24 and 21. The two surveys disagree by up to 11 metres, and that disagreement is the bulge.',
+      'The rendered ground was checked too, in case the scene was adding something the data does not have. It is not: the terrain\u2019s waterline follows the committed bank cell for cell along the whole reach.',
+      'Which leaves a question a measurement cannot answer, so it has gone to the owner rather than been taken: whether this reach should keep the survey the datum, the plat and every block in town are fitted to, or follow the second 1834 map instead. Until he rules, nothing moves \u2014 the bank, the plank walk and the landings stand where the survey put them.',
+    ] },
+  { v: 1149, title: 'Explore Prairie Avenue in 1904', kind: 'change', ts: '2026-09-26T17:49:41.580Z', date: 'Sep 26, 2026, 12:49 PM CT',
+    items: [
+      'A new Prairie Avenue research browser brings together house histories, Sanborn maps, directory leads and a dedicated Glessner collection.',
+      'Browse the six Glessner measured drawings and survey report, compare 1911 frontage evidence with the 1904 target, and inspect source dates and unresolved questions.',
+      'The pre-fire library now has an 1834 shortcut for the Wright map. Its map menu lists every dated reference and moves the timeline to your selection.',
+      'This is a research library for the planned reconstruction. The 1835 town and the unfinished Prairie 3D scene are unchanged.',
     ] },
   { v: 1148, title: 'The four houses with nowhere to stand are now refused in writing', kind: 'change', ts: '2026-09-26T17:31:46.182Z', date: 'Sep 26, 2026, 12:31 PM CT',
     items: [
