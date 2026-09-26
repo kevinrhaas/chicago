@@ -28,9 +28,9 @@
       "tin_and_copper_manufactory": 4
     },
     "by_location_kind": {
-      "anchored": 27,
+      "anchored": 28,
       "premises": 53,
-      "street_only": 88,
+      "street_only": 87,
       "unplaceable": 108
     },
     "named_people": 405,
@@ -43,9 +43,9 @@
       "reconstructed": 33
     },
     "by_where_kind": {
-      "anchored": 27,
+      "anchored": 28,
       "premises": 52,
-      "street_only": 88,
+      "street_only": 87,
       "unplaceable": 104
     },
     "by_street": {
@@ -13751,15 +13751,20 @@
         }
       ],
       "where": {
-        "kind": "street_only",
+        "kind": "anchored",
         "structure_id": null,
-        "anchor": null,
+        "anchor": {
+          "kind": "structure",
+          "id": "exchange_coffee_house",
+          "title": "Exchange Coffee House",
+          "streets": []
+        },
         "street_id": "lake",
         "street": "Lake Street",
         "tier": "inferred",
         "from": "1835-06-24",
         "to": null,
-        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor 'the Exchange' names nothing the committed town holds."
+        "limit_reason": "The register places this house against exchange_coffee_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-06-24",

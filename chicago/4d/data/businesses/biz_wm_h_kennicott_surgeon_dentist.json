@@ -37,7 +37,7 @@
   "staffing": null,
   "locations": [
     {
-      "kind": "street_only",
+      "kind": "anchored",
       "structure_id": null,
       "street_id": "lake",
       "face": null,
@@ -45,8 +45,14 @@
       "from": "1835-06-24",
       "to": null,
       "tier": "inferred",
-      "basis": "The paper names a street and no house on it.",
-      "limit_reason": "The paper names Lake Street and nothing narrower; the anchor 'the Exchange' names nothing the committed town holds."
+      "basis": "Placeable against the committed town. The landmark is the committed structure exchange_coffee_house.",
+      "limit_reason": "The register places this house against exchange_coffee_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "structure",
+        "id": "exchange_coffee_house",
+        "title": "Exchange Coffee House",
+        "streets": []
+      }
     }
   ],
   "dates": {

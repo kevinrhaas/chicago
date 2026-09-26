@@ -88,8 +88,8 @@ The location limit of every firm present at the scene date — how far its evide
 | Location limit | Businesses |
 | --- | ---: |
 | enrich_existing | 30 |
-| new_building | 26 |
-| street_only | 61 |
+| new_building | 27 |
+| street_only | 60 |
 | unplaceable | 62 |
 
 Reproduce: `python3 tools/compile_register.py --check`.
@@ -99,7 +99,7 @@ Reproduce: `python3 tools/compile_register.py --check`.
 | Measure | Count |
 | --- | ---: |
 | Structure records | 419 |
-| Carrying occupants | 124 |
+| Carrying occupants | 123 |
 | Flagged `review_required` | 9 |
 
 | Graded phase attribute | Values |
@@ -142,7 +142,7 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 
 1. **Every layer is reached at unit level.** 809 asserted units land on residents and households, 541 on businesses and 12 on structures.
 2. **28 of the 179 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
-3. **62 firms are unplaceable and 61 reach a street and no further.** Those 123 are the location limits the research preserved rather than guessed past; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
+3. **62 firms are unplaceable and 60 reach a street and no further.** Those 122 are the location limits the research preserved rather than guessed past; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
 4. **1,481 of 1,512 households have no `lives_at`.** Most are letter-list-only names (736) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
 5. **1,080 structure attributes are `reconstructed` against 16 attested and 164 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
 
