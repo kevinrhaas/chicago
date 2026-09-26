@@ -3809,7 +3809,7 @@ def cmd_self_test() -> int:
             bent["inventory"], bent["programme"], occ))
 
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 178
+        data["inventory"], data["programme"], occ))["seated"] == 176
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
