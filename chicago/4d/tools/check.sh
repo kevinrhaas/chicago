@@ -2736,6 +2736,8 @@ step "restamp moves the queue line it was handed, not the other one" \
 # ways — land at a fixed index, move a neighbour, fall back without saying so, or
 # leak the anchor id into the title — and this runs the same call against two
 # orderings of one fixture so the line is shown to follow the ANCHOR.
+# Since 2026-09-27 the same test holds the owner's band-9 rule: a follow-up that is not
+# the owner's lands at the foot of band 9 unless `--blocks "<why>"` says what it blocks.
 step "new --after places directly under the named ticket and moves nothing else" \
   node tools/test_ticket_after.mjs
 

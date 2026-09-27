@@ -184,5 +184,84 @@ placeWith('the same call with the lines reordered — the anchor is now the LAST
   } finally { rmSync(tmp, { recursive: true, force: true }); }
 }
 
+/* ------------------------- 7-12: a follow-up that is not the owner's goes to band 9 */
+// Owner, 2026-09-27: "move loop follow-ups to band 9", then "make the ticket tool enforce
+// it". The queue below has a build band, band 9 and band 10, which is the shape the rule
+// reads; the fixtures above have no band 9 and are the proof that nothing changes there.
+
+const D = ['T-0004', 'A loop improvement already waiting in band 9'];
+const E = ['T-0005', 'A research reading in band 10'];
+
+function banded() {
+  const tmp = mkdtempSync(path.join(tmpdir(), 'c4d-band9-'));
+  const APP = path.join(tmp, 'chicago', '4d');
+  mkdirSync(path.join(APP, 'tools'), { recursive: true });
+  mkdirSync(path.join(APP, 'tickets'), { recursive: true });
+  cpSync(path.join(REPO, 'tools', 'ticket.mjs'), path.join(APP, 'tools', 'ticket.mjs'));
+  for (const [id, title] of [A, B, C, D, E]) {
+    writeFileSync(path.join(APP, 'tickets', `${id}-fixture.md`), ticketFile(id, title));
+  }
+  writeFileSync(path.join(APP, 'tickets', 'QUEUE.md'), [
+    '# QUEUE — top is next. THE OWNER ORDERS THIS FILE.', '',
+    '# --- 5C. STRUCTURES — build', `${A[0]} — ${A[1]}`, `${B[0]} — ${B[1]}`, `${C[0]} — ${C[1]}`, '',
+    '# --- 9. LOOP IMPROVEMENTS', `${D[0]} — ${D[1]}`, '',
+    '# --- 10. RESEARCH COMPLETION', `${E[0]} — ${E[1]}`, ''].join('\n'));
+  return { tmp, APP };
+}
+const band9Ids = (APP) => {
+  const all = queueText(APP).split('\n');
+  const h = all.findIndex((l) => l.startsWith('# --- 9.'));
+  const e = all.findIndex((l) => l.startsWith('# --- 10.'));
+  return all.slice(h, e).map(idOfRow).filter(Boolean);
+};
+function filed(label, args, expect) {
+  const { tmp, APP } = banded();
+  try {
+    console.log(`\n  ${label}`);
+    const before = rows(APP);
+    let out;
+    try { out = tool(APP, 'new', ...args); } catch (e) { out = said(e); if (expect.refused) { expect.refused(out); return; } throw e; }
+    const newId = /^(T-\d{4}) created/m.exec(out)?.[1];
+    const after = rows(APP);
+    expect.check(APP, newId, after, out);
+    const withoutNew = after.filter((l) => idOfRow(l) !== newId);
+    check('every pre-existing line is byte-identical and in its original order',
+      withoutNew.length === before.length && withoutNew.every((l, i) => l === before[i]));
+    const c = checkTool(APP);
+    check('and `check` is green afterwards', c.ok, c.out.trim().split('\n').pop());
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+}
+
+filed('a loop follow-up --after a 5C build ticket', ['A tooling fault found mid-build', '--after', 'T-0002', '--by', 'loop'], {
+  check(APP, id, after, out) {
+    const b9 = band9Ids(APP);
+    check('it lands at the FOOT of band 9, not under the build', b9[b9.length - 1] === id, b9.join(' '));
+    check('and not under the anchor', after[after.findIndex((l) => idOfRow(l) === 'T-0002') + 1] !== after.find((l) => idOfRow(l) === id));
+    check('the message says so, names the anchor it declined and the way past it',
+      /FOOT OF BAND 9/.test(out) && /T-0002 sits above band 9/.test(out) && /--blocks/.test(out), out.trim());
+  } });
+
+filed('a steward filing with no --by and no --after', ['A finding with nowhere to stand'], {
+  check(APP, id) { const b9 = band9Ids(APP); check('the default filer is not the owner, so it goes to band 9 too', b9[b9.length - 1] === id, b9.join(' ')); } });
+
+filed('the same follow-up with --blocks and its reason', ['A fault the build cannot finish without', '--after', 'T-0002', '--by', 'loop', '--blocks', 'T-0002 cannot bake until this is fixed'], {
+  check(APP, id, after, out) {
+    const at = after.findIndex((l) => idOfRow(l) === 'T-0002');
+    check('--blocks honours the anchor: it sits directly under T-0002', idOfRow(after[at + 1]) === id, out.trim());
+    const body = readFileSync(path.join(APP, 'tickets', `${id}-a-fault-the-build-cannot-finish-without.md`), 'utf8');
+    check('the reason is written into the ticket', /FILED ABOVE BAND 9, BECAUSE IT BLOCKS/.test(body) && /T-0002 cannot bake until this is fixed/.test(body));
+    check('and the reason did not leak into the title', /^title: A fault the build cannot finish without$/m.test(body));
+  } });
+
+filed('an owner filing --after a 5C build ticket', ['Something the owner asked for', '--after', 'T-0002', '--by', 'owner'], {
+  check(APP, id, after) { const at = after.findIndex((l) => idOfRow(l) === 'T-0002'); check('the owner\'s placement is never redirected', idOfRow(after[at + 1]) === id); } });
+
+filed('a loop follow-up --after a band-10 ticket', ['A reading that belongs beside another reading', '--after', 'T-0005', '--by', 'loop'], {
+  check(APP, id, after) { const at = after.findIndex((l) => idOfRow(l) === 'T-0005'); check('an anchor BELOW band 9 is honoured as before', idOfRow(after[at + 1]) === id); } });
+
+filed('--blocks with no reason', ['A claim of blocking with nothing behind it', '--after', 'T-0002', '--by', 'loop', '--blocks'], {
+  check() { check('an empty --blocks is refused', false, 'it was accepted'); },
+  refused(out) { check('an empty --blocks is refused, and says what to write', /--blocks. was written with no reason/.test(out), out.trim().split('\n')[0]); } });
+
 console.log(`\n${failures === 0 ? 'ticket --after self-test: all pass' : `ticket --after self-test: ${failures} FAILURE(S)`}`);
 process.exit(failures === 0 ? 0 : 1);
