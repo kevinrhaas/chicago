@@ -32,6 +32,7 @@ import { createWalker, footprintsFrom, decksFrom, WALK } from './walker.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
 import { createPopup } from './popup.js';
+import { createDestinations } from './destinations.js';
 import { createHud } from './hud.js';
 import { createNavigation } from './navigation.js';
 import { createStreets } from './streets.js';
@@ -1650,8 +1651,8 @@ async function boot() {
       };
     }
     const pl = loaded.registry.get(id)?.sidecar?.placement;
-    if (!pl) return null;
-    return { e: pl.local_e ?? 0, n: pl.local_n ?? 0 };
+    if (!Number.isFinite(pl?.local_e) || !Number.isFinite(pl?.local_n)) return null;
+    return { e: pl.local_e, n: pl.local_n };
   }
 
   // The route planner and the travel controller. `travel` is assigned after the
@@ -1692,7 +1693,28 @@ async function boot() {
     if (document.getElementById('popup')?.hasAttribute('hidden')) reaimAfterCard();
   }).observe(document.getElementById('popup'), { attributes: true, attributeFilter: ['hidden'] });
 
+  // The town's FIRMS, read BEFORE the two directories that now cross-reference
+  // them (T-1325). The index is one file and the crosswalk is one fold of it; a
+  // person's card and a building's card both ask it the same two questions, so
+  // neither is allowed to fold 196 rows for itself.
+  api.businessIndex = await (async () => {
+    try {
+      const res = await fetch(new URL('businesses/index.json', bases.dataBase), { cache: 'no-cache' });
+      if (res.ok) return res.json();
+      problems.push(`businesses: businesses/index.json ${res.status} — no firm is listed in Businesses`);
+    } catch (err) {
+      problems.push(`businesses: ${err.message} — no firm is listed in Businesses`);
+    }
+    return null;
+  })();
+  const destinations = createDestinations({
+    scene: loaded.scene, index: loaded.index, registry: loaded.registry, people,
+    businesses: api.businessIndex, positionOf: structurePosition,
+    standFor: framing, router, terrain,
+  });
+  api.destinations = destinations;
   const hud = createHud({
+    destinations,
     root: hudRoot,
     scene: loaded.scene,
     registry: loaded.registry,
@@ -1845,20 +1867,6 @@ async function boot() {
     sceneId: loaded.scene.id ?? YEAR,
     problems,
   });
-  // The town's FIRMS, read BEFORE the two directories that now cross-reference
-  // them (T-1325). The index is one file and the crosswalk is one fold of it; a
-  // person's card and a building's card both ask it the same two questions, so
-  // neither is allowed to fold 196 rows for itself.
-  api.businessIndex = await (async () => {
-    try {
-      const res = await fetch(new URL('businesses/index.json', bases.dataBase), { cache: 'no-cache' });
-      if (res.ok) return res.json();
-      problems.push(`businesses: businesses/index.json ${res.status} — no firm is listed in Businesses`);
-    } catch (err) {
-      problems.push(`businesses: ${err.message} — no firm is listed in Businesses`);
-    }
-    return null;
-  })();
   const firms = firmCrosswalk(api.businessIndex);
   // A firm chip on a building card opens the firm in the drawer. Declared once
   // here, used by the popup and by both directories, so every route into a
@@ -2286,21 +2294,20 @@ async function boot() {
 
   /** Stand back and look at a structure, framed whole — used by Go to, the rides and the harness. */
   function frame(id, { card = false } = {}) {
-    // `card`: the arrival will open the building's card, so frame into the part
-    // of the screen it leaves free. The harness's bare frame() aims straight, so
-    // the crosshair lands on the building it was pointed at.
-    const f = framing(id, { card });
+    return applyFraming(framing(id, { card }));
+  }
+
+  function applyFraming(f) {
     if (!f) return false;
-    // lookAt places the eye `distance` from the AIM along `bearingDeg` — which is
-    // the stand-off point framing() already probed for free ground — then the
-    // look is turned so the building sits in the part of the screen the card
-    // leaves free.
-    walker.lookAt(f.aim, f.distance, f.bearingDeg);
+    // Use the router's actual safe point, including nearest-cell fallback.
+    // Rebuilding it from the requested distance can put the walker inside a roof.
+    walker.teleport({ local_e: f.e, local_n: f.n });
     const st = walker.state;
+    const de = f.aim.x - st.e, dn = -f.aim.z - st.n;
     walker.teleport({
       local_e: st.e, local_n: st.n,
-      yaw_deg: walker.bearingDeg + f.yawOffsetDeg,
-      pitch_deg: st.pitch / DEG + f.pitchOffsetDeg,
+      yaw_deg: ((Math.atan2(de, dn) / DEG) + 360) % 360 + f.yawOffsetDeg,
+      pitch_deg: Math.atan2(f.aim.y - st.eyeY, Math.max(Math.hypot(de, dn), 0.1)) / DEG + f.pitchOffsetDeg,
     });
     return true;
   }
@@ -2342,14 +2349,34 @@ async function boot() {
   /** One route for the complete search: frame a structure, stand at a verified
    * intersection, or use one of the authored scene viewpoints. */
   function goToTarget(target) {
-    if (!target?.kind) return false;
-    // A person is a place by proxy: where they lived, else where they worked.
-    if (target.kind === 'person') {
-      const id = target.lives_at || target.works_at;
-      if (!id || !loaded.registry.has(id)) return false;
-      return travel.go({ kind: 'structure', id, person: target.id });
+    const resolved = destinations.resolve(target);
+    if (!resolved) {
+      const row = target && destinations.byId(target.kind, target.id);
+      if (row?.kind === 'person') {
+        hud.setPanel(true); hud.selectTab('people'); api.people?.open?.(row.id); return true;
+      }
+      if (row?.kind === 'business' && !row.derived_from) { openBusiness(row.id); return true; }
+      if (row?.kind === 'business' && row.derived_from === 'structure') {
+        // A fallback firm owns no separate register card; its source building does.
+        hud.setPanel(false); pick(row.at); hud.say(row.limit || 'No safe arrival point'); return true;
+      }
+      return false;
     }
-    return travel.go(target);
+    return travel.go(resolved.structureId
+      ? { kind: 'structure', id: resolved.structureId, label: resolved.label, person: resolved.kind === 'person' ? resolved.id : null }
+      : resolved);
+  }
+
+  /** The future welcome picker shares resolution, but starts exploration without a ride. */
+  function spawnAtDestination(target) {
+    const resolved = destinations.resolve(target, { card: false });
+    if (!resolved || router.blockedAt(resolved.standOff.e, resolved.standOff.n)) return false;
+    travel.stop('spawn'); lastArrival = null; popup.close(); hud.setPanel(false);
+    hud.setFly(false, { announce: false });
+    if (resolved.structureId) applyFraming(resolved.standOff);
+    else walker.teleport({ local_e: resolved.standOff.e, local_n: resolved.standOff.n,
+      yaw_deg: resolved.yaw_deg ?? 0, pitch_deg: resolved.pitch_deg ?? 0 });
+    return true;
   }
 
   // ---- gate ------------------------------------------------------------- //
@@ -2585,6 +2612,7 @@ async function boot() {
       return { x: v.x, y: v.y, z: v.z };
     },
     goToTarget,
+    spawnAtDestination,
     structurePosition,
     setTravelMode(mode) { return hud.setTravelMode(mode); },
     setPace(pace) { return hud.setPace(pace, { announce: false }); },

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1173, ts: '2026-09-27T13:01:25.511Z', date: 'Sep 27, 2026, 8:01 AM CT', title: 'Find firms and people through one destination search', kind: 'change',
+    items: [
+      'Go to now searches the business register alongside buildings, viewpoints, street corners and people. Business results name their premises or state how far the record can place them.',
+      'People and firms without a known address remain findable. Selecting one opens its existing card without moving you to an invented location.',
+      'The search and direct starting-point API share one destination inventory and the same safe building stand-off and arrival framing.',
+    ] },
   { v: 1172, title: 'The wide store on Franklin gets its four-bay front', kind: 'change', ts: '2026-09-27T12:08:10.063Z', date: 'Sep 27, 2026, 7:08 AM CT',
     items: [
       'The town\u2019s one wide two-storey store block, at the east end of the Franklin block on South Water Street, had a door and a single show window on a thirty-foot front. It now has the door and three windows \u2014 the four-bay shopfront its own brief asks for. It was the last building standing outside its family\u2019s range, and the range is now kept across the town.',
