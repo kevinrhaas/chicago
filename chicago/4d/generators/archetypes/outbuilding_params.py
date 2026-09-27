@@ -111,15 +111,64 @@ SIDES = ("front", "back", "left", "right")
 # What has to get through the doorway. This is the parameter the archetype exists to
 # get right: a stable whose door is a person's door is a shed with a horse painted on
 # it. Widths are the clear opening.
-DOOR_KINDS = ("none", "man", "stable", "wagon")
+DOOR_KINDS = ("none", "man", "stable", "wagon", "cargo")
 DOOR_SIZE_M = {
     "man": (0.86, 1.88),      # one person, a barrow, an armful of wood
     "stable": (1.35, 2.30),   # a horse led through in hand, single leaf
     "wagon": (2.90, 3.00),    # a loaded wagon and its team, double leaf
+    "cargo": (2.20, 2.35),    # goods handed in off a wagon bed or a boat
 }
+
+# WHY `cargo` EXISTS, AND WHY IT IS NOT A NARROW WAGON DOOR (T-1662).
+#
+# Family F1 in data/reconstruction/1835_family_archetype_crosswalk.json is the
+# freight or storage shed, it is drawn by this archetype, and its required variant
+# is `freight_shed_low` — *"wide doors; low openings; dockside skids"*. Until this
+# entry the only wide door here was `wagon`, and a wagon door is the wrong shape for
+# the family in a way that is measurable rather than aesthetic:
+#
+#   * IT IS NOT LOW. The clear head is 3.00 m and this archetype's validator wants
+#     more wall than that above the floor, so `tools/family_bands.eave_floor` — which
+#     asks THIS TABLE rather than retyping it — returns 3.08 m for any F1 roof. F1's
+#     own authored eave band is 10-13 ft, 3.048 to 3.962 m. The door therefore put
+#     the family's eave FLOOR 32 mm above the bottom of the band the same file
+#     authors, and no F1 shed in this town can be built at the low end of its own
+#     band. `cargo` returns the band: 2.35 + 0.08 = 2.43 m, under all of it.
+#   * IT IS ONE DOOR. The family says door*s*, and F1's evidence note asks for
+#     "long-building framing, cargo openings" — plural. A single 2.9 m opening in
+#     the middle of an eleven-metre shed is a barn; freight came off a wagon bed or
+#     a boat at more than one point along the loading side, which is what
+#     `door_bays` below sets out.
+#
+# THE TWO NUMBERS, AND WHAT EACH ONE RESTS ON. Both are liberties (docs/LIBERTIES.md
+# L278) and neither is a reading of any source — no surviving record describes a
+# Chicago freight-shed door in 1835.
+#
+#   HEIGHT 2.35 m is DERIVED, and the derivation is reproducible here: it is the
+#   largest 0.05 m step whose head plus this module's own header stock leaves at
+#   least half a metre of boarded wall under F1's LOWEST authored eave. 2.35 + 0.16
+#   = 2.51 m of frame, and 3.048 - 2.51 = 0.538 m of board above it. The next step
+#   up, 2.40 m, leaves 0.488 m and is refused. That is what "low" is made to mean:
+#   an opening the family's own eave band can carry all the way down.
+#
+#   WIDTH 2.20 m is INVENTED and bounded. It is wider than `stable` (1.35 m, a horse
+#   in hand) because the family says wide, and narrower than `wagon` (2.90 m, a team)
+#   because no team goes through it — the load is handed in off the bed. The bound
+#   that fixes it is the rhythm: two of these with their jambs occupy 5.04 m, which
+#   is 72 % of the median front F1's own footprint band allows (18-28 ft, median
+#   7.01 m), leaving 0.66 m of pier at each corner and between them. A wagon door
+#   cannot do that on any front in the band, which is the whole reason the family
+#   needed an opening of its own.
+
 # Jamb and header stock either side of the clear opening. The door has to fit the WALL,
 # not merely be under some maximum, so this is part of the check.
 DOOR_JAMB_M = 0.16
+
+# The narrowest CLEAR board this archetype will leave between two openings on one
+# elevation. A pier thinner than the jamb stock that flanks it is not a pier — it is
+# two door frames touching — so the floor is those two jambs, and below it the wall
+# stops reading as a wall with doors in it and starts reading as one ragged hole.
+DOOR_PIER_MIN_M = 2 * DOOR_JAMB_M
 
 # Finishes. Outbuildings here are unpainted by default and mostly stayed that way;
 # whitewash is included because a dairy or a smokehouse sometimes got it and because
@@ -171,7 +220,7 @@ SHED_RISE_RATIO_MAX = 1.5
 # is what `docs/RESEARCH/materials.md` §4 finding 4 was pointing at.
 CONSUMED = frozenset({
     "construction", "roof_type", "roof_pitch_deg", "wall_height_m",
-    "door", "door_side", "door_width_m", "door_height_m",
+    "door", "door_side", "door_width_m", "door_height_m", "door_bays",
     "open_sides", "loft", "board_gap_m", "paint",
 })
 
@@ -322,6 +371,17 @@ class OutbuildingParams:
     door_width_m: float | None = None
     door_height_m: float | None = None
 
+    # How many of that doorway stand on `door_side`, set out evenly with equal piers
+    # between them and at each corner. One is a shed; more than one is a building
+    # worked at several points along its loading side, which is what family F1's
+    # "wide doors" and "cargo openings" ask for and what nothing here could say
+    # before T-1662. A COUNT FROM THE RECORD, never derived from the wall: an
+    # archetype that decides for itself how many doors a building had is deciding
+    # how it was worked. The validator refuses a count the elevation cannot carry
+    # rather than quietly dropping one, for the same reason it refuses a door the
+    # wall cannot header.
+    door_bays: int = 1
+
     # A hay or storage loft. As in log_dwelling, the loft leaves exactly one external
     # trace and the archetype builds that and nothing else: the door you pitch through,
     # high in a gable end or under the tall eave of a shed roof. No dormer, no floor
@@ -432,6 +492,69 @@ class OutbuildingParams:
     def apex_z_m(self) -> float:
         """Top of the roof surface — the ridge, or the high eave of a shed."""
         return round(float(self.wall_height_m) + self.roof_rise_m, 4)
+
+    @property
+    def door_spans_m(self) -> list:
+        """`[(u0, u1), ...]` — the clear opening of every doorway on `door_side`,
+        left to right in that elevation's own `u`.
+
+        ONE set-out, asked for by the builder that draws the frames, by `openings()`
+        which tells a signboard where it may not hang, and by the validator that
+        refuses a count the wall cannot carry. It used to be three lines of
+        arithmetic inside `openings()` and `_doorway`, each centring one door on the
+        wall, and the moment there could be more than one door that arrangement
+        would have had the frames in one place and the holes in the boarding in
+        another.
+
+        The rhythm is even and symmetrical: n openings, each with its jamb stock,
+        and n + 1 equal piers — one at each corner and one between every pair. A
+        freight shed's loading side is a frame with bays in it, not a wall with
+        doors punched wherever they fit, and an even set-out is the only one that
+        does not claim a plan this project has no evidence for.
+        """
+        dw, _dh = self.door_size_m
+        if dw <= 0.0 or self.door_bays < 1:
+            return []
+        n = int(self.door_bays)
+        run = self.side_run_m(self.door_side)
+        if n == 1:
+            # ONE BAY IS THE OLD CENTRING, WRITTEN THE OLD WAY, AND THAT IS NOT
+            # fussiness. The general formula below is the same quantity for n = 1
+            # but not the same DOUBLE: (run - dw - 2j)/2 + j differs from
+            # run/2 - dw/2 in the last bit, which is nothing on a wall and enough
+            # to move a two-decimal rounding. Measured when it was written the
+            # other way: two of the town's business signboards jumped to the far
+            # side of their building, because `tools/generate_business_signboards.py`
+            # picks a clear span off these rectangles and the tie between the span
+            # left of the door and the span right of it broke the other way. 133 of
+            # the town's 134 outbuildings carry a single door and none of them may
+            # move for a change about freight sheds.
+            um = run / 2.0
+            return [(um - dw / 2.0, um + dw / 2.0)]
+        framed = dw + 2 * DOOR_JAMB_M
+        pier = (run - n * framed) / (n + 1)
+        # NOT ROUNDED, and that is deliberate. With one bay this arithmetic reduces
+        # to the centred door the archetype has always drawn, and rounding it to
+        # four places moved eleven of the town's single-door outbuildings by a
+        # fraction of a tenth of a millimetre — enough to change every one of their
+        # GLBs and nothing a visitor could ever see. A set-out that churns the bake
+        # for no visible reason is a set-out nobody will trust the next time it does.
+        out = []
+        for i in range(n):
+            a = pier * (i + 1) + framed * i + DOOR_JAMB_M
+            out.append((a, a + dw))
+        return out
+
+    @property
+    def door_pier_m(self) -> float:
+        """The clear board the even set-out leaves at each gap — between two
+        openings, and at each corner beside the outermost one. With a single
+        doorway this is just the margin either side of a centred door, which is
+        why the validator only holds it to a floor when there is a rhythm."""
+        dw, _dh = self.door_size_m
+        n = max(1, int(self.door_bays))
+        run = self.side_run_m(self.door_side)
+        return round((run - n * (dw + 2 * DOOR_JAMB_M)) / (n + 1), 4)
 
     @property
     def door_size_m(self) -> tuple:
@@ -598,15 +721,34 @@ class OutbuildingParams:
                 f"the door is on the '{self.door_side}' side and that side is open. An "
                 f"opening in an opening is nothing; put the door on a closed elevation "
                 f"or set door 'none'")
-        dw, dh = self.door_size_m
-        run = self.side_run_m(self.door_side)
-        if dw + 2 * DOOR_JAMB_M > run:
+        if int(self.door_bays) != self.door_bays or self.door_bays < 1:
             raise ParamError(
-                f"a '{self.door}' door is {dw} m clear and needs {dw + 2 * DOOR_JAMB_M:.2f} m "
-                f"of wall with its jambs, but the '{self.door_side}' elevation is only "
-                f"{run} m long. Widen the footprint, move the door to the long side, or "
-                f"record a smaller door — an archetype that shrinks the door to fit is "
-                f"deciding what the building was for")
+                f"door_bays is {self.door_bays!r} and a doorway is a whole doorway. A "
+                f"building with no door says door 'none'; one with a door says 1")
+        dw, dh = self.door_size_m
+        n = int(self.door_bays)
+        run = self.side_run_m(self.door_side)
+        need = n * (dw + 2 * DOOR_JAMB_M)
+        if need > run:
+            raise ParamError(
+                f"{n} '{self.door}' door(s) are {dw} m clear each and need {need:.2f} m "
+                f"of wall with their jambs, but the '{self.door_side}' elevation is only "
+                f"{run} m long. Widen the footprint, move the door to the long side, "
+                f"record fewer bays, or record a smaller door — an archetype that "
+                f"shrinks the door to fit is deciding what the building was for")
+        # ONLY ASKED OF A RHYTHM, and deliberately. With one doorway the set-out
+        # centres it and the wall either side is whatever the elevation has left —
+        # which on a 1.67 m privy is 0.25 m and has always been the right answer.
+        # Imposing a corner margin on those would refuse 130 outbuildings that were
+        # never in question. What is new here is board BETWEEN two openings, and
+        # that is the thing a single door cannot have.
+        if n > 1 and self.door_pier_m < DOOR_PIER_MIN_M:
+            raise ParamError(
+                f"{n} '{self.door}' doors on a {run} m elevation leave "
+                f"{self.door_pier_m:.2f} m of board between them, under the "
+                f"{DOOR_PIER_MIN_M:.2f} m this archetype will build. A pier thinner "
+                f"than the jambs that flank it is two door frames touching, not a "
+                f"wall with openings in it: record fewer bays or a longer side")
         if dh > float(self.wall_height_m) - 0.08:
             raise ParamError(
                 f"a '{self.door}' door is {dh} m clear and the wall is "
@@ -681,6 +823,7 @@ def from_phase(phase: dict, record: dict | None = None) -> OutbuildingParams:
         open_sides=tuple(str(s) for s in (open_sides or ())),
         door=str(door),
         door_side=str(val("door_side", "front")),
+        door_bays=int(val("door_bays", 1)),
         door_width_m=(None if val("door_width_m") is None
                       else float(val("door_width_m"))),
         door_height_m=(None if val("door_height_m") is None
@@ -784,10 +927,9 @@ def openings(p: "OutbuildingParams") -> dict:
                 ("open_bay", 0.0, p.side_run_m(side), 0.0,
                  float(p.wall_height_m) + p.roof_rise_m))
     if p.door != "none":
-        dw, dh = p.door_size_m
-        um = p.side_run_m(p.door_side) / 2.0
-        out.setdefault(p.door_side, []).append(
-            ("door", um - dw / 2.0, um + dw / 2.0, 0.0, dh))
+        _dw, dh = p.door_size_m
+        for u0, u1 in p.door_spans_m:
+            out.setdefault(p.door_side, []).append(("door", u0, u1, 0.0, dh))
     if p.loft and p.loft_side:
         u0, u1, z0, z1 = loft_rect(p)
         out.setdefault(p.loft_side, []).append(("loft_door", u0, u1, z0, z1))

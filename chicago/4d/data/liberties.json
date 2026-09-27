@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 279,
+  "count": 280,
   "liberties": [
     {
       "id": "L1",
@@ -16907,6 +16907,40 @@
         {
           "label": "Covers",
           "text": "`recon_1835_blk_randolph_clark_c2_01.form.stories`, `recon_1835_blk_south_water_clark_c2_06.form.stories`, `recon_1835_blk_south_water_dearborn_c2_07.form.stories`, `recon_1835_blk_south_water_franklin_c2_08.form.stories`, `recon_1835_blk_south_water_franklin_c2_09.form.stories`, `recon_1835_blk_south_water_franklin_c2_10.form.stories`, `recon_1835_blk_south_water_lasalle_c2_11.form.stories`, `recon_1835_blk_south_water_wells_c2_01.form.stories`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-09-27."
+        }
+      ]
+    },
+    {
+      "id": "L278",
+      "title": "The freight shed's cargo opening: 2.20 × 2.35 m, two of them, and no source describes either",
+      "section": "per_subject",
+      "subjects": [
+        "recon_1835_south_f1_038",
+        "recon_1835_west_046"
+      ],
+      "covers": [],
+      "scope": {
+        "enumeration": "structures.phases[cargo_openings]",
+        "count": 2
+      },
+      "recorded": "2026-09-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Scope",
+          "text": "`structures.phases[cargo_openings]` — 2 phases built with the freight shed's `cargo` opening: `recon_1835_south_f1_038` and `recon_1835_west_046`, the town's two F1 roofs. The opening itself is `DOOR_SIZE_M[\"cargo\"]` and `door_bays` in `generators/archetypes/outbuilding_params.py`, and the `door: cargo` / `door_bays: 2` the five anonymous-parcel generators now deal family **F1** — so every F1 roof dealt after this stands on it too. **What was there before, and why it was wrong for the family.** F1's required variant in `data/reconstruction/1835_family_archetype_crosswalk.json` is `freight_shed_low` — *\"wide doors; low openings; dockside skids\"* — and its evidence note asks the archetype for \"long-building framing, cargo openings\". The widest door `outbuilding` had was `wagon`, 2.90 × 3.00 m, one of it, centred. That is not the family in two ways that can be measured rather than argued: - **It is not low.** `tools/family_bands.eave_floor` asks this archetype's own door table how much wall a door needs before it samples an eave, so the wagon door put F1's eave FLOOR at **3.08 m — 32 mm above the bottom of the 10–13 ft (3.048–3.962 m) band the same crosswalk authors for the same family**. No F1 shed in this town could be dealt the low end of its own band. With `cargo` the floor is 2.43 m and the whole band is reachable. - **It is one door.** The family says door*s*. A single opening in the middle of an eleven-metre shed is a barn; freight came off a wagon bed or a boat at more than one point along the loading side. **The invention, stated as two numbers.** No source reached describes a Chicago freight-shed door in 1835 — not its width, not its height, not how many a shed had. Neither number is a reading and both are recorded here. - **Height 2.35 m is DERIVED and the derivation is reproducible**: the largest 0.05 m step whose head plus the archetype's own 0.16 m header stock leaves at least half a metre of boarded wall under F1's lowest authored eave. 2.35 + 0.16 = 2.51 m of frame; 3.048 − 2.51 = 0.538 m of board above it. The next step up, 2.40 m, leaves 0.488 m and is refused. What is invented is the half-metre rule, not the arithmetic under it. - **Width 2.20 m is INVENTED and bounded.** Wider than `stable` (1.35 m, a horse in hand) because the family says wide; narrower than `wagon` (2.90 m, a team) because no team goes through it — the load is handed in off the bed. What fixes it is the rhythm: two of them with their jambs occupy 5.04 m, 72 % of the median front F1's footprint band allows (18–28 ft, median 7.01 m), leaving 0.66 m of pier at each corner and between them. A wagon door cannot do that on any front in the band. - **Two bays, not three, and not one.** Two is what F1's band carries with a real pier between them; the archetype refuses a third rather than thin the wall, and refuses two on a front too short for them. `DOOR_PIER_MIN_M` — the floor under that refusal, two jambs' worth of board — is the archetype's own stock and not a further invention. **What is NOT claimed.** Nothing here says either shed was worked at two points rather than one, or that its doors stood where the even set-out puts them. An even rhythm is chosen because any other one would claim a plan no source gives. The skids and landing apron the same variant asks for are **not built** and are not covered by this entry."
+        },
+        {
+          "label": "Held by",
+          "text": "`tools/test_outbuilding_cargo.py` in `check.sh`, which holds the eave-band reading, both bounds on the two numbers, the even set-out, all three refusals, and — the one no other gate can see — that the frames the builder draws and the holes `openings()` cuts in the boarding are the same rectangles."
+        },
+        {
+          "label": "Related",
+          "text": "the crosswalk's **F1** row, **L164** and **L274** (the freight sheds themselves, every board of them invented), **L212**, T-1662 and its parent **T-1660**."
         },
         {
           "label": "Recorded",
