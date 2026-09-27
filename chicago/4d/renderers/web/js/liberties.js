@@ -127,7 +127,7 @@ export function libertyEntryHtml(lib, { names = new Map(), showSubjects = true, 
     ? `recorded ${escapeHtml(lib.recorded)} · revised ${escapeHtml(lib.revised)}`
     : `recorded ${escapeHtml(lib.recorded || '—')}`;
 
-  return `<details class="lib">
+  return `<details class="lib" data-source-entity="${escapeHtml(lib.id)}">
     <summary>
       <span class="lib-id">${escapeHtml(lib.id)}</span>
       <span class="lib-title">${escapeHtml(lib.title)}</span>

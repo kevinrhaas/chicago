@@ -1,11 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1161, title: 'Two cottages at the bridge head are shops again', kind: 'change', ts: '2026-09-27T01:32:37.529Z', date: 'Sep 26, 2026, 8:32 PM CT',
+  { v: 1163, title: 'Two cottages at the bridge head are shops again', kind: 'change', ts: '2026-09-27T02:23:03.028Z', date: 'Sep 26, 2026, 9:23 PM CT',
     items: [
       'Stand at the foot of the Dearborn Street drawbridge and look west along South Water Street. Two of the buildings in the row have changed shape: where a one-room cottage and a deep-plan cottage stood shoulder to shoulder with Frederick Thomas\u2019s shop, there are now a small shop and a store-residence with a shopfront on the street.',
       'They changed because the town was arguing with itself. South Water is the business front \u2014 the street this reconstruction grades above every other, and the one the documented trades advertise on. Its party-line row carries 28 buildings, and 23 of them were cottages. Two of those cottages had a documented business written on their own card: a bakery in one, a wholesale dry-goods, hardware and crockery house in the other.',
       'Nothing about either building was ever evidence. Both are anonymous count-units whose family was picked off the block\u2019s scheduled mix, and the schedule apportions a family, never a building. So the family is what moved, and both roofs stay exactly where they stood, at the same tier, with the same invented everything.',
       'The ground picked which shop. The east one had room for a store-residence and took it. The west one sits in a gap between two documented stores that admits nothing bigger than a small shop \u2014 a store-residence there lands 2.78 m from Holbrook\u2019s store against a three-metre rule, and a two-storey store runs off the end of the row. So the wholesale house gets a shop, and the record says it is the gap\u2019s fault and not the firm\u2019s.',
       'What did not happen: nothing new was raised. There is no ground left to raise it on \u2014 the last vacant lot on each South Water block that still has one is deliberately kept open, and the rest are full. Twenty-one cottages on that row are still waiting for the same question to be asked of them.',
+    ] },
+  { v: 1162, ts: '2026-09-27T01:53:15.451Z', date: 'Sep 26, 2026, 8:53 PM CT', title: 'Browse the sources behind the town', kind: 'change',
+    items: [
+      'Evidence now includes Sources: a searchable catalog of the books, maps, newspapers and other records used in the reconstruction, with filters for kind, source tier and use.',
+      'Each source separates the claims it supports from the people, buildings and other records it helped reconstruct. Open a source to read its limits, browse dated newspaper issues, and follow its uses to existing cards.',
+      'The catalog loads when opened. Returning from a card keeps your place and filters.'
+    ] },
+  { v: 1161, title: 'Why the ground behind the new river shed stays empty', kind: 'fix', ts: '2026-09-27T00:55:09.045Z', date: 'Sep 26, 2026, 7:55 PM CT',
+    items: [
+      'Stand at the freight shed on the south bank below the Dearborn drawbridge and look inland. That strip of ground is empty, and it stays empty. Yesterday\u2019s release moved the road to the fort off it, and 91 places to stand another shed appeared where the reading had found none. That number was wrong, and the answer is still no.',
+      'Seventy-six of the 91 were the shed itself. The instrument had never been told what was already built \u2014 it swept the ground for somewhere a shed would fit and kept finding the one that is there, at every offset and angle that would have stood a second shed inside the first. It now knows every building the town places, and says how much ground they take.',
+      'Fifteen places are left, and they are one building rather than fifteen. The reading now works out the most sheds that fit without overlapping EACH OTHER, and for this strip that is one more. It would stand 23 metres back from the river, behind the shed that is there, fronting the town drain \u2014 and the engraving these sheds come from draws them on the water.',
+      'So it is refused in writing rather than built. The ground was only empty in the first place because of a road this project invented, and it came free when that invented road moved: nothing a source says about 1835 changed. A space you have measured is not a reason to build in it. The register of things we made up carries the refusal and the reasoning behind it.',
     ] },
   { v: 1160, title: 'Nine South Water buildings now say who kept them', kind: 'change', ts: '2026-09-27T00:23:29.781Z', date: 'Sep 26, 2026, 7:23 PM CT',
     items: [

@@ -165,7 +165,7 @@ function zoneHtml(zone, vocab, citationsById) {
 
   const cites = (zone.sources || []).map((id) => citationsById.get(id)).filter(Boolean);
 
-  return `<details class="lib fauna-zone">
+  return `<details class="lib fauna-zone" data-source-entity="${escapeHtml(zone.id)}">
     <summary>
       <span class="lib-id">${escapeHtml(words(zone.habitat))}</span>
       <span class="lib-title">${escapeHtml(zone.name || zone.id)}</span>
