@@ -185,6 +185,38 @@ def entry_says_open(family: str) -> bool:
     return any(w in blob for w in OPEN_SIDE_PHRASES)
 
 
+def fronts_gable(family: str) -> bool | None:
+    """Does the family's own roof line offer a gable TO THE STREET? (T-1659)
+
+    None for a family the question does not apply to — `gable_front` is a
+    `frame_storefront` attribute, so it is the shopfront families' to answer and
+    nothing else's.
+
+    THIS USED TO BE `family.startswith("C")`, WHICH IS TRUE OF THREE OF THE FOUR. Read
+    off the crosswalk's own `roof` line the four say different things:
+
+      C1  "front gable or shed"      -> front
+      C2  "front gable"              -> front
+      C3  "front or side gable"      -> front offered, and this town builds it
+      C4  "side gable or hip"        -> NEITHER of the two forms offered is a front gable
+
+    So the blanket rule turned C4's roof ninety degrees off its own entry. One record
+    stood on it — `recon_1835_blk_south_water_franklin_c4_01`, a 9.3 x 13.1 m mixed
+    block on South Water with its gable to the street — and nothing said so, because
+    the claim was spelled the same way for all four families. It is the same class of
+    fault this module was written for: a rule about a family's roof, decided once in
+    passing, beside the values rather than against the specification.
+
+    `generate_inferred_infill.py` already wrote `family in ("C1", "C2", "C3")` in its
+    own copy of the rule and so had C4 right by hand — which is corroboration that the
+    reading is the intended one, and a second reason to have the reading in one place.
+    """
+    if not family.startswith("C"):
+        return None
+    text = str((_spec(family) or {}).get("roof") or "").lower()
+    return "front" in text
+
+
 def roof_kind(family: str, parcel: str | None = None) -> tuple[str, bool | None]:
     """(the form this town builds for the family, whether its gable fronts the street).
 
@@ -196,7 +228,7 @@ def roof_kind(family: str, parcel: str | None = None) -> tuple[str, bool | None]
     """
     held = AWAITING_BAKE.get((parcel, family)) if parcel else None
     form = held or ("shed" if family in SHED_FAMILIES else "gable")
-    return form, (True if family.startswith("C") else None)
+    return form, fronts_gable(family)
 
 
 def pitch_band(family: str, form: str) -> tuple[float, float]:
