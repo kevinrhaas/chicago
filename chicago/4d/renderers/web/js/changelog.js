@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1180, ts: '2026-09-27T17:03:15.404Z', date: 'Sep 27, 2026, 12:03 PM CT', title: 'The far prairie is land again, not a flood', kind: 'fix',
+    items: [
+      'Seen from the air, everything more than a few hundred metres away used to turn into a flat blue-grey sheet with trees standing in it, as if the prairie were under water. It was not haze. The ground out there was not being drawn at all.',
+      'Close to you the town is drawn in fine detail; past about 600 metres a coarser copy of the same ground takes over. That coarser copy had been built facing downward, so from above it was invisible, and what showed through the hole was the water surface laid under the whole map, tinted by the haze.',
+      'It now faces up. The far prairie, the woods north of the river and the North Branch all read as land and river right out to the horizon, where they fade into the summer haze. Nothing was moved or rebuilt: the same ground, drawn the right way up.',
+    ] },
   { v: 1179, ts: '2026-09-27T16:40:12.532Z', date: 'Sep 27, 2026, 11:40 AM CT', title: 'Nothing you can see: which half of the freight row still owes', kind: 'fix',
     items: [
       'Nothing in the town changed and no roof moved. This is a repair to the ledger that says what is still to be built, and a visitor will find the same Chicago as before.',
