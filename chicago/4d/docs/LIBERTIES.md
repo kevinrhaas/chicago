@@ -14925,7 +14925,8 @@ south bank below the draw. Any of the three would replace an invention with a bu
 
 **Related:** **L164** (the four north-bank sheds of the same plate), **L79** (the travelled tracks
 inside the 80 ft corridors), the refusal this spends **T-0134**, its parent **T-0071** and sibling
-**T-0133**, the fill that opened the ground **T-1629**, this re-read **T-1636**,
+**T-0133**, the fill that opened the ground **T-1629**, this re-read **T-1636**, the road's
+move **T-1637**, the answer to what that move released **T-1642**,
 `docs/RESEARCH/south_bank_dearborn_ground.md`, `data/exclusions.json` →
 `south_bank_warehouses_dearborn_reach`.
 **Revised:** 2026-09-26 (T-1637), hours after it was written — **the road this shed was squared
@@ -14949,8 +14950,30 @@ filed as its own question rather than smuggled into the run that moved the road.
 re-opened is not this entry's ground but the reach around it:** the 81 positions T-1636 held
 because they stood in the road are released, so `fits` reads 91, 96, 162, 233 against 10, 15, 81,
 152, and whether anything of the plate belongs on that unplatted reservation ground between E
-+805 and E +842 is filed too. **Added links:** T-1637 (the road's move) · **L140** (the fort road)
-· `tools/measure_fort_road_way.py`.
++805 and E +842 is filed too.
+**Revised:** 2026-09-27 (T-1642) — **one is the number this ground allows, and it is measured
+now rather than assumed.** The question the road's move filed — whether anything more of the
+plate belongs on the 81 released positions — is answered no, and most of those positions were
+never a second building at all. `tools/measure_south_bank_ground.py` had never known what the
+committed tree already places, so **76 of the 91 positions that read free are this shed's own
+footprint**, counted once per lattice offset and bearing that would have stood a second shed
+inside the first; the reading now masks every placed footprint that reaches its box and holds
+those 76 apart, and `fits` reads 15, 15, 23, 48. Fifteen positions on a one-metre lattice are
+one building: `takes_more`, an exact maximum over the positions that do not overlap each other,
+says the 9 m ribbon between South Water Street's platted end and State Street's corridor takes
+**one more shed** at the walker's own relief clause. **That one is refused in writing.** It
+stands 23.08 m back from the main stem where this shed stands 6.49 m back, directly behind it,
+with the town slough 5.45 m off its corner and the river nowhere near it — and the plate that
+licenses a shed on this bank is a tier-5 retrospective that draws them ON THE WATER, so it does
+not reach back land. Nothing on this record changed. What changed is that the entry's title is
+now a finding: one freight shed is what this ground and this plate together allow, a position
+released by this project's own invented line moving is not a position a source opened, and a
+measured capacity is not a reason to build. The refusal is written up at
+`docs/RESEARCH/south_bank_dearborn_ground.md` § The 81 released positions, answered, and it is
+ratcheted — if this ground ever takes two more, that refusal is re-read rather than carried.
+**Added links:** T-1637 (the road's move) · T-1642 (what the release opened, answered) ·
+**L140** (the fort road) · `tools/measure_fort_road_way.py` ·
+`tools/measure_south_bank_ground.py`.
 **Recorded:** 2026-09-26.
 
 ### L275 — Terrain: the south bank below the bend is Wright's line moved south onto Hathaway's, on a ruling
