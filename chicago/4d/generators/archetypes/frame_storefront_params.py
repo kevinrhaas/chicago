@@ -764,6 +764,86 @@ def _lean_to_rise(depth_m: float) -> float:
 # is nearly all opening is a plate-glass idea from fifty years later.
 SHOPFRONT_MAX_FRACTION = 0.45
 
+# ---------------------------------------------------------------------------
+# WHAT A "BAY" IS, AND WHOSE WORD IT IS (T-1665).
+#
+# Two counts wear the same word here and they differ by one, which is how the
+# reconstruction specification came to look unsatisfiable on C3.
+#
+#   `shopfront_bays` — THIS MODULE'S count, and it counts SHOW WINDOWS. The door
+#     is not one of them: `shopfront_width_m` adds `SHOP_DOOR_W_M` to `bays *
+#     SHOP_BAY_W_M` separately, so a `shopfront_bays=1` front is a door with one
+#     5 ft window beside it.
+#   a FACADE bay — the SPECIFICATION's count, and it counts openings: a window or
+#     the door, each one a vertical division of the elevation.
+#
+# The spec's usage is not a guess, and it is not the owner's to rule on either. It
+# is settled by the spec's own words, in `1835_family_archetype_crosswalk.json`,
+# and the witness is a door position beside an odd count:
+#
+#   D4  "3/5 bays; center or side door"
+#   H1  "5 bays; center hall; kitchen ell; small porch"
+#
+# A centre door needs an odd number of bays to be centred in, and 3 and 5 are odd.
+# Read the door OUT of the count and "3 bays, centre door" is a facade of four
+# openings with a door that cannot be in the middle of them — so the door-exclusive
+# reading contradicts the same sentence that states it, on two families, while the
+# door-inclusive reading is the ordinary architectural one and contradicts nothing.
+#
+# So the crosswalk's bay counts map onto this module by `facade_bays`, and C3's
+# "2-3 shop bays" asks for `shopfront_bays` of 1 or 2 — not 2 or 3. See
+# docs/FACADE-BAYS.md for the measurement that follows from that, and
+# `tools/test_shopfront_bay_count.py`, which re-derives the reading from the
+# crosswalk rather than remembering it.
+# ---------------------------------------------------------------------------
+
+def facade_bays(shopfront_bays: int) -> int:
+    """The specification's bay count for a shopfront of `shopfront_bays` windows.
+
+    One more, because the door is a bay in that counting and is not one in this
+    module's. Stated as a function rather than left as a `+ 1` at the call site so
+    that the mapping has one home and a reader can find the argument for it above.
+    """
+    return shopfront_bays + 1
+
+
+#: `shopfront_bay_verdict` reasons. The first is the rule answering; the second is
+#: its floor answering and still inside the ceiling; the third is its floor
+#: OVERRULING the ceiling, which is the case nothing used to say out loud.
+BAY_WITHIN_FRACTION = "within_fraction"
+BAY_FLOOR_WITHIN_FRACTION = "floor_within_fraction"
+BAY_FLOOR_OVER_FRACTION = "floor_over_fraction"
+
+
+def shopfront_bay_verdict(width_m: float) -> tuple[int, str, float]:
+    """`default_shopfront_bays`, and WHY it answered that — count, reason, fraction.
+
+    The count is the same value `default_shopfront_bays` returns; nothing about a
+    built front depends on this function, and no asset's inputs read it (see
+    generators/mesh_inputs.py: the params MODULE's bytes are not hashed, and this is
+    a module function rather than a dataclass property, so it moves no mesh).
+
+    It exists because the rule has a FLOOR and the floor can break the rule's own
+    ceiling without saying so. Measured over the 45 committed `frame_storefront`
+    phases on 2026-09-27: twenty-six reach the floor, and on TWENTY of those the one
+    remaining window and the door put 50.0% to 66.7% of the frontage into opening,
+    against a stated maximum of 45%. Those twenty are the narrow gable-front stores
+    — C1, C2 and C3 — whose front is the 18-22 ft END of the building, where a door
+    and one 5 ft window are already more than nine twentieths of the wall.
+    `SHOPFRONT_MAX_FRACTION` was argued for a store filling a 55 ft lot frontage
+    with its EAVES to the street, and on a narrow front it therefore decides
+    nothing: the floor decides, and until this function existed it decided in
+    silence. `tools/test_shopfront_bay_count.py` holds the override to fronts that
+    genuinely cannot afford the next count up.
+    """
+    for bays in (3, 2):
+        if shopfront_width_m(bays) <= width_m * SHOPFRONT_MAX_FRACTION:
+            return bays, BAY_WITHIN_FRACTION, shopfront_width_m(bays) / width_m
+    frac = shopfront_width_m(1) / width_m
+    reason = (BAY_FLOOR_WITHIN_FRACTION if frac <= SHOPFRONT_MAX_FRACTION
+              else BAY_FLOOR_OVER_FRACTION)
+    return 1, reason, frac
+
 
 def default_shopfront_bays(width_m: float) -> int:
     """How many show windows a frontage of this width carries, when the record
@@ -771,11 +851,13 @@ def default_shopfront_bays(width_m: float) -> int:
     fenestration is exactly the defect docs/LIBERTIES.md L23 records against the
     frame taverns: one five-bay rhythm spread across three buildings of different
     sizes, which reads as a finding about how the town was built and is an artefact
-    of one archetype."""
-    for bays in (3, 2):
-        if shopfront_width_m(bays) <= width_m * SHOPFRONT_MAX_FRACTION:
-            return bays
-    return 1
+    of one archetype.
+
+    The rule itself is `shopfront_bay_verdict`, which also says which of its two
+    branches answered. This wrapper keeps the one-integer call the builder and the
+    params resolver make, byte for byte as before.
+    """
+    return shopfront_bay_verdict(width_m)[0]
 
 
 def from_phase(phase: dict, record: dict | None = None) -> FrameStorefrontParams:

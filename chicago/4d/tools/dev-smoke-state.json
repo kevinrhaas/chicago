@@ -2136,6 +2136,68 @@
         ]
       },
       "source": "/tmp/smoke_d23.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 94,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 490,
+      "takenAt": "2026-09-27T07:40:05.178Z",
+      "ref": "steward/t1665-shopfront-bay-definition",
+      "commit": "cde750187142",
+      "devCommit": "f448c194ddd4",
+      "treeHash": "sha256:29a77c41dad97914",
+      "treeDirty": false,
+      "changelogHash": "sha256:432e5e49936d5686",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4,
+          4.3,
+          4
+        ]
+      },
+      "source": "/tmp/smoke-d12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 94,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 275,
+      "takenAt": "2026-09-27T07:40:05.082Z",
+      "ref": "steward/t1665-shopfront-bay-definition",
+      "commit": "cde750187142",
+      "devCommit": "f448c194ddd4",
+      "treeHash": "sha256:29a77c41dad97914",
+      "treeDirty": false,
+      "changelogHash": "sha256:432e5e49936d5686",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4,
+          4.3,
+          4
+        ]
+      },
+      "source": "/tmp/smoke-m12.log"
     }
   ]
 }
