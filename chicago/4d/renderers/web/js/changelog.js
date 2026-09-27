@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'The wide store on Franklin gets its four-bay front', kind: 'change', ts: '',
+  { v: 1172, title: 'The wide store on Franklin gets its four-bay front', kind: 'change', ts: '2026-09-27T12:08:10.063Z', date: 'Sep 27, 2026, 7:08 AM CT',
     items: [
       'The town\u2019s one wide two-storey store block, at the east end of the Franklin block on South Water Street, had a door and a single show window on a thirty-foot front. It now has the door and three windows \u2014 the four-bay shopfront its own brief asks for. It was the last building standing outside its family\u2019s range, and the range is now kept across the town.',
       'The rule that picks a window count caps the opening at 45% of the front, and this front is the narrow end of a family whose plans run half again as wide. Four openings are 70% of thirty feet and the cap refused them, so the rule fell to its floor and built two. The cap was argued for a store filling a fifty-five-foot lot with its long side to the street; it decides nothing useful on a front half that width.',
