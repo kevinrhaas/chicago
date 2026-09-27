@@ -460,7 +460,7 @@ def _form_body(family: str, seq: int, finish: str, width: float, depth: float) -
             #
             # F2's assumption note reads "Hoist beam presence varies", and giving
             # every F2 a hoist is the over-claim that note warns about. It is taken
-            # deliberately and recorded as a liberty (docs/LIBERTIES.md L279)
+            # deliberately and recorded as a liberty (docs/LIBERTIES.md L280)
             # rather than hidden: the same entry's EVIDENCE note names
             # "warehouse framing/hoist support" as what this archetype must add
             # before the family is satisfied, and a two-storey warehouse whose only

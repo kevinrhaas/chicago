@@ -403,7 +403,7 @@ def _cargo_opening_count() -> int:
 
 def _cargo_rhythm_count() -> int:
     """Phases standing at more than one cargo opening, which is the population
-    L279's two invented counts reach.
+    L280's two invented counts reach.
 
     Counted off the LAYER rather than off the family, for the reason
     `_cargo_opening_count` gives one entry above: any record stating

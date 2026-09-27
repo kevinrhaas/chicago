@@ -29,7 +29,7 @@ were not visible as refusals — they were visible as nothing at all:
       before the family is satisfied, and a two-storey warehouse whose only opening is
       a ground door cannot load the floor it exists to have. Its assumption note's
       "Hoist beam presence varies" is therefore over-claimed here on purpose, recorded
-      as a liberty (docs/LIBERTIES.md L279) rather than inferred quietly. The rhythm
+      as a liberty (docs/LIBERTIES.md L280) rather than inferred quietly. The rhythm
       the doors stand on is held by `tools/test_storefront_cargo_rhythm.py`.
 
     python3 tools/test_store_variants.py
@@ -189,7 +189,7 @@ def main(break_it: bool = False) -> int:
     # family's line is satisfied by the town and not merely by the archetype: F2 was
     # the one family whose entry asks for hoist support in its evidence note, and a
     # capability reachable but never reached leaves that line only half built.
-    check("…and every one of them does carry it, which is what L279 records",
+    check("…and every one of them does carry it, which is what L280 records",
           f2 and all(p.hoist_door for _, p, _ in f2),
           ", ".join(s for s, p, _ in f2 if not p.hoist_door) or "all of them")
 

@@ -19,7 +19,7 @@ a reading:
     opening. If the doors above ever compute their own set-out, they drift off the
     doors below and the mesh is still perfectly valid.
   * THE COUNT'S DERIVATION. Two for F2 and three for F3 are inventions
-    (docs/LIBERTIES.md L279) bounded by each family's OWN footprint band against the
+    (docs/LIBERTIES.md L280) bounded by each family's OWN footprint band against the
     braced frame's post spacing. A number that stops following from its bound is a
     number somebody has quietly chosen.
   * THE BEAM OVER AN OFF-CENTRE BAY. The gable's apex stands over the middle of the
@@ -96,7 +96,7 @@ def main(break_it: bool = False) -> int:
 
     # 2. THE BOUND THE COUNTS REST ON: at the SHORT end of each family's own
     #    footprint band, n bays leave a pier at least one post bay wide and n + 1 do
-    #    not. This is the derivation in L279, re-run rather than restated.
+    #    not. This is the derivation in L280, re-run rather than restated.
     for fam, n in (("F2", 2), ("F3", 3)):
         lo = bands[fam]["band_ft"][1] * FT
         fits = (lo - n * framed) / (n + 1)

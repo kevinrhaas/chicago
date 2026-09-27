@@ -939,6 +939,15 @@ def _lean_to_rise(depth_m: float) -> float:
 # Not "as many bays as will fit": glass came in small panes and cost money in 1835,
 # the wall between the openings is what the shelves stand against, and a front that
 # is nearly all opening is a plate-glass idea from fifty years later.
+#
+# "WHEN THE RECORD DOES NOT SAY" IS LOAD-BEARING (T-1667). This is a default, not an
+# invariant, and one committed record overrides it: the town's single C4 states
+# `shopfront_bays: 3`, because the crosswalk authors that family at 4-6 FACADE bays
+# and this fraction — argued for a store filling a 55 ft lot frontage — refuses the
+# family's own minimum on the 30.6 ft narrow end of C4's authored footprint band.
+# The override is bounded at both ends by tools/test_shopfront_bay_count.py gate 4:
+# a stated count must be inside its family's band AND affordable on its own frontage.
+# docs/FACADE-BAYS.md holds the measurement.
 SHOPFRONT_MAX_FRACTION = 0.45
 
 # ---------------------------------------------------------------------------
