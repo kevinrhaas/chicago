@@ -4669,10 +4669,10 @@
       "summary": {
         "roof_target": 668,
         "standing_records": 423,
-        "standing_with_an_occupant": 132,
-        "standing_without_an_occupant": 291,
+        "standing_with_an_occupant": 146,
+        "standing_without_an_occupant": 277,
         "to_build_total": 258,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 291 of the 423 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 277 of the 423 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -4900,13 +4900,13 @@
             "division": "south"
           },
           "target": 176,
-          "standing": 114,
-          "to_build": 62,
+          "standing": 112,
+          "to_build": 64,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1203",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 62 of them to build"
+          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 64 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/west",
@@ -5009,13 +5009,13 @@
             "division": "south"
           },
           "target": 42,
-          "standing": 36,
-          "to_build": 6,
+          "standing": 38,
+          "to_build": 4,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1681",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 42; the 668-roof programme leaves 6 of them to build"
+          "basis": "the inventory's district/group matrix sets 42; the 668-roof programme leaves 4 of them to build"
         },
         {
           "key": "structures/stores_mixed_use/west",
@@ -5149,7 +5149,11 @@
           "to_build": 5,
           "to_retire_or_redeal": 0,
           "filled": 0,
+<<<<<<< HEAD
           "owning_ticket": "T-1683",
+=======
+          "owning_ticket": "T-1684",
+>>>>>>> origin/dev
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 15; the 668-roof programme leaves 5 of them to build"
         },
@@ -5645,7 +5649,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "291 of 423 standing records carry no occupants block."
+      "measured_now": "277 of 423 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

@@ -585,10 +585,10 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 - `roof_target`: 668
 - `standing_records`: 423
-- `standing_with_an_occupant`: 132
-- `standing_without_an_occupant`: 291
+- `standing_with_an_occupant`: 146
+- `standing_without_an_occupant`: 277
 - `to_build_total`: 258
-- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 291 of the 423 standing records carry no occupants block today, and T-1197 re-audits them against this book.
+- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 277 of the 423 standing records carry no occupants block today, and T-1197 re-audits them against this book.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -606,14 +606,14 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/larger_boarding_houses/south` | 28 | 9 | 19 | 0 | T-1209 |
 | `structures/larger_boarding_houses/west` | 6 | 2 | 4 | 0 | T-1209 |
 | `structures/larger_boarding_houses/north` | 8 | 6 | 2 | 0 | T-1209 |
-| `structures/ordinary_dwellings/south` | 176 | 114 | 62 | 0 | T-1203 |
+| `structures/ordinary_dwellings/south` | 176 | 112 | 64 | 0 | T-1203 |
 | `structures/ordinary_dwellings/west` | 75 | 51 | 24 | 0 | T-1208 |
 | `structures/ordinary_dwellings/north` | 84 | 46 | 38 | 0 | T-1206 |
 | `structures/small_outbuildings/south` | 48 | 23 | 25 | 0 | T-1212 |
 | `structures/small_outbuildings/west` | 14 | 4 | 10 | 0 | T-1212 |
 | `structures/small_outbuildings/north` | 20 | 9 | 11 | 0 | T-1212 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |
-| `structures/stores_mixed_use/south` | 42 | 36 | 6 | 0 | T-1681 |
+| `structures/stores_mixed_use/south` | 42 | 38 | 4 | 0 | T-1681 |
 | `structures/stores_mixed_use/west` | 6 | 4 | 2 | 0 | T-1207 |
 | `structures/stores_mixed_use/north` | 4 | 1 | 3 | 0 | T-1205 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | T-1204 |
@@ -621,7 +621,11 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/warehouses_freight/south/river_bank` | 2 | 2 | 0 | 0 | T-1640 |
 | `structures/warehouses_freight/west` | 2 | 1 | 1 | 0 | T-1207 |
 | `structures/warehouses_freight/north` | 7 | 6 | 1 | 0 | T-1205 |
+<<<<<<< HEAD
 | `structures/workshops/south` | 15 | 10 | 5 | 0 | T-1683 |
+=======
+| `structures/workshops/south` | 15 | 10 | 5 | 0 | T-1684 |
+>>>>>>> origin/dev
 | `structures/workshops/west` | 8 | 5 | 3 | 0 | T-1207 |
 | `structures/workshops/north` | 7 | 5 | 2 | 0 | T-1205 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | T-1204 |
@@ -684,7 +688,7 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 - **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 20 of 1375 present households name a lives_at.
 - **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 49 of 1375 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
-- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 291 of 423 standing records carry no occupants block.
+- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 277 of 423 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,543 people into 644 households.
 - **an_uncompared_class_orders_nothing** (T-1442) — A trade-census class the crosswalk rules `compared: false` carries its figures but orders no reconstruction: the difference between a census line and the register is only a shortfall where the crosswalk has ruled the two comparable. *Now:* carried uncompared: 1 of 18 enumerated business classes, each ordering nought.
 - **no_bucket_overfilled** (T-1166) — No bucket's `filled` exceeds its `to_reconstruct`; a filler that bypasses the book is red in check.sh. *Now:* enforced by --check on every gate run.

@@ -96,6 +96,7 @@ export function createArrival({
   barEl,
   buttonEl,
   contentOptions = {},
+  onWelcome = () => {},
   currentYear = new Date().getFullYear(),
   reducedMotion = typeof matchMedia === 'function'
     ? matchMedia('(prefers-reduced-motion: reduce)').matches : false,
@@ -202,6 +203,7 @@ export function createArrival({
         buttonEl.textContent = 'Tap to enter';
         buttonEl.disabled = false;
       }
+      onWelcome();
     };
     if (!duration || !requestFrame) {
       finish();

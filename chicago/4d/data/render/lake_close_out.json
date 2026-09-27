@@ -1,0 +1,833 @@
+{
+ "schema": 1,
+ "_doc": "THE LAKE DISTRICT'S BOOKS, CLOSED (T-1683, piece 4 of 4 of T-1201). The three build pieces raised and re-familied this district's roofs; this one answers the questions the parent asks before the district is done with, and CHANGES NOTHING IN THE TOWN. Every number here is read off the committed data or off tools/measure_detail_ceilings.mjs; none is typed. It is the same reading data/render/south_water_close_out.json is for the river front, on the same four books, so the two districts are comparable.",
+ "ticket": "T-1683",
+ "parent_ticket": "T-1201",
+ "read_on": "2026-09-27",
+ "not_a_reading": "This file adjudicates no source and reads nothing new. It is a reading of the project's own ledger and of its own renderer, so it is not counted by measure_research_spend.py.",
+ "raises_no_roof": true,
+ "writes_no_card": true,
+ "district": "The seven Lake-Randolph blocks: blk_lake_{market,franklin,wells,lasalle,clark,dearborn} in the South Division and blk_lake_clinton in the West, each bounded north by Lake and south by Randolph.",
+ "the_refusals": {
+  "instrument": "data/reconstruction/1835_platted_block_parcels.json `deferred`, which tools/generate_block_infill.py reads back: a slot dealt to a family the generator refuses may be left unbuilt ONLY by naming it there with its reason, and the tool raises SystemExit on a shortfall it cannot account for, on a deferral of a family it does not refuse, and on a family both built and deferred.",
+  "what_a_refusal_is": "The generator refuses four families by name \u2014 I1 worship, I2 schools, I3 civic, F3 the large river warehouse \u2014 each with a stated reason in REFUSED_FAMILIES.",
+  "deferred_in_the_district": [
+   {
+    "unit": "blk_lake_franklin",
+    "family": "F3",
+    "why": "The large river warehouse the schedule dealt this block, and the reason it is not built here is the ground rather than the anonymity. F3's own crosswalk entry makes water access a precondition of the form \u2014 the required variant is 'multiple cargo doors; landing apron; sparse glazing' and the assumption note reads 'Landing apron and cargo-door arrangement must follow site access and cannot extend into water or duplicate a counted pier'. This block is bounded by Lake, Randolph, Franklin and Wells, four platted streets, and sampled against the committed heightfield (data/terrain/epochs/e1834_harbor_cut, the field tools/measure_block_gating.py reads) the nearest water to its boundary is 134 m away \u2014 the farthest of any platted block in the town but one. A landing apron 134 m from the water is not a landing apron, and the cargo-door rhythm that is the whole point of the archetype would open onto a residential street. tools/generate_block_infill.py now refuses F3 by name for exactly this, and the refusal names where the roof belongs instead: the wharf and landing ground beyond South Water and Market, which tools/generate_river_wharves.py places against the committed bank rather than against a lot. The slot is NOT dropped. The roof is still owed, the schedule still counts it, and that the deal keeps sending F3 onto inland platted blocks is filed as T-0275 against the deal and not against this block."
+   }
+  ],
+  "count": 1,
+  "units_with_a_parcel_recipe": [
+   "blk_lake_clark",
+   "blk_lake_franklin",
+   "blk_lake_market"
+  ],
+  "units_with_no_parcel_recipe": [
+   "blk_lake_wells",
+   "blk_lake_lasalle",
+   "blk_lake_dearborn",
+   "blk_lake_clinton"
+  ],
+  "why_four_units_have_no_log": "Four of the seven units were never dealt by tools/generate_block_infill.py at all, so they have no deferral log to be empty. Their roofs were raised by the earlier phase1_south_mixed_blocks and West parcels and by documented and inferred-household records, which is why the census below reads them by family rather than by recipe. An empty log and an absent log are different facts and this reading does not merge them.",
+  "deferrals_in_the_whole_tree": [
+   {
+    "unit": "blk_lake_franklin",
+    "family": "F3"
+   },
+   {
+    "unit": "blk_randolph_dearborn",
+    "family": "I3"
+   }
+  ],
+  "the_one_the_district_did_meet": "blk_lake_franklin defers an F3 \u2014 the large river warehouse the schedule dealt it \u2014 and it is the ONE deferral in this district and one of only two in the whole committed tree (the other is an I3 on blk_randolph_dearborn). It is also the deferral this project learned the rule from: T-0028 found it on 2026-08-28 by opening this very block and being unable to build the F3 it had been dealt, 134 m from the nearest water \u2014 the farthest of any platted block in the town but one. F3's crosswalk entry makes water access a precondition of the FORM, so a landing apron 134 m inland is not a landing apron and the cargo-door rhythm that is the whole point of the archetype would open onto a residential street.",
+  "resolved": "RESOLVED, upstream and on evidence, and this reading is where the district says so. The stopgap was to put F3 in the block generator's REFUSED_FAMILIES, which treated a fault in the DEAL as a fault at the block and let deferrals accumulate. T-0316 moved the repair to the deal: reconcile_665.py's waterside term exchanges a waterside roof on a platted block for a dry principal roof of the same trade-ness on that district's own unbounded balance. On this tree `tools/reconcile_665.py --check` prints 'waterside (T-0316): F3, W5 require water \u2014 no platted block was dealt one', so the deferral cannot recur and no later block will meet it. THE ROOF IS NOT DROPPED: it is still owed, the schedule still counts it, and it belongs to the wharf and landing ground beyond South Water and Market that tools/generate_river_wharves.py places against the committed bank. That the deal ever sent F3 onto an inland platted block is T-0275's, against the deal and not against this block. So the district's log is closed: one deferral, and the rule that made it impossible again is committed and green."
+ },
+ "the_headroom": {
+  "instrument": "tools/reconcile_665.py, re-derived and --check green on this tree.",
+  "programme": {
+   "standing": 410,
+   "remaining": 258,
+   "of_target": 668
+  },
+  "units": [
+   {
+    "unit": "blk_lake_market",
+    "district": "south",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 10,
+    "free_lots": 1,
+    "headroom": 0,
+    "state": "at_capacity"
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "district": "south",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 14,
+    "free_lots": 1,
+    "headroom": 0,
+    "state": "at_capacity"
+   },
+   {
+    "unit": "blk_lake_wells",
+    "district": "south",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 14,
+    "free_lots": 0,
+    "headroom": 0,
+    "state": "at_capacity"
+   },
+   {
+    "unit": "blk_lake_lasalle",
+    "district": "south",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 14,
+    "free_lots": 0,
+    "headroom": 0,
+    "state": "at_capacity"
+   },
+   {
+    "unit": "blk_lake_clark",
+    "district": "south",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 16,
+    "free_lots": 1,
+    "headroom": 0,
+    "state": "at_capacity"
+   },
+   {
+    "unit": "blk_lake_dearborn",
+    "district": "south",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 13,
+    "free_lots": 1,
+    "headroom": 0,
+    "state": "at_capacity"
+   },
+   {
+    "unit": "blk_lake_clinton",
+    "district": "west",
+    "lots": 8,
+    "capacity_roofs": 31,
+    "standing_roofs": 11,
+    "free_lots": 1,
+    "headroom": 0,
+    "state": "at_capacity"
+   }
+  ],
+  "at_capacity": [
+   "blk_lake_market",
+   "blk_lake_franklin",
+   "blk_lake_wells",
+   "blk_lake_lasalle",
+   "blk_lake_clark",
+   "blk_lake_dearborn",
+   "blk_lake_clinton"
+  ],
+  "open": [],
+  "gated": [],
+  "headroom_total": 0,
+  "statement": "The Lake district IS at capacity: all seven units read at_capacity with headroom 0, so the parent's 'or its headroom stated' clause resolves to zero and the answer is the stronger of the two the ticket allows. This is the same finding T-1682 reached on the Lake frontage and T-1647 on the South Water row, and it is what makes the district's remaining work a question of what the standing roofs ARE and never of adding one: the six free lots the units still show cannot carry a roof, because capacity here is reckoned on roofs and not on lots and the roof count is already met."
+ },
+ "the_cottages_and_yard_buildings_behind": {
+  "instrument": "tools/reconcile_665.py standing_roofs(), the same function the deal counts with, grouped by the block each roof's position point falls in.",
+  "what_the_parent_asked": "T-1201's acceptance names 'D3-D6 cottages behind on the alleys, A-family yard buildings per household'.",
+  "per_unit": [
+   {
+    "unit": "blk_lake_market",
+    "roofs": 10,
+    "cottages_D3_D6": 3,
+    "cabins_and_shanties_D1_D2": 2,
+    "houses_D7_H": 0,
+    "yard_buildings_A": 2,
+    "business_and_civic": 2,
+    "families": {
+     "A1": 1,
+     "A3": 1,
+     "C1": 1,
+     "C2": 1,
+     "D1": 1,
+     "D2": 1,
+     "D3": 2,
+     "D4": 1,
+     "T3": 1
+    }
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "roofs": 14,
+    "cottages_D3_D6": 6,
+    "cabins_and_shanties_D1_D2": 3,
+    "houses_D7_H": 0,
+    "yard_buildings_A": 3,
+    "business_and_civic": 2,
+    "families": {
+     "A1": 2,
+     "A3": 1,
+     "C2": 1,
+     "C3": 1,
+     "D1": 3,
+     "D3": 2,
+     "D4": 1,
+     "D5": 2,
+     "D6": 1
+    }
+   },
+   {
+    "unit": "blk_lake_wells",
+    "roofs": 14,
+    "cottages_D3_D6": 7,
+    "cabins_and_shanties_D1_D2": 2,
+    "houses_D7_H": 0,
+    "yard_buildings_A": 2,
+    "business_and_civic": 3,
+    "families": {
+     "A2": 1,
+     "A4": 1,
+     "D2": 2,
+     "D3": 1,
+     "D4": 5,
+     "D5": 1,
+     "W4": 3
+    }
+   },
+   {
+    "unit": "blk_lake_lasalle",
+    "roofs": 14,
+    "cottages_D3_D6": 6,
+    "cabins_and_shanties_D1_D2": 1,
+    "houses_D7_H": 1,
+    "yard_buildings_A": 2,
+    "business_and_civic": 4,
+    "families": {
+     "A2": 1,
+     "A3": 1,
+     "C1": 1,
+     "D1": 1,
+     "D3": 1,
+     "D4": 2,
+     "D5": 2,
+     "D6": 1,
+     "F1": 1,
+     "F2": 1,
+     "H1": 1,
+     "I1": 1
+    }
+   },
+   {
+    "unit": "blk_lake_clark",
+    "roofs": 16,
+    "cottages_D3_D6": 7,
+    "cabins_and_shanties_D1_D2": 2,
+    "houses_D7_H": 1,
+    "yard_buildings_A": 2,
+    "business_and_civic": 4,
+    "families": {
+     "A3": 1,
+     "A5": 1,
+     "C1": 2,
+     "C3": 1,
+     "D1": 2,
+     "D3": 2,
+     "D4": 2,
+     "D5": 2,
+     "D6": 1,
+     "H2": 1,
+     "W4": 1
+    }
+   },
+   {
+    "unit": "blk_lake_dearborn",
+    "roofs": 13,
+    "cottages_D3_D6": 4,
+    "cabins_and_shanties_D1_D2": 2,
+    "houses_D7_H": 1,
+    "yard_buildings_A": 2,
+    "business_and_civic": 4,
+    "families": {
+     "A3": 1,
+     "A4": 1,
+     "C3": 1,
+     "D1": 2,
+     "D3": 1,
+     "D4": 1,
+     "D5": 1,
+     "D6": 1,
+     "D7": 1,
+     "F1": 1,
+     "I1": 1,
+     "W1": 1
+    }
+   },
+   {
+    "unit": "blk_lake_clinton",
+    "roofs": 11,
+    "cottages_D3_D6": 4,
+    "cabins_and_shanties_D1_D2": 2,
+    "houses_D7_H": 0,
+    "yard_buildings_A": 3,
+    "business_and_civic": 2,
+    "families": {
+     "A1": 1,
+     "A2": 2,
+     "C1": 1,
+     "D1": 1,
+     "D2": 1,
+     "D3": 2,
+     "D4": 2,
+     "W1": 1
+    }
+   }
+  ],
+  "district_totals": {
+   "roofs": 92,
+   "cottages_D3_D6": 37,
+   "cabins_and_shanties_D1_D2": 14,
+   "houses_D7_H": 3,
+   "yard_buildings_A": 16,
+   "business_and_civic": 21
+  },
+  "statement": "BUILT, and the count is the answer: 37 D3-D6 cottages stand behind on the district's alleys across all seven units, beside 14 D1-D2 cabins and shanties, 3 larger houses, 16 A-family yard buildings and 21 business and civic roofs \u2014 92 roofs in all. Every one of the seven units carries cottages behind its frontage and every one carries at least two yard buildings, so the parent's clause is met in kind on every block. It is NOT met in the ratio the clause's second half implies: 16 yard buildings stand behind 54 dwellings, which is roughly one in four and not 'per household'. THAT GAP CANNOT BE CLOSED ON THIS GROUND AND SAYING SO IS THE POINT: the district is at capacity at headroom 0 (see the_headroom), so a new privy or stable here would have to come out of another district's remainder, and the 665-roof programme's whole discipline is that a family cap is never quietly exceeded to make a block look complete. The A-family targets are the town's, not this district's \u2014 42 stables, 31 barns, 40 privies, 28 woodsheds, 17 small utility roofs across 668 roofs \u2014 and what stands here is this district's share of them. A 'per household' yard is a claim about the TARGET and it is filed against the deal as T-1692, not built past the cap here.",
+  "handed_to": "T-1692"
+ },
+ "the_frame_budget": {
+  "instrument": "tools/measure_detail_ceilings.mjs on the PUBLISHED mirror, both viewports.",
+  "generated_by": "node tools/measure_detail_ceilings.mjs --json <out>  and  node tools/measure_detail_ceilings.mjs --only mobile --json <out>, after ./tools/publish.sh on this branch",
+  "why_the_published_tree": "The source tree loads uncompressed masters and the site loads compressed derivatives, and bugs have shipped in the gap twice, so the reading is taken on the tree that ships.",
+  "verdict": "PASS \u2014 every tier inside its ceiling at both viewports",
+  "tightest": {
+   "viewport": "desktop 1280x800",
+   "tier": "balanced",
+   "ceiling": 1280000,
+   "stand": "the forks, from Wolf Point",
+   "triangles": 1255716,
+   "calls": 145,
+   "margin": 24284,
+   "margin_pct_of_ceiling": 1.9
+  },
+  "viewports": [
+   {
+    "viewport": "desktop 1280x800",
+    "tier": "full",
+    "ceiling": 1460000,
+    "worst": {
+     "stand": "the forks, from Wolf Point",
+     "triangles": 1408278,
+     "calls": 153,
+     "margin": 51722,
+     "margin_pct_of_ceiling": 3.54
+    },
+    "stands": [
+     {
+      "stand": "the forks, from Wolf Point",
+      "triangles": 1408278,
+      "calls": 153
+     },
+     {
+      "stand": "Lake Street at Canal, east down the axis",
+      "triangles": 1356820,
+      "calls": 151
+     },
+     {
+      "stand": "the open aerial",
+      "triangles": 1271388,
+      "calls": 116
+     },
+     {
+      "stand": "Lake and Market",
+      "triangles": 1110163,
+      "calls": 148
+     },
+     {
+      "stand": "the Sauganash at 26 m",
+      "triangles": 970926,
+      "calls": 112
+     }
+    ]
+   },
+   {
+    "viewport": "desktop 1280x800",
+    "tier": "balanced",
+    "ceiling": 1280000,
+    "worst": {
+     "stand": "the forks, from Wolf Point",
+     "triangles": 1255716,
+     "calls": 145,
+     "margin": 24284,
+     "margin_pct_of_ceiling": 1.9
+    },
+    "stands": [
+     {
+      "stand": "the forks, from Wolf Point",
+      "triangles": 1255716,
+      "calls": 145
+     },
+     {
+      "stand": "Lake Street at Canal, east down the axis",
+      "triangles": 1183084,
+      "calls": 142
+     },
+     {
+      "stand": "the open aerial",
+      "triangles": 1150581,
+      "calls": 115
+     },
+     {
+      "stand": "Lake and Market",
+      "triangles": 1008456,
+      "calls": 146
+     },
+     {
+      "stand": "the Sauganash at 26 m",
+      "triangles": 881802,
+      "calls": 112
+     }
+    ]
+   },
+   {
+    "viewport": "desktop 1280x800",
+    "tier": "light",
+    "ceiling": 825000,
+    "worst": {
+     "stand": "the open aerial",
+     "triangles": 772454,
+     "calls": 70,
+     "margin": 52546,
+     "margin_pct_of_ceiling": 6.37
+    },
+    "stands": [
+     {
+      "stand": "the open aerial",
+      "triangles": 772454,
+      "calls": 70
+     },
+     {
+      "stand": "the forks, from Wolf Point",
+      "triangles": 763130,
+      "calls": 65
+     },
+     {
+      "stand": "Lake Street at Canal, east down the axis",
+      "triangles": 730430,
+      "calls": 66
+     },
+     {
+      "stand": "Lake and Market",
+      "triangles": 623928,
+      "calls": 82
+     },
+     {
+      "stand": "the Sauganash at 26 m",
+      "triangles": 568886,
+      "calls": 71
+     }
+    ]
+   },
+   {
+    "viewport": "mobile 390x780",
+    "tier": "full",
+    "ceiling": 1460000,
+    "worst": {
+     "stand": "Lake Street at Canal, east down the axis",
+     "triangles": 1253491,
+     "calls": 152,
+     "margin": 206509,
+     "margin_pct_of_ceiling": 14.14
+    },
+    "stands": [
+     {
+      "stand": "Lake Street at Canal, east down the axis",
+      "triangles": 1253491,
+      "calls": 152
+     },
+     {
+      "stand": "the forks, from Wolf Point",
+      "triangles": 1172446,
+      "calls": 140
+     },
+     {
+      "stand": "the open aerial",
+      "triangles": 1153367,
+      "calls": 102
+     },
+     {
+      "stand": "the Sauganash at 26 m",
+      "triangles": 947972,
+      "calls": 106
+     },
+     {
+      "stand": "Lake and Market",
+      "triangles": 882076,
+      "calls": 134
+     }
+    ]
+   },
+   {
+    "viewport": "mobile 390x780",
+    "tier": "balanced",
+    "ceiling": 1280000,
+    "worst": {
+     "stand": "Lake Street at Canal, east down the axis",
+     "triangles": 1106067,
+     "calls": 144,
+     "margin": 173933,
+     "margin_pct_of_ceiling": 13.59
+    },
+    "stands": [
+     {
+      "stand": "Lake Street at Canal, east down the axis",
+      "triangles": 1106067,
+      "calls": 144
+     },
+     {
+      "stand": "the open aerial",
+      "triangles": 1041010,
+      "calls": 102
+     },
+     {
+      "stand": "the forks, from Wolf Point",
+      "triangles": 1033068,
+      "calls": 125
+     },
+     {
+      "stand": "the Sauganash at 26 m",
+      "triangles": 850343,
+      "calls": 104
+     },
+     {
+      "stand": "Lake and Market",
+      "triangles": 804217,
+      "calls": 133
+     }
+    ]
+   },
+   {
+    "viewport": "mobile 390x780",
+    "tier": "light",
+    "ceiling": 825000,
+    "worst": {
+     "stand": "the open aerial",
+     "triangles": 698441,
+     "calls": 63,
+     "margin": 126559,
+     "margin_pct_of_ceiling": 15.34
+    },
+    "stands": [
+     {
+      "stand": "the open aerial",
+      "triangles": 698441,
+      "calls": 63
+     },
+     {
+      "stand": "Lake Street at Canal, east down the axis",
+      "triangles": 664611,
+      "calls": 62
+     },
+     {
+      "stand": "the forks, from Wolf Point",
+      "triangles": 652546,
+      "calls": 57
+     },
+     {
+      "stand": "the Sauganash at 26 m",
+      "triangles": 529572,
+      "calls": 60
+     },
+     {
+      "stand": "Lake and Market",
+      "triangles": 510195,
+      "calls": 74
+     }
+    ]
+   }
+  ],
+  "what_this_means_for_the_next_parcel": "T-1674 read the same sweep on dev at c164f8ae and priced the tightest margin at 22,880 triangles \u2014 1.79 per cent of desktop `balanced` at the forks \u2014 and warned that T-1201 raises a block core into the same frusta with only about fifteen freight sheds of room left. MEASURED AFTER T-1201's THREE BUILD PIECES: the margin is 24,284, or 1.90 per cent. It went UP by 1,404 triangles, so the Lake core did not spend the headroom T-1674 was worried about, and the next downtown parcel \u2014 the Randolph-Washington tier, T-1686 and T-1688 \u2014 still has T-1674's fifteen sheds to deal into. This reading does NOT claim to know which of the eleven commits between the two trees moved the number: T-1680 added forge chimneys and T-1624 added plat-level placements, both of which add, while T-1677 closed a hole in the far ground that the forks stand looks straight across, and only a per-commit sweep could apportion it. What it does establish is the direction, which is the question the next parcel asks: there is MORE room than when the warning was written, not less, and desktop `balanced` at the forks is still the binding constraint at every reading. No re-budget is proposed."
+ },
+ "the_occupancy_this_does_not_close": {
+  "instrument": "data/structures/*.json for the 92 roofs standing in the district's seven units: a roof is occupied here if its record carries `occupants` or a `resident_assignment`, the same test T-1641 applied to South Water.",
+  "district_records": 92,
+  "with_neither": 59,
+  "of_those_ancillary": 15,
+  "of_those_dwelling_business_or_civic": 44,
+  "ancillary_is_not_a_gap": "A1 is a stable, A2 a barn or carriage shed, A3 a privy, A4 a woodshed and A5 a small utility roof. A yard building with no household of its own is the model working, not a hole in it.",
+  "the_gap": [
+   {
+    "unit": "blk_lake_market",
+    "id": "recon_1835_blk_lake_market_d1_05",
+    "family": "D1",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_market",
+    "id": "recon_1835_blk_lake_market_d3_03",
+    "family": "D3",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_market",
+    "id": "recon_1835_blk_lake_market_d4_02",
+    "family": "D4",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "id": "recon_1835_south_d1_003",
+    "family": "D1",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "id": "recon_1835_south_d1_021",
+    "family": "D1",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "id": "recon_1835_south_d3_001",
+    "family": "D3",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "id": "recon_1835_south_d3_022",
+    "family": "D3",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "id": "recon_1835_south_d4_002",
+    "family": "D4",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "id": "recon_1835_south_d5_004",
+    "family": "D5",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "id": "recon_1835_south_d5_023",
+    "family": "D5",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_franklin",
+    "id": "recon_1835_south_d6_036",
+    "family": "D6",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_wells",
+    "id": "recon_1835_south_d2_005",
+    "family": "D2",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_wells",
+    "id": "recon_1835_south_d2_024",
+    "family": "D2",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_wells",
+    "id": "recon_1835_south_d3_008",
+    "family": "D3",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_wells",
+    "id": "recon_1835_south_d4_006",
+    "family": "D4",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_wells",
+    "id": "recon_1835_south_d4_025",
+    "family": "D4",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_wells",
+    "id": "recon_1835_south_d4_026",
+    "family": "D4",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_wells",
+    "id": "recon_1835_south_d5_007",
+    "family": "D5",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_lasalle",
+    "id": "recon_1835_south_d1_010",
+    "family": "D1",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_lasalle",
+    "id": "recon_1835_south_d3_027",
+    "family": "D3",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_lasalle",
+    "id": "recon_1835_south_d4_009",
+    "family": "D4",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_lasalle",
+    "id": "recon_1835_south_d5_011",
+    "family": "D5",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_lasalle",
+    "id": "recon_1835_south_d5_028",
+    "family": "D5",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_lasalle",
+    "id": "recon_1835_south_d6_012",
+    "family": "D6",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_lasalle",
+    "id": "recon_1835_south_h1_029",
+    "family": "H1",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clark",
+    "id": "recon_1835_south_c3_015",
+    "family": "C3",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clark",
+    "id": "recon_1835_south_d1_032",
+    "family": "D1",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clark",
+    "id": "recon_1835_south_d3_013",
+    "family": "D3",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clark",
+    "id": "recon_1835_south_d4_014",
+    "family": "D4",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clark",
+    "id": "recon_1835_south_d4_030",
+    "family": "D4",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clark",
+    "id": "recon_1835_south_d5_016",
+    "family": "D5",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clark",
+    "id": "recon_1835_south_d6_031",
+    "family": "D6",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clark",
+    "id": "recon_1835_south_h2_039",
+    "family": "H2",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_dearborn",
+    "id": "recon_1835_south_d1_018",
+    "family": "D1",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_dearborn",
+    "id": "recon_1835_south_d1_033",
+    "family": "D1",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_dearborn",
+    "id": "recon_1835_south_d3_017",
+    "family": "D3",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_dearborn",
+    "id": "recon_1835_south_d4_019",
+    "family": "D4",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_dearborn",
+    "id": "recon_1835_south_d5_034",
+    "family": "D5",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_dearborn",
+    "id": "recon_1835_south_d6_020",
+    "family": "D6",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_dearborn",
+    "id": "recon_1835_south_d7_035",
+    "family": "D7",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clinton",
+    "id": "recon_1835_west_008",
+    "family": "D4",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clinton",
+    "id": "recon_1835_west_014",
+    "family": "D1",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clinton",
+    "id": "recon_1835_west_015",
+    "family": "D2",
+    "raised_by": "generated"
+   },
+   {
+    "unit": "blk_lake_clinton",
+    "id": "recon_1835_west_016",
+    "family": "D3",
+    "raised_by": "generated"
+   }
+  ],
+  "why_no_keeper_is_written_here": "data/reconstruction/1835_roof_keepers.json \u2014 the layer that writes a household onto a roof the platted deal seated one on \u2014 declares its own scope as {\"districts\": [\"south_water\", \"randolph\"], \"block_prefixes\": [\"blk_south_water_\", \"blk_randolph_\"], \"districts_available\": [\"randolph\", \"south_water\"]}. It has never been run on this district, which is why the count above is so much larger than South Water's eleven: there, the keeper layer had already spent what it could and T-1675 holds the residue. Here nothing has been spent at all. T-1685 is extending the same layer to the Randolph tier; the Lake district needs the same pass and had no ticket, which this reading files as T-1691.",
+  "handed_to": "T-1691",
+  "statement": "44 of the district's 92 roofs were raised as dwellings, businesses or civic buildings and carry no household at all, and a further 15 are ancillary where having none is the model working. Their ids are named above. This is the largest single thing T-1201 leaves open and it is handed on rather than closed, because the layer that would close it has never been pointed at this district."
+ },
+ "what_this_is_not": "Not a verdict on whether this district's roofs are OCCUPIED, and not a claim that T-1201's stop condition is met. The parent's stop condition is 'the district's slot list reads built, every roof occupied'; the first half is met and the second is not, and the second half is handed on with its ids named rather than declared closed.",
+ "tree": "this branch merged with dev at e387ef49 (T-1687), published with ./tools/publish.sh before every reading below. The readings were first taken on dev at ef20f58e and RE-DERIVED after the merge: not one of the 256 numbers in this file moved, and no GLB changed anywhere in the merged range, so the frame-budget figures describe the tree that ships."
+}

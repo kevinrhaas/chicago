@@ -2,8 +2,11 @@
 """THE KEEPER ON THE ROOF, NOT ONLY ON THE CARD.
 
 T-1638, piece 1 of 4 of T-1200 — the South Water Street river front.
+T-1685, piece 1 of 4 of T-1202 — the Randolph–Washington tier. One pass, one ledger, a
+district added to `DISTRICTS` and `RUN_FOR` each time a build ticket reaches one.
 
     tools/name_the_keepers_1835.py --build      write the keepers and the ledger
+    tools/name_the_keepers_1835.py --report --districts randolph    one district's rows
     tools/name_the_keepers_1835.py --check      re-derive both, refuse drift
     tools/name_the_keepers_1835.py --report     the keepers, the refusals, what is owed
     tools/name_the_keepers_1835.py --self-test  the guards, fired on the real data
@@ -80,10 +83,10 @@ footprint as conjectural as they were before anybody was named in it.
 
 ## WHICH WAY IT IS WRONG IF IT IS WRONG
 
-Toward a town with too FEW keepers named. The scope is one district, the letter-list cohort
-is refused rather than written, and a seat whose household carries no source even for its
-name is refused too. Every one of those is counted and named, so the shortfall is readable
-rather than implied.
+Toward a town with too FEW keepers named. The scope is the districts the build tickets have
+actually reached, the letter-list cohort is refused rather than written, and a seat whose
+household carries no source even for its name is refused too. Every one of those is counted
+and named, so the shortfall is readable rather than implied.
 """
 
 from __future__ import annotations
@@ -100,18 +103,28 @@ HOUSEHOLDS = DATA / "residents" / "households"
 STRUCTURES = DATA / "structures"
 LEDGER = DATA / "reconstruction" / "1835_roof_keepers.json"
 
-TICKET = "T-1638"
-# T-1675 — the ticket that made the refusals say so ON the roof. The pass is still
-# T-1638's; this is the follow-up that stopped a refused roof from reading like a roof
-# nobody was ever dealt.
-SAYS_WHY_TICKET = "T-1675"
-PARENT = "T-1200"
 TARGET_DATE = "1835-07-01"
 
-# The districts this pass has been run for, as block-id prefixes. T-1200 builds the town
-# one district at a time and hands the next on, so the scope is data and not a constant a
-# reader has to trust: `--check` holds every seat OUTSIDE it as owed, by name.
-DISTRICTS = {"south_water": "blk_south_water_"}
+# The districts this pass has been run for, as block-id prefixes, each with the ticket
+# that ran it. T-1200 and its successors build the town one district at a time and hand
+# the next on, so the scope is data and not a constant a reader has to trust: `--check`
+# holds every seat OUTSIDE it as owed, by name.
+#
+# **The ticket rides on the district and not on the module** (T-1685). Every note this
+# pass writes names the ticket that carried the keeper onto the roof, and a second
+# district running through the same code does not make T-1638 the author of its prose.
+# `says_why` is the ticket that made a REFUSED roof say so on the record: for South Water
+# that was the follow-up T-1675, months after T-1638 wrote the keepers; for every district
+# since, the refusals are said on the roof from the first pass, so it is the pass's own.
+DISTRICTS = {
+    "south_water": {"prefix": "blk_south_water_", "ticket": "T-1638",
+                    "parent": "T-1200", "says_why": "T-1675"},
+    "randolph": {"prefix": "blk_randolph_", "ticket": "T-1685",
+                 "parent": "T-1202", "says_why": "T-1685"},
+}
+
+# The order the passes have been run in, which is the order the ledger states them in.
+RUN_FOR = ("south_water", "randolph")
 
 # The one generator this pass is wired through, by way of tools/inferred_occupancy.py. A
 # seat on any other layer's roof is OWED rather than written, because a keeper the owning
@@ -131,6 +144,32 @@ NO_SOURCE_REFUSAL = (
     "keeper attribute to cite and a card would state a name on this project's word alone"
 )
 
+# T-1685, and it is A DISAGREEMENT THIS PASS FILES RATHER THAN A RULING IT APPLIES.
+# `is_letter_list` reads the PERSON's flag, and `tools/mint_letter_list_residents.py`
+# clears that flag — correctly, and with a gate of its own behind it — the moment a
+# person carrying it turns up in a press reading that is not a letter list: "a person
+# carrying BOTH may not carry the flag". What it does not do is revise the HOUSEHOLD's
+# name, which was minted when the letter list was all there was. Seven cards stand with
+# the two halves disagreeing, and one of them, hh_bradford_harriet, is seated by the
+# platted deal on a Randolph roof. Writing it would put the sentence "The Bradford
+# household — a name from the post office's letter lists" on a building card in a town
+# whose ruling of 2026-08-30 says a letter-list name is not a man with an address; NOT
+# writing it costs one keeper of sixteen. So the roof is refused, the disagreement is
+# named on it, and the stale naming is filed as its own ticket rather than fixed in
+# passing — it reaches 7 cards town-wide and every reader of their names, which is not
+# one district's pass to make.
+LETTER_LIST_NAME = "a name from the post office's letter lists"
+
+NAME_DISAGREES_REFUSAL = (
+    "this household's own name still says it is “a name from the post office's letter "
+    "lists” while no person on its card carries letter_list_only — the flag having been "
+    "cleared, correctly, because a press reading that is not a letter list stands beside "
+    "it. So one record makes two statements about which evidence its name rests on, and "
+    "the owner's ruling of 2026-08-30 (T-0379) turns on exactly that question. This pass "
+    "publishes neither statement onto a roof until one of them is withdrawn; the stale "
+    "naming is tools/mint_letter_list_residents.py's to revise and is filed as T-1689"
+)
+
 
 class KeeperError(RuntimeError):
     """A keeper this pass cannot write honestly, or a tree that has stopped agreeing."""
@@ -144,11 +183,11 @@ def dump(path: Path, doc: dict) -> None:
     path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def occupants_note(seat: dict) -> str:
+def occupants_note(seat: dict, ticket: str) -> str:
     return (
         "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL "
         "(data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto "
-        f"this roof by {TICKET}; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD "
+        f"this roof by {ticket}; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD "
         "HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot "
         "and not even a division — so both halves of its band were dealt rather than read, "
         f"and the lot under this roof is the policy's {seat['policy_rule']} clause answered "
@@ -164,9 +203,9 @@ def occupants_note(seat: dict) -> str:
     )
 
 
-def assignment_note(seat: dict) -> str:
+def assignment_note(seat: dict, ticket: str) -> str:
     return (
-        f"{TICKET}: seated by the placement policy's platted deal under its "
+        f"{ticket}: seated by the placement policy's platted deal under its "
         f"{seat['policy_rule']} clause, on {seat['lot_id']} fronting {seat['fronts']} — "
         f"a standing anonymous roof of family {seat['family']} "
         "this clause admits, adopted and not raised. WHICH household takes WHICH lot is "
@@ -175,7 +214,7 @@ def assignment_note(seat: dict) -> str:
     )
 
 
-def refusal_note(seat: dict, why: str, left: int) -> str:
+def refusal_note(seat: dict, why: str, left: int, ticket: str, says_why: str) -> str:
     """What a roof says when the deal seated somebody on it and a ruling refuses them.
 
     T-1675. The eleven South Water roofs this pass refused stood with `resident_assignment`
@@ -192,10 +231,10 @@ def refusal_note(seat: dict, why: str, left: int) -> str:
     already holds it. So this note points there rather than restating it.
     """
     return (
-        f"NO KEEPER, AND NOT FOR WANT OF ONE ({SAYS_WHY_TICKET}). The placement policy's "
+        f"NO KEEPER, AND NOT FOR WANT OF ONE ({says_why}). The placement policy's "
         f"platted deal seated a household on this roof under its {seat['policy_rule']} "
         f"clause, on {seat['lot_id']} — a standing anonymous roof of family "
-        f"{seat['family']} that clause admits — and {TICKET} refused to carry it onto "
+        f"{seat['family']} that clause admits — and {ticket} refused to carry it onto "
         f"the record: {why}. "
         "The seat still stands in data/reconstruction/1835_platted_seats.json and the "
         "refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the "
@@ -235,7 +274,8 @@ def households_left(seats_doc: dict, refused: list[dict]) -> list[dict]:
             if not card.exists():
                 continue
             doc = load(card)
-            if is_letter_list(doc) or not household_sources(doc):
+            if (is_letter_list(doc) or name_disagrees(doc)
+                    or not household_sources(doc)):
                 continue
             eligible += 1
         out.append({
@@ -264,9 +304,27 @@ def is_letter_list(doc: dict) -> bool:
     return any(person.get("letter_list_only") for person in doc.get("persons") or [])
 
 
-def derive(scope: str) -> dict:
+def name_disagrees(doc: dict) -> bool:
+    """The card's NAME says letter list and its person's flag does not (T-1685)."""
+    return LETTER_LIST_NAME in (doc.get("name") or "") and not is_letter_list(doc)
+
+
+def district_of(seat: dict, scopes: tuple[str, ...]) -> str | None:
+    """Which run-for district's pass owns this seat's block, or None if none does.
+
+    T-1685. The scope became plural the moment a second district ran, and the district
+    is what decides whose ticket the roof's prose names — so the lookup is one function
+    both the writing and the refusing side ask, rather than a prefix test repeated.
+    """
+    block = seat["block_id"] or ""
+    for scope in scopes:
+        if block.startswith(DISTRICTS[scope]["prefix"]):
+            return scope
+    return None
+
+
+def derive(scopes: tuple[str, ...]) -> dict:
     """The ledger: every adopted seat written, refused or owed, and never dropped."""
-    prefix = DISTRICTS[scope]
     seats_doc = load(SEATS)
     seats = [s for s in seats_doc["seats"] if s.get("how") == "adopted"]
     written: list[dict] = []
@@ -277,7 +335,7 @@ def derive(scope: str) -> dict:
     # block-infill generator and a note on a roof that generator does not own is drift.
     # A refusal outside them is still filed here, and still says nothing on a card.
     def ours(seat: dict) -> bool:
-        return ((seat["block_id"] or "").startswith(prefix)
+        return (district_of(seat, scopes) is not None
                 and seat["structure_id"].startswith(BLOCK_INFILL_PREFIX))
 
     for seat in sorted(seats, key=lambda s: s["structure_id"]):
@@ -293,25 +351,32 @@ def derive(scope: str) -> dict:
         if is_letter_list(doc):
             refused.append({**row, "why": LETTER_LIST_REFUSAL, "on_the_card": ours(seat)})
             continue
+        if name_disagrees(doc):
+            refused.append({**row, "why": NAME_DISAGREES_REFUSAL,
+                            "on_the_card": ours(seat)})
+            continue
         sources = household_sources(doc)
         if not sources:
             refused.append({**row, "why": NO_SOURCE_REFUSAL, "on_the_card": ours(seat)})
             continue
-        if not (seat["block_id"] or "").startswith(prefix):
-            owed.append({**row, "why": f"outside the district this pass has been run for "
-                                       f"({scope}); T-1200's successors carry their own"})
+        scope = district_of(seat, scopes)
+        if scope is None:
+            owed.append({**row, "why": f"outside the districts this pass has been run for "
+                                       f"({', '.join(scopes)}); T-1200's successors carry "
+                                       f"their own"})
             continue
         if not seat["structure_id"].startswith(BLOCK_INFILL_PREFIX):
             owed.append({**row, "why": "its roof is not one the platted block-infill "
                                        "generator owns, and this pass is only wired "
                                        "through that one"})
             continue
+        ticket = DISTRICTS[scope]["ticket"]
         written.append({
             **row, "name": doc["name"], "sources": sources,
             "occupants": {"value": doc["name"], "confidence": "reconstructed",
-                          "sources": sources, "note": occupants_note(seat)},
+                          "sources": sources, "note": occupants_note(seat, ticket)},
             "resident_assignment": {"status": "assigned", "confidence": "reconstructed",
-                                    "note": assignment_note(seat),
+                                    "note": assignment_note(seat, ticket),
                                     "household_id": seat["id"]},
         })
 
@@ -324,17 +389,23 @@ def derive(scope: str) -> dict:
     seat_by_roof = {seat["structure_id"]: seat for seat in seats}
     for row in on_the_card:
         seat = seat_by_roof[row["structure_id"]]
+        scope = district_of(seat, scopes)
         row["resident_assignment"] = {
             "status": "unassigned", "confidence": "reconstructed",
             "note": refusal_note(seat, row["why"],
-                                 left_by_band[(row["clause"], row["district"])]),
+                                 left_by_band[(row["clause"], row["district"])],
+                                 DISTRICTS[scope]["ticket"],
+                                 DISTRICTS[scope]["says_why"]),
         }
     return {
         "$schema_note": "Derived. tools/name_the_keepers_1835.py --build writes it and "
                         "--check re-derives it; do not hand-edit.",
         "id": "1835_roof_keepers",
-        "ticket": TICKET,
-        "parent_ticket": PARENT,
+        "passes": [{"district": scope, "block_prefix": DISTRICTS[scope]["prefix"],
+                    "ticket": DISTRICTS[scope]["ticket"],
+                    "parent_ticket": DISTRICTS[scope]["parent"],
+                    "refusals_said_on_the_roof_by": DISTRICTS[scope]["says_why"]}
+                   for scope in scopes],
         "target_date": TARGET_DATE,
         "generated_by": "tools/name_the_keepers_1835.py",
         "not_a_reading": "A publication of the platted deal (L270), not a reading of any "
@@ -342,7 +413,8 @@ def derive(scope: str) -> dict:
         "raises_no_roof": "Every row here is an ADOPTION the deal already made. The "
                           "reconstruction order book is untouched and no GLB goes stale: "
                           "generators/mesh_inputs.py hashes archetype parameters, not prose.",
-        "scope": {"district": scope, "block_prefix": prefix,
+        "scope": {"districts": list(scopes),
+                  "block_prefixes": [DISTRICTS[scope]["prefix"] for scope in scopes],
                   "districts_available": sorted(DISTRICTS)},
         "inputs": ["data/reconstruction/1835_platted_seats.json",
                    "data/residents/households/*.json"],
@@ -352,6 +424,8 @@ def derive(scope: str) -> dict:
                                               if r["why"] == LETTER_LIST_REFUSAL),
                    "refused_no_source": sum(1 for r in refused
                                             if r["why"] == NO_SOURCE_REFUSAL),
+                   "refused_name_disagrees": sum(1 for r in refused
+                                                 if r["why"] == NAME_DISAGREES_REFUSAL),
                    "refused_on_the_card": len(on_the_card),
                    "refused_with_a_household_left": sum(
                        1 for r in on_the_card
@@ -388,7 +462,7 @@ def refusal_fields(ledger: dict) -> dict[str, dict]:
             for row in ledger["refused"] if row.get("on_the_card")}
 
 
-def build(scope: str) -> int:
+def build(scopes: tuple[str, ...]) -> int:
     """Write the LEDGER. The records are the generator's to write, and that is the point.
 
     `data/structures/recon_1835_blk_*` is re-derived byte-for-byte from its block recipe
@@ -399,7 +473,7 @@ def build(scope: str) -> int:
     whichever generator owns the roof, and the record stays re-derivable. So after this,
     run `python3 tools/generate_block_infill.py`.
     """
-    ledger = derive(scope)
+    ledger = derive(scopes)
     dump(LEDGER, ledger)
     c = ledger["counts"]
     print(f"wrote {LEDGER.relative_to(ROOT)}: {c['written']} keeper(s) named, "
@@ -411,10 +485,10 @@ def build(scope: str) -> int:
     return 0
 
 
-def problems(ledger_on_disk: dict, scope: str) -> list[str]:
+def problems(ledger_on_disk: dict, scopes: tuple[str, ...]) -> list[str]:
     """Every way the tree can have stopped agreeing with the deal it publishes."""
     found: list[str] = []
-    want_ledger = derive(scope)
+    want_ledger = derive(scopes)
     if ledger_on_disk != want_ledger:
         found.append(f"{LEDGER.name} does not re-derive from the platted deal and the "
                      f"household cards — run --build")
@@ -470,11 +544,11 @@ def problems(ledger_on_disk: dict, scope: str) -> list[str]:
     return found
 
 
-def check(scope: str) -> int:
+def check(scopes: tuple[str, ...]) -> int:
     if not LEDGER.exists():
         print(f"FAIL: {LEDGER.relative_to(ROOT)} is missing — run --build")
         return 1
-    found = problems(load(LEDGER), scope)
+    found = problems(load(LEDGER), scopes)
     if found:
         print(f"FAIL: {len(found)} problem(s)")
         for line in found:
@@ -482,22 +556,24 @@ def check(scope: str) -> int:
         return 1
     ledger = load(LEDGER)
     c = ledger["counts"]
-    print(f"OK: {c['written']} South Water roof(s) name the keeper the platted deal seated "
-          f"there, {c['refused']} refused in writing and {c['owed']} owed to T-1200's "
-          f"successors")
+    print(f"OK: {c['written']} roof(s) across {', '.join(ledger['scope']['districts'])} "
+          f"name the keeper the platted deal seated there, {c['refused']} refused in "
+          f"writing and {c['owed']} owed to T-1200's successors")
     return 0
 
 
-def report(scope: str) -> int:
-    ledger = derive(scope)
-    print(f"THE KEEPERS ON THE ROOFS — {scope}, {ledger['counts']['adopted_seats']} "
-          f"adopted seat(s) in the platted deal\n")
+def report(scopes: tuple[str, ...]) -> int:
+    ledger = derive(scopes)
+    print(f"THE KEEPERS ON THE ROOFS — {', '.join(scopes)}, "
+          f"{ledger['counts']['adopted_seats']} adopted seat(s) in the platted deal\n")
     print(f"WRITTEN ({len(ledger['written'])}):")
     for row in ledger["written"]:
         print(f"   {row['structure_id']:<48} {row['family']:<3} {row['name'][:52]}")
     print(f"\nREFUSED ({len(ledger['refused'])}) — counted by reason:")
     for why, label in ((LETTER_LIST_REFUSAL, "the letter-list ruling of 2026-08-30"),
-                       (NO_SOURCE_REFUSAL, "no source for the name")):
+                       (NO_SOURCE_REFUSAL, "no source for the name"),
+                       (NAME_DISAGREES_REFUSAL,
+                        "the card's name and its flag disagree (T-1689)")):
         rows = [r for r in ledger["refused"] if r["why"] == why]
         print(f"   {len(rows):>4}  {label}")
         for row in rows[:6]:
@@ -510,15 +586,15 @@ def report(scope: str) -> int:
         verdict = "NOT a shortage" if row["households_left"] else "genuinely exhausted"
         print(f"   {row['clause']:<38} {row['district']:<6} "
               f"{row['households_left']:>5} left   {verdict}")
-    print(f"\nOWED ({len(ledger['owed'])}): seats outside {scope}, carried by T-1200's "
-          f"successors T-1201 … T-1208")
+    print(f"\nOWED ({len(ledger['owed'])}): seats outside {', '.join(scopes)}, carried by "
+          f"T-1200's successors T-1201 … T-1208")
     return 0
 
 
-def self_test(scope: str) -> int:
+def self_test(scopes: tuple[str, ...]) -> int:
     """Break each assertion on a copy of the ledger and require --check to name it."""
     ledger = load(LEDGER)
-    if problems(ledger, scope):
+    if problems(ledger, scopes):
         print("   the committed tree does not pass its own check; fix that first")
         return 1
     cases = []
@@ -541,6 +617,11 @@ def self_test(scope: str) -> int:
 
     def unrefuse_the_letter_lists(doc: dict) -> dict:
         doc["refused"] = [r for r in doc["refused"] if r["why"] != LETTER_LIST_REFUSAL]
+        return doc
+
+    def unrefuse_the_name_disagreements(doc: dict) -> dict:
+        doc["refused"] = [r for r in doc["refused"]
+                          if r["why"] != NAME_DISAGREES_REFUSAL]
         return doc
 
     def silence_a_refusal(doc: dict) -> dict:
@@ -578,11 +659,23 @@ def self_test(scope: str) -> int:
              ("a keeper's name is changed", rename_a_keeper),
              ("a keeper's household is changed", move_a_keeper),
              ("the counts stop counting", miscount),
-             ("the letter-list refusals are quietly dropped", unrefuse_the_letter_lists)]
+             ("the letter-list refusals are quietly dropped", unrefuse_the_letter_lists),
+             ("the name-disagreement refusals are quietly dropped",
+              unrefuse_the_name_disagreements)]
     failures = 0
     for label, break_it in cases:
         broken = break_it(json.loads(json.dumps(ledger)))
-        if not problems(broken, scope):
+        # T-1685. A CASE THAT CHANGES NOTHING PROVES NOTHING. Every one of these breaks
+        # a row of a particular kind, and a ledger that happens to hold none of that kind
+        # would let the case pass by mutating nothing at all — which reads as a green
+        # assertion and is the absence of one. So a no-op mutation is a failure in its own
+        # right, and it says so rather than being counted as caught.
+        if broken == ledger:
+            print(f"   NOT EXERCISED: {label} — the committed ledger holds no row of "
+                  f"that kind, so this case asserts nothing")
+            failures += 1
+            continue
+        if not problems(broken, scopes):
             print(f"   NOT CAUGHT: {label}")
             failures += 1
     if failures:
@@ -597,17 +690,22 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--self-test", action="store_true")
-    ap.add_argument("--district", default="south_water", choices=sorted(DISTRICTS))
+    # T-1685. Plural, and defaulting to every district the pass HAS been run for, so
+    # `--check` in check.sh holds the whole published ledger rather than one district of
+    # it. Naming a subset is for reading a single district's report, never for building.
+    ap.add_argument("--districts", nargs="+", default=list(RUN_FOR),
+                    choices=sorted(DISTRICTS))
     args = ap.parse_args(argv)
+    scopes = tuple(d for d in RUN_FOR if d in set(args.districts))
     try:
         if args.build:
-            return build(args.district)
+            return build(scopes)
         if args.check:
-            return check(args.district)
+            return check(scopes)
         if args.report:
-            return report(args.district)
+            return report(scopes)
         if args.self_test:
-            return self_test(args.district)
+            return self_test(scopes)
     except KeeperError as exc:
         print(f"FAIL: {exc}")
         return 1
