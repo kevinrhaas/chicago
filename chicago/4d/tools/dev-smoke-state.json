@@ -3,6 +3,102 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "2",
+      "parts": [
+        2
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 87,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the east end reads as planks underfoot, and walks on along the bank — 2976 plank vertice(s) in the east end's band, walked west to E 811.5, 0 blocked stride(s), worst step 0.04 m"
+      ],
+      "wallSeconds": 217,
+      "takenAt": "2026-09-27T02:14:49.622Z",
+      "ref": "steward/t-1647-dearborn-trade-front",
+      "commit": "dba9e2aa2790",
+      "devCommit": "f5cd1867a01d",
+      "treeHash": "sha256:f3ac8e10afab9759",
+      "treeDirty": true,
+      "changelogHash": "sha256:e5c6b881c2db5624",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.1,
+          3.4,
+          3.2
+        ]
+      },
+      "source": "/tmp/smoke_d2b.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 115,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 126,
+      "takenAt": "2026-09-27T02:14:49.541Z",
+      "ref": "steward/t-1647-dearborn-trade-front",
+      "commit": "dba9e2aa2790",
+      "devCommit": "f5cd1867a01d",
+      "treeHash": "sha256:f3ac8e10afab9759",
+      "treeDirty": true,
+      "changelogHash": "sha256:e5c6b881c2db5624",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.1,
+          3.4,
+          3.2
+        ]
+      },
+      "source": "/tmp/smoke_m34.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 253,
+      "takenAt": "2026-09-27T02:14:49.461Z",
+      "ref": "steward/t-1647-dearborn-trade-front",
+      "commit": "dba9e2aa2790",
+      "devCommit": "f5cd1867a01d",
+      "treeHash": "sha256:f3ac8e10afab9759",
+      "treeDirty": true,
+      "changelogHash": "sha256:e5c6b881c2db5624",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.1,
+          3.4,
+          3.2
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "1",
       "parts": [
         1
@@ -186,6 +282,132 @@
         ]
       },
       "source": "/tmp/smoke_d3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "11-12",
+      "parts": [
+        11,
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 105,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 444,
+      "takenAt": "2026-09-26T22:22:55.090Z",
+      "ref": "steward/t-1637-fort-road-water-gap",
+      "commit": "4aa3980cc005",
+      "devCommit": "7ea74fc31547",
+      "treeHash": "sha256:f2c09df13e2eb9b8",
+      "treeDirty": false,
+      "changelogHash": "sha256:88287f49613c61a0",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3,
+          4.2,
+          4.2
+        ]
+      },
+      "source": "/tmp/smoke_m1112.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "7-8",
+      "parts": [
+        7,
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 41,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 431,
+      "takenAt": "2026-09-26T22:22:54.993Z",
+      "ref": "steward/t-1637-fort-road-water-gap",
+      "commit": "4aa3980cc005",
+      "devCommit": "7ea74fc31547",
+      "treeHash": "sha256:f2c09df13e2eb9b8",
+      "treeDirty": false,
+      "changelogHash": "sha256:88287f49613c61a0",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3,
+          4.2,
+          4.2
+        ]
+      },
+      "source": "/tmp/smoke_m78.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "10",
+      "parts": [
+        10
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 457,
+      "takenAt": "2026-09-26T22:22:54.894Z",
+      "ref": "steward/t-1637-fort-road-water-gap",
+      "commit": "4aa3980cc005",
+      "devCommit": "7ea74fc31547",
+      "treeHash": "sha256:f2c09df13e2eb9b8",
+      "treeDirty": false,
+      "changelogHash": "sha256:88287f49613c61a0",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3,
+          4.2,
+          4.2
+        ]
+      },
+      "source": "/tmp/smoke_d10.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 33,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 441,
+      "takenAt": "2026-09-26T22:22:54.801Z",
+      "ref": "steward/t-1637-fort-road-water-gap",
+      "commit": "4aa3980cc005",
+      "devCommit": "7ea74fc31547",
+      "treeHash": "sha256:f2c09df13e2eb9b8",
+      "treeDirty": false,
+      "changelogHash": "sha256:88287f49613c61a0",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3,
+          4.2,
+          4.2
+        ]
+      },
+      "source": "/tmp/smoke_d7.log"
     },
     {
       "viewport": "desktop",
@@ -1563,228 +1785,6 @@
       "source": "/tmp/smoke-m13.log"
     },
     {
-      "viewport": "mobile",
-      "stage": "12-13",
-      "parts": [
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 196,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 507,
-      "takenAt": "2026-09-26T12:16:16.631Z",
-      "ref": "steward/t-1618-seats-on-cards",
-      "commit": "d424a5ebda7d",
-      "devCommit": "4e802846e134",
-      "treeHash": "sha256:3e0dd641ed4a57b6",
-      "treeDirty": false,
-      "changelogHash": "sha256:1e8a42a609fad303",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.3,
-          4.4,
-          3.9
-        ]
-      },
-      "source": "/tmp/smoke-m1213.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 92,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 484,
-      "takenAt": "2026-09-26T12:07:44.943Z",
-      "ref": "steward/t-1618-seats-on-cards",
-      "commit": "d424a5ebda7d",
-      "devCommit": "4e802846e134",
-      "treeHash": "sha256:3e0dd641ed4a57b6",
-      "treeDirty": false,
-      "changelogHash": "sha256:1e8a42a609fad303",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.6,
-          4.2,
-          3.5
-        ]
-      },
-      "source": "/tmp/smoke-d12.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 114,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 471,
-      "takenAt": "2026-09-26T11:59:34.921Z",
-      "ref": "steward/t-1618-seats-on-cards",
-      "commit": "d424a5ebda7d",
-      "devCommit": "4e802846e134",
-      "treeHash": "sha256:3e0dd641ed4a57b6",
-      "treeDirty": false,
-      "changelogHash": "sha256:1e8a42a609fad303",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          2.3,
-          3.7,
-          2.8
-        ]
-      },
-      "source": "/tmp/smoke-d13.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1-3",
-      "parts": [
-        1,
-        2,
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 240,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 423,
-      "takenAt": "2026-09-26T10:21:42.832Z",
-      "ref": "idlock/t-0135",
-      "commit": "211f843e27de",
-      "devCommit": "50de0e102a28",
-      "treeHash": "sha256:42e1fb64c32e2b2c",
-      "treeDirty": false,
-      "changelogHash": "sha256:053b2cf4ce3f6883",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          2.9,
-          4,
-          4.1
-        ]
-      },
-      "source": "/tmp/s-m13.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 92,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 499,
-      "takenAt": "2026-09-26T10:14:22.887Z",
-      "ref": "idlock/t-0135",
-      "commit": "211f843e27de",
-      "devCommit": "50de0e102a28",
-      "treeHash": "sha256:42e1fb64c32e2b2c",
-      "treeDirty": false,
-      "changelogHash": "sha256:053b2cf4ce3f6883",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.7,
-          4.2,
-          4.1
-        ]
-      },
-      "source": "/tmp/s-d12.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "5",
-      "parts": [
-        5
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 25,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: the light tier draws inside its 90-call floor at the worst stand — 99 calls at light, worst stand the open aerial — floor 90, set by the owner 2026-08-28 against a measured 85 at Lake and Market (was 80, the pre-2026-08 count restored by T-0147; the ruling is recorded at the definition site and on T-0247)"
-      ],
-      "wallSeconds": 443,
-      "takenAt": "2026-09-26T10:05:58.465Z",
-      "ref": "idlock/t-0135",
-      "commit": "211f843e27de",
-      "devCommit": "50de0e102a28",
-      "treeHash": "sha256:42e1fb64c32e2b2c",
-      "treeDirty": false,
-      "changelogHash": "sha256:053b2cf4ce3f6883",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.7,
-          4.4,
-          4
-        ]
-      },
-      "source": "/tmp/s-d5.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "7",
-      "parts": [
-        7
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 33,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 412,
-      "takenAt": "2026-09-25T18:59:17.962Z",
-      "ref": "steward/t1573-resume-label",
-      "commit": "f61128cac400",
-      "devCommit": "7107fcaac32c",
-      "treeHash": "sha256:8599c9712cbe5bc6",
-      "treeDirty": false,
-      "changelogHash": "sha256:7a9879ab9258e2e6",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.9,
-          4.4,
-          2.7
-        ]
-      },
-      "source": "/tmp/smoke-desktop-7.log"
-    },
-    {
       "viewport": "desktop",
       "stage": "8-9",
       "parts": [
@@ -1912,132 +1912,6 @@
         ]
       },
       "source": "/tmp/smoke_d34.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "11-12",
-      "parts": [
-        11,
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 105,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 444,
-      "takenAt": "2026-09-26T22:22:55.090Z",
-      "ref": "steward/t-1637-fort-road-water-gap",
-      "commit": "4aa3980cc005",
-      "devCommit": "7ea74fc31547",
-      "treeHash": "sha256:f2c09df13e2eb9b8",
-      "treeDirty": false,
-      "changelogHash": "sha256:88287f49613c61a0",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3,
-          4.2,
-          4.2
-        ]
-      },
-      "source": "/tmp/smoke_m1112.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "7-8",
-      "parts": [
-        7,
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 41,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 431,
-      "takenAt": "2026-09-26T22:22:54.993Z",
-      "ref": "steward/t-1637-fort-road-water-gap",
-      "commit": "4aa3980cc005",
-      "devCommit": "7ea74fc31547",
-      "treeHash": "sha256:f2c09df13e2eb9b8",
-      "treeDirty": false,
-      "changelogHash": "sha256:88287f49613c61a0",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3,
-          4.2,
-          4.2
-        ]
-      },
-      "source": "/tmp/smoke_m78.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "10",
-      "parts": [
-        10
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 33,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 457,
-      "takenAt": "2026-09-26T22:22:54.894Z",
-      "ref": "steward/t-1637-fort-road-water-gap",
-      "commit": "4aa3980cc005",
-      "devCommit": "7ea74fc31547",
-      "treeHash": "sha256:f2c09df13e2eb9b8",
-      "treeDirty": false,
-      "changelogHash": "sha256:88287f49613c61a0",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3,
-          4.2,
-          4.2
-        ]
-      },
-      "source": "/tmp/smoke_d10.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "7",
-      "parts": [
-        7
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 33,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 441,
-      "takenAt": "2026-09-26T22:22:54.801Z",
-      "ref": "steward/t-1637-fort-road-water-gap",
-      "commit": "4aa3980cc005",
-      "devCommit": "7ea74fc31547",
-      "treeHash": "sha256:f2c09df13e2eb9b8",
-      "treeDirty": false,
-      "changelogHash": "sha256:88287f49613c61a0",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3,
-          4.2,
-          4.2
-        ]
-      },
-      "source": "/tmp/smoke_d7.log"
     }
   ]
 }

@@ -4860,7 +4860,16 @@ for (const [label, viewport, touch] of [
         && frontage.census?.posts === 18 && frontage.census?.fences === 31
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
-        && frontage.census?.refused === 90
+        // T-1647 puts one back, and it is a refusal the rule could not reach before.
+        // blk_south_water_dearborn's seq-07 roof was a D5 cottage and is now a C2
+        // store-residence, so the hitching rule LOOKS at it for the first time — a
+        // cottage carries no trade to hitch to — and refuses it in writing, because
+        // the trade there is reconstructed and a post would be furniture standing on
+        // an invention. 90 refusals to 91. NOTHING ELSE MOVES: the lot-2 street-fence
+        // refusal is the same wall at the same 1.50 m, renamed with the roof; walks,
+        // crossings, posts and fences are untouched, because the re-family changes
+        // what the building IS and not where it stands.
+        && frontage.census?.refused === 91
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
