@@ -401,6 +401,21 @@ def _cargo_opening_count() -> int:
                if _attr(form.get("door")) == "cargo")
 
 
+def _cargo_rhythm_count() -> int:
+    """Phases standing at more than one cargo opening, which is the population
+    L279's two invented counts reach.
+
+    Counted off the LAYER rather than off the family, for the reason
+    `_cargo_opening_count` gives one entry above: any record stating
+    `goods_door_bays` above one is built with the rhythm the entry invents,
+    whatever family dealt it. Today that is F2 and only F2 — F3 is authored the
+    same way and no F3 stands in this town — and the day a named warehouse is read
+    as having had two doors this count moves and the entry has to be restated.
+    """
+    return sum(1 for _, form in _phase_forms()
+               if (_attr(form.get("goods_door_bays")) or 1) > 1)
+
+
 def _roof_covering_count() -> int:
     """Phases stating a roof type, which is the population L263's exposure reaches.
 
@@ -625,6 +640,11 @@ SCOPE_SOURCES = {
         "data/structures/*.json, the layer's own door attribute; the records "
         "themselves are re-derived by tools/generate_inferred_infill.py --check "
         "and tools/generate_west_infill.py --check"),
+    "structures.phases[cargo_rhythm]": (
+        _cargo_rhythm_count,
+        "data/structures/*.json, the layer's own goods_door_bays attribute; the "
+        "records themselves are re-derived by "
+        "tools/generate_block_infill.py --check"),
     "structures.phases[roof_type_stated]": (
         _roof_covering_count,
         "data/structures/*.json, the layer's own roof_type attribute"),
