@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1162, title: 'The freight shed was standing on the river walk', kind: 'fix', ts: '2026-09-27T02:03:13.502Z', date: 'Sep 26, 2026, 9:03 PM CT',
+  { v: 1163, title: 'The freight shed was standing on the river walk', kind: 'fix', ts: '2026-09-27T02:29:26.560Z', date: 'Sep 26, 2026, 9:29 PM CT',
     items: [
       'Walk the plank walk along the south bank east of the drawbridge and you did not get far. Past the foot of State Street the boards ran under a wall: the freight shed put up on that bank two releases ago sat across the whole width of the walk, and a visitor heading west was shoved out sideways instead of walking on. The shed has moved back onto the terrace behind the boards, and the walk runs clear.',
       'It was put there by a rule read off the wrong line. Its distance from the bank and the angle it stands at were measured from the road to the fort \u2014 and the release right after it moved that road off this reach, which the record said at the time and filed as a question. The question had a worse answer than expected: the position the road had chosen was on the walk.',
@@ -8,6 +8,12 @@ export const CHANGELOG = [ // newest first
       'The measurement now masks every plank walk by its own width and refuses to let a building on this reach stand on one \u2014 with the old position kept as a test case, so the check has to catch it. Forty-four of the places this bank was reported to offer at the strictest tolerance turn out to be boards. Not a square metre of ground moved: none of them was ever buildable.',
       'The release before this one asked how many more sheds this bank holds, answered one, and refused it in writing. Moving the shed moves the ground that was measured on, so it was measured again rather than assumed: still one, same spot, same angle, every tolerance. That refusal stands where it was left.',
       'The shed came out better for it. It keeps the same two metres back from the walk the four north-bank sheds keep from their street \u2014 the old spot could not afford that, because the ground tilted too much \u2014 and its floor now rises and falls under ten centimetres where it used to be twenty-seven. Its wagon door faces a way a cart can reach. Nothing claimed has changed: every line of the record is still marked invented, and the frontage the old engraving draws warehouses on is still empty and still refused.',
+    ] },
+  { v: 1162, ts: '2026-09-27T01:53:15.451Z', date: 'Sep 26, 2026, 8:53 PM CT', title: 'Browse the sources behind the town', kind: 'change',
+    items: [
+      'Evidence now includes Sources: a searchable catalog of the books, maps, newspapers and other records used in the reconstruction, with filters for kind, source tier and use.',
+      'Each source separates the claims it supports from the people, buildings and other records it helped reconstruct. Open a source to read its limits, browse dated newspaper issues, and follow its uses to existing cards.',
+      'The catalog loads when opened. Returning from a card keeps your place and filters.'
     ] },
   { v: 1161, title: 'Why the ground behind the new river shed stays empty', kind: 'fix', ts: '2026-09-27T00:55:09.045Z', date: 'Sep 26, 2026, 7:55 PM CT',
     items: [

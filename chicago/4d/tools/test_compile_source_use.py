@@ -40,8 +40,8 @@ class SourceUseTests(unittest.TestCase):
         self.assertEqual(edges, [
             dict(source_id='map', entity_type='structure', entity_id='house', claim='position', confidence='attested', locator='p. 4', use='scene'),
             dict(source_id='map', entity_type='structure', entity_id='house', claim='roof', confidence='reconstructed', locator=None, use='scene')])
-        self.assertEqual(self.rows(c)['map']['counts'], {'entities': 1, 'claims': 2})
-        self.assertEqual(self.rows(c)['memory']['counts'], {'entities': 1, 'claims': 1})
+        self.assertEqual(self.rows(c)['map']['counts'], {'entities': 1, 'claims': 2, 'grades': [[1, 0, 1], [1, 0, 0]]})
+        self.assertEqual(self.rows(c)['memory']['counts'], {'entities': 1, 'claims': 1, 'grades': [[1, 0, 0], [1, 0, 0]]})
         self.assertEqual(self.rows(c)['unused']['use'], 'unused')
         self.assertEqual(json.loads(c.outputs()['unused.json'])['edges'], [])
 
@@ -69,7 +69,7 @@ class SourceUseTests(unittest.TestCase):
         self.assertEqual(len(edges), 2)
         self.assertEqual(edges[0]['locator'], dict(issue_id='paper_1835_07_01',
             issue_date='1835-07-01', publication='Daily Paper', claim_id='paper_1835_07_01#c1', page=3, column=2))
-        self.assertEqual(self.rows(c)['paper']['counts'], {'entities': 1, 'claims': 1})
+        self.assertEqual(self.rows(c)['paper']['counts'], {'entities': 1, 'claims': 1, 'grades': [[1, 0, 0], [1, 0, 0]]})
         self.assertEqual(json.loads(c.outputs()['paper.json'])['source']['citation'], 'paper citation')
 
     def test_alias_needs_resolvable_claim(self):

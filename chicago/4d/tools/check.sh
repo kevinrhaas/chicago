@@ -2280,6 +2280,9 @@ step "Source-use backlinks match authored claims (T-1248)" \
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py
 
+step "source browser counts and filters" \
+  node tools/test_sources_view.mjs
+
 # Every building card offers a link to the write-up behind the building, and on
 # the deployed site all 332 of them were a 404: publish.sh leaves docs/ out of
 # the payload by design, so the link resolved in the source tree and nowhere a

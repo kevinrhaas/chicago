@@ -1224,6 +1224,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } 
     root.setAttribute('hidden', '');
     root.innerHTML = '';
     document.documentElement.classList.remove('card-open');
+    root.dispatchEvent(new Event('source-card-close'));
   }
 
   root.addEventListener('click', (e) => {

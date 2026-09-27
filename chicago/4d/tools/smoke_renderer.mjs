@@ -12692,7 +12692,7 @@ for (const [label, viewport, touch] of [
       roofFirms.fromSign === true && /^The board hangs/.test(roofFirms.signLead),
       JSON.stringify({ fromSign: roofFirms.fromSign, signLead: roofFirms.signLead }));
 
-    // T-0710/T-1292: the Evidence hub — ten tiles whose counts are their mounts'
+    // T-0710/T-1292: the Evidence hub — eleven tiles whose counts are their mounts'
     // entries, a topic that searches, and a way back. City is second and its two
     // ladders are fetched only when this tab opens.
     await page.evaluate(() => { window.__chicago4d.hud.setPanel(true); });
@@ -12701,12 +12701,13 @@ for (const [label, viewport, touch] of [
       const api = window.__chicago4d;
       const hubEl = document.getElementById('evidence-hub');
       const tiles = () => [...hubEl.querySelectorAll('.ev-tile')];
-      for (let i = 0; i < 50 && tiles().some((t) => /…/.test(t.querySelector('.ev-count')?.textContent ?? '')); i++) {
+      for (let i = 0; i < 50 && tiles().some((t) => t.dataset.topic !== 'sources' && /…/.test(t.querySelector('.ev-count')?.textContent ?? '')); i++) {
         await new Promise((r) => setTimeout(r, 100));
       }
       const mountCount = (id) => (id === 'grades'
         ? document.querySelectorAll('.ev-topic[data-topic="grades"] .legend-list > li').length
         : id === 'city' ? document.querySelectorAll('#city .gc-row').length
+        : id === 'sources' ? (document.getElementById('sources').dataset.count ? Number(document.getElementById('sources').dataset.count) : null)
         // The mount's id is not always the topic's: the order book's topic is
         // `orderbook` and its mount is `#order-book`, so the count is taken from
         // the topic's own mount rather than from a guessed id.
@@ -12761,11 +12762,33 @@ for (const [label, viewport, touch] of [
         topic: api.evidenceHub.topic, backHidden: document.getElementById('panel-back').hasAttribute('hidden') };
       return out;
     });
-    check(`${label}: the Evidence hub shows ten topics, each counting its own entries`,
-      hub.hubShown && hub.title === 'Evidence' && hub.tiles.length === 10
+    check(`${label}: the Evidence hub shows eleven topics, with Sources unknown until opened`,
+      hub.hubShown && hub.title === 'Evidence' && hub.tiles.length === 11
       && hub.tiles[0]?.id === 'grades' && hub.tiles[1]?.id === 'city'
-      && hub.tiles.every((t) => Number.isFinite(t.count) && t.count > 0 && t.count === t.mount && t.title && t.title === t.h3),
+      && hub.tiles[2]?.id === 'sources'
+      && hub.tiles.every((t) => t.title && t.title === t.h3 && (t.id === 'sources' && t.mount === null ? !Number.isFinite(t.count) : Number.isFinite(t.count) && t.count > 0 && t.count === t.mount)),
       JSON.stringify(hub.tiles.map((t) => `${t.id} ${t.count}/${t.mount}`)));
+    await page.evaluate(() => window.__chicago4d.evidenceHub.showTopic('sources'));
+    await page.waitForFunction(() => window.__chicago4d.sources?.rows.length > 0);
+    const sourcesView = await page.evaluate(() => {
+      const api = window.__chicago4d, root = document.getElementById('sources');
+      const initial = root.querySelector('.src-status').textContent;
+      const initialRows = root.querySelectorAll('.src-row').length;
+      const all = root.querySelector('.src-all input'); all.checked = true; all.dispatchEvent(new Event('change'));
+      const allStatus = root.querySelector('.src-status').textContent;
+      const search = root.querySelector('.src-search');search.value='Andreas';search.dispatchEvent(new Event('input'));
+      const known = root.querySelector('[data-source-id="andreas_1884_v1"]');
+      const result = {initial,initialRows,allStatus,total:api.sources.rows.length,
+        scene:api.sources.rows.filter(r=>r.use==='scene').length,known:known?.textContent || '',
+        fits:root.scrollWidth<=root.clientWidth+1};
+      search.value='';search.dispatchEvent(new Event('input'));api.evidenceHub.showHub();return result;
+    });
+    check(`${label}: Sources lazily lists scene and registered counts with a forty-row window`,
+      sourcesView.initial.startsWith(String(sourcesView.scene)) && sourcesView.allStatus.startsWith(String(sourcesView.total))
+      && sourcesView.initialRows === 40 && sourcesView.fits, JSON.stringify(sourcesView));
+    check(`${label}: Sources finds Andreas with date, type, tier and separate claim/entity figures`,
+      /1884/.test(sourcesView.known) && /book/.test(sourcesView.known) && /tier 3/.test(sourcesView.known)
+      && /Claims:/.test(sourcesView.known) && /Entities:/.test(sourcesView.known), sourcesView.known);
     const cityScene = hub.city.data?.people?.scene || null;
     const cityPopulation = cityScene?.population || null;
     const grouped = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');

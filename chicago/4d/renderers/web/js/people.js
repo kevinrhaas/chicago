@@ -938,6 +938,7 @@ export async function mountPeople({
     paintList();
     const row = resultsEl.querySelector(`.person-row[data-person-id="${CSS.escape(state.lastOpened || '')}"]`);
     (row || input)?.focus?.({ preventScroll: true });
+    mount.dispatchEvent(new Event('source-card-close'));
   }
 
   cardEl.addEventListener('click', (ev) => {

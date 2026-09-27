@@ -1,0 +1,23 @@
+/* T-1276: long citations stay inside the existing drawer and mobile sheet. */
+#sources { overflow-wrap:anywhere; font-size:13px; line-height:1.5; }
+#sources button,#sources input,#sources select { font:inherit; color:inherit; }
+#sources button { cursor:pointer; border:1px solid var(--line,#6666); background:transparent; border-radius:7px; padding:7px 10px; text-align:left; }
+#sources button:focus-visible,#sources input:focus-visible { outline:2px solid #bb9244; outline-offset:2px; }
+.src-controls label { display:block; margin:8px 0; }
+.src-search { display:block; box-sizing:border-box; width:100%; background:transparent; border:1px solid #8888; border-radius:6px; padding:9px; }
+.src-controls .src-all { display:flex; gap:8px; align-items:center; }
+.src-pills { border:0; padding:0; margin:10px 0; display:flex; flex-wrap:wrap; gap:5px; }
+.src-pills legend { font-weight:600; margin-bottom:4px; }
+#sources [aria-pressed=true] { background:#aa853a30; border-color:#aa853a; }
+.src-sort { margin-left:8px; padding:5px; background:transparent; }
+.src-row { border-top:1px solid #8885; padding:14px 0; }
+#sources .src-open { border:0; padding:0; font-weight:600; width:100%; }
+.src-meta,.src-key,.src-status { font-size:12px; opacity:.8; }
+.src-use { display:inline-block; border:1px solid #8887; border-radius:4px; padding:0 4px; }
+.src-counts { display:grid; gap:5px; font-size:12px; }
+.src-grade { font-size:10px; font-weight:700; }
+.src-bar { display:flex; height:5px; background:#8883; margin-top:7px; border-radius:3px; overflow:hidden; }
+.src-bar .src-g0 { background:#779a83; }.src-bar .src-g1 { background:#bb944d; }.src-bar .src-g2 { background:#a97b78; }
+.src-detail h4 { margin:18px 0 7px; }.src-detail ul { padding-left:20px; }
+.src-detail summary { cursor:pointer; padding:10px 0; border-top:1px solid #8885; }
+.src-edges li { margin:9px 0; }.src-edges li>span:last-child { display:block; font-size:12px; opacity:.8; }
