@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1159, title: 'The way to the fort no longer walks into the drain', kind: 'fix', ts: '2026-09-26T23:42:58.567Z', date: 'Sep 26, 2026, 6:42 PM CT',
+    items: [
+      'Walk east out of the town toward Fort Dearborn and the worn track ran straight into open water, stopped dead, and started again on the far side. Three and a half metres of the drain lay across it with nothing over them.',
+      'The road did not move into the water \u2014 the water moved into the road. Two releases ago the drain\u2019s mouth was put back where the 1834 survey draws it, just east of State Street, and that new reach crosses exactly where this track ran. The scene clipped the wet part away, as it is meant to, and nobody noticed the road had been cut in two.',
+      'So: did the town lay anything over it? Nothing says so. The one sentence anybody wrote about crossing this drain puts a log bridge where the town\u2019s graded street met it, and that bridge is already built, on State Street. No source puts a crossing on the fort\u2019s ground, and the 1830 plan of the reservation draws a road there and no bridge. A bridge invented on a road that is itself a reconstruction would be two inventions stacked, so it is refused in writing.',
+      'The invented thing moved instead. The way to the fort now leaves the town down State Street, over the log bridge, and turns east at the foot of the bridge\u2019s own graded slope \u2014 which is where its west end is now pinned, read off the bridge rather than chosen. It runs unbroken from there to the south gate, seven and a half metres shorter than before.',
+      'Measured: not one sample of the five-and-a-half-metre track now falls below the water anywhere along the road, its lowest ground stands 36 cm clear, and it keeps five metres from the drain. What you lose is the stub that used to run east from South Water Street\u2019s end \u2014 stand there now and it is prairie.',
+    ] },
   { v: 1158, title: 'The south bank comes in and the plank walk runs straight', kind: 'fix', ts: '2026-09-26T23:25:23.284Z', date: 'Sep 26, 2026, 6:25 PM CT',
     items: [
       'Walk South Water Street west of LaSalle and the river used to bulge out towards you \u2014 a rounded point of wooded ground standing some ten metres further into the channel than the bank either side of the slough, with the outer plank walk swinging north round it and back down to the crossing. The bank is now level with the reach east of the slough, and the walk runs straight along it.',

@@ -5502,6 +5502,31 @@ project has taken the fort, the garden, the barn and the ferry off that plate an
 roads; or any survey of the reservation before its 1839 subdivision, which would fix the line
 and probably its name at the same time.
 **Recorded:** 2026-08-19.
+**Revised:** 2026-09-26 (T-1637) — **the western terminus moved, because the clip this entry
+relied on turned into a severed road.** T-1629 put the South Division drain's mouth east of
+State Street on the owner's ruling of the same day, and its new reach crossed this line: 3.60 m
+of the road's centreline stood below the water surface between local E +849.1 and E +852.7,
+0.09 m under at the deepest, and 162 of the drawn track's 16,614 samples were wet, so the
+waterline clip broke the track in two and a visitor walking out to the fort met open water.
+**Nothing says the town laid anything over it, and a second crossing is refused.** The one
+sentence this project has about crossing this drain puts a log bridge where the town's graded
+street met it, and `slough_log_bridge` is that crossing; no source names a crossing on the
+reservation, the 1830 Harrison plan draws a road there and no bridge, and a bridge invented on
+an invented line is the two-inventions-stacked case this entry already declines above for the
+north-gate ramp. **So the invented line moved and the evidence did not.** The terminus is now
+local E +826.84 N -24.36 — the far end of the `slough_west` approach in the epoch's terrain
+spec, which is the toe of the log bridge's own southern graded cut, 0.03 m off State Street's
+committed centreline — so the reconstructed way to the fort leaves the town down State Street,
+over the crossing the town is documented to have built, and turns east where that bridge's
+approach regains the terrace. Measured after the move and gated by
+`tools/measure_fort_road_way.py`: none of the drawn track's 16,344 samples is below the water
+surface, its lowest ground stands +0.36 m above it, and the centreline keeps 5.21 m from the
+drain's axis. **The cost, stated:** the road is 7.57 m shorter, the reach that ran east out of
+South Water Street's committed end at E +805 N +4 is gone and a visitor standing there now
+finds prairie, and the 12 m corridor still reaches the drain's wet flank (170 samples below the
+surface against 206 before), because a corridor is a legal extent and not the ribbon that is
+drawn. The 22 m between South Water Street's committed end and State Street's corridor is left
+as the separate question it is.
 
 ### L141 — The Lake Street row at Dearborn: four roofs moved onto one line, and the party walls between them
 **Decision:** four anonymous reconstructed roofs of the phase-one South Division parcel —
@@ -14903,6 +14928,29 @@ inside the 80 ft corridors), the refusal this spends **T-0134**, its parent **T-
 **T-0133**, the fill that opened the ground **T-1629**, this re-read **T-1636**,
 `docs/RESEARCH/south_bank_dearborn_ground.md`, `data/exclusions.json` →
 `south_bank_warehouses_dearborn_reach`.
+**Revised:** 2026-09-26 (T-1637), hours after it was written — **the road this shed was squared
+to is no longer on this reach, and the shed has not moved.** The fort road crossed the State
+slough's new mouth in open water, no source lays anything over it, and its western terminus was
+moved onto State Street at the toe of the Slough Log Bridge's southern approach, so the reach
+that ran east past this building is gone. **What survives untouched:** the EASTING (the
+westernmost station between the two platted corridors where the whole rectangle stands free), the
+ground (the filled channel's, unaltered), the relief test (0.273 m over a 252-point lattice), and
+the refusal this entry spends — `fits_beside_the_street` is still 0 at every clause. The building
+is now 41.2 m from the road's centreline where its committed point stood 13.7 m from it, so it is
+further from a travelled way than the seating needed, and no platted corridor is nearer.
+**What is no longer checkable, said plainly:** the NORTHING, the BEARING and the wagon door's
+side were read off the fort road's drawn travelled way — 1.25 m of setback from its north edge,
+squared to its bearing here. Those three numbers stand where they were written and the line they
+were read off does not. They were invented when they were written and they are invented now, at
+the same `reconstructed` grade; what is lost is the ability to re-derive them by hand, which the
+record's own `derivation` block always said this placement depended on. **Nothing is re-seated
+here to cover that** — re-facing or re-seating is a change of geometry and a re-bake, and it is
+filed as its own question rather than smuggled into the run that moved the road. **And what T-1637
+re-opened is not this entry's ground but the reach around it:** the 81 positions T-1636 held
+because they stood in the road are released, so `fits` reads 91, 96, 162, 233 against 10, 15, 81,
+152, and whether anything of the plate belongs on that unplatted reservation ground between E
++805 and E +842 is filed too. **Added links:** T-1637 (the road's move) · **L140** (the fort road)
+· `tools/measure_fort_road_way.py`.
 **Recorded:** 2026-09-26.
 
 ### L275 — Terrain: the south bank below the bend is Wright's line moved south onto Hathaway's, on a ruling
