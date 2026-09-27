@@ -432,6 +432,79 @@ const markers = (bare) =>
   }
 }
 
+/* ------------------------------- the id-mint lease is not somebody else's work branch */
+
+/**
+ * T-1666. The rival scan read `idlock/t-NNNN` as a branch a rival run had pushed, and
+ * every ticket in the repository has one from the day it was minted — so `claim`
+ * refused EVERY unclaimed ticket, and `inflight` reported the whole queue as in flight.
+ *
+ * Measured on 2026-09-27, taking T-1657 as slice 1:
+ *
+ *     T-1657 looks like it is already being worked:
+ *       idlock/t-1657
+ *
+ * with no work branch and no PR anywhere; and `inflight` printing "10 branch(es) on
+ * unfinished tickets", of which two were work and five were mint leases. After the fix
+ * the same `inflight` against the same remote printed ONE, the branch carrying PR #104.
+ *
+ * The cost is not the noise. `--force` is the documented escape for a stale claim or
+ * your own branch, and a check that fires on every ticket teaches every run to pass it
+ * as a matter of course — at which point the one case it exists for, a live sibling
+ * genuinely on the ticket, is indistinguishable from the lease that is always there.
+ * So both halves are asserted here: the lease no longer refuses, and a real rival
+ * branch still does.
+ *
+ * Built on the T-1287 sandbox above, because a real mint against a real bare remote is
+ * the only honest way to get a real lease: `new` pushes it before it writes the ticket.
+ */
+{
+  const { tmp, APP, bare } = sandbox();
+  try {
+    console.log('\n  a freshly minted ticket, whose only remote branch is its own id lock');
+    const minted = run(APP, 'new', 'a ticket nobody has started', '--after', 'T-1145');
+    const id = (/(T-\d{4}) created/.exec(minted.out) ?? [])[1];
+    const leases = () => spawnSync('git', ['-C', bare, 'for-each-ref',
+      '--format=%(refname:short)', 'refs/heads/idlock/'], { encoding: 'utf8' })
+      .stdout.split('\n').filter(Boolean);
+    check('28. the mint leaves an id lock on the remote and no work branch at all',
+      id !== undefined && leases().includes(`idlock/${String(id).toLowerCase()}`),
+      `${id} — ${leases().join(',') || 'no id locks'}`);
+
+    const claimed = run(APP, 'claim', id);
+    check('29. THE FIX: claiming it needs no --force, because a lease is not a rival',
+      claimed.status === 0 && !/already being worked/.test(claimed.out),
+      claimed.out.trim().split('\n')[0] || `status ${claimed.status}`);
+
+    const flight = run(APP, 'inflight', '--no-landed');
+    check('30. …and `inflight` does not count the lease as a branch on an unfinished ticket',
+      !new RegExp(`idlock/${String(id).toLowerCase()}`).test(flight.out),
+      flight.out.split('\n').filter((l) => /idlock/.test(l)).join(' | ') || 'no lease listed');
+
+    // THE HALF THAT MUST NOT HAVE MOVED. A rival `steward/*` branch carrying the same
+    // number is exactly what the scan is for, and it is still refused — asserted on a
+    // SECOND fresh mint, so the ticket carries a lease AND a rival and the refusal has
+    // to name the right one. (Asserting it on the ticket claimed above would prove
+    // nothing: the claim lock would refuse it first, for a different reason.)
+    const rivalId = (/(T-\d{4}) created/.exec(
+      run(APP, 'new', 'a ticket a sibling is already on', '--after', 'T-1145').out) ?? [])[1];
+    const rivalBranch = `steward/${String(rivalId).toLowerCase()}-somebody-elses-work`;
+    spawnSync('git', ['-C', bare, 'update-ref', `refs/heads/${rivalBranch}`, 'refs/heads/dev'],
+      { encoding: 'utf8' });
+    const refused = run(APP, 'claim', rivalId);
+    check('31. …while a real `steward/*` branch on the same number still refuses',
+      refused.status !== 0 && /already being worked/.test(refused.out)
+      && /steward\//.test(refused.out) && !/idlock\//.test(refused.out),
+      refused.out.trim().split('\n').slice(0, 2).join(' / ') || `status ${refused.status}`);
+    check('   …and the ticket it refuses on carries a lease of its own, so the scan is'
+      + ' discriminating and not simply blind',
+      leases().includes(`idlock/${String(rivalId).toLowerCase()}`),
+      leases().join(',') || 'no id locks');
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
 console.log(failures
   ? `\n  ${failures} failure(s)\n`
   : '\n  a split keeps its lock, and the queue drops only finished work and regains what a merge lost\n');
