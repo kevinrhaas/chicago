@@ -9636,7 +9636,7 @@
     {
       "structure_id": "blk_south_water_franklin_lot2",
       "wall": "blk_south_water_franklin north face, lot 2",
-      "why": "recon_1835_blk_south_water_franklin_d5_09 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_blk_south_water_franklin_c2_10 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_franklin_lot4",
@@ -9656,7 +9656,7 @@
     {
       "structure_id": "blk_south_water_lasalle_lot0",
       "wall": "blk_south_water_lasalle north face, lot 0",
-      "why": "recon_1835_blk_south_water_lasalle_d3_10 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_blk_south_water_lasalle_c1_08 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_lasalle_lot1",
@@ -9666,7 +9666,7 @@
     {
       "structure_id": "blk_south_water_lasalle_lot2",
       "wall": "blk_south_water_lasalle north face, lot 2",
-      "why": "recon_1835_blk_south_water_lasalle_d3_10 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_blk_south_water_lasalle_c2_11 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_lasalle_lot3",
@@ -9711,7 +9711,7 @@
     {
       "structure_id": "blk_south_water_wells_lot4",
       "wall": "blk_south_water_wells north face, lot 4",
-      "why": "carpenter_south_water_store stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+      "why": "recon_1835_blk_south_water_wells_c2_01 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
       "structure_id": "blk_south_water_wells_lot6",
@@ -9764,9 +9764,29 @@
       "why": "the trade at recon_1835_blk_south_water_dearborn_c2_07 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
     },
     {
+      "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
+      "wall": "blk_south_water_franklin north face, lot 2",
+      "why": "the trade at recon_1835_blk_south_water_franklin_c2_08 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
+      "wall": "blk_south_water_franklin north face, lot 2",
+      "why": "the trade at recon_1835_blk_south_water_franklin_c2_09 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
       "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
       "wall": "blk_south_water_franklin north face, lot 2",
       "why": "the trade at recon_1835_blk_south_water_franklin_c2_10 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
+      "wall": "blk_south_water_lasalle north face, lot 2",
+      "why": "the trade at recon_1835_blk_south_water_lasalle_c2_11 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_wells_c2_01",
+      "wall": "blk_south_water_wells north face, lot 4",
+      "why": "the trade at recon_1835_blk_south_water_wells_c2_01 is reconstructed — dealt by the roof schedule rather than held on evidence. A hitching post there would be furniture standing on an invention. No post is set."
     },
     {
       "structure_id": "sauganash_hotel",

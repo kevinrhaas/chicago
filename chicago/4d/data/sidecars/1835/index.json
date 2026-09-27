@@ -10719,10 +10719,10 @@
       "asset": "gltf/recon_1835_blk_south_water_clark_d4_02__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_south_water_clark_d5_01",
-      "name": "Reconstructed D5 deep-plan frame cottage #01",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_clark_d5_01.json",
-      "asset": "gltf/recon_1835_blk_south_water_clark_d5_01__inferred_1835.glb"
+      "id": "recon_1835_blk_south_water_clark_f2_01",
+      "name": "Reconstructed F2 narrow two-story warehouse #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_clark_f2_01.json",
+      "asset": "gltf/recon_1835_blk_south_water_clark_f2_01__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_dearborn_a1_09",
@@ -10797,10 +10797,28 @@
       "asset": "gltf/recon_1835_blk_south_water_franklin_a3_11__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_south_water_franklin_c2_08",
+      "name": "Reconstructed C2 store-residence #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_c2_08.json",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_c2_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_c2_09",
+      "name": "Reconstructed C2 store-residence #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_c2_09.json",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_c2_09__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_south_water_franklin_c2_10",
       "name": "Reconstructed C2 store-residence #10",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_c2_10.json",
       "asset": "gltf/recon_1835_blk_south_water_franklin_c2_10__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_c4_01",
+      "name": "Reconstructed C4 wide two-story store or mixed block #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_c4_01.json",
+      "asset": "gltf/recon_1835_blk_south_water_franklin_c4_01__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_franklin_d1_04",
@@ -10833,28 +10851,10 @@
       "asset": "gltf/recon_1835_blk_south_water_franklin_d4_02__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_south_water_franklin_d4_08",
-      "name": "Reconstructed D4 two-room frame cottage #08",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_d4_08.json",
-      "asset": "gltf/recon_1835_blk_south_water_franklin_d4_08__inferred_1835.glb"
-    },
-    {
       "id": "recon_1835_blk_south_water_franklin_d4_12",
       "name": "Reconstructed D4 two-room frame cottage #12",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_d4_12.json",
       "asset": "gltf/recon_1835_blk_south_water_franklin_d4_12__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_south_water_franklin_d5_01",
-      "name": "Reconstructed D5 deep-plan frame cottage #01",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_d5_01.json",
-      "asset": "gltf/recon_1835_blk_south_water_franklin_d5_01__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_south_water_franklin_d5_09",
-      "name": "Reconstructed D5 deep-plan frame cottage #09",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_franklin_d5_09.json",
-      "asset": "gltf/recon_1835_blk_south_water_franklin_d5_09__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_lasalle_a1_14",
@@ -10875,6 +10875,24 @@
       "asset": "gltf/recon_1835_blk_south_water_lasalle_a3_07__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_south_water_lasalle_c1_08",
+      "name": "Reconstructed C1 small shop or office #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_c1_08.json",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_c1_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_c2_11",
+      "name": "Reconstructed C2 store-residence #11",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_c2_11.json",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_c2_11__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_c3_12",
+      "name": "Reconstructed C3 narrow two-story store #12",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_c3_12.json",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_c3_12__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_south_water_lasalle_c3_13",
       "name": "Reconstructed C3 narrow two-story store #13",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_c3_13.json",
@@ -10885,12 +10903,6 @@
       "name": "Reconstructed D1 older log dwelling #04",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_d1_04.json",
       "asset": "gltf/recon_1835_blk_south_water_lasalle_d1_04__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_south_water_lasalle_d1_08",
-      "name": "Reconstructed D1 older log dwelling #08",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_d1_08.json",
-      "asset": "gltf/recon_1835_blk_south_water_lasalle_d1_08__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_lasalle_d2_05",
@@ -10917,12 +10929,6 @@
       "asset": "gltf/recon_1835_blk_south_water_lasalle_d3_06__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_south_water_lasalle_d3_10",
-      "name": "Reconstructed D3 one-room frame cottage #10",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_d3_10.json",
-      "asset": "gltf/recon_1835_blk_south_water_lasalle_d3_10__inferred_1835.glb"
-    },
-    {
       "id": "recon_1835_blk_south_water_lasalle_d4_02",
       "name": "Reconstructed D4 two-room frame cottage #02",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_d4_02.json",
@@ -10935,22 +10941,28 @@
       "asset": "gltf/recon_1835_blk_south_water_lasalle_d5_01__inferred_1835.glb"
     },
     {
-      "id": "recon_1835_blk_south_water_lasalle_d6_11",
-      "name": "Reconstructed D6 one-and-a-half-story frame cottage #11",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_d6_11.json",
-      "asset": "gltf/recon_1835_blk_south_water_lasalle_d6_11__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_south_water_lasalle_d7_12",
-      "name": "Reconstructed D7 small two-story frame house #12",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_d7_12.json",
-      "asset": "gltf/recon_1835_blk_south_water_lasalle_d7_12__inferred_1835.glb"
+      "id": "recon_1835_blk_south_water_lasalle_f2_10",
+      "name": "Reconstructed F2 narrow two-story warehouse #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_f2_10.json",
+      "asset": "gltf/recon_1835_blk_south_water_lasalle_f2_10__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_wells_a3_08",
       "name": "Reconstructed A3 privy #08",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_a3_08.json",
       "asset": "gltf/recon_1835_blk_south_water_wells_a3_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_c2_01",
+      "name": "Reconstructed C2 store-residence #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_c2_01.json",
+      "asset": "gltf/recon_1835_blk_south_water_wells_c2_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_c3_02",
+      "name": "Reconstructed C3 narrow two-story store #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_c3_02.json",
+      "asset": "gltf/recon_1835_blk_south_water_wells_c3_02__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_wells_d1_05",
@@ -10981,18 +10993,6 @@
       "name": "Reconstructed D4 two-room frame cottage #03",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_d4_03.json",
       "asset": "gltf/recon_1835_blk_south_water_wells_d4_03__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_south_water_wells_d5_02",
-      "name": "Reconstructed D5 deep-plan frame cottage #02",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_d5_02.json",
-      "asset": "gltf/recon_1835_blk_south_water_wells_d5_02__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_south_water_wells_d6_01",
-      "name": "Reconstructed D6 one-and-a-half-story frame cottage #01",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_d6_01.json",
-      "asset": "gltf/recon_1835_blk_south_water_wells_d6_01__inferred_1835.glb"
     },
     {
       "id": "recon_1835_north_a1_008",
