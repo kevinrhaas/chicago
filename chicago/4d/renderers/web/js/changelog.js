@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The shops go to the shopkeepers', kind: 'fix',
+  { v: 1176, ts: '2026-09-27T14:41:01.251Z', date: 'Sep 27, 2026, 9:41 AM CT', title: 'The shops go to the shopkeepers', kind: 'fix',
     items: [
       'When a newspaper advertisement gives a business nothing but a street \u2014 "on South Water street", and no corner, no neighbour, no number \u2014 this project seats it in one of the anonymous roofs already standing on that street. Which roof is a choice we make, not something the paper says. Until now that choice went by the roof\u2019s internal name, and the name happens to begin with the kind of building it is, so it looked as though a shop were being picked. It was not. A street runs past several blocks, and an earlier block\u2019s cottage always beat a later block\u2019s store.',
       'The choice now reads what the building actually is. Of the roofs free on a street, a business takes one raised as a shop, a workshop or a warehouse before it takes one raised as a house. Thirty-three of the thirty-nine seated businesses have moved to a different building, and the best-evidenced ones \u2014 the land agent with eighteen printings, the wholesale house with three \u2014 now stand in shopfronts instead of cabins.',
