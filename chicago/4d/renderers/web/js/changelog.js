@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Nothing you can see: what a cottage costs, before one is drawn', kind: 'change',
+  { v: 1182, ts: '2026-09-27T18:08:29.129Z', date: 'Sep 27, 2026, 1:08 PM CT', title: 'Nothing you can see: what a cottage costs, before one is drawn', kind: 'change',
     items: [
       'Nothing in the town changed and no card moved. This is an addition to the machinery that keeps the town running smoothly on an ordinary laptop, and a visitor will find the same Chicago as before.',
       'The town is held to a budget: at three quality settings, from five viewpoints, there is a ceiling on how much scenery one frame may contain, and a check refuses the town if any viewpoint goes over. The reading that answers it has always been taken at the END of a batch of new buildings — after they were allotted, after they were drawn, after the models were baked. So a batch found out it had broken the budget only once the work was done.',
@@ -7,7 +7,7 @@ export const CHANGELOG = [ // newest first
       'So the instrument now answers the question at the other end. It reads the finished model of every building the town ships, works out what a roof of each kind costs from the model itself, measures how much the sun adds by drawing the same roof a second time, and says plainly how many roofs of each kind the tightest viewpoint still has room for. Ask it about a proposed batch — six cottages and two stores — and it says whether they fit, and with how much to spare.',
       'It can also be asked against a reading already taken, which costs a second and needs nothing running. No ceiling was moved and no budget was raised; this only puts the number where it can be acted on first.',
     ] },
-  { v: null, ts: '', title: 'The far prairie is land again, not a flood', kind: 'fix',
+  { v: 1181, ts: '2026-09-27T18:08:29.129Z', date: 'Sep 27, 2026, 1:08 PM CT', title: 'The far prairie is land again, not a flood', kind: 'fix',
     items: [
       'Seen from the air, everything more than a few hundred metres away used to turn into a flat blue-grey sheet with trees standing in it, as if the prairie were under water. It was not haze. The ground out there was not being drawn at all.',
       'Close to you the town is drawn in fine detail; past about 600 metres a coarser copy of the same ground takes over. That coarser copy had been built facing downward, so from above it was invisible, and what showed through the hole was the water surface laid under the whole map, tinted by the haze.',
