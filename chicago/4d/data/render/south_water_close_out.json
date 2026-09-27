@@ -1,0 +1,477 @@
+{
+  "schema": 1,
+  "_doc": "SOUTH WATER'S BOOKS, CLOSED (T-1641, piece 4 of 4 of T-1200). The parent build ticket owes three answers before the district is done with: that every generator refusal in it is resolved on evidence and the deferral log is empty; that reconcile_665.py reads the district's units at capacity or states their headroom; and that the frame budget is read on the PUBLISHED tree before the branch is pushed. This file is that reading. It builds nothing and it moves no roof.",
+  "ticket": "T-1641",
+  "read_on": "2026-09-27",
+  "tree": "dev at c164f8ae (T-1640 merged), plus this branch, published with tools/publish.sh",
+  "district": "South Water Street, the five platted blocks Market to State plus the Market wedge",
+  "the_refusals": {
+    "instrument": "data/reconstruction/1835_platted_block_parcels.json `deferred`, gated by tools/generate_block_infill.py",
+    "what_a_refusal_is": "This generator refuses four families by name — I1, I2, I3 and F3 — and a slot dealt to one of them may only be left unbuilt by naming it in its block recipe's `deferred` list with forty words of reasoning. The generator raises SystemExit on a deferral it cannot read back, so the log is the refusal record and an empty log is a real answer rather than an absent one.",
+    "deferred_in_the_district": [],
+    "count": 0,
+    "the_two_that_stand_elsewhere": "Two deferrals stand in the committed tree and neither is in this district: blk_randolph_dearborn defers an I3 and blk_lake_franklin defers an F3.",
+    "the_one_the_district_did_meet": "reconcile_665.py's waterside rule (T-0316) rerouted an F3 off blk_south_water_market — the family's crosswalk entry makes water access a precondition of the form and the wedge's lots do not reach the bank — to south_plat_beyond_committed_control, and dealt the wedge a C2 in its place. That is a refusal resolved on evidence at the deal rather than deferred at the block, which is why it leaves the log empty."
+  },
+  "the_headroom": {
+    "instrument": "tools/reconcile_665.py, re-derived and --check green on this tree",
+    "units": [
+      {
+        "unit": "blk_south_water_franklin",
+        "lots": 8,
+        "capacity_roofs": 31,
+        "standing_roofs": 17,
+        "free_lots": 1,
+        "headroom": 0,
+        "state": "at_capacity"
+      },
+      {
+        "unit": "blk_south_water_wells",
+        "lots": 8,
+        "capacity_roofs": 31,
+        "standing_roofs": 12,
+        "free_lots": 2,
+        "headroom": 4,
+        "state": "open"
+      },
+      {
+        "unit": "blk_south_water_lasalle",
+        "lots": 8,
+        "capacity_roofs": 31,
+        "standing_roofs": 18,
+        "free_lots": 0,
+        "headroom": 0,
+        "state": "at_capacity"
+      },
+      {
+        "unit": "blk_south_water_clark",
+        "lots": 8,
+        "capacity_roofs": 31,
+        "standing_roofs": 12,
+        "free_lots": 1,
+        "headroom": 0,
+        "state": "at_capacity"
+      },
+      {
+        "unit": "blk_south_water_dearborn",
+        "lots": 8,
+        "capacity_roofs": 31,
+        "standing_roofs": 15,
+        "free_lots": 2,
+        "headroom": 4,
+        "state": "open"
+      },
+      {
+        "unit": "blk_south_water_market",
+        "lots": 8,
+        "capacity_roofs": 31,
+        "standing_roofs": 0,
+        "free_lots": 8,
+        "headroom": 27,
+        "state": "gated"
+      }
+    ],
+    "at_capacity": [
+      "blk_south_water_franklin",
+      "blk_south_water_lasalle",
+      "blk_south_water_clark"
+    ],
+    "open": [
+      "blk_south_water_wells",
+      "blk_south_water_dearborn"
+    ],
+    "gated": [
+      "blk_south_water_market"
+    ],
+    "headroom_on_committed_ground": 8,
+    "headroom_gated_on_coverage": 27,
+    "statement": "The district is NOT at capacity, and saying so is the point of this bullet. Three of the five platted blocks read at_capacity; two — wells and dearborn — carry 8 roofs of headroom between them, which is every roof in the whole 668-roof programme that stands on ground this project has already surveyed (the programme's own coverage figure is 8). The Market wedge is gated, not open: its 27 roofs wait on street control the plat module has never been able to reach."
+  },
+  "the_frame_budget": {
+    "instrument": "tools/measure_detail_ceilings.mjs --only both, on the published mirror served over http",
+    "generated_by": "node tools/measure_detail_ceilings.mjs --only both --json <out>",
+    "why_the_published_tree": "The source tree loads uncompressed masters and the site loads compressed derivatives; the instrument defaults to the mirror for that reason and the parent ticket asks for the published reading by name.",
+    "verdict": "PASS — every tier inside its ceiling at both viewports",
+    "tightest": {
+      "viewport": "desktop 1280x800",
+      "tier": "balanced",
+      "ceiling": 1280000,
+      "stand": "the forks, from Wolf Point",
+      "triangles": 1257120,
+      "margin": 22880,
+      "margin_pct_of_ceiling": 1.79
+    },
+    "viewports": [
+      {
+        "viewport": "desktop 1280x800",
+        "tier": "full",
+        "ceiling": 1460000,
+        "worst": {
+          "id": "the_forks",
+          "label": "the forks, from Wolf Point",
+          "triangles": 1410306,
+          "calls": 153,
+          "margin": 49694,
+          "verdict": "PASS"
+        },
+        "stands": [
+          {
+            "id": "the_forks",
+            "label": "the forks, from Wolf Point",
+            "triangles": 1410306,
+            "calls": 153,
+            "margin": 49694
+          },
+          {
+            "id": "lake_at_canal",
+            "label": "Lake Street at Canal, east down the axis",
+            "triangles": 1358128,
+            "calls": 151,
+            "margin": 101872
+          },
+          {
+            "id": "from_above",
+            "label": "the open aerial",
+            "triangles": 1274286,
+            "calls": 116,
+            "margin": 185714
+          },
+          {
+            "id": "lake_and_market",
+            "label": "Lake and Market",
+            "triangles": 1112901,
+            "calls": 148,
+            "margin": 347099
+          },
+          {
+            "id": "sauganash_26",
+            "label": "the Sauganash at 26 m",
+            "triangles": 973750,
+            "calls": 112,
+            "margin": 486250
+          }
+        ]
+      },
+      {
+        "viewport": "desktop 1280x800",
+        "tier": "balanced",
+        "ceiling": 1280000,
+        "worst": {
+          "id": "the_forks",
+          "label": "the forks, from Wolf Point",
+          "triangles": 1257120,
+          "calls": 145,
+          "margin": 22880,
+          "verdict": "PASS"
+        },
+        "stands": [
+          {
+            "id": "the_forks",
+            "label": "the forks, from Wolf Point",
+            "triangles": 1257120,
+            "calls": 145,
+            "margin": 22880
+          },
+          {
+            "id": "lake_at_canal",
+            "label": "Lake Street at Canal, east down the axis",
+            "triangles": 1183648,
+            "calls": 142,
+            "margin": 96352
+          },
+          {
+            "id": "from_above",
+            "label": "the open aerial",
+            "triangles": 1152183,
+            "calls": 115,
+            "margin": 127817
+          },
+          {
+            "id": "lake_and_market",
+            "label": "Lake and Market",
+            "triangles": 1009724,
+            "calls": 146,
+            "margin": 270276
+          },
+          {
+            "id": "sauganash_26",
+            "label": "the Sauganash at 26 m",
+            "triangles": 883450,
+            "calls": 112,
+            "margin": 396550
+          }
+        ]
+      },
+      {
+        "viewport": "desktop 1280x800",
+        "tier": "light",
+        "ceiling": 825000,
+        "worst": {
+          "id": "from_above",
+          "label": "the open aerial",
+          "triangles": 773206,
+          "calls": 70,
+          "margin": 51794,
+          "verdict": "PASS"
+        },
+        "stands": [
+          {
+            "id": "from_above",
+            "label": "the open aerial",
+            "triangles": 773206,
+            "calls": 70,
+            "margin": 51794
+          },
+          {
+            "id": "the_forks",
+            "label": "the forks, from Wolf Point",
+            "triangles": 763580,
+            "calls": 65,
+            "margin": 61420
+          },
+          {
+            "id": "lake_at_canal",
+            "label": "Lake Street at Canal, east down the axis",
+            "triangles": 730890,
+            "calls": 66,
+            "margin": 94110
+          },
+          {
+            "id": "lake_and_market",
+            "label": "Lake and Market",
+            "triangles": 624204,
+            "calls": 82,
+            "margin": 200796
+          },
+          {
+            "id": "sauganash_26",
+            "label": "the Sauganash at 26 m",
+            "triangles": 569512,
+            "calls": 71,
+            "margin": 255488
+          }
+        ]
+      },
+      {
+        "viewport": "mobile 390x780",
+        "tier": "full",
+        "ceiling": 1460000,
+        "worst": {
+          "id": "lake_at_canal",
+          "label": "Lake Street at Canal, east down the axis",
+          "triangles": 1254799,
+          "calls": 152,
+          "margin": 205201,
+          "verdict": "PASS"
+        },
+        "stands": [
+          {
+            "id": "lake_at_canal",
+            "label": "Lake Street at Canal, east down the axis",
+            "triangles": 1254799,
+            "calls": 152,
+            "margin": 205201
+          },
+          {
+            "id": "the_forks",
+            "label": "the forks, from Wolf Point",
+            "triangles": 1174216,
+            "calls": 140,
+            "margin": 285784
+          },
+          {
+            "id": "from_above",
+            "label": "the open aerial",
+            "triangles": 1156139,
+            "calls": 102,
+            "margin": 303861
+          },
+          {
+            "id": "sauganash_26",
+            "label": "the Sauganash at 26 m",
+            "triangles": 950380,
+            "calls": 106,
+            "margin": 509620
+          },
+          {
+            "id": "lake_and_market",
+            "label": "Lake and Market",
+            "triangles": 885524,
+            "calls": 134,
+            "margin": 574476
+          }
+        ]
+      },
+      {
+        "viewport": "mobile 390x780",
+        "tier": "balanced",
+        "ceiling": 1280000,
+        "worst": {
+          "id": "lake_at_canal",
+          "label": "Lake Street at Canal, east down the axis",
+          "triangles": 1106631,
+          "calls": 144,
+          "margin": 173369,
+          "verdict": "PASS"
+        },
+        "stands": [
+          {
+            "id": "lake_at_canal",
+            "label": "Lake Street at Canal, east down the axis",
+            "triangles": 1106631,
+            "calls": 144,
+            "margin": 173369
+          },
+          {
+            "id": "from_above",
+            "label": "the open aerial",
+            "triangles": 1042606,
+            "calls": 102,
+            "margin": 237394
+          },
+          {
+            "id": "the_forks",
+            "label": "the forks, from Wolf Point",
+            "triangles": 1034838,
+            "calls": 125,
+            "margin": 245162
+          },
+          {
+            "id": "sauganash_26",
+            "label": "the Sauganash at 26 m",
+            "triangles": 851887,
+            "calls": 104,
+            "margin": 428113
+          },
+          {
+            "id": "lake_and_market",
+            "label": "Lake and Market",
+            "triangles": 806195,
+            "calls": 133,
+            "margin": 473805
+          }
+        ]
+      },
+      {
+        "viewport": "mobile 390x780",
+        "tier": "light",
+        "ceiling": 825000,
+        "worst": {
+          "id": "from_above",
+          "label": "the open aerial",
+          "triangles": 699187,
+          "calls": 63,
+          "margin": 125813,
+          "verdict": "PASS"
+        },
+        "stands": [
+          {
+            "id": "from_above",
+            "label": "the open aerial",
+            "triangles": 699187,
+            "calls": 63,
+            "margin": 125813
+          },
+          {
+            "id": "lake_at_canal",
+            "label": "Lake Street at Canal, east down the axis",
+            "triangles": 665071,
+            "calls": 62,
+            "margin": 159929
+          },
+          {
+            "id": "the_forks",
+            "label": "the forks, from Wolf Point",
+            "triangles": 653466,
+            "calls": 57,
+            "margin": 171534
+          },
+          {
+            "id": "sauganash_26",
+            "label": "the Sauganash at 26 m",
+            "triangles": 530094,
+            "calls": 60,
+            "margin": 294906
+          },
+          {
+            "id": "lake_and_market",
+            "label": "Lake and Market",
+            "triangles": 511181,
+            "calls": 74,
+            "margin": 313819
+          }
+        ]
+      }
+    ],
+    "what_this_means_for_the_next_parcel": "T-1154's trim landed (T-1244 and T-1245, both merged 2026-09-17) and the town is back inside all three ceilings, so this build takes the margin and not the re-budget. But the margin is thin where it is thinnest: desktop `balanced` clears by 22,880 triangles, 1.79 per cent of its own ceiling, at the forks. The next build parcel in the queue (T-1201, the Lake Street and Dearborn–Clark–LaSalle core) raises roofs inside the same downtown frusta, and on this reading it has about one per cent of room to do it in. That is a finding handed forward, not a ceiling moved.",
+    "handed_to": "T-1674"
+  },
+  "what_this_is_not": "Not a verdict on whether the district's roofs are OCCUPIED. T-1200's stop condition wants every roof occupied and 11 dwelling and lodging roofs in these blocks carry neither `occupants` nor a `resident_assignment`; that is counted here and handed on, not fixed here. Nor is it a verdict on the freight roofs the south-bank ground rule has run out of room for — T-1672 owns those.",
+  "the_occupancy_this_does_not_close": {
+    "instrument": "data/structures/*.json in the district's five platted blocks, read for `occupants` and `resident_assignment`",
+    "district_records": 52,
+    "with_neither": 22,
+    "of_those_ancillary": 11,
+    "of_those_dwelling_or_lodging": 11,
+    "ancillary_is_not_a_gap": "A1 is a stable, A2 a barn or carriage shed and A3 a privy. An outbuilding has no household of its own and the absence of one on it is the model working, not a hole.",
+    "the_gap": [
+      {
+        "id": "recon_1835_blk_south_water_clark_d3_03",
+        "unit": "blk_south_water_clark",
+        "family": "D3"
+      },
+      {
+        "id": "recon_1835_blk_south_water_clark_d4_02",
+        "unit": "blk_south_water_clark",
+        "family": "D4"
+      },
+      {
+        "id": "recon_1835_blk_south_water_dearborn_d1_05",
+        "unit": "blk_south_water_dearborn",
+        "family": "D1"
+      },
+      {
+        "id": "recon_1835_blk_south_water_dearborn_h1_03",
+        "unit": "blk_south_water_dearborn",
+        "family": "H1"
+      },
+      {
+        "id": "recon_1835_blk_south_water_franklin_d1_04",
+        "unit": "blk_south_water_franklin",
+        "family": "D1"
+      },
+      {
+        "id": "recon_1835_blk_south_water_franklin_d3_13",
+        "unit": "blk_south_water_franklin",
+        "family": "D3"
+      },
+      {
+        "id": "recon_1835_blk_south_water_franklin_d4_12",
+        "unit": "blk_south_water_franklin",
+        "family": "D4"
+      },
+      {
+        "id": "recon_1835_blk_south_water_lasalle_d1_04",
+        "unit": "blk_south_water_lasalle",
+        "family": "D1"
+      },
+      {
+        "id": "recon_1835_blk_south_water_lasalle_d2_05",
+        "unit": "blk_south_water_lasalle",
+        "family": "D2"
+      },
+      {
+        "id": "recon_1835_blk_south_water_wells_d1_07",
+        "unit": "blk_south_water_wells",
+        "family": "D1"
+      },
+      {
+        "id": "recon_1835_blk_south_water_wells_d2_06",
+        "unit": "blk_south_water_wells",
+        "family": "D2"
+      }
+    ],
+    "handed_to": "T-1675",
+    "statement": "11 roofs raised as dwellings or lodging in this district stand with no household on them — four older log cabins, two plank dwellings or shanties, two one-room and two two-room frame cottages, and the one larger one-and-a-half-storey house. T-1200's stop condition is 'every roof occupied' and on this reading the district does not meet it. This ticket measures that and hands it on; seating a household is the placement policy's work and not a books-closing run's."
+  }
+}
