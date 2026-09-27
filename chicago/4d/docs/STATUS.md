@@ -6,6 +6,128 @@ Shared destinations recovered from draft chicago PR #129. No separate destinatio
 
 # STATUS
 
+## The Lake district's books, closed — T-1683, 2026-09-27
+
+Piece 4 of 4 of T-1201. The three build pieces raised and re-familied this district's
+roofs; this one answers the four questions the parent asks before the district is done
+with, on the published tree, and **changes nothing in the town**. The reading is committed
+at `data/render/lake_close_out.json` — every number in it is read off the committed data or
+off `tools/measure_detail_ceilings.mjs`, none is typed — and it is deliberately the same
+four books as `data/render/south_water_close_out.json`, so the two districts compare.
+
+**The district** is the seven Lake–Randolph blocks: `blk_lake_{market,franklin,wells,`
+`lasalle,clark,dearborn}` in the South Division and `blk_lake_clinton` in the West.
+
+**Book one — the refusals: one deferral, and it is the deferral this project learned the
+rule from.** `generate_block_infill.py` refuses four families by name (I1, I2, I3, F3) and
+a slot dealt to one may only be left unbuilt by naming it in its block recipe's `deferred`
+list with its reason; the generator raises `SystemExit` on a shortfall it cannot read back,
+on a deferral of a family it does not refuse, and on a family both built and deferred.
+Across the district there is exactly **one** entry — `blk_lake_franklin` defers an F3, the
+large river warehouse the schedule dealt it — and it is one of only two in the whole
+committed tree (the other is `blk_randolph_dearborn`'s I3). T-0028 found it on 2026-08-28
+by opening this very block and being unable to build the F3, 134 m from the nearest water,
+the farthest of any platted block in the town but one.
+
+**It is resolved, upstream and on evidence.** The stopgap was to put F3 in the generator's
+`REFUSED_FAMILIES`, which treated a fault in the DEAL as a fault at the block and let
+deferrals accumulate. T-0316 moved the repair to the deal, and on this tree
+`tools/reconcile_665.py --check` prints `waterside (T-0316): F3, W5 require water — no
+platted block was dealt one`. So the deferral cannot recur. **The roof is not dropped**: it
+is still owed, the schedule still counts it, and it belongs to the wharf and landing ground
+beyond South Water and Market that `generate_river_wharves.py` places against the committed
+bank. That the deal ever sent an F3 inland is T-0275's, against the deal and not this block.
+
+**And four of the seven units have no log at all, which is a different fact from an empty
+one.** `blk_lake_wells`, `blk_lake_lasalle`, `blk_lake_dearborn` and `blk_lake_clinton`
+were never dealt by `generate_block_infill.py`; their roofs came from the earlier
+`phase1_south_mixed_blocks` and West parcels and from documented and inferred-household
+records. An absent log and an empty log are not merged here.
+
+**Book two — the headroom: the district IS at capacity, which is the stronger of the two
+answers the parent allows.** `reconcile_665.py --check` green; programme at 410 standing,
+258 remaining of 668.
+
+| unit | district | lots | capacity | standing | free lots | headroom | state |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `blk_lake_market` | south | 8 | 31 | 10 | 1 | 0 | at capacity |
+| `blk_lake_franklin` | south | 8 | 31 | 14 | 1 | 0 | at capacity |
+| `blk_lake_wells` | south | 8 | 31 | 14 | 0 | 0 | at capacity |
+| `blk_lake_lasalle` | south | 8 | 31 | 14 | 0 | 0 | at capacity |
+| `blk_lake_clark` | south | 8 | 31 | 16 | 1 | 0 | at capacity |
+| `blk_lake_dearborn` | south | 8 | 31 | 13 | 1 | 0 | at capacity |
+| `blk_lake_clinton` | west | 8 | 31 | 11 | 1 | 0 | at capacity |
+
+All seven read `at_capacity` with headroom 0, so the "or its headroom stated" clause
+resolves to zero. The five free lots the units still show cannot carry a roof: capacity
+here is reckoned on roofs, not on lots, and the roof count is already met. This is the same
+finding T-1682 reached on the Lake frontage and T-1647 on the South Water row, and it is
+what makes the district's remaining work a question of what the standing roofs ARE.
+
+**Book three — the cottages and yard buildings behind: built, and the count is the
+answer.** Measured with `reconcile_665.py`'s own `standing_roofs()`, the function the deal
+counts with, grouped by the block each roof's position point falls in.
+
+| unit | roofs | D3–D6 cottages | D1–D2 cabins/shanties | D7+H houses | A yard buildings | business/civic |
+| --- | --- | --- | --- | --- | --- | --- |
+| `blk_lake_market` | 10 | 3 | 2 | 0 | 2 | 2 |
+| `blk_lake_franklin` | 14 | 6 | 3 | 0 | 3 | 2 |
+| `blk_lake_wells` | 14 | 7 | 2 | 0 | 2 | 3 |
+| `blk_lake_lasalle` | 14 | 6 | 1 | 1 | 2 | 4 |
+| `blk_lake_clark` | 16 | 7 | 2 | 1 | 2 | 4 |
+| `blk_lake_dearborn` | 13 | 4 | 2 | 2 | 2 | 3 |
+| `blk_lake_clinton` | 11 | 4 | 2 | 0 | 3 | 2 |
+| **district** | **92** | **37** | **14** | **4** | **16** | **20** |
+
+Every one of the seven units carries cottages behind its frontage and at least two yard
+buildings, so T-1201's "D3–D6 cottages behind on the alleys, A-family yard buildings per
+household" is met in KIND on every block. It is **not** met in the ratio the second half
+implies: 16 yard buildings stand behind 55 dwellings, roughly one in four. **That gap
+cannot be closed on this ground, and saying so is the point** — the district is at capacity
+at headroom 0, so a privy or stable added here would have to come out of another district's
+remainder, and the programme's whole discipline is that a family cap is never quietly
+exceeded to make a block look complete. The A-family targets are the town's, not this
+district's (42 stables, 31 barns, 40 privies, 28 woodsheds, 17 small utility roofs across
+668 roofs), and what stands here is this district's share of them. A yard "per household"
+is a claim about the TARGET, and it is filed against the deal as **T-1692** rather than built past the cap.
+
+**Book four — the frame budget, on the PUBLISHED mirror: PASS at both viewports, and there
+is MORE room than when the warning was written.**
+
+| tier | ceiling | worst desktop | margin | worst mobile | margin |
+| --- | --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,408,278 (the forks) | 51,722 | 1,253,491 (Lake at Canal) | 206,509 |
+| `balanced` | 1,280,000 | 1,255,716 (the forks) | **24,284** | 1,106,067 (Lake at Canal) | 173,933 |
+| `light` | 825,000 | 772,454 (the open aerial) | 52,546 | 698,441 (the open aerial) | 126,559 |
+
+Desktop `balanced` at the forks is the binding constraint at every reading, and it clears
+by **1.90 per cent** of its own ceiling. T-1674 read the same sweep on dev at `c164f8ae`
+and priced it at 22,880 — 1.79 per cent — and warned that T-1201 raises a block core into
+the same frusta with about fifteen freight sheds of room left. **Measured after T-1201's
+three build pieces: the margin went UP by 1,404 triangles.** The Lake core did not spend
+the headroom T-1674 was worried about, so the Randolph–Washington tier (T-1686, T-1688)
+still has that room to deal into. This reading does **not** claim to know which of the
+eleven commits between the two trees moved the number — T-1680's forge chimneys and
+T-1624's plat-level placements both add, while T-1677 closed a hole in the far ground the
+forks stand looks straight across, and only a per-commit sweep could apportion it. What it
+establishes is the direction, which is the question the next parcel asks. No re-budget is
+proposed.
+
+**What this does NOT close.** T-1201's stop condition is "the district's slot list reads
+built, every roof occupied". The first half is met; the second is not. Of the district's 92
+roofs, **59 carry neither `occupants` nor a `resident_assignment`** — 15 of them ancillary,
+where a yard building with no household of its own is the model working, and **44 raised as
+dwellings, businesses or civic buildings that stand empty**. Ids are named in the reading.
+The reason the count is so much larger than South Water's eleven is that
+`data/reconstruction/1835_roof_keepers.json` declares its scope as `south_water` and has
+never been run on this district: there the keeper layer had spent what it could and T-1675
+holds the residue, here nothing has been spent at all. T-1685 is extending the same layer
+to the Randolph tier; the Lake district needed the same pass and had no ticket, and this
+run files **T-1691**.
+
+**Verification:** `./tools/publish.sh`, then `./tools/check.sh`, then the smoke legs
+`tools/smoke_budget.mjs --for-diff` names for this diff.
+
 ## The civic band beside the public square — T-1687, 2026-09-27
 
 Piece 3 of 4 of T-1202, and the district's civic band turns out to be a closed book with one
