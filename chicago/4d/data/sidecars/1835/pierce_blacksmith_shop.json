@@ -87,6 +87,14 @@
       ],
       "note": "STATED AND NOT BUILT, AND IT IS THE WHOLE POINT OF THE BUILDING. Andreas records that Pierce bought the Rev. Mr See's old set of tools and set up in business, that he ironed the first Chicago-to-St-Louis stage line in January 1834 and that he began making the 'Bull' plough in the spring — none of which is possible without a forge, a bellows and a stack to take the smoke. The outbuilding archetype has no chimney parameter and no interior, so the mesh shows a shed with a doorway and NO SMOKE, which is the one feature of a smithy anybody in the street would have noticed. Nothing about the forge's size, position or the stack's material is attested in any case. Owed an admission in docs/LIBERTIES.md."
     },
+    "chimneys": {
+      "value": 1,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "NO SOURCE COUNTS A FLUE ON THIS BUILDING, AND THE WORK IN IT CANNOT BE DONE WITHOUT ONE. Andreas has Pierce buying the Rev. Mr See's set of tools and setting up in business in 1833, ironing the first Chicago-to-St-Louis stage line in January 1834 and making the 'Bull' plough from the spring (scan p. 1161): forge work, all of it, and a forge under a board roof has a stack over it or the shop burns. The count is therefore reasoned from evidence about THIS building's attested trade rather than stated of it, which is what `inferred` is for, and it is one because nothing suggests two fires. The FABRIC is the archetype's and is brick on docs/RESEARCH/chimneys.md §2's argument, not a reading of this shop. Its dimensions are the archetype's and are invented within the work: a fire bed wide enough to lay a bar across, a flue narrower than the hearth that gathers into it, and a head standing between the eighteen inches the town's by-law of 1835 required over a roof and the four feet Andreas remembered no Chicago chimney exceeding. docs/LIBERTIES.md carries the invention."
+    },
     "function": {
       "value": "blacksmith_shop",
       "confidence": "attested",

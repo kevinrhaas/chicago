@@ -647,6 +647,25 @@ def door_kind(family: str) -> str:
     return "stable" if family == "A1" else "man"
 
 
+def chimneys_for(family: str) -> int:
+    """WHETHER THE FAMILY HAS A FIRE IN IT, and only W1 does (T-1680).
+
+    The crosswalk's required variant for W1 — the blacksmith shop — is
+    `blacksmith_forge`, *"wide work door; forge chimney; soot; detached"*, and until
+    `outbuilding` learned `chimneys` there was no way for this pass to deal the second
+    of those. A smithy is a hearth kept hot all day; the rest of the outbuilding tail
+    is stables, sheds, cribs and cottages, which have no fire and get no stack.
+
+    W2 and W3 — the joiner and the cooper — are deliberately NOT here. Their variants
+    ask for daylight and double doors, not a flue, and a carpenter's shop with a
+    chimney would be claiming a forge nobody put in it.
+
+    Authored only where it is more than zero, so the 130-odd outbuildings that have
+    never had a stack are not rewritten to say they have none.
+    """
+    return 1 if family == "W1" else 0
+
+
 def door_bays_for(family: str) -> int:
     """HOW MANY of that doorway the family's loading side carries (T-1662).
 
@@ -807,6 +826,7 @@ def inferred_form(archetype: str, family: str, spec_note: str, key: str,
             "door": a(door), "door_side": a("front"),
             **({"door_bays": a(bays)} if bays > 1 else {}),
             "loft": a(family in ("W2", "W5", "A1", "A2")),
+            **({"chimneys": a(chimneys_for(family))} if chimneys_for(family) else {}),
             "board_gap_m": a(0.012), "paint": a("unpainted")}
 
 

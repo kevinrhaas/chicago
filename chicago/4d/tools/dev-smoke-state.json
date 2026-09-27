@@ -12,22 +12,22 @@
       "passed": 80,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 198,
-      "takenAt": "2026-09-27T18:03:02.819Z",
-      "ref": "steward/t1675-south-water-empty-roofs",
-      "commit": "f4fbfd1e49d9",
+      "wallSeconds": 218,
+      "takenAt": "2026-09-27T18:45:10.764Z",
+      "ref": "steward/t1680-forge-chimney",
+      "commit": "f56e370c7639",
       "devCommit": "15792616b5d5",
-      "treeHash": "sha256:0ead28cae3657ebb",
+      "treeHash": "sha256:95a8b2252d6a7184",
       "treeDirty": false,
-      "changelogHash": "sha256:a8f69feb6287737b",
+      "changelogHash": "sha256:20cd9183beae22db",
       "host": {
         "kind": "steward-runner",
         "cpus": 4,
         "memGB": 15.6,
         "loadavg": [
-          0.1,
-          1.9,
-          3.2
+          4.2,
+          4.2,
+          3.9
         ]
       },
       "source": "/tmp/smoke_m1.log"
@@ -43,56 +43,87 @@
       "passed": 80,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 346,
-      "takenAt": "2026-09-27T18:03:02.717Z",
-      "ref": "steward/t1675-south-water-empty-roofs",
-      "commit": "f4fbfd1e49d9",
+      "wallSeconds": 364,
+      "takenAt": "2026-09-27T18:45:10.659Z",
+      "ref": "steward/t1680-forge-chimney",
+      "commit": "f56e370c7639",
       "devCommit": "15792616b5d5",
-      "treeHash": "sha256:0ead28cae3657ebb",
+      "treeHash": "sha256:95a8b2252d6a7184",
       "treeDirty": false,
-      "changelogHash": "sha256:a8f69feb6287737b",
+      "changelogHash": "sha256:20cd9183beae22db",
       "host": {
         "kind": "steward-runner",
         "cpus": 4,
         "memGB": 15.6,
         "loadavg": [
-          0.1,
-          1.9,
-          3.2
+          4.2,
+          4.2,
+          3.9
         ]
       },
       "source": "/tmp/smoke_d1.log"
     },
     {
-      "viewport": "desktop",
-      "stage": "12",
+      "viewport": "mobile",
+      "stage": "3",
       "parts": [
-        12
+        3
       ],
       "verdict": "pass",
       "target": "published",
-      "passed": 94,
+      "passed": 95,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 511,
-      "takenAt": "2026-09-27T18:03:02.617Z",
-      "ref": "steward/t1675-south-water-empty-roofs",
-      "commit": "f4fbfd1e49d9",
+      "wallSeconds": 136,
+      "takenAt": "2026-09-27T18:45:10.551Z",
+      "ref": "steward/t1680-forge-chimney",
+      "commit": "f56e370c7639",
       "devCommit": "15792616b5d5",
-      "treeHash": "sha256:0ead28cae3657ebb",
+      "treeHash": "sha256:95a8b2252d6a7184",
       "treeDirty": false,
-      "changelogHash": "sha256:a8f69feb6287737b",
+      "changelogHash": "sha256:20cd9183beae22db",
       "host": {
         "kind": "steward-runner",
         "cpus": 4,
         "memGB": 15.6,
         "loadavg": [
-          0.1,
-          1.9,
-          3.2
+          4.2,
+          4.2,
+          3.9
         ]
       },
-      "source": "/tmp/smoke_d12.log"
+      "source": "/tmp/smoke_m3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 231,
+      "takenAt": "2026-09-27T18:45:10.454Z",
+      "ref": "steward/t1680-forge-chimney",
+      "commit": "f56e370c7639",
+      "devCommit": "15792616b5d5",
+      "treeHash": "sha256:95a8b2252d6a7184",
+      "treeDirty": false,
+      "changelogHash": "sha256:20cd9183beae22db",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.2,
+          3.9
+        ]
+      },
+      "source": "/tmp/smoke_d3.log"
     },
     {
       "viewport": "desktop",
@@ -1543,37 +1574,6 @@
         ]
       },
       "source": "/tmp/smoke_m34.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 80,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 331,
-      "takenAt": "2026-09-27T00:13:08.216Z",
-      "ref": "steward/t1638-south-water-keepers",
-      "commit": "d97eacb816a3",
-      "devCommit": "75babf4aaef7",
-      "treeHash": "sha256:e99622502d328b72",
-      "treeDirty": false,
-      "changelogHash": "sha256:bf591bada6f3157f",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.8,
-          4.6,
-          4.1
-        ]
-      },
-      "source": "/tmp/s2_d1.log"
     },
     {
       "viewport": "mobile",
