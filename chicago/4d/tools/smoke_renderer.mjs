@@ -1364,7 +1364,8 @@ for (const [label, viewport, touch] of [
   // it twice more and made it one function instead of four copies.
   const enterTown = () => page.evaluate(async () => {
     if (!document.getElementById('gate').hasAttribute('hidden')) {
-      document.getElementById('gate-btn')?.click();
+      if (window.__chicago4d.welcome) window.__chicago4d.welcome.enter('spawn');
+      else document.getElementById('gate-btn')?.click();
       await new Promise((r) => setTimeout(r, 150));
       document.exitPointerLock?.();
     }
@@ -8903,8 +8904,7 @@ for (const [label, viewport, touch] of [
     // --- the gate and the chrome -------------------------------------------
     await page.click('#gate-btn');
     await page.waitForTimeout(150);
-    // Entering the walkthrough grabs the pointer on desktop; release it, or
-    // every later click lands on the locked canvas instead of the HUD.
+    // Entry leaves the pointer free; release defensively for older builds.
     await page.evaluate(() => document.exitPointerLock?.());
     await page.waitForTimeout(120);
     const chrome = await page.evaluate(() => ({
@@ -11800,7 +11800,7 @@ for (const [label, viewport, touch] of [
       const api = window.__chicago4d;
       const registry = api.registry;
       const rows = () => [...document.querySelectorAll('#jump-results .jump-result')];
-      const KIND_IDS = ['viewpoints', 'corners', 'people', 'taverns', 'stores', 'trades',
+      const KIND_IDS = ['viewpoints', 'corners', 'people', 'businesses', 'taverns', 'stores', 'trades',
         'homes', 'public', 'waterfront'];
       const out = {};
       const pill = document.querySelector('.jump-pill[data-kind="taverns"]');
@@ -11832,16 +11832,22 @@ for (const [label, viewport, touch] of [
       };
       out.groups = {
         rows: all.length,
+        sharedCount: api.destinations.count,
         structures: all.filter((r) => r.dataset.jumpKind === 'structure').length,
         unknownGroup: all.filter((r) => !KIND_IDS.includes(r.dataset.jumpGroup)).map((r) => r.dataset.jumpId),
         misfiled: all.filter((r) => headingFor(r) !== r.dataset.jumpGroup).map((r) => r.dataset.jumpId),
       };
-      // Distance and compass on every row.
+      // Located rows keep the same distance contract. Unknown addresses must not invent one.
+      const targetFor = r => api.destinations.byId(r.dataset.jumpKind, r.dataset.jumpId);
+      const located = r => Number.isFinite(targetFor(r)?.e) && Number.isFinite(targetFor(r)?.n);
       const DIST = /^(\d+(\.\d+)? (ft|m|mi|km)) (N|NNE|NE|ENE|E|ESE|SE|SSE|S|SSW|SW|WSW|W|WNW|NW|NNW)$|^here$/;
       out.dist = {
-        bad: all.filter((r) => !DIST.test((r.querySelector('.jump-dist')?.textContent ?? '').trim()))
+        bad: all.filter(located).filter((r) => !DIST.test((r.querySelector('.jump-dist')?.textContent ?? '').trim()))
           .map((r) => `${r.dataset.jumpId} "${(r.querySelector('.jump-dist')?.textContent ?? '').trim()}"`),
-        noMetres: all.filter((r) => !/^\d+$/.test(r.querySelector('.jump-dist')?.dataset.m ?? '')).length,
+        noMetres: all.filter(located).filter((r) => !/^\d+$/.test(r.querySelector('.jump-dist')?.dataset.m ?? '')).length,
+        unknown: all.filter(r => !located(r)).length,
+        dishonest: all.filter(r => !located(r) && (r.querySelector('.jump-dist')?.textContent.trim()
+          || r.querySelector('.jump-dist')?.dataset.m || !targetFor(r)?.limit)).length,
       };
       api.hud.goTo.setIncludeReconstructed(false);
       // Stand 100 m due east of the Sauganash, then 200 m: the row's metres
@@ -11904,13 +11910,15 @@ for (const [label, viewport, touch] of [
       && gotoMore.taverns.heading === gotoMore.taverns.label && gotoMore.taverns.groups === 1,
       `${gotoMore.taverns.rows} row(s), off-kind [${gotoMore.taverns.offKind.join(', ')}], heading `
       + `"${gotoMore.taverns.heading}" vs pill "${gotoMore.taverns.label}", ${gotoMore.taverns.groups} heading(s)`);
-    check(`${label}: every row is filed under one of the nine kinds, beneath that kind's heading`,
+    check(`${label}: every row is filed under one of the ten groups, beneath that group's heading`,
       gotoMore.groups.structures > 300 && !gotoMore.groups.unknownGroup.length
       && !gotoMore.groups.misfiled.length,
       `${gotoMore.groups.rows} rows; unknown group [${gotoMore.groups.unknownGroup.slice(0, 3).join(', ')}]; `
       + `misfiled [${gotoMore.groups.misfiled.slice(0, 3).join(', ')}]`);
-    check(`${label}: every row says how far and which way`,
-      !gotoMore.dist.bad.length && gotoMore.dist.noMetres === 0,
+    check(`${label}: visible rows equal the shared destination inventory`,
+      gotoMore.groups.rows === gotoMore.groups.sharedCount, JSON.stringify(gotoMore.groups));
+    check(`${label}: located rows say how far and which way; unknown addresses invent no metres`,
+      !gotoMore.dist.bad.length && gotoMore.dist.noMetres === 0 && gotoMore.dist.unknown > 0 && gotoMore.dist.dishonest === 0,
       `bad [${gotoMore.dist.bad.slice(0, 3).join('; ')}], ${gotoMore.dist.noMetres} without metres`);
     check(`${label}: the distances follow the visitor — 100 m further east reads 100 m further`,
       Math.abs(gotoMore.follow.at100.m - 100) <= 2 && Math.abs(gotoMore.follow.at200.m - 200) <= 2

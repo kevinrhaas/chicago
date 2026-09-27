@@ -1,3 +1,9 @@
+## T-1278 - mobile welcome (2026-09-27)
+
+Arrival settles into Jaunts, Explore on my own and Enter Chicago. The inline picker uses T-1277 safe destinations. Start / Jaunts pauses the world and returns focus on close; help waits for first entry. Settings persist. Jaunts are explicitly forthcoming.
+
+Shared destinations recovered from draft chicago PR #129. No separate destination model. See performance/welcome/README.md for validation and integration status.
+
 # STATUS
 
 ## The Lake frontage of the Franklin and Market blocks stands as stores — T-1682, 2026-09-27

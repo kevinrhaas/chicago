@@ -1,0 +1,43 @@
+serving /workspace/scratch/13b1198c0cba/chicago/site/4d on 4187 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — stages filtered to "6" of 13
+
+mobile 390x780:
+  pass  mobile 390x780: page serves
+  pass  mobile 390x780: scene reaches ready
+  pass  mobile 390x780: the scene declares its exact consultation blockers
+  pass  mobile 390x780: no unexpected loader problems
+  pass  mobile 390x780: scene has structures
+  pass  mobile 390x780: every structure that should draw, drew
+  pass  mobile 390x780: tap-to-start reveals the walkthrough
+  pass  mobile 390x780: first entry shows the navigation guide for the active input mode
+  pass  mobile 390x780: no horizontal overflow
+  pass  mobile 390x780: the navigation guide dismisses and remembers the choice
+  pass  mobile 390x780: a level checkbox takes the click and the menu stays open
+  pass  mobile 390x780: reset restores every level and the caret shuts the menu
+  pass  mobile 390x780: the suite body ran to completion
+  pass  mobile 390x780: zero page errors
+
+desktop 1280x800:
+  pass  desktop 1280x800: page serves
+  pass  desktop 1280x800: scene reaches ready
+  pass  desktop 1280x800: the scene declares its exact consultation blockers
+  pass  desktop 1280x800: no unexpected loader problems
+  pass  desktop 1280x800: scene has structures
+  pass  desktop 1280x800: every structure that should draw, drew
+  pass  desktop 1280x800: tap-to-start reveals the walkthrough
+  pass  desktop 1280x800: first entry shows the navigation guide for the active input mode
+  pass  desktop 1280x800: no horizontal overflow
+  pass  desktop 1280x800: the navigation guide dismisses and remembers the choice
+  pass  desktop 1280x800: a level checkbox takes the click and the menu stays open
+  pass  desktop 1280x800: reset restores every level and the caret shuts the menu
+  pass  desktop 1280x800: the suite body ran to completion
+  pass  desktop 1280x800: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+30 passed, 0 failed
+12 staged-section check(s) (stage 6 of 13), 18 always-on check(s)
+4 m 46 s for stage 6 — the ceiling on a steward run's single foreground command is 10 m 00 s
+SMOKE PASS

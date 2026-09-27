@@ -54,7 +54,7 @@
 <div id="gate" class="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
   <div class="gate-card">
     <p class="gate-eyebrow">4D Chicago · Arrival</p>
-    <h1 id="gate-title">Entering a digital reconstruction of Chicago</h1>
+    <h1 id="gate-title" tabindex="-1">Entering a digital reconstruction of Chicago</h1>
     <div class="arrival-instrument">
       <p class="arrival-label">Year</p>
       <div id="arrival-year" class="arrival-year" aria-hidden="true">—</div>
@@ -63,7 +63,26 @@
     <p class="gate-sub" id="gate-sub" aria-live="polite">Loading the scene…</p>
     <div class="gate-bar" id="gate-bar" role="progressbar" aria-labelledby="gate-sub"
          aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+    <div id="welcome" hidden>
+      <p class="welcome-intro">You are entering a digital reconstruction of the town as it stood on 1 July 1835, built from the sources listed under Evidence.</p>
+      <div class="welcome-actions">
+        <button id="welcome-jaunts" class="welcome-action primary" aria-expanded="false" aria-controls="welcome-jaunts-region"><strong>Jaunts</strong><span>Short stories through the town</span></button>
+        <button id="welcome-explore" class="welcome-action" aria-expanded="false" aria-controls="welcome-picker"><strong>Explore on my own</strong><span>Choose where to begin…</span></button>
+      </div>
+      <section id="welcome-jaunts-region" class="welcome-region" aria-label="Jaunts" hidden>
+        <p>Jaunts are being written — the first arrive soon.</p>
+        <button id="welcome-jaunts-explore" class="welcome-link">Explore on my own instead</button>
+      </section>
+      <section id="welcome-picker" class="welcome-region" aria-label="Choose a starting place" hidden>
+        <label for="welcome-search">Starting at…</label>
+        <input id="welcome-search" type="search" placeholder="Search places, businesses or people" autocomplete="off">
+        <div id="welcome-kinds" class="welcome-kinds" role="group" aria-label="Destination kinds"></div>
+        <div id="welcome-results" class="welcome-results" aria-label="Starting places"></div>
+        <p id="welcome-message" role="status"></p>
+      </section>
+    </div>
     <button id="gate-btn" class="gate-btn" disabled>Tap to enter</button>
+    <button id="welcome-close" class="welcome-link" hidden>Return to the town</button>
     <p class="gate-keys">
       <span class="k">W A S D</span> walk · <span class="k">Shift</span> run ·
       <span class="k">mouse</span> look · <span class="k">E</span> inspect ·
@@ -80,6 +99,7 @@
     <div class="badge" id="year-badge"><span class="badge-year">1835</span><span class="badge-sub">1 July</span><span
       class="badge-alt" id="badge-alt" hidden></span></div>
     <div class="hud-actions">
+      <button id="btn-start" class="chip" aria-haspopup="dialog">Start / Jaunts</button>
       <!-- One control, two questions. The chip toggles the colouring; the caret
            opens the panel where a whole level can be removed from the view.
            They belong together: "how sure are we" and "what is left if you keep
