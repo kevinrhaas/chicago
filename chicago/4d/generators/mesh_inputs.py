@@ -35,7 +35,14 @@ see**:
 3. the confidence *floats*, not the labels, so a change to `CONFIDENCE_VALUE`
    registers even though it never appears in a field;
 4. the bytes of the code that turns parameters into vertices — this archetype's
-   builder, `generators/common/`, `build.py`, and the pinned Blender.
+   builder, `generators/common/`, the geometry pipeline in `generators/emit.py`, and
+   the pinned Blender. `emit.py` rather than `build.py` since T-1654: `build.py` went
+   in WHOLE, so its module docstring, its `argparse` block and its result summary
+   were all read as statements about geometry, and a fix to `--only`'s argument
+   handling staled 422 of 422 assets for a change that could not move a vertex. The
+   pipeline was split out into `emit.py` and the CLI left behind. That is the
+   argument of paragraph two, applied to this recipe's last remaining whole
+   module.
 
 `<arch>_params.py` bytes are deliberately NOT hashed. That module's entire effect
 on the mesh is the object it returns, and that object is hashed above in more
@@ -64,7 +71,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # was stamped under, so a definition change is a visible, dated event rather than
 # an unexplained wave of staleness — and the gate refuses a manifest whose scheme
 # it does not know instead of comparing hashes that mean different things.
-SCHEME = "resolved-params-v3"
+SCHEME = "resolved-params-v4"
 
 
 class InputsError(ValueError):
@@ -82,6 +89,16 @@ def _code_shas(archetype: str) -> dict[str, str]:
     builds the ground and shares nothing with a building. Not this file, which
     computes the hash and makes no geometry.
 
+    `emit.py` and not `build.py`, since T-1654. The two were one file, and hashing
+    it whole meant an `argparse` fix staled 422 of 422 assets — the same false
+    positive T-0164 removed from `common/`, one directory up. `build.py` is now the
+    command line (which structures, which scene, the manifest, the summary) and
+    `emit.py` is the pipeline (the archetype registry, the unwrap, the AO bake, the
+    glTF export), so this list reaches every line that can move a vertex and no line
+    that cannot. `tools/test_build_cli_has_no_geometry.py` is what keeps that true:
+    a file split is only as good as the gate that stops geometry drifting back into
+    the half nobody hashes.
+
     And not, since T-0164, whatever happens to be filed in `common/`: the
     directory is asked through `code_inputs.geometry_modules()`, which names the
     modules that make geometry rather than listing the ones that share a folder.
@@ -89,7 +106,7 @@ def _code_shas(archetype: str) -> dict[str, str]:
     while it was globbed in, one comment line in it staled 349 of 349 assets.
     """
     gen = ROOT / "generators"
-    wanted = [gen / "build.py", gen / "archetypes" / f"{archetype}.py"]
+    wanted = [gen / "emit.py", gen / "archetypes" / f"{archetype}.py"]
     wanted += code_inputs.geometry_modules()
     out = {}
     for p in wanted:
