@@ -1398,6 +1398,34 @@ function queueInsertAfter(t, afterId) {
   return true;
 }
 
+// LOOP FOLLOW-UPS GO TO THE FOOT OF BAND 9 (owner, 2026-09-27: "move loop follow-ups to
+// band 9", then "make the ticket tool enforce it"). Measured the same morning: the first
+// district build, T-1200, filed about seven follow-ups `--after` itself — tooling, bake and
+// deal refinements — and every one landed in 5C, between the owner and the next district.
+// Structures slipped about a day and a half for work that blocked nothing. A filing that is
+// not the owner's therefore lands at the foot of band 9 unless it says, with `--blocks`, why
+// the build in hand cannot finish without it. Returns null when the queue has no band 9 (a
+// fixture, a fresh repository), and the caller then places as it always did.
+function band9() {
+  const lines = queueLines();
+  const head = lines.findIndex((l) => /^# --- 9\./.test(l));
+  if (head < 0) return null;
+  let end = lines.findIndex((l, i) => i > head && /^# --- (\d+)/.test(l) && !/^# --- 9\b/.test(l));
+  if (end < 0) end = lines.length;
+  let foot = head;
+  for (let i = head; i < end; i += 1) if (queueId(lines[i])) foot = i;
+  while (foot + 1 < end && isDecisionComment(lines[foot + 1], queueId(lines[foot]))) foot += 1;
+  return { lines, head, end, foot };
+}
+
+function queueInsertAtBand9Foot(t) {
+  const b = band9();
+  if (!b) return false;
+  b.lines.splice(b.foot + 1, 0, `${t.id} — ${t.title}`);
+  writeFileSync(QUEUE, b.lines.join('\n').replace(/\n+$/, '\n'));
+  return true;
+}
+
 function queueLines() {
   if (!existsSync(QUEUE)) return [];
   return readFileSync(QUEUE, 'utf8').split('\n');
@@ -2230,10 +2258,23 @@ switch (cmd) {
     // budget shipped, which produced `T-4141-filed-over-the-budget-it-blocks-a-merge-...`.
     const title = args.filter((a) => !a.startsWith('--')
       && a !== flag('epic') && a !== flag('by') && a !== flag('effort') && a !== flag('legacy')
-      && a !== flag('after') && a !== flag('why') && a !== flag('base')).join(' ');
-    if (!title) { console.error('usage: ticket.mjs new "title" [--after T-NNNN] [--epic E] [--by owner|loop|steward] [--seen] [--needs-bake] [--effort M] [--legacy OLD-ID] [--anyway --why "<reason>"]\n'
-      + '  --after T-NNNN  place the new line directly under that ticket, inside its band (a run\'s\n'
-      + '                  filings go here — beside the work they serve, never at the foot)'); process.exit(1); }
+      && a !== flag('after') && a !== flag('why') && a !== flag('base') && a !== flag('blocks')).join(' ');
+    if (!title) { console.error('usage: ticket.mjs new "title" [--after T-NNNN [--blocks "<why>"]] [--epic E] [--by owner|loop|steward] [--seen] [--needs-bake] [--effort M] [--legacy OLD-ID] [--anyway --why "<reason>"]\n'
+      + '  --after T-NNNN  place the new line directly under that ticket, inside its band. For a\n'
+      + '                  filing that is not the owner\'s, an anchor ABOVE band 9 is honoured only\n'
+      + '                  with --blocks; otherwise the line goes to the foot of band 9 (owner, 2026-09-27)\n'
+      + '  --blocks "<why>" dev\'s gate is red, or the build being worked (or the next 5C/5D row)\n'
+      + '                  cannot finish without this — the reason is written into the ticket'); process.exit(1); }
+    // `flag` returns `true` for a flag written last and the NEXT flag for one written bare,
+    // so only a real string counts as a reason.
+    const blocksRaw = flag('blocks');
+    const blocks = typeof blocksRaw === 'string' && !blocksRaw.startsWith('--') && blocksRaw.trim() ? blocksRaw : null;
+    if (has('blocks') && !blocks) {
+      console.error('`--blocks` was written with no reason after it.');
+      console.error('Say what it blocks: dev\'s gate is red on it, or which build ticket cannot finish');
+      console.error('without it. The reason is written into the ticket, where the owner will read it.');
+      process.exit(1);
+    }
 
     /**
      * THE FILING FAULT IS CAUGHT AT FILING (T-1593), because it is the only place one
@@ -2330,6 +2371,8 @@ switch (cmd) {
       needs_bake: has('needs-bake'),
       body: `\n${title}.\n${refusal && anyway
         ? `\n## FILED OVER THE BUDGET, AND HERE IS THE REASON\n\nThe ticket budget refused this: ${refusal}. It was filed anyway, on this reason:\n\n> ${String(why).trim()}\n`
+        : ''}${blocks
+        ? `\n## FILED ABOVE BAND 9, BECAUSE IT BLOCKS\n\nA follow-up goes to the foot of band 9 unless dev's gate is red on it or the build in hand cannot finish without it (owner, 2026-09-27). This one was placed above band 9 on this reason:\n\n> ${String(blocks).trim()}\n`
         : ''}\n**Acceptance:** (state it before working — the definition of done, never weakened to pass)\n`,
     };
     writeTicket(t);
@@ -2339,7 +2382,13 @@ switch (cmd) {
     const afterRaw = flag('after');
     const after = afterRaw ? (/^\d+$/.test(afterRaw) ? idOf(+afterRaw) : afterRaw.toUpperCase()) : null;
     let where;
-    if (after && queueInsertAfter(t, after)) {
+    const b9 = t.requested_by === 'owner' || blocks ? null : band9();
+    const anchorAt = after && b9 ? b9.lines.findIndex((l) => queueId(l) === after) : -1;
+    if (b9 && anchorAt < b9.head && queueInsertAtBand9Foot(t)) {
+      where = 'a follow-up that is not the owner\'s goes to the FOOT OF BAND 9 (owner, 2026-09-27)'
+        + (after ? ` — --after ${after} ${anchorAt < 0 ? 'is not in QUEUE' : 'sits above band 9'};`
+          + ' if dev\'s gate is red on this, or the build in hand cannot finish without it, re-file with --blocks "<why>"' : '');
+    } else if (after && queueInsertAfter(t, after)) {
       where = `placed directly under ${after}, inside its band`;
     } else {
       queueAppend(t);

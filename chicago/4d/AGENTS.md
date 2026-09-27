@@ -406,7 +406,14 @@ is the contract. The short form:
   work"*). First, **if an open ticket already owns the question, add the finding to it**
   and file nothing. Second, if it is a real one-run piece of the goal, `ticket.mjs new
   "title" --after T-NNNN` places it directly under the ticket it serves — beside related
-  work, not at the foot. Third, **if finishing would take more than five tickets, it is an
+  work, not at the foot. **Since 2026-09-27 a follow-up a run files goes to the FOOT OF
+  BAND 9 instead, and `new` enforces it** (owner: *"move loop follow-ups to band 9"*, then
+  *"make the ticket tool enforce it"*; the first district build had filed about seven
+  follow-ups beside itself, in 5C, between the owner and the next district). An anchor
+  above band 9 is honoured only with `--blocks "<why>"` — dev's gate is red on it, or the
+  build in hand or the next 5C/5D row cannot finish without it — and the reason is written
+  into the ticket. `--by owner` filings are never redirected; an anchor at or below band 9
+  is honoured as before. Third, **if finishing would take more than five tickets, it is an
   epic**: one ticket under `EPICS` at the foot of QUEUE carrying the list, and no more.
   The loop does not work an epic until the owner promotes it. **Agents never move an
   existing line — only the owner re-ranks.** That is what keeps his priorities durable.

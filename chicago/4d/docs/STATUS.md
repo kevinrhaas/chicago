@@ -1,5 +1,85 @@
 # STATUS
 
+## South Water's books, closed — T-1641, 2026-09-27
+
+Piece 4 of 4 of T-1200. The three build pieces raised and re-familied the district's
+roofs; this one answers the three questions the parent asks before the district is done
+with, on the published tree, and changes nothing in the town. The reading is committed at
+`data/render/south_water_close_out.json` — every number in it is read off the committed
+data or off `tools/measure_detail_ceilings.mjs`, none is typed. It was taken twice: once
+on `1adfa5d2`, and again after T-1640's freight shed merged underneath it, because a
+budget read on a tree that no longer exists is not a reading.
+
+**Book one — the refusals: empty, and the one the district met was resolved at the deal.**
+`generate_block_infill.py` refuses four families by name (I1, I2, I3, F3) and a slot dealt
+to one of them may only be left unbuilt by naming it in its block recipe's `deferred` list
+with forty words of reasoning; the generator raises `SystemExit` on a deferral it cannot
+read back. Across the district's six units — the five platted blocks and the Market wedge
+— **the deferred list is empty**. The two deferrals that do stand in the tree are
+elsewhere: `blk_randolph_dearborn` defers an I3, `blk_lake_franklin` an F3. The district
+did meet an F3 refusal and it was settled one level up, at the deal: `reconcile_665.py`'s
+waterside rule (T-0316) reroutes an F3 off `blk_south_water_market` — the family's
+crosswalk entry makes water access a precondition of the form and the wedge's lots do not
+reach the bank — to `south_plat_beyond_committed_control`, and deals the wedge a C2 in its
+place. A refusal resolved at the deal is why the block log reads empty, and the two facts
+are worth stating together so the empty log is not mistaken for a district nothing refused.
+
+**Book two — the headroom: the district is NOT at capacity, and here is what is left.**
+`reconcile_665.py --check` is green on this tree and reads the 668-roof programme at 410
+standing, 258 remaining.
+
+| unit | lots | capacity | standing | free lots | headroom | state |
+| --- | --- | --- | --- | --- | --- | --- |
+| `blk_south_water_franklin` | 8 | 31 | 17 | 1 | 0 | at capacity |
+| `blk_south_water_wells` | 8 | 31 | 12 | 2 | 4 | open |
+| `blk_south_water_lasalle` | 8 | 31 | 18 | 0 | 0 | at capacity |
+| `blk_south_water_clark` | 8 | 31 | 12 | 1 | 0 | at capacity |
+| `blk_south_water_dearborn` | 8 | 31 | 15 | 2 | 4 | open |
+| `blk_south_water_market` | 8 | 31 | 0 | 8 | 27 | gated |
+
+Three blocks are at capacity. Two carry **8 roofs of headroom between them** — and that 8
+is the whole programme's `schedulable_on_committed_ground`, so every roof in the 668 that
+has surveyed ground under it today is on these two South Water blocks. The Market wedge is
+**gated, not open**: its 27 roofs wait on street control the plat module has never reached.
+The one free lot each of franklin and clark still shows is the lot T-0834 makes every block
+keep open, which is why their headroom is 0 and not 1.
+
+**Book three — the frame budget, on the published mirror: PASS, with the margin stated.**
+T-1154's trim landed (T-1244 and T-1245, both merged 2026-09-17) and the town is back
+inside all three ceilings at both viewports. `node tools/measure_detail_ceilings.mjs --only
+both` on the mirror `tools/publish.sh` built from this branch over dev at `c164f8ae`:
+
+| tier | ceiling | worst desktop | margin | worst mobile | margin |
+| --- | --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,410,306 (the forks) | 49,694 | 1,254,799 (Lake at Canal) | 205,201 |
+| `balanced` | 1,280,000 | 1,257,120 (the forks) | **22,880** | 1,106,631 (Lake at Canal) | 173,369 |
+| `light` | 825,000 | 773,206 (the open aerial) | 51,794 | 699,187 (the open aerial) | 125,813 |
+
+So the build takes the margin and not the re-budget, and says so. But the margin is thin
+where it is thinnest: desktop `balanced` clears by 22,880 triangles, **1.79 per cent of its
+own ceiling**, at the forks. The re-read is what makes that concrete rather than rhetorical.
+The first reading, before T-1640 merged, cleared by 24,420; ONE freight shed on the south
+bank took 1,540 of it. At that price the margin is about fifteen sheds wide. The next build
+parcel in the queue, T-1201 — the Lake Street and Dearborn–Clark–LaSalle core — raises roofs
+inside the same downtown frusta. Filed as T-1674 rather than left in a table: a parcel that
+will breach a ceiling should find out before it bakes, not after.
+
+**What these books do NOT close.** T-1200's stop condition is "every roof occupied", and
+the district does not meet it. Of the 52 structure records on the five blocks, 22 carry
+neither `occupants` nor a `resident_assignment`; 11 of those are ancillary (A1 stable, A2
+barn or carriage shed, A3 privy) and an outbuilding having no household is the model
+working. The other **11 are dwellings and lodging** — four D1 log cabins, two D2 plank
+dwellings, two D3 and two D4 frame cottages and the one H1 house — and they stand empty.
+The ids are listed in the reading. Filed as T-1675. Separately, the freight roofs the
+south-bank ground rule has run out of room for are T-1672's and are not touched here.
+
+**Why an invisible run.** Nothing in the town changed and no card moved. This is AGENTS.md
+§ the visible-progress rule's third exemption — a gate blocking a visible parcel — and the
+parcel is named: T-1200 makes "`measure_detail_ceilings.mjs` on the published tree before
+pushing" a precondition of the district, and T-1201 is the successor that cannot honestly
+be dealt until somebody says how much of the frame budget is left. The answer is 1.79 per
+cent, and a shed costs 1,540.
+
 ## The Dearborn block's business front stands as shops — T-1647, 2026-09-27
 
 Piece 1 of 3 of T-1639, and the split is the first thing this run has to report. The
