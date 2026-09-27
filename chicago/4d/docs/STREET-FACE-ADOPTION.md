@@ -138,7 +138,7 @@ It is not a hypothetical care. Every roof a corner-side reading adds to a face *
 fronts another street by its lot** — that is what a corner is — and dealt under the older
 per-face ledger the widening today seats *forty-one* businesses on *thirty-nine* roofs:
 
-- `recon_1835_blk_south_water_lasalle_d1_08` — James Grant, by La Salle's corner side, into
+- `recon_1835_blk_south_water_lasalle_c1_08` — James Grant, by La Salle's corner side, into
   the building Rockwell's cabinet furniture warehouse already holds by its South Water lot;
 - `recon_1835_blk_south_water_lasalle_d2_09` — the unnamed *New Store, La Salle street*,
   into Samuel Lewis's.
