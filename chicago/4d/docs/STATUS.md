@@ -1,5 +1,9 @@
 # STATUS
 
+## Sources browser — T-1276, 2026-09-27
+
+Evidence → Sources lazily loads the public catalog, with scene/all selection, citation search, type/tier/use filters and claims/entities/date/title sorting. Forty rows render initially; scrolling or Show more extends the list. The compiler adds compact confidence vectors (claims, entities; attested, inferred, reconstructed), independently checked against every edge file. A mixed-confidence entity counts once at its strongest confidence. Detail files load only on demand, with source limits, safe original/archive links, collapsed newspaper issues and typed used-for groups. No research files or derived source assets are fetched. Existing structure and person cards restore the Sources context on close; other Evidence entries have stable navigation anchors. Missing catalog data remains an explicit unavailable state. Published mobile/desktop acceptance passes: 293 registered, 223 scene-used, 40 initial rows, preserved search/filter/scroll, unavailable-catalog recovery, zero page errors. First open is 31,776 gzip bytes; the index is 108,135 raw bytes; total boot is 9.683 MB / 12 MB with no Sources module/index request before opening. Receipts are in `docs/performance/sources-browser/`; published Evidence/drawer parts 12–13 pass on mobile (196 checks) and desktop (198 including vendor checks), with zero failures and page errors. The combined attempt timed out during desktop; its incomplete reading is retained beside the passing standalone rerun. This staged coverage is not a full renderer verdict.
+
 ## The south bank below the bend is recut to Hathaway — T-1630, 2026-09-26
 
 The owner's answer to T-1630's own question, option (b). The reading that asked it

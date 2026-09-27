@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1162, ts: '2026-09-27T01:53:15.451Z', date: 'Sep 26, 2026, 8:53 PM CT', title: 'Browse the sources behind the town', kind: 'change',
+    items: [
+      'Evidence now includes Sources: a searchable catalog of the books, maps, newspapers and other records used in the reconstruction, with filters for kind, source tier and use.',
+      'Each source separates the claims it supports from the people, buildings and other records it helped reconstruct. Open a source to read its limits, browse dated newspaper issues, and follow its uses to existing cards.',
+      'The catalog loads when opened. Returning from a card keeps your place and filters.'
+    ] },
   { v: 1161, title: 'Why the ground behind the new river shed stays empty', kind: 'fix', ts: '2026-09-27T00:55:09.045Z', date: 'Sep 26, 2026, 7:55 PM CT',
     items: [
       'Stand at the freight shed on the south bank below the Dearborn drawbridge and look inland. That strip of ground is empty, and it stays empty. Yesterday\u2019s release moved the road to the fort off it, and 91 places to stand another shed appeared where the reading had found none. That number was wrong, and the answer is still no.',

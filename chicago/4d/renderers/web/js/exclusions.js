@@ -44,7 +44,7 @@ export function exclusionEntryHtml(ex) {
     ? `<dt>Detail</dt><dd>${escapeHtml(ex.detail)}</dd>`
     : '';
 
-  return `<details class="lib excl">
+  return `<details class="lib excl" data-source-entity="${escapeHtml(ex.id)}">
     <summary>
       <span class="lib-title">${escapeHtml(ex.name || ex.id)}</span>
       ${when}

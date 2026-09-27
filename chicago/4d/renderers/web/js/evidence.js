@@ -55,6 +55,11 @@ const TOPICS = [
     facet: () => null,
   },
   {
+    id: 'sources', gloss: 'The sources: what each one supplied, and where it shows',
+    icon: SVG('<path d="M4 3h16v18H4zM8 7h8M8 11h8M8 15h5"/>'),
+    mount: '#sources', entries: () => [], facet: () => null,
+  },
+  {
     id: 'liberties',
     gloss: 'Every value a record states without evidence, admitted by name',
     icon: SVG('<path d="M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10z"/><path d="M13.5 8l3 3"/>'),
@@ -125,7 +130,7 @@ function scopeFacet(entry) {
 
 const norm = (s) => (s || '').replace(/\s+/g, ' ').trim().toLowerCase();
 
-export function createEvidenceHub({ root, onTitle = () => {} } = {}) {
+export function createEvidenceHub({ root, onTitle = () => {}, onTopic = () => {} } = {}) {
   if (!root) return { showHub() {}, showTopic() {}, get topic() { return null; } };
 
   const hub = root.querySelector('#evidence-hub');
@@ -162,7 +167,7 @@ export function createEvidenceHub({ root, onTitle = () => {} } = {}) {
       const chip = hub?.querySelector(`.ev-tile[data-topic="${t.id}"] .ev-count`);
       if (!chip) continue;
       const busy = t.mount?.hasAttribute('aria-busy');
-      const n = t.entries().length;
+      const n = t.id === 'sources' ? Number(t.mount?.dataset.count || 0) : t.entries().length;
       chip.textContent = busy && n === 0 ? '…' : String(n);
       chip.classList.toggle('is-busy', !!busy && n === 0);
     }
@@ -186,7 +191,7 @@ export function createEvidenceHub({ root, onTitle = () => {} } = {}) {
 
   // ---- per-topic tools: search, pills, status -----------------------------
   for (const t of topics.values()) {
-    if (t.id === 'grades' || t.id === 'city') continue; // compact summaries need no search box
+    if (t.id === 'grades' || t.id === 'city' || t.id === 'sources') continue; // compact summaries need no search box
     const tools = document.createElement('div');
     tools.className = 'ev-tools';
     tools.innerHTML = `<div class="ev-search-row"><input class="ev-search" type="search" autocomplete="off" spellcheck="false"`
@@ -295,6 +300,7 @@ export function createEvidenceHub({ root, onTitle = () => {} } = {}) {
     applyFilter(t, { rebuildPills: true });
     onTitle(t.title, () => showHub({ focusTile: id }));
     scrollTop();
+    onTopic(id);
     if (focus) {
       t.el.setAttribute('tabindex', '-1');
       t.el.focus({ preventScroll: true });
@@ -309,6 +315,7 @@ export function createEvidenceHub({ root, onTitle = () => {} } = {}) {
       paintCounts();
       applyFilter(t, { rebuildPills: true });
       onTitle(t.title, () => showHub({ focusTile: current }));
+      onTopic(current);
       return;
     }
     const left = focusTile ?? current;
