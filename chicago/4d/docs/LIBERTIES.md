@@ -14067,7 +14067,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 402 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 403 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
@@ -15323,4 +15323,87 @@ before this existed, so no store in the town moved for a change about warehouses
 
 **Related:** the crosswalk's **F2** and **F3** rows, **L278** (the freight shed's own cargo
 opening, the same argument one family over), T-1663 and its parent **T-1660**.
+**Recorded:** 2026-09-27.
+
+### L281 — A second freight shed on the south bank, behind the first one and not in front of its door
+
+**Covers:** `south_bank_shed_dearborn_e2.function`, `south_bank_shed_dearborn_e2.shed_1835.documented_range`, `south_bank_shed_dearborn_e2.shed_1835.footprint`, `south_bank_shed_dearborn_e2.shed_1835.form.construction`, `south_bank_shed_dearborn_e2.shed_1835.form.door`, `south_bank_shed_dearborn_e2.shed_1835.form.door_side`, `south_bank_shed_dearborn_e2.shed_1835.form.paint`, `south_bank_shed_dearborn_e2.shed_1835.form.roof_pitch_deg`, `south_bank_shed_dearborn_e2.shed_1835.form.roof_type`, `south_bank_shed_dearborn_e2.shed_1835.form.wall_height_m`, `south_bank_shed_dearborn_e2.shed_1835.position`.
+
+**Decision:** the south bank of the main stem below the Dearborn drawbridge carries a **second low
+freight shed**, standing on the same two walls as the first and 5.20 m behind it, with a loading
+yard between the two and its wagon door facing that yard. **It is not attested.** Every value on
+the record is graded `reconstructed`, including the fact that a building stood there at all, and
+it disappears with the rest of the reconstructed tier when a visitor turns it off. It is the
+second shed of **L274**'s row, and the plural is the one thing the plate does hold: image 3 of the
+owner's brief of 2026-08-18 draws low warehouse**s** on both banks below the draw, and the north
+bank has had four of them since **L164**.
+
+**What bounded the invention, and it is a neighbouring building plus two committed numbers rather
+than a judgement.** (1) The two EASTINGS are `south_bank_shed_dearborn_e1`'s own walls, local
+E 805.5000 and E 810.9864, so the pair reads as one row and not as two seatings. (2) The NORTHING
+is the YARD: e1's south wall stands at N 1.5314 and its wagon door is on that wall, and this
+shed's north wall stands 5.20 m behind it at N -3.6686. 5.20 m is 1.00 m of clearance from the
+wall a wagon stands at, plus the 3.20 m of ground a parked wagon needs, plus 1.00 m from the wall
+opposite — and both of those figures are `data/yard/town_trade_goods.json`'s own, the ones that
+seat the farm wagons in the Green Tree's yard. (3) The BEARING is square to e1 and so to the
+riverside plank walk e1 was squared to by T-1643; `rotation_deg` is 0.000 where e1's is 180.000
+precisely so the archetype's north face is the door wall and the two doors face each other across
+the yard. (4) The GROUND is the committed heightfield, `e1834_harbor_cut`: 0.0946 m of relief over
+the footprint on a quarter-metre lattice, at 1.187 to 1.282 m above the water surface, inside the
+0.30 m `generate_block_infill.MAX_RELIEF_M` allows.
+
+**What is invented:** the building, that any second building stood on this bank on 1835-07-01, its
+size, its eave, its roof, its pitch, its construction, its paint, its opening, the side that
+opening is on, the yard, and the yard's width. The SIZE is the family's floor repeated from e1 and
+the eave, roof, pitch, construction and paint are e1's own values, which is a choice and not a
+reading: nothing distinguishes one anonymous shed of this family from another, so the row is built
+alike rather than varied for effect.
+
+**Why it is BEHIND the bank strip rather than on it, and that is the reading's answer rather than
+a preference.** `tools/measure_south_bank_ground.py` is the south-bank ground rule and its box is
+the bank strip, local N 0 to 45 over the reach. Asked with the full turn of bearings it should
+always have swept (T-1640, below), the strip takes exactly ONE more shed at the generators' own
+0.30 m relief clause — and **every position it admits stands on the ground e1's wagon door opens
+onto.** The nearest square one is anchored at E 811.17 / N 0.0 and would put a second shed 1.531 m
+in front of that door, closing the cart approach e1's own record states: a cart coming east out of
+South Water Street's end and standing on the landward side of the shed. That is the same class of
+fault as T-1643's shed across the plank walk — a building placed where the dataset's own prose says
+a person or a cart goes — and it is not one to make on purpose. So the shed stands on the SAME
+GROUND, 3.67 m further south and 0.19 m west of the station the reading names: it takes six of the
+ten metres that station covers and adds four the station does not reach, which is the terrace
+behind the strip — the ground **T-1200** asks for by name, the freight sheds and landings *behind*
+South Water. The reading's station lattice stops at its own box floor and so cannot express this
+exact seat; the seat therefore does not claim to be read off it, and is held to the same four
+predicates directly and on a finer lattice: dry with 0.0946 m of relief, clear of all 33 platted
+corridors (0.717 m clear of South Water's, 3.706 m of State Street's), 16.95 m clear of the
+riverside plank walk's boards, 16.51 m clear of `fort_road`'s travelled way, and clear of every
+footprint the tree places (5.20 m from e1, 14.43 m from the slough log bridge).
+
+**The instrument was corrected in the same commit, and that is what made the choice legible.**
+`measure_south_bank_ground.fits()` swept bearings 0–165 on the reasoning that a rectangle is its
+own shape at theta and theta+180. True of its shape; false of its POSITION, because the rectangle
+is anchored at a corner rather than at its centre, so the half turn expressed only placements
+lying north of their own station. Measured: before the fix the only position the reading would
+admit at 0.30 m stood 15 degrees off the riverside walk with 0.111 m between it and e1's south
+wall; after it, the same ground admits eight square ones, at less relief. **Every bound in that
+reading is deliberately the permissive one and its own anchor was not.**
+
+**Consequence:** the reach reads from the river as a working pair — a shed on the bank and a shed
+behind it, a yard between them a wagon can stand in, entered off the end of South Water Street.
+And the bank strip is now FULL at the generators' own clause: `takes_more` reads 0, 0, 3, 4 where
+it read 1, 1, 3, 5, because this shed stands on the one position that was left. `fits` re-reads at
+0, 0, 42, 126 against 91, 96, 162, 233 — part the bearing correction, part this building — and
+`fits_on_what_stands` rises from 45 to 145. The reading also NAMES the buildings it refuses ground
+for now, all fourteen of them, which it did not when one of them stood south of its own box floor.
+
+**How to resolve:** the same three things L274 asks for — a lot record on the river side or the
+east end of South Water Street, a forwarding merchant's advertisement giving an address on this
+reach, or a contemporary (not retrospective) view of the south bank below the draw. Any of them
+would replace an invention with a building. A record that put a second shed somewhere else on this
+bank would move this one rather than adding a third.
+
+**Related:** **L274** (the first shed of this row, and the argument this one extends), **L164**
+(the four north-bank sheds of the same plate), **L131** and **L133** (the Green Tree's yard, whose
+wagon figures this setback is built from), the parent ask **T-1200**, this ticket **T-1640**, the
+re-seating that put e1 square to the walk **T-1643**, `docs/RESEARCH/south_bank_dearborn_ground.md`.
 **Recorded:** 2026-09-27.

@@ -9619,6 +9619,11 @@
       "why": "recon_1835_blk_south_water_dearborn_c3_01 stands 1.50 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
+      "structure_id": "blk_south_water_dearborn_lot6",
+      "wall": "blk_south_water_dearborn north face, lot 6",
+      "why": "south_bank_shed_dearborn_e2 stands -4.70 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
+    },
+    {
       "structure_id": "blk_south_water_dearborn_lot7",
       "wall": "blk_south_water_dearborn south face, lot 7",
       "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."

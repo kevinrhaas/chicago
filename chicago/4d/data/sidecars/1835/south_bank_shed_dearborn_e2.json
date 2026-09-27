@@ -1,0 +1,101 @@
+{
+  "id": "south_bank_shed_dearborn_e2",
+  "phase": "shed_1835",
+  "name": "The second freight shed on the south bank below the Dearborn draw",
+  "aka": [],
+  "archetype": "outbuilding",
+  "asset": "gltf/south_bank_shed_dearborn_e2__shed_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1834-08-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "NO SOURCE RECORD IN THIS REPOSITORY DATES THIS BUILDING, BECAUSE NO SOURCE RECORD NAMES IT. The range is the reconstruction's own bracket and it is graded as one. It is the SAME bracket `south_bank_shed_dearborn_e1` and the four north-bank sheds of T-0133 carry, deliberately: it opens on 1834-08-01, the date `dearborn_street_drawbridge` opens on, because the reason to stand a freight shed on this reach is that the crossing brought the town's traffic to it, and it closes at the end of 1835 because nothing follows the building and a range that ran on would be claiming survival nobody attested. What IS held is the treatment and the PLURAL, not the date: image 3 of the owner's brief of 2026-08-18 (data/sources/assets/owner_brief_2026_08_18/README.md) is an engraving of this reach from farther out, and it draws low warehouseS — more than one, on both banks — below the bridge. A tier-5 retrospective plate can attest that the banks below the draw carried working sheds and that they carried more than one; it cannot date one or place one."
+  },
+  "change_note": "One phase. This building is a reconstruction of a TYPE the plate puts on this bank, not a record of a building anybody named, so it has no history to divide into phases and inventing one would be inventing twice.",
+  "placement": {
+    "local_e": 805.5,
+    "local_n": -13.422,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "INVENTED, AND PLACED BY A RULE RATHER THAN BY A PLATE. The plate that puts sheds on this bank is image 3 of the owner's brief of 2026-08-18 (data/sources/assets/owner_brief_2026_08_18/README.md): masts crowd the reach below the bridge, a light structure near the mouth, LOW WAREHOUSES ON THE BANKS. It is a TIER-5 PICTORIAL source - retrospective, drawn decades after 1835 - and this project's standing rule for one is that it may drive massing, form, materials and setting and may NEVER drive a coordinate. So the plate decides that sheds stand on this bank, and that there is more than one of them, and nothing else about where.\n\nWHERE IS DERIVED, from `south_bank_shed_dearborn_e1`'s own committed walls and from two figures this project has already committed for a standing wagon. (1) THE EASTINGS ARE THE SHED IN FRONT OF IT. This building's west and east walls stand on the same two lines as e1's, local E 805.5000 and E 810.9864, so the pair reads as one row rather than two seatings - which is what the four north-bank sheds of T-0133 do, and what the plate draws. (2) THE NORTHING IS THE YARD. e1's south wall stands at local N 1.5314 and its wagon door is on that wall; this building's north wall stands 5.20 m behind it at N -3.6686, and its own wagon door faces that yard. 5.20 m is 1.00 m of clearance from the wall a wagon stands at, plus the 3.20 m of ground a parked wagon needs, plus 1.00 m of clearance from the wall opposite - all three read off `data/yard/town_trade_goods.json`, where the same two numbers seat the farm wagons in the Green Tree's yard. So both doors open onto one yard a wagon can stand in, and the yard's west end opens straight off the east end of South Water Street's travelled way, which is the only made approach to this ground. (3) THE BEARING is square to e1 and therefore square to the riverside plank walk e1 was squared to by T-1643; `rotation_deg` is 0.000 rather than e1's 180.000 precisely so that `front` - the archetype's north face - is the door wall, and the two sheds face each other across the yard. (4) THE COMMITTED HEIGHTFIELD, data/terrain/epochs/e1834_harbor_cut: sampled on a quarter-metre lattice, the ground under this footprint stands between 1.187 m and 1.282 m above the water surface - 0.0946 m of relief across the whole rectangle, inside the 0.30 m `generate_block_infill.MAX_RELIEF_M` allows and a shade flatter than e1's own 0.097 m.\n\nWHY IT IS NOT ON THE BANK STRIP ITSELF, AND THIS IS THE READING'S ANSWER RATHER THAN A PREFERENCE. `tools/measure_south_bank_ground.py` is the south-bank ground rule, and its box is the bank strip: local N 0 to N 45 over the reach from the drawbridge to the Reservation's west line. Asked again today, with the full turn of bearings it should always have swept (see the tool, T-1640), that strip takes exactly ONE more shed at the generators' own 0.30 m relief clause - and every position it admits stands on the ground e1's wagon door opens onto. The nearest square one is anchored at E 811.17 / N 0.0 at 0.0946 m of relief, which puts a second shed 1.531 m in front of e1's door: the approach e1's own record states - a cart coming east out of South Water Street's end and standing on the landward side of the shed - would be closed by it, which is the same class of fault as T-1643's shed on the boards and not something to build on purpose. So this record stands 5.20 m back instead, on the terrace BEHIND the bank strip, which is the ground T-1200 asks for in as many words: the freight sheds and landings BEHIND South Water. THE READING DOES NOT COVER THAT GROUND - its station lattice stops at its own box floor - so this seat is not read off it and does not claim to be. It is verified against the same four predicates the reading applies, directly and on a finer lattice: the committed heightfield (dry, 0.0946 m of relief), all 33 platted corridors (`tools/plat_corridors.intrusion` reads the footprint clear; 0.717 m clear of South Water's corridor and 3.706 m of State Street's), every committed frontage walk (16.95 m clear of the riverside plank walk's boards at their nearest), every unplatted travelled way (16.51 m clear of fort_road's) and every footprint the tree already places (5.20 m from e1, 14.43 m from the slough log bridge).\n\nWORKING UNCERTAINTY: total. Nothing states that a building stood at this station on 1835-07-01. What would replace this placement is a lot record on the river side or the east end of South Water Street, a forwarding merchant's advertisement giving an address on this reach, or a contemporary view of the south bank. docs/LIBERTIES.md owns the invention.",
+    "symbolic_location": "On the terrace behind the south bank of the main stem below the Dearborn Street drawbridge, standing square behind the first shed on the same two walls, with a loading yard between the two that opens westward onto the east end of South Water Street's travelled way, and its wagon door facing north into that yard.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        5.4864,
+        0
+      ],
+      [
+        5.4864,
+        9.7536
+      ],
+      [
+        0,
+        9.7536
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "INVENTED, AND THE SAME RECTANGLE AS THE SHED IN FRONT OF IT. 5.4864 x 9.7536 m is 18 x 32 ft, the floor of family F1 (freight or storage shed) in data/reconstruction/1835_building_inventory.json, whose band runs to 28 x 50 ft. It is the floor of the band for the reason e1 gives - it is the rectangle `tools/measure_south_bank_ground.py` sweeps this reach with, so a shed of this size on this reach can be checked against the reading - and it is repeated here because the two sheds stand on one pair of walls and a second size would break the row for no evidence at all. The frontage is the short side and the depth runs back from the door, which is the crosswalk's own description of F1. No source gives this building a dimension because no source gives this building."
+  },
+  "attributes": {
+    "construction": {
+      "value": "plank",
+      "confidence": "reconstructed",
+      "note": "The crosswalk's F1 entry gives 'vertical-board frame' for a freight shed, which is the archetype's `plank`: sawn boards nailed up vertically with the gaps showing. The same treatment e1 and the four north-bank sheds of T-0133 carry, because the plate draws the two banks' buildings alike. Invented either way - nothing states how any building on this bank was built."
+    },
+    "wall_height_m": {
+      "value": 3.4,
+      "confidence": "reconstructed",
+      "note": "The crosswalk's F1 eave band is 10-13 ft (3.05-3.96 m) and this is 11.2 ft, inside it. The same eave as e1, which carries the same footprint: the family's own rule is that the smallest plan carries the lowest eave in the band, and these two plans are the same plan. Invented."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "note": "F1's roof line in the crosswalk is 'gable or shed'. Gable, which is the near-universal roof of a frame building of this type and date, and the roof e1 and the north-bank row carry. Invented."
+    },
+    "roof_pitch_deg": {
+      "value": 30.0,
+      "confidence": "reconstructed",
+      "note": "F1's pitch band is 5:12 to 9:12, which is 22.6 to 36.9 degrees; this is 30.0 degrees, inside it and the same as e1's and the north bank's. No source gives a pitch for anything on this bank. Invented."
+    },
+    "door": {
+      "value": "wagon",
+      "confidence": "reconstructed",
+      "note": "A freight shed is a building goods go into and out of by cart, so the opening is the archetype's `wagon` door rather than a man door - which is also what the crosswalk's F1 entry means by 'wide doors; low openings'. It stands on the yard between the two sheds, which is sized for a wagon to stand in at either door and is entered off the east end of South Water Street's travelled way. Invented, like the building."
+    },
+    "door_side": {
+      "value": "front",
+      "confidence": "reconstructed",
+      "note": "The door faces NORTH, onto the yard between this shed and e1, and that is why this record is rotated 0.000 where e1 is rotated 180.000: the archetype's front faces north at rotation 0, so `front` here is the north wall and the two sheds' doors face each other across the yard. The two platted corridors are at either end of the building, so those two sides were never candidates, and the south wall faces away from the only made approach this ground has. Invented, like the building."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "note": "Unpainted boards, which is the archetype's own default and the treatment image 3 and image 11 both show on working river buildings. Paint on a freight shed would be the larger claim. Invented."
+    },
+    "function": {
+      "value": "freight_shed",
+      "confidence": "reconstructed",
+      "note": "The use comes from the plate and from the place. Image 3 of the owner's brief of 2026-08-18 draws low warehouses on the banks of the reach below the drawbridge, and this reach is where the river traffic, the town's only crossing of the main stem and the road to the fort all met in July 1835. The specific goods, the trade and the operator are not inferred and are not recorded: an occupant would be a person, and this record claims a building."
+    }
+  },
+  "residents": [],
+  "citations": [],
+  "research_note": "A RECONSTRUCTED BUILDING, AND THE SECOND SHED OF THE SOUTH-BANK ROW - T-1640, the freight sheds behind South Water. T-0133 built the four north-bank sheds image 3 of the owner's brief draws and left this bank empty; T-0134 measured the whole reach and refused it; T-1629 filled the town slough's mouth and T-1636 re-read the ground it left, which is how `south_bank_shed_dearborn_e1` came to stand. The plate draws warehouses in the PLURAL on both banks, and the north bank has four. This is the second on the south. WHERE IT STANDS AND WHY IT IS NOT ON THE BANK STRIP: `tools/measure_south_bank_ground.py` reports that the bank strip - its own box, local N 0 to 45 - takes exactly one more shed at the generators' 0.30 m relief clause, and that every position it admits stands on the ground e1's wagon door opens onto. Building there would close the cart approach e1's record states, which is the fault T-1643 had to undo at a larger scale. So this shed stands 5.20 m behind e1 instead, on the same two walls, on the terrace BEHIND the bank strip - which is the ground the parent ticket asks for by name. THE INSTRUMENT WAS CORRECTED IN THE SAME COMMIT, and the correction is what made the choice legible: `fits()` swept bearings 0-165 on the reasoning that a rectangle is its own shape at theta and theta+180, but it anchors the rectangle at a CORNER, so the half turn expressed only placements lying north of their own station and the square ones on this ground were unreachable. Before the fix the only position the reading would admit at 0.30 m stood 15 degrees off the riverside walk and 0.111 m from e1's south wall. WHAT IS HELD: image 3 of the brief, an engraving of the reach below the Dearborn drawbridge showing low warehouses on BOTH banks; and image 11, the retrospective painting of South Water Street in 1834. Both are tier-5 pictorial and neither is yet held as a source record - T-0075 owns that - so this record cites committed paths rather than a source_id, and no source is claimed. WHAT IS CONJECTURAL: the building, its station, its size, its construction, its roof, its opening and its date. All of it, as on the north bank and as on e1. WHAT WOULD UPGRADE IT: a lot record on the river side or the east end of South Water Street, a forwarding merchant's advertisement giving an address on this reach, or a contemporary view of the south bank. Built under the owner's standing ruling of 2026-08-18 - 'you are totally fine to be liberal with adding reconstructed items when i ask for things, you can just label and mark them as such'. Links: T-1640 - T-1200 - T-1643 - T-1637 - T-1636 - T-1629 - T-0134 - T-0133 - docs/RESEARCH/south_bank_dearborn_ground.md - docs/LIBERTIES.md.",
+  "research_doc": "",
+  "review_required": false
+}
