@@ -44,16 +44,16 @@
   }
  ],
  "counts": {
-  "leads_ruled": 1013,
-  "cards_ruled": 1420,
+  "leads_ruled": 1015,
+  "cards_ruled": 1421,
   "by_outcome": {
-   "refused": 751,
+   "refused": 753,
    "candidate": 262
   },
   "by_class": {
-   "ocr_variant_only": 362,
+   "ocr_variant_only": 363,
    "testable_in_a_held_work": 262,
-   "locality_absent": 290,
+   "locality_absent": 291,
    "surname_only_chicago": 99
   },
   "matched": 0,
@@ -3615,6 +3615,31 @@
    "discriminators": []
   },
   {
+   "lead_id": "lead_v01_block_structures",
+   "surname_key": "block",
+   "spellings_as_printed": [
+    "Block r"
+   ],
+   "layer": "structures",
+   "outcome": "refused",
+   "class": "locality_absent",
+   "reason": "Refused. All 1 card(s) heading 'Block r' name Illinois and neither Chicago nor Cook County, so the lead against Reconstructed C4 wide two-story store or mixed block #01 stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed.",
+   "record_ids": [
+    "nbi_v01_0570"
+   ],
+   "candidates": [
+    {
+     "id": "recon_1835_blk_south_water_franklin_c4_01",
+     "name": "Reconstructed C4 wide two-story store or mixed block #01",
+     "rule": "exact surname"
+    }
+   ],
+   "person_ids": [],
+   "works_cited": [],
+   "held_works": [],
+   "discriminators": []
+  },
+  {
    "lead_id": "lead_v01_blodget_residents",
    "surname_key": "blodget",
    "spellings_as_printed": [
@@ -3889,6 +3914,31 @@
      "id": "33S7-9YYJ-98M:l8",
      "name": "Thomas Brock",
      "rule": "OCR variant (0.89 similarity to 'brock')"
+    }
+   ],
+   "person_ids": [],
+   "works_cited": [],
+   "held_works": [],
+   "discriminators": []
+  },
+  {
+   "lead_id": "lead_v01_bock_structures",
+   "surname_key": "bock",
+   "spellings_as_printed": [
+    "Bock"
+   ],
+   "layer": "structures",
+   "outcome": "refused",
+   "class": "ocr_variant_only",
+   "reason": "Refused twice over. No candidate reaches 'Bock' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Bock' at all. And if it were, a heading against Reconstructed C4 wide two-story store or mixed block #01 would still be a surname against a person, which is always a refusal here.",
+   "record_ids": [
+    "nbi_v01_0645"
+   ],
+   "candidates": [
+    {
+     "id": "recon_1835_blk_south_water_franklin_c4_01",
+     "name": "Reconstructed C4 wide two-story store or mixed block #01",
+     "rule": "OCR variant (0.89 similarity to 'block')"
     }
    ],
    "person_ids": [],
@@ -59969,6 +60019,37 @@
    "ticket": "T-0590"
   },
   {
+   "record_id": "nbi_v01_0570",
+   "a": "Block r | . Fulton Co , 111. (Chapman, C. C. ú Co.) 1379i ! 31",
+   "b": "Reconstructed C4 wide two-story store or mixed block #01",
+   "outcome": "refused",
+   "class": "locality_absent",
+   "rule": "Refused. All 1 card(s) heading 'Block r' name Illinois and neither Chicago nor Cook County, so the lead against Reconstructed C4 wide two-story store or mixed block #01 stands on a surname with the locality actively absent - the one thing beyond the name that a card could have contributed. Ruled on the card 'Block r | . Fulton Co , 111. (Chapman, C. C. ú Co.) 1379i ! 31' against Reconstructed C4 wide two-story store or mixed block #01.",
+   "layers": [
+    "structures"
+   ],
+   "leads": [
+    "lead_v01_block_structures"
+   ],
+   "person_ids": [],
+   "person_id": null,
+   "evidence": [
+    "nbi_v01_0570",
+    "data/research/newberry_index/leads.json"
+   ],
+   "locator": {
+    "list": "vol_01",
+    "text_file": "vol_01_locality_cards.txt",
+    "lines": [
+     1145,
+     1146
+    ],
+    "index_page": 198,
+    "column": 0
+   },
+   "ticket": "T-0590"
+  },
+  {
    "record_id": "nbi_v01_0575",
    "a": "Blackmnn | ILLINOIS. i ' ~",
    "b": "[?]lena Blackman",
@@ -60470,15 +60551,17 @@
   {
    "record_id": "nbi_v01_0645",
    "a": "Bock | _ 5 l . CUIr Co, III. (Brink, McDoeamgh 4 Co, PoM.11631. 366.",
-   "b": "Thomas Brock",
+   "b": "Thomas Brock; Reconstructed C4 wide two-story store or mixed block #01",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Bock' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Bock' at all. And if it were, a heading against Thomas Brock would still be a surname against a person, which is always a refusal here. Ruled on the card 'Bock | _ 5 l . CUIr Co, III. (Brink, McDoeamgh 4 Co, PoM.11631. 366.' against Thomas Brock.",
+   "rule": "Refused twice over. No candidate reaches 'Bock' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Bock' at all. And if it were, a heading against Thomas Brock would still be a surname against a person, which is always a refusal here. Ruled on the card 'Bock | _ 5 l . CUIr Co, III. (Brink, McDoeamgh 4 Co, PoM.11631. 366.' against Thomas Brock; Reconstructed C4 wide two-story store or mixed block #01.",
    "layers": [
-    "census_1840"
+    "census_1840",
+    "structures"
    ],
    "leads": [
-    "lead_v01_bock_census_1840"
+    "lead_v01_bock_census_1840",
+    "lead_v01_bock_structures"
    ],
    "person_ids": [],
    "person_id": null,
