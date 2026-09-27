@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The far prairie is land again, not a flood', kind: 'fix',
+  { v: 1180, ts: '2026-09-27T17:03:15.404Z', date: 'Sep 27, 2026, 12:03 PM CT', title: 'The far prairie is land again, not a flood', kind: 'fix',
     items: [
       'Seen from the air, everything more than a few hundred metres away used to turn into a flat blue-grey sheet with trees standing in it, as if the prairie were under water. It was not haze. The ground out there was not being drawn at all.',
       'Close to you the town is drawn in fine detail; past about 600 metres a coarser copy of the same ground takes over. That coarser copy had been built facing downward, so from above it was invisible, and what showed through the hole was the water surface laid under the whole map, tinted by the haze.',
