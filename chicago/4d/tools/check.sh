@@ -1244,6 +1244,21 @@ step "the river wharves re-derive from the records that state a dock" \
 step "the case T-0059 was withdrawn on still holds" \
   python3 tools/measure_generator_half.py --gate --quiet
 
+# T-1654, and the sentence directly above is what pays for it: "a new archetype edits
+# build.py's registry and costs the town". So did an argparse fix — 422 of 422 assets,
+# for a change that could not move a vertex, because mesh_inputs.py hashed build.py
+# WHOLE. The pipeline now lives in generators/emit.py, which the recipe hashes, and
+# build.py kept the command line, which it does not. That split is an allowlist by
+# construction, and code_inputs.py is the standing argument that an allowlist silently
+# drops the next thing somebody adds — so it is asserted here on every run rather than
+# trusted: an archetype import, a shared builder import, or any reach into bpy beyond
+# bpy.app puts geometry back where the staleness gate cannot see it.
+step "the bake's command-line half still makes no geometry" \
+  python3 tools/test_build_cli_has_no_geometry.py
+
+selftest "…and each way of breaking that split is still refused" \
+  python3 tools/test_build_cli_has_no_geometry.py --self-test
+
 # The frontage works are the fifth record of this shape and the first derived from
 # a building AND a street at once: where a plank walk may lie is decided by the
 # travelled track's own half-width out of data/streets/1835.json, not by the wall
