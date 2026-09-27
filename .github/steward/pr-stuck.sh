@@ -76,7 +76,66 @@
 # Every call below is a REST path.
 set -uo pipefail
 
-REPO="${GITHUB_REPOSITORY:-kevinrhaas/chicago}"
+# WHICH REPOSITORY (T-1656) — the same fault T-1655 removed from pr-rest.sh, three
+# files over. This line used to read `REPO="${GITHUB_REPOSITORY:-kevinrhaas/chicago}"`,
+# and that `:-` default reads as a safety net without being one: in an Actions job the
+# variable is always SET, so the default never fires and the value is whatever
+# repository owns the JOB — never the checkout this script is in.
+#
+# It was driven that way for real on 2026-09-27 (T-1652, chicago#104). A steward
+# improve run executes inside a **polecat-platform** job and clones this repo into
+# the workspace, so every call made from that clone named polecat-platform:
+# pr-rest.sh's `create` failed loudly with a 422, and its `resume` SUCCEEDED
+# SILENTLY AGAINST A STRANGER — commenting the handoff reason on, and applying
+# `resume` to, polecat-platform#104, an unrelated PR. Both repositories had a #104
+# open that day, which is the point: a number collision across repos is not rare.
+#
+# This one is less exposed than pr-rest.sh was, because this repository's own
+# chicago-4d-pr-stuck.yml runs it and there the ambient name is right. But it WRITES
+# labels and comments — it CREATES the `stuck` label if it is missing, applies and
+# removes it, and comments the whole deadlock reading — so a wrong name does all of
+# that to strangers, which is exactly what T-1577 exists to stop.
+#
+# So:
+#
+#   1. `--repo owner/name` NAMES it, and wins.
+#   2. Otherwise it is the origin remote of THE CHECKOUT THIS FILE IS IN — resolved
+#      from ${BASH_SOURCE[0]} and not from $PWD, because a caller drives this script
+#      by absolute path from wherever it happens to be standing. That is why
+#      `.github/workflows/chicago-4d-pr-stuck.yml` passes no `--repo`: its
+#      actions/checkout sets the origin this reads, so the right answer needs no
+#      argument, while a clone of a DIFFERENT repository can no longer supply one.
+#   3. Otherwise it REFUSES, in one line naming `--repo`. It never consults the
+#      environment.
+#
+# Every pull request this touches came out of the list below, which is read from
+# this same repository — so naming the repository right is the whole of the guard,
+# and there is no stranger-PR left for a per-PR existence check to catch.
+repo=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --repo)   repo=${2:-}; shift 2 ;;
+    --repo=*) repo=${1#--repo=}; shift ;;
+    *) echo "usage: $0 [--repo owner/name]  (everything else is an environment variable: see the header)" >&2; exit 2 ;;
+  esac
+done
+
+checkout_repo() { # the origin remote of the checkout THIS FILE is in, as owner/name
+  local root url
+  root=$(cd "$(dirname "${BASH_SOURCE[0]}")" 2>/dev/null && git rev-parse --show-toplevel 2>/dev/null) || return 1
+  url=$(git -C "$root" remote get-url origin 2>/dev/null) || return 1
+  url=${url%.git}
+  # https://host/owner/name · https://user@host/owner/name · git@host:owner/name · ssh://host/owner/name
+  url=$(printf '%s' "$url" | sed -E 's#^(https?://([^@/]+@)?[^/]+/|ssh://([^@/]+@)?[^/]+/|[^/@]+@[^:/]+:)##')
+  printf '%s\n' "$url"
+}
+
+[ -n "$repo" ] || repo=$(checkout_repo) || repo=""
+if ! [[ "$repo" =~ ^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$ ]]; then
+  echo "::error::$0: cannot tell which repository to act on — pass --repo owner/name. The default is this checkout's origin remote and NEVER \$GITHUB_REPOSITORY (T-1655, T-1656); it resolved to '${repo}'."
+  exit 2
+fi
+REPO="$repo"
 BASE="${STUCK_BASE:-dev}"
 ONLY="${STUCK_ONLY:-}"
 DRY="${STUCK_DRY_RUN:-}"
