@@ -1917,6 +1917,130 @@
         ]
       },
       "source": "/tmp/smoke_d34.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 218,
+      "takenAt": "2026-09-27T18:45:10.764Z",
+      "ref": "steward/t1680-forge-chimney",
+      "commit": "f56e370c7639",
+      "devCommit": "15792616b5d5",
+      "treeHash": "sha256:95a8b2252d6a7184",
+      "treeDirty": false,
+      "changelogHash": "sha256:20cd9183beae22db",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.2,
+          3.9
+        ]
+      },
+      "source": "/tmp/smoke_m1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 364,
+      "takenAt": "2026-09-27T18:45:10.659Z",
+      "ref": "steward/t1680-forge-chimney",
+      "commit": "f56e370c7639",
+      "devCommit": "15792616b5d5",
+      "treeHash": "sha256:95a8b2252d6a7184",
+      "treeDirty": false,
+      "changelogHash": "sha256:20cd9183beae22db",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.2,
+          3.9
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 136,
+      "takenAt": "2026-09-27T18:45:10.551Z",
+      "ref": "steward/t1680-forge-chimney",
+      "commit": "f56e370c7639",
+      "devCommit": "15792616b5d5",
+      "treeHash": "sha256:95a8b2252d6a7184",
+      "treeDirty": false,
+      "changelogHash": "sha256:20cd9183beae22db",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.2,
+          3.9
+        ]
+      },
+      "source": "/tmp/smoke_m3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 231,
+      "takenAt": "2026-09-27T18:45:10.454Z",
+      "ref": "steward/t1680-forge-chimney",
+      "commit": "f56e370c7639",
+      "devCommit": "15792616b5d5",
+      "treeHash": "sha256:95a8b2252d6a7184",
+      "treeDirty": false,
+      "changelogHash": "sha256:20cd9183beae22db",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.2,
+          3.9
+        ]
+      },
+      "source": "/tmp/smoke_d3.log"
     }
   ]
 }

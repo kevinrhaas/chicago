@@ -170,6 +170,44 @@ DOOR_JAMB_M = 0.16
 # stops reading as a wall with doors in it and starts reading as one ragged hole.
 DOOR_PIER_MIN_M = 2 * DOOR_JAMB_M
 
+# --- the forge stack ---------------------------------------------------------------
+#
+# WHY AN OUTBUILDING MAY COUNT A CHIMNEY (T-1680). Family W1 in
+# data/reconstruction/1835_family_archetype_crosswalk.json is the blacksmith shop, it is
+# drawn by this archetype, and its required variant is `blacksmith_forge` — *"wide work
+# door; forge chimney; soot; detached"*. Until this entry there was no way to say it:
+# every other building archetype in the project reads `chimneys` and this one did not,
+# so the town's four smithies came out of the bake as sheds with a doorway and no
+# flue. `pierce_blacksmith_shop` says so on its own record, in a `geometry: absent`
+# note that has stood since the record was written — *"the mesh shows a shed with a
+# doorway and NO SMOKE, which is the one feature of a smithy anybody in the street
+# would have noticed"*.
+#
+# IT IS THE TOWN'S OWN ATTRIBUTE, NOT A NEW ONE, and that is the whole reason it is
+# spelt `chimneys` rather than `forge_chimney`. Three instruments read a stack off a
+# record — `tools/measure_stack_ordinance.py` (the 18-inch by-law of 1835, a GATE),
+# `tools/measure_stack_fabric.py` (a stack painted its own roof, a GATE) and
+# `tools/measure_stack_projection.py` (Andreas's four feet, a report) — and all three
+# find one by asking `form.chimneys` for a whole number. A private spelling here would
+# have drawn the only stacks in Chicago that no gate could see.
+#
+# DEFAULT ZERO, WHICH IS THE OPPOSITE OF EVERY OTHER ARCHETYPE'S DEFAULT. A house has a
+# fire in it; a privy, a corn crib, a hay shelter and a wagon shed do not, and 133 of
+# this archetype's assets are standing today with no stack and no record asking for
+# one. So the count is what a record STATES, and an absent `chimneys` means no stack
+# rather than one.
+#
+# ONE, AND NEVER TWO. A second flue on a secondary building is a claim about how the
+# building was worked — two fires, or a fire and a stove — and nothing in the dossiers
+# says that of any shop at the forks. A record that wants two is describing a house.
+MAX_CHIMNEYS = 1
+
+# The smallest plan this archetype will stand a stack on. A forge is a hearth, an
+# anvil and room to bring a horse in beside them; 3 m each way is the least that holds
+# any of it, and under it the record is putting a chimney on a privy. The number is a
+# convention and not a reading, like every other bound in this module.
+CHIMNEY_MIN_PLAN_M = 3.0
+
 # Finishes. Outbuildings here are unpainted by default and mostly stayed that way;
 # whitewash is included because a dairy or a smokehouse sometimes got it and because
 # refusing a value a record might legitimately hold is worse than carrying it.
@@ -221,7 +259,7 @@ SHED_RISE_RATIO_MAX = 1.5
 CONSUMED = frozenset({
     "construction", "roof_type", "roof_pitch_deg", "wall_height_m",
     "door", "door_side", "door_width_m", "door_height_m", "door_bays",
-    "open_sides", "loft", "board_gap_m", "paint",
+    "open_sides", "loft", "board_gap_m", "paint", "chimneys",
 })
 
 # Where this archetype touches the ground, read by tools/validate.py's ground contact
@@ -387,6 +425,20 @@ class OutbuildingParams:
     # high in a gable end or under the tall eave of a shed roof. No dormer, no floor
     # line, no second range of openings — those would be evidence we do not have.
     loft: bool = False
+
+    # The forge stack, and the only fire this archetype builds. See MAX_CHIMNEYS above
+    # for why it is spelt with the town's own name and why it defaults to none: a
+    # smithy has a flue and a corn crib does not, and 133 of this archetype's assets
+    # are the second kind. The stack is BRICK and INTERIOR — it stands against the end
+    # wall inside the shop and breaks the roof — which is `docs/RESEARCH/chimneys.md`
+    # §2's disposition rather than §3's, and deliberately: §3's cat-and-clay is argued
+    # for a stack built OUTSIDE a gable so it can be pulled away when it fires, and a
+    # forge fire is a hearth kept hot all day under a board roof. Blodgett's yard had
+    # been making brick on the North Side since the spring of 1833 (andreas_1884_v1,
+    # `brickyard_north_side`), so the masonry a forge needs is in the town and needs no
+    # import. Where the stack stands is `outbuilding._stack_wall`; that it stands
+    # anywhere at all is an invention and owes docs/LIBERTIES.md an entry.
+    chimneys: int = 0
 
     # The gap between siding boards, and the single parameter that turns a shed into a
     # corn crib. Sawn boards shrink and were nailed up green, so a small gap is the
@@ -671,6 +723,7 @@ class OutbuildingParams:
             raise ParamError(
                 f"board_gap_m {self.board_gap_m} outside 0-0.15 m. Past 150 mm the "
                 f"boards are further apart than they are wide and the wall is a fence")
+        self._validate_chimney()
         if self.loft and self.loft_side is None:
             raise ParamError(
                 "loft is set but every elevation that could carry the loft door is "
@@ -687,6 +740,67 @@ class OutbuildingParams:
         for k, v in self.confidence.items():
             if v not in CONFIDENCE_VALUE:
                 raise ParamError(f"confidence['{k}'] = '{v}' is not a confidence level")
+
+    def _validate_chimney(self) -> None:
+        """The forge stack's own refusals. T-1680.
+
+        Each one is a claim the record would be making that this archetype cannot
+        stand behind, and each is refused rather than quietly dropped — a stack the
+        builder declines to draw on a record that counts one is a building the
+        ordinance gate then reads as an offender, which is the wrong failure.
+        """
+        if isinstance(self.chimneys, bool) or not isinstance(self.chimneys, int):
+            raise ParamError(
+                f"chimneys {self.chimneys!r} is not a whole number. It is a COUNT, the "
+                f"same count every other archetype in this project reads, because the "
+                f"three instruments that measure a stack find one by asking for one")
+        if not 0 <= self.chimneys <= MAX_CHIMNEYS:
+            raise ParamError(
+                f"chimneys {self.chimneys} outside 0..{MAX_CHIMNEYS} on an outbuilding. "
+                f"A second flue on a secondary building is a claim about how it was "
+                f"worked — two fires, or a fire and a stove — and nothing in the "
+                f"dossiers says that of any shop at the forks")
+        if self.chimneys <= 0:
+            return
+        if min(self.width_m, self.depth_m) < CHIMNEY_MIN_PLAN_M:
+            raise ParamError(
+                f"chimneys {self.chimneys} on a {self.width_m} x {self.depth_m} m plan. "
+                f"Under {CHIMNEY_MIN_PLAN_M} m each way there is no room for a hearth, "
+                f"an anvil and the working space beside them: this is a chimney on a "
+                f"privy, and the record is describing a different building")
+        wall = self.stack_wall
+        if wall in self.open_sides:
+            raise ParamError(
+                f"chimneys {self.chimneys}, but every elevation this stack could stand "
+                f"against is open ('{wall}'). A flue is built against a wall; close one, "
+                f"or the building is a forge under a roof on posts, which is a "
+                f"different thing and is not drawn here")
+
+    @property
+    def stack_wall(self) -> str:
+        """The elevation the forge stack stands against, inside the building.
+
+        THE END WALL, and the end is chosen by the ROOF rather than by preference: on a
+        gable the two ends are the gables, so a stack there rises under the ridge and
+        breaks the roof at its highest point, which is `docs/RESEARCH/chimneys.md` §2's
+        interior disposition and the shortest flue that clears the building. On a shed
+        the ends are the two walls the slope does not fall along, and the same rule
+        picks one.
+
+        Of the two, the one that does NOT carry the main door wins — a forge stands
+        where the doorway is not, or the hearth is in the traffic — and with the door
+        elsewhere the low end of the axis takes it, which is `log_dwelling._chimneys`'
+        habit restated so two archetypes put a stack on the same end of the same plan.
+        """
+        if self.roof_type == "gable":
+            ends = ("left", "right") if self.ridge_along_x else ("back", "front")
+        else:
+            ends = ("back", "front") if self.shed_axis == "x" else ("left", "right")
+        free = [s for s in ends if s != self.door_side and s not in self.open_sides]
+        if free:
+            return free[0]
+        open_free = [s for s in ends if s not in self.open_sides]
+        return open_free[0] if open_free else ends[0]
 
     def _validate_openness(self) -> None:
         for s in self.open_sides:
@@ -829,6 +943,7 @@ def from_phase(phase: dict, record: dict | None = None) -> OutbuildingParams:
         door_height_m=(None if val("door_height_m") is None
                        else float(val("door_height_m"))),
         loft=bool(val("loft", False)),
+        chimneys=int(val("chimneys", 0)),
         board_gap_m=float(val("board_gap_m", 0.012)),
         paint=str(val("paint", "unpainted")),
         # The programme's own finish deal, read off the record rather than the
