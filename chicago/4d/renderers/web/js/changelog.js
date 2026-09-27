@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Nothing you can see: which half of the freight row still owes', kind: 'fix',
+  { v: 1179, ts: '2026-09-27T16:40:12.532Z', date: 'Sep 27, 2026, 11:40 AM CT', title: 'Nothing you can see: which half of the freight row still owes', kind: 'fix',
     items: [
       'Nothing in the town changed and no roof moved. This is a repair to the ledger that says what is still to be built, and a visitor will find the same Chicago as before.',
       'The building programme books the town by kind of building and part of town: so many cottages in the South Division, so many warehouses, and one ticket of work owns each of those rows. The South Division\u2019s warehouse row held two quite different things. Some of its buildings stand on the platted street line, on South Water Street\u2019s own party lines and the Lake Street blocks. The rest are freight sheds standing behind them, on the unplatted river margin by the Dearborn drawbridge. One row can name only one owner, and it named the sheds\u2019 one.',
