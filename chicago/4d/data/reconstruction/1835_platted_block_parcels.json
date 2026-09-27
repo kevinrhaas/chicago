@@ -1122,11 +1122,11 @@
       "families": {
         "A1": 1,
         "A3": 1,
+        "C2": 1,
         "D1": 1,
         "D2": 1,
         "D3": 1,
-        "D4": 1,
-        "D5": 1
+        "D4": 1
       },
       "open_lots": [
         {
@@ -1137,12 +1137,12 @@
       "arrangement_note": "The first block of the row ONE STREET BACK, and the first block of this parcel shape that is not on South Water Street: bounded by Lake, Franklin, Randolph and Market, at the western limit of the platted South Division against the south branch. Lots 0 and 1 arrive taken - the Lake-and-Market corner and the Randolph-and-Market corner - both seated by tools/plat_occupancy.py rather than authored here, so the schedule's six free lots are 2, 4 and 6 on Lake and 3, 5 and 7 on Randolph, and this parcel builds on five of them. THE FACE RULE IS INHERITED FROM FIVE BLOCKS OF SOUTH WATER STREET AND IS MEASURED HERE FOR THE FIRST TIME, BECAUSE NEITHER OF THIS BLOCK'S FACES IS SOUTH WATER. T-A8 through T-A12 sent their better dwellings to the business front and their meanest to the back street, and named the front by the street's documented use. That naming does not carry to a block whose two faces are Lake and Randolph, so the question was asked of the committed record instead: counting every documented or inferred structure whose footprint centroid stands within 25 m of a street's committed centreline, LAKE STREET CARRIES 12 AND RANDOLPH STREET CARRIES 2 - the Sauganash Hotel, the Green Tree Tavern, the Exchange Coffee House, the Tremont House, the Mansion House, both churches, Hogan's store, Goss & Cobb's saddlery, Pierce's blacksmith shop, Dole's south warehouse and Philo Carpenter's log drug store against the log jail and the Western Hotel. South Water itself carries 9. Lake is this block's better face by the town's own record, so the three best dwellings the schedule deals take its three free lots - the deep-plan cottage on lot 6, the two-room cottage on lot 4 and the one-room cottage on lot 2 - and the two meanest take Randolph, the plank shanty on lot 7 and the log cabin on lot 5. THE END RULE IS T-A11'S CRITERION, UNCHANGED, AND THIS BLOCK IS WHERE ITS MEANING THINS RATHER THAN ITS ORDER. Distance to the Dearborn Street drawbridge, the only crossing of the main stem in July 1835, runs 532.2 m at lot 6, 554.9 m at lot 4, 577.6 m at lot 2 and 600.4 m at lot 0 on the Lake frontage, with the back street from 576.3 m at lot 7 to 640.0 m at lot 1. The order is the same order the criterion has given on every block, and the arrangement follows it. What has changed is the size of the difference it is ordering: on T-A12's block the far end of the Lake frontage stood 2.93 times as far from the bridge as the near end, and on this one it stands 1.13 times as far. The whole spread of the front face is 68.2 m against T-A12's 70.2 m - the same block, moved half a kilometre - so the criterion is now separating two lots that are, in any terms a resident would have used, the same distance from the bridge. IT IS FOLLOWED ANYWAY AND THE REASON IS RECORDED RATHER THAN THE RESULT DEFENDED: a committed criterion applied where it is weak is re-derivable, and swapping to a second criterion on the block where the first one stops flattering the answer is how an invention starts looking like a finding. What it is NOT is evidence: no source says a better house stood nearer the bridge, and at this distance the arrangement is closer to arbitrary than it has been on any block of the row. LOT 3 IS LEFT OPEN AND IT IS THE FARTHEST FREE LOT FROM THE BRIDGE, at 618.6 m, which is the same test every block of the row has used. THE MEASUREMENT THIS BLOCK OWES ITS READER IS ROADMAP K30'S, AND IT IS THE FIRST ONE TAKEN OFF SOUTH WATER STREET. K30 records five documented buildings standing 4.5 m to 8.2 m inside the platted South Water corridor and asks whether that is a fault of one stretch of street or a uniform bias across the grid. This block carries the first two documented roofs measured against a different street: the SAUGANASH HOTEL intrudes 0.19 m into the Lake corridor and PHILO CARPENTER'S LOG DRUG STORE 0.22 m - a twentieth to a fortieth of the South Water figures, and within the plat's own precision of standing exactly on the kerb line. Two cases are not a survey, but they are the control measurement K30 did not have, and they point away from a uniform grid bias. Nothing here moves a documented position. THE BLOCK'S TWO DOCUMENTED ROOFS SHARE ONE LOT, AND THE MAP NAMES THE SMALLER OF THEM. The Sauganash Hotel puts 94.33 m2 of its 96.0 m2 on lot 0 (67.66 m2 inside the buildable inset) and Philo Carpenter's log drug store 28.58 m2 of its 29.7 m2 (19.43 m2 inside it); the source says the shop stood immediately east of and against the Sauganash's public bar and the two footprints touch at 0.00 m, so this is the record agreeing with itself rather than a collision. tools/plat_occupancy names the first holder by id, which is the log shop - the town's most-documented building is not the one the occupancy map credits with its own corner. It costs this parcel nothing, because the lot is taken either way, and the map's job is to say a lot is taken by something nameable. T-A7'S LAP CASE HAS A SIXTH INSTANCE AND IT IS THE ONLY ONE THAT COSTS NOTHING TWICE: the packer's dwelling on lot 1 laps lot 3 by 9.57 m2 with 0.00 m2 of it inside lot 3's buildable inset, and lot 3 is the lot this parcel leaves open. The stable stands in the yard of lot 6 off the block alley, behind the deep-plan cottage on the Lake frontage - the best roof this parcel raises and the household of it that a horse is least implausible for - and the privy in the yard of lot 5 behind the log cabin on Randolph. Both stand on lots whose roofs this parcel also raised, which is what a yard building is a claim about.",
       "slots": [
         {
-          "family": "D5",
+          "family": "C2",
           "inventory_class": "principal_functional",
           "lot": 6,
           "stands_on": "street",
           "fronts": "lake",
-          "setback_m": 7.0,
+          "setback_m": 1.505,
           "lateral_m": -1.5
         },
         {
@@ -1199,7 +1199,24 @@
           "setback_m": 5.0,
           "lateral_m": 5.0
         }
-      ]
+      ],
+      "refamilied": {
+        "ticket": "T-1682",
+        "parent": "T-1201",
+        "on": "2026-09-27",
+        "roofs": [
+          {
+            "sequence": 1,
+            "was": "D5",
+            "now": "C2",
+            "was_id": "recon_1835_blk_lake_market_d5_01",
+            "id": "recon_1835_blk_lake_market_c2_01",
+            "setback_m_was": 7.0,
+            "setback_m_now": 1.5
+          }
+        ],
+        "why": "T-1682, piece 3 of 4 of T-1201, and it re-families ONE slot this block already built rather than dealing it any new ground. THE GROUND IS THE FINDING, and it is the same one T-1647 reached on the South Water row. T-1201 asked for the Lake frontage of the Franklin, La Salle, Wells, Market and Clinton blocks to stand as stores, and there is nowhere left to raise one: every one of the seven Lake-Randolph blocks reads `at_capacity` with headroom 0 in the 665-roof programme (clinton 11 standing of 31 capacity, market 10, franklin 14, wells 14, lasalle 14, clark 16, dearborn 13), so what the Lake business front is MADE OF can only change by saying what the roofs already standing on it are. AND ONLY TWO OF THE FIVE BLOCKS HOLD A ROOF THIS PROGRAMME MAY SPEAK FOR. blk_lake_wells, blk_lake_lasalle and blk_lake_clinton carry no record this parcel authored at all - their 14, 14 and 11 standing roofs belong to the research layer and to the phase-one South parcel, and a documented building is not this programme's to re-family. That is a refusal on the committed tree and not an omission: those three blocks' Lake frontage cannot be composed by this ticket in either direction. THE CARD THAT ASKS FOR IT: seq 01, the deep-plan frame cottage on lot 6's Lake frontage, is '[boot, shoe and leather store, Lake street, proprietor not recovered] - boot and shoe manufacturing and leather dealing', seated here by the street-face adoption policy off the Chicago Democrat. The source calls it a STORE in as many words and this programme had it standing as a cottage. WHAT IS LEFT AS IT STANDS, AND WHY: seq 02 and seq 03, the two-room and one-room frame cottages on lots 4 and 2, carry no `occupants` block at all - no trade asks either of them to be a store, and re-familying a roof the business layer says nothing about would be inventing the trade to justify the silhouette. Both keep their cottages. Seq 04 and seq 05 front randolph and are not on this ticket's ground. THE FAMILY IS THE EVIDENCE'S CHOICE AND THE CEILING IS MEASURED, NOT ASSERTED. C2, the store-residence, is the family a trade that MANUFACTURES AND DEALS belongs to - its own crosswalk variants read 'shop below; attic rooms; rear lean-to; signboard' - and that is what this card says the keeper does. C3 and C4 are two-storey stores and nothing on this card is evidence of a second storey or of the capital one implies; dealing one to make the frontage read richer is the confidence upgrade AGENTS.md rule 2 forbids, so the store-residence is the largest store family the EVIDENCE admits here rather than the largest the metres would take. C2's 18x30-22x40 ft band overlaps D5's 18x28-24x34, so the roof does not grow past the ground its slot already stood on. WHAT DOES NOT MOVE: the slot keeps its lot, setback, anchor and lateral offset, it is not promoted (it stays a `reconstructed` anonymous count-unit at the bottom tier), no occupant is invented - it keeps the one the street-face adoption policy already gave it - and the block is dealt no extra roof. The footprint is not authored here either: `generate_block_infill` samples a slot inside its family's own band on a stable key, so the record re-derives. THE ONE THING THAT DOES MOVE, AND THE RULE THAT MOVES IT: this slot stood 7.0 m back at a dwelling's typology setback, and `generate_block_infill.check_non_dwelling_slot` refuses a C roof there - 'a commercial roof stands ON the street line, at the 1.5 m the plat module's margin allows (T-0024)', because thirteen of the fourteen documented stores in this town do and a store's claim on frontage is functional. So the roof comes forward 5.5 m onto the same 1.5 m line every party-line run in this town already stands on. That is the policy's choice and not this ticket's: the refusal is quoted above, it was hit before anything was written, and the lot, the lateral offset and the face are unchanged."
+      }
     },
     {
       "block_id": "blk_randolph_franklin",
@@ -1718,7 +1735,7 @@
       },
       "families": {
         "D1": 1,
-        "D5": 1,
+        "C2": 1,
         "A1": 1
       },
       "deferred": [
@@ -1746,7 +1763,7 @@
       "arrangement_note": "The Lake-and-Franklin block — bounded by Lake, Wells, Randolph and Franklin — and the first NEW platted block this programme has opened since 2026-08-23, when T-0028 re-derived the schedule and found nothing left to open. What reopened it was not street control but the deal: T-0213 weighted the trade families onto the business front on 2026-08-26 and this block's I3 slot went with it, leaving A1, D1, D5 and F3 where T-0188 had read I3 and F3 the day before and concluded the block 'cannot carry a three-unit run as dealt'. Six of the eight lots arrive taken and every one of them is seated by tools/plat_occupancy.py rather than authored here: lot 0 by recon_1835_south_d3_001, lot 1 by recon_1835_south_d6_036, lot 2 by recon_1835_south_d1_003, lot 3 by recon_1835_south_d3_022, lot 5 by recon_1835_south_a1_046 and lot 6 by recon_1835_south_d5_004. The two free lots are 4, on Lake, and 7, on Randolph. THE FACE RULE AND THE END RULE NAME THE SAME LOT, which they have on every block of this row since T-A11: Lake carries 16 documented records and 8 inferred households within 25 m of its committed centreline against Randolph's 7 and 7, so Lake is the business face; and lot 4's frontage stands 441.12 m from the foot of the Dearborn Street drawbridge against lot 7's 473.20 m straight, 550.45 m against 668.96 m walked along the committed streets. So the Lake lot takes the row and the Randolph lot is the one left open. WHAT IS BUILT IS TWO PRINCIPAL ROOFS AND ONE YARD BUILDING, and the run is two rather than three for a reason this parcel states rather than absorbs. The schedule dealt this block three principal roofs — D1, D5 and F3 — and F3 is a large river warehouse. This generator authors no coordinates: every metre comes from a committed lot polygon inside a block bounded by four platted streets, and F3's own crosswalk entry requires a landing apron following site access. Sampled against the committed heightfield the nearest water to this block's boundary is 134 m away. So the slot is DEFERRED and named in `deferred` with its reason, tools/generate_block_infill.py refuses F3 by name from this run onward, and the fault is filed against the DEAL as T-0275 rather than against the block — the roof is still owed and the wharf ground is where it belongs. THE SECOND CLAUSE OF THE CORE DENSITY STANDARD IS SPENT: an improved lot carries its outbuildings, so the stable stands in lot 4's own yard at the alley end, behind the row this parcel built, which is the only lot on this block whose yard belongs to a roof this parcel owns. NO ROOF IS ADDED TO THE TOWN: the three come out of south_plat_beyond_committed_control, the district balance waiting on street control past State and Washington, and every marginal still sums to the programme total. WHAT IS UNVERIFIED IS EVERYTHING THAT MATTERS: that any building stood on this ground, that there were two of them, that they stood shoulder to shoulder, and that the better of them stood at the east end are all inventions of this programme. No lot is numbered — this project has never read Thompson's numbering off a sheet — and the side lot line the row crosses between its own units is conjectural in every record this generator has ever written. The block face the row stands on is committed geometry derived from the street centrelines, which is the unit the standard counts in.",
       "slots": [
         {
-          "family": "D5",
+          "family": "C2",
           "inventory_class": "principal_functional",
           "stands_on": "frontage",
           "fronts": "lake",
@@ -1761,7 +1778,7 @@
           "stands_on": "frontage",
           "fronts": "lake",
           "anchor": {
-            "abut_west_of": "recon_1835_blk_lake_franklin_d5_01"
+            "abut_west_of": "recon_1835_blk_lake_franklin_c2_01"
           }
         },
         {
@@ -1773,7 +1790,22 @@
           "setback_m": 5.0,
           "lateral_m": 4.0
         }
-      ]
+      ],
+      "refamilied": {
+        "ticket": "T-1682",
+        "parent": "T-1201",
+        "on": "2026-09-27",
+        "roofs": [
+          {
+            "sequence": 1,
+            "was": "D5",
+            "now": "C2",
+            "was_id": "recon_1835_blk_lake_franklin_d5_01",
+            "id": "recon_1835_blk_lake_franklin_c2_01"
+          }
+        ],
+        "why": "T-1682, piece 3 of 4 of T-1201, and it re-families ONE slot this block already built rather than dealing it any new ground. THE GROUND IS THE FINDING, and it is the same one T-1647 reached on the South Water row. T-1201 asked for the Lake frontage of the Franklin, La Salle, Wells, Market and Clinton blocks to stand as stores, and there is nowhere left to raise one: every one of the seven Lake-Randolph blocks reads `at_capacity` with headroom 0 in the 665-roof programme (clinton 11 standing of 31 capacity, market 10, franklin 14, wells 14, lasalle 14, clark 16, dearborn 13), so what the Lake business front is MADE OF can only change by saying what the roofs already standing on it are. AND ONLY TWO OF THE FIVE BLOCKS HOLD A ROOF THIS PROGRAMME MAY SPEAK FOR. blk_lake_wells, blk_lake_lasalle and blk_lake_clinton carry no record this parcel authored at all - their 14, 14 and 11 standing roofs belong to the research layer and to the phase-one South parcel, and a documented building is not this programme's to re-family. That is a refusal on the committed tree and not an omission: those three blocks' Lake frontage cannot be composed by this ticket in either direction. THE CARD THAT ASKS FOR IT: seq 01, the deep-plan frame cottage anchored on the east end of this block's Lake frontage run, is William Clay - hat manufacturing and dealing, seated here by the street-face adoption policy off the Chicago Democrat. A documented hatter standing in a cottage's silhouette on the Lake Street business face is the reconstruction contradicting its own business layer, and nothing about the building is evidence: it is an anonymous count-unit whose family was picked off this block's scheduled mix, and the schedule apportions the family, never the building. WHAT IS LEFT AS IT STANDS, AND WHY: seq 02, the older log dwelling west of it, is '[uncertain: the dentist lodging near Lake Street, July 1834] - dentistry'. Dentistry is a PROFESSION practised in lodgings, not a shop with a counter, and T-1648 refused the same move on the South Water run for a workshop and a school on exactly this ground. It keeps its cabin. THE FAMILY IS THE EVIDENCE'S CHOICE AND THE CEILING IS MEASURED, NOT ASSERTED. C2, the store-residence, is the family a trade that MANUFACTURES AND DEALS belongs to - its own crosswalk variants read 'shop below; attic rooms; rear lean-to; signboard' - and that is what this card says the keeper does. C3 and C4 are two-storey stores and nothing on this card is evidence of a second storey or of the capital one implies; dealing one to make the frontage read richer is the confidence upgrade AGENTS.md rule 2 forbids, so the store-residence is the largest store family the EVIDENCE admits here rather than the largest the metres would take. C2's 18x30-22x40 ft band overlaps D5's 18x28-24x34, so the roof does not grow past the ground its slot already stood on. WHAT DOES NOT MOVE: the slot keeps its lot, setback, anchor and lateral offset, it is not promoted (it stays a `reconstructed` anonymous count-unit at the bottom tier), no occupant is invented - it keeps the one the street-face adoption policy already gave it - and the block is dealt no extra roof. The footprint is not authored here either: `generate_block_infill` samples a slot inside its family's own band on a stable key, so the record re-derives."
+      }
     },
     {
       "block_id": "blk_randolph_market",

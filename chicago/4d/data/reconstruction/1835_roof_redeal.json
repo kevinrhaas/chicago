@@ -199,11 +199,11 @@
       "group": "ordinary_dwellings",
       "division": "south",
       "target": 176,
-      "standing": 114,
-      "anonymous": 106,
-      "head_before": 62,
-      "standing_after": 114,
-      "head_after": 62
+      "standing": 112,
+      "anonymous": 104,
+      "head_before": 64,
+      "standing_after": 112,
+      "head_after": 64
     },
     {
       "bucket": "structures/ordinary_dwellings/west",
@@ -276,11 +276,11 @@
       "group": "stores_mixed_use",
       "division": "south",
       "target": 42,
-      "standing": 36,
-      "anonymous": 21,
-      "head_before": 6,
-      "standing_after": 36,
-      "head_after": 6
+      "standing": 38,
+      "anonymous": 23,
+      "head_before": 4,
+      "standing_after": 38,
+      "head_after": 4
     },
     {
       "bucket": "structures/stores_mixed_use/west",
@@ -1045,6 +1045,24 @@
       "reason": "the order book has an occupant class for a A1 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_lake_franklin_c2_01",
+      "division": "south",
+      "family": "C2",
+      "group": "stores_mixed_use",
+      "programme_phase": "phase3_platted_block_lake_franklin",
+      "occupied": true,
+      "raised_for": null,
+      "footprint_ft2": 639.9,
+      "street": "lake",
+      "street_class": "principal",
+      "setback_m": 1.5,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/stores_mixed_use/south",
+      "reason": "the order book has an occupant class for a C2 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_lake_franklin_d1_02",
       "division": "south",
       "family": "D1",
@@ -1061,24 +1079,6 @@
       "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
       "reason": "the order book has an occupant class for a D1 roof in the south division and the placement policy accepts the family where it stands"
-    },
-    {
-      "id": "recon_1835_blk_lake_franklin_d5_01",
-      "division": "south",
-      "family": "D5",
-      "group": "ordinary_dwellings",
-      "programme_phase": "phase3_platted_block_lake_franklin",
-      "occupied": true,
-      "raised_for": null,
-      "footprint_ft2": 637.6,
-      "street": "lake",
-      "street_class": "principal",
-      "setback_m": 1.5,
-      "on_the_street_line": true,
-      "conforms": true,
-      "verdict": "keep",
-      "bucket": "structures/ordinary_dwellings/south",
-      "reason": "the order book has an occupant class for a D5 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_lake_market_a1_06",
@@ -1115,6 +1115,24 @@
       "verdict": "keep",
       "bucket": "structures/small_outbuildings/south",
       "reason": "the order book has an occupant class for a A3 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_lake_market_c2_01",
+      "division": "south",
+      "family": "C2",
+      "group": "stores_mixed_use",
+      "programme_phase": "phase3_platted_block_lake_market",
+      "occupied": true,
+      "raised_for": null,
+      "footprint_ft2": 700.3,
+      "street": "lake",
+      "street_class": "principal",
+      "setback_m": 1.5,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/stores_mixed_use/south",
+      "reason": "the order book has an occupant class for a C2 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_lake_market_d1_05",
@@ -1187,24 +1205,6 @@
       "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
       "reason": "the order book has an occupant class for a D4 roof in the south division and the placement policy accepts the family where it stands"
-    },
-    {
-      "id": "recon_1835_blk_lake_market_d5_01",
-      "division": "south",
-      "family": "D5",
-      "group": "ordinary_dwellings",
-      "programme_phase": "phase3_platted_block_lake_market",
-      "occupied": true,
-      "raised_for": null,
-      "footprint_ft2": 603.1,
-      "street": "lake",
-      "street_class": "principal",
-      "setback_m": 6.99,
-      "on_the_street_line": false,
-      "conforms": true,
-      "verdict": "keep",
-      "bucket": "structures/ordinary_dwellings/south",
-      "reason": "the order book has an occupant class for a D5 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_randolph_clark_a3_08",
