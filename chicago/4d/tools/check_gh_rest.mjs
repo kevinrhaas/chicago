@@ -49,13 +49,24 @@ const SURFACES = ['.github/workflows', '.github/steward'];
 // on bake PRs by chicago-4d-bake.yml. Anything else matches GRAPHQL_DRAW below.
 const NAMED_EXCEPTION = /gh\s+pr\s+merge\b[^\n]*--auto/;
 const GRAPHQL_DRAW = /\bgh\s+(pr\s+(create|list|view|merge|comment|status|checks|diff|review)|issue\b|search\b)/;
-// T-1655. The scripts whose verbs each act on a named repository, and the two
-// halves of that: no READ of the ambient repo name (an unescaped expansion — a `\$`
-// is a mention, which the refusal message itself needs), and a `--repo` option to
-// name it with. Only pr-rest.sh for now: pr-lap.sh, merge-ready.sh and pr-stuck.sh
-// have the same shape and are run by this repository's OWN workflows, where the
-// ambient name is right; T-1656 carries them.
-const REPO_NAMED = ['.github/steward/pr-rest.sh'];
+// T-1655, widened to all four by T-1656. The scripts whose verbs each act on a named
+// repository, and the two halves of that: no READ of the ambient repo name (an
+// unescaped expansion — a `\$` is a mention, which the refusal message itself needs),
+// and a `--repo` option to name it with.
+//
+// The other three joined the list because the reason they were left out of it was
+// only that today's callers happen to be right: they are run by this repository's OWN
+// workflows, where the ambient name is the ambient name you want. That is a property
+// of the CALLER, and pr-rest.sh had the same property until a steward run drove it
+// from a clone inside a polecat-platform job (T-1652). Two of the three WRITE —
+// merge-ready.sh merges, pr-stuck.sh labels and comments — so the silent
+// wrong-repository write T-1655 measured was available to them the same way.
+const REPO_NAMED = [
+  '.github/steward/pr-rest.sh',
+  '.github/steward/pr-lap.sh',
+  '.github/steward/merge-ready.sh',
+  '.github/steward/pr-stuck.sh',
+];
 const AMBIENT_REPO = /(^|[^\\])\$\{?GITHUB_REPOSITORY\b/;
 const REPO_OPTION = /--repo\b/;
 
@@ -144,9 +155,25 @@ function main() {
       const ambientClean = scanRepoNamed(t1).length === 0;
       mk(t1, '.github/steward/pr-rest.sh', 'repo=kevinrhaas/chicago\n');
       const optionRequired = scanRepoNamed(t1).some((a) => /no --repo option/.test(a));
+      // (g) T-1656: EVERY entry in REPO_NAMED is really covered, one at a time. The
+      // list is the whole of what makes the tripwire reach a script, and a list is
+      // exactly the kind of thing that grows a name without gaining a check — this
+      // one carried pr-rest.sh alone while pr-lap.sh, merge-ready.sh and pr-stuck.sh
+      // sat outside it with the same fault in them. So each name is put back in a
+      // fixture that reads the environment, with the other three clean, and the scan
+      // has to name THAT file and no other.
+      const CLEAN = '# never \\$GITHUB_REPOSITORY (T-1655)\ncase "$1" in --repo) repo=$2 ;; esac\n';
+      const coverage = REPO_NAMED.map((rel) => {
+        for (const other of REPO_NAMED) mk(t1, other, CLEAN);
+        mk(t1, rel, `${CLEAN}REPO="\${GITHUB_REPOSITORY:-kevinrhaas/chicago}"\n`);
+        const found = scanRepoNamed(t1);
+        return found.length === 1 && found[0].startsWith(`${rel}:3`);
+      });
+      const allCovered = coverage.length === 4 && coverage.every(Boolean);
       console.log(`self-test: clean-scan ${cleanOk ? 'ok' : 'FAIL'}, violation caught ${catches ? 'ok' : 'FAIL'}, named exception allowed ${excepts ? 'ok' : 'FAIL'}`);
       console.log(`self-test: T-1655 ambient repo caught ${ambientCaught ? 'ok' : 'FAIL'}, an escaped mention allowed ${ambientClean ? 'ok' : 'FAIL'}, --repo required ${optionRequired ? 'ok' : 'FAIL'}`);
-      if (!(cleanOk && catches && excepts && ambientCaught && ambientClean && optionRequired)) process.exit(1);
+      console.log(`self-test: T-1656 each of the ${REPO_NAMED.length} named scripts covered on its own — ${REPO_NAMED.map((r, i) => `${r.replace(/^.*\//, '')} ${coverage[i] ? 'ok' : 'FAIL'}`).join(', ')}`);
+      if (!(cleanOk && catches && excepts && ambientCaught && ambientClean && optionRequired && allCovered)) process.exit(1);
     } finally {
       rmSync(t1, { recursive: true, force: true });
     }

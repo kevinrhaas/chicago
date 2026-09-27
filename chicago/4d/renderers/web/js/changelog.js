@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1171, title: 'The wide store on Franklin gets its four-bay front', kind: 'change', ts: '2026-09-27T10:24:04.385Z', date: 'Sep 27, 2026, 5:24 AM CT',
+  { v: null, title: 'The wide store on Franklin gets its four-bay front', kind: 'change', ts: '',
     items: [
       'The town\u2019s one wide two-storey store block, at the east end of the Franklin block on South Water Street, had a door and a single show window on a thirty-foot front. It now has the door and three windows \u2014 the four-bay shopfront its own brief asks for. It was the last building standing outside its family\u2019s range, and the range is now kept across the town.',
       'The rule that picks a window count caps the opening at 45% of the front, and this front is the narrow end of a family whose plans run half again as wide. Four openings are 70% of thirty feet and the cap refused them, so the rule fell to its floor and built two. The cap was argued for a store filling a fifty-five-foot lot with its long side to the street; it decides nothing useful on a front half that width.',
       'No number changed and nothing else in the town moved. The building now states its own bay count, and the specification\u2019s range for the family is what states it. Four is the bottom of that range and also all the wall can hold: a fifth opening would need nine millimetres more frontage than the building has.',
       'A count a building states can bring it INTO its family\u2019s range and cannot carry it past the range or past the frame \u2014 a new check holds both ends. The rhythm itself is still an invention, on a building no source describes, and the register of things we made up says so.',
+    ] },
+  { v: 1171, ts: '2026-09-27T11:35:57.995Z', date: 'Sep 27, 2026, 6:35 AM CT', title: 'Nothing you can see: the release machinery names its own project', kind: 'fix',
+    items: [
+      'Nothing in the town changed and no card moved. This is a repair to the machinery that laps, merges and reports on the work before it reaches you, and a visitor will find the same Chicago as before.',
+      'Three of those scripts worked out which project they were acting on by asking the job they were running in. That is the wrong question: the job belongs to whoever started it, not to the copy of this project the script is standing in. Yesterday the same line put one of this project\u2019s handoff notes, and a label, on an unrelated pull request in a different repository \u2014 which nothing noticed, because both had a request numbered 104 open that day.',
+      'All three now read the project they are checked out of, or take its name as an argument, and refuse in one line rather than guess. Each carries a test that proves the refusal fires, and a test that proves the argument beats the environment; the drift check that had been watching one script watches all four.',
     ] },
   { v: 1170, ts: '2026-09-27T08:10:14.904Z', date: 'Sep 27, 2026, 3:10 AM CT', title: 'The freight sheds get the doors a freight shed had', kind: 'change',
     items: [
