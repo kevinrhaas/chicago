@@ -195,13 +195,18 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # each. It is the first roof this row has taken for a REFUSAL being re-read rather than for a
 # slot being dealt: T-0134 refused this bank on a measurement, and the measurement moved.
 #
+# 422 -> 423 and 420 -> 421 on 2026-09-27 (T-1640): `south_bank_shed_dearborn_e2`, the second
+# shed of that same row, on e1's own two wall lines with a wagon yard between them. One new
+# structure asset, so one more mesh the shared generator modules would re-stale; the terrain
+# and pier_crib reaches stay at 2 each. Nothing about the debt itself moved.
+#
 STATED = {
-    "assets": 422,
+    "assets": 423,
     "restales": {
-        "generators/common/*.py": 422,
+        "generators/common/*.py": 423,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 420,
+        "generators/emit.py": 421,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,

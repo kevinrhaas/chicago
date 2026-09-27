@@ -493,7 +493,21 @@ def fits(ground: Ground, west: float, east: float, width: float, depth: float,
     vs = [i * MASK_M for i in range(int(depth / MASK_M) + 1)]
     us = sorted(set(us + [width]))
     vs = sorted(set(vs + [depth]))
-    bearings = [math.radians(d) for d in range(0, 180, BEARING_STEP_DEG)]
+    # THE FULL TURN, AND NOT A HALF ONE (T-1640). A rectangle is its own shape at
+    # `theta` and at `theta + 180`, and this swept 0-165 for that reason. The
+    # rectangle is not anchored at its centre, though — it is anchored at its (0, 0)
+    # corner — so turning it 180 degrees does not leave it where it was, it reflects
+    # it through the station onto the opposite quadrant. Sweeping the half turn
+    # therefore expresses only the placements that lie NORTH of their own station,
+    # and the equivalent bearing-0 station for one lying south of the box floor
+    # (`BOX_S_M`) is not on the lattice at all. What that cost is measured: on
+    # 2026-09-27 the only position this reading would admit at the generators' own
+    # 0.30 m clause stood 15 degrees off the riverside walk and 0.111 m from
+    # `south_bank_shed_dearborn_e1`'s south wall, while a rectangle SQUARE to the
+    # walk stands on the same ground at 0.089 m of relief with 2.00 m between the
+    # two sheds — a placement the reading could not name. Every bound in this
+    # reading is the permissive one and its own anchor was not.
+    bearings = [math.radians(d) for d in range(0, 360, BEARING_STEP_DEG)]
     e0 = west
     while e0 <= east + 1e-9:
         n0 = BOX_S_M
@@ -709,11 +723,16 @@ def measure() -> dict:
              "e_to": round(max(e for e, _ in s["ring"]), 2),
              "n_from": round(min(n for _, n in s["ring"]), 2),
              "n_to": round(max(n for _, n in s["ring"]), 2)}
-            for s in standing
-            if min(n for _, n in s["ring"]) <= BOX_N_M
-            and max(n for _, n in s["ring"]) >= BOX_S_M
-            and min(e for e, _ in s["ring"]) <= east
-            and max(e for e, _ in s["ring"]) >= west],
+            # EVERY FOOTPRINT THE MASK ACTUALLY USED, and not the ones that happen to
+            # sit inside the strip's own box (T-1640). `standing_footprints` collects
+            # what reaches the box plus `TRACK_MARGIN_M`, because a building outside the
+            # box still covers ground a rectangle anchored inside it would stand on —
+            # and this list then filtered that set back down to the box, so a refusal
+            # could be reported with the building that caused it left unnamed. Measured
+            # on the day: `south_bank_shed_dearborn_e2` stands wholly south of N 0 and
+            # refused 15 of the reading's positions while appearing nowhere in the
+            # transcript. The count and the list are now the same claim.
+            for s in standing],
         "fits_on_what_stands": counted(on_what_stands),
         "takes_more": more,
         "takes_more_where": more_where,

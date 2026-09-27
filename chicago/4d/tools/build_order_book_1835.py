@@ -285,7 +285,29 @@ STRUCTURE_TICKETS = {
     # South Water, on the river-bank band the south-bank ground rule allows" — while T-1638
     # writes keepers onto seated roofs, T-1639 raises the street line's stores and
     # warehouses, and T-1641 closes the district's books.
-    ("south", "warehouses_freight"): "T-1640",
+    #
+    # DECIDED 2026-09-27 (T-1640), because two runs had resolved this row differently
+    # within an hour of the split and the next sweep would have flipped it a third time:
+    # it stays a SINGLE ticket and does not become the `owning_tickets` tuple PR #95
+    # wrote. The tuple's reasoning was that T-1639 owes the F1-F3 warehouses on the
+    # street line while T-1640 owes the sheds behind them, and the inventory holds both
+    # halves in one cell it does not cut. That reasoning is sound and the conclusion no
+    # longer follows: T-1639 is in state `split` — its own children (T-1660, T-1662,
+    # T-1663, T-1665, T-1667) are door and bay tickets against roofs ALREADY STANDING,
+    # and not one of them raises a roof. So there is no live run owing a roof out of this
+    # cell but T-1640, and naming a split ticket beside it orders work nobody can claim,
+    # which is the fault this block's first paragraph exists to prevent. When the cell is
+    # cut for real — the street-line warehouses apart from the sheds behind them — it is
+    # the INVENTORY that should cut it, not a tuple in the order book.
+    #
+    # MOVED TO T-1672 on 2026-09-27, in the pull request that closed T-1640. T-1640 built
+    # `south_bank_shed_dearborn_e2`, which took the last position the south-bank ground
+    # rule admits at the generators' 0.30 m relief clause — `takes_more` now reads 0 there
+    # — and the cell still owes three roofs. So this row cannot stay on T-1640 without
+    # ordering work from a ticket nobody can claim, which is the fault the paragraph above
+    # was written for; T-1672 owns the question the three remaining roofs actually pose,
+    # which is WHERE they stand now that the bank is full.
+    ("south", "warehouses_freight"): "T-1672",
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
