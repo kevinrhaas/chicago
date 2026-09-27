@@ -11,7 +11,7 @@ generator half, so a baked town carries its own yards"*. Before building one, th
 things wanted a number rather than an opinion:
 
   1. **How many committed meshes does adding it re-stale?** `generators/
-     mesh_inputs.py` hashes an archetype's builder, `generators/build.py` and
+     mesh_inputs.py` hashes an archetype's builder, `generators/emit.py` and
      the geometry-making half of `generators/common/` into every structure asset's
      `inputs_sha256`, and `generators/terrain_inputs.py` hashes `terrain_gen.py`
      and the same modules into every terrain asset's. Which half that is, is
@@ -188,13 +188,26 @@ RENDERER_JS = RENDERERS / "web" / "js"
 # HOUSEHOLD asked for rather than the schedule's district remainder, and the reach moves for
 # the same reason it always does: two more committed meshes, nothing about the debt itself.
 #
+# 421 -> 422 and 419 -> 420 on 2026-09-26 (T-1636): `south_bank_shed_dearborn_e1`, the
+# south-bank half of the plate T-0133 built the north bank of, on ground T-1629's fill of the
+# old slough mouth opened. One new structure asset, so one more mesh a change to the shared
+# generator modules or to build.py would re-stale; the terrain and pier_crib reaches stay at 2
+# each. It is the first roof this row has taken for a REFUSAL being re-read rather than for a
+# slot being dealt: T-0134 refused this bank on a measurement, and the measurement moved.
+#
+# 422 -> 423 and 420 -> 421 on 2026-09-27 (T-1640): `south_bank_shed_dearborn_e2`, the second
+# shed of that same row, on e1's own two wall lines with a wagon yard between them. One new
+# structure asset, so one more mesh the shared generator modules would re-stale; the terrain
+# and pier_crib reaches stay at 2 each. Nothing about the debt itself moved.
+#
 STATED = {
-    "assets": 421,
+    "assets": 423,
     "restales": {
-        "generators/common/*.py": 421,
+        "generators/common/*.py": 423,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/build.py": 419,
+        "generators/emit.py": 421,
+        "generators/build.py": 0,
         "generators/terrain_gen.py": 2,
         "generators/archetypes/pier_crib.py": 2,
     },
@@ -254,7 +267,7 @@ def restale_reach() -> tuple[dict, int, list]:
     which is the only reading that cannot go stale behind them:
 
       * `mesh_inputs._code_shas(archetype)` names what a STRUCTURE asset's hash
-        covers: `build.py`, that archetype's builder, and `common/*.py`.
+        covers: `emit.py`, that archetype's builder, and `common/*.py`.
       * `terrain_inputs._code_shas()` names what a TERRAIN asset's covers:
         `terrain_gen.py` and `common/*.py`.
 
@@ -306,6 +319,15 @@ def restale_reach() -> tuple[dict, int, list]:
     # ordered turning up in the next bake's diff.
     for name in code_inputs.excluded():
         reach[f"generators/common/{name}"] = 0
+    # And `build.py`, which T-1654 took out of the structure recipe exactly as T-0164
+    # took `common/phases.py` out of it — the pipeline moved to `generators/emit.py`
+    # and the command line stayed behind. Reported at its reach, which is 0, for the
+    # reason directly above: a row reading zero is the standing gate on that split.
+    # Write a builder call back into the CLI and this row returns to 420 here, in a
+    # diff somebody is reading, instead of arriving as a full-town rebake nobody
+    # ordered. `tools/test_build_cli_has_no_geometry.py` refuses the edit outright;
+    # this is the figure that would move if the refusal were ever removed.
+    reach.setdefault("generators/build.py", 0)
     return reach, len(assets), problems
 
 

@@ -387,6 +387,56 @@ def _log_and_fort_roof_count() -> int:
                if record.get("archetype") in ("log_dwelling", "fort_structure"))
 
 
+def _cargo_opening_count() -> int:
+    """Phases whose door is the freight shed's `cargo` opening, which is the
+    population L278's two invented numbers reach.
+
+    Counted off the LAYER rather than off the family, because the family is not
+    what the liberty is about: any record stating `door: cargo` is built with the
+    2.20 x 2.35 m opening and the bay rhythm the entry invents, whatever family
+    dealt it. Today that is F1 and only F1, and the day a named building is read
+    as having one this count moves and the entry has to be restated.
+    """
+    return sum(1 for _, form in _phase_forms()
+               if _attr(form.get("door")) == "cargo")
+
+
+def _forge_stack_count() -> int:
+    """Phases the `outbuilding` archetype builds a forge stack on, which is the
+    population L282's four invented numbers reach.
+
+    Counted off the LAYER and narrowed to the ONE archetype that draws this shape.
+    `chimneys` is the town's shared count — 213 buildings carry it — and every other
+    archetype builds its own stack under its own liberty (L26 owns the position of
+    all of them); only `outbuilding` builds the hearth-and-flue profile this entry
+    invents. Today the three that state it are the three smithies, and the day a
+    soap-boiler or a bakehouse on this archetype is read as having had a flue, this
+    count moves and the entry has to be restated.
+    """
+    n = 0
+    for rec, form in _phase_forms():
+        if rec.get("archetype") != "outbuilding":
+            continue
+        if (_attr(form.get("chimneys")) or 0) > 0:
+            n += 1
+    return n
+
+
+def _cargo_rhythm_count() -> int:
+    """Phases standing at more than one cargo opening, which is the population
+    L280's two invented counts reach.
+
+    Counted off the LAYER rather than off the family, for the reason
+    `_cargo_opening_count` gives one entry above: any record stating
+    `goods_door_bays` above one is built with the rhythm the entry invents,
+    whatever family dealt it. Today that is F2 and only F2 — F3 is authored the
+    same way and no F3 stands in this town — and the day a named warehouse is read
+    as having had two doors this count moves and the entry has to be restated.
+    """
+    return sum(1 for _, form in _phase_forms()
+               if (_attr(form.get("goods_door_bays")) or 1) > 1)
+
+
 def _roof_covering_count() -> int:
     """Phases stating a roof type, which is the population L263's exposure reaches.
 
@@ -514,6 +564,7 @@ def _block_redealt_roof_count() -> int:
 
 PLATTED_SEATS = ROOT / "data" / "reconstruction" / "1835_platted_seats.json"
 OFF_PLAT_SEATS = ROOT / "data" / "reconstruction" / "1835_off_plat_seats.json"
+ROOF_KEEPERS = ROOT / "data" / "reconstruction" / "1835_roof_keepers.json"
 
 
 def _off_plat_seat_count() -> int:
@@ -527,6 +578,19 @@ def _off_plat_seat_count() -> int:
     if not OFF_PLAT_SEATS.exists():
         return 0
     return len(json.loads(OFF_PLAT_SEATS.read_text()).get("seats") or [])
+
+
+def _roof_keeper_count() -> int:
+    """Roofs that NAME the household the placement policy dealt them.
+
+    Counted off `written` rather than off `counts.written`, for the reason
+    `_platted_seat_count` gives — a liberty that read the summary would be checking the
+    summary writer. The refusals are deliberately not counted here: the liberty is what
+    the town now SAYS, and the sixty the letter-list ruling holds back say nothing.
+    """
+    if not ROOF_KEEPERS.exists():
+        return 0
+    return len(json.loads(ROOF_KEEPERS.read_text()).get("written") or [])
 
 
 def _platted_seat_count() -> int:
@@ -549,6 +613,10 @@ SCOPE_SOURCES = {
         _off_plat_seat_count,
         "data/reconstruction/1835_off_plat_seats.json, itself re-derived by "
         "tools/seat_off_plat_ground_1835.py --check"),
+    "roof_keepers.written[named]": (
+        _roof_keeper_count,
+        "data/reconstruction/1835_roof_keepers.json, itself re-derived by "
+        "tools/name_the_keepers_1835.py --check"),
     "platted_seats.seats[dealt]": (
         _platted_seat_count,
         "data/reconstruction/1835_platted_seats.json, itself re-derived by "
@@ -588,6 +656,21 @@ SCOPE_SOURCES = {
     "structures.records[brick_fabric]": (
         _brick_fabric_count,
         "data/structures/*.json, the layer's own construction attribute"),
+    "structures.phases[cargo_openings]": (
+        _cargo_opening_count,
+        "data/structures/*.json, the layer's own door attribute; the records "
+        "themselves are re-derived by tools/generate_inferred_infill.py --check "
+        "and tools/generate_west_infill.py --check"),
+    "structures.phases[chimneys]": (
+        _forge_stack_count,
+        "data/structures/*.json, the layer's own chimneys attribute on the "
+        "outbuilding archetype; the records themselves are re-derived by "
+        "tools/generate_inferred_households.py --check"),
+    "structures.phases[cargo_rhythm]": (
+        _cargo_rhythm_count,
+        "data/structures/*.json, the layer's own goods_door_bays attribute; the "
+        "records themselves are re-derived by "
+        "tools/generate_block_infill.py --check"),
     "structures.phases[roof_type_stated]": (
         _roof_covering_count,
         "data/structures/*.json, the layer's own roof_type attribute"),

@@ -25,10 +25,10 @@ set out:
 
 Not a new frontage record with a conjectural along-street position, and not waiting for a
 corner. This file is that ruling made re-derivable. `docs/STREET-FACE-ADOPTION.md` is the
-policy it implements and states the four limits in full; what follows is how they are
+policy it implements and states the five limits in full; what follows is how they are
 enforced here.
 
-THE FOUR LIMITS, AND EACH ONE IS AN ASSERTION IN `--check`.
+THE FIVE LIMITS, AND EACH ONE IS AN ASSERTION IN `--check`.
 
   1. **A STREET FACE, NEVER A LOT.** The paper's constraint is the face; the lot is the
      reconstruction's. Every adoption carries `lot: null` and `claims_lot: false`, and
@@ -43,11 +43,29 @@ THE FOUR LIMITS, AND EACH ONE IS AN ASSERTION IN `--check`.
      dwelling (L205), followed rather than reinvented.
   3. **THE ALONG-STREET POSITION IS THE RECONSTRUCTION'S, NOT EVIDENCE.** Which roof on
      the face a business is given is an allocation. Businesses are ranked by evidence and
-     paired with the face's free roofs in id order — deterministic, and a statement about
-     nothing.
+     paired with the face's free roofs — deterministic, and a statement about nothing.
   4. **ORDER WITHIN A FACE IS NOT A CLAIM.** Two businesses on one face: neither is
      nearer the corner than the other on any authority. `order_is_a_claim: false` says so
      in every record.
+  5. **THE DEAL READS WHAT THE ROOF WAS RAISED AS (T-1651).** Of the roofs free on a face
+     under one reading, a business takes one of the C, W or F bands — a house of trade —
+     before one of the D, H, A, I, T or M bands. It is still an allocation and still says
+     nothing about where the business stood; what it stops doing is contradicting the
+     reconstruction's own typology for no reason, and `--check` refuses a business seated
+     in a dwelling while a house of trade of the same reading stood free.
+
+     **UNTIL T-1651 THE PAIRING WAS BY THE ROOF'S ID, AND THAT WAS NOT A READING OF THE
+     FAMILY.** An anonymous roof's id carries its family as a token — `…_c2_08` — and
+     within one block `c` sorts before `d`, so the deal LOOKED as though it preferred a
+     shop. It did not. It preferred a NAME, which cost two things. A business on a face
+     spanning several blocks took an earlier block's cottage over a later block's store,
+     which is how eighteen of thirty-nine documented businesses came to stand in log
+     cabins and frame cottages. And because the id carries the family, RE-FAMILYING ONE
+     ROOF RENAMED IT and re-dealt every business below it on the face: `re_family_churn`
+     measures that at 2,881 places changed over 2,322 re-families that did not change
+     what any roof is, against zero under `deal_order`. `roof_key` is the roof's place in
+     its block — pool and ordinal, the family token stripped with the record's own
+     `family` — and a re-family does not move it.
 
 WHAT COUNTS AS "ALREADY STANDING ON THAT STREET FACE" — the one reading this pass makes,
 and it is the narrow one.
@@ -268,6 +286,13 @@ import fronting_street  # noqa: E402  (needs the path above)
 from compile_gazetteer import (  # noqa: E402  — the identity policy has one home
     sign_name_index, surname_words,
 )
+# The archetype bands whose roofs held a TRADE, read from the ONE place this project
+# writes them down rather than re-decided here (T-1657): C is a shop or store, W a
+# works, F a freight store. D and H are dwellings, A the yard buildings, I the churches,
+# schools and civic roofs, T the inns and M the fort. `normalise_structure_function`
+# gates that reading on every commit; this pass only asks it a question it had never
+# been asked.
+from normalise_structure_function import TRADE_BANDS  # noqa: E402
 
 DATA = ROOT / "data"
 REGISTER = DATA / "research" / "newspapers" / "register_1835.json"
@@ -293,6 +318,11 @@ ADOPTION_KEYS = {
     "street_id", "street_name", "street_text", "placement_class",
     "cites", "first_issue", "last_issue", "mentions",
     "structure_id", "face", "roof_confidence",
+    # T-1651. What the reconstruction RAISED the adopted roof as, read off the roof's own
+    # record. The deal was blind to it for a year, which is how a documented dry-goods
+    # store came to stand in a log cabin while a shop roof stood free on the same face;
+    # carrying the reading on the record is what stops that being invisible again.
+    "roof_family", "roof_function", "roof_is_a_house_of_trade", "family_note",
     "lot", "claims_lot", "order_is_a_claim", "note",
 }
 
@@ -359,6 +389,89 @@ def reconstructed_roofs() -> dict[str, str]:
         grades.discard(None)
         out[doc["id"]] = sorted(grades)[0] if len(grades) == 1 else "|".join(sorted(grades))
     return out
+
+
+_FAMILIES: dict[str, str] | None = None
+_FUNCTIONS: dict[str, str] | None = None
+
+
+def roof_families() -> dict[str, str]:
+    """structure id -> `reconstruction.family` for every `recon_*` roof, read once.
+
+    THE FAMILY IS A FIELD AND THE ID IS A NAME (T-1651). Every anonymous roof's id
+    carries its family as a token — `…_c2_08` — and on every tree this project has held
+    the two agree, which is exactly why a pass could sort the face's roofs by ID for a
+    year and look as though it were reading the family. It was not. The id is the roof's
+    NAME, and the moment a roof is re-familied the name changes with it, so an
+    id-ordered deal re-deals the whole face for one roof's change. `limits()` asserts the
+    token and the field still agree wherever the id carries a token, which is the
+    statement this reader rests on.
+    """
+    global _FAMILIES
+    if _FAMILIES is None:
+        _FAMILIES = {}
+        for path in sorted(STRUCTURES.glob("recon_*.json")):
+            doc = load(path)
+            _FAMILIES[doc["id"]] = (doc.get("reconstruction") or {}).get("family")
+    return _FAMILIES
+
+
+def roof_functions() -> dict[str, str]:
+    """structure id -> `function.value` for every `recon_*` roof, read once.
+
+    The family's own term for what the roof is — `store_residence`, `two_room_frame
+    _cottage` — out of the closed vocabulary T-1311 put in `data/structures.schema.json`.
+    It is carried onto the adoption so a reader can SEE what a business was seated in
+    without holding the crosswalk in their head.
+    """
+    global _FUNCTIONS
+    if _FUNCTIONS is None:
+        _FUNCTIONS = {}
+        for path in sorted(STRUCTURES.glob("recon_*.json")):
+            doc = load(path)
+            _FUNCTIONS[doc["id"]] = (doc.get("function") or {}).get("value")
+    return _FUNCTIONS
+
+
+def is_house_of_trade(family: str | None) -> bool:
+    """Did a customer come in off the street to this roof? Its BAND answers, and only it.
+
+    `TRADE_BANDS` is T-1657's ruling and this pass does not extend it. A roof of the C, W
+    or F bands was raised as a house of trade — a counter, a works, a freight store — and
+    a roof of the D, H, A, I, T or M bands was not.
+    """
+    return bool(family) and str(family).upper().startswith(TRADE_BANDS)
+
+
+_ORDINAL = re.compile(r"^(?P<stem>.+)_(?P<ordinal>\d+)$")
+
+
+def roof_key(structure_id: str, family: str | None) -> tuple[str, int]:
+    """(pool, ordinal) — a roof's place among its neighbours, INVARIANT under a re-family.
+
+    The anonymous layer numbers its roofs `<pool>_<family>_<ordinal>`, and the ordinal is
+    unique within the pool ACROSS families on every tree this project holds — `limits()`
+    asserts that, because the whole value of this key rests on it. So stripping the family
+    token with the record's own `family` leaves `(pool, ordinal)`: the roof's place in its
+    block, which a re-family does not move. The West Division's roofs carry no family
+    token at all (`recon_1835_west_012`) and are already keyed this way.
+
+    THIS IS NOT A GEOMETRIC ORDER AND MUST NOT BECOME ONE. Limit 4 says order within a
+    face is not a claim, and ordering the deal by distance along the street would make the
+    best-evidenced business the one nearest the corner — a claim nothing supports. The
+    ordinal is the schedule's own numbering and says nothing about where a roof stands.
+    """
+    match = _ORDINAL.match(structure_id)
+    if not match:
+        raise AssertionError(
+            "%s does not end in an ordinal, so it has no place in a pool the deal can "
+            "hold steady across a re-family" % structure_id)
+    stem, ordinal = match.group("stem"), int(match.group("ordinal"))
+    if family:
+        token = "_%s" % str(family).lower()
+        if stem.endswith(token):
+            stem = stem[: -len(token)]
+    return (stem, ordinal)
 
 
 def yard_roofs() -> set[str]:
@@ -511,24 +624,52 @@ EMPTY_FACE = {FRONT: [], SIDE: [], BAND: [], "free": [], "homes": [], "yards": [
 READING_ORDER = (FRONT, SIDE, BAND)
 
 
+def deal_order(structure_id: str, families: dict[str, str]) -> tuple:
+    """The key the deal takes a face's free roofs in — T-1651, and it replaced the id.
+
+    Two things it does that sorting by the roof's id did not:
+
+      * **It reads the roof's FAMILY.** A house of trade comes before a dwelling, so a
+        documented business takes a roof the reconstruction raised for one while any is
+        free. This is an ALLOCATION and not evidence — limit 3 still holds, and nothing
+        here says the paper placed this business in a shop — but of the allocations
+        available it is the only one that does not contradict the reconstruction's own
+        typology. Blind to it, this pass stood eighteen of thirty-nine documented
+        businesses in log cabins and frame cottages while shop roofs on the same faces
+        stood empty.
+      * **It is stable under a re-family.** `roof_key` is the roof's place in its block
+        and does not move when the roof's family changes; the id does, because the id
+        carries the family. The tier above it moves only if the re-family crosses the
+        trade bands, so one roof's change now re-deals what that roof's change reaches
+        and not the whole street.
+    """
+    family = families.get(structure_id)
+    return (0 if is_house_of_trade(family) else 1, roof_key(structure_id, family))
+
+
 def free_under(face: dict, readings: tuple[str, ...], homes: dict,
-               yards: set[str], requested: dict | None = None) -> list[str]:
-    """The roofs a pass adopting `readings` could take, in READING_ORDER then id order.
+               yards: set[str], requested: dict | None = None,
+               families: dict[str, str] | None = None) -> list[str]:
+    """The roofs a pass adopting `readings` could take, in READING_ORDER then `deal_order`.
 
     Refusals 4, 5 and 7 are applied here rather than by the caller, because they are
     refusals of a ROOF and hold under any reading of "face": a named household's home is
     that household's home whichever street the roof shows, a privy is a privy, and a roof
     raised to answer a slot request was commissioned by the household layer whichever
-    street it ends up showing. `free_under(face, (FRONT,), ...)` is exactly
-    `face["free"]`, which is what keeps the committed allocation byte-identical.
+    street it ends up showing. `free_under(face, (FRONT,), ...)` is `face["free"]`
+    re-ordered, and nothing else: the SET a reading makes free is untouched by T-1651 and
+    every refusal that governed it still does.
     """
     requested = requested or {}
+    families = roof_families() if families is None else families
     out: list[str] = []
     for how in READING_ORDER:
         if how not in readings:
             continue
-        out += [sid for sid in face[how]
+        here = [sid for sid in face[how]
                 if sid not in homes and sid not in yards and sid not in requested]
+        here.sort(key=lambda sid: deal_order(sid, families))
+        out += here
     return out
 
 
@@ -693,6 +834,168 @@ TOWN_LEDGER = "town-wide"
 PER_FACE_LEDGER = "per face"
 
 
+CROSSWALK = DATA / "reconstruction" / "1835_family_archetype_crosswalk.json"
+
+
+def scheduled_families() -> list[str]:
+    """Every archetype family the roof schedule holds — the re-families that are possible."""
+    return [row["id"] for row in load(CROSSWALK)["families"]]
+
+
+def _renamed(structure_id: str, family: str | None) -> str:
+    """The id a roof would carry if it were re-familied to `family`.
+
+    A re-family RENAMES the roof wherever the id carries a family token, which is the
+    whole mechanism T-1651 is about: the id is the family's, so changing the family
+    changes the name, and a deal ordered by the name re-deals. The West Division's ids
+    carry no token and are returned unchanged.
+    """
+    return re.sub(r"_[a-z]\d(_\d+)$", lambda m: "_%s%s" % (str(family).lower(),
+                                                            m.group(1)), structure_id)
+
+
+def re_family_churn(faces: dict, homes: dict, yards: set[str], requested: dict,
+                    families: dict[str, str]) -> dict:
+    """How far ONE roof's re-family reaches into the deal order — measured, both ways.
+
+    THIS IS THE NUMBER T-1651 WAS OPENED ON, so it is derived on every rebuild rather than
+    argued in a ticket. Take every face, every roof free on it, and every family the roof
+    schedule holds; re-family that one roof, re-order the face, and count how many OTHER
+    roofs changed position. Under the ID ORDER the pass used until T-1651 the answer is
+    large, because the family is in the name: re-family a roof and it jumps across the
+    block's whole alphabet. Under `deal_order` it is zero unless the re-family crosses the
+    C/W/F bands, because `roof_key` is the roof's place in its block and a re-family does
+    not move it.
+
+    A roof that moves position is a business that would be dealt a DIFFERENT BUILDING for
+    a change made to somebody else's roof. Nothing about the register changed; nothing
+    about the street changed. That is what the churn counts.
+    """
+    scheduled = scheduled_families()
+    buckets = ("within the bands", "across the bands")
+    tally = {bucket: {key: {"re_families_tried": 0, "places_changed": 0,
+                            "worst_single_re_family": 0, "changed_nothing": 0}
+                      for key in ("id_order", "deal_order")}
+             for bucket in buckets}
+    places = 0
+    faces_measured = 0
+
+    def ordered(roofs: list[str], ids: dict, fams: dict, key: str) -> list[str]:
+        """The face in the order `key` deals it, as a list of the roofs' STANDING ids.
+
+        The roofs are identified by the id they stand under today, so a re-familied roof
+        can be told from its neighbours after it has been renamed; `ids` is what each one
+        would be CALLED under the counterfactual and `fams` what each one would BE.
+        """
+        if key == "id_order":
+            return sorted(roofs, key=lambda sid: ids[sid])
+        return sorted(roofs, key=lambda sid: (
+            0 if is_house_of_trade(fams[sid]) else 1, roof_key(ids[sid], fams[sid])))
+
+    for street_id in sorted(faces):
+        face = faces[street_id]
+        for how in ADOPTED_READINGS:
+            here = [sid for sid in face[how]
+                    if sid not in homes and sid not in yards and sid not in requested]
+            if len(here) < 2:
+                continue
+            faces_measured += 1
+            places += len(here)
+            plain_ids = {sid: sid for sid in here}
+            plain_fams = {sid: families.get(sid) for sid in here}
+            before = {key: ordered(here, plain_ids, plain_fams, key) for key in
+                      ("id_order", "deal_order")}
+            for subject in here:
+                was = families.get(subject)
+                for family in scheduled:
+                    if family == was:
+                        continue
+                    # THE TWO KINDS OF RE-FAMILY, and they are different questions. A roof
+                    # that goes from one dwelling family to another, or from one commercial
+                    # family to another, has not changed WHAT IT IS: nothing about the deal
+                    # should notice, and under `deal_order` nothing does. A roof that
+                    # crosses the C/W/F bands has changed what it is, and a deal that reads
+                    # the family is SUPPOSED to move it.
+                    bucket = (buckets[0]
+                              if is_house_of_trade(was) == is_house_of_trade(family)
+                              else buckets[1])
+                    ids = dict(plain_ids, **{subject: _renamed(subject, family)})
+                    fams = dict(plain_fams, **{subject: family})
+                    for key, row in tally[bucket].items():
+                        after = ordered(here, ids, fams, key)
+                        # POSITION BY POSITION, because the position is the allocation: the
+                        # deal walks the businesses in evidence order and hands each the
+                        # next free roof, so a roof that changes place changes which
+                        # business gets which building.
+                        changed = sum(1 for a, b in zip(before[key], after) if a != b)
+                        row["re_families_tried"] += 1
+                        row["places_changed"] += changed
+                        row["worst_single_re_family"] = max(
+                            row["worst_single_re_family"], changed)
+                        if not changed:
+                            row["changed_nothing"] += 1
+    return {
+        "_doc": "DERIVED. One roof re-familied, the face re-ordered, and the count of "
+                "PLACES IN THE FREE LIST that changed hands — under the id order this "
+                "pass dealt by until T-1651 and under `deal_order`, which replaced it. "
+                "The place is the allocation: the deal walks the businesses in evidence "
+                "order and hands each the next free roof, so a roof that changes place "
+                "changes which business gets which building. Split by whether the "
+                "re-family CROSSES the C/W/F bands, because those are different "
+                "questions — a D4 that becomes a D5 has not changed what it is and the "
+                "deal should not notice, while a D4 that becomes a C2 has, and a deal "
+                "that reads the family is supposed to move it.",
+        "measured_over": {
+            "faces_with_two_or_more_free_roofs": faces_measured,
+            "free_roof_places": places,
+            "families_in_the_schedule": len(scheduled),
+        },
+        "places_changed_by_one_roof_s_re_family": tally,
+    }
+
+
+def family_reading(structure_id: str, how: str, families: dict[str, str],
+                   functions: dict[str, str], trade_of_this_reading: list[str],
+                   homes: dict, yards: set[str], requested: dict,
+                   spoken_for: set[str]) -> str:
+    """What the adopted roof was raised as, and where that leaves this business (T-1651).
+
+    Written per adoption rather than once in the document's prose, because the two cases
+    are different claims about the same table. A business in a house of trade stands in a
+    roof built for one. A business in a dwelling is a COMPROMISE of the reconstruction's
+    own typology — the deal had nothing better on the face — and the count of them is the
+    number to watch, so each one says so on its own record.
+    """
+    family = families.get(structure_id)
+    term = (functions.get(structure_id) or "?").replace("_", " ")
+    if is_house_of_trade(family):
+        return ("The reconstruction raised this roof as a %s — family %s, of the C, W and "
+                "F bands T-1657 rules a house of trade — so a documented business stands "
+                "in a roof built to be one. That is the deal preferring a fitting roof "
+                "and not a reading of any source: which roof on the face is still an "
+                "allocation, and the paper says only the street."
+                % (term, family))
+    free_trade = [sid for sid in trade_of_this_reading
+                  if sid not in homes and sid not in yards and sid not in requested
+                  and sid not in spoken_for]
+    assert not free_trade, ("%s took a roof of no trade while %s stood free on the same "
+                            "%s" % (structure_id, ", ".join(sorted(free_trade)), how))
+    return ("A COMPROMISE, AND STATED AS ONE. This roof is a %s — family %s, which the "
+            "reconstruction raised as a dwelling and not as a house of trade — so a "
+            "documented business stands in a building with no shop front. It is what the "
+            "face had by its %s: %d roof(s) reach this street that way and are of the C, "
+            "W or F bands, and of those %d are a household's dwelling, %d are yard "
+            "buildings, %d were raised to answer a slot request and %d are already "
+            "adopted by a better-evidenced business, so none was free to this one. "
+            "Raising a shop for it would be a building nothing records; re-familying one "
+            "of these roofs is the roof programme's to do and not this pass's."
+            % (term, family, how, len(trade_of_this_reading),
+               len([sid for sid in trade_of_this_reading if sid in homes]),
+               len([sid for sid in trade_of_this_reading if sid in yards]),
+               len([sid for sid in trade_of_this_reading if sid in requested]),
+               len([sid for sid in trade_of_this_reading if sid in spoken_for])))
+
+
 def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
              yards: set[str], readings: tuple[str, ...],
              ruled_two_houses: set[tuple[str, ...]],
@@ -715,6 +1018,8 @@ def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
     gate; refusing it here means the table is never written that way in the first place.
     """
     requested = requested or {}
+    families = roof_families()
+    functions = roof_functions()
     taken: set[str] = set()
     spent_on_face: dict[str, set[str]] = {}
 
@@ -743,7 +1048,8 @@ def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
             continue
         face = faces.get(street_id) or {key: list(value)
                                         for key, value in EMPTY_FACE.items()}
-        free = [sid for sid in free_under(face, readings, homes, yards, requested)
+        free = [sid for sid in free_under(face, readings, homes, yards, requested,
+                                          families)
                 if sid not in spoken_for(street_id)]
         if not any(face[how] for how in readings):
             refusals.append(dict(
@@ -788,11 +1094,23 @@ def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
             continue
 
         structure_id = free[0]
+        how = reading_of(face, structure_id)
+        # T-1651. The family reading, written while the deal still knows what was free.
+        # `free` is ordered houses of trade first WITHIN EACH READING, so the roofs this
+        # business could have had instead are the ones of its own reading: READING_ORDER
+        # is the order of decreasing claim and a lot front outranks a corner side whatever
+        # either roof was raised as. If `free[0]` is not a house of trade then none of
+        # that reading was free to this business, and the note says why out of the face's
+        # own buckets rather than leaving a reader to reconstruct it.
+        trade_of_this_reading = [sid for sid in face[how]
+                                 if is_house_of_trade(families.get(sid))]
+        family_note = family_reading(structure_id, how, families, functions,
+                                     trade_of_this_reading, homes, yards, requested,
+                                     spoken_for(street_id))
         taken.add(structure_id)
         spent_on_face.setdefault(street_id, set()).add(structure_id)
         if house:
             held[house] = entry["name"]
-        how = reading_of(face, structure_id)
         adoptions.append({
             "business_id": entry["id"],
             "business_name": entry["name"],
@@ -820,6 +1138,15 @@ def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
             "structure_id": structure_id,
             "face": how,
             "roof_confidence": roofs[structure_id],
+            # T-1651. WHAT THE RECONSTRUCTION RAISED THIS ROOF AS, off the roof's own
+            # record. `roof_is_a_house_of_trade` is T-1657's band test and nothing wider;
+            # `family_note` says, in the case where it is false, what stood free instead,
+            # so a business seated in a dwelling is a stated compromise rather than a
+            # thing a reader has to notice.
+            "roof_family": families.get(structure_id),
+            "roof_function": functions.get(structure_id),
+            "roof_is_a_house_of_trade": is_house_of_trade(families.get(structure_id)),
+            "family_note": family_note,
             "lot": None,
             "claims_lot": False,
             "order_is_a_claim": False,
@@ -939,6 +1266,7 @@ def derive() -> dict:
     requested = requested_roofs()
     faces = supply(roofs, homes, yards, requested)
 
+    families = roof_families()
     ruled_two_houses = two_house_surnames(register)
     pool = [b for b in register["businesses"] if b["action"] == "street_only"]
     pool.sort(key=lambda entry: rank_key(entry, gaz))
@@ -973,6 +1301,15 @@ def derive() -> dict:
             "roofs_yard": len(face["yards"]),
             "roofs_requested_by_a_seat": len(face["requested"]),
             "roofs_in_centreline_band_declined": len(face[BAND]),
+            # T-1651. The supply that actually binds. A business wants a roof the
+            # reconstruction raised as a house of trade and the deal now prefers one; where
+            # this number is short of `adopted`, the remainder stand in dwellings and each
+            # says so on its own record.
+            "roofs_free_and_a_house_of_trade": len(
+                [sid for sid in face["free"] if is_house_of_trade(families.get(sid))]),
+            "adopted_into_a_house_of_trade": sum(
+                1 for row in adoptions if row["street_id"] == street_id
+                and row["roof_is_a_house_of_trade"]),
         }
 
     eligible = sum(1 for row in refusals if row["refusal"] == REFUSALS[1])
@@ -1037,6 +1374,34 @@ def derive() -> dict:
                 "seat. `costed_readings` below deals every reading out in full and "
                 "reports what each actually stands up (T-0416).",
             "costed_readings": costed_readings,
+            # T-1651. THE DEAL READS THE ROOF'S FAMILY, and these two entries are what
+            # says so on the record rather than in a comment: what the faces hold, and
+            # what one roof's re-family now costs against what it used to.
+            "the_roof_s_family": {
+                "ruling": "T-1657's bands, not re-decided here: a roof of the C, W or F "
+                          "families was raised as a house of trade — a counter, a works, "
+                          "a freight store — and a roof of the D, H, A, I, T or M "
+                          "families was not.",
+                "how_the_deal_reads_it": "Within a face AND WITHIN A READING, a business "
+                                         "takes a house of trade before a roof of no "
+                                         "trade. The reading still outranks the family: "
+                                         "READING_ORDER is the order of decreasing claim "
+                                         "and a lot front is a better claim than a corner "
+                                         "side whatever either roof was raised as.",
+                "still_not_evidence": "Limit 3 is unchanged. Which roof on the face a "
+                                      "business takes is an allocation and no source "
+                                      "speaks to it; preferring a roof that does not "
+                                      "contradict the reconstruction's own typology is a "
+                                      "better allocation and not a new claim.",
+                "read_off_the_record_never_the_id": "The family is `reconstruction.family` "
+                                                    "on the roof's own record. The id "
+                                                    "carries the family as a token and the "
+                                                    "two agree, which is how an id-ordered "
+                                                    "deal could look like a family-aware "
+                                                    "one for a year while being neither.",
+            },
+            "re_family_stability": re_family_churn(faces, homes, yards, requested,
+                                                   families),
         },
         "counts": {
             "street_only_in_register": len(pool),
@@ -1046,6 +1411,22 @@ def derive() -> dict:
                                               if row["refusal"] == reason)
                                   for reason in REFUSALS},
             "unplaceable_present_at_scene_date": len(unplaceable),
+            "adopted_into_a_house_of_trade": sum(
+                1 for row in adoptions if row["roof_is_a_house_of_trade"]),
+            "adopted_into_a_roof_of_no_trade": sum(
+                1 for row in adoptions if not row["roof_is_a_house_of_trade"]),
+            "roofs_free_and_a_house_of_trade": len(
+                {sid for face in faces.values() for sid in face["free"]
+                 if is_house_of_trade(families.get(sid))}),
+            # What is left over, and it is the number that says whether the deal or the
+            # roof programme is the constraint. A house of trade still free after the deal
+            # was one no business could reach: it stands on a face by a reading no
+            # advertisement of that face was dealt under, or its face was exhausted of
+            # BUSINESSES rather than of roofs.
+            "houses_of_trade_left_free": len(
+                {sid for face in faces.values() for sid in face["free"]
+                 if is_house_of_trade(families.get(sid))}
+                - {row["structure_id"] for row in adoptions}),
             "roofs_reserved_for_a_slot_request": len(reserved),
             "reserved_and_held_by_a_committed_occupancy":
                 sum(1 for row in reserved if row["held_by_a_committed_occupancy"]),
@@ -1083,7 +1464,7 @@ def build() -> int:
 
 
 def limits(doc: dict) -> list[str]:
-    """The four limits, re-asserted against the committed document."""
+    """The five limits, re-asserted against the committed document."""
     bad: list[str] = []
     roofs = reconstructed_roofs()
     seen: set[str] = set()
@@ -1149,6 +1530,74 @@ def limits(doc: dict) -> list[str]:
                       reserved_now[structure_id].get("block_id"),
                       reserved_now[structure_id].get("dealt_by_ticket")))
 
+    # LIMIT 5, T-1651 — THE DEAL READS THE ROOF'S FAMILY, AND THIS SAYS IT STILL DOES.
+    # Asserted against the committed table rather than against the deal, so a hand edit or
+    # a merge cannot put a business back into a cottage while a shop roof stands empty
+    # beside it. The reasoning is that a roof only leaves the free set by being adopted:
+    # homes, yards and slot-request roofs are refused throughout, so a trade-band roof
+    # still unadopted at the end of the deal was free for the whole of it.
+    families = roof_families()
+    functions = roof_functions()
+    adopted_by_street: dict[str, list[dict]] = {}
+    for row in doc["adoptions"]:
+        adopted_by_street.setdefault(row["street_id"], []).append(row)
+    homes_for_limits = dwellings()
+    yards_for_limits = yard_roofs()
+    faces_for_limits = supply(roofs, homes_for_limits, yards_for_limits, reserved_now)
+    for street_id, rows in sorted(adopted_by_street.items()):
+        face = faces_for_limits.get(street_id) or {}
+        for how in ADOPTED_READINGS:
+            standing = face.get(how) or []
+            free_trade = sorted(
+                sid for sid in standing
+                if is_house_of_trade(families.get(sid))
+                and sid not in homes_for_limits and sid not in yards_for_limits
+                and sid not in reserved_now and sid not in seen)
+            if not free_trade:
+                continue
+            for row in rows:
+                if row.get("face") != how or row.get("roof_is_a_house_of_trade"):
+                    continue
+                bad.append(
+                    "%s stands in %s, a %s, while %s stood free on the same %s of %s — "
+                    "limit 5 refuses a business in a roof of no trade while a house of "
+                    "trade of the same reading is free"
+                    % (row.get("business_id"), row.get("structure_id"),
+                       row.get("roof_family"), ", ".join(free_trade), how, street_id))
+    # And the two statements the stable deal order rests on, re-derived rather than
+    # trusted. If either stops holding, `roof_key` is no longer a re-family invariant and
+    # T-1651's whole claim goes with it.
+    for row in doc["adoptions"]:
+        structure_id = row.get("structure_id")
+        family = families.get(structure_id)
+        if row.get("roof_family") != family:
+            bad.append("%s says its roof is family %r; %s's own record says %r"
+                       % (row.get("business_id"), row.get("roof_family"),
+                          structure_id, family))
+        if row.get("roof_function") != functions.get(structure_id):
+            bad.append("%s says its roof is a %r; %s's own record says %r"
+                       % (row.get("business_id"), row.get("roof_function"),
+                          structure_id, functions.get(structure_id)))
+        if row.get("roof_is_a_house_of_trade") is not is_house_of_trade(family):
+            bad.append("%s states the wrong reading of family %r against the C, W and F "
+                       "bands" % (row.get("business_id"), family))
+    pools: dict[tuple[str, int], list[str]] = {}
+    for structure_id, family in sorted(families.items()):
+        # A roof whose id carries a family token must carry ITS OWN, because that is the
+        # token `roof_key` strips. A roof whose id carries none — the West Division numbers
+        # its roofs `recon_1835_west_046` — is already invariant, and needs nothing.
+        token = re.search(r"_([a-z]\d)_\d+$", structure_id)
+        if token and str(family).lower() != token.group(1):
+            bad.append("%s is family %r but its id carries the token %r, so `roof_key` "
+                       "strips the wrong one and the deal order stops being a re-family "
+                       "invariant" % (structure_id, family, token.group(1).upper()))
+        pools.setdefault(roof_key(structure_id, family), []).append(structure_id)
+    for key, ids in sorted(pools.items()):
+        if len(ids) > 1:
+            bad.append("%s share the pool-and-ordinal key %r, so it is not an identity a "
+                       "re-family holds steady — T-1651's deal order rests on it being one"
+                       % (" and ".join(ids), key))
+
     # LIMIT 1 HOLDS OVER THE COUNTERFACTUALS TOO — T-0422. Every check above reads the
     # SHIPPED table, which is the reading in force; the other two rows of
     # `costed_readings` are the numbers the owner is asked to rule on, and until this gate
@@ -1192,6 +1641,26 @@ def check() -> int:
           % (counts["street_only_in_register"], counts["adopted"], counts["refused"]))
     print("  ok    %d unplaceable business(es) stand outside this policy (T-0354 half two)"
           % counts["unplaceable_present_at_scene_date"])
+    # T-1651, REPORTED RATHER THAN LEFT IN THE FILE. The first line is the state of the
+    # town; the second is the gate's own claim about the deal, and the number that matters
+    # in it is the zero.
+    churn = committed["reading"]["re_family_stability"]["places_changed_by_one_roof_s_re_family"]
+    print("  ok    %d adoption(s) stand in a roof the reconstruction raised as a house of "
+          "trade and %d in a roof of no trade; of the %d such roof(s) standing free on "
+          "the faces the deal left %d unspent, so what the rest wanted is a roof the "
+          "roof programme has not raised (limit 5, T-1651)"
+          % (counts["adopted_into_a_house_of_trade"],
+             counts["adopted_into_a_roof_of_no_trade"],
+             counts["roofs_free_and_a_house_of_trade"],
+             counts["houses_of_trade_left_free"]))
+    print("  ok    a re-family that does not cross the C/W/F bands changes %d place(s) in "
+          "the deal over %d trials, against %d under the id order this replaced (worst "
+          "single re-family %d, was %d)"
+          % (churn["within the bands"]["deal_order"]["places_changed"],
+             churn["within the bands"]["deal_order"]["re_families_tried"],
+             churn["within the bands"]["id_order"]["places_changed"],
+             churn["within the bands"]["deal_order"]["worst_single_re_family"],
+             churn["within the bands"]["id_order"]["worst_single_re_family"]))
     print("  ok    %d roof(s) raised to answer a household's slot request are reserved "
           "from the deal; %d carry a committed occupancy, %d do not yet (refusal 7, "
           "T-1626 — the platted deal writes none, so that is an upper bound)"
@@ -1428,6 +1897,54 @@ def self_test() -> int:
                                            street_id=on_a_face[0][1]),
                  "refusal 7 reserves it for the household layer")
 
+    # LIMIT 5's THREE WAYS OF ROTTING, T-1651: a business put back into a dwelling while a
+    # shop roof on the same face and the same reading stands free, and the two ways the
+    # family reading on a record could stop being the roof's own.
+    families_for_test = roof_families()
+    functions_for_test = roof_functions()
+    homes_for_test = dwellings()
+    yards_for_test = yard_roofs()
+    requested_for_test = requested_roofs()
+    faces_for_test = supply(reconstructed_roofs(), homes_for_test, yards_for_test,
+                            requested_for_test)
+    adopted_now = {row["structure_id"] for row in doc["adoptions"]}
+    swap = None
+    for row in doc["adoptions"]:
+        if not row["roof_is_a_house_of_trade"]:
+            continue
+        face = faces_for_test.get(row["street_id"]) or {}
+        for sid in face.get(row["face"]) or []:
+            if (sid not in adopted_now and sid not in homes_for_test
+                    and sid not in yards_for_test and sid not in requested_for_test
+                    and not is_house_of_trade(families_for_test.get(sid))):
+                swap = (row["business_id"], sid)
+                break
+        if swap:
+            break
+    if swap is None:
+        print("  ok:    no face holds both an adopted house of trade and a free roof of no "
+              "trade under one reading, so limit 5 cannot be broken by a swap on this tree")
+    else:
+        business_id, into = swap
+
+        def put_in_a_dwelling(broken, business_id=business_id, into=into):
+            for row in broken["adoptions"]:
+                if row["business_id"] == business_id:
+                    row.update(structure_id=into,
+                               roof_family=families_for_test.get(into),
+                               roof_function=functions_for_test.get(into),
+                               roof_is_a_house_of_trade=False)
+
+        case("a business moved into a dwelling while its own shop roof stands free",
+             put_in_a_dwelling, "limit 5 refuses a business in a roof of no trade")
+    case("a record that misstates its roof's family",
+         lambda b: first(b).update(roof_family="D1"),
+         "own record says")
+    case("a record that misstates the band its roof's family is in",
+         lambda b: first(b).update(
+             roof_is_a_house_of_trade=not first(b)["roof_is_a_house_of_trade"]),
+         "wrong reading of family")
+
     # Limit 2's live half: a roof promoted out of `reconstructed` must fail. It cannot be
     # faked by mutating the table — the confidence is read from the structure — so this
     # asserts the reader that limit 2 depends on actually distinguishes the grades.
@@ -1526,7 +2043,7 @@ def self_test() -> int:
     if failed:
         print("SELF-TEST FAIL")
         return 1
-    print("SELF-TEST PASS — all four limits, all three roof refusals (both halves of "
+    print("SELF-TEST PASS — all five limits, all three roof refusals (both halves of "
           "the household one, the yard building, and the roof raised to answer a slot "
           "request), both edges of the 2026-08-30 face ruling and both readings of the "
           "one-roof-one-business ledger fire when broken, and refusal 3 still obeys "
@@ -1541,7 +2058,7 @@ def main(argv=None) -> int:
     ap.add_argument("--report", action="store_true",
                     help="the adoption and every refusal, with counts")
     ap.add_argument("--self-test", action="store_true",
-                    help="break each of the four limits in turn; every one must fire")
+                    help="break each of the five limits in turn; every one must fire")
     args = ap.parse_args(argv)
     if args.self_test:
         return self_test()

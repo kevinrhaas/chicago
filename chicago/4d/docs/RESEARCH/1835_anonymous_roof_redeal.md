@@ -9,7 +9,7 @@ an adjudication over committed derived files — no page of any source was opene
 - refamily: **8** (6 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 408 stand, so the town is 260 roofs short before this audit and 260 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 410 stand, so the town is 258 roofs short before this audit and 258 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -29,18 +29,18 @@ The programme wants 668 roofs and 408 stand, so the town is 260 roofs short befo
 | `structures/larger_boarding_houses/south` | 28 | 9 | 8 | 19 | 9 | 19 |
 | `structures/larger_boarding_houses/west` | 6 | 2 | 2 | 4 | 3 | 3 |
 | `structures/larger_boarding_houses/north` | 8 | 6 | 5 | 2 | 6 | 2 |
-| `structures/ordinary_dwellings/south` | 176 | 126 | 118 | 50 | 126 | 50 |
+| `structures/ordinary_dwellings/south` | 176 | 114 | 106 | 62 | 114 | 62 |
 | `structures/ordinary_dwellings/west` | 75 | 51 | 48 | 24 | 53 | 22 |
 | `structures/ordinary_dwellings/north` | 84 | 46 | 44 | 38 | 46 | 38 |
 | `structures/small_outbuildings/south` | 48 | 23 | 23 | 25 | 23 | 25 |
 | `structures/small_outbuildings/west` | 14 | 4 | 4 | 10 | 3 | 11 |
 | `structures/small_outbuildings/north` | 20 | 9 | 9 | 11 | 9 | 11 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | 3 | 0 |
-| `structures/stores_mixed_use/south` | 42 | 26 | 11 | 16 | 26 | 16 |
+| `structures/stores_mixed_use/south` | 42 | 36 | 21 | 6 | 36 | 6 |
 | `structures/stores_mixed_use/west` | 6 | 4 | 3 | 2 | 3 | 3 |
 | `structures/stores_mixed_use/north` | 4 | 1 | 0 | 3 | 1 | 3 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
-| `structures/warehouses_freight/south` | 11 | 4 | 1 | 7 | 4 | 7 |
+| `structures/warehouses_freight/south` | 11 | 8 | 3 | 3 | 8 | 3 |
 | `structures/warehouses_freight/west` | 2 | 1 | 1 | 1 | 0 | 2 |
 | `structures/warehouses_freight/north` | 7 | 6 | 0 | 1 | 6 | 1 |
 | `structures/workshops/south` | 15 | 10 | 8 | 5 | 10 | 5 |

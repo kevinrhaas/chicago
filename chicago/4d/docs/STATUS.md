@@ -1,5 +1,225 @@
 # STATUS
 
+## South Water's books, closed — T-1641, 2026-09-27
+
+Piece 4 of 4 of T-1200. The three build pieces raised and re-familied the district's
+roofs; this one answers the three questions the parent asks before the district is done
+with, on the published tree, and changes nothing in the town. The reading is committed at
+`data/render/south_water_close_out.json` — every number in it is read off the committed
+data or off `tools/measure_detail_ceilings.mjs`, none is typed. It was taken twice: once
+on `1adfa5d2`, and again after T-1640's freight shed merged underneath it, because a
+budget read on a tree that no longer exists is not a reading.
+
+**Book one — the refusals: empty, and the one the district met was resolved at the deal.**
+`generate_block_infill.py` refuses four families by name (I1, I2, I3, F3) and a slot dealt
+to one of them may only be left unbuilt by naming it in its block recipe's `deferred` list
+with forty words of reasoning; the generator raises `SystemExit` on a deferral it cannot
+read back. Across the district's six units — the five platted blocks and the Market wedge
+— **the deferred list is empty**. The two deferrals that do stand in the tree are
+elsewhere: `blk_randolph_dearborn` defers an I3, `blk_lake_franklin` an F3. The district
+did meet an F3 refusal and it was settled one level up, at the deal: `reconcile_665.py`'s
+waterside rule (T-0316) reroutes an F3 off `blk_south_water_market` — the family's
+crosswalk entry makes water access a precondition of the form and the wedge's lots do not
+reach the bank — to `south_plat_beyond_committed_control`, and deals the wedge a C2 in its
+place. A refusal resolved at the deal is why the block log reads empty, and the two facts
+are worth stating together so the empty log is not mistaken for a district nothing refused.
+
+**Book two — the headroom: the district is NOT at capacity, and here is what is left.**
+`reconcile_665.py --check` is green on this tree and reads the 668-roof programme at 410
+standing, 258 remaining.
+
+| unit | lots | capacity | standing | free lots | headroom | state |
+| --- | --- | --- | --- | --- | --- | --- |
+| `blk_south_water_franklin` | 8 | 31 | 17 | 1 | 0 | at capacity |
+| `blk_south_water_wells` | 8 | 31 | 12 | 2 | 4 | open |
+| `blk_south_water_lasalle` | 8 | 31 | 18 | 0 | 0 | at capacity |
+| `blk_south_water_clark` | 8 | 31 | 12 | 1 | 0 | at capacity |
+| `blk_south_water_dearborn` | 8 | 31 | 15 | 2 | 4 | open |
+| `blk_south_water_market` | 8 | 31 | 0 | 8 | 27 | gated |
+
+Three blocks are at capacity. Two carry **8 roofs of headroom between them** — and that 8
+is the whole programme's `schedulable_on_committed_ground`, so every roof in the 668 that
+has surveyed ground under it today is on these two South Water blocks. The Market wedge is
+**gated, not open**: its 27 roofs wait on street control the plat module has never reached.
+The one free lot each of franklin and clark still shows is the lot T-0834 makes every block
+keep open, which is why their headroom is 0 and not 1.
+
+**Book three — the frame budget, on the published mirror: PASS, with the margin stated.**
+T-1154's trim landed (T-1244 and T-1245, both merged 2026-09-17) and the town is back
+inside all three ceilings at both viewports. `node tools/measure_detail_ceilings.mjs --only
+both` on the mirror `tools/publish.sh` built from this branch over dev at `c164f8ae`:
+
+| tier | ceiling | worst desktop | margin | worst mobile | margin |
+| --- | --- | --- | --- | --- | --- |
+| `full` | 1,460,000 | 1,410,306 (the forks) | 49,694 | 1,254,799 (Lake at Canal) | 205,201 |
+| `balanced` | 1,280,000 | 1,257,120 (the forks) | **22,880** | 1,106,631 (Lake at Canal) | 173,369 |
+| `light` | 825,000 | 773,206 (the open aerial) | 51,794 | 699,187 (the open aerial) | 125,813 |
+
+So the build takes the margin and not the re-budget, and says so. But the margin is thin
+where it is thinnest: desktop `balanced` clears by 22,880 triangles, **1.79 per cent of its
+own ceiling**, at the forks. The re-read is what makes that concrete rather than rhetorical.
+The first reading, before T-1640 merged, cleared by 24,420; ONE freight shed on the south
+bank took 1,540 of it. At that price the margin is about fifteen sheds wide. The next build
+parcel in the queue, T-1201 — the Lake Street and Dearborn–Clark–LaSalle core — raises roofs
+inside the same downtown frusta. Filed as T-1674 rather than left in a table: a parcel that
+will breach a ceiling should find out before it bakes, not after.
+
+**What these books do NOT close.** T-1200's stop condition is "every roof occupied", and
+the district does not meet it. Of the 52 structure records on the five blocks, 22 carry
+neither `occupants` nor a `resident_assignment`; 11 of those are ancillary (A1 stable, A2
+barn or carriage shed, A3 privy) and an outbuilding having no household is the model
+working. The other **11 are dwellings and lodging** — four D1 log cabins, two D2 plank
+dwellings, two D3 and two D4 frame cottages and the one H1 house — and they stand empty.
+The ids are listed in the reading. Filed as T-1675. Separately, the freight roofs the
+south-bank ground rule has run out of room for are T-1672's and are not touched here.
+
+**Why an invisible run.** Nothing in the town changed and no card moved. This is AGENTS.md
+§ the visible-progress rule's third exemption — a gate blocking a visible parcel — and the
+parcel is named: T-1200 makes "`measure_detail_ceilings.mjs` on the published tree before
+pushing" a precondition of the district, and T-1201 is the successor that cannot honestly
+be dealt until somebody says how much of the frame budget is left. The answer is 1.79 per
+cent, and a shed costs 1,540.
+
+## The Dearborn block's business front stands as shops — T-1647, 2026-09-27
+
+Piece 1 of 3 of T-1639, and the split is the first thing this run has to report. The
+parent asked for C2–C4 store fronts and F1–F3 warehouses to be **raised** on the South
+Water party lines. **There is no ground to raise one on.** The owner ruled on 2026-09-26
+(T-1623, option a) that the single genuinely vacant lot each of `blk_south_water_dearborn`
+and `blk_south_water_wells` still holds stays open, and the other three South Water blocks
+read `at_capacity` in the 668-roof programme. So the business front's composition can only
+change by saying what the roofs standing on it **are**.
+
+**What is wrong, measured on the committed tree.** The South Water frontage run — the
+party-line row on the only street this project's own hierarchy grades `principal` — carries
+**28 roofs: 23 cottage families, 5 stores, no warehouse**, against the **0.6667** documented
+trade share T-0213 reads off a principal street. Two of those cottages carried a documented
+trade on their own card: `recon_1835_blk_south_water_dearborn_d5_07`, a D5 deep-plan frame
+cottage, and `..._d3_08`, a D3 one-room frame cottage.
+
+**What this piece did.** Those two slots are re-familied in
+`1835_platted_block_parcels.json` (`refamilied`, T-1647) and their ids move with the family
+— `_d5_07` → `_c2_07`, `_d3_08` → `_c1_08`. Nothing else about either roof moves: same lot,
+same setback, same anchor, same party line, same bottom tier. No confidence is upgraded and
+no occupant is invented; the footprint is not authored here either, because
+`generate_block_infill` samples a slot inside its family's own band on a stable key.
+
+**The family is the ground's choice and the refusals are measured.** Seq 07, east of
+Frederick Thomas's shop, takes **C2** (store-residence, 18×30–22×40 ft). Seq 08 stands in
+the gap between that shop and `john_holbrook_store` and takes **C1**, the largest store
+family that gap admits: dealt C2 the generator reports `stands 2.78 m from
+john_holbrook_store` against the three-metre separation gate, and dealt C3 it `reaches past
+the end of its own frontage … inside the 1.5 m margin of a side line the run does not stand
+across`. T-0432's own arithmetic agrees — it recorded the west gap as 5.932 m.
+
+**The business allocation re-paired itself, and that is the policy working.** Street-face
+adoption ranks businesses by evidence and pairs them with a face's free roofs **in id
+order**, and `order_is_a_claim: false` is written on every row. Two ids changed, so the four
+documented trades on this block's run re-paired across it. The block's business front now
+carries **four store roofs, every one of them occupied**, where it carried two stores and
+three cottages.
+
+**Left as written, deliberately.** The `Shipped 2026-09-11 — T-0432` entry below still names
+`_d3_08` and `_d5_07`. It is an accurate record of what shipped that day and rewriting it
+would falsify the log; the same refusal covers `renderers/unreal/receipts/` and
+`docs/unreal/prototype/import_report.json.txt`, which are dated import receipts. Every other
+file naming the two ids is derived and was re-derived in this commit.
+
+**Left owed.** T-1648 asks the same question of the Franklin, La Salle, Clark and Wells runs
+— 21 cottages — and T-1649 owns the crosswalk's `required_variant` silhouettes, which no
+generator implements today.
+
+## Sources browser — T-1276, 2026-09-27
+
+Evidence → Sources lazily loads the public catalog, with scene/all selection, citation search, type/tier/use filters and claims/entities/date/title sorting. Forty rows render initially; scrolling or Show more extends the list. The compiler adds compact confidence vectors (claims, entities; attested, inferred, reconstructed), independently checked against every edge file. A mixed-confidence entity counts once at its strongest confidence. Detail files load only on demand, with source limits, safe original/archive links, collapsed newspaper issues and typed used-for groups. No research files or derived source assets are fetched. Existing structure and person cards restore the Sources context on close; other Evidence entries have stable navigation anchors. Missing catalog data remains an explicit unavailable state. Published mobile/desktop acceptance passes: 293 registered, 223 scene-used, 40 initial rows, preserved search/filter/scroll, unavailable-catalog recovery, zero page errors. First open is 31,776 gzip bytes; the index is 108,135 raw bytes; total boot is 9.683 MB / 12 MB with no Sources module/index request before opening. Receipts are in `docs/performance/sources-browser/`; published Evidence/drawer parts 12–13 pass on mobile (196 checks) and desktop (198 including vendor checks), with zero failures and page errors. The combined attempt timed out during desktop; its incomplete reading is retained beside the passing standalone rerun. This staged coverage is not a full renderer verdict.
+
+## The south bank below the bend is recut to Hathaway — T-1630, 2026-09-26
+
+The owner's answer to T-1630's own question, option (b). The reading that asked it
+(PR #88, `docs/RESEARCH/south_bank_swell_1834.md` §§ 1–5) established that the
+committed bank IS Wright's ink — median 1.87 m, p90 3.96 m over 103 stations — and
+that **Wright himself draws the swell** while Hathaway does not. So there was
+nothing to correct on the trace's own terms, and the choice of sheet was his.
+
+He chose Hathaway here. The bank between local E +228.91 and the La Salle mouth is
+now Wright's traced line displaced **south by the two sheets' own disagreement** —
+5.6 m at block 20, 10.8 m at block 19, zero at both ends — measured inside each
+sheet so neither registration enters it. `tools/read_south_bank_swell_1834.py`
+keeps Wright's ink vertex for vertex as the set-aside reading and its `--check`
+re-derives the displacement from it on every commit, so the departure is gated
+rather than asserted. **The waterline on this reach is `reconstructed`, not a
+trace** (`docs/LIBERTIES.md` L275) — the only place in the scene where the ground's
+edge is not the survey the datum, the plat and all 41 blocks are fitted to.
+
+What it buys, measured: the bank's step across the La Salle mouth falls 9.62 → 1.18 m,
+and its p90 departure from a straight fit over E +300…+456 — the stretch where the
+plank walk curved round the point — falls 1.53 → 0.65 m. The walk is one straight
+run where it was two, four landings re-seat 4.6–10.8 m south, and 299 planting nodes
+that would have stood in water are not planted.
+
+**Two things are NOT taken, and both are refusals with numbers.** Block 18's 7.5 m,
+because the bank there stands 5.4 m north of South Water Street's platted corridor
+edge and 7.5 m would put the river 2.1 m into the roadway. And the west end stops at
+the committed bend vertex rather than the foot of the turn, because west of E +222 the
+traced bank already stands south of that edge and starting further west drowned another
+32 m of roadway for no reading. The block grid is not re-cut; T-0419 stands.
+
+`tools/check.sh`: 649 steps, the eight that went red on the moved ground re-derived and
+green, nothing skipped for a missing module. Smoke verdicts are in the PR.
+
+## Source and reconstruction loading cards — T-1275, 2026-09-26
+
+The arrival draws from 160 authored entries: 20 source, 32 build, 50 fact,
+56 operational and 2 humor cards. Phase counts: assess 30, collect 35,
+prepare 42, resolve 25, land 28. Facts link specific compiled building attributes
+to their registered sources without promoting confidence. The source compiler
+exports decision/loading_fact backlinks. Land candidates remain authored context;
+readiness selects one canonical arrival line and never rotates.
+
+Twenty-four checked early entries precede the optional 41 KB library fetch.
+Phase bags preserve spent IDs when the library arrives. Ready/error stop timers;
+arrival is painted with 1835 by the existing settle controller. Successful
+same-build visits in this tab limit repeat boots to one loading card plus arrival;
+storage denial falls back to dwell-based rotation. The library describes previously
+researched evidence, not live archival research. Seeded simulation records humor
+in 52 of 10,000 sessions, at most once per session. Published Chromium checks passed at 390×780 and 1280×780: 37 and 6 cold
+cards, exactly 2 on each repeat visit, no page errors, and the final card once
+at 1835. All 160 cards fit two lines at 320 px without clipping.
+Receipts and stills: `docs/performance/loading-content/`. The PR records the
+full repository gate, smoke and payload results.
+The one red this branch carried was never its own: a river-walk obstruction
+reproduced on unmodified dev `b6c56c8` (mobile stage 2: 87 passed, 1 failed),
+where the south-bank shed overlapped the walking path. T-1643 repaired that
+placement and landed on dev on 2026-09-27, so the branch was merged onto it and
+re-read rather than argued with. On the merge `604b8aa` the gate is `CHECK PASS`
+at 657 steps and four published legs are green — mobile 1-2 (158/0, the part that
+was red), mobile 3-4 (115/0, the source cards this compiler rewrites), mobile
+11-12 (107/0, the release-notes reader) and desktop 1 (80/0). The baseline receipt
+is preserved beside the loading evidence. No smoke assertion was weakened.
+
+## Source-use backlinks compiled — T-1248, 2026-09-26
+
+The deterministic compiler reads the authored reconstruction and records typed
+source-to-claim edges, including newspaper issue locators. All 293 registered
+sources remain represented, including 33 with no mapped use. The compact index
+is 100,053 bytes; full public citations and edges are separate lazy files.
+No visitor-facing surface or boot fetch is added. This unblocks T-1275 and T-1276
+(visible-progress exemption 3). The generated [coverage report](measurements/source_use_coverage.md)
+names the unsupported narrative/decision families; it does not claim exhaustive
+parsing of research prose. Validation receipts are recorded in the PR.
+
+## Arrival rolls the year back to summer 1835 — T-1247, 2026-09-26
+
+The loading gate now presents a restrained split-flap year, driven by the measured
+boot controller. It stays above 1835 until readiness, then lands with its arrival
+message and entry button. Reduced motion is stepped; fast loads add no wait;
+failed essential work stops and offers Retry. The neutral source card remains for
+T-1275 to populate. No town data or geometry changes.
+
+[Acceptance, captures, failure cases and reproduction](performance/ARRIVAL.md).
+Full renderer smoke verdicts are recorded in the PR and smoke ledger; the controlled
+fast fixture does not claim a sub-1.5-second full-town load on this software renderer.
+
 ## The ground off the plat is enumerated, and it holds 72 more — T-1614, 2026-09-26
 
 The second piece of T-1199, and it answers the 1,374 households the first piece handed on.

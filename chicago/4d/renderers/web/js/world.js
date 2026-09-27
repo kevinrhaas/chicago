@@ -296,19 +296,67 @@ const ENV_INTENSITY = 1.0;
 const FILL_UP = SKY_FILL_UP.map((v) => v * ENV_INTENSITY);
 
 /**
- * Exponential-squared haze, tuned so it is nothing at conversational range,
- * a readable recession across the middle distance, and total at the edge of what
- * is modelled: ~1.7 % at 100 m, 13 % at 300 m, 46 % at 700 m, 98 % at 1500 m.
+ * Exponential-squared haze, and since T-1635 the density is DERIVED rather than
+ * tuned. `FogExp2` leaves a surface exp(-(d * density)^2) of its own colour at
+ * distance d, so at 0.00089 the air takes 0.8 % at 100 m, 6.9 % at 300 m, 32 %
+ * at 700 m, 68 % at 1,200 m, 83 % at 1,500 m, and the last representable 8-bit
+ * step of it at 2,644.9 m.
  *
- * That last figure is the point, and it is a HONESTY constraint rather than a
- * look: docs/LIBERTIES.md L17 records that the ground beyond the 640 m
- * heightfield is a radial skirt carried out to 1400 m — geometry for the horizon
- * only, nothing modelled, sampled or claimed — on the standing condition that
- * "the scene's fog is total by 1500 m". Fog here hides ground we have not built.
- * It must never be turned down far enough to display it, and it is not doing any
- * work the other way either: no distant landform is drawn INTO the haze.
+ * WHAT SETS IT, AND IT IS A MEASUREMENT OF COMMITTED GEOMETRY. The air here
+ * exists to close the horizon over the apron. docs/LIBERTIES.md L17 carries each
+ * boundary vertex of the modelled box outward past the box — geometry for the
+ * horizon only, nothing modelled, sampled or claimed — and the fog has to be
+ * total by the time the eye reaches that apron's OUTER EDGE, or the edge itself
+ * reads as a landform. The apron's width is not a choice either:
+ * `generators/terrain_gen.py` derives it from the box so the publish step's
+ * quantiser lattice divides the terrain grid (T-0152) and publishes it as
+ * `heightfield.json`'s `skirt.margin_m`, which for the committed field is
+ * **2,659.84 m**. Solve `hazeReachM(density) <= 2659.84` and the thinnest air
+ * this scene is allowed is 0.0008850. 0.00089 is that bound rounded up to two
+ * figures; the haze goes total 14.9 m inside the apron's edge.
+ *
+ * THE NUMBER IT REPLACES WAS THE SAME ARGUMENT AGAINST A BOX THREE MOVES AGO.
+ * 0.00125 is total at 1,883 m, and it was set against L17 as L17 was first
+ * written: a heightfield covering "a 640 m square", "a radial skirt carried out
+ * to 1400 m", and the standing condition that "the scene's fog is total by
+ * 1500 m". All three of those figures have since been retired inside L17 itself
+ * — the box was extended east, north and south, and the apron was re-derived
+ * with it — so the distance the fog is actually asked to close over ran 776.7 m
+ * past the air that was built for it, and nothing re-thinned the air to match.
+ * What was left of it is what the owner reported from the air: past about 1.2 km
+ * the plain was a featureless band with the far timber standing in it, because
+ * one tenth of the prairie's own colour survived the trip. Just under a third of
+ * it does now, and the same reading at 1,500 m goes 3.0 % to 16.8 %.
+ *
+ * SO THIS IS NOT A LOOK, AND IT IS NOT A CLAIM ABOUT JULY WEATHER EITHER. No
+ * source reached describes visibility over the 1835 prairie, and none is cited
+ * here: the air is as clear as the modelled world allows and no clearer, which
+ * is a stated liberty and is recorded as one in L17. Read as meteorological
+ * visibility (the 2 % contrast distance) it is still only 2.2 km, up from
+ * 1.6 km — mist, not a clear summer day. That gap is a fact about how much
+ * ground has been built, not about the weather, and it closes by building
+ * ground.
+ *
+ * IT IS GATED, NOT PROMISED. `tools/check_haze_reach.mjs` reads this literal,
+ * the copy in `trees.js` and every epoch's published `skirt.margin_m`, and
+ * refuses a density whose total distance runs past the apron it has to close
+ * over. L17's standing condition is therefore held by a check on every commit
+ * instead of by a sentence in this block that the next box extension can quietly
+ * make false — which is exactly what happened to the last one.
+ *
+ * WHAT IT COSTS, MEASURED. `terrain.js`'s `hazeReachM()` derives the ground cull
+ * from this density, so thinning the air pushes the reach out 761.7 m (1,883.2
+ * -> 2,644.9). Read on the published mirror at desktop 1280x800, at T-0135's
+ * five stands and all three sealed tiers, this tree against dev's: the triangle
+ * and draw-call counts are IDENTICAL at all fifteen readings, and identical
+ * again at the owner's own pose (fly, e 120, n -420, 183 m, yaw 0, pitch -8 —
+ * 1,072,186 triangles, 89 calls, 30 of 217 ground tiles drawn, at both
+ * densities). The ground's culling grid is cut at 240 m and what lies between
+ * the two reaches at these stands is apron, which T-1595's sliver merge already
+ * submits as one always-drawn mesh of 2,489 triangles. The reach moved and the
+ * frame did not.
  */
-const HAZE_DENSITY = 0.00125;
+const HAZE_DENSITY = 0.00089;
 
 /**
  * ROADMAP R-W3b(a) — HOW FAR FROM THE VISITOR THE SUN'S SHADOW REACHES, in
@@ -322,6 +370,131 @@ const HAZE_DENSITY = 0.00125;
  * block — read it before changing this.
  */
 export const SHADOW_REACH_M = 240;
+
+/**
+ * THE HAZE FOLLOWS THE SKY IT CONVERGES ON — T-1631.
+ *
+ * THE DEFECT, and it is one number. `HORIZON_HAZE` above is the horizon sky of
+ * the BAR PHOTOGRAPH, sRGB (136,163,192), L 159.4. This scene's own horizon sky
+ * is not that colour in any direction, and the two notes that knew it never met:
+ * HORIZON_RESTORE's "one honest cost" records the render at 1° above the NORTH
+ * horizon as (104,132,166), L 128, because the anti-sun sky starts darker and an
+ * azimuth-blind fit takes the same red and green off it; and `trees.js` records
+ * the fully-fogged pixel as "four levels BELOW the horizon sky, which is what
+ * airlight is supposed to do" — true on the solar side, where that note was
+ * measured, and false everywhere else.
+ *
+ * Sampled here rather than argued about: the scene's own sky at 1° elevation,
+ * every 10° of bearing, reads L 122 due north rising to L 148 due south. The fog
+ * is L 159. **The haze is brighter than the sky it is supposed to be converging
+ * on at every azimuth on the compass** — by 11 luminance toward the sun and by
+ * 37 away from it.
+ *
+ * WHAT THAT LOOKS LIKE, which is what the ticket was filed for. Distance cannot
+ * then fade into the sky; it can only rise out of it. A visitor flying north at
+ * 600 ft sees the ground past the drawn town converge on a flat sheet 31
+ * luminance BRIGHTER than the sky above it, with a hard step where the two meet
+ * — and a bright flat blue-grey sheet under a darker sky, with trees standing up
+ * out of it, is what a lake looks like from the air. Measured at that pose
+ * (e 120, n -420, 183 m, yaw 0, pitch -8°): the pixel below the step reads
+ * (136,163,192) against (103,131,165) above it. Turn the fog off and the same
+ * pixel reads (109,125,84) — GREEN. The ground was there the whole time and the
+ * reach was never the fault: the haze was painting land the colour of water.
+ *
+ * THE FIX IS A SAMPLE, NOT A FIT. `HORIZON_RESTORE` refused an azimuth term
+ * because fitting one honestly needs a second verified July photograph shot away
+ * from the sun, and `bar/REFERENCES.md` has none. That refusal stands and this
+ * does not touch it: the fog is not being fitted to anything. It is being told
+ * to converge on the sky THIS SCENE ALREADY DRAWS, read off the shader at boot.
+ * Nothing is invented, no photograph is guessed at, and the sky is unchanged —
+ * what changes is that distance now goes toward the air that is actually there
+ * instead of toward the air over a different photograph.
+ *
+ * WHAT IT COSTS. Thirty-six one-pixel renders of the sky box, once, at boot. Per
+ * frame it is a bearing, a table index and a colour copy; no geometry is added,
+ * no reach moves, and `hazeReachM()` is untouched because it reads the DENSITY,
+ * which does not change. The consumers that copy the haze follow it live —
+ * `terrain.js`'s water `uSky` and `trees.js`'s horizon band — and the release
+ * smoke already asserts the band against `scene.fog.color` rather than against a
+ * hex, so that coupling is gated rather than promised.
+ */
+const HORIZON_RING_STEPS = 36;
+/** The elevation the ring is read at: the one the committed readings are at. */
+const HORIZON_SAMPLE_DEG = 1.0;
+/**
+ * The anti-sun reading this sampler has to reproduce, from HORIZON_RESTORE's own
+ * measurement at 1° above the north horizon. The guard is deliberately loose —
+ * its job is to catch a sampler that has stopped reading the sky at all (a white
+ * wash from a lost shader marker, a linear-space read at a third the radiance),
+ * not to re-litigate a unit. A ring that misses it is reported and the fixed
+ * constant is kept, because a haze read off nothing is worse than a stale one.
+ */
+const HORIZON_RING_NORTH = [104, 132, 166];
+const HORIZON_RING_TOLERANCE = 14;
+
+/**
+ * Read this scene's own sky at the horizon, all the way round.
+ *
+ * The sky is lifted into a bare scene for the pass for the same reason the PMREM
+ * build above lifts it: everything else in the world would be in the way. It is
+ * put back before this returns.
+ *
+ * The render target carries `SRGBColorSpace`, so what comes back is the DISPLAY
+ * colour — which is the space `FogExp2` lerps in (three r185 runs fog after the
+ * tone curve and the colour-space encode, and uploads the fog uniform through
+ * `getUnlitUniformColorSpace()`). Reading it in any other space would give a fog
+ * that is arithmetically defensible and visibly wrong, which is the exact bug
+ * `terrain.js`'s `uSky` note records having shipped once already.
+ *
+ * @returns {THREE.Color[] | null} one colour per 10° of bearing, or null
+ */
+function sampleHorizonRing(renderer, sky, problems = []) {
+  const parent = sky.parent;
+  const stage = new THREE.Scene();
+  const rt = new THREE.WebGLRenderTarget(1, 1, { colorSpace: THREE.SRGBColorSpace });
+  const cam = new THREE.PerspectiveCamera(1, 1, 0.1, 1e6);
+  const prevTarget = renderer.getRenderTarget();
+  const px = new Uint8Array(4);
+  const el = HORIZON_SAMPLE_DEG * Math.PI / 180;
+  const ring = [];
+  try {
+    stage.add(sky);
+    for (let i = 0; i < HORIZON_RING_STEPS; i++) {
+      const b = (i / HORIZON_RING_STEPS) * Math.PI * 2;
+      // ENU bearing 0 is north and the renderer's north is -Z, so a bearing of
+      // b looks along (sin b, ., -cos b) — the same mapping `enuToWorld` uses.
+      cam.position.set(0, 0, 0);
+      cam.up.set(0, 1, 0);
+      cam.lookAt(Math.sin(b) * Math.cos(el), Math.sin(el), -Math.cos(b) * Math.cos(el));
+      cam.updateMatrixWorld();
+      renderer.setRenderTarget(rt);
+      renderer.render(stage, cam);
+      renderer.readRenderTargetPixels(rt, 0, 0, 1, 1, px);
+      ring.push(new THREE.Color().setRGB(px[0] / 255, px[1] / 255, px[2] / 255,
+        THREE.SRGBColorSpace));
+    }
+  } catch (err) {
+    problems.push(`world: the horizon ring could not be sampled (${err?.message || err}); `
+      + 'the haze is the fixed constant');
+    return null;
+  } finally {
+    renderer.setRenderTarget(prevTarget);
+    rt.dispose();
+    parent?.add(sky);
+  }
+  const north = ring[0].getHex(THREE.SRGBColorSpace);
+  const got = [(north >> 16) & 255, (north >> 8) & 255, north & 255];
+  const off = Math.max(...got.map((v, i) => Math.abs(v - HORIZON_RING_NORTH[i])));
+  if (off > HORIZON_RING_TOLERANCE) {
+    const said = `world: the sampled horizon sky due north is (${got.join(',')}), `
+      + `${off} off the measured (${HORIZON_RING_NORTH.join(',')}) — the haze is `
+      + 'the fixed constant until someone says which of the two moved';
+    problems.push(said);
+    console.warn(`[4D Chicago] ${said}`);
+    return null;
+  }
+  return ring;
+}
 
 /**
  * Solar azimuth and elevation, NOAA's algorithm.
@@ -687,6 +860,13 @@ export function createWorld({
   // what the green-tinted haze it replaces did to the horizon.
   scene.fog = new THREE.FogExp2(HORIZON_HAZE, HAZE_DENSITY);
 
+  // The haze COLOUR is not this constant for long: `aim()` below replaces it
+  // every time the view turns far enough, with the colour this scene's own sky
+  // is at the horizon the visitor is looking at. See HORIZON_RING. The constant
+  // is what the fog is installed with, what it falls back to if the ring cannot
+  // be sampled, and the solar-side reading the ring is checked against.
+  const ring = sampleHorizonRing(renderer, sky, problems);
+
   const offset = new THREE.Vector3();
   const shadowRig = {
     reachM: half,
@@ -750,8 +930,43 @@ export function createWorld({
       .addScaledVector(snapUp, Math.round(u / texel) * texel - u);
   }
   let brightness = 0;
+  // The haze's own state: which of the ring's 36 bearings the fog is currently
+  // set to, so `aim()` writes a uniform when the view has actually turned that
+  // far and not once per frame.
+  let hazeSlot = -1;
+  const aimForward = new THREE.Vector3();
+
   return {
     sky, light, sun, direction: dir.clone(),
+    /** The sampled horizon sky, or null where the sampler could not read it. */
+    horizonRing: ring,
+    /**
+     * Point the haze at the sky the visitor is looking at — T-1631, and see
+     * HORIZON_RING above for why the fog cannot be one colour.
+     *
+     * Called once a frame from the render loop, after the walker has moved the
+     * camera and before anything is submitted. It is a bearing, a table index
+     * and — only when the index moved — a colour copy, so standing still costs
+     * nothing and a full turn costs 36 uniform writes.
+     *
+     * @param {THREE.Camera} camera the camera about to render
+     * @returns {boolean} whether the haze colour changed this frame
+     */
+    aim(camera) {
+      if (!ring || !camera || !scene.fog) return false;
+      camera.getWorldDirection(aimForward);
+      // Bearing from the renderer's north (-Z), the same mapping the sampler
+      // used. atan2 of (east, north) rather than of the raw axes, so a camera
+      // looking straight down still yields the bearing it is facing.
+      const bearing = Math.atan2(aimForward.x, -aimForward.z);
+      const turns = bearing / (Math.PI * 2);
+      const slot = ((Math.round(turns * HORIZON_RING_STEPS) % HORIZON_RING_STEPS)
+        + HORIZON_RING_STEPS) % HORIZON_RING_STEPS;
+      if (slot === hazeSlot) return false;
+      hazeSlot = slot;
+      scene.fog.color.copy(ring[slot]);
+      return true;
+    },
     /** The environment map this rig installed, and the fill it delivers. */
     environment: envRT.texture, skyFill: FILL_UP.slice(), envIntensity: ENV_INTENSITY,
     /**

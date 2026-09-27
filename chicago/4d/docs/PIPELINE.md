@@ -41,7 +41,7 @@ a queue with nobody in it.
 | `.github/chicago-4d-dev-preview.mjs` | assembles that preview — copy, `noindex`, banner, dev build stamp, `build.json`, robots disallow. |
 | `.github/workflows/chicago-4d-check.yml` | **the dev gate.** Runs on PRs into `dev` and on pushes to `dev` and `main`. The push trigger was unfiltered until T-1288 measured what that cost: a steward branch with an open PR satisfies BOTH triggers, so every push started the suite twice on one commit and the PR waited on the slower of the pair. |
 | `.github/workflows/chicago-4d-promote-to-prod.yml` | **dispatch-only.** Back-merges `main`→`dev`, merges `dev`→`main` `--no-ff`, tags `release-vNNN`, then dispatches the deploy. |
-| `.github/workflows/chicago-4d-bake.yml` | the content bake. **Builds the ref it was started on, and PRs into that same ref** — `tools/bake_ref.py` decides, and `check.sh` asserts it. The nightly and any run whose ref is `main` build `dev` and PR into `dev`, because the schedule has no tree of its own to speak for and nothing may PR into production. A bake dispatched against a branch builds THAT branch: until T-0454 it silently rebuilt `dev` instead, which is how the staleness gate and the bake came to disagree about one asset while both were right. |
+| `.github/workflows/chicago-4d-bake.yml` | the content bake. **Builds the ref it was started on, and PRs into that same ref** — `tools/bake_ref.py` decides, and `check.sh` asserts it. The nightly and any run whose ref is `main` build `dev` and PR into `dev`, because the schedule has no tree of its own to speak for and nothing may PR into production. A bake dispatched against a branch builds THAT branch: until T-0454 it silently rebuilt `dev` instead, which is how the staleness gate and the bake came to disagree about one asset while both were right. **A branch bake is a REMEDY, not a proof** (T-1668): `tools/bake_warranted.py` decides whether one is worth starting, and it skips when the branch's own tree is FRESH. The path filter can only say a branch might have staled a mesh; the freshness register — the same one `check.sh` refuses a tree with — says whether it did, in half a second. Until T-1668 every PR touching `generators/` became a `resume` PR by arithmetic: a full bake is 25 minutes and two `pr-automerge` laps are 18, so a green, foreground-gated PR could never merge inside its own run (measured on T-1652/PR #104, whose three files could not move a vertex and whose staleness gate said so). "A rebake proves the generator still runs" is a real claim and a DIFFERENT one — the NIGHTLY on `dev` makes it, daily, on the authoritative tree. Everything unanswerable still bakes. |
 | `.github/workflows/chicago-4d-pr-lap.yml` | **the un-sticker.** On every push to `dev`, merges `dev` into every open non-draft, non-`hold` PR using this repo's merge drivers, regenerates what a tool owns, and pushes. It does not gate and it does not merge the PR. It exists because GitHub's server-side merge never runs a custom merge driver (T-0857), so a branch that merges `dev` with zero conflicts in a clone is reported CONFLICTING by the platform. |
 | `.github/workflows/chicago-4d-merge-ready.yml` | **the merger.** On every push to `dev`, merges every open PR GitHub itself calls `clean` — the branch merges AND every required check passed. Nothing else in this repository merges a finished pull request. |
 | `.github/workflows/chicago-4d-pr-stuck.yml` | **the reporter** (T-1368). Labels and comments on a PR that none of the three above can move. It merges, pushes and resolves nothing. See below. |
@@ -300,9 +300,23 @@ git merge origin/dev
 ( cd chicago/4d \
   && node tools/rederive.mjs --run \
   && node tools/ticket.mjs reconcile --base origin/dev \
+  && node tools/rederive.mjs --tail tools/compile_scene.py \
   && ./tools/publish.sh )
 git add -A && git commit && git push origin HEAD:<branch>
 ```
+
+The `--tail` line is not optional and it is not a second `--run` (T-1661). `--run` ends
+with its second pass, which rewrites the resident cards `compile_scene.py` is compiled
+from, so the scene the sequence built is stale by the time the sequence ends. `--tail`
+re-runs that step and **every step the manifest places below it** — 38 of them, about
+100 s — which is the part that was missing: the very next one is
+`compile_source_use.py`, and it exports "current-scene membership" out of the two files
+compile_scene writes. Re-running the scene ALONE is what the lap did for a year, and it
+pushed trees whose source-use had been derived against the pre-merge scene: 38 claims of
+`owner_chicago_1835_reconstruction_spec_2026` silently absent on PR #105's lap commit,
+three steps of `check.sh` red, and the branch reported by GitHub as merged and up to
+date. `node tools/rederive.mjs --callers <script>` is the gate that holds it, and
+`check.sh` runs it against `pr-lap.sh`.
 
 The push is what produces a merge ref, which produces a gate, which produces `clean`,
 which `merge-ready` takes from there.

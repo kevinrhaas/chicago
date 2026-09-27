@@ -80,12 +80,18 @@ exit 0
 `);
   chmodSync(path.join(bin, 'gh'), 0o755);
 
-  const r = spawnSync('bash', [SH], {
+  // THE REPOSITORY IS NAMED, and the environment names a STRANGER on purpose
+  // (T-1656). The script no longer reads $GITHUB_REPOSITORY — a run drives these
+  // from a chicago checkout inside a polecat-platform job, so the ambient name is
+  // whoever started the process — so every assertion below now also stands as proof
+  // that the argument wins and the environment is ignored. The refusal itself is
+  // tested at the bottom of this file.
+  const r = spawnSync('bash', [SH, '--repo', 'kevinrhaas/chicago'], {
     cwd: box,
     encoding: 'utf8',
     env: { ...process.env, PATH: `${bin}:${process.env.PATH}`,
            GH_TOKEN: 'fake', MERGE_ONLY: only, MERGE_DRY_RUN: dry,
-           GITHUB_REPOSITORY: 'kevinrhaas/chicago' },
+           GITHUB_REPOSITORY: 'kevinrhaas/polecat-platform' },
   });
   let did = '';
   try { did = readFileSync(merges, 'utf8'); } catch { did = ''; }
@@ -284,6 +290,108 @@ console.log('merge-ready.sh — merges what GitHub calls clean, and nothing else
   check('the label filter excludes `hold` and nothing else',
         filtered.length === 1 && filtered[0] === 'hold',
         filtered.length ? `filters ${filtered.join(', ')}` : 'no label filter found at all');
+}
+
+/* 13. WHICH REPOSITORY IT ACTS ON — NAMED, NEVER AMBIENT (T-1656).
+ *
+ * `merge-ready.sh` read its repository out of `$GITHUB_REPOSITORY` with a
+ * `:-kevinrhaas/chicago` default, and that default reads as a safety net without
+ * being one: in an Actions job the variable is always SET, so it never fires and the
+ * value is whatever repository owns the JOB. `pr-rest.sh` carried the identical line
+ * and was driven from the wrong side for real on 2026-09-27 (T-1652) — a steward run
+ * works inside a chicago clone in a **polecat-platform** job, so its `resume`
+ * commented a handoff reason on, and applied the label to, polecat-platform#104, an
+ * unrelated pull request. Both repositories had a #104 open that day.
+ *
+ * So the REFUSAL is what needs proving, not the happy path above: run the script with
+ * no `--repo`, from a checkout that cannot name itself, with the environment naming a
+ * stranger as loudly as it can. It must refuse — and it must refuse BEFORE it reaches
+ * `gh`, because the fault this closes is a call that LANDS somewhere else, not one
+ * that fails.
+ */
+{
+  const box = mkdtempSync(path.join(tmpdir(), 'repo-name-'));
+  const bin = path.join(box, 'bin');
+  mkdirSync(bin, { recursive: true });
+  const log = path.join(box, 'gh.log');
+  writeFileSync(log, '');
+  // A checkout that is a git repository with NO origin: `--show-toplevel` answers and
+  // `remote get-url origin` does not, so there is no name to default to — and still no
+  // excuse to reach for the environment's.
+  spawnSync('git', ['init', '--quiet', box]);
+  const copy = path.join(box, 'merge-ready.sh');
+  writeFileSync(copy, readFileSync(SH, 'utf8'));
+  writeFileSync(path.join(bin, 'gh'),
+                `#!/usr/bin/env bash\nprintf '%s\\n' "$*" >> ${log}\nexit 0\n`);
+  chmodSync(path.join(bin, 'gh'), 0o755);
+  const r = spawnSync('bash', [copy], {
+    cwd: box,
+    encoding: 'utf8',
+    env: { ...process.env, PATH: `${bin}:${process.env.PATH}`, GH_TOKEN: 'fake',
+           GITHUB_REPOSITORY: 'kevinrhaas/polecat-platform' },
+  });
+  const out = `${r.stdout || ''}${r.stderr || ''}`;
+  const calls = readFileSync(log, 'utf8');
+  rmSync(box, { recursive: true, force: true });
+  check('a script that cannot name its repository refuses', r.status === 2, `exit ${r.status}`);
+  check('…naming `--repo owner/name` as the way to say which',
+        /--repo owner\/name/.test(out), out.trim().slice(0, 140) || 'said nothing');
+  check('…and disowning $GITHUB_REPOSITORY by name, so the reason is readable',
+        /GITHUB_REPOSITORY/.test(out));
+  check('…and it never reached the repository the environment named',
+        !/polecat-platform/.test(calls), calls.trim() || 'no gh call at all');
+}
+
+/* 14. …AND NO READ OF THE AMBIENT NAME SURVIVES IN THE SOURCE. tools/check_gh_rest.mjs
+ * holds this line across all four steward scripts at once; this is the same line held
+ * locally, beside the script's own tests, so a relapse fails here too. An escaped
+ * `\$GITHUB_REPOSITORY` inside the refusal message is prose that disowns the
+ * variable, not a read of it. */
+{
+  const src = readFileSync(SH, 'utf8')
+    .split('\n').filter((l) => !l.trim().startsWith('#')).join('\n');
+  check('nothing outside a comment reads $GITHUB_REPOSITORY',
+        !/(^|[^\\])\$\{?GITHUB_REPOSITORY\b/.test(src),
+        (src.match(/^.*GITHUB_REPOSITORY.*$/m) || [''])[0].trim());
+  check('…and `--repo` is how a caller names it instead', /--repo/.test(src));
+}
+
+/* 15. …AND THE DEFAULT IS THE ORIGIN OF THE CHECKOUT THIS FILE IS IN, which is the
+ * half the workflow leans on: ``.github/workflows/chicago-4d-merge-ready.yml`` passes no `--repo`, and its
+ * actions/checkout sets the origin that answers for it. Proved in the shape the fault
+ * was made in — the environment names polecat-platform as loudly as it can, the
+ * checkout names chicago, and every REST path the script builds has to say chicago.
+ */
+{
+  const box = mkdtempSync(path.join(tmpdir(), 'repo-default-'));
+  const bin = path.join(box, 'bin');
+  mkdirSync(bin, { recursive: true });
+  const log = path.join(box, 'gh.log');
+  writeFileSync(log, '');
+  spawnSync('git', ['init', '--quiet', box]);
+  // The remote is never contacted: this script runs no networked git, and `gh` below
+  // is a fake. Only the NAME is read.
+  spawnSync('git', ['-C', box, 'remote', 'add', 'origin',
+                    'https://github.com/kevinrhaas/chicago.git']);
+  const copy = path.join(box, 'merge-ready.sh');
+  writeFileSync(copy, readFileSync(SH, 'utf8'));
+  writeFileSync(path.join(bin, 'gh'),
+                `#!/usr/bin/env bash\nprintf '%s\\n' "$*" >> ${log}\nexit 0\n`);
+  chmodSync(path.join(bin, 'gh'), 0o755);
+  const r = spawnSync('bash', [copy], {
+    cwd: box,
+    encoding: 'utf8',
+    env: { ...process.env, PATH: `${bin}:${process.env.PATH}`, GH_TOKEN: 'fake',
+           GITHUB_REPOSITORY: 'kevinrhaas/polecat-platform' },
+  });
+  const calls = readFileSync(log, 'utf8');
+  rmSync(box, { recursive: true, force: true });
+  check('with no --repo, the repository is the checkout’s own origin remote',
+        /repos\/kevinrhaas\/chicago\//.test(calls),
+        calls.split('\n')[0] || 'no gh call at all');
+  check('…and not one call names the repository the environment named',
+        !/polecat-platform/.test(calls), (calls.match(/^.*polecat-platform.*$/m) || [''])[0]);
+  check('…and the script runs on to its own summary', r.status === 0, `exit ${r.status}`);
 }
 
 console.log(failures ? `\n${failures} FAILED` : '\nall passed');

@@ -247,6 +247,16 @@ and they are the whole of it:
 - **Measure, then move.** Raise it because a parcel needs it and you have the number, not
   pre-emptively. A ceiling checked at one camera stand is a spot reading, not an invariant
   (T-0115 item 1, still open).
+- **And take the number BEFORE the parcel deals, not after it bakes** (T-1674). The
+  reading at the end of a parcel says what was spent; it cannot say what there was to
+  spend, so a parcel on a thin margin discovers a breach with the deal, the generators
+  and the bake already behind it. `node tools/measure_detail_ceilings.mjs --price` prices
+  the headroom at each tier's own tightest stand into a count of roofs per archetype
+  family — the family footprint read from the GLB each roof ships as, the sun's second
+  draw measured at the stand — and `--deal D3=6,C2=2` answers a proposed parcel with
+  FITS or BREACHES. `--from <a --json reading>` re-prices a reading already taken, with
+  no browser. It moves nothing: a raise is still argued here, on the three constraints
+  above, and this only puts the number in front of the decision instead of behind it.
 
 The pattern is the same one above: **when the owner asks for something, the scene needing it IS
 the justification.** Rationing the town to a budget nobody defended is the same bug as rationing
@@ -396,7 +406,14 @@ is the contract. The short form:
   work"*). First, **if an open ticket already owns the question, add the finding to it**
   and file nothing. Second, if it is a real one-run piece of the goal, `ticket.mjs new
   "title" --after T-NNNN` places it directly under the ticket it serves — beside related
-  work, not at the foot. Third, **if finishing would take more than five tickets, it is an
+  work, not at the foot. **Since 2026-09-27 a follow-up a run files goes to the FOOT OF
+  BAND 9 instead, and `new` enforces it** (owner: *"move loop follow-ups to band 9"*, then
+  *"make the ticket tool enforce it"*; the first district build had filed about seven
+  follow-ups beside itself, in 5C, between the owner and the next district). An anchor
+  above band 9 is honoured only with `--blocks "<why>"` — dev's gate is red on it, or the
+  build in hand or the next 5C/5D row cannot finish without it — and the reason is written
+  into the ticket. `--by owner` filings are never redirected; an anchor at or below band 9
+  is honoured as before. Third, **if finishing would take more than five tickets, it is an
   epic**: one ticket under `EPICS` at the foot of QUEUE carrying the list, and no more.
   The loop does not work an epic until the owner promotes it. **Agents never move an
   existing line — only the owner re-ranks.** That is what keeps his priorities durable.
@@ -411,6 +428,12 @@ is the contract. The short form:
   on 2026-08-19 (run 943's PR #258 left open, run 944 redoing T-0062 as #259). `claim` now
   checks `git ls-remote` for a rival branch carrying the ticket's number and refuses with a
   `--force` escape — but that only protects the NEXT run; finishing the PR is your half.
+  That scan skips `claim/*` (the lock is the authority on a live claim and says who holds
+  it) and, since T-1666, `idlock/*` — the ID-MINT LEASE every ticket carries from the day
+  it was filed. Reading those as work refused EVERY unclaimed ticket, so `--force` became
+  the normal way to claim and the one case the check exists for stopped being visible; the
+  same bug was filed three times in three days (T-1601, T-1646, T-1666). **A refusal that
+  names a real `steward/*` branch is a real rival — believe it.**
 - **Size in RUNS before you FILE, not before you claim.** `XS` part of a run · `S` one
   run · `M` one run, tight (or one run plus a bake) · `L` **more than one run, which
   `new` now REFUSES at the prompt and `claim` refuses after** (T-1593). The test is the
@@ -502,6 +525,29 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     which writes `resume: <reason> · waits on: <T-NNNN|nothing>` as the first line of a
     PR comment, applies the label, and takes `hold` off if a run left one there. The
     reason goes on BEFORE the label, so a labelled PR never exists without it.
+
+    **It acts on the repository THIS CHECKOUT belongs to** — its origin remote —
+    which since T-1655 is the one thing it does not read out of the environment. A
+    steward improve run executes inside a **polecat-platform** job and clones this
+    repo into the workspace, so the ambient repo name is the wrong one for every call
+    made from here; on 2026-09-27 that put chicago#104's handoff reason and its
+    `resume` label onto polecat-platform#104, an unrelated PR, and it did not fail,
+    because both repositories had a #104 open that day. Pass `--repo owner/name` to
+    act on another repository, and expect a one-line refusal — never a guess — when
+    the repository it resolved does not contain the PR or the branch.
+
+    **And so do the other three steward scripts, since T-1656** — `pr-lap.sh`,
+    `merge-ready.sh` and `pr-stuck.sh` all carried the identical
+    `${GITHUB_REPOSITORY:-kevinrhaas/chicago}` line, whose `:-` default reads as a
+    safety net and is not one: in an Actions job the variable is always set, so the
+    default never fires. They were left out of T-1655 only because their callers are
+    this repository's own workflows, where the ambient name happens to be right — a
+    property of the CALLER, and the same one pr-rest.sh had until a run drove it from
+    a clone. Two of them WRITE (merge-ready merges; pr-stuck labels and comments), so
+    the silent wrong-repository write was available to them the same way. All four now
+    take `--repo owner/name`, default to the origin remote of the checkout the file is
+    in, and refuse in one line rather than guess; `tools/check_gh_rest.mjs` names all
+    four in `REPO_NAMED`, and its `--self-test` proves each one is covered on its own.
   - **A later run works resumable PRs before it takes new queue work.** Merge `dev` in,
     re-derive, fix what is red, gate, merge — it is the same endgame as any unit, on a
     branch that is already most of the way there. **Skip one whose `waits on` ticket is

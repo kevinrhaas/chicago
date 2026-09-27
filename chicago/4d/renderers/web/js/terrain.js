@@ -67,7 +67,8 @@ const WATER_BARRIER_Y = 4.0;
  *  visibility reach. At 5 × 8, however, a tile was about 1.3 km wide: its near
  *  corner kept a million-triangle field submitted long after most of that tile
  *  was haze. T-1245 measures the rule in metres instead. A tile side is at most
- *  240 m — about one eighth of the 1,883 m haze reach — so the reach can reject
+ *  240 m — about a tenth of the 2,644.9 m haze reach, an eighth of it when
+ *  T-1245 set the figure against a thicker air — so the reach can reject
  *  ground with bounded edge overdraw as the modelled box changes again. */
 /** The grid the last ground build actually used, for the harness to read back.
  *  Written by tileGround(); read by `groundTiling()` and by nothing in the scene. */
@@ -76,9 +77,15 @@ let lastGroundTiling = null;
 /** The culling grid the ground currently stands on, or null before one is built. */
 export function groundTiling() { return lastGroundTiling; }
 
-// A reach can only reject whole tiles. Hold each side to roughly one eighth of
-// the 1,883 m haze reach so a boundary tile cannot buy hundreds of metres of
-// detailed ground merely because one corner remains visible (T-1245).
+// A reach can only reject whole tiles. Hold each side to a small fraction of
+// the haze reach so a boundary tile cannot buy hundreds of metres of detailed
+// ground merely because one corner remains visible (T-1245). 240 m was "roughly
+// one eighth" of the 1,883 m reach that density gave; T-1635 thinned the air to
+// the apron it has to close over and the reach is 2,644.9 m, so the same 240 m
+// is now about a TENTH of it — finer than the rule asks, which is the safe
+// direction, and the tile count is unchanged at 217. It is left alone
+// deliberately: re-cutting the grid is a draw-call bargain T-1595 measured in
+// its own right, and nothing in T-1635's reading asks for it.
 const GROUND_TILE_TARGET_M = 240;
 /**
  * …AND A TILE TOO THIN TO BE WORTH A DRAW CALL IS NOT A TILE (T-1595).
@@ -163,18 +170,33 @@ const GROUND_DETAIL_REACH_M = 600;
  * at distance d is exp(-(d * density)^2). Beyond the distance where that falls
  * under one part in `steps`, the surface cannot move an 8-bit channel: it is
  * already the horizon haze, to the last representable step. Solve it and the
- * reach is sqrt(ln steps) / density — 1,883 m at the scene's 0.00125, against a
- * fog the lighting note already calls "total by 1500 m" and a far plane at
- * 3,000. So this is not a cheapening of a tier a visitor chose: it is the
- * distance past which the ground is provably not drawn even when it is drawn,
- * and it is why the reach is applied at EVERY tier and not only at `light`.
+ * reach is sqrt(ln steps) / density — 2,644.9 m at the scene's 0.00089, against
+ * a far plane at 3,000. So this is not a cheapening of a tier a visitor chose:
+ * it is the distance past which the ground is provably not drawn even when it is
+ * drawn, and it is why the reach is applied at EVERY tier and not only at
+ * `light`.
+ *
+ * **THE DENSITY MOVED ONCE, AND THIS REACH MOVED 761.7 m WITH IT FOR NOTHING
+ * (T-1635).** It read 1,883 m at the old 0.00125, which `world.js` had set
+ * against L17's since-retired "total by 1500 m"; the density is now derived from
+ * the ground apron's own published width and the reach is 2,644.9 m. Measured on
+ * the published mirror at desktop 1280x800, before and after, at T-0135's five
+ * stands and all three sealed tiers: every one of the fifteen triangle and
+ * draw-call readings is IDENTICAL, and so is the owner's own aerial pose (30 of
+ * 217 tiles drawn either way). What lies between the two reaches at those stands
+ * is apron, and T-1595's sliver merge already submits the whole apron as one
+ * always-drawn mesh of 2,489 triangles. So this rule is cheaper than it looks to
+ * loosen — but it is still a rule, and the density that sets it is gated against
+ * the apron by `tools/check_haze_reach.mjs`.
  *
  * WHAT IT IS NOT. Nothing is un-built, re-graded or moved. The detailed ground
  * remains within 600 m and a continuous 15 m-sampled rendition of the same
  * heightfield carries the distance beyond it. `surfaceHeight` and
  * `walkableHeight` read the original 2.5 m field and never either mesh, so
  * footing, water, flora roots and every anchored record are untouched. Beyond
- * the outer haze reach even the skirt is withheld, exactly as T-1238 measured.
+ * the outer haze reach even the skirt is withheld, exactly as T-1238 measured —
+ * and since T-1635 the reach and the skirt's outer edge stand 14.9 m apart, so
+ * what is withheld out there is a sliver of the apron rather than most of it.
  *
  * @param {number} density  the scene fog's `FogExp2` density
  * @param {number} steps    how many representable steps the channel has
@@ -531,12 +553,41 @@ export async function createTerrain({
   let groundDrawn = groundBounds.length;
   let groundHeld = 0;
 
+  /** The haze the water has been ASKED for, which is not always the haze it has
+   *  been given: the `uSky` uniform does not exist until the material compiles,
+   *  a frame or two after this object does, and the view may not turn again for
+   *  minutes. So the wish is kept and re-offered every frame until it lands. */
+  let hazeWanted = null;
+  function applyHaze() {
+    const u = waterMat?.userData?.chiSkyUniform;
+    if (!u || !hazeWanted || u.value.equals(hazeWanted)) return false;
+    u.value.copy(hazeWanted);
+    return true;
+  }
+
   return {
     group,
     mesh: ground,
     water,
     material: groundMat,
     waterMaterial: waterMat,
+    /**
+     * Point the water at the same distance the air is pointing at — T-1631.
+     *
+     * The grazing-angle term mixes toward `world.js`'s haze, and that haze now
+     * follows the bearing the visitor is looking along, so a water surface left
+     * on the boot-time colour would read a different distance from the plain it
+     * lies in. The uniform does not exist until the material has compiled, which
+     * is a frame or two after this object does, so the write is guarded rather
+     * than assumed.
+     *
+     * @param {THREE.Color} colour the scene fog's colour, live
+     * @returns {boolean} whether a uniform was actually written
+     */
+    setHaze(colour) {
+      if (colour) hazeWanted = (hazeWanted ?? new THREE.Color()).copy(colour);
+      return applyHaze();
+    },
     heightfield,
     meta,
     epochId,
@@ -573,6 +624,9 @@ export async function createTerrain({
      *  finished. One subtraction and one comparison per tile, over the few dozen
      *  the grid comes to. */
     updateGroundReach(eye) {
+      // T-1631: the same per-frame moment, and the cheapest place to land a
+      // haze the material was not yet compiled to receive. A colour compare.
+      applyHaze();
       if (!groundBounds.length) return groundReachM;
       let drawn = 0;
       let held = 0;
@@ -1070,10 +1124,24 @@ function gridGeometry(hf, step = 1) {
   for (let r = 0; r < outRows - 1; r++) {
     for (let c = 0; c < outCols - 1; c++) {
       const a = r * outCols + c;
-      // -Z is north, so the row-major grid is mirrored relative to ENU and the
-      // winding has to be flipped to keep the normals up.
-      idx[k++] = a; idx[k++] = a + outCols; idx[k++] = a + 1;
-      idx[k++] = a + 1; idx[k++] = a + outCols; idx[k++] = a + outCols + 1;
+      // Rows run NORTHWARD (row r stands at originN + r·cellM, and the sampler
+      // reads gy = (n − originN) / cellM), and world −Z is north, so a step to
+      // the next row is a step toward −Z and a step to the next column is +X.
+      // Counter-clockwise seen from above is therefore a → a+1 → a+outCols,
+      // which puts the face normal UP.
+      //
+      // IT WAS THE OTHER WAY ROUND UNTIL 2026-09-27, under a comment claiming
+      // the opposite, and every face of this mesh pointed DOWN. From above the
+      // whole far ground was back-face culled: it drew nothing. Past 600 m the
+      // detailed tiles hand the ground to this mesh (GROUND_DETAIL_REACH_M), so
+      // everything beyond that ring was a hole, and what showed through it was
+      // the datum-level water plane laid under the whole box — hazed to the
+      // sky's colour. That is the "flooded" horizon the owner reported from
+      // the air three times; T-1631 and T-1635 tuned the haze over it, which
+      // is why neither fixed it. Measured by drawing this mesh double-sided at
+      // the owner's poses: the holes fill and the far river reads as river.
+      idx[k++] = a; idx[k++] = a + 1; idx[k++] = a + outCols;
+      idx[k++] = a + 1; idx[k++] = a + outCols + 1; idx[k++] = a + outCols;
     }
   }
   const g = new THREE.BufferGeometry();
@@ -1403,6 +1471,11 @@ function waterMaterial() {
     // olive: the far water read as a stain on the plain rather than as sky lying
     // on it, and the comment above it claimed the opposite in good faith.
     shader.uniforms.uSky = { value: new THREE.Color(HORIZON_HAZE) };
+    // T-1631: the haze is no longer one colour — `world.js`'s `aim()` turns it
+    // with the view — so the water's idea of distance has to be able to turn
+    // with it. Published on the material rather than closed over, because the
+    // material is what `setHaze` below is handed.
+    mat.userData.chiSkyUniform = shader.uniforms.uSky;
     shader.vertexShader = 'varying vec3 vChiWorld;\n' + shader.vertexShader.replace(
       '#include <begin_vertex>', '#include <begin_vertex>' + WORLD_POS_VERT,
     );

@@ -183,8 +183,21 @@ FRONTAGE_DOMINANCE = 0.5
 # on dry committed ground and clear the travelled track, or this generator
 # refuses to write the record.
 RIVER_WALK_ID = "river_plank_walk"
-RIVER_APPROACH_M = 1.7     # the crossing footway reaches this far past each deck end
+RIVER_APPROACH_M = 1.7     # kept: the La Salle footway still reaches this far past each deck end
 RIVER_DECK_MARGIN_M = 0.05  # the walkable footway strip is this much wider than its boards
+# THE WALK'S EAST END, AUTHORED SINCE T-1629. It used to be DERIVED from the
+# Slough Log Bridge's deck, because the drain's mouth crossed the walk's line
+# here and the boards rode that deck. The owner ruled on 2026-09-26 that the
+# mouth is Wright's traced re-entrant just EAST of State and that the built mouth
+# west of State was the invention, so state_slough_mouth was re-routed, the old
+# carve is filled back to the bank line, and the bridge went with the water onto
+# State Street 35 m inland. There is no water under the walk here any more and
+# no deck to ride. These two numbers are the run's OWN east end, and they are the
+# ones the walk already published (E 803.6..815.0 at N 14.2), kept so the
+# visitor's walk does not shorten or move for a change that is about the drain.
+RIVER_EAST_END_E = 815.0   # the walk's east terminus, at the foot of the old crossing
+RIVER_EAST_BEND_E = 803.6  # where the authored east reach's knots take over
+RIVER_EAST_END_N = 14.2    # the bank line both of those stand on
 RIVER_DRY_M = 0.03         # least ground elevation under a board centre, m over datum
 RIVER_CROSS_CLEAR_M = 1.3  # a crossing runs past the track edge by this much each side
 LASALLE_LIBERTY = "L195"   # the crossing and its footway are claimed together
@@ -194,8 +207,17 @@ LASALLE_LIBERTY = "L195"   # the crossing and its footway are claimed together
 RIVER_EAST_REACH = [[760.0, 14.6], [731.0, 13.8]]     # deck west end .. Dearborn
 RIVER_WEST_REACH = [[667.0, 13.9], [638.0, 14.4], [600.0, 15.0], [576.0, 15.4],
                     [537.0, 15.4], [497.0, 15.3], [489.0, 14.6]]  # Dearborn .. La Salle mouth
-RIVER_WHARF_REACH = [[459.5, 14.3], [455.0, 24.0], [448.0, 32.0], [428.0, 37.5],
-                     [396.0, 40.2], [357.5, 40.3]]    # La Salle mouth .. Jones's landing
+# STRAIGHT SINCE T-1630, AND IT IS THE TICKET'S POINT. This reach used to carry five
+# authored knots that swung the walk north from the La Salle mouth at N +14.3 to N +40.3
+# in twenty metres of easting and then ran flat along the top of the bulge — the curve the
+# owner reported ("the walk should go straight and cross straght just like the water street
+# road and follow the bank of the river just like east of the slough"). The bulge is gone:
+# the bank on this reach came south by 5.6 to 10.8 m on his ruling (L274), and the landings
+# came with it, so the run no longer has to climb round a point. It is now ONE segment from
+# the mouth to Jones's landing, with no intermediate knot at all — a straight line is the
+# shortest way to say straight — and every station of it is audited below against the
+# committed ground, the travelled track and the committed landings like every other reach.
+RIVER_WHARF_REACH = [[459.5, 14.3], [359.2, 31.0]]    # La Salle mouth .. Jones's landing
 RIVER_DEARBORN_CROSS_N = 13.92   # the board crossing over Dearborn runs level at this N
 
 # WHERE A LANDING COMES ASHORE, NO BOARD IS LAID (T-0228). The committed wharves
@@ -506,6 +528,18 @@ EDGE_FENCE_COURSES = 2
 #      post a rider ties a bridle to, and that distinction is the one the
 #      signboard rule already draws between a board over a footway and a name
 #      painted on a front. A dwelling gets nothing at all.
+#
+#      T-1657 IS WHY THAT IMPORT NOW REACHES THE ANONYMOUS ROOFS. The set it
+#      imports carried C2's `store_residence` and W1's `blacksmith_shop` — two
+#      archetype-family terms — but none of C1, C3, C4, F1 or F2, so ten roofs
+#      the schedule had dealt a commercial family were never LOOKED at by this
+#      clause and got neither a post nor a refusal. They are in the sets now,
+#      which moved this layer's refusals from 95 to 108 and its posts not at
+#      all: the three F-band roofs are refused BY THIS CLAUSE as a works, and
+#      the ten C-band roofs fall to clause 3 because their trade was dealt by
+#      the schedule. `normalise_structure_function.py --check` now refuses a
+#      commercial or works family that no trade set knows, so the next family
+#      cannot go silent the same way.
 #   3. THE TRADE IS HELD ON EVIDENCE — `attested`, `documented` or `inferred`,
 #      which is clause 3 of the signboard rule verbatim. This is what keeps posts
 #      off the anonymous slots: an `inf_` roof's trade was DEALT BY A SCHEDULE,
@@ -533,12 +567,15 @@ EDGE_FENCE_COURSES = 2
 #      same record, and nothing distinguishes the two but the lettering neither of
 #      them carries.
 #
-#      SO THE GRADE IS LOAD-BEARING, AND THIS IS WHAT IT HOLDS UP. Of the town's
-#      285 anonymous slots exactly TWO carry a PUBLIC_TRADES trade at all —
-#      `inf_grocery_west` (store_residence) and `physicians_office`
-#      (physicians_office) — and both are graded `reconstructed`, so clause 3
-#      refuses both and the post count is the same under either reading: 16, with
-#      no named, evidenced frontage touched by the question either way. The hole
+#      SO THE GRADE IS LOAD-BEARING, AND THIS IS WHAT IT HOLDS UP. When T-1052
+#      asked, TWO of the town's 285 anonymous slots carried a PUBLIC_TRADES trade
+#      at all — `inf_grocery_west` (store_residence) and `physicians_office`
+#      (physicians_office). Re-measured on 2026-09-27, after the South Water
+#      re-familying (T-1647, T-1648) and after T-1657 put the C-band archetype
+#      terms into the trade set, it is 22 of 322 — and the reading is UNCHANGED,
+#      because every one of the 22 is graded `reconstructed`. Clause 3 refuses all
+#      22, so the post count is the same under either reading: 16, with no named,
+#      evidenced frontage touched by the question either way. The hole
 #      the ticket names is therefore not a post standing today but a grade moving
 #      tomorrow. What answers that is that the grade is not a dial. T-0230 put
 #      exactly that question to `physicians_office` and wrote the answer into the
@@ -1609,26 +1646,19 @@ def build_river_walk() -> tuple[list, list]:
     that committed it, every authored knot audited against the committed ground."""
     problems: list[str] = []
 
-    # THE CROSSING'S FIXED POINT: the Slough Log Bridge's committed deck. The
-    # sidecar's placement is the same one the walker's deck registry reads, so
-    # the footway and the surface a visitor stands on are one set of numbers.
-    bridge = _load(SIDECARS / "slough_log_bridge.json")
-    place = bridge.get("placement") or {}
-    poly = (bridge.get("footprint") or {}).get("polygon") or []
-    if place.get("vertical_anchor") != "water" or not isinstance(
-            place.get("walk_surface_m"), (int, float)):
-        raise SystemExit("generate_frontage_works: the Slough Log Bridge sidecar no "
-                         "longer carries a water-anchored walk_surface_m — the "
-                         "crossing footway has nothing to ride")
-    if float(place.get("rotation_deg") or 0.0) != 0.0:
-        raise SystemExit("generate_frontage_works: the Slough Log Bridge deck has "
-                         "rotated — the footway derivation below assumes the "
-                         "committed east-west deck and must be re-derived")
-    deck_y = float(place["walk_surface_m"])          # a water anchor is datum zero
-    e0 = float(place["local_e"])
-    n0 = float(place["local_n"])
-    deck_e0, deck_e1 = e0 + min(p[0] for p in poly), e0 + max(p[0] for p in poly)
-    deck_n_mid = n0 + (min(p[1] for p in poly) + max(p[1] for p in poly)) / 2.0
+    # THE EAST END IS THE WALK'S OWN, NOT A BRIDGE'S (T-1629). Until 2026-09-26
+    # this block read the Slough Log Bridge's sidecar and derived the east reach's
+    # end and a footway that RODE the deck, because the State slough's mouth
+    # crossed the walk here. The mouth moved east of State on the owner's ruling,
+    # the old carve is filled, and the re-seated deck is 35 m inland on State
+    # Street — so the boards at this end lie on ground like every other board in
+    # this record, and the two knots are authored above and audited below. The
+    # guard this block used to carry (a refusal if the deck rotated) is gone with
+    # the derivation it protected; what replaces it is that every station of this
+    # reach is now asked of the committed heightfield, which is the check that
+    # would have caught the old footway standing over dry ground.
+    footway_line = [[RIVER_EAST_BEND_E, RIVER_EAST_END_N],
+                    [RIVER_EAST_END_E, RIVER_EAST_END_N]]
 
     # THE RUN'S FAR END: Jones's landing, the easternmost wharf on the South
     # Water bank — where the town's wharf walks begin, so where this walk stops.
@@ -1668,15 +1698,7 @@ def build_river_walk() -> tuple[list, list]:
     cross_e_east = _round(dcross_e + reach)
     cross_e_west = _round(dcross_e - reach)
 
-    footway_line = [[_round(deck_e0 - RIVER_APPROACH_M), _round(deck_n_mid)],
-                    [_round(deck_e1 + RIVER_APPROACH_M), _round(deck_n_mid)]]
-    span_hw = _round(WALK_W_M / 2.0 + RIVER_DECK_MARGIN_M)
-    deck_span = [[_round(deck_e0), _round(deck_n_mid - span_hw)],
-                 [_round(deck_e1), _round(deck_n_mid - span_hw)],
-                 [_round(deck_e1), _round(deck_n_mid + span_hw)],
-                 [_round(deck_e0), _round(deck_n_mid + span_hw)]]
-
-    east_line = ([[_round(deck_e0 - RIVER_APPROACH_M), _round(deck_n_mid)]]
+    east_line = ([[RIVER_EAST_BEND_E, RIVER_EAST_END_N]]
                  + [[_round(e), _round(n)] for e, n in RIVER_EAST_REACH]
                  + [[cross_e_east, RIVER_DEARBORN_CROSS_N]])
     west_line = ([[cross_e_west, RIVER_DEARBORN_CROSS_N]]
@@ -1689,12 +1711,13 @@ def build_river_walk() -> tuple[list, list]:
                          "the whole wharf reach — no riverside walk survives, and "
                          "that is a re-authoring rather than a regeneration")
 
-    # The audits. The footway's own boards ride the committed deck, so only its
-    # two approach ends are asked of the ground; every other board is.
-    for e, n in footway_line:
-        if hf.height(e, n) < RIVER_DRY_M:
-            problems.append(f"{RIVER_WALK_ID}: the crossing footway's approach at "
-                            f"({e:.1f}, {n:.1f}) stands on wet ground")
+    # The audits. EVERY board is asked of the ground now, this reach included:
+    # it used to ride a deck over the drain's mouth and T-1629 filled that mouth,
+    # so the one reach this generator exempted is the one whose ground most needs
+    # reading. Sampled along the run and not only at its knots, because a filled
+    # carve is exactly the kind of thing that comes up dry at both ends.
+    _audit_river_reach(f"{RIVER_WALK_ID} east end", footway_line, hf, streets,
+                       problems, works)
     _audit_river_reach(f"{RIVER_WALK_ID} east reach", east_line, hf, streets, problems,
                        works)
     _audit_river_reach(f"{RIVER_WALK_ID} west reach", west_line, hf, streets, problems,
@@ -1723,29 +1746,31 @@ def build_river_walk() -> tuple[list, list]:
             "belongs_to": RIVER_WALK_ID,
             "kind": "plank_walk",
             "confidence": "reconstructed",
-            "rides": "slough_log_bridge",
             "centreline_local_enu_m": footway_line,
             "width_m": WALK_W_M,
             "rise_m": WALK_RISE_M,
             "plank_run": "across",
             "plank_pitch_m": PLANK_PITCH_M,
             "plank_thickness_m": PLANK_T_M,
-            "deck_m": _round(deck_y),
-            "deck_span_local_enu_m": deck_span,
             "note": (
-                "THE PLANK FOOTWAY OVER THE SLOUGH MOUTH — what a person walking "
-                "Water Street actually crosses the drain on. The Slough Log Bridge "
-                "is the committed structure (its record carries the crossing's "
-                "evidence); this footway is the pedestrian surface the owner asked "
-                "for on 2026-08-20, laid along the deck's own centre. WHERE is "
-                "derived, not authored: the run is the committed deck's extent "
-                f"(E {deck_e0:.1f}..{deck_e1:.1f}) plus {RIVER_APPROACH_M} m onto "
-                "each graded approach, and `deck_m` is the deck surface the sidecar "
-                "already states (`walk_surface_m` over a water anchor), so the "
-                "boards ride the same number the walker's deck registry reads. Over "
-                "the carved channel the boards lie on the deck; on the approaches "
-                "they take the ground, exactly as every other walk this layer "
-                f"lays. docs/LIBERTIES.md {liberty}."
+                "THE WALK'S EAST END — and until T-1629 (2026-09-26) this was the "
+                "plank FOOTWAY over the State slough's mouth, riding the Slough Log "
+                "Bridge's committed deck. THE ID IS KEPT AND IS NOW HISTORICAL: ids "
+                "in this dataset are stable, and renaming one to tidy up a sentence "
+                "would cost every reader who has followed it. WHAT CHANGED: the owner "
+                "ruled on 2026-09-26, against Wright 1834 and Hathaway 1834, that "
+                "there is ONE slough at the foot of State and its mouth is the notch "
+                "the sheets draw just EAST of State — the mouth built west of State, "
+                "under this walk, was the invention. So `state_slough_mouth` was "
+                "re-routed, the carve under these boards is FILLED back to the bank "
+                "line, and the deck these boards used to ride went with the water "
+                "onto State Street about 35 m inland. There is no drain to cross "
+                "here any more, so these boards lie on ground, like every other "
+                "board in this record, and every station of the run is now asked of "
+                "the committed heightfield instead of being exempted as decked. The "
+                "run itself does not move: E 803.6..815.0 at N 14.2, the same extent "
+                "the walk published before, because the change is about the drain and "
+                "not about where a person could walk. docs/LIBERTIES.md L153."
             ),
         },
         {

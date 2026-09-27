@@ -1,6 +1,6 @@
 {
   "schema": "research-spend-rulings-v1",
-  "_doc": "HAND-AUTHORED, T-1234. The written ruling on every unasserted PERSON unit the matched-research table of T-1232 does not reach: the book-domain person units and the letter-list name suspicions. tools/research_spend_ledger.py reads this file at the point where it would otherwise leave a unit unresolved, so a ruling here can only close a unit nothing else has already closed and can never overturn an assertion, a later_only or a refusal the readings themselves carry. Every rule below is stated once and every unit carries its own note; the gate fails on a ruling whose unit does not exist, on a ruling that never fires, and on a rule with no statement. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON OR MOVES A CONFIDENCE. A hand-off is not a spend: it names the open ticket whose field owns the finding, and that ticket closing turns this file red, which is the point. T-1598 ADDED A SECOND KIND OF UNIT TO THIS FILE: the 34 `building` place readings in the 1835 issues of the Chicago Democrat and the Chicago American. They are here rather than in a derived register because each one is a judgement about what the ground can receive from a particular notice, which is the shape T-1234 wrote this file for; a tool that derived them would be deriving the judgement. NOTHING HERE PLACES A BUILDING, MOVES A STRUCTURE OR INVENTS A COORDINATE — a reading that names a standing building the structure layer holds was handed to T-1600, which wrote the corroboration onto the record — and T-1600 then took the hand-off's own mechanism away by making data/structures/ a target surface, so nine of those ten now close as `asserted` off the record they were written onto and are gone from this file entirely. That is what a hand-off is supposed to end as. The tenth named a building the town has not built and waited on T-1603, which RULED it: the house stands on Dearborn Street and reaches no seat there, so it closes in the aggregate as building stock and data/exclusions.json carries the guard against building it. Every reading in this file is now closed against a stated rule and no rule here hands work to an open ticket. T-1599 CARRIED THAT SECOND KIND OF UNIT BACK BEFORE THE SCENE YEAR: the 88 `building` place readings in the 1833 and 1834 issues of the Chicago Democrat. They are the harder half of T-1589, because a pre-scene notice can be REFUTED by the calendar as well as unseated by the page — under the ladder ratified 2026-09-03 an earlier source no more promotes an 1835 fact than a later one does — and because eleven of them turned out to be spent already, on a layer this ledger does not index: the building stands in the committed town under its own record in data/structures/, raised or dated from the very notice the unit carries. Each of those eleven names its structure id so the claim can be checked in one grep. NOTHING HERE PLACES A BUILDING, MOVES A STRUCTURE OR INVENTS A COORDINATE: the 23 readings that DO reach the plat — a lot and a block, a named corner, an offset from a building the town holds — are handed to T-1624, which owns carrying each one forward to 1835-07-01 or refusing it in writing with the plat in front of it.",
+  "_doc": "HAND-AUTHORED, T-1234. The written ruling on every unasserted PERSON unit the matched-research table of T-1232 does not reach: the book-domain person units and the letter-list name suspicions. tools/research_spend_ledger.py reads this file at the point where it would otherwise leave a unit unresolved, so a ruling here can only close a unit nothing else has already closed and can never overturn an assertion, a later_only or a refusal the readings themselves carry. Every rule below is stated once and every unit carries its own note; the gate fails on a ruling whose unit does not exist, on a ruling that never fires, and on a rule with no statement. NOTHING HERE EDITS A RESIDENT, MINTS A PERSON OR MOVES A CONFIDENCE. A hand-off is not a spend: it names the open ticket whose field owns the finding, and that ticket closing turns this file red, which is the point. T-1598 ADDED A SECOND KIND OF UNIT TO THIS FILE: the 34 `building` place readings in the 1835 issues of the Chicago Democrat and the Chicago American. They are here rather than in a derived register because each one is a judgement about what the ground can receive from a particular notice, which is the shape T-1234 wrote this file for; a tool that derived them would be deriving the judgement. NOTHING HERE PLACES A BUILDING, MOVES A STRUCTURE OR INVENTS A COORDINATE — a reading that names a standing building the structure layer holds was handed to T-1600, which wrote the corroboration onto the record — and T-1600 then took the hand-off's own mechanism away by making data/structures/ a target surface, so nine of those ten now close as `asserted` off the record they were written onto and are gone from this file entirely. That is what a hand-off is supposed to end as. The tenth named a building the town has not built and waited on T-1603, which RULED it: the house stands on Dearborn Street and reaches no seat there, so it closes in the aggregate as building stock and data/exclusions.json carries the guard against building it. Every reading in this file is now closed against a stated rule and no rule here hands work to an open ticket. T-1599 CARRIED THAT SECOND KIND OF UNIT BACK BEFORE THE SCENE YEAR: the 88 `building` place readings in the 1833 and 1834 issues of the Chicago Democrat. They are the harder half of T-1589, because a pre-scene notice can be REFUTED by the calendar as well as unseated by the page — under the ladder ratified 2026-09-03 an earlier source no more promotes an 1835 fact than a later one does — and because eleven of them turned out to be spent already, on a layer this ledger does not index: the building stands in the committed town under its own record in data/structures/, raised or dated from the very notice the unit carries. Each of those eleven names its structure id so the claim can be checked in one grep. NOTHING HERE PLACES A BUILDING, MOVES A STRUCTURE OR INVENTS A COORDINATE: the 23 readings that DO reach the plat — a lot and a block, a named corner, an offset from a building the town holds — are handed to T-1624, which owns carrying each one forward to 1835-07-01 or refusing it in writing with the plat in front of it. T-1624 SPENT THE THIRD KIND OF UNIT AND TOOK ITS OWN HAND-OFF AWAY. T-1599 left 23 of the 1833-34 newspaper building readings `unresolved` under `the_earlier_building_placement_waits_on_the_plat`, because each gave a lot-and-block, a named corner or an offset from a standing building and each needed three decisions a register may not make: which lot of which block, whether the 1835 town already carries the building, and whether the corpus carries it forward at all. All three are now made, with `data/traces/thompson_block_numbering.json`, `data/reconstruction/1835_lot_ledger.json` and `data/structures/` in front of them, and the work is written up in `docs/RESEARCH/plat_level_building_placements_1833_34.md`. SEVEN SEAT ONTO A COMMITTED LOT — including G. Spring's 'LOT No. 7, in block No. 16, one lot east of Haddock's Tavern, on Lake street', the address that file was fetched for, which lands on `blk_south_water_dearborn#05`, south row, fronting Lake. NINE NAME A BLOCK THE LOT GRID DOES NOT REACH, one is on the school section and off this ground, and six anchor on another building and reach no lot. EVERY ONE OF THE TWENTY-THREE REFUSES THE FORWARD CARRY: the ladder ratified 2026-09-03 does not let an 1834 notice assert an 1835 fact, and the refusal is the finding. The hand-off rule is DELETED rather than left standing empty, which is what a spent hand-off is supposed to look like. Nothing here places a building, moves a structure, invents a coordinate or raises a confidence; the one placement question the plat work opened — whether these notices re-seat `mansion_house` on plat lot 6 of block 16 — is a structure move and a bake and is filed as T-1679.",
   "ticket": "T-1234, corrected by T-1322, extended by T-1598, T-1599 and T-1590",
   "rules": {
     "earlier_evidence_adds_no_1835_fact": {
@@ -77,12 +77,6 @@
       "disposition": "outside_chicago",
       "statement": "THE BUILDING IS PLACED, AND IT IS PLACED OFF THIS PROJECT'S GROUND. The notice's own words put it outside the reconstruction: a good log house and stable on a pre-emption claim thirteen miles from Chicago; a steam saw mill on the west half of the south-west quarter of section 4, township 39 north, range 14 east, which is up the North Branch and outside the plat; a dwelling house levied on in township 40 north, which is a township north of the one the town stands in; a tavern whose dateline is Springfield's and not Chicago's. These are the strongest placements in the run and that is the point — the survey description is exactly what carries them out of scope. They are kept, and the reason they are worth keeping is stated on each: the log house and its two thousand rails are the only description in the corpus of what an ordinary improved Cook county claim consisted of, and a name a reader will meet again inside the town travels with its caveat. Nothing is corrected to bring a building inside the plat: a wrong township is recorded as printed, because amending one to make a house fall in town would be inventing the placement."
     },
-    "the_earlier_building_placement_waits_on_the_plat": {
-      "disposition": "unresolved",
-      "ticket": "T-1624",
-      "reason": "The plat pass owns this reading: 23 pre-scene-date placements the papers give on the plat, each to be carried forward to 1835-07-01 with the plat and the block recipes in front of it, or refused in writing.",
-      "statement": "THE NOTICE REACHES THE PLAT, AND CARRYING IT TO THE SCENE DATE IS NOT A LINE IN THIS REGISTER. These are the readings of 1833-34 that do what almost nothing in the corpus does: they give a LOT AND A BLOCK NUMBER, or a named corner, or an offset from a building the committed town already holds under its own record. A dwelling house and a fine well on lot 7 of block 16, one lot east of Haddock's Tavern on Lake Street; the building on lot 2 of block 1 on North Water Street; houses — plural — on lot 3 of block 111; a shed in the rear of J. B. Beaubien's store house; a two-storey store-and-dwelling nearly opposite the drawbridge and next door to the post office; a store standing on J. S. C. Hogan's lot. WHY THEY ARE NOT SPENT HERE. Every one of them needs three decisions this register has no business making: which lot of which block on the committed plat, whether the 1834 building is one the 1835 town already carries under another name, and whether the corpus carries it forward over the twelve to twenty months to 1835-07-01 at all. Each of those is an edit to `data/structures/` or to a block recipe, in the pull request that makes it, and the second and third can go either way — the ladder ratified 2026-09-03 does not let an 1834 notice promote an 1835 fact on its own, so some of these will be refused and the refusal will be the finding. T-1624 owns exactly these readings and names them, so the hand-off has a floor: the ticket cannot close while one of them is still unruled. NOTHING HERE PLACES A BUILDING, MOVES A STRUCTURE OR INVENTS A COORDINATE."
-    },
     "the_prose_reading_corroborates_a_structure_the_town_already_holds": {
       "disposition": "aggregate_only",
       "statement": "THE PROSE TWIN OF `the_earlier_notice_is_spent_on_a_structure_the_town_already_holds`, AND IT CLAIMS ONE THING LESS. The building the reading describes stands in the committed town under its own record in `data/structures/`, and what the reading carries is that building's form, use, occupancy or construction date. It is a recollection in a book, a compiled history or a civic finding, not a notice on a page, so it reaches the structure layer and nothing on the two surfaces this ledger indexes: not a resident, not a firm. THE ONE THING IT DOES NOT CLAIM is that the record was written from it. Most of these records were not: `grep` the structure id and the record's own sources and this page is usually absent, which is exactly why the rule says corroborates and not spent. AND THE RULE ADDS NOTHING. It writes no source onto a record, moves no position, and raises no confidence -- under the ladder ratified 2026-09-03 a recollection set down in 1881, 1884, 1895 or 1911 about a building of 1818 or 1833 may corroborate and may not promote, and a record's `documented` grade is not reachable from a page that is neither the source it stands on nor contemporary with the fact. Offering the corroboration to the record is the structures layer's own PR and its own judgement. EVERY RULING UNDER THIS RULE NAMES THE STRUCTURE ID, so the claim is checkable in one grep; where the reading disagrees with the record the ruling says so and resolves nothing, because an agreement manufactured between a plan and a pace-estimate is not evidence."
@@ -108,6 +102,22 @@
     "the_later_printed_reading_corroborates_the_scene_from_outside_the_window": {
       "disposition": "later_only",
       "statement": "THE SOURCE IS PRINTED AFTER THE SCENE AND ITS BUILDING CONTENT SPANS THE SCENE DATE. That is the one shape in which a later page speaks to 1 July 1835 without being an 1835 source: not a fact dated after the window and carried back, but a span -- occupied, standing, in use from a year before to a year after -- inside which the scene date falls. Under the ladder ratified 2026-09-03 that corroborates and dates and does not promote: it cannot raise a confidence, it cannot place anything, and it is written here rather than left to the automatic rule because the automatic rule reads a describes_date and a span is not a date."
+    },
+    "the_plat_placement_is_seated_and_the_forward_carry_refused": {
+      "disposition": "refused",
+      "statement": "THE PLAT WORK IS DONE AND THE ANSWER IS A REFUSAL. The reading gives a lot number and a block number of the Original Town and both now resolve. `data/traces/thompson_block_numbering.json` carries Wright's numeral for all fifty-eight blocks, twenty-one of them stamped onto a committed block id, and its `lot_numbering` scheme — lots 4 3 2 1 across the north row west to east, 5 6 7 8 across the south row west to east, read on four blocks — puts the lot on a named cell of `data/reconstruction/1835_lot_ledger.json`. The seat is written down in `docs/RESEARCH/plat_level_building_placements_1833_34.md` so that nobody reads it a fourth time. WHAT THE SEAT DOES NOT BUY IS THE BUILDING. Under the evidence ladder ratified 2026-09-03 an EARLIER source no more promotes an 1835 fact than a later one does, and a for-sale, auction or lien notice of 1833-34 says a building stood on that lot on the day the notice ran — twelve to twenty months before 1835-07-01 — and says nothing whatever about the scene date. So nothing is placed, no structure moves, no coordinate is invented and no confidence is raised: the placement is recorded as reasoning and the forward-carry is refused. Where the committed town already stands a roof on the same cell, it stands there from the policy deal of T-1199 and not from this notice, and the note below says so."
+    },
+    "the_plat_placement_names_a_block_the_lot_grid_does_not_reach": {
+      "disposition": "refused",
+      "statement": "THE BLOCK IS READ AND THERE IS NO LOT TO SEAT IT ON. `data/traces/thompson_block_numbering.json` carries the numeral for all fifty-eight Original Town blocks, and only twenty-one of them are stamped onto a grid cell: `tools/generate_plat_lots.py` emits the three South Division tiers and nothing else, so the North Division's Kinzie-to-the-river tier, the West Division's eighteen and the Washington-Madison seven are held in that file's `blocks_not_in_the_grid` for exactly this reason — there is no id to stamp them onto. The lot number is worse placed still. The `lot_numbering` scheme is graded `conjectural`, it is read on four EIGHT-lot South Division blocks, and the same file records in `ten_lot_blocks` that the West Division's blocks carry TEN lots in two columns of five with the alley running north-south — a shape the scheme does not describe at all. So a lot number on one of these blocks cannot be carried to a committed cell without inventing the cell, and this project does not invent one. The forward-carry is refused on top of that, for the reason rule `the_plat_placement_is_seated_and_the_forward_carry_refused` states in full: an 1833-34 notice does not put a building on the ground on 1835-07-01. The block reading stands as committed chronology and the note below says which block was read and what is missing under it."
+    },
+    "the_plat_placement_stands_on_the_school_section_and_not_the_plat": {
+      "disposition": "outside_chicago",
+      "statement": "THE BLOCK NUMBER IS NOT A TOWN-OF-CHICAGO BLOCK NUMBER. Thompson's plat numbers fifty-eight blocks and stops there; a three-figure block belongs to the canal and school-section subdivisions beyond it, and this project's own land-sale ground register names this one outright — “block 111 of the school section, section 16 T39N R14E” (`data/research/land_sales/ground.json`, and the same ground in `data/reconstruction/1835_land_sales_by_tract.json`). Section 16 lies south and west of Madison Street, outside the Original Town and outside the ground this reconstruction models or means to model. So the reading places its buildings off this project's ground in the same way the log house thirteen miles out and the steam saw mill in section 4 do. Nothing is seated, nothing is asserted against the buildings themselves, and the reading stands as committed evidence about a subdivision the scene does not reach."
+    },
+    "the_offset_placement_reaches_no_committed_lot": {
+      "disposition": "refused",
+      "statement": "THE READING PLACES ITS BUILDING AGAINST ANOTHER BUILDING, AND THE ANCHOR IS WHAT FAILS. These are the 1833-34 notices that give no lot and no block but an offset — in the rear of, next door to, nearly opposite — from a building somebody in 1834 could see from the street. With the plat and the structure layer in front of them, every one of these offsets ends in one of three ways and not one of them reaches a committed lot. EITHER the anchor is a building this project has deliberately not modelled: the post office after its move of about July 1834, which `data/structures/hogan_store.json` states in terms would be “almost entirely invention today”. OR the anchor stands in the committed town somewhere the notice does not put it, so accepting the offset would mean moving a placed record on the strength of a source earlier than the scene, which the ladder ratified 2026-09-03 does not license. OR the offset names a direction and no distance, and “opposite” across a corner reaches two blocks and four lots. The forward-carry is refused for the same reason it is refused everywhere in this set, and the anchor's disagreement is recorded rather than resolved — where it is worth its own work the note below names the ticket that owns it."
     }
   },
   "rulings": [
@@ -588,8 +598,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_10.json#claims/c009",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "Lot 7 in block 8 with the house on it, 'formerly occupied as a Meeting House', beside or near the North Branch bridge, cried at the Eagle Hotel on 13 December 1833. A lot and a block number and a landmark: the only plat coordinate in the December set, and the same building the February auction re-offers. T-1624 owns whether the town carries it forward to 1835."
+      "rule": "the_plat_placement_names_a_block_the_lot_grid_does_not_reach",
+      "note": "Lot 7 in block 8, with the house on it 'formerly occupied as a Meeting House', cried at the Eagle Hotel on 13 December 1833. BLOCK 8 IS READ: Wright's numeral puts it on Clinton Street to Canal Street, Kinzie Street to Carroll Street, in the West Division, and the notice's own landmark independently agrees — the committed `north_branch_bridge` lands its west end 'near the south-east corner of Kinzie and Canal Streets', which is one street's width from block 8's north-east corner. That agreement is the finding. What does not follow is the lot: block 8 is held in `blocks_not_in_the_grid`, `generate_plat_lots.py` emits nothing west of the river, and the West Division's blocks carry ten lots and not eight, so 'lot 7' has no cell and cannot be given one here. Nothing seated; the carry to 1835-07-01 refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_24.json#claims/c002",
@@ -623,8 +633,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_02_04.json#claims/c006",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "'the Building formerly [o]ccupied as the Meet[ing-]House, opposite the bridge over the North [Bran]ch of the Chicago river', sold at the Eagle Hotel on 6 February 1834 with the west half of lot 3 in block 44 and lot 7 in block 8. A building that survives its use, placed by the town's own landmark and offered with two platted lots. T-1624 owns the plat work."
+      "rule": "the_plat_placement_names_a_block_the_lot_grid_does_not_reach",
+      "note": "'the Building formerly [o]ccupied as the Meet[ing-]House, opposite the bridge over the North [Bran]ch', sold at the Eagle Hotel on 6 February 1834 with the west half of lot 3 in block 44 and lot 7 in block 8 — the same building the December auction cried, re-offered. Both numerals are read and both land in the West Division: block 8 is Clinton to Canal, Kinzie to Carroll; block 44 is Canal Street to West Water Street, Randolph to Washington, on the west bank of the South Branch. Neither is stamped onto a grid cell and neither tier is emitted, so neither lot can be seated. Note also what block 44 carries: LAND, a half lot, and no building at all. Nothing seated; the carry to 1835-07-01 refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_02_04.json#claims/c007",
@@ -733,8 +743,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_04_16.json#claims/c004",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "Two buildings, both placeable: a dwelling house on lot 3 in block 18 in the town of Chicago, and a shed or store room adjoining and in the rear of J. B. Beaubien's store house. A lot and block, and a back-lot outbuilding behind a named man's store — the kind of secondary structure the reconstruction otherwise has to invent. T-1624 owns carrying them to the scene."
+      "rule": "the_plat_placement_is_seated_and_the_forward_carry_refused",
+      "note": "Two buildings. The first is a dwelling house on lot 3 in block 18, and that seats: block 18 is `blk_south_water_lasalle` (La Salle to Clark, South Water to Lake), lot 3 is the north row second from the west, and the committed cell is `blk_south_water_lasalle#02`, fronting South Water Street — which is what a town-of-Chicago dwelling house on that block's principal face should front. The cell reads `at_capacity` today with four roofs the T-1199 deal put there, none of them from this notice. The second building is a shed or store room 'adjoining and in the rear of J. B. Beaubien's store house', and it reaches nothing: the town stands `jb_beaubien_homestead` and `beaubien_barn` on the Fort Dearborn reservation, which is not platted and has no lot cells, and no Beaubien STORE house is modelled at all. Nothing placed; the carry refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_04_16.json#claims/c007",
@@ -768,8 +778,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_06_18.json#claims/c006",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "Lot 7 in block 16, one lot east of Haddock's Tavern on Lake Street, carrying a large dwelling house and a fine well — block, lot, street, neighbour and two structures in one notice, and it places Haddock's Tavern as well. The most precisely placed building in the June reading, and the plat work T-1624 owns."
+      "rule": "the_plat_placement_is_seated_and_the_forward_carry_refused",
+      "note": "G. Spring's For-Sale notice, first printing: 'LOT No. 7, in block No. 16, one lot east of Haddock's Tavern, on Lake street', with a large dwelling house and a fine well on it. THIS IS THE READING THE BLOCK NUMBERING FILE WAS FETCHED FOR and it now seats: block 16 is `blk_south_water_dearborn` (Dearborn to State, South Water to Lake), lot 7 is the south row third from the west, and the committed cell is `blk_south_water_dearborn#05` — whose face is south and whose frontage is LAKE, which is the street the notice names. Three separate readings recorded that this address was the most placeable thing in the corpus; it is now placed. The cell carries one reconstructed H1 house from the policy deal, not this dwelling. Nothing placed from the notice; the carry to 1835-07-01 refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_06_18.json#claims/c015",
@@ -778,8 +788,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_06_25.json#claims/c001",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "Miss Waite's boarding and day school opening on 30 June 1834 'on Ran[dolph-st.,] in a building nearly in rear of the Pres[byterian] Church, between Clark and Dearborn s[treets]' — a building placed by another building, and both on the ground. It also puts the Presbyterian Church on the Randolph block between Clark and Dearborn, which the town's own `first_presbyterian_church` position does not; that is a conflict for T-1624 to adjudicate and not one to resolve here."
+      "rule": "the_offset_placement_reaches_no_committed_lot",
+      "note": "Miss Waite's boarding and day school, opening 30 June 1834 'on Ran[dolph-st.,] in a building nearly in rear of the Pres[byterian] Church, between Clark and Dearborn s[treets]'. The anchor is committed and it stands ONE BLOCK WEST of where this notice puts it: `first_presbyterian_church` is on the south-west corner of Lake and Clark, which its own record states as 'the south 25 ft of Lot 1, Block 34' — La Salle to Clark, and the committed cell is `blk_lake_lasalle#06`, plat lot 1. 'Between Clark and Dearborn' is block 35, `blk_lake_clark`, the next block east. So seating the school would mean either moving a documented-corner record on an 1834 notice, which the ladder does not license, or seating a school behind a church that is not there. Recorded as the conflict it is; nothing placed, the carry refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_07_02.json#claims/c002",
@@ -798,8 +808,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_07_02.json#claims/c053",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "The cut witness to the Lake Street notice: lot 7 in block 16, one lot east of a tavern whose name the column edge removed, with a large building and a fine well on it. The lot and the block are clear and the tavern's name is deliberately NOT supplied here; it is printed a week later. The placement is T-1624's."
+      "rule": "the_plat_placement_is_seated_and_the_forward_carry_refused",
+      "note": "The cut witness to Spring's Lake Street notice: lot 7 in block 16, one lot east of a tavern whose name the column edge removed, with a large building and a fine well. The lot and the block are clean, so the seat is the same one the 18 June printing reaches — `blk_south_water_dearborn#05`, south row, fronting Lake — and this setting needs no tavern name to get there, which is worth saying because the name is what the 1834-07-09 setting supplies. Nothing placed; the carry to 1835-07-01 refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_07_02.json#claims/c060",
@@ -813,8 +823,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_07_09.json#claims/c024",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "The printing that NAMES the tavern the previous issue cut in half: 'Maddock's Tavern, on Lake street', with lot 7 of block 16 one lot east of it carrying a large Dwelling-House and a fine well. Both words the 2 July setting refused to supply are printed here. No identification with E. H. Haddock is made on a one-consonant difference, and the placement — lot, block, street and neighbour — is T-1624's."
+      "rule": "the_plat_placement_is_seated_and_the_forward_carry_refused",
+      "note": "The printing that names the tavern the 2 July setting cut in half — 'Maddock's Tavern, on Lake street', with lot 7 of block 16 one lot east of it. The lot seats as before at `blk_south_water_dearborn#05`. THE TAVERN IS WHERE THIS SET STOPS BEING TIDY. `mansion_house` carries 'Haddock's Tavern' among its names and stands on `blk_south_water_dearborn#01`, plat lot 5, the south row's WEST end at Dearborn; one lot east of lot 5 is lot 6, and the notice sells lot 7. The structure record already says its position along the block is 'this record's choice' with 'AT LEAST A LOT'S WIDTH' of slack, so the notice is evidence about a placed building's seat rather than about a new one. That is a structure move and a bake, and it is filed as T-1679 rather than taken here. Nothing placed; the carry refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_07_16.json#claims/c016",
@@ -843,8 +853,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_08_06.json#claims/c013",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "Lot 3 in block 41 and lot 3 in block 20 on South Water Street, west of the bridge, with a two-storey house eligibly situated for business. Three numbered lots and a storey count, assembled from this printing and the cleaner one of 13 August with every supply bracketed. 'West of the bridge' is a placement this town can use, and using it is T-1624's work."
+      "rule": "the_plat_placement_is_seated_and_the_forward_carry_refused",
+      "note": "Lot 3 in block 41 and lot 3 in block 20, 'on South Water Street, west of the bridge', with a two-storey house eligibly situated for business. Both numerals seat and they are in DIFFERENT TIERS, which the notice's own street phrase only half admits: block 20 is `blk_south_water_franklin` (Franklin to Wells, South Water to Lake) and its lot 3 is `blk_south_water_franklin#02`, north row, fronting South Water — agreeing with the notice, and west of the Dearborn draw-bridge as it says. Block 41 is `blk_randolph_franklin` (Franklin to Wells, Randolph to Washington) and its lot 3 is `blk_randolph_franklin#02`, north row, fronting RANDOLPH, two tiers south of South Water; that lot stands `harmon_log_cabin` today. Which of the two lots the house stood on the notice does not say. Nothing placed; the carry refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_08_06.json#claims/c014",
@@ -863,8 +873,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_08_13.json#claims/c012",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "'the houses situated on Lot No. 3, i[n] Block No. 111, now owned by Charles H. Cha[p]man' — a lot number, a block number, an owner by name, and MORE THAN ONE house on the one lot, under a mechanic's lien that is itself evidence somebody had lately been building there. The most precise building claim in the August run, and the placement is T-1624's."
+      "rule": "the_plat_placement_stands_on_the_school_section_and_not_the_plat",
+      "note": "'the houses situated on Lot No. 3, i[n] Block No. 111, now owned by Charles H. Cha[p]man' — a lot, a block, an owner and more than one house, under a mechanic's lien that is itself evidence of recent building. The block number is what settles it and it settles it out: Thompson numbers fifty-eight blocks, and this project's land-sale ground register names 111 as 'block 111 of the school section, section 16 T39N R14E'. Section 16 is south and west of Madison Street, off the Original Town and off this reconstruction's ground, which is also where the Democrat's own 30 April 1834 notice of 'LOT No. 6, in block 111' puts it — 'both on the schoo[l] secti[on]'. Placed, and placed outside Chicago as this project draws it."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_08_13.json#claims/c020",
@@ -893,13 +903,13 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_03.json#claims/c005",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "Lot 7 in block 16, one lot east of Haddock's Tavern on Lake Street, with a large dwelling house and a well — the September printing of G. Spring's standing notice, and a lot-level placement, which is rare. What the column can be held to is 'a large … Dwelling House and … well'; how many rooms and what kind of well are not in it. T-1624 owns the plat work."
+      "rule": "the_plat_placement_is_seated_and_the_forward_carry_refused",
+      "note": "The September printing of Spring's standing notice: lot 7 in block 16, one lot east of Haddock's Tavern on Lake Street, with a large dwelling house and a well. Same seat as the June and July settings, `blk_south_water_dearborn#05`, south row, fronting Lake. What the column can be held to is 'a large … Dwelling House and … well'; the room count and the kind of well are not in it and are not supplied. Nothing placed; the carry to 1835-07-01 refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_10.json#claims/c006",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "A two-storey building suitable for a store and dwelling, in South Water Street nearly opposite the draw-bridge, one of the best stands for business in the town — and the advertiser E. A. Rider next door to the Post Office. Street, an anchor at the Dearborn bridge, and a second anchor at an office the town reasons about on `hogan_store`. The best-placed claim of the month, and T-1624's."
+      "rule": "the_offset_placement_reaches_no_committed_lot",
+      "note": "A two-storey building for a store and dwelling 'in South Water Street nearly opposite the draw-bridge', E. A. Rider advertising from next door to the Post Office. TWO ANCHORS THAT DO NOT AGREE, and the reason this cannot be seated. The draw-bridge is the Dearborn Street bridge of 1834, which the town uses as a locator for `chicago_american_office` and `frederick_thomas_shop`, both on `blk_south_water_dearborn`. The post office in September 1834 is not there: Andreas has it leave Hogan's log store for Franklin and South Water about July 1834, four blocks west, and `hogan_store` states that this later office is 'a DIFFERENT, UNMODELLED building' whose construction, size and side of the street nothing reached describes and which 'would be almost entirely invention today'. So the offset anchors on a building the town does not stand. Nothing placed; the carry refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_10.json#claims/c018",
@@ -908,13 +918,13 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_17.json#claims/c006",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "A store occupied by P. S. Carli as a dry goods and fancy store, standing on J. S. C. Hogan's lot, to be sold on 15 October 1834 with the building examinable beforehand. The town holds `hogan_store` on South Water Street, so this is a building placed by an offset onto a record the committed town carries — which is exactly what T-1624 owns and what this register may not decide."
+      "rule": "the_offset_placement_reaches_no_committed_lot",
+      "note": "A store occupied by P. S. Carli as a dry goods and fancy store, 'standing on J. S. C. Hogan's lot', to be sold on 15 October 1834. The anchor stands and its lot does not. `hogan_store` is committed at the west end of the South Water / Lake block near Market, on the north side of Lake — that is the Market wedge, `blk_south_water_market`, which `data/reconstruction/1835_lot_ledger.json` carries NO lot cells for at all (the wedge's own arrangement waits on T-0183). So 'Hogan's lot' cannot be resolved to a committed lot even though Hogan's building can be pointed at, and the store on it is a second building the town does not hold. Nothing placed; the carry to 1835-07-01 refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_17.json#claims/c008",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "The unbroken witness to Rider's notice, and the one that licenses every bracketed supply in the 10 September printing: the two-storey store-and-dwelling on South Water Street nearly opposite the draw-bridge, with the advertiser 'next door to the Post Office'. It is also what places Rider himself. The placement is T-1624's."
+      "rule": "the_offset_placement_reaches_no_committed_lot",
+      "note": "The unbroken witness to Rider's notice, and the setting that licenses every bracketed supply in the 10 September printing: the two-storey store-and-dwelling on South Water Street nearly opposite the draw-bridge, the advertiser 'next door to the Post Office'. It is also what places Rider himself. It fails on the same anchor and in the same direction as the 10 September setting — the Dearborn draw-bridge and the Franklin and South Water post office are four blocks apart, and the second of them is not modelled. Nothing placed; the carry refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_17.json#claims/c009",
@@ -928,8 +938,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_10_01.json#claims/c005",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "Rider's building again, and this printing is worth the claim for the ANCHOR rather than the building: it puts the Post Office on South Water Street, nearly opposite the draw-bridge, with the two-storey store-and-dwelling next door to it. The town's `hogan_store` record already files the post office's 1834 position as an open conflict; this is a second reading of it, and T-1624 owns both."
+      "rule": "the_offset_placement_reaches_no_committed_lot",
+      "note": "Rider's building a third time, and this printing is worth the claim for the ANCHOR and not the building: it puts the Post Office itself on South Water Street nearly opposite the draw-bridge, with the two-storey store-and-dwelling next door. That is a SECOND newspaper reading against Andreas's 'Franklin and South Water', which `hogan_store` already files as an open conflict about the post office's 1834 position — so the notice is evidence about the office rather than about Rider's roof. This register records the second witness and leaves the conflict open where the structure record keeps it; the office stays unmodelled and no lot is reached. Nothing placed; the carry refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_10_08.json#claims/c003",
@@ -938,13 +948,13 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_10_15.json#claims/c006",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "The October printing of the Lake Street notice, clean at both figures: lot 7, block 16, one lot east of Haddock's Tavern, with a large dwelling-house and a fine well. Enough to place a building on the plat AND to place Haddock's Tavern one lot west of it — and, as the claim itself says, placing either is separate work with the plat in front of it. That work is T-1624's."
+      "rule": "the_plat_placement_is_seated_and_the_forward_carry_refused",
+      "note": "The October printing of Spring's notice, clean at both figures: lot 7, block 16, one lot east of Haddock's Tavern, a large dwelling-house and a fine well. Fifth and last legible setting of the same address, and the same seat: `blk_south_water_dearborn#05`, south row, fronting Lake. The claim says placing either building is separate work with the plat in front of it; the plat is now in front of it, the lot is seated, and the tavern's own lot is T-1679, the ticket this run files. Nothing placed from the notice; the carry refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_11_05.json#claims/c010",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "A store in a two-storey dwelling house opposite the Exchange Coffee House, with several rooms in its second storey let for offices or a private family, George Smith answering at the Exchange itself. The town holds `exchange_coffee_house`, so this is a building placed opposite a record the committed town carries — and the word before 'opposite' is cut and could be 'formerly' or 'nearly', which is one of the questions T-1624 inherits."
+      "rule": "the_offset_placement_reaches_no_committed_lot",
+      "note": "A store in a two-storey dwelling house 'opposite the Exchange Coffee House', several second-storey rooms to let for offices or a private family, George Smith answering at the Exchange. The anchor is committed and the offset is the problem: `exchange_coffee_house` stands on the north-west corner of Lake and Wells, `blk_south_water_franklin#07`, plat lot 8, fronting south onto Lake. 'Opposite' a corner house reaches two blocks — across Lake into `blk_lake_wells`, or across Wells into `blk_south_water_wells` — and four candidate lots, and the word BEFORE 'opposite' is cut and could be 'formerly' or 'nearly', which changes what is being claimed. A direction is not a lot. Nothing placed; the carry to 1835-07-01 refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_11_12.json#claims/c003",
@@ -958,13 +968,13 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_11_12.json#claims/c015",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "The first of seven printings of D. Weaver's standing notice, and the one whose lot line is cut to 'lock 1, on Nort[h]' — so this setting asserts no lot at all, only block 1 on North Water Street. It is claimed because it was missed twice, the name being set 'D. WEAVE.R' with the stop inside it. The block is a plat coordinate and T-1624 owns what stands on it."
+      "rule": "the_plat_placement_names_a_block_the_lot_grid_does_not_reach",
+      "note": "The first of seven printings of D. Weaver's standing notice, and the one whose lot line is cut to 'lock 1, on Nort[h]' — so this setting asserts block 1 on North Water Street and no lot at all. Block 1 is read: Wright's numeral puts it on Dearborn Street to Wolcott Street, Kinzie Street to the river, the east end of the North Division's Kinzie tier, whose south face is the North Water frontage the notice names — so the block and the street agree. The cell does not exist: `generate_plat_lots.py` emits only the three South Division tiers, block 1 is held in `blocks_not_in_the_grid` for that reason, and a river-pinched North Division block is not a block the eight-lot scheme was read on. Nothing seated; the carry refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_11_19.json#claims/c012",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "The second printing of Weaver's notice: 'THE] building on Lot 2, in bl[ock 1, on North Wa]ter street'. A lot and a block on a named street, in a column the segmenter interleaves line by line, so the claim is cut with spans rather than whole lines. No entity is recorded because this setting names nobody. The placement is T-1624's."
+      "rule": "the_plat_placement_names_a_block_the_lot_grid_does_not_reach",
+      "note": "The second printing of Weaver's notice: 'THE] building on Lot 2, in bl[ock 1, on North Wa]ter street'. Block 1 reads onto the North Division's Dearborn-to-Wolcott block as above, and its south face is North Water, which agrees. Lot 2 has nowhere to land: the tier carries no grid cell, so the number cannot be stamped, and the `conjectural` eight-lot scheme read on four South Division blocks would in any case put lot 2 in the NORTH row — on Kinzie Street and not on North Water — which is a second reason not to carry it across a tier it was never read on. Nothing seated; the carry to 1835-07-01 refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_11_26.json#claims/c008",
@@ -973,8 +983,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_11_26.json#claims/c010",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "Weaver's notice again, and this setting reads the lot clean in an otherwise clean line: 'ling on Lot 2, in block 1, on North' Water street. Four of the five December-and-earlier printings read 2 and only 17 December reads 9, and T-0328 settled it at 2 without the page images. A building on lot 2 of block 1 is a plat coordinate and T-1624 owns carrying it to 1835."
+      "rule": "the_plat_placement_names_a_block_the_lot_grid_does_not_reach",
+      "note": "Weaver's notice again, the lot clean in an otherwise clean line: 'ling on Lot 2, in block 1, on North' Water street. Four of the five December-and-earlier printings read 2 and only 17 December reads 9; T-0328 settled it at 2 without the page images, and nothing here reopens that. The block seats no better for being agreed on: block 1 is the North Division's Dearborn-to-Wolcott block, held in `blocks_not_in_the_grid`, with no lot cell of any number. Nothing seated; the carry refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_12_03.json#claims/c003",
@@ -993,23 +1003,23 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_12_03.json#claims/c025",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "The cleanest of the five settings at the digit T-0328 asks about: 'THE building on Lot 2, in block 1, on North Water street. Apply to D. WEAVER.' The display capitals are mangled and the lot number is not. No ad_copy_date is recorded here because three settings read the copy date three ways, which is a separate question. Lot 2 of block 1 is T-1624's to carry or refuse."
+      "rule": "the_plat_placement_names_a_block_the_lot_grid_does_not_reach",
+      "note": "The cleanest of the five settings at the digit T-0328 asks about: 'THE building on Lot 2, in block 1, on North Water street. Apply to D. WEAVER.' The display capitals are mangled and the lot number is not. Same block, same absent cell: the North Division's Kinzie-to-the-river tier has its numerals read and no grid to stamp them onto, and no lot geometry exists there to seat a building on. Nothing seated; the carry to 1835-07-01 refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_12_10.json#claims/c012",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "The third of the five printings, the worst-set of them everywhere except at the one place it matters: the lot line reads 'on Lot 2, in block 1, on North' clean at the digit while the heading, two whole lines and the dateline are debris. That is the shape of the evidence and it is worth stating plainly. The plat coordinate stands and T-1624 owns it."
+      "rule": "the_plat_placement_names_a_block_the_lot_grid_does_not_reach",
+      "note": "The third of the five printings, worst-set everywhere except at the one place it matters: the lot line reads 'on Lot 2, in block 1, on North' clean at the digit while the heading, two whole lines and the dateline are debris. The plat coordinate stands and there is still no cell under it — block 1 is read onto the North Division's Dearborn-to-Wolcott block and held off the grid. Nothing seated; the carry refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_12_17.json#claims/c006",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "The setting that reads 'Lot 9, in block 1' where four others read lot 2 — recorded as the disagreement it is rather than amended, and overruled in the claim itself on the tally T-0350 settled. What is not in doubt is block 1, North Water street, and a building standing on it in November 1834. Which lot, and whether it still stands in 1835, is T-1624's."
+      "rule": "the_plat_placement_names_a_block_the_lot_grid_does_not_reach",
+      "note": "The setting that reads 'Lot 9, in block 1' where four others read lot 2, recorded as the disagreement it is and overruled in the claim itself on the tally T-0350 settled. Note what the plat adds to that: an eight-lot Original Town block has no lot 9 at all, and the blocks that carry ten are in the West Division, not the North — so 9 is the harder reading on the sheet as well as on the tally. Block 1 is read and carries no grid cell either way. Nothing seated; the carry to 1835-07-01 refused."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_12_24.json#claims/c012",
-      "rule": "the_earlier_building_placement_waits_on_the_plat",
-      "note": "The second witness to the same building, reading the lot as 2 where 17 December reads 9 — both claimed, each quoting its own digit, neither amended to agree with the other, because an agreement manufactured between two transcriptions is not evidence. Block 1 on North Water street is common to both and that much is safe; the placement is T-1624's."
+      "rule": "the_plat_placement_names_a_block_the_lot_grid_does_not_reach",
+      "note": "The second witness to the same building, reading the lot as 2 where 17 December reads 9 — both claimed, each quoting its own digit, neither amended to agree with the other. Block 1 on North Water Street is common to both and that much is safe; it is also as far as the plat can take it, the North Division's tier having numerals and no cells. Nothing seated; the carry refused."
     },
     {
       "unit": "books:data/research/books/claims/hubbard_autobiography_1911.json#claims/bk_hub_014",

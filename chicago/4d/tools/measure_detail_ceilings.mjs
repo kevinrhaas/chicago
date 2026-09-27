@@ -55,6 +55,50 @@
  * a new stand was added would stop answering the question it was built for ("did THIS
  * branch put the town over?"), and a southern stand that is over is a finding for
  * T-1148 to argue, not a red this tool may declare on a branch that never went there.
+ *
+ * `--price` (T-1674) ANSWERS THE OTHER END OF THE PARCEL. Everything above reads a
+ * town that has already been built: the reading is taken after the deal, after the
+ * generators and after the bake, which is the wrong end of a parcel to discover a
+ * breach at. On 2026-09-27 desktop `balanced` was clearing its ceiling by 1.91 per
+ * cent at the forks — 24,420 triangles, which is a handful of cottages — with T-1201
+ * (the Lake Street and Dearborn-Clark-LaSalle core) next in the queue and raising its
+ * roofs inside the same frusta. `--price` turns that margin into the number a parcel
+ * can act on BEFORE it deals:
+ *
+ *   PW_EXECUTABLE=... node tools/measure_detail_ceilings.mjs --price
+ *   PW_EXECUTABLE=... node tools/measure_detail_ceilings.mjs --price --deal D3=6,C2=2
+ *   node tools/measure_detail_ceilings.mjs --from data/render/<a reading>.json --deal D3=6
+ *
+ * It prices a roof from the bytes the roof ships as. Every structure is baked to one
+ * GLB under `assets/gltf/`; the triangles in that file are counted here straight out
+ * of its glTF chunk — indices over three, per primitive, times the instance count any
+ * `EXT_mesh_gpu_instancing` node carries — and attributed to the archetype FAMILY the
+ * reconstruction's own records give it (`data/reconstruction/*.json`, anything holding
+ * a `structure_id` and a `family` together). That is a committed footprint and not a
+ * model of one: it is read from the same bytes `buildings.js` loads, and 251 of the
+ * town's 423 structure records carry a family, which is every reconstructed roof — the
+ * only kind a parcel deals.
+ *
+ * WHAT THE TIER DOES TO A ROOF IS MEASURED, NOT ASSUMED. `applyDetail` rebuilds the
+ * flora and the trees, re-tiers the shadows and pulls the furniture reach in; it does
+ * not decimate `structures`, so the same roof submits the same triangles at all three
+ * rungs and the only per-tier term is whether the sun draws it a second time. Rather
+ * than assert that, `--price` measures it at each tier's own tightest stand by the
+ * method `tools/measure_stand_budget.mjs` owns: hide the `structures` group and read
+ * the drop, put it back, clear `castShadow` across it and read again. The ratio of
+ * those two IS the tier's multiplier on a roof, and if a future tier ever does
+ * decimate a building this table will say so without anyone editing this comment.
+ * The tightest stand and nowhere else, because that is the only stand whose headroom
+ * is being divided — and because three extra settled reads at all five stands at all
+ * three tiers cost this sweep more than its own 600 s foreground ceiling, which is a
+ * measurement nobody can afford to take.
+ *
+ * WHAT THE NUMBER CLAIMS, EXACTLY. `carries K roofs of family F` means: K roofs of F,
+ * ALL of them landing in view of the tightest stand, spend the whole of that stand's
+ * headroom. A roof outside the frustum costs that stand nothing, so K is a FLOOR on
+ * what the parcel may deal and never a cap on it — a parcel of thirty cottages spread
+ * across the town can clear a stand that carries eight. It is the conservative number,
+ * which is the one a budget wants.
  */
 import http from 'node:http';
 import fs from 'node:fs';
@@ -73,8 +117,9 @@ async function loadPlaywright() {
   }
   return ns.chromium ? ns : ns.default;
 }
-const { chromium } = await loadPlaywright();
-
+// The import is deferred to the launch below rather than taken here, because
+// `--from` (T-1674) prices a banked reading and must not need a browser — nor a
+// machine with one installed — to do it.
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const argAt = (name) => {
   const i = process.argv.indexOf(name);
@@ -86,6 +131,12 @@ const jsonOut = argAt('--json');
 const against = argAt('--against');
 const ONLY = argAt('--only') || 'desktop';
 const YEAR = process.env.DETAIL_YEAR || '1835';
+// T-1674. `--from` re-prices a reading this tool already wrote, with no browser at
+// all, because the whole point of pricing before a deal is that it has to be cheaper
+// than the deal. It implies `--price`.
+const priceFrom = argAt('--from');
+const wantPrice = process.argv.includes('--price') || !!priceFrom;
+const dealArg = argAt('--deal');
 
 const DOWNTOWN = [
   { id: 'sauganash_26', kind: 'frame', target: 'sauganash_hotel', distance: 26,
@@ -125,6 +176,135 @@ const VIEWPORTS = [
   { label: 'mobile 390x780', width: 390, height: 780 },
 ].filter((v) => ONLY === 'both' || v.label.startsWith(ONLY));
 
+// ── THE COMMITTED FAMILY FOOTPRINTS (T-1674) ─────────────────────────────────
+// Read from the baked bytes, node-side, with no browser and no Blender. A GLB is a
+// 12-byte header and then length-tagged chunks; the first JSON chunk is the glTF
+// document, and the triangle count of a mesh is the sum over its `TRIANGLES`
+// primitives of the index count over three (or the position count over three where
+// a primitive is not indexed). A mesh is counted once per node that references it,
+// and a node carrying `EXT_mesh_gpu_instancing` counts once per instance — which is
+// how the generators ship a shed's repeated members.
+function glbTriangles(file) {
+  const buf = fs.readFileSync(file);
+  if (buf.length < 12 || buf.toString('ascii', 0, 4) !== 'glTF') {
+    throw new Error(`${file}: not a GLB`);
+  }
+  let off = 12;
+  let doc = null;
+  while (off + 8 <= buf.length) {
+    const len = buf.readUInt32LE(off);
+    const type = buf.readUInt32LE(off + 4);
+    off += 8;
+    if (type === 0x4e4f534a) { doc = JSON.parse(buf.toString('utf8', off, off + len)); break; }
+    off += len;
+  }
+  if (!doc) throw new Error(`${file}: no JSON chunk`);
+  const accessors = doc.accessors || [];
+  const instances = new Map();
+  for (const node of doc.nodes || []) {
+    if (typeof node.mesh !== 'number') continue;
+    let n = 1;
+    const gi = node.extensions?.EXT_mesh_gpu_instancing;
+    if (gi) {
+      const attr = Object.values(gi.attributes || {})[0];
+      if (typeof attr === 'number') n = accessors[attr]?.count ?? 1;
+    }
+    instances.set(node.mesh, (instances.get(node.mesh) || 0) + n);
+  }
+  let total = 0;
+  (doc.meshes || []).forEach((mesh, i) => {
+    let tris = 0;
+    for (const prim of mesh.primitives || []) {
+      if ((prim.mode ?? 4) !== 4) continue;
+      const count = typeof prim.indices === 'number'
+        ? accessors[prim.indices]?.count
+        : accessors[prim.attributes?.POSITION]?.count;
+      tris += Math.floor((count ?? 0) / 3);
+    }
+    total += tris * (instances.get(i) || 0);
+  });
+  return total;
+}
+
+// Which family a roof belongs to, taken from the reconstruction's own records rather
+// than from its id: anything in `data/reconstruction/*.json` that holds a
+// `structure_id` (or `roof_id`) and a `family` in the same object is an assignment,
+// and the scan is a union across all of them. A disagreement between two files is a
+// fault in the records and is reported rather than silently resolved.
+function familyByStructure(root) {
+  const dir = path.join(root, 'data', 'reconstruction');
+  const map = new Map();
+  const conflicts = [];
+  const walk = (node) => {
+    if (Array.isArray(node)) { for (const v of node) walk(v); return; }
+    if (!node || typeof node !== 'object') return;
+    const id = node.structure_id || node.roof_id;
+    const family = node.family;
+    if (typeof id === 'string' && typeof family === 'string' && /^[A-Z]\d$/.test(family)) {
+      if (map.has(id) && map.get(id) !== family) conflicts.push(`${id}: ${map.get(id)} vs ${family}`);
+      map.set(id, family);
+    }
+    for (const v of Object.values(node)) walk(v);
+  };
+  if (!fs.existsSync(dir)) return { map, conflicts };
+  for (const f of fs.readdirSync(dir)) {
+    if (!f.endsWith('.json')) continue;
+    try { walk(JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'))); } catch { /* not a record */ }
+  }
+  return { map, conflicts };
+}
+
+const median = (xs) => {
+  const a = [...xs].sort((x, y) => x - y);
+  const i = a.length >> 1;
+  return a.length % 2 ? a[i] : Math.round((a[i - 1] + a[i]) / 2);
+};
+
+/** `{ families: [{family, roofs, min, median, mean, max}], unfamilied, conflicts }` */
+function committedFootprints() {
+  const root = path.resolve(HERE, '..');
+  const manifestPath = path.join(root, 'assets', 'manifest.json');
+  if (!fs.existsSync(manifestPath)) throw new Error(`no ${manifestPath} — nothing to price from`);
+  const assets = JSON.parse(fs.readFileSync(manifestPath, 'utf8')).assets || {};
+  const { map: fam, conflicts } = familyByStructure(root);
+  const byFamily = new Map();
+  let unfamilied = 0;
+  let missing = 0;
+  for (const [file, entry] of Object.entries(assets)) {
+    const sid = entry.structure_id;
+    if (!sid) continue;
+    const family = fam.get(sid);
+    if (!family) { unfamilied += 1; continue; }
+    const glb = path.join(root, 'assets', 'gltf', file);
+    if (!fs.existsSync(glb)) { missing += 1; continue; }
+    if (!byFamily.has(family)) byFamily.set(family, []);
+    byFamily.get(family).push(glbTriangles(glb));
+  }
+  const families = [...byFamily.entries()].map(([family, tris]) => ({
+    family,
+    roofs: tris.length,
+    min: Math.min(...tris),
+    median: median(tris),
+    mean: Math.round(tris.reduce((a, b) => a + b, 0) / tris.length),
+    max: Math.max(...tris),
+  })).sort((a, b) => (a.family < b.family ? -1 : 1));
+  return { families, unfamilied, missing, conflicts };
+}
+
+/** `--deal D3=6,C2=2` → `[{family:'D3',roofs:6}, …]`. */
+function parseDeal(arg) {
+  if (!arg) return null;
+  return arg.split(',').map((part) => {
+    const [family, n] = part.split('=');
+    const roofs = Number(n);
+    if (!family || !Number.isFinite(roofs) || roofs <= 0) {
+      console.error(`--deal: cannot read "${part}" — the form is FAMILY=COUNT, e.g. D3=6,C2=2`);
+      process.exit(2);
+    }
+    return { family: family.trim(), roofs };
+  });
+}
+
 const TYPES = {
   '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript',
   '.css': 'text/css', '.json': 'application/json', '.glb': 'model/gltf-binary',
@@ -162,7 +342,7 @@ async function sweep(browser, root, entry, port, treeLabel) {
     // The scene boots on a software renderer here; the gate allows the same.
     await page.waitForFunction(() => window.__chicago4d?.ready === true,
       null, { timeout: 300_000 });
-    const seen = await page.evaluate(async (stands) => {
+    const seen = await page.evaluate(async ({ stands, price }) => {
       const a = window.__chicago4d;
       const settle = () => new Promise((r) => requestAnimationFrame(
         () => requestAnimationFrame(r)));
@@ -189,13 +369,62 @@ async function sweep(browser, root, entry, port, treeLabel) {
           await settle();
           const r = a.stats();
           atStands.push({ id: st.id, label: st.label,
-                          tris: r.triangles, calls: r.drawCalls });
+                          tris: r.triangles, calls: r.drawCalls, structures: null });
+        }
+        // T-1674. What the frame spends on STRUCTURES, and how much of that is the
+        // sun drawing them a second time — `tools/measure_stand_budget.mjs` owns
+        // this method and the reason to prefer it to a walk of the scene graph: a
+        // `BatchedMesh` submits a subset of its chunks through one multi-draw, so
+        // only the renderer knows what it actually drew. The ratio of the two is the
+        // multiplier a roof costs at this stand at this tier.
+        //
+        // TAKEN AT THE WORST DOWNTOWN STAND OF THIS TIER AND NOWHERE ELSE. It is the
+        // only stand the pricing uses — the headroom is that stand's — and three
+        // extra settled reads at all five cost this sweep more than its own 600 s
+        // foreground ceiling when it was written that way, which is a measurement
+        // nobody can afford to take.
+        if (price) {
+          const downtown = atStands.filter((x) => stands
+            .some((d) => d.id === x.id && d.kind !== 'pose'));
+          const worst = downtown.reduce((x, y) => (y.tris > x.tris ? y : x), downtown[0]);
+          const st = order.find((o) => o.id === worst?.id);
+          const g = a.scene3d.getObjectByName('structures');
+          if (worst && st && g) {
+            if (st.kind === 'frame') { a.setFly(false); a.frame(st.target, st.distance); }
+            else if (st.kind === 'pose') {
+              a.setFly(typeof st.pose.altitude_m === 'number');
+              a.walker.teleport(st.pose);
+            } else a.goTo(st.target);
+            await settle();
+            const base = a.stats().triangles;
+            const wasVisible = g.visible;
+            g.visible = false;
+            await settle();
+            const drawn = base - a.stats().triangles;
+            g.visible = wasVisible;
+            await settle();
+            const restore = [];
+            g.traverse((o) => {
+              if (o.isMesh && o.castShadow) { restore.push(o); o.castShadow = false; }
+            });
+            let shadow = 0;
+            if (restore.length) {
+              await settle();
+              shadow = base - a.stats().triangles;
+              for (const o of restore) o.castShadow = true;
+              await settle();
+            }
+            // Re-stood, so the base is re-read against the reading the table above
+            // holds for this stand. Anything but zero here is the instrument's own
+            // noise and is printed with the price table rather than swallowed.
+            worst.structures = { drawn, shadow, residual: base - worst.tris };
+          }
         }
         rows.push({ level, ceiling: a.detailLevels[level].triangles, atStands });
       }
       await a.setDetail(started);
       return rows;
-    }, STANDS);
+    }, { stands: STANDS, price: wantPrice });
     passes.push({ viewport: vp.label, seen, errors });
     await page.close();
   }
@@ -203,6 +432,119 @@ async function sweep(browser, root, entry, port, treeLabel) {
   return { tree: treeLabel, root, passes };
 }
 
+const num = (n) => n.toLocaleString('en-US');
+
+// ── THE PRICE REPORT (T-1674) ────────────────────────────────────────────────
+// Reads one sweep — this run's, or a committed one through `--from` — and turns
+// each tier's headroom at its own tightest stand into a count of roofs.
+function priceReport(res, deal) {
+  const foot = committedFootprints();
+  const cost = new Map(foot.families.map((f) => [f.family, f]));
+  console.log('\n================  PRICING THE NEXT PARCEL (T-1674)  ================');
+  console.log('\nCOMMITTED FAMILY FOOTPRINTS — triangles in the GLB each roof ships as,');
+  console.log('read from assets/gltf and attributed by the reconstruction\'s own records.\n');
+  console.log('   family   roofs        min     median       mean        max');
+  for (const f of foot.families) {
+    console.log(`   ${f.family.padEnd(8)} ${String(f.roofs).padStart(5)} `
+      + `${num(f.min).padStart(10)} ${num(f.median).padStart(10)} `
+      + `${num(f.mean).padStart(10)} ${num(f.max).padStart(10)}`);
+  }
+  console.log(`\n   ${foot.unfamilied} structure(s) carry no family in the records — documented `
+    + 'roofs, which a parcel does not deal — and are not priced here.');
+  if (foot.missing) console.log(`   ${foot.missing} familied structure(s) have no GLB under assets/gltf.`);
+  for (const c of foot.conflicts) console.log(`   RECORDS DISAGREE — ${c}`);
+
+  let unpriceable = 0;
+  for (const pass of res[0].passes) {
+    console.log(`\n----------------  ${pass.viewport}  ----------------`);
+    for (const lv of pass.seen) {
+      const downtown = lv.atStands.filter((st) => DOWNTOWN.some((d) => d.id === st.id));
+      if (!downtown.length) continue;
+      const worst = downtown.reduce((x, y) => (y.tris > x.tris ? y : x));
+      const headroom = lv.ceiling - worst.tris;
+      const pc = ((headroom / lv.ceiling) * 100).toFixed(2);
+      console.log(`\n${lv.level}  ceiling ${num(lv.ceiling)}  worst ${num(worst.tris)} `
+        + `at ${worst.label}  — headroom ${num(headroom)} (${pc} %)`);
+      const st = worst.structures;
+      if (!st) {
+        unpriceable += 1;
+        console.log('   NO STRUCTURES READING AT THIS STAND — the sweep was not run with '
+          + '--price, so there is no multiplier and nothing is priced here.');
+        continue;
+      }
+      const colour = st.drawn - st.shadow;
+      if (colour <= 0) {
+        unpriceable += 1;
+        console.log(`   the structures layer reads ${num(st.drawn)} drawn and ${num(st.shadow)} `
+          + 'of it shadow, which leaves no colour pass to divide by — not priced.');
+        continue;
+      }
+      const mult = st.drawn / colour;
+      console.log(`   structures here: ${num(st.drawn)} drawn, ${num(st.shadow)} of it the sun `
+        + `— a roof in view costs ${mult.toFixed(2)}x its own triangles`
+        + `${st.residual ? `  [instrument residual ${num(st.residual)}]` : ''}`);
+      if (headroom <= 0) {
+        console.log('   THIS TIER IS OVER ALREADY — it carries no roofs at all, and the '
+          + 'parcel to run is a trim.');
+        continue;
+      }
+      console.log('   family   per roof in view   the stand carries');
+      for (const f of foot.families) {
+        const inView = Math.round(f.median * mult);
+        console.log(`   ${f.family.padEnd(8)} ${num(inView).padStart(15)}   `
+          + `${String(Math.floor(headroom / inView)).padStart(6)} roofs`);
+      }
+      if (deal) {
+        let spend = 0;
+        const parts = [];
+        for (const d of deal) {
+          const f = cost.get(d.family);
+          if (!f) {
+            console.log(`   THE DEAL NAMES ${d.family}, WHICH NO STANDING ROOF CARRIES — `
+              + 'there is no committed footprint to price it from, so this deal is not priced.');
+            spend = null;
+            break;
+          }
+          spend += d.roofs * Math.round(f.median * mult);
+          parts.push(`${d.family}x${d.roofs}`);
+        }
+        if (spend !== null) {
+          const left = headroom - spend;
+          console.log(`   THE DEAL ${parts.join(', ')} — ${num(spend)} in view of this stand, `
+            + `${num(left)} left of the headroom — ${left >= 0 ? 'FITS' : 'BREACHES'}`);
+        }
+      }
+    }
+  }
+  console.log('\nK roofs means K roofs ALL IN VIEW of that stand; a roof outside its frustum');
+  console.log('costs it nothing, so K is a floor on what the parcel may deal, not a cap on it.');
+  console.log('The gate is tools/smoke_renderer.mjs and this moves no ceiling: AGENTS.md');
+  console.log('§ the frame budget is where a raise is argued, and it wants the number first.');
+  return unpriceable;
+}
+
+if (priceFrom) {
+  // No browser, no mirror, no sweep: price a reading this tool already wrote.
+  let banked;
+  try { banked = JSON.parse(fs.readFileSync(priceFrom, 'utf8')); } catch (e) {
+    console.error(`--from ${priceFrom}: ${e.message}`);
+    process.exit(2);
+  }
+  if (!Array.isArray(banked) || !banked[0]?.passes) {
+    console.error(`--from ${priceFrom}: not a --json reading from this tool`);
+    process.exit(2);
+  }
+  console.log(`priced from the banked reading ${priceFrom} — NOT a reading of this tree`);
+  const unpriceable = priceReport(banked, parseDeal(dealArg));
+  if (unpriceable) {
+    console.error('\nthat reading was taken without --price, so it holds no structures '
+      + 'measurement to price from; re-take it with --price');
+    process.exit(3);
+  }
+  process.exit(0);
+}
+
+const { chromium } = await loadPlaywright();
 const browser = await chromium.launch({
   executablePath: process.env.PW_EXECUTABLE || undefined,
   args: ['--enable-unsafe-swiftshader'],
@@ -227,7 +569,6 @@ if (against) {
 }
 await browser.close();
 
-const num = (n) => n.toLocaleString('en-US');
 let over = 0;
 let southOver = 0;
 for (const vp of VIEWPORTS) {
@@ -286,6 +627,7 @@ for (const vp of VIEWPORTS) {
   if (errs.length) console.log(`\nPAGE ERRORS: ${errs.join('; ')}`);
 }
 if (jsonOut) fs.writeFileSync(jsonOut, `${JSON.stringify(results, null, 2)}\n`);
+if (wantPrice) priceReport(results, parseDeal(dealArg));
 console.log(`\n${over === 0 ? 'every tier inside its ceiling'
   : `${over} tier(s) OVER — the gate is tools/smoke_renderer.mjs, this only reports`}`);
 if (wantSouth) {

@@ -693,6 +693,13 @@
       "measured": "2026-09-19",
       "finding": "Reproduces: `--build` on a tree the gate called clean rewrote its own two outputs and changed no committed byte."
     },
+    "name_the_keepers_1835.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-26",
+      "finding": "Reproduces: ran `--build` on a tree the gate called clean, rewrote its one output (data/reconstruction/1835_roof_keepers.json) and changed no committed byte.",
+      "placed": "not yet \u2014 measured to reproduce, but it stands between two passes already in the order: it reads the platted deal and the household cards, and the roofs that carry what it writes are re-derived from it by generate_block_infill.py. Its slot is behind both, and which side of the resident layer's own convergence that falls on is T-1398's question"
+    },
     "newspaper_corpus.py": {
       "placement": "manifest",
       "write_mode": "--build",
@@ -904,6 +911,13 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `--write` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "read_south_bank_swell_1834.py": {
+      "placement": "pending",
+      "write_mode": "--build",
+      "measured": "2026-09-26",
+      "finding": "Reproduces: ran `--build` on a clean tree in 0.4s, rewrote data/traces/south_bank_swell_1834.json byte for byte and moved nothing else. It reads two working-copy rasters (chicago/pre_fire_v1/maps/images/1834-wright-map.jpg and 1834_hathaway_map.jpg) and the committed waterline; the sha256 it records for the Wright facsimile is the one data/sources/wright_1834_nara_hup.json states.",
+      "placed": "not yet \u2014 measured to reproduce. Its inputs are the two 1834 rasters, which no stage writes, and the committed e1834_harbor_cut waterline, which tools/trace_river.py and tools/trace_shoreline.py write and which the manifest does not run (both need the network and both are pinned). So a slot for it sits downstream of nothing the manifest currently owns, and appending it blind is still the thing #1452 measured against \u2014 the manifest's order is its own pass."
     },
     "read_school_section_numerals.py": {
       "placement": "manifest",
@@ -1544,6 +1558,13 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "compile_source_use.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-09-26",
+      "finding": "Reproduces: ran bare after staging all 294 generated JSON files and the coverage report; git diff --exit-code over those outputs reported no changed byte. Two independent in-memory builds also matched byte-for-byte.",
+      "placed": "after compile_scene.py, whose current-scene membership and cited-structure sidecars it reads (T-1248)"
     }
   }
 }

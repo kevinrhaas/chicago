@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it — ticket.mjs check writes nothing on a consistent tree and REPAIRS tickets.json on a stale one, and measures clean here purely because the mirror was current when this ran (T-1341). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-09-26",
+  "measured": "2026-09-27",
   "gate_verdict": "CHECK FAIL",
-  "declared_steps": 628,
+  "declared_steps": 656,
   "exempt": {
     "site/": {
       "reason": "THE PUBLISHED MIRROR, AND THE GATE'S OWN FIRST STEP REGENERATES IT WHOLESALE. site/4d/ is generated (T-0938) and check.sh opens by running publish.sh over it; the single check_flush barrier T-1289 added sits directly after that step, with the comment 'everything below reads the mirror the step above writes'. So these writes are ordered rather than racing, and they are the one mutation this gate is built around instead of against. A write anywhere OUTSIDE site/ is not covered by this."
@@ -2246,100 +2246,103 @@
       ],
       "wrote_by": [
         "- ../../site/4d/data/residents",
-        "- ../../site/4d/walk/index.html build 548805ed · Sep 25, 2026, 4:10 PM CT"
+        "- ../../site/4d/walk/index.html build 372379fb · Sep 27, 2026, 1:10 AM CT"
       ]
     },
-    "/home/runner/work/polecat-platform/polecat-platform/chicago/.github/chicago-4d-dev-preview.mjs": {
+    "-c": {
       "wrote": []
     },
-    "/home/runner/work/polecat-platform/polecat-platform/chicago/.github/chicago-4d-url-check.mjs": {
+    "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/.github/chicago-4d-dev-preview.mjs": {
       "wrote": []
     },
-    "/tmp/c4d-repomode-azqs8o/bin/gh": {
+    "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/.github/chicago-4d-url-check.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-33FPyA/gh.mjs": {
+    "/tmp/c4d-repomode-XH3F4p/bin/gh": {
       "wrote": []
     },
-    "/tmp/prstuck-4QF1DI/gh.mjs": {
+    "/tmp/prstuck-141Lui/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-55Yl3F/gh.mjs": {
+    "/tmp/prstuck-1mOiOg/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-5W1dhN/gh.mjs": {
+    "/tmp/prstuck-1x8vy2/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-BqHYaf/gh.mjs": {
+    "/tmp/prstuck-380fcY/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-E3rVve/gh.mjs": {
+    "/tmp/prstuck-77ECHN/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-FAqjeF/gh.mjs": {
+    "/tmp/prstuck-9vrRrN/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-GVnawd/gh.mjs": {
+    "/tmp/prstuck-B9xCYd/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-I1JKIE/gh.mjs": {
+    "/tmp/prstuck-DhQCXt/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-I5ggBT/gh.mjs": {
+    "/tmp/prstuck-DrHr3p/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-LsQHFM/gh.mjs": {
+    "/tmp/prstuck-I0zkIa/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-MY0Y7R/gh.mjs": {
+    "/tmp/prstuck-LNECiC/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-PpwDn9/gh.mjs": {
+    "/tmp/prstuck-MHDoNO/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-PuX7nW/gh.mjs": {
+    "/tmp/prstuck-OMoP4P/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-RIaRw2/gh.mjs": {
+    "/tmp/prstuck-P561Mz/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-S54xJV/gh.mjs": {
+    "/tmp/prstuck-PyE8hv/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-T8zopu/gh.mjs": {
+    "/tmp/prstuck-UJ4IYc/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-Vj2DQC/gh.mjs": {
+    "/tmp/prstuck-XIuqXX/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-YwN4je/gh.mjs": {
+    "/tmp/prstuck-ZglSsc/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-axnBZY/gh.mjs": {
+    "/tmp/prstuck-aRZQyj/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-e2MSl2/gh.mjs": {
+    "/tmp/prstuck-ey6whR/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-fb2ZX1/gh.mjs": {
+    "/tmp/prstuck-f8978z/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-hdFdLM/gh.mjs": {
+    "/tmp/prstuck-gM2m3o/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-lmtkYd/gh.mjs": {
+    "/tmp/prstuck-hoAbEq/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-o0fizY/gh.mjs": {
+    "/tmp/prstuck-hwbEIl/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-pvZ90b/gh.mjs": {
+    "/tmp/prstuck-mxqpH6/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-tJggkC/gh.mjs": {
+    "/tmp/prstuck-wm3H8t/gh.mjs": {
       "wrote": []
     },
-    "/tmp/prstuck-zvsZOS/gh.mjs": {
+    "/tmp/prstuck-xR7JYo/gh.mjs": {
+      "wrote": []
+    },
+    "/tmp/prstuck-zxpHzA/gh.mjs": {
       "wrote": []
     },
     "generators/ao_export.py": {
@@ -2397,6 +2400,9 @@
       "wrote": []
     },
     "tools/bake_ref.py": {
+      "wrote": []
+    },
+    "tools/bake_warranted.py": {
       "wrote": []
     },
     "tools/build_book_page_index.py": {
@@ -2468,8 +2474,18 @@
     "tools/check_gh_rest.mjs": {
       "wrote": []
     },
+    "tools/check_haze_reach.mjs": {
+      "wrote": []
+    },
     "tools/check_household_derivations.py": {
       "wrote": []
+    },
+    "tools/check_loading_content.py": {
+      "wrote": []
+    },
+    "tools/check_only_selection.py": {
+      "wrote": [],
+      "measured_by": "tools/isolation_probe, scoped to this tool rather than a whole instrumented gate run (T-1652). --build takes one serial gate run, which does not fit a steward run's 600 s foreground ceiling; the probe that produces these rows was run over `--gate` and `--self-test` instead, with the same ISOLATION_ROOT/ISOLATION_OUT contract, and recorded no write inside the repo for either. Measured 2026-09-27. The next full --build folds this row in and this note goes with it — it reads nothing but tools/bake.sh, generators/build.py and data/structures/*.json."
     },
     "tools/check_published.mjs": {
       "wrote": []
@@ -2520,6 +2536,9 @@
       "wrote": []
     },
     "tools/compile_scene.py": {
+      "wrote": []
+    },
+    "tools/compile_source_use.py": {
       "wrote": []
     },
     "tools/complete_inwindow_trades.py": {
@@ -2762,6 +2781,9 @@
     "tools/measure_fort_gates.py": {
       "wrote": []
     },
+    "tools/measure_fort_road_way.py": {
+      "wrote": []
+    },
     "tools/measure_fort_ways_plate.py": {
       "wrote": []
     },
@@ -2978,6 +3000,9 @@
     "tools/name_agreement.py": {
       "wrote": []
     },
+    "tools/name_the_keepers_1835.py": {
+      "wrote": []
+    },
     "tools/named_by_the_page.py": {
       "wrote": []
     },
@@ -3007,6 +3032,51 @@
     },
     "tools/profile_population_1835.py": {
       "wrote": []
+    },
+    "tools/publish.py": {
+      "wrote": [
+        "site/4d/prairie-1904/data/address_crosswalk.csv",
+        "site/4d/prairie-1904/data/assertions.csv",
+        "site/4d/prairie-1904/data/building_events.csv",
+        "site/4d/prairie-1904/data/building_sources.csv",
+        "site/4d/prairie-1904/data/buildings.csv",
+        "site/4d/prairie-1904/data/library.json",
+        "site/4d/prairie-1904/data/map_frontages.csv",
+        "site/4d/prairie-1904/data/measurements.csv",
+        "site/4d/prairie-1904/data/occupancy_candidates.csv",
+        "site/4d/prairie-1904/data/sources.csv",
+        "site/4d/prairie-1904/docs/glessner-1904.md",
+        "site/4d/prairie-1904/docs/map-guidance.md",
+        "site/4d/prairie-1904/docs/methodology.md",
+        "site/4d/prairie-1904/docs/research-gaps.md",
+        "site/4d/prairie-1904/docs/statistics.md",
+        "site/4d/prairie-1904/maps/originals/robinson-1886-north-block.jpg",
+        "site/4d/prairie-1904/maps/originals/sanborn-1911-key.jpg",
+        "site/4d/prairie-1904/maps/originals/sanborn-1911-sheet-20.jpg",
+        "site/4d/prairie-1904/maps/originals/sanborn-1911-sheet-28.jpg",
+        "site/4d/prairie-1904/maps/originals/sanborn-1911-sheet-35.jpg",
+        "site/4d/prairie-1904/research/public/clarke-habs-data.pdf",
+        "site/4d/prairie-1904/research/public/glessner-habs-data.pdf",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-1.png",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-1.tif",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-2.png",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-2.tif",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-3.png",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-3.tif",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-4.png",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-4.tif",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-5.png",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-5.tif",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-6.png",
+        "site/4d/prairie-1904/research/public/glessner-habs-sheet-6.tif",
+        "site/4d/prairie-1904/research/public/kimball-habs-data.pdf",
+        "site/4d/prairie-1904/viewer/app.js",
+        "site/4d/prairie-1904/viewer/index.html",
+        "site/4d/prairie-1904/viewer/style.css"
+      ],
+      "wrote_by": [
+        "../prairie_1904_v1/tools/publish.py ../../site/4d/prairie-1904"
+      ]
     },
     "tools/qualify_later_trades.py": {
       "wrote": []
@@ -3087,6 +3157,9 @@
       "wrote": []
     },
     "tools/read_second_presbyterian.py": {
+      "wrote": []
+    },
+    "tools/read_south_bank_swell_1834.py": {
       "wrote": []
     },
     "tools/read_st_cyr_register.py": {
@@ -3398,7 +3471,7 @@
         "site/4d/walk/js/changelog.js"
       ],
       "wrote_by": [
-        "/home/runner/work/polecat-platform/polecat-platform/chicago/chicago/4d/tools/stamp-changelog.mjs --write-mirrors"
+        "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/chicago/4d/tools/stamp-changelog.mjs --write-mirrors"
       ]
     },
     "tools/substitute_reconstruction.py": {
@@ -3416,7 +3489,13 @@
     "tools/synthesize_resident_research.py": {
       "wrote": []
     },
+    "tools/test_arrival.mjs": {
+      "wrote": []
+    },
     "tools/test_boot_phases.mjs": {
+      "wrote": []
+    },
+    "tools/test_build_cli_has_no_geometry.py": {
       "wrote": []
     },
     "tools/test_changelog_entry_gate.mjs": {
@@ -3425,16 +3504,31 @@
     "tools/test_changelog_mirror.mjs": {
       "wrote": []
     },
+    "tools/test_compile_source_use.py": {
+      "wrote": []
+    },
     "tools/test_dev_preview.mjs": {
       "wrote": []
     },
     "tools/test_frontage_faces.py": {
       "wrote": []
     },
+    "tools/test_loading_content.mjs": {
+      "wrote": []
+    },
+    "tools/test_loading_content.py": {
+      "wrote": []
+    },
     "tools/test_merge_ready.mjs": {
       "wrote": []
     },
     "tools/test_no_conflict_markers.py": {
+      "wrote": []
+    },
+    "tools/test_outbuilding_cargo.py": {
+      "wrote": []
+    },
+    "tools/test_outbuilding_forge.py": {
       "wrote": []
     },
     "tools/test_pr_lap_checkout.mjs": {
@@ -3456,6 +3550,18 @@
       "wrote": []
     },
     "tools/test_restamp_inputs.py": {
+      "wrote": []
+    },
+    "tools/test_shopfront_bay_count.py": {
+      "wrote": []
+    },
+    "tools/test_sources_view.mjs": {
+      "wrote": []
+    },
+    "tools/test_store_variants.py": {
+      "wrote": []
+    },
+    "tools/test_storefront_cargo_rhythm.py": {
       "wrote": []
     },
     "tools/test_street_confidence.mjs": {
@@ -3504,7 +3610,7 @@
         "site/4d/tickets.json"
       ],
       "wrote_by": [
-        "/home/runner/work/polecat-platform/polecat-platform/chicago/chicago/4d/tools/ticket.mjs board"
+        "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/chicago/4d/tools/ticket.mjs board"
       ]
     },
     "tools/ticket_liveness.py": {
@@ -3557,7 +3663,7 @@
         "site/4d/index.html"
       ],
       "wrote_by": [
-        "/home/runner/work/polecat-platform/polecat-platform/chicago/chicago/4d/tools/write_entry_pages.mjs ../../site/4d"
+        "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/chicago/4d/tools/write_entry_pages.mjs ../../site/4d"
       ]
     },
     "{\"1242\":\"dirty\",\"1315\":\"blocked\",\"1316\":\"blocked\",\"1319\":\"clean\"}": {

@@ -39,6 +39,7 @@
       "phases[].form.deck_kind.note",
       "phases[].form.dock.note",
       "phases[].form.door.note",
+      "phases[].form.door_bays.note",
       "phases[].form.door_side.note",
       "phases[].form.draw_leaves.note",
       "phases[].form.draw_lifting_gear.note",
@@ -64,7 +65,9 @@
       "phases[].form.gate_sides.note",
       "phases[].form.gate_width_m.note",
       "phases[].form.goods_door.note",
+      "phases[].form.goods_door_bays.note",
       "phases[].form.goods_door_side.note",
+      "phases[].form.hoist_door.note",
       "phases[].form.interior_division.note",
       "phases[].form.interior_finish.note",
       "phases[].form.interior_plaster.note",
@@ -103,6 +106,7 @@
       "phases[].form.roof_type.note",
       "phases[].form.seating.note",
       "phases[].form.shopfront.note",
+      "phases[].form.shopfront_bays.note",
       "phases[].form.shutter_type.note",
       "phases[].form.shutters.note",
       "phases[].form.side_additions.note",
@@ -289,7 +293,9 @@
     ]
   },
   "ignored": {
-    "structures": {},
+    "structures": {
+      "resident_assignment.note": "T-1675. The machine-readable half of an occupancy, and the one note on a structure record that deliberately names nobody: it says whether the platted deal reached this roof and what refused the seat, and the household is named in data/reconstruction/1835_roof_keepers.json instead — on a refused seat because the letter-list ruling of 2026-08-30 forbids the name here, and on a written one because the id belongs in `household_id` where tools/generate_dooryard_pickets.py does not read it as a garden. Its capitalised words are therefore the prose's own sentence openings and the project's file and ticket names, not names the town has said anything about. `occupants.note` beside it IS read, and that is the one that carries a keeper's name."
+    },
     "households": {},
     "exclusions": {}
   }

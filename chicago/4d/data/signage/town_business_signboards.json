@@ -331,22 +331,30 @@
       "forwarding_and_commission_store",
       "grocery_and_provision_store",
       "hotel",
+      "narrow_two_story_store",
       "physicians_office",
       "printing_office",
       "printing_office_and_store",
       "saddlery_and_harness_shop",
       "shop",
+      "small_shop_or_office",
       "store",
       "store_and_dwelling",
       "store_residence",
-      "tavern_inn"
+      "tavern_inn",
+      "wide_two_story_store_or_mixed_block"
     ],
     "works_trades": [
       "blacksmith_shop",
       "brickyard",
+      "carpenter_or_joiner_shop",
+      "cooper_wagon_or_wheelwright_shop",
       "forwarding_commission_warehouse",
+      "freight_or_storage_shed",
+      "narrow_two_story_warehouse",
       "packing_house",
       "slaughterhouse_packing",
+      "small_artisan_shop",
       "soap_candle_manufactory",
       "tannery",
       "warehouse_and_slaughter_yard"
@@ -3521,13 +3529,113 @@
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
     },
     {
+      "structure_id": "recon_1835_blk_south_water_clark_f2_01",
+      "trade": "narrow_two_story_warehouse",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
+      "trade": "small_shop_or_office",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
+      "trade": "narrow_two_story_store",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
+      "trade": "narrow_two_story_store",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
       "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
       "trade": "store_residence",
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
     },
     {
+      "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
+      "trade": "wide_two_story_store_or_mixed_block",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
+      "trade": "small_shop_or_office",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",
+      "trade": "narrow_two_story_store",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
+      "trade": "narrow_two_story_store",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_lasalle_f2_10",
+      "trade": "narrow_two_story_warehouse",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_wells_c2_01",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_wells_c3_02",
+      "trade": "narrow_two_story_store",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_south_c3_015",
+      "trade": "narrow_two_story_store",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_south_c3_040",
+      "trade": "narrow_two_story_store",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_south_f1_038",
+      "trade": "freight_or_storage_shed",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_west_007",
+      "trade": "small_shop_or_office",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
       "structure_id": "recon_1835_west_020",
       "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
+    },
+    {
+      "structure_id": "recon_1835_west_046",
+      "trade": "freight_or_storage_shed",
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint."
     },
     {

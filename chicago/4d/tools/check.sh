@@ -37,6 +37,15 @@ source "$_check_tools/check_harness.sh"
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
+step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
+  node tools/test_arrival.mjs
+step "loading library: 160 sourced, phase-local cards (T-1275)" \
+  python3 tools/check_loading_content.py
+step "loading evidence refuses promoted or unrelated facts (T-1275)" \
+  python3 tools/test_loading_content.py
+step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
+  node tools/test_loading_content.mjs
+
 # THE MIRROR IS BUILT FIRST, BECAUSE IT IS NOT IN THE REPOSITORY ANY MORE (T-0938).
 #
 # `site/4d/` used to be committed, so every step below could assume it was
@@ -121,6 +130,22 @@ step "the steward surfaces spend the REST bucket, not GraphQL (T-0234)" \
 selftest "…and a reintroduced gh pr draw is refused (T-0234)" \
   node tools/check_gh_rest.mjs --self-test
 
+# T-1652. `tools/bake.sh` documents `--only a,b,c` and passes its arguments straight
+# through, so its usage is a promise about generators/build.py — which compared the id
+# for EQUALITY, matched none of 422 records, printed `0 asset(s) built` and exited 1.
+# The documented way to bake several buildings in one Blender start-up therefore baked
+# nothing, and said nothing about why; a re-family lap on 2026-09-26 paid for ten
+# separate start-ups instead. This is the gate beside the fix, in the shape
+# check_haze_reach.mjs uses: read both texts and refuse them drifting apart again.
+step "the --only form bake.sh documents is the form build.py implements (T-1652)" \
+  python3 tools/check_only_selection.py --gate
+
+selftest "…and the equality comparison and the falsy-empty test are both refused (T-1652)" \
+  python3 tools/check_only_selection.py --self-test
+
+selftest "…and the selection rule itself still fires on each of its assertions (T-1652)" \
+  python3 generators/common/selection.py --self-test
+
 # T-0135. The three scene-detail ceilings are a LADDER and nothing made them one.
 # `sealLadder()` in main.js takes the running minimum down the tier order, so a rung
 # typed too high cannot take effect; this is the gate beside that construction. It
@@ -132,6 +157,16 @@ step "the scene-detail ceilings are a ladder, and each rung says what it protect
 
 selftest "…and the seal still clamps, marks and shouts a rung typed too high (T-0135)" \
   node tools/check_detail_ladder.mjs --self-test
+
+# The other renderer constant that a DATA change can silently invalidate. L17's apron
+# is re-derived from the terrain box by generators/terrain_gen.py, so extending the box
+# moves the distance the haze has to close over — and the haze is a literal in two
+# renderer files. This holds the one against the other, both ways. See T-1635.
+step "the haze closes before L17's ground apron ends, and both its literals agree (T-1635)" \
+  node tools/check_haze_reach.mjs
+
+selftest "…and it refuses a thinned air, a shrunk apron and the two literals drifting apart (T-1635)" \
+  node tools/check_haze_reach.mjs --self-test
 
 step "dataset (schema, provenance, date gates, licenses, staleness, publish)" \
   python3 tools/validate.py --all $STRICT
@@ -318,6 +353,18 @@ selftest "…and that audit's assertions still fire when broken" \
 # and needs Pillow and numpy, which this gate does not have.
 step "the NA re-read of the north-side slough still lands on the committed centreline" \
   python3 tools/read_north_side_slough_na.py --check
+# T-1630. The same instrument on the South Division bank: the committed waterline from the
+# bend to past the La Salle mouth, measured against the bank Wright INKED on the NA/HUP
+# sheet, and the swell the owner reported measured inside each 1834 sheet separately so no
+# registration enters it. The master scan cannot be re-fetched (its pin refuses the bytes
+# BPL now serves), so this is the only check that record has. `--check` re-derives every
+# metre offline from the committed pixel stations; the raster half is `--build`. The step
+# also holds the reading's own VERDICT — if a later edit moves the committed bank off
+# Wright's ink, the prose here would still read correctly and only this would notice.
+step "the South Division bank still stands on Wright's inked bank" \
+  python3 tools/read_south_bank_swell_1834.py --check
+selftest "…and that reading’s gate still fires when its figures are broken" \
+  python3 tools/read_south_bank_swell_1834.py --self-test
 # T-1101. The nine chips, put on the ground. Seven of the nine tracts are polygons now —
 # every one of them re-derived here from geometry this project already committed, never
 # traced off a wash — and the two that name no tract are REFUSED, with the number that
@@ -1213,6 +1260,21 @@ step "the river wharves re-derive from the records that state a dock" \
 step "the case T-0059 was withdrawn on still holds" \
   python3 tools/measure_generator_half.py --gate --quiet
 
+# T-1654, and the sentence directly above is what pays for it: "a new archetype edits
+# build.py's registry and costs the town". So did an argparse fix — 422 of 422 assets,
+# for a change that could not move a vertex, because mesh_inputs.py hashed build.py
+# WHOLE. The pipeline now lives in generators/emit.py, which the recipe hashes, and
+# build.py kept the command line, which it does not. That split is an allowlist by
+# construction, and code_inputs.py is the standing argument that an allowlist silently
+# drops the next thing somebody adds — so it is asserted here on every run rather than
+# trusted: an archetype import, a shared builder import, or any reach into bpy beyond
+# bpy.app puts geometry back where the staleness gate cannot see it.
+step "the bake's command-line half still makes no geometry" \
+  python3 tools/test_build_cli_has_no_geometry.py
+
+selftest "…and each way of breaking that split is still refused" \
+  python3 tools/test_build_cli_has_no_geometry.py --self-test
+
 # The frontage works are the fifth record of this shape and the first derived from
 # a building AND a street at once: where a plank walk may lie is decided by the
 # travelled track's own half-width out of data/streets/1835.json, not by the wall
@@ -1229,11 +1291,69 @@ step "the frontage works re-derive from the rule that chose their walls" \
 # empty covered tuple and the re-derivation above cannot touch it. This drives it
 # over all seven, in hundredths of a second, so it is code somebody is keeping
 # rather than code waiting to rot until the frame budget is won back.
+# The freight shed's cargo openings, and specifically the thing no other gate can
+# see: THREE callers have to agree about where they are. The builder frames them,
+# `openings()` cuts them out of the boarding and tells the signboard generator where
+# a board may not hang, and the validator refuses a count the wall cannot carry. They
+# agree by all reading one set-out; if any of them ever computes its own, the frames
+# land on solid board beside rectangular holes and the mesh is still perfectly valid.
+# It also holds the reading the family was re-doored on: a wagon door clamped F1's
+# eave FLOOR 32 mm above the bottom of the 10-13 ft band its own crosswalk authors.
+step "the freight shed's cargo openings set out once and are read three times" \
+  python3 tools/test_outbuilding_cargo.py
+
+selftest "…and that agreement still fires when the frames drift off the holes" \
+  python3 tools/test_outbuilding_cargo.py --self-test
+
+# W1's forge stack, and the reason it is gated here rather than only on the baked
+# master: `measure_stack_ordinance` reads the by-law's eighteen inches off the GLB, so
+# a stack authored under the floor is caught a bake later by a gate that cannot say
+# which archetype did it. This holds both ends of the bracket — the by-law's floor and
+# Andreas's four feet — on the parameters, across every plan W1's own band admits, and
+# with them the end wall the flue rises on and the three refusals the archetype makes.
+step "W1's forge stack clears the by-law on every plan its family band admits" \
+  python3 tools/test_outbuilding_forge.py
+
+selftest "…and that bracket still fires when the head drops under the by-law" \
+  python3 tools/test_outbuilding_forge.py --self-test
+
+# The warehouse families' cargo-door rhythm, one storey up from the freight shed's.
+# Same reason as above and two more of its own: an upper freight door stands over a
+# cargo opening, so the doors on the two storeys have to read ONE set-out or they
+# drift apart in a mesh that stays perfectly valid; and a single-bay record's set-out
+# has to be the very float the archetype drew before the rhythm existed, or 43
+# storefronts churn a bake for a change about warehouses. It also holds the beam's
+# gable test at an OFF-CENTRE bay, which no committed record reaches — both of the
+# town's F2 gables are deep enough to carry every bay — so it is held here or nowhere.
+step "the warehouse's cargo doors and the freight doors over them set out once" \
+  python3 tools/test_storefront_cargo_rhythm.py
+
+selftest "…and that still fires when a single-door store moves by a nanometre" \
+  python3 tools/test_storefront_cargo_rhythm.py --self-test
+
 step "the street edge's cross-street faces enumerate as the plat says" \
   python3 tools/test_frontage_faces.py
 
 selftest "…and those assertions still fire when the enumeration is broken" \
   python3 tools/test_frontage_faces.py --self-test
+
+# T-1665, and it is a READING of the specification rather than a measurement of the
+# town: the crosswalk's "2-3 shop bays" counts the door and `shopfront_bays` does not,
+# so C3 looked short of its own band by one on every store and looked unsatisfiable at
+# the top of it. The argument for the door-inclusive reading is D4's "3/5 bays; center
+# or side door" and H1's "5 bays; center hall" — a centre door is centred in an odd
+# count — and it is re-derived from the crosswalk here rather than remembered, because
+# a reading whose evidence has been edited out of the file is a reading nobody is
+# keeping. The same step holds the storefronts to their families' authored bands and
+# holds `default_shopfront_bays`'s floor to fronts the frontage forced: on 20 of 26
+# floors the one remaining window takes 50.0-66.7% of the front against a stated
+# maximum of 45%, and until this step existed the floor overruled the ceiling in
+# silence. docs/FACADE-BAYS.md is the settlement.
+step "the shop-bay counts read as the specification's own words" \
+  python3 tools/test_shopfront_bay_count.py
+
+selftest "…and that reading's assertions still fire when each input is bent" \
+  python3 tools/test_shopfront_bay_count.py --self-test
 
 # The 665-roof programme's remainder is a function of what has been built, and the town
 # grows most nights. Left as an authored number it goes stale silently — the crosswalk
@@ -1517,6 +1637,20 @@ step "every deferred in-town water feature is dated against the scene" \
 # other check still green. This joins the bridge's placement to the ground beneath it.
 step "the slough crossing spans open water, and nothing else stands in the cut" \
   python3 tools/measure_slough_crossing.py --gate
+
+# And the other side of the same coin: a road that meets this drain where NO crossing is
+# recorded. T-1637. `fort_road` is the largest invention on the United States Reservation
+# and its own record promised the water mask would make "honest gaps rather than fords" —
+# written when no water was near it. T-1629 then moved the drain's mouth east of State
+# Street, its new reach crossed the road, streets.js dutifully clipped the wet panels, and
+# the way to the fort came out cut in two with every step in this gate still green. The
+# line moved to leave the town over the crossing the town is DOCUMENTED to have built;
+# this holds it there, and fires again if the drain is re-carved across it.
+step "the way to the fort runs dry and crosses no water the town never bridged (T-1637)" \
+  python3 tools/measure_fort_road_way.py --gate
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/measure_fort_road_way.py --self-test
 
 # And the water the town DRANK, which is a different argument about the same surfaces.
 # `data/yard/town_water_cart.json` stands one cart where Andreas says the watermen drove
@@ -1810,6 +1944,22 @@ step "the lot ledger and the platted seats still re-derive" \
 selftest "…and the deal's six refusals still fire when broken" \
   python3 tools/seat_platted_ground_1835.py --self-test
 
+# T-1638, piece 1 of 4 of T-1200. The deal above puts a household under a roof; until this
+# step the ROOF said nothing back. The link ran one way — the address book's row naming its
+# structure — so a visitor opening one of these South Water buildings read "Anonymous
+# count-unit toward the July 1835 665-roof programme" while a file two directories away said
+# which household the policy had seated in it. `1835_roof_keepers.json` is that publication,
+# and its refusals are the load-bearing half: 60 of the deal's 108 adopted seats are
+# households minted from the post office's letter lists, whom the owner's ruling of
+# 2026-08-30 (T-0379) refuses a roof, so they are listed with the ruling rather than written
+# onto a card. Nothing is raised, nothing is baked and no keeper is a reading — L276 carries
+# the publication and L270 the invention underneath it.
+step "the South Water roofs still name the keepers the platted deal seated there" \
+  python3 tools/name_the_keepers_1835.py --check
+
+selftest "…and the keeper ledger's five assertions still fire when broken" \
+  python3 tools/name_the_keepers_1835.py --self-test
+
 # T-1614, the second piece of T-1199. The pass above enumerated the plat and handed 1,374
 # of the 1,480 banded households on with a written reason; this is the file that answers
 # them, on the ground the committed plat does not draw. `1835_off_plat_ledger.json`
@@ -1934,6 +2084,22 @@ step "every family's footprint, eave, pitch and ridge bands are satisfiable at o
 # the shed set all fail here.
 selftest "…and its own assertions still fire when broken" \
   python3 tools/measure_ridge_reach.py --self-test
+
+# The same question asked of the crosswalk's OTHER two columns for the store families —
+# `required_variant` and `variants` — which name forms rather than bands (T-1659). Three
+# of those lines named forms `frame_storefront` could not draw, and two of the three were
+# invisible rather than refused: C2's `levels: "1.5"` was read with `int()`, so eight
+# records that state a story-and-a-half were built as one-storey shops with the shop
+# opening cut through the attic floor; and C4's "side gable or hip" met a roof rule that
+# gave a FRONT gable to every family whose id begins with C. The third — C3's and F2's
+# hoist door — is correctly BUILDABLE AND UNBUILT, because those entries' own assumption
+# notes forbid inferring one, and a capability no record exercises is exactly what a gate
+# has to hold up.
+step "the store families' crosswalk variants are the ones the archetype draws" \
+  python3 tools/test_store_variants.py
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/test_store_variants.py --self-test
 
 # And the question the two gates above cannot ask, because they read what LANDED: is
 # every family the 665-roof schedule may deal to a platted block buildable at every
@@ -2218,6 +2384,15 @@ selftest "…and its own assertions still fire when broken" \
 # a failure here rather than a discovery on the deployed site.
 step "sidecars derived from data/" \
   python3 tools/compile_scene.py --all --check
+
+step "Source-use backlinks match authored claims (T-1248)" \
+  python3 tools/compile_source_use.py --check
+
+step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
+  python3 tools/test_compile_source_use.py
+
+step "source browser counts and filters" \
+  node tools/test_sources_view.mjs
 
 # Every building card offers a link to the write-up behind the building, and on
 # the deployed site all 332 of them were a 404: publish.sh leaves docs/ out of
@@ -2541,6 +2716,22 @@ selftest "the bake's content test refuses the stamp and nothing else" \
 selftest "the bake builds the ref it was given, and the nightly still builds dev" \
   python3 tools/bake_ref.py --self-test
 
+# T-1668, and the third question about one bake: that one asks WHICH TREE, the
+# one above it asks whether it PRODUCED anything, and this asks whether it was
+# WORTH STARTING. A full-town bake is twenty-five minutes and two
+# `pr-automerge` laps are eighteen, so until this existed every pull request
+# touching `generators/` became a `resume` PR by arithmetic, however green —
+# measured on T-1652/PR #104, whose three files could not move a vertex and
+# whose own staleness gate said so (422 assets matching, no rebake). The path
+# filter cannot tell "could have staled a mesh" from "did", so the decision now
+# asks the freshness register that `run_stale_check` above already refuses the
+# tree with. Every case that cannot be established bakes, and the assertions
+# here are what keep that true: the four fail-open paths a green tree can never
+# demonstrate, the carve-out for a workflow edit confined to the gate job, and
+# drift guards that the workflow still asks at all.
+selftest "the bake is skipped only when the freshness register says nothing staled" \
+  python3 tools/bake_warranted.py --self-test
+
 # The duplicate-id remedy, tested in the only state it ever runs in. `restamp`
 # used to find the ticket by FILE (its own comment explains that with two files
 # sharing an id, nothing else can tell them apart) and then edit the queue by ID,
@@ -2557,6 +2748,8 @@ step "restamp moves the queue line it was handed, not the other one" \
 # ways — land at a fixed index, move a neighbour, fall back without saying so, or
 # leak the anchor id into the title — and this runs the same call against two
 # orderings of one fixture so the line is shown to follow the ANCHOR.
+# Since 2026-09-27 the same test holds the owner's band-9 rule: a follow-up that is not
+# the owner's lands at the foot of band 9 unless `--blocks "<why>"` says what it blocks.
 step "new --after places directly under the named ticket and moves nothing else" \
   node tools/test_ticket_after.mjs
 
@@ -2851,6 +3044,25 @@ step "the derived-layer manifest names real files, one owner each, none hand-aut
 
 selftest "…and its own assertions fire when the manifest is made unsafe" \
   node tools/rederive.mjs --self-test
+
+# AND THE ONE WAY THE MANIFEST'S ORDER IS REOPENED FROM OUTSIDE IT (T-1661). The lap
+# has to re-run compile_scene AFTER `rederive.mjs --run`, because the second pass
+# rewrites the resident cards the scene is compiled from. For a year it re-ran that step
+# and nothing else — and the manifest places 37 steps below it, the first of which
+# exports "current-scene membership" out of the two files compile_scene writes. So the
+# lap pushed trees whose source-use had been derived against the PRE-merge scene:
+# measured on PR #105's lap commit 4455713, owner_chicago_1835_reconstruction_spec_2026
+# written with 3582 claims where a correct derivation gives 3620. 38 claims gone, nothing
+# in the tree announcing it, three of this file's steps red — and the branch reported by
+# GitHub as merged and up to date. A lap that merges green PRs cannot be the thing that
+# hands the next pass a red gate it did not cause.
+#
+# `--tail` is the fix and this step is what keeps it: a manifest step re-run bare by any
+# caller is out of sequence unless the manifest puts nothing below it. Held HERE rather
+# than left to review because the reopening is one line of shell in a file nobody reads
+# on a normal day, and its damage is invisible without the gate.
+step "no caller of the derived manifest re-runs one of its steps out of sequence" \
+  node tools/rederive.mjs --callers .github/steward/pr-lap.sh
 
 # AND THE FIVE FILES THAT CLOSE THE RESIDENT LAYER, AS ONE SET (T-1333). index.json with
 # its `merged` redirect table, the 1835 sidecars, the town census, the published residents

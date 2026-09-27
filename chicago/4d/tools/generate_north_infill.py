@@ -186,9 +186,51 @@ def door_kind(family: str) -> str:
     door, and asking for the floor without naming the door is how a band gets sampled
     below what the archetype can build.
     """
-    if family in ("W1", "W2", "W5", "F1", "A2"):
+    # F1 IS THE FREIGHT SHED AND ITS DOOR IS `cargo`, NOT `wagon` (T-1662). The
+    # crosswalk's required variant for the family is `freight_shed_low` — "wide
+    # doors; low openings" — and a wagon door is neither low nor plural. It also
+    # put the family's eave FLOOR at 3.08 m, 32 mm above the bottom of the 10-13 ft
+    # band the same crosswalk authors, so no F1 roof here could be dealt the low end
+    # of its own band. `cargo` is 2.20 x 2.35 m and takes the floor to 2.43 m.
+    if family == "F1":
+        return "cargo"
+    if family in ("W1", "W2", "W5", "A2"):
         return "wagon"
     return "stable" if family == "A1" else "man"
+
+
+def chimneys_for(family: str) -> int:
+    """WHETHER THE FAMILY HAS A FIRE IN IT, and only W1 does (T-1680).
+
+    W1's required variant in the crosswalk is `blacksmith_forge` — *"wide work door;
+    forge chimney; soot; detached"* — and `outbuilding` could not draw the second of
+    those until T-1680 gave it the town's own `chimneys` count. The rest of the
+    outbuilding tail is stables, sheds, cribs and cottages with no fire in them.
+
+    W2 and W3 are deliberately absent: their variants ask for daylight and double
+    doors, and a joiner's shop with a flue would be claiming a forge nobody put in it.
+
+    Authored only where it is more than zero, so no shed is rewritten to say it has
+    no chimney.
+    """
+    return 1 if family == "W1" else 0
+
+
+def door_bays_for(family: str) -> int:
+    """HOW MANY of that doorway the family's loading side carries (T-1662).
+
+    One everywhere but F1. The freight shed's crosswalk variant is
+    `freight_shed_low` — "wide doors; low openings" — and the plural is the point:
+    goods came off a wagon bed or a boat at more than one place along a shed eleven
+    metres long, which is what the family's own evidence note means by "cargo
+    openings". Two is what F1's footprint band carries with a real pier between them
+    and at each corner; the archetype refuses a third rather than thin the wall, and
+    refuses two on a front too short for them.
+
+    Authored only when it is more than one, so that the 130-odd outbuildings that
+    have always had a single door are not rewritten to say so.
+    """
+    return 2 if family == "F1" else 1
 
 
 def form_for(family: str, spec: dict, key: str, seq: int, paint: str,
@@ -313,12 +355,16 @@ def _form_body(family: str, spec: dict, key: str, seq: int, paint: str,
         }
 
     door = door_kind(family)
+    bays = door_bays_for(family)
     construction = "light_frame" if family in ("W2", "A1", "A2") else "plank"
     return {
         "wall_height_m": inferred(wall, why), "roof_type": inferred(roof_type, why),
         "roof_pitch_deg": inferred(pitch(), why),
         "construction": inferred(construction, why), "door": inferred(door, why),
         "door_side": inferred("front", why),
+        **({"door_bays": inferred(bays, why)} if bays > 1 else {}),
+        **({"chimneys": inferred(chimneys_for(family), why)}
+           if chimneys_for(family) else {}),
         # THE LOFT IS THE FAMILY'S TO AUTHOR, not this file's (T-0145). A retyped
         # tuple gave W5 a loft its `levels` never mentions — "1", flat — which is the
         # same retyping fault as the eave, one field over, and the band-claims gate

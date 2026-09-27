@@ -25,9 +25,9 @@
  "max_m": 3.7446,
  "quantisation_error_m": 0.0025,
  "water_surface_m": 0.0,
- "water_fraction": 0.1606,
+ "water_fraction": 0.1607,
  "relief_ft": {
-  "land_min": -1.978,
+  "land_min": -3.556,
   "land_max": 12.285,
   "channel_min": -17.405
  },
@@ -38,7 +38,7 @@
    62.5
   ],
   "marsh_exclusion_m": 48.0,
-  "plain_cells_audited": 716061,
+  "plain_cells_audited": 716082,
   "carried_frame": {
    "cells": 356650,
    "block_max": 1.836,
@@ -48,8 +48,8 @@
   "plain_block_max": 0.468,
   "plain_block_mean": 0.084,
   "passes": true,
-  "plain_cell_roughness_max": 55.913,
-  "shore_and_swale_cell_max": 215.233,
+  "plain_cell_roughness_max": 33.196,
+  "shore_and_swale_cell_max": 224.231,
   "relief_zones_ft_per_300ft": {
    "approach_dearborn_north": {
     "cells": 23,
@@ -65,7 +65,7 @@
    },
    "approach_lasalle_crossing_west": {
     "cells": 10,
-    "cell_max": 60.641
+    "cell_max": 59.897
    },
    "approach_north_branch_east": {
     "cells": 21,
@@ -76,12 +76,12 @@
     "cell_max": 158.047
    },
    "approach_slough_east": {
-    "cells": 15,
-    "cell_max": 100.711
+    "cells": 14,
+    "cell_max": 99.226
    },
    "approach_slough_west": {
-    "cells": 6,
-    "cell_max": 65.932
+    "cells": 16,
+    "cell_max": 146.883
    },
    "approach_south_branch_east": {
     "cells": 37,
@@ -92,15 +92,15 @@
     "cell_max": 171.698
    },
    "bank_face": {
-    "cells": 91156,
-    "cell_max": 215.233
+    "cells": 91133,
+    "cell_max": 224.231
    },
    "fort_dearborn_mound": {
     "cells": 2251,
     "cell_max": 188.858
    },
    "marsh_strip": {
-    "cells": 22008,
+    "cells": 21942,
     "cell_max": 148.58
    },
    "north_sand_ridge": {
@@ -117,11 +117,11 @@
    },
    "state_street_break": {
     "cells": 75041,
-    "cell_max": 116.863
+    "cell_max": 224.231
    },
    "swales": {
-    "cells": 22121,
-    "cell_max": 158.047
+    "cells": 21883,
+    "cell_max": 224.231
    }
   },
   "rule": "docs/research/01-terrain-hydrology.md modelling rule 1: outside the zones that earn relief, hold local gradients under 0.5 ft per 300 ft"
@@ -136,5 +136,5 @@
   "ground": "gltf/terrain__e1834_harbor_cut.glb",
   "water": "gltf/water__e1834_harbor_cut.glb"
  },
- "inputs_sha256": "069089ea282fc250fa9e4f832fab9e8ea2fc191a1e8a0240a1ae58e0860cc878"
+ "inputs_sha256": "5b7d85f70e6f3b53b33c3b2f8d173a71c0632e2d53b3405d4bb7d247a038e972"
 }

@@ -112,6 +112,14 @@
           ],
           "note": "Type-level choice within the W1 band in the reconstruction specification; it is not evidence for this building."
         },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "THE BUILDING IS ATTESTED; THIS ATTRIBUTE IS NOT. A source places this building and says what it was, but nothing records this particular dimension or detail, so the value is a typology from the reconstruction spec — what a building of this kind was ordinarily like. Reconstructed, therefore, and not because the building is in doubt: it is not. Only this number is. Type-level choice within the W1 band in the reconstruction specification; it is not evidence for this building."
+        },
         "board_gap_m": {
           "value": 0.012,
           "confidence": "reconstructed",

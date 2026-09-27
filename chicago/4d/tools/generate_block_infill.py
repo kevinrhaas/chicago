@@ -55,7 +55,12 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 # T-E2's refused ground is resolved from the committed traces rather than stored, so the
 # generator asks the same command the gate does instead of keeping its own copy.
-from band_notes import split_notes  # noqa: E402
+from band_notes import BAY_RANGE_RE, split_notes  # noqa: E402
+# T-1667. The shop-bay count the crosswalk authors is a FACADE-bay count and this
+# archetype's parameter counts show windows, so the mapping and the set-out arithmetic
+# are read from the archetype rather than retyped here — the same reason `family_bands`
+# exists. docs/FACADE-BAYS.md is the argument for the mapping.
+from archetypes import frame_storefront_params as storefront  # noqa: E402
 from placement_policy_1835 import constant  # noqa: E402
 from measure_no_build_ground import inside as point_in_ring  # noqa: E402
 from measure_no_build_ground import region_ring as no_build_ring  # noqa: E402
@@ -86,7 +91,8 @@ def no_build_rings() -> dict[str, list[tuple[float, float]]]:
 # earlier anonymous parcels already use. Writing the adoption here as well would put it
 # in two places and let them disagree, and hand-editing a generated record would fail
 # the drift check that makes these parcels trustworthy in the first place.
-from inferred_occupancy import occupancy  # noqa: E402
+from inferred_occupancy import (keeper_assignments, keeper_refusals,  # noqa: E402
+                                occupancy)
 
 # Which lot is already taken is the SAME question the schedule asks before it deals this
 # parcel its roofs, so it is asked in one place and imported by both (ROADMAP T-A7).
@@ -115,11 +121,11 @@ from reconcile_665 import houses_a_household, inventory_class  # noqa: E402
 # used to live in this file; the North Division parcel needed the same arithmetic and
 # had a retyped constant instead, so the rule moved to one module both import
 # (ROADMAP T-V1).
-from family_bands import (dimensions_m, eave_floor, eave_for_ridge,  # noqa: E402
-                          eave_limits, families, pitch_deg, stable_fraction,
-                          storeys, wall_height_m)
+from family_bands import (cargo_door_bays, dimensions_m, eave_floor,  # noqa: E402
+                          eave_for_ridge, eave_limits, families, pitch_deg,
+                          stable_fraction, storeys, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
-from roof_form import note_refusal, roof_kind  # noqa: E402
+from roof_form import fronts_gable, note_refusal, roof_kind  # noqa: E402
 
 # WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
 # 2026-09-21). See `plat_corridors.LINES` for the three words and
@@ -131,6 +137,25 @@ CORRIDOR_LINE_WHY = (
 )
 
 OCCUPANCY = occupancy()
+
+# T-1638. The keepers the placement policy's platted deal seated here hand over a SECOND
+# block: `resident_assignment`, carrying `status: assigned` and the household id. It is the
+# machine-readable half of an occupancy whose prose half is in OCCUPANCY above, and it is
+# what lets `seat_platted_ground_1835.py` recognise its own writing — a roof it has seated
+# stays adoptable by that household and by no other, so writing the keeper down no longer
+# hands the household somewhere else on the next re-derivation.
+ASSIGNMENTS = keeper_assignments()
+# T-1675. A roof the deal seated and the keeper pass REFUSED carries the same attribute,
+# saying unassigned and why — so a refused roof stops reading like a roof nobody was dealt.
+# The two maps are disjoint by construction (a seat is written or refused, never both) and
+# this refuses to merge them if they ever stop being.
+REFUSALS = keeper_refusals()
+_both = sorted(set(ASSIGNMENTS) & set(REFUSALS))
+if _both:
+    raise SystemExit("data/reconstruction/1835_roof_keepers.json writes and refuses the "
+                     "same roof(s): %s — re-run tools/name_the_keepers_1835.py --build"
+                     % ", ".join(_both))
+ASSIGNMENTS = {**ASSIGNMENTS, **REFUSALS}
 
 # The same separation the household parcel enforces. A generated building that lands
 # three metres from another one is not a dense town, it is two records occupying one
@@ -370,11 +395,53 @@ def finish_for(key: str) -> tuple[str, str]:
 
 def door_kind(family: str) -> str:
     """What has to get through the opening, which is a claim about the building's use."""
-    if family in ("W1", "W3", "F1", "A2"):
+    # F1 IS THE FREIGHT SHED AND ITS DOOR IS `cargo`, NOT `wagon` (T-1662). The
+    # crosswalk's required variant for the family is `freight_shed_low` — "wide
+    # doors; low openings" — and a wagon door is neither low nor plural. It also
+    # put the family's eave FLOOR at 3.08 m, 32 mm above the bottom of the 10-13 ft
+    # band the same crosswalk authors, so no F1 roof here could be dealt the low end
+    # of its own band. `cargo` is 2.20 x 2.35 m and takes the floor to 2.43 m.
+    if family == "F1":
+        return "cargo"
+    if family in ("W1", "W3", "A2"):
         return "wagon"
     if family in ("W2", "A1"):
         return "stable"
     return "man"
+
+
+def chimneys_for(family: str) -> int:
+    """WHETHER THE FAMILY HAS A FIRE IN IT, and only W1 does (T-1680).
+
+    W1's required variant in the crosswalk is `blacksmith_forge` — *"wide work door;
+    forge chimney; soot; detached"* — and `outbuilding` could not draw the second of
+    those until T-1680 gave it the town's own `chimneys` count. The rest of the
+    outbuilding tail is stables, sheds, cribs and cottages with no fire in them.
+
+    W2 and W3 are deliberately absent: their variants ask for daylight and double
+    doors, and a joiner's shop with a flue would be claiming a forge nobody put in it.
+
+    Authored only where it is more than zero, so no shed is rewritten to say it has
+    no chimney.
+    """
+    return 1 if family == "W1" else 0
+
+
+def door_bays_for(family: str) -> int:
+    """HOW MANY of that doorway the family's loading side carries (T-1662).
+
+    One everywhere but F1. The freight shed's crosswalk variant is
+    `freight_shed_low` — "wide doors; low openings" — and the plural is the point:
+    goods came off a wagon bed or a boat at more than one place along a shed eleven
+    metres long, which is what the family's own evidence note means by "cargo
+    openings". Two is what F1's footprint band carries with a real pier between them
+    and at each corner; the archetype refuses a third rather than thin the wall, and
+    refuses two on a front too short for them.
+
+    Authored only when it is more than one, so that the 130-odd outbuildings that
+    have always had a single door are not rewritten to say so.
+    """
+    return 2 if family == "F1" else 1
 
 
 def band_note(family: str) -> str:
@@ -385,6 +452,76 @@ def band_note(family: str) -> str:
     """
     return (f"Type-level choice within the {family} band in the supplied reconstruction "
             "specification; it is not evidence for this anonymous instance.")
+
+
+def shop_bays(family: str, spec: dict, front_m: float) -> int | None:
+    """The show-window count to AUTHOR on a shopfronted store, or None to let the
+    archetype's own default answer.
+
+    ASKED, NOT ASSUMED (T-1667), and the second time this generator has had to ask the
+    crosswalk a question it used to answer with a rule of thumb — `gable_front` was the
+    first, one ticket earlier. The archetype picks a bay count from the frontage, capped
+    at `SHOPFRONT_MAX_FRACTION` (45%) of the front. That cap was argued for a store
+    filling a 55 ft lot frontage with its eaves to the street, and it is a DEFAULT for a
+    record that says nothing — so on the narrow end of a wide family's own footprint band
+    it refuses the family's authored minimum and drops to its one-window floor. That is
+    how the town's single C4 came to stand at 2 facade bays against an authored 4-6.
+
+    So: where the family's variants line states a bay range AND the default lands outside
+    it, the count is STATED, at the lowest count in band the frontage can actually carry
+    with `PIER_MIN_M` of wall left at each end. Three things this deliberately does not
+    do — each is a silence a later reader would otherwise have to test for:
+
+      * it does not move `SHOPFRONT_MAX_FRACTION`. One fraction cannot serve both ends of
+        a band that nearly doubles in width, and moving it would move twenty other
+        committed shopfronts for one building's sake.
+      * it does not touch a family whose default is already in band. C3's "2-3 shop bays"
+        asks for 1 or 2 windows and the default answers 1, so every committed C3 keeps
+        the count it has and its mesh does not move.
+      * it does not reach for a count the wall cannot hold. A frontage that affords
+        nothing in band returns None and stands outside its band, where
+        `tools/test_shopfront_bay_count.py`'s `SPEC_SHORTFALL` is the thing that says so.
+        Building a front the frame refuses would only move the refusal to bake time.
+    """
+    if family.startswith("F"):
+        return None                      # no shopfront on the freight families
+    m = BAY_RANGE_RE.search(str(spec.get("variants") or ""))
+    if not m:
+        return None                      # the family authors no range to be inside
+    lo, hi = int(m.group(1)), int(m.group(2))
+    if lo <= storefront.facade_bays(storefront.default_shopfront_bays(front_m)) <= hi:
+        return None                      # the default is already in band; leave it alone
+    afford = front_m - 2 * storefront.PIER_MIN_M
+    fits = [b for b in range(1, 5)
+            if lo <= storefront.facade_bays(b) <= hi
+            and storefront.shopfront_width_m(b) <= afford]
+    return min(fits) if fits else None
+
+
+def shop_bays_note(family: str, spec: dict, front_m: float, bays: int) -> str:
+    """Why that count, in the arithmetic that chose it. The reader of the card gets the
+    measurement, not the assertion — this value is the one form attribute on these
+    records that is NOT the generator's type default, so the note has to say what it is
+    instead."""
+    m = BAY_RANGE_RE.search(str(spec.get("variants") or ""))
+    lo, hi = int(m.group(1)), int(m.group(2))
+    opening = storefront.shopfront_width_m(bays)
+    default = storefront.default_shopfront_bays(front_m)
+    return (f"STATED RATHER THAN DEFAULTED (T-1667). The {family} variants line authors "
+            f"{lo}-{hi} bays, and a facade bay counts the door (docs/FACADE-BAYS.md), so "
+            f"the family asks this archetype for {lo - 1} to {hi - 1} show windows. Its "
+            f"own default answers {default} on this "
+            f"{front_m:.3f} m front — {storefront.facade_bays(default)} facade bays, "
+            f"outside the band — because SHOPFRONT_MAX_FRACTION "
+            f"({storefront.SHOPFRONT_MAX_FRACTION:.0%}) refuses "
+            f"{opening / front_m:.1%} of the front, and that fraction was argued for a "
+            f"store filling a 55 ft lot frontage rather than for the narrow end of this "
+            f"family's own footprint band. {bays} is the LOWEST count in band this "
+            f"frontage carries: {opening:.3f} m of opening leaves "
+            f"{(front_m - opening) / 2:.3f} m of plain wall at each end against a "
+            f"{storefront.PIER_MIN_M:.2f} m minimum pier. Nothing here is evidence that "
+            f"this front carried {storefront.facade_bays(bays)} openings; it is the "
+            f"family's authored range taken at its minimum.")
 
 
 def form_for(family: str, spec: dict, key: str, width: float, depth: float,
@@ -437,6 +574,7 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
     # door needs a metre more wall than a man door, and asking for the floor without
     # naming the door is how a band gets sampled below what the archetype can build.
     door = door_kind(family)
+    bays = door_bays_for(family)
     # ...and the ARCHETYPE bounds the band at BOTH ends (T-0142). H2's authored eave
     # runs to 21 ft and `frame_dwelling` will not carry a two-storey wall over 6.2 m,
     # so a uniform sample dealt this block a merchant house the generator refused to
@@ -500,11 +638,16 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
         return result
 
     if family.startswith(("C", "F")) and family != "F1":
-        return {
+        cargo_bays = cargo_door_bays(family, spec["band_ft"])
+        result = {
             "stories": invented(levels, why), "wall_height_m": invented(wall, why),
             "roof_type": invented("gable", why),
             "roof_pitch_deg": invented(pitch(), why),
-            "gable_front": invented(family.startswith("C"), why),
+            # ASKED, NOT ASSUMED (T-1659). `family.startswith("C")` is true of three
+            # of the four store families and false of C4, whose crosswalk roof line is
+            # "side gable or hip" — neither of which fronts a gable. The rule now lives
+            # in tools/roof_form.py beside the shed rule, read off the entry itself.
+            "gable_front": invented(bool(fronts_gable(family)), why),
             "construction": invented(construction, why),
             "cladding": invented("clapboard" if family != "F2" else "vertical_board", why),
             # T-0430. A LOFT IS AUTHORED IN THE BAND OR IT IS NOT AUTHORED AT ALL.
@@ -527,7 +670,42 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
             "chimneys": invented(1 if not family.startswith("F") else 0, why),
             "shopfront": invented(not family.startswith("F"), why),
             "goods_door": invented(True, why), "goods_door_side": invented("end", why),
+            # THE CARGO-DOOR RHYTHM AND THE HOIST, WHERE THE FAMILY ASKS FOR THEM
+            # (T-1663). Both are the crosswalk's own words and neither is a
+            # consequence of the massing:
+            #
+            #   F3 asks for "multiple cargo doors" and gets the rhythm.
+            #   F2 asks for "hoist beam; upper freight doors" and gets both — the
+            #   plural of an upper freight door is a plural of LOADING POINTS,
+            #   since a load comes off one wagon at one door and goes up at that
+            #   door, so the rhythm below carries the upper doors too.
+            #
+            # HOW MANY is `family_bands.cargo_door_bays`, derived there from the
+            # family's own footprint band against the braced frame's post spacing,
+            # so the number is checkable rather than chosen. Every other family
+            # answers 1 and is not rewritten to say so.
+            #
+            # F2's assumption note reads "Hoist beam presence varies", and giving
+            # every F2 a hoist is the over-claim that note warns about. It is taken
+            # deliberately and recorded as a liberty (docs/LIBERTIES.md L280)
+            # rather than hidden: the same entry's EVIDENCE note names
+            # "warehouse framing/hoist support" as what this archetype must add
+            # before the family is satisfied, and a two-storey warehouse whose only
+            # opening is a ground door cannot load the floor it exists to have.
+            # Nothing in either committed record distinguishes one from the other,
+            # so there is nothing here to vary ON; a deal would be inventing a
+            # difference rather than recording one.
+            **({"goods_door_bays": invented(cargo_bays, why)} if cargo_bays > 1
+               else {}),
+            **({"hoist_door": invented(True, why)} if family == "F2" else {}),
         }
+        # These parcels author no ell, so the frontage the shopfront stands on is the
+        # footprint's own width — the same number `from_phase` derives for itself.
+        bays = shop_bays(family, spec, width)
+        if bays is not None:
+            result["shopfront_bays"] = invented(
+                bays, shop_bays_note(family, spec, width, bays))
+        return result
 
     if not family.startswith(("A", "W")) and family != "D2" and family != "F1":
         raise SystemExit(f"{family} has no form rule in this generator; add one before "
@@ -543,6 +721,9 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
         "roof_pitch_deg": invented(pitch(), why),
         "construction": invented(material, why), "door": invented(door, why),
         "door_side": invented("front", why), "loft": invented(loft, why),
+        **({"door_bays": invented(bays, why)} if bays > 1 else {}),
+        **({"chimneys": invented(chimneys_for(family), why)}
+           if chimneys_for(family) else {}),
         "board_gap_m": invented(.012, why), "paint": invented(paint, why),
     }
 
@@ -839,6 +1020,7 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
         **({"occupants": OCCUPANCY[sid]} if sid in OCCUPANCY else {}),
         "reconstruction": reconstruction,
         **({"_frontage": anchor} if on_frontage else {}),
+        **({"resident_assignment": ASSIGNMENTS[sid]} if sid in ASSIGNMENTS else {}),
         "research_note": ("RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The "
                           "block, its scheduled roof count and its family mix follow the "
                           "665-roof programme; exact presence, lot, position, footprint, "

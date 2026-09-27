@@ -444,6 +444,34 @@ into the river as one pool at one surface, so the offset never arose. What is st
 what it always was: the depth and the width of a watercourse whose route is documented and whose
 section nobody recorded. That invention lives in **L149** with the swales, not here.
 
+**Evidence since, 2026-09-26 — the crossing has MOVED, and it changed streets doing it
+(T-1629).** The owner flew the reach against Wright 1834 and Hathaway 1834 and ruled that the
+State slough has one mouth, at the notch both sheets draw just EAST of State, and that the mouth
+this project had built west of State was the invention: *"keep the inland state slough, move the
+bridge, i thgink there should only be one slough though? and from the wright map it appears to
+start east of state. you have two slough entry points there"*. The mouth moved, and the reach
+that reaches it crosses **State Street** at E +826.9 N −8.4. **South Water Street does not cross
+this drain any more, and cannot** — its committed path stops at the United States Reservation
+(E +805, the 1833 order; the Reservation's west line is State), and the drain is now east and
+south of that. So the crossing was re-seated on State Street. **That is a loss against the source
+and this entry is where the loss is recorded**, because L69 is the entry that says this bridge
+stands at "the meeting of a named street and a named stream mouth" and that displacing it "would
+throw away the best evidence either record holds". Half of that pin is now thrown away: the
+source's sentence is *"where WATER STREET crossed it a log bridge was needed until after 1840"*,
+and this reconstruction can no longer carry the street's name. What it still carries — and what
+keeps the record standing — is the rest of the same sentence: that the town bridged THIS drain
+where its graded street met it, that the bridge was of log, and that it was needed past 1840.
+`position.confidence` stays `inferred` and does not rise on the move. The re-seating buys one
+thing back, which is worth saying beside the loss: the deck's BEARING was an admitted invention
+at the old seat (an east-west deck assumed over a north-running stream) and is now the committed
+line of State Street. The measured cost of the move, on the committed heightfield: the terrace
+along State stands level at 5.09 ft for 45 m either side of the crossing, so the deck sits 0.72 m
+below grade at both ends and both approaches are cuts 8.7 m long at 1 in 12, against 0.35–0.49 m
+at the old seat — the ridge-toe cost T-0118 declined and the owner accepted. And the reading this
+entry closed on still holds at the new seat: **4.80 m of open water in the deck's 8.00 m span
+(60 %), 0.93 m deep, 1.40 m and 1.80 m of dry abutment seat**, the channel unbroken from the
+planks to the river, taken by the same `tools/measure_slough_crossing.py`.
+
 
 ### L40 — Two thirds of the town stands on ground that has not been built
 **Decision:** twenty of the thirty-three structures now in the dataset stand **outside the
@@ -949,6 +977,51 @@ more conservative of the two labels, exactly as it did before.
 
 **WHAT IT DOES NOT CLAIM, AND THIS HALF IS THE HARDER OF THE TWO.** For the river T-1150 could argue the fourteen years away: a natural planform, and every work that straightened that reach is later than the sheet. A SHORE CANNOT BE ARGUED AWAY. `docs/research/01-terrain-hydrology.md` § 4 states the mechanism and the size — net littoral drift runs south, the 1833–35 piers trapped it and starved this coast, the 1836 canal commissioners' map put the shore about **400 ft** east of Michigan Avenue and by the 1850s it had cut back to within about **50 ft** of it, roughly **107 m** of shore lost. So the trace was checked against Wright's own run over the 860 m where the two sheets overlap, after the trace was made and with T-1150's fit untouched: the 1849 line reads **WEST at every station**, 134 m at N −1300 tapering to 50 m at N −2000, **mean 93 m against 107 m documented**. The taper is the signature of erosion downdrift of a barrier — worst against the structure, dying away with distance — and it is why the committed reach, which begins further south again, carries the smaller bound. The trace is therefore a **LOWER BOUND** on the 1835 shore's easting: the 1835 water's edge stood at or east of this line, and the bound tightens southward. **THE SEAM IS NOT A PASS AND IS NOT DRESSED AS ONE.** At N −2159.9 Wright stands the edge at E +1347.5 and this sheet at E +1298.9 — a **49 m step**, outside the fit's own 25.0 m RMS, which is the erosion measured at the one row where the two sources touch. It is left in the data rather than blended out, because a blend would be geometry from neither survey. Nothing is upgraded: every vertex is `inferred`, never `documented`, and `evidence_limit` still writes every vertex below N −2149.4 `CONF_CONJECTURAL` regardless. What remains open about this ground is not a held easting but a **date question** — which shoreline state belongs to which epoch — and that is **T-1152**, which this entry does not pretend to settle.
 
+### L150 — Terrain: the La Salle slough's inland course and terminus rest on a 1933 reconstruction
+**Decision:** the watercourse Wright 1834 draws dropping south off the main stem just east of
+La Salle Street is carried inland as two swale entries (`lasalle_slough_lower`,
+`lasalle_slough_upper` in `terrain_spec.json`), both `reconstructed`: a wet lower reach
+(3.2 ft cut, standing backwater to about N −95, short of the Lake Street corridor, which
+stays dry) grading WITHOUT A STEP into a dry upper swale (1.8 ft through its middle reaches)
+that terminates just north of Randolph Street, the cut feathering to zero over its last
+~40 m so the ground closes over the head. The invented alignment MEANDERS — swings of 7–10 m
+about its drift, crossing the ground at an angle — instead of ruling the straight N–S line
+first built (amended by T-0118: the owner, against an 1830s engraving, read the ruled line as
+wrong for a prairie drain, and read the 3.2→1.8 ft step at the entries' join — where water
+is drawn only below datum — as a dry sill of land sitting across a continuous watercourse).
+**Why:** the mouth and the stream's existence are Wright's, drawn on the sheet this terrain is
+fitted to, and carrying the channel further south than Wright washes it was refused when the
+mouth was traced ("inventing a bank where the draughtsman stopped"). This entry is the
+research thread that refusal left open, done in the form it prescribed: a centreline argued
+from Conley/Stelzer — which draws the course up the west half of the La Salle–Clark block,
+water-washed to about Lake Street and a dark drain beyond, ending just north of Randolph —
+never a traced boundary. The terminus is a position from a 1933 pictorial reconstruction at
+`orientation` ceiling, read at 20–30 m tolerance; the width (8 m overall, inside the
+north-side slough's measured 7.1 m band), both depths, the meander's exact swings (bent
+between the fixed readings, threading the committed roofs — old_bank_building cleared by
+2.4 m at the nearest pass) and the depth grading are invented outright, and the channel
+starts one cell south of the South Water corridor because Wright draws the stream stopping
+at the street line — the street's crossing (fill or culvert) is attested by that drawing and
+described by nothing. THE SILL WAS RESOLVED BY GRADING, NOT BY DEEPENING: the dossier's own
+thalweg for these inland courses sits ABOVE datum ("wet mouths, damp inland courses" was
+chosen deliberately), so the join was not cut below water; the depth profile instead shallows
+the bed continuously from the wet reach (−0.5 m at the mouth) up through the join (+0.15 m)
+and on, so the water simply ENDS at a tapering edge like a pond's, with no wall of land
+across the channel. The water's edge pulls back from about N −105 to about N −95 in the
+bargain — still "open water to about Lake Street" within the source's own read tolerance,
+and the platted corridor now stays dry with margin rather than by luck.
+**Consequence:** the second of the three Main Branch sloughs reads as ONE continuous
+watercourse from the traced mouth to a feathered head; its whole inland geometry says
+`conjectural` in the confidence channel while its mouth remains the traced, documented
+re-entrant. If Conley erred — he demonstrably errs elsewhere — the inland course is his error
+carried at the grade that admits it.
+**How to resolve:** any period document locating the stream — a lot survey, a grading record,
+a bridge or culvert order for South Water Street west of Clark; see
+docs/RESEARCH/main_branch_sloughs_1833.md.
+**Covers:** `terrain.e1834_harbor_cut.swales.lasalle_slough_lower`.
+**Recorded:** 2026-08-20. **Amended:** 2026-08-20 (T-0118). **Struck:** 2026-09-26 (T-1628) — the second `Covers:` token, `terrain.e1834_harbor_cut.swales.lasalle_slough_upper`, is removed because the block it names is deleted, and a token pointing at nothing admits to nothing a visitor reads (`validate.py`: "that epoch's spec makes no graded claim"). The prose above is otherwise verbatim, and the deletion is what the **Resolved:** line below is about — nothing is hidden by the strike.
+**Resolved:** 2026-09-26 (T-1628), by the owner's ruling, and the entry is kept verbatim above because it was an honest account of a course that no longer stands. He flew the reach and compared it with Wright 1834 and Hathaway 1834: *"when you look down on the river, there is a bulge and then a slough just east of lasalle that goes very deep, the slough goes all the way to lake. that is not how it is depicted in the wright or hathaway map. i think its ok to depict the slough like the wright map, so it seems it should come in, just a bit past south water and then into the lot, but not deeper"*. **`lasalle_slough_upper` is deleted and `lasalle_slough_lower` is truncated**, so the 1933 reconstruction no longer carries any terminus at all: the position at `orientation` ceiling that this entry admits to inventing is simply not in the terrain any more, and the invention it was recorded for is withdrawn rather than corrected. What survives is Wright's traced mouth plus 16.35 m of channel inside block 50's lot, which is a different and much smaller liberty, recorded as **L273** in the per-subject register below. Conley/Stelzer is set aside rather than refuted — the reading is kept in `docs/RESEARCH/main_branch_sloughs_1833.md` § 6 with the date it was set aside and why — and T-0795's finding that the NA/HUP sheet draws no inland course here, which this entry already carried, is now what the terrain says as well as what the note says.
+
 ---
 
 ## Per-subject liberties
@@ -1253,6 +1326,40 @@ horizon, nothing outside the box modelled, sampled or claimed, and the walker's 
 answering its fallback out there. What has not changed: the heightfield is byte-identical, every
 surviving apron vertex outside the bar's 85 m carries its old height exactly, and the ring is still
 the same ring — it gains one more, at 2 256 vertices, which is what the taper is drawn with.
+
+**Revised 2026-09-26 — this entry's standing condition is now a GATE, and the air it asks for has
+been re-solved against the apron this entry actually has (T-1635).** Every version of the text above
+leans on one sentence — "the scene's fog is total by 1500 m" — and that sentence was the argument for
+`renderers/web/js/world.js`'s haze density, 0.00125, whose air goes total at **1,883 m**. Meanwhile
+this entry's own apron has been re-derived three times and stands at **2,659.84 m**. The condition
+therefore held only in the safe direction, by **776.7 m of air nobody had a reason for**, and that
+surplus is what the owner reported from 600 ft: past about 1.2 km the plain was a featureless band
+with the far timber standing in it, because only a tenth of the prairie's own colour survived the
+trip to the eye.
+
+The density is now SOLVED from this apron rather than set beside it: 0.00089, the thinnest air for
+which the haze is still total inside `heightfield.json`'s published `skirt.margin_m`, going total
+14.9 m short of the apron's outer edge. At 1,200 m the prairie's own colour now survives at 32 %
+against 10.5 %, and at 1,500 m at 16.8 % against 3.0 %.
+
+**What is claimed out there has not changed by one metre, and that is the whole reason this is a
+revision and not a weakening.** The apron is the same apron, the same 2 256 vertices, the same
+boundary heights carried outward, the same fallback from the walker's sampler, and the heightfield
+is byte-identical. More of it is legible; none of it is asserted. What this entry has always
+promised is that the apron's outer EDGE is never seen, because an edge reads as a landform — and
+that promise is now kept by `tools/check_haze_reach.mjs` on every commit, against every epoch's own
+published margin, instead of by a prose sentence that three box extensions had already made stale.
+A future box that shrinks the apron under the air, or a hand that thins the air past the apron,
+turns the gate red rather than quietly displaying ground nobody built.
+
+**The liberty this leaves standing, stated plainly.** No source reached describes visibility over
+the July prairie in 1835, and none is cited: the air in this scene is as clear as the modelled world
+allows and no clearer. Read as meteorological visibility — the 2 % contrast distance — it is 2.2 km,
+up from 1.6 km, which is mist rather than a clear summer day. That figure is a fact about how much
+ground has been built, not a claim about the weather, and the way to improve it is to build ground.
+
+**Related:** **L35** (the far timber's exemption from this air, whose compromise this makes 423 m
+smaller without touching its cap).
 
 ### L18 — Sauganash Hotel: the 1829 cabin's height and its roof are placeholders
 **Decision:** the `log_1829` phase is built 2.4 m to the plate under a gable roof, both tagged
@@ -1693,6 +1800,58 @@ the band's far end was displaying at **L 170 against a horizon sky of L 162** �
 brighter than the sky behind it, which is what a distant treeline never is. It is L 159 now.
 **The cap this entry exists to confess is untouched at 0.82**, and so is the compression it
 buys: the argument for it is still EVIDENCE and nothing else.
+
+**Revised 2026-09-26 (T-1631) — "four levels below the horizon sky" was true in one direction
+out of thirty-six.** This entry has now written the same symptom up as physics three times, and
+the third correction is the interesting one, because nothing above it is arithmetically wrong.
+L 161.7 is the horizon sky of the BAR PHOTOGRAPH and of this scene's sky *toward the sun*. It
+is not this scene's horizon sky in any other direction: `HORIZON_RESTORE` is an azimuth-blind
+fit and its own note records the render at 1° above the NORTH horizon as (104,132,166), L 128.
+Sampled all the way round at 1° — 36 bearings, off the shader itself — this sky runs L 122 due
+north to L 148 due south. So a fog pinned at L 159.4 was *brighter than the sky it converges
+on at every azimuth on the compass*, by 11 luminance toward the sun and by 37 away from it, and
+the cheerful "which is exactly what airlight should do" above held only where it was measured.
+
+What that bought a visitor is what the owner reported: flying north at 600 ft, the ground past
+the drawn town converged on a flat sheet 31 luminance brighter than the sky above it, with a
+hard step where they met — and a bright flat blue-grey sheet with trees standing out of it
+reads as a lake. Measured at that pose, the pixel below the step read (136,163,192) against
+(103,131,165) above it; with the fog switched off the same pixel read (109,125,84), GREEN. The
+ground was drawn the whole time and the reach was never the fault. The haze was painting land
+the colour of water.
+
+The fix takes no liberty and so retires this part of the entry rather than extending it: the
+fog is no longer a constant at all. `world.js` samples its own sky at the horizon at boot and
+points the haze at the bearing the visitor is looking along, so distance converges on the air
+that is actually there. Nothing is fitted, no second photograph is guessed at, and the sky is
+unchanged — `HORIZON_RESTORE`'s refusal to invent an azimuth term stands untouched, because
+sampling a shader is not fitting a model. **The cap remains 0.82 and the density remains
+0.00125**; what the scene's air is thick ENOUGH to hide is unchanged, and the residual reported
+under T-1631 — that past about 1.2 km the plain is still a featureless band because the haze is
+90 % there by design — is the density's business and not this entry's.
+
+**Revised 2026-09-26 (T-1635) — the density's business has now been done, and it makes this
+entry's compromise 423 m smaller without touching its cap.** The residual T-1631 handed on was
+spent: the haze density is no longer 0.00125 but **0.00089**, solved from the width of the
+ground apron L17 asks it to close over rather than from L17's long-retired "total by 1500 m"
+(the apron stands at 2,659.84 m; the air was still built for 1,883 m). Two of this entry's own
+figures move with it, and both move the way this entry has always wanted:
+
+- the sentence above that "every other distant thing" is hazed by a fog "deliberately total by
+  1500 m" is retired. The shared fog is total at **2,644.9 m**, and what makes that the figure is
+  the apron and not a preference;
+- the band's own law now reaches the 0.82 cap at **1,471 m** instead of about 1,048 m. So the
+  band follows the scene's real air 423 m further out before this constant takes over, and the
+  compression the first consequence above confesses starts 423 m further out with it.
+
+**`HAZE_MAX` is unchanged at 0.82, deliberately.** It is the figure this entry argues for, the
+dossier's three-, four- and six-mile timber is the argument, and nothing in T-1635's reading
+bears on it — the exemption is smaller, not resolved. The **"How to resolve"** below is also
+unchanged, and one line of it is now half true in a way worth naming: the second route it offers
+is that "replacing the skirt with real terrain removes L17's need for a closed horizon". L17's
+need is not removed, but it is now *priced*, and the price is published — the haze may be thinned
+exactly as far as the apron is pushed out by ground someone actually builds, and
+`tools/check_haze_reach.mjs` is what will let the next thinning through.
 
 **Also revised: the third point's measurement is half answered.** The band was additionally
 being *deleted* rather than merely dim — the crown/gap modulation cuts a bearing to as little
@@ -5343,6 +5502,31 @@ project has taken the fort, the garden, the barn and the ferry off that plate an
 roads; or any survey of the reservation before its 1839 subdivision, which would fix the line
 and probably its name at the same time.
 **Recorded:** 2026-08-19.
+**Revised:** 2026-09-26 (T-1637) — **the western terminus moved, because the clip this entry
+relied on turned into a severed road.** T-1629 put the South Division drain's mouth east of
+State Street on the owner's ruling of the same day, and its new reach crossed this line: 3.60 m
+of the road's centreline stood below the water surface between local E +849.1 and E +852.7,
+0.09 m under at the deepest, and 162 of the drawn track's 16,614 samples were wet, so the
+waterline clip broke the track in two and a visitor walking out to the fort met open water.
+**Nothing says the town laid anything over it, and a second crossing is refused.** The one
+sentence this project has about crossing this drain puts a log bridge where the town's graded
+street met it, and `slough_log_bridge` is that crossing; no source names a crossing on the
+reservation, the 1830 Harrison plan draws a road there and no bridge, and a bridge invented on
+an invented line is the two-inventions-stacked case this entry already declines above for the
+north-gate ramp. **So the invented line moved and the evidence did not.** The terminus is now
+local E +826.84 N -24.36 — the far end of the `slough_west` approach in the epoch's terrain
+spec, which is the toe of the log bridge's own southern graded cut, 0.03 m off State Street's
+committed centreline — so the reconstructed way to the fort leaves the town down State Street,
+over the crossing the town is documented to have built, and turns east where that bridge's
+approach regains the terrace. Measured after the move and gated by
+`tools/measure_fort_road_way.py`: none of the drawn track's 16,344 samples is below the water
+surface, its lowest ground stands +0.36 m above it, and the centreline keeps 5.21 m from the
+drain's axis. **The cost, stated:** the road is 7.57 m shorter, the reach that ran east out of
+South Water Street's committed end at E +805 N +4 is gone and a visitor standing there now
+finds prairie, and the 12 m corridor still reaches the drain's wet flank (170 samples below the
+surface against 206 before), because a corridor is a legal extent and not the ribbon that is
+drawn. The 22 m between South Water Street's committed end and State Street's corridor is left
+as the separate question it is.
 
 ### L141 — The Lake Street row at Dearborn: four roofs moved onto one line, and the party walls between them
 **Decision:** four anonymous reconstructed roofs of the phase-one South Division parcel —
@@ -5457,7 +5641,7 @@ one-room cottage band into H1 because a documented notice calls the house on tha
 (**L222**). The position this entry admits is unchanged and invented on the same reasoning, so
 the Covers token follows the id rather than being dropped — unlike the two T-0102 retired in the
 paragraph above, which stopped naming a building at all.
-**Covers:** `recon_1835_blk_south_water_franklin_d5_01.inferred_1835.position`, `recon_1835_blk_south_water_franklin_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_franklin_d3_03.inferred_1835.position`, `recon_1835_blk_south_water_wells_d6_01.inferred_1835.position`, `recon_1835_blk_south_water_wells_d5_02.inferred_1835.position`, `recon_1835_blk_south_water_wells_d4_03.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d5_01.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d3_03.inferred_1835.position`, `recon_1835_blk_south_water_clark_d5_01.inferred_1835.position`, `recon_1835_blk_south_water_clark_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_dearborn_h1_03.inferred_1835.position`.
+**Covers:** `recon_1835_blk_south_water_franklin_c4_01.inferred_1835.position`, `recon_1835_blk_south_water_franklin_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_franklin_d3_03.inferred_1835.position`, `recon_1835_blk_south_water_wells_c2_01.inferred_1835.position`, `recon_1835_blk_south_water_wells_c3_02.inferred_1835.position`, `recon_1835_blk_south_water_wells_d4_03.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d5_01.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d3_03.inferred_1835.position`, `recon_1835_blk_south_water_clark_f2_01.inferred_1835.position`, `recon_1835_blk_south_water_clark_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_dearborn_h1_03.inferred_1835.position`.
 **Recorded:** 2026-08-19.
 
 
@@ -7990,90 +8174,57 @@ east side to the river at the foot of State Street — is carved into the ground
 entries (`state_slough_course`, `state_slough_mouth` in `terrain_spec.json`), both
 `reconstructed`. The course is cut 2.2 ft on a 5 m half-width, FEATHERING from zero at its
 head over the first ~58 m so the ground closes over the drain's rise instead of ending in an
-open trench; the mouth reach grades from the course's 2.2 ft to a full 6.2 ft against the
-State ridge toe on a 3 m half-width, runs straight north under the committed Slough Log
-Bridge deck, and enters the river SQUARE at about E +809.5, N +25 — one reach, one pool from
-about N −25 to the water (amended by T-0118; as first built the mouth turned east and ran
-~35 m along the shore to the traced re-entrant at 6.2 ft, and the owner read the resulting
-shore-parallel pocket as a bay).
+open trench. The mouth reach is RE-ROUTED BY T-1629: it leaves the course at the same
+hand-over vertex, bends east-north-east across the higher ground east of State, crosses STATE
+STREET at E +826.9 N −8.4 and enters the river inside **Wright's traced re-entrant**, crossing
+the waterline at the notch's apex (E +850.5, N +8.2) and running on to E +853.5 N +14.0 in the
+notch's own water. It grades from the course's 2.2 ft to a full **9.0 ft** on a 3.5 m
+half-width, and there is exactly ONE mouth at the foot of State — the mouth this entry used to
+build at E +809.5, WEST of State, is filled back to the bank line by its own removal from the
+spec.
 **Why:** the ROUTE is documented (chicagology_prefire273: it "passed over the site of the
 Tremont House and entered the river at the end of State Street") and the waypoints between its
 documented ends are read from Conley/Stelzer 1933 under that source's `orientation` ceiling —
 head just east of Clark between Washington and Randolph, a mid-block Dearborn crossing about
-N −190. The DEPTH figure restates the dossier row's own thalweg (1.5–3.0 ft below the adjacent
-plain, about +0.5…+1.5 ft absolute — the reason this is a swale and not a below-datum channel),
-and the WIDTH sits at the top of the row's 15–40 ft band. What is invented outright: the exact
-line between the documented waypoints, chosen to thread the committed reconstructed roofs; the
-head feather's length (the head vertex itself does not move, and the visible hollow dies out
-inside the head reading's own 20–30 m tolerance); the mouth reach's 6.2 ft cut, sized against
-the State ridge toe the spec already builds; and THE CHOICE OF WHICH PIN THE STRAIGHT ENTRY
-KEEPS. A single straight reach cannot honour both the committed bridge deck (E +805…+813) and
-Wright's traced re-entrant (E +850…+856), and it is the TRACED RE-ENTRANT the carved mouth no
-longer ends inside: the bridge is a committed structure with committed approach earthworks,
-moving it east into the rising ridge toe would demand street cuts twice as deep, and the
-documentary mouth — the foot of State, about E +827 at the bank — sits BETWEEN the pins, with
-the built mouth ~18 m west of it (inside the sheet's ±20 m band) where the traced notch was
-~25 m east. The re-entrant itself stays exactly as traced in the waterline — a small drawn
-notch 40 m east of the built mouth, evidence kept, no longer claimed as this drain's outfall.
-The old over-deepened joint (−5.0 ft where the two entries' cuts summed) is GONE: swale cuts
-now combine by maximum and the mouth's depth profile opens at the course's own 2.2 ft, so the
-two entries carve one continuous graded bed.
+N −190. The DEPTH figure on the course restates the dossier row's own thalweg (1.5–3.0 ft below
+the adjacent plain, about +0.5…+1.5 ft absolute — the reason that entry is a swale and not a
+below-datum channel), and the WIDTH sits at the top of the row's 15–40 ft band. WHY THE MOUTH
+MOVED, AND ON WHOSE WORD: the owner flew the reach on 2026-09-26 against Wright 1834 and
+Hathaway 1834 and found TWO notches within 40 m of each other at the foot of State — this
+entry's built mouth west of State, and the notch the sheets draw east of it — and ruled that
+"there is only one just east of state, the other slough does not appear to be depicted in
+either the wright or the hathaway map", then "keep the inland state slough, move the bridge".
+So the pin this liberty used to say the straight entry could not keep is the one it now keeps,
+and the invention it used to prefer is gone. What is invented outright, after the move: the
+exact line between the documented waypoints, chosen to thread the committed reconstructed
+roofs; the head feather's length; the last 60 m between the course's hand-over and the traced
+notch, which no source draws at all; and THE 9.0 ft CUT, which is the figure this liberty most
+needs to say plainly. It is not a sounding and it is not the dossier's. It is the depth the bed
+needs in order to stay below the water surface across ground that stands 6–7 ft on the
+committed heightfield — the sand rise between State Street and the fort, which the old mouth
+never crossed because it entered the river 40 m west of it. That is the RIDGE-TOE COST T-0118
+declined and the owner has now accepted, and it is paid twice: once in the cut, and once in the
+crossing's approaches, which are 0.72 m deep where they used to be 0.35–0.49 m. The pool that
+cut holds runs unbroken from about N −18 to the river; above it the drain is the damp July swale
+the dossier describes and stands ABOVE the water, which is the claim and not a fault. THE
+RE-ENTRANT ITSELF DID NOT MOVE: nothing in `shoreline.geojson` changed, and T-0795's
+re-measurement of it (NA px (2968, 2515), E +848.6) is what this entry now rests its outfall on.
 **Consequence:** a visitor sees the drain the town bridged — a winding damp hollow through the
-business district falling into standing water below the ridge toe — and the State slough
-empties straight into the river in one reach, with no shore-parallel pocket. Every carved cell
-is conjectural in the confidence channel and dithers when `reconstructed` is hidden. The
-streets the drain crosses (Dearborn, Lake) dip through it at grade; no crossing is documented
-at either, and none is built.
+business district falling into standing water — and from the river and from the air there is
+ONE notch in the south bank between Clark and the fort, where there were two. The cost is
+visible too and is the honest price of the ruling: a cut deeper than any other swale in this
+dataset carries the drain across the rise east of State, and the log bridge over it sits 0.72 m
+below the terrace it crosses. Every carved cell is conjectural in the confidence channel and
+dithers when `reconstructed` is hidden. The streets the drain crosses (Dearborn, Lake) dip
+through it at grade; no crossing is documented at either, and none is built. The one street
+crossing that IS built moved with the water — see L69 for what that cost the source's own
+sentence about Water Street.
 **How to resolve:** any grading petition, drainage ordinance, lot survey or levelled section
 locating or sounding the slough — a sourced line or depth would replace the invented one for
-one; a sourced mouth position would settle which pin the straight entry should have kept; see
-docs/RESEARCH/main_branch_sloughs_1833.md.
+one, and a sourced course for the last 60 m would replace the reach this ruling had to invent;
+see docs/RESEARCH/main_branch_sloughs_1833.md section 8.
 **Covers:** `terrain.e1834_harbor_cut.swales.state_slough_course`, `terrain.e1834_harbor_cut.swales.state_slough_mouth`.
-**Recorded:** 2026-08-20. **Amended:** 2026-08-20 (T-0118).
-
-### L150 — Terrain: the La Salle slough's inland course and terminus rest on a 1933 reconstruction
-**Decision:** the watercourse Wright 1834 draws dropping south off the main stem just east of
-La Salle Street is carried inland as two swale entries (`lasalle_slough_lower`,
-`lasalle_slough_upper` in `terrain_spec.json`), both `reconstructed`: a wet lower reach
-(3.2 ft cut, standing backwater to about N −95, short of the Lake Street corridor, which
-stays dry) grading WITHOUT A STEP into a dry upper swale (1.8 ft through its middle reaches)
-that terminates just north of Randolph Street, the cut feathering to zero over its last
-~40 m so the ground closes over the head. The invented alignment MEANDERS — swings of 7–10 m
-about its drift, crossing the ground at an angle — instead of ruling the straight N–S line
-first built (amended by T-0118: the owner, against an 1830s engraving, read the ruled line as
-wrong for a prairie drain, and read the 3.2→1.8 ft step at the entries' join — where water
-is drawn only below datum — as a dry sill of land sitting across a continuous watercourse).
-**Why:** the mouth and the stream's existence are Wright's, drawn on the sheet this terrain is
-fitted to, and carrying the channel further south than Wright washes it was refused when the
-mouth was traced ("inventing a bank where the draughtsman stopped"). This entry is the
-research thread that refusal left open, done in the form it prescribed: a centreline argued
-from Conley/Stelzer — which draws the course up the west half of the La Salle–Clark block,
-water-washed to about Lake Street and a dark drain beyond, ending just north of Randolph —
-never a traced boundary. The terminus is a position from a 1933 pictorial reconstruction at
-`orientation` ceiling, read at 20–30 m tolerance; the width (8 m overall, inside the
-north-side slough's measured 7.1 m band), both depths, the meander's exact swings (bent
-between the fixed readings, threading the committed roofs — old_bank_building cleared by
-2.4 m at the nearest pass) and the depth grading are invented outright, and the channel
-starts one cell south of the South Water corridor because Wright draws the stream stopping
-at the street line — the street's crossing (fill or culvert) is attested by that drawing and
-described by nothing. THE SILL WAS RESOLVED BY GRADING, NOT BY DEEPENING: the dossier's own
-thalweg for these inland courses sits ABOVE datum ("wet mouths, damp inland courses" was
-chosen deliberately), so the join was not cut below water; the depth profile instead shallows
-the bed continuously from the wet reach (−0.5 m at the mouth) up through the join (+0.15 m)
-and on, so the water simply ENDS at a tapering edge like a pond's, with no wall of land
-across the channel. The water's edge pulls back from about N −105 to about N −95 in the
-bargain — still "open water to about Lake Street" within the source's own read tolerance,
-and the platted corridor now stays dry with margin rather than by luck.
-**Consequence:** the second of the three Main Branch sloughs reads as ONE continuous
-watercourse from the traced mouth to a feathered head; its whole inland geometry says
-`conjectural` in the confidence channel while its mouth remains the traced, documented
-re-entrant. If Conley erred — he demonstrably errs elsewhere — the inland course is his error
-carried at the grade that admits it.
-**How to resolve:** any period document locating the stream — a lot survey, a grading record,
-a bridge or culvert order for South Water Street west of Clark; see
-docs/RESEARCH/main_branch_sloughs_1833.md.
-**Covers:** `terrain.e1834_harbor_cut.swales.lasalle_slough_lower`, `terrain.e1834_harbor_cut.swales.lasalle_slough_upper`.
-**Recorded:** 2026-08-20. **Amended:** 2026-08-20 (T-0118).
+**Recorded:** 2026-08-20. **Amended:** 2026-08-20 (T-0118), 2026-09-26 (T-1629).
 
 ### L151 — Dooryard trees and bushes at 61 houses, every stem of them dealt
 **Decision:** `data/flora/plantings/town_dooryard_plantings.json` states 66 dooryard trees
@@ -8151,6 +8302,7 @@ South Water bank showing the crossing's walking surface or a bank walk; a commit
 crossing at the La Salle mouth would close the one gap in the run.
 **Recorded:** 2026-08-21.
 **Amended 2026-09-03 — this walk is held between STRING PIECES (T-0460).** The one renderer that draws every plank walk in this project now lays a 0.09 m edge timber down each side of one, its top flush with the boards and its foot in the ground, taking the outermost 0.09 m of the walk's own width so nothing widens. It replaces a row of board ENDS at the walk's edge, which is what the owner reported as a jagged sawtooth where the boards met the dirt. **The invention this adds — that these walks had edge timbers at all — is argued in full at L160**, and it is the same class as the width, the rise and the plank pitch this entry already claims.
+**Amended 2026-09-26 — the footway it was named for is GONE, and the walk's east end now lies on ground (T-1629).** The owner ruled, against Wright 1834 and Hathaway 1834, that the State slough has ONE mouth and it is the notch the sheets draw just EAST of State — so the mouth this footway was built to cross, at E +809.5 WEST of State, was the invention. It is filled back to the bank line and the Slough Log Bridge went with the water onto State Street, 35 m inland. **What this entry claimed about the footway is therefore withdrawn, not quietly restated:** there is no deck under these boards, `rides` and `deck_m` are gone from the record, and the pin this liberty leaned on hardest — "the crossing footway's extent is the bridge's committed deck ends" — no longer exists. The run's two knots (E +803.6…+815.0 at N +14.2) are now AUTHORED, at exactly the extent the walk already published, so a visitor's walk neither shortens nor moves for a change that is about the drain; and the exemption this entry granted them is withdrawn with the deck, so every station of that reach is audited against the committed heightfield like every other board here. The walk's id keeps the word `footway` because ids in this dataset are stable. See L149 for the mouth and L69 for the crossing.
 
 ### L155 — Terrain: the fort's river frontage is cut steeper than the banks either side of it
 **Decision:** the south division's `face_profile` in
@@ -10298,7 +10450,28 @@ Water Street, which has no roof standing on it under any adopted reading, and it
 in the declined band is an inferred household's home — so even the band would have seated
 neither. Their answer is frontage (**T-0375**), and **T-0416** records that rather than
 closing over it.
-**Recorded:** 2026-08-29. **Revised:** 2026-08-29 (T-0417), 2026-08-30 (T-0416).
+**WHICH roof is still the invention, and from 2026-09-27 it is a better-chosen one
+(T-1651):** the deal used to hand the face's free roofs out **in the roof's id order**, and
+an anonymous roof's id carries its family as a token — `…_c2_08`. Within a block `c` sorts
+before `d`, so it looked as though a business were being given a shop; it was being given a
+NAME. Across the several blocks a face spans, an earlier block's cottage beat a later
+block's store, and **eighteen of the thirty-nine adoptions stand in roofs the reconstruction
+raised as dwellings**. The deal now reads `reconstruction.family` off the roof's own record
+and prefers a **house of trade** — the C, W and F bands, T-1657's own ruling on which roofs
+a customer came in off the street to — before a dwelling, within one face and one reading.
+**Nothing about the liberty changes and nothing new is claimed:** which roof is still an
+allocation no source speaks to, no geometry moved, no roof changed family or grade, and the
+only thing that moved is the `occupants` block on 36 records. What is new is that the
+eighteen **say so**: each carries a `family_note` stating that it is a compromise and what
+stood on the face instead. Twenty-one of the thirty-nine are now in a roof raised as a house
+of trade; the remaining eighteen are short because the roof programme has raised no more
+shops on those faces, not because the deal overlooked one, and `--check` refuses a business
+in a dwelling while a house of trade of the same reading stands free. A **cabinet
+manufactory in a store-residence** is still possible, because C2 is a house of trade and the
+C/W/F split is the only division this project holds; telling a counter trade from a works
+trade needs a reading of the register's 145 trade strings that does not exist, and inventing
+one would be a claim dressed as an allocation.
+**Recorded:** 2026-08-29. **Revised:** 2026-08-29 (T-0417), 2026-08-30 (T-0416), 2026-09-27 (T-1651).
 
 ### L213 — Four people the papers name with no trade are written as households of one, on a residency test
 **Decision:** L206 seated the register's `new_resident` people whose TRADE the papers print, and
@@ -13915,7 +14088,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 401 phases. Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 403 phases. Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. No record's `roof_type` or pitch
 moves: this entry is about the SURFACE drawn on a roof already argued elsewhere.
@@ -14062,10 +14235,13 @@ placement policy **T-1195**; the twenty-six verdicts whose record id carries its
 and whose execution is therefore an id migration across the derived layer, are **T-1452**.
 **Recorded:** 2026-09-20.
 
-### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 75 roofs that are not framed
+### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 74 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 75 phases: 61 log dwellings and
-14 fort structures. Nothing about their geometry, their roof type,
+**Scope:** `structures.phases[log_or_fort_archetype]` — 74 phases: 60 log dwellings and
+14 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water
+frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a
+documented dry-goods house in it, became a C1 shop and left this liberty's population for
+the framed one. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type,
 their pitch or their weathering moves. This entry is about one thing: which of the two
 coverings this project can argue each of those roofs is drawn on.
 
@@ -14330,10 +14506,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 226 lots are enumerated from records this project already held, and then 108 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 226 lots are enumerated from records this project already held, and then 109 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 108 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,372
+**Scope:** `platted_seats.seats[dealt]` — 109 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,371
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 226 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14353,19 +14529,19 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; all 108 seats are that
+roof of a family its clause admits, on a lot of its own division; all 109 seats are that
 today. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; 0 of the 108 are that, the last four having been refused by that rule.
+sizing keeps open; 0 of the 109 are that, the last four having been refused by that rule.
 **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
 prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
-places any of these 108 households anywhere; each one's own address-book row says so in its
+places any of these 109 households anywhere; each one's own address-book row says so in its
 `words`, and that refusal is carried forward here rather than quietly replaced.
 
 **An adoption raises no roof and spends no order.** This is the part that keeps the invention
-small, and today it is the whole of it. All 108 seats put a household under a roof that
+small, and today it is the whole of it. All 109 seats put a household under a roof that
 already stands, was already gated and was already paid for in the 665-roof programme — so the
 order book is not drawn on at all, nothing is baked, and no seat here is a household with an
 address and no walls.
@@ -14413,7 +14589,7 @@ barns, stables, privies and woodsheds — is not a dwelling; 43 of the 152 unocc
 the plat are ancillary and no household is seated in one.
 
 **Which way it is wrong if it is wrong.** Toward a plat holding too FEW of the town's
-households. 1,372 of the 1,480 banded rows get no lot here, and they are not refused — they
+households. 1,371 of the 1,480 banded rows get no lot here, and they are not refused — they
 are handed to **T-1614**, which owns the ground the committed grid does not draw: the farms
 and country seats (204 rows, off the plat by their clause's own terms), the additions' small
 lots, the fringes and the branches. The binding constraint is the one the 665-roof programme
@@ -14501,7 +14677,18 @@ the whole pass. The order book's seated join moves with it, 184 to **180** — t
 plus the off-plat pass's 72 — and is restated in `build_order_book_1835.py` rather than
 re-summed.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26.
+**The deal grew to 109 on 2026-09-27 (T-1651), and the two paragraphs above keep the 108 they
+were written against.** They are a dated account of what T-1614's reversal did on 2026-09-26
+and restating their arithmetic would falsify the account. What moved since is one seat, and
+it moved for a reason outside this liberty: the street-face business deal (**L212**) was
+re-ordered to prefer a roof the reconstruction raised as a house of trade, so the dwellings
+it holds changed, and this deal — which takes from the same pool of anonymous roofs and may
+not read the other's allocation — reached one more `tradesman_dwellings` seat in the South
+Division. 108 seats became **109**, owed 1,372 became **1,371**, and the seated join the
+order book takes off this pass moves with it. Neither deal can see the other's picks, on the
+reasoning `adopt_street_faces.py` sets out for its refusal 7; that is filed as **T-1669**.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
@@ -14643,7 +14830,7 @@ hidden.** The siding stock (**L148**) is dealt across a parcel and then advanced
 two roofs standing within 60 m of each other hang the same course. Six new dwellings in the
 deal move the advance, so five of their block neighbours —
 `recon_1835_blk_randolph_market_d5_11` and `_d6_02`,
-`recon_1835_blk_south_water_lasalle_d3_10`, `_d4_02` and `_d5_01` — wear a different one of
+`recon_1835_blk_south_water_lasalle_f2_10`, `_d4_02` and `_d5_01` — wear a different one of
 the same four period mill sidings than they did, and four documented frame buildings
 (`chicago_democrat_office`, `harmon_loomis_store`, `lasalle_lake_house`,
 `pruyne_kimball_drugstore`) move with them. Nothing about those nine is re-graded and none
@@ -14680,3 +14867,679 @@ Division parcel), **L266** (the log-roof grading one of the six now falls under)
 adjudication **T-1445**, the id-migration surface **T-1483**, the parent **T-1452**, the
 question and its remedies **T-1482**, the clause **T-1610**, this execution **T-1611**.
 **Recorded:** 2026-09-26.
+
+### L273 — Terrain: the La Salle slough's surviving inland stub, 16 m of channel on a ruling
+**Decision:** `lasalle_slough_lower` runs 30.74 m from Wright's traced south-shore re-entrant at
+(466, +10) to a head at (472.7, −20.0), and stops. The first 14.39 m of it — the whole platted
+South Water Street corridor, and the ground under `lasalle_slough_crossing` — is cut at the full
+3.2 ft and the full 4.0 m half-width. The remaining **16.35 m stands inside block 50's South Water
+lot**: the cut holds 3.2 ft to 17.0 m along, 2.6 m past the committed block face, then grades
+2.2, 1.0 and 0.0 ft over its last 13.7 m so the ground closes over the head. Stated as a
+lot-depth figure off the committed block face, which is what T-1628 asked for: the platted south
+edge of the corridor crosses this line at N −4.05, the head vertex is **15.95 m south of it**, and
+that is **34.7 per cent of block 50's 45.91 m lot depth** — the mid-block alley is at 45.91 m and
+is nowhere near it. Open water ends about 7.5 m inside the lot; the damp hollow dies out by 16 m.
+**Why:** the owner's ruling of 2026-09-26 (quoted in full at **L150**, which this entry replaces)
+is that the slough is depicted as Wright depicts it: in from the river, just past South Water, into
+the lot, no deeper. Wright draws a mouth and no inland course — T-0795 walked the whole NA/HUP
+sheet to establish that — so **everything inland of the waterline is invented, and this entry is
+the admission that shrinking a liberty is not the same as discharging one.** What is invented:
+that the drain entered the river at all rather than stopping at the street line where Wright's
+trace stops (T-0129's ruling, kept); the width; the depth; the feather; and the 16.35 m the
+channel reaches into the lot, which is a reading of the words *"just a bit past south water and
+then into the lot"* and of nothing on any sheet. What is NOT invented and did not move: the mouth,
+the junction vertex bent 2.5 m east by T-0129 to keep `blk_south_water_lasalle`'s north-west corner
+out of the water, and the head's bearing — (472.7, −20.0) sits on the committed Conley alignment,
+8 mm off the bearing of the segment it truncates, so the stub is the old course cut back rather
+than a new course drawn.
+**Consequence:** the reach reads from the river as a drain entering the bank and closing in the
+first third of the lot behind it. The Lake Street and Randolph corridors, which the old course
+crossed and ran past, are level prairie again, and the ground the old channel held is released to
+the lot layer — so roofs the water refused may now be dealt there.
+**How to resolve:** the same evidence L150 asked for and did not get — a lot survey, a grading
+record, or a culvert order for South Water Street west of Clark. A period document that put the
+head anywhere would replace the ruling with a reading; see
+docs/RESEARCH/main_branch_sloughs_1833.md § 6.
+**Covers:** `terrain.e1834_harbor_cut.swales.lasalle_slough_lower`.
+**Related:** **L150** (the course this replaces, now resolved), **L195** (the crossing over the
+reach that survives), the ruling **T-1628**, the mouth **T-0129**, the meander and the feather
+**T-0118**, the sheet reading **T-0795**.
+**Recorded:** 2026-09-26.
+
+### L274 — One freight shed on the south bank at the Dearborn reach, on ground a filled channel gave back
+
+**Covers:** `south_bank_shed_dearborn_e1.function`, `south_bank_shed_dearborn_e1.shed_1835.documented_range`, `south_bank_shed_dearborn_e1.shed_1835.footprint`, `south_bank_shed_dearborn_e1.shed_1835.form.construction`, `south_bank_shed_dearborn_e1.shed_1835.form.door`, `south_bank_shed_dearborn_e1.shed_1835.form.door_side`, `south_bank_shed_dearborn_e1.shed_1835.form.paint`, `south_bank_shed_dearborn_e1.shed_1835.form.roof_pitch_deg`, `south_bank_shed_dearborn_e1.shed_1835.form.roof_type`, `south_bank_shed_dearborn_e1.shed_1835.form.wall_height_m`, `south_bank_shed_dearborn_e1.shed_1835.position`.
+
+**Decision:** the south bank of the main stem below the Dearborn drawbridge carries **one low
+freight shed** where it carried nothing — on the last town ground east of South Water Street's
+platted corridor and west of State Street's, standing back from the riverside plank walk on the
+terrace behind it, with its wagon door to the landward side. **It is not attested.** Every value on the record is graded
+`reconstructed`, including the fact that a building stood there at all, and it disappears with
+the rest of the reconstructed tier when a visitor turns it off. It is the south-bank half of
+**L164**, which built the four north-bank sheds of the same plate and said in writing that this
+bank could not be built.
+
+**What bounded the invention, and it is three measurements rather than a judgement.** (1) The
+EASTING is the westernmost station on the reading's own half-metre lattice, between the two
+platted corridors, at which the whole rectangle stands on free ground — the west wall at local
+E 805.5; half a metre west of it the rectangle's west side is inside South Water's corridor.
+(2) The NORTHING and BEARING come off the riverside plank walk's committed centreline: the back
+wall — the one the walk and the river are behind — stands 2.00 m back from the walk's boards at
+N +11.285, 2.915 m from its centreline, and the walls are squared to the walk's own due-east
+bearing, so `rotation_deg` is 180.000.
+(3) The committed heightfield holds the 252-point lattice under it between 1.189 m and 1.286 m
+above the water surface, 0.097 m of relief, well inside the 0.30 m the infill generators allow.
+The size is the FLOOR of family F1, 18 x 32 ft, because it is the only size the 9.5 m window
+between the two corridors takes. *(Until T-1643 the northing and bearing were read off the fort
+road instead, at a 1.25 m setback and 0.273 m of relief, and that seating stood on the walk — see
+the 2026-09-27 revision below.)*
+
+**The setback is the north bank's own, and until T-1643 it was a concession.** The four
+north-bank sheds keep 2.00 m from North Water Street's travelled edge. Set back from the fort road
+this building could not: at 2.00 m its back wall fell half a metre further down the bank and the
+relief reached 0.353 m, past the clause, so the setback came in to 1.25 m and both figures were
+stated so the trade stayed visible. On the terrace south of the walk the trade does not arise, and
+the reach's two shed rows are set back by the same figure.
+
+**What it stands inside, said plainly.** Nothing. The fort road's RECONSTRUCTED 12 m corridor left
+this reach with the road (T-1637) and `fort_road`'s committed path now begins 21 m east of this
+building; `tools/measure_corridor_intrusion.py` reads the footprint clear of all 33 platted
+corridors; and `tools/measure_south_bank_ground.py --gate` reads it clear of every committed walk.
+The project's refusal of a building inside a PLATTED corridor is untouched by this and the frontage
+that refusal was written about is still empty: beside the platted street the reading is zero at
+every relief clause it is reported at, and one clause harder than when T-0134 wrote it.
+
+**Why the ground exists at all, because that is the part a reader should distrust first.** It is
+ground **T-1629 made** three hours before this shed was placed, by re-tracing the town slough's
+mouth to Wright's own re-entrant east of State Street and filling the mouth this project had cut
+west of it. The channel that stood here was this reconstruction's, not the town's; the fill put
+the bank back to the line Wright drew. So the building is an invention on corrected ground rather
+than on invented ground — but the correction is recent, and if it is ever undone this shed goes
+back under water and must go with it. `tools/measure_south_bank_ground.py --gate` is what would
+say so: it holds the reach's fit counts, and a change in them is the question re-opening.
+
+**How to resolve:** a lot record on the river side of South Water Street, a forwarding merchant's
+advertisement giving an address on this reach, or a contemporary — not retrospective — view of the
+south bank below the draw. Any of the three would replace an invention with a building.
+
+**Related:** **L164** (the four north-bank sheds of the same plate), **L79** (the travelled tracks
+inside the 80 ft corridors), the refusal this spends **T-0134**, its parent **T-0071** and sibling
+**T-0133**, the fill that opened the ground **T-1629**, this re-read **T-1636**, the road's
+move **T-1637**, the answer to what that move released **T-1642**,
+`docs/RESEARCH/south_bank_dearborn_ground.md`, `data/exclusions.json` →
+`south_bank_warehouses_dearborn_reach`.
+**Revised:** 2026-09-26 (T-1637), hours after it was written — **the road this shed was squared
+to is no longer on this reach, and the shed has not moved.** The fort road crossed the State
+slough's new mouth in open water, no source lays anything over it, and its western terminus was
+moved onto State Street at the toe of the Slough Log Bridge's southern approach, so the reach
+that ran east past this building is gone. **What survives untouched:** the EASTING (the
+westernmost station between the two platted corridors where the whole rectangle stands free), the
+ground (the filled channel's, unaltered), the relief test (0.273 m over a 252-point lattice), and
+the refusal this entry spends — `fits_beside_the_street` is still 0 at every clause. The building
+is now 41.2 m from the road's centreline where its committed point stood 13.7 m from it, so it is
+further from a travelled way than the seating needed, and no platted corridor is nearer.
+**What is no longer checkable, said plainly:** the NORTHING, the BEARING and the wagon door's
+side were read off the fort road's drawn travelled way — 1.25 m of setback from its north edge,
+squared to its bearing here. Those three numbers stand where they were written and the line they
+were read off does not. They were invented when they were written and they are invented now, at
+the same `reconstructed` grade; what is lost is the ability to re-derive them by hand, which the
+record's own `derivation` block always said this placement depended on. **Nothing is re-seated
+here to cover that** — re-facing or re-seating is a change of geometry and a re-bake, and it is
+filed as its own question rather than smuggled into the run that moved the road. **And what T-1637
+re-opened is not this entry's ground but the reach around it:** the 81 positions T-1636 held
+because they stood in the road are released, so `fits` reads 91, 96, 162, 233 against 10, 15, 81,
+152, and whether anything of the plate belongs on that unplatted reservation ground between E
++805 and E +842 is filed too.
+**Revised:** 2026-09-27 (T-1642) — **one is the number this ground allows, and it is measured
+now rather than assumed.** The question the road's move filed — whether anything more of the
+plate belongs on the 81 released positions — is answered no, and most of those positions were
+never a second building at all. `tools/measure_south_bank_ground.py` had never known what the
+committed tree already places, so **76 of the 91 positions that read free are this shed's own
+footprint**, counted once per lattice offset and bearing that would have stood a second shed
+inside the first; the reading now masks every placed footprint that reaches its box and holds
+those 76 apart, and `fits` reads 15, 15, 23, 48. Fifteen positions on a one-metre lattice are
+one building: `takes_more`, an exact maximum over the positions that do not overlap each other,
+says the 9 m ribbon between South Water Street's platted end and State Street's corridor takes
+**one more shed** at the walker's own relief clause. **That one is refused in writing.** It
+stands 23.08 m back from the main stem where this shed stands 6.49 m back, directly behind it,
+with the town slough 5.45 m off its corner and the river nowhere near it — and the plate that
+licenses a shed on this bank is a tier-5 retrospective that draws them ON THE WATER, so it does
+not reach back land. Nothing on this record changed. What changed is that the entry's title is
+now a finding: one freight shed is what this ground and this plate together allow, a position
+released by this project's own invented line moving is not a position a source opened, and a
+measured capacity is not a reason to build. The refusal is written up at
+`docs/RESEARCH/south_bank_dearborn_ground.md` § The 81 released positions, answered, and it is
+ratcheted — if this ground ever takes two more, that refusal is re-read rather than carried.
+**Added links:** T-1637 (the road's move) · T-1642 (what the release opened, answered) ·
+**L140** (the fort road) · `tools/measure_fort_road_way.py` ·
+`tools/measure_south_bank_ground.py`.
+**Revised:** 2026-09-27 (T-1643) — **the shed has moved, and not for the reason the revision
+before last filed.** That revision left re-seating open as a loss of re-derivability. Answering it
+found a defect: the station the fort road had chosen stood **across the town's own riverside plank
+walk**. `river_plank_walk_crossing_footway` runs E +803.6 to E +815.0 at N +14.2 and is 1.83 m
+wide, so its boards occupy N +13.285 to N +15.115; the seated footprint spanned N +8.164 to
+N +18.455 and took the whole width of them. **No dataset gate could see it** — a walk is boards
+laid on committed ground and a building is a mesh seated on the same ground, and nothing compared
+the two, T-1642's occupancy mask of the day before included. The published walker found it:
+standing on the walk at E +809.4 and walking west, a visitor was pushed out of the shed's
+collision footprint east to E +811.5 instead of reaching past E +802, and that check had been red
+on `dev` since the seating.
+**What the re-seating changes, and it is three numbers off a line that has gone onto a line that
+is here.** The EASTING rule is untouched — the westernmost half-metre station between the two
+platted corridors at which the whole rectangle stands free, which squared to the walk puts the
+west wall at E +805.5. The NORTHING and BEARING now come off the walk: the north wall stands
+**2.00 m** back from the boards at N +11.285, 2.915 m from the walk's centreline, and the walls
+are square to the walk's own due-east bearing, so `rotation_deg` is 180.000. The wagon door faces
+the landward side, where South Water Street's corridor ends 0.30 m west of the west wall and a
+cart can actually stand, and not across a 1.83 m footway.
+**The concession this entry recorded is withdrawn rather than restated.** On the terrace south of
+the walk the 2.00 m the four north-bank sheds keep costs nothing: the 252-point lattice under the
+new footprint stands 1.189 m to 1.286 m above the water surface, **0.097 m of relief** against the
+0.273 m the old seat carried, so the setback that "gave way" no longer has to. A reader who
+thought 1.25 m was too close to the wheels was reading the right number, and the number is gone.
+**Nothing about the evidence moved:** the plate, the `reconstructed` grade on every value, the
+bracket, the 18 × 32 ft footprint and the total working uncertainty are what they were.
+**And the instrument was fixed, because a record is not a gate.**
+`tools/measure_south_bank_ground.py` now masks the committed frontage walks by their own width —
+the same rectangle `renderers/web/js/frontage.js` publishes as a walk's keep-out — and its gate
+**refuses any committed building on this reach that stands on one**, testing both containments and
+asserting in `--self-test` that putting the old seating back is caught. The boards take 44 of the
+reach's positions at 0.30 m of relief, and with the road, the boards and what stands all masked —
+in that order, each refusal counted once — `fits` reads 2, 2, 19, 59 against the 15, 15, 23, 48
+the revision above banked. Not one square metre of ground moved and nothing counted out was ever
+buildable. `fits_beside_the_street` is still 0, 0, 0, 3, so the refusal this entry spends stands
+untouched.
+**And the revision above was re-read rather than re-banked, because this shed's seat is one of its
+inputs.** `fits_on_what_stands` moves from 76, 81, 139, 185 to **45, 45, 45, 45** — the boards are
+now asked before the occupancy test, and the footprint being masked is a different rectangle —
+but `takes_more` reads **1, 1, 3, 5, unchanged at every relief clause**, and at the two strict
+clauses it names the same single position it named before: E 813.2, N 0.0, bearing 165°. **So
+T-1642's refusal stands on exactly the rectangle it was written about.** One more shed is what
+this ground takes, it would stand 23 m back from the water fronting the town slough, and the plate
+that licenses a shed here draws them on the water.
+**Added links:** T-1643 (this re-seating) · T-1642 (the reading it re-derives) · T-1275 (the PR
+whose validation read the red) · **L153** (the riverside walk) ·
+`data/frontage/river_walk_frontage.json` ·
+`docs/RESEARCH/south_bank_dearborn_ground.md` § The shed stood on the river walk.
+**Recorded:** 2026-09-26.
+
+### L275 — Terrain: the south bank below the bend is Wright's line moved south onto Hathaway's, on a ruling
+**Decision:** between local **E +228.91** (the committed bend vertex below the forks) and **E +467.17**
+(the east lip of Wright's La Salle re-entrant) the south bank of the main stem no longer stands where
+Wright 1834 inked it. It stands that traced line displaced **south** by a piecewise-linear amount —
+0 m at E +228.91, **5.6 m** at E +268 (block 20), **10.8 m** at E +390 (block 19), held to E +455.81,
+0 m again at E +467.17 — moved at nine bank stations in `river.geojson` and `shoreline.geojson` and in
+both files' water polygons. The river is that much wider on this reach; the north bank does not move,
+and nothing outside the reach moves at all.
+**Why:** the owner flew the reach, read it against both 1834 surveys and ruled for Hathaway here
+(T-1630, 2026-09-26): *"ok yes st till want to bring that bulge in some, so the sidewalk is fairly
+straight and following"*, and on the per-block table, *"i think it is closer to the hathaway map in
+that reading"*. The amount is not his drawn line and not a fraction of Wright: it is the two sheets'
+own disagreement — the ground each draws between its own bank and its own block tier, 34.9 vs 29.3 m
+at block 20 and 39.0 vs 28.2 m at block 19 — measured inside each sheet so neither registration
+enters it. Halving Wright's 39.0 m would have cut past Hathaway, which is the overcorrection his
+third message forbade (*"dont go crazy on either way"*). The reading that establishes all of this is
+`data/traces/south_bank_swell_1834.json` and `docs/RESEARCH/south_bank_swell_1834.md`; Wright's ink is
+kept there vertex for vertex as the set-aside reading, and `tools/read_south_bank_swell_1834.py
+--check` re-derives the displacement from it on every commit.
+**Consequence:** the waterline on this reach is **reconstructed**, not a trace. It is the one place in
+the scene where the ground's edge is not the sheet the datum, the plat and all 41 blocks are fitted
+to — a visitor standing on South Water Street between Market and La Salle is looking at a bank placed
+by a ruling over a measurement, and everything seated against it (the plank walk, the landings, the
+planting on the point) follows a line Wright did not draw. What it buys is stated as numbers: the
+step in the bank across the La Salle mouth falls from 9.62 m to 1.18 m, so the reach west of the
+slough reads level with the bank east of it; the p90 departure from a straight fit over E +300…+456,
+the stretch where the walk used to curve round the point, falls from 1.53 m to 0.65 m.
+**What is NOT taken:** block 18 is not moved, though the ruling's table asks 7.5 m of it. East of the
+slough the committed bank stands only 5.4 m north of South Water Street's own platted corridor edge,
+so 7.5 m would put the river 2.1 m into the roadway; the reach is bounded by the owner's own words,
+*"from the bend in the west to the La Salle mouth"*. The west end stops at E +228.91 rather than at
+the foot of the turn near E +160 for the same reason, measured: west of E +222 the traced bank already
+stands south of that corridor edge, and starting further west drowned another 32 m of roadway for no
+reading. The block grid is not re-cut — T-0419 refused that and nothing here reopens it.
+**How to resolve:** a period survey or shore section of the main stem between Market and La Salle that
+puts the waterline anywhere. Either 1834 sheet re-registered off new control would also settle it, by
+making the two agree or by saying which is right; the disagreement this entry spends is 12.3 m across
+the reach, and the fits carry 16.0 m and 17.7 m of RMS.
+**Related:** the reading **T-1630**, the set-aside sheet **wright_1834** / **wright_1834_nara_hup**, the
+sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unchanged), **L273** and
+**L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
+disagreement **docs/CORRIDOR-LINES.md** (T-0419).
+**Recorded:** 2026-09-26.
+### L276 — Nine South Water roofs now NAME the household the placement policy dealt them, and twelve do not because a ruling refuses them one
+
+**Scope:** `roof_keepers.written[named]` — 9 South Water roofs given the name of the household the
+placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 60
+refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
+`tools/name_the_keepers_1835.py --build`, gated by its `--check`.
+
+**No new invention is made here.** The invention is **L270**'s: which of the town's banded
+households takes which lot of the committed plat, dealt by a policy in
+`data/reconstruction/1835_platted_seats.json` because no source places any of these
+households anywhere. What this entry covers is that the invention is now PUBLISHED on the
+building — until T-1638 the link ran one way only, the address book's row naming its roof and
+the roof naming nobody, so a visitor opening one of these nine read `Anonymous count-unit
+toward the July 1835 665-roof programme` while a file two directories away said who the
+policy had put in it. A liberty a visitor cannot meet is not much of a disclosure.
+
+**What the card says and what it may not be read as.** `occupants` is graded `reconstructed`
+and cites only the sources that carry the household's NAME — a baptismal register, the
+Democrat's own columns — never its address, because there is no address. The note on every
+one of the nine says so in its first two sentences. The roof stays `inferred_anonymous`, a
+count-unit of the 665-roof programme: its existence, position and footprint are as
+conjectural after the seating as before it, the order book was not drawn on, and no mesh
+moved — `generators/mesh_inputs.py` hashes archetype parameters and not prose, so a keeper
+costs no bake.
+
+**Twelve of the twenty-one are refused, and the refusal is the load-bearing half.** Twelve of
+the twenty-one South Water seats — sixty-one of the deal's hundred and nine town-wide — are
+households
+minted from the post office's letter lists, and the owner's ruling of 2026-08-30 (T-0379)
+refuses that cohort a roof: *a letter-list name is a name the town knows, not a man with an
+address*. Writing the household's name rather than its person id would have slipped past the
+gate that holds the ruling and landed the exact claim it forbids. They are listed with that
+reason in the keepers ledger instead. **The deal seated them there anyway**, so the deal and
+the ruling disagree on sixty-one roofs; that disagreement is filed, not settled here, and not
+hidden by a pass that could have looked complete by ignoring it.
+
+**One thing was available and declined.** `tools/generate_dooryard_pickets.py` admits a lot
+for a garden when a household id appears in a structure's `occupants` prose. Putting the id
+there would have grown nine gardens as a side effect of naming nine keepers, on no evidence
+about any garden, so the id is carried in `resident_assignment.household_id` — machine
+readable, and invisible to a test that was never about this. Whether these lots held gardens
+is that generator's question to answer on its own ground.
+
+**The deal grew by one on 2026-09-27, because two allocations share one pool of roofs
+(T-1651).** The street-face business deal (**L212**) was re-ordered to prefer a roof the
+reconstruction raised as a house of trade, so the dwellings it holds on South Water changed —
+and the platted deal, which takes from the same pool, seated one more household than before:
+108 seats became 109, of which 61 rather than 60 are the letter-list cohort the ruling
+refuses a keeper. **The nine named keepers are the same nine, on the same nine roofs.** But
+which way the next such change moves these counts is not predictable from here, and that is
+the honest statement: neither deal may read the other's allocation — refusal 7's own
+reasoning refuses `adopt_street_faces.py` the file `1835_platted_seats.json`, because reading
+the seating pass's picks there closes the cycle that refusal exists to avoid — so two
+allocations run blind to one pool. It is filed as **T-1669** rather than patched by a rule
+invented in passing.
+
+**How to resolve:** any source that places one of these households — a lot record, a deed, an
+advertisement giving an address, a directory entry. One would replace a dealt lot with a read
+one, and the nine would stop being a liberty.
+
+**Related:** **L270** (the deal this publishes), **L90** (the anonymous roofs it seats into),
+**L212** (the street-face business adoptions, the same shape for firms rather than keepers),
+T-1638, its parent **T-1200**, the ruling **T-0379**, and
+`data/reconstruction/1835_roof_keepers.json`.
+**Recorded:** 2026-09-26.
+
+### L277 — The store-residence's attic is lit by an invented sash in each gable, and that is the only outside sign the half storey has
+**Decision:** the eight anonymous C2 store-residences on the platted blocks are built at the
+story-and-a-half their own records state, and the half storey shows on the elevation as ONE small
+sash in each gable end, 0.62 x 0.70 m, set 0.16 m above the plate. Its size, its height above the
+plate and the decision to glaze both ends rather than one are the archetype's
+(`generators/archetypes/frame_storefront._attic_openings`), not any record's. No dormer, no hoist
+and no knee-wall window on the flanks is drawn.
+**Why:** T-1659. `from_phase` resolved the record's storeys with `int()` until this entry's
+ticket, so all eight were built as one-storey shops: the half storey had no external trace at all
+and `shopfront_head_z` put the head of the shop opening ABOVE the floor of the room over it on
+every one of them. Building the storey the record states needs some outside sign of it, and the
+only one that costs no new evidence is a gable sash — the opening frame_dwelling already draws for
+the D6 cottage, at exactly the same dimensions, because a store-residence's attic chamber and a
+cottage's are the same room. "A small attic window in the gable end, for we used the attic, too"
+(John Gray on the Green Tree, `chicagology_prefire127`) is the nearest thing to evidence in this
+project for any of it, and it is a different building.
+**Consequence:** eight buildings on South Water, Randolph and Clark now show a glazed attic a
+visitor will read as a fact about the town, and the number, size and position of those sixteen
+sashes are type-level choices. The confidence view dithers them by the record's `stories` claim —
+`reconstructed` on all eight, which is what the tint says — rather than by the fenestration's,
+because what the opening asserts is that there was a half storey here and not that a window was
+arranged just so. So the tint says the storey is a reconstruction; it does not say the sash is an
+invention. This entry does.
+**How to resolve:** any depiction or description of a Chicago store-residence's gable in 1835.
+Failing that, a bay-and-opening rhythm authored on the C2 crosswalk entry itself, which would make
+the arrangement the specification's rather than the archetype's — the same resolution **L23** asks
+for on the taverns.
+**Covers:** `recon_1835_blk_randolph_clark_c2_01.form.stories`, `recon_1835_blk_south_water_clark_c2_06.form.stories`, `recon_1835_blk_south_water_dearborn_c2_07.form.stories`, `recon_1835_blk_south_water_franklin_c2_08.form.stories`, `recon_1835_blk_south_water_franklin_c2_09.form.stories`, `recon_1835_blk_south_water_franklin_c2_10.form.stories`, `recon_1835_blk_south_water_lasalle_c2_11.form.stories`, `recon_1835_blk_south_water_wells_c2_01.form.stories`.
+**Recorded:** 2026-09-27.
+
+### L278 — The freight shed's cargo opening: 2.20 × 2.35 m, two of them, and no source describes either
+
+**Scope:** `structures.phases[cargo_openings]` — 2 phases built with the freight shed's
+`cargo` opening: `recon_1835_south_f1_038` and `recon_1835_west_046`, the town's two F1
+roofs. The opening itself is `DOOR_SIZE_M["cargo"]` and `door_bays` in
+`generators/archetypes/outbuilding_params.py`, and the `door: cargo` / `door_bays: 2` the
+five anonymous-parcel generators now deal family **F1** — so every F1 roof dealt after
+this stands on it too.
+
+**What was there before, and why it was wrong for the family.** F1's required variant in
+`data/reconstruction/1835_family_archetype_crosswalk.json` is `freight_shed_low` —
+*"wide doors; low openings; dockside skids"* — and its evidence note asks the archetype for
+"long-building framing, cargo openings". The widest door `outbuilding` had was `wagon`,
+2.90 × 3.00 m, one of it, centred. That is not the family in two ways that can be measured
+rather than argued:
+
+- **It is not low.** `tools/family_bands.eave_floor` asks this archetype's own door table how
+  much wall a door needs before it samples an eave, so the wagon door put F1's eave FLOOR at
+  **3.08 m — 32 mm above the bottom of the 10–13 ft (3.048–3.962 m) band the same crosswalk
+  authors for the same family**. No F1 shed in this town could be dealt the low end of its
+  own band. With `cargo` the floor is 2.43 m and the whole band is reachable.
+- **It is one door.** The family says door*s*. A single opening in the middle of an
+  eleven-metre shed is a barn; freight came off a wagon bed or a boat at more than one point
+  along the loading side.
+
+**The invention, stated as two numbers.** No source reached describes a Chicago freight-shed
+door in 1835 — not its width, not its height, not how many a shed had. Neither number is a
+reading and both are recorded here.
+
+- **Height 2.35 m is DERIVED and the derivation is reproducible**: the largest 0.05 m step
+  whose head plus the archetype's own 0.16 m header stock leaves at least half a metre of
+  boarded wall under F1's lowest authored eave. 2.35 + 0.16 = 2.51 m of frame; 3.048 − 2.51 =
+  0.538 m of board above it. The next step up, 2.40 m, leaves 0.488 m and is refused. What is
+  invented is the half-metre rule, not the arithmetic under it.
+- **Width 2.20 m is INVENTED and bounded.** Wider than `stable` (1.35 m, a horse in hand)
+  because the family says wide; narrower than `wagon` (2.90 m, a team) because no team goes
+  through it — the load is handed in off the bed. What fixes it is the rhythm: two of them
+  with their jambs occupy 5.04 m, 72 % of the median front F1's footprint band allows
+  (18–28 ft, median 7.01 m), leaving 0.66 m of pier at each corner and between them. A wagon
+  door cannot do that on any front in the band.
+- **Two bays, not three, and not one.** Two is what F1's band carries with a real pier
+  between them; the archetype refuses a third rather than thin the wall, and refuses two on a
+  front too short for them. `DOOR_PIER_MIN_M` — the floor under that refusal, two jambs' worth
+  of board — is the archetype's own stock and not a further invention.
+
+**What is NOT claimed.** Nothing here says either shed was worked at two points rather than
+one, or that its doors stood where the even set-out puts them. An even rhythm is chosen
+because any other one would claim a plan no source gives. The skids and landing apron the
+same variant asks for are **not built** and are not covered by this entry.
+
+**Held by:** `tools/test_outbuilding_cargo.py` in `check.sh`, which holds the eave-band
+reading, both bounds on the two numbers, the even set-out, all three refusals, and — the one
+no other gate can see — that the frames the builder draws and the holes `openings()` cuts in
+the boarding are the same rectangles.
+
+**Related:** the crosswalk's **F1** row, **L164** and **L274** (the freight sheds themselves,
+every board of them invented), **L212**, T-1662 and its parent **T-1660**.
+**Recorded:** 2026-09-27.
+
+### L279 — The town's one wide store gets the four-bay front its family is authored with, and the spec's range is the only thing that says so
+**Decision:** `recon_1835_blk_south_water_franklin_c4_01`, the single committed C4, STATES
+`shopfront_bays: 3` on its phase instead of letting `default_shopfront_bays` answer, so its front
+carries four openings. The statement is a RULE and not a hand edit — `generate_block_infill.shop_bays`
+authors a count only where the family's variants line states a bay range AND the archetype's default
+lands outside it, which is true of this one record and of nothing else in the town: three 5 ft show windows and the shop door, the door third
+from the left where the archetype's `centre` tie-break puts it in an even count. Four is the BOTTOM of the
+`4-6 bays` the C4 crosswalk entry authors, and also the most the wall can hold: the 6.502 m
+opening leaves 1.408 m of plain wall at each end, and five openings would need 9.328 m against a
+9.319 m front. Nothing else moved — `SHOPFRONT_MAX_FRACTION` is still 0.45 and the other 44
+committed shopfronts are untouched.
+**Why:** T-1667, carried over from T-1665's measurement. `SHOPFRONT_MAX_FRACTION` is the answer
+for a record that says nothing, and it was argued for a store filling a 55 ft lot frontage with
+its eaves to the street. This C4 does have its eaves to the street and 30.6 ft of them — inside
+its own authored 28x40-36x60 ft band, at the narrow end — so four openings are 69.8% of its wall
+and the default refused the family's own minimum, dropping to its `return 1` floor and building a
+two-bay front. One fraction cannot serve both ends of a band that nearly doubles in width, and
+moving the fraction would have moved twenty other buildings for one building's sake. The
+specification's own range for the family is the narrower authority, and it is the one used.
+**Consequence:** a visitor on South Water sees a wide store with a four-bay shopfront and will
+read the rhythm as a fact about the town. It is not: no source describes this building, which is
+an invention filling a demonstrable need of the block, and the count is the specification's
+type-level range taken at its minimum. The attribute is graded `reconstructed` with the arithmetic
+in its own note, so the confidence tint says the count is a reconstruction; it does not say that
+choosing the bottom of the range rather than the middle was the frontage's decision and not a
+source's. This entry does. **L91** already covers every dimension of this building as typology;
+this entry is narrower and is about the fenestration the spec authors and the default refused.
+**How to resolve:** any description or depiction of a wide frame store on South Water Street in
+1835 stating its openings. Failing that, a per-family shopfront fraction — the honest form of the
+number, since 0.45 was measured on a 55 ft front — which would let the default reach the band
+without the record restating it, and would be the same resolution **L23** asks for on the taverns
+and **L277** on the store-residences.
+**Covers:** `recon_1835_blk_south_water_franklin_c4_01.form.shopfront_bays`.
+**Recorded:** 2026-09-27.
+
+### L280 — The warehouse's cargo-door rhythm: two openings on an F2, three on an F3, and no source counts them
+
+**Scope:** `structures.phases[cargo_rhythm]` — 2 phases built with a cargo-door
+rhythm and a hoist over it: `recon_1835_blk_south_water_clark_f2_01` and
+`recon_1835_blk_south_water_lasalle_f2_10`, the town's only two **F2** roofs. The rhythm itself is `goods_door_bays` and
+`goods_door_spans_m` in `generators/archetypes/frame_storefront_params.py`; the count is
+`tools/family_bands.cargo_door_bays`, which the block and inferred-infill parcels deal to
+families **F2** and **F3** — so every F2 or F3 roof dealt after this stands on it too. No
+F3 stands in this town (`phase1_instantiated: 0`), so nothing is baked for F3 here.
+
+**What the crosswalk asks for, in its own words.**
+
+- **F3** `warehouse_river_large` — variants *"multiple cargo doors; landing apron; sparse
+  glazing"*, and an evidence note that names the *"multiple cargo-door rhythm"* as the thing
+  no current archetype conveys.
+- **F2** `warehouse_narrow_two_story` — variants *"hoist beam; upper freight doors; few
+  windows"*, and an evidence note that `frame_storefront` *"gives a two-storey shell and
+  goods door but its retail shopfront must be removed and warehouse framing/hoist support
+  added"*.
+
+Before this the archetype drew exactly one goods door, centred, on every store and every
+warehouse alike, and drew no hoist on anything — `hoist_door` existed and no committed
+record had ever set it.
+
+**The invention, stated as one number per family.** No source reached counts the cargo
+openings of any Chicago warehouse in 1835, or says that any of them had a hoist. The count
+is bounded rather than chosen, and the bound is the family's OWN footprint band at its
+short end, measured against the braced frame the wall is already set out on:
+
+- the loading side is the **depth** — an `end` goods door stands on the gable wall, which
+  spans the plan's depth — so the shortest loading side a family can be dealt is the low
+  figure of its `footprint_ft` band;
+- an opening with its jamb stock takes 1.85 + 2 × 0.16 = **2.17 m**, and the even set-out
+  leaves n + 1 equal piers;
+- a pier narrower than `POST_SPACING_M` (2.44 m, 8 ft between principal posts) is narrower
+  than one bay of that frame, so the opening beside it cannot stand in a bay of its own.
+
+The answer is the largest rhythm EVERY plan the band authors will carry. **F2's 40 ft short
+side takes two** (2.62 m piers) and refuses three (1.42 m). **F3's 55 ft takes three**
+(2.56 m) and refuses four (1.62 m). Neither number moves with the individual plan: a count
+that followed the plan would be the generator deciding how a particular building was
+worked, which is a claim about its use and not about its family.
+
+**The upper freight doors are the same rhythm, one storey up.** A load comes off one wagon
+at one door and goes up at that door, so the plural in *"upper freight doors"* is a plural
+of loading POINTS — two doors above means two doors below, not two doors over one. One
+set-out therefore serves both storeys, which is also what keeps the frames at the ground
+and the openings above from drifting apart.
+
+**The over-claim, taken deliberately and not hidden.** F2's assumption note reads *"Hoist
+beam presence varies"*, and giving both of the town's F2 roofs a hoist claims a uniformity
+that note warns against. It is taken because the same entry's EVIDENCE note names
+"warehouse framing/hoist support" as what this archetype must add before the family is
+satisfied, and because a two-storey warehouse whose only opening is a ground door cannot
+load the floor it exists to have. Nothing in either record distinguishes one from the
+other, so there is nothing here to vary ON, and dealing a difference would be inventing one
+rather than recording one. **If a source is ever reached that describes either building,
+this is the entry it overturns.**
+
+**What is NOT claimed.** Nothing here says either warehouse was worked at two points rather
+than one, or that its doors stood where the even set-out puts them; an even rhythm is
+chosen because any other would claim a plan no source gives. F3's landing apron and sparse
+glazing are **not built** and are not covered by this entry. The beam is drawn only where
+the gable actually carries it — on both of these it does.
+
+**Held by:** `tools/test_storefront_cargo_rhythm.py` in `check.sh`, which holds the
+derivation of both counts from the two bands, the even set-out, the three refusals, the
+tie between the ground doors and the doors above them, and the one thing no other gate can
+see — that a single-bay record's set-out is bit-for-bit the double the archetype drew
+before this existed, so no store in the town moved for a change about warehouses.
+
+**Related:** the crosswalk's **F2** and **F3** rows, **L278** (the freight shed's own cargo
+opening, the same argument one family over), T-1663 and its parent **T-1660**.
+**Recorded:** 2026-09-27.
+
+### L281 — A second freight shed on the south bank, behind the first one and not in front of its door
+
+**Covers:** `south_bank_shed_dearborn_e2.function`, `south_bank_shed_dearborn_e2.shed_1835.documented_range`, `south_bank_shed_dearborn_e2.shed_1835.footprint`, `south_bank_shed_dearborn_e2.shed_1835.form.construction`, `south_bank_shed_dearborn_e2.shed_1835.form.door`, `south_bank_shed_dearborn_e2.shed_1835.form.door_side`, `south_bank_shed_dearborn_e2.shed_1835.form.paint`, `south_bank_shed_dearborn_e2.shed_1835.form.roof_pitch_deg`, `south_bank_shed_dearborn_e2.shed_1835.form.roof_type`, `south_bank_shed_dearborn_e2.shed_1835.form.wall_height_m`, `south_bank_shed_dearborn_e2.shed_1835.position`.
+
+**Decision:** the south bank of the main stem below the Dearborn drawbridge carries a **second low
+freight shed**, standing on the same two walls as the first and 5.20 m behind it, with a loading
+yard between the two and its wagon door facing that yard. **It is not attested.** Every value on
+the record is graded `reconstructed`, including the fact that a building stood there at all, and
+it disappears with the rest of the reconstructed tier when a visitor turns it off. It is the
+second shed of **L274**'s row, and the plural is the one thing the plate does hold: image 3 of the
+owner's brief of 2026-08-18 draws low warehouse**s** on both banks below the draw, and the north
+bank has had four of them since **L164**.
+
+**What bounded the invention, and it is a neighbouring building plus two committed numbers rather
+than a judgement.** (1) The two EASTINGS are `south_bank_shed_dearborn_e1`'s own walls, local
+E 805.5000 and E 810.9864, so the pair reads as one row and not as two seatings. (2) The NORTHING
+is the YARD: e1's south wall stands at N 1.5314 and its wagon door is on that wall, and this
+shed's north wall stands 5.20 m behind it at N -3.6686. 5.20 m is 1.00 m of clearance from the
+wall a wagon stands at, plus the 3.20 m of ground a parked wagon needs, plus 1.00 m from the wall
+opposite — and both of those figures are `data/yard/town_trade_goods.json`'s own, the ones that
+seat the farm wagons in the Green Tree's yard. (3) The BEARING is square to e1 and so to the
+riverside plank walk e1 was squared to by T-1643; `rotation_deg` is 0.000 where e1's is 180.000
+precisely so the archetype's north face is the door wall and the two doors face each other across
+the yard. (4) The GROUND is the committed heightfield, `e1834_harbor_cut`: 0.0946 m of relief over
+the footprint on a quarter-metre lattice, at 1.187 to 1.282 m above the water surface, inside the
+0.30 m `generate_block_infill.MAX_RELIEF_M` allows.
+
+**What is invented:** the building, that any second building stood on this bank on 1835-07-01, its
+size, its eave, its roof, its pitch, its construction, its paint, its opening, the side that
+opening is on, the yard, and the yard's width. The SIZE is the family's floor repeated from e1 and
+the eave, roof, pitch, construction and paint are e1's own values, which is a choice and not a
+reading: nothing distinguishes one anonymous shed of this family from another, so the row is built
+alike rather than varied for effect.
+
+**Why it is BEHIND the bank strip rather than on it, and that is the reading's answer rather than
+a preference.** `tools/measure_south_bank_ground.py` is the south-bank ground rule and its box is
+the bank strip, local N 0 to 45 over the reach. Asked with the full turn of bearings it should
+always have swept (T-1640, below), the strip takes exactly ONE more shed at the generators' own
+0.30 m relief clause — and **every position it admits stands on the ground e1's wagon door opens
+onto.** The nearest square one is anchored at E 811.17 / N 0.0 and would put a second shed 1.531 m
+in front of that door, closing the cart approach e1's own record states: a cart coming east out of
+South Water Street's end and standing on the landward side of the shed. That is the same class of
+fault as T-1643's shed across the plank walk — a building placed where the dataset's own prose says
+a person or a cart goes — and it is not one to make on purpose. So the shed stands on the SAME
+GROUND, 3.67 m further south and 0.19 m west of the station the reading names: it takes six of the
+ten metres that station covers and adds four the station does not reach, which is the terrace
+behind the strip — the ground **T-1200** asks for by name, the freight sheds and landings *behind*
+South Water. The reading's station lattice stops at its own box floor and so cannot express this
+exact seat; the seat therefore does not claim to be read off it, and is held to the same four
+predicates directly and on a finer lattice: dry with 0.0946 m of relief, clear of all 33 platted
+corridors (0.717 m clear of South Water's, 3.706 m of State Street's), 16.95 m clear of the
+riverside plank walk's boards, 16.51 m clear of `fort_road`'s travelled way, and clear of every
+footprint the tree places (5.20 m from e1, 14.43 m from the slough log bridge).
+
+**The instrument was corrected in the same commit, and that is what made the choice legible.**
+`measure_south_bank_ground.fits()` swept bearings 0–165 on the reasoning that a rectangle is its
+own shape at theta and theta+180. True of its shape; false of its POSITION, because the rectangle
+is anchored at a corner rather than at its centre, so the half turn expressed only placements
+lying north of their own station. Measured: before the fix the only position the reading would
+admit at 0.30 m stood 15 degrees off the riverside walk with 0.111 m between it and e1's south
+wall; after it, the same ground admits eight square ones, at less relief. **Every bound in that
+reading is deliberately the permissive one and its own anchor was not.**
+
+**Consequence:** the reach reads from the river as a working pair — a shed on the bank and a shed
+behind it, a yard between them a wagon can stand in, entered off the end of South Water Street.
+And the bank strip is now FULL at the generators' own clause: `takes_more` reads 0, 0, 3, 4 where
+it read 1, 1, 3, 5, because this shed stands on the one position that was left. `fits` re-reads at
+0, 0, 42, 126 against 91, 96, 162, 233 — part the bearing correction, part this building — and
+`fits_on_what_stands` rises from 45 to 145. The reading also NAMES the buildings it refuses ground
+for now, all fourteen of them, which it did not when one of them stood south of its own box floor.
+
+**How to resolve:** the same three things L274 asks for — a lot record on the river side or the
+east end of South Water Street, a forwarding merchant's advertisement giving an address on this
+reach, or a contemporary (not retrospective) view of the south bank below the draw. Any of them
+would replace an invention with a building. A record that put a second shed somewhere else on this
+bank would move this one rather than adding a third.
+
+**Related:** **L274** (the first shed of this row, and the argument this one extends), **L164**
+(the four north-bank sheds of the same plate), **L131** and **L133** (the Green Tree's yard, whose
+wagon figures this setback is built from), the parent ask **T-1200**, this ticket **T-1640**, the
+re-seating that put e1 square to the walk **T-1643**, `docs/RESEARCH/south_bank_dearborn_ground.md`.
+**Recorded:** 2026-09-27.
+
+### L282 — The blacksmith's forge stack: three brick blocks against an end wall, and no source describes any of it
+
+**Scope:** `structures.phases[chimneys]` — 3 phases built with a forge stack:
+`pierce_blacksmith_shop`, `mason_blacksmith_shop` and `inf_blacksmith_shop_west`, the town's
+three `outbuilding` smithies. The `chimneys: 1` the five anonymous-parcel generators now
+deal family **W1** puts every W1 roof dealt after this on the same footing. The geometry is `_forge_stack` and the four constants
+above it in `generators/archetypes/outbuilding.py`; the count, its bounds and the wall it
+stands against are in `generators/archetypes/outbuilding_params.py`.
+
+**What was there before, and why it was wrong for the family.** W1's required variant in
+`data/reconstruction/1835_family_archetype_crosswalk.json` is `blacksmith_forge` — *"wide
+work door; forge chimney; soot; detached"* — and its evidence note says the archetype
+"does not model a forge chimney, heat-safe work opening or soot distribution". Every other
+building archetype in this project reads `chimneys`; `outbuilding` did not, so the town's
+smithies baked as sheds with a doorway and nothing over the roof.
+`pierce_blacksmith_shop` had already written the consequence on its own record, under a
+`geometry: absent` declaration: *"the mesh shows a shed with a doorway and NO SMOKE, which
+is the one feature of a smithy anybody in the street would have noticed."*
+
+**The invention, stated block by block.** No source reached describes a Chicago forge, its
+hearth, its hood or its flue — not a dimension, not a fabric, not a position in the shop.
+Four numbers are invented here and each is bounded by the work rather than by a reading:
+
+- **The hearth mass, 1.30 m along the wall by 0.72 m into the shop.** A fire bed a man can
+  lay a bar across with the fuel heaped beside it, and the thickness of the fire's back
+  wall behind it. It is the widest part of the building's skyline and the reason the stack
+  reads as a forge and not as a house chimney.
+- **The flue, 0.72 × 0.60 m, above a shoulder at eave height less 0.30 m** (clamped to
+  1.55–2.30 m, so the step is above head height in a shop and under the eave where a person
+  in the street can see it). Narrower than the hearth on both axes, which is the whole
+  reason this is drawn as two blocks: one prism of the hearth's width carried to the ridge
+  is a buttress, not a chimney.
+- **The head, 0.78 m above the building's own apex, oversailing the flue by 0.08 m.** This
+  is the one figure with two documented bounds on it and it sits between them: the
+  Trustees' ordinance of 5 August 1835 section 18 required eighteen inches (0.457 m) of
+  stack above a roof, and Andreas remembered a Chicago with *"not a single steeple nor a
+  chimney four feet above any roof"* (1.219 m). 0.78 m is the figure the town's 116
+  `frame_dwelling` stacks already stand at, taken so a smithy is not the tallest thing on
+  the skyline for a reason nobody argued. `docs/RESEARCH/chimneys.md` § the ordinance is
+  the whole of that bracket.
+
+**The fabric is brick, and the disposition is why.** The stack stands INSIDE the end wall
+and breaks the roof, which is `docs/RESEARCH/chimneys.md` §2's interior disposition, and it
+takes §2's brick through `materials.chimney_finish("interior")` rather than a literal — the
+town keeps one brick. §3's cat-and-clay is deliberately NOT taken: §3 argues that fabric for
+a stack built OUTSIDE a gable so it can be pulled away when it fires, and a forge is a
+hearth kept hot all day under a board roof, the one building in Chicago where a
+stick-and-clay flue is the thing that burns it down. Brick needed no import — Blodgett's
+yard had been making it on the North Side since the spring of 1833 (`brickyard_north_side`,
+andreas_1884_v1).
+
+**Which wall, and that is a choice too.** `stack_wall` takes an END — a gable on a gable
+roof, so the flue rises under the ridge and takes the shortest way out — and of the two
+ends, the one that does not carry the main door, because a hearth in the doorway is a
+building nobody could work. With the door elsewhere the low end of the axis takes it, which
+is `log_dwelling._chimneys`' habit restated so two archetypes put a stack on the same end of
+the same plan. Nothing in any source says which end of any of these three shops the forge
+stood at.
+
+**What is NOT claimed, and NOT built.** The hearth's opening, the bellows, the hood's
+gather, the anvil and the fire are inside a building this archetype does not model —
+openings here are surfaces, not holes, and there is no interior. The soot the same variant
+asks for is **not built** and is not covered by this entry, nor is the "detached" siting it
+names. Nothing here says any of these three shops had exactly one fire; one is what the
+archetype admits and a second would be a claim about how the building was worked.
+
+**The confidences, and they are not the same on the three records.** `pierce_blacksmith_shop`
+carries `inferred`: its trade is documented at length by Andreas — the See tools, the
+Chicago-to-St-Louis stage ironing of January 1834, the Bull plough from that spring — and
+forge work under a board roof has a stack over it or the shop burns, which is reasoning
+about THIS building. `mason_blacksmith_shop` and `inf_blacksmith_shop_west` carry
+`reconstructed`, written by the generator that owns them: a typology from the reconstruction
+spec, bounded by W1's own crosswalk row, and in the second case about a building that no
+evidence says existed at all.
+
+**Held by:** `tools/test_outbuilding_forge.py` in `check.sh`, which holds both ends of the
+clearance bracket across every plan W1's band admits, the three-block profile, the end wall
+and its avoidance of the door, and all three refusals — before anything bakes.
+`tools/measure_stack_ordinance.py` and `tools/measure_stack_fabric.py` then hold the same
+stacks on the baked masters, which they can now see because the count is spelt `chimneys`
+and not something private to this archetype.
+
+**Covers:** `mason_blacksmith_shop.documented_1835.form.chimneys`.
+
+**Related:** the crosswalk's **W1** row, **L26** (every chimney in this project stands where
+its archetype puts it), **L168** (the cat-and-clay fabric this one declines),
+`docs/RESEARCH/chimneys.md` §2 and § the ordinance, **L278** (the same shape of move for
+F1's cargo openings), this ticket **T-1680** and its parent **T-1201**.
+**Recorded:** 2026-09-27.

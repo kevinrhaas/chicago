@@ -195,8 +195,14 @@ const R_EFF = 6371000 / 0.87;
  * against each body's REAL distance because it is drawn on a ring at a fixed
  * radius, where the scene's own fog would haze a grove four miles out exactly
  * as hard as a treeline at eleven hundred metres.
+ *
+ * T-1635: that instruction is now GATED rather than left to whoever edits
+ * world.js. `tools/check_haze_reach.mjs` reads both literals and refuses a tree
+ * where they disagree, because the drift this copy invites is silent — the band
+ * and the ground it stands on would simply run different atmospheres, which is
+ * the same class of fault as the tone curve this file's own cap note records.
  */
-const HAZE_DENSITY = 0.00125;
+const HAZE_DENSITY = 0.00089;
 /**
  * The fog COLOUR, copied verbatim from `world.js`'s `HORIZON_HAZE`. It is the
  * colour distance goes to, and it is deliberately not the sky: real haze pushes
@@ -215,14 +221,23 @@ const HAZE_DENSITY = 0.00125;
 const HORIZON_HAZE = 0x88a3c0;
 /**
  * The cap, and the one place this file argues with the scene's atmosphere.
- * world.js's haze is total by 1500 m by design — docs/LIBERTIES.md L17 leans on
- * that to hide a radial ground skirt nothing is claimed about. But the dossier
- * § 1.6 is a table of timber bodies at three, four and six miles, headed "for
- * distant LOD / horizon silhouettes", and total extinction at 1500 m erases
- * every one of them. Capping the band's haze keeps them on the horizon at a
- * contrast that never exceeds what the scene's own air allows anything else at
- * about 1.2 km. It is a compromise between two parcels' instructions, and it is
- * filed as docs/LIBERTIES.md **L35**.
+ * world.js's haze goes total at the outer edge of L17's ground apron, because
+ * that edge is what it exists to close over. But the dossier § 1.6 is a table of
+ * timber bodies at three, four and six miles, headed "for distant LOD / horizon
+ * silhouettes", and total extinction anywhere inside three miles erases every
+ * one of them. Capping the band's haze keeps them on the horizon at a contrast
+ * that never exceeds what the scene's own air allows anything else. It is a
+ * compromise between two parcels' instructions, and it is filed as
+ * docs/LIBERTIES.md **L35**.
+ *
+ * **T-1635 MADE THE COMPROMISE SMALLER WITHOUT TOUCHING THE CAP.** The scene's
+ * density fell from 0.00125 to 0.00089 — derived from the apron it has to close
+ * over rather than from L17's retired "total by 1500 m" — so the air's own law
+ * now reaches 0.82 at **1,471 m** instead of 1,048 m. The band therefore follows
+ * the real law 423 m further out before this constant takes over, which is 423 m
+ * less of the horizon held above what the atmosphere elsewhere permits. 0.82 is
+ * unchanged and is deliberately unchanged: it is the figure L35 argues for, the
+ * dossier's timber is why, and nothing in T-1635's measurement bears on it.
  *
  * A WARNING ABOUT WHY THIS CONSTANT LOOKS LOAD-BEARING, AND IS NOT.
  *
@@ -237,6 +252,17 @@ const HORIZON_HAZE = 0x88a3c0;
  * is a straight lerp toward the literal hex IN DISPLAY SPACE, after the tone
  * curve: a fully-fogged pixel is exactly sRGB (136,163,192), L 159.4 — four
  * levels BELOW the horizon sky, which is what airlight is supposed to do.
+ *
+ * **T-1631: that last clause was true toward the sun and false everywhere
+ * else, and this file could not have known it.** L 161.7 is the SOLAR-side
+ * horizon sky. `world.js`'s own azimuth-blind sky fit leaves the anti-sun
+ * horizon at L 128, so a fog pinned at L 159.4 sat ABOVE the sky it converges
+ * on at every bearing — 31 luminance above it due north, which is where the
+ * owner was flying when he reported the world looking flooded. The haze is
+ * therefore no longer a constant: `world.js` samples its own sky at the
+ * horizon and turns the fog with the view. The hex below is still what the
+ * band starts at and still what it falls back to, and `update()` is what
+ * keeps it on whatever the fog is now — see the `hazeNow` argument.
  *
  * The L 170 came from `hazeDisplayLinear()` below, which USED TO run
  * HORIZON_HAZE through ACES to derive this band's display colour. That was
@@ -3104,7 +3130,16 @@ uniform float uEyeY;
   group.add(horizon);
   disposables.push(hGeo, farMat);
 
+  // The band's hazed end, in the renderer's linear working space. NOT a const
+  // since T-1631: `world.js` turns the scene's haze with the view, and this
+  // band is authored to land exactly where the fogged ground lands — the
+  // release smoke asserts the two are one colour — so it has to be able to
+  // follow. `update()` refreshes it from `scene.fog.color` and re-solves when
+  // it has moved. The fixed derivation is still what it starts at, so a
+  // renderer that never passes a haze in draws exactly what it drew before.
   const haze = hazeDisplayLinear();
+  let hazeHex = new THREE.Color().setRGB(haze[0], haze[1], haze[2])
+    .getHex(THREE.SRGBColorSpace);
   const timber = linear(TIMBER_SRGB);
 
   // The stand of the LIVE solve, so `horizonCensus()` can re-run exactly the
@@ -3506,10 +3541,30 @@ uniform float uEyeY;
       return c.getHex(THREE.SRGBColorSpace);
     },
 
-    update(dt, camera) {
+    /**
+     * @param {number} dt              seconds since the last frame
+     * @param {THREE.Camera} camera    the camera about to render
+     * @param {THREE.Color} [hazeNow]  the scene fog's live colour (T-1631)
+     */
+    update(dt, camera, hazeNow) {
       wind += (dt || 0);
       uWind.value = wind;
       if (!camera) return;
+      // T-1631. A turn in place moves the haze and moves nothing else, so the
+      // band's own re-solve trigger — which is distance walked — would never
+      // fire and the band would sit at the colour of a bearing the visitor has
+      // stopped looking at. Compare the DISPLAYED hex rather than the floats:
+      // that is the quantity the gate compares and the only one a visitor can
+      // see, so a difference too small to show is not paid for with a re-solve.
+      let hazeMoved = false;
+      if (hazeNow) {
+        const nowHex = hazeNow.getHex(THREE.SRGBColorSpace);
+        if (nowHex !== hazeHex) {
+          hazeHex = nowHex;
+          haze[0] = hazeNow.r; haze[1] = hazeNow.g; haze[2] = hazeNow.b;
+          hazeMoved = true;
+        }
+      }
       const p = camera.position;
       horizon.position.set(p.x, p.y, p.z);
       // T-0120: the eye-height term of every vertex is finished in the vertex
@@ -3526,7 +3581,7 @@ uniform float uEyeY;
       // reason to re-solve exactly as walking is. 2 % keeps a drag-resize from
       // re-solving every frame.
       const pxNow = readPxPerRad();
-      if (Math.abs(e - lastE) > RING_REBUILD_M || Math.abs(n - lastN) > RING_REBUILD_M
+      if (hazeMoved || Math.abs(e - lastE) > RING_REBUILD_M || Math.abs(n - lastN) > RING_REBUILD_M
         || Math.abs(p.y - lastY) > 0.30 || Math.abs(pxNow - pxPerRad) > pxPerRad * 0.02) {
         lastE = e; lastN = n; lastY = p.y;
         solveHorizon(e, n, p.y);

@@ -183,6 +183,32 @@ PUBLIC_TRADES = {
     "printing_office_and_store": "an office that took job work and sold over a counter",
     "physicians_office": "a consulting room a stranger has to be able to find",
     "shop": "a shop front on a street of stores",
+    # T-1657. THE ARCHETYPE FAMILIES' OWN TERMS, and they were missing.
+    #
+    # This table is keyed by `function.value` AS THE STRUCTURE RECORDS WRITE IT —
+    # the sentence above the table says so, and T-1311 closed that vocabulary so
+    # the key is now a schema enum term rather than a free string. The archetype
+    # families the roof schedule deals write their `function.value` from
+    # `generate_block_infill.FUNCTIONS`, and those terms are records' terms like
+    # any other: `store_residence` (C2) and `blacksmith_shop` (W1) have been in
+    # these two tables from the start, spelled exactly as that table spells them.
+    # So the answer T-1657 asked for is READING ONE — this is a list of trades,
+    # not a list of trades as one particular table spells them, and a family's
+    # term belongs in it on the same test as every other key: did the customer
+    # come in off the street. No second table keyed by family, and nothing for
+    # the two rules to read but this one.
+    #
+    # C1, C3 and C4 pass that test and were silently absent, so a DOCUMENTED
+    # store standing in one of those roofs would have got no board, no hitching
+    # post, and — worse — no refusal saying why. `normalise_structure_function.py
+    # --check` now refuses a commercial or works family whose term neither this
+    # table nor WORKS_TRADES knows, so the next family to arrive cannot be silent
+    # the same way.
+    "small_shop_or_office": "a shop front or a consulting-room door, either of "
+                            "which a stranger has to be able to pick out",
+    "narrow_two_story_store": "a counter open to the street",
+    "wide_two_story_store_or_mixed_block": "a counter open to the street, under "
+                                           "the rooms let above it",
 }
 
 # Clause 2, second class — added 2026-08-21 with T-0066. A works or a warehouse did not
@@ -199,6 +225,26 @@ WORKS_TRADES = {
     "tannery": "a tan-yard names its master for the trade that brings him hides",
     "soap_candle_manufactory": "a manufactory names the firm whose goods leave by the cart-load",
     "brickyard": "a brickyard names its owner for the builder ordering by the thousand",
+    # T-1657, the second class's own missing families. Same reading as above: these
+    # are the roof schedule's terms for the W and F bands, and they are this class's
+    # case and not the counter's. A freight shed and a narrow warehouse are what
+    # `forwarding_commission_warehouse` already is — a store of goods a carter and a
+    # shipper have to identify from the road or the river — and the three remaining
+    # W-band shops are what `blacksmith_shop` already is, W1's own argument carried
+    # across its own band: a trade whose work arrives and leaves on a cart, named on
+    # its front rather than hung over a footway. What that buys, and the point of
+    # T-1657, is that the hitching rule's clause 2 can now REFUSE these frontages in
+    # writing instead of never looking at them.
+    "freight_or_storage_shed": "a freight shed names its firm for the carter "
+                               "delivering to it",
+    "narrow_two_story_warehouse": "a warehouse names its firm for the shipper on "
+                                  "the river",
+    "carpenter_or_joiner_shop": "a joiner's shop, named on its front for the "
+                                "builder who orders from it",
+    "cooper_wagon_or_wheelwright_shop": "a wright's shop, named on its front for "
+                                        "the trade that brings him work",
+    "small_artisan_shop": "an artisan's shop, named on its front for the trade "
+                          "that brings him work",
 }
 
 # Which cycle of mountings a trade draws from. Two frontages of the same class in the
@@ -209,10 +255,19 @@ TRADE_CLASS = {
     **{t: "counter" for t in (
         "store", "store_residence", "store_and_dwelling", "dwelling_and_store",
         "grocery_and_provision_store", "drug_store", "shop",
-        "saddlery_and_harness_shop")},
+        "saddlery_and_harness_shop",
+        # T-1657: C3 and C4 are stores, so they read from the footway like one.
+        "narrow_two_story_store", "wide_two_story_store_or_mixed_block")},
     **{t: "office" for t in (
         "printing_office", "printing_office_and_store", "auction_room",
-        "forwarding_and_commission_store", "physicians_office")},
+        "forwarding_and_commission_store", "physicians_office",
+        # T-1657: C1's term names TWO things — `small_shop_or_office` — and the
+        # record that carries it cannot say which, because the band does not. So
+        # it takes the more modest cycle of the two: a board on the building
+        # itself rather than one hung out over the walk. A shop lettered like an
+        # office is under-stated; an office fitted out like a shop is furniture
+        # the evidence does not carry.
+        "small_shop_or_office")},
     **{t: "works" for t in WORKS_TRADES},
 }
 

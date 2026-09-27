@@ -3140,6 +3140,7 @@ DERIVED_DOCUMENTS = [
         "doc": "sidecars/*/terrain.json",
         "module": "renderers/web/js/ground.js",
         # identifier in that module -> the path inside the document it holds
+        # T-1276: claims.id now supplies the public Sources → ground-card anchor.
         "roots": {"doc": "", "claim": "claims", "f": "claims.fields",
                   "c": "context", "z": "not_modelled"},
         "internal": {
@@ -3147,8 +3148,6 @@ DERIVED_DOCUMENTS = [
             "target_date": "the scene's date, shown by the HUD from the scene record",
             "epoch": "which terrain epoch compiled these claims — a reviewer's join, "
                      "and the claims themselves carry no epoch-specific wording",
-            "claims.id": "the spec key the claim was derived from; `label` is what a "
-                         "visitor reads and `Covers:` tokens are the gate's business",
             "claims.confidence_key": "which key of the block held the grade, so the "
                                      "gate can find it again; the grade itself is shown",
             "claims.sources": "the raw source ids, joined into `citations` by cite() "
@@ -6333,7 +6332,8 @@ def run_stale_check(structures: dict, rep: Report) -> None:
 def run_bake_reach_check(structures: dict, scenes: dict, rep: Report) -> None:
     """Can the bake rebuild everything the staleness gate holds it responsible for?
 
-    The staleness gate above hashes `generators/build.py` into every asset, so a
+    The staleness gate above hashes the bake's geometry pipeline into every asset —
+    `generators/build.py` until T-1654 split it, `generators/emit.py` since — so a
     one-line comment in that file restales all 343 buildings and the remedy is a
     full rebake. That remedy has to be able to reach every asset it is asked to
     heal — and for one of them it could not.

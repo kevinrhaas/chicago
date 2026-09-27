@@ -50,7 +50,7 @@
   },
   "may_raise_a_slot": 0,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 124,
+  "principal_roofs_standing": 125,
   "ground_m2": 7315399.9
  },
  "what_the_roof_programme_does_not_carry": {
@@ -7048,7 +7048,7 @@
     "recon_1835_west_040",
     "robert_kinzie_store",
     "robinson_caldwell_cabins",
-    "slough_log_bridge",
+    "south_bank_shed_dearborn_e1",
     "south_branch_raft_bridge",
     "walker_meeting_house",
     "western_hotel",
@@ -7109,7 +7109,7 @@
     "recon_1835_west_040": "D1",
     "robert_kinzie_store": "C1",
     "robinson_caldwell_cabins": "D1",
-    "slough_log_bridge": null,
+    "south_bank_shed_dearborn_e1": "F1",
     "south_branch_raft_bridge": null,
     "walker_meeting_house": "I1",
     "western_hotel": "T2",
@@ -7117,7 +7117,7 @@
     "wolf_point_tavern": "T1",
     "wolf_point_tavern_stable": "A1"
    },
-   "principal_roofs_standing": 45
+   "principal_roofs_standing": 46
   },
   {
    "parcel_id": "wabansia",

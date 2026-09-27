@@ -53,7 +53,7 @@
   },
   "attributes": {
     "wall_height_m": {
-      "value": 3.721,
+      "value": 3.712,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -69,7 +69,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F1 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance. THE OTHER FORM ON OFFER IS REFUSED, AND HERE IS THE NUMBER. The F1 roof line offers \"gable or shed, 5:12-9:12\", and this town builds only the gable. A shed is one plane over the whole 13.8 m of this plan where a gable climbs half of it, so across the 441 plans F1's own footprint band allows, 420 of them cannot reach the 18-24 ft ridge band the same family authors — at any eave in its 10-13 ft band and at any pitch between 22.6 and 36.9 degrees. This building's own plan is one of them."
     },
     "roof_pitch_deg": {
-      "value": 31.4,
+      "value": 31.5,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -85,7 +85,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F1 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
     },
     "door": {
-      "value": "wagon",
+      "value": "cargo",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -94,6 +94,14 @@
     },
     "door_side": {
       "value": "front",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F1 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
+    },
+    "door_bays": {
+      "value": 2,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"

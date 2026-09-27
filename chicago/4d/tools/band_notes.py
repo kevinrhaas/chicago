@@ -75,6 +75,11 @@ CROSSWALK_PATH = ROOT / "data" / "reconstruction" / "1835_family_archetype_cross
 FOOTPRINT_RE = re.compile(r"^\s*(\d+)x(\d+)\s*-\s*(\d+)x(\d+)")
 RANGE_RE = re.compile(r"^\s*(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)\s*$")
 PITCH_RE = re.compile(r"(\d+):12\s*-\s*(\d+):12")
+# A FACADE-bay range wherever the crosswalk states one, which is inside `variants`:
+# "2-3 shop bays", "4-6 bays", "2/3 bays". The separator is not standardised in the
+# source and is read as written — `tools/test_shopfront_bay_count.py` holds the same
+# three forms, and this is the second reader of them, not a second grammar.
+BAY_RANGE_RE = re.compile(r"\b(\d+)\s*(?:-|/|to)\s*(\d+)\s+(?:shop\s+)?bays\b")
 
 BAND = "band"
 PROSE = "prose"
@@ -92,6 +97,15 @@ BANDED_FIELDS = {
     "roof_type": lambda g: bool(str(g.get("roof") or "").strip()),
     "stories": lambda g: bool(str(g.get("levels") or "").strip()),
     "loft": lambda g: bool(str(g.get("levels") or "").strip()),
+    # T-1667. A shop-bay count is BANDED wherever the family's variants line states a
+    # range, which is a numeric band like any other — and unlike the five above, the
+    # value it bounds is not compared by `measure_band_claims`: the comparison lives in
+    # `tools/test_shopfront_bay_count.py` gate 4, which re-derives the same range from
+    # the same crosswalk and holds a stated count inside it. Not duplicated here on
+    # purpose. The crosswalk's bay counts the DOOR and this field does not
+    # (`frame_storefront_params.facade_bays`, docs/FACADE-BAYS.md), and a mapping with
+    # two homes is the drift this module's own docstring exists to refuse.
+    "shopfront_bays": lambda g: bool(BAY_RANGE_RE.search(json.dumps(g))),
 }
 
 # The fields no band can be authored for, looked for as a keyword anywhere in the
@@ -108,8 +122,15 @@ PROSE_KEYWORDS = {
     "shopfront": ("shop", "display", "pane", "front"),
     "goods_door": ("door",),
     "goods_door_side": ("door",),
+    # The cargo-door rhythm and the hoist over it (T-1663). Both are answered by the
+    # same "variants" prose F2 and F3 carry — "multiple cargo doors", "hoist beam;
+    # upper freight doors" — so the keyword that decides whether the citation is true
+    # is the family's own word for the thing, as it is for every other opening here.
+    "goods_door_bays": ("door", "cargo"),
+    "hoist_door": ("hoist", "freight"),
     "door": ("door",),
     "door_side": ("door",),
+    "door_bays": ("door",),
     "paint": ("paint", "whitewash", "unpainted"),
     "board_gap_m": ("gap", "batten", "chink"),
 }
@@ -132,10 +153,14 @@ FIELD_LABEL = {
     "gable_front": "gable orientation",
     "cladding": "cladding",
     "shopfront": "a shopfront",
+    "shopfront_bays": "a shop-bay count",
     "goods_door": "a goods door",
     "goods_door_side": "a goods-door side",
+    "goods_door_bays": "a count of cargo openings",
+    "hoist_door": "a hoist and upper freight door",
     "door": "a door type",
     "door_side": "a door side",
+    "door_bays": "a count of doorways",
     "paint": "paint or finish",
     "board_gap_m": "a board gap",
 }

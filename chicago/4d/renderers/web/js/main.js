@@ -19,6 +19,7 @@ const H_FOV_DEG = 76;
 const DEG = Math.PI / 180;
 
 import { createBoot, createCheckpoint, yieldToPaint } from './boot-phases.js';
+import { createArrival } from './arrival.js';
 import { loadScene, resolveBases } from './scene-loader.js';
 import { createWorld } from './world.js';
 import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
@@ -879,20 +880,6 @@ const gateBtn = document.getElementById('gate-btn');
 const gateSub = document.getElementById('gate-sub');
 const gateBar = document.getElementById('gate-bar');
 
-/**
- * Loading progress, driven by the boot's REAL stages rather than by a timer.
- * A timer-driven bar tells a visitor nothing except that time is passing, which
- * they already know; this one only moves when something has actually finished,
- * so a bar that stops IS the diagnosis.
- */
-function progress(pct, label) {
-  if (gateSub && label) gateSub.textContent = label;
-  if (!gateBar) return;
-  const fill = gateBar.firstElementChild;
-  if (fill) fill.style.width = `${Math.max(0, Math.min(100, pct))}%`;
-  gateBar.setAttribute('aria-valuenow', String(Math.round(pct)));
-  if (pct >= 100) gateBar.classList.add('done');
-}
 const hudRoot = document.getElementById('hud');
 const popupRoot = document.getElementById('popup');
 
@@ -927,9 +914,25 @@ const bootController = createBoot({
   device: prefersTouch() ? 'mobile' : 'desktop',
   detail: DETAIL[readDetailPreference()] ? readDetailPreference() : (prefersTouch() ? 'light' : 'full'),
   build: document.getElementById('gate-build')?.textContent || VERSION,
-  storage: bootStorage, problems, present: progress,
+  storage: bootStorage, problems,
 });
 api.boot = bootController;
+const arrival = createArrival({
+  boot: bootController,
+  contentOptions: {
+    seed: new URLSearchParams(location.search).get('seed') ?? Math.random(),
+    warm: (() => { try { return sessionStorage.getItem('c4d.loading.build') === VERSION; } catch { return false; } })(),
+  },
+  yearEl: document.getElementById('arrival-year'),
+  phaseEl: gateSub,
+  cardEl: document.getElementById('arrival-card'),
+  barEl: gateBar,
+  buttonEl: gateBtn,
+});
+api.arrival = arrival;
+// Start alongside scene loading; optional presentation never joins the ready barrier.
+void arrival.content?.load(new URL('loading/statuses.json', resolveBases().dataBase));
+bootController.on('ready', () => { try { sessionStorage.setItem('c4d.loading.build', VERSION); } catch { /* optional */ } });
 const bootCheckpoint = createCheckpoint();
 
 boot().catch((err) => {
@@ -940,12 +943,11 @@ boot().catch((err) => {
   // A year with no scene yet (a door such as /4d/1812/ that is ahead of the data)
   // is not a broken build, and should not read like one.
   const unbuilt = /^404\b/.test(api.error) && api.error.includes(`scenes/${YEAR}.json`);
-  if (gateSub) {
-    gateSub.textContent = unbuilt
+  arrival.fail(err, {
+    message: unbuilt
       ? `${YEAR} has not been reconstructed yet — 1835 is the year this town is built for.`
-      : `Could not load the scene — ${api.error}`;
-  }
-  if (gateBtn) gateBtn.textContent = 'Failed to load';
+      : `Could not load the scene — ${api.error}`,
+  });
   console.error('[4D Chicago] boot failed', err);
 });
 
@@ -1752,8 +1754,19 @@ async function boot() {
 
   // The Evidence panel as a hub of topics rather than one scroll; it reorganises
   // the section's own static markup, so the mounts below keep their ids.
+  let sourcesPromise = null;
+  const openSources = () => {
+    if (!sourcesPromise) sourcesPromise = import('./sources.js').then(({attachSources}) => attachSources({
+      api, registry: loaded.registry, hud, popup, dataBase: bases.dataBase, root: document.getElementById('sources'),
+    })).then(view => { api.sources=view; return view; }).catch(() => {
+      sourcesPromise=null;
+      document.getElementById('sources').textContent='Sources could not load. Reopen this topic to retry.';
+    });
+    void sourcesPromise.then(view => { if (api.evidenceHub.topic === 'sources') view?.show(); });
+  };
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
+    onTopic: id => { if (id === 'sources') openSources(); },
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
   });
   // The town summary used to be part of the loader. It now costs nothing on a
@@ -2450,6 +2463,11 @@ async function boot() {
     // the eye ended up this frame (R-BUG1, and the NEAR block above).
     setNearFor(walker.state.altitude);
     world.follow(camera.position);
+    // T-1631, at the same moment and for the same reason: the haze is a
+    // function of the bearing the eye ended up facing this frame. `aim` reports
+    // whether it actually moved, so the two surfaces that copy the haze are
+    // only rewritten on the frames the view crossed one of the ring's bearings.
+    if (world.aim(camera)) terrain.setHaze(scene3d.fog?.color);
     // After the camera has finished moving and before anything is submitted:
     // what the furniture's reach hides is a function of where the eye ended up
     // this frame (T-0150).
@@ -2459,7 +2477,7 @@ async function boot() {
     // frame (T-1154).
     terrain.updateGroundReach(camera.position);
     flora.update(dt, camera);
-    trees.update(dt, camera);
+    trees.update(dt, camera, scene3d.fog?.color);
 
     renderer.render(scene3d, camera);
     bootController.frameRendered();
@@ -2500,7 +2518,7 @@ async function boot() {
   }
   // Compile programs while the gate can still repaint, before the first draw.
   // The horizon creates its initial geometry on update, so include that too.
-  trees.update(0, camera);
+  trees.update(0, camera, scene3d.fog?.color);
   await yieldToPaint();
   for (const layer of scene3d.children) {
     if (layer.isLight) continue; // targetScene already supplies the lights
@@ -2788,20 +2806,11 @@ async function boot() {
   // Optional census work may finish later; it cannot hold the street closed.
   await firstFrame;
   bootController.end('interaction');
-  if (gateBtn) { gateBtn.disabled = false; gateBtn.textContent = 'Tap to walk'; }
   api.ready = true;
   if (!bootController.finish()) {
     api.ready = false;
     if (gateBtn) gateBtn.disabled = true;
     throw new Error('Boot readiness barrier failed');
-  }
-  if (gateSub) {
-    // T-0782: the count that used to open this line was `registry.size` — every
-    // RECORD in the scene, bridges and the pier and the palisade and the parade
-    // ground included — so it read as a building count and contradicted the 359
-    // on the card three lines below it. The card counts the town; this line says
-    // when the town is.
-    gateSub.textContent = world.describe();
   }
 
   if (DEBUG) {

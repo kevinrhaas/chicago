@@ -143,3 +143,143 @@ the ground, this section is current.
    neither ends as an open trench; the La Salle alignment carries 7–10 m plan swings between
    its fixed readings (mouth, west-half-of-the-block corridor, terminus), threading the same
    committed roofs § 4 lists. All still `reconstructed`; L149/L150 amended.
+
+## 8. The mouth moved east of State — T-1629 (2026-09-26)
+
+§ 7.1 is superseded on the one point it reasoned hardest about. The owner flew the South
+Division river front against Wright 1834 (`wright_1834`, `wright_1834_nara_hup`) and Hathaway
+1834 (`hathaway_1834`) and reported that the scene shows **two** notches within 40 m of each
+other at the foot of State Street. His ruling, verbatim:
+
+> you have closer to the fort, further east 2 sloughs that goes in a bit there is only one just
+> east of state, the other slough does not appear to be depicted in either the wright or the
+> hathaway map, correct the slough east of state so it matches the wright map
+
+and, with a screenshot of the foot of State:
+
+> keep the inland state slough, move the bridge, i thgink there should only be one slough
+> though? and from the wright map it appears to start east of state. you have two slough entry
+> points there
+
+**What § 7.1 got wrong.** Not the shape — a 6.2 ft trench parallel to the bank does fill as a
+bay, and that judgement stands. What it got wrong is WHICH pin to keep. It kept the committed
+bridge deck and gave up Wright's traced re-entrant, on the reasoning that the bridge was a
+committed structure with committed earthworks and the re-entrant was 25 m from the documentary
+mouth. But the re-entrant is what the two 1834 sheets actually DRAW, and the mouth at E +809.5
+was drawn by nobody. Between a traced feature and a convenience, the tracing wins.
+
+**As built now.**
+
+- `state_slough_course` is **untouched**. The inland route — the public-square pond, the Wells
+  Street marsh, the Tremont House site, toward the foot of State — is chicagology's and
+  Conley/Stelzer's and the owner explicitly kept it.
+- `state_slough_mouth` leaves the course at the same hand-over vertex (E +795, N −60), bends
+  east-north-east, crosses **State Street** at E +826.9 N −8.4, and enters the river inside the
+  traced re-entrant: it crosses the waterline at the notch's apex (E +850.5, N +8.2) and ends at
+  E +853.5 N +14.0 in the notch's own water. Last segment bearing 041°, within a few degrees of
+  the normal to the notch's west flank — square, in one reach, and no reach of the line runs
+  along the bank.
+- The mouth at **E +809.5 is filled back to the bank line** by its own removal from the spec.
+  Measured on the regenerated heightfield: the ground where the channel used to be now stands
+  +1.26 m at N 0…+14 where it was −0.41 m. From the river and from the air there is one notch in
+  the south bank between Clark and the fort.
+- **The cut is 9.0 ft on a 3.5 m half-width**, up from 6.2 ft on 3.0 m, and this is the price of
+  the ruling rather than a new reading. The reach now crosses ground that stands 6–7 ft on the
+  committed heightfield — the sand rise between State Street and the fort — where the old reach
+  crossed nothing above 4.8 ft, and 9.0 ft is the depth the bed needs to stay below the water
+  surface across it. The pool runs unbroken from about N −18 to the river; above it the drain is
+  the damp July swale the dossier describes and stands above the water.
+- **The Slough Log Bridge moved with the water, and changed streets doing it.** It now carries
+  **State Street** across the drain at E +825.4…+828.4, N −12.4…−4.4, laid at rotation 90 so its
+  8 m span runs north–south along the street; the span itself is not resized. South Water Street
+  stops at the United States Reservation (committed path end E +805, the 1833 order, the
+  Reservation's west line being State), so the drain no longer meets Water Street anywhere, and
+  the source's *"where Water Street crossed it a log bridge was needed until after 1840"* cannot
+  keep its street name in this reconstruction. That is a real loss and it is recorded as one, in
+  the bridge's own position note and in docs/LIBERTIES.md L69 — not restated as a reading.
+- **The approaches are deeper, and here are the depths the ruling asked for.** The terrace along
+  State Street stands level at 5.09 ft for 45 m either side of the crossing and the deck's walk
+  surface is 2.723 ft, so the deck sits **0.72 m below grade at both ends** and both approaches
+  are cuts, 8.7 m long at the house grade of 1 in 12, inside the 12 m each approach runs. At the
+  old seat the same deck sat 0.35–0.49 m below its banks. This is the ridge-toe cost § 7.1
+  declined; the owner accepted it in writing.
+- **The river plank walk's east end no longer rides a deck.** Its footway crossed the old mouth
+  on the bridge's deck; with the mouth filled and the bridge 35 m inland, those boards lie on
+  ground, the run's two knots are authored at the extent the walk already published
+  (E +803.6…+815.0 at N +14.2), and every station of the reach is now audited against the
+  committed heightfield instead of being exempted as decked. docs/LIBERTIES.md L153.
+
+**The gate reading, at the new seat** (`tools/measure_slough_crossing.py`): 4.80 m of open water
+in the 8.00 m span (60 %), 0.93 m deep at the thalweg, 1.40 m and 1.80 m of dry abutment seat,
+717 of 717 samples from the deck to the river below the water surface, no bar of dry ground
+anywhere along the course, nothing but the crossing rooted in the cut.
+
+**What is still not settled.** The last 60 m between the course's hand-over and the traced notch
+is drawn by no source at all — Wright draws the notch and chicagology names the mouth's street;
+the line between them is this project's. And the fort road, which is itself a reconstructed line,
+crosses the notch and takes an honest water gap there; whether the town laid anything over it is
+a separate question and is not answered here.
+
+## 9. The La Salle inland course is cut back to Wright — T-1628 (2026-09-26)
+
+**The owner's ruling, verbatim.** He flew the 1835 scene over the South Division river front
+and compared it with Wright 1834 (`wright_1834`, `wright_1834_nara_hup`) and Hathaway 1834
+(`hathaway_1834`): *"when you look down on the river, there is a bulge and then a slough just
+east of lasalle that goes very deep, the slough goes all the way to lake. that is not how it is
+depicted in the wright or hathaway map. i think its ok to depict the slough like the wright map,
+so it seems it should come in, just a bit past south water and then into the lot, but not
+deeper"*.
+
+**What he was looking at is the part of § 2 row 2 that was never Wright's.** The mouth is traced
+and confirmed — T-0795 picked the V notched into the south bank at NA px (2403, 2495), E +449.9,
+against the E +462…+469 the traced waterline carries, 12.1 m inside a fit whose own RMS is
+16.02 m. The **inland course** was argued from Conley/Stelzer 1933 at `asset_use: orientation`
+and never from a traced boundary, and the same T-0795 walk found that the NA/HUP sheet draws
+**no inland course here at all**. So the ruling does not overturn a reading; it declines one
+this file has always labelled as a 1933 pictorial reconstruction read at 20–30 m tolerance.
+
+**What is built now.** `lasalle_slough_upper` is **deleted**. `lasalle_slough_lower` keeps its
+first two vertices exactly as T-0129 and T-0118 left them — (466, +10) inside Wright's traced
+re-entrant, the junction at (469.5, −6) bent 2.5 m east to keep `blk_south_water_lasalle`'s
+north-west corner out of the water — and ends at a new third vertex (472.7, −20.0). That head is
+a point **on the committed Conley alignment**, 8 mm off the bearing of the (469.5, −6) →
+(475, −30) segment it truncates, so this is the old course cut back and not a new course drawn.
+
+| | figure |
+|---|---|
+| channel length, mouth to head | 30.74 m |
+| platted south edge of the South Water corridor, along the channel | 14.39 m (N −4.05, E +469.07) |
+| head south of that block face | **15.95 m** |
+| channel inside the lot | 16.35 m |
+| block 50 South Water lot depth (97.30 m block, 5.49 m mid-block alley) | 45.91 m |
+| head as a fraction of lot depth | **34.7 %** |
+| full 3.2 ft cut holds to | 17.0 m along — 2.6 m past the block face |
+| feather knots | 2.2 ft at 23.0 m, 1.0 ft at 27.5 m, 0.0 ft at 30.74 m |
+| open water ends (bed rises through datum on the 2.4–2.9 ft plain) | ≈ 20.0 m along, ≈ 7.5 m inside the lot |
+
+The feather is shorter than the ~40 m § 7 row 4 records for the old course, because the whole
+channel is now 30.7 m long and the street corridor has to carry water across its full width.
+At 3.2 ft over 13.7 m the longitudinal grade is 7 per cent, against the 24 per cent the banks
+already stand at across the 4.0 m half-width, so the head closes as a hollow and not as a step —
+which is the test § 7 row 4 set, applied to a shorter reach.
+
+**`lasalle_slough_crossing` still spans water.** The deck sits at about N +4…+8, 2–6 m along the
+channel from the mouth, inside the reach that holds the full 3.2 ft cut; nothing about the
+crossing, its span, its approaches or L195 is touched. `tools/measure_slough_crossing.py` reads
+it on every commit.
+
+**Conley/Stelzer is set aside, not refuted, and the reading is kept here.** What he draws is what
+§ 2 row 2 says he draws: the course running south up the west half of the La Salle–Clark block,
+washed as open water to about Lake Street, continuing as a dark drain and terminating just north
+of Randolph Street. That is still the only reconstruction anybody has of this stream above the
+bank, and if a period survey ever contradicts the ruling it is the line to go back to. It is set
+aside on 2026-09-26 because a 1933 pictorial reconstruction is not evidence against two 1834
+sheets that draw nothing, and because the owner — looking at the thing — read the result as
+wrong. The source record is unchanged and `lasalle_slough_lower` still cites it, since the
+surviving stub's alignment is still his line.
+
+**Liberties.** L150 — "the La Salle slough's inland course and terminus rest on a 1933
+reconstruction" — moves to **Resolved**: the terminus it admitted to inventing is not in the
+terrain any more, so the invention is withdrawn rather than corrected. The much smaller liberty
+that survives — 16.35 m of channel inside a lot, on a ruling and on no sheet — is recorded as
+**L273**.

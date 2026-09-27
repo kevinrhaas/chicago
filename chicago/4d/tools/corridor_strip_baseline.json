@@ -30,13 +30,12 @@
       "structures": [
        "hogan_store",
        "lasalle_slough_crossing",
-       "newberry_dole_warehouse",
-       "slough_log_bridge"
+       "newberry_dole_warehouse"
       ]
      },
      "claimed": {
       "area_m2": 6132.2,
-      "dry_pct": 46.0,
+      "dry_pct": 45.0,
       "lots": 0,
       "structures": [
        "dearborn_street_drawbridge"
@@ -52,7 +51,7 @@
    "blocks_lost": [
     "blk_south_water_lasalle"
    ],
-   "roofs_on_moved_blocks": 55,
+   "roofs_on_moved_blocks": 56,
    "roofs_on_lost_blocks": 18
   }
  }

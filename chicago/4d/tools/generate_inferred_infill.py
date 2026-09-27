@@ -48,8 +48,9 @@ from roof_form import note_refusal, roof_kind  # noqa: E402
 # They are asked of the family's authored band now, exactly as the block parcel asks
 # (T-0144, T-0145) and the north parcel after it — same module, so a value and the gate
 # that tests it cannot be reading two different bands.
-from family_bands import (eave_floor, eave_for_ridge, eave_limits,  # noqa: E402
-                          families, pitch_deg, wall_height_m)
+from family_bands import (cargo_door_bays, eave_floor,  # noqa: E402
+                          eave_for_ridge, eave_limits, families, pitch_deg,
+                          wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
 from inferred_occupancy import occupancy  # noqa: E402
 # Every committed footprint in this scene's local frame, so a frontage run can butt
@@ -265,11 +266,53 @@ def door_kind(family: str) -> str:
     door — so the choice that used to sit halfway down the outbuilding tail is hoisted
     to where `eave_floor` can be asked about it.
     """
-    if family in ("W1", "W3", "F1", "A2"):
+    # F1 IS THE FREIGHT SHED AND ITS DOOR IS `cargo`, NOT `wagon` (T-1662). The
+    # crosswalk's required variant for the family is `freight_shed_low` — "wide
+    # doors; low openings" — and a wagon door is neither low nor plural. It also
+    # put the family's eave FLOOR at 3.08 m, 32 mm above the bottom of the 10-13 ft
+    # band the same crosswalk authors, so no F1 roof here could be dealt the low end
+    # of its own band. `cargo` is 2.20 x 2.35 m and takes the floor to 2.43 m.
+    if family == "F1":
+        return "cargo"
+    if family in ("W1", "W3", "A2"):
         return "wagon"
     if family in ("W2", "A1"):
         return "stable"
     return "man"
+
+
+def chimneys_for(family: str) -> int:
+    """WHETHER THE FAMILY HAS A FIRE IN IT, and only W1 does (T-1680).
+
+    W1's required variant in the crosswalk is `blacksmith_forge` — *"wide work door;
+    forge chimney; soot; detached"* — and `outbuilding` could not draw the second of
+    those until T-1680 gave it the town's own `chimneys` count. The rest of the
+    outbuilding tail is stables, sheds, cribs and cottages with no fire in them.
+
+    W2 and W3 are deliberately absent: their variants ask for daylight and double
+    doors, and a joiner's shop with a flue would be claiming a forge nobody put in it.
+
+    Authored only where it is more than zero, so no shed is rewritten to say it has
+    no chimney.
+    """
+    return 1 if family == "W1" else 0
+
+
+def door_bays_for(family: str) -> int:
+    """HOW MANY of that doorway the family's loading side carries (T-1662).
+
+    One everywhere but F1. The freight shed's crosswalk variant is
+    `freight_shed_low` — "wide doors; low openings" — and the plural is the point:
+    goods came off a wagon bed or a boat at more than one place along a shed eleven
+    metres long, which is what the family's own evidence note means by "cargo
+    openings". Two is what F1's footprint band carries with a real pier between them
+    and at each corner; the archetype refuses a third rather than thin the wall, and
+    refuses two on a front too short for them.
+
+    Authored only when it is more than one, so that the 130-odd outbuildings that
+    have always had a single door are not rewritten to say so.
+    """
+    return 2 if family == "F1" else 1
 
 
 def storeys_for(family: str) -> float:
@@ -404,6 +447,7 @@ def _form_body(family: str, seq: int, finish: str, width: float, depth: float) -
         return result
 
     if family.startswith(("C", "F")) and family != "F1":
+        cargo_bays = cargo_door_bays(family, spec["band_ft"])
         return {
             "stories": inferred(stories, why),
             "wall_height_m": inferred(wall, why),
@@ -416,9 +460,38 @@ def _form_body(family: str, seq: int, finish: str, width: float, depth: float) -
             "chimneys": inferred(1 if not family.startswith("F") else 0, why),
             "shopfront": inferred(not family.startswith("F"), why),
             "goods_door": inferred(True, why), "goods_door_side": inferred("end", why),
+            # THE CARGO-DOOR RHYTHM AND THE HOIST, WHERE THE FAMILY ASKS FOR THEM
+            # (T-1663). Both are the crosswalk's own words and neither is a
+            # consequence of the massing:
+            #
+            #   F3 asks for "multiple cargo doors" and gets the rhythm.
+            #   F2 asks for "hoist beam; upper freight doors" and gets both — the
+            #   plural of an upper freight door is a plural of LOADING POINTS,
+            #   since a load comes off one wagon at one door and goes up at that
+            #   door, so the rhythm below carries the upper doors too.
+            #
+            # HOW MANY is `family_bands.cargo_door_bays`, derived there from the
+            # family's own footprint band against the braced frame's post spacing,
+            # so the number is checkable rather than chosen. Every other family
+            # answers 1 and is not rewritten to say so.
+            #
+            # F2's assumption note reads "Hoist beam presence varies", and giving
+            # every F2 a hoist is the over-claim that note warns about. It is taken
+            # deliberately and recorded as a liberty (docs/LIBERTIES.md L280)
+            # rather than hidden: the same entry's EVIDENCE note names
+            # "warehouse framing/hoist support" as what this archetype must add
+            # before the family is satisfied, and a two-storey warehouse whose only
+            # opening is a ground door cannot load the floor it exists to have.
+            # Nothing in either committed record distinguishes one from the other,
+            # so there is nothing here to vary ON; a deal would be inventing a
+            # difference rather than recording one.
+            **({"goods_door_bays": inferred(cargo_bays, why)} if cargo_bays > 1
+               else {}),
+            **({"hoist_door": inferred(True, why)} if family == "F2" else {}),
         }
 
     door = door_kind(family)
+    bays = door_bays_for(family)
     material = "plank"
     if family == "A1" and min(width, depth) >= 2.2:
         material = "log"
@@ -429,6 +502,9 @@ def _form_body(family: str, seq: int, finish: str, width: float, depth: float) -
         "roof_pitch_deg": inferred(pitch(), why),
         "construction": inferred(material, why), "door": inferred(door, why),
         "door_side": inferred("front", why),
+        **({"door_bays": inferred(bays, why)} if bays > 1 else {}),
+        **({"chimneys": inferred(chimneys_for(family), why)}
+           if chimneys_for(family) else {}),
         "loft": inferred(family in ("W2", "A1", "A2"), why),
         "board_gap_m": inferred(.012, why), "paint": inferred(finish, why),
     }

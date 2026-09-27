@@ -4784,7 +4784,28 @@ for (const [label, viewport, touch] of [
       // West Water track carries the trace past its corner and the front
       // frontage qualifies again — so these four move BACK together when it
       // lands, by the same arithmetic and in the same direction.
-      frontage.census?.records === 5 && frontage.census?.walks === 50
+      // T-1628 CLOSED THE GROUND BREAK THE COMMENT BELOW CALLS "the ground break
+      // that still cuts it". The owner ruled the La Salle slough back to Wright's
+      // depiction, so `lasalle_slough_upper` is gone and `lasalle_slough_lower`
+      // stops 15.95 m inside block 50's South Water lot. The channel used to cross
+      // BOTH faces of blk_south_water_lasalle and split each one's walk in two; each
+      // is one run again — `blk_lake_lasalle_north_1` and
+      // `blk_south_water_lasalle_south_1` absorb their own `_2` — so 50 walks to 48,
+      // and the town gains 31.2 m of board (3193.4 -> 3224.6 m) while LOSING two
+      // runs. CROSSINGS, POSTS, FENCES AND REFUSALS DO NOT MOVE: a break in the
+      // middle of a face never sprang a corner crossing, and nothing about a wall,
+      // a trade or a setback changed on either block.
+      // T-1630 TAKES ONE MORE, AND IT IS A DIFFERENT KIND OF BREAK. The south bank
+      // below the bend came in to Hathaway's line on the owner's ruling (L275), so the
+      // outer plank walk no longer has to swing north round a point: the wharf reach is
+      // re-authored as ONE straight segment from the La Salle crossing to Jones's
+      // landing, and on that line Philo Carpenter's landing — which the old curve ran
+      // straight through, and which cut 8.6 m of boards out of the middle of it — is
+      // 4 m clear to the north. So the reach is one run where it was two: 48 walks to
+      // 47, and the two refusals on this record fall to one (Jones's, at the terminus,
+      // which the walk still runs INTO by design). Crossings, posts, fences and
+      // refusals elsewhere do not move.
+      frontage.census?.records === 5 && frontage.census?.walks === 47
         && frontage.census?.crossings === 39
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
@@ -4837,7 +4858,43 @@ for (const [label, viewport, touch] of [
         // the 3.0 m a street fence needs — that lot-6 refusal stands, with its number
         // corrected from -1.90 m to 1.50 m.
         && frontage.census?.posts === 18 && frontage.census?.fences === 31
-        && frontage.census?.refused === 91
+        // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
+        // walk, because the straight reach passes 4 m south of it. Jones's remains.
+        // T-1647 puts one back, and it is a refusal the rule could not reach before.
+        // blk_south_water_dearborn's seq-07 roof was a D5 cottage and is now a C2
+        // store-residence, so the hitching rule LOOKS at it for the first time — a
+        // cottage carries no trade to hitch to — and refuses it in writing, because
+        // the trade there is reconstructed and a post would be furniture standing on
+        // an invention. 90 refusals to 91. NOTHING ELSE MOVES: the lot-2 street-fence
+        // refusal is the same wall at the same 1.50 m, renamed with the roof; walks,
+        // crossings, posts and fences are untouched, because the re-family changes
+        // what the building IS and not where it stands.
+        // T-1648 puts four more back, and they are T-1647's clause four times over.
+        // The Franklin block's seq-08 and seq-09 roofs, La Salle's seq-11 and Wells's
+        // seq-01 were D-family cottages and are now C2 store-residences, so the
+        // hitching rule LOOKS at each of them for the first time — `store_residence`
+        // is one of the signboard rule's PUBLIC_TRADES and a cottage is not — and
+        // refuses each in writing, because the trade there is reconstructed and a post
+        // would be furniture standing on an invention. 91 refusals to 95. The other
+        // six roofs the same re-family moved were NOT here, and T-1648 read that as
+        // the rule rather than an omission: C1's `small_shop_or_office`, C3's
+        // `narrow_two_story_store`, C4's `wide_two_story_store_or_mixed_block` and
+        // F2's `narrow_two_story_warehouse` were none of them PUBLIC_TRADES, so
+        // clause 2 never reached clause 3 for them.
+        // T-1657 FOUND THAT READING WRONG, and 95 becomes 108. PUBLIC_TRADES is
+        // keyed by `function.value` as the records spell it — `store_residence` and
+        // `blacksmith_shop` are archetype-family terms and have always been in it —
+        // so those four terms were a silent omission and not a rule. All four are
+        // ruled on now, and thirteen roofs the hitching rule had never LOOKED at
+        // each get a written refusal: the three F-band roofs (Clark's seq-01,
+        // La Salle's seq-10 and south_f1_038) by clause 2, as a works that took
+        // drays at a yard gate, and the ten C-band roofs by clause 3, because the
+        // schedule dealt their trade rather than evidence holding it. NOTHING ELSE
+        // MOVES, and that is the whole shape of the fix: 18 posts, 16 of them the
+        // street edge's own, 86 walk/crossing runs and 31 fence runs, all
+        // unchanged. A trade the rule can finally see is still a trade the rule
+        // refuses — what changes is that it says so.
+        && frontage.census?.refused === 108
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -4995,8 +5052,25 @@ for (const [label, viewport, touch] of [
     // `frontage` mesh and 60 `frontage-chunk`s. Stating it as 61 + the board
     // rather than as a number means this line does not have to be edited twice
     // more when T-1547 puts the corner back.
+    // T-1628 — AND THE CHUNK COUNT FOLLOWS THE WALK COUNT, one mesh per run. The
+    // La Salle slough no longer breaks either face of blk_south_water_lasalle, so
+    // the two faces that carried two runs each carry one: 60 `frontage-chunk`s to
+    // 58, and 61 authored to 59 beside the shared `frontage` mesh. See the walk
+    // census above for the arithmetic; this line holds the same event one level
+    // down, and it is the "ground break that still cuts it" named above finally
+    // being gone.
+    // T-1630 — the same event one level down, and it takes FIVE meshes rather than one,
+    // for a reason worth writing down. `frontage.js` chunks an unnamed walk ONE MESH PER
+    // SEGMENT, and only when the line has more than two points. The old wharf reach was
+    // six authored knots cut into two runs by Carpenter's landing, so it carried five
+    // per-segment chunks; the straight reach is a single two-point segment, which is
+    // below that threshold and lays into the shared `frontage` mesh instead. So 58
+    // `frontage-chunk`s to 53 and 59 authored to 54. The boards did not go anywhere —
+    // the walk is 4.7 m LONGER than the two runs it replaces — they stopped being five
+    // separately cullable draw calls and became part of the one that is never culled,
+    // which for a 95 m run inside the town is the cheaper of the two.
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 62 : 61)
+      frontage.authored === (frontage.census?.lettered === 1 ? 55 : 54)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5235,25 +5309,29 @@ for (const [label, viewport, touch] of [
       saugPick.includes('sauganash_hotel'),
       `25 aims returned [${[...new Set(saugPick)].join(', ') || 'nothing'}]`);
 
-    // --- and the river plank walk (T-0119) --------------------------------
+    // --- and the river plank walk (T-0119, re-read by T-1629) -------------
     //
-    // The first frontage record that is not a building's frontage: the plank
-    // footway over the State slough's mouth on the Slough Log Bridge's
-    // committed deck, and the riverside walk from it along the south bank to
-    // Jones's landing. Its failure modes are its own, and none is visible to a
-    // dataset gate: the footway must be a surface the walker STANDS ON over
-    // water (a deck registered from the walk record, T-0045's machinery), the
-    // planks must actually be under the boot at the mouth, and the whole run
-    // must publish its floor to the planting block-list.
+    // The first frontage record that is not a building's frontage: the riverside
+    // walk along the south bank of the main stem to Jones's landing. Until
+    // 2026-09-26 its east end was a footway riding the Slough Log Bridge over the
+    // State slough's MOUTH, and these checks asked whether a visitor stood on
+    // planks over water there. The owner ruled that the mouth is Wright's traced
+    // re-entrant just EAST of State and the mouth built west of State — under
+    // these very boards — was the invention. So the carve is filled, the deck
+    // went with the water onto State Street, and what has to be true here is the
+    // opposite of what it was: the walk's east end stands on GROUND, the old
+    // mouth is dry, and the only water at the foot of State is at the notch.
+    // None of it is visible to a dataset gate: the ground under a board and the
+    // walker's own deck registry are decided at load.
     const river = await page.evaluate(() => {
       const a = window.__chicago4d;
       const f = a?.frontage;
       const rec = (f?.records ?? []).find((r) => r.id === 'river_walk_frontage');
       const footway = (f?.walks ?? []).find((w) => w.id === 'river_plank_walk_crossing_footway');
-      const deck = (a.decks ?? []).find((d) => d.id === 'river_plank_walk_crossing_footway__footway');
+      const ridden = (a.decks ?? []).find((d) => d.id === 'river_plank_walk_crossing_footway__footway');
       const keepOut = (f?.keepOut ?? []).filter((k) => k.id === 'river_plank_walk__walk').length;
-      // Planks under the boot at the mouth: timber vertices inside the deck
-      // span, at the footway's own plank band and no other height.
+      // Boards still under the boot at the walk's east end — timber vertices in
+      // the run's own band, standing over the FILLED ground rather than a deck.
       let boardVerts = 0;
       for (const t of f?.group?.children ?? []) {
         if (t.name !== 'frontage' && t.name !== 'frontage-chunk') continue;
@@ -5263,20 +5341,27 @@ for (const [label, viewport, touch] of [
           const e = pos.getX(i);
           const n = -pos.getZ(i);
           if (e < 805.4 || e > 813.2 || n < 13.1 || n > 15.3) continue;
-          const y = pos.getY(i);
-          if (deck && y > deck.y - 0.06 && y <= deck.y + 1e-6) boardVerts += 1;
+          if (pos.getY(i) > 0.9) boardVerts += 1;
         }
       }
-      // Stand mid-deck, over the water: the planks, not the wading barrier,
-      // hold the walker up — the exact-equality contract the bridge decks keep.
+      // THE OLD MOUTH IS FILLED. Stand where the deck used to be: dry ground,
+      // and the walker on it rather than on a registered deck over water.
       a.walker.teleport({ local_e: 809.4, local_n: 14.2, yaw_deg: 270 });
       const stood = {
         groundY: a.walker.state.groundY,
         wet: a.terrain.isWater(809.4, 14.2),
-        barrier: a.terrain.walkHeight(809.4, 14.2),
+        terrain: a.terrain.walkHeight(809.4, 14.2),
       };
-      // And the crossing is walkable END TO END: west off the deck onto the
-      // graded bank, no step refusal, ground continuous under every stride.
+      // AND THERE IS EXACTLY ONE MOUTH, east of State: the notch is open water,
+      // the re-seated deck on State Street stands over water, and the bank west
+      // of State — where the second notch used to be — is land all the way.
+      const mouths = {
+        notch: a.terrain.isWater(852.0, 11.0),
+        underDeck: a.terrain.isWater(826.9, -8.4),
+        bankWestOfState: [806, 810, 814, 818].map((e) => a.terrain.isWater(e, 20.0)),
+      };
+      // And the east end is walkable END TO END: west along the bank, no step
+      // refusal, ground continuous under every stride.
       let worstStride = 0;
       let prevY = a.walker.state.groundY;
       let blocked = 0;
@@ -5292,33 +5377,40 @@ for (const [label, viewport, touch] of [
         hasRecord: !!rec,
         cardId: rec?.card?.id ?? null,
         footwayDeckM: footway?.deck_m ?? null,
-        deckY: deck?.y ?? null,
+        footwayRides: footway?.rides ?? null,
+        riddenDeck: ridden?.id ?? null,
         walkRise: footway?.rise_m ?? null,
         keepOut,
         boardVerts,
         stood,
+        mouths,
         walkedToE: a.walker.state.e,
         worstStride,
         blocked,
       };
     });
-    check(`${label}: the river walk publishes its floor and registers its crossing deck`,
+    check(`${label}: the river walk publishes its floor and rides no deck at its east end`,
       river.hasRecord && river.cardId === 'river_plank_walk'
         && river.keepOut >= 15
-        && river.deckY !== null && river.footwayDeckM !== null
-        && Math.abs(river.deckY - (river.footwayDeckM + river.walkRise)) < 1e-9,
+        && river.footwayRides === null && river.footwayDeckM === null
+        && river.riddenDeck === null,
       `record ${river.hasRecord}, card ${river.cardId}, ${river.keepOut} keep-out `
-      + `rect(s), walker deck at ${river.deckY} m against deck_m ${river.footwayDeckM} `
-      + `+ rise ${river.walkRise}`);
-    check(`${label}: the walker stands on the planks over the water at the mouth`,
-      river.stood.wet === true && river.stood.groundY === river.deckY
-        && river.stood.barrier > river.deckY + 1,
-      `stood at ${river.stood.groundY} m over water=${river.stood.wet}, deck `
-      + `${river.deckY} m, barrier ${river.stood.barrier} m`);
-    check(`${label}: the crossing reads as planks underfoot, and walks off onto the bank`,
+      + `rect(s), rides ${river.footwayRides}, deck_m ${river.footwayDeckM}, `
+      + `registered deck ${river.riddenDeck}`);
+    check(`${label}: the old mouth west of State is filled and the walker stands on it`,
+      river.stood.wet === false && river.stood.groundY > 0.9
+        && river.stood.terrain > 0.9,
+      `stood at ${river.stood.groundY} m over water=${river.stood.wet}, terrain `
+      + `${river.stood.terrain} m`);
+    check(`${label}: exactly one slough mouth at the foot of State, and it is the notch`,
+      river.mouths.notch === true && river.mouths.underDeck === true
+        && river.mouths.bankWestOfState.every((w) => w === false),
+      `notch wet=${river.mouths.notch}, under the deck wet=${river.mouths.underDeck}, `
+      + `bank west of State wet=[${river.mouths.bankWestOfState.join(', ')}]`);
+    check(`${label}: the east end reads as planks underfoot, and walks on along the bank`,
       river.boardVerts >= 100 && river.walkedToE < 802 && river.blocked === 0
         && river.worstStride <= 0.35,
-      `${river.boardVerts} plank vertice(s) in the footway band, walked west to `
+      `${river.boardVerts} plank vertice(s) in the east end's band, walked west to `
       + `E ${river.walkedToE?.toFixed(1)}, ${river.blocked} blocked stride(s), worst `
       + `step ${river.worstStride?.toFixed(2)} m`);
 
@@ -7045,7 +7137,28 @@ for (const [label, viewport, touch] of [
       }));
     const refusedRoof = refusedOnARoof[0]?.structure_id ?? null;
 
-    const popAgency = await page.evaluate((jonesKingRoof) => {
+    // THE HELD ROOF IS READ OUT OF THE FILE FOR THE SAME REASON THE REFUSED ONE IS.
+    // T-1651 made the street-face deal seat a business by what its roof was raised
+    // as, and that moved this holding off blk_randolph_wells_d2_07 and into a South
+    // Water shopfront. A literal id here is a green that expires on the next deal —
+    // the note above says so about `..._d4_08`. What must not change is that the
+    // compiled relation still puts Hubbard & Co.'s holding on SOME roof, so that is
+    // what is asserted, and the card is then read at whichever roof that is.
+    const heldOnARoof = (agenciesDoc.agencies ?? [])
+      .flatMap((a) => a.holdings ?? [])
+      .filter((h) => h.structure_id);
+    check(`${label}: the compiled agencies still put Hubbard & Co.'s holding on a roof`,
+      heldOnARoof.length === 1
+      && heldOnARoof[0].holder === 'Hubbard & Co.'
+      && heldOnARoof[0].holder_id === 'business_hubbard_co'
+      && Number(agenciesDoc.counts?.holdings) === 2,
+      JSON.stringify({
+        found: heldOnARoof.map((h) => ({ holder: h.holder, structure_id: h.structure_id })),
+        counts: agenciesDoc.counts,
+      }));
+    const hubbardRoof = heldOnARoof[0]?.structure_id ?? null;
+
+    const popAgency = await page.evaluate(({ hubbardRoof, jonesKingRoof }) => {
       const read = (id) => {
         if (!id) return { present: false, text: '', refused: false, cites: [] };
         window.__chicago4d.pick(id);
@@ -7059,11 +7172,11 @@ for (const [label, viewport, touch] of [
         };
       };
       return {
-        hubbard: read('recon_1835_blk_randolph_wells_d2_07'),
+        hubbard: read(hubbardRoof),
         jonesKing: read(jonesKingRoof),
         sauganash: read('sauganash_hotel'),
       };
-    }, refusedRoof);
+    }, { hubbardRoof, jonesKingRoof: refusedRoof });
     check(`${label}: the card names the agency this house held, and its principal`,
       popAgency.hubbard.present
       && /Hubbard & Co\. held the agency for Howard Fire Insurance Company/.test(popAgency.hubbard.text)
@@ -12634,7 +12747,7 @@ for (const [label, viewport, touch] of [
       roofFirms.fromSign === true && /^The board hangs/.test(roofFirms.signLead),
       JSON.stringify({ fromSign: roofFirms.fromSign, signLead: roofFirms.signLead }));
 
-    // T-0710/T-1292: the Evidence hub — ten tiles whose counts are their mounts'
+    // T-0710/T-1292: the Evidence hub — eleven tiles whose counts are their mounts'
     // entries, a topic that searches, and a way back. City is second and its two
     // ladders are fetched only when this tab opens.
     await page.evaluate(() => { window.__chicago4d.hud.setPanel(true); });
@@ -12643,12 +12756,13 @@ for (const [label, viewport, touch] of [
       const api = window.__chicago4d;
       const hubEl = document.getElementById('evidence-hub');
       const tiles = () => [...hubEl.querySelectorAll('.ev-tile')];
-      for (let i = 0; i < 50 && tiles().some((t) => /…/.test(t.querySelector('.ev-count')?.textContent ?? '')); i++) {
+      for (let i = 0; i < 50 && tiles().some((t) => t.dataset.topic !== 'sources' && /…/.test(t.querySelector('.ev-count')?.textContent ?? '')); i++) {
         await new Promise((r) => setTimeout(r, 100));
       }
       const mountCount = (id) => (id === 'grades'
         ? document.querySelectorAll('.ev-topic[data-topic="grades"] .legend-list > li').length
         : id === 'city' ? document.querySelectorAll('#city .gc-row').length
+        : id === 'sources' ? (document.getElementById('sources').dataset.count ? Number(document.getElementById('sources').dataset.count) : null)
         // The mount's id is not always the topic's: the order book's topic is
         // `orderbook` and its mount is `#order-book`, so the count is taken from
         // the topic's own mount rather than from a guessed id.
@@ -12703,11 +12817,33 @@ for (const [label, viewport, touch] of [
         topic: api.evidenceHub.topic, backHidden: document.getElementById('panel-back').hasAttribute('hidden') };
       return out;
     });
-    check(`${label}: the Evidence hub shows ten topics, each counting its own entries`,
-      hub.hubShown && hub.title === 'Evidence' && hub.tiles.length === 10
+    check(`${label}: the Evidence hub shows eleven topics, with Sources unknown until opened`,
+      hub.hubShown && hub.title === 'Evidence' && hub.tiles.length === 11
       && hub.tiles[0]?.id === 'grades' && hub.tiles[1]?.id === 'city'
-      && hub.tiles.every((t) => Number.isFinite(t.count) && t.count > 0 && t.count === t.mount && t.title && t.title === t.h3),
+      && hub.tiles[2]?.id === 'sources'
+      && hub.tiles.every((t) => t.title && t.title === t.h3 && (t.id === 'sources' && t.mount === null ? !Number.isFinite(t.count) : Number.isFinite(t.count) && t.count > 0 && t.count === t.mount)),
       JSON.stringify(hub.tiles.map((t) => `${t.id} ${t.count}/${t.mount}`)));
+    await page.evaluate(() => window.__chicago4d.evidenceHub.showTopic('sources'));
+    await page.waitForFunction(() => window.__chicago4d.sources?.rows.length > 0);
+    const sourcesView = await page.evaluate(() => {
+      const api = window.__chicago4d, root = document.getElementById('sources');
+      const initial = root.querySelector('.src-status').textContent;
+      const initialRows = root.querySelectorAll('.src-row').length;
+      const all = root.querySelector('.src-all input'); all.checked = true; all.dispatchEvent(new Event('change'));
+      const allStatus = root.querySelector('.src-status').textContent;
+      const search = root.querySelector('.src-search');search.value='Andreas';search.dispatchEvent(new Event('input'));
+      const known = root.querySelector('[data-source-id="andreas_1884_v1"]');
+      const result = {initial,initialRows,allStatus,total:api.sources.rows.length,
+        scene:api.sources.rows.filter(r=>r.use==='scene').length,known:known?.textContent || '',
+        fits:root.scrollWidth<=root.clientWidth+1};
+      search.value='';search.dispatchEvent(new Event('input'));api.evidenceHub.showHub();return result;
+    });
+    check(`${label}: Sources lazily lists scene and registered counts with a forty-row window`,
+      sourcesView.initial.startsWith(String(sourcesView.scene)) && sourcesView.allStatus.startsWith(String(sourcesView.total))
+      && sourcesView.initialRows === 40 && sourcesView.fits, JSON.stringify(sourcesView));
+    check(`${label}: Sources finds Andreas with date, type, tier and separate claim/entity figures`,
+      /1884/.test(sourcesView.known) && /book/.test(sourcesView.known) && /tier 3/.test(sourcesView.known)
+      && /Claims:/.test(sourcesView.known) && /Entities:/.test(sourcesView.known), sourcesView.known);
     const cityScene = hub.city.data?.people?.scene || null;
     const cityPopulation = cityScene?.population || null;
     const grouped = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');

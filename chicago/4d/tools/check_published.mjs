@@ -58,6 +58,7 @@ const COPIES = [
   ['data/reconstruction/1835_address_book.json', 'data/reconstruction/1835_address_book.json'],
   ['data/terrain/', 'data/terrain/'],
   ['data/sidecars/', 'data/sidecars/'],
+  ['data/loading/statuses.json', 'data/loading/statuses.json'],
   ['data/residents/', 'data/residents/'],
   ['data/enclosures/', 'data/enclosures/'],
   ['data/signage/', 'data/signage/'],

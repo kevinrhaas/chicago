@@ -59,6 +59,13 @@ def families() -> dict[str, dict]:
             "eave_ft": geom.get("eave_ft"),
             "roof": geom.get("roof"),
             "ridge_ft": geom.get("ridge_ft"),
+            # T-1667. The variants column, verbatim, because it is where the crosswalk
+            # states a family's FACADE-bay range — "4-6 bays", "2-3 shop bays" — and a
+            # generator asking "how many bays does this family author" had no way to see
+            # it. Carried raw rather than parsed here: the count means one thing to the
+            # crosswalk (the door is a bay) and another to the archetypes (it is not),
+            # and `frame_storefront_params.facade_bays` owns that mapping.
+            "variants": geom.get("variants"),
             "band_ft": None,
         }
         m = FOOTPRINT_RE.match(str(geom.get("footprint_ft") or ""))
@@ -250,6 +257,53 @@ def eave_floor(family: str, door: str = "man") -> float:
 DOOR_HEADER_M = 0.08
 
 
+# HOW MANY CARGO OPENINGS A WAREHOUSE FAMILY'S LOADING SIDE CARRIES (T-1663).
+#
+# Two families in the crosswalk ask for more than one, in their own words:
+#
+#   F3 `warehouse_river_large` — variants "multiple cargo doors; landing apron;
+#      sparse glazing", and an evidence note that names "multiple cargo-door
+#      rhythm" as the thing no current archetype conveys.
+#   F2 `warehouse_narrow_two_story` — variants "hoist beam; upper freight doors;
+#      few windows". An upper freight door stands over a cargo opening, because a
+#      load comes off one wagon at one door and goes up at that door; so the plural
+#      of the upper door is a plural of LOADING POINTS, not two doors over one.
+#
+# Neither entry says how many, and the number is therefore an invention
+# (docs/LIBERTIES.md L280). It is bounded rather than chosen, and the bound is the
+# family's OWN footprint band at its short end, measured against the braced frame
+# this archetype is already set out on:
+#
+#   * the loading side is the DEPTH — `frame_storefront` puts an `end` goods door
+#     on a gable wall that spans the plan's depth — so the shortest loading side a
+#     family can be dealt is the low figure of its `footprint_ft` band;
+#   * an opening with its jamb stock takes GOODS_DOOR_W_M + 2 * GOODS_DOOR_JAMB_M
+#     of that wall, and the even set-out leaves n + 1 equal piers;
+#   * a pier narrower than POST_SPACING_M is narrower than one bay of the braced
+#     frame the wall is built as, so the opening beside it cannot stand in a bay of
+#     its own. That is the floor, and it is the archetype's own number rather than
+#     one invented here.
+#
+# The answer is the largest rhythm EVERY plan the band authors will carry: F2's
+# 40 ft short side takes two (2.62 m piers) and refuses three (1.42 m); F3's 55 ft
+# takes three (2.56 m) and refuses four (1.62 m). One rule, each family's own band,
+# and a count that does not change with the individual plan — because a count that
+# followed the plan would be the generator deciding how a particular building was
+# worked, which is a claim about its use and not about its family.
+def cargo_door_bays(family: str, band_ft: list[int] | None) -> int:
+    if family not in ("F2", "F3") or not band_ft:
+        return 1
+    from archetypes.frame_storefront_params import (  # noqa: PLC0415
+        GOODS_DOOR_JAMB_M, GOODS_DOOR_W_M, POST_SPACING_M,
+    )
+    shortest_m = float(band_ft[1]) * .3048   # the band is in feet, as dimensions_m reads it
+    framed = GOODS_DOOR_W_M + 2 * GOODS_DOOR_JAMB_M
+    n = 1
+    while (shortest_m - (n + 1) * framed) / (n + 2) >= POST_SPACING_M:
+        n += 1
+    return n
+
+
 # THE OTHER END OF THE SAME BAND (T-0142). `eave_floor` exists because part of a
 # family's authored eave band is below what its archetype can build; H2 is the mirror
 # image — the merchant house's band runs 18-21 ft, and `frame_dwelling` refuses a
@@ -276,9 +330,16 @@ def eave_limits(archetype: str | None,
     """(floor, ceiling) the archetype will carry at this storey count.
 
     `(0.0, None)` for an archetype that publishes no `wall_height_band_m` — it names no
-    storey-dependent limit and gets none imposed. Only frame_dwelling publishes one
-    today; frame_tavern, log_dwelling, frame_storefront and outbuilding carry flat
+    storey-dependent limit and gets none imposed. frame_dwelling and — since T-1659 —
+    frame_storefront publish one; frame_tavern, log_dwelling and outbuilding carry flat
     limits far outside any eave band the crosswalk authors.
+
+    frame_storefront's band is the one that is not only about storeys: the shop opening
+    has to clear a door under the floor above it, so the floor it publishes is the eave
+    a SHOPFRONT needs and not merely the eave a storey needs. It matters most at the 1.5
+    storeys C2 authors, where the knee wall eats the ground storey from above — a
+    sampler drawing the low end of C2's 11-13 ft band produced an eave the archetype
+    then refused, 41 of 400 synthetic deals.
     """
     if not archetype or stories is None:
         return 0.0, None

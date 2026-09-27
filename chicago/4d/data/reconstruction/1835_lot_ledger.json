@@ -50,7 +50,7 @@
   "lots_with_a_roof": 135,
   "lots_barring_another_roof": 133,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 193,
+  "principal_roofs_standing": 194,
   "lots_over_their_own_rule": 15
  },
  "the_density_standard": {
@@ -75,8 +75,8 @@
   },
   "multi_building_lot_rate_on_the_principal_streets": {
    "principal_street_lots": 68,
-   "carrying_more_than_one_principal_roof": 33,
-   "rate": 0.4853,
+   "carrying_more_than_one_principal_roof": 34,
+   "rate": 0.5,
    "standard": "three party-line units per lot where the rule fires — the schedule's capacity is a ceiling and not a target (1835_platted_block_parcels.json, `placement_rule.open_lots`)"
   }
  },
@@ -4686,12 +4686,12 @@
    "standing": [
     "recon_1835_blk_south_water_clark_a3_05",
     "recon_1835_blk_south_water_clark_d1_04",
-    "recon_1835_blk_south_water_clark_d5_01"
+    "recon_1835_blk_south_water_clark_f2_01"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_clark_a3_05": "A3",
     "recon_1835_blk_south_water_clark_d1_04": "D1",
-    "recon_1835_blk_south_water_clark_d5_01": "D5"
+    "recon_1835_blk_south_water_clark_f2_01": "F2"
    },
    "principal_roofs_standing": 2,
    "bars_another_roof": true,
@@ -4817,8 +4817,8 @@
    "corner": true,
    "frontage_m": 25.93,
    "depth_m": 45.99,
-   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
-   "dry": false,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
@@ -4852,8 +4852,8 @@
    "corner": true,
    "frontage_m": 25.92,
    "depth_m": 45.99,
-   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
-   "dry": false,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
@@ -4885,21 +4885,21 @@
    "corner": false,
    "frontage_m": 25.93,
    "depth_m": 45.73,
-   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
-   "dry": false,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
     "frederick_thomas_shop",
     "recon_1835_blk_south_water_dearborn_a1_09",
-    "recon_1835_blk_south_water_dearborn_d3_08",
-    "recon_1835_blk_south_water_dearborn_d5_07"
+    "recon_1835_blk_south_water_dearborn_c1_08",
+    "recon_1835_blk_south_water_dearborn_c2_07"
    ],
    "standing_families": {
     "frederick_thomas_shop": "C1",
     "recon_1835_blk_south_water_dearborn_a1_09": "A1",
-    "recon_1835_blk_south_water_dearborn_d3_08": "D3",
-    "recon_1835_blk_south_water_dearborn_d5_07": "D5"
+    "recon_1835_blk_south_water_dearborn_c1_08": "C1",
+    "recon_1835_blk_south_water_dearborn_c2_07": "C2"
    },
    "principal_roofs_standing": 3,
    "bars_another_roof": true,
@@ -4924,8 +4924,8 @@
    "corner": false,
    "frontage_m": 25.92,
    "depth_m": 45.73,
-   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
-   "dry": false,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
@@ -4957,8 +4957,8 @@
    "corner": false,
    "frontage_m": 25.93,
    "depth_m": 45.47,
-   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
-   "dry": false,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
@@ -4996,8 +4996,8 @@
    "corner": false,
    "frontage_m": 25.92,
    "depth_m": 45.47,
-   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
-   "dry": false,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
@@ -5029,17 +5029,19 @@
    "corner": true,
    "frontage_m": 25.93,
    "depth_m": 45.21,
-   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
-   "dry": false,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "chappel_infant_school"
+    "chappel_infant_school",
+    "south_bank_shed_dearborn_e2"
    ],
    "standing_families": {
-    "chappel_infant_school": "D1"
+    "chappel_infant_school": "D1",
+    "south_bank_shed_dearborn_e2": "F1"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
@@ -5062,8 +5064,8 @@
    "corner": true,
    "frontage_m": 25.92,
    "depth_m": 45.21,
-   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
-   "dry": false,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [],
@@ -5161,15 +5163,15 @@
    "principal_roofs_max": 3,
    "standing": [
     "recon_1835_blk_south_water_franklin_a3_11",
-    "recon_1835_blk_south_water_franklin_c2_10",
-    "recon_1835_blk_south_water_franklin_d4_08",
-    "recon_1835_blk_south_water_franklin_d5_09"
+    "recon_1835_blk_south_water_franklin_c2_08",
+    "recon_1835_blk_south_water_franklin_c2_09",
+    "recon_1835_blk_south_water_franklin_c2_10"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_franklin_a3_11": "A3",
-    "recon_1835_blk_south_water_franklin_c2_10": "C2",
-    "recon_1835_blk_south_water_franklin_d4_08": "D4",
-    "recon_1835_blk_south_water_franklin_d5_09": "D5"
+    "recon_1835_blk_south_water_franklin_c2_08": "C2",
+    "recon_1835_blk_south_water_franklin_c2_09": "C2",
+    "recon_1835_blk_south_water_franklin_c2_10": "C2"
    },
    "principal_roofs_standing": 3,
    "bars_another_roof": true,
@@ -5303,15 +5305,15 @@
    "principal_roofs_max": 3,
    "standing": [
     "recon_1835_blk_south_water_franklin_a3_07",
+    "recon_1835_blk_south_water_franklin_c4_01",
     "recon_1835_blk_south_water_franklin_d1_04",
-    "recon_1835_blk_south_water_franklin_d4_02",
-    "recon_1835_blk_south_water_franklin_d5_01"
+    "recon_1835_blk_south_water_franklin_d4_02"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_franklin_a3_07": "A3",
+    "recon_1835_blk_south_water_franklin_c4_01": "C4",
     "recon_1835_blk_south_water_franklin_d1_04": "D1",
-    "recon_1835_blk_south_water_franklin_d4_02": "D4",
-    "recon_1835_blk_south_water_franklin_d5_01": "D5"
+    "recon_1835_blk_south_water_franklin_d4_02": "D4"
    },
    "principal_roofs_standing": 3,
    "bars_another_roof": true,
@@ -5371,21 +5373,21 @@
    "corner": true,
    "frontage_m": 24.78,
    "depth_m": 45.94,
-   "ground_reading": "16 sample(s) below datum and 0 off the modelled field",
+   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
    "dry": false,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
     "recon_1835_blk_south_water_lasalle_a1_14",
-    "recon_1835_blk_south_water_lasalle_d1_08",
+    "recon_1835_blk_south_water_lasalle_c1_08",
     "recon_1835_blk_south_water_lasalle_d2_09",
-    "recon_1835_blk_south_water_lasalle_d3_10"
+    "recon_1835_blk_south_water_lasalle_f2_10"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_lasalle_a1_14": "A1",
-    "recon_1835_blk_south_water_lasalle_d1_08": "D1",
+    "recon_1835_blk_south_water_lasalle_c1_08": "C1",
     "recon_1835_blk_south_water_lasalle_d2_09": "D2",
-    "recon_1835_blk_south_water_lasalle_d3_10": "D3"
+    "recon_1835_blk_south_water_lasalle_f2_10": "F2"
    },
    "principal_roofs_standing": 3,
    "bars_another_roof": true,
@@ -5410,7 +5412,7 @@
    "corner": true,
    "frontage_m": 24.76,
    "depth_m": 45.94,
-   "ground_reading": "16 sample(s) below datum and 0 off the modelled field",
+   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
    "dry": false,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
@@ -5443,21 +5445,21 @@
    "corner": false,
    "frontage_m": 24.78,
    "depth_m": 46.14,
-   "ground_reading": "16 sample(s) below datum and 0 off the modelled field",
+   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
    "dry": false,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
     "recon_1835_blk_south_water_lasalle_a2_15",
-    "recon_1835_blk_south_water_lasalle_c3_13",
-    "recon_1835_blk_south_water_lasalle_d6_11",
-    "recon_1835_blk_south_water_lasalle_d7_12"
+    "recon_1835_blk_south_water_lasalle_c2_11",
+    "recon_1835_blk_south_water_lasalle_c3_12",
+    "recon_1835_blk_south_water_lasalle_c3_13"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_lasalle_a2_15": "A2",
-    "recon_1835_blk_south_water_lasalle_c3_13": "C3",
-    "recon_1835_blk_south_water_lasalle_d6_11": "D6",
-    "recon_1835_blk_south_water_lasalle_d7_12": "D7"
+    "recon_1835_blk_south_water_lasalle_c2_11": "C2",
+    "recon_1835_blk_south_water_lasalle_c3_12": "C3",
+    "recon_1835_blk_south_water_lasalle_c3_13": "C3"
    },
    "principal_roofs_standing": 3,
    "bars_another_roof": true,
@@ -5482,7 +5484,7 @@
    "corner": false,
    "frontage_m": 24.76,
    "depth_m": 46.14,
-   "ground_reading": "16 sample(s) below datum and 0 off the modelled field",
+   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
    "dry": false,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
@@ -5517,7 +5519,7 @@
    "corner": false,
    "frontage_m": 24.78,
    "depth_m": 46.34,
-   "ground_reading": "16 sample(s) below datum and 0 off the modelled field",
+   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
    "dry": false,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
@@ -5556,7 +5558,7 @@
    "corner": false,
    "frontage_m": 24.76,
    "depth_m": 46.34,
-   "ground_reading": "16 sample(s) below datum and 0 off the modelled field",
+   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
    "dry": false,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
@@ -5589,7 +5591,7 @@
    "corner": true,
    "frontage_m": 24.78,
    "depth_m": 46.54,
-   "ground_reading": "16 sample(s) below datum and 0 off the modelled field",
+   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
    "dry": false,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
@@ -5622,7 +5624,7 @@
    "corner": true,
    "frontage_m": 24.76,
    "depth_m": 46.54,
-   "ground_reading": "16 sample(s) below datum and 0 off the modelled field",
+   "ground_reading": "2 sample(s) below datum and 0 off the modelled field",
    "dry": false,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
@@ -5793,13 +5795,13 @@
    "principal_roofs_max": 3,
    "standing": [
     "recon_1835_blk_south_water_wells_a3_08",
-    "recon_1835_blk_south_water_wells_d5_02",
-    "recon_1835_blk_south_water_wells_d6_01"
+    "recon_1835_blk_south_water_wells_c2_01",
+    "recon_1835_blk_south_water_wells_c3_02"
    ],
    "standing_families": {
     "recon_1835_blk_south_water_wells_a3_08": "A3",
-    "recon_1835_blk_south_water_wells_d5_02": "D5",
-    "recon_1835_blk_south_water_wells_d6_01": "D6"
+    "recon_1835_blk_south_water_wells_c2_01": "C2",
+    "recon_1835_blk_south_water_wells_c3_02": "C3"
    },
    "principal_roofs_standing": 2,
    "bars_another_roof": true,

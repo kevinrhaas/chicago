@@ -53,7 +53,7 @@
   },
   "attributes": {
     "wall_height_m": {
-      "value": 3.193,
+      "value": 3.165,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -69,7 +69,7 @@
       "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the F1 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance. THE OTHER FORM ON OFFER IS REFUSED, AND HERE IS THE NUMBER. The F1 roof line offers \"gable or shed, 5:12-9:12\", and this town builds only the gable. A shed is one plane over the whole 11.7 m of this plan where a gable climbs half of it, so across the 441 plans F1's own footprint band allows, 420 of them cannot reach the 18-24 ft ridge band the same family authors — at any eave in its 10-13 ft band and at any pitch between 22.6 and 36.9 degrees. This building's own plan is one of them."
     },
     "roof_pitch_deg": {
-      "value": 34.3,
+      "value": 34.4,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -85,7 +85,7 @@
       "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the F1 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
     },
     "door": {
-      "value": "wagon",
+      "value": "cargo",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -94,6 +94,14 @@
     },
     "door_side": {
       "value": "front",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Type-level choice within the F1 band in the 2026 reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "door_bays": {
+      "value": 2,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -133,12 +141,12 @@
       "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Assigned from the F1 production family to satisfy the aggregate South Division mix; no occupant or individual use is known."
     },
     "occupants": {
-      "value": "James Grant — attorney and counsellor at law",
+      "value": "Magie & Wilkinson — dry goods, groceries, hardware, crockery, boots, shoes and hats, wholesale and retail",
       "confidence": "reconstructed",
       "sources": [
         "chicago_democrat_1833_1835"
       ],
-      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on La Salle Street AND NOTHING NARROWER — 1 printing, 1835-06-10 to 1835-06-10, claims chicago_democrat_1835_06_10#c008 — so it takes the STREET FACE and not a lot. THE ROOF ENDS ITS PLATTED TIER AGAINST La Salle Street, so it is a corner building and stands on that street as well as on the one its lot faces — the owner's ruling of 2026-08-30 (T-0416). Nothing about the roof changed and no geometry was raised to seat this business. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
+      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on La Salle Street AND NOTHING NARROWER — 3 printings, 1835-06-10 to 1835-07-01, claims chicago_democrat_1835_06_10#c009, chicago_democrat_1835_06_17#c007, chicago_democrat_1835_07_01#c014 — so it takes the STREET FACE and not a lot. THE ROOF ENDS ITS PLATTED TIER AGAINST La Salle Street, so it is a corner building and stands on that street as well as on the one its lot faces — the owner's ruling of 2026-08-30 (T-0416). Nothing about the roof changed and no geometry was raised to seat this business. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
     }
   },
   "residents": [],
