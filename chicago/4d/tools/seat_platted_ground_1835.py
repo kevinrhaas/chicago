@@ -335,15 +335,29 @@ def in_scope(data: dict) -> list[dict]:
     return rows
 
 
-def adoptable(data: dict, lots: list[dict]) -> tuple[dict[str, dict], list[dict]]:
+def adoptable(data: dict,
+              lots: list[dict]) -> tuple[dict[str, dict], list[dict], dict[str, str]]:
     """Every standing roof a household may be seated into, and the ones held back.
 
     The three refusals in the module docstring, applied: the reconstruction layer only,
     unoccupied only, no ancillary family. The return is keyed on structure id and
     carries the ledger row the roof stands on, because the deal scores LOTS.
+
+    THE THIRD RETURN IS THIS PASS READING ITS OWN WRITING (T-1638). The occupancy
+    refusal above exists so that a policy deal never overturns a committed claim about
+    the town — and a claim THIS DEAL made is not a rival claim. Since T-1638 the roof a
+    seat adopted carries the household back, in `resident_assignment.household_id`, and
+    a roof carrying one is offered to that household and to nobody else. So the deal is
+    idempotent where it used to be self-erasing: writing the keeper onto the roof would
+    otherwise make the roof unadoptable and hand the household somewhere else on the
+    next re-derivation, which is drift the gate would report as a fault in the data
+    rather than in this rule. An occupancy from any other pass — the street-face
+    business adoptions, the sixteen that say `Anonymous stock; no occupant is claimed` —
+    still holds its roof back, with its reason, exactly as before.
     """
     offer: dict[str, dict] = {}
     held_back: list[dict] = []
+    reserved: dict[str, str] = {}
     for lot in lots:
         for structure_id in lot["standing"]:
             record = data["records"][structure_id]
@@ -354,7 +368,8 @@ def adoptable(data: dict, lots: list[dict]) -> tuple[dict[str, dict], list[dict]
             if letter is None or letter in ANCILLARY_LETTERS:
                 continue
             occupants = record.get("occupants")
-            if occupants:
+            seated_to = (record.get("resident_assignment") or {}).get("household_id")
+            if occupants and not seated_to:
                 held_back.append({
                     "structure_id": structure_id,
                     "lot_id": lot["lot_id"],
@@ -365,9 +380,11 @@ def adoptable(data: dict, lots: list[dict]) -> tuple[dict[str, dict], list[dict]
                                   else str(occupants)),
                 })
                 continue
+            if seated_to:
+                reserved[structure_id] = seated_to
             offer[structure_id] = lot
     held_back.sort(key=lambda row: row["structure_id"])
-    return offer, held_back
+    return offer, held_back, reserved
 
 
 def score(lot: dict, clause: dict) -> int:
@@ -445,7 +462,7 @@ def deal(data: dict, lots: list[dict]) -> dict:
     is broken on the lot id.
     """
     by_id = {lot["lot_id"]: lot for lot in lots}
-    offer, held_back = adoptable(data, lots)
+    offer, held_back, reserved = adoptable(data, lots)
     taken: set[str] = set()
     plan = slot_plan(data)
     slots_on_lot: dict[str, int] = {}
@@ -495,6 +512,9 @@ def deal(data: dict, lots: list[dict]) -> dict:
             if structure_id not in taken
             and lot["district"] == district
             and lot["standing_families"][structure_id] in admitted
+            # A roof this deal has already seated is that household's roof and no
+            # other's (T-1638); a roof it has not is open to whoever the order reaches.
+            and reserved.get(structure_id, row["id"]) == row["id"]
         ]
         if candidates:
             structure_id, lot = max(

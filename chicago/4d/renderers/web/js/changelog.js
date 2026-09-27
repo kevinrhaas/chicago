@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1160, title: 'Nine South Water buildings now say who kept them', kind: 'change', ts: '2026-09-27T00:23:29.781Z', date: 'Sep 26, 2026, 7:23 PM CT',
+    items: [
+      'Walk down South Water Street, step behind the stores and open one of the cottages. Until today its card read \u201CAnonymous count-unit toward the July 1835 665-roof programme\u201D and named nobody. Nine of them now name a household \u2014 the Beaubiens on three of them, the Bourassas, the Bourques, the Cass family, the Davisons, the Clarks and a land agent named Blanshard.',
+      'Nothing was built and nobody moved. The town\u2019s placement policy dealt these households onto these lots a week ago, and the record of it was complete \u2014 in one direction. The PERSON\u2019s card said which building. The BUILDING\u2019s card said nothing at all. It now says it back.',
+      'Not one of these households is put here by a source, and every card says so in its first two sentences. What the citations carry is the NAME: a baptismal register, the Democrat\u2019s own columns. The lot is this project\u2019s invention, the roof over it is still a count-unit nobody attested, and switching the invented tier off still takes the whole thing away.',
+      'Eleven other South Water roofs were left anonymous deliberately, and sixty across the town. Those households are names read off the post office\u2019s letter lists \u2014 a name the town knew, with no address anywhere \u2014 and a ruling from last month refuses that cohort a roof. Writing them in would have been easy and wrong. They are listed with the ruling that refuses them.',
+      'Which leaves something worth saying out loud: the deal seated those sixty anyway. So the town\u2019s own seating and its own ruling disagree about sixty roofs, and that disagreement is now written down in a file instead of being invisible in two.',
+    ] },
   { v: 1159, title: 'The way to the fort no longer walks into the drain', kind: 'fix', ts: '2026-09-26T23:42:58.567Z', date: 'Sep 26, 2026, 6:42 PM CT',
     items: [
       'Walk east out of the town toward Fort Dearborn and the worn track ran straight into open water, stopped dead, and started again on the far side. Three and a half metres of the drain lay across it with nothing over them.',
