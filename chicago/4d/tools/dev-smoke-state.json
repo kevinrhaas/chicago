@@ -14,6 +14,102 @@
       "failures": [
         "desktop 1280x800: the east end reads as planks underfoot, and walks on along the bank — 2976 plank vertice(s) in the east end's band, walked west to E 811.5, 0 blocked stride(s), worst step 0.04 m"
       ],
+      "wallSeconds": 231,
+      "takenAt": "2026-09-27T02:40:41.913Z",
+      "ref": "steward/t-1647-dearborn-trade-front",
+      "commit": "799a3170de6f",
+      "devCommit": "a8e6ccbae2b1",
+      "treeHash": "sha256:3b730c01b7d0d9b5",
+      "treeDirty": false,
+      "changelogHash": "sha256:318cee45493192d4",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4.1,
+          4
+        ]
+      },
+      "source": "/tmp/smoke_d2c.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 115,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 129,
+      "takenAt": "2026-09-27T02:40:41.826Z",
+      "ref": "steward/t-1647-dearborn-trade-front",
+      "commit": "799a3170de6f",
+      "devCommit": "a8e6ccbae2b1",
+      "treeHash": "sha256:3b730c01b7d0d9b5",
+      "treeDirty": false,
+      "changelogHash": "sha256:318cee45493192d4",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4.1,
+          4
+        ]
+      },
+      "source": "/tmp/smoke_m34b.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 255,
+      "takenAt": "2026-09-27T02:40:41.745Z",
+      "ref": "steward/t-1647-dearborn-trade-front",
+      "commit": "799a3170de6f",
+      "devCommit": "a8e6ccbae2b1",
+      "treeHash": "sha256:3b730c01b7d0d9b5",
+      "treeDirty": false,
+      "changelogHash": "sha256:318cee45493192d4",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.9,
+          4.1,
+          4
+        ]
+      },
+      "source": "/tmp/smoke_d1b.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "2",
+      "parts": [
+        2
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 87,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the east end reads as planks underfoot, and walks on along the bank — 2976 plank vertice(s) in the east end's band, walked west to E 811.5, 0 blocked stride(s), worst step 0.04 m"
+      ],
       "wallSeconds": 217,
       "takenAt": "2026-09-27T02:23:19.874Z",
       "ref": "steward/t-1647-dearborn-trade-front",
@@ -1691,100 +1787,6 @@
         ]
       },
       "source": "/tmp/smoke_d12.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "12-13",
-      "parts": [
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 196,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 347,
-      "takenAt": "2026-09-26T14:16:41.273Z",
-      "ref": "steward/t-1590-book-building-readings",
-      "commit": "7b4cd696fdab",
-      "devCommit": "3d99c8297618",
-      "treeHash": "sha256:b53d2a47166ac0e2",
-      "treeDirty": false,
-      "changelogHash": "sha256:eaca1f0aecaa6c4a",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.8,
-          4.4,
-          3.6
-        ]
-      },
-      "source": "/tmp/smoke_m1213.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 92,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 510,
-      "takenAt": "2026-09-26T13:40:36.843Z",
-      "ref": "steward/t-1620-seats-card",
-      "commit": "0edb4fb2ca5c",
-      "devCommit": "3d99c8297618",
-      "treeHash": "sha256:f2e783944f43b021",
-      "treeDirty": false,
-      "changelogHash": "sha256:c404af50d18add56",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          0,
-          0.6,
-          2.3
-        ]
-      },
-      "source": "/tmp/smoke-d12b.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 114,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 241,
-      "takenAt": "2026-09-26T13:26:58.998Z",
-      "ref": "steward/t-1599-building-readings",
-      "commit": "f047ff939b45",
-      "devCommit": "c317dbd8f933",
-      "treeHash": "sha256:9d8eb334be95fdba",
-      "treeDirty": false,
-      "changelogHash": "sha256:65c7791af0336636",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.2,
-          4.1,
-          2.9
-        ]
-      },
-      "source": "/tmp/smoke_d_13.log"
     },
     {
       "viewport": "desktop",
