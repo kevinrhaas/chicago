@@ -102,10 +102,21 @@ CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 
 # Gable is the type. Shed is allowed for a one-storey shop and refused above that,
 # because a two-storey shed-roofed store in 1835 Chicago would be a claim rather
-# than a default. Hip and gambrel are not offered at all: no source describes one
-# on a Chicago store at this date, and substituting one silently is how an
-# archetype invents a building.
-ROOF_TYPES = ("gable", "shed")
+# than a default. Gambrel is not offered at all: no source describes one on a
+# Chicago store at this date, and substituting one silently is how an archetype
+# invents a building.
+#
+# HIP IS OFFERED SINCE T-1659, AND ONLY BECAUSE ONE FAMILY'S OWN ROOF LINE ASKS FOR
+# IT. `data/reconstruction/1835_family_archetype_crosswalk.json` authors C4 — the
+# wide two-storey store or mixed block — with `roof: "side gable or hip, 6:12-9:12"`.
+# Until this ticket the archetype refused a hip outright, which did not keep the
+# claim out of the scene: it made HALF of C4's authored roof line unbuildable, so the
+# family could only ever be dealt the other half and nothing said that the choice had
+# been made by an absence rather than by an argument. That is the same fault
+# `tools/roof_form.py` was written to end one level up. A hip is therefore buildable
+# HERE, and `validate()` refuses it anywhere C4's own entry does not reach: no other
+# family's roof line names one, and no family that does is one storey.
+ROOF_TYPES = ("gable", "shed", "hip")
 
 # The eave band this archetype will actually BUILD at a storey count, in metres.
 #
@@ -116,17 +127,104 @@ ROOF_TYPES = ("gable", "shed")
 # module that publishes the answer. The numbers are exactly the ones `validate()`
 # enforces — 2.2-9 m overall, and a one-storey record capped at 4.2 m because more
 # than that is two storeys' worth of wall — and are not re-argued here.
-WALL_HEIGHT_M = {1.0: (2.2, 4.2), 2.0: (2.2, 9.0)}
+# 1.5 IS HERE SINCE T-1659, and its band is frame_dwelling's own (2.9-4.6 m) rather
+# than a second opinion about what a half storey is: a store-residence and a
+# story-and-a-half cottage are the same carpentry with a shop in the front room, and
+# two archetypes disagreeing about the height of a knee wall would be a finding about
+# the town that is an artefact of which module built the roof.
+WALL_HEIGHT_M = {1.0: (2.2, 4.2), 1.5: (2.9, 4.6), 2.0: (2.2, 9.0)}
+
+# The standing height a half storey needs behind its knee wall, and the knee wall a
+# record that says nothing about one gets. Both are frame_dwelling's, for the reason
+# above; `KNEE_WALL_DEFAULT_M` is also what makes the ground storey's plate derivable,
+# which is what `shopfront_head_z` needs to stop cutting a shop opening through the
+# floor of the room over it (the defect T-1659 measured).
+HALF_STOREY_HEADROOM_M = 2.1
+KNEE_WALL_DEFAULT_M = 0.95
+KNEE_WALL_M = (0.3, 1.8)
+
+# The shop opening's own headroom, which is a SECOND floor under the eave and on a
+# store-residence the binding one. `shopfront_head_z` drops the head of the opening
+# `SHOP_HEAD_BELOW_FLOOR_M` under the floor above it — a shopfront's fascia and the
+# joists behind it have to land somewhere — and `_validate_shopfront` refuses a head
+# under `SHOP_HEAD_MIN_Z_M`, which is simply a door. Named because
+# `wall_height_band_m` has to publish the eave that follows: a sampler drawing the low
+# end of C2's authored 11-13 ft band got an eave this archetype then refused, which
+# `tools/measure_band_claims.py` measured at 41 of 400 synthetic C2 deals.
+SHOP_HEAD_MIN_Z_M = 2.15
+SHOP_HEAD_BELOW_FLOOR_M = 0.34
+# The other two things the head has to duck under, named for the same reason: the
+# frieze board at the eave (with the fascia over the opening below it), and a plausible
+# ceiling over a shop counter.
+SHOP_HEAD_BELOW_FRIEZE_M = 0.26
+SHOP_HEAD_CEILING_Z_M = 3.05
+
+# The storey counts this archetype will build. 1.5 is the C2 store-residence, whose
+# crosswalk entry authors `levels: "1.5"` and asks in writing for "a true
+# knee-wall/attic-room silhouette". Until T-1659 `from_phase` resolved the record's
+# storeys with `int()`, so eight committed records that STATE 1.5 were built as
+# one-storey shops — the half storey lost its light, and `shopfront_head_z` put the
+# shop opening's head at 3.05 m in buildings whose ground-storey plate is 2.55-2.99 m,
+# i.e. the shopfront was cut through the attic floor.
+STORIES = (1.0, 1.5, 2.0)
 
 
-def wall_height_band_m(stories: float) -> tuple[float, float]:
+def wall_height_band_m(stories: float,
+                       knee_wall_m: float = KNEE_WALL_DEFAULT_M,
+                       shopfront: bool = True) -> tuple[float, float]:
     """The eave band this archetype will build at a storey count.
 
     Read by `tools/family_bands.eave_limits`. A storey count this archetype refuses
     outright raises here rather than returning a band, so a caller cannot sample its
     way past `validate()`.
+
+    At 1.5 storeys the coarse band is not the binding rule — a half storey is a knee
+    wall standing on a full one and `validate()` refuses an eave that leaves under
+    2.1 m below the knee wall — so the floor is lifted the same way
+    `frame_dwelling_params.wall_height_band_m` lifts its own, plus the one millimetre
+    that every dimension in data/ is authored at (3.05 - 0.95 is 2.0999999999999996 in
+    binary, and a strict comparison refuses a floor sitting exactly on the limit).
     """
-    return WALL_HEIGHT_M[float(stories)]
+    lo, hi = WALL_HEIGHT_M[float(stories)]
+    if float(stories) == 1.5:
+        lo = max(lo, round(knee_wall_m + HALF_STOREY_HEADROOM_M, 3) + 0.001)
+    if shopfront:
+        # The ground storey has to carry a shop opening, and a shop opening is taller
+        # than a bedroom's headroom. `shopfront` defaults TRUE because the caller that
+        # matters — `tools/family_bands.eave_limits`, asked by every anonymous-roof
+        # sampler — is dealing store families, and every one of them gets a shopfront.
+        # A record that states it had none (Robert Kinzie's Wolf Point "storehouse") is
+        # validated against the archetype's flat floor instead, which is why this is a
+        # parameter and not another `max` inside the table.
+        lo = max(lo, round(_shop_eave_floor_m(float(stories), knee_wall_m), 3) + 0.001)
+    return lo, hi
+
+
+def _shop_eave_floor_m(stories: float, knee_wall_m: float) -> float:
+    """The lowest eave that can still carry a shop opening at this storey count.
+
+    Solved from `shopfront_head_z`'s own three terms rather than restated as a number,
+    so the band a sampler is handed and the head the mesh is built at cannot disagree.
+    Inverting each term for the eave:
+
+      the floor above  ->  plate >= SHOP_HEAD_MIN_Z_M + SHOP_HEAD_BELOW_FLOOR_M, and
+                           the plate is the eave at 1 storey, the eave less the knee
+                           wall at 1.5, and half the eave at 2
+      the frieze       ->  eave  >= SHOP_HEAD_MIN_Z_M + SHOP_HEAD_BELOW_FRIEZE_M
+                                    + SHOP_FASCIA_M
+      the ceiling      ->  a CEILING on the head and never a floor under the eave
+
+    The third term is why this is a `max` of two and not of three.
+    """
+    plate = SHOP_HEAD_MIN_Z_M + SHOP_HEAD_BELOW_FLOOR_M
+    if stories == 1.5:
+        from_plate = knee_wall_m + plate
+    elif stories == 1.0:
+        from_plate = plate
+    else:
+        from_plate = plate * 2.0
+    from_frieze = SHOP_HEAD_MIN_Z_M + SHOP_HEAD_BELOW_FRIEZE_M + SHOP_FASCIA_M
+    return max(from_plate, from_frieze)
 
 # The two framing systems this archetype builds, and the only two that can be
 # meant here. `log` and `brick` are refused with an argument in validate().
@@ -164,11 +262,12 @@ GOODS_DOOR_SIDES = ("end", "rear")
 # no archetype could read them for as long as `from_phase` took only a phase, and it
 # is what `docs/RESEARCH/materials.md` §4 finding 4 was pointing at.
 CONSUMED = frozenset({
-    "stories", "wall_height_m", "roof_type", "roof_pitch_deg", "gable_front",
+    "stories", "wall_height_m", "knee_wall_m", "roof_type", "roof_pitch_deg",
+    "gable_front",
     "construction", "cladding", "paint", "siding_exposure_m", "loft", "chimneys",
     "framing_exposed",
     "shopfront", "shopfront_bays", "shopfront_door_side",
-    "goods_door", "goods_door_side",
+    "goods_door", "goods_door_side", "hoist_door",
     "ell", "ell_side", "ell_width_m", "ell_depth_m", "ell_stories", "ell_height_m",
     "sign",
 })
@@ -202,8 +301,15 @@ class FrameStorefrontParams:
     # massing
     width_m: float
     depth_m: float
-    stories: int = 2
+    # A FLOAT since T-1659, because 1.5 is a storey count this archetype builds and
+    # `int()` is not a way of reading one. See STORIES above for what the truncation
+    # cost eight committed C2 records.
+    stories: float = 2.0
     wall_height_m: float = 5.4
+    # The wall standing above the half storey's floor before the roof takes over —
+    # what makes an attic room habitable and what its gable window sits above. Unused
+    # at 1 or 2 storeys. frame_dwelling's attribute, same name, same default.
+    knee_wall_m: float = KNEE_WALL_DEFAULT_M
     roof_type: str = "gable"
     # 33, against frame_tavern's 38 and log_dwelling's 35. A store's frontage is
     # long and its plan shallow — the one attested store footprint in the dataset
@@ -256,6 +362,17 @@ class FrameStorefrontParams:
     goods_door: bool = True
     goods_door_side: str = "end"
 
+    # An UPPER freight door in the loading gable with a hoist beam projecting over it:
+    # the way a two-storey store or warehouse got a barrel to its second floor without
+    # carrying it up a stair. The crosswalk authors it for C3 ("optional hoist door")
+    # and for F2 ("hoist beam; upper freight doors"), and it is OFF by default because
+    # those same entries say why it cannot be defaulted on: C3's assumption note reads
+    # "Upper lodging and hoist equipment are selectable variants and cannot be inferred
+    # from height alone", and F2's reads "Hoist beam presence varies". So a record gets
+    # a hoist because something said so, and an anonymous roof dealt from a family band
+    # does not get one at all — which is the state every committed record is in today.
+    hoist_door: bool = False
+
     # ---- the ell --------------------------------------------------------------
     ell: bool = False
     ell_side: str = "rear"
@@ -298,8 +415,54 @@ class FrameStorefrontParams:
         return max((self.conf(a) for a in attrs), default=1.0)
 
     @property
+    def loading_end_is_gable(self) -> bool:
+        """Is the side the freight goes in on a GABLE end?
+
+        The hoist beam projects from a gable — a wall crane under an eave is a different
+        arrangement and a second invention — so this is the question `hoist_door` turns
+        on, and it is asked HERE because `validate()` has to refuse a record the bake
+        cannot honour before the bake runs.
+
+        The gable ends stand across the ridge. The ridge runs along x when the record
+        does NOT front its gable (`frame_storefront._ridge_along_x`), which puts the
+        gables on the x planes — the footprint's two ENDS, where an `end` goods door
+        stands. Front the gable instead and the gables move to the y planes, one of
+        which is the REAR: so exactly one of the two goods-door sides has a gable over
+        it, and which one it is is the record's `gable_front`.
+        """
+        if self.roof_type != "gable":
+            return False
+        ridge_along_x = not self.gable_front
+        if self.goods_door_side == "rear":
+            return not ridge_along_x
+        return ridge_along_x
+
+    @property
+    def half_story(self) -> bool:
+        """A knee wall standing on a full storey, with rooms in the roof."""
+        return float(self.stories) == 1.5
+
+    @property
+    def full_stories(self) -> int:
+        """How many FULL storeys of wall the elevation has to light. A half storey
+        has none of its own — its light comes out of the gable, which is
+        frame_dwelling's rule and the reason a C2 store-residence reads as one."""
+        return int(float(self.stories))
+
+    @property
     def story_height_m(self) -> float:
-        return self.wall_height_m / max(self.stories, 1)
+        """The GROUND storey's plate above the base of the walls.
+
+        Not `wall_height_m / stories`, which is only the same number when the storeys
+        are equal. On a story-and-a-half the upper floor lands where the knee wall
+        starts, so the ground storey is the eave less the knee wall — and that is the
+        height the shopfront's head and a braced frame's girt both have to duck under.
+        Dividing by 1.5 instead put the attic floor 0.4-0.5 m too high on every C2
+        record and the shop opening's head above it.
+        """
+        if self.half_story:
+            return self.wall_height_m - self.knee_wall_m
+        return self.wall_height_m / max(self.full_stories, 1)
 
     @property
     def front_width_m(self) -> float:
@@ -321,8 +484,9 @@ class FrameStorefrontParams:
         drift apart. It has to duck under three things: the floor above, the frieze
         board at the eave, and a plausible ceiling.
         """
-        avail = self.wall_height_m if self.stories == 1 else self.story_height_m
-        return min(avail - 0.34, 3.05, self.wall_height_m - 0.26 - SHOP_FASCIA_M)
+        avail = self.wall_height_m if float(self.stories) == 1.0 else self.story_height_m
+        return min(avail - SHOP_HEAD_BELOW_FLOOR_M, SHOP_HEAD_CEILING_Z_M,
+                   self.wall_height_m - SHOP_HEAD_BELOW_FRIEZE_M - SHOP_FASCIA_M)
 
     @property
     def ell_wall_height_m(self) -> float:
@@ -341,9 +505,9 @@ class FrameStorefrontParams:
                              f"of lots is a block and not a building")
         if not 3.0 <= self.depth_m <= 30.0:
             raise ParamError(f"depth_m {self.depth_m} outside plausible range 3-30 m")
-        if self.stories not in (1, 2):
+        if float(self.stories) not in STORIES:
             raise ParamError(
-                f"stories {self.stories} not in 1..2. Chicago's first three-storey "
+                f"stories {self.stories} not in {STORIES}. Chicago's first three-storey "
                 f"structure is the Saloon Building of 1836 and its first brick house "
                 f"is 1837 (docs/research/04-structures-south.md §6, §13) — a "
                 f"three-storey store on 1835-07-01 is excluded by date, not merely "
@@ -353,19 +517,41 @@ class FrameStorefrontParams:
         if not 0.10 <= self.siding_exposure_m <= 0.16:
             raise ParamError(f"siding_exposure_m {self.siding_exposure_m} outside "
                              f"0.10-0.16 m (~4-6.3 in): not a period clapboard exposure")
-        if self.stories == 1 and self.wall_height_m > 4.2:
-            raise ParamError(f"wall_height_m {self.wall_height_m} is two storeys' worth "
-                             f"of wall on a one-storey record; set stories or the height")
+        band_lo, band_hi = wall_height_band_m(float(self.stories), self.knee_wall_m,
+                                              shopfront=self.shopfront)
+        if not band_lo <= self.wall_height_m <= band_hi:
+            raise ParamError(
+                f"wall_height_m {self.wall_height_m} is outside {band_lo:.3f}-{band_hi} m, "
+                f"the eave this archetype builds at {self.stories} storey(s)"
+                + (f" behind a {self.knee_wall_m} m knee wall — a half storey with under "
+                   f"{HALF_STOREY_HEADROOM_M} m of standing room behind its knee wall is "
+                   f"not a storey" if self.half_story else
+                   "; set the storeys or set the height"))
+        if self.half_story:
+            if not KNEE_WALL_M[0] <= self.knee_wall_m <= KNEE_WALL_M[1]:
+                raise ParamError(
+                    f"knee_wall_m {self.knee_wall_m} outside "
+                    f"{KNEE_WALL_M[0]}-{KNEE_WALL_M[1]} m; under a foot is a plate and "
+                    f"not a knee wall, and over six is a second storey being called half "
+                    f"of one")
         if self.roof_type not in ROOF_TYPES:
             raise ParamError(
                 f"roof_type '{self.roof_type}' not in {ROOF_TYPES}. frame_storefront "
                 f"builds gable and shed only; a hip or gambrel on a Chicago store at "
                 f"this date would be an invention, so it is refused rather than "
                 f"substituted")
-        if self.roof_type == "shed" and self.stories != 1:
+        if self.roof_type == "shed" and float(self.stories) != 1.0:
             raise ParamError(f"a shed roof over {self.stories} storeys is a claim, not a "
                              f"default — record the roof as gable or the building as "
                              f"one storey")
+        if self.roof_type == "hip" and float(self.stories) != 2.0:
+            raise ParamError(
+                f"a hip roof over {self.stories} storeys is outside every claim this "
+                f"archetype has for one. C4 — the wide two-storey store or mixed block — "
+                f"is the ONLY family whose crosswalk roof line names a hip, and its own "
+                f"`levels` line is 2; a hip on a one-storey shop or a store-residence "
+                f"would be this archetype inventing a form nothing asked it for, which "
+                f"is exactly what refusing the hip outright used to prevent")
         if not 15.0 <= self.roof_pitch_deg <= 55.0:
             raise ParamError(f"roof_pitch_deg {self.roof_pitch_deg} outside 15-55 deg")
         if self.construction not in CONSTRUCTIONS:
@@ -406,6 +592,31 @@ class FrameStorefrontParams:
         if self.goods_door and self.goods_door_side not in GOODS_DOOR_SIDES:
             raise ParamError(f"goods_door_side '{self.goods_door_side}' not in "
                              f"{GOODS_DOOR_SIDES}")
+        if self.hoist_door:
+            if float(self.stories) < 2.0:
+                raise ParamError(
+                    f"a hoist door lifts to an upper FLOOR and this record has "
+                    f"{self.stories} storey(s) — a hoist over a one-storey shop or into "
+                    f"an attic is not the C3/F2 arrangement, and a beam projecting off a "
+                    f"gable with nothing behind it is a prop")
+            if not self.goods_door:
+                raise ParamError(
+                    "a hoist door is the upper half of a LOADING side and this record "
+                    "has no goods door — a store that takes no freight at the ground "
+                    "does not hoist it to the second floor")
+            if self.roof_type != "gable":
+                raise ParamError(
+                    f"the hoist door hangs in the loading GABLE and this record's roof "
+                    f"is '{self.roof_type}', which has none there — record the roof as "
+                    f"gable or drop the hoist")
+            if not self.loading_end_is_gable:
+                raise ParamError(
+                    f"the freight goes in on this record's "
+                    f"'{self.goods_door_side}' side and, with gable_front "
+                    f"{self.gable_front}, that side is an EAVES wall — the beam would "
+                    f"have no gable to project from. A crane hung under an eave is a "
+                    f"different arrangement and this archetype does not model it; turn "
+                    f"the ridge, move the goods door, or drop the hoist")
         if self.ell:
             self._validate_ell()
 
@@ -431,7 +642,7 @@ class FrameStorefrontParams:
                 f"on has {self.front_width_m:.2f} m of frontage, which leaves less than "
                 f"{PIER_MIN_M} m of wall at each end — reduce the bays, widen the "
                 f"footprint, or make the ell a rear ell")
-        if self.shopfront_head_z < 2.15:
+        if self.shopfront_head_z < SHOP_HEAD_MIN_Z_M:
             raise ParamError(
                 f"a {self.wall_height_m} m wall over {self.stories} storey(s) leaves the "
                 f"shop opening a head height of {self.shopfront_head_z:.2f} m, which is "
@@ -699,7 +910,9 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameStorefrontParams
     confidences = {a: conf(a) for a in form if a != "dock"}
     confidences["footprint"] = phase.get("footprint", {}).get("confidence", "reconstructed")
 
-    stories = int(val("stories", 2))
+    # A FLOAT, and that one character is the whole of T-1659's C2 finding: `int()`
+    # read the eight committed records that state `stories: 1.5` as one-storey shops.
+    stories = float(val("stories", 2.0))
     sign = val("sign")
 
     # The default bay count is measured against the frontage the shopfront will
@@ -713,7 +926,9 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameStorefrontParams
         width_m=round(width, 3),
         depth_m=round(depth, 3),
         stories=stories,
-        wall_height_m=float(val("wall_height_m", 3.1 if stories == 1 else 5.4)),
+        wall_height_m=float(val("wall_height_m",
+                                {1.0: 3.1, 1.5: 3.6, 2.0: 5.4}.get(stories, 5.4))),
+        knee_wall_m=float(val("knee_wall_m", KNEE_WALL_DEFAULT_M)),
         roof_type=str(val("roof_type", "gable")),
         roof_pitch_deg=float(val("roof_pitch_deg", 33.0)),
         gable_front=bool(val("gable_front", False)),
@@ -729,6 +944,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameStorefrontParams
         shopfront_door_side=str(val("shopfront_door_side", "centre")),
         goods_door=bool(val("goods_door", True)),
         goods_door_side=str(val("goods_door_side", "end")),
+        hoist_door=bool(val("hoist_door", False)),
         ell=bool(val("ell", False)),
         ell_side=str(val("ell_side", "rear")),
         ell_width_m=ell_w,
@@ -876,7 +1092,7 @@ def front_window_rects(p: "FrameStorefrontParams", x0: float, x1: float,
     bays = max(2, min(7, int(round(front_w / 2.45))))
     module = module_m(p)
     out: list[tuple] = []
-    for story in range(p.stories):
+    for story in range(p.full_stories):
         z0 = storey_sill_z(p, story)
         if story == 0 and shop is not None:
             continue                       # the ground storey is the shop

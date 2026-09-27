@@ -276,9 +276,16 @@ def eave_limits(archetype: str | None,
     """(floor, ceiling) the archetype will carry at this storey count.
 
     `(0.0, None)` for an archetype that publishes no `wall_height_band_m` — it names no
-    storey-dependent limit and gets none imposed. Only frame_dwelling publishes one
-    today; frame_tavern, log_dwelling, frame_storefront and outbuilding carry flat
+    storey-dependent limit and gets none imposed. frame_dwelling and — since T-1659 —
+    frame_storefront publish one; frame_tavern, log_dwelling and outbuilding carry flat
     limits far outside any eave band the crosswalk authors.
+
+    frame_storefront's band is the one that is not only about storeys: the shop opening
+    has to clear a door under the floor above it, so the floor it publishes is the eave
+    a SHOPFRONT needs and not merely the eave a storey needs. It matters most at the 1.5
+    storeys C2 authors, where the knee wall eats the ground storey from above — a
+    sampler drawing the low end of C2's 11-13 ft band produced an eave the archetype
+    then refused, 41 of 400 synthetic deals.
     """
     if not archetype or stories is None:
         return 0.0, None

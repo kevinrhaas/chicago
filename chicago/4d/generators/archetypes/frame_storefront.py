@@ -79,6 +79,22 @@ M_CHIMNEY = 6
 # not a hypothetical: it is why log_dwelling's loft openings do not appear in
 # docs/RESEARCH/archetype-log_dwelling.png.
 ROOF_OVERHANG_M = 0.25
+
+# The half storey's window, and the hoist door's leaf. Both hang in a gable end, so
+# both are drawn against the roof's end triangle (see the ROOF_OVERHANG_M note above)
+# rather than against the wall plane, or they are built inside the roof and never seen.
+#
+# The attic sash is frame_dwelling's, to the millimetre, and deliberately so: a C2
+# store-residence's attic room and a D6 cottage's are the same room, and two archetypes
+# glazing it differently would read as a finding about the town.
+ATTIC_WIN_W_M, ATTIC_WIN_H_M = 0.62, 0.70
+
+# The hoist door is a pair of boarded leaves, wider and taller than an attic sash and
+# proportioned on a barrel rather than on a person: about 4 ft by 5 ft 6 in. The beam
+# over it is a 6 in square timber projecting far enough to clear the eave and the load.
+HOIST_DOOR_W_M, HOIST_DOOR_H_M = 1.22, 1.68
+HOIST_BEAM_FACE_M = 0.152
+HOIST_BEAM_REACH_M = 0.86
 BATTEN_SPACING_M = 0.356       # 14 in, the usual set-out for board and batten
 CLAD_RELIEF_M = 0.020          # how far the skin stands off the wall plane
 SHEATHING_BOARD_M = 0.229      # a 9 in sheathing board, laid horizontally
@@ -172,6 +188,18 @@ def build(params: FrameStorefrontParams, name: str):
 
     if p.loft:
         _loft_opening(b, p, mx0, my0, mx1, my1, wall_z, ridge_z, p.conf("loft"))
+
+    # A half storey's rooms are lit out of BOTH gables, where a loft gets one opening.
+    # That is the difference between an attic somebody sleeps in and a space goods are
+    # pushed into, and it is the whole of what C2's crosswalk entry means by "a true
+    # knee-wall/attic-room silhouette". It takes the MASSING's confidence, not the
+    # fenestration's: what the opening says is that there was a half storey here — the
+    # record's `stories` claim — and not that a window was arranged just so.
+    if p.half_story:
+        _attic_openings(b, p, mx0, my0, mx1, my1, wall_z, ridge_z, c_mass)
+
+    if p.hoist_door:
+        _hoist_door(b, p, mx0, my0, mx1, my1, wall_z, ridge_z, p.conf("hoist_door"))
 
     if p.ell:
         _ell(b, p, p.worst_conf("ell", "ell_stories"), c_clad)
@@ -634,7 +662,7 @@ def _fenestration(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float
     goods_end = _loading_sign(p) if (p.goods_door and p.goods_door_side == "end") else 0.0
     yc = (y0 + y1) / 2.0
     xc = (rear_x0 + x1) / 2.0
-    for story in range(p.stories):
+    for story in range(p.full_stories):
         z0 = storey_sill_z(p, story)
         for xx, sgn in ((x0, -1), (x1, 1)):
             if sgn > 0 and buried_x1:
@@ -715,6 +743,138 @@ def _loft_opening(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float
                  -1, conf)
 
 
+def _gable_plane(p: FrameStorefrontParams, x0: float, y0: float, x1: float,
+                 y1: float, sgn: float) -> tuple[str, float, float, float]:
+    """`(axis, plane, u0, u1)` of one gable END, on the roof's own outboard face.
+
+    `sgn` picks which of the two ends: +1 for the +x or +y one, -1 for the other. The
+    plane is `ROOF_OVERHANG_M` outboard of the wall because `add_gable_roof` fills each
+    gable with a solid triangle standing that far out, and an opening drawn on the wall
+    plane behind it is inside the roof. Shared by the attic sashes and the hoist door so
+    the two cannot drift apart, which is the rule T-0520 established for this module's
+    other openings.
+    """
+    if _ridge_along_x(p):
+        return "x", (x1 if sgn > 0 else x0) + sgn * ROOF_OVERHANG_M, y0, y1
+    return "y", (y1 if sgn > 0 else y0) + sgn * ROOF_OVERHANG_M, x0, x1
+
+
+def _in_gable(z_top: float, wall_z: float, ridge_z: float, u0: float, u1: float,
+              half_w: float) -> bool:
+    """Does an opening `half_w` wide, topping out at `z_top`, fit inside the triangle?
+
+    The gable narrows as it rises, so the test is the width still available at the
+    opening's HEAD and not at its sill. frame_dwelling asks the same question of its own
+    attic sash; asking it is what keeps an opening from being drawn out through the side
+    of the roof on a shallow pitch or a narrow plan.
+    """
+    rise = ridge_z - wall_z
+    if rise <= 1e-6:
+        return False
+    shrink = 1.0 - (z_top - wall_z) / rise
+    return shrink * ((u1 - u0) / 2.0 + ROOF_OVERHANG_M) > half_w + 0.35
+
+
+def _attic_openings(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
+                    x1: float, y1: float, wall_z: float, ridge_z: float,
+                    conf: float) -> None:
+    """The half storey's light: one small sash in EACH gable end, just above the plate.
+
+    Above the plate is above the knee wall — the plate IS the top of the knee wall on a
+    story-and-a-half, which is what `wall_height_m` means at 1.5 storeys — so the sash
+    sits where the attic floor's headroom actually starts. That is the only place it can
+    go without a dormer, and a dormer would be adding evidence: nothing in the dossiers
+    describes one on a Chicago store in 1835, and log_dwelling and frame_dwelling both
+    refuse one for the same reason.
+
+    Both ends, and no more than both ends. A store-residence's attic is a pair of
+    chambers over a shop, one at each end of a plan 30-40 ft deep; lighting only the
+    street end would make the rear chamber a cupboard, and lighting the flanks would put
+    a window in a party wall on a platted business street.
+    """
+    if p.roof_type != "gable":
+        return
+    z0 = wall_z + 0.16
+    z1 = z0 + ATTIC_WIN_H_M
+    for sgn in (-1.0, 1.0):
+        axis, plane, u0, u1 = _gable_plane(p, x0, y0, x1, y1, sgn)
+        if not _in_gable(z1, wall_z, ridge_z, u0, u1, ATTIC_WIN_W_M / 2.0):
+            continue
+        uc = (u0 + u1) / 2.0
+        _opening(b, axis, plane, uc - ATTIC_WIN_W_M / 2, uc + ATTIC_WIN_W_M / 2,
+                 z0, z1, int(sgn), conf)
+
+
+def _hoist_door(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
+                x1: float, y1: float, wall_z: float, ridge_z: float,
+                conf: float) -> None:
+    """The upper freight door on the loading side, with its hoist beam in the gable.
+
+    C3's crosswalk entry offers "2-3 shop bays; optional hoist door" and F2's offers
+    "hoist beam; upper freight doors". Both are OFF unless a record says so — the
+    entries' own assumption notes forbid inferring them, and `validate()` refuses one on
+    a building that could not carry it — so this draws nothing in the committed scene
+    today. It exists because the alternative is worse: a form the archetype cannot draw
+    is a form a record cannot state, and the family's line then reads as satisfied when
+    half of it was never buildable. That is the fault `tools/roof_form.py` names one
+    level up.
+
+    THE DOOR IS IN THE WALL AND THE BEAM IS IN THE GABLE, which is the arrangement and
+    not a compromise. A freight door serves a FLOOR, so it stands at the upper floor's
+    level in the wall, directly over the goods door — a load comes off one wagon, at one
+    door, and goes up. The beam is what needs the gable: it passes through the gable
+    above the door and projects far enough to swing a load clear of the wall under it.
+    Drawing the door itself up in the gable triangle was measured and is wrong — on the
+    narrowest C3 plan a 1.68 m leaf at that height leaves 0.28 m of gable either side of
+    it, so the door would be built out through the roof.
+    """
+    if not p.loading_end_is_gable:
+        return
+    if p.goods_door_side == "rear":
+        axis, sgn, plane = "y", -1.0, y0
+        u0 = ell_extent(p)[2] if (p.ell and p.ell_side == "rear") else x0
+        u1 = x1
+    else:
+        sgn = _loading_sign(p)
+        axis, plane = "x", (x1 if sgn > 0 else x0)
+        u0, u1 = y0, y1
+    uc = (u0 + u1) / 2.0
+    z0 = p.story_height_m + 0.06
+    z1 = z0 + HOIST_DOOR_H_M
+    # It has to clear the frieze board at the eave, or the head of the door is behind
+    # the trim. `_trim` puts the frieze in the top 0.22 m of the wall.
+    if z1 > wall_z - 0.24:
+        return
+    _opening(b, axis, plane, uc - HOIST_DOOR_W_M / 2, uc + HOIST_DOOR_W_M / 2,
+             z0, z1, int(sgn), conf)
+    # the meeting stile between the two leaves, as the goods door below it carries
+    if axis == "x":
+        _board(b, min(plane, plane + sgn * 0.055), uc - 0.035,
+               max(plane, plane + sgn * 0.055), uc + 0.035, z0, z1, conf, M_TRIM,
+               skip=("bottom",))
+    else:
+        _board(b, uc - 0.035, min(plane, plane + sgn * 0.055),
+               uc + 0.035, max(plane, plane + sgn * 0.055), z0, z1, conf, M_TRIM,
+               skip=("bottom",))
+
+    # THE BEAM, through the gable a third of the way up its rise and projecting past
+    # the roof's own overhang. `_in_gable` is asked the same question the attic sash is
+    # asked — is there still gable there at this height — so a shallow pitch gets the
+    # door and no beam rather than a timber sticking out of a roof plane.
+    bz0 = wall_z + (ridge_z - wall_z) * 0.30
+    bz1 = bz0 + HOIST_BEAM_FACE_M
+    if not _in_gable(bz1, wall_z, ridge_z, u0, u1, HOIST_BEAM_FACE_M / 2.0):
+        return
+    reach = plane + sgn * (ROOF_OVERHANG_M + HOIST_BEAM_REACH_M)
+    half = HOIST_BEAM_FACE_M / 2.0
+    if axis == "x":
+        _board(b, min(plane, reach), uc - half, max(plane, reach), uc + half,
+               bz0, bz1, conf, M_TRIM, skip=())
+    else:
+        _board(b, uc - half, min(plane, reach), uc + half, max(plane, reach),
+               bz0, bz1, conf, M_TRIM, skip=())
+
+
 # --------------------------------------------------------------------- the roof
 
 def _roof(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
@@ -723,8 +883,59 @@ def _roof(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
     chimneys need so a stack clears the roof it passes through."""
     if p.roof_type == "shed":
         return _shed_roof(b, x0, y0, x1, y1, wall_z, p.roof_pitch_deg, conf)
+    if p.roof_type == "hip":
+        return _hip_roof(b, x0, y0, x1, y1, wall_z, p.roof_pitch_deg, conf)
     return b.add_gable_roof(x0, y0, x1, y1, wall_z, p.roof_pitch_deg, conf, M_ROOF,
                             ridge_along_x=_ridge_along_x(p))
+
+
+def _hip_roof(b: MeshBuilder, x0: float, y0: float, x1: float, y1: float,
+              eave_z: float, pitch_deg: float, conf: float,
+              overhang: float = ROOF_OVERHANG_M) -> float:
+    """A hip: four planes, a ridge over the long axis, and no gable anywhere.
+
+    C4's crosswalk entry is the only authority in the project for a hip on a store
+    ("side gable or hip, 6:12-9:12"), and this is the only form that entry offers
+    which the archetype could not draw. The construction is `fort_structure._hip_roof`'s
+    — the hip of the same period, in the same project, whose geometry is already
+    committed and looked at — with the pyramid branch left out, because the pyramid is
+    what a square blockhouse plan wants and a 28-36 ft store front on a 40-60 ft plan
+    is never square.
+
+    THE RIDGE RUNS OVER THE LONG AXIS, not over the street. A hipped store's hips fall
+    at the two ends of its frontage, which is what makes the form read as a block
+    rather than as a house, and it is why `gable_front` is not consulted here: there is
+    no gable to turn. A record whose roof is hipped and which also states
+    `gable_front` is stating something about a roof it does not have, and
+    `validate()` leaves that alone rather than refusing it — the attribute is simply
+    not read, exactly as `loft` is not read under a hip.
+
+    What a hip DENIES the building is the thing to keep in view: no gable means no
+    gable-end opening, so a hipped store has no attic light and no loft trace and no
+    hoist door. `_loft_opening`, `_attic_openings` and `_hoist_door` all return early
+    on a non-gable roof rather than drawing into a plane that is not there, which is
+    the mistake ROOF_OVERHANG_M at the top of this module was named to stop.
+    """
+    x0, y0, x1, y1 = x0 - overhang, y0 - overhang, x1 + overhang, y1 + overhang
+    w, d = x1 - x0, y1 - y0
+    short = min(w, d)
+    rise = (short / 2.0) * math.tan(math.radians(pitch_deg))
+    top = eave_z + rise
+    if w >= d:
+        r0 = (x0 + d / 2.0, (y0 + y1) / 2.0, top)
+        r1 = (x1 - d / 2.0, (y0 + y1) / 2.0, top)
+        b.add_poly([(x0, y0, eave_z), (x1, y0, eave_z), r1, r0], conf, M_ROOF)
+        b.add_poly([(x1, y1, eave_z), (x0, y1, eave_z), r0, r1], conf, M_ROOF)
+        b.add_poly([(x0, y0, eave_z), r0, (x0, y1, eave_z)], conf, M_ROOF)
+        b.add_poly([(x1, y1, eave_z), r1, (x1, y0, eave_z)], conf, M_ROOF)
+    else:
+        r0 = ((x0 + x1) / 2.0, y0 + w / 2.0, top)
+        r1 = ((x0 + x1) / 2.0, y1 - w / 2.0, top)
+        b.add_poly([(x0, y0, eave_z), (x1, y0, eave_z), r0], conf, M_ROOF)
+        b.add_poly([(x1, y1, eave_z), (x0, y1, eave_z), r1], conf, M_ROOF)
+        b.add_poly([(x1, y0, eave_z), (x1, y1, eave_z), r1, r0], conf, M_ROOF)
+        b.add_poly([(x0, y1, eave_z), (x0, y0, eave_z), r0, r1], conf, M_ROOF)
+    return top
 
 
 def _shed_roof(b: MeshBuilder, x0: float, y0: float, x1: float, y1: float,
