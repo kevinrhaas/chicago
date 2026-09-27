@@ -103,6 +103,7 @@
       "phases[].form.roof_type.note",
       "phases[].form.seating.note",
       "phases[].form.shopfront.note",
+      "phases[].form.shopfront_bays.note",
       "phases[].form.shutter_type.note",
       "phases[].form.shutters.note",
       "phases[].form.side_additions.note",

@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1170, title: 'The wide store on Franklin gets its four-bay front', kind: 'change', ts: '2026-09-27T08:19:42.281Z', date: 'Sep 27, 2026, 3:19 AM CT',
+    items: [
+      'The town\u2019s one wide two-storey store block, at the east end of the Franklin block on South Water Street, had a door and a single show window on a thirty-foot front. It now has the door and three windows \u2014 the four-bay shopfront its own brief asks for. It was the last building standing outside its family\u2019s range, and the range is now kept across the town.',
+      'The rule that picks a window count caps the opening at 45% of the front, and this front is the narrow end of a family whose plans run half again as wide. Four openings are 70% of thirty feet and the cap refused them, so the rule fell to its floor and built two. The cap was argued for a store filling a fifty-five-foot lot with its long side to the street; it decides nothing useful on a front half that width.',
+      'No number changed and nothing else in the town moved. The building now states its own bay count, and the specification\u2019s range for the family is what states it. Four is the bottom of that range and also all the wall can hold: a fifth opening would need nine millimetres more frontage than the building has.',
+      'A count a building states can bring it INTO its family\u2019s range and cannot carry it past the range or past the frame \u2014 a new check holds both ends. The rhythm itself is still an invention, on a building no source describes, and the register of things we made up says so.',
+    ] },
   { v: 1169, title: 'The stores were never short of a bay after all', kind: 'fix', ts: '2026-09-27T07:41:56.565Z', date: 'Sep 27, 2026, 2:41 AM CT',
     items: [
       'The reconstruction specification asks the town\u2019s narrow two-storey stores for "2-3 shop bays" and this town builds them with one. That looked like every store on South Water Street standing a bay short of its own brief \u2014 and worse, the top of the range looked impossible: three bays wanted 7.70 m of frontage where the family\u2019s widest plan is 6.71 m. Nothing was short. The two counts differ by one, and the difference is a door.',
