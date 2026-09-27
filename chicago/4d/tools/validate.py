@@ -6332,7 +6332,8 @@ def run_stale_check(structures: dict, rep: Report) -> None:
 def run_bake_reach_check(structures: dict, scenes: dict, rep: Report) -> None:
     """Can the bake rebuild everything the staleness gate holds it responsible for?
 
-    The staleness gate above hashes `generators/build.py` into every asset, so a
+    The staleness gate above hashes the bake's geometry pipeline into every asset —
+    `generators/build.py` until T-1654 split it, `generators/emit.py` since — so a
     one-line comment in that file restales all 343 buildings and the remedy is a
     full rebake. That remedy has to be able to reach every asset it is asked to
     heal — and for one of them it could not.
