@@ -86,7 +86,7 @@ def no_build_rings() -> dict[str, list[tuple[float, float]]]:
 # earlier anonymous parcels already use. Writing the adoption here as well would put it
 # in two places and let them disagree, and hand-editing a generated record would fail
 # the drift check that makes these parcels trustworthy in the first place.
-from inferred_occupancy import occupancy  # noqa: E402
+from inferred_occupancy import keeper_assignments, occupancy  # noqa: E402
 
 # Which lot is already taken is the SAME question the schedule asks before it deals this
 # parcel its roofs, so it is asked in one place and imported by both (ROADMAP T-A7).
@@ -131,6 +131,14 @@ CORRIDOR_LINE_WHY = (
 )
 
 OCCUPANCY = occupancy()
+
+# T-1638. The keepers the placement policy's platted deal seated here hand over a SECOND
+# block: `resident_assignment`, carrying `status: assigned` and the household id. It is the
+# machine-readable half of an occupancy whose prose half is in OCCUPANCY above, and it is
+# what lets `seat_platted_ground_1835.py` recognise its own writing — a roof it has seated
+# stays adoptable by that household and by no other, so writing the keeper down no longer
+# hands the household somewhere else on the next re-derivation.
+ASSIGNMENTS = keeper_assignments()
 
 # The same separation the household parcel enforces. A generated building that lands
 # three metres from another one is not a dense town, it is two records occupying one
@@ -839,6 +847,7 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
         **({"occupants": OCCUPANCY[sid]} if sid in OCCUPANCY else {}),
         "reconstruction": reconstruction,
         **({"_frontage": anchor} if on_frontage else {}),
+        **({"resident_assignment": ASSIGNMENTS[sid]} if sid in ASSIGNMENTS else {}),
         "research_note": ("RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The "
                           "block, its scheduled roof count and its family mix follow the "
                           "665-roof programme; exact presence, lot, position, footprint, "

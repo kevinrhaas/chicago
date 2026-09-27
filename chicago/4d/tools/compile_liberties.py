@@ -514,6 +514,7 @@ def _block_redealt_roof_count() -> int:
 
 PLATTED_SEATS = ROOT / "data" / "reconstruction" / "1835_platted_seats.json"
 OFF_PLAT_SEATS = ROOT / "data" / "reconstruction" / "1835_off_plat_seats.json"
+ROOF_KEEPERS = ROOT / "data" / "reconstruction" / "1835_roof_keepers.json"
 
 
 def _off_plat_seat_count() -> int:
@@ -527,6 +528,19 @@ def _off_plat_seat_count() -> int:
     if not OFF_PLAT_SEATS.exists():
         return 0
     return len(json.loads(OFF_PLAT_SEATS.read_text()).get("seats") or [])
+
+
+def _roof_keeper_count() -> int:
+    """Roofs that NAME the household the placement policy dealt them.
+
+    Counted off `written` rather than off `counts.written`, for the reason
+    `_platted_seat_count` gives — a liberty that read the summary would be checking the
+    summary writer. The refusals are deliberately not counted here: the liberty is what
+    the town now SAYS, and the sixty the letter-list ruling holds back say nothing.
+    """
+    if not ROOF_KEEPERS.exists():
+        return 0
+    return len(json.loads(ROOF_KEEPERS.read_text()).get("written") or [])
 
 
 def _platted_seat_count() -> int:
@@ -549,6 +563,10 @@ SCOPE_SOURCES = {
         _off_plat_seat_count,
         "data/reconstruction/1835_off_plat_seats.json, itself re-derived by "
         "tools/seat_off_plat_ground_1835.py --check"),
+    "roof_keepers.written[named]": (
+        _roof_keeper_count,
+        "data/reconstruction/1835_roof_keepers.json, itself re-derived by "
+        "tools/name_the_keepers_1835.py --check"),
     "platted_seats.seats[dealt]": (
         _platted_seat_count,
         "data/reconstruction/1835_platted_seats.json, itself re-derived by "

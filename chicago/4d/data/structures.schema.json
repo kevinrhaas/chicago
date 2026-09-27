@@ -591,6 +591,11 @@
         "note": {
           "type": "string",
           "minLength": 1
+        },
+        "household_id": {
+          "type": "string",
+          "pattern": "^hh_[a-z0-9_]+$",
+          "description": "The household this roof's keeper IS, as an id `data/residents/households/` holds — the machine-readable half of the `occupants` block, which is prose. T-1638 added it because the placement policy's platted deal (`tools/seat_platted_ground_1835.py`) adopts a standing anonymous roof for a household and nothing on the roof said which household, so the link existed in one direction only: the address book's row named its roof and the roof named nobody. It is deliberately NOT written into the `occupants` prose, because `tools/generate_dooryard_pickets.py` admits a lot for a garden on a household id appearing THERE, and a keeper a policy deal seats is not a measurement of a garden. Set only with `status: assigned`; the deal reads it to recognise its own writing, so a roof it has already seated stays adoptable by the same household and by no other."
         }
       },
       "description": "Resident-placement state after the evidence-only population synthesis. Unassigned stock remains geometry without an invented occupant."
