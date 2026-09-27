@@ -107,10 +107,15 @@ cards, exactly 2 on each repeat visit, no page errors, and the final card once
 at 1835. All 160 cards fit two lines at 320 px without clipping.
 Receipts and stills: `docs/performance/loading-content/`. The PR records the
 full repository gate, smoke and payload results.
-The broader mobile smoke finds a river-walk obstruction also reproduced on
-unmodified dev `b6c56c8` (stage 2: 87 passed, 1 failed): the south-bank shed
-overlaps the walking path. T-1643 owns that placement repair; the baseline
-receipt is preserved beside the loading evidence. No smoke assertion is weakened.
+The one red this branch carried was never its own: a river-walk obstruction
+reproduced on unmodified dev `b6c56c8` (mobile stage 2: 87 passed, 1 failed),
+where the south-bank shed overlapped the walking path. T-1643 repaired that
+placement and landed on dev on 2026-09-27, so the branch was merged onto it and
+re-read rather than argued with. On the merge `604b8aa` the gate is `CHECK PASS`
+at 657 steps and four published legs are green — mobile 1-2 (158/0, the part that
+was red), mobile 3-4 (115/0, the source cards this compiler rewrites), mobile
+11-12 (107/0, the release-notes reader) and desktop 1 (80/0). The baseline receipt
+is preserved beside the loading evidence. No smoke assertion was weakened.
 
 ## Source-use backlinks compiled — T-1248, 2026-09-26
 

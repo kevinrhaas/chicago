@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Sources and stories accompany the journey back', kind: 'change',
+  { v: 1165, ts: '2026-09-27T04:00:49.685Z', date: 'Sep 26, 2026, 11:00 PM CT', title: 'Sources and stories accompany the journey back', kind: 'change',
     items: [
       'As the year rolls back, the loading cards now draw from 160 source notes, building details and reconstruction messages. Maps and newspapers lead into buildings, prairie and arrival.',
       'Fifty facts carry a source and an evidence link. Later recollections are labelled, and uncertain dimensions stay uncertain. A quick return keeps the cards brief; a slower first visit has more to read.',
