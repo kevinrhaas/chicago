@@ -2477,6 +2477,9 @@
     "tools/check_household_derivations.py": {
       "wrote": []
     },
+    "tools/check_loading_content.py": {
+      "wrote": []
+    },
     "tools/check_published.mjs": {
       "wrote": []
     },
@@ -3498,6 +3501,12 @@
       "wrote": []
     },
     "tools/test_frontage_faces.py": {
+      "wrote": []
+    },
+    "tools/test_loading_content.mjs": {
+      "wrote": []
+    },
+    "tools/test_loading_content.py": {
       "wrote": []
     },
     "tools/test_merge_ready.mjs": {

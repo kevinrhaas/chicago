@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1166, ts: '2026-09-27T04:57:37.297Z', date: 'Sep 26, 2026, 11:57 PM CT', title: 'Sources and stories accompany the journey back', kind: 'change',
+    items: [
+      'As the year rolls back, the loading cards now draw from 160 source notes, building details and reconstruction messages. Maps and newspapers lead into buildings, prairie and arrival.',
+      'Fifty facts carry a source and an evidence link. Later recollections are labelled, and uncertain dimensions stay uncertain. A quick return keeps the cards brief; a slower first visit has more to read.',
+      'A very occasional joke may slip through, but never into an error or the final arrival. The cards stop when the town is ready.',
+    ] },
   { v: 1165, title: 'South Water Street stands as stores and warehouses', kind: 'change', ts: '2026-09-27T03:33:16.741Z', date: 'Sep 26, 2026, 10:33 PM CT',
     items: [
       'Walk west along South Water Street from the Dearborn drawbridge and the town\u2019s declared business front was a row of cottages \u2014 twenty-three dwellings, five stores and not one warehouse on the party lines between Wells and Clark. Ten of those cottages are now shopfronts, store-residences and river warehouses.',

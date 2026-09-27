@@ -1,0 +1,102 @@
+serving /tmp/t1275-baseline/site/4d on 4188 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "mobile"
+
+NOT THE FULL GATE — stages filtered to "2" of 13
+
+mobile 390x780:
+  pass  mobile 390x780: page serves
+  pass  mobile 390x780: scene reaches ready
+  pass  mobile 390x780: the scene declares its exact consultation blockers
+  pass  mobile 390x780: no unexpected loader problems
+  pass  mobile 390x780: scene has structures
+  pass  mobile 390x780: every structure that should draw, drew
+  pass  mobile 390x780: the yard layer stands the record's goods
+  pass  mobile 390x780: the yard layer chunks for culling on a single material
+  pass  mobile 390x780: every cask and case carries the mark its record deals it
+  pass  mobile 390x780: the marks ride on the layer's own material, on the sheet
+  pass  mobile 390x780: every yard-goods vertex is graded reconstructed
+  pass  mobile 390x780: no barrel or case strays from the frontage it stands at
+  pass  mobile 390x780: every object stands outside its own facade
+  pass  mobile 390x780: the attested wagon stands in the yard it is named for
+  pass  mobile 390x780: the Green Tree's yard wagons stand clear, square to its rear wall
+  pass  mobile 390x780: the bench stands against the Green Tree's front wall
+  pass  mobile 390x780: the Green Tree's wagon shed is a lean-to that clears its tilt
+  pass  mobile 390x780: nothing in the shed's bay reaches through its wall or its roof
+  pass  mobile 390x780: the building material stands on the lot that was going up
+  pass  mobile 390x780: no pile of material stands inside the building it is for
+  pass  mobile 390x780: the tilt is drawn in canvas on the layer's one material
+  pass  mobile 390x780: the town's wagons are spread across its streets, not at two doors
+  pass  mobile 390x780: the town's wagons vary in type
+  pass  mobile 390x780: the town's wagons stand at the slew the rule dealt them
+  pass  mobile 390x780: every wagon the town gained cards reconstructed
+  pass  mobile 390x780: no wagon stands on a plank walk, in a garden or in a pen
+  pass  mobile 390x780: no wagon stands in a street's travelled track
+  pass  mobile 390x780: the wagon rule wrote down what it refused
+  pass  mobile 390x780: the goods reach the screen from the footway
+  pass  mobile 390x780: aiming at a barrel opens the business it stands at
+  pass  mobile 390x780: the frontage layer lays all five records' walks and stands their posts
+  pass  mobile 390x780: no frontage board stands under a wharf deck or its stair
+  pass  mobile 390x780: every frontage vertex is graded reconstructed
+  pass  mobile 390x780: the plank decks tie into the ground they cross
+  pass  mobile 390x780: the street decal cannot paint over the timber laid on it
+  pass  mobile 390x780: a plank walk's side is one made edge for its whole length
+  pass  mobile 390x780: the named board hangs on a post that stands on the ground, or the record refuses it
+  pass  mobile 390x780: the frontage layer draws the meshes it authored — 59 authored mesh(es) (frontage, frontage-chunk x58), 0 far-merge artefact(s) [none], 59 drawn in all
+  pass  mobile 390x780: the board carries the record's own name, painted, or none is drawn and the name is kept
+  pass  mobile 390x780: the walk and its board reach the screen from the street
+  pass  mobile 390x780: aiming at the frontage opens the inn it belongs to
+  pass  mobile 390x780: the eighteen hitching posts stand on their own ground, carrying nothing
+  pass  mobile 390x780: the Sauganash's walks and posts reach the screen from Lake Street
+  pass  mobile 390x780: aiming at the Sauganash's frontage opens the hotel it belongs to
+  pass  mobile 390x780: the river walk publishes its floor and rides no deck at its east end
+  pass  mobile 390x780: the old mouth west of State is filled and the walker stands on it
+  pass  mobile 390x780: exactly one slough mouth at the foot of State, and it is the notch
+  FAIL  mobile 390x780: the east end reads as planks underfoot, and walks on along the bank — 2976 plank vertice(s) in the east end's band, walked west to E 811.5, 0 blocked stride(s), worst step 0.04 m
+  pass  mobile 390x780: aiming at the riverside walk answers its own reconstructed card
+  pass  mobile 390x780: the street edge is generated from the plat, not placed on one block
+  pass  mobile 390x780: Lake Street's walk is continuous and walkable end to end
+  pass  mobile 390x780: South Water's reconciled block face is one walk, end to end
+  pass  mobile 390x780: a board crossing carries the walker over the road at the corner
+  pass  mobile 390x780: no plank sidewalk lies in the travelled track
+  pass  mobile 390x780: no street-edge walk admits a rooted plant through its deck
+  pass  mobile 390x780: every stated dock that has traced bank under it is drawn
+  pass  mobile 390x780: the whole wharf layer is one draw call
+  pass  mobile 390x780: every wharf vertex is graded reconstructed
+  pass  mobile 390x780: no wharf vertex strays off its own deck outline
+  pass  mobile 390x780: every deck ties into the bank and reaches over the water
+  pass  mobile 390x780: no deck floats and every crib reaches the bed
+  pass  mobile 390x780: every plank a wharf drew is published to the walker at the height it drew it
+  pass  mobile 390x780: no boarding tread rises past the record's ceiling or the step-up rule
+  pass  mobile 390x780: a visitor walks off the bank, up the stair and out over the water
+  pass  mobile 390x780: the wharf reaches the screen from the bank
+  pass  mobile 390x780: aiming at a wharf opens the warehouse it serves
+  pass  mobile 390x780: the west bank's landing reaches the screen from Wolf Point
+  pass  mobile 390x780: aiming at the west bank's landing opens Robert Kinzie's store
+  pass  mobile 390x780: no plank walk admits a rooted plant through its deck
+  pass  mobile 390x780: no wharf deck admits a rooted plant - wet species included
+  pass  mobile 390x780: every authored boat is on the water
+  pass  mobile 390x780: the whole boat layer is one draw call
+  pass  mobile 390x780: every boat vertex is graded reconstructed
+  pass  mobile 390x780: every afloat hull floats in its own water
+  pass  mobile 390x780: every beached hull sits on the bank, at the water
+  pass  mobile 390x780: the drawbridge's navigation span stays clear
+  pass  mobile 390x780: the schooners reach the screen from the bank
+  pass  mobile 390x780: aiming at a schooner opens the boat's own card
+  pass  mobile 390x780: canvas renders non-black
+  pass  mobile 390x780: drawing buffer matches the viewport
+  pass  mobile 390x780: confidence toggle flips state
+  pass  mobile 390x780: confidence view changes the render
+  pass  mobile 390x780: turning it off restores the render
+  pass  mobile 390x780: the traced river loaded, rather than the flat fallback plane
+  pass  mobile 390x780: the suite body ran to completion
+  pass  mobile 390x780: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+87 passed, 1 failed
+78 staged-section check(s) (stage 2 of 13), 10 always-on check(s)
+1 m 31 s for stage 2 at mobile — the ceiling on a steward run's single foreground command is 10 m 00 s
+FAILURES:
+ - mobile 390x780: the east end reads as planks underfoot, and walks on along the bank
