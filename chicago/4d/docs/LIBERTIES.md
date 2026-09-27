@@ -5641,7 +5641,7 @@ one-room cottage band into H1 because a documented notice calls the house on tha
 (**L222**). The position this entry admits is unchanged and invented on the same reasoning, so
 the Covers token follows the id rather than being dropped — unlike the two T-0102 retired in the
 paragraph above, which stopped naming a building at all.
-**Covers:** `recon_1835_blk_south_water_franklin_d5_01.inferred_1835.position`, `recon_1835_blk_south_water_franklin_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_franklin_d3_03.inferred_1835.position`, `recon_1835_blk_south_water_wells_d6_01.inferred_1835.position`, `recon_1835_blk_south_water_wells_d5_02.inferred_1835.position`, `recon_1835_blk_south_water_wells_d4_03.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d5_01.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d3_03.inferred_1835.position`, `recon_1835_blk_south_water_clark_d5_01.inferred_1835.position`, `recon_1835_blk_south_water_clark_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_dearborn_h1_03.inferred_1835.position`.
+**Covers:** `recon_1835_blk_south_water_franklin_c4_01.inferred_1835.position`, `recon_1835_blk_south_water_franklin_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_franklin_d3_03.inferred_1835.position`, `recon_1835_blk_south_water_wells_c2_01.inferred_1835.position`, `recon_1835_blk_south_water_wells_c3_02.inferred_1835.position`, `recon_1835_blk_south_water_wells_d4_03.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d5_01.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_lasalle_d3_03.inferred_1835.position`, `recon_1835_blk_south_water_clark_f2_01.inferred_1835.position`, `recon_1835_blk_south_water_clark_d4_02.inferred_1835.position`, `recon_1835_blk_south_water_dearborn_h1_03.inferred_1835.position`.
 **Recorded:** 2026-08-19.
 
 
@@ -14214,10 +14214,13 @@ placement policy **T-1195**; the twenty-six verdicts whose record id carries its
 and whose execution is therefore an id migration across the derived layer, are **T-1452**.
 **Recorded:** 2026-09-20.
 
-### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 75 roofs that are not framed
+### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 74 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 75 phases: 61 log dwellings and
-14 fort structures. Nothing about their geometry, their roof type,
+**Scope:** `structures.phases[log_or_fort_archetype]` — 74 phases: 60 log dwellings and
+14 fort structures. It was 75 until T-1648 re-familied the La Salle block's South Water
+frontage: `..._lasalle_d1_08`, a D1 log cabin standing on the town's business front with a
+documented dry-goods house in it, became a C1 shop and left this liberty's population for
+the framed one. The count moves with the town and is re-derived by `tools/compile_liberties.py`. Nothing about their geometry, their roof type,
 their pitch or their weathering moves. This entry is about one thing: which of the two
 coverings this project can argue each of those roofs is drawn on.
 
@@ -14795,7 +14798,7 @@ hidden.** The siding stock (**L148**) is dealt across a parcel and then advanced
 two roofs standing within 60 m of each other hang the same course. Six new dwellings in the
 deal move the advance, so five of their block neighbours —
 `recon_1835_blk_randolph_market_d5_11` and `_d6_02`,
-`recon_1835_blk_south_water_lasalle_d3_10`, `_d4_02` and `_d5_01` — wear a different one of
+`recon_1835_blk_south_water_lasalle_f2_10`, `_d4_02` and `_d5_01` — wear a different one of
 the same four period mill sidings than they did, and four documented frame buildings
 (`chicago_democrat_office`, `harmon_loomis_store`, `lasalle_lake_house`,
 `pruyne_kimball_drugstore`) move with them. Nothing about those nine is re-graded and none
