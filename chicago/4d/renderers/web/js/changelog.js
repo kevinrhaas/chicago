@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1166, title: 'Thirteen shopfronts that never got asked about their signs', kind: 'fix', ts: '2026-09-27T05:12:22.043Z', date: 'Sep 27, 2026, 12:12 AM CT',
+  { v: null, title: 'Thirteen shopfronts that never got asked about their signs', kind: 'fix', ts: '', date: '',
     items: [
       'Open the card for one of the new South Water shopfronts and it now says whether a signboard and a hitching post belong at its door, and why not. Thirteen buildings had been saying nothing at all.',
       'The rule that hangs a board over a shop door and stands a post at the kerb works off a list of trades whose customer came in off the street. The list knew the word for a store-residence and the word for a smith\u2019s shop, but not the words the reconstruction uses for a small shop, a narrow store, a wide store block, a freight shed or a warehouse \u2014 so buildings of those kinds were skipped in silence.',
       'Nothing in the town moved and no sign was added: the three freight buildings are refused a post because a warehouse took carts at a yard gate, not riders at a rail, and the ten shops are refused one because their trade was dealt by a schedule rather than read in a record. A refusal you can read is the point.',
       'The refusals on this layer go from 95 to 108 and the posts stay at 18. The gate that checks the town now also refuses a building kind that no trade list knows, so the next one added cannot go quiet the same way.',
+    ] },
+  { v: 1166, ts: '2026-09-27T04:57:37.297Z', date: 'Sep 26, 2026, 11:57 PM CT', title: 'Sources and stories accompany the journey back', kind: 'change',
+    items: [
+      'As the year rolls back, the loading cards now draw from 160 source notes, building details and reconstruction messages. Maps and newspapers lead into buildings, prairie and arrival.',
+      'Fifty facts carry a source and an evidence link. Later recollections are labelled, and uncertain dimensions stay uncertain. A quick return keeps the cards brief; a slower first visit has more to read.',
+      'A very occasional joke may slip through, but never into an error or the final arrival. The cards stop when the town is ready.',
     ] },
   { v: 1165, title: 'South Water Street stands as stores and warehouses', kind: 'change', ts: '2026-09-27T03:33:16.741Z', date: 'Sep 26, 2026, 10:33 PM CT',
     items: [

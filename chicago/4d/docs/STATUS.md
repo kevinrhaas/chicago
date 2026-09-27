@@ -87,6 +87,36 @@ traced bank already stands south of that edge and starting further west drowned 
 `tools/check.sh`: 649 steps, the eight that went red on the moved ground re-derived and
 green, nothing skipped for a missing module. Smoke verdicts are in the PR.
 
+## Source and reconstruction loading cards — T-1275, 2026-09-26
+
+The arrival draws from 160 authored entries: 20 source, 32 build, 50 fact,
+56 operational and 2 humor cards. Phase counts: assess 30, collect 35,
+prepare 42, resolve 25, land 28. Facts link specific compiled building attributes
+to their registered sources without promoting confidence. The source compiler
+exports decision/loading_fact backlinks. Land candidates remain authored context;
+readiness selects one canonical arrival line and never rotates.
+
+Twenty-four checked early entries precede the optional 41 KB library fetch.
+Phase bags preserve spent IDs when the library arrives. Ready/error stop timers;
+arrival is painted with 1835 by the existing settle controller. Successful
+same-build visits in this tab limit repeat boots to one loading card plus arrival;
+storage denial falls back to dwell-based rotation. The library describes previously
+researched evidence, not live archival research. Seeded simulation records humor
+in 52 of 10,000 sessions, at most once per session. Published Chromium checks passed at 390×780 and 1280×780: 37 and 6 cold
+cards, exactly 2 on each repeat visit, no page errors, and the final card once
+at 1835. All 160 cards fit two lines at 320 px without clipping.
+Receipts and stills: `docs/performance/loading-content/`. The PR records the
+full repository gate, smoke and payload results.
+The one red this branch carried was never its own: a river-walk obstruction
+reproduced on unmodified dev `b6c56c8` (mobile stage 2: 87 passed, 1 failed),
+where the south-bank shed overlapped the walking path. T-1643 repaired that
+placement and landed on dev on 2026-09-27, so the branch was merged onto it and
+re-read rather than argued with. On the merge `604b8aa` the gate is `CHECK PASS`
+at 657 steps and four published legs are green — mobile 1-2 (158/0, the part that
+was red), mobile 3-4 (115/0, the source cards this compiler rewrites), mobile
+11-12 (107/0, the release-notes reader) and desktop 1 (80/0). The baseline receipt
+is preserved beside the loading evidence. No smoke assertion was weakened.
+
 ## Source-use backlinks compiled — T-1248, 2026-09-26
 
 The deterministic compiler reads the authored reconstruction and records typed

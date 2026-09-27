@@ -181,13 +181,9 @@ html, body {
   min-height: 3em;
   max-width: 34em;
   margin: 10px auto 0;
-  display: -webkit-box;
-  overflow: hidden;
   color: var(--ink-dim);
   font-size: 12px;
   line-height: 1.45;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
   overflow-wrap: anywhere;
 }
 .gate-sub {

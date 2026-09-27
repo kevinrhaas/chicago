@@ -1,0 +1,406 @@
+{
+  "browser": "153.0.8010.0",
+  "measuredAt": "2026-09-26T23:16:23.339Z",
+  "cases": [
+    {
+      "width": 390,
+      "cold": [
+        {
+          "at": 11804,
+          "text": "Reading Wright’s Chicago map, 1834",
+          "id": "loading_051",
+          "kind": "source",
+          "phase": "assess",
+          "year": "2026"
+        },
+        {
+          "at": 14187.400000002235,
+          "text": "First Presbyterian cost $600. — Andreas’s 1884 history",
+          "id": "loading_007",
+          "kind": "fact",
+          "phase": "assess",
+          "year": "2024"
+        },
+        {
+          "at": 16588,
+          "text": "Checking the dates behind the reconstruction",
+          "id": "loading_105",
+          "kind": "operational",
+          "phase": "assess",
+          "year": "2024"
+        },
+        {
+          "at": 18989.20000000298,
+          "text": "Keeping evidence and inference distinct",
+          "id": "loading_104",
+          "kind": "operational",
+          "phase": "assess",
+          "year": "2024"
+        },
+        {
+          "at": 21390.10000000149,
+          "text": "Bringing the source notes along",
+          "id": "loading_106",
+          "kind": "operational",
+          "phase": "assess",
+          "year": "2024"
+        },
+        {
+          "at": 23791,
+          "text": "St. Mary’s interior was not plastered. — St. Mary’s · 1884 account",
+          "id": "loading_010",
+          "kind": "fact",
+          "phase": "assess",
+          "year": "2024"
+        },
+        {
+          "at": 26192.300000000745,
+          "text": "Peck’s store had two storeys. — Andreas’s 1884 history",
+          "id": "loading_001",
+          "kind": "fact",
+          "phase": "assess",
+          "year": "2024"
+        },
+        {
+          "at": 28593.10000000149,
+          "text": "First Presbyterian had bare puncheon floors. — Andreas’s 1884 history",
+          "id": "loading_005",
+          "kind": "fact",
+          "phase": "assess",
+          "year": "2024"
+        },
+        {
+          "at": 30994.300000000745,
+          "text": "Following Thompson’s original plat, 1830",
+          "id": "loading_053",
+          "kind": "source",
+          "phase": "assess",
+          "year": "2024"
+        },
+        {
+          "at": 33394.20000000298,
+          "text": "Setting the scene date to 1 July 1835",
+          "id": "loading_101",
+          "kind": "operational",
+          "phase": "assess",
+          "year": "2024"
+        },
+        {
+          "at": 35794.5,
+          "text": "Separating period records from later memories",
+          "id": "loading_103",
+          "kind": "operational",
+          "phase": "assess",
+          "year": "2024"
+        },
+        {
+          "at": 38196.20000000298,
+          "text": "Tracing Harrison’s river-mouth survey, 1830",
+          "id": "loading_054",
+          "kind": "source",
+          "phase": "assess",
+          "year": "2024"
+        },
+        {
+          "at": 40907.400000002235,
+          "text": "St. Mary’s cost about $400. — St. Mary’s · 1884 account",
+          "id": "loading_012",
+          "kind": "fact",
+          "phase": "collect",
+          "year": "2024"
+        },
+        {
+          "at": 43307.5,
+          "text": "Two tall frames flanked the Dearborn draw. — Andreas’s 1884 history",
+          "id": "loading_018",
+          "kind": "fact",
+          "phase": "collect",
+          "year": "2017"
+        },
+        {
+          "at": 45708.20000000298,
+          "text": "Assembling the Dearborn drawbridge",
+          "id": "loading_075",
+          "kind": "build",
+          "phase": "collect",
+          "year": "2017"
+        },
+        {
+          "at": 48108.900000002235,
+          "text": "Placing the Chicago Democrat’s printing office",
+          "id": "loading_082",
+          "kind": "build",
+          "phase": "collect",
+          "year": "2017"
+        },
+        {
+          "at": 50509.300000000745,
+          "text": "Making room for the Western Hotel’s wagon yard",
+          "id": "loading_074",
+          "kind": "build",
+          "phase": "collect",
+          "year": "2017"
+        },
+        {
+          "at": 53089.900000002235,
+          "text": "North pier: 900 feet in our inferred model. — Andreas’s 1884 history",
+          "id": "loading_019",
+          "kind": "fact",
+          "phase": "collect",
+          "year": "2017"
+        },
+        {
+          "at": 55490.5,
+          "text": "Locating the Chicago American’s office",
+          "id": "loading_083",
+          "kind": "build",
+          "phase": "collect",
+          "year": "2017"
+        },
+        {
+          "at": 57891.300000000745,
+          "text": "St. Mary’s worshippers sat on rough benches. — St. Mary’s · 1884 account",
+          "id": "loading_011",
+          "kind": "fact",
+          "phase": "collect",
+          "year": "2017"
+        },
+        {
+          "at": 60306.5,
+          "text": "Keeping later buildings out of the scene",
+          "id": "loading_109",
+          "kind": "operational",
+          "phase": "collect",
+          "year": "2014"
+        },
+        {
+          "at": 62706.60000000149,
+          "text": "Leaving room between the buildings",
+          "id": "loading_116",
+          "kind": "operational",
+          "phase": "prepare",
+          "year": "2003"
+        },
+        {
+          "at": 65220.20000000298,
+          "text": "The Mansion House began as a log tavern. — Andreas’s 1884 history",
+          "id": "loading_026",
+          "kind": "fact",
+          "phase": "prepare",
+          "year": "2003"
+        },
+        {
+          "at": 67627.5,
+          "text": "Setting the South Branch bridge’s timber supports",
+          "id": "loading_088",
+          "kind": "build",
+          "phase": "prepare",
+          "year": "1910"
+        },
+        {
+          "at": 70027.60000000149,
+          "text": "Mansion House’s addition reached the street. — Andreas’s 1884 history",
+          "id": "loading_027",
+          "kind": "fact",
+          "phase": "prepare",
+          "year": "1883"
+        },
+        {
+          "at": 72441.80000000075,
+          "text": "Letting the river divide the town",
+          "id": "loading_120",
+          "kind": "operational",
+          "phase": "prepare",
+          "year": "1883"
+        },
+        {
+          "at": 74850.5,
+          "text": "Making space for Dole’s warehouse",
+          "id": "loading_098",
+          "kind": "build",
+          "phase": "prepare",
+          "year": "1883"
+        },
+        {
+          "at": 77252.80000000075,
+          "text": "Finding the ground beneath the roofs",
+          "id": "loading_118",
+          "kind": "operational",
+          "phase": "prepare",
+          "year": "1883"
+        },
+        {
+          "at": 79665.20000000298,
+          "text": "Keeping uncertain details labelled",
+          "id": "loading_121",
+          "kind": "operational",
+          "phase": "prepare",
+          "year": "1883"
+        },
+        {
+          "at": 82080.30000000075,
+          "text": "Preparing the prairie for summer",
+          "id": "loading_111",
+          "kind": "operational",
+          "phase": "prepare",
+          "year": "1875"
+        },
+        {
+          "at": 84479.70000000298,
+          "text": "Log abutments stood in shallow water. — Old settlers’ 1883 memoir",
+          "id": "loading_040",
+          "kind": "fact",
+          "phase": "resolve",
+          "year": "1836"
+        },
+        {
+          "at": 86929.60000000149,
+          "text": "Chicago’s early jail was built of logs. — Andreas’s 1884 history",
+          "id": "loading_031",
+          "kind": "fact",
+          "phase": "resolve",
+          "year": "1836"
+        },
+        {
+          "at": 89330.5,
+          "text": "The Sauganash’s siding was white. — Wau-Bun, 1856 memoir",
+          "id": "loading_033",
+          "kind": "fact",
+          "phase": "resolve",
+          "year": "1836"
+        },
+        {
+          "at": 91732.20000000298,
+          "text": "Preparing the controls for your first steps",
+          "id": "loading_133",
+          "kind": "operational",
+          "phase": "resolve",
+          "year": "1836"
+        },
+        {
+          "at": 94133.60000000149,
+          "text": "Keeping source links beside the claims",
+          "id": "loading_131",
+          "kind": "operational",
+          "phase": "resolve",
+          "year": "1836"
+        },
+        {
+          "at": 96533.90000000224,
+          "text": "Matching people to their recorded homes",
+          "id": "loading_127",
+          "kind": "operational",
+          "phase": "resolve",
+          "year": "1836"
+        },
+        {
+          "at": 101619.5,
+          "text": "You have arrived in Chicago, summer 1835.",
+          "id": "arrival",
+          "kind": "operational",
+          "phase": "land",
+          "year": "1835"
+        }
+      ],
+      "layout": {
+        "bad": [],
+        "tallest": 2.0689655172413794
+      },
+      "errors": [],
+      "warm": [
+        {
+          "at": 11835.5,
+          "text": "Reading Wright’s Chicago map, 1834",
+          "id": "loading_051",
+          "kind": "source",
+          "phase": "assess",
+          "year": "2026"
+        },
+        {
+          "at": 101693.19999999925,
+          "text": "You have arrived in Chicago, summer 1835.",
+          "id": "arrival",
+          "kind": "operational",
+          "phase": "land",
+          "year": "1835"
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "cold": [
+        {
+          "at": 137.80000000074506,
+          "text": "Reading Wright’s Chicago map, 1834",
+          "id": "loading_051",
+          "kind": "source",
+          "phase": "assess",
+          "year": "2026"
+        },
+        {
+          "at": 2894.300000000745,
+          "text": "Two tall frames flanked the Dearborn draw. — Andreas’s 1884 history",
+          "id": "loading_018",
+          "kind": "fact",
+          "phase": "collect",
+          "year": "2019"
+        },
+        {
+          "at": 5312.39999999851,
+          "text": "Planting the prairie",
+          "id": "loading_113",
+          "kind": "build",
+          "phase": "prepare",
+          "year": "1927"
+        },
+        {
+          "at": 7721.800000000745,
+          "text": "Bringing summer light to the prairie",
+          "id": "loading_124",
+          "kind": "operational",
+          "phase": "prepare",
+          "year": "1900"
+        },
+        {
+          "at": 10123.599999997765,
+          "text": "Leaving the archives within reach",
+          "id": "loading_140",
+          "kind": "operational",
+          "phase": "resolve",
+          "year": "1837"
+        },
+        {
+          "at": 13768.599999997765,
+          "text": "You have arrived in Chicago, summer 1835.",
+          "id": "arrival",
+          "kind": "operational",
+          "phase": "land",
+          "year": "1835"
+        }
+      ],
+      "layout": {
+        "bad": [],
+        "tallest": 2.0689655172413794
+      },
+      "errors": [],
+      "warm": [
+        {
+          "at": 245.89999999850988,
+          "text": "Reading Wright’s Chicago map, 1834",
+          "id": "loading_051",
+          "kind": "source",
+          "phase": "assess",
+          "year": "2026"
+        },
+        {
+          "at": 10321.199999999255,
+          "text": "You have arrived in Chicago, summer 1835.",
+          "id": "arrival",
+          "kind": "operational",
+          "phase": "land",
+          "year": "1835"
+        }
+      ]
+    }
+  ]
+}

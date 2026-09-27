@@ -502,6 +502,16 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     which writes `resume: <reason> · waits on: <T-NNNN|nothing>` as the first line of a
     PR comment, applies the label, and takes `hold` off if a run left one there. The
     reason goes on BEFORE the label, so a labelled PR never exists without it.
+
+    **It acts on the repository THIS CHECKOUT belongs to** — its origin remote —
+    which since T-1655 is the one thing it does not read out of the environment. A
+    steward improve run executes inside a **polecat-platform** job and clones this
+    repo into the workspace, so the ambient repo name is the wrong one for every call
+    made from here; on 2026-09-27 that put chicago#104's handoff reason and its
+    `resume` label onto polecat-platform#104, an unrelated PR, and it did not fail,
+    because both repositories had a #104 open that day. Pass `--repo owner/name` to
+    act on another repository, and expect a one-line refusal — never a guess — when
+    the repository it resolved does not contain the PR or the branch.
   - **A later run works resumable PRs before it takes new queue work.** Merge `dev` in,
     re-derive, fix what is red, gate, merge — it is the same endgame as any unit, on a
     branch that is already most of the way there. **Skip one whose `waits on` ticket is
