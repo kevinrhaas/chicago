@@ -1,9 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1179, ts: '2026-09-27T16:32:05.513Z', date: 'Sep 27, 2026, 11:32 AM CT', title: 'The far prairie is land again, not a flood', kind: 'fix',
+  { v: null, ts: '', title: 'The far prairie is land again, not a flood', kind: 'fix',
     items: [
       'Seen from the air, everything more than a few hundred metres away used to turn into a flat blue-grey sheet with trees standing in it, as if the prairie were under water. It was not haze. The ground out there was not being drawn at all.',
       'Close to you the town is drawn in fine detail; past about 600 metres a coarser copy of the same ground takes over. That coarser copy had been built facing downward, so from above it was invisible, and what showed through the hole was the water surface laid under the whole map, tinted by the haze.',
       'It now faces up. The far prairie, the woods north of the river and the North Branch all read as land and river right out to the horizon, where they fade into the summer haze. Nothing was moved or rebuilt: the same ground, drawn the right way up.',
+    ] },
+  { v: 1179, ts: '2026-09-27T16:40:12.532Z', date: 'Sep 27, 2026, 11:40 AM CT', title: 'Nothing you can see: which half of the freight row still owes', kind: 'fix',
+    items: [
+      'Nothing in the town changed and no roof moved. This is a repair to the ledger that says what is still to be built, and a visitor will find the same Chicago as before.',
+      'The building programme books the town by kind of building and part of town: so many cottages in the South Division, so many warehouses, and one ticket of work owns each of those rows. The South Division\u2019s warehouse row held two quite different things. Some of its buildings stand on the platted street line, on South Water Street\u2019s own party lines and the Lake Street blocks. The rest are freight sheds standing behind them, on the unplatted river margin by the Dearborn drawbridge. One row can name only one owner, and it named the sheds\u2019 one.',
+      'That mattered because the bank is finished and the street line is not. The ground behind South Water Street has been measured and read out in writing: the frontage the engraving draws warehouses on takes none at any tolerance, and the positions that opened further east were refused on the rule this project keeps \u2014 a number is not a reason to build. So the row was ordering three more warehouses from the one owner on it who cannot honestly raise one, and nothing could see that, because the two halves were a single number.',
+      'The row is now cut where its two kinds of ground part. The bank half is marked closed: it owes nothing, its count is simply what stands there, and the two refusals that closed it are named inside it, so re-opening it means re-reading those rather than editing a figure. The street-line half carries the whole of the order \u2014 three warehouses \u2014 and a live piece of work is filed for them.',
+      'Not one number in the programme moved. The town still wants 668 roofs, the warehouse rows across the four parts of town still total twenty, and 258 roofs are still to build. A new check refuses any such cut whose halves do not add back up to the row they came from on all three of its figures, so a cut can never be used to quietly change what the town is owed \u2014 it is a finer address for work already counted.',
     ] },
   { v: 1178, ts: '2026-09-27T15:58:45.500Z', date: 'Sep 27, 2026, 10:58 AM CT', title: 'Nothing you can see: South Water\u2019s books, and the room left', kind: 'fix',
     items: [
