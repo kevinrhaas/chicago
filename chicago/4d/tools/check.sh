@@ -1266,6 +1266,24 @@ step "the street edge's cross-street faces enumerate as the plat says" \
 selftest "…and those assertions still fire when the enumeration is broken" \
   python3 tools/test_frontage_faces.py --self-test
 
+# T-1665, and it is a READING of the specification rather than a measurement of the
+# town: the crosswalk's "2-3 shop bays" counts the door and `shopfront_bays` does not,
+# so C3 looked short of its own band by one on every store and looked unsatisfiable at
+# the top of it. The argument for the door-inclusive reading is D4's "3/5 bays; center
+# or side door" and H1's "5 bays; center hall" — a centre door is centred in an odd
+# count — and it is re-derived from the crosswalk here rather than remembered, because
+# a reading whose evidence has been edited out of the file is a reading nobody is
+# keeping. The same step holds the storefronts to their families' authored bands and
+# holds `default_shopfront_bays`'s floor to fronts the frontage forced: on 20 of 26
+# floors the one remaining window takes 50.0-66.7% of the front against a stated
+# maximum of 45%, and until this step existed the floor overruled the ceiling in
+# silence. docs/FACADE-BAYS.md is the settlement.
+step "the shop-bay counts read as the specification's own words" \
+  python3 tools/test_shopfront_bay_count.py
+
+selftest "…and that reading's assertions still fire when each input is bent" \
+  python3 tools/test_shopfront_bay_count.py --self-test
+
 # The 665-roof programme's remainder is a function of what has been built, and the town
 # grows most nights. Left as an authored number it goes stale silently — the crosswalk
 # called 617 roofs remaining while 232 were standing — and the next block parcel schedules
