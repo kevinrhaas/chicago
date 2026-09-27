@@ -5043,6 +5043,16 @@
       "why": "7 object(s) fell inside exchange_coffee_house's committed footprint, which stands over this frontage's own strip; they are dropped rather than nudged, because a nudged coordinate is a placed one."
     },
     {
+      "structure_id": "recon_1835_blk_lake_franklin_c2_01",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or GOODS for an anonymous slot — names goods in as many words, and this record keeps it."
+    },
+    {
+      "structure_id": "recon_1835_blk_lake_market_c2_01",
+      "trade": "store_residence",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or GOODS for an anonymous slot — names goods in as many words, and this record keeps it."
+    },
+    {
       "structure_id": "recon_1835_blk_randolph_clark_c2_01",
       "trade": "store_residence",
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or GOODS for an anonymous slot — names goods in as many words, and this record keeps it."

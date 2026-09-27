@@ -287,15 +287,28 @@ STRUCTURE_TICKETS = {
     #
     # STORES GO TO T-1681, the first of the two live raisers, and the row moves to T-1682
     # when it closes with the cell still owing — the T-1640 -> T-1672 shape recorded below.
-    # WORKSHOPS GO TO T-1682, which is the only child that names them: the W1-W4 shops on
-    # State and Dearborn are its second half in as many words.
+    # WORKSHOPS GO TO T-1684, and the sentence this replaces is why the row could not stay
+    # on T-1682. T-1680's sweep (above, an hour earlier) sent it to T-1682 because "the
+    # W1-W4 shops on State and Dearborn are its second half in as many words" — sound at
+    # the time, and T-1682 then MEASURED that second half and could not spend it. The whole
+    # `fronts` vocabulary the 22-block recipe uses is `lake`, `randolph`, `south_water`,
+    # `washington` — the four LONG faces — and not one slot in this programme's history has
+    # been dealt onto a cross-street face, so a W2-W4 shop on State or Dearborn needs a
+    # short-face placement term the recipe does not have. Every block on those faces reads
+    # `at_capacity` or deals no W head (`blk_south_water_dearborn`'s 4 of headroom is dealt
+    # A3, D6, D7, H1), and the only W-family roof this town holds anywhere is
+    # `recon_1835_north_w5_040`, in the North Division: neither a slot to deal nor a shop to
+    # re-family. T-1684 carries that measurement and owns the question, and T-1682 closes
+    # with the pull request this row moved in — so leaving the row on it would put a `done`
+    # ticket in a DEAD_TICKET_STATES cell and take dev red the moment the settle workflow
+    # ran, which is the exact harm the sweep above exists to prevent.
     ("south", "stores_mixed_use"): "T-1681",
     ("south", "larger_boarding_houses"): "T-1209",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
     ("south", "inns_taverns"): "T-1683",
-    ("south", "workshops"): "T-1682",
+    ("south", "workshops"): "T-1684",
     # T-1200 WAS SPLIT on 2026-09-26 (T-1638, T-1639, T-1640, T-1641) and this row moved
     # with it, for the reason BUSINESS_TICKETS states below: a bucket whose `owning_ticket`
     # names a ticket in state `split` orders work nobody can claim. Of the four children the

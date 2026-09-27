@@ -1,10 +1,30 @@
 export const CHANGELOG = [ // newest first
-  { v: 1185, ts: '2026-09-27T21:04:00.445Z', date: 'Sep 27, 2026, 4:04 PM CT', title: 'What the public square held, and two things we had made up', kind: 'fix',
+  { v: 1188, ts: '2026-09-27T21:51:25.179Z', date: 'Sep 27, 2026, 4:51 PM CT', title: 'What the public square held, and two things we had made up', kind: 'fix',
     items: [
       'The block bounded by Randolph, Washington, Clark and LaSalle \u2014 the public square, and the county\u2019s ground \u2014 carried two things on 1 July 1835 and no more: the log jail on its north-west corner, and the roofless estray pen, the town\u2019s first public building, at the corner diagonally opposite. Both cards now say so, and say what is missing. The rest of the square is open prairie.',
       'What is missing is the two buildings everybody remembers there. Andreas\u2019s summary of the young city \u2014 \u201cA court-house, a jail, and an engine-house adorned the present square\u201d \u2014 describes a later town. The brick court-house went up on the north-east corner in the fall of 1835 and the county clerk only moved into it at the end of October; the engine house was contracted three days before the new year and was still unfinished in February. Neither is drawn, and now neither is silently absent either.',
       'The court-house record itself carried two inventions it did not need. It said the building was of plank, marked invented, and it placed it on the north-east corner while admitting the corner might have been borrowed from the grander court-house of 1837. One sentence of Andreas settles both: \u201ca one-story and basement brick court-house was erected on the northeast corner of the square, on Clark and Randolph streets\u201d. The fabric is brick, attested; the corner is the source\u2019s, not a guess; and the register of things this project made up drops two claims about the building.',
       'Nothing in the town moved. The building is not drawn, because it was not there in July \u2014 and that is why the correction sat unmade for six weeks. It had been filed as work that needed the models rebuilt, and the model it would have staled was retired days later for an unrelated reason. Nobody came back for a debt whose obstacle had quietly gone away.',
+    ] },
+  { v: 1187, ts: '2026-09-27T21:18:09.036Z', date: 'Sep 27, 2026, 4:18 PM CT', title: 'A warmer welcome to Chicago', kind: 'change',
+    items: [
+      'Arrive at a welcome with Jaunts, Explore on my own, and Enter Chicago. Choose a place, corner or resident’s known address as your starting point.',
+      'Start / Jaunts brings the welcome back and pauses the town. Your mouse stays free until you choose to look around, and navigation help waits until you enter.',
+      'Jaunts are being written; the welcome says so and offers free exploration in the meantime.',
+    ] },
+  { v: 1186, ts: '2026-09-27T21:18:09.036Z', date: 'Sep 27, 2026, 4:18 PM CT', title: 'Find firms and people through one destination search', kind: 'change',
+    items: [
+      'Go to now searches the business register alongside buildings, viewpoints, street corners and people. Business results name their premises or state how far the record can place them.',
+      'People and firms without a known address remain findable. Selecting one opens its existing card without moving you to an invented location.',
+      'The search and direct starting-point API share one destination inventory and the same safe building stand-off and arrival framing.',
+    ] },
+  { v: 1185, ts: '2026-09-27T20:35:03.828Z', date: 'Sep 27, 2026, 3:35 PM CT', title: 'Two Lake Street cottages were shops all along', kind: 'change',
+    items: [
+      'Lake Street is the town\u2019s business front, and until now the stretch of it between Market and Wells was a row of cottages \u2014 even where the newspaper had put a shop behind the door. Two of those cottages are now stores.',
+      'On the Franklin block, the building on the corner end of the Lake frontage was a deep-plan cottage with a hatter in it; on the Market block, lot six carried a cottage the paper calls a boot, shoe and leather store in as many words. Both are now store-residences: a shop room at the front with the counter, attic rooms over it under a story-and-a-half roof, a lean-to behind, and a signboard. Nothing about who was there changed \u2014 only what the building they were in looks like.',
+      'The Market Street one also moved, and the rule that moved it is worth saying. A cottage sits back from the street with a dooryard in front; a store does not, because a store needs a stranger to find it. Thirteen of the fourteen shops this project has evidence for stand right on the street line, so the builder refuses to put a store back in a garden. That building has come forward five and a half metres onto the same line the rest of the street\u2019s shopfronts stand on.',
+      'Once there were two shop windows on that face, the machine that hands documented businesses to roofs dealt the street again \u2014 and it can now put two more of Lake Street\u2019s traders behind a counter instead of in somebody\u2019s parlour. Twenty-three of the town\u2019s documented businesses now stand in a building of trade, up from twenty-one.',
+      'What is not built, and why: the ask behind this was the whole Lake frontage of five blocks, plus a row of mechanics\u2019 shops on State and Dearborn. Three of those five blocks \u2014 Wells, La Salle and Clinton \u2014 hold no building this programme drew, so there was nothing on them to change, and all seven Lake blocks are full, so nothing can be added either. The mechanics\u2019 shops have nowhere to go at all: no building in the whole plat has ever been placed facing a cross street, and the builder has no way to describe one. That is written down as its own job rather than guessed at.',
     ] },
   { v: 1184, ts: '2026-09-27T19:44:13.071Z', date: 'Sep 27, 2026, 2:44 PM CT', title: 'Nothing you can see: twenty-three old advertisements finally get an answer', kind: 'fix',
     items: [

@@ -63,7 +63,7 @@ function store(key, value) {
 }
 
 export function createHud({
-  root, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
+  root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
   onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
   isTouch, resolvedDetail = 'full',
 }) {
@@ -606,14 +606,13 @@ export function createHud({
   //
   // Everywhere you can stand and everyone who stood there, in one searchable
   // list. The list, its filters, its distances and its keyboard live in
-  // js/goto.js; the HUD only hands it the section, the collections the renderer
-  // loaded, and the visitor's position, and tells it when to go.
+  // js/goto.js; the HUD only hands it the section, the shared destinations
+  // model, and the visitor's position, and tells it when to go.
   const goTo = createGoTo({
     root: root.querySelector('[data-panel="goto"]'),
-    scene, registry, intersections, people,
-    positionOf, visitor, isTouch, settings,
+    destinations, visitor, isTouch, settings,
     units: () => settings.units,
-    onGoTo: (target) => { onGoTo?.(target); setPanel(false); },
+    onGoTo: (target) => { setPanel(false); onGoTo?.(target); },
     onPersist: (key, value) => { settings[key] = value; store(SET_KEY, JSON.stringify(settings)); },
   });
 

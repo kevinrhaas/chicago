@@ -1,3 +1,5 @@
+T-1278: ready arrival opens a mobile welcome, shared starting-place picker and Start / Jaunts return. Jaunt catalog remains T-1253/T-1259. See docs/performance/welcome/README.md.
+
 # ROADMAP
 
 T-1246 (2026-09-20): real boot phases and deterministic row/batch yields implemented. Mobile/light flora repaint gap 123.8/116.5 ms cold/warm; all 12 scene comparisons identical. See [boot measurement receipt and reproduction](performance/BOOT-PHASES.md). T-1247 retains the loading presentation changes.

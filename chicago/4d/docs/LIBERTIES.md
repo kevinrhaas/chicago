@@ -9943,7 +9943,7 @@ American extraction tickets (T-0256 onward) are the corpus most likely to carry 
 Related: **L144** (three roofs on one lot, the core density standard this run spends two of) ·
 **L177** (one street line to a face) · **L182** (the end rule) · **L200** (where a non-dwelling
 stands) · tickets **T-0028** (this), **T-0316**, **T-0022**, **T-0188**, **T-0213**.
-**Covers:** `recon_1835_blk_lake_franklin_d5_01.inferred_1835.position`, `recon_1835_blk_lake_franklin_d5_01.inferred_1835.footprint`, `recon_1835_blk_lake_franklin_d1_02.inferred_1835.position`, `recon_1835_blk_lake_franklin_d1_02.inferred_1835.footprint`, `recon_1835_blk_lake_franklin_a1_03.inferred_1835.position`, `recon_1835_blk_lake_franklin_a1_03.inferred_1835.footprint`.
+**Covers:** `recon_1835_blk_lake_franklin_c2_01.inferred_1835.position`, `recon_1835_blk_lake_franklin_c2_01.inferred_1835.footprint`, `recon_1835_blk_lake_franklin_d1_02.inferred_1835.position`, `recon_1835_blk_lake_franklin_d1_02.inferred_1835.footprint`, `recon_1835_blk_lake_franklin_a1_03.inferred_1835.position`, `recon_1835_blk_lake_franklin_a1_03.inferred_1835.footprint`.
 **Recorded:** 2026-08-28.
 
 ### L204 — The fort's flagstaff: Andreas gives it a height, and everything else about the spar is ours

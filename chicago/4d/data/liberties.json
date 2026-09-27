@@ -13627,8 +13627,8 @@
       "section": "per_subject",
       "subjects": [
         "recon_1835_blk_lake_franklin_a1_03",
+        "recon_1835_blk_lake_franklin_c2_01",
         "recon_1835_blk_lake_franklin_d1_02",
-        "recon_1835_blk_lake_franklin_d5_01",
         "temple_lake_st_building"
       ],
       "covers": [
@@ -13646,25 +13646,25 @@
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_blk_lake_franklin_d1_02",
+          "structure": "recon_1835_blk_lake_franklin_c2_01",
           "phase": "inferred_1835",
           "aspect": "footprint"
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_blk_lake_franklin_d1_02",
+          "structure": "recon_1835_blk_lake_franklin_c2_01",
           "phase": "inferred_1835",
           "aspect": "position"
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_blk_lake_franklin_d5_01",
+          "structure": "recon_1835_blk_lake_franklin_d1_02",
           "phase": "inferred_1835",
           "aspect": "footprint"
         },
         {
           "domain": "structure",
-          "structure": "recon_1835_blk_lake_franklin_d5_01",
+          "structure": "recon_1835_blk_lake_franklin_d1_02",
           "phase": "inferred_1835",
           "aspect": "position"
         }
@@ -13694,7 +13694,7 @@
         },
         {
           "label": "Covers",
-          "text": "`recon_1835_blk_lake_franklin_d5_01.inferred_1835.position`, `recon_1835_blk_lake_franklin_d5_01.inferred_1835.footprint`, `recon_1835_blk_lake_franklin_d1_02.inferred_1835.position`, `recon_1835_blk_lake_franklin_d1_02.inferred_1835.footprint`, `recon_1835_blk_lake_franklin_a1_03.inferred_1835.position`, `recon_1835_blk_lake_franklin_a1_03.inferred_1835.footprint`."
+          "text": "`recon_1835_blk_lake_franklin_c2_01.inferred_1835.position`, `recon_1835_blk_lake_franklin_c2_01.inferred_1835.footprint`, `recon_1835_blk_lake_franklin_d1_02.inferred_1835.position`, `recon_1835_blk_lake_franklin_d1_02.inferred_1835.footprint`, `recon_1835_blk_lake_franklin_a1_03.inferred_1835.position`, `recon_1835_blk_lake_franklin_a1_03.inferred_1835.footprint`."
         },
         {
           "label": "Recorded",

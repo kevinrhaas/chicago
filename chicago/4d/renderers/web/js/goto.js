@@ -5,13 +5,13 @@
  * could not do: hide the reconstructed roofs unless asked ("attested + inferred shown;
  * reconstructed available as an option"), filter by kind ("like taverns, shops, etc."), and
  * put the citizens in it ("the citizens should show there"). The list stays complete by
- * construction — the scene's anchors, the compiled index's intersections, the registry and
- * the compiled people directory are the same collections the renderer loaded, so nothing
- * here goes stale by hand — and it keeps the behaviours a visitor already relies on: typing
+ * construction — destinations.js builds one inventory from the renderer's loaded
+ * collections, including firms and people without an address. This view keeps the
+ * behaviours a visitor already relies on: typing
  * never moves the camera; Enter goes to the first row (or the one the arrow keys reached);
  * the search folds diacritics, so "Beaubien" finds "Beaubien" however it was typed.
  *
- * Contract: createGoTo({ root, scene, registry, intersections, people, positionOf, visitor,
+ * Contract: createGoTo({ root, destinations, visitor,
  *   units, settings, isTouch, onGoTo, onPersist }) -> { paint(query), open(),
  *   refreshDistances(), setKind(id), setIncludeReconstructed(bool), targets }
  * `root` is the <section data-panel="goto">; this module renders its own markup into it.
@@ -30,106 +30,30 @@
  * half-second tick while the section is showing — without re-sorting, so the list does not
  * shuffle under a pointer.
  */
-import { displayName, searchTerms } from './display-name.js';
 import { formatDistance } from './units.js';
 import { escapeHtml } from './citations.js';
-import { KINDS, placeKind, presenceGrade } from './place-kinds.js';
 
 const CARDINALS = [
   'N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE',
   'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW',
 ];
-const GROUP_LABEL = Object.fromEntries(KINDS.map((k) => [k.id, k.label]));
-const GROUP_ORDER = Object.fromEntries(KINDS.map((k, i) => [k.id, i]));
 const ARROW_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" '
   + 'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V5"/><path d="M6 11l6-6 6 6"/></svg>';
 const SEARCH_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" '
   + 'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4-4"/></svg>';
 
-/** Case- and accent-folded, so the search matches what a visitor types. */
-const normal = (value) => String(value ?? '').toLocaleLowerCase().normalize('NFD')
-  .replace(/[\u0300-\u036f]/g, '');
-const words = (value) => String(value ?? '').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
 const plural = (n, one, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
 const normalBearing = (value) => ((Number(value) || 0) % 360 + 360) % 360;
 const cardinal = (bearing) => CARDINALS[Math.round(normalBearing(bearing) / 22.5) % CARDINALS.length];
-/** A residents field is either a bare id or a graded `{value}` block; both name a structure. */
-const idOf = (field) => (field && typeof field === 'object' ? field.value : field) || null;
-
-/** What the record says the building was for, in a visitor's words — the first clause
- *  only, because the hedged ones run to a sentence. */
-function functionWords(sidecar) {
-  const fn = words(sidecar?.attributes?.function?.value).split(';')[0].trim();
-  return fn.replace(/^tavern inn$/, 'tavern & inn');
-}
-
 export function createGoTo({
-  root, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
+  root, destinations, visitor = null,
   units = () => 'imperial', settings = {}, isTouch = false, onGoTo, onPersist,
 } = {}) {
   const noop = { paint() {}, open() {}, refreshDistances() {}, setKind() {}, setIncludeReconstructed() {}, targets: [] };
   if (!root) return noop;
 
-  // ---- the targets -----------------------------------------------------------
-  const targets = [];
-  for (const a of scene?.anchors ?? []) {
-    // A viewpoint's one useful fact beyond its name is which way it looks.
-    const facing = Number.isFinite(a.yaw_deg) ? `Viewpoint · looking ${cardinal(a.yaw_deg)}` : 'Viewpoint';
-    targets.push({
-      kind: 'anchor', group: 'viewpoints', id: a.id, label: a.label || a.id, sub: facing,
-      e: a.local_e, n: a.local_n,
-      // The viewpoint's own facts ride along: travel.js ends a ride facing `yaw_deg`,
-      // and an aerial viewpoint (`altitude_m`) is always an instant jump, never a walk
-      // to the grass beneath it.
-      local_e: a.local_e, local_n: a.local_n, yaw_deg: a.yaw_deg,
-      altitude_m: a.altitude_m, pitch_deg: a.pitch_deg, search: normal([a.id, a.label, 'viewpoint'].filter(Boolean).join(' ')),
-    });
-  }
-  for (const i of intersections ?? []) {
-    targets.push({
-      kind: 'intersection', group: 'corners', id: i.id, label: i.label || i.id,
-      sub: 'Corner · verified junction', e: i.local_e, n: i.local_n,
-      local_e: i.local_e, local_n: i.local_n,
-      search: normal([i.id, i.label, 'corner', ...(i.search_terms ?? [])].filter(Boolean).join(' ')),
-    });
-  }
-  for (const [id, record] of registry?.entries?.() ?? []) {
-    const s = record?.sidecar ?? {};
-    const name = displayName(s, id);
-    const group = placeKind(s, id, name);
-    const pos = positionOf?.(id)
-      ?? (s.placement ? { e: s.placement.local_e ?? 0, n: s.placement.local_n ?? 0 } : null);
-    const fn = functionWords(s);
-    targets.push({
-      kind: 'structure', group, id, label: name.title, sub: fn || GROUP_LABEL[group],
-      presence: presenceGrade(s),
-      position: s.placement?.position_confidence || 'reconstructed',
-      e: pos?.e, n: pos?.n,
-      search: normal([searchTerms(s, id), fn, GROUP_LABEL[group]].filter(Boolean).join(' ')),
-    });
-  }
-  // People are places by proxy: only somebody with a roof the registry knows gets a row.
-  // The rest are in the People section with "no known address" — a row that went nowhere
-  // would be worse than none.
-  const peopleRows = people?.people ?? people?.persons ?? [];
-  for (const p of Array.isArray(peopleRows) ? peopleRows : []) {
-    const lives = idOf(p.lives_at); const works = idOf(p.works_at);
-    const livesOk = !!(lives && registry?.has?.(lives));
-    const worksOk = !!(works && registry?.has?.(works));
-    const at = livesOk ? lives : worksOk ? works : null;
-    if (!at) continue;
-    const building = displayName(registry.get(at)?.sidecar ?? {}, at).title;
-    const occupation = words(idOf(p.occupation));
-    const occ = occupation && occupation !== 'none recorded' ? occupation : '';
-    const pos = positionOf?.(at) ?? null;
-    targets.push({
-      kind: 'person', group: 'people', id: p.id, label: p.name || p.id,
-      sub: [occ, `${livesOk ? 'lived at' : 'worked at'} ${building}`].filter(Boolean).join(' · '),
-      lives_at: livesOk ? lives : null, works_at: worksOk ? works : null, at,
-      grade: p.grade ?? null, e: pos?.e, n: pos?.n,
-      search: normal([p.name, occ, p.household_name, building, 'person'].filter(Boolean).join(' ')),
-    });
-  }
+  const { targets, groups } = destinations;
+  const GROUP_LABEL = Object.fromEntries(groups.map(k => [k.id, k.label]));
 
   // ---- the markup ------------------------------------------------------------
   root.classList.toggle('jump-touch', !!isTouch);
@@ -140,12 +64,12 @@ export function createGoTo({
       <label class="field jump-field">
         <span>Search everywhere <b id="jump-count"></b></span>
         <span class="jump-search-wrap">${SEARCH_SVG}<input type="search" id="jump-search"
-          placeholder="A place, a corner, a person…" autocomplete="off" spellcheck="false"
+          placeholder="A place, a business, a person…" autocomplete="off" spellcheck="false"
           role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-autocomplete="list"
           aria-controls="jump-results"></span>
       </label>
       <div class="jump-pills" role="group" aria-label="Kinds of place">
-        ${pillHtml('all', 'All')}${KINDS.map((k) => pillHtml(k.id, k.label)).join('')}
+        ${pillHtml('all', 'All')}${groups.map((k) => pillHtml(k.id, k.label)).join('')}
       </div>
       <label class="jump-toggle">
         <input type="checkbox" id="jump-reconstructed">
@@ -159,7 +83,7 @@ export function createGoTo({
       <span class="conf conf-inferred">inferred</span> from one, or
       <span class="conf conf-reconstructed">reconstructed</span> to fill the block. It is not a
       grade of where the model stands. Viewpoints and corners are not claims about the town and
-      carry no grade. A person takes you to the building they lived or worked at.</p>`;
+      carry no grade. A person or firm takes you to its known building; without an address, its card opens instead.</p>`;
 
   const $ = (sel) => root.querySelector(sel);
   const input = $('#jump-search');
@@ -187,7 +111,6 @@ export function createGoTo({
     const dE = t.e - v.e; const dN = t.n - v.n;
     return { m: Math.hypot(dE, dN), bearing: normalBearing(Math.atan2(dE, dN) * 180 / Math.PI) };
   }
-  const eligible = (t) => includeReconstructed || t.kind !== 'structure' || t.presence !== 'reconstructed';
 
   function distHtml(d, v) {
     if (!d) return '';
@@ -212,7 +135,7 @@ export function createGoTo({
     const tries = ['a surname', 'a street'];
     if (kind !== 'all') tries.push(`the All pill`);
     if (!includeReconstructed) tries.push('turning on the reconstructed roofs');
-    if (kind === 'people' && people === null) return 'The people directory is not available in this build, so nobody is listed here yet.';
+    if (kind === 'people' && !destinations.peopleAvailable) return 'The people directory is not available in this build, so nobody is listed here yet.';
     const last = tries.pop();
     return `Nothing here is called that. Try ${tries.join(', ')}, or ${last}.`;
   }
@@ -225,7 +148,7 @@ export function createGoTo({
       const count = id === 'all' ? base.length : (n[id] || 0);
       pill.setAttribute('aria-pressed', String(id === kind));
       const label = pill.querySelector('.jump-pill-n');
-      if (id === 'people' && people === null) {
+      if (id === 'people' && !destinations.peopleAvailable) {
         label.textContent = '';
         pill.disabled = true;
         pill.title = 'The people directory is not available in this build';
@@ -247,12 +170,14 @@ export function createGoTo({
     const shown = includeReconstructed ? total : total - tally.reconstructed;
     const viewpoints = targets.filter((t) => t.kind === 'anchor').length;
     const junctions = targets.filter((t) => t.kind === 'intersection').length;
-    const withAddress = targets.filter((t) => t.kind === 'person').length;
+    const withAddress = targets.filter((t) => t.kind === 'person' && t.at).length;
+    const unknown = targets.filter(t => t.kind === 'person' && !t.at).length;
+    const businesses = targets.filter(t => t.kind === 'business').length;
     const roofs = `${tally.reconstructed} reconstructed roofs are ${includeReconstructed
       ? 'showing too' : 'hidden until you ask for them'}`;
-    const peopleLine = people === null
+    const peopleLine = !destinations.peopleAvailable
       ? 'The people directory is not available in this build, so nobody is listed.'
-      : `${withAddress} ${withAddress === 1 ? 'person has' : 'people have'} a known address.`;
+      : `${withAddress} ${withAddress === 1 ? 'person has' : 'people have'} a known address. ${unknown} without an address can still open a card. ${businesses} businesses are searchable.`;
     noteEl.textContent = `${plural(viewpoints, 'viewpoint')}, ${plural(junctions, 'verified junction')} and `
       + `${shown} of ${total} structures — ${roofs}. Of all ${total}, ${tally.attested} are attested to have `
       + `stood here, ${tally.inferred} inferred and ${tally.reconstructed} reconstructed. ${peopleLine}`;
@@ -261,17 +186,9 @@ export function createGoTo({
 
   function paint(q = query) {
     query = String(q ?? '');
-    const terms = normal(query).trim().split(/\s+/).filter(Boolean);
     const v = where();
-    const base = targets.filter(eligible);
-    const matched = base
-      .filter((t) => (kind === 'all' || t.group === kind) && terms.every((w) => t.search.includes(w)))
-      .map((t) => ({ t, d: distOf(t, v) }));
-    // Grouped in KINDS order; near-to-far when browsing, A–Z when searching — a visitor who
-    // typed a name is scanning for it, one who typed nothing is asking what is close.
-    matched.sort((a, b) => (GROUP_ORDER[a.t.group] ?? 9) - (GROUP_ORDER[b.t.group] ?? 9)
-      || (terms.length ? 0 : (a.d?.m ?? Infinity) - (b.d?.m ?? Infinity))
-      || a.t.label.localeCompare(b.t.label));
+    const base = destinations.search('', { includeReconstructed });
+    const matched = destinations.search(query, { kind, includeReconstructed, visitor: v }).map(t => ({ t, d: distOf(t, v) }));
 
     countEl.textContent = matched.length === base.length
       ? `${plural(base.length, 'place')}` : `${matched.length} of ${base.length}`;
