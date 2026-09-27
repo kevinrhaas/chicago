@@ -2480,6 +2480,10 @@
     "tools/check_loading_content.py": {
       "wrote": []
     },
+    "tools/check_only_selection.py": {
+      "wrote": [],
+      "measured_by": "tools/isolation_probe, scoped to this tool rather than a whole instrumented gate run (T-1652). --build takes one serial gate run, which does not fit a steward run's 600 s foreground ceiling; the probe that produces these rows was run over `--gate` and `--self-test` instead, with the same ISOLATION_ROOT/ISOLATION_OUT contract, and recorded no write inside the repo for either. Measured 2026-09-27. The next full --build folds this row in and this note goes with it — it reads nothing but tools/bake.sh, generators/build.py and data/structures/*.json."
+    },
     "tools/check_published.mjs": {
       "wrote": []
     },

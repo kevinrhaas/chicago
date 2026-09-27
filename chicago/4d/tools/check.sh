@@ -130,6 +130,22 @@ step "the steward surfaces spend the REST bucket, not GraphQL (T-0234)" \
 selftest "…and a reintroduced gh pr draw is refused (T-0234)" \
   node tools/check_gh_rest.mjs --self-test
 
+# T-1652. `tools/bake.sh` documents `--only a,b,c` and passes its arguments straight
+# through, so its usage is a promise about generators/build.py — which compared the id
+# for EQUALITY, matched none of 422 records, printed `0 asset(s) built` and exited 1.
+# The documented way to bake several buildings in one Blender start-up therefore baked
+# nothing, and said nothing about why; a re-family lap on 2026-09-26 paid for ten
+# separate start-ups instead. This is the gate beside the fix, in the shape
+# check_haze_reach.mjs uses: read both texts and refuse them drifting apart again.
+step "the --only form bake.sh documents is the form build.py implements (T-1652)" \
+  python3 tools/check_only_selection.py --gate
+
+selftest "…and the equality comparison and the falsy-empty test are both refused (T-1652)" \
+  python3 tools/check_only_selection.py --self-test
+
+selftest "…and the selection rule itself still fires on each of its assertions (T-1652)" \
+  python3 generators/common/selection.py --self-test
+
 # T-0135. The three scene-detail ceilings are a LADDER and nothing made them one.
 # `sealLadder()` in main.js takes the running minimum down the tier order, so a rung
 # typed too high cannot take effect; this is the gate beside that construction. It

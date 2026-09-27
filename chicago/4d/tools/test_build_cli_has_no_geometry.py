@@ -56,15 +56,30 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CLI = ROOT / "generators" / "build.py"
+sys.path.insert(0, str(ROOT / "generators"))
+
+import code_inputs  # noqa: E402
 
 # `bpy.app` is the manifest's record of which Blender ran. Everything else in the
 # module makes or edits meshes.
 BPY_ALLOWED = {"app"}
 
-# `common/phases.py` answers whether a phase gets a mesh, one step before any is
-# built, and makes none — the same reason its bytes are out of the input hash
-# (code_inputs.NO_GEOMETRY). A selection rule is the CLI's business.
-COMMON_ALLOWED = {"phases"}
+# Which `common/` modules the CLI may import — READ from the register that already
+# answers it rather than restated here. `code_inputs.NO_GEOMETRY` is the project's
+# one statement of which shared modules make no geometry, and it is the statement
+# with teeth: a module named there is OUT of every asset's input hash, so importing
+# it into build.py cannot move a vertex behind the staleness gate, which is the only
+# thing this gate exists to stop.
+#
+# It was a literal `{"phases"}` until T-1652, and the step's own comment in check.sh
+# had predicted what happened next: "an allowlist silently drops the next thing
+# somebody adds". The next thing was `common/selection.py` — the `--only` rule, in
+# NO_GEOMETRY with its reason, gated by tools/check_only_selection.py — and this gate
+# refused it while its own self-test asserted that a selection rule is allowed. Two
+# registers of the same fact disagreed within a day of the second one being written.
+# Now there is one, and adding a module to NO_GEOMETRY (which `geometry_modules()`
+# refuses to let rot) is what grants it.
+COMMON_ALLOWED = {name[:-3] for name in code_inputs.NO_GEOMETRY if name.endswith(".py")}
 
 
 def findings(source: str, filename: str = "generators/build.py") -> list[str]:
@@ -135,8 +150,12 @@ CASES: list[tuple[str, str, bool]] = [
      "import bpy\nbpy.ops.object.mode_set(mode='EDIT')\n", True),
     ("a bpy.data reach",
      "import bpy\nx = bpy.data.objects\n", True),
-    ("the selection rule, which makes no geometry",
+    ("a common/ module that is NOT in code_inputs.NO_GEOMETRY",
+     "from common.materials import shade\n", True),
+    ("the phase rule, which makes no geometry",
      "from common.phases import drawn_by_another_layer\n", False),
+    ("the selection rule, which makes no geometry either",
+     "from common.selection import parse_only, selects\n", False),
     ("bpy.app, which is the manifest's Blender stamp",
      "import bpy\nv = bpy.app.version_string\n", False),
     ("a CLI that only parses flags",

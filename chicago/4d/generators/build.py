@@ -4,6 +4,10 @@
 
     --all           build every structure phase resolvable for the scene
     --only <id>     build one structure id
+    --only a,b,c    build several, in one Blender start-up. An id no record
+                    answers to is REFUSED (exit 2) before anything is built —
+                    see generators/common/selection.py for why, and for the
+                    comma list that used to be compared as one long id
     --scene <id>    scene to resolve phases against (default 1835)
     --no-bake       skip UV + AO baking (fast iteration)
     --ao            bake ambient occlusion (opt-in; nothing in the nightly passes it —
@@ -35,6 +39,7 @@ import emit  # noqa: E402
 import mesh_inputs  # noqa: E402
 
 from common.phases import drawn_by_another_layer  # noqa: E402
+from common.selection import REFUSED, parse_only, refusal, selects  # noqa: E402
 
 
 def argv_after_ddash() -> list[str]:
@@ -78,7 +83,9 @@ def inputs_hash(structure: dict, phase: dict, archetype: str) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--all", action="store_true")
-    ap.add_argument("--only")
+    ap.add_argument("--only",
+                    help="one structure id, or a comma list of them. An id no "
+                         "record answers to is refused, not silently skipped.")
     ap.add_argument("--scene", default="1835")
     ap.add_argument("--no-bake", action="store_true",
                     help="skip UV unwrap as well as AO")
@@ -106,10 +113,20 @@ def main() -> int:
     # scheme it does not compute, so redefining freshness is a visible event.
     manifest["inputs_scheme"] = mesh_inputs.SCHEME
 
+    # Read every record before building any of them, so that a selection naming
+    # an id that does not exist is refused BEFORE the first Blender operation
+    # rather than discovered as an empty result afterwards (T-1652).
+    records = [load(path) for path in sorted((ROOT / "data" / "structures").glob("*.json"))]
+    only = parse_only(args.only)
+    refused = refusal(only, [st["id"] for st in records])
+    if refused:
+        print(f"REFUSING TO BUILD: {refused}")
+        return REFUSED
+
     built = 0
-    for path in sorted((ROOT / "data" / "structures").glob("*.json")):
-        st = load(path)
-        if args.only and st["id"] != args.only:
+    built_ids: list[str] = []
+    for st in records:
+        if not selects(only, st["id"]):
             continue
         phase = resolve_phase(st, target)
         if phase is None:
@@ -167,9 +184,19 @@ def main() -> int:
         manifest["assets"][out.name] = entry
         print(f"built {out.name}  {out.stat().st_size:,} bytes  ~{made.tris} tris")
         built += 1
+        built_ids.append(st["id"])
 
     manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     print(f"\n{built} asset(s) built; manifest updated")
+    # Every named id exists — `refusal()` proved that — so one that built nothing
+    # was skipped for a reason printed above (no phase covers the scene date, the
+    # phase is drawn by another layer, the archetype has no generator). Say which,
+    # because a selection of ten that builds nine should not read as a clean run.
+    if only:
+        unbuilt = [one for one in only if one not in built_ids]
+        if unbuilt:
+            print(f"{len(unbuilt)} of {len(only)} selected id(s) built nothing "
+                  f"(see the skip lines above): {', '.join(unbuilt)}")
     return 0 if built else 1
 
 

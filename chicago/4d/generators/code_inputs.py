@@ -74,6 +74,15 @@ NO_GEOMETRY: dict[str, str] = {
                  "anything is built, and makes no geometry itself. Both "
                  "directions of the rule are gated by tools/validate.py's "
                  "check_drawn_by and its missing-asset check instead.",
+    "selection.py": "T-1652's `--only` rule (see the module docstring). It decides "
+                    "WHICH structures are built from a command line — the same "
+                    "category as phases.py, one step further out: phases.py "
+                    "answers whether a record gets a mesh, this answers whether "
+                    "the record is reached at all. Neither makes geometry, and a "
+                    "mesh built from a record is the same mesh however the record "
+                    "was selected. It is gated instead by "
+                    "tools/check_only_selection.py and by its own --self-test, "
+                    "both in check.sh.",
 }
 
 
