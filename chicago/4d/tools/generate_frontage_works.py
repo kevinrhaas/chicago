@@ -528,6 +528,18 @@ EDGE_FENCE_COURSES = 2
 #      post a rider ties a bridle to, and that distinction is the one the
 #      signboard rule already draws between a board over a footway and a name
 #      painted on a front. A dwelling gets nothing at all.
+#
+#      T-1657 IS WHY THAT IMPORT NOW REACHES THE ANONYMOUS ROOFS. The set it
+#      imports carried C2's `store_residence` and W1's `blacksmith_shop` — two
+#      archetype-family terms — but none of C1, C3, C4, F1 or F2, so ten roofs
+#      the schedule had dealt a commercial family were never LOOKED at by this
+#      clause and got neither a post nor a refusal. They are in the sets now,
+#      which moved this layer's refusals from 95 to 108 and its posts not at
+#      all: the three F-band roofs are refused BY THIS CLAUSE as a works, and
+#      the ten C-band roofs fall to clause 3 because their trade was dealt by
+#      the schedule. `normalise_structure_function.py --check` now refuses a
+#      commercial or works family that no trade set knows, so the next family
+#      cannot go silent the same way.
 #   3. THE TRADE IS HELD ON EVIDENCE — `attested`, `documented` or `inferred`,
 #      which is clause 3 of the signboard rule verbatim. This is what keeps posts
 #      off the anonymous slots: an `inf_` roof's trade was DEALT BY A SCHEDULE,
@@ -555,12 +567,15 @@ EDGE_FENCE_COURSES = 2
 #      same record, and nothing distinguishes the two but the lettering neither of
 #      them carries.
 #
-#      SO THE GRADE IS LOAD-BEARING, AND THIS IS WHAT IT HOLDS UP. Of the town's
-#      285 anonymous slots exactly TWO carry a PUBLIC_TRADES trade at all —
-#      `inf_grocery_west` (store_residence) and `physicians_office`
-#      (physicians_office) — and both are graded `reconstructed`, so clause 3
-#      refuses both and the post count is the same under either reading: 16, with
-#      no named, evidenced frontage touched by the question either way. The hole
+#      SO THE GRADE IS LOAD-BEARING, AND THIS IS WHAT IT HOLDS UP. When T-1052
+#      asked, TWO of the town's 285 anonymous slots carried a PUBLIC_TRADES trade
+#      at all — `inf_grocery_west` (store_residence) and `physicians_office`
+#      (physicians_office). Re-measured on 2026-09-27, after the South Water
+#      re-familying (T-1647, T-1648) and after T-1657 put the C-band archetype
+#      terms into the trade set, it is 22 of 322 — and the reading is UNCHANGED,
+#      because every one of the 22 is graded `reconstructed`. Clause 3 refuses all
+#      22, so the post count is the same under either reading: 16, with no named,
+#      evidenced frontage touched by the question either way. The hole
 #      the ticket names is therefore not a post standing today but a grade moving
 #      tomorrow. What answers that is that the grade is not a dial. T-0230 put
 #      exactly that question to `physicians_office` and wrote the answer into the
