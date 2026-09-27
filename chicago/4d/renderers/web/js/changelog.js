@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1187, ts: '2026-09-27T21:18:09.036Z', date: 'Sep 27, 2026, 4:18 PM CT', title: 'A warmer welcome to Chicago', kind: 'change',
+    items: [
+      'Arrive at a welcome with Jaunts, Explore on my own, and Enter Chicago. Choose a place, corner or resident’s known address as your starting point.',
+      'Start / Jaunts brings the welcome back and pauses the town. Your mouse stays free until you choose to look around, and navigation help waits until you enter.',
+      'Jaunts are being written; the welcome says so and offers free exploration in the meantime.',
+    ] },
+  { v: 1186, ts: '2026-09-27T21:18:09.036Z', date: 'Sep 27, 2026, 4:18 PM CT', title: 'Find firms and people through one destination search', kind: 'change',
+    items: [
+      'Go to now searches the business register alongside buildings, viewpoints, street corners and people. Business results name their premises or state how far the record can place them.',
+      'People and firms without a known address remain findable. Selecting one opens its existing card without moving you to an invented location.',
+      'The search and direct starting-point API share one destination inventory and the same safe building stand-off and arrival framing.',
+    ] },
   { v: 1185, ts: '2026-09-27T20:35:03.828Z', date: 'Sep 27, 2026, 3:35 PM CT', title: 'Two Lake Street cottages were shops all along', kind: 'change',
     items: [
       'Lake Street is the town\u2019s business front, and until now the stretch of it between Market and Wells was a row of cottages \u2014 even where the newspaper had put a shop behind the door. Two of those cottages are now stores.',

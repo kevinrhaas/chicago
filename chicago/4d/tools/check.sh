@@ -2394,6 +2394,9 @@ step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)"
 step "source browser counts and filters" \
   node tools/test_sources_view.mjs
 
+step "shared destinations and safe stand-offs (T-1277)" \
+  node tools/test_destinations.mjs
+
 # Every building card offers a link to the write-up behind the building, and on
 # the deployed site all 332 of them were a 404: publish.sh leaves docs/ out of
 # the payload by design, so the link resolved in the source tree and nowhere a

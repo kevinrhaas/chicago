@@ -1,0 +1,33 @@
+START 390
+PASS {"width":390,"inventory":{"count":4025,"rows":4025,"shared":true},"safeStructures":421,"resolution":[{"kind":"structure","ok":true,"blocked":false,"ground":true},{"kind":"person","ok":true,"blocked":false,"ground":true},{"kind":"anchor","ok":true,"blocked":false,"ground":true},{"kind":"intersection","ok":true,"blocked":false,"ground":true}],"spawned":[{"kind":"structure","ok":true,"stable":true,"distance":0,"phase":"idle","flying":false},{"kind":"person","ok":true,"stable":true,"distance":0,"phase":"idle","flying":false},{"kind":"anchor","ok":true,"stable":true,"distance":0,"phase":"idle","flying":false},{"kind":"intersection","ok":true,"stable":true,"distance":0,"phase":"idle","flying":false}],"errors":[]}
+START 1280
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#gate-btn')[22m
+[2m    - locator resolved to <button id="gate-btn" class="gate-btn">Tap to enter</button>[22m
+[2m  - attempting click action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m    - element is visible, enabled and stable[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - performing click action[22m
+
+    at /workspace/scratch/1c54a89f693e/chicago/chicago/4d/tools/measure_destinations.mjs:15:193 {
+  log: [
+    "  - waiting for locator('#gate-btn')",
+    '    - locator resolved to <button id="gate-btn" class="gate-btn">Tap to enter</button>',
+    '  - attempting click action',
+    '    - waiting for element to be visible, enabled and stable',
+    '    - element is visible, enabled and stable',
+    '    - scrolling into view if needed',
+    '    - done scrolling',
+    '    - performing click action'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.19.0
