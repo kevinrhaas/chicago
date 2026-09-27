@@ -265,11 +265,36 @@ def door_kind(family: str) -> str:
     door — so the choice that used to sit halfway down the outbuilding tail is hoisted
     to where `eave_floor` can be asked about it.
     """
-    if family in ("W1", "W3", "F1", "A2"):
+    # F1 IS THE FREIGHT SHED AND ITS DOOR IS `cargo`, NOT `wagon` (T-1662). The
+    # crosswalk's required variant for the family is `freight_shed_low` — "wide
+    # doors; low openings" — and a wagon door is neither low nor plural. It also
+    # put the family's eave FLOOR at 3.08 m, 32 mm above the bottom of the 10-13 ft
+    # band the same crosswalk authors, so no F1 roof here could be dealt the low end
+    # of its own band. `cargo` is 2.20 x 2.35 m and takes the floor to 2.43 m.
+    if family == "F1":
+        return "cargo"
+    if family in ("W1", "W3", "A2"):
         return "wagon"
     if family in ("W2", "A1"):
         return "stable"
     return "man"
+
+
+def door_bays_for(family: str) -> int:
+    """HOW MANY of that doorway the family's loading side carries (T-1662).
+
+    One everywhere but F1. The freight shed's crosswalk variant is
+    `freight_shed_low` — "wide doors; low openings" — and the plural is the point:
+    goods came off a wagon bed or a boat at more than one place along a shed eleven
+    metres long, which is what the family's own evidence note means by "cargo
+    openings". Two is what F1's footprint band carries with a real pier between them
+    and at each corner; the archetype refuses a third rather than thin the wall, and
+    refuses two on a front too short for them.
+
+    Authored only when it is more than one, so that the 130-odd outbuildings that
+    have always had a single door are not rewritten to say so.
+    """
+    return 2 if family == "F1" else 1
 
 
 def storeys_for(family: str) -> float:
@@ -419,6 +444,7 @@ def _form_body(family: str, seq: int, finish: str, width: float, depth: float) -
         }
 
     door = door_kind(family)
+    bays = door_bays_for(family)
     material = "plank"
     if family == "A1" and min(width, depth) >= 2.2:
         material = "log"
@@ -429,6 +455,7 @@ def _form_body(family: str, seq: int, finish: str, width: float, depth: float) -
         "roof_pitch_deg": inferred(pitch(), why),
         "construction": inferred(material, why), "door": inferred(door, why),
         "door_side": inferred("front", why),
+        **({"door_bays": inferred(bays, why)} if bays > 1 else {}),
         "loft": inferred(family in ("W2", "A1", "A2"), why),
         "board_gap_m": inferred(.012, why), "paint": inferred(finish, why),
     }

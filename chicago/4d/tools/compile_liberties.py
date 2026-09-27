@@ -387,6 +387,20 @@ def _log_and_fort_roof_count() -> int:
                if record.get("archetype") in ("log_dwelling", "fort_structure"))
 
 
+def _cargo_opening_count() -> int:
+    """Phases whose door is the freight shed's `cargo` opening, which is the
+    population L277's two invented numbers reach.
+
+    Counted off the LAYER rather than off the family, because the family is not
+    what the liberty is about: any record stating `door: cargo` is built with the
+    2.20 x 2.35 m opening and the bay rhythm the entry invents, whatever family
+    dealt it. Today that is F1 and only F1, and the day a named building is read
+    as having one this count moves and the entry has to be restated.
+    """
+    return sum(1 for _, form in _phase_forms()
+               if _attr(form.get("door")) == "cargo")
+
+
 def _roof_covering_count() -> int:
     """Phases stating a roof type, which is the population L263's exposure reaches.
 
@@ -606,6 +620,11 @@ SCOPE_SOURCES = {
     "structures.records[brick_fabric]": (
         _brick_fabric_count,
         "data/structures/*.json, the layer's own construction attribute"),
+    "structures.phases[cargo_openings]": (
+        _cargo_opening_count,
+        "data/structures/*.json, the layer's own door attribute; the records "
+        "themselves are re-derived by tools/generate_inferred_infill.py --check "
+        "and tools/generate_west_infill.py --check"),
     "structures.phases[roof_type_stated]": (
         _roof_covering_count,
         "data/structures/*.json, the layer's own roof_type attribute"),

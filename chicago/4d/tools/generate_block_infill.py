@@ -378,11 +378,36 @@ def finish_for(key: str) -> tuple[str, str]:
 
 def door_kind(family: str) -> str:
     """What has to get through the opening, which is a claim about the building's use."""
-    if family in ("W1", "W3", "F1", "A2"):
+    # F1 IS THE FREIGHT SHED AND ITS DOOR IS `cargo`, NOT `wagon` (T-1662). The
+    # crosswalk's required variant for the family is `freight_shed_low` — "wide
+    # doors; low openings" — and a wagon door is neither low nor plural. It also
+    # put the family's eave FLOOR at 3.08 m, 32 mm above the bottom of the 10-13 ft
+    # band the same crosswalk authors, so no F1 roof here could be dealt the low end
+    # of its own band. `cargo` is 2.20 x 2.35 m and takes the floor to 2.43 m.
+    if family == "F1":
+        return "cargo"
+    if family in ("W1", "W3", "A2"):
         return "wagon"
     if family in ("W2", "A1"):
         return "stable"
     return "man"
+
+
+def door_bays_for(family: str) -> int:
+    """HOW MANY of that doorway the family's loading side carries (T-1662).
+
+    One everywhere but F1. The freight shed's crosswalk variant is
+    `freight_shed_low` — "wide doors; low openings" — and the plural is the point:
+    goods came off a wagon bed or a boat at more than one place along a shed eleven
+    metres long, which is what the family's own evidence note means by "cargo
+    openings". Two is what F1's footprint band carries with a real pier between them
+    and at each corner; the archetype refuses a third rather than thin the wall, and
+    refuses two on a front too short for them.
+
+    Authored only when it is more than one, so that the 130-odd outbuildings that
+    have always had a single door are not rewritten to say so.
+    """
+    return 2 if family == "F1" else 1
 
 
 def band_note(family: str) -> str:
@@ -445,6 +470,7 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
     # door needs a metre more wall than a man door, and asking for the floor without
     # naming the door is how a band gets sampled below what the archetype can build.
     door = door_kind(family)
+    bays = door_bays_for(family)
     # ...and the ARCHETYPE bounds the band at BOTH ends (T-0142). H2's authored eave
     # runs to 21 ft and `frame_dwelling` will not carry a two-storey wall over 6.2 m,
     # so a uniform sample dealt this block a merchant house the generator refused to
@@ -551,6 +577,7 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
         "roof_pitch_deg": invented(pitch(), why),
         "construction": invented(material, why), "door": invented(door, why),
         "door_side": invented("front", why), "loft": invented(loft, why),
+        **({"door_bays": invented(bays, why)} if bays > 1 else {}),
         "board_gap_m": invented(.012, why), "paint": invented(paint, why),
     }
 

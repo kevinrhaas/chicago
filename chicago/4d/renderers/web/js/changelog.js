@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1167, title: 'Thirteen shopfronts that never got asked about their signs', kind: 'fix', ts: '2026-09-27T05:40:22.240Z', date: 'Sep 27, 2026, 12:40 AM CT',
+  { v: null, title: 'Thirteen shopfronts that never got asked about their signs', kind: 'fix', ts: '',
     items: [
       'Open the card for one of the new South Water shopfronts and it now says whether a signboard and a hitching post belong at its door, and why not. Thirteen buildings had been saying nothing at all.',
       'The rule that hangs a board over a shop door and stands a post at the kerb works off a list of trades whose customer came in off the street. The list knew the word for a store-residence and the word for a smith\u2019s shop, but not the words the reconstruction uses for a small shop, a narrow store, a wide store block, a freight shed or a warehouse \u2014 so buildings of those kinds were skipped in silence.',
       'Nothing in the town moved and no sign was added: the three freight buildings are refused a post because a warehouse took carts at a yard gate, not riders at a rail, and the ten shops are refused one because their trade was dealt by a schedule rather than read in a record. A refusal you can read is the point.',
       'The refusals on this layer go from 95 to 108 and the posts stay at 18. The gate that checks the town now also refuses a building kind that no trade list knows, so the next one added cannot go quiet the same way.',
+    ] },
+  { v: 1167, ts: '2026-09-27T05:49:40.674Z', date: 'Sep 27, 2026, 12:49 AM CT', title: 'The freight sheds get the doors a freight shed had', kind: 'change',
+    items: [
+      'The town\u2019s two freight sheds \u2014 one in the South Division block between La Salle and Clark, one out on the west side \u2014 had a single wagon door in the middle of one end, the same opening a barn or a carter\u2019s stable gets. A shed for goods is worked differently: the load comes off a wagon bed or a boat and is handed in. Both now carry two wide, low cargo openings side by side on their loading face, with an even pier of board at each corner and between them.',
+      'The old door was also too tall for the family it belonged to. The reconstruction specification gives a freight shed an eave of ten to thirteen feet, and a three-metre wagon door needs more wall than ten feet leaves \u2014 so no freight shed in this town could be built at the low end of its own band. The new opening is low enough that all of it is reachable, and the west shed has come down nine millimetres to sit where its band actually puts it.',
+      'Neither the width nor the height is a reading of anything. No record reached describes a Chicago freight-shed door in 1835, or says how many a shed had. The height is worked out from the specification\u2019s own eave band; the width and the pair of them are inventions, bounded by what the family\u2019s footprints allow, and both are written down as such. The skids and landing apron the same specification asks for are still not built.',
     ] },
   { v: 1166, ts: '2026-09-27T04:57:37.297Z', date: 'Sep 26, 2026, 11:57 PM CT', title: 'Sources and stories accompany the journey back', kind: 'change',
     items: [

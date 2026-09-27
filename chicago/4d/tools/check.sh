@@ -1260,6 +1260,20 @@ step "the frontage works re-derive from the rule that chose their walls" \
 # empty covered tuple and the re-derivation above cannot touch it. This drives it
 # over all seven, in hundredths of a second, so it is code somebody is keeping
 # rather than code waiting to rot until the frame budget is won back.
+# The freight shed's cargo openings, and specifically the thing no other gate can
+# see: THREE callers have to agree about where they are. The builder frames them,
+# `openings()` cuts them out of the boarding and tells the signboard generator where
+# a board may not hang, and the validator refuses a count the wall cannot carry. They
+# agree by all reading one set-out; if any of them ever computes its own, the frames
+# land on solid board beside rectangular holes and the mesh is still perfectly valid.
+# It also holds the reading the family was re-doored on: a wagon door clamped F1's
+# eave FLOOR 32 mm above the bottom of the 10-13 ft band its own crosswalk authors.
+step "the freight shed's cargo openings set out once and are read three times" \
+  python3 tools/test_outbuilding_cargo.py
+
+selftest "…and that agreement still fires when the frames drift off the holes" \
+  python3 tools/test_outbuilding_cargo.py --self-test
+
 step "the street edge's cross-street faces enumerate as the plat says" \
   python3 tools/test_frontage_faces.py
 
