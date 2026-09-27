@@ -1,5 +1,54 @@
 # STATUS
 
+## The Dearborn block's business front stands as shops — T-1647, 2026-09-27
+
+Piece 1 of 3 of T-1639, and the split is the first thing this run has to report. The
+parent asked for C2–C4 store fronts and F1–F3 warehouses to be **raised** on the South
+Water party lines. **There is no ground to raise one on.** The owner ruled on 2026-09-26
+(T-1623, option a) that the single genuinely vacant lot each of `blk_south_water_dearborn`
+and `blk_south_water_wells` still holds stays open, and the other three South Water blocks
+read `at_capacity` in the 668-roof programme. So the business front's composition can only
+change by saying what the roofs standing on it **are**.
+
+**What is wrong, measured on the committed tree.** The South Water frontage run — the
+party-line row on the only street this project's own hierarchy grades `principal` — carries
+**28 roofs: 23 cottage families, 5 stores, no warehouse**, against the **0.6667** documented
+trade share T-0213 reads off a principal street. Two of those cottages carried a documented
+trade on their own card: `recon_1835_blk_south_water_dearborn_d5_07`, a D5 deep-plan frame
+cottage, and `..._d3_08`, a D3 one-room frame cottage.
+
+**What this piece did.** Those two slots are re-familied in
+`1835_platted_block_parcels.json` (`refamilied`, T-1647) and their ids move with the family
+— `_d5_07` → `_c2_07`, `_d3_08` → `_c1_08`. Nothing else about either roof moves: same lot,
+same setback, same anchor, same party line, same bottom tier. No confidence is upgraded and
+no occupant is invented; the footprint is not authored here either, because
+`generate_block_infill` samples a slot inside its family's own band on a stable key.
+
+**The family is the ground's choice and the refusals are measured.** Seq 07, east of
+Frederick Thomas's shop, takes **C2** (store-residence, 18×30–22×40 ft). Seq 08 stands in
+the gap between that shop and `john_holbrook_store` and takes **C1**, the largest store
+family that gap admits: dealt C2 the generator reports `stands 2.78 m from
+john_holbrook_store` against the three-metre separation gate, and dealt C3 it `reaches past
+the end of its own frontage … inside the 1.5 m margin of a side line the run does not stand
+across`. T-0432's own arithmetic agrees — it recorded the west gap as 5.932 m.
+
+**The business allocation re-paired itself, and that is the policy working.** Street-face
+adoption ranks businesses by evidence and pairs them with a face's free roofs **in id
+order**, and `order_is_a_claim: false` is written on every row. Two ids changed, so the four
+documented trades on this block's run re-paired across it. The block's business front now
+carries **four store roofs, every one of them occupied**, where it carried two stores and
+three cottages.
+
+**Left as written, deliberately.** The `Shipped 2026-09-11 — T-0432` entry below still names
+`_d3_08` and `_d5_07`. It is an accurate record of what shipped that day and rewriting it
+would falsify the log; the same refusal covers `renderers/unreal/receipts/` and
+`docs/unreal/prototype/import_report.json.txt`, which are dated import receipts. Every other
+file naming the two ids is derived and was re-derived in this commit.
+
+**Left owed.** T-1648 asks the same question of the Franklin, La Salle, Clark and Wells runs
+— 21 cottages — and T-1649 owns the crosswalk's `required_variant` silhouettes, which no
+generator implements today.
+
 ## The south bank below the bend is recut to Hathaway — T-1630, 2026-09-26
 
 The owner's answer to T-1630's own question, option (b). The reading that asked it

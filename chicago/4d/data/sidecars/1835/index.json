@@ -10737,6 +10737,18 @@
       "asset": "gltf/recon_1835_blk_south_water_dearborn_a3_06__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_south_water_dearborn_c1_08",
+      "name": "Reconstructed C1 small shop or office #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_c1_08.json",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_c1_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_c2_07",
+      "name": "Reconstructed C2 store-residence #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_c2_07.json",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_c2_07__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_south_water_dearborn_c3_01",
       "name": "Reconstructed C3 narrow two-story store #01",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_c3_01.json",
@@ -10759,18 +10771,6 @@
       "name": "Reconstructed D2 rough plank dwelling or shanty #04",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_d2_04.json",
       "asset": "gltf/recon_1835_blk_south_water_dearborn_d2_04__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_south_water_dearborn_d3_08",
-      "name": "Reconstructed D3 one-room frame cottage #08",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_d3_08.json",
-      "asset": "gltf/recon_1835_blk_south_water_dearborn_d3_08__inferred_1835.glb"
-    },
-    {
-      "id": "recon_1835_blk_south_water_dearborn_d5_07",
-      "name": "Reconstructed D5 deep-plan frame cottage #07",
-      "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_d5_07.json",
-      "asset": "gltf/recon_1835_blk_south_water_dearborn_d5_07__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_dearborn_h1_03",

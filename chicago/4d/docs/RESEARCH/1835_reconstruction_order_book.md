@@ -607,14 +607,14 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/larger_boarding_houses/south` | 28 | 9 | 19 | 0 | T-1209 |
 | `structures/larger_boarding_houses/west` | 6 | 2 | 4 | 0 | T-1209 |
 | `structures/larger_boarding_houses/north` | 8 | 6 | 2 | 0 | T-1209 |
-| `structures/ordinary_dwellings/south` | 176 | 126 | 50 | 0 | T-1203 |
+| `structures/ordinary_dwellings/south` | 176 | 124 | 52 | 0 | T-1203 |
 | `structures/ordinary_dwellings/west` | 75 | 51 | 24 | 0 | T-1208 |
 | `structures/ordinary_dwellings/north` | 84 | 46 | 38 | 0 | T-1206 |
 | `structures/small_outbuildings/south` | 48 | 23 | 25 | 0 | T-1212 |
 | `structures/small_outbuildings/west` | 14 | 4 | 10 | 0 | T-1212 |
 | `structures/small_outbuildings/north` | 20 | 9 | 11 | 0 | T-1212 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |
-| `structures/stores_mixed_use/south` | 42 | 26 | 16 | 0 | T-1201 |
+| `structures/stores_mixed_use/south` | 42 | 28 | 14 | 0 | T-1201 |
 | `structures/stores_mixed_use/west` | 6 | 4 | 2 | 0 | T-1207 |
 | `structures/stores_mixed_use/north` | 4 | 1 | 3 | 0 | T-1205 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | T-1204 |
