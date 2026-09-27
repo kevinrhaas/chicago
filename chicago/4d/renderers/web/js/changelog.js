@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'Thirteen shopfronts that never got asked about their signs', kind: 'fix', ts: '', date: '',
+  { v: 1167, title: 'Thirteen shopfronts that never got asked about their signs', kind: 'fix', ts: '2026-09-27T05:40:22.240Z', date: 'Sep 27, 2026, 12:40 AM CT',
     items: [
       'Open the card for one of the new South Water shopfronts and it now says whether a signboard and a hitching post belong at its door, and why not. Thirteen buildings had been saying nothing at all.',
       'The rule that hangs a board over a shop door and stands a post at the kerb works off a list of trades whose customer came in off the street. The list knew the word for a store-residence and the word for a smith\u2019s shop, but not the words the reconstruction uses for a small shop, a narrow store, a wide store block, a freight shed or a warehouse \u2014 so buildings of those kinds were skipped in silence.',
