@@ -275,10 +275,36 @@ HOUSEHOLD_BUCKETS = (
 # matrix onto the ten build tickets.
 STRUCTURE_TICKETS = {
     ("south", "ordinary_dwellings"): "T-1203",
-    ("south", "stores_mixed_use"): "T-1201",
+    ("south", "stores_mixed_use"): "T-1683",
     ("south", "larger_boarding_houses"): "T-1209",
-    ("south", "inns_taverns"): "T-1201",
-    ("south", "workshops"): "T-1201",
+    ("south", "inns_taverns"): "T-1683",
+    ("south", "workshops"): "T-1683",
+    #
+    # SWEPT TO T-1683 on 2026-09-27, in the pull request that closed T-1682, and for the
+    # reason the T-1200 paragraph above states: T-1201 went to state `split` at 17:37Z that
+    # day (T-1680, T-1681, T-1682, T-1683), so all three of its rows were ordering work
+    # nobody could claim, and `--check` said so — "structures/stores_mixed_use/south has 6
+    # left and is ordered by T-1201, which is split; structures/workshops/south has 5 left".
+    # That red was not on one branch: `STRUCTURE_TICKETS` is committed on dev, so EVERY
+    # branch cut from dev inherited it, and two finished units (PR #126, PR #127) were handed
+    # on as `resume` PRs for a step neither of them touched.
+    #
+    # WHY ALL THREE GO TO ONE CHILD, AND WHY THAT CHILD IS THE CLOSER. Of the four, T-1680
+    # is a VARIANT ticket against smithies already standing and T-1681 and T-1682 re-family
+    # roofs the Lake frontage already carries — the same case as T-1639 above, where children
+    # that raise no roof must not own a cell. T-1681 and T-1682 do DRAW on these cells, but
+    # naming either one means re-sweeping this table the moment it merges, which is the churn
+    # the T-1640 paragraph above was written to stop. T-1683 is the one child whose own
+    # acceptance IS this cell's question — "the generator refusals resolved, reconcile_665 at
+    # capacity or its headroom stated" — so it still owes these roofs after its siblings
+    # close, and this row does not move again when they do.
+    #
+    # WHERE THE WORKSHOPS THEMSELVES WENT. T-1682 measured, and T-1684 records, that the
+    # W2-W4 shops T-1201 asked for have no face to stand on: no slot in the 22-block recipe
+    # is dealt onto a cross-street face, the `fronts` vocabulary has no term for one, and
+    # every block on State and Dearborn reads `at_capacity` or deals no W head. So the
+    # workshops cell is owed and unspendable until T-1684 answers, and T-1683 is where the
+    # accounting for that lands rather than a ticket that cannot be claimed.
     # T-1200 WAS SPLIT on 2026-09-26 (T-1638, T-1639, T-1640, T-1641) and this row moved
     # with it, for the reason BUSINESS_TICKETS states below: a bucket whose `owning_ticket`
     # names a ticket in state `split` orders work nobody can claim. Of the four children the
