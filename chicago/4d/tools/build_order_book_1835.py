@@ -299,7 +299,15 @@ STRUCTURE_TICKETS = {
     # which is the fault this block's first paragraph exists to prevent. When the cell is
     # cut for real — the street-line warehouses apart from the sheds behind them — it is
     # the INVENTORY that should cut it, not a tuple in the order book.
-    ("south", "warehouses_freight"): "T-1640",
+    #
+    # MOVED TO T-1672 on 2026-09-27, in the pull request that closed T-1640. T-1640 built
+    # `south_bank_shed_dearborn_e2`, which took the last position the south-bank ground
+    # rule admits at the generators' 0.30 m relief clause — `takes_more` now reads 0 there
+    # — and the cell still owes three roofs. So this row cannot stay on T-1640 without
+    # ordering work from a ticket nobody can claim, which is the fault the paragraph above
+    # was written for; T-1672 owns the question the three remaining roofs actually pose,
+    # which is WHERE they stand now that the bank is full.
+    ("south", "warehouses_freight"): "T-1672",
     ("south", "institutional_public"): "T-1202",
     ("south", "barns_stables"): "T-1212",
     ("south", "small_outbuildings"): "T-1212",
