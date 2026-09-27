@@ -119,7 +119,7 @@ from family_bands import (dimensions_m, eave_floor, eave_for_ridge,  # noqa: E40
                           eave_limits, families, pitch_deg, stable_fraction,
                           storeys, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
-from roof_form import note_refusal, roof_kind  # noqa: E402
+from roof_form import fronts_gable, note_refusal, roof_kind  # noqa: E402
 
 # WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
 # 2026-09-21). See `plat_corridors.LINES` for the three words and
@@ -512,7 +512,11 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
             "stories": invented(levels, why), "wall_height_m": invented(wall, why),
             "roof_type": invented("gable", why),
             "roof_pitch_deg": invented(pitch(), why),
-            "gable_front": invented(family.startswith("C"), why),
+            # ASKED, NOT ASSUMED (T-1659). `family.startswith("C")` is true of three
+            # of the four store families and false of C4, whose crosswalk roof line is
+            # "side gable or hip" — neither of which fronts a gable. The rule now lives
+            # in tools/roof_form.py beside the shed rule, read off the entry itself.
+            "gable_front": invented(bool(fronts_gable(family)), why),
             "construction": invented(construction, why),
             "cladding": invented("clapboard" if family != "F2" else "vertical_board", why),
             # T-0430. A LOFT IS AUTHORED IN THE BAND OR IT IS NOT AUTHORED AT ALL.
