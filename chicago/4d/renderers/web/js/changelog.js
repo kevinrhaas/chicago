@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Fourteen Randolph Street houses name the families in them', kind: 'change',
+  { v: 1188, ts: '2026-09-27T21:40:51.475Z', date: 'Sep 27, 2026, 4:40 PM CT', title: 'Fourteen Randolph Street houses name the families in them', kind: 'change',
     items: [
       'Open a house on the blocks between Randolph and Washington and, until now, its card read the same sentence as every other: an anonymous building counted toward the town\u2019s total of 665 roofs. Fourteen of them now give the name of the family the project\u2019s own dealing had already put there \u2014 the Abbotts, the Adamses, the Allens, the Barneys, the Boyers and nine more \u2014 and say in the same breath that no source puts that family on that lot, that street, or even that side of town.',
       'Nothing was invented to do it. The dealing that decides which family takes which lot was made months ago and written down in a file two directories away; the house itself said nothing about it, so a visitor standing in front of one could not meet a decision the project had already made about them. The houses have not moved, changed shape or been rebuilt.',
