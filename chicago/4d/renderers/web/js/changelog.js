@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'South Water Street stands as stores and warehouses', kind: 'change', ts: '', date: '',
+  { v: 1165, title: 'South Water Street stands as stores and warehouses', kind: 'change', ts: '2026-09-27T03:33:16.741Z', date: 'Sep 26, 2026, 10:33 PM CT',
     items: [
       'Walk west along South Water Street from the Dearborn drawbridge and the town\u2019s declared business front was a row of cottages \u2014 twenty-three dwellings, five stores and not one warehouse on the party lines between Wells and Clark. Ten of those cottages are now shopfronts, store-residences and river warehouses.',
       'Nothing was built and nothing moved. Every one of the ten already carried a firm the newspapers place on South Water Street, and every one stood in a cottage\u2019s silhouette. They now wear the form their trade asks for: a wide two-storey store block at the east end of the Franklin block \u2014 the first in the town \u2014 seven shop and store-residence fronts, and two narrow two-storey warehouses.',
@@ -29,6 +29,7 @@ export const CHANGELOG = [ // newest first
       'Evidence now includes Sources: a searchable catalog of the books, maps, newspapers and other records used in the reconstruction, with filters for kind, source tier and use.',
       'Each source separates the claims it supports from the people, buildings and other records it helped reconstruct. Open a source to read its limits, browse dated newspaper issues, and follow its uses to existing cards.',
       'The catalog loads when opened. Returning from a card keeps your place and filters.'
+    ] },
   { v: 1161, title: 'Why the ground behind the new river shed stays empty', kind: 'fix', ts: '2026-09-27T00:55:09.045Z', date: 'Sep 26, 2026, 7:55 PM CT',
     items: [
       'Stand at the freight shed on the south bank below the Dearborn drawbridge and look inland. That strip of ground is empty, and it stays empty. Yesterday\u2019s release moved the road to the fort off it, and 91 places to stand another shed appeared where the reading had found none. That number was wrong, and the answer is still no.',
