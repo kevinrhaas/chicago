@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Nothing you can see: twenty-three old advertisements finally get an answer', kind: 'fix',
+  { v: 1184, ts: '2026-09-27T19:44:13.071Z', date: 'Sep 27, 2026, 2:44 PM CT', title: 'Nothing you can see: twenty-three old advertisements finally get an answer', kind: 'fix',
     items: [
       'Nothing in the town changed and no building moved. This is a reading job finishing: twenty-three notices of 1833 and 1834, set aside until now, each given a written answer.',
       'They were set aside because they are unusually good. Almost nothing in this corpus says where a building was, but these give a lot number and a block number, or a named corner, or a distance from a building we already have on the ground — "one lot east of Haddock’s Tavern, on Lake street". To use one, three things had to be settled: which lot of which block that is on the town’s own plat, whether we already have the building under another name, and whether a notice from a year or more before the scene says anything at all about the day we reconstruct.',
