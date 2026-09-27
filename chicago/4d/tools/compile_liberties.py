@@ -389,7 +389,7 @@ def _log_and_fort_roof_count() -> int:
 
 def _cargo_opening_count() -> int:
     """Phases whose door is the freight shed's `cargo` opening, which is the
-    population L277's two invented numbers reach.
+    population L278's two invented numbers reach.
 
     Counted off the LAYER rather than off the family, because the family is not
     what the liberty is about: any record stating `door: cargo` is built with the

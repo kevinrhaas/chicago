@@ -2010,6 +2010,22 @@ step "every family's footprint, eave, pitch and ridge bands are satisfiable at o
 selftest "…and its own assertions still fire when broken" \
   python3 tools/measure_ridge_reach.py --self-test
 
+# The same question asked of the crosswalk's OTHER two columns for the store families —
+# `required_variant` and `variants` — which name forms rather than bands (T-1659). Three
+# of those lines named forms `frame_storefront` could not draw, and two of the three were
+# invisible rather than refused: C2's `levels: "1.5"` was read with `int()`, so eight
+# records that state a story-and-a-half were built as one-storey shops with the shop
+# opening cut through the attic floor; and C4's "side gable or hip" met a roof rule that
+# gave a FRONT gable to every family whose id begins with C. The third — C3's and F2's
+# hoist door — is correctly BUILDABLE AND UNBUILT, because those entries' own assumption
+# notes forbid inferring one, and a capability no record exercises is exactly what a gate
+# has to hold up.
+step "the store families' crosswalk variants are the ones the archetype draws" \
+  python3 tools/test_store_variants.py
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/test_store_variants.py --self-test
+
 # And the question the two gates above cannot ask, because they read what LANDED: is
 # every family the 665-roof schedule may deal to a platted block buildable at every
 # size its own band allows? A family comes up rarely — there are two H1s and two H2s in

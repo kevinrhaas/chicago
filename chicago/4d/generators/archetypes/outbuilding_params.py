@@ -141,7 +141,7 @@ DOOR_SIZE_M = {
 #     `door_bays` below sets out.
 #
 # THE TWO NUMBERS, AND WHAT EACH ONE RESTS ON. Both are liberties (docs/LIBERTIES.md
-# L277) and neither is a reading of any source — no surviving record describes a
+# L278) and neither is a reading of any source — no surviving record describes a
 # Chicago freight-shed door in 1835.
 #
 #   HEIGHT 2.35 m is DERIVED, and the derivation is reproducible here: it is the
