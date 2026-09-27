@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, title: 'The freight shed was standing on the river walk', kind: 'fix', ts: '',
+  { v: 1164, title: 'The freight shed was standing on the river walk', kind: 'fix', ts: '2026-09-27T02:58:03.576Z', date: 'Sep 26, 2026, 9:58 PM CT',
     items: [
       'Walk the plank walk along the south bank east of the drawbridge and you did not get far. Past the foot of State Street the boards ran under a wall: the freight shed put up on that bank two releases ago sat across the whole width of the walk, and a visitor heading west was shoved out sideways instead of walking on. The shed has moved back onto the terrace behind the boards, and the walk runs clear.',
       'It was put there by a rule read off the wrong line. Its distance from the bank and the angle it stands at were measured from the road to the fort \u2014 and the release right after it moved that road off this reach, which the record said at the time and filed as a question. The question had a worse answer than expected: the position the road had chosen was on the walk.',
