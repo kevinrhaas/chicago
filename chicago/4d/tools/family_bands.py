@@ -257,6 +257,53 @@ def eave_floor(family: str, door: str = "man") -> float:
 DOOR_HEADER_M = 0.08
 
 
+# HOW MANY CARGO OPENINGS A WAREHOUSE FAMILY'S LOADING SIDE CARRIES (T-1663).
+#
+# Two families in the crosswalk ask for more than one, in their own words:
+#
+#   F3 `warehouse_river_large` — variants "multiple cargo doors; landing apron;
+#      sparse glazing", and an evidence note that names "multiple cargo-door
+#      rhythm" as the thing no current archetype conveys.
+#   F2 `warehouse_narrow_two_story` — variants "hoist beam; upper freight doors;
+#      few windows". An upper freight door stands over a cargo opening, because a
+#      load comes off one wagon at one door and goes up at that door; so the plural
+#      of the upper door is a plural of LOADING POINTS, not two doors over one.
+#
+# Neither entry says how many, and the number is therefore an invention
+# (docs/LIBERTIES.md L280). It is bounded rather than chosen, and the bound is the
+# family's OWN footprint band at its short end, measured against the braced frame
+# this archetype is already set out on:
+#
+#   * the loading side is the DEPTH — `frame_storefront` puts an `end` goods door
+#     on a gable wall that spans the plan's depth — so the shortest loading side a
+#     family can be dealt is the low figure of its `footprint_ft` band;
+#   * an opening with its jamb stock takes GOODS_DOOR_W_M + 2 * GOODS_DOOR_JAMB_M
+#     of that wall, and the even set-out leaves n + 1 equal piers;
+#   * a pier narrower than POST_SPACING_M is narrower than one bay of the braced
+#     frame the wall is built as, so the opening beside it cannot stand in a bay of
+#     its own. That is the floor, and it is the archetype's own number rather than
+#     one invented here.
+#
+# The answer is the largest rhythm EVERY plan the band authors will carry: F2's
+# 40 ft short side takes two (2.62 m piers) and refuses three (1.42 m); F3's 55 ft
+# takes three (2.56 m) and refuses four (1.62 m). One rule, each family's own band,
+# and a count that does not change with the individual plan — because a count that
+# followed the plan would be the generator deciding how a particular building was
+# worked, which is a claim about its use and not about its family.
+def cargo_door_bays(family: str, band_ft: list[int] | None) -> int:
+    if family not in ("F2", "F3") or not band_ft:
+        return 1
+    from archetypes.frame_storefront_params import (  # noqa: PLC0415
+        GOODS_DOOR_JAMB_M, GOODS_DOOR_W_M, POST_SPACING_M,
+    )
+    shortest_m = float(band_ft[1]) * .3048   # the band is in feet, as dimensions_m reads it
+    framed = GOODS_DOOR_W_M + 2 * GOODS_DOOR_JAMB_M
+    n = 1
+    while (shortest_m - (n + 1) * framed) / (n + 2) >= POST_SPACING_M:
+        n += 1
+    return n
+
+
 # THE OTHER END OF THE SAME BAND (T-0142). `eave_floor` exists because part of a
 # family's authored eave band is below what its archetype can build; H2 is the mirror
 # image — the merchant house's band runs 18-21 ft, and `frame_dwelling` refuses a

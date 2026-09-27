@@ -120,9 +120,9 @@ from reconcile_665 import houses_a_household, inventory_class  # noqa: E402
 # used to live in this file; the North Division parcel needed the same arithmetic and
 # had a retyped constant instead, so the rule moved to one module both import
 # (ROADMAP T-V1).
-from family_bands import (dimensions_m, eave_floor, eave_for_ridge,  # noqa: E402
-                          eave_limits, families, pitch_deg, stable_fraction,
-                          storeys, wall_height_m)
+from family_bands import (cargo_door_bays, dimensions_m, eave_floor,  # noqa: E402
+                          eave_for_ridge, eave_limits, families, pitch_deg,
+                          stable_fraction, storeys, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import fronts_gable, note_refusal, roof_kind  # noqa: E402
 
@@ -609,6 +609,7 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
         return result
 
     if family.startswith(("C", "F")) and family != "F1":
+        cargo_bays = cargo_door_bays(family, spec["band_ft"])
         result = {
             "stories": invented(levels, why), "wall_height_m": invented(wall, why),
             "roof_type": invented("gable", why),
@@ -640,6 +641,34 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
             "chimneys": invented(1 if not family.startswith("F") else 0, why),
             "shopfront": invented(not family.startswith("F"), why),
             "goods_door": invented(True, why), "goods_door_side": invented("end", why),
+            # THE CARGO-DOOR RHYTHM AND THE HOIST, WHERE THE FAMILY ASKS FOR THEM
+            # (T-1663). Both are the crosswalk's own words and neither is a
+            # consequence of the massing:
+            #
+            #   F3 asks for "multiple cargo doors" and gets the rhythm.
+            #   F2 asks for "hoist beam; upper freight doors" and gets both — the
+            #   plural of an upper freight door is a plural of LOADING POINTS,
+            #   since a load comes off one wagon at one door and goes up at that
+            #   door, so the rhythm below carries the upper doors too.
+            #
+            # HOW MANY is `family_bands.cargo_door_bays`, derived there from the
+            # family's own footprint band against the braced frame's post spacing,
+            # so the number is checkable rather than chosen. Every other family
+            # answers 1 and is not rewritten to say so.
+            #
+            # F2's assumption note reads "Hoist beam presence varies", and giving
+            # every F2 a hoist is the over-claim that note warns about. It is taken
+            # deliberately and recorded as a liberty (docs/LIBERTIES.md L280)
+            # rather than hidden: the same entry's EVIDENCE note names
+            # "warehouse framing/hoist support" as what this archetype must add
+            # before the family is satisfied, and a two-storey warehouse whose only
+            # opening is a ground door cannot load the floor it exists to have.
+            # Nothing in either committed record distinguishes one from the other,
+            # so there is nothing here to vary ON; a deal would be inventing a
+            # difference rather than recording one.
+            **({"goods_door_bays": invented(cargo_bays, why)} if cargo_bays > 1
+               else {}),
+            **({"hoist_door": invented(True, why)} if family == "F2" else {}),
         }
         # These parcels author no ell, so the frontage the shopfront stands on is the
         # footprint's own width — the same number `from_phase` derives for itself.

@@ -49,11 +49,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from common import materials  # noqa: E402
 from common.mesh import MeshBuilder, simple_material  # noqa: E402
 from archetypes.frame_storefront_params import (  # noqa: E402
-    CORNER_BOARD_M, POST_FACE_M, POST_SPACING_M, SHEATHING_M, SHOP_FASCIA_M,
-    SHOP_PILASTER_M, SHOP_SILL_Z_M, SIDING_M, STOREY_WIN_H_M, STOREY_WIN_W_M,
-    STUD_DEPTH_M, STUD_FACE_M, STUD_SPACING_M, FrameStorefrontParams, ell_extent,
-    front_window_rects, main_extent, plain_door_rect, shopfront_extent,
-    shopfront_panels, snap, storey_sill_z,
+    CORNER_BOARD_M, GOODS_DOOR_H_M, POST_FACE_M, POST_SPACING_M, SHEATHING_M,
+    SHOP_FASCIA_M, SHOP_PILASTER_M, SHOP_SILL_Z_M, SIDING_M, STOREY_WIN_H_M,
+    STOREY_WIN_W_M, STUD_DEPTH_M, STUD_FACE_M, STUD_SPACING_M,
+    FrameStorefrontParams, ell_extent, front_window_rects, gable_top_m,
+    main_extent, plain_door_rect, shopfront_extent, shopfront_panels, snap,
+    storey_sill_z,
 )
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
@@ -691,7 +692,7 @@ def _plain_door(b: MeshBuilder, p: FrameStorefrontParams, x0: float, x1: float,
 
 def _goods_door(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
                 x1: float, y1: float, conf: float) -> None:
-    """The freight opening: a wide board door on the loading side.
+    """The freight openings: wide board doors on the loading side.
 
     A store advertising dry goods, groceries and hardware, or calling itself a
     forwarding and commission house, took freight off a wagon — and not through the
@@ -699,23 +700,30 @@ def _goods_door(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
     was and whether it was one leaf or two is unattested for every store in the
     dossiers, so the whole thing carries the record's confidence for `goods_door`,
     which defaults to conjectural.
+
+    HOW MANY of them is the record's `goods_door_bays` and the set-out is
+    `goods_door_spans_m` (T-1663): a store has one, a warehouse worked at several
+    points along its side has more, and neither is a thing this function decides.
+    The spans come from the params so the doors here and the upper freight doors in
+    `_hoist_door` stand on one set-out and cannot drift apart.
     """
-    w, h = 1.85, 2.30
+    h = GOODS_DOOR_H_M
+    spans = p.goods_door_spans_m
     if p.goods_door_side == "rear":
-        # the free stretch of the back wall — a rear ell takes the -x end of it
-        gx0 = ell_extent(p)[2] if (p.ell and p.ell_side == "rear") else x0
-        cx = (gx0 + x1) / 2.0
-        _opening(b, "y", y0, cx - w / 2, cx + w / 2, 0.02, h, -1, conf)
-        _board(b, cx - 0.035, y0 - 0.055, cx + 0.035, y0 - 0.030, 0.02, h,
-               conf, M_TRIM, skip=("bottom", "back"))
+        for u0, u1 in spans:
+            _opening(b, "y", y0, u0, u1, 0.02, h, -1, conf)
+            cx = (u0 + u1) / 2.0
+            _board(b, cx - 0.035, y0 - 0.055, cx + 0.035, y0 - 0.030, 0.02, h,
+                   conf, M_TRIM, skip=("bottom", "back"))
         return
     sgn = _loading_sign(p)
     xx = x1 if sgn > 0 else x0
-    yc = (y0 + y1) / 2.0
-    _opening(b, "x", xx, yc - w / 2, yc + w / 2, 0.02, h, int(sgn), conf)
-    # the meeting stile between the two leaves
-    _board(b, min(xx, xx + sgn * 0.055), yc - 0.035, max(xx, xx + sgn * 0.055),
-           yc + 0.035, 0.02, h, conf, M_TRIM, skip=("bottom",))
+    for u0, u1 in spans:
+        _opening(b, "x", xx, u0, u1, 0.02, h, int(sgn), conf)
+        # the meeting stile between the two leaves
+        yc = (u0 + u1) / 2.0
+        _board(b, min(xx, xx + sgn * 0.055), yc - 0.035, max(xx, xx + sgn * 0.055),
+               yc + 0.035, 0.02, h, conf, M_TRIM, skip=("bottom",))
 
 
 def _loft_opening(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
@@ -773,6 +781,36 @@ def _in_gable(z_top: float, wall_z: float, ridge_z: float, u0: float, u1: float,
         return False
     shrink = 1.0 - (z_top - wall_z) / rise
     return shrink * ((u1 - u0) / 2.0 + ROOF_OVERHANG_M) > half_w + 0.35
+
+
+def _gable_carries(uc: float, z_top: float, wall_z: float, ridge_z: float,
+                   u0: float, u1: float, half_w: float) -> bool:
+    """Is there still gable at `uc`, `half_w` either side of it, at height `z_top`?
+
+    `_in_gable` above cannot answer this and must not be made to. It asks the
+    question for an opening CENTRED on the wall — it measures half the elevation and
+    shrinks that by the height — which is exactly right for an attic sash or for a
+    single hoist door on the wall's midline, and wrong for anything off centre: the
+    gable's apex stands over the middle, so the roof line at a bay near the corner is
+    far lower than the same height measured at the ridge. Asking the centred question
+    about an off-centre bay is how a beam gets drawn out through a roof plane
+    (T-1663), which is the fault ROOF_OVERHANG_M at the top of this module is named
+    for.
+
+    So this one asks it AT `uc`: the sloping edge over that point, taken on the same
+    outboard plane the gable triangle is filled on, with the same 0.35 m of margin
+    `_in_gable` keeps between an opening's corner and the roof.
+    """
+    if ridge_z - wall_z <= 1e-6:
+        return False
+    mid = (u0 + u1) / 2.0
+    # The roof line is lowest at the far corner of the opening, so that is the corner
+    # the test is taken at — an opening fits only if BOTH of its corners are under it,
+    # with the same 0.35 m of margin `_in_gable` keeps.
+    far = mid + abs(uc - mid) + half_w + 0.35
+    if far >= u1 + ROOF_OVERHANG_M:
+        return False
+    return gable_top_m(far, u0, u1, wall_z, ridge_z, ROOF_OVERHANG_M) > z_top
 
 
 def _attic_openings(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
@@ -838,41 +876,49 @@ def _hoist_door(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
         sgn = _loading_sign(p)
         axis, plane = "x", (x1 if sgn > 0 else x0)
         u0, u1 = y0, y1
-    uc = (u0 + u1) / 2.0
     z0 = p.story_height_m + 0.06
     z1 = z0 + HOIST_DOOR_H_M
     # It has to clear the frieze board at the eave, or the head of the door is behind
     # the trim. `_trim` puts the frieze in the top 0.22 m of the wall.
     if z1 > wall_z - 0.24:
         return
-    _opening(b, axis, plane, uc - HOIST_DOOR_W_M / 2, uc + HOIST_DOOR_W_M / 2,
-             z0, z1, int(sgn), conf)
-    # the meeting stile between the two leaves, as the goods door below it carries
-    if axis == "x":
-        _board(b, min(plane, plane + sgn * 0.055), uc - 0.035,
-               max(plane, plane + sgn * 0.055), uc + 0.035, z0, z1, conf, M_TRIM,
-               skip=("bottom",))
-    else:
-        _board(b, uc - 0.035, min(plane, plane + sgn * 0.055),
-               uc + 0.035, max(plane, plane + sgn * 0.055), z0, z1, conf, M_TRIM,
-               skip=("bottom",))
-
-    # THE BEAM, through the gable a third of the way up its rise and projecting past
-    # the roof's own overhang. `_in_gable` is asked the same question the attic sash is
-    # asked — is there still gable there at this height — so a shallow pitch gets the
-    # door and no beam rather than a timber sticking out of a roof plane.
     bz0 = wall_z + (ridge_z - wall_z) * 0.30
     bz1 = bz0 + HOIST_BEAM_FACE_M
-    if not _in_gable(bz1, wall_z, ridge_z, u0, u1, HOIST_BEAM_FACE_M / 2.0):
-        return
-    reach = plane + sgn * (ROOF_OVERHANG_M + HOIST_BEAM_REACH_M)
     half = HOIST_BEAM_FACE_M / 2.0
-    if axis == "x":
-        _board(b, min(plane, reach), uc - half, max(plane, reach), uc + half,
-               bz0, bz1, conf, M_TRIM, skip=())
-    else:
-        _board(b, uc - half, min(plane, reach), uc + half, max(plane, reach),
-               bz0, bz1, conf, M_TRIM, skip=())
+    reach = plane + sgn * (ROOF_OVERHANG_M + HOIST_BEAM_REACH_M)
+
+    # ONE UPPER DOOR OVER EACH CARGO OPENING, on the ground doors' own set-out
+    # (T-1663). F2's crosswalk entry says "upper freight doors" in the plural, and
+    # the plural of an upper freight door is a loading POINT: a load comes off one
+    # wagon at one door and goes up at that door, so two doors above means two
+    # doors below and not two doors over one. `goods_door_spans_m` is therefore
+    # what is iterated, and a single-bay record draws exactly what it drew before.
+    for gu0, gu1 in p.goods_door_spans_m:
+        uc = (gu0 + gu1) / 2.0
+        _opening(b, axis, plane, uc - HOIST_DOOR_W_M / 2, uc + HOIST_DOOR_W_M / 2,
+                 z0, z1, int(sgn), conf)
+        # the meeting stile between the two leaves, as the goods door below it carries
+        if axis == "x":
+            _board(b, min(plane, plane + sgn * 0.055), uc - 0.035,
+                   max(plane, plane + sgn * 0.055), uc + 0.035, z0, z1, conf, M_TRIM,
+                   skip=("bottom",))
+        else:
+            _board(b, uc - 0.035, min(plane, plane + sgn * 0.055),
+                   uc + 0.035, max(plane, plane + sgn * 0.055), z0, z1, conf, M_TRIM,
+                   skip=("bottom",))
+
+        # THE BEAM, through the gable a third of the way up its rise and projecting
+        # past the roof's own overhang. A shallow pitch, or a bay far enough out
+        # towards the corner, gets the door and no beam rather than a timber
+        # sticking out of a roof plane.
+        if not _gable_carries(uc, bz1, wall_z, ridge_z, u0, u1, half):
+            continue
+        if axis == "x":
+            _board(b, min(plane, reach), uc - half, max(plane, reach), uc + half,
+                   bz0, bz1, conf, M_TRIM, skip=())
+        else:
+            _board(b, uc - half, min(plane, reach), uc + half, max(plane, reach),
+                   bz0, bz1, conf, M_TRIM, skip=())
 
 
 # --------------------------------------------------------------------- the roof

@@ -1305,6 +1305,20 @@ step "the freight shed's cargo openings set out once and are read three times" \
 selftest "…and that agreement still fires when the frames drift off the holes" \
   python3 tools/test_outbuilding_cargo.py --self-test
 
+# The warehouse families' cargo-door rhythm, one storey up from the freight shed's.
+# Same reason as above and two more of its own: an upper freight door stands over a
+# cargo opening, so the doors on the two storeys have to read ONE set-out or they
+# drift apart in a mesh that stays perfectly valid; and a single-bay record's set-out
+# has to be the very float the archetype drew before the rhythm existed, or 43
+# storefronts churn a bake for a change about warehouses. It also holds the beam's
+# gable test at an OFF-CENTRE bay, which no committed record reaches — both of the
+# town's F2 gables are deep enough to carry every bay — so it is held here or nowhere.
+step "the warehouse's cargo doors and the freight doors over them set out once" \
+  python3 tools/test_storefront_cargo_rhythm.py
+
+selftest "…and that still fires when a single-door store moves by a nanometre" \
+  python3 tools/test_storefront_cargo_rhythm.py --self-test
+
 step "the street edge's cross-street faces enumerate as the plat says" \
   python3 tools/test_frontage_faces.py
 

@@ -18,10 +18,19 @@ were not visible as refusals — they were visible as nothing at all:
   gable for every family whose id begins with C — so the one C4 record stood with its
   gable to South Water, which is neither of the two forms its own entry offers.
 * **C3 and F2** author an "optional hoist door" and a "hoist beam; upper freight doors",
-  and the archetype had no such form. Their own assumption notes forbid inferring one
-  ("cannot be inferred from height alone"; "Hoist beam presence varies"), so no
-  committed record turns one on and this is the one variant whose correct state is
-  BUILDABLE AND UNBUILT. A capability nothing exercises is the thing a gate is for.
+  and the archetype had no such form. It has one now, and the two families' correct
+  states are DIFFERENT — which is why this check is per family and not a single sweep:
+    - **C3, and every store family**, still carries no hoist. C3's own assumption note
+      is explicit that upper lodging and hoist equipment "cannot be inferred from
+      height alone", so a two-storey shop does not get one for being two storeys.
+      This remains a capability nothing exercises, which is the thing a gate is for.
+    - **F2 carries one on both of its roofs** since T-1663. The same entry's EVIDENCE
+      note names "warehouse framing/hoist support" as what this archetype must add
+      before the family is satisfied, and a two-storey warehouse whose only opening is
+      a ground door cannot load the floor it exists to have. Its assumption note's
+      "Hoist beam presence varies" is therefore over-claimed here on purpose, recorded
+      as a liberty (docs/LIBERTIES.md L280) rather than inferred quietly. The rhythm
+      the doors stand on is held by `tools/test_storefront_cargo_rhythm.py`.
 
     python3 tools/test_store_variants.py
     python3 tools/test_store_variants.py --self-test   # the assertions must fire
@@ -154,9 +163,9 @@ def main(break_it: bool = False) -> int:
             wall_height_m=3.6)
 
     # ---- 5. the hoist door, off by default and refused where it is a prop --
-    check("no committed record carries a hoist door — the crosswalk forbids inferring "
-          "one",
-          not any(p.hoist_door for f in ("C1", "C2", "C3", "C4", "F2")
+    check("no STORE record carries a hoist door — C3's note forbids inferring one "
+          "from height",
+          not any(p.hoist_door for f in ("C1", "C2", "C3", "C4")
                   for _, p, _ in committed(f)))
     builds("a hoist door on a two-storey gable with a goods door", hoist_door=True)
     refuses("a hoist door over one storey", hoist_door=True, stories=1.0,
@@ -176,6 +185,13 @@ def main(break_it: bool = False) -> int:
     check("every committed F2 record could carry the hoist its entry offers",
           f2 and all(p.loading_end_is_gable for _, p, _ in f2),
           ", ".join(s for s, p, _ in f2 if not p.loading_end_is_gable))
+    # …AND SINCE T-1663 EVERY ONE OF THEM DOES. This is the assertion that says the
+    # family's line is satisfied by the town and not merely by the archetype: F2 was
+    # the one family whose entry asks for hoist support in its evidence note, and a
+    # capability reachable but never reached leaves that line only half built.
+    check("…and every one of them does carry it, which is what L280 records",
+          f2 and all(p.hoist_door for _, p, _ in f2),
+          ", ".join(s for s, p, _ in f2 if not p.hoist_door) or "all of them")
 
     # ---- 6. the CONSUMED contract ----------------------------------------
     # An attribute a vertex depends on that the set does not name is a record stating
@@ -188,8 +204,8 @@ def main(break_it: bool = False) -> int:
         print(f"{len(FAILED)} check(s) FAILED")
         return 1
     print(f"store variants OK — {len(stated_half)} C2 records at 1.5 storeys, "
-          f"{len(c4)} C4 record off its front gable, hip and hoist door buildable "
-          f"and unbuilt")
+          f"{len(c4)} C4 record off its front gable, hip buildable and unbuilt, "
+          f"hoist unbuilt on every store and built on both F2 warehouses")
     return 0
 
 

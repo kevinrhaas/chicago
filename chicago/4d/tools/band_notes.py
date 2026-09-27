@@ -122,6 +122,12 @@ PROSE_KEYWORDS = {
     "shopfront": ("shop", "display", "pane", "front"),
     "goods_door": ("door",),
     "goods_door_side": ("door",),
+    # The cargo-door rhythm and the hoist over it (T-1663). Both are answered by the
+    # same "variants" prose F2 and F3 carry — "multiple cargo doors", "hoist beam;
+    # upper freight doors" — so the keyword that decides whether the citation is true
+    # is the family's own word for the thing, as it is for every other opening here.
+    "goods_door_bays": ("door", "cargo"),
+    "hoist_door": ("hoist", "freight"),
     "door": ("door",),
     "door_side": ("door",),
     "door_bays": ("door",),
@@ -150,6 +156,8 @@ FIELD_LABEL = {
     "shopfront_bays": "a shop-bay count",
     "goods_door": "a goods door",
     "goods_door_side": "a goods-door side",
+    "goods_door_bays": "a count of cargo openings",
+    "hoist_door": "a hoist and upper freight door",
     "door": "a door type",
     "door_side": "a door side",
     "door_bays": "a count of doorways",

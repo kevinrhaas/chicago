@@ -15249,3 +15249,78 @@ without the record restating it, and would be the same resolution **L23** asks f
 and **L277** on the store-residences.
 **Covers:** `recon_1835_blk_south_water_franklin_c4_01.form.shopfront_bays`.
 **Recorded:** 2026-09-27.
+
+### L280 — The warehouse's cargo-door rhythm: two openings on an F2, three on an F3, and no source counts them
+
+**Scope:** `structures.phases[cargo_rhythm]` — 2 phases built with a cargo-door
+rhythm and a hoist over it: `recon_1835_blk_south_water_clark_f2_01` and
+`recon_1835_blk_south_water_lasalle_f2_10`, the town's only two **F2** roofs. The rhythm itself is `goods_door_bays` and
+`goods_door_spans_m` in `generators/archetypes/frame_storefront_params.py`; the count is
+`tools/family_bands.cargo_door_bays`, which the block and inferred-infill parcels deal to
+families **F2** and **F3** — so every F2 or F3 roof dealt after this stands on it too. No
+F3 stands in this town (`phase1_instantiated: 0`), so nothing is baked for F3 here.
+
+**What the crosswalk asks for, in its own words.**
+
+- **F3** `warehouse_river_large` — variants *"multiple cargo doors; landing apron; sparse
+  glazing"*, and an evidence note that names the *"multiple cargo-door rhythm"* as the thing
+  no current archetype conveys.
+- **F2** `warehouse_narrow_two_story` — variants *"hoist beam; upper freight doors; few
+  windows"*, and an evidence note that `frame_storefront` *"gives a two-storey shell and
+  goods door but its retail shopfront must be removed and warehouse framing/hoist support
+  added"*.
+
+Before this the archetype drew exactly one goods door, centred, on every store and every
+warehouse alike, and drew no hoist on anything — `hoist_door` existed and no committed
+record had ever set it.
+
+**The invention, stated as one number per family.** No source reached counts the cargo
+openings of any Chicago warehouse in 1835, or says that any of them had a hoist. The count
+is bounded rather than chosen, and the bound is the family's OWN footprint band at its
+short end, measured against the braced frame the wall is already set out on:
+
+- the loading side is the **depth** — an `end` goods door stands on the gable wall, which
+  spans the plan's depth — so the shortest loading side a family can be dealt is the low
+  figure of its `footprint_ft` band;
+- an opening with its jamb stock takes 1.85 + 2 × 0.16 = **2.17 m**, and the even set-out
+  leaves n + 1 equal piers;
+- a pier narrower than `POST_SPACING_M` (2.44 m, 8 ft between principal posts) is narrower
+  than one bay of that frame, so the opening beside it cannot stand in a bay of its own.
+
+The answer is the largest rhythm EVERY plan the band authors will carry. **F2's 40 ft short
+side takes two** (2.62 m piers) and refuses three (1.42 m). **F3's 55 ft takes three**
+(2.56 m) and refuses four (1.62 m). Neither number moves with the individual plan: a count
+that followed the plan would be the generator deciding how a particular building was
+worked, which is a claim about its use and not about its family.
+
+**The upper freight doors are the same rhythm, one storey up.** A load comes off one wagon
+at one door and goes up at that door, so the plural in *"upper freight doors"* is a plural
+of loading POINTS — two doors above means two doors below, not two doors over one. One
+set-out therefore serves both storeys, which is also what keeps the frames at the ground
+and the openings above from drifting apart.
+
+**The over-claim, taken deliberately and not hidden.** F2's assumption note reads *"Hoist
+beam presence varies"*, and giving both of the town's F2 roofs a hoist claims a uniformity
+that note warns against. It is taken because the same entry's EVIDENCE note names
+"warehouse framing/hoist support" as what this archetype must add before the family is
+satisfied, and because a two-storey warehouse whose only opening is a ground door cannot
+load the floor it exists to have. Nothing in either record distinguishes one from the
+other, so there is nothing here to vary ON, and dealing a difference would be inventing one
+rather than recording one. **If a source is ever reached that describes either building,
+this is the entry it overturns.**
+
+**What is NOT claimed.** Nothing here says either warehouse was worked at two points rather
+than one, or that its doors stood where the even set-out puts them; an even rhythm is
+chosen because any other would claim a plan no source gives. F3's landing apron and sparse
+glazing are **not built** and are not covered by this entry. The beam is drawn only where
+the gable actually carries it — on both of these it does.
+
+**Held by:** `tools/test_storefront_cargo_rhythm.py` in `check.sh`, which holds the
+derivation of both counts from the two bands, the even set-out, the three refusals, the
+tie between the ground doors and the doors above them, and the one thing no other gate can
+see — that a single-bay record's set-out is bit-for-bit the double the archetype drew
+before this existed, so no store in the town moved for a change about warehouses.
+
+**Related:** the crosswalk's **F2** and **F3** rows, **L278** (the freight shed's own cargo
+opening, the same argument one family over), T-1663 and its parent **T-1660**.
+**Recorded:** 2026-09-27.
