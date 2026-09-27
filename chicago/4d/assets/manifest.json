@@ -48,8 +48,8 @@
     "carpenter_south_water_store__frame_1833.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 47880,
-      "inputs_sha256": "b6b27fc40703e07feb9fd5f308d49db9282ac3936a4941d77c773e6c8817d3a3",
+      "bytes": 42576,
+      "inputs_sha256": "975bdf9642a6ab6bc36ec5dbc27aae653f37fa57c7e652ffa33455a4d93691ff",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "carpenter_south_water_store"
@@ -66,8 +66,8 @@
     "chicago_american_office__frame_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 48540,
-      "inputs_sha256": "6d3ee57118acf691dbce54496bec4dd84733692d78367092d458035ce4d09e2d",
+      "bytes": 53844,
+      "inputs_sha256": "f8f50582bc22d573a6d31c8e84980306a67ad83697146bdde33c772cdb56fb36",
       "kind": "generated",
       "phase_id": "frame_1835",
       "structure_id": "chicago_american_office"
@@ -75,8 +75,8 @@
     "chicago_democrat_office__frame_1833.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 66272,
-      "inputs_sha256": "61a2a8f5695f14ead3d5f95e9c7aea6292423c9301fd425b3b852311050b097a",
+      "bytes": 61280,
+      "inputs_sha256": "575de3d5b3a85c2a23057b67e357050ec957cabed410e9de85bbc6b11210dce8",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "chicago_democrat_office"
@@ -381,8 +381,8 @@
     "h_jones_store__frame_1833.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 53956,
-      "inputs_sha256": "4bfb1653cda86e8e30f07a915986c7344ce64e0238785142c025f561d0faed3e",
+      "bytes": 56296,
+      "inputs_sha256": "4161ef01053156f02ce1cb1c90dd402b3cf46313798e06655d29c2f91297f869",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "h_jones_store"
@@ -399,8 +399,8 @@
     "harmon_loomis_store__frame_1833.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 63452,
-      "inputs_sha256": "8d198644c4ad5f15f1d84e9c96817d7fd625cf12179d8aeb25fb868b5aad9b95",
+      "bytes": 66260,
+      "inputs_sha256": "ed8a9c55d07aae557ca7bf883b49e0f1f5778505bebdfe364be4e8bbd62c9f22",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "harmon_loomis_store"
@@ -750,8 +750,8 @@
     "lasalle_lake_house__documented_1834.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 33228,
-      "inputs_sha256": "bed8830bbbd2478ad251f40799e355385b5ffdc1fc99f3dbd784da412f87ae1c",
+      "bytes": 35412,
+      "inputs_sha256": "94bdd99da14f7bde9602dcab25c7cdbbf46caa2de1bb262face3abc967497978",
       "kind": "generated",
       "phase_id": "documented_1834",
       "structure_id": "lasalle_lake_house"
@@ -966,8 +966,8 @@
     "pruyne_kimball_drugstore__frame_1830s.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 45532,
-      "inputs_sha256": "9d8b5ce1ec669cea66ec1f9d11f63830eb7595fea9276a9630d9afd5b47d94bb",
+      "bytes": 43972,
+      "inputs_sha256": "eb8b348bdef55f9b9ddd2f3ec2cfe6a8e4ae9fba6f1f9345e405960813d622e3",
       "kind": "generated",
       "phase_id": "frame_1830s",
       "structure_id": "pruyne_kimball_drugstore"
@@ -3709,8 +3709,8 @@
     "thomas_church_store__frame_1834.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
-      "bytes": 61268,
-      "inputs_sha256": "502170c3067114b196e46f150fdb62d820dea0dcbf25c05c55ab1d9b9f040354",
+      "bytes": 66260,
+      "inputs_sha256": "dc7662d3727cb131bebb617cdbf9380b77b6326d1cf13e383fe9baa8620783d7",
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "thomas_church_store"
