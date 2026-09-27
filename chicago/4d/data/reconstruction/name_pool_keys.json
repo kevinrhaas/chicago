@@ -293,7 +293,9 @@
     ]
   },
   "ignored": {
-    "structures": {},
+    "structures": {
+      "resident_assignment.note": "T-1675. The machine-readable half of an occupancy, and the one note on a structure record that deliberately names nobody: it says whether the platted deal reached this roof and what refused the seat, and the household is named in data/reconstruction/1835_roof_keepers.json instead — on a refused seat because the letter-list ruling of 2026-08-30 forbids the name here, and on a written one because the id belongs in `household_id` where tools/generate_dooryard_pickets.py does not read it as a garden. Its capitalised words are therefore the prose's own sentence openings and the project's file and ticket names, not names the town has said anything about. `occupants.note` beside it IS read, and that is the one that carries a keeper's name."
+    },
     "households": {},
     "exclusions": {}
   }

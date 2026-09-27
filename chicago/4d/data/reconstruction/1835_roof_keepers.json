@@ -24,7 +24,9 @@
     "refused": 61,
     "owed": 39,
     "refused_letter_list": 61,
-    "refused_no_source": 0
+    "refused_no_source": 0,
+    "refused_on_the_card": 11,
+    "refused_with_a_household_left": 11
   },
   "written": [
     {
@@ -282,7 +284,8 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_boilvin_nicholas",
@@ -292,7 +295,8 @@
       "clause": "tradesman_dwellings",
       "family": "D4",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_bane_george_b",
@@ -302,7 +306,8 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_bakwith_albert",
@@ -312,7 +317,8 @@
       "clause": "labourer_dwellings",
       "family": "D2",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_albyn_lucius_b",
@@ -322,7 +328,8 @@
       "clause": "merchant_and_professional_dwellings",
       "family": "H1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_albert_shepherd",
@@ -332,7 +339,8 @@
       "clause": "merchant_and_professional_dwellings",
       "family": "H2",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_barrows_mary",
@@ -342,7 +350,8 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_beger_tobias",
@@ -352,7 +361,8 @@
       "clause": "labourer_dwellings",
       "family": "D2",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_banstun_charles",
@@ -362,7 +372,8 @@
       "clause": "tradesman_dwellings",
       "family": "D4",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_allison_thos",
@@ -372,7 +383,8 @@
       "clause": "tradesman_dwellings",
       "family": "D5",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_allger_william",
@@ -382,7 +394,8 @@
       "clause": "tradesman_dwellings",
       "family": "D6",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_andrus_thomas",
@@ -392,7 +405,8 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_alling_prudde",
@@ -402,7 +416,8 @@
       "clause": "labourer_dwellings",
       "family": "D2",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_britain_hiram_z",
@@ -412,7 +427,8 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_bandle_will_nm",
@@ -422,7 +438,8 @@
       "clause": "tradesman_dwellings",
       "family": "D4",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_akers_simon",
@@ -432,7 +449,8 @@
       "clause": "tradesman_dwellings",
       "family": "D5",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_ballantine_geor",
@@ -442,7 +460,8 @@
       "clause": "tradesman_dwellings",
       "family": "D6",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_bebee_orson",
@@ -452,7 +471,8 @@
       "clause": "labourer_dwellings",
       "family": "D2",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_bertrand_b_h",
@@ -462,7 +482,8 @@
       "clause": "tradesman_dwellings",
       "family": "D4",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_blakesley_harvey_a",
@@ -472,7 +493,8 @@
       "clause": "tradesman_dwellings",
       "family": "D4",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_brink_john",
@@ -482,7 +504,8 @@
       "clause": "tradesman_dwellings",
       "family": "D5",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_alden_ebenozer",
@@ -492,7 +515,8 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_adains_will_si",
@@ -502,7 +526,8 @@
       "clause": "tradesman_dwellings",
       "family": "D5",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_acker_jacob_van",
@@ -512,7 +537,8 @@
       "clause": "merchant_and_professional_dwellings",
       "family": "H1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_benn_eli",
@@ -522,7 +548,13 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its tradesman_dwellings clause, on blk_south_water_clark#05 — a standing anonymous roof of family D3 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 143 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
     },
     {
       "household_id": "hh_bertholf_marcus",
@@ -532,7 +564,13 @@
       "clause": "tradesman_dwellings",
       "family": "D4",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its tradesman_dwellings clause, on blk_south_water_clark#03 — a standing anonymous roof of family D4 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 143 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
     },
     {
       "household_id": "hh_chittenden_jesse",
@@ -542,7 +580,13 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_south_water_dearborn#04 — a standing anonymous roof of family D1 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 14 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
     },
     {
       "household_id": "hh_asa_nc_doel",
@@ -552,7 +596,13 @@
       "clause": "merchant_and_professional_dwellings",
       "family": "H1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its merchant_and_professional_dwellings clause, on blk_south_water_dearborn#05 — a standing anonymous roof of family H1 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 105 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
     },
     {
       "household_id": "hh_gifford_hezekiah",
@@ -562,7 +612,13 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_south_water_franklin#06 — a standing anonymous roof of family D1 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 14 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
     },
     {
       "household_id": "hh_beeson_william",
@@ -572,7 +628,13 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its tradesman_dwellings clause, on blk_south_water_franklin#04 — a standing anonymous roof of family D3 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 143 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
     },
     {
       "household_id": "hh_bench_reuben",
@@ -582,7 +644,13 @@
       "clause": "tradesman_dwellings",
       "family": "D4",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its tradesman_dwellings clause, on blk_south_water_franklin#04 — a standing anonymous roof of family D4 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 143 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
     },
     {
       "household_id": "hh_burdick_paul",
@@ -592,7 +660,13 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_south_water_lasalle#04 — a standing anonymous roof of family D1 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 14 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
     },
     {
       "household_id": "hh_case_nehemiah",
@@ -602,7 +676,13 @@
       "clause": "labourer_dwellings",
       "family": "D2",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_south_water_lasalle#03 — a standing anonymous roof of family D2 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 14 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
     },
     {
       "household_id": "hh_bemis_samuel_c",
@@ -612,7 +692,13 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_south_water_wells#03 — a standing anonymous roof of family D1 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 14 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
     },
     {
       "household_id": "hh_benubien_charl",
@@ -622,7 +708,13 @@
       "clause": "labourer_dwellings",
       "family": "D2",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1675). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_south_water_wells#03 — a standing anonymous roof of family D2 that clause admits — and T-1638 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 14 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
     },
     {
       "household_id": "hh_folliott_jonathan",
@@ -632,7 +724,8 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_falker_j_b",
@@ -642,7 +735,8 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_horr_raiph_c",
@@ -652,7 +746,8 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_humphrey_fre_lemuel",
@@ -662,7 +757,8 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_hasslen_daniel",
@@ -672,7 +768,8 @@
       "clause": "labourer_dwellings",
       "family": "D2",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_bryant_j_r_m",
@@ -682,7 +779,8 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_brookes_samuel",
@@ -692,7 +790,8 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_burk_james",
@@ -702,7 +801,8 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_barbour_timothy",
@@ -712,7 +812,8 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_boucher_joseph",
@@ -722,7 +823,8 @@
       "clause": "tradesman_dwellings",
       "family": "D4",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_bostwick_e_b",
@@ -732,7 +834,8 @@
       "clause": "tradesman_dwellings",
       "family": "D5",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_byam_seth",
@@ -742,7 +845,8 @@
       "clause": "tradesman_dwellings",
       "family": "D5",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_arams_benj_i",
@@ -752,7 +856,8 @@
       "clause": "tradesman_dwellings",
       "family": "D5",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_archibald_rius",
@@ -762,7 +867,8 @@
       "clause": "tradesman_dwellings",
       "family": "D5",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_brookins_david",
@@ -772,7 +878,8 @@
       "clause": "tradesman_dwellings",
       "family": "D6",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_burbee_jonathan",
@@ -782,7 +889,8 @@
       "clause": "tradesman_dwellings",
       "family": "D6",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_arrasmith_james",
@@ -792,7 +900,8 @@
       "clause": "merchant_and_professional_dwellings",
       "family": "D7",
       "district": "south",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_ayres_levi",
@@ -802,7 +911,8 @@
       "clause": "tradesman_dwellings",
       "family": "D4",
       "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_bean_george_b",
@@ -812,7 +922,8 @@
       "clause": "labourer_dwellings",
       "family": "D1",
       "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_bowen_air",
@@ -822,7 +933,8 @@
       "clause": "labourer_dwellings",
       "family": "D2",
       "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_allan_richard_b",
@@ -832,7 +944,8 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_abbott_constant",
@@ -842,7 +955,8 @@
       "clause": "tradesman_dwellings",
       "family": "D5",
       "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_abbot_8_g",
@@ -852,7 +966,8 @@
       "clause": "merchant_and_professional_dwellings",
       "family": "D7",
       "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_baldwin_eimer",
@@ -862,7 +977,8 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_andress_stephen",
@@ -872,7 +988,8 @@
       "clause": "tradesman_dwellings",
       "family": "D6",
       "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
     },
     {
       "household_id": "hh_barney_john",
@@ -882,7 +999,28 @@
       "clause": "tradesman_dwellings",
       "family": "D3",
       "district": "west",
-      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around"
+      "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around",
+      "on_the_card": false
+    }
+  ],
+  "households_left": [
+    {
+      "clause": "labourer_dwellings",
+      "district": "south",
+      "households_left": 14,
+      "means": "the deal's own owed rows of this clause and division whose households neither the letter-list ruling nor the no-source refusal rejects — so a roof refused here could be seated by one of them if the deal consulted the ruling before it dealt"
+    },
+    {
+      "clause": "merchant_and_professional_dwellings",
+      "district": "south",
+      "households_left": 105,
+      "means": "the deal's own owed rows of this clause and division whose households neither the letter-list ruling nor the no-source refusal rejects — so a roof refused here could be seated by one of them if the deal consulted the ruling before it dealt"
+    },
+    {
+      "clause": "tradesman_dwellings",
+      "district": "south",
+      "households_left": 143,
+      "means": "the deal's own owed rows of this clause and division whose households neither the letter-list ruling nor the no-source refusal rejects — so a roof refused here could be seated by one of them if the deal consulted the ruling before it dealt"
     }
   ],
   "owed": [
