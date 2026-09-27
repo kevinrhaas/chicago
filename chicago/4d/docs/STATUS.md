@@ -83,7 +83,7 @@ remainder, and the programme's whole discipline is that a family cap is never qu
 exceeded to make a block look complete. The A-family targets are the town's, not this
 district's (42 stables, 31 barns, 40 privies, 28 woodsheds, 17 small utility roofs across
 668 roofs), and what stands here is this district's share of them. A yard "per household"
-is a claim about the TARGET, and it is filed against the deal rather than built past the cap.
+is a claim about the TARGET, and it is filed against the deal as **T-1692** rather than built past the cap.
 
 **Book four — the frame budget, on the PUBLISHED mirror: PASS at both viewports, and there
 is MORE room than when the warning was written.**
@@ -117,7 +117,7 @@ The reason the count is so much larger than South Water's eleven is that
 never been run on this district: there the keeper layer had spent what it could and T-1675
 holds the residue, here nothing has been spent at all. T-1685 is extending the same layer
 to the Randolph tier; the Lake district needed the same pass and had no ticket, and this
-run files one.
+run files **T-1691**.
 
 **Verification:** `./tools/publish.sh`, then `./tools/check.sh`, then the smoke legs
 `tools/smoke_budget.mjs --for-diff` names for this diff.
