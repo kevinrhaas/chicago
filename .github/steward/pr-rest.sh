@@ -9,6 +9,9 @@
 #   pr-rest.sh resume N --why R [--waits-on T-NNNN|nothing]  # hand an unfinished PR to the next run
 #   pr-rest.sh meter                                         # both buckets, one line
 #
+# EVERY VERB EXCEPT `meter` TAKES `--repo owner/name`, and defaults it to the
+# ORIGIN REMOTE OF THE CHECKOUT THIS SCRIPT LIVES IN. See T-1655 below.
+#
 # WHY, measured 2026-08-27 (steward run 1140): GitHub meters GraphQL and REST as
 # TWO SEPARATE hourly buckets, and the fleet emptied one while the other sat
 # untouched — graphql remaining 0 of 5000, core remaining 4969 of 5000. A slice
@@ -32,10 +35,98 @@
 # stderr, because "pushed, gated, no PR" must never be silent.
 set -euo pipefail
 
-[ $# -ge 1 ] || { echo "usage: $0 create|list|view|comment|merge|resume|meter ..." >&2; exit 2; }
+# WHICH REPOSITORY (T-1655, measured 2026-09-27 by the run that hit it — T-1652,
+# chicago#104). This script read its repository out of the AMBIENT ENVIRONMENT,
+# and the environment belongs to whoever started the process, not to the checkout
+# the script is in. A steward improve run executes inside a **polecat-platform**
+# Actions job and clones this repo into the workspace, so the ambient repo name is
+# `kevinrhaas/polecat-platform` for every call made from `chicago-repo/` — while
+# `.github/steward/improve.md` tells a run to use *"that repo's own
+# pr-rest.sh resume <N>"* for a chicago PR. Both instructions were followed and
+# they cannot both be obeyed:
+#
+#   create  FAILED LOUDLY — 422, `base` and `head` invalid, because `dev` and
+#           `steward/t1652-bake-only-list` are not branches of polecat-platform.
+#           Its recovery notice printed a `polecat-platform/compare/…` URL, the tell.
+#   resume  SUCCEEDED SILENTLY AGAINST A STRANGER — it commented the handoff reason
+#           on, and applied `resume` to, polecat-platform#104, an unrelated PR
+#           ("fix: mobile drawer has no way to close except tapping the backdrop").
+#           A number collision across two repos is not rare: both had a #104 open
+#           that same day. Undone by hand afterwards.
+#
+# The silent case is the whole ticket, and labelling a stranger's PR is the one
+# thing T-1577 exists to stop happening without the owner knowing why. So:
+#
+#   1. `--repo owner/name` NAMES it, and wins.
+#   2. Otherwise it is the origin remote of THE CHECKOUT THIS FILE IS IN — resolved
+#      from ${BASH_SOURCE[0]}, not from $PWD, because a run drives this script by
+#      absolute path from wherever it happens to be standing.
+#   3. Otherwise it REFUSES, in one line, naming `--repo`. It never falls back to
+#      the environment. The platform's own gh-rest.sh takes the repo as its first
+#      argument and is why that one cannot make this mistake.
+#
+# …and naming a repository is not the same as being in the right one, so every verb
+# that WRITES first asks whether its target is there: `create` that the head branch
+# exists, `comment`/`merge`/`resume` that the pull request does. One GET, and it is
+# the difference between a 404 and a comment on a stranger.
+repo=""
+
+# The pre-verb position (`pr-rest.sh --repo o/n list`). Each verb's own option loop
+# accepts `--repo` too, so a free-form `--why`/`--body`/`--title` value can never be
+# mistaken for it — the reason this is not one global strip over all of "$@".
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --repo)   repo=${2:-}; shift 2 ;;
+    --repo=*) repo=${1#--repo=}; shift ;;
+    *) break ;;
+  esac
+done
+[ $# -ge 1 ] || { echo "usage: $0 [--repo owner/name] create|list|view|comment|merge|resume|meter ..." >&2; exit 2; }
 cmd=$1; shift
 
-repo="${GITHUB_REPOSITORY:?GITHUB_REPOSITORY is not set}"
+# …and immediately after the verb, so `--repo o/n resume N` and `resume --repo o/n N`
+# read the same. The verbs that take a PR number take it POSITIONALLY, so without
+# this the option would be read as the number.
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --repo)   repo=${2:-}; shift 2 ;;
+    --repo=*) repo=${1#--repo=}; shift ;;
+    *) break ;;
+  esac
+done
+
+checkout_repo() { # the origin remote of the checkout THIS FILE is in, as owner/name
+  local root url
+  root=$(cd "$(dirname "${BASH_SOURCE[0]}")" 2>/dev/null && git rev-parse --show-toplevel 2>/dev/null) || return 1
+  url=$(git -C "$root" remote get-url origin 2>/dev/null) || return 1
+  url=${url%.git}
+  # https://host/owner/name · https://user@host/owner/name · git@host:owner/name · ssh://host/owner/name
+  url=$(printf '%s' "$url" | sed -E 's#^(https?://([^@/]+@)?[^/]+/|ssh://([^@/]+@)?[^/]+/|[^/@]+@[^:/]+:)##')
+  printf '%s\n' "$url"
+}
+
+require_repo() {
+  if [ -z "$repo" ]; then repo=$(checkout_repo) || repo=""; fi
+  if ! [[ "$repo" =~ ^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$ ]]; then
+    echo "$0 $cmd: cannot tell which repository to act on — pass --repo owner/name; the default is this checkout's origin remote and NEVER \$GITHUB_REPOSITORY (T-1655), and it resolved to '${repo}'" >&2
+    exit 2
+  fi
+}
+
+require_head() { # head — create acts on a branch, so the branch has to be there
+  gh api "repos/${repo}/branches/$1" --jq .name >/dev/null 2>&1 && return 0
+  echo "$0 create: ${repo} has no branch '$1' — refusing to open a pull request in a repository this branch is not in; name the right one with --repo owner/name (T-1655)" >&2
+  return 1
+}
+
+require_pr() { # N — the three writing verbs act on a pull request, so refuse a stranger
+  local got
+  got=$(gh api "repos/${repo}/pulls/$1" --jq '.number' 2>/dev/null) || got=""
+  [ "$got" = "$1" ] && return 0
+  echo "$0 $cmd: ${repo} has no pull request #$1 — refusing to write to a repository this PR is not in; name the right one with --repo owner/name (T-1655)" >&2
+  return 1
+}
+
 
 meter_line() {
   gh api rate_limit --jq '"graphql \(.resources.graphql.remaining)/\(.resources.graphql.limit) core \(.resources.core.remaining)/\(.resources.core.limit)"' 2>/dev/null || echo "meter unread"
@@ -54,10 +145,19 @@ case "$cmd" in
         --base)  base=$2;  shift 2 ;;
         --head)  head=$2;  shift 2 ;;
         --body)  body=$2;  shift 2 ;;
+        --repo) repo=$2; shift 2 ;;
+        --repo=*) repo=${1#--repo=}; shift ;;
         *) echo "$0 create: unknown argument $1" >&2; exit 2 ;;
       esac
     done
     [ -n "$title$base$head" ] || { echo "$0 create: --title --base --head are required" >&2; exit 2; }
+    require_repo
+    # THE ONE GET THAT TELLS A WRONG REPOSITORY FROM A WRONG ARGUMENT (T-1655). Without
+    # it the 422 below says only "head invalid", which reads as a bad branch name and
+    # sent the run that hit it looking at its own branch rather than at the repository.
+    # Loud, and exit 1: create must never lose finished work silently, and a compare URL
+    # into a repository the branch is not in is not a recovery.
+    require_head "$head" || { echo "::error::$0 create: refused — see above (rate: $(meter_line))" >&2; exit 1; }
     out="$(gh api -X POST "repos/${repo}/pulls" \
              -f title="$title" -f base="$base" -f head="$head" -f body="$body" \
              --jq .number 2>&1)" || {
@@ -75,12 +175,14 @@ case "$cmd" in
     ;;
 
   list)
+    require_repo
     expr='.[] | .number'
     [ $# -eq 0 ] || { expr=$1; shift; }
     gh api --paginate "repos/${repo}/pulls?per_page=100" --jq "$expr"
     ;;
 
   view)
+    require_repo
     n=${1:?PR number}; shift
     expr='.mergeable_state'
     [ $# -eq 0 ] || { expr=$1; shift; }
@@ -93,10 +195,14 @@ case "$cmd" in
     while [ $# -gt 0 ]; do
       case "$1" in
         --body) body=$2; shift 2 ;;
+        --repo) repo=$2; shift 2 ;;
+        --repo=*) repo=${1#--repo=}; shift ;;
         *) echo "$0 comment: unknown argument $1" >&2; exit 2 ;;
       esac
     done
     [ -n "$body" ] || { echo "$0 comment: --body is required" >&2; exit 2; }
+    require_repo
+    require_pr "$n" || exit 2
     printf '%s' "$body" | gh api -X POST "repos/${repo}/issues/${n}/comments" --input - >/dev/null
     ;;
 
@@ -106,9 +212,13 @@ case "$cmd" in
     while [ $# -gt 0 ]; do
       case "$1" in
         --method) method=$2; shift 2 ;;
+        --repo) repo=$2; shift 2 ;;
+        --repo=*) repo=${1#--repo=}; shift ;;
         *) echo "$0 merge: unknown argument $1" >&2; exit 2 ;;
       esac
     done
+    require_repo
+    require_pr "$n" || exit 2
     gh api -X PUT "repos/${repo}/pulls/${n}/merge" -f merge_method="$method" >/dev/null
     ;;
 
@@ -152,6 +262,8 @@ case "$cmd" in
       case "$1" in
         --why)      why=$2; shift 2 ;;
         --waits-on) waits=${2:-nothing}; shift 2 ;;
+        --repo) repo=$2; shift 2 ;;
+        --repo=*) repo=${1#--repo=}; shift ;;
         *) echo "$0 resume: unknown argument $1" >&2; exit 2 ;;
       esac
     done
@@ -168,6 +280,13 @@ case "$cmd" in
       nothing|T-[0-9][0-9][0-9][0-9]) ;;
       *) echo "$0 resume: --waits-on takes a ticket id like T-1567, or the word 'nothing' — got '$waits'" >&2; exit 2 ;;
     esac
+    # AND THE TARGET IS THERE, BEFORE ANYTHING IS WRITTEN (T-1655). This verb's
+    # writes all land on an ISSUE number, and every repository has one of those —
+    # which is why the wrong-repository handoff succeeded instead of 404ing. Asking
+    # for the PULL REQUEST is the question that distinguishes them, and it is asked
+    # before the label vocabulary, so a refusal leaves the stranger untouched.
+    require_repo
+    require_pr "$n" || exit 2
     # The label vocabulary, created once and idempotently. Adding a label that does
     # not exist is a 422 on the issues endpoint, so the first handoff in a fresh
     # clone would otherwise leave the comment and no label — visible to a person
@@ -208,7 +327,7 @@ case "$cmd" in
 
   *)
     echo "$0: unknown command $cmd" >&2
-    echo "usage: $0 create|list|view|comment|merge|resume|meter ..." >&2
+    echo "usage: $0 [--repo owner/name] create|list|view|comment|merge|resume|meter ..." >&2
     exit 2
     ;;
 esac
