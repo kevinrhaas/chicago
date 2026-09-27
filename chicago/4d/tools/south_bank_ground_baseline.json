@@ -20,10 +20,10 @@
  "free_stations": 126,
  "stations": 143,
  "fits": {
-  "0.30": 91,
-  "0.35": 96,
-  "1.00": 162,
-  "none": 233
+  "0.30": 47,
+  "0.35": 47,
+  "1.00": 64,
+  "none": 104
  },
  "platted_end_m": 805.0,
  "widest_free_strip_beside_the_street": {
@@ -58,5 +58,48 @@
   "1.00": 0,
   "none": 0
  },
- "$note": "T-0134, re-read 2026-09-26 by T-1636 and re-read again the same day by T-1637. The reading this project's refusal of the plate's south-bank warehouses stands on. Written by tools/measure_south_bank_ground.py --write-baseline, and only when the finding has been re-read: a fit appearing on this reach is the question re-opening, not a number to bank. WHAT T-1636 FOUND: T-1629 filled the slough mouth this project had cut west of State Street and 91 flat positions appeared; 81 of them stood in the fort road, which plat_corridors cannot see because that road was never platted, so `fits` counted the 10 clear of it and `fits_in_an_unplatted_track` held the 81 the road took. WHAT T-1637 CHANGED, AND IT IS THE ROAD AND NOT THE GROUND: the fort road crossed the slough's new mouth in open water with no crossing recorded and none evidenced, so its western terminus moved onto State Street at the toe of the Slough Log Bridge's southern approach and its reach across this strip is gone. The road now takes NOTHING here (`fits_in_an_unplatted_track` is 0 at every clause, against 81), and the 81 positions it held are released to `fits`: 91, 96, 162, 233. Not one square metre of ground moved. THE PLATE'S OWN FRONTAGE IS UNTOUCHED AND THAT IS THE FINDING THAT MATTERS: `fits_beside_the_street` is 0, 0, 0, 3 - the same figures T-1636 banked, still zero at every relief clause west of South Water Street's committed east end, which is the frontage image 3 draws warehouses on. T-0134's refusal therefore stands. What is genuinely re-opened is the UNPLATTED ground between that end (E +805) and the Reservation's west line (E +842) - reservation ground, not town frontage, and whether anything of the plate belongs on it is its own question, filed rather than answered here. See docs/RESEARCH/south_bank_dearborn_ground.md, sections The re-read and Re-opened by the fort road's move."
+ "committed_walks_masked": [
+  {
+   "id": "river_plank_walk_crossing_footway",
+   "belongs_to": "river_plank_walk",
+   "width_m": 1.83
+  },
+  {
+   "id": "river_plank_walk_dearborn_crossing",
+   "belongs_to": "river_plank_walk",
+   "width_m": 1.22
+  },
+  {
+   "id": "river_plank_walk_east_reach",
+   "belongs_to": "river_plank_walk",
+   "width_m": 1.83
+  },
+  {
+   "id": "river_plank_walk_west_reach",
+   "belongs_to": "river_plank_walk",
+   "width_m": 1.83
+  },
+  {
+   "id": "blk_south_water_clark_north_crossing_blk_south_water_dearborn_north",
+   "belongs_to": "town_street_edge",
+   "width_m": 1.83
+  },
+  {
+   "id": "blk_south_water_clark_north_walk_2",
+   "belongs_to": "town_street_edge",
+   "width_m": 1.83
+  },
+  {
+   "id": "blk_south_water_dearborn_north_walk_1",
+   "belongs_to": "town_street_edge",
+   "width_m": 1.83
+  }
+ ],
+ "fits_on_a_committed_walk": {
+  "0.30": 44,
+  "0.35": 49,
+  "1.00": 98,
+  "none": 129
+ },
+ "$note": "T-0134, re-read 2026-09-26 by T-1636, again the same day by T-1637, and again 2026-09-27 by T-1643. The reading this project's refusal of the plate's south-bank warehouses stands on. Written by tools/measure_south_bank_ground.py --write-baseline, and only when the finding has been re-read: a fit appearing on this reach is the question re-opening, not a number to bank. WHAT T-1636 FOUND: T-1629 filled the slough mouth this project had cut west of State Street and 91 flat positions appeared; 81 of them stood in the fort road, which plat_corridors cannot see because that road was never platted. WHAT T-1637 CHANGED, AND IT WAS THE ROAD AND NOT THE GROUND: the road's western terminus moved onto State Street, its reach across this strip is gone, it now takes NOTHING here, and the 81 positions it held were released to `fits` (91, 96, 162, 233). WHAT T-1643 CHANGED, AND IT IS THE INSTRUMENT: this reading did not know about the committed frontage WALKS, so it reported the boards of the town's own riverside plank walk as free ground — and `south_bank_shed_dearborn_e1` was seated on them, across the full 1.83 m of the walk's east end, where the published walker was pushed out of the building instead of walking west along the bank. The walks are now masked exactly as the unplatted travelled ways are, by their own width, and the gate additionally REFUSES any committed building on this reach that stands on one. The boards take 44 of the positions at 0.30 m of relief, so `fits` reads 47, 47, 64, 104 against 91, 96, 162, 233 — not one square metre of ground moved, and nothing that is counted out here was ever buildable. THE PLATE'S OWN FRONTAGE IS UNTOUCHED AND THAT IS THE FINDING THAT MATTERS: `fits_beside_the_street` is 0, 0, 0, 3 — the same figures T-1636 and T-1637 banked, still zero at every relief clause west of South Water Street's committed east end, which is the frontage image 3 draws warehouses on. T-0134's refusal therefore stands. See docs/RESEARCH/south_bank_dearborn_ground.md, sections The re-read, Re-opened by the fort road's move, and The shed stood on the river walk."
 }

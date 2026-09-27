@@ -291,3 +291,105 @@ seated by rule — was reached with the road in it. Two questions follow and nei
 
 **Added links:** T-1637 (the road's move) · `tools/measure_fort_road_way.py` (the gate that holds
 the road out of the water) · `docs/LIBERTIES.md` L140.
+
+## The shed stood on the river walk, 2026-09-27 (T-1643)
+
+The section above filed the second of its two open questions as "whether
+`south_bank_shed_dearborn_e1` is re-seated or re-faced." **It is re-seated, and the reason is not
+the one that was filed.** The question was asked because the road the northing, the bearing and
+the door side were read off had gone, which is a loss of re-derivability. What answering it found
+is a defect: **the position that road had chosen stood across the town's own riverside plank
+walk.**
+
+### 1. What was standing on what
+
+`river_plank_walk_crossing_footway` — the riverside walk's east end, in
+`data/frontage/river_walk_frontage.json` — runs from local E +803.6 to E +815.0 at N +14.2 and is
+1.83 m wide, so its boards occupy **N +13.285 to N +15.115**. The footprint T-1636 seated spanned
+**N +8.164 to N +18.455** between E +805.4 and E +812.0, and took the whole width of them:
+
+| corner | E | N |
+|---|---|---|
+| north-east | 810.896 | 18.455 |
+| north-west | 805.442 | 17.860 |
+| south-west | 806.500 | 8.164 |
+| south-east | 811.954 | 8.759 |
+
+**No dataset gate could see it, and that is half the finding.** A walk in this project is boards
+laid on ground the reconstruction has already built; a building is a mesh seated on the same
+ground. Nothing compared the two. `plat_corridors` carries the platted grid, this page's own
+reading had learned about unplatted travelled ways for T-1636, and neither module knows what a
+plank walk is.
+
+What found it was **the published walker**, in `tools/smoke_renderer.mjs` stage 2 at the mobile
+viewport: standing on the walk at E +809.4, N +14.2 and walking west, a visitor was pushed out of
+the shed's compiled collision footprint east to **E +811.5** instead of reaching past E +802. The
+check was red on `dev` from the moment the shed was seated, reproduced on unmodified dev at
+`b6c56c8` — 87 passed, 1 failed — and it was a PR validating something else entirely (T-1275)
+that read the red properly.
+
+### 2. What the instrument now does
+
+`tools/measure_south_bank_ground.py` masks the **committed frontage walks** exactly as it masks
+the unplatted travelled ways: by the walk's own width, which is the same rectangle
+`renderers/web/js/frontage.js` publishes as that walk's keep-out. Unlike a road there is nothing
+else it could be — a corridor is a reservation *around* a travelled way and can be argued about,
+and boards are the surface itself. `data/frontage/index.json` is read as the manifest it says it
+is, so the reader reads exactly what the renderer reads.
+
+And the gate does one thing more, because a count is not a refusal: it **refuses outright any
+committed building on this reach that stands on a committed walk**, reading the sidecars the
+renderer seats from, and testing both containments — a building across a walk, and a walk running
+wholly inside a building. That is the ratchet on the thing that went wrong rather than on the
+ground, and `--self-test` asserts it fires by putting T-1636's own seating back and requiring the
+gate to catch it.
+
+### 3. What that does to the reading on this page
+
+| reading | T-1637 banked | now | why |
+|---|---|---|---|
+| `fits` 0.30 / 0.35 / 1.00 / none | 91 / 96 / 162 / 233 | **47 / 47 / 64 / 104** | the committed walks' boards are masked |
+| `fits_on_a_committed_walk` | — | **44 / 49 / 98 / 129** | the positions the boards take |
+| `fits_in_an_unplatted_track` | 0 / 0 / 0 / 0 | **0 / 0 / 0 / 0** | unchanged |
+| `fits_beside_the_street` | 0 / 0 / 0 / 3 | **0 / 0 / 0 / 3** | unchanged |
+| widest free strip | 26.50 m at E 813.2 | **26.50 m at E 813.2** | unchanged |
+
+**Not one square metre of ground moved, again.** Nothing counted out here was ever buildable — it
+was already covered in boards — and the row this page exists for is the fourth: beside the platted
+street the answer is still zero at every relief clause. **T-0134's refusal stands.**
+
+### 4. Where the shed stands now
+
+The easting rule is untouched, because it is the one number T-1637 left checkable: the westernmost
+station on the reading's own half-metre lattice, between South Water Street's platted corridor and
+State Street's, at which the whole rectangle stands on free ground. Squared to the walk that is
+**E +805.5** for the west wall. The northing and the bearing are now read off the walk itself —
+the committed line that is still on this reach and the one line this building has to be clear of.
+
+| what | old (T-1636, off the fort road) | new (T-1643, off the walk) |
+|---|---|---|
+| rotation | 173.774° (the road's bearing here) | **180.000°** (square to the walk, which runs due east) |
+| north wall | N +18.455, across the boards | **N +11.285**, 2.00 m south of them |
+| setback kept | 1.25 m, the north bank's 2.00 m refused by relief | **2.00 m**, the same the north bank keeps |
+| relief over 252 points | 0.273 m (1.027–1.300 m) | **0.097 m** (1.189–1.286 m) |
+| clear of the nearest platted corridor | under 0.5 m | 0.30 m at the north-west corner |
+| the wagon door | to the fort road | **to the landward side**, away from the boards |
+
+Two things fall out of that and both are improvements rather than trades. The **setback stops
+being a concession**: off the fort road this shed could not keep the 2.00 m the four north-bank
+sheds keep from North Water Street's travelled edge, because at 2.00 m its back wall fell half a
+metre further down the bank and the relief reached 0.353 m, past the 0.30 m clause — so the
+setback came in to 1.25 m and the trade was stated. On the terrace south of the walk the trade
+does not arise, and the reach's two shed rows are now set back by the same figure. And the **door
+has a made approach again**: South Water Street's platted corridor ends 0.30 m west of the west
+wall, so a cart comes east out of the street's end onto the terrace and stands on the landward
+side, which is the side the door is on. Loading across a 1.83 m footway is the mistake this
+re-seating undoes, not one to re-make at a smaller scale.
+
+**Nothing about the evidence moved.** The plate, the `reconstructed` grade on every value, the
+1834-08-01 to 1835-12-31 bracket, the 18 × 32 ft footprint and the total working uncertainty are
+what they were. What moved is three numbers that were read off a line that has gone, onto a line
+that is here.
+
+**Added links:** T-1643 (this re-seating) · T-1275 (the PR whose validation read the red) ·
+`data/frontage/river_walk_frontage.json` · `docs/LIBERTIES.md` L274 and L153.

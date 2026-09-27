@@ -14877,36 +14877,40 @@ reach that survives), the ruling **T-1628**, the mouth **T-0129**, the meander a
 
 **Decision:** the south bank of the main stem below the Dearborn drawbridge carries **one low
 freight shed** where it carried nothing — on the last town ground east of South Water Street's
-platted corridor and west of State Street's, standing between the fort road and the river with
-its wagon door to the road. **It is not attested.** Every value on the record is graded
+platted corridor and west of State Street's, standing back from the riverside plank walk on the
+terrace behind it, with its wagon door to the landward side. **It is not attested.** Every value on the record is graded
 `reconstructed`, including the fact that a building stood there at all, and it disappears with
 the rest of the reconstructed tier when a visitor turns it off. It is the south-bank half of
 **L164**, which built the four north-bank sheds of the same plate and said in writing that this
 bank could not be built.
 
 **What bounded the invention, and it is three measurements rather than a judgement.** (1) The
-EASTING is the westernmost station between the two platted corridors at which the whole rectangle
-stands on free ground — local E 806.5; half a metre west of it the west corner enters South
-Water's corridor. (2) The NORTHING and BEARING come off the fort road's drawn travelled way
-(`track_width_m` 5.5): the front wall stands 1.25 m back from its north edge, squared to the
-road's own bearing there, and over the whole footprint the building's nearest point is 3.98 m from
-the centreline — 1.23 m of clear ground between its wall and the wheel line. (3) The committed
-heightfield holds the 252-point lattice under it between 1.027 m and 1.300 m above the water
-surface, 0.273 m of relief, inside the 0.30 m the infill generators allow. The size is the FLOOR
-of family F1, 18 x 32 ft, because it is the only size the 9.5 m window between the two corridors
-takes at this bearing.
+EASTING is the westernmost station on the reading's own half-metre lattice, between the two
+platted corridors, at which the whole rectangle stands on free ground — the west wall at local
+E 805.5; half a metre west of it the rectangle's west side is inside South Water's corridor.
+(2) The NORTHING and BEARING come off the riverside plank walk's committed centreline: the back
+wall — the one the walk and the river are behind — stands 2.00 m back from the walk's boards at
+N +11.285, 2.915 m from its centreline, and the walls are squared to the walk's own due-east
+bearing, so `rotation_deg` is 180.000.
+(3) The committed heightfield holds the 252-point lattice under it between 1.189 m and 1.286 m
+above the water surface, 0.097 m of relief, well inside the 0.30 m the infill generators allow.
+The size is the FLOOR of family F1, 18 x 32 ft, because it is the only size the 9.5 m window
+between the two corridors takes. *(Until T-1643 the northing and bearing were read off the fort
+road instead, at a 1.25 m setback and 0.273 m of relief, and that seating stood on the walk — see
+the 2026-09-27 revision below.)*
 
-**The setback is the thing that gave way, and it is stated rather than smoothed.** The north bank
-keeps 2.00 m from North Water Street's travelled edge. At 2.00 m here the back wall stands half a
-metre further down the bank and the rectangle's relief reaches 0.353 m, past the clause, so the
-setback came in to 1.25 m and the clause held. A reader who thinks 1.25 m is too close to the
-road's wheels is reading the right number.
+**The setback is the north bank's own, and until T-1643 it was a concession.** The four
+north-bank sheds keep 2.00 m from North Water Street's travelled edge. Set back from the fort road
+this building could not: at 2.00 m its back wall fell half a metre further down the bank and the
+relief reached 0.353 m, past the clause, so the setback came in to 1.25 m and both figures were
+stated so the trade stayed visible. On the terrace south of the walk the trade does not arise, and
+the reach's two shed rows are set back by the same figure.
 
-**What it stands inside, said plainly.** The fort road's own RECONSTRUCTED 12 m corridor. That
-corridor reserves nothing — `fort_road` carries `geometry_confidence: reconstructed`, nobody
-traced the road and no source names it — so there is no platted width here to lap, and
-`tools/measure_corridor_intrusion.py` reads the building clear of all 33 platted corridors. The
-project's refusal of a building inside a PLATTED corridor is untouched by this and the frontage
+**What it stands inside, said plainly.** Nothing. The fort road's RECONSTRUCTED 12 m corridor left
+this reach with the road (T-1637) and `fort_road`'s committed path now begins 21 m east of this
+building; `tools/measure_corridor_intrusion.py` reads the footprint clear of all 33 platted
+corridors; and `tools/measure_south_bank_ground.py --gate` reads it clear of every committed walk.
+The project's refusal of a building inside a PLATTED corridor is untouched by this and the frontage
 that refusal was written about is still empty: beside the platted street the reading is zero at
 every relief clause it is reported at, and one clause harder than when T-0134 wrote it.
 
@@ -14951,6 +14955,42 @@ because they stood in the road are released, so `fits` reads 91, 96, 162, 233 ag
 152, and whether anything of the plate belongs on that unplatted reservation ground between E
 +805 and E +842 is filed too. **Added links:** T-1637 (the road's move) · **L140** (the fort road)
 · `tools/measure_fort_road_way.py`.
+**Revised:** 2026-09-27 (T-1643) — **the shed has moved, and not for the reason the last
+revision filed.** That revision left re-seating open as a loss of re-derivability. Answering it
+found a defect: the station the fort road had chosen stood **across the town's own riverside plank
+walk**. `river_plank_walk_crossing_footway` runs E +803.6 to E +815.0 at N +14.2 and is 1.83 m
+wide, so its boards occupy N +13.285 to N +15.115; the seated footprint spanned N +8.164 to
+N +18.455 and took the whole width of them. **No dataset gate could see it** — a walk is boards
+laid on committed ground and a building is a mesh seated on the same ground, and nothing compared
+the two. The published walker found it: standing on the walk at E +809.4 and walking west, a
+visitor was pushed out of the shed's collision footprint east to E +811.5 instead of reaching past
+E +802, and that check had been red on `dev` since the seating.
+**What the re-seating changes, and it is three numbers off a line that has gone onto a line that
+is here.** The EASTING rule is untouched — the westernmost half-metre station between the two
+platted corridors at which the whole rectangle stands free, which squared to the walk puts the
+west wall at E +805.5. The NORTHING and BEARING now come off the walk: the north wall stands
+**2.00 m** back from the boards at N +11.285, 2.915 m from the walk's centreline, and the walls
+are square to the walk's own due-east bearing, so `rotation_deg` is 180.000. The wagon door faces
+the landward side, where South Water Street's corridor ends 0.30 m west of the west wall and a
+cart can actually stand, and not across a 1.83 m footway.
+**The concession this entry recorded is withdrawn rather than restated.** On the terrace south of
+the walk the 2.00 m the four north-bank sheds keep costs nothing: the 252-point lattice under the
+new footprint stands 1.189 m to 1.286 m above the water surface, **0.097 m of relief** against the
+0.273 m the old seat carried, so the setback that "gave way" no longer has to. A reader who
+thought 1.25 m was too close to the wheels was reading the right number, and the number is gone.
+**Nothing about the evidence moved:** the plate, the `reconstructed` grade on every value, the
+bracket, the 18 × 32 ft footprint and the total working uncertainty are what they were.
+**And the instrument was fixed, because a record is not a gate.**
+`tools/measure_south_bank_ground.py` now masks the committed frontage walks by their own width —
+the same rectangle `renderers/web/js/frontage.js` publishes as a walk's keep-out — and its gate
+**refuses any committed building on this reach that stands on one**, testing both containments and
+asserting in `--self-test` that putting the old seating back is caught. The boards take 44 of the
+reach's positions at 0.30 m of relief, so `fits` reads 47, 47, 64, 104 against 91, 96, 162, 233;
+not one square metre of ground moved and nothing counted out was ever buildable.
+`fits_beside_the_street` is still 0, 0, 0, 3, so the refusal this entry spends stands untouched.
+**Added links:** T-1643 (this re-seating) · T-1275 (the PR whose validation read the red) ·
+**L153** (the riverside walk) · `data/frontage/river_walk_frontage.json` ·
+`docs/RESEARCH/south_bank_dearborn_ground.md` § The shed stood on the river walk.
 **Recorded:** 2026-09-26.
 
 ### L275 — Terrain: the south bank below the bend is Wright's line moved south onto Hathaway's, on a ruling
