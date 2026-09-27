@@ -247,6 +247,16 @@ and they are the whole of it:
 - **Measure, then move.** Raise it because a parcel needs it and you have the number, not
   pre-emptively. A ceiling checked at one camera stand is a spot reading, not an invariant
   (T-0115 item 1, still open).
+- **And take the number BEFORE the parcel deals, not after it bakes** (T-1674). The
+  reading at the end of a parcel says what was spent; it cannot say what there was to
+  spend, so a parcel on a thin margin discovers a breach with the deal, the generators
+  and the bake already behind it. `node tools/measure_detail_ceilings.mjs --price` prices
+  the headroom at each tier's own tightest stand into a count of roofs per archetype
+  family — the family footprint read from the GLB each roof ships as, the sun's second
+  draw measured at the stand — and `--deal D3=6,C2=2` answers a proposed parcel with
+  FITS or BREACHES. `--from <a --json reading>` re-prices a reading already taken, with
+  no browser. It moves nothing: a raise is still argued here, on the three constraints
+  above, and this only puts the number in front of the decision instead of behind it.
 
 The pattern is the same one above: **when the owner asks for something, the scene needing it IS
 the justification.** Rationing the town to a budget nobody defended is the same bug as rationing

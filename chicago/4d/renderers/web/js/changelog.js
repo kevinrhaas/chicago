@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1181, ts: '2026-09-27T17:21:55.929Z', date: 'Sep 27, 2026, 12:21 PM CT', title: 'Nothing you can see: what a cottage costs, before one is drawn', kind: 'change',
+    items: [
+      'Nothing in the town changed and no card moved. This is an addition to the machinery that keeps the town running smoothly on an ordinary laptop, and a visitor will find the same Chicago as before.',
+      'The town is held to a budget: at three quality settings, from five viewpoints, there is a ceiling on how much scenery one frame may contain, and a check refuses the town if any viewpoint goes over. The reading that answers it has always been taken at the END of a batch of new buildings — after they were allotted, after they were drawn, after the models were baked. So a batch found out it had broken the budget only once the work was done.',
+      'That was comfortable while the margins were wide. They are not: at the middle setting the most expensive viewpoint, the river forks seen from Wolf Point, is clearing its ceiling by under two per cent — and the next batch of building is the Lake Street and Dearborn block cores, which stand inside that very view.',
+      'So the instrument now answers the question at the other end. It reads the finished model of every building the town ships, works out what a roof of each kind costs from the model itself, measures how much the sun adds by drawing the same roof a second time, and says plainly how many roofs of each kind the tightest viewpoint still has room for. Ask it about a proposed batch — six cottages and two stores — and it says whether they fit, and with how much to spare.',
+      'It can also be asked against a reading already taken, which costs a second and needs nothing running. No ceiling was moved and no budget was raised; this only puts the number where it can be acted on first.',
+    ] },
   { v: 1180, ts: '2026-09-27T17:03:15.404Z', date: 'Sep 27, 2026, 12:03 PM CT', title: 'The far prairie is land again, not a flood', kind: 'fix',
     items: [
       'Seen from the air, everything more than a few hundred metres away used to turn into a flat blue-grey sheet with trees standing in it, as if the prairie were under water. It was not haze. The ground out there was not being drawn at all.',
