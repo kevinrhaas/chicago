@@ -1124,10 +1124,24 @@ function gridGeometry(hf, step = 1) {
   for (let r = 0; r < outRows - 1; r++) {
     for (let c = 0; c < outCols - 1; c++) {
       const a = r * outCols + c;
-      // -Z is north, so the row-major grid is mirrored relative to ENU and the
-      // winding has to be flipped to keep the normals up.
-      idx[k++] = a; idx[k++] = a + outCols; idx[k++] = a + 1;
-      idx[k++] = a + 1; idx[k++] = a + outCols; idx[k++] = a + outCols + 1;
+      // Rows run NORTHWARD (row r stands at originN + r·cellM, and the sampler
+      // reads gy = (n − originN) / cellM), and world −Z is north, so a step to
+      // the next row is a step toward −Z and a step to the next column is +X.
+      // Counter-clockwise seen from above is therefore a → a+1 → a+outCols,
+      // which puts the face normal UP.
+      //
+      // IT WAS THE OTHER WAY ROUND UNTIL 2026-09-27, under a comment claiming
+      // the opposite, and every face of this mesh pointed DOWN. From above the
+      // whole far ground was back-face culled: it drew nothing. Past 600 m the
+      // detailed tiles hand the ground to this mesh (GROUND_DETAIL_REACH_M), so
+      // everything beyond that ring was a hole, and what showed through it was
+      // the datum-level water plane laid under the whole box — hazed to the
+      // sky's colour. That is the "flooded" horizon the owner reported from
+      // the air three times; T-1631 and T-1635 tuned the haze over it, which
+      // is why neither fixed it. Measured by drawing this mesh double-sided at
+      // the owner's poses: the holes fill and the far river reads as river.
+      idx[k++] = a; idx[k++] = a + 1; idx[k++] = a + outCols;
+      idx[k++] = a + 1; idx[k++] = a + outCols + 1; idx[k++] = a + outCols;
     }
   }
   const g = new THREE.BufferGeometry();

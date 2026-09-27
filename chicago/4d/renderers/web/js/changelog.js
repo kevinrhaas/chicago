@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1179, ts: '2026-09-27T16:32:05.513Z', date: 'Sep 27, 2026, 11:32 AM CT', title: 'The far prairie is land again, not a flood', kind: 'fix',
+    items: [
+      'Seen from the air, everything more than a few hundred metres away used to turn into a flat blue-grey sheet with trees standing in it, as if the prairie were under water. It was not haze. The ground out there was not being drawn at all.',
+      'Close to you the town is drawn in fine detail; past about 600 metres a coarser copy of the same ground takes over. That coarser copy had been built facing downward, so from above it was invisible, and what showed through the hole was the water surface laid under the whole map, tinted by the haze.',
+      'It now faces up. The far prairie, the woods north of the river and the North Branch all read as land and river right out to the horizon, where they fade into the summer haze. Nothing was moved or rebuilt: the same ground, drawn the right way up.',
+    ] },
   { v: 1178, ts: '2026-09-27T15:58:45.500Z', date: 'Sep 27, 2026, 10:58 AM CT', title: 'Nothing you can see: South Water\u2019s books, and the room left', kind: 'fix',
     items: [
       'Nothing in the town changed and no card moved. The river front along South Water Street has been built over several releases; this one closes its books and says, in numbers anyone can check, what was finished and what was not.',
