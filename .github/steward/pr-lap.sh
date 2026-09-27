@@ -584,13 +584,32 @@ while IFS=$'\t' read -r N BR; do
   # Neither invents an ordering. `reconcile` rebuilds on the base's queue and puts each
   # of the branch's own lines back after the same line it followed on the branch; a line
   # that led the branch's queue goes back to the top. The owner ranks this file.
+  # AND THE SCENE IS NOT RE-RUN ALONE (T-1661). This block re-runs compile_scene
+  # because `rederive.mjs --run`'s SECOND PASS rewrites the resident cards the scene
+  # is compiled from, so the scene the sequence built is stale by the time the
+  # sequence ends. But the manifest places 37 more steps BELOW compile_scene, and
+  # the first of them is `compile_source_use.py`, which exports "current-scene
+  # membership" out of the two files compile_scene writes. Re-running the scene bare
+  # therefore stranded source-use on the PRE-merge scene: measured on PR #105's lap
+  # commit `4455713`, `owner_chicago_1835_reconstruction_spec_2026` was written with
+  # 3582 claims where a correct derivation gives 3620 — 38 gone, nothing in the tree
+  # saying so, and three of check.sh's 657 steps red on a branch GitHub reported as
+  # merged and up to date. That is the worst shape a lap failure can take, because
+  # this same sweep is what merges green steward PRs.
+  #
+  # `--tail` runs that step and every step the manifest puts after it, in manifest
+  # order, and nothing else — no second pass, which sits above it and would move the
+  # population back under what the tail just settled. Naming the step and letting the
+  # manifest supply the rest is what keeps this fixed: a step inserted below
+  # compile_scene tomorrow is picked up with no edit here. `rederive.mjs --callers`
+  # is the gate that holds it, and check.sh runs it against this file.
   ( cd chicago/4d \
     && node tools/stamp-changelog.mjs \
     && bash tools/tickets.sh \
     && node tools/ticket.mjs reconcile --base "origin/$BASE" \
     && node tools/ticket.mjs prune \
     && node tools/ticket.mjs board \
-    && python3 tools/compile_scene.py --all \
+    && node tools/rederive.mjs --tail tools/compile_scene.py \
     && ./tools/publish.sh ) >/tmp/lap-regen.log 2>&1 || {
       say "  regeneration failed — see log"; tail -5 /tmp/lap-regen.log | sed 's/^/    /'
       git merge --abort 2>/dev/null; SKIPPED=$((SKIPPED+1)); continue; }

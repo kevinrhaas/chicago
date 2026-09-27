@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1175, ts: '2026-09-27T14:05:31.476Z', date: 'Sep 27, 2026, 9:05 AM CT', title: 'Nothing you can see: the tidying sweep finishes what it restarts', kind: 'fix',
+    items: [
+      'Nothing in the town changed and no card moved. This is a repair to the machinery that keeps a pending change up to date with the rest of the project, and a visitor will find the same Chicago as before.',
+      'The rebuild of everything derived from the records runs in a fixed order, because each stage reads what the ones above it wrote. A sweep that brings a pending change up to date has to run one of those stages a second time at the end \u2014 and it was running only that one. Thirty-seven stages sit below it, and the very first of them is the one that works out which sources the town actually uses. So the sweep was writing that answer from the town as it had been BEFORE the change, and quietly leaving some of it out: on one change in July, thirty-eight of one source\u2019s citations went missing from the public source pages.',
+      'Nothing announced it. The change looked finished and up to date, and only the full check caught it \u2014 three of its six hundred steps \u2014 which meant the sweep that merges finished work could hand the next one a failure it had caused itself.',
+      'The second run now continues through every stage below the one it restarts, in the order the project declares, and a new check refuses any script that restarts a stage and stops. The same fix is written into the by-hand instructions, so the two paths cannot drift apart again.',
+    ] },
   { v: 1174, ts: '2026-09-27T13:37:44.321Z', date: 'Sep 27, 2026, 8:37 AM CT', title: 'The two river warehouses get the doors a warehouse was worked through', kind: 'change',
     items: [
       'The town has two narrow two-storey warehouses on the South Water Street row \u2014 one on the Clark block, one on the La Salle block \u2014 and until now each had a single goods door in the middle of one end and nothing above it. A warehouse is not a store: goods went in at more than one point along its loading side, and they went UP. Both now carry two wide cargo doors side by side, with an even pier of board at each corner and between them, and above each one an upper freight door with its hoist beam projecting out through the gable.',

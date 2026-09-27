@@ -3031,6 +3031,25 @@ step "the derived-layer manifest names real files, one owner each, none hand-aut
 selftest "…and its own assertions fire when the manifest is made unsafe" \
   node tools/rederive.mjs --self-test
 
+# AND THE ONE WAY THE MANIFEST'S ORDER IS REOPENED FROM OUTSIDE IT (T-1661). The lap
+# has to re-run compile_scene AFTER `rederive.mjs --run`, because the second pass
+# rewrites the resident cards the scene is compiled from. For a year it re-ran that step
+# and nothing else — and the manifest places 37 steps below it, the first of which
+# exports "current-scene membership" out of the two files compile_scene writes. So the
+# lap pushed trees whose source-use had been derived against the PRE-merge scene:
+# measured on PR #105's lap commit 4455713, owner_chicago_1835_reconstruction_spec_2026
+# written with 3582 claims where a correct derivation gives 3620. 38 claims gone, nothing
+# in the tree announcing it, three of this file's steps red — and the branch reported by
+# GitHub as merged and up to date. A lap that merges green PRs cannot be the thing that
+# hands the next pass a red gate it did not cause.
+#
+# `--tail` is the fix and this step is what keeps it: a manifest step re-run bare by any
+# caller is out of sequence unless the manifest puts nothing below it. Held HERE rather
+# than left to review because the reopening is one line of shell in a file nobody reads
+# on a normal day, and its damage is invisible without the gate.
+step "no caller of the derived manifest re-runs one of its steps out of sequence" \
+  node tools/rederive.mjs --callers .github/steward/pr-lap.sh
+
 # AND THE FIVE FILES THAT CLOSE THE RESIDENT LAYER, AS ONE SET (T-1333). index.json with
 # its `merged` redirect table, the 1835 sidecars, the town census, the published residents
 # and the final resident audit are each derived and each already gated above — and until
