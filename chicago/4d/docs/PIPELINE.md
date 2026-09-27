@@ -300,9 +300,23 @@ git merge origin/dev
 ( cd chicago/4d \
   && node tools/rederive.mjs --run \
   && node tools/ticket.mjs reconcile --base origin/dev \
+  && node tools/rederive.mjs --tail tools/compile_scene.py \
   && ./tools/publish.sh )
 git add -A && git commit && git push origin HEAD:<branch>
 ```
+
+The `--tail` line is not optional and it is not a second `--run` (T-1661). `--run` ends
+with its second pass, which rewrites the resident cards `compile_scene.py` is compiled
+from, so the scene the sequence built is stale by the time the sequence ends. `--tail`
+re-runs that step and **every step the manifest places below it** — 38 of them, about
+100 s — which is the part that was missing: the very next one is
+`compile_source_use.py`, and it exports "current-scene membership" out of the two files
+compile_scene writes. Re-running the scene ALONE is what the lap did for a year, and it
+pushed trees whose source-use had been derived against the pre-merge scene: 38 claims of
+`owner_chicago_1835_reconstruction_spec_2026` silently absent on PR #105's lap commit,
+three steps of `check.sh` red, and the branch reported by GitHub as merged and up to
+date. `node tools/rederive.mjs --callers <script>` is the gate that holds it, and
+`check.sh` runs it against `pr-lap.sh`.
 
 The push is what produces a merge ref, which produces a gate, which produces `clean`,
 which `merge-ready` takes from there.
