@@ -49,13 +49,25 @@ would be inventing the trade.
 
 **This is a re-cut, and what it dropped is the point.** The first cut of this piece (PR
 #130, 2026-09-27) also swept the order book's `STRUCTURE_TICKETS` rows off the split
-T-1201; `dev` has since done that itself — `('south', 'stores_mixed_use')` reads
-`T-1681` and `('south', 'workshops')` reads `T-1684` on `dev` today — so that half is
-gone from this branch rather than re-litigated, and `build_order_book_1835.py --check`
-and `reprogramme_roofs_1835.py --check` both re-derive with the committed files
-unchanged. The re-cut re-derived every layer from the recipe rather than replaying the
-first cut's outputs, which is why the business pairing above differs from the one PR #130
-recorded: `dev` moved the face underneath it.
+T-1201; `dev` has since done that itself — `('south', 'workshops')` reads `T-1684` there
+today — so that half is gone from this branch rather than re-litigated. The re-cut
+re-derived every layer from the recipe rather than replaying the first cut's outputs,
+which is why the business pairing above differs from the one PR #130 recorded: `dev`
+moved the face underneath it, and the allocation re-paired across the whole Lake face
+when the three ids moved (`blk_lake_franklin_c2_01` and `blk_lake_market_c2_01` carry
+different trades for it).
+
+**And the stores row has now outlived every child of T-1201, which the sweep's own rule
+does not cover.** `('south', 'stores_mixed_use')` read `T-1681` on `dev`, and closing
+T-1681 with the cell still owing is exactly the case `ticket_liveness.py --closing`
+refuses: the book would order work from a ticket nobody can claim. The paragraph beside
+the row predicted the move ("the row moves to T-1682 when it closes with the cell still
+owing") but not the exhaustion — T-1680, T-1682 and T-1683 are all `done`, T-1681 closes
+with this pull request, and T-1201 itself is `split`. So the row moves to **T-1694**, the
+ticket filed for precisely this residue: the south division's last store has no ground,
+the cell reads 41 of 42 with one owed, and every Lake–Randolph block reads `at_capacity`.
+It is not sent to T-1684, whose measurement is about the W2–W4 shops' missing
+cross-street face and says nothing about a store.
 
 **Left as written, deliberately.** `docs/unreal/prototype/import_report.json.txt` and
 `renderers/unreal/receipts/mac-253f02657.json` still name the old ids. They are dated

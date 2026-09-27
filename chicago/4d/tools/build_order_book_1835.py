@@ -302,19 +302,20 @@ STRUCTURE_TICKETS = {
     # with the pull request this row moved in — so leaving the row on it would put a `done`
     # ticket in a DEAD_TICKET_STATES cell and take dev red the moment the settle workflow
     # ran, which is the exact harm the sweep above exists to prevent.
-    # MOVED TO T-1683 ON 2026-09-27 (T-1681), the T-1640 -> T-1672 shape the paragraph
-    # above predicts in as many words: "the row moves to T-1682 when it closes with the
-    # cell still owing". Both of the two live raisers have now closed with the cell still
-    # owing — T-1682 first, then T-1681, which re-familied blk_lake_clark's Lake frontage
-    # run and left `structures/stores_mixed_use/south` owing 4 — so the row cannot name
-    # either of them without ordering work nobody can claim, which is the fault the
-    # T-1200 block below exists to prevent. It goes to T-1683 for the same reason
-    # `inns_taverns/south` already sits there: T-1683 closes the Lake district's books
-    # and states the headroom of every cell in it, so a cell that still owes when the
-    # raisers are done is found there and nowhere else. It is NOT sent to T-1684, whose
-    # measurement is about the W2-W4 shops' missing cross-street face and says nothing
-    # about a store.
-    ("south", "stores_mixed_use"): "T-1683",
+    # MOVED TO T-1694 ON 2026-09-27 (T-1681), and this row has now outlived EVERY child
+    # of T-1201 — which is the case the T-1640 -> T-1672 shape above does not cover. That
+    # paragraph predicted "the row moves to T-1682 when it closes with the cell still
+    # owing", and it did; T-1682 closed, then T-1683 closed, then T-1681 (this pull
+    # request) re-familied blk_lake_clark's Lake frontage run and the cell STILL owes one.
+    # All four children of T-1201 are `done` and T-1201 itself is `split`, so there is no
+    # ticket left in that family to name and naming one anyway would order work nobody can
+    # claim — the fault the T-1200 block below exists to prevent. T-1694 is the ticket
+    # filed for exactly this residue ("the south division's last store has no ground: the
+    # stores_mixed_use cell reads 41 of 42 with one owed, every Lake-Randolph block reads
+    # at_capacity, and T-1201's four children have all closed"), so it is where a reader
+    # of this cell is sent. It is NOT T-1684, whose measurement is about the W2-W4 shops'
+    # missing cross-street face and says nothing about a store.
+    ("south", "stores_mixed_use"): "T-1694",
     ("south", "larger_boarding_houses"): "T-1209",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
