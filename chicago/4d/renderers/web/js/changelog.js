@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1173, ts: '2026-09-27T12:58:49.315Z', date: 'Sep 27, 2026, 7:58 AM CT', title: 'Nothing you can see: a finished repair reaches you sooner', kind: 'fix',
+    items: [
+      'Nothing in the town changed and no card moved. This is a repair to the machinery that builds the geometry, and a visitor will find the same Chicago as before — sooner.',
+      'Whenever a change touched the code that makes the buildings, a full twenty-five-minute rebuild of all 422 of them started before the change could be accepted. That is right when the change moves a wall. It was also happening when the change could not possibly move one — a correction to a command line, a comment, a rule about which buildings to rebuild — and the rebuild outlasted the wait, so finished work was handed to a later sweep instead of landing.',
+      'The gate now asks the town itself. Every building records what it was built from, and the check that refuses a stale model already recomputes that for all 422 in about half a second. If not one of them has gone stale, there is nothing for a rebuild to fix and none is started. If any has, one is — exactly as before.',
+      'Anything the gate cannot establish still rebuilds: an unreadable record, a recipe that will not load, a file it does not recognise. And the nightly rebuild of the whole town is untouched, which is what goes on proving the machinery still runs.',
+    ] },
   { v: 1172, title: 'The wide store on Franklin gets its four-bay front', kind: 'change', ts: '2026-09-27T12:08:10.063Z', date: 'Sep 27, 2026, 7:08 AM CT',
     items: [
       'The town\u2019s one wide two-storey store block, at the east end of the Franklin block on South Water Street, had a door and a single show window on a thirty-foot front. It now has the door and three windows \u2014 the four-bay shopfront its own brief asks for. It was the last building standing outside its family\u2019s range, and the range is now kept across the town.',

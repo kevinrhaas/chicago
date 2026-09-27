@@ -166,6 +166,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      # The second screen below reads the generators' own input-hash recipe. It
+      # needs no third-party package — that is measured, and it is why this gate
+      # is still a five-minute job — but it should read it under the same Python
+      # the bake itself runs.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       - id: q
         env:
           BASE: dev
@@ -200,15 +207,38 @@ jobs:
             echo "bake=1" >> "$GITHUB_OUTPUT"
             echo "::warning::baking — could not diff against $BASE (exit $RC), so not skipping"; exit 0
           fi
-          if [ -n "$CHANGED" ]; then
-            echo "bake=1" >> "$GITHUB_OUTPUT"
-            echo "::notice::baking — this branch's own diff against $BASE touches:"
-            printf '%s\n' "$CHANGED" | sed 's/^/  /'
-          else
+          if [ -z "$CHANGED" ]; then
             echo "bake=0" >> "$GITHUB_OUTPUT"
             echo "::notice::SKIPPING — nothing this branch owns under generators/, tools/bake.sh"
             echo "::notice::or this workflow differs from $BASE. Any generators change here came"
             echo "::notice::in with the PR lap's merge, and $BASE's own bake covers it."
+            exit 0
+          fi
+          echo "::notice::this branch's own diff against $BASE touches:"
+          printf '%s\n' "$CHANGED" | sed 's/^/  /'
+          # SECOND SCREEN, T-1668: the path filter above says this branch could
+          # have staled a mesh. Whether it DID is a question the freshness
+          # register answers in about half a second, and it is the same register
+          # `check.sh` refuses the tree with — so ask it rather than spending
+          # twenty-five minutes of Cycles to find out. The rule, its fail-open
+          # cases and its self-test live in tools/bake_warranted.py; a green pull
+          # request that could not merge inside its own run is why.
+          WHY=$(mktemp)
+          BAKE=$(printf '%s\n' "$CHANGED" \
+                   | python3 chicago/4d/tools/bake_warranted.py \
+                       --decide --base "origin/$BASE" 2>"$WHY") || BAKE=1
+          # A verdict that is neither answer is not a verdict. Anything else the
+          # script could have printed — nothing at all, a traceback's tail — is
+          # unanswerable, and unanswerable bakes.
+          case "$BAKE" in
+            0|1) ;;
+            *) BAKE=1; echo "bake_warranted.py answered '$BAKE', which is not 0 or 1" >"$WHY" ;;
+          esac
+          echo "bake=$BAKE" >> "$GITHUB_OUTPUT"
+          if [ "$BAKE" = "1" ]; then
+            echo "::notice::$(tr '\n' ' ' <"$WHY")"
+          else
+            echo "::notice::SKIPPING — $(tr '\n' ' ' <"$WHY")"
           fi
 
   bake:
