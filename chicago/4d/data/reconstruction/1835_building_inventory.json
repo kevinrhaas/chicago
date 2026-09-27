@@ -33,6 +33,34 @@
     "barns_stables": {"south": 35, "west": 20, "north": 17, "fort": 1, "total": 73},
     "small_outbuildings": {"south": 48, "west": 14, "north": 20, "fort": 3, "total": 85}
   },
+  "district_group_bands_note": "THE MATRIX IS THE FINEST CUT THE PROGRAMME HAS, AND FOR ONE CELL IT WAS NOT FINE ENOUGH (T-1672, 2026-09-27). A cell here is a group in a division, and for nine of the ten groups that is the whole address of the work: one ticket builds a division's cottages. The SOUTH's `warehouses_freight` cell holds two kinds of roof standing on two kinds of GROUND, and it could not say so. The warehouses stand on platted ground — South Water Street's own party lines from Market to State, and the Lake Street blocks — and were T-1639's to raise. The freight sheds stand behind them on the unplatted river margin at the Dearborn reach, and are T-1640's. One cell names one owner, so two runs disagreed about who owned the whole row: PR #95 wrote an `owning_tickets` tuple over the order book's bucket and `dev` kept a single ticket. Then T-1639's tree closed — T-1647, T-1648, T-1659, T-1662 and T-1663 all done — with the cell's order unspent, and the remainder silted onto the SHED ticket, whose ground `tools/measure_south_bank_ground.py` reports at capacity and whose frontage T-0134 refuses in writing: the row ordered roofs from the one ticket on it that cannot honestly raise one. Nothing could see that, because the two halves were one number. SO THE CELL IS CUT WHERE ITS TWO KINDS OF GROUND PART, HERE RATHER THAN IN A TUPLE IN THE TOOL, and the two halves are owed apart. A band is one of exactly two things and says which: a CLOSED band names its members by id prefix and owes nothing — its target IS what stands in it, so it cannot order a roof, and `closed_by` names the refusals that closed it, so re-opening it means re-reading those rather than editing a number; or the REMAINDER band, which takes every roof the closed bands do not hold and the WHOLE of the cell's order, and is therefore the half whose ticket the order book holds to being live. NOTHING ABOUT THE PROGRAMME MOVES: roof_total, the group row totals, the district targets and family_targets are all untouched, the closed bands are counted off the standing records themselves, and `tools/build_order_book_1835.py` refuses a cut whose bands do not add back up to the cell on target, standing AND order. A band is a finer ADDRESS for work already counted, never a re-budget.",
+  "district_group_bands": {
+    "warehouses_freight": {
+      "south": {
+        "cut_by": "T-1672",
+        "cut_on": "2026-09-27",
+        "bands": [
+          {
+            "id": "street_line",
+            "title": "the warehouses on platted ground: South Water Street's party lines from Market to State, and the Lake Street blocks",
+            "members": "the rest of the cell",
+            "owes": "the whole of the cell's order",
+            "owning_ticket": "T-1673",
+            "why": "this is the half the order is against. The street line is platted ground with party lines and a documented trade fabric on it, T-1639's tree raised and re-familied its stores and warehouses across five closed runs, and what the cell still orders is warehouses on it — not sheds on the bank. T-1673 is filed for them"
+          },
+          {
+            "id": "river_bank",
+            "title": "the freight sheds behind the street line, on the unplatted river margin at the Dearborn reach",
+            "member_id_prefix": "south_bank_shed_dearborn_",
+            "owes": "nothing",
+            "closed_by": ["T-0134", "T-1642"],
+            "owning_ticket": "T-1640",
+            "why": "the plate's own frontage is refused in writing and the ground behind it is read out: T-0134 holds `fits_beside_the_street` at 0 at every relief clause west of South Water Street's committed east end, which is the frontage image 3 of the owner's brief draws warehouses on, and T-1642 refused the positions the filled slough opened east of it on the rule this project keeps — a number is not a reason to build. So this band's target is what stands in it, and a roof is added to it only by a source that places one, which re-reads the refusal rather than raising the band's number"
+          }
+        ]
+      }
+    }
+  },
   "family_targets": {
     "D1": 52, "D2": 38, "D3": 65, "D4": 75, "D5": 58, "D6": 29, "D7": 18,
     "H1": 18, "H2": 14, "H3": 10,
