@@ -1913,6 +1913,132 @@
         ]
       },
       "source": "/tmp/smoke_d34.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 339,
+      "takenAt": "2026-09-27T09:27:40.382Z",
+      "ref": "steward/t1662-freight-shed-cargo-openings",
+      "commit": "6c41e01d1858",
+      "devCommit": "e9e5a6a6e6f7",
+      "treeHash": "sha256:fc973b82a1083b4e",
+      "treeDirty": false,
+      "changelogHash": "sha256:26be6d3979470b05",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          3.9,
+          2.7
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 80,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 350,
+      "takenAt": "2026-09-27T06:50:26.991Z",
+      "ref": "steward/t1662-freight-shed-cargo-openings",
+      "commit": "43417f4ff524",
+      "devCommit": "c77b9b22fad9",
+      "treeHash": "sha256:45d3a81d70d07985",
+      "treeDirty": false,
+      "changelogHash": "sha256:84875830a8198332",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.4,
+          4
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 158,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 338,
+      "takenAt": "2026-09-27T06:50:26.894Z",
+      "ref": "steward/t1662-freight-shed-cargo-openings",
+      "commit": "43417f4ff524",
+      "devCommit": "c77b9b22fad9",
+      "treeHash": "sha256:45d3a81d70d07985",
+      "treeDirty": false,
+      "changelogHash": "sha256:84875830a8198332",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.4,
+          4
+        ]
+      },
+      "source": "/tmp/smoke_m12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 115,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 175,
+      "takenAt": "2026-09-27T06:50:26.794Z",
+      "ref": "steward/t1662-freight-shed-cargo-openings",
+      "commit": "43417f4ff524",
+      "devCommit": "c77b9b22fad9",
+      "treeHash": "sha256:45d3a81d70d07985",
+      "treeDirty": false,
+      "changelogHash": "sha256:84875830a8198332",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.4,
+          4
+        ]
+      },
+      "source": "/tmp/smoke_m34.log"
     }
   ]
 }

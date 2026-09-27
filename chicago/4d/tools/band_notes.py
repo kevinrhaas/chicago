@@ -110,6 +110,7 @@ PROSE_KEYWORDS = {
     "goods_door_side": ("door",),
     "door": ("door",),
     "door_side": ("door",),
+    "door_bays": ("door",),
     "paint": ("paint", "whitewash", "unpainted"),
     "board_gap_m": ("gap", "batten", "chink"),
 }
@@ -136,6 +137,7 @@ FIELD_LABEL = {
     "goods_door_side": "a goods-door side",
     "door": "a door type",
     "door_side": "a door side",
+    "door_bays": "a count of doorways",
     "paint": "paint or finish",
     "board_gap_m": "a board gap",
 }
