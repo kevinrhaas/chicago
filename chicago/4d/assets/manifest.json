@@ -156,8 +156,8 @@
     "exchange_coffee_house__frame_1834.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 22596,
-      "inputs_sha256": "98f863f7af3752fcbc583bcb7426fa1cf51119d4120c76be2abcce21f8705217",
+      "bytes": 24156,
+      "inputs_sha256": "5a9c7d86a9940895c02fbae3a5dd00d6d2e204de30695545c288f344fbd52505",
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "exchange_coffee_house"
@@ -1092,8 +1092,8 @@
     "recon_1835_blk_lake_market_d4_02__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 28316,
-      "inputs_sha256": "f1e428711383ca2cd243aaf093cfc7326a008f0d8a16bdf7753e0b1488d95362",
+      "bytes": 26444,
+      "inputs_sha256": "57d4b01f1965820f0f17480c858b79771fca533f9ae005ca972d43ed7328e949",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_lake_market_d4_02"
@@ -3612,8 +3612,8 @@
     "sauganash_hotel__frame_1831.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 93756,
-      "inputs_sha256": "6e47643943a178e1e7e3b3be2b7c0f7ecad463ad83261715c9e85d2cd6f3a44d",
+      "bytes": 103124,
+      "inputs_sha256": "56980e81225e4fe80fe237c201aeadb2ebf1360c1b15b60cfade60a9db8c1ba3",
       "kind": "generated",
       "phase_id": "frame_1831",
       "structure_id": "sauganash_hotel"
