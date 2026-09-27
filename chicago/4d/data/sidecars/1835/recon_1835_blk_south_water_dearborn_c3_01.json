@@ -170,40 +170,16 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the C3 family to satisfy the block's scheduled mix; no occupant or individual use is known."
     },
     "occupants": {
-      "value": "Harmon, Loomis & Co. — wholesale and retail dry goods, groceries, hardware and crockery",
+      "value": "L. W. Montgomery, boot and shoe maker — boot and shoe making",
       "confidence": "reconstructed",
       "sources": [
-        "chicago_american_1835",
         "chicago_democrat_1833_1835"
       ],
-      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on South Water Street AND NOTHING NARROWER — 7 printings, 1834-07-02 to 1835-07-25, claims chicago_american_1835_06_08#c013, chicago_american_1835_06_20#c006, chicago_american_1835_07_25#c004, chicago_democrat_1834_07_02#c005, chicago_democrat_1834_09_03#c021, chicago_democrat_1834_11_05#c007, chicago_democrat_1835_05_27#c006 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES South Water Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
+      "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on South Water Street AND NOTHING NARROWER — 9 printings, 1833-12-17 to 1835-05-20, claims chicago_democrat_1833_12_17#c003, chicago_democrat_1834_01_28#c008, chicago_democrat_1834_03_04#c028, chicago_democrat_1834_03_25#c009, chicago_democrat_1834_04_08#c007, chicago_democrat_1834_05_21#c004, chicago_democrat_1834_07_02#c013, chicago_democrat_1834_12_10#c009, chicago_democrat_1835_05_20#c017 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES South Water Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
     }
   },
   "residents": [],
   "citations": [
-    {
-      "source_id": "chicago_american_1835",
-      "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
-      "url": "",
-      "archived_url": "",
-      "tier": 1,
-      "tier_label": "period/eyewitness",
-      "what_it_supplies": [
-        "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
-        "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
-        "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
-        "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
-        "the paper's own correction of its first masthead date"
-      ],
-      "what_it_does_not_supply": [
-        "any building's form, material, storey count, fenestration or dimensions",
-        "a reliable reading of a dense body column — this run had no reconciled second pass",
-        "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
-        "identification by volume and number: No. 12 is printed on two different issues",
-        "anything at all from an engraving — the cuts are the printer's stock",
-        "a citation without an issue page and column"
-      ]
-    },
     {
       "source_id": "chicago_democrat_1833_1835",
       "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",

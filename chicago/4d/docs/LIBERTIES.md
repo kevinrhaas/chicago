@@ -10450,7 +10450,28 @@ Water Street, which has no roof standing on it under any adopted reading, and it
 in the declined band is an inferred household's home — so even the band would have seated
 neither. Their answer is frontage (**T-0375**), and **T-0416** records that rather than
 closing over it.
-**Recorded:** 2026-08-29. **Revised:** 2026-08-29 (T-0417), 2026-08-30 (T-0416).
+**WHICH roof is still the invention, and from 2026-09-27 it is a better-chosen one
+(T-1651):** the deal used to hand the face's free roofs out **in the roof's id order**, and
+an anonymous roof's id carries its family as a token — `…_c2_08`. Within a block `c` sorts
+before `d`, so it looked as though a business were being given a shop; it was being given a
+NAME. Across the several blocks a face spans, an earlier block's cottage beat a later
+block's store, and **eighteen of the thirty-nine adoptions stand in roofs the reconstruction
+raised as dwellings**. The deal now reads `reconstruction.family` off the roof's own record
+and prefers a **house of trade** — the C, W and F bands, T-1657's own ruling on which roofs
+a customer came in off the street to — before a dwelling, within one face and one reading.
+**Nothing about the liberty changes and nothing new is claimed:** which roof is still an
+allocation no source speaks to, no geometry moved, no roof changed family or grade, and the
+only thing that moved is the `occupants` block on 36 records. What is new is that the
+eighteen **say so**: each carries a `family_note` stating that it is a compromise and what
+stood on the face instead. Twenty-one of the thirty-nine are now in a roof raised as a house
+of trade; the remaining eighteen are short because the roof programme has raised no more
+shops on those faces, not because the deal overlooked one, and `--check` refuses a business
+in a dwelling while a house of trade of the same reading stands free. A **cabinet
+manufactory in a store-residence** is still possible, because C2 is a house of trade and the
+C/W/F split is the only division this project holds; telling a counter trade from a works
+trade needs a reading of the register's 145 trade strings that does not exist, and inventing
+one would be a claim dressed as an allocation.
+**Recorded:** 2026-08-29. **Revised:** 2026-08-29 (T-0417), 2026-08-30 (T-0416), 2026-09-27 (T-1651).
 
 ### L213 — Four people the papers name with no trade are written as households of one, on a residency test
 **Decision:** L206 seated the register's `new_resident` people whose TRADE the papers print, and
@@ -14485,10 +14506,10 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
-### L270 — The plat's 226 lots are enumerated from records this project already held, and then 108 of the town's households are dealt onto them by a policy and not by a source
+### L270 — The plat's 226 lots are enumerated from records this project already held, and then 109 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 108 households given a lot of the committed plat
-by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,372
+**Scope:** `platted_seats.seats[dealt]` — 109 households given a lot of the committed plat
+by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,371
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 226 lots
 the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its
@@ -14508,19 +14529,19 @@ entries for the grid.
 **Decision:** deal the plat to the households the address book (T-1198) leaves standing at a
 BAND — a division and a policy clause, no lot, no roof, no coordinate — in the placement
 policy's own clause order, and in two steps. A household first ADOPTS a standing anonymous
-roof of a family its clause admits, on a lot of its own division; all 108 seats are that
+roof of a family its clause admits, on a lot of its own division; all 109 seats are that
 today. Only where no such roof is free does it ask for a SLOT, and a slot may be raised only
 on a block the 665-roof programme marks `open`, only inside that block's own committed family
 plan, only up to its headroom, and — since T-1623 — never onto the one lot that block's own
-sizing keeps open; 0 of the 108 are that, the last four having been refused by that rule.
+sizing keeps open; 0 of the 109 are that, the last four having been refused by that rule.
 **Which lot a household takes is
 this project's invention**, argued from the clause's stated preferences — the street class it
 prefers, the streets it names, a corner or a middle lot — and from nothing else. No source
-places any of these 108 households anywhere; each one's own address-book row says so in its
+places any of these 109 households anywhere; each one's own address-book row says so in its
 `words`, and that refusal is carried forward here rather than quietly replaced.
 
 **An adoption raises no roof and spends no order.** This is the part that keeps the invention
-small, and today it is the whole of it. All 108 seats put a household under a roof that
+small, and today it is the whole of it. All 109 seats put a household under a roof that
 already stands, was already gated and was already paid for in the 665-roof programme — so the
 order book is not drawn on at all, nothing is baked, and no seat here is a household with an
 address and no walls.
@@ -14568,7 +14589,7 @@ barns, stables, privies and woodsheds — is not a dwelling; 43 of the 152 unocc
 the plat are ancillary and no household is seated in one.
 
 **Which way it is wrong if it is wrong.** Toward a plat holding too FEW of the town's
-households. 1,372 of the 1,480 banded rows get no lot here, and they are not refused — they
+households. 1,371 of the 1,480 banded rows get no lot here, and they are not refused — they
 are handed to **T-1614**, which owns the ground the committed grid does not draw: the farms
 and country seats (204 rows, off the plat by their clause's own terms), the additions' small
 lots, the fringes and the branches. The binding constraint is the one the 665-roof programme
@@ -14656,7 +14677,18 @@ the whole pass. The order book's seated join moves with it, 184 to **180** — t
 plus the off-plat pass's 72 — and is restated in `build_order_book_1835.py` rather than
 re-summed.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26.
+**The deal grew to 109 on 2026-09-27 (T-1651), and the two paragraphs above keep the 108 they
+were written against.** They are a dated account of what T-1614's reversal did on 2026-09-26
+and restating their arithmetic would falsify the account. What moved since is one seat, and
+it moved for a reason outside this liberty: the street-face business deal (**L212**) was
+re-ordered to prefer a roof the reconstruction raised as a house of trade, so the dwellings
+it holds changed, and this deal — which takes from the same pool of anonymous roofs and may
+not read the other's allocation — reached one more `tradesman_dwellings` seat in the South
+Division. 108 seats became **109**, owed 1,372 became **1,371**, and the seated join the
+order book takes off this pass moves with it. Neither deal can see the other's picks, on the
+reasoning `adopt_street_faces.py` sets out for its refusal 7; that is filed as **T-1669**.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
@@ -15074,7 +15106,7 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Nine South Water roofs now NAME the household the placement policy dealt them, and eleven do not because a ruling refuses them one
+### L276 — Nine South Water roofs now NAME the household the placement policy dealt them, and twelve do not because a ruling refuses them one
 
 **Scope:** `roof_keepers.written[named]` — 9 South Water roofs given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 60
@@ -15099,14 +15131,15 @@ conjectural after the seating as before it, the order book was not drawn on, and
 moved — `generators/mesh_inputs.py` hashes archetype parameters and not prose, so a keeper
 costs no bake.
 
-**Eleven of the twenty are refused, and the refusal is the load-bearing half.** Eleven of the
-twenty South Water seats — sixty of the deal's hundred and eight town-wide — are households
+**Twelve of the twenty-one are refused, and the refusal is the load-bearing half.** Twelve of
+the twenty-one South Water seats — sixty-one of the deal's hundred and nine town-wide — are
+households
 minted from the post office's letter lists, and the owner's ruling of 2026-08-30 (T-0379)
 refuses that cohort a roof: *a letter-list name is a name the town knows, not a man with an
 address*. Writing the household's name rather than its person id would have slipped past the
 gate that holds the ruling and landed the exact claim it forbids. They are listed with that
 reason in the keepers ledger instead. **The deal seated them there anyway**, so the deal and
-the ruling disagree on sixty roofs; that disagreement is filed, not settled here, and not
+the ruling disagree on sixty-one roofs; that disagreement is filed, not settled here, and not
 hidden by a pass that could have looked complete by ignoring it.
 
 **One thing was available and declined.** `tools/generate_dooryard_pickets.py` admits a lot
@@ -15115,6 +15148,19 @@ there would have grown nine gardens as a side effect of naming nine keepers, on 
 about any garden, so the id is carried in `resident_assignment.household_id` — machine
 readable, and invisible to a test that was never about this. Whether these lots held gardens
 is that generator's question to answer on its own ground.
+
+**The deal grew by one on 2026-09-27, because two allocations share one pool of roofs
+(T-1651).** The street-face business deal (**L212**) was re-ordered to prefer a roof the
+reconstruction raised as a house of trade, so the dwellings it holds on South Water changed —
+and the platted deal, which takes from the same pool, seated one more household than before:
+108 seats became 109, of which 61 rather than 60 are the letter-list cohort the ruling
+refuses a keeper. **The nine named keepers are the same nine, on the same nine roofs.** But
+which way the next such change moves these counts is not predictable from here, and that is
+the honest statement: neither deal may read the other's allocation — refusal 7's own
+reasoning refuses `adopt_street_faces.py` the file `1835_platted_seats.json`, because reading
+the seating pass's picks there closes the cycle that refusal exists to avoid — so two
+allocations run blind to one pool. It is filed as **T-1669** rather than patched by a rule
+invented in passing.
 
 **How to resolve:** any source that places one of these households — a lot record, a deed, an
 advertisement giving an address, a directory entry. One would replace a dealt lot with a read
